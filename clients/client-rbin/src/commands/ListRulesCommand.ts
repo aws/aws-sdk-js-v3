@@ -39,7 +39,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * const input = { // ListRulesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE", // required
+ *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE" || "EBS_VOLUME", // required
  *   ResourceTags: [ // ResourceTags
  *     { // ResourceTag
  *       ResourceTagKey: "STRING_VALUE", // required

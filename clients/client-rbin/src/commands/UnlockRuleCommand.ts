@@ -45,7 +45,7 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * // { // UnlockRuleResponse
  * //   Identifier: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE" || "EBS_VOLUME",
  * //   RetentionPeriod: { // RetentionPeriod
  * //     RetentionPeriodValue: Number("int"), // required
  * //     RetentionPeriodUnit: "DAYS", // required

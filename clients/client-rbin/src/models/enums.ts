@@ -17,6 +17,7 @@ export type UnlockDelayUnit = (typeof UnlockDelayUnit)[keyof typeof UnlockDelayU
  */
 export const ResourceType = {
   EBS_SNAPSHOT: "EBS_SNAPSHOT",
+  EBS_VOLUME: "EBS_VOLUME",
   EC2_IMAGE: "EC2_IMAGE",
 } as const;
 /**

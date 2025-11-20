@@ -8,8 +8,8 @@ AWS SDK for JavaScript Rbin Client for Node.js, Browser and React Native.
 
 <p>This is the <i>Recycle Bin API Reference</i>. This documentation provides
 descriptions and syntax for each of the actions and data types in Recycle Bin.</p>
-<p>Recycle Bin is a resource recovery feature that enables you to restore accidentally
-deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are
+<p>Recycle Bin is a resource recovery feature that enables you to restore accidentally deleted
+EBS volumes, EBS snapshots, and EBS-backed AMIs. When using Recycle Bin, if your resources are
 deleted, they are retained in the Recycle Bin for a time period that you specify.</p>
 <p>You can restore a resource from the Recycle Bin at any time before its retention period
 expires. After you restore a resource from the Recycle Bin, the resource is removed from the

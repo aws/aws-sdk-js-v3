@@ -46,7 +46,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *     RetentionPeriodUnit: "DAYS", // required
  *   },
  *   Description: "STRING_VALUE",
- *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE" || "EBS_VOLUME",
  *   ResourceTags: [ // ResourceTags
  *     { // ResourceTag
  *       ResourceTagKey: "STRING_VALUE", // required
@@ -69,7 +69,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * //     RetentionPeriodUnit: "DAYS", // required
  * //   },
  * //   Description: "STRING_VALUE",
- * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE" || "EBS_VOLUME",
  * //   ResourceTags: [ // ResourceTags
  * //     { // ResourceTag
  * //       ResourceTagKey: "STRING_VALUE", // required

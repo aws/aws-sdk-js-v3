@@ -36,7 +36,7 @@ export interface UnlockDelay {
 
   /**
    * <p>The unit of time in which to measure the unlock delay. Currently, the unlock delay can
-   *       be measure only in days.</p>
+   *       be measured only in days.</p>
    * @public
    */
   UnlockDelayUnit: UnlockDelayUnit | undefined;
@@ -55,13 +55,22 @@ export interface LockConfiguration {
 }
 
 /**
- * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+ * <p>Information about the retention period for which the retention rule is to
+ *   retain resources.</p>
  * @public
  */
 export interface RetentionPeriod {
   /**
-   * <p>The period value for which the retention rule is to retain resources. The period is measured using
-   *       the unit specified for <b>RetentionPeriodUnit</b>.</p>
+   * <p>The period value for which the retention rule is to retain resources, measured in days.
+   *       The supported retention periods are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>EBS volumes: 1 - 7 days</p>
+   *             </li>
+   *             <li>
+   *                <p>EBS snapshots and EBS-backed AMIs: 1 - 365 days</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   RetentionPeriodValue: number | undefined;
@@ -97,7 +106,8 @@ export interface Tag {
  */
 export interface CreateRuleRequest {
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod: RetentionPeriod | undefined;
@@ -115,9 +125,20 @@ export interface CreateRuleRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots
-   *       and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To
-   *       retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
+   * <p>The resource type to be retained by the retention rule. Currently, only EBS volumes, EBS snapshots, and EBS-backed AMIs
+   *       are supported.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To retain EBS volumes, specify <code>EBS_VOLUME</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To retain EBS snapshots, specify <code>EBS_SNAPSHOT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>To retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceType: ResourceType | undefined;
@@ -162,7 +183,8 @@ export interface CreateRuleResponse {
   Identifier?: string | undefined;
 
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod?: RetentionPeriod | undefined;
@@ -298,7 +320,8 @@ export interface GetRuleResponse {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod?: RetentionPeriod | undefined;
@@ -393,10 +416,18 @@ export interface ListRulesRequest {
 
   /**
    * <p>The resource type retained by the retention rule. Only retention rules that retain
-   *       the specified resource type are listed. Currently, only Amazon EBS snapshots and EBS-backed
-   *       AMIs are supported. To list retention rules that retain snapshots, specify
-   *       <code>EBS_SNAPSHOT</code>. To list retention rules that retain EBS-backed AMIs, specify
-   *       <code>EC2_IMAGE</code>.</p>
+   *       the specified resource type are listed. Currently, only EBS volumes, EBS snapshots, and EBS-backed AMIs are supported.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To list retention rules that retain EBS volumes, specify <code>EBS_VOLUME</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To list retention rules that retain EBS snapshots, specify <code>EBS_SNAPSHOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To list retention rules that retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceType: ResourceType | undefined;
@@ -441,7 +472,8 @@ export interface RuleSummary {
   Description?: string | undefined;
 
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod?: RetentionPeriod | undefined;
@@ -561,7 +593,8 @@ export interface LockRuleResponse {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod?: RetentionPeriod | undefined;
@@ -685,7 +718,8 @@ export interface UnlockRuleResponse {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod?: RetentionPeriod | undefined;
@@ -794,7 +828,8 @@ export interface UpdateRuleRequest {
   Identifier: string | undefined;
 
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod?: RetentionPeriod | undefined;
@@ -848,7 +883,8 @@ export interface UpdateRuleResponse {
   Identifier?: string | undefined;
 
   /**
-   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to
+   *   retain resources.</p>
    * @public
    */
   RetentionPeriod?: RetentionPeriod | undefined;

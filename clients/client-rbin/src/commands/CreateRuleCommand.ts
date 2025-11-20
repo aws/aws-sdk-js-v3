@@ -68,7 +68,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE", // required
+ *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE" || "EBS_VOLUME", // required
  *   ResourceTags: [ // ResourceTags
  *     { // ResourceTag
  *       ResourceTagKey: "STRING_VALUE", // required
@@ -103,7 +103,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * //       Value: "STRING_VALUE", // required
  * //     },
  * //   ],
- * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE" || "EBS_VOLUME",
  * //   ResourceTags: [ // ResourceTags
  * //     { // ResourceTag
  * //       ResourceTagKey: "STRING_VALUE", // required
