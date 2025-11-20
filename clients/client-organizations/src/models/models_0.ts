@@ -16,6 +16,8 @@ import {
   ParentType,
   PolicyType,
   PolicyTypeStatus,
+  ResponsibilityTransferStatus,
+  ResponsibilityTransferType,
   TargetType,
 } from "./enums";
 
@@ -24,7 +26,7 @@ import {
  */
 export interface AcceptHandshakeRequest {
   /**
-   * <p>The unique identifier (ID) of the handshake that you want to accept.</p>
+   * <p>ID for the handshake that you want to accept.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
@@ -33,12 +35,12 @@ export interface AcceptHandshakeRequest {
 }
 
 /**
- * <p>Identifies a participant in a handshake.</p>
+ * <p>Contains details for a participant in a handshake.</p>
  * @public
  */
 export interface HandshakeParty {
   /**
-   * <p>The unique identifier (ID) for the party.</p>
+   * <p>ID for the participant: Acccount ID, organization ID, or email address.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
@@ -46,7 +48,7 @@ export interface HandshakeParty {
   Id: string | undefined;
 
   /**
-   * <p>The type of party.</p>
+   * <p>The type of ID for the participant.</p>
    * @public
    */
   Type: HandshakePartyType | undefined;
@@ -132,9 +134,8 @@ export interface Account {
  */
 export interface AttachPolicyRequest {
   /**
-   * <p>The unique identifier (ID) of the policy that you want to attach to the target. You
-   *             can get the ID for the policy by calling the <a>ListPolicies</a>
-   *             operation.</p>
+   * <p>ID for the policy that you want to attach to the target. You can get the ID for the
+   *             policy by calling the <a>ListPolicies</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    * @public
@@ -142,8 +143,8 @@ export interface AttachPolicyRequest {
   PolicyId: string | undefined;
 
   /**
-   * <p>The unique identifier (ID) of the root, OU, or account that you want to attach the
-   *             policy to. You can get the ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
+   * <p>ID for the root, OU, or account that you want to attach the policy to. You can get the
+   *             ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
@@ -174,8 +175,7 @@ export interface AttachPolicyRequest {
  */
 export interface CancelHandshakeRequest {
   /**
-   * <p>The unique identifier (ID) of the handshake that you want to cancel. You can get the
-   *             ID from the <a>ListHandshakesForOrganization</a> operation.</p>
+   * <p>ID for the handshake that you want to cancel. You can get the ID from the <a>ListHandshakesForOrganization</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
@@ -389,8 +389,8 @@ export interface CreateAccountStatus {
   AccountId?: string | undefined;
 
   /**
-   * <p>If the account was created successfully, the unique identifier (ID) of the new account
-   *             in the Amazon Web Services GovCloud (US) Region.</p>
+   * <p>If the account was created successfully, the ID for the new account in the Amazon Web Services
+   *             GovCloud (US) Region.</p>
    * @public
    */
   GovCloudAccountId?: string | undefined;
@@ -751,8 +751,7 @@ export interface CreateOrganizationResponse {
  */
 export interface CreateOrganizationalUnitRequest {
   /**
-   * <p>The unique identifier (ID) of the parent root or OU that you want to create the new OU
-   *             in.</p>
+   * <p>ID for the parent root or OU that you want to create the new OU in.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -912,6 +911,11 @@ export interface CreatePolicyRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1020,8 +1024,7 @@ export interface CreatePolicyResponse {
  */
 export interface DeclineHandshakeRequest {
   /**
-   * <p>The unique identifier (ID) of the handshake that you want to decline. You can get the
-   *             ID from the <a>ListHandshakesForAccount</a> operation.</p>
+   * <p>ID for the handshake that you want to decline. You can get the ID from the <a>ListHandshakesForAccount</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
@@ -1034,8 +1037,8 @@ export interface DeclineHandshakeRequest {
  */
 export interface DeleteOrganizationalUnitRequest {
   /**
-   * <p>The unique identifier (ID) of the organizational unit that you want to delete. You can
-   *             get the ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p>
+   * <p>ID for the organizational unit that you want to delete. You can get the ID from the
+   *                 <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
@@ -1050,8 +1053,7 @@ export interface DeleteOrganizationalUnitRequest {
  */
 export interface DeletePolicyRequest {
   /**
-   * <p>The unique identifier (ID) of the policy that you want to delete. You can get the ID
-   *             from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
+   * <p>ID for the policy that you want to delete. You can get the ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
@@ -1179,6 +1181,11 @@ export interface DescribeEffectivePolicyRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1241,9 +1248,7 @@ export interface DescribeEffectivePolicyResponse {
  */
 export interface DescribeHandshakeRequest {
   /**
-   * <p>The unique identifier (ID) of the handshake that you want information about. You can
-   *             get the ID from the original call to <a>InviteAccountToOrganization</a>, or
-   *             from a call to <a>ListHandshakesForAccount</a> or <a>ListHandshakesForOrganization</a>.</p>
+   * <p>ID for the handshake that you want information about.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
@@ -1275,9 +1280,8 @@ export interface DescribeOrganizationResponse {
  */
 export interface DescribeOrganizationalUnitRequest {
   /**
-   * <p>The unique identifier (ID) of the organizational unit that you want details about. You
-   *             can get the ID from the <a>ListOrganizationalUnitsForParent</a>
-   *             operation.</p>
+   * <p>ID for the organizational unit that you want details about. You can get the ID from
+   *             the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
@@ -1303,8 +1307,7 @@ export interface DescribeOrganizationalUnitResponse {
  */
 export interface DescribePolicyRequest {
   /**
-   * <p>The unique identifier (ID) of the policy that you want details about. You can get the
-   *             ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
+   * <p>ID for the policy that you want details about. You can get the ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
@@ -1374,10 +1377,120 @@ export interface DescribeResourcePolicyResponse {
 /**
  * @public
  */
+export interface DescribeResponsibilityTransferRequest {
+  /**
+   * <p>ID for the transfer.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * <p>Contains details for a participant in a transfer. A <i>transfer</i> is
+ *             the arrangement between two management accounts where one account designates the other
+ *             with specified responsibilities for their organization.</p>
+ * @public
+ */
+export interface TransferParticipant {
+  /**
+   * <p>ID for the management account.</p>
+   * @public
+   */
+  ManagementAccountId?: string | undefined;
+
+  /**
+   * <p>Email address for the management account.</p>
+   * @public
+   */
+  ManagementAccountEmail?: string | undefined;
+}
+
+/**
+ * <p>Contains details for a transfer. A <i>transfer</i> is the arrangement
+ *             between two management accounts where one account designates the other with specified
+ *             responsibilities for their organization.</p>
+ * @public
+ */
+export interface ResponsibilityTransfer {
+  /**
+   * <p>Amazon Resource Name (ARN) for the transfer.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Name assigned to the transfer.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>ID for the transfer.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of transfer. Currently, only <code>BILLING</code> is supported.</p>
+   * @public
+   */
+  Type?: ResponsibilityTransferType | undefined;
+
+  /**
+   * <p>Status for the transfer.</p>
+   * @public
+   */
+  Status?: ResponsibilityTransferStatus | undefined;
+
+  /**
+   * <p>Account that allows another account external to its organization to manage the
+   *             specified responsibilities for the organization.</p>
+   * @public
+   */
+  Source?: TransferParticipant | undefined;
+
+  /**
+   * <p>Account that manages the specified responsibilities for another organization.</p>
+   * @public
+   */
+  Target?: TransferParticipant | undefined;
+
+  /**
+   * <p>Timestamp when the transfer starts.</p>
+   * @public
+   */
+  StartTimestamp?: Date | undefined;
+
+  /**
+   * <p>Timestamp when the transfer ends.</p>
+   * @public
+   */
+  EndTimestamp?: Date | undefined;
+
+  /**
+   * <p>ID for the handshake of the transfer.</p>
+   * @public
+   */
+  ActiveHandshakeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResponsibilityTransferResponse {
+  /**
+   * <p>A <code>ResponsibilityTransfer</code> object. Contains details for a transfer.</p>
+   * @public
+   */
+  ResponsibilityTransfer?: ResponsibilityTransfer | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DetachPolicyRequest {
   /**
-   * <p>The unique identifier (ID) of the policy you want to detach. You can get the ID from
-   *             the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
+   * <p>ID for the policy you want to detach. You can get the ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
@@ -1386,8 +1499,8 @@ export interface DetachPolicyRequest {
   PolicyId: string | undefined;
 
   /**
-   * <p>The unique identifier (ID) of the root, OU, or account that you want to detach the
-   *             policy from. You can get the ID from the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
+   * <p>ID for the root, OU, or account that you want to detach the policy from. You can get
+   *             the ID from the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
@@ -1432,8 +1545,8 @@ export interface DisableAWSServiceAccessRequest {
  */
 export interface DisablePolicyTypeRequest {
   /**
-   * <p>The unique identifier (ID) of the root in which you want to disable a policy type. You
-   *             can get the ID from the <a>ListRoots</a> operation.</p>
+   * <p>ID for the root in which you want to disable a policy type. You can get the ID from
+   *             the <a>ListRoots</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
    * @public
@@ -1482,6 +1595,11 @@ export interface DisablePolicyTypeRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1572,8 +1690,8 @@ export interface EnableAWSServiceAccessRequest {
  */
 export interface EnablePolicyTypeRequest {
   /**
-   * <p>The unique identifier (ID) of the root in which you want to enable a policy type. You
-   *             can get the ID from the <a>ListRoots</a> operation.</p>
+   * <p>ID for the root in which you want to enable a policy type. You can get the ID from the
+   *                 <a>ListRoots</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
    * @public
@@ -1622,6 +1740,11 @@ export interface EnablePolicyTypeRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1705,6 +1828,68 @@ export interface InviteAccountToOrganizationRequest {
 /**
  * @public
  */
+export interface InviteOrganizationToTransferResponsibilityRequest {
+  /**
+   * <p>The type of responsibility you want to designate to your organization. Currently, only
+   *                 <code>BILLING</code> is supported.</p>
+   * @public
+   */
+  Type: ResponsibilityTransferType | undefined;
+
+  /**
+   * <p>A <code>HandshakeParty</code> object. Contains details for the account you want to
+   *             invite. Currently, only <code>ACCOUNT</code> and <code>EMAIL</code> are supported.</p>
+   * @public
+   */
+  Target: HandshakeParty | undefined;
+
+  /**
+   * <p>Additional information that you want to include in the invitation.</p>
+   * @public
+   */
+  Notes?: string | undefined;
+
+  /**
+   * <p>Timestamp when the recipient will begin managing the specified
+   *             responsibilities.</p>
+   * @public
+   */
+  StartTimestamp: Date | undefined;
+
+  /**
+   * <p>Name you want to assign to the transfer.</p>
+   * @public
+   */
+  SourceName: string | undefined;
+
+  /**
+   * <p>A list of tags that you want to attach to the transfer. For each tag in the list, you must specify both a tag key and a value. You
+   *             can set the value to an empty string, but you can't set it to <code>null</code>. For
+   *             more information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging Organizations resources</a> in the
+   *             Organizations User Guide.</p>
+   *          <important>
+   *             <p>Any tags in the request are checked for compliance with any applicable tag
+   *                 policies when the request is made. The request is rejected if the tags in the
+   *                 request don't match the requirements of the policy at that time. Tag policy
+   *                 compliance is <i>
+   *                   <b>not</b>
+   *                </i> checked
+   *                 again when the invitation is accepted and the tags are actually attached to the
+   *                 transfer. That means that if the tag policy changes between the invitation and the
+   *                 acceptance, then that tags could potentially be non-compliant.</p>
+   *          </important>
+   *          <note>
+   *             <p>If any one of the tags is not valid or if you exceed the allowed number of tags
+   *                 for a transfer, then the entire request fails and invitations are not sent.</p>
+   *          </note>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAccountsRequest {
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -1717,14 +1902,7 @@ export interface ListAccountsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1779,14 +1957,7 @@ export interface ListAccountsForParentRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1857,6 +2028,11 @@ export interface ListAccountsWithInvalidEffectivePolicyRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1873,14 +2049,7 @@ export interface ListAccountsWithInvalidEffectivePolicyRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1930,6 +2099,11 @@ export interface ListAccountsWithInvalidEffectivePolicyResponse {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1960,14 +2134,7 @@ export interface ListAWSServiceAccessForOrganizationRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2059,14 +2226,7 @@ export interface ListChildrenRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2147,14 +2307,7 @@ export interface ListCreateAccountStatusRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2206,14 +2359,7 @@ export interface ListDelegatedAdministratorsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2327,14 +2473,7 @@ export interface ListDelegatedServicesForAccountRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2427,6 +2566,11 @@ export interface ListEffectivePolicyValidationErrorsRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2443,14 +2587,7 @@ export interface ListEffectivePolicyValidationErrorsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2534,6 +2671,11 @@ export interface ListEffectivePolicyValidationErrorsResponse {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2571,13 +2713,12 @@ export interface ListEffectivePolicyValidationErrorsResponse {
 }
 
 /**
- * <p>Specifies the criteria that are used to select the handshakes for the
- *             operation.</p>
+ * <p>Contains the filter used to select the handshakes for an operation.</p>
  * @public
  */
 export interface HandshakeFilter {
   /**
-   * <p>Specifies the type of handshake action.</p>
+   * <p>The type of handshake.</p>
    *          <p>If you specify <code>ActionType</code>, you cannot also specify
    *                 <code>ParentHandshakeId</code>.</p>
    * @public
@@ -2585,8 +2726,8 @@ export interface HandshakeFilter {
   ActionType?: ActionType | undefined;
 
   /**
-   * <p>Specifies the parent handshake. Only used for handshake types that are a child of
-   *             another type.</p>
+   * <p>The parent handshake. Only used for handshake types that are a child of another
+   *             type.</p>
    *          <p>If you specify <code>ParentHandshakeId</code>, you cannot also specify
    *                 <code>ActionType</code>.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
@@ -2601,13 +2742,8 @@ export interface HandshakeFilter {
  */
 export interface ListHandshakesForAccountRequest {
   /**
-   * <p>Filters the handshakes that you want included in the response. The default is all
-   *             types. Use the <code>ActionType</code> element to limit the output to only a specified
-   *             type, such as <code>INVITE</code>, <code>ENABLE_ALL_FEATURES</code>, or
-   *                 <code>APPROVE_ALL_FEATURES</code>. Alternatively, for the
-   *                 <code>ENABLE_ALL_FEATURES</code> handshake that generates a separate child handshake
-   *             for each member account, you can specify <code>ParentHandshakeId</code> to see only the
-   *             handshakes that were generated by that parent request.</p>
+   * <p>A <code>HandshakeFilter</code> object. Contains the filer used to select the
+   *             handshakes for an operation.</p>
    * @public
    */
   Filter?: HandshakeFilter | undefined;
@@ -2623,14 +2759,7 @@ export interface ListHandshakesForAccountRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2641,13 +2770,8 @@ export interface ListHandshakesForAccountRequest {
  */
 export interface ListHandshakesForOrganizationRequest {
   /**
-   * <p>A filter of the handshakes that you want included in the response. The default is all
-   *             types. Use the <code>ActionType</code> element to limit the output to only a specified
-   *             type, such as <code>INVITE</code>, <code>ENABLE-ALL-FEATURES</code>, or
-   *                 <code>APPROVE-ALL-FEATURES</code>. Alternatively, for the
-   *                 <code>ENABLE-ALL-FEATURES</code> handshake that generates a separate child handshake
-   *             for each member account, you can specify the <code>ParentHandshakeId</code> to see only
-   *             the handshakes that were generated by that parent request.</p>
+   * <p>A <code>HandshakeFilter</code> object. Contains the filer used to select the
+   *             handshakes for an operation.</p>
    * @public
    */
   Filter?: HandshakeFilter | undefined;
@@ -2663,14 +2787,7 @@ export interface ListHandshakesForOrganizationRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2679,9 +2796,62 @@ export interface ListHandshakesForOrganizationRequest {
 /**
  * @public
  */
+export interface ListInboundResponsibilityTransfersRequest {
+  /**
+   * <p>The type of responsibility. Currently, only <code>BILLING</code> is supported.</p>
+   * @public
+   */
+  Type: ResponsibilityTransferType | undefined;
+
+  /**
+   * <p>ID for the transfer.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInboundResponsibilityTransfersResponse {
+  /**
+   * <p>A <code>ResponsibilityTransfers</code> object. Contains details for a transfer.</p>
+   * @public
+   */
+  ResponsibilityTransfers?: ResponsibilityTransfer[] | undefined;
+
+  /**
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListOrganizationalUnitsForParentRequest {
   /**
-   * <p>The unique identifier (ID) of the root or OU whose child OUs you want to list.</p>
+   * <p>ID for the root or OU whose child OUs you want to list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -2712,14 +2882,7 @@ export interface ListOrganizationalUnitsForParentRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2748,10 +2911,58 @@ export interface ListOrganizationalUnitsForParentResponse {
 /**
  * @public
  */
+export interface ListOutboundResponsibilityTransfersRequest {
+  /**
+   * <p>The type of responsibility. Currently, only <code>BILLING</code> is supported.</p>
+   * @public
+   */
+  Type: ResponsibilityTransferType | undefined;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOutboundResponsibilityTransfersResponse {
+  /**
+   * <p>An array of <code>ResponsibilityTransfer</code> objects. Contains details for a
+   *             transfer.</p>
+   * @public
+   */
+  ResponsibilityTransfers?: ResponsibilityTransfer[] | undefined;
+
+  /**
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListParentsRequest {
   /**
-   * <p>The unique identifier (ID) of the OU or account whose parent containers you want to
-   *             list. Don't specify a root.</p>
+   * <p>ID for the OU or account whose parent containers you want to list. Don't specify a
+   *             root.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -2782,14 +2993,7 @@ export interface ListParentsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2897,6 +3101,11 @@ export interface ListPoliciesRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2913,14 +3122,7 @@ export interface ListPoliciesRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2952,8 +3154,8 @@ export interface ListPoliciesResponse {
  */
 export interface ListPoliciesForTargetRequest {
   /**
-   * <p>The unique identifier (ID) of the root, organizational unit, or account whose policies
-   *             you want to list.</p>
+   * <p>ID for the root, organizational unit, or account whose policies you want to
+   *             list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -3021,6 +3223,11 @@ export interface ListPoliciesForTargetRequest {
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -3037,14 +3244,7 @@ export interface ListPoliciesForTargetRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -3085,14 +3285,7 @@ export interface ListRootsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -3188,7 +3381,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTargetsForPolicyRequest {
   /**
-   * <p>The unique identifier (ID) of the policy whose attachments you want to know.</p>
+   * <p>ID for the policy whose attachments you want to know.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    * @public
@@ -3206,14 +3399,7 @@ export interface ListTargetsForPolicyRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
-   *     more results available. You should check <code>NextToken</code> after every operation to ensure
-   *     that you receive all of the results.</p>
+   * <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -3299,7 +3485,7 @@ export interface ListTargetsForPolicyResponse {
  */
 export interface MoveAccountRequest {
   /**
-   * <p>The unique identifier (ID) of the account that you want to move.</p>
+   * <p>ID for the account that you want to move.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
    * @public
@@ -3307,8 +3493,7 @@ export interface MoveAccountRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The unique identifier (ID) of the root or organizational unit that you want to move
-   *             the account from.</p>
+   * <p>ID for the root or organizational unit that you want to move the account from.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -3329,8 +3514,7 @@ export interface MoveAccountRequest {
   SourceParentId: string | undefined;
 
   /**
-   * <p>The unique identifier (ID) of the root or organizational unit that you want to move
-   *             the account to.</p>
+   * <p>ID for the root or organizational unit that you want to move the account to.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -3416,8 +3600,7 @@ export interface RegisterDelegatedAdministratorRequest {
  */
 export interface RemoveAccountFromOrganizationRequest {
   /**
-   * <p>The unique identifier (ID) of the member account that you want to remove from the
-   *             organization.</p>
+   * <p>ID for the member account that you want to remove from the organization.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
    * @public
@@ -3475,6 +3658,34 @@ export interface TagResourceRequest {
 /**
  * @public
  */
+export interface TerminateResponsibilityTransferRequest {
+  /**
+   * <p>ID for the transfer.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Timestamp when the responsibility transfer is to end.</p>
+   * @public
+   */
+  EndTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateResponsibilityTransferResponse {
+  /**
+   * <p>A <code>ResponsibilityTransfer</code> object. Contains details for a transfer.</p>
+   * @public
+   */
+  ResponsibilityTransfer?: ResponsibilityTransfer | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ID of the resource to remove a tag from.</p>
@@ -3518,8 +3729,7 @@ export interface UntagResourceRequest {
  */
 export interface UpdateOrganizationalUnitRequest {
   /**
-   * <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from
-   *             the <a>ListOrganizationalUnitsForParent</a> operation.</p>
+   * <p>ID for the OU that you want to rename. You can get the ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
@@ -3555,7 +3765,7 @@ export interface UpdateOrganizationalUnitResponse {
  */
 export interface UpdatePolicyRequest {
   /**
-   * <p>The unique identifier (ID) of the policy that you want to update.</p>
+   * <p>ID for the policy that you want to update.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    * @public
@@ -3602,13 +3812,43 @@ export interface UpdatePolicyResponse {
 }
 
 /**
- * <p>Contains additional data that is needed to process a handshake.</p>
+ * @public
+ */
+export interface UpdateResponsibilityTransferRequest {
+  /**
+   * <p>ID for the transfer.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>New name you want to assign to the transfer.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateResponsibilityTransferResponse {
+  /**
+   * <p>Contains details for a transfer. A <i>transfer</i> is the arrangement
+   *             between two management accounts where one account designates the other with specified
+   *             responsibilities for their organization.</p>
+   * @public
+   */
+  ResponsibilityTransfer?: ResponsibilityTransfer | undefined;
+}
+
+/**
+ * <p>Contains additional details for a handshake.</p>
  * @public
  */
 export interface HandshakeResource {
   /**
-   * <p>The information that is passed to the other party in the handshake. The format of the
-   *             value string must match the requirements of the specified type.</p>
+   * <p>Additional information for the handshake. The format of the value string must match
+   *             the requirements of the specified type.</p>
    * @public
    */
   Value?: string | undefined;
@@ -3619,31 +3859,30 @@ export interface HandshakeResource {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ACCOUNT</code> - Specifies an Amazon Web Services account ID number.</p>
+   *                   <b>ACCOUNT</b>: ID for an Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ORGANIZATION</code> - Specifies an organization ID number.</p>
+   *                   <b>ORGANIZATION</b>: ID for an organization.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EMAIL</code> - Specifies the email address that is associated with the
-   *                     account that receives the handshake. </p>
+   *                   <b>EMAIL</b>: Email address for the
+   *                     recipient.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OWNER_EMAIL</code> - Specifies the email address associated with the
-   *                     management account. Included as information about an organization. </p>
+   *                   <b>OWNER_EMAIL</b>: Email address for the
+   *                     sender.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OWNER_NAME</code> - Specifies the name associated with the management
-   *                     account. Included as information about an organization. </p>
+   *                   <b>OWNER_NAME</b>: Name of the sender.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOTES</code> - Additional text provided by the handshake initiator and
-   *                     intended for the recipient to read.</p>
+   *                   <b>NOTES</b>: Additional text included by the sender
+   *                     for the recipient.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3651,29 +3890,25 @@ export interface HandshakeResource {
   Type?: HandshakeResourceType | undefined;
 
   /**
-   * <p>When needed, contains an additional array of <code>HandshakeResource</code>
-   *             objects.</p>
+   * <p>An array of <code>HandshakeResource</code> objects. When needed, contains additional
+   *             details for a handshake. For example, the email address for the sender.</p>
    * @public
    */
   Resources?: HandshakeResource[] | undefined;
 }
 
 /**
- * <p>Contains information that must be exchanged to securely establish a relationship
- *             between two accounts (an <i>originator</i> and a
- *                 <i>recipient</i>). For example, when a management account (the
- *             originator) invites another account (the recipient) to join its organization, the two
- *             accounts exchange information as a series of handshake requests and responses.</p>
+ * <p>Contains details for a handshake. A handshake is the secure exchange of information
+ *             between two Amazon Web Services accounts: a sender and a recipient.</p>
  *          <p>
  *             <b>Note:</b> Handshakes that are <code>CANCELED</code>,
- *                 <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>EXPIRED</code> show up in
+ *             <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>EXPIRED</code> show up in
  *             lists for only 30 days after entering that state After that they are deleted.</p>
  * @public
  */
 export interface Handshake {
   /**
-   * <p>The unique identifier (ID) of a handshake. The originating account creates the ID when
-   *             it initiates the handshake.</p>
+   * <p>ID for the handshake.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    * @public
@@ -3681,7 +3916,7 @@ export interface Handshake {
   Id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a handshake.</p>
+   * <p>Amazon Resource Name (ARN) for the handshake.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    * @public
@@ -3689,49 +3924,44 @@ export interface Handshake {
   Arn?: string | undefined;
 
   /**
-   * <p>Information about the two accounts that are participating in the handshake.</p>
+   * <p>An array of <code>HandshakeParty</code> objects. Contains details for participant in a
+   *             handshake.</p>
    * @public
    */
   Parties?: HandshakeParty[] | undefined;
 
   /**
-   * <p>The current state of the handshake. Use the state to trace the flow of the handshake
-   *             through the process from its creation to its acceptance. The meaning of each of the
-   *             valid values is as follows:</p>
+   * <p>Current state for the handshake.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>REQUESTED</b>: This handshake was sent to
-   *                     multiple recipients (applicable to only some handshake types) and not all
-   *                     recipients have responded yet. The request stays in this state until all
-   *                     recipients respond.</p>
+   *                   <b>REQUESTED</b>: Handshake awaiting a response from
+   *                     the recipient.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>OPEN</b>: This handshake was sent to multiple
-   *                     recipients (applicable to only some policy types) and all recipients have
-   *                     responded, allowing the originator to complete the handshake action.</p>
+   *                   <b>OPEN</b>: Handshake sent to multiple recipients
+   *                     and all recipients have responded. The sender can now complete the handshake
+   *                     action.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>CANCELED</b>: This handshake is no longer active
-   *                     because it was canceled by the originating account.</p>
+   *                   <b>CANCELED</b>: Handshake canceled by the
+   *                     sender.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>ACCEPTED</b>: This handshake is complete because
-   *                     it has been accepted by the recipient.</p>
+   *                   <b>ACCEPTED</b>: Handshake accepted by the
+   *                     recipient.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>DECLINED</b>: This handshake is no longer active
-   *                     because it was declined by the recipient account.</p>
+   *                   <b>DECLINED</b>: Handshake declined by the
+   *                     recipient.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>EXPIRED</b>: This handshake is no longer active
-   *                     because the originator did not receive a response of any kind from the recipient
-   *                     before the expiration time (15 days).</p>
+   *                   <b>EXPIRED</b>: Handshake has expired.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3739,45 +3969,41 @@ export interface Handshake {
   State?: HandshakeState | undefined;
 
   /**
-   * <p>The date and time that the handshake request was made.</p>
+   * <p>Timestamp when the handshake request was made.</p>
    * @public
    */
   RequestedTimestamp?: Date | undefined;
 
   /**
-   * <p>The date and time that the handshake expires. If the recipient of the handshake
-   *             request fails to respond before the specified date and time, the handshake becomes
-   *             inactive and is no longer valid.</p>
+   * <p>Timestamp when the handshake expires.</p>
    * @public
    */
   ExpirationTimestamp?: Date | undefined;
 
   /**
-   * <p>The type of handshake, indicating what action occurs when the recipient accepts the
-   *             handshake. The following handshake types are supported:</p>
+   * <p>The type of handshake:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>INVITE</b>: This type of handshake represents a
-   *                     request to join an organization. It is always sent from the management account
-   *                     to only non-member accounts.</p>
+   *                   <b>INVITE</b>: Handshake sent to a standalone
+   *                     account requesting that it to join the sender's organization.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>ENABLE_ALL_FEATURES</b>: This type of handshake
-   *                     represents a request to enable all features in an organization. It is always
-   *                     sent from the management account to only <i>invited</i> member
-   *                     accounts. Created accounts do not receive this because those accounts were
-   *                     created by the organization's management account and approval is
-   *                     inferred.</p>
+   *                   <b>ENABLE_ALL_FEATURES</b>: Handshake sent to
+   *                     invited member accounts to enable all features for the organization.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>APPROVE_ALL_FEATURES</b>: This type of handshake
-   *                     is sent from the Organizations service when all member accounts have approved the
-   *                         <code>ENABLE_ALL_FEATURES</code> invitation. It is sent only to the
-   *                     management account and signals the master that it can finalize the process to
-   *                     enable all features.</p>
+   *                   <b>APPROVE_ALL_FEATURES</b>: Handshake sent to the
+   *                     management account when all invited member accounts have approved to enable all
+   *                     features.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>TRANSFER_RESPONSIBILITY</b>: Handshake sent to
+   *                     another organization's management account requesting that it designate the
+   *                     sender with the specified responsibilities for recipient's organization.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3785,7 +4011,8 @@ export interface Handshake {
   Action?: ActionType | undefined;
 
   /**
-   * <p>Additional information that is needed to process the handshake.</p>
+   * <p>An array of <code>HandshakeResource</code> objects. When needed, contains additional
+   *             details for a handshake. For example, the email address for the sender.</p>
    * @public
    */
   Resources?: HandshakeResource[] | undefined;
@@ -3796,7 +4023,7 @@ export interface Handshake {
  */
 export interface AcceptHandshakeResponse {
   /**
-   * <p>A structure that contains details about the accepted handshake.</p>
+   * <p>A <code>Handshake</code> object. Contains details for the handshake.</p>
    * @public
    */
   Handshake?: Handshake | undefined;
@@ -3807,7 +4034,7 @@ export interface AcceptHandshakeResponse {
  */
 export interface CancelHandshakeResponse {
   /**
-   * <p>A structure that contains details about the handshake that you canceled.</p>
+   * <p>A <code>Handshake</code> object. Contains for the handshake that you canceled.</p>
    * @public
    */
   Handshake?: Handshake | undefined;
@@ -3818,8 +4045,7 @@ export interface CancelHandshakeResponse {
  */
 export interface DeclineHandshakeResponse {
   /**
-   * <p>A structure that contains details about the declined handshake. The state is updated
-   *             to show the value <code>DECLINED</code>.</p>
+   * <p>A <code>Handshake</code> object. Contains details for the declined handshake.</p>
    * @public
    */
   Handshake?: Handshake | undefined;
@@ -3830,7 +4056,7 @@ export interface DeclineHandshakeResponse {
  */
 export interface DescribeHandshakeResponse {
   /**
-   * <p>A structure that contains information about the specified handshake.</p>
+   * <p>A <code>Handshake</code> object. Contains details for the handshake.</p>
    * @public
    */
   Handshake?: Handshake | undefined;
@@ -3863,10 +4089,25 @@ export interface InviteAccountToOrganizationResponse {
 /**
  * @public
  */
+export interface InviteOrganizationToTransferResponsibilityResponse {
+  /**
+   * <p>Contains details for a handshake. A handshake is the secure exchange of information
+   *             between two Amazon Web Services accounts: a sender and a recipient.</p>
+   *          <p>
+   *             <b>Note:</b> Handshakes that are <code>CANCELED</code>,
+   *             <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>EXPIRED</code> show up in
+   *             lists for only 30 days after entering that state After that they are deleted.</p>
+   * @public
+   */
+  Handshake?: Handshake | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListHandshakesForAccountResponse {
   /**
-   * <p>A list of <a>Handshake</a> objects with details about each of the
-   *             handshakes that is associated with the specified account.</p>
+   * <p>An array of <code>Handshake</code>objects. Contains details for a handshake.</p>
    * @public
    */
   Handshakes?: Handshake[] | undefined;
@@ -3886,8 +4127,7 @@ export interface ListHandshakesForAccountResponse {
  */
 export interface ListHandshakesForOrganizationResponse {
   /**
-   * <p>A list of <a>Handshake</a> objects with details about each of the
-   *             handshakes that are associated with an organization.</p>
+   * <p>An array of <code>Handshake</code>objects. Contains details for a handshake.</p>
    * @public
    */
   Handshakes?: Handshake[] | undefined;

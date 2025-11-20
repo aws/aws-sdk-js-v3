@@ -4,9 +4,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse } from "../models/models_0";
+import {
+  InviteOrganizationToTransferResponsibilityRequest,
+  InviteOrganizationToTransferResponsibilityResponse,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListDelegatedAdministrators } from "../schemas/schemas_0";
+import { InviteOrganizationToTransferResponsibility } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,60 +19,86 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDelegatedAdministratorsCommand}.
+ * The input for {@link InviteOrganizationToTransferResponsibilityCommand}.
  */
-export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAdministratorsRequest {}
+export interface InviteOrganizationToTransferResponsibilityCommandInput
+  extends InviteOrganizationToTransferResponsibilityRequest {}
 /**
  * @public
  *
- * The output of {@link ListDelegatedAdministratorsCommand}.
+ * The output of {@link InviteOrganizationToTransferResponsibilityCommand}.
  */
-export interface ListDelegatedAdministratorsCommandOutput
-  extends ListDelegatedAdministratorsResponse,
+export interface InviteOrganizationToTransferResponsibilityCommandOutput
+  extends InviteOrganizationToTransferResponsibilityResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this
- *             organization.</p>
- *          <p>You can only call this operation from the management account or a member account that is a delegated administrator.</p>
+ * <p>Sends an invitation to another organization's management account to designate your
+ *             account with the specified responsibilities for their organization. The invitation is
+ *             implemented as a <a>Handshake</a> whose details are in the response.</p>
+ *          <p>You can only call this operation from the management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListDelegatedAdministratorsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListDelegatedAdministratorsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, InviteOrganizationToTransferResponsibilityCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, InviteOrganizationToTransferResponsibilityCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
  * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
- * const input = { // ListDelegatedAdministratorsRequest
- *   ServicePrincipal: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ * const input = { // InviteOrganizationToTransferResponsibilityRequest
+ *   Type: "BILLING", // required
+ *   Target: { // HandshakeParty
+ *     Id: "STRING_VALUE", // required
+ *     Type: "ACCOUNT" || "ORGANIZATION" || "EMAIL", // required
+ *   },
+ *   Notes: "STRING_VALUE",
+ *   StartTimestamp: new Date("TIMESTAMP"), // required
+ *   SourceName: "STRING_VALUE", // required
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
- * const command = new ListDelegatedAdministratorsCommand(input);
+ * const command = new InviteOrganizationToTransferResponsibilityCommand(input);
  * const response = await client.send(command);
- * // { // ListDelegatedAdministratorsResponse
- * //   DelegatedAdministrators: [ // DelegatedAdministrators
- * //     { // DelegatedAdministrator
- * //       Id: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       Email: "STRING_VALUE",
- * //       Name: "STRING_VALUE",
- * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
- * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
- * //       JoinedMethod: "INVITED" || "CREATED",
- * //       JoinedTimestamp: new Date("TIMESTAMP"),
- * //       DelegationEnabledDate: new Date("TIMESTAMP"),
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * // { // InviteOrganizationToTransferResponsibilityResponse
+ * //   Handshake: { // Handshake
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Parties: [ // HandshakeParties
+ * //       { // HandshakeParty
+ * //         Id: "STRING_VALUE", // required
+ * //         Type: "ACCOUNT" || "ORGANIZATION" || "EMAIL", // required
+ * //       },
+ * //     ],
+ * //     State: "REQUESTED" || "OPEN" || "CANCELED" || "ACCEPTED" || "DECLINED" || "EXPIRED",
+ * //     RequestedTimestamp: new Date("TIMESTAMP"),
+ * //     ExpirationTimestamp: new Date("TIMESTAMP"),
+ * //     Action: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE" || "TRANSFER_RESPONSIBILITY",
+ * //     Resources: [ // HandshakeResources
+ * //       { // HandshakeResource
+ * //         Value: "STRING_VALUE",
+ * //         Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE" || "RESPONSIBILITY_TRANSFER" || "TRANSFER_START_TIMESTAMP" || "TRANSFER_TYPE" || "MANAGEMENT_ACCOUNT" || "MANAGEMENT_EMAIL" || "MANAGEMENT_NAME",
+ * //         Resources: [
+ * //           {
+ * //             Value: "STRING_VALUE",
+ * //             Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE" || "RESPONSIBILITY_TRANSFER" || "TRANSFER_START_TIMESTAMP" || "TRANSFER_TYPE" || "MANAGEMENT_ACCOUNT" || "MANAGEMENT_EMAIL" || "MANAGEMENT_NAME",
+ * //             Resources: "<HandshakeResources>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListDelegatedAdministratorsCommandInput - {@link ListDelegatedAdministratorsCommandInput}
- * @returns {@link ListDelegatedAdministratorsCommandOutput}
- * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
- * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
+ * @param InviteOrganizationToTransferResponsibilityCommandInput - {@link InviteOrganizationToTransferResponsibilityCommandInput}
+ * @returns {@link InviteOrganizationToTransferResponsibilityCommandOutput}
+ * @see {@link InviteOrganizationToTransferResponsibilityCommandInput} for command's `input` shape.
+ * @see {@link InviteOrganizationToTransferResponsibilityCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,6 +110,10 @@ export interface ListDelegatedAdministratorsCommandOutput
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
  *  <p>Your account isn't a member of an organization. To make this request, you must use the
  *             credentials of an account that belongs to an organization.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The target of the operation is currently being modified by a different request. Try
+ *             again later.</p>
  *
  * @throws {@link ConstraintViolationException} (client fault)
  *  <p>Performing this operation violates a minimum or maximum value limit. For example,
@@ -329,6 +362,85 @@ export interface ListDelegatedAdministratorsCommandOutput
  *             </li>
  *          </ul>
  *
+ * @throws {@link DuplicateHandshakeException} (client fault)
+ *  <p>A handshake with the same action and target already exists. For example, if you
+ *             invited an account to join your organization, the invited account might already have a
+ *             pending invitation from this organization. If you intend to resend an invitation to an
+ *             account, ensure that existing handshakes that might be considered duplicates are
+ *             canceled or declined.</p>
+ *
+ * @throws {@link HandshakeConstraintViolationException} (client fault)
+ *  <p>The requested operation would violate the constraint identified in the reason
+ *             code.</p>
+ *          <note>
+ *             <p>Some of the reasons in the following list might not be applicable to this specific
+ *                 API or operation:</p>
+ *          </note>
+ *          <ul>
+ *             <li>
+ *                <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
+ *                     of accounts in an organization. Note that deleted and closed accounts still
+ *                     count toward your limit.</p>
+ *                <important>
+ *                   <p>If you get this exception immediately after creating the organization,
+ *                         wait one hour and try again. If after an hour it continues to fail with this
+ *                         error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services
+ *                             Support</a>.</p>
+ *                </important>
+ *             </li>
+ *             <li>
+ *                <p>ALREADY_IN_AN_ORGANIZATION: The handshake request is invalid because the
+ *                     invited account is already a member of an organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
+ *                     handshakes that you can send in one day.</p>
+ *             </li>
+ *             <li>
+ *                <p>INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES: You can't issue new invitations to
+ *                     join an organization while it's in the process of enabling all features. You can
+ *                     resume inviting accounts after you finalize the process when all accounts have
+ *                     agreed to the change.</p>
+ *             </li>
+ *             <li>
+ *                <p>LEGACY_PERMISSIONS_STILL_IN_USE: Your organization must migrate to use the new IAM
+ *                     fine-grained actions for billing, cost management, and accounts.</p>
+ *             </li>
+ *             <li>
+ *                <p>ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid
+ *                     because the organization has already enabled all features.</p>
+ *             </li>
+ *             <li>
+ *                <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the
+ *                     account is from a different marketplace than the accounts in the
+ *                     organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request
+ *                     is invalid because the organization has already started the process to enable
+ *                     all features.</p>
+ *             </li>
+ *             <li>
+ *                <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change
+ *                     the membership of an account too quickly after its previous change.</p>
+ *             </li>
+ *             <li>
+ *                <p>PAYMENT_INSTRUMENT_REQUIRED: You can't complete the operation with an account
+ *                     that doesn't have a payment instrument, such as a credit card, associated with
+ *                     it.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_ALREADY_EXISTS: You cannot perform this operation with the current
+ *                     transfer.</p>
+ *             </li>
+ *             <li>
+ *                <p>SOURCE_AND_TARGET_CANNOT_MATCH: An account can't accept a transfer invitation if it is both the sender and recipient of the invitation.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNUSED_PREPAYMENT_BALANCE: Your organization has an outstanding pre-payment balance.</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The requested operation failed because you provided invalid values for one or more of
  *             the request parameters. This exception includes a reason that contains additional
@@ -496,10 +608,10 @@ export interface ListDelegatedAdministratorsCommandOutput
  *
  * @public
  */
-export class ListDelegatedAdministratorsCommand extends $Command
+export class InviteOrganizationToTransferResponsibilityCommand extends $Command
   .classBuilder<
-    ListDelegatedAdministratorsCommandInput,
-    ListDelegatedAdministratorsCommandOutput,
+    InviteOrganizationToTransferResponsibilityCommandInput,
+    InviteOrganizationToTransferResponsibilityCommandOutput,
     OrganizationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -508,19 +620,19 @@ export class ListDelegatedAdministratorsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSOrganizationsV20161128", "ListDelegatedAdministrators", {})
-  .n("OrganizationsClient", "ListDelegatedAdministratorsCommand")
-  .sc(ListDelegatedAdministrators)
+  .s("AWSOrganizationsV20161128", "InviteOrganizationToTransferResponsibility", {})
+  .n("OrganizationsClient", "InviteOrganizationToTransferResponsibilityCommand")
+  .sc(InviteOrganizationToTransferResponsibility)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDelegatedAdministratorsRequest;
-      output: ListDelegatedAdministratorsResponse;
+      input: InviteOrganizationToTransferResponsibilityRequest;
+      output: InviteOrganizationToTransferResponsibilityResponse;
     };
     sdk: {
-      input: ListDelegatedAdministratorsCommandInput;
-      output: ListDelegatedAdministratorsCommandOutput;
+      input: InviteOrganizationToTransferResponsibilityCommandInput;
+      output: InviteOrganizationToTransferResponsibilityCommandOutput;
     };
   };
 }

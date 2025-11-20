@@ -51,7 +51,7 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             users and even administrators in those accounts can do. The management account can apply
  *             policies that prevent accounts from leaving the organization. Ensure that your account
  *             administrators are aware of this.</p>
- *          <p>This operation can be called only from the organization's management account.</p>
+ *          <p>You can only call this operation from the management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,15 +76,15 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  * //     State: "REQUESTED" || "OPEN" || "CANCELED" || "ACCEPTED" || "DECLINED" || "EXPIRED",
  * //     RequestedTimestamp: new Date("TIMESTAMP"),
  * //     ExpirationTimestamp: new Date("TIMESTAMP"),
- * //     Action: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
+ * //     Action: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE" || "TRANSFER_RESPONSIBILITY",
  * //     Resources: [ // HandshakeResources
  * //       { // HandshakeResource
  * //         Value: "STRING_VALUE",
- * //         Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
+ * //         Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE" || "RESPONSIBILITY_TRANSFER" || "TRANSFER_START_TIMESTAMP" || "TRANSFER_TYPE" || "MANAGEMENT_ACCOUNT" || "MANAGEMENT_EMAIL" || "MANAGEMENT_NAME",
  * //         Resources: [
  * //           {
  * //             Value: "STRING_VALUE",
- * //             Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
+ * //             Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE" || "RESPONSIBILITY_TRANSFER" || "TRANSFER_START_TIMESTAMP" || "TRANSFER_TYPE" || "MANAGEMENT_ACCOUNT" || "MANAGEMENT_EMAIL" || "MANAGEMENT_NAME",
  * //             Resources: "<HandshakeResources>",
  * //           },
  * //         ],
@@ -146,6 +146,9 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your
  *                     account isn't fully active. You must complete the account setup before you
  *                     create an organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>ACTIVE_RESPONSIBILITY_TRANSFER_PROCESS: You cannot delete organization due to an ongoing responsibility transfer process. For example, a pending invitation or an in-progress transfer. To delete the organization, you must resolve the current transfer process.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
@@ -213,7 +216,7 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             <li>
  *                <p>EMAIL_VERIFICATION_CODE_EXPIRED: The email verification code is only valid for
  *                     a limited period of time. You must resubmit the request and generate a new
- *                     verfication code.</p>
+ *                     verification code.</p>
  *             </li>
  *             <li>
  *                <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
@@ -308,6 +311,22 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *                     complete this operation, you must first disable the policy type.</p>
  *             </li>
  *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_INBOUND_QUOTA_VIOLATION: You have exceeded your inbound
+ *                     transfers limit.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_LEVEL_VIOLATION: You have exceeded the maximum length of your
+ *                     transfer chain.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_OUTBOUND_QUOTA_VIOLATION: You have exceeded your outbound
+ *                     transfers limit.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_TRANSFERS_QUOTA_VIOLATION: You have exceeded the maximum
+ *                     number of inbound transfers allowed in a transfer chain.</p>
+ *             </li>
+ *             <li>
  *                <p>SERVICE_ACCESS_NOT_ENABLED:</p>
  *                <ul>
  *                   <li>
@@ -324,6 +343,17 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             <li>
  *                <p>TAG_POLICY_VIOLATION: You attempted to create or update a resource with tags
  *                     that are not compliant with the tag policy requirements for this account.</p>
+ *             </li>
+ *             <li>
+ *                <p>TRANSFER_RESPONSIBILITY_SOURCE_DELETION_IN_PROGRESS: The source organization cannot accept
+ *                     this transfer invitation because it is marked for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>TRANSFER_RESPONSIBILITY_TARGET_DELETION_IN_PROGRESS: The source organization cannot accept
+ *                     this transfer invitation because target organization is marked for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNSUPPORTED_PRICING: Your organization has a pricing contract that is unsupported.</p>
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
@@ -366,18 +396,22 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *                     agreed to the change.</p>
  *             </li>
  *             <li>
- *                <p>ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid
- *                     because the organization has already enabled all features.</p>
+ *                <p>LEGACY_PERMISSIONS_STILL_IN_USE: Your organization must migrate to use the new IAM
+ *                     fine-grained actions for billing, cost management, and accounts.</p>
  *             </li>
  *             <li>
- *                <p>ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request
- *                     is invalid because the organization has already started the process to enable
- *                     all features.</p>
+ *                <p>ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid
+ *                     because the organization has already enabled all features.</p>
  *             </li>
  *             <li>
  *                <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the
  *                     account is from a different marketplace than the accounts in the
  *                     organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request
+ *                     is invalid because the organization has already started the process to enable
+ *                     all features.</p>
  *             </li>
  *             <li>
  *                <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change
@@ -387,6 +421,16 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *                <p>PAYMENT_INSTRUMENT_REQUIRED: You can't complete the operation with an account
  *                     that doesn't have a payment instrument, such as a credit card, associated with
  *                     it.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_ALREADY_EXISTS: You cannot perform this operation with the current
+ *                     transfer.</p>
+ *             </li>
+ *             <li>
+ *                <p>SOURCE_AND_TARGET_CANNOT_MATCH: An account can't accept a transfer invitation if it is both the sender and recipient of the invitation.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNUSED_PREPAYMENT_BALANCE: Your organization has an outstanding pre-payment balance.</p>
  *             </li>
  *          </ul>
  *
@@ -400,8 +444,19 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *          </note>
  *          <ul>
  *             <li>
+ *                <p>CALLER_REQUIRED_FIELD_MISSING: At least one of the required field is missing: Caller Account Id, Management Account Id or Organization Id.</p>
+ *             </li>
+ *             <li>
  *                <p>DUPLICATE_TAG_KEY: Tag keys must be unique among the tags attached to the same
  *                     entity.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_NOT_END_OF_MONTH: You provided an invalid end date. The end date must be the end
+ *                     of the last day of the month (23.59.59.999).</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
+ *                     end.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be
@@ -413,6 +468,11 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             <li>
  *                <p>INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the
  *                     invited account owner.</p>
+ *             </li>
+ *             <li>
+ *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the terms of your partner
+ *                     agreement. Visit Amazon Web Services Partner Central to view your partner agreements or contact your Amazon Web Services
+ *                     Partner for help.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ENUM: You specified an invalid value.</p>
@@ -451,6 +511,9 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>INVALID_START_DATE: The start date doesn't meet the minimum requirements.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid Amazon Resource Name
@@ -492,12 +555,30 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
  *             </li>
  *             <li>
+ *                <p>START_DATE_NOT_BEGINNING_OF_DAY: You provided an invalid start date. The start date must
+ *                     be the beginning of the day (00:00:00.000).</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_NOT_BEGINNING_OF_MONTH: You provided an invalid start date. The start date must
+ *                     be the first day of the month.</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_TOO_EARLY: You provided an invalid start date. The start date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_TOO_LATE: You provided an invalid start date. The start date is too late.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
  *             <li>
  *                <p>UNRECOGNIZED_SERVICE_PRINCIPAL: You specified a service principal that isn't
  *                     recognized.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNSUPPORTED_ACTION_IN_RESPONSIBILITY_TRANSFER: You provided a value that is not supported
+ *                 by this operation.</p>
  *             </li>
  *          </ul>
  *

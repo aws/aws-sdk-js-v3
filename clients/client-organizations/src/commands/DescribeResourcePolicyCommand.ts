@@ -28,8 +28,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
 
 /**
  * <p>Retrieves information about a resource policy.</p>
- *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator.</p>
+ *          <p>You can only call this operation from the management account or a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,6 +101,9 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *                     create an organization.</p>
  *             </li>
  *             <li>
+ *                <p>ACTIVE_RESPONSIBILITY_TRANSFER_PROCESS: You cannot delete organization due to an ongoing responsibility transfer process. For example, a pending invitation or an in-progress transfer. To delete the organization, you must resolve the current transfer process.</p>
+ *             </li>
+ *             <li>
  *                <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
  *                     of accounts in an organization. If you need more accounts, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
  *                     request an increase in your limit. </p>
@@ -167,7 +169,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *             <li>
  *                <p>EMAIL_VERIFICATION_CODE_EXPIRED: The email verification code is only valid for
  *                     a limited period of time. You must resubmit the request and generate a new
- *                     verfication code.</p>
+ *                     verification code.</p>
  *             </li>
  *             <li>
  *                <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
@@ -262,6 +264,22 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *                     complete this operation, you must first disable the policy type.</p>
  *             </li>
  *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_INBOUND_QUOTA_VIOLATION: You have exceeded your inbound
+ *                     transfers limit.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_LEVEL_VIOLATION: You have exceeded the maximum length of your
+ *                     transfer chain.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_OUTBOUND_QUOTA_VIOLATION: You have exceeded your outbound
+ *                     transfers limit.</p>
+ *             </li>
+ *             <li>
+ *                <p>RESPONSIBILITY_TRANSFER_MAX_TRANSFERS_QUOTA_VIOLATION: You have exceeded the maximum
+ *                     number of inbound transfers allowed in a transfer chain.</p>
+ *             </li>
+ *             <li>
  *                <p>SERVICE_ACCESS_NOT_ENABLED:</p>
  *                <ul>
  *                   <li>
@@ -278,6 +296,17 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *             <li>
  *                <p>TAG_POLICY_VIOLATION: You attempted to create or update a resource with tags
  *                     that are not compliant with the tag policy requirements for this account.</p>
+ *             </li>
+ *             <li>
+ *                <p>TRANSFER_RESPONSIBILITY_SOURCE_DELETION_IN_PROGRESS: The source organization cannot accept
+ *                     this transfer invitation because it is marked for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>TRANSFER_RESPONSIBILITY_TARGET_DELETION_IN_PROGRESS: The source organization cannot accept
+ *                     this transfer invitation because target organization is marked for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNSUPPORTED_PRICING: Your organization has a pricing contract that is unsupported.</p>
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at

@@ -4,9 +4,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse } from "../models/models_0";
+import {
+  ListInboundResponsibilityTransfersRequest,
+  ListInboundResponsibilityTransfersResponse,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListDelegatedAdministrators } from "../schemas/schemas_0";
+import { ListInboundResponsibilityTransfers } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,49 +19,61 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDelegatedAdministratorsCommand}.
+ * The input for {@link ListInboundResponsibilityTransfersCommand}.
  */
-export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAdministratorsRequest {}
+export interface ListInboundResponsibilityTransfersCommandInput extends ListInboundResponsibilityTransfersRequest {}
 /**
  * @public
  *
- * The output of {@link ListDelegatedAdministratorsCommand}.
+ * The output of {@link ListInboundResponsibilityTransfersCommand}.
  */
-export interface ListDelegatedAdministratorsCommandOutput
-  extends ListDelegatedAdministratorsResponse,
+export interface ListInboundResponsibilityTransfersCommandOutput
+  extends ListInboundResponsibilityTransfersResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this
- *             organization.</p>
- *          <p>You can only call this operation from the management account or a member account that is a delegated administrator.</p>
+ * <p>Lists transfers that allow you to manage the specified responsibilities for another
+ *             organization. This operation returns both transfer invitations and transfers.</p>
+ *          <note>
+ *             <p>When calling List* operations, always check the <code>NextToken</code> response parameter value, even if you receive an empty result set.
+ * These operations can occasionally return an empty set of results even when more results are available.
+ * Continue making requests until <code>NextToken</code> returns null. A null <code>NextToken</code> value indicates that you have retrieved all available results.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListDelegatedAdministratorsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListDelegatedAdministratorsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListInboundResponsibilityTransfersCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, ListInboundResponsibilityTransfersCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
  * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
- * const input = { // ListDelegatedAdministratorsRequest
- *   ServicePrincipal: "STRING_VALUE",
+ * const input = { // ListInboundResponsibilityTransfersRequest
+ *   Type: "BILLING", // required
+ *   Id: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
- * const command = new ListDelegatedAdministratorsCommand(input);
+ * const command = new ListInboundResponsibilityTransfersCommand(input);
  * const response = await client.send(command);
- * // { // ListDelegatedAdministratorsResponse
- * //   DelegatedAdministrators: [ // DelegatedAdministrators
- * //     { // DelegatedAdministrator
- * //       Id: "STRING_VALUE",
+ * // { // ListInboundResponsibilityTransfersResponse
+ * //   ResponsibilityTransfers: [ // ResponsibilityTransfers
+ * //     { // ResponsibilityTransfer
  * //       Arn: "STRING_VALUE",
- * //       Email: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
- * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
- * //       JoinedMethod: "INVITED" || "CREATED",
- * //       JoinedTimestamp: new Date("TIMESTAMP"),
- * //       DelegationEnabledDate: new Date("TIMESTAMP"),
+ * //       Id: "STRING_VALUE",
+ * //       Type: "BILLING",
+ * //       Status: "REQUESTED" || "DECLINED" || "CANCELED" || "EXPIRED" || "ACCEPTED" || "WITHDRAWN",
+ * //       Source: { // TransferParticipant
+ * //         ManagementAccountId: "STRING_VALUE",
+ * //         ManagementAccountEmail: "STRING_VALUE",
+ * //       },
+ * //       Target: {
+ * //         ManagementAccountId: "STRING_VALUE",
+ * //         ManagementAccountEmail: "STRING_VALUE",
+ * //       },
+ * //       StartTimestamp: new Date("TIMESTAMP"),
+ * //       EndTimestamp: new Date("TIMESTAMP"),
+ * //       ActiveHandshakeId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -66,10 +81,10 @@ export interface ListDelegatedAdministratorsCommandOutput
  *
  * ```
  *
- * @param ListDelegatedAdministratorsCommandInput - {@link ListDelegatedAdministratorsCommandInput}
- * @returns {@link ListDelegatedAdministratorsCommandOutput}
- * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
- * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
+ * @param ListInboundResponsibilityTransfersCommandInput - {@link ListInboundResponsibilityTransfersCommandInput}
+ * @returns {@link ListInboundResponsibilityTransfersCommandOutput}
+ * @see {@link ListInboundResponsibilityTransfersCommandInput} for command's `input` shape.
+ * @see {@link ListInboundResponsibilityTransfersCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -477,6 +492,9 @@ export interface ListDelegatedAdministratorsCommandOutput
  *             </li>
  *          </ul>
  *
+ * @throws {@link ResponsibilityTransferNotFoundException} (client fault)
+ *  <p>We can't find a transfer that you specified.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
@@ -496,10 +514,10 @@ export interface ListDelegatedAdministratorsCommandOutput
  *
  * @public
  */
-export class ListDelegatedAdministratorsCommand extends $Command
+export class ListInboundResponsibilityTransfersCommand extends $Command
   .classBuilder<
-    ListDelegatedAdministratorsCommandInput,
-    ListDelegatedAdministratorsCommandOutput,
+    ListInboundResponsibilityTransfersCommandInput,
+    ListInboundResponsibilityTransfersCommandOutput,
     OrganizationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -508,19 +526,19 @@ export class ListDelegatedAdministratorsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSOrganizationsV20161128", "ListDelegatedAdministrators", {})
-  .n("OrganizationsClient", "ListDelegatedAdministratorsCommand")
-  .sc(ListDelegatedAdministrators)
+  .s("AWSOrganizationsV20161128", "ListInboundResponsibilityTransfers", {})
+  .n("OrganizationsClient", "ListInboundResponsibilityTransfersCommand")
+  .sc(ListInboundResponsibilityTransfers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDelegatedAdministratorsRequest;
-      output: ListDelegatedAdministratorsResponse;
+      input: ListInboundResponsibilityTransfersRequest;
+      output: ListInboundResponsibilityTransfersResponse;
     };
     sdk: {
-      input: ListDelegatedAdministratorsCommandInput;
-      output: ListDelegatedAdministratorsCommandOutput;
+      input: ListInboundResponsibilityTransfersCommandInput;
+      output: ListInboundResponsibilityTransfersCommandOutput;
     };
   };
 }

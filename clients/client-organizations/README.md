@@ -459,6 +459,14 @@ DescribeResourcePolicy
 </details>
 <details>
 <summary>
+DescribeResponsibilityTransfer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/DescribeResponsibilityTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeResponsibilityTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/DescribeResponsibilityTransferCommandOutput/)
+
+</details>
+<details>
+<summary>
 DetachPolicy
 </summary>
 
@@ -511,6 +519,14 @@ InviteAccountToOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/InviteAccountToOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteAccountToOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteAccountToOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+InviteOrganizationToTransferResponsibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/InviteOrganizationToTransferResponsibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteOrganizationToTransferResponsibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/InviteOrganizationToTransferResponsibilityCommandOutput/)
 
 </details>
 <details>
@@ -611,10 +627,26 @@ ListHandshakesForOrganization
 </details>
 <details>
 <summary>
+ListInboundResponsibilityTransfers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListInboundResponsibilityTransfersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListInboundResponsibilityTransfersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListInboundResponsibilityTransfersCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListOrganizationalUnitsForParent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListOrganizationalUnitsForParentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOrganizationalUnitsForParentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOrganizationalUnitsForParentCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListOutboundResponsibilityTransfers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/ListOutboundResponsibilityTransfersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOutboundResponsibilityTransfersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/ListOutboundResponsibilityTransfersCommandOutput/)
 
 </details>
 <details>
@@ -707,6 +739,14 @@ TagResource
 </details>
 <details>
 <summary>
+TerminateResponsibilityTransfer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/TerminateResponsibilityTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/TerminateResponsibilityTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/TerminateResponsibilityTransferCommandOutput/)
+
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 
@@ -727,5 +767,13 @@ UpdatePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/UpdatePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdatePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdatePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateResponsibilityTransfer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/organizations/command/UpdateResponsibilityTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdateResponsibilityTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-organizations/Interface/UpdateResponsibilityTransferCommandOutput/)
 
 </details>

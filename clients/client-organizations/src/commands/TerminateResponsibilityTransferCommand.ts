@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse } from "../models/models_0";
+import { TerminateResponsibilityTransferRequest, TerminateResponsibilityTransferResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListDelegatedAdministrators } from "../schemas/schemas_0";
+import { TerminateResponsibilityTransfer } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,60 +16,63 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDelegatedAdministratorsCommand}.
+ * The input for {@link TerminateResponsibilityTransferCommand}.
  */
-export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAdministratorsRequest {}
+export interface TerminateResponsibilityTransferCommandInput extends TerminateResponsibilityTransferRequest {}
 /**
  * @public
  *
- * The output of {@link ListDelegatedAdministratorsCommand}.
+ * The output of {@link TerminateResponsibilityTransferCommand}.
  */
-export interface ListDelegatedAdministratorsCommandOutput
-  extends ListDelegatedAdministratorsResponse,
+export interface TerminateResponsibilityTransferCommandOutput
+  extends TerminateResponsibilityTransferResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this
- *             organization.</p>
- *          <p>You can only call this operation from the management account or a member account that is a delegated administrator.</p>
+ * <p>Ends a transfer. A <i>transfer</i> is an arrangement between two
+ *             management accounts where one account designates the other with specified
+ *             responsibilities for their organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListDelegatedAdministratorsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListDelegatedAdministratorsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, TerminateResponsibilityTransferCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, TerminateResponsibilityTransferCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
  * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
- * const input = { // ListDelegatedAdministratorsRequest
- *   ServicePrincipal: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ * const input = { // TerminateResponsibilityTransferRequest
+ *   Id: "STRING_VALUE", // required
+ *   EndTimestamp: new Date("TIMESTAMP"),
  * };
- * const command = new ListDelegatedAdministratorsCommand(input);
+ * const command = new TerminateResponsibilityTransferCommand(input);
  * const response = await client.send(command);
- * // { // ListDelegatedAdministratorsResponse
- * //   DelegatedAdministrators: [ // DelegatedAdministrators
- * //     { // DelegatedAdministrator
- * //       Id: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       Email: "STRING_VALUE",
- * //       Name: "STRING_VALUE",
- * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
- * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
- * //       JoinedMethod: "INVITED" || "CREATED",
- * //       JoinedTimestamp: new Date("TIMESTAMP"),
- * //       DelegationEnabledDate: new Date("TIMESTAMP"),
+ * // { // TerminateResponsibilityTransferResponse
+ * //   ResponsibilityTransfer: { // ResponsibilityTransfer
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Type: "BILLING",
+ * //     Status: "REQUESTED" || "DECLINED" || "CANCELED" || "EXPIRED" || "ACCEPTED" || "WITHDRAWN",
+ * //     Source: { // TransferParticipant
+ * //       ManagementAccountId: "STRING_VALUE",
+ * //       ManagementAccountEmail: "STRING_VALUE",
  * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * //     Target: {
+ * //       ManagementAccountId: "STRING_VALUE",
+ * //       ManagementAccountEmail: "STRING_VALUE",
+ * //     },
+ * //     StartTimestamp: new Date("TIMESTAMP"),
+ * //     EndTimestamp: new Date("TIMESTAMP"),
+ * //     ActiveHandshakeId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListDelegatedAdministratorsCommandInput - {@link ListDelegatedAdministratorsCommandInput}
- * @returns {@link ListDelegatedAdministratorsCommandOutput}
- * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
- * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
+ * @param TerminateResponsibilityTransferCommandInput - {@link TerminateResponsibilityTransferCommandInput}
+ * @returns {@link TerminateResponsibilityTransferCommandOutput}
+ * @see {@link TerminateResponsibilityTransferCommandInput} for command's `input` shape.
+ * @see {@link TerminateResponsibilityTransferCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,6 +84,10 @@ export interface ListDelegatedAdministratorsCommandOutput
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
  *  <p>Your account isn't a member of an organization. To make this request, you must use the
  *             credentials of an account that belongs to an organization.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The target of the operation is currently being modified by a different request. Try
+ *             again later.</p>
  *
  * @throws {@link ConstraintViolationException} (client fault)
  *  <p>Performing this operation violates a minimum or maximum value limit. For example,
@@ -477,6 +484,16 @@ export interface ListDelegatedAdministratorsCommandOutput
  *             </li>
  *          </ul>
  *
+ * @throws {@link InvalidResponsibilityTransferTransitionException} (client fault)
+ *  <p>The responsibility transfer can't transition to the requested state because it's not
+ *             in a valid state for this operation.</p>
+ *
+ * @throws {@link ResponsibilityTransferAlreadyInStatusException} (client fault)
+ *  <p>The responsibility transfer is already in the status that you specified.</p>
+ *
+ * @throws {@link ResponsibilityTransferNotFoundException} (client fault)
+ *  <p>We can't find a transfer that you specified.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
@@ -496,10 +513,10 @@ export interface ListDelegatedAdministratorsCommandOutput
  *
  * @public
  */
-export class ListDelegatedAdministratorsCommand extends $Command
+export class TerminateResponsibilityTransferCommand extends $Command
   .classBuilder<
-    ListDelegatedAdministratorsCommandInput,
-    ListDelegatedAdministratorsCommandOutput,
+    TerminateResponsibilityTransferCommandInput,
+    TerminateResponsibilityTransferCommandOutput,
     OrganizationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -508,19 +525,19 @@ export class ListDelegatedAdministratorsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSOrganizationsV20161128", "ListDelegatedAdministrators", {})
-  .n("OrganizationsClient", "ListDelegatedAdministratorsCommand")
-  .sc(ListDelegatedAdministrators)
+  .s("AWSOrganizationsV20161128", "TerminateResponsibilityTransfer", {})
+  .n("OrganizationsClient", "TerminateResponsibilityTransferCommand")
+  .sc(TerminateResponsibilityTransfer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDelegatedAdministratorsRequest;
-      output: ListDelegatedAdministratorsResponse;
+      input: TerminateResponsibilityTransferRequest;
+      output: TerminateResponsibilityTransferResponse;
     };
     sdk: {
-      input: ListDelegatedAdministratorsCommandInput;
-      output: ListDelegatedAdministratorsCommandOutput;
+      input: TerminateResponsibilityTransferCommandInput;
+      output: TerminateResponsibilityTransferCommandOutput;
     };
   };
 }

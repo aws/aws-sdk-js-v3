@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAccountsRequest, ListAccountsResponse } from "../models/models_0";
+import { DescribeResponsibilityTransferRequest, DescribeResponsibilityTransferResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListAccounts } from "../schemas/schemas_0";
+import { DescribeResponsibilityTransfer } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,61 +16,62 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListAccountsCommand}.
+ * The input for {@link DescribeResponsibilityTransferCommand}.
  */
-export interface ListAccountsCommandInput extends ListAccountsRequest {}
+export interface DescribeResponsibilityTransferCommandInput extends DescribeResponsibilityTransferRequest {}
 /**
  * @public
  *
- * The output of {@link ListAccountsCommand}.
+ * The output of {@link DescribeResponsibilityTransferCommand}.
  */
-export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
+export interface DescribeResponsibilityTransferCommandOutput
+  extends DescribeResponsibilityTransferResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Lists all the accounts in the organization. To request only the accounts in a
- *             specified root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.</p>
- *          <note>
- *             <p>When calling List* operations, always check the <code>NextToken</code> response parameter value, even if you receive an empty result set.
- * These operations can occasionally return an empty set of results even when more results are available.
- * Continue making requests until <code>NextToken</code> returns null. A null <code>NextToken</code> value indicates that you have retrieved all available results.</p>
- *          </note>
- *          <p>You can only call this operation from the management account or a member account that is a delegated administrator.</p>
+ * <p>Returns details for a transfer. A <i>transfer</i> is an arrangement
+ *             between two management accounts where one account designates the other with specified
+ *             responsibilities for their organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListAccountsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListAccountsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DescribeResponsibilityTransferCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, DescribeResponsibilityTransferCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
  * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
- * const input = { // ListAccountsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ * const input = { // DescribeResponsibilityTransferRequest
+ *   Id: "STRING_VALUE", // required
  * };
- * const command = new ListAccountsCommand(input);
+ * const command = new DescribeResponsibilityTransferCommand(input);
  * const response = await client.send(command);
- * // { // ListAccountsResponse
- * //   Accounts: [ // Accounts
- * //     { // Account
- * //       Id: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       Email: "STRING_VALUE",
- * //       Name: "STRING_VALUE",
- * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
- * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
- * //       JoinedMethod: "INVITED" || "CREATED",
- * //       JoinedTimestamp: new Date("TIMESTAMP"),
+ * // { // DescribeResponsibilityTransferResponse
+ * //   ResponsibilityTransfer: { // ResponsibilityTransfer
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Type: "BILLING",
+ * //     Status: "REQUESTED" || "DECLINED" || "CANCELED" || "EXPIRED" || "ACCEPTED" || "WITHDRAWN",
+ * //     Source: { // TransferParticipant
+ * //       ManagementAccountId: "STRING_VALUE",
+ * //       ManagementAccountEmail: "STRING_VALUE",
  * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * //     Target: {
+ * //       ManagementAccountId: "STRING_VALUE",
+ * //       ManagementAccountEmail: "STRING_VALUE",
+ * //     },
+ * //     StartTimestamp: new Date("TIMESTAMP"),
+ * //     EndTimestamp: new Date("TIMESTAMP"),
+ * //     ActiveHandshakeId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
- * @returns {@link ListAccountsCommandOutput}
- * @see {@link ListAccountsCommandInput} for command's `input` shape.
- * @see {@link ListAccountsCommandOutput} for command's `response` shape.
+ * @param DescribeResponsibilityTransferCommandInput - {@link DescribeResponsibilityTransferCommandInput}
+ * @returns {@link DescribeResponsibilityTransferCommandOutput}
+ * @see {@link DescribeResponsibilityTransferCommandInput} for command's `input` shape.
+ * @see {@link DescribeResponsibilityTransferCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -231,6 +232,9 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *             </li>
  *          </ul>
  *
+ * @throws {@link ResponsibilityTransferNotFoundException} (client fault)
+ *  <p>We can't find a transfer that you specified.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
@@ -241,16 +245,19 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
  *                 <i>Organizations User Guide</i>.</p>
  *
+ * @throws {@link UnsupportedAPIEndpointException} (client fault)
+ *  <p>This action isn't available in the current Amazon Web Services Region.</p>
+ *
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  *
  * @public
  */
-export class ListAccountsCommand extends $Command
+export class DescribeResponsibilityTransferCommand extends $Command
   .classBuilder<
-    ListAccountsCommandInput,
-    ListAccountsCommandOutput,
+    DescribeResponsibilityTransferCommandInput,
+    DescribeResponsibilityTransferCommandOutput,
     OrganizationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -259,19 +266,19 @@ export class ListAccountsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSOrganizationsV20161128", "ListAccounts", {})
-  .n("OrganizationsClient", "ListAccountsCommand")
-  .sc(ListAccounts)
+  .s("AWSOrganizationsV20161128", "DescribeResponsibilityTransfer", {})
+  .n("OrganizationsClient", "DescribeResponsibilityTransferCommand")
+  .sc(DescribeResponsibilityTransfer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListAccountsRequest;
-      output: ListAccountsResponse;
+      input: DescribeResponsibilityTransferRequest;
+      output: DescribeResponsibilityTransferResponse;
     };
     sdk: {
-      input: ListAccountsCommandInput;
-      output: ListAccountsCommandOutput;
+      input: DescribeResponsibilityTransferCommandInput;
+      output: DescribeResponsibilityTransferCommandOutput;
     };
   };
 }

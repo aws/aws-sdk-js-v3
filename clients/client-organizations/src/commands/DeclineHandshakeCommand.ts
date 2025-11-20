@@ -27,13 +27,11 @@ export interface DeclineHandshakeCommandInput extends DeclineHandshakeRequest {}
 export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse, __MetadataBearer {}
 
 /**
- * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code>
- *             and effectively deactivates the request.</p>
- *          <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
- *             instead. The originator can't reactivate a declined request, but can reinitiate the
- *             process with a new handshake request.</p>
- *          <p>After you decline a handshake, it continues to appear in the results of relevant APIs
- *             for only 30 days. After that, it's deleted.</p>
+ * <p>Declines a <a>Handshake</a>.</p>
+ *          <p>Only the account that receives a handshake can call this operation. The sender of the handshake can use <a>CancelHandshake</a> to
+ *             cancel if the handshake hasn't yet been responded to.</p>
+ *          <p>You can view canceled handshakes in API responses for 30 days before they are
+ *             deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,15 +58,15 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  * //     State: "REQUESTED" || "OPEN" || "CANCELED" || "ACCEPTED" || "DECLINED" || "EXPIRED",
  * //     RequestedTimestamp: new Date("TIMESTAMP"),
  * //     ExpirationTimestamp: new Date("TIMESTAMP"),
- * //     Action: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
+ * //     Action: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE" || "TRANSFER_RESPONSIBILITY",
  * //     Resources: [ // HandshakeResources
  * //       { // HandshakeResource
  * //         Value: "STRING_VALUE",
- * //         Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
+ * //         Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE" || "RESPONSIBILITY_TRANSFER" || "TRANSFER_START_TIMESTAMP" || "TRANSFER_TYPE" || "MANAGEMENT_ACCOUNT" || "MANAGEMENT_EMAIL" || "MANAGEMENT_NAME",
  * //         Resources: [
  * //           {
  * //             Value: "STRING_VALUE",
- * //             Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
+ * //             Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE" || "RESPONSIBILITY_TRANSFER" || "TRANSFER_START_TIMESTAMP" || "TRANSFER_TYPE" || "MANAGEMENT_ACCOUNT" || "MANAGEMENT_EMAIL" || "MANAGEMENT_NAME",
  * //             Resources: "<HandshakeResources>",
  * //           },
  * //         ],
@@ -117,8 +115,19 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *          </note>
  *          <ul>
  *             <li>
+ *                <p>CALLER_REQUIRED_FIELD_MISSING: At least one of the required field is missing: Caller Account Id, Management Account Id or Organization Id.</p>
+ *             </li>
+ *             <li>
  *                <p>DUPLICATE_TAG_KEY: Tag keys must be unique among the tags attached to the same
  *                     entity.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_NOT_END_OF_MONTH: You provided an invalid end date. The end date must be the end
+ *                     of the last day of the month (23.59.59.999).</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
+ *                     end.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be
@@ -130,6 +139,11 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *             <li>
  *                <p>INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the
  *                     invited account owner.</p>
+ *             </li>
+ *             <li>
+ *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the terms of your partner
+ *                     agreement. Visit Amazon Web Services Partner Central to view your partner agreements or contact your Amazon Web Services
+ *                     Partner for help.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ENUM: You specified an invalid value.</p>
@@ -168,6 +182,9 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>INVALID_START_DATE: The start date doesn't meet the minimum requirements.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid Amazon Resource Name
@@ -209,12 +226,30 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
  *             </li>
  *             <li>
+ *                <p>START_DATE_NOT_BEGINNING_OF_DAY: You provided an invalid start date. The start date must
+ *                     be the beginning of the day (00:00:00.000).</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_NOT_BEGINNING_OF_MONTH: You provided an invalid start date. The start date must
+ *                     be the first day of the month.</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_TOO_EARLY: You provided an invalid start date. The start date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_TOO_LATE: You provided an invalid start date. The start date is too late.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
  *             <li>
  *                <p>UNRECOGNIZED_SERVICE_PRINCIPAL: You specified a service principal that isn't
  *                     recognized.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNSUPPORTED_ACTION_IN_RESPONSIBILITY_TRANSFER: You provided a value that is not supported
+ *                 by this operation.</p>
  *             </li>
  *          </ul>
  *

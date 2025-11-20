@@ -118,6 +118,11 @@ import {
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
 import {
+  DescribeResponsibilityTransferCommand,
+  DescribeResponsibilityTransferCommandInput,
+  DescribeResponsibilityTransferCommandOutput,
+} from "./commands/DescribeResponsibilityTransferCommand";
+import {
   DetachPolicyCommand,
   DetachPolicyCommandInput,
   DetachPolicyCommandOutput,
@@ -152,6 +157,11 @@ import {
   InviteAccountToOrganizationCommandInput,
   InviteAccountToOrganizationCommandOutput,
 } from "./commands/InviteAccountToOrganizationCommand";
+import {
+  InviteOrganizationToTransferResponsibilityCommand,
+  InviteOrganizationToTransferResponsibilityCommandInput,
+  InviteOrganizationToTransferResponsibilityCommandOutput,
+} from "./commands/InviteOrganizationToTransferResponsibilityCommand";
 import {
   LeaveOrganizationCommand,
   LeaveOrganizationCommandInput,
@@ -213,10 +223,20 @@ import {
   ListHandshakesForOrganizationCommandOutput,
 } from "./commands/ListHandshakesForOrganizationCommand";
 import {
+  ListInboundResponsibilityTransfersCommand,
+  ListInboundResponsibilityTransfersCommandInput,
+  ListInboundResponsibilityTransfersCommandOutput,
+} from "./commands/ListInboundResponsibilityTransfersCommand";
+import {
   ListOrganizationalUnitsForParentCommand,
   ListOrganizationalUnitsForParentCommandInput,
   ListOrganizationalUnitsForParentCommandOutput,
 } from "./commands/ListOrganizationalUnitsForParentCommand";
+import {
+  ListOutboundResponsibilityTransfersCommand,
+  ListOutboundResponsibilityTransfersCommandInput,
+  ListOutboundResponsibilityTransfersCommandOutput,
+} from "./commands/ListOutboundResponsibilityTransfersCommand";
 import { ListParentsCommand, ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand";
 import {
   ListPoliciesCommand,
@@ -257,6 +277,11 @@ import {
 } from "./commands/RemoveAccountFromOrganizationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TerminateResponsibilityTransferCommand,
+  TerminateResponsibilityTransferCommandInput,
+  TerminateResponsibilityTransferCommandOutput,
+} from "./commands/TerminateResponsibilityTransferCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -271,6 +296,11 @@ import {
   UpdatePolicyCommandInput,
   UpdatePolicyCommandOutput,
 } from "./commands/UpdatePolicyCommand";
+import {
+  UpdateResponsibilityTransferCommand,
+  UpdateResponsibilityTransferCommandInput,
+  UpdateResponsibilityTransferCommandOutput,
+} from "./commands/UpdateResponsibilityTransferCommand";
 import { OrganizationsClient, OrganizationsClientConfig } from "./OrganizationsClient";
 
 const commands = {
@@ -297,6 +327,7 @@ const commands = {
   DescribeOrganizationalUnitCommand,
   DescribePolicyCommand,
   DescribeResourcePolicyCommand,
+  DescribeResponsibilityTransferCommand,
   DetachPolicyCommand,
   DisableAWSServiceAccessCommand,
   DisablePolicyTypeCommand,
@@ -304,6 +335,7 @@ const commands = {
   EnableAWSServiceAccessCommand,
   EnablePolicyTypeCommand,
   InviteAccountToOrganizationCommand,
+  InviteOrganizationToTransferResponsibilityCommand,
   LeaveOrganizationCommand,
   ListAccountsCommand,
   ListAccountsForParentCommand,
@@ -316,7 +348,9 @@ const commands = {
   ListEffectivePolicyValidationErrorsCommand,
   ListHandshakesForAccountCommand,
   ListHandshakesForOrganizationCommand,
+  ListInboundResponsibilityTransfersCommand,
   ListOrganizationalUnitsForParentCommand,
+  ListOutboundResponsibilityTransfersCommand,
   ListParentsCommand,
   ListPoliciesCommand,
   ListPoliciesForTargetCommand,
@@ -328,9 +362,11 @@ const commands = {
   RegisterDelegatedAdministratorCommand,
   RemoveAccountFromOrganizationCommand,
   TagResourceCommand,
+  TerminateResponsibilityTransferCommand,
   UntagResourceCommand,
   UpdateOrganizationalUnitCommand,
   UpdatePolicyCommand,
+  UpdateResponsibilityTransferCommand,
 };
 
 export interface Organizations {
@@ -689,6 +725,23 @@ export interface Organizations {
   ): void;
 
   /**
+   * @see {@link DescribeResponsibilityTransferCommand}
+   */
+  describeResponsibilityTransfer(
+    args: DescribeResponsibilityTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResponsibilityTransferCommandOutput>;
+  describeResponsibilityTransfer(
+    args: DescribeResponsibilityTransferCommandInput,
+    cb: (err: any, data?: DescribeResponsibilityTransferCommandOutput) => void
+  ): void;
+  describeResponsibilityTransfer(
+    args: DescribeResponsibilityTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResponsibilityTransferCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DetachPolicyCommand}
    */
   detachPolicy(args: DetachPolicyCommandInput, options?: __HttpHandlerOptions): Promise<DetachPolicyCommandOutput>;
@@ -800,6 +853,23 @@ export interface Organizations {
     args: InviteAccountToOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InviteAccountToOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InviteOrganizationToTransferResponsibilityCommand}
+   */
+  inviteOrganizationToTransferResponsibility(
+    args: InviteOrganizationToTransferResponsibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InviteOrganizationToTransferResponsibilityCommandOutput>;
+  inviteOrganizationToTransferResponsibility(
+    args: InviteOrganizationToTransferResponsibilityCommandInput,
+    cb: (err: any, data?: InviteOrganizationToTransferResponsibilityCommandOutput) => void
+  ): void;
+  inviteOrganizationToTransferResponsibility(
+    args: InviteOrganizationToTransferResponsibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InviteOrganizationToTransferResponsibilityCommandOutput) => void
   ): void;
 
   /**
@@ -1002,6 +1072,23 @@ export interface Organizations {
   ): void;
 
   /**
+   * @see {@link ListInboundResponsibilityTransfersCommand}
+   */
+  listInboundResponsibilityTransfers(
+    args: ListInboundResponsibilityTransfersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInboundResponsibilityTransfersCommandOutput>;
+  listInboundResponsibilityTransfers(
+    args: ListInboundResponsibilityTransfersCommandInput,
+    cb: (err: any, data?: ListInboundResponsibilityTransfersCommandOutput) => void
+  ): void;
+  listInboundResponsibilityTransfers(
+    args: ListInboundResponsibilityTransfersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInboundResponsibilityTransfersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOrganizationalUnitsForParentCommand}
    */
   listOrganizationalUnitsForParent(
@@ -1016,6 +1103,23 @@ export interface Organizations {
     args: ListOrganizationalUnitsForParentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListOrganizationalUnitsForParentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOutboundResponsibilityTransfersCommand}
+   */
+  listOutboundResponsibilityTransfers(
+    args: ListOutboundResponsibilityTransfersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOutboundResponsibilityTransfersCommandOutput>;
+  listOutboundResponsibilityTransfers(
+    args: ListOutboundResponsibilityTransfersCommandInput,
+    cb: (err: any, data?: ListOutboundResponsibilityTransfersCommandOutput) => void
+  ): void;
+  listOutboundResponsibilityTransfers(
+    args: ListOutboundResponsibilityTransfersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOutboundResponsibilityTransfersCommandOutput) => void
   ): void;
 
   /**
@@ -1177,6 +1281,23 @@ export interface Organizations {
   ): void;
 
   /**
+   * @see {@link TerminateResponsibilityTransferCommand}
+   */
+  terminateResponsibilityTransfer(
+    args: TerminateResponsibilityTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateResponsibilityTransferCommandOutput>;
+  terminateResponsibilityTransfer(
+    args: TerminateResponsibilityTransferCommandInput,
+    cb: (err: any, data?: TerminateResponsibilityTransferCommandOutput) => void
+  ): void;
+  terminateResponsibilityTransfer(
+    args: TerminateResponsibilityTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateResponsibilityTransferCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UntagResourceCommand}
    */
   untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
@@ -1213,6 +1334,23 @@ export interface Organizations {
     args: UpdatePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResponsibilityTransferCommand}
+   */
+  updateResponsibilityTransfer(
+    args: UpdateResponsibilityTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResponsibilityTransferCommandOutput>;
+  updateResponsibilityTransfer(
+    args: UpdateResponsibilityTransferCommandInput,
+    cb: (err: any, data?: UpdateResponsibilityTransferCommandOutput) => void
+  ): void;
+  updateResponsibilityTransfer(
+    args: UpdateResponsibilityTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResponsibilityTransferCommandOutput) => void
   ): void;
 }
 

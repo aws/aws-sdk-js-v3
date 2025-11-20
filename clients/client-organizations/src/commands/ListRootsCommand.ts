@@ -29,15 +29,11 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
 /**
  * <p>Lists the roots that are defined in the current organization.</p>
  *          <note>
- *             <p>Always check the <code>NextToken</code> response parameter
- * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
- * occasionally return an empty set of results even when there are more results available. The
- * <code>NextToken</code> response parameter value is <code>null</code>
- *                <i>only</i>
- * when there are no more results to display.</p>
+ *             <p>When calling List* operations, always check the <code>NextToken</code> response parameter value, even if you receive an empty result set.
+ * These operations can occasionally return an empty set of results even when more results are available.
+ * Continue making requests until <code>NextToken</code> returns null. A null <code>NextToken</code> value indicates that you have retrieved all available results.</p>
  *          </note>
- *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator.</p>
+ *          <p>You can only call this operation from the management account or a member account that is a delegated administrator.</p>
  *          <note>
  *             <p>Policy types can be enabled and disabled in roots. This is distinct from whether
  *                 they're available in the organization. When you enable all features, you make policy
@@ -67,7 +63,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * //       Name: "STRING_VALUE",
  * //       PolicyTypes: [ // PolicyTypes
  * //         { // PolicyTypeSummary
- * //           Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY",
+ * //           Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY",
  * //           Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //         },
  * //       ],
@@ -104,8 +100,19 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *          </note>
  *          <ul>
  *             <li>
+ *                <p>CALLER_REQUIRED_FIELD_MISSING: At least one of the required field is missing: Caller Account Id, Management Account Id or Organization Id.</p>
+ *             </li>
+ *             <li>
  *                <p>DUPLICATE_TAG_KEY: Tag keys must be unique among the tags attached to the same
  *                     entity.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_NOT_END_OF_MONTH: You provided an invalid end date. The end date must be the end
+ *                     of the last day of the month (23.59.59.999).</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
+ *                     end.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be
@@ -117,6 +124,11 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *             <li>
  *                <p>INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the
  *                     invited account owner.</p>
+ *             </li>
+ *             <li>
+ *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the terms of your partner
+ *                     agreement. Visit Amazon Web Services Partner Central to view your partner agreements or contact your Amazon Web Services
+ *                     Partner for help.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ENUM: You specified an invalid value.</p>
@@ -155,6 +167,9 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>INVALID_START_DATE: The start date doesn't meet the minimum requirements.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid Amazon Resource Name
@@ -196,12 +211,30 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
  *             </li>
  *             <li>
+ *                <p>START_DATE_NOT_BEGINNING_OF_DAY: You provided an invalid start date. The start date must
+ *                     be the beginning of the day (00:00:00.000).</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_NOT_BEGINNING_OF_MONTH: You provided an invalid start date. The start date must
+ *                     be the first day of the month.</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_TOO_EARLY: You provided an invalid start date. The start date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>START_DATE_TOO_LATE: You provided an invalid start date. The start date is too late.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
  *             <li>
  *                <p>UNRECOGNIZED_SERVICE_PRINCIPAL: You specified a service principal that isn't
  *                     recognized.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNSUPPORTED_ACTION_IN_RESPONSIBILITY_TRANSFER: You provided a value that is not supported
+ *                 by this operation.</p>
  *             </li>
  *          </ul>
  *

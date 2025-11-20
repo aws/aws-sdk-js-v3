@@ -29,7 +29,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
 /**
  * <p>Retrieves information about the organization that the user's account belongs
  *             to.</p>
- *          <p>This operation can be called from any account in the organization.</p>
+ *          <p>You can call this operation from any account in a organization.</p>
  *          <note>
  *             <p>Even if a policy type is shown as available in the organization, you can disable
  *                 it separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to see the status of policy types for a specified
@@ -56,7 +56,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * //     MasterAccountEmail: "STRING_VALUE",
  * //     AvailablePolicyTypes: [ // PolicyTypes
  * //       { // PolicyTypeSummary
- * //         Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY",
+ * //         Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY",
  * //         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //       },
  * //     ],

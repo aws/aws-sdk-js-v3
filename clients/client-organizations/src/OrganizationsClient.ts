@@ -110,6 +110,10 @@ import {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
+import {
+  DescribeResponsibilityTransferCommandInput,
+  DescribeResponsibilityTransferCommandOutput,
+} from "./commands/DescribeResponsibilityTransferCommand";
 import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
 import {
   DisableAWSServiceAccessCommandInput,
@@ -126,6 +130,10 @@ import {
   InviteAccountToOrganizationCommandInput,
   InviteAccountToOrganizationCommandOutput,
 } from "./commands/InviteAccountToOrganizationCommand";
+import {
+  InviteOrganizationToTransferResponsibilityCommandInput,
+  InviteOrganizationToTransferResponsibilityCommandOutput,
+} from "./commands/InviteOrganizationToTransferResponsibilityCommand";
 import { LeaveOrganizationCommandInput, LeaveOrganizationCommandOutput } from "./commands/LeaveOrganizationCommand";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
 import {
@@ -166,9 +174,17 @@ import {
   ListHandshakesForOrganizationCommandOutput,
 } from "./commands/ListHandshakesForOrganizationCommand";
 import {
+  ListInboundResponsibilityTransfersCommandInput,
+  ListInboundResponsibilityTransfersCommandOutput,
+} from "./commands/ListInboundResponsibilityTransfersCommand";
+import {
   ListOrganizationalUnitsForParentCommandInput,
   ListOrganizationalUnitsForParentCommandOutput,
 } from "./commands/ListOrganizationalUnitsForParentCommand";
+import {
+  ListOutboundResponsibilityTransfersCommandInput,
+  ListOutboundResponsibilityTransfersCommandOutput,
+} from "./commands/ListOutboundResponsibilityTransfersCommand";
 import { ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
@@ -195,12 +211,20 @@ import {
   RemoveAccountFromOrganizationCommandOutput,
 } from "./commands/RemoveAccountFromOrganizationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TerminateResponsibilityTransferCommandInput,
+  TerminateResponsibilityTransferCommandOutput,
+} from "./commands/TerminateResponsibilityTransferCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateOrganizationalUnitCommandInput,
   UpdateOrganizationalUnitCommandOutput,
 } from "./commands/UpdateOrganizationalUnitCommand";
 import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
+import {
+  UpdateResponsibilityTransferCommandInput,
+  UpdateResponsibilityTransferCommandOutput,
+} from "./commands/UpdateResponsibilityTransferCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -239,6 +263,7 @@ export type ServiceInputTypes =
   | DescribeOrganizationalUnitCommandInput
   | DescribePolicyCommandInput
   | DescribeResourcePolicyCommandInput
+  | DescribeResponsibilityTransferCommandInput
   | DetachPolicyCommandInput
   | DisableAWSServiceAccessCommandInput
   | DisablePolicyTypeCommandInput
@@ -246,6 +271,7 @@ export type ServiceInputTypes =
   | EnableAllFeaturesCommandInput
   | EnablePolicyTypeCommandInput
   | InviteAccountToOrganizationCommandInput
+  | InviteOrganizationToTransferResponsibilityCommandInput
   | LeaveOrganizationCommandInput
   | ListAWSServiceAccessForOrganizationCommandInput
   | ListAccountsCommandInput
@@ -258,7 +284,9 @@ export type ServiceInputTypes =
   | ListEffectivePolicyValidationErrorsCommandInput
   | ListHandshakesForAccountCommandInput
   | ListHandshakesForOrganizationCommandInput
+  | ListInboundResponsibilityTransfersCommandInput
   | ListOrganizationalUnitsForParentCommandInput
+  | ListOutboundResponsibilityTransfersCommandInput
   | ListParentsCommandInput
   | ListPoliciesCommandInput
   | ListPoliciesForTargetCommandInput
@@ -270,9 +298,11 @@ export type ServiceInputTypes =
   | RegisterDelegatedAdministratorCommandInput
   | RemoveAccountFromOrganizationCommandInput
   | TagResourceCommandInput
+  | TerminateResponsibilityTransferCommandInput
   | UntagResourceCommandInput
   | UpdateOrganizationalUnitCommandInput
-  | UpdatePolicyCommandInput;
+  | UpdatePolicyCommandInput
+  | UpdateResponsibilityTransferCommandInput;
 
 /**
  * @public
@@ -301,6 +331,7 @@ export type ServiceOutputTypes =
   | DescribeOrganizationalUnitCommandOutput
   | DescribePolicyCommandOutput
   | DescribeResourcePolicyCommandOutput
+  | DescribeResponsibilityTransferCommandOutput
   | DetachPolicyCommandOutput
   | DisableAWSServiceAccessCommandOutput
   | DisablePolicyTypeCommandOutput
@@ -308,6 +339,7 @@ export type ServiceOutputTypes =
   | EnableAllFeaturesCommandOutput
   | EnablePolicyTypeCommandOutput
   | InviteAccountToOrganizationCommandOutput
+  | InviteOrganizationToTransferResponsibilityCommandOutput
   | LeaveOrganizationCommandOutput
   | ListAWSServiceAccessForOrganizationCommandOutput
   | ListAccountsCommandOutput
@@ -320,7 +352,9 @@ export type ServiceOutputTypes =
   | ListEffectivePolicyValidationErrorsCommandOutput
   | ListHandshakesForAccountCommandOutput
   | ListHandshakesForOrganizationCommandOutput
+  | ListInboundResponsibilityTransfersCommandOutput
   | ListOrganizationalUnitsForParentCommandOutput
+  | ListOutboundResponsibilityTransfersCommandOutput
   | ListParentsCommandOutput
   | ListPoliciesCommandOutput
   | ListPoliciesForTargetCommandOutput
@@ -332,9 +366,11 @@ export type ServiceOutputTypes =
   | RegisterDelegatedAdministratorCommandOutput
   | RemoveAccountFromOrganizationCommandOutput
   | TagResourceCommandOutput
+  | TerminateResponsibilityTransferCommandOutput
   | UntagResourceCommandOutput
   | UpdateOrganizationalUnitCommandOutput
-  | UpdatePolicyCommandOutput;
+  | UpdatePolicyCommandOutput
+  | UpdateResponsibilityTransferCommandOutput;
 
 /**
  * @public

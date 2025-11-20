@@ -4,6 +4,7 @@ const _AARE = "AccountAlreadyRegisteredException";
 const _ADE = "AccessDeniedException";
 const _ADFDE = "AccessDeniedForDependencyException";
 const _AH = "AcceptHandshake";
+const _AHI = "ActiveHandshakeId";
 const _AHR = "AcceptHandshakeRequest";
 const _AHRc = "AcceptHandshakeResponse";
 const _AI = "AccountId";
@@ -109,6 +110,9 @@ const _DPet = "DetachPolicy";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DescribeResourcePolicyResponse";
 const _DRPe = "DescribeResourcePolicy";
+const _DRT = "DescribeResponsibilityTransfer";
+const _DRTR = "DescribeResponsibilityTransferRequest";
+const _DRTRe = "DescribeResponsibilityTransferResponse";
 const _DS = "DelegatedService";
 const _DSe = "DelegatedServices";
 const _E = "Email";
@@ -129,6 +133,7 @@ const _EPVEf = "EffectivePolicyValidationErrors";
 const _ESP = "EnabledServicePrincipal";
 const _ESPn = "EnabledServicePrincipals";
 const _ET = "ExpirationTimestamp";
+const _ETn = "EndTimestamp";
 const _ETv = "EvaluationTimestamp";
 const _F = "Filter";
 const _FOE = "FinalizingOrganizationException";
@@ -155,6 +160,10 @@ const _IATOR = "InviteAccountToOrganizationRequest";
 const _IATORn = "InviteAccountToOrganizationResponse";
 const _IHTE = "InvalidHandshakeTransitionException";
 const _IIE = "InvalidInputException";
+const _IOTTR = "InviteOrganizationToTransferResponsibility";
+const _IOTTRR = "InviteOrganizationToTransferResponsibilityRequest";
+const _IOTTRRn = "InviteOrganizationToTransferResponsibilityResponse";
+const _IRTTE = "InvalidResponsibilityTransferTransitionException";
 const _IUATB = "IamUserAccessToBilling";
 const _JM = "JoinedMethod";
 const _JT = "JoinedTimestamp";
@@ -192,7 +201,13 @@ const _LHFARi = "ListHandshakesForAccountResponse";
 const _LHFO = "ListHandshakesForOrganization";
 const _LHFOR = "ListHandshakesForOrganizationRequest";
 const _LHFORi = "ListHandshakesForOrganizationResponse";
+const _LIRT = "ListInboundResponsibilityTransfers";
+const _LIRTR = "ListInboundResponsibilityTransfersRequest";
+const _LIRTRi = "ListInboundResponsibilityTransfersResponse";
 const _LO = "LeaveOrganization";
+const _LORT = "ListOutboundResponsibilityTransfers";
+const _LORTR = "ListOutboundResponsibilityTransfersRequest";
+const _LORTRi = "ListOutboundResponsibilityTransfersResponse";
 const _LOUFP = "ListOrganizationalUnitsForParent";
 const _LOUFPR = "ListOrganizationalUnitsForParentRequest";
 const _LOUFPRi = "ListOrganizationalUnitsForParentResponse";
@@ -219,7 +234,9 @@ const _M = "Message";
 const _MA = "MoveAccount";
 const _MAA = "MasterAccountArn";
 const _MAE = "MasterAccountEmail";
+const _MAEa = "ManagementAccountEmail";
 const _MAI = "MasterAccountId";
+const _MAIa = "ManagementAccountId";
 const _MAR = "MoveAccountRequest";
 const _MCLOE = "MasterCannotLeaveOrganizationException";
 const _MPDE = "MalformedPolicyDocumentException";
@@ -275,14 +292,22 @@ const _RP = "ResourcePolicy";
 const _RPNFE = "ResourcePolicyNotFoundException";
 const _RPS = "ResourcePolicySummary";
 const _RT = "RequestedTimestamp";
+const _RTAISE = "ResponsibilityTransferAlreadyInStatusException";
+const _RTN = "ResponsibilityTransferName";
+const _RTNFE = "ResponsibilityTransferNotFoundException";
+const _RTe = "ResponsibilityTransfer";
+const _RTes = "ResponsibilityTransfers";
 const _Re = "Resources";
 const _Ro = "Root";
 const _Roo = "Roots";
 const _S = "Status";
 const _SE = "ServiceException";
+const _SN = "SourceName";
 const _SP = "ServicePrincipal";
 const _SPI = "SourceParentId";
 const _SPNFE = "SourceParentNotFoundException";
+const _ST = "StartTimestamp";
+const _So = "Source";
 const _St = "State";
 const _Sta = "States";
 const _T = "Type";
@@ -290,8 +315,12 @@ const _TI = "TargetId";
 const _TK = "TagKeys";
 const _TMRE = "TooManyRequestsException";
 const _TNFE = "TargetNotFoundException";
+const _TP = "TransferParticipant";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
+const _TRT = "TerminateResponsibilityTransfer";
+const _TRTR = "TerminateResponsibilityTransferRequest";
+const _TRTRe = "TerminateResponsibilityTransferResponse";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Tar = "Target";
@@ -305,6 +334,9 @@ const _UPR = "UpdatePolicyRequest";
 const _UPRp = "UpdatePolicyResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
+const _URT = "UpdateResponsibilityTransfer";
+const _URTR = "UpdateResponsibilityTransferRequest";
+const _URTRp = "UpdateResponsibilityTransferResponse";
 const _V = "Value";
 const _c = "client";
 const _e = "error";
@@ -351,6 +383,7 @@ import {
   HandshakeNotFoundException as __HandshakeNotFoundException,
   InvalidHandshakeTransitionException as __InvalidHandshakeTransitionException,
   InvalidInputException as __InvalidInputException,
+  InvalidResponsibilityTransferTransitionException as __InvalidResponsibilityTransferTransitionException,
   MalformedPolicyDocumentException as __MalformedPolicyDocumentException,
   MasterCannotLeaveOrganizationException as __MasterCannotLeaveOrganizationException,
   OrganizationalUnitNotEmptyException as __OrganizationalUnitNotEmptyException,
@@ -365,6 +398,8 @@ import {
   PolicyTypeNotAvailableForOrganizationException as __PolicyTypeNotAvailableForOrganizationException,
   PolicyTypeNotEnabledException as __PolicyTypeNotEnabledException,
   ResourcePolicyNotFoundException as __ResourcePolicyNotFoundException,
+  ResponsibilityTransferAlreadyInStatusException as __ResponsibilityTransferAlreadyInStatusException,
+  ResponsibilityTransferNotFoundException as __ResponsibilityTransferNotFoundException,
   RootNotFoundException as __RootNotFoundException,
   ServiceException as __ServiceException,
   SourceParentNotFoundException as __SourceParentNotFoundException,
@@ -382,6 +417,7 @@ export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 export var HandshakeNotes: StaticSimpleSchema = [0, n0, _HN, 8, 0];
 export var HandshakePartyId: StaticSimpleSchema = [0, n0, _HPI, 8, 0];
 export var HandshakeResourceValue: StaticSimpleSchema = [0, n0, _HRV, 8, 0];
+export var ResponsibilityTransferName: StaticSimpleSchema = [0, n0, _RTN, 8, 0];
 export var AcceptHandshakeRequest: StaticStructureSchema = [3, n0, _AHR, 0, [_HI], [0]];
 export var AcceptHandshakeResponse: StaticStructureSchema = [3, n0, _AHRc, 0, [_H], [[() => Handshake, 0]]];
 export var AccessDeniedException: StaticErrorSchema = [
@@ -681,6 +717,15 @@ export var DescribeOrganizationResponse: StaticStructureSchema = [3, n0, _DOR, 0
 export var DescribePolicyRequest: StaticStructureSchema = [3, n0, _DPRe, 0, [_PI], [0]];
 export var DescribePolicyResponse: StaticStructureSchema = [3, n0, _DPRes, 0, [_P], [() => Policy]];
 export var DescribeResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPR, 0, [_RP], [() => ResourcePolicy]];
+export var DescribeResponsibilityTransferRequest: StaticStructureSchema = [3, n0, _DRTR, 0, [_I], [0]];
+export var DescribeResponsibilityTransferResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DRTRe,
+  0,
+  [_RTe],
+  [[() => ResponsibilityTransfer, 0]],
+];
 export var DestinationParentNotFoundException: StaticErrorSchema = [
   -3,
   n0,
@@ -886,6 +931,22 @@ export var InvalidInputException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
 
+export var InvalidResponsibilityTransferTransitionException: StaticErrorSchema = [
+  -3,
+  n0,
+  _IRTTE,
+  {
+    [_e]: _c,
+    [_hE]: 409,
+  },
+  [_M],
+  [0],
+];
+TypeRegistry.for(n0).registerError(
+  InvalidResponsibilityTransferTransitionException,
+  __InvalidResponsibilityTransferTransitionException
+);
+
 export var InviteAccountToOrganizationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -898,6 +959,22 @@ export var InviteAccountToOrganizationResponse: StaticStructureSchema = [
   3,
   n0,
   _IATORn,
+  0,
+  [_H],
+  [[() => Handshake, 0]],
+];
+export var InviteOrganizationToTransferResponsibilityRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _IOTTRR,
+  0,
+  [_T, _Tar, _No, _ST, _SN, _Ta],
+  [0, [() => HandshakeParty, 0], [() => HandshakeNotes, 0], 4, [() => ResponsibilityTransferName, 0], () => Tags],
+];
+export var InviteOrganizationToTransferResponsibilityResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _IOTTRRn,
   0,
   [_H],
   [[() => Handshake, 0]],
@@ -1029,6 +1106,22 @@ export var ListHandshakesForOrganizationResponse: StaticStructureSchema = [
   [_Ha, _NT],
   [[() => Handshakes, 0], 0],
 ];
+export var ListInboundResponsibilityTransfersRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRTR,
+  0,
+  [_T, _I, _NT, _MR],
+  [0, 0, 0, 1],
+];
+export var ListInboundResponsibilityTransfersResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRTRi,
+  0,
+  [_RTes, _NT],
+  [[() => ResponsibilityTransfers, 0], 0],
+];
 export var ListOrganizationalUnitsForParentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1044,6 +1137,22 @@ export var ListOrganizationalUnitsForParentResponse: StaticStructureSchema = [
   0,
   [_OUr, _NT],
   [() => OrganizationalUnits, 0],
+];
+export var ListOutboundResponsibilityTransfersRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LORTR,
+  0,
+  [_T, _NT, _MR],
+  [0, 0, 1],
+];
+export var ListOutboundResponsibilityTransfersResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LORTRi,
+  0,
+  [_RTes, _NT],
+  [[() => ResponsibilityTransfers, 0], 0],
 ];
 export var ListParentsRequest: StaticStructureSchema = [3, n0, _LPR, 0, [_CI, _NT, _MR], [0, 0, 1]];
 export var ListParentsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_Par, _NT], [() => Parents, 0]];
@@ -1269,6 +1378,54 @@ export var ResourcePolicyNotFoundException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ResourcePolicyNotFoundException, __ResourcePolicyNotFoundException);
 
 export var ResourcePolicySummary: StaticStructureSchema = [3, n0, _RPS, 0, [_I, _Ar], [0, 0]];
+export var ResponsibilityTransfer: StaticStructureSchema = [
+  3,
+  n0,
+  _RTe,
+  0,
+  [_Ar, _N, _I, _T, _S, _So, _Tar, _ST, _ETn, _AHI],
+  [
+    0,
+    [() => ResponsibilityTransferName, 0],
+    0,
+    0,
+    0,
+    [() => TransferParticipant, 0],
+    [() => TransferParticipant, 0],
+    4,
+    4,
+    0,
+  ],
+];
+export var ResponsibilityTransferAlreadyInStatusException: StaticErrorSchema = [
+  -3,
+  n0,
+  _RTAISE,
+  {
+    [_e]: _c,
+    [_hE]: 409,
+  },
+  [_M],
+  [0],
+];
+TypeRegistry.for(n0).registerError(
+  ResponsibilityTransferAlreadyInStatusException,
+  __ResponsibilityTransferAlreadyInStatusException
+);
+
+export var ResponsibilityTransferNotFoundException: StaticErrorSchema = [
+  -3,
+  n0,
+  _RTNFE,
+  {
+    [_e]: _c,
+    [_hE]: 404,
+  },
+  [_M],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ResponsibilityTransferNotFoundException, __ResponsibilityTransferNotFoundException);
+
 export var Root: StaticStructureSchema = [3, n0, _Ro, 0, [_I, _Ar, _N, _PTo], [0, 0, 0, () => PolicyTypes]];
 export var RootNotFoundException: StaticErrorSchema = [
   -3,
@@ -1324,6 +1481,15 @@ export var TargetNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(TargetNotFoundException, __TargetNotFoundException);
 
+export var TerminateResponsibilityTransferRequest: StaticStructureSchema = [3, n0, _TRTR, 0, [_I, _ETn], [0, 4]];
+export var TerminateResponsibilityTransferResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _TRTRe,
+  0,
+  [_RTe],
+  [[() => ResponsibilityTransfer, 0]],
+];
 export var TooManyRequestsException: StaticErrorSchema = [
   -3,
   n0,
@@ -1337,6 +1503,7 @@ export var TooManyRequestsException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
 
+export var TransferParticipant: StaticStructureSchema = [3, n0, _TP, 0, [_MAIa, _MAEa], [0, [() => Email, 0]]];
 export var UnsupportedAPIEndpointException: StaticErrorSchema = [
   -3,
   n0,
@@ -1362,6 +1529,22 @@ export var UpdateOrganizationalUnitResponse: StaticStructureSchema = [
 ];
 export var UpdatePolicyRequest: StaticStructureSchema = [3, n0, _UPR, 0, [_PI, _N, _D, _Co], [0, 0, 0, 0]];
 export var UpdatePolicyResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_P], [() => Policy]];
+export var UpdateResponsibilityTransferRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _URTR,
+  0,
+  [_I, _N],
+  [0, [() => ResponsibilityTransferName, 0]],
+];
+export var UpdateResponsibilityTransferResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _URTRp,
+  0,
+  [_RTe],
+  [[() => ResponsibilityTransfer, 0]],
+];
 export var __Unit = "unit" as const;
 
 export var OrganizationsServiceException: StaticErrorSchema = [-3, _sm, "OrganizationsServiceException", 0, [], []];
@@ -1386,6 +1569,7 @@ export var PolicyIds = 64 | 0;
 
 export var PolicyTargets: StaticListSchema = [1, n0, _PTol, 0, () => PolicyTargetSummary];
 export var PolicyTypes: StaticListSchema = [1, n0, _PTo, 0, () => PolicyTypeSummary];
+export var ResponsibilityTransfers: StaticListSchema = [1, n0, _RTes, 0, [() => ResponsibilityTransfer, 0]];
 export var Roots: StaticListSchema = [1, n0, _Roo, 0, () => Root];
 export var TagKeys = 64 | 0;
 
@@ -1539,6 +1723,14 @@ export var DescribeResourcePolicy: StaticOperationSchema = [
   () => __Unit,
   () => DescribeResourcePolicyResponse,
 ];
+export var DescribeResponsibilityTransfer: StaticOperationSchema = [
+  9,
+  n0,
+  _DRT,
+  0,
+  () => DescribeResponsibilityTransferRequest,
+  () => DescribeResponsibilityTransferResponse,
+];
 export var DetachPolicy: StaticOperationSchema = [9, n0, _DPet, 0, () => DetachPolicyRequest, () => __Unit];
 export var DisableAWSServiceAccess: StaticOperationSchema = [
   9,
@@ -1587,6 +1779,14 @@ export var InviteAccountToOrganization: StaticOperationSchema = [
   0,
   () => InviteAccountToOrganizationRequest,
   () => InviteAccountToOrganizationResponse,
+];
+export var InviteOrganizationToTransferResponsibility: StaticOperationSchema = [
+  9,
+  n0,
+  _IOTTR,
+  0,
+  () => InviteOrganizationToTransferResponsibilityRequest,
+  () => InviteOrganizationToTransferResponsibilityResponse,
 ];
 export var LeaveOrganization: StaticOperationSchema = [9, n0, _LO, 0, () => __Unit, () => __Unit];
 export var ListAccounts: StaticOperationSchema = [9, n0, _LA, 0, () => ListAccountsRequest, () => ListAccountsResponse];
@@ -1663,6 +1863,14 @@ export var ListHandshakesForOrganization: StaticOperationSchema = [
   () => ListHandshakesForOrganizationRequest,
   () => ListHandshakesForOrganizationResponse,
 ];
+export var ListInboundResponsibilityTransfers: StaticOperationSchema = [
+  9,
+  n0,
+  _LIRT,
+  0,
+  () => ListInboundResponsibilityTransfersRequest,
+  () => ListInboundResponsibilityTransfersResponse,
+];
 export var ListOrganizationalUnitsForParent: StaticOperationSchema = [
   9,
   n0,
@@ -1670,6 +1878,14 @@ export var ListOrganizationalUnitsForParent: StaticOperationSchema = [
   0,
   () => ListOrganizationalUnitsForParentRequest,
   () => ListOrganizationalUnitsForParentResponse,
+];
+export var ListOutboundResponsibilityTransfers: StaticOperationSchema = [
+  9,
+  n0,
+  _LORT,
+  0,
+  () => ListOutboundResponsibilityTransfersRequest,
+  () => ListOutboundResponsibilityTransfersResponse,
 ];
 export var ListParents: StaticOperationSchema = [9, n0, _LP, 0, () => ListParentsRequest, () => ListParentsResponse];
 export var ListPolicies: StaticOperationSchema = [
@@ -1731,6 +1947,14 @@ export var RemoveAccountFromOrganization: StaticOperationSchema = [
   () => __Unit,
 ];
 export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => __Unit];
+export var TerminateResponsibilityTransfer: StaticOperationSchema = [
+  9,
+  n0,
+  _TRT,
+  0,
+  () => TerminateResponsibilityTransferRequest,
+  () => TerminateResponsibilityTransferResponse,
+];
 export var UntagResource: StaticOperationSchema = [9, n0, _UR, 0, () => UntagResourceRequest, () => __Unit];
 export var UpdateOrganizationalUnit: StaticOperationSchema = [
   9,
@@ -1741,3 +1965,11 @@ export var UpdateOrganizationalUnit: StaticOperationSchema = [
   () => UpdateOrganizationalUnitResponse,
 ];
 export var UpdatePolicy: StaticOperationSchema = [9, n0, _UP, 0, () => UpdatePolicyRequest, () => UpdatePolicyResponse];
+export var UpdateResponsibilityTransfer: StaticOperationSchema = [
+  9,
+  n0,
+  _URT,
+  0,
+  () => UpdateResponsibilityTransferRequest,
+  () => UpdateResponsibilityTransferResponse,
+];
