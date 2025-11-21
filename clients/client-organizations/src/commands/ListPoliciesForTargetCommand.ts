@@ -46,7 +46,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * const client = new OrganizationsClient(config);
  * const input = { // ListPoliciesForTargetRequest
  *   TargetId: "STRING_VALUE", // required
- *   Filter: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY", // required
+ *   Filter: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -59,7 +59,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY",
  * //       AwsManaged: true || false,
  * //     },
  * //   ],

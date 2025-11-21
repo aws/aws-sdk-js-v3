@@ -63,7 +63,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * //       Name: "STRING_VALUE",
  * //       PolicyTypes: [ // PolicyTypes
  * //         { // PolicyTypeSummary
- * //           Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY",
+ * //           Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY",
  * //           Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //         },
  * //       ],

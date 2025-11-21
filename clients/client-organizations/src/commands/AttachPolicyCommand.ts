@@ -73,6 +73,11 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
  *                </p>
  *             </li>

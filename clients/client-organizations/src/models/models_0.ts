@@ -913,6 +913,11 @@ export interface CreatePolicyRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
    *                </p>
    *             </li>
@@ -1179,6 +1184,11 @@ export interface DescribeEffectivePolicyRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
    *                </p>
    *             </li>
    *             <li>
@@ -1599,6 +1609,11 @@ export interface DisablePolicyTypeRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
    *                </p>
    *             </li>
@@ -1740,6 +1755,11 @@ export interface EnablePolicyTypeRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
    *                </p>
    *             </li>
    *             <li>
@@ -2030,6 +2050,11 @@ export interface ListAccountsWithInvalidEffectivePolicyRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
    *                </p>
    *             </li>
@@ -2097,6 +2122,11 @@ export interface ListAccountsWithInvalidEffectivePolicyResponse {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
    *                </p>
    *             </li>
    *             <li>
@@ -2568,6 +2598,11 @@ export interface ListEffectivePolicyValidationErrorsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
    *                </p>
    *             </li>
@@ -2669,6 +2704,11 @@ export interface ListEffectivePolicyValidationErrorsResponse {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
    *                </p>
    *             </li>
    *             <li>
@@ -3103,6 +3143,11 @@ export interface ListPoliciesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a>
    *                </p>
    *             </li>
@@ -3221,6 +3266,11 @@ export interface ListPoliciesForTargetRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a>
    *                </p>
    *             </li>
    *             <li>
