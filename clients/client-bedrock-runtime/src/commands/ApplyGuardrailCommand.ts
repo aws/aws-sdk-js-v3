@@ -329,6 +329,15 @@ export interface ApplyGuardrailCommandOutput extends ApplyGuardrailResponse, __M
  * //           },
  * //         },
  * //       },
+ * //       appliedGuardrailDetails: { // AppliedGuardrailDetails
+ * //         guardrailId: "STRING_VALUE",
+ * //         guardrailVersion: "STRING_VALUE",
+ * //         guardrailArn: "STRING_VALUE",
+ * //         guardrailOrigin: [ // GuardrailOriginList
+ * //           "REQUEST" || "ACCOUNT_ENFORCED" || "ORGANIZATION_ENFORCED",
+ * //         ],
+ * //         guardrailOwnership: "SELF" || "CROSS_ACCOUNT",
+ * //       },
  * //     },
  * //   ],
  * //   guardrailCoverage: {

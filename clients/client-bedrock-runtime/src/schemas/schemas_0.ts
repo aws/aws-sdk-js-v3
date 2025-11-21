@@ -1,6 +1,7 @@
 const _A = "Accept";
 const _ADE = "AccessDeniedException";
 const _AG = "ApplyGuardrail";
+const _AGD = "AppliedGuardrailDetails";
 const _AGR = "ApplyGuardrailRequest";
 const _AGRp = "ApplyGuardrailResponse";
 const _AIM = "AsyncInvokeMessage";
@@ -216,6 +217,7 @@ const _XABPL = "X-Amzn-Bedrock-PerformanceConfig-Latency";
 const _XABST = "X-Amzn-Bedrock-Service-Tier";
 const _XABT = "X-Amzn-Bedrock-Trace";
 const _a = "action";
+const _aGD = "appliedGuardrailDetails";
 const _aIS = "asyncInvokeSummaries";
 const _aMRF = "additionalModelRequestFields";
 const _aMRFP = "additionalModelResponseFieldPaths";
@@ -279,10 +281,14 @@ const _fS = "filterStrength";
 const _fi = "findings";
 const _fil = "filters";
 const _g = "guardrail";
+const _gA = "guardrailArn";
 const _gC = "guardrailCoverage";
 const _gCu = "guardrailConfig";
 const _gCua = "guardContent";
-const _gI = "guardrailIdentifier";
+const _gI = "guardrailId";
+const _gIu = "guardrailIdentifier";
+const _gO = "guardrailOrigin";
+const _gOu = "guardrailOwnership";
 const _gPL = "guardrailProcessingLatency";
 const _gV = "guardrailVersion";
 const _gu = "guarded";
@@ -484,12 +490,20 @@ export var AccessDeniedException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
 
 export var AnyToolChoice: StaticStructureSchema = [3, n0, _ATC, 0, [], []];
+export var AppliedGuardrailDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _AGD,
+  0,
+  [_gI, _gV, _gA, _gO, _gOu],
+  [0, 0, 0, 64 | 0, 0],
+];
 export var ApplyGuardrailRequest: StaticStructureSchema = [
   3,
   n0,
   _AGR,
   0,
-  [_gI, _gV, _s, _co, _oS],
+  [_gIu, _gV, _s, _co, _oS],
   [[0, 1], [0, 1], 0, [() => GuardrailContentBlockList, 0], 0],
 ];
 export var ApplyGuardrailResponse: StaticStructureSchema = [
@@ -720,7 +734,7 @@ export var GuardrailAssessment: StaticStructureSchema = [
   n0,
   _GA,
   0,
-  [_tP, _cP, _wP, _sIP, _cGP, _aRP, _iM],
+  [_tP, _cP, _wP, _sIP, _cGP, _aRP, _iM, _aGD],
   [
     () => GuardrailTopicPolicyAssessment,
     () => GuardrailContentPolicyAssessment,
@@ -729,6 +743,7 @@ export var GuardrailAssessment: StaticStructureSchema = [
     () => GuardrailContextualGroundingPolicyAssessment,
     [() => GuardrailAutomatedReasoningPolicyAssessment, 0],
     () => GuardrailInvocationMetrics,
+    () => AppliedGuardrailDetails,
   ],
 ];
 export var GuardrailAutomatedReasoningImpossibleFinding: StaticStructureSchema = [
@@ -860,7 +875,7 @@ export var GuardrailAutomatedReasoningValidFinding: StaticStructureSchema = [
     [() => GuardrailAutomatedReasoningLogicWarning, 0],
   ],
 ];
-export var GuardrailConfiguration: StaticStructureSchema = [3, n0, _GC, 0, [_gI, _gV, _tr], [0, 0, 0]];
+export var GuardrailConfiguration: StaticStructureSchema = [3, n0, _GC, 0, [_gIu, _gV, _tr], [0, 0, 0]];
 export var GuardrailContentFilter: StaticStructureSchema = [3, n0, _GCF, 0, [_t, _conf, _fS, _a, _de], [0, 0, 0, 0, 2]];
 export var GuardrailContentPolicyAssessment: StaticStructureSchema = [
   3,
@@ -933,7 +948,7 @@ export var GuardrailSensitiveInformationPolicyAssessment: StaticStructureSchema 
   [_pE, _re],
   [() => GuardrailPiiEntityFilterList, () => GuardrailRegexFilterList],
 ];
-export var GuardrailStreamConfiguration: StaticStructureSchema = [3, n0, _GSC, 0, [_gI, _gV, _tr, _sPM], [0, 0, 0, 0]];
+export var GuardrailStreamConfiguration: StaticStructureSchema = [3, n0, _GSC, 0, [_gIu, _gV, _tr, _sPM], [0, 0, 0, 0]];
 export var GuardrailTextBlock: StaticStructureSchema = [3, n0, _GTB, 0, [_te, _q], [0, 64 | 0]];
 export var GuardrailTextCharactersCoverage: StaticStructureSchema = [3, n0, _GTCC, 0, [_gu, _to], [1, 1]];
 export var GuardrailTopic: StaticStructureSchema = [3, n0, _GT, 0, [_n, _t, _a, _de], [0, 0, 0, 2]];
@@ -989,7 +1004,7 @@ export var InvokeModelRequest: StaticStructureSchema = [
   n0,
   _IMR,
   0,
-  [_bo, _cT, _ac, _mI, _tr, _gI, _gV, _pCL, _sTe],
+  [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
   [
     [() => Body, 16],
     [
@@ -1090,7 +1105,7 @@ export var InvokeModelWithResponseStreamRequest: StaticStructureSchema = [
   n0,
   _IMWRSR,
   0,
-  [_bo, _cT, _ac, _mI, _tr, _gI, _gV, _pCL, _sTe],
+  [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
   [
     [() => Body, 16],
     [
@@ -1469,6 +1484,8 @@ export var GuardrailConverseContentQualifierList = 64 | 0;
 
 export var GuardrailCustomWordList: StaticListSchema = [1, n0, _GCWL, 0, () => GuardrailCustomWord];
 export var GuardrailManagedWordList: StaticListSchema = [1, n0, _GMWL, 0, () => GuardrailManagedWord];
+export var GuardrailOriginList = 64 | 0;
+
 export var GuardrailOutputContentList: StaticListSchema = [1, n0, _GOCL, 0, () => GuardrailOutputContent];
 export var GuardrailPiiEntityFilterList: StaticListSchema = [1, n0, _GPEFL, 0, () => GuardrailPiiEntityFilter];
 export var GuardrailRegexFilterList: StaticListSchema = [1, n0, _GRFL, 0, () => GuardrailRegexFilter];

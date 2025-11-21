@@ -20,7 +20,9 @@ import {
   GuardrailConverseImageFormat,
   GuardrailImageFormat,
   GuardrailManagedWordType,
+  GuardrailOrigin,
   GuardrailOutputScope,
+  GuardrailOwnership,
   GuardrailPiiEntityType,
   GuardrailSensitiveInformationPolicyAction,
   GuardrailStreamProcessingMode,
@@ -529,6 +531,42 @@ export interface ApplyGuardrailRequest {
    * @public
    */
   outputScope?: GuardrailOutputScope | undefined;
+}
+
+/**
+ * <p>Details about the specific guardrail that was applied during this assessment, including its identifier, version, ARN, origin, and ownership information.</p>
+ * @public
+ */
+export interface AppliedGuardrailDetails {
+  /**
+   * <p>The unique ID of the guardrail that was applied.</p>
+   * @public
+   */
+  guardrailId?: string | undefined;
+
+  /**
+   * <p>The version of the guardrail that was applied.</p>
+   * @public
+   */
+  guardrailVersion?: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail that was applied.</p>
+   * @public
+   */
+  guardrailArn?: string | undefined;
+
+  /**
+   * <p>The origin of how the guardrail was applied. This can be either requested at the API level or enforced at the account or organization level as a default guardrail.</p>
+   * @public
+   */
+  guardrailOrigin?: GuardrailOrigin[] | undefined;
+
+  /**
+   * <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
+   * @public
+   */
+  guardrailOwnership?: GuardrailOwnership | undefined;
 }
 
 /**
@@ -1444,6 +1482,12 @@ export interface GuardrailAssessment {
    * @public
    */
   invocationMetrics?: GuardrailInvocationMetrics | undefined;
+
+  /**
+   * <p>Details about the specific guardrail that was applied during this assessment, including its identifier, version, ARN, origin, and ownership information.</p>
+   * @public
+   */
+  appliedGuardrailDetails?: AppliedGuardrailDetails | undefined;
 }
 
 /**
@@ -1508,13 +1552,13 @@ export interface GuardrailConfiguration {
    * <p>The identifier for the guardrail.</p>
    * @public
    */
-  guardrailIdentifier: string | undefined;
+  guardrailIdentifier?: string | undefined;
 
   /**
    * <p>The version of the guardrail.</p>
    * @public
    */
-  guardrailVersion: string | undefined;
+  guardrailVersion?: string | undefined;
 
   /**
    * <p>The trace behavior for the guardrail.</p>
@@ -3614,13 +3658,13 @@ export interface GuardrailStreamConfiguration {
    * <p>The identifier for the guardrail.</p>
    * @public
    */
-  guardrailIdentifier: string | undefined;
+  guardrailIdentifier?: string | undefined;
 
   /**
    * <p>The version of the guardrail.</p>
    * @public
    */
-  guardrailVersion: string | undefined;
+  guardrailVersion?: string | undefined;
 
   /**
    * <p>The trace behavior for the guardrail.</p>

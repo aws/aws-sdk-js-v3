@@ -291,8 +291,8 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *     },
  *   },
  *   guardrailConfig: { // GuardrailConfiguration
- *     guardrailIdentifier: "STRING_VALUE", // required
- *     guardrailVersion: "STRING_VALUE", // required
+ *     guardrailIdentifier: "STRING_VALUE",
+ *     guardrailVersion: "STRING_VALUE",
  *     trace: "enabled" || "disabled" || "enabled_full",
  *   },
  *   additionalModelRequestFields: "DOCUMENT_VALUE",
@@ -782,6 +782,15 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               },
  * //             },
  * //           },
+ * //           appliedGuardrailDetails: { // AppliedGuardrailDetails
+ * //             guardrailId: "STRING_VALUE",
+ * //             guardrailVersion: "STRING_VALUE",
+ * //             guardrailArn: "STRING_VALUE",
+ * //             guardrailOrigin: [ // GuardrailOriginList
+ * //               "REQUEST" || "ACCOUNT_ENFORCED" || "ORGANIZATION_ENFORCED",
+ * //             ],
+ * //             guardrailOwnership: "SELF" || "CROSS_ACCOUNT",
+ * //           },
  * //         },
  * //       },
  * //       outputAssessments: { // GuardrailAssessmentListMap
@@ -936,6 +945,15 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                   total: Number("int"),
  * //                 },
  * //               },
+ * //             },
+ * //             appliedGuardrailDetails: {
+ * //               guardrailId: "STRING_VALUE",
+ * //               guardrailVersion: "STRING_VALUE",
+ * //               guardrailArn: "STRING_VALUE",
+ * //               guardrailOrigin: [
+ * //                 "REQUEST" || "ACCOUNT_ENFORCED" || "ORGANIZATION_ENFORCED",
+ * //               ],
+ * //               guardrailOwnership: "SELF" || "CROSS_ACCOUNT",
  * //             },
  * //           },
  * //         ],

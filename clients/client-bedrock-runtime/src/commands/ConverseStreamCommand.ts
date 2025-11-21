@@ -291,8 +291,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *     },
  *   },
  *   guardrailConfig: { // GuardrailStreamConfiguration
- *     guardrailIdentifier: "STRING_VALUE", // required
- *     guardrailVersion: "STRING_VALUE", // required
+ *     guardrailIdentifier: "STRING_VALUE",
+ *     guardrailVersion: "STRING_VALUE",
  *     trace: "enabled" || "disabled" || "enabled_full",
  *     streamProcessingMode: "sync" || "async",
  *   },
@@ -664,6 +664,15 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                   },
  * //                 },
  * //               },
+ * //               appliedGuardrailDetails: { // AppliedGuardrailDetails
+ * //                 guardrailId: "STRING_VALUE",
+ * //                 guardrailVersion: "STRING_VALUE",
+ * //                 guardrailArn: "STRING_VALUE",
+ * //                 guardrailOrigin: [ // GuardrailOriginList
+ * //                   "REQUEST" || "ACCOUNT_ENFORCED" || "ORGANIZATION_ENFORCED",
+ * //                 ],
+ * //                 guardrailOwnership: "SELF" || "CROSS_ACCOUNT",
+ * //               },
  * //             },
  * //           },
  * //           outputAssessments: { // GuardrailAssessmentListMap
@@ -818,6 +827,15 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                       total: Number("int"),
  * //                     },
  * //                   },
+ * //                 },
+ * //                 appliedGuardrailDetails: {
+ * //                   guardrailId: "STRING_VALUE",
+ * //                   guardrailVersion: "STRING_VALUE",
+ * //                   guardrailArn: "STRING_VALUE",
+ * //                   guardrailOrigin: [
+ * //                     "REQUEST" || "ACCOUNT_ENFORCED" || "ORGANIZATION_ENFORCED",
+ * //                   ],
+ * //                   guardrailOwnership: "SELF" || "CROSS_ACCOUNT",
  * //                 },
  * //               },
  * //             ],

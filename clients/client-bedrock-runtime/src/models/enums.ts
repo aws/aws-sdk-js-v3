@@ -108,6 +108,33 @@ export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAct
  * @public
  * @enum
  */
+export const GuardrailOrigin = {
+  ACCOUNT_ENFORCED: "ACCOUNT_ENFORCED",
+  ORGANIZATION_ENFORCED: "ORGANIZATION_ENFORCED",
+  REQUEST: "REQUEST",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailOrigin = (typeof GuardrailOrigin)[keyof typeof GuardrailOrigin];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailOwnership = {
+  CROSS_ACCOUNT: "CROSS_ACCOUNT",
+  SELF: "SELF",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailOwnership = (typeof GuardrailOwnership)[keyof typeof GuardrailOwnership];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailAutomatedReasoningLogicWarningType = {
   ALWAYS_FALSE: "ALWAYS_FALSE",
   ALWAYS_TRUE: "ALWAYS_TRUE",
