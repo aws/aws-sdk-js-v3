@@ -148,6 +148,40 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The identifier of the resource that caused the conflict.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource that caused the conflict.</p>
+   * @public
+   */
+  resourceType?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
  * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
  * @public
  */

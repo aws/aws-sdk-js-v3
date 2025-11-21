@@ -1,5 +1,17 @@
 // smithy-typescript generated code
-import { InvoiceType, ListInvoiceSummariesResourceType } from "./enums";
+import {
+  BuyerDomain,
+  ConnectionTestingMethod,
+  EinvoiceDeliveryAttachmentType,
+  EinvoiceDeliveryDocumentType,
+  InvoiceType,
+  ListInvoiceSummariesResourceType,
+  ProcurementPortalName,
+  ProcurementPortalPreferenceStatus,
+  Protocol,
+  PurchaseOrderDataSourceType,
+  SupplierDomain,
+} from "./enums";
 
 /**
  * <p> The discounted amount. </p>
@@ -318,6 +330,24 @@ export interface BillingPeriod {
 }
 
 /**
+ * <p>Represents contact information for a person or role associated with the procurement portal preference.</p>
+ * @public
+ */
+export interface Contact {
+  /**
+   * <p>The name of the contact person or role.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The email address of the contact person or role.</p>
+   * @public
+   */
+  Email?: string | undefined;
+}
+
+/**
  * <p>The tag structure that contains a tag key and value. </p>
  * @public
  */
@@ -406,6 +436,232 @@ export interface CreateInvoiceUnitResponse {
 }
 
 /**
+ * <p>Specifies the source configuration for retrieving purchase order data.</p>
+ * @public
+ */
+export interface PurchaseOrderDataSource {
+  /**
+   * <p>The type of e-invoice document that requires purchase order data.</p>
+   * @public
+   */
+  EinvoiceDeliveryDocumentType?: EinvoiceDeliveryDocumentType | undefined;
+
+  /**
+   * <p>The type of source for purchase order data.</p>
+   * @public
+   */
+  PurchaseOrderDataSourceType?: PurchaseOrderDataSourceType | undefined;
+}
+
+/**
+ * <p>Specifies the preferences for e-invoice delivery, including document types, attachment types, and customization settings.</p>
+ * @public
+ */
+export interface EinvoiceDeliveryPreference {
+  /**
+   * <p>The types of e-invoice documents to be delivered.</p>
+   * @public
+   */
+  EinvoiceDeliveryDocumentTypes: EinvoiceDeliveryDocumentType[] | undefined;
+
+  /**
+   * <p>The types of attachments to include with the e-invoice delivery.</p>
+   * @public
+   */
+  EinvoiceDeliveryAttachmentTypes?: EinvoiceDeliveryAttachmentType[] | undefined;
+
+  /**
+   * <p>The communication protocol to use for e-invoice delivery.</p>
+   * @public
+   */
+  Protocol: Protocol | undefined;
+
+  /**
+   * <p>The sources of purchase order data to use for e-invoice generation and delivery.</p>
+   * @public
+   */
+  PurchaseOrderDataSources: PurchaseOrderDataSource[] | undefined;
+
+  /**
+   * <p>The method to use for testing the connection to the procurement portal.</p>
+   * @public
+   */
+  ConnectionTestingMethod: ConnectionTestingMethod | undefined;
+
+  /**
+   * <p>The date when e-invoice delivery should be activated for this preference.</p>
+   * @public
+   */
+  EinvoiceDeliveryActivationDate: Date | undefined;
+}
+
+/**
+ * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+ * @public
+ */
+export interface ProcurementPortalPreferenceSelector {
+  /**
+   * <p> The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies. </p>
+   * @public
+   */
+  InvoiceUnitArns?: string[] | undefined;
+
+  /**
+   * <p> The list of seller of record IDs to which this preference applies. </p>
+   * @public
+   */
+  SellerOfRecords?: string[] | undefined;
+}
+
+/**
+ * <p>Input parameters for configuring test environment preferences for a procurement portal.</p>
+ * @public
+ */
+export interface TestEnvPreferenceInput {
+  /**
+   * <p>The domain identifier to use for the buyer in the test environment.</p>
+   * @public
+   */
+  BuyerDomain: BuyerDomain | undefined;
+
+  /**
+   * <p>The unique identifier to use for the buyer in the test environment.</p>
+   * @public
+   */
+  BuyerIdentifier: string | undefined;
+
+  /**
+   * <p>The domain identifier to use for the supplier in the test environment.</p>
+   * @public
+   */
+  SupplierDomain: SupplierDomain | undefined;
+
+  /**
+   * <p>The unique identifier to use for the supplier in the test environment.</p>
+   * @public
+   */
+  SupplierIdentifier: string | undefined;
+
+  /**
+   * <p>The shared secret or authentication credential to use for secure communication in the test environment.</p>
+   * @public
+   */
+  ProcurementPortalSharedSecret?: string | undefined;
+
+  /**
+   * <p>The endpoint URL where e-invoices will be delivered in the test environment.</p>
+   * @public
+   */
+  ProcurementPortalInstanceEndpoint?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProcurementPortalPreferenceRequest {
+  /**
+   * <p>The name of the procurement portal.</p>
+   * @public
+   */
+  ProcurementPortalName: ProcurementPortalName | undefined;
+
+  /**
+   * <p>The domain identifier for the buyer in the procurement portal.</p>
+   * @public
+   */
+  BuyerDomain: BuyerDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the buyer in the procurement portal. </p>
+   * @public
+   */
+  BuyerIdentifier: string | undefined;
+
+  /**
+   * <p>The domain identifier for the supplier in the procurement portal.</p>
+   * @public
+   */
+  SupplierDomain: SupplierDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the supplier in the procurement portal.</p>
+   * @public
+   */
+  SupplierIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * @public
+   */
+  Selector?: ProcurementPortalPreferenceSelector | undefined;
+
+  /**
+   * <p>The shared secret or authentication credential used to establish secure communication with the procurement portal. This value must be encrypted at rest.</p>
+   * @public
+   */
+  ProcurementPortalSharedSecret?: string | undefined;
+
+  /**
+   * <p>The endpoint URL where e-invoices will be delivered to the procurement portal. Must be a valid HTTPS URL.</p>
+   * @public
+   */
+  ProcurementPortalInstanceEndpoint?: string | undefined;
+
+  /**
+   * <p>Configuration settings for the test environment of the procurement portal. Includes test credentials and endpoints that are used for validation before production deployment.</p>
+   * @public
+   */
+  TestEnvPreference?: TestEnvPreferenceInput | undefined;
+
+  /**
+   * <p>Indicates whether e-invoice delivery is enabled for this procurement portal preference. Set to true to enable e-invoice delivery, false to disable.</p>
+   * @public
+   */
+  EinvoiceDeliveryEnabled: boolean | undefined;
+
+  /**
+   * <p>Specifies the e-invoice delivery configuration including document types, attachment types, and customization settings for the portal.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreference?: EinvoiceDeliveryPreference | undefined;
+
+  /**
+   * <p>Indicates whether purchase order retrieval is enabled for this procurement portal preference. Set to true to enable PO retrieval, false to disable.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalEnabled: boolean | undefined;
+
+  /**
+   * <p>List of contact information for portal administrators and technical contacts responsible for the e-invoice integration.</p>
+   * @public
+   */
+  Contacts: Contact[] | undefined;
+
+  /**
+   * <p>The tags to apply to this procurement portal preference resource. Each tag consists of a key and an optional value.</p>
+   * @public
+   */
+  ResourceTags?: ResourceTag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProcurementPortalPreferenceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created procurement portal preference.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+}
+
+/**
  * <p>The details of currency exchange. </p>
  * @public
  */
@@ -467,6 +723,28 @@ export interface DeleteInvoiceUnitResponse {
    * @public
    */
   InvoiceUnitArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProcurementPortalPreferenceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to delete.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProcurementPortalPreferenceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted procurement portal preference.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
 }
 
 /**
@@ -643,6 +921,220 @@ export interface GetInvoiceUnitResponse {
    * @public
    */
   LastModified?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProcurementPortalPreferenceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to retrieve.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+}
+
+/**
+ * <p>Contains configuration settings for testing the procurement portal integration in a non-production environment.</p>
+ * @public
+ */
+export interface TestEnvPreference {
+  /**
+   * <p>The domain identifier for the buyer in the test environment of the procurement portal.</p>
+   * @public
+   */
+  BuyerDomain: BuyerDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the buyer in the test environment of the procurement portal.</p>
+   * @public
+   */
+  BuyerIdentifier: string | undefined;
+
+  /**
+   * <p>The domain identifier for the supplier in the test environment of the procurement portal.</p>
+   * @public
+   */
+  SupplierDomain: SupplierDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the supplier in the test environment of the procurement portal.</p>
+   * @public
+   */
+  SupplierIdentifier: string | undefined;
+
+  /**
+   * <p>The shared secret or authentication credential used for secure communication with the test environment.</p>
+   * @public
+   */
+  ProcurementPortalSharedSecret?: string | undefined;
+
+  /**
+   * <p>The endpoint URL where e-invoices are delivered in the test environment.</p>
+   * @public
+   */
+  ProcurementPortalInstanceEndpoint?: string | undefined;
+
+  /**
+   * <p>The endpoint URL used for retrieving purchase orders in the test environment.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalEndpoint?: string | undefined;
+}
+
+/**
+ * <p>Represents the full configuration of a procurement portal preference, including settings for e-invoice delivery and purchase order retrieval.</p>
+ * @public
+ */
+export interface ProcurementPortalPreference {
+  /**
+   * <p>The Amazon Web Services account ID associated with this procurement portal preference.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+
+  /**
+   * <p>The name of the procurement portal.</p>
+   * @public
+   */
+  ProcurementPortalName: ProcurementPortalName | undefined;
+
+  /**
+   * <p>The domain identifier for the buyer in the procurement portal.</p>
+   * @public
+   */
+  BuyerDomain: BuyerDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the buyer in the procurement portal.</p>
+   * @public
+   */
+  BuyerIdentifier: string | undefined;
+
+  /**
+   * <p>The domain identifier for the supplier in the procurement portal.</p>
+   * @public
+   */
+  SupplierDomain: SupplierDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the supplier in the procurement portal.</p>
+   * @public
+   */
+  SupplierIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * @public
+   */
+  Selector?: ProcurementPortalPreferenceSelector | undefined;
+
+  /**
+   * <p>The shared secret or authentication credential used for secure communication with the procurement portal.</p>
+   * @public
+   */
+  ProcurementPortalSharedSecret?: string | undefined;
+
+  /**
+   * <p>The endpoint URL where e-invoices are delivered to the procurement portal.</p>
+   * @public
+   */
+  ProcurementPortalInstanceEndpoint?: string | undefined;
+
+  /**
+   * <p>The endpoint URL used for retrieving purchase orders from the procurement portal.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalEndpoint?: string | undefined;
+
+  /**
+   * <p>Configuration on settings for the test environment of the procurement portal.</p>
+   * @public
+   */
+  TestEnvPreference?: TestEnvPreference | undefined;
+
+  /**
+   * <p>Indicates whether e-invoice delivery is enabled for this procurement portal preference.</p>
+   * @public
+   */
+  EinvoiceDeliveryEnabled: boolean | undefined;
+
+  /**
+   * <p>The configuration settings that specify how e-invoices are delivered to the procurement portal.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreference?: EinvoiceDeliveryPreference | undefined;
+
+  /**
+   * <p>Indicates whether purchase order retrieval is enabled for this procurement portal preference.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalEnabled: boolean | undefined;
+
+  /**
+   * <p>List of contact information for portal administrators and technical contacts.</p>
+   * @public
+   */
+  Contacts?: Contact[] | undefined;
+
+  /**
+   * <p>The current status of the e-invoice delivery preference.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
+
+  /**
+   * <p>The reason for the current e-invoice delivery preference status.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreferenceStatusReason?: string | undefined;
+
+  /**
+   * <p>The current status of the purchase order retrieval preference.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
+
+  /**
+   * <p>The reason for the current purchase order retrieval preference status.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalPreferenceStatusReason?: string | undefined;
+
+  /**
+   * <p>The version number of the procurement portal preference configuration.</p>
+   * @public
+   */
+  Version: number | undefined;
+
+  /**
+   * <p>The date and time when the procurement portal preference was created.</p>
+   * @public
+   */
+  CreateDate: Date | undefined;
+
+  /**
+   * <p>The date and time when the procurement portal preference was last updated.</p>
+   * @public
+   */
+  LastUpdateDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProcurementPortalPreferenceResponse {
+  /**
+   * <p>The detailed configuration of the requested procurement portal preference.</p>
+   * @public
+   */
+  ProcurementPortalPreference: ProcurementPortalPreference | undefined;
 }
 
 /**
@@ -944,6 +1436,148 @@ export interface ListInvoiceUnitsResponse {
 /**
  * @public
  */
+export interface ListProcurementPortalPreferencesRequest {
+  /**
+   * <p>The token for the next set of results. (You received this token from a previous call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides a summary of a procurement portal preference, including key identifiers and status information.</p>
+ * @public
+ */
+export interface ProcurementPortalPreferenceSummary {
+  /**
+   * <p>The Amazon Web Services account ID associated with this procurement portal preference summary.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+
+  /**
+   * <p>The name of the procurement portal.</p>
+   * @public
+   */
+  ProcurementPortalName: ProcurementPortalName | undefined;
+
+  /**
+   * <p>The domain identifier for the buyer in the procurement portal.</p>
+   * @public
+   */
+  BuyerDomain: BuyerDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the buyer in the procurement portal.</p>
+   * @public
+   */
+  BuyerIdentifier: string | undefined;
+
+  /**
+   * <p>The domain identifier for the supplier in the procurement portal.</p>
+   * @public
+   */
+  SupplierDomain: SupplierDomain | undefined;
+
+  /**
+   * <p>The unique identifier for the supplier in the procurement portal.</p>
+   * @public
+   */
+  SupplierIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * @public
+   */
+  Selector?: ProcurementPortalPreferenceSelector | undefined;
+
+  /**
+   * <p>Indicates whether e-invoice delivery is enabled for this procurement portal preference.</p>
+   * @public
+   */
+  EinvoiceDeliveryEnabled: boolean | undefined;
+
+  /**
+   * <p>Indicates whether purchase order retrieval is enabled for this procurement portal preference.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalEnabled: boolean | undefined;
+
+  /**
+   * <p>The current status of the e-invoice delivery preference in this summary.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
+
+  /**
+   * <p>The reason for the current e-invoice delivery preference status in this summary.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreferenceStatusReason?: string | undefined;
+
+  /**
+   * <p>The current status of the purchase order retrieval preference in this summary.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
+
+  /**
+   * <p>The reason for the current purchase order retrieval preference status in this summary.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalPreferenceStatusReason?: string | undefined;
+
+  /**
+   * <p>The version number of the procurement portal preference configuration in this summary.</p>
+   * @public
+   */
+  Version: number | undefined;
+
+  /**
+   * <p>The date and time when the procurement portal preference was created.</p>
+   * @public
+   */
+  CreateDate: Date | undefined;
+
+  /**
+   * <p>The date and time when the procurement portal preference was last updated.</p>
+   * @public
+   */
+  LastUpdateDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProcurementPortalPreferencesResponse {
+  /**
+   * <p>The list of procurement portal preferences associated with the Amazon Web Services account.</p>
+   * @public
+   */
+  ProcurementPortalPreferences?: ProcurementPortalPreferenceSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of tags to list. </p>
@@ -961,6 +1595,76 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProcurementPortalPreferenceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to update.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+
+  /**
+   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * @public
+   */
+  Selector?: ProcurementPortalPreferenceSelector | undefined;
+
+  /**
+   * <p>The updated shared secret or authentication credential for the procurement portal. This value must be encrypted at rest.</p>
+   * @public
+   */
+  ProcurementPortalSharedSecret?: string | undefined;
+
+  /**
+   * <p>The updated endpoint URL where e-invoices will be delivered to the procurement portal. Must be a valid HTTPS URL.</p>
+   * @public
+   */
+  ProcurementPortalInstanceEndpoint?: string | undefined;
+
+  /**
+   * <p>Updated configuration settings for the test environment of the procurement portal.</p>
+   * @public
+   */
+  TestEnvPreference?: TestEnvPreferenceInput | undefined;
+
+  /**
+   * <p>Updated flag indicating whether e-invoice delivery is enabled for this procurement portal preference.</p>
+   * @public
+   */
+  EinvoiceDeliveryEnabled: boolean | undefined;
+
+  /**
+   * <p>Updated e-invoice delivery configuration including document types, attachment types, and customization settings for the portal.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreference?: EinvoiceDeliveryPreference | undefined;
+
+  /**
+   * <p>Updated flag indicating whether purchase order retrieval is enabled for this procurement portal preference.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalEnabled: boolean | undefined;
+
+  /**
+   * <p>Updated list of contact information for portal administrators and technical contacts.</p>
+   * @public
+   */
+  Contacts: Contact[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProcurementPortalPreferenceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated procurement portal preference.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
 }
 
 /**
@@ -1045,4 +1749,50 @@ export interface UpdateInvoiceUnitResponse {
    * @public
    */
   InvoiceUnitArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProcurementPortalPreferenceStatusRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to update.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+
+  /**
+   * <p>The updated status of the e-invoice delivery preference.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
+
+  /**
+   * <p>The reason for the e-invoice delivery preference status update, providing context for the change.</p>
+   * @public
+   */
+  EinvoiceDeliveryPreferenceStatusReason?: string | undefined;
+
+  /**
+   * <p>The updated status of the purchase order retrieval preference.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
+
+  /**
+   * <p>The reason for the purchase order retrieval preference status update, providing context for the change.</p>
+   * @public
+   */
+  PurchaseOrderRetrievalPreferenceStatusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProcurementPortalPreferenceStatusResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference with updated status.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
 }

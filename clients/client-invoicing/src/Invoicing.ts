@@ -13,10 +13,20 @@ import {
   CreateInvoiceUnitCommandOutput,
 } from "./commands/CreateInvoiceUnitCommand";
 import {
+  CreateProcurementPortalPreferenceCommand,
+  CreateProcurementPortalPreferenceCommandInput,
+  CreateProcurementPortalPreferenceCommandOutput,
+} from "./commands/CreateProcurementPortalPreferenceCommand";
+import {
   DeleteInvoiceUnitCommand,
   DeleteInvoiceUnitCommandInput,
   DeleteInvoiceUnitCommandOutput,
 } from "./commands/DeleteInvoiceUnitCommand";
+import {
+  DeleteProcurementPortalPreferenceCommand,
+  DeleteProcurementPortalPreferenceCommandInput,
+  DeleteProcurementPortalPreferenceCommandOutput,
+} from "./commands/DeleteProcurementPortalPreferenceCommand";
 import {
   GetInvoicePDFCommand,
   GetInvoicePDFCommandInput,
@@ -28,6 +38,11 @@ import {
   GetInvoiceUnitCommandOutput,
 } from "./commands/GetInvoiceUnitCommand";
 import {
+  GetProcurementPortalPreferenceCommand,
+  GetProcurementPortalPreferenceCommandInput,
+  GetProcurementPortalPreferenceCommandOutput,
+} from "./commands/GetProcurementPortalPreferenceCommand";
+import {
   ListInvoiceSummariesCommand,
   ListInvoiceSummariesCommandInput,
   ListInvoiceSummariesCommandOutput,
@@ -38,10 +53,20 @@ import {
   ListInvoiceUnitsCommandOutput,
 } from "./commands/ListInvoiceUnitsCommand";
 import {
+  ListProcurementPortalPreferencesCommand,
+  ListProcurementPortalPreferencesCommandInput,
+  ListProcurementPortalPreferencesCommandOutput,
+} from "./commands/ListProcurementPortalPreferencesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutProcurementPortalPreferenceCommand,
+  PutProcurementPortalPreferenceCommandInput,
+  PutProcurementPortalPreferenceCommandOutput,
+} from "./commands/PutProcurementPortalPreferenceCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -53,20 +78,31 @@ import {
   UpdateInvoiceUnitCommandInput,
   UpdateInvoiceUnitCommandOutput,
 } from "./commands/UpdateInvoiceUnitCommand";
+import {
+  UpdateProcurementPortalPreferenceStatusCommand,
+  UpdateProcurementPortalPreferenceStatusCommandInput,
+  UpdateProcurementPortalPreferenceStatusCommandOutput,
+} from "./commands/UpdateProcurementPortalPreferenceStatusCommand";
 import { InvoicingClient, InvoicingClientConfig } from "./InvoicingClient";
 
 const commands = {
   BatchGetInvoiceProfileCommand,
   CreateInvoiceUnitCommand,
+  CreateProcurementPortalPreferenceCommand,
   DeleteInvoiceUnitCommand,
+  DeleteProcurementPortalPreferenceCommand,
   GetInvoicePDFCommand,
   GetInvoiceUnitCommand,
+  GetProcurementPortalPreferenceCommand,
   ListInvoiceSummariesCommand,
   ListInvoiceUnitsCommand,
+  ListProcurementPortalPreferencesCommand,
   ListTagsForResourceCommand,
+  PutProcurementPortalPreferenceCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateInvoiceUnitCommand,
+  UpdateProcurementPortalPreferenceStatusCommand,
 };
 
 export interface Invoicing {
@@ -105,6 +141,23 @@ export interface Invoicing {
   ): void;
 
   /**
+   * @see {@link CreateProcurementPortalPreferenceCommand}
+   */
+  createProcurementPortalPreference(
+    args: CreateProcurementPortalPreferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProcurementPortalPreferenceCommandOutput>;
+  createProcurementPortalPreference(
+    args: CreateProcurementPortalPreferenceCommandInput,
+    cb: (err: any, data?: CreateProcurementPortalPreferenceCommandOutput) => void
+  ): void;
+  createProcurementPortalPreference(
+    args: CreateProcurementPortalPreferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProcurementPortalPreferenceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteInvoiceUnitCommand}
    */
   deleteInvoiceUnit(
@@ -119,6 +172,23 @@ export interface Invoicing {
     args: DeleteInvoiceUnitCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInvoiceUnitCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProcurementPortalPreferenceCommand}
+   */
+  deleteProcurementPortalPreference(
+    args: DeleteProcurementPortalPreferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProcurementPortalPreferenceCommandOutput>;
+  deleteProcurementPortalPreference(
+    args: DeleteProcurementPortalPreferenceCommandInput,
+    cb: (err: any, data?: DeleteProcurementPortalPreferenceCommandOutput) => void
+  ): void;
+  deleteProcurementPortalPreference(
+    args: DeleteProcurementPortalPreferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProcurementPortalPreferenceCommandOutput) => void
   ): void;
 
   /**
@@ -144,6 +214,23 @@ export interface Invoicing {
     args: GetInvoiceUnitCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInvoiceUnitCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProcurementPortalPreferenceCommand}
+   */
+  getProcurementPortalPreference(
+    args: GetProcurementPortalPreferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProcurementPortalPreferenceCommandOutput>;
+  getProcurementPortalPreference(
+    args: GetProcurementPortalPreferenceCommandInput,
+    cb: (err: any, data?: GetProcurementPortalPreferenceCommandOutput) => void
+  ): void;
+  getProcurementPortalPreference(
+    args: GetProcurementPortalPreferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProcurementPortalPreferenceCommandOutput) => void
   ): void;
 
   /**
@@ -182,6 +269,24 @@ export interface Invoicing {
   ): void;
 
   /**
+   * @see {@link ListProcurementPortalPreferencesCommand}
+   */
+  listProcurementPortalPreferences(): Promise<ListProcurementPortalPreferencesCommandOutput>;
+  listProcurementPortalPreferences(
+    args: ListProcurementPortalPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProcurementPortalPreferencesCommandOutput>;
+  listProcurementPortalPreferences(
+    args: ListProcurementPortalPreferencesCommandInput,
+    cb: (err: any, data?: ListProcurementPortalPreferencesCommandOutput) => void
+  ): void;
+  listProcurementPortalPreferences(
+    args: ListProcurementPortalPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProcurementPortalPreferencesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -196,6 +301,23 @@ export interface Invoicing {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutProcurementPortalPreferenceCommand}
+   */
+  putProcurementPortalPreference(
+    args: PutProcurementPortalPreferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutProcurementPortalPreferenceCommandOutput>;
+  putProcurementPortalPreference(
+    args: PutProcurementPortalPreferenceCommandInput,
+    cb: (err: any, data?: PutProcurementPortalPreferenceCommandOutput) => void
+  ): void;
+  putProcurementPortalPreference(
+    args: PutProcurementPortalPreferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutProcurementPortalPreferenceCommandOutput) => void
   ): void;
 
   /**
@@ -236,10 +358,27 @@ export interface Invoicing {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInvoiceUnitCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateProcurementPortalPreferenceStatusCommand}
+   */
+  updateProcurementPortalPreferenceStatus(
+    args: UpdateProcurementPortalPreferenceStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProcurementPortalPreferenceStatusCommandOutput>;
+  updateProcurementPortalPreferenceStatus(
+    args: UpdateProcurementPortalPreferenceStatusCommandInput,
+    cb: (err: any, data?: UpdateProcurementPortalPreferenceStatusCommandOutput) => void
+  ): void;
+  updateProcurementPortalPreferenceStatus(
+    args: UpdateProcurementPortalPreferenceStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProcurementPortalPreferenceStatusCommandOutput) => void
+  ): void;
 }
 
 /**
- * <p> <b>Amazon Web Services Invoice Configuration</b> </p> <p>You can use Amazon Web Services Invoice Configuration APIs to programmatically create, update, delete, get, and list invoice units. You can also programmatically fetch the information of the invoice receiver. For example, business legal name, address, and invoicing contacts. </p> <p>You can use Amazon Web Services Invoice Configuration to receive separate Amazon Web Services invoices based your organizational needs. By using Amazon Web Services Invoice Configuration, you can configure invoice units that are groups of Amazon Web Services accounts that represent your business entities, and receive separate invoices for each business entity. You can also assign a unique member or payer account as the invoice receiver for each invoice unit. As you create new accounts within your Organizations using Amazon Web Services Invoice Configuration APIs, you can automate the creation of new invoice units and subsequently automate the addition of new accounts to your invoice units.</p> <p>Service endpoint</p> <p>You can use the following endpoints for Amazon Web Services Invoice Configuration:</p> <ul> <li> <p> <code>https://invoicing.us-east-1.api.aws</code> </p> </li> </ul>
+ * <p> <b>Amazon Web Services Invoice Configuration</b> </p> <p>You can use Amazon Web Services Invoice Configuration APIs to programmatically create, update, delete, get, and list invoice units. You can also programmatically fetch the information of the invoice receiver. For example, business legal name, address, and invoicing contacts. </p> <p>You can use Amazon Web Services Invoice Configuration to receive separate Amazon Web Services invoices based your organizational needs. By using Amazon Web Services Invoice Configuration, you can configure invoice units that are groups of Amazon Web Services accounts that represent your business entities, and receive separate invoices for each business entity. You can also assign a unique member or payer account as the invoice receiver for each invoice unit. As you create new accounts within your Organizations using Amazon Web Services Invoice Configuration APIs, you can automate the creation of new invoice units and subsequently automate the addition of new accounts to your invoice units.</p> <p> <b>Amazon Web Services Procurement Portal Preferences</b> </p> <p>You can use Amazon Web Services Procurement Portal Preferences APIs to programmatically create, update, delete, get, and list procurement portal connections and e-invoice delivery settings. You can also programmatically fetch and modify the status of procurement portal configurations. For example, SAP Business Network or Coupa connections, configure e-invoice delivery and purchase order retrieval features.</p> <p>You can use Amazon Web Services Procurement Portal Preferences to connect e-invoice delivery to your procurement portals based on your organizational needs. By using Amazon Web Services Procurement Portal Preferences, you can configure connections to SAP Business Network and Coupa procurement portals that retrieve purchase orders and deliver Amazon Web Services invoices on the same day they are generated. You can also set up testing environments to validate invoice delivery without affecting live transactions, and manage contact information for portal setup and support. </p> <p>Administrative users should understand that billing read-only policies will show all procurement portal connection details. Review your IAM policies to ensure appropriate access controls are in place for procurement portal preferences.</p> <p> <b>Amazon Web Services Invoice Management</b> </p> <p>You can use Amazon Web Services Invoice Management APIs to programmatically list invoice summaries and get invoice documents. You can also programmatically fetch invoice documents with S3 pre-signed URLs.</p> <p>You can use Amazon Web Services Invoice Management to access invoice information based on your organizational needs. By using Amazon Web Services Invoice Management, you can retrieve paginated lists of invoice summaries that include invoice metadata such as invoice IDs, amounts, and currencies without downloading documents. You can also download invoice documents in PDF format using S3 pre-signed URLs with built-in expiration. As you manage invoices across your organization using Amazon Web Services Invoice Management APIs, you can create invoice retrieval processes and integrate invoice data into your financial systems.</p> <p>Service endpoint</p> <p>You can use the following endpoints for Amazon Web Services Invoice Configuration, Amazon Web Services Procurement Portal Preferences, and Amazon Web Services Invoice Management:</p> <ul> <li> <p> <code>https://invoicing.us-east-1.api.aws</code> </p> </li> </ul>
  * @public
  */
 export class Invoicing extends InvoicingClient implements Invoicing {}
