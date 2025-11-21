@@ -639,7 +639,7 @@ export interface UpdateCodeSigningConfigResponse {
  */
 export interface OnFailure {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination resource.</p> <p>To retain records of unsuccessful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.</p> <note> <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p> </note> <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
+   * <p>The Amazon Resource Name (ARN) of the destination resource.</p> <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">self-managed Apache Kafka</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.</p> <note> <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p> </note> <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
    * @public
    */
   Destination?: string | undefined;
@@ -751,6 +751,12 @@ export interface ProvisionedPollerConfig {
    * @public
    */
   MaximumPollers?: number | undefined;
+
+  /**
+   * <p>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the VPC to share Event Poller Unit (EPU) capacity. This option is used to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.</p>
+   * @public
+   */
+  PollerGroupName?: string | undefined;
 }
 
 /**
@@ -872,25 +878,25 @@ export interface CreateEventSourceMappingRequest {
   StartingPositionTimestamp?: Date | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Kafka only) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
    * @public
    */
   MaximumRecordAgeInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
    * @public
    */
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
@@ -932,7 +938,7 @@ export interface CreateEventSourceMappingRequest {
   SelfManagedEventSource?: SelfManagedEventSource | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    * @public
    */
   FunctionResponseTypes?: FunctionResponseType[] | undefined;
@@ -1082,7 +1088,7 @@ export interface EventSourceMappingConfiguration {
   StateTransitionReason?: string | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
@@ -1112,19 +1118,19 @@ export interface EventSourceMappingConfiguration {
   SelfManagedEventSource?: SelfManagedEventSource | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p> <note> <p>The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed</p> </note>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p> <note> <p>The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed</p> </note>
    * @public
    */
   MaximumRecordAgeInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry. The default value is false.</p>
    * @public
    */
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
@@ -1136,7 +1142,7 @@ export interface EventSourceMappingConfiguration {
   TumblingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    * @public
    */
   FunctionResponseTypes?: FunctionResponseType[] | undefined;
@@ -1305,25 +1311,25 @@ export interface UpdateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Kafka only) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
    * @public
    */
   MaximumRecordAgeInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
    * @public
    */
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
@@ -1347,7 +1353,7 @@ export interface UpdateEventSourceMappingRequest {
   TumblingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    * @public
    */
   FunctionResponseTypes?: FunctionResponseType[] | undefined;

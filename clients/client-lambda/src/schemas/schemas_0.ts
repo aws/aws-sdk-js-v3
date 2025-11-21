@@ -356,6 +356,7 @@ const _PFEICR = "PutFunctionEventInvokeConfigRequest";
 const _PFRC = "PutFunctionRecursionConfig";
 const _PFRCR = "PutFunctionRecursionConfigRequest";
 const _PFRCRu = "PutFunctionRecursionConfigResponse";
+const _PGN = "PollerGroupName";
 const _PLEE = "PolicyLengthExceededException";
 const _PLV = "PublishLayerVersion";
 const _PLVR = "PublishLayerVersionRequest";
@@ -2292,7 +2293,7 @@ TypeRegistry.for(n0).registerError(
   __ProvisionedConcurrencyConfigNotFoundException
 );
 
-export var ProvisionedPollerConfig: StaticStructureSchema = [3, n0, _PPC, 0, [_MP, _MPa], [1, 1]];
+export var ProvisionedPollerConfig: StaticStructureSchema = [3, n0, _PPC, 0, [_MP, _MPa, _PGN], [1, 1, 0]];
 export var PublishLayerVersionRequest: StaticStructureSchema = [
   3,
   n0,

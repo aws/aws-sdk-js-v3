@@ -159,6 +159,7 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * //       ProvisionedPollerConfig: { // ProvisionedPollerConfig
  * //         MinimumPollers: Number("int"),
  * //         MaximumPollers: Number("int"),
+ * //         PollerGroupName: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
