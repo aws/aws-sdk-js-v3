@@ -10,7 +10,6 @@ import {
   AuthMode,
   AutoMountHomeEFS,
   AwsManagedHumanLoopRequestSource,
-  BatchStrategy,
   CapacityReservationPreference,
   CollectionType,
   ContentClassifier,
@@ -33,13 +32,14 @@ import {
   InputMode,
   IPAddressType,
   JobType,
-  JoinSource,
   ManagedInstanceScalingStatus,
   MetricPublishFrequencyInSeconds,
   MlTools,
   ModelApprovalStatus,
   ModelCardStatus,
   ModelInfrastructureType,
+  ModelSpeculativeDecodingS3DataType,
+  ModelSpeculativeDecodingTechnique,
   MonitoringProblemType,
   MonitoringType,
   NotebookInstanceAcceleratorType,
@@ -96,7 +96,6 @@ import {
   AutoParameter,
   AutoRollbackConfig,
   Autotune,
-  BatchDataCaptureConfig,
   BatchTransformInput,
   BestObjectiveNotImproving,
   Bias,
@@ -121,8 +120,6 @@ import {
   CustomImage,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
-  DataQualityJobInput,
-  EndpointInput,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
   MetadataProperties,
@@ -130,20 +127,201 @@ import {
   MetricsSource,
   ModelDataSource,
   MonitoringConstraintsResource,
-  MonitoringOutputConfig,
-  MonitoringResources,
   MonitoringStatisticsResource,
   OutputDataConfig,
   ResourceConfig,
   ResourceSpec,
   StoppingCondition,
   Tag,
-  TransformInput,
   TransformJobDefinition,
-  TransformOutput,
-  TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Input object for the endpoint</p>
+ * @public
+ */
+export interface EndpointInput {
+  /**
+   * <p>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code> enabled.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>Path to the filesystem where the endpoint data is available to the container.</p>
+   * @public
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for transferring data for the monitoring job. <code>Pipe</code> mode is recommended for large datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to <code>File</code>.</p>
+   * @public
+   */
+  S3InputMode?: ProcessingS3InputMode | undefined;
+
+  /**
+   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon S3 key. Defaults to <code>FullyReplicated</code> </p>
+   * @public
+   */
+  S3DataDistributionType?: ProcessingS3DataDistributionType | undefined;
+
+  /**
+   * <p>The attributes of the input data that are the input features.</p>
+   * @public
+   */
+  FeaturesAttribute?: string | undefined;
+
+  /**
+   * <p>The attribute of the input data that represents the ground truth label.</p>
+   * @public
+   */
+  InferenceAttribute?: string | undefined;
+
+  /**
+   * <p>In a classification problem, the attribute that represents the class probability.</p>
+   * @public
+   */
+  ProbabilityAttribute?: string | undefined;
+
+  /**
+   * <p>The threshold for the class probability to be evaluated as a positive result.</p>
+   * @public
+   */
+  ProbabilityThresholdAttribute?: number | undefined;
+
+  /**
+   * <p>If specified, monitoring jobs substract this time from the start time. For information about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model Quality Monitoring Jobs</a>.</p>
+   * @public
+   */
+  StartTimeOffset?: string | undefined;
+
+  /**
+   * <p>If specified, monitoring jobs substract this time from the end time. For information about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model Quality Monitoring Jobs</a>.</p>
+   * @public
+   */
+  EndTimeOffset?: string | undefined;
+
+  /**
+   * <p>The attributes of the input data to exclude from the analysis.</p>
+   * @public
+   */
+  ExcludeFeaturesAttribute?: string | undefined;
+}
+
+/**
+ * <p>The input for the data quality monitoring job. Currently endpoints are supported for input.</p>
+ * @public
+ */
+export interface DataQualityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+}
+
+/**
+ * <p>Information about where and how you want to store the results of a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringS3Output {
+  /**
+   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data.</p>
+   * @public
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * <p>Whether to upload the results of the monitoring job continuously or after the job completes.</p>
+   * @public
+   */
+  S3UploadMode?: ProcessingS3UploadMode | undefined;
+}
+
+/**
+ * <p>The output object for a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringOutput {
+  /**
+   * <p>The Amazon S3 storage location where the results of a monitoring job are saved.</p>
+   * @public
+   */
+  S3Output: MonitoringS3Output | undefined;
+}
+
+/**
+ * <p>The output configuration for monitoring jobs.</p>
+ * @public
+ */
+export interface MonitoringOutputConfig {
+  /**
+   * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.</p>
+   * @public
+   */
+  MonitoringOutputs: MonitoringOutput[] | undefined;
+
+  /**
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+}
+
+/**
+ * <p>Configuration for the cluster used to run model monitoring jobs.</p>
+ * @public
+ */
+export interface MonitoringClusterConfig {
+  /**
+   * <p>The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The ML compute instance type for the processing job.</p>
+   * @public
+   */
+  InstanceType: ProcessingInstanceType | undefined;
+
+  /**
+   * <p>The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.</p>
+   * @public
+   */
+  VolumeSizeInGB: number | undefined;
+
+  /**
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.</p>
+   * @public
+   */
+  VolumeKmsKeyId?: string | undefined;
+}
+
+/**
+ * <p>Identifies the resources to deploy for a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringResources {
+  /**
+   * <p>The configuration for the cluster resources used to run the processing job.</p>
+   * @public
+   */
+  ClusterConfig: MonitoringClusterConfig | undefined;
+}
 
 /**
  * <p>The networking configuration for the monitoring job.</p>
@@ -6110,6 +6288,18 @@ export interface OptimizationJobModelSourceS3 {
 }
 
 /**
+ * <p>A SageMaker model to use as the source or destination for an optimization job.</p>
+ * @public
+ */
+export interface OptimizationSageMakerModel {
+  /**
+   * <p>The name of a SageMaker model.</p>
+   * @public
+   */
+  ModelName?: string | undefined;
+}
+
+/**
  * <p>The location of the source model to optimize with an optimization job.</p>
  * @public
  */
@@ -6119,6 +6309,12 @@ export interface OptimizationJobModelSource {
    * @public
    */
   S3?: OptimizationJobModelSourceS3 | undefined;
+
+  /**
+   * <p>The name of an existing SageMaker model to optimize with an optimization job.</p>
+   * @public
+   */
+  SageMakerModel?: OptimizationSageMakerModel | undefined;
 }
 
 /**
@@ -6176,6 +6372,42 @@ export interface ModelShardingConfig {
 }
 
 /**
+ * <p>Contains information about the training data source for speculative decoding.</p>
+ * @public
+ */
+export interface ModelSpeculativeDecodingTrainingDataSource {
+  /**
+   * <p>The Amazon S3 URI that points to the training data for speculative decoding.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The type of data stored in the Amazon S3 location. Valid values are <code>S3Prefix</code> or <code>ManifestFile</code>.</p>
+   * @public
+   */
+  S3DataType: ModelSpeculativeDecodingS3DataType | undefined;
+}
+
+/**
+ * <p>Settings for the model speculative decoding technique that's applied by a model optimization job.</p>
+ * @public
+ */
+export interface ModelSpeculativeDecodingConfig {
+  /**
+   * <p>The speculative decoding technique to apply during model optimization.</p>
+   * @public
+   */
+  Technique: ModelSpeculativeDecodingTechnique | undefined;
+
+  /**
+   * <p>The location of the training data to use for speculative decoding. The data must be formatted as ShareGPT, OpenAI Completions or OpenAI Chat Completions. The input can also be unencrypted captured data from a SageMaker endpoint as long as the endpoint uses one of the above formats.</p>
+   * @public
+   */
+  TrainingDataSource?: ModelSpeculativeDecodingTrainingDataSource | undefined;
+}
+
+/**
  * <p>Settings for an optimization technique that you apply with a model optimization job.</p>
  * @public
  */
@@ -6183,6 +6415,7 @@ export type OptimizationConfig =
   | OptimizationConfig.ModelCompilationConfigMember
   | OptimizationConfig.ModelQuantizationConfigMember
   | OptimizationConfig.ModelShardingConfigMember
+  | OptimizationConfig.ModelSpeculativeDecodingConfigMember
   | OptimizationConfig.$UnknownMember;
 
 /**
@@ -6197,6 +6430,7 @@ export namespace OptimizationConfig {
     ModelQuantizationConfig: ModelQuantizationConfig;
     ModelCompilationConfig?: never;
     ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig?: never;
     $unknown?: never;
   }
 
@@ -6208,6 +6442,7 @@ export namespace OptimizationConfig {
     ModelQuantizationConfig?: never;
     ModelCompilationConfig: ModelCompilationConfig;
     ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig?: never;
     $unknown?: never;
   }
 
@@ -6219,6 +6454,19 @@ export namespace OptimizationConfig {
     ModelQuantizationConfig?: never;
     ModelCompilationConfig?: never;
     ModelShardingConfig: ModelShardingConfig;
+    ModelSpeculativeDecodingConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings for the model speculative decoding technique that's applied by a model optimization job.</p>
+   * @public
+   */
+  export interface ModelSpeculativeDecodingConfigMember {
+    ModelQuantizationConfig?: never;
+    ModelCompilationConfig?: never;
+    ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig: ModelSpeculativeDecodingConfig;
     $unknown?: never;
   }
 
@@ -6229,6 +6477,7 @@ export namespace OptimizationConfig {
     ModelQuantizationConfig?: never;
     ModelCompilationConfig?: never;
     ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig?: never;
     $unknown: [string, any];
   }
 
@@ -6240,6 +6489,7 @@ export namespace OptimizationConfig {
     ModelQuantizationConfig: (value: ModelQuantizationConfig) => T;
     ModelCompilationConfig: (value: ModelCompilationConfig) => T;
     ModelShardingConfig: (value: ModelShardingConfig) => T;
+    ModelSpeculativeDecodingConfig: (value: ModelSpeculativeDecodingConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6260,6 +6510,12 @@ export interface OptimizationJobOutputConfig {
    * @public
    */
   S3OutputLocation: string | undefined;
+
+  /**
+   * <p>The name of a SageMaker model to use as the output destination for an optimization job.</p>
+   * @public
+   */
+  SageMakerModel?: OptimizationSageMakerModel | undefined;
 }
 
 /**
@@ -6307,6 +6563,12 @@ export interface CreateOptimizationJobRequest {
    * @public
    */
   DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
+
+  /**
+   * <p>The maximum number of instances to use for the optimization job.</p>
+   * @public
+   */
+  MaxInstanceCount?: number | undefined;
 
   /**
    * <p>The environment variables to set in the model container.</p>
@@ -8028,261 +8290,4 @@ export interface CreateTrainingJobRequest {
    * @public
    */
   SessionChainingConfig?: SessionChainingConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrainingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training job.</p>
-   * @public
-   */
-  TrainingJobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrainingPlanRequest {
-  /**
-   * <p>The name of the training plan to create.</p>
-   * @public
-   */
-  TrainingPlanName: string | undefined;
-
-  /**
-   * <p>The unique identifier of the training plan offering to use for creating this plan.</p>
-   * @public
-   */
-  TrainingPlanOfferingId: string | undefined;
-
-  /**
-   * <p>Number of spare instances to reserve per UltraServer for enhanced resiliency. Default is 1.</p>
-   * @public
-   */
-  SpareInstanceCountPerUltraServer?: number | undefined;
-
-  /**
-   * <p>An array of key-value pairs to apply to this training plan.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrainingPlanResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN); of the created training plan.</p>
-   * @public
-   */
-  TrainingPlanArn: string | undefined;
-}
-
-/**
- * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
- * @public
- */
-export interface DataProcessing {
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the input data to pass to the algorithm. Use the <code>InputFilter</code> parameter to exclude fields, such as an ID column, from the input. If you want SageMaker to pass the entire input dataset to the algorithm, accept the default value <code>$</code>.</p> <p>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code> </p>
-   * @public
-   */
-  InputFilter?: string | undefined;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the joined dataset to save in the output file for a batch transform job. If you want SageMaker to store the entire input dataset in the output file, leave the default value, <code>$</code>. If you specify indexes that aren't within the dimension size of the joined dataset, you get an error.</p> <p>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>, <code>"$['id','SageMakerOutput']"</code> </p>
-   * @public
-   */
-  OutputFilter?: string | undefined;
-
-  /**
-   * <p>Specifies the source of the data to join with the transformed data. The valid values are <code>None</code> and <code>Input</code>. The default value is <code>None</code>, which specifies not to join the input with the transformed data. If you want the batch transform job to join the original input data with the transformed data, set <code>JoinSource</code> to <code>Input</code>. You can specify <code>OutputFilter</code> as an additional filter to select a portion of the joined dataset and store it in the output file.</p> <p>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed data to the input JSON object in an attribute called <code>SageMakerOutput</code>. The joined result for JSON must be a key-value pair object. If the input is not a key-value pair object, SageMaker creates a new JSON file. In the new JSON file, and the input data is stored under the <code>SageMakerInput</code> key and the results are stored in <code>SageMakerOutput</code>.</p> <p>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data with the input by appending each transformed row to the end of the input. The joined data has the original input data followed by the transformed data and the output is a CSV file.</p> <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
-   * @public
-   */
-  JoinSource?: JoinSource | undefined;
-}
-
-/**
- * <p>Configures the timeout and maximum number of retries for processing a transform job invocation.</p>
- * @public
- */
-export interface ModelClientConfig {
-  /**
-   * <p>The timeout value in seconds for an invocation request. The default value is 600.</p>
-   * @public
-   */
-  InvocationsTimeoutInSeconds?: number | undefined;
-
-  /**
-   * <p>The maximum number of retries when invocation requests are failing. The default value is 3.</p>
-   * @public
-   */
-  InvocationsMaxRetries?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTransformJobRequest {
-  /**
-   * <p>The name of the transform job. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account. </p>
-   * @public
-   */
-  TransformJobName: string | undefined;
-
-  /**
-   * <p>The name of the model that you want to use for the transform job. <code>ModelName</code> must be the name of an existing Amazon SageMaker model within an Amazon Web Services Region in an Amazon Web Services account.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The maximum number of parallel requests that can be sent to each instance in a transform job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left unset, Amazon SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is <code>1</code>. For more information on execution-parameters, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How Containers Serve Requests</a>. For built-in algorithms, you don't need to set a value for <code>MaxConcurrentTransforms</code>.</p>
-   * @public
-   */
-  MaxConcurrentTransforms?: number | undefined;
-
-  /**
-   * <p>Configures the timeout and maximum number of retries for processing a transform job invocation.</p>
-   * @public
-   */
-  ModelClientConfig?: ModelClientConfig | undefined;
-
-  /**
-   * <p>The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a single record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The default value is <code>6</code> MB. </p> <p>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify the <code>MaxConcurrentTransforms</code> parameter, the value of <code>(MaxConcurrentTransforms * MaxPayloadInMB)</code> also cannot exceed 100 MB.</p> <p>For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker built-in algorithms do not support HTTP chunked encoding.</p>
-   * @public
-   */
-  MaxPayloadInMB?: number | undefined;
-
-  /**
-   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record. </p> <p>To enable the batch strategy, you must set the <code>SplitType</code> property to <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record when making an HTTP invocation request to a container, set <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.</p>
-   * @public
-   */
-  BatchStrategy?: BatchStrategy | undefined;
-
-  /**
-   * <p>The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables. We support up to 16 key and values entries in the map.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Describes the input source and the way the transform job consumes it.</p>
-   * @public
-   */
-  TransformInput: TransformInput | undefined;
-
-  /**
-   * <p>Describes the results of the transform job.</p>
-   * @public
-   */
-  TransformOutput: TransformOutput | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
-   * @public
-   */
-  DataCaptureConfig?: BatchDataCaptureConfig | undefined;
-
-  /**
-   * <p>Describes the resources, including ML instance types and ML instance count, to use for the transform job.</p>
-   * @public
-   */
-  TransformResources: TransformResources | undefined;
-
-  /**
-   * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
-   * @public
-   */
-  DataProcessing?: DataProcessing | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a> </p> </li> </ul>
-   * @public
-   */
-  ExperimentConfig?: ExperimentConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTransformJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   * @public
-   */
-  TransformJobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrialRequest {
-  /**
-   * <p>The name of the trial. The name must be unique in your Amazon Web Services account and is not case-sensitive.</p>
-   * @public
-   */
-  TrialName: string | undefined;
-
-  /**
-   * <p>The name of the trial as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The name of the experiment to associate the trial with.</p>
-   * @public
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-
-  /**
-   * <p>A list of tags to associate with the trial. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrialResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   * @public
-   */
-  TrialArn?: string | undefined;
-}
-
-/**
- * <p>Represents an input or output artifact of a trial component. You specify <code>TrialComponentArtifact</code> as part of the <code>InputArtifacts</code> and <code>OutputArtifacts</code> parameters in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a> request.</p> <p>Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
- * @public
- */
-export interface TrialComponentArtifact {
-  /**
-   * <p>The media type of the artifact, which indicates the type of data in the artifact file. The media type consists of a <i>type</i> and a <i>subtype</i> concatenated with a slash (/) character, for example, text/csv, image/jpeg, and s3/uri. The type specifies the category of the media. The subtype specifies the kind of data.</p>
-   * @public
-   */
-  MediaType?: string | undefined;
-
-  /**
-   * <p>The location of the artifact.</p>
-   * @public
-   */
-  Value: string | undefined;
 }

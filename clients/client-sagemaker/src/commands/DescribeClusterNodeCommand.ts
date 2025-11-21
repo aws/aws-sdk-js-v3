@@ -89,6 +89,29 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //     UltraServerInfo: { // UltraServerInfo
  * //       Id: "STRING_VALUE",
  * //     },
+ * //     KubernetesConfig: { // ClusterKubernetesConfigNodeDetails
+ * //       CurrentLabels: { // ClusterKubernetesLabels
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       DesiredLabels: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       CurrentTaints: [ // ClusterKubernetesTaints
+ * //         { // ClusterKubernetesTaint
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //           Effect: "NoSchedule" || "PreferNoSchedule" || "NoExecute", // required
+ * //         },
+ * //       ],
+ * //       DesiredTaints: [
+ * //         {
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //           Effect: "NoSchedule" || "PreferNoSchedule" || "NoExecute", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     CapacityType: "Spot" || "OnDemand",
  * //   },
  * // };
  *

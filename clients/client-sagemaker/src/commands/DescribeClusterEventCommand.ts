@@ -76,6 +76,7 @@ export interface DescribeClusterEventCommandOutput extends DescribeClusterEventR
  * //         InstanceGroupScaling: { // InstanceGroupScalingMetadata
  * //           InstanceCount: Number("int"),
  * //           TargetCount: Number("int"),
+ * //           MinCount: Number("int"),
  * //           FailureMessage: "STRING_VALUE",
  * //         },
  * //         Instance: { // InstanceMetadata

@@ -72,6 +72,18 @@ export type ActivationState = (typeof ActivationState)[keyof typeof ActivationSt
  * @public
  * @enum
  */
+export const ActiveClusterOperationName = {
+  SCALING: "Scaling",
+} as const;
+/**
+ * @public
+ */
+export type ActiveClusterOperationName = (typeof ActiveClusterOperationName)[keyof typeof ActiveClusterOperationName];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssociationEdgeType = {
   ASSOCIATED_WITH: "AssociatedWith",
   CONTRIBUTED_TO: "ContributedTo",
@@ -2059,6 +2071,19 @@ export type ClusterAutoScalingStatus = (typeof ClusterAutoScalingStatus)[keyof t
  * @public
  * @enum
  */
+export const ClusterCapacityType = {
+  ON_DEMAND: "OnDemand",
+  SPOT: "Spot",
+} as const;
+/**
+ * @public
+ */
+export type ClusterCapacityType = (typeof ClusterCapacityType)[keyof typeof ClusterCapacityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterConfigMode = {
   DISABLE: "Disable",
   ENABLE: "Enable",
@@ -2206,6 +2231,21 @@ export const ClusterInstanceType = {
  * @public
  */
 export type ClusterInstanceType = (typeof ClusterInstanceType)[keyof typeof ClusterInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterKubernetesTaintEffect = {
+  NO_EXECUTE: "NoExecute",
+  NO_SCHEDULE: "NoSchedule",
+  PREFER_NO_SCHEDULE: "PreferNoSchedule",
+} as const;
+/**
+ * @public
+ */
+export type ClusterKubernetesTaintEffect =
+  (typeof ClusterKubernetesTaintEffect)[keyof typeof ClusterKubernetesTaintEffect];
 
 /**
  * @public
@@ -3665,6 +3705,8 @@ export const OptimizationJobDeploymentInstanceType = {
   ML_INF2_XLARGE: "ml.inf2.xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
@@ -3675,6 +3717,33 @@ export const OptimizationJobDeploymentInstanceType = {
  */
 export type OptimizationJobDeploymentInstanceType =
   (typeof OptimizationJobDeploymentInstanceType)[keyof typeof OptimizationJobDeploymentInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelSpeculativeDecodingTechnique = {
+  EAGLE: "EAGLE",
+} as const;
+/**
+ * @public
+ */
+export type ModelSpeculativeDecodingTechnique =
+  (typeof ModelSpeculativeDecodingTechnique)[keyof typeof ModelSpeculativeDecodingTechnique];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelSpeculativeDecodingS3DataType = {
+  ManifestFile: "ManifestFile",
+  S3Prefix: "S3Prefix",
+} as const;
+/**
+ * @public
+ */
+export type ModelSpeculativeDecodingS3DataType =
+  (typeof ModelSpeculativeDecodingS3DataType)[keyof typeof ModelSpeculativeDecodingS3DataType];
 
 /**
  * @public

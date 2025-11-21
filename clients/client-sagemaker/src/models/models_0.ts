@@ -2,6 +2,7 @@
 import {
   ActionStatus,
   ActivationState,
+  ActiveClusterOperationName,
   AdditionalS3DataSourceDataType,
   AggregationTransformationValue,
   AlgorithmStatus,
@@ -41,10 +42,12 @@ import {
   ClusterAutoScalerType,
   ClusterAutoScalingMode,
   ClusterAutoScalingStatus,
+  ClusterCapacityType,
   ClusterConfigMode,
   ClusterEventResourceType,
   ClusterInstanceStatus,
   ClusterInstanceType,
+  ClusterKubernetesTaintEffect,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   ClusterStatus,
@@ -78,10 +81,8 @@ import {
   ParameterType,
   PreemptTeamTasks,
   ProblemType,
-  ProcessingInstanceType,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
-  ProcessingS3UploadMode,
   ProductionVariantInstanceType,
   RecordWrapper,
   RepositoryAccessMode,
@@ -5023,6 +5024,36 @@ export interface ClusterAutoScalingConfigOutput {
 }
 
 /**
+ * <p>Configuration options specific to On-Demand instances.</p>
+ * @public
+ */
+export interface ClusterOnDemandOptions {}
+
+/**
+ * <p>Configuration options specific to Spot instances.</p>
+ * @public
+ */
+export interface ClusterSpotOptions {}
+
+/**
+ * <p>Defines the instance capacity requirements for an instance group, including configurations for both Spot and On-Demand capacity types. </p>
+ * @public
+ */
+export interface ClusterCapacityRequirements {
+  /**
+   * <p>Configuration options specific to Spot instances.</p>
+   * @public
+   */
+  Spot?: ClusterSpotOptions | undefined;
+
+  /**
+   * <p>Configuration options specific to On-Demand instances.</p>
+   * @public
+   */
+  OnDemand?: ClusterOnDemandOptions | undefined;
+}
+
+/**
  * <p>Defines the configuration for attaching an additional Amazon Elastic Block Store (EBS) volume to each instance of the SageMaker HyperPod cluster instance group. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-notes.html#sagemaker-hyperpod-release-notes-20240620">SageMaker HyperPod release notes: June 20, 2024</a>.</p>
  * @public
  */
@@ -5170,6 +5201,12 @@ export interface InstanceGroupScalingMetadata {
    * @public
    */
   TargetCount?: number | undefined;
+
+  /**
+   * <p>Minimum instance count of the instance group.</p>
+   * @public
+   */
+  MinCount?: number | undefined;
 
   /**
    * <p>An error message describing why the scaling operation failed, if applicable.</p>
@@ -5473,6 +5510,60 @@ export namespace ClusterInstanceStorageConfig {
 }
 
 /**
+ * <p>A Kubernetes taint that can be applied to cluster nodes.</p>
+ * @public
+ */
+export interface ClusterKubernetesTaint {
+  /**
+   * <p>The key of the taint.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value of the taint.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The effect of the taint. Valid values are <code>NoSchedule</code>, <code>PreferNoSchedule</code>, and <code>NoExecute</code>. </p>
+   * @public
+   */
+  Effect: ClusterKubernetesTaintEffect | undefined;
+}
+
+/**
+ * <p>Detailed Kubernetes configuration showing both the current and desired state of labels and taints for cluster nodes. </p>
+ * @public
+ */
+export interface ClusterKubernetesConfigDetails {
+  /**
+   * <p>The current labels applied to cluster nodes of an instance group.</p>
+   * @public
+   */
+  CurrentLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The desired labels to be applied to cluster nodes of an instance group.</p>
+   * @public
+   */
+  DesiredLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The current taints applied to cluster nodes of an instance group.</p>
+   * @public
+   */
+  CurrentTaints?: ClusterKubernetesTaint[] | undefined;
+
+  /**
+   * <p>The desired taints to be applied to cluster nodes of an instance group.</p>
+   * @public
+   */
+  DesiredTaints?: ClusterKubernetesTaint[] | undefined;
+}
+
+/**
  * <p>The lifecycle configuration for a SageMaker HyperPod cluster.</p>
  * @public
  */
@@ -5524,6 +5615,12 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   TargetCount?: number | undefined;
+
+  /**
+   * <p>The minimum number of instances that must be available in the instance group of a SageMaker HyperPod cluster before it transitions to <code>InService</code> status. </p>
+   * @public
+   */
+  MinCount?: number | undefined;
 
   /**
    * <p>The name of the instance group of a SageMaker HyperPod cluster.</p>
@@ -5610,6 +5707,24 @@ export interface ClusterInstanceGroupDetails {
   DesiredImageId?: string | undefined;
 
   /**
+   * <p>A map indicating active operations currently in progress for the instance group of a SageMaker HyperPod cluster. When there is a scaling operation in progress, this map contains a key <code>Scaling</code> with value 1. </p>
+   * @public
+   */
+  ActiveOperations?: Partial<Record<ActiveClusterOperationName, number>> | undefined;
+
+  /**
+   * <p>The Kubernetes configuration for the instance group that contains labels and taints to be applied for the nodes in this instance group. </p>
+   * @public
+   */
+  KubernetesConfig?: ClusterKubernetesConfigDetails | undefined;
+
+  /**
+   * <p>The instance capacity requirements for the instance group.</p>
+   * @public
+   */
+  CapacityRequirements?: ClusterCapacityRequirements | undefined;
+
+  /**
    * <p>The number of nodes running a specific image ID since the last software update request.</p>
    * @public
    */
@@ -5629,6 +5744,24 @@ export interface ClusterInstanceGroupDetails {
 }
 
 /**
+ * <p>Kubernetes configuration that specifies labels and taints to be applied to cluster nodes in an instance group. </p>
+ * @public
+ */
+export interface ClusterKubernetesConfig {
+  /**
+   * <p>Key-value pairs of labels to be applied to cluster nodes.</p>
+   * @public
+   */
+  Labels?: Record<string, string> | undefined;
+
+  /**
+   * <p>List of taints to be applied to cluster nodes.</p>
+   * @public
+   */
+  Taints?: ClusterKubernetesTaint[] | undefined;
+}
+
+/**
  * <p>The specifications of an instance group that you need to define.</p>
  * @public
  */
@@ -5638,6 +5771,12 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   InstanceCount: number | undefined;
+
+  /**
+   * <p>Defines the minimum number of instances required for an instance group to become <code>InService</code>. If this threshold isn't met within 3 hours, the instance group rolls back to its previous state - zero instances for new instance groups, or previous settings for existing instance groups. <code>MinInstanceCount</code> only affects the initial transition to <code>InService</code> and does not guarantee maintaining this minimum afterward. </p>
+   * @public
+   */
+  MinInstanceCount?: number | undefined;
 
   /**
    * <p>Specifies the name of the instance group.</p>
@@ -5704,6 +5843,18 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   ImageId?: string | undefined;
+
+  /**
+   * <p>Specifies the Kubernetes configuration for the instance group. You describe what you want the labels and taints to look like, and the cluster works to reconcile the actual state with the declared state for nodes in this instance group. </p>
+   * @public
+   */
+  KubernetesConfig?: ClusterKubernetesConfig | undefined;
+
+  /**
+   * <p>Specifies the capacity requirements for the instance group.</p>
+   * @public
+   */
+  CapacityRequirements?: ClusterCapacityRequirements | undefined;
 }
 
 /**
@@ -5740,6 +5891,36 @@ export interface ClusterInstanceStatusDetails {
    * @public
    */
   Message?: string | undefined;
+}
+
+/**
+ * <p>Node-specific Kubernetes configuration showing both current and desired state of labels and taints for an individual cluster node. </p>
+ * @public
+ */
+export interface ClusterKubernetesConfigNodeDetails {
+  /**
+   * <p>The current labels applied to the cluster node.</p>
+   * @public
+   */
+  CurrentLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The desired labels to be applied to the cluster node.</p>
+   * @public
+   */
+  DesiredLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The current taints applied to the cluster node.</p>
+   * @public
+   */
+  CurrentTaints?: ClusterKubernetesTaint[] | undefined;
+
+  /**
+   * <p>The desired taints to be applied to the cluster node.</p>
+   * @public
+   */
+  DesiredTaints?: ClusterKubernetesTaint[] | undefined;
 }
 
 /**
@@ -5866,6 +6047,18 @@ export interface ClusterNodeDetails {
    * @public
    */
   UltraServerInfo?: UltraServerInfo | undefined;
+
+  /**
+   * <p>The Kubernetes configuration applied to this node, showing both the current and desired state of labels and taints. The cluster works to reconcile the actual state with the declared state. </p>
+   * @public
+   */
+  KubernetesConfig?: ClusterKubernetesConfigNodeDetails | undefined;
+
+  /**
+   * <p>The capacity type of the node. Valid values are <code>OnDemand</code> and <code>Spot</code>. When set to <code>OnDemand</code>, the node is launched as an On-Demand instance. When set to <code>Spot</code>, the node is launched as a Spot instance. </p>
+   * @public
+   */
+  CapacityType?: ClusterCapacityType | undefined;
 }
 
 /**
@@ -8247,190 +8440,4 @@ export interface DataQualityBaselineConfig {
    * @public
    */
   StatisticsResource?: MonitoringStatisticsResource | undefined;
-}
-
-/**
- * <p>Input object for the endpoint</p>
- * @public
- */
-export interface EndpointInput {
-  /**
-   * <p>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code> enabled.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>Path to the filesystem where the endpoint data is available to the container.</p>
-   * @public
-   */
-  LocalPath: string | undefined;
-
-  /**
-   * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for transferring data for the monitoring job. <code>Pipe</code> mode is recommended for large datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to <code>File</code>.</p>
-   * @public
-   */
-  S3InputMode?: ProcessingS3InputMode | undefined;
-
-  /**
-   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon S3 key. Defaults to <code>FullyReplicated</code> </p>
-   * @public
-   */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | undefined;
-
-  /**
-   * <p>The attributes of the input data that are the input features.</p>
-   * @public
-   */
-  FeaturesAttribute?: string | undefined;
-
-  /**
-   * <p>The attribute of the input data that represents the ground truth label.</p>
-   * @public
-   */
-  InferenceAttribute?: string | undefined;
-
-  /**
-   * <p>In a classification problem, the attribute that represents the class probability.</p>
-   * @public
-   */
-  ProbabilityAttribute?: string | undefined;
-
-  /**
-   * <p>The threshold for the class probability to be evaluated as a positive result.</p>
-   * @public
-   */
-  ProbabilityThresholdAttribute?: number | undefined;
-
-  /**
-   * <p>If specified, monitoring jobs substract this time from the start time. For information about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model Quality Monitoring Jobs</a>.</p>
-   * @public
-   */
-  StartTimeOffset?: string | undefined;
-
-  /**
-   * <p>If specified, monitoring jobs substract this time from the end time. For information about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model Quality Monitoring Jobs</a>.</p>
-   * @public
-   */
-  EndTimeOffset?: string | undefined;
-
-  /**
-   * <p>The attributes of the input data to exclude from the analysis.</p>
-   * @public
-   */
-  ExcludeFeaturesAttribute?: string | undefined;
-}
-
-/**
- * <p>The input for the data quality monitoring job. Currently endpoints are supported for input.</p>
- * @public
- */
-export interface DataQualityJobInput {
-  /**
-   * <p>Input object for the endpoint</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
-}
-
-/**
- * <p>Information about where and how you want to store the results of a monitoring job.</p>
- * @public
- */
-export interface MonitoringS3Output {
-  /**
-   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.</p>
-   * @public
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data.</p>
-   * @public
-   */
-  LocalPath: string | undefined;
-
-  /**
-   * <p>Whether to upload the results of the monitoring job continuously or after the job completes.</p>
-   * @public
-   */
-  S3UploadMode?: ProcessingS3UploadMode | undefined;
-}
-
-/**
- * <p>The output object for a monitoring job.</p>
- * @public
- */
-export interface MonitoringOutput {
-  /**
-   * <p>The Amazon S3 storage location where the results of a monitoring job are saved.</p>
-   * @public
-   */
-  S3Output: MonitoringS3Output | undefined;
-}
-
-/**
- * <p>The output configuration for monitoring jobs.</p>
- * @public
- */
-export interface MonitoringOutputConfig {
-  /**
-   * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.</p>
-   * @public
-   */
-  MonitoringOutputs: MonitoringOutput[] | undefined;
-
-  /**
-   * <p>The Key Management Service (KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-}
-
-/**
- * <p>Configuration for the cluster used to run model monitoring jobs.</p>
- * @public
- */
-export interface MonitoringClusterConfig {
-  /**
-   * <p>The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.</p>
-   * @public
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The ML compute instance type for the processing job.</p>
-   * @public
-   */
-  InstanceType: ProcessingInstanceType | undefined;
-
-  /**
-   * <p>The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.</p>
-   * @public
-   */
-  VolumeSizeInGB: number | undefined;
-
-  /**
-   * <p>The Key Management Service (KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.</p>
-   * @public
-   */
-  VolumeKmsKeyId?: string | undefined;
-}
-
-/**
- * <p>Identifies the resources to deploy for a monitoring job.</p>
- * @public
- */
-export interface MonitoringResources {
-  /**
-   * <p>The configuration for the cluster resources used to run the processing job.</p>
-   * @public
-   */
-  ClusterConfig: MonitoringClusterConfig | undefined;
 }

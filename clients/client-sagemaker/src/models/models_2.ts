@@ -48,6 +48,7 @@ import {
   IPAddressType,
   IsTrackingServerActive,
   JobType,
+  JoinSource,
   LabelingJobStatus,
   LastUpdateStatusValue,
   ModelApprovalStatus,
@@ -85,7 +86,6 @@ import {
   RetentionType,
   RootAccess,
   RuleEvaluationStatus,
-  SageMakerResourceName,
   SchedulerResourceStatus,
   ScheduleStatus,
   SecondaryStatus,
@@ -100,8 +100,6 @@ import {
   TrackingServerSize,
   TrackingServerStatus,
   TrainingJobStatus,
-  TrainingPlanStatus,
-  TransformJobStatus,
   TrialComponentPrimaryStatus,
   VariantStatus,
   VendorGuidance,
@@ -155,7 +153,6 @@ import {
   ContextSource,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
-  DataQualityJobInput,
   GitConfig,
   InferenceSpecification,
   InputConfig,
@@ -163,8 +160,6 @@ import {
   KernelGatewayImageConfig,
   MetadataProperties,
   ModelDeployConfig,
-  MonitoringOutputConfig,
-  MonitoringResources,
   NeoVpcConfig,
   OutputConfig,
   OutputDataConfig,
@@ -183,7 +178,7 @@ import {
 
 import {
   DataCaptureConfig,
-  DataProcessing,
+  DataQualityJobInput,
   DebugHookConfig,
   DebugRuleConfiguration,
   DefaultSpaceSettings,
@@ -224,7 +219,6 @@ import {
   ModelBiasJobInput,
   ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
-  ModelClientConfig,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
@@ -238,6 +232,8 @@ import {
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
   MonitoringNetworkConfig,
+  MonitoringOutputConfig,
+  MonitoringResources,
   MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   NetworkConfig,
@@ -272,9 +268,265 @@ import {
   SpaceSettings,
   SpaceSharingSettings,
   TensorBoardOutputConfig,
-  TrialComponentArtifact,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateTrainingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   * @public
+   */
+  TrainingJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrainingPlanRequest {
+  /**
+   * <p>The name of the training plan to create.</p>
+   * @public
+   */
+  TrainingPlanName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the training plan offering to use for creating this plan.</p>
+   * @public
+   */
+  TrainingPlanOfferingId: string | undefined;
+
+  /**
+   * <p>Number of spare instances to reserve per UltraServer for enhanced resiliency. Default is 1.</p>
+   * @public
+   */
+  SpareInstanceCountPerUltraServer?: number | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this training plan.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrainingPlanResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN); of the created training plan.</p>
+   * @public
+   */
+  TrainingPlanArn: string | undefined;
+}
+
+/**
+ * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
+ * @public
+ */
+export interface DataProcessing {
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the input data to pass to the algorithm. Use the <code>InputFilter</code> parameter to exclude fields, such as an ID column, from the input. If you want SageMaker to pass the entire input dataset to the algorithm, accept the default value <code>$</code>.</p> <p>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code> </p>
+   * @public
+   */
+  InputFilter?: string | undefined;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the joined dataset to save in the output file for a batch transform job. If you want SageMaker to store the entire input dataset in the output file, leave the default value, <code>$</code>. If you specify indexes that aren't within the dimension size of the joined dataset, you get an error.</p> <p>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>, <code>"$['id','SageMakerOutput']"</code> </p>
+   * @public
+   */
+  OutputFilter?: string | undefined;
+
+  /**
+   * <p>Specifies the source of the data to join with the transformed data. The valid values are <code>None</code> and <code>Input</code>. The default value is <code>None</code>, which specifies not to join the input with the transformed data. If you want the batch transform job to join the original input data with the transformed data, set <code>JoinSource</code> to <code>Input</code>. You can specify <code>OutputFilter</code> as an additional filter to select a portion of the joined dataset and store it in the output file.</p> <p>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed data to the input JSON object in an attribute called <code>SageMakerOutput</code>. The joined result for JSON must be a key-value pair object. If the input is not a key-value pair object, SageMaker creates a new JSON file. In the new JSON file, and the input data is stored under the <code>SageMakerInput</code> key and the results are stored in <code>SageMakerOutput</code>.</p> <p>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data with the input by appending each transformed row to the end of the input. The joined data has the original input data followed by the transformed data and the output is a CSV file.</p> <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
+   * @public
+   */
+  JoinSource?: JoinSource | undefined;
+}
+
+/**
+ * <p>Configures the timeout and maximum number of retries for processing a transform job invocation.</p>
+ * @public
+ */
+export interface ModelClientConfig {
+  /**
+   * <p>The timeout value in seconds for an invocation request. The default value is 600.</p>
+   * @public
+   */
+  InvocationsTimeoutInSeconds?: number | undefined;
+
+  /**
+   * <p>The maximum number of retries when invocation requests are failing. The default value is 3.</p>
+   * @public
+   */
+  InvocationsMaxRetries?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransformJobRequest {
+  /**
+   * <p>The name of the transform job. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account. </p>
+   * @public
+   */
+  TransformJobName: string | undefined;
+
+  /**
+   * <p>The name of the model that you want to use for the transform job. <code>ModelName</code> must be the name of an existing Amazon SageMaker model within an Amazon Web Services Region in an Amazon Web Services account.</p>
+   * @public
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The maximum number of parallel requests that can be sent to each instance in a transform job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left unset, Amazon SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is <code>1</code>. For more information on execution-parameters, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How Containers Serve Requests</a>. For built-in algorithms, you don't need to set a value for <code>MaxConcurrentTransforms</code>.</p>
+   * @public
+   */
+  MaxConcurrentTransforms?: number | undefined;
+
+  /**
+   * <p>Configures the timeout and maximum number of retries for processing a transform job invocation.</p>
+   * @public
+   */
+  ModelClientConfig?: ModelClientConfig | undefined;
+
+  /**
+   * <p>The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a single record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The default value is <code>6</code> MB. </p> <p>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify the <code>MaxConcurrentTransforms</code> parameter, the value of <code>(MaxConcurrentTransforms * MaxPayloadInMB)</code> also cannot exceed 100 MB.</p> <p>For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker built-in algorithms do not support HTTP chunked encoding.</p>
+   * @public
+   */
+  MaxPayloadInMB?: number | undefined;
+
+  /**
+   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record. </p> <p>To enable the batch strategy, you must set the <code>SplitType</code> property to <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record when making an HTTP invocation request to a container, set <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.</p>
+   * @public
+   */
+  BatchStrategy?: BatchStrategy | undefined;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables. We support up to 16 key and values entries in the map.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Describes the input source and the way the transform job consumes it.</p>
+   * @public
+   */
+  TransformInput: TransformInput | undefined;
+
+  /**
+   * <p>Describes the results of the transform job.</p>
+   * @public
+   */
+  TransformOutput: TransformOutput | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   * @public
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig | undefined;
+
+  /**
+   * <p>Describes the resources, including ML instance types and ML instance count, to use for the transform job.</p>
+   * @public
+   */
+  TransformResources: TransformResources | undefined;
+
+  /**
+   * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
+   * @public
+   */
+  DataProcessing?: DataProcessing | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a> </p> </li> </ul>
+   * @public
+   */
+  ExperimentConfig?: ExperimentConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransformJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
+   * @public
+   */
+  TransformJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialRequest {
+  /**
+   * <p>The name of the trial. The name must be unique in your Amazon Web Services account and is not case-sensitive.</p>
+   * @public
+   */
+  TrialName: string | undefined;
+
+  /**
+   * <p>The name of the trial as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The name of the experiment to associate the trial with.</p>
+   * @public
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties | undefined;
+
+  /**
+   * <p>A list of tags to associate with the trial. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   * @public
+   */
+  TrialArn?: string | undefined;
+}
+
+/**
+ * <p>Represents an input or output artifact of a trial component. You specify <code>TrialComponentArtifact</code> as part of the <code>InputArtifacts</code> and <code>OutputArtifacts</code> parameters in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a> request.</p> <p>Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
+ * @public
+ */
+export interface TrialComponentArtifact {
+  /**
+   * <p>The media type of the artifact, which indicates the type of data in the artifact file. The media type consists of a <i>type</i> and a <i>subtype</i> concatenated with a slash (/) character, for example, text/csv, image/jpeg, and s3/uri. The type specifies the category of the media. The subtype specifies the kind of data.</p>
+   * @public
+   */
+  MediaType?: string | undefined;
+
+  /**
+   * <p>The location of the artifact.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
 
 /**
  * <p>The value of a hyperparameter. Only one of <code>NumberValue</code> or <code>StringValue</code> can be specified.</p> <p>This object is specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a> request.</p>
@@ -8130,6 +8382,12 @@ export interface DescribeOptimizationJobResponse {
   DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
 
   /**
+   * <p>The maximum number of instances to use for the optimization job.</p>
+   * @public
+   */
+  MaxInstanceCount?: number | undefined;
+
+  /**
    * <p>Settings for each of the optimization techniques that the job applies.</p>
    * @public
    */
@@ -9594,513 +9852,4 @@ export interface DescribeTrainingJobResponse {
    * @public
    */
   InfraCheckConfig?: InfraCheckConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrainingPlanRequest {
-  /**
-   * <p>The name of the training plan to describe.</p>
-   * @public
-   */
-  TrainingPlanName: string | undefined;
-}
-
-/**
- * <p>Details of a reserved capacity for the training plan.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
- * @public
- */
-export interface ReservedCapacitySummary {
-  /**
-   * <p>The Amazon Resource Name (ARN); of the reserved capacity.</p>
-   * @public
-   */
-  ReservedCapacityArn: string | undefined;
-
-  /**
-   * <p>The type of reserved capacity.</p>
-   * @public
-   */
-  ReservedCapacityType?: ReservedCapacityType | undefined;
-
-  /**
-   * <p>The type of UltraServer included in this reserved capacity, such as ml.u-p6e-gb200x72.</p>
-   * @public
-   */
-  UltraServerType?: string | undefined;
-
-  /**
-   * <p>The number of UltraServers included in this reserved capacity.</p>
-   * @public
-   */
-  UltraServerCount?: number | undefined;
-
-  /**
-   * <p>The instance type for the reserved capacity.</p>
-   * @public
-   */
-  InstanceType: ReservedCapacityInstanceType | undefined;
-
-  /**
-   * <p>The total number of instances in the reserved capacity.</p>
-   * @public
-   */
-  TotalInstanceCount: number | undefined;
-
-  /**
-   * <p>The current status of the reserved capacity.</p>
-   * @public
-   */
-  Status: ReservedCapacityStatus | undefined;
-
-  /**
-   * <p>The availability zone for the reserved capacity.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of whole hours in the total duration for this reserved capacity.</p>
-   * @public
-   */
-  DurationHours?: number | undefined;
-
-  /**
-   * <p>The additional minutes beyond whole hours in the total duration for this reserved capacity.</p>
-   * @public
-   */
-  DurationMinutes?: number | undefined;
-
-  /**
-   * <p>The start time of the reserved capacity.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The end time of the reserved capacity.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrainingPlanResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN); of the training plan.</p>
-   * @public
-   */
-  TrainingPlanArn: string | undefined;
-
-  /**
-   * <p>The name of the training plan.</p>
-   * @public
-   */
-  TrainingPlanName: string | undefined;
-
-  /**
-   * <p>The current status of the training plan (e.g., Pending, Active, Expired). To see the complete list of status values available for a training plan, refer to the <code>Status</code> attribute within the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingPlanSummary.html">TrainingPlanSummary</a> </code> object.</p>
-   * @public
-   */
-  Status: TrainingPlanStatus | undefined;
-
-  /**
-   * <p>A message providing additional information about the current status of the training plan.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The number of whole hours in the total duration for this training plan.</p>
-   * @public
-   */
-  DurationHours?: number | undefined;
-
-  /**
-   * <p>The additional minutes beyond whole hours in the total duration for this training plan.</p>
-   * @public
-   */
-  DurationMinutes?: number | undefined;
-
-  /**
-   * <p>The start time of the training plan.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The end time of the training plan.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The upfront fee for the training plan.</p>
-   * @public
-   */
-  UpfrontFee?: string | undefined;
-
-  /**
-   * <p>The currency code for the upfront fee (e.g., USD).</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-
-  /**
-   * <p>The total number of instances reserved in this training plan.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances currently available for use in this training plan.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances currently in use from this training plan.</p>
-   * @public
-   */
-  InUseInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances in the training plan that are currently in an unhealthy state.</p>
-   * @public
-   */
-  UnhealthyInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of available spare instances in the training plan.</p>
-   * @public
-   */
-  AvailableSpareInstanceCount?: number | undefined;
-
-  /**
-   * <p>The total number of UltraServers reserved to this training plan.</p>
-   * @public
-   */
-  TotalUltraServerCount?: number | undefined;
-
-  /**
-   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
-   * @public
-   */
-  TargetResources?: SageMakerResourceName[] | undefined;
-
-  /**
-   * <p>The list of Reserved Capacity providing the underlying compute resources of the plan. </p>
-   * @public
-   */
-  ReservedCapacitySummaries?: ReservedCapacitySummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransformJobRequest {
-  /**
-   * <p>The name of the transform job that you want to view details of.</p>
-   * @public
-   */
-  TransformJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransformJobResponse {
-  /**
-   * <p>The name of the transform job.</p>
-   * @public
-   */
-  TransformJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   * @public
-   */
-  TransformJobArn: string | undefined;
-
-  /**
-   * <p>The status of the transform job. If the transform job failed, the reason is returned in the <code>FailureReason</code> field.</p>
-   * @public
-   */
-  TransformJobStatus: TransformJobStatus | undefined;
-
-  /**
-   * <p>If the transform job failed, <code>FailureReason</code> describes why it failed. A transform job creates a log file, which includes error messages, and stores it as an Amazon S3 object. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The name of the model used in the transform job.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The maximum number of parallel requests on each instance node that can be launched in a transform job. The default value is 1.</p>
-   * @public
-   */
-  MaxConcurrentTransforms?: number | undefined;
-
-  /**
-   * <p>The timeout and maximum number of retries for processing a transform job invocation.</p>
-   * @public
-   */
-  ModelClientConfig?: ModelClientConfig | undefined;
-
-  /**
-   * <p>The maximum payload size, in MB, used in the transform job.</p>
-   * @public
-   */
-  MaxPayloadInMB?: number | undefined;
-
-  /**
-   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record. </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p>
-   * @public
-   */
-  BatchStrategy?: BatchStrategy | undefined;
-
-  /**
-   * <p>The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Describes the dataset to be transformed and the Amazon S3 location where it is stored.</p>
-   * @public
-   */
-  TransformInput: TransformInput | undefined;
-
-  /**
-   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.</p>
-   * @public
-   */
-  TransformOutput?: TransformOutput | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
-   * @public
-   */
-  DataCaptureConfig?: BatchDataCaptureConfig | undefined;
-
-  /**
-   * <p>Describes the resources, including ML instance types and ML instance count, to use for the transform job.</p>
-   * @public
-   */
-  TransformResources: TransformResources | undefined;
-
-  /**
-   * <p>A timestamp that shows when the transform Job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of <code>TransformEndTime</code>.</p>
-   * @public
-   */
-  TransformStartTime?: Date | undefined;
-
-  /**
-   * <p>Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of <code>TransformStartTime</code>.</p>
-   * @public
-   */
-  TransformEndTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or training job.</p>
-   * @public
-   */
-  LabelingJobArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AutoML transform job.</p>
-   * @public
-   */
-  AutoMLJobArn?: string | undefined;
-
-  /**
-   * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
-   * @public
-   */
-  DataProcessing?: DataProcessing | undefined;
-
-  /**
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a> </p> </li> </ul>
-   * @public
-   */
-  ExperimentConfig?: ExperimentConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialRequest {
-  /**
-   * <p>The name of the trial to describe.</p>
-   * @public
-   */
-  TrialName: string | undefined;
-}
-
-/**
- * <p>The source of the trial.</p>
- * @public
- */
-export interface TrialSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   * @public
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source job type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialResponse {
-  /**
-   * <p>The name of the trial.</p>
-   * @public
-   */
-  TrialName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   * @public
-   */
-  TrialArn?: string | undefined;
-
-  /**
-   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The name of the experiment the trial is part of.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
-   * @public
-   */
-  Source?: TrialSource | undefined;
-
-  /**
-   * <p>When the trial was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Who created the trial.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the trial was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Who last modified the trial.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialComponentRequest {
-  /**
-   * <p>The name of the trial component to describe.</p>
-   * @public
-   */
-  TrialComponentName: string | undefined;
-}
-
-/**
- * <p>A summary of the metrics of a trial component.</p>
- * @public
- */
-export interface TrialComponentMetricSummary {
-  /**
-   * <p>The name of the metric.</p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   * @public
-   */
-  SourceArn?: string | undefined;
-
-  /**
-   * <p>When the metric was last updated.</p>
-   * @public
-   */
-  TimeStamp?: Date | undefined;
-
-  /**
-   * <p>The maximum value of the metric.</p>
-   * @public
-   */
-  Max?: number | undefined;
-
-  /**
-   * <p>The minimum value of the metric.</p>
-   * @public
-   */
-  Min?: number | undefined;
-
-  /**
-   * <p>The most recent value of the metric.</p>
-   * @public
-   */
-  Last?: number | undefined;
-
-  /**
-   * <p>The number of samples used to generate the metric.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The average value of the metric.</p>
-   * @public
-   */
-  Avg?: number | undefined;
-
-  /**
-   * <p>The standard deviation of the metric.</p>
-   * @public
-   */
-  StdDev?: number | undefined;
 }

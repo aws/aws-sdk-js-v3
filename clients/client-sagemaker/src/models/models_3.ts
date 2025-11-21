@@ -9,6 +9,7 @@ import {
   AutoMLJobStatus,
   AutoMLSortBy,
   AutoMLSortOrder,
+  BatchStrategy,
   CandidateSortBy,
   CandidateStatus,
   ClusterEventResourceType,
@@ -102,6 +103,9 @@ import {
   RecommendationJobStatus,
   RecommendationJobType,
   RecommendationStepType,
+  ReservedCapacityInstanceType,
+  ReservedCapacityStatus,
+  ReservedCapacityType,
   ResourceCatalogSortBy,
   ResourceCatalogSortOrder,
   ResourceType,
@@ -125,8 +129,6 @@ import {
   SortPipelinesBy,
   SortQuotaBy,
   SortTrackingServerBy,
-  SortTrialComponentsBy,
-  SortTrialsBy,
   SpaceSortKey,
   SpaceStatus,
   StepStatus,
@@ -159,6 +161,7 @@ import {
   AutoMLCandidate,
   AutoMLJobStepMetadata,
   AutoMLJobSummary,
+  BatchDataCaptureConfig,
   CacheHitResult,
   CallbackStepMetadata,
   ClarifyCheckStepMetadata,
@@ -176,12 +179,16 @@ import {
   OutputParameter,
   ResourceSpec,
   Tag,
+  TransformInput,
+  TransformOutput,
+  TransformResources,
   UserContext,
 } from "./models_0";
 
 import {
   DockerSettings,
   EdgeOutputConfig,
+  ExperimentConfig,
   FeatureDefinition,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -194,7 +201,6 @@ import {
   OnlineStoreConfig,
   ResourceLimits,
   SpaceStorageSettings,
-  TrialComponentArtifact,
   TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
   UserSettings,
@@ -203,6 +209,7 @@ import {
 import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
+  DataProcessing,
   EndpointOutputConfiguration,
   ExperimentSource,
   FeatureParameter,
@@ -214,6 +221,7 @@ import {
   LabelingJobOutput,
   LastUpdateStatus,
   MemberDefinition,
+  ModelClientConfig,
   ModelConfiguration,
   MonitoringExecutionSummary,
   NotificationConfiguration,
@@ -221,17 +229,524 @@ import {
   OfflineStoreStatus,
   ProductionVariantSummary,
   RecommendationMetrics,
-  ReservedCapacitySummary,
   SourceIpConfig,
   SubscribedWorkteam,
   TrainingJobStatusCounters,
-  TrialComponentMetricSummary,
+  TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  TrialSource,
   WarmPoolStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeTrainingPlanRequest {
+  /**
+   * <p>The name of the training plan to describe.</p>
+   * @public
+   */
+  TrainingPlanName: string | undefined;
+}
+
+/**
+ * <p>Details of a reserved capacity for the training plan.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+ * @public
+ */
+export interface ReservedCapacitySummary {
+  /**
+   * <p>The Amazon Resource Name (ARN); of the reserved capacity.</p>
+   * @public
+   */
+  ReservedCapacityArn: string | undefined;
+
+  /**
+   * <p>The type of reserved capacity.</p>
+   * @public
+   */
+  ReservedCapacityType?: ReservedCapacityType | undefined;
+
+  /**
+   * <p>The type of UltraServer included in this reserved capacity, such as ml.u-p6e-gb200x72.</p>
+   * @public
+   */
+  UltraServerType?: string | undefined;
+
+  /**
+   * <p>The number of UltraServers included in this reserved capacity.</p>
+   * @public
+   */
+  UltraServerCount?: number | undefined;
+
+  /**
+   * <p>The instance type for the reserved capacity.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The total number of instances in the reserved capacity.</p>
+   * @public
+   */
+  TotalInstanceCount: number | undefined;
+
+  /**
+   * <p>The current status of the reserved capacity.</p>
+   * @public
+   */
+  Status: ReservedCapacityStatus | undefined;
+
+  /**
+   * <p>The availability zone for the reserved capacity.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of whole hours in the total duration for this reserved capacity.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The additional minutes beyond whole hours in the total duration for this reserved capacity.</p>
+   * @public
+   */
+  DurationMinutes?: number | undefined;
+
+  /**
+   * <p>The start time of the reserved capacity.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the reserved capacity.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrainingPlanResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan.</p>
+   * @public
+   */
+  TrainingPlanArn: string | undefined;
+
+  /**
+   * <p>The name of the training plan.</p>
+   * @public
+   */
+  TrainingPlanName: string | undefined;
+
+  /**
+   * <p>The current status of the training plan (e.g., Pending, Active, Expired). To see the complete list of status values available for a training plan, refer to the <code>Status</code> attribute within the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingPlanSummary.html">TrainingPlanSummary</a> </code> object.</p>
+   * @public
+   */
+  Status: TrainingPlanStatus | undefined;
+
+  /**
+   * <p>A message providing additional information about the current status of the training plan.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The number of whole hours in the total duration for this training plan.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The additional minutes beyond whole hours in the total duration for this training plan.</p>
+   * @public
+   */
+  DurationMinutes?: number | undefined;
+
+  /**
+   * <p>The start time of the training plan.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the training plan.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The upfront fee for the training plan.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency code for the upfront fee (e.g., USD).</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The total number of instances reserved in this training plan.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently available for use in this training plan.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently in use from this training plan.</p>
+   * @public
+   */
+  InUseInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances in the training plan that are currently in an unhealthy state.</p>
+   * @public
+   */
+  UnhealthyInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of available spare instances in the training plan.</p>
+   * @public
+   */
+  AvailableSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The total number of UltraServers reserved to this training plan.</p>
+   * @public
+   */
+  TotalUltraServerCount?: number | undefined;
+
+  /**
+   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
+   * @public
+   */
+  TargetResources?: SageMakerResourceName[] | undefined;
+
+  /**
+   * <p>The list of Reserved Capacity providing the underlying compute resources of the plan. </p>
+   * @public
+   */
+  ReservedCapacitySummaries?: ReservedCapacitySummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransformJobRequest {
+  /**
+   * <p>The name of the transform job that you want to view details of.</p>
+   * @public
+   */
+  TransformJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransformJobResponse {
+  /**
+   * <p>The name of the transform job.</p>
+   * @public
+   */
+  TransformJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
+   * @public
+   */
+  TransformJobArn: string | undefined;
+
+  /**
+   * <p>The status of the transform job. If the transform job failed, the reason is returned in the <code>FailureReason</code> field.</p>
+   * @public
+   */
+  TransformJobStatus: TransformJobStatus | undefined;
+
+  /**
+   * <p>If the transform job failed, <code>FailureReason</code> describes why it failed. A transform job creates a log file, which includes error messages, and stores it as an Amazon S3 object. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The name of the model used in the transform job.</p>
+   * @public
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The maximum number of parallel requests on each instance node that can be launched in a transform job. The default value is 1.</p>
+   * @public
+   */
+  MaxConcurrentTransforms?: number | undefined;
+
+  /**
+   * <p>The timeout and maximum number of retries for processing a transform job invocation.</p>
+   * @public
+   */
+  ModelClientConfig?: ModelClientConfig | undefined;
+
+  /**
+   * <p>The maximum payload size, in MB, used in the transform job.</p>
+   * @public
+   */
+  MaxPayloadInMB?: number | undefined;
+
+  /**
+   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record. </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p>
+   * @public
+   */
+  BatchStrategy?: BatchStrategy | undefined;
+
+  /**
+   * <p>The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Describes the dataset to be transformed and the Amazon S3 location where it is stored.</p>
+   * @public
+   */
+  TransformInput: TransformInput | undefined;
+
+  /**
+   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.</p>
+   * @public
+   */
+  TransformOutput?: TransformOutput | undefined;
+
+  /**
+   * <p>Configuration to control how SageMaker captures inference data.</p>
+   * @public
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig | undefined;
+
+  /**
+   * <p>Describes the resources, including ML instance types and ML instance count, to use for the transform job.</p>
+   * @public
+   */
+  TransformResources: TransformResources | undefined;
+
+  /**
+   * <p>A timestamp that shows when the transform Job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of <code>TransformEndTime</code>.</p>
+   * @public
+   */
+  TransformStartTime?: Date | undefined;
+
+  /**
+   * <p>Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of <code>TransformStartTime</code>.</p>
+   * @public
+   */
+  TransformEndTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or training job.</p>
+   * @public
+   */
+  LabelingJobArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AutoML transform job.</p>
+   * @public
+   */
+  AutoMLJobArn?: string | undefined;
+
+  /**
+   * <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction Results with their Corresponding Input Records</a>.</p>
+   * @public
+   */
+  DataProcessing?: DataProcessing | undefined;
+
+  /**
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a> </p> </li> </ul>
+   * @public
+   */
+  ExperimentConfig?: ExperimentConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialRequest {
+  /**
+   * <p>The name of the trial to describe.</p>
+   * @public
+   */
+  TrialName: string | undefined;
+}
+
+/**
+ * <p>The source of the trial.</p>
+ * @public
+ */
+export interface TrialSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The source job type.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialResponse {
+  /**
+   * <p>The name of the trial.</p>
+   * @public
+   */
+  TrialName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   * @public
+   */
+  TrialArn?: string | undefined;
+
+  /**
+   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The name of the experiment the trial is part of.</p>
+   * @public
+   */
+  ExperimentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
+   * @public
+   */
+  Source?: TrialSource | undefined;
+
+  /**
+   * <p>When the trial was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Who created the trial.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>When the trial was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Who last modified the trial.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialComponentRequest {
+  /**
+   * <p>The name of the trial component to describe.</p>
+   * @public
+   */
+  TrialComponentName: string | undefined;
+}
+
+/**
+ * <p>A summary of the metrics of a trial component.</p>
+ * @public
+ */
+export interface TrialComponentMetricSummary {
+  /**
+   * <p>The name of the metric.</p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>When the metric was last updated.</p>
+   * @public
+   */
+  TimeStamp?: Date | undefined;
+
+  /**
+   * <p>The maximum value of the metric.</p>
+   * @public
+   */
+  Max?: number | undefined;
+
+  /**
+   * <p>The minimum value of the metric.</p>
+   * @public
+   */
+  Min?: number | undefined;
+
+  /**
+   * <p>The most recent value of the metric.</p>
+   * @public
+   */
+  Last?: number | undefined;
+
+  /**
+   * <p>The number of samples used to generate the metric.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The average value of the metric.</p>
+   * @public
+   */
+  Avg?: number | undefined;
+
+  /**
+   * <p>The standard deviation of the metric.</p>
+   * @public
+   */
+  StdDev?: number | undefined;
+}
 
 /**
  * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
@@ -8635,6 +9150,12 @@ export interface OptimizationJobSummary {
   DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
 
   /**
+   * <p>The maximum number of instances to use for the optimization job.</p>
+   * @public
+   */
+  MaxInstanceCount?: number | undefined;
+
+  /**
    * <p>The optimization techniques that are applied by the optimization job.</p>
    * @public
    */
@@ -10609,411 +11130,4 @@ export interface TrainingPlanSummary {
    * @public
    */
   ReservedCapacitySummaries?: ReservedCapacitySummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrainingPlansResponse {
-  /**
-   * <p>A token to continue pagination if more results are available.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of summary information for the training plans.</p>
-   * @public
-   */
-  TrainingPlanSummaries: TrainingPlanSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTransformJobsRequest {
-  /**
-   * <p>A filter that returns only transform jobs created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only transform jobs created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only transform jobs modified after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only transform jobs modified before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that retrieves only transform jobs with a specific status.</p>
-   * @public
-   */
-  StatusEquals?: TransformJobStatus | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListTransformJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of transform jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Provides a summary of a transform job. Multiple <code>TransformJobSummary</code> objects are returned as a list after in response to a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTransformJobs.html">ListTransformJobs</a> call.</p>
- * @public
- */
-export interface TransformJobSummary {
-  /**
-   * <p>The name of the transform job.</p>
-   * @public
-   */
-  TransformJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   * @public
-   */
-  TransformJobArn: string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the transform Job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Indicates when the transform job ends on compute instances. For successful jobs and stopped jobs, this is the exact time recorded after the results are uploaded. For failed jobs, this is when Amazon SageMaker detected that the job failed.</p>
-   * @public
-   */
-  TransformEndTime?: Date | undefined;
-
-  /**
-   * <p>Indicates when the transform job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The status of the transform job.</p>
-   * @public
-   */
-  TransformJobStatus: TransformJobStatus | undefined;
-
-  /**
-   * <p>If the transform job failed, the reason it failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTransformJobsResponse {
-  /**
-   * <p>An array of <code>TransformJobSummary</code> objects.</p>
-   * @public
-   */
-  TransformJobSummaries: TransformJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrialComponentsRequest {
-  /**
-   * <p>A filter that returns only components that are part of the specified experiment. If you specify <code>ExperimentName</code>, you can't filter by <code>SourceArn</code> or <code>TrialName</code>.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>A filter that returns only components that are part of the specified trial. If you specify <code>TrialName</code>, you can't filter by <code>ExperimentName</code> or <code>SourceArn</code>.</p>
-   * @public
-   */
-  TrialName?: string | undefined;
-
-  /**
-   * <p>A filter that returns only components that have the specified source Amazon Resource Name (ARN). If you specify <code>SourceArn</code>, you can't filter by <code>ExperimentName</code> or <code>TrialName</code>.</p>
-   * @public
-   */
-  SourceArn?: string | undefined;
-
-  /**
-   * <p>A filter that returns only components created after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only components created before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortTrialComponentsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum number of components to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListTrialComponents</code> didn't return the full set of components, the call returns a token for getting the next set of components.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A summary of the properties of a trial component. To get all the properties, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a> API and provide the <code>TrialComponentName</code>.</p>
- * @public
- */
-export interface TrialComponentSummary {
-  /**
-   * <p>The name of the trial component.</p>
-   * @public
-   */
-  TrialComponentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   * @public
-   */
-  TrialComponentArn?: string | undefined;
-
-  /**
-   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
-   * @public
-   */
-  TrialComponentSource?: TrialComponentSource | undefined;
-
-  /**
-   * <p>The status of the component. States include:</p> <ul> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Failed</p> </li> </ul>
-   * @public
-   */
-  Status?: TrialComponentStatus | undefined;
-
-  /**
-   * <p>When the component started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>When the component ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>When the component was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Who created the trial component.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the component was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Who last modified the component.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrialComponentsResponse {
-  /**
-   * <p>A list of the summaries of your trial components.</p>
-   * @public
-   */
-  TrialComponentSummaries?: TrialComponentSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of components, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrialsRequest {
-  /**
-   * <p>A filter that returns only trials that are part of the specified experiment.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>A filter that returns only trials that are associated with the specified trial component.</p>
-   * @public
-   */
-  TrialComponentName?: string | undefined;
-
-  /**
-   * <p>A filter that returns only trials created after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only trials created before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortTrialsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum number of trials to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListTrials</code> didn't return the full set of trials, the call returns a token for getting the next set of trials.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A summary of the properties of a trial. To get the complete set of properties, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html">DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
- * @public
- */
-export interface TrialSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   * @public
-   */
-  TrialArn?: string | undefined;
-
-  /**
-   * <p>The name of the trial.</p>
-   * @public
-   */
-  TrialName?: string | undefined;
-
-  /**
-   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The source of the trial.</p>
-   * @public
-   */
-  TrialSource?: TrialSource | undefined;
-
-  /**
-   * <p>When the trial was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>When the trial was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrialsResponse {
-  /**
-   * <p>A list of the summaries of your trials.</p>
-   * @public
-   */
-  TrialSummaries?: TrialSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of trials, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

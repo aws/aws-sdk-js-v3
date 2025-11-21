@@ -42,7 +42,10 @@ import {
   SearchSortOrder,
   SecondaryStatus,
   SkipModelValidation,
+  SortBy,
   SortOrder,
+  SortTrialComponentsBy,
+  SortTrialsBy,
   TagPropagation,
   ThroughputMode,
   TrackingServerSize,
@@ -92,7 +95,6 @@ import {
 } from "./models_0";
 
 import {
-  DataProcessing,
   DebugHookConfig,
   DebugRuleConfiguration,
   DefaultSpaceSettings,
@@ -108,7 +110,6 @@ import {
   InferenceExperimentSchedule,
   InstanceMetadataServiceConfiguration,
   ModelCardSecurityConfig,
-  ModelClientConfig,
   ModelLifeCycle,
   ModelMetrics,
   ModelPackageModelCard,
@@ -135,13 +136,13 @@ import {
   SourceAlgorithmSpecification,
   SpaceSettings,
   TensorBoardOutputConfig,
-  TrialComponentArtifact,
   TtlDuration,
   UiTemplate,
   UserSettings,
 } from "./models_1";
 
 import {
+  DataProcessing,
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   FeatureParameter,
@@ -149,6 +150,7 @@ import {
   MemberDefinition,
   MetricData,
   ModelArtifacts,
+  ModelClientConfig,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   NotificationConfiguration,
@@ -159,10 +161,9 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
   TemplateProviderDetail,
-  TrialComponentMetricSummary,
+  TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  TrialSource,
   WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "./models_2";
@@ -181,10 +182,420 @@ import {
   HyperParameterTuningJobSearchEntity,
   MonitoringAlertSummary,
   Parameter,
+  TrainingPlanSummary,
+  TrialComponentMetricSummary,
   TrialComponentSource,
+  TrialSource,
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListTrainingPlansResponse {
+  /**
+   * <p>A token to continue pagination if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of summary information for the training plans.</p>
+   * @public
+   */
+  TrainingPlanSummaries: TrainingPlanSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTransformJobsRequest {
+  /**
+   * <p>A filter that returns only transform jobs created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only transform jobs created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only transform jobs modified after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only transform jobs modified before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that retrieves only transform jobs with a specific status.</p>
+   * @public
+   */
+  StatusEquals?: TransformJobStatus | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListTransformJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of transform jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides a summary of a transform job. Multiple <code>TransformJobSummary</code> objects are returned as a list after in response to a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTransformJobs.html">ListTransformJobs</a> call.</p>
+ * @public
+ */
+export interface TransformJobSummary {
+  /**
+   * <p>The name of the transform job.</p>
+   * @public
+   */
+  TransformJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
+   * @public
+   */
+  TransformJobArn: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the transform Job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Indicates when the transform job ends on compute instances. For successful jobs and stopped jobs, this is the exact time recorded after the results are uploaded. For failed jobs, this is when Amazon SageMaker detected that the job failed.</p>
+   * @public
+   */
+  TransformEndTime?: Date | undefined;
+
+  /**
+   * <p>Indicates when the transform job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The status of the transform job.</p>
+   * @public
+   */
+  TransformJobStatus: TransformJobStatus | undefined;
+
+  /**
+   * <p>If the transform job failed, the reason it failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTransformJobsResponse {
+  /**
+   * <p>An array of <code>TransformJobSummary</code> objects.</p>
+   * @public
+   */
+  TransformJobSummaries: TransformJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrialComponentsRequest {
+  /**
+   * <p>A filter that returns only components that are part of the specified experiment. If you specify <code>ExperimentName</code>, you can't filter by <code>SourceArn</code> or <code>TrialName</code>.</p>
+   * @public
+   */
+  ExperimentName?: string | undefined;
+
+  /**
+   * <p>A filter that returns only components that are part of the specified trial. If you specify <code>TrialName</code>, you can't filter by <code>ExperimentName</code> or <code>SourceArn</code>.</p>
+   * @public
+   */
+  TrialName?: string | undefined;
+
+  /**
+   * <p>A filter that returns only components that have the specified source Amazon Resource Name (ARN). If you specify <code>SourceArn</code>, you can't filter by <code>ExperimentName</code> or <code>TrialName</code>.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>A filter that returns only components created after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only components created before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortTrialComponentsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of components to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListTrialComponents</code> didn't return the full set of components, the call returns a token for getting the next set of components.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of the properties of a trial component. To get all the properties, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a> API and provide the <code>TrialComponentName</code>.</p>
+ * @public
+ */
+export interface TrialComponentSummary {
+  /**
+   * <p>The name of the trial component.</p>
+   * @public
+   */
+  TrialComponentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   * @public
+   */
+  TrialComponentArn?: string | undefined;
+
+  /**
+   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
+   * @public
+   */
+  TrialComponentSource?: TrialComponentSource | undefined;
+
+  /**
+   * <p>The status of the component. States include:</p> <ul> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Failed</p> </li> </ul>
+   * @public
+   */
+  Status?: TrialComponentStatus | undefined;
+
+  /**
+   * <p>When the component started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>When the component ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>When the component was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Who created the trial component.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>When the component was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Who last modified the component.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrialComponentsResponse {
+  /**
+   * <p>A list of the summaries of your trial components.</p>
+   * @public
+   */
+  TrialComponentSummaries?: TrialComponentSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of components, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrialsRequest {
+  /**
+   * <p>A filter that returns only trials that are part of the specified experiment.</p>
+   * @public
+   */
+  ExperimentName?: string | undefined;
+
+  /**
+   * <p>A filter that returns only trials that are associated with the specified trial component.</p>
+   * @public
+   */
+  TrialComponentName?: string | undefined;
+
+  /**
+   * <p>A filter that returns only trials created after the specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only trials created before the specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortTrialsBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of trials to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListTrials</code> didn't return the full set of trials, the call returns a token for getting the next set of trials.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of the properties of a trial. To get the complete set of properties, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html">DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
+ * @public
+ */
+export interface TrialSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   * @public
+   */
+  TrialArn?: string | undefined;
+
+  /**
+   * <p>The name of the trial.</p>
+   * @public
+   */
+  TrialName?: string | undefined;
+
+  /**
+   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The source of the trial.</p>
+   * @public
+   */
+  TrialSource?: TrialSource | undefined;
+
+  /**
+   * <p>When the trial was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>When the trial was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrialsResponse {
+  /**
+   * <p>A list of the summaries of your trials.</p>
+   * @public
+   */
+  TrialSummaries?: TrialSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of trials, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
