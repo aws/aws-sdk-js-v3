@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@smithy/types";
+import type { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@smithy/types";
 
 /**
  * @public
@@ -17,10 +17,16 @@ export interface ClientInputEndpointParameters {
   disableS3ExpressSessionAuth?: boolean | undefined | Provider<boolean | undefined>;
 }
 
+/**
+ * @internal
+ */
 export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
+/**
+ * @internal
+ */
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
@@ -35,6 +41,9 @@ export const resolveClientEndpointParameters = <T>(
   });
 };
 
+/**
+ * @internal
+ */
 export const commonParams = {
   ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
   UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
