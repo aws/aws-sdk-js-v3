@@ -1292,11 +1292,10 @@ export interface KeyMetadata {
 
   /**
    * <p>Identifies the current key material. This value is present for symmetric encryption keys
-   *       with <code>AWS_KMS</code> origin and single-Region, symmetric encryption keys with
-   *         <code>EXTERNAL</code> origin. These KMS keys support automatic or on-demand key rotation and
-   *       can have multiple key materials associated with them. KMS uses the current key material for
-   *       both encryption and decryption, and the non-current key material for decryption operations
-   *       only.</p>
+   *       with <code>AWS_KMS</code> or <code>EXTERNAL</code> origin. These KMS keys support automatic
+   *       or on-demand key rotation and can have multiple key materials associated with them. KMS uses
+   *       the current key material for both encryption and decryption, and the non-current key material
+   *       for decryption operations only.</p>
    * @public
    */
   CurrentKeyMaterialId?: string | undefined;
@@ -3511,6 +3510,10 @@ export interface ImportKeyMaterialRequest {
    *       parameter defaults to <code>NEW_KEY_MATERIAL</code>. After the first key material is imported,
    *       if this parameter is omitted then the parameter defaults to
    *       <code>EXISTING_KEY_MATERIAL</code>.</p>
+   *          <p>For multi-Region keys, you must first import new key material into
+   * the primary Region key. You should use the <code>NEW_KEY_MATERIAL</code> import type when importing key
+   * material into the primary Region key. Then, you can import the same key material into the replica Region
+   * key. The import type for the replica Region key should be <code>EXISTING_KEY_MATERIAL</code>.</p>
    * @public
    */
   ImportType?: ImportType | undefined;
@@ -3897,14 +3900,20 @@ export interface RotationsListEntry {
   ImportState?: ImportState | undefined;
 
   /**
-   * <p>There are three possible values for this field: <code>CURRENT</code>,
-   *         <code>NON_CURRENT</code> and <code>PENDING_ROTATION</code>. KMS uses <code>CURRENT</code>
+   * <p>There are four possible values for this field: <code>CURRENT</code>,
+   *         <code>NON_CURRENT</code>, <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> and
+   *         <code>PENDING_ROTATION</code>. KMS uses <code>CURRENT</code>
    *       key material for both encryption and decryption and <code>NON_CURRENT</code> key material only
    *       for decryption. <code>PENDING_ROTATION</code> identifies key material that has been imported
-   *       for on-demand key rotation but the rotation hasn't completed. Key material in
-   *         <code>PENDING_ROTATION</code> is not permanently associated with the KMS key. You can delete
-   *       this key material and import different key material in its place. The
-   *         <code>PENDING_ROTATION</code> value is only used in symmetric encryption keys with imported
+   *       for on-demand key rotation but the rotation hasn't completed. The key material state
+   *       <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> is unique to multi-region,
+   *       symmetric encryption keys with imported key material. It indicates key material that has
+   *       been imported into the primary Region key but not all of the replica Region keys. When this key material
+   *       is imported in to all of the replica Region keys, the key material state will change to
+   *       <code>PENDING_ROTATION</code>. Key material in <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code>
+   *       or <code>PENDING_ROTATION</code> state is not permanently associated with the KMS key. You can delete
+   *       this key material and import different key material in its place. The <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code>
+   *       and <code>PENDING_ROTATION</code> values are only used in symmetric encryption keys with imported
    *       key material. The other values, <code>CURRENT</code> and <code>NON_CURRENT</code>, are used
    *       for all KMS keys that support automatic or on-demand key rotation.</p>
    * @public

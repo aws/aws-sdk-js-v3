@@ -34,6 +34,20 @@ export interface DeleteImportedKeyMaterialCommandOutput extends DeleteImportedKe
  *          <p>When the specified KMS key is in the <code>PendingDeletion</code> state, this operation
  *       does not change the KMS key's state. Otherwise, it changes the KMS key's state to
  *         <code>PendingImport</code>.</p>
+ *          <p class="title">
+ *             <b>Considerations for multi-Region symmetric encryption keys</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>When you delete the key material of a primary Region key that is in
+ *             <code>PENDING_ROTATION</code> or <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code>state,
+ *             you'll also be deleting the key materials for the replica Region keys.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you delete any key material of a replica Region key, the primary Region key and
+ *           other replica Region keys remain unchanged.</p>
+ *             </li>
+ *          </ul>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>

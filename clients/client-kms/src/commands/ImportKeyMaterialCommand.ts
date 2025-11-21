@@ -34,9 +34,28 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *       generate and import your own key material. For more information about importing key material,
  *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key
  *         material</a>.</p>
- *          <p>For asymmetric, HMAC and multi-Region keys, you cannot change the key material after the
- *       initial import. You can import multiple key materials into single-Region, symmetric encryption
- *       keys and rotate the key material on demand using <code>RotateKeyOnDemand</code>.</p>
+ *          <p>For asymmetric and HMAC keys, you cannot change the key material after the initial import.
+ *       You can import multiple key materials into symmetric encryption keys and rotate the key
+ *       material on demand using <code>RotateKeyOnDemand</code>.</p>
+ *          <p>You can import new key materials into multi-Region symmetric encryption keys. To do so, you must
+ *       import the new key material into the primary Region key. Then you can import the same key
+ *       materials into the replica Region keys. You cannot directly import new key material into
+ *       the replica Region keys.</p>
+ *          <p>To import new key material for a multi-Region symmetric key, you’ll need to complete the
+ *       following:</p>
+ *          <ol>
+ *             <li>
+ *                <p>Call <code>ImportKeyMaterial</code> on the primary Region key with the
+ *             <code>ImportType</code>set to <code>NEW_KEY_MATERIAL</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Call <code>ImportKeyMaterial</code> on the replica Region key with the
+ *             <code>ImportType</code> set to <code>EXISTING_KEY_MATERIAL</code> using the same key
+ *             material imported to the primary Region key. You must do this for every replica
+ *             Region key before you can perform the <a>RotateKeyOnDemand</a> operation
+ *             on the primary Region key.</p>
+ *             </li>
+ *          </ol>
  *          <p>After you import key material, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#reimport-key-material">reimport
  *         the same key material</a> into that KMS key or, if the key supports on-demand rotation,
  *       import new key material. You can use the <code>ImportType</code> parameter to indicate whether
@@ -68,15 +87,15 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *           your key material.</p>
  *             </li>
  *          </ul>
- *          <p> Then, in an <code>ImportKeyMaterial</code> request, you submit your encrypted key
+ *          <p>Then, in an <code>ImportKeyMaterial</code> request, you submit your encrypted key
  *       material and import token. When calling this operation, you must specify the following
  *       values:</p>
  *          <ul>
  *             <li>
  *                <p>The key ID or key ARN of the KMS key to associate with the imported key material. Its
  *             <code>Origin</code> must be <code>EXTERNAL</code> and its <code>KeyState</code> must be
- *             <code>PendingImport</code>. You cannot perform this operation on a KMS key in a
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>, or on a KMS key in a different Amazon Web Services account. To get the
+ *             <code>PendingImport</code> or <code>Enabled</code>. You cannot perform this operation on
+ *             a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>, or on a KMS key in a different Amazon Web Services account. To get the
  *             <code>Origin</code> and <code>KeyState</code> of a KMS key, call <a>DescribeKey</a>.</p>
  *             </li>
  *             <li>
@@ -96,12 +115,11 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *           time you reimport, you can eliminate or reset the expiration time.</p>
  *             </li>
  *          </ul>
- *          <p>When this operation is successful, the key state of the KMS key changes from
- *         <code>PendingImport</code> to <code>Enabled</code>, and you can use the KMS key in
- *       cryptographic operations. For single-Region, symmetric encryption keys, you will need to
- *       import all of the key materials associated with the KMS key to change its state to
- *         <code>Enabled</code>. Use the <code>ListKeyRotations</code> operation to list the ID and
- *       import state of each key material associated with a KMS key.</p>
+ *          <p>When this operation is successful, the state of the KMS key changes to <code>Enabled</code>,
+ *       and you can use the KMS key in cryptographic operations. For symmetric encryption keys, you will
+ *       need to import all of the key materials associated with the KMS key to change its state to
+ *       <code>Enabled</code>. Use the <code>ListKeyRotations</code> operation to list the ID and import
+ *       state of each key material associated with a KMS key.</p>
  *          <p>If this operation fails, use the exception to help determine the problem. If the error is
  *       related to the key material, the import token, or wrapping key, use <a>GetParametersForImport</a> to get a new public key and import token for the KMS key
  *       and repeat the import procedure. For help, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-conceptual.html">Create a KMS key with imported key

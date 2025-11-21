@@ -427,6 +427,7 @@ export type IncludeKeyMaterial = (typeof IncludeKeyMaterial)[keyof typeof Includ
 export const KeyMaterialState = {
   CURRENT: "CURRENT",
   NON_CURRENT: "NON_CURRENT",
+  PENDING_MULTI_REGION_IMPORT_AND_ROTATION: "PENDING_MULTI_REGION_IMPORT_AND_ROTATION",
   PENDING_ROTATION: "PENDING_ROTATION",
 } as const;
 /**

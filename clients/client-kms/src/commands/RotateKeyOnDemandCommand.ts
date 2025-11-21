@@ -46,15 +46,14 @@ export interface RotateKeyOnDemandCommandOutput extends RotateKeyOnDemandRespons
  *       on-demand rotations were performed. You can monitor rotation of the key material for your KMS
  *       keys in CloudTrail and Amazon CloudWatch.</p>
  *          <p>On-demand key rotation is supported only on symmetric encryption KMS keys. You cannot
- *       perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, multi-Region KMS
- *       keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key
- *         material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. When you initiate on-demand key
- *       rotation on a symmetric encryption KMS key with imported key material, you must have already
- *       imported <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html">new key material</a> and that
+ *       perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, or KMS keys in a
+ *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. When you initiate on-demand key rotation on a symmetric encryption KMS key
+ *       with imported key material, you must have already imported <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html">new key material</a> and that
  *       key material's state should be <code>PENDING_ROTATION</code>. Use the
  *         <code>ListKeyRotations</code> operation to check the state of all key materials associated
- *       with a KMS key. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, invoke
- *       the on-demand rotation on the primary key.</p>
+ *       with a KMS key. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, import
+ *         new key material in the primary Region key, import the same key material in each replica
+ *         Region key, and invoke the on-demand rotation on the primary Region key.</p>
  *          <p>You cannot initiate on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed KMS keys</a>. KMS
  *       always rotates the key material of Amazon Web Services managed keys every year. Rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-key">Amazon Web Services owned KMS
  *         keys</a> is managed by the Amazon Web Services service that owns the key.</p>
