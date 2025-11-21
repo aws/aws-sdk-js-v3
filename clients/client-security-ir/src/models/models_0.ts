@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  ActionType,
   AwsRegion,
   CaseAttachmentStatus,
   CaseStatus,
@@ -7,6 +8,7 @@ import {
   CommunicationType,
   CustomerType,
   EngagementType,
+  ExecutionStatus,
   MembershipAccountRelationshipStatus,
   MembershipAccountRelationshipType,
   MembershipStatus,
@@ -14,6 +16,7 @@ import {
   PendingAction,
   ResolverType,
   SelfManagedCaseStatus,
+  UsefulnessRating,
 } from "./enums";
 
 /**
@@ -390,6 +393,24 @@ export interface CaseAttachmentAttributes {
 }
 
 /**
+ * <p>Represents a single metadata entry associated with a case. Each entry consists of a key-value pair that provides additional contextual information about the case, such as classification tags, custom attributes, or system-generated properties. </p>
+ * @public
+ */
+export interface CaseMetadataEntry {
+  /**
+   * <p>The identifier for the metadata field. This key uniquely identifies the type of metadata being stored, such as "severity", "category", or "assignee".</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value associated with the metadata key. This contains the actual data for the metadata field identified by the key.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetCaseResponse {
@@ -506,6 +527,12 @@ export interface GetCaseResponse {
    * @public
    */
   closedDate?: Date | undefined;
+
+  /**
+   * <p>Case response metadata</p>
+   * @public
+   */
+  caseMetadata?: CaseMetadataEntry[] | undefined;
 }
 
 /**
@@ -849,6 +876,152 @@ export interface ListCommentsResponse {
 /**
  * @public
  */
+export interface ListInvestigationsRequest {
+  /**
+   * <p>Investigation performed by an agent for a security incident request</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Investigation performed by an agent for a security incident request, returning max results</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Investigation performed by an agent for a security incident per caseID</p>
+   * @public
+   */
+  caseId: string | undefined;
+}
+
+/**
+ * <p>Represents user feedback for an investigation result. This structure captures the user's evaluation of the investigation's quality, usefulness, and any additional comments.</p>
+ * @public
+ */
+export interface InvestigationFeedback {
+  /**
+   * <p>User assessment of the investigation result's quality and helpfulness. This rating indicates how valuable the investigation findings were in addressing the case.</p>
+   * @public
+   */
+  usefulness?: UsefulnessRating | undefined;
+
+  /**
+   * <p>Optional user comments providing additional context about the investigation feedback. This allows users to explain their rating or provide suggestions for improvement.</p>
+   * @public
+   */
+  comment?: string | undefined;
+
+  /**
+   * <p>ISO 8601 timestamp when the feedback was submitted. This records when the user provided their assessment of the investigation results.</p>
+   * @public
+   */
+  submittedAt?: Date | undefined;
+}
+
+/**
+ * <p>Represents an investigation action performed within a case. This structure captures the details of an automated or manual investigation, including its status, results, and user feedback.</p>
+ * @public
+ */
+export interface InvestigationAction {
+  /**
+   * <p>The unique identifier for this investigation action. This ID is used to track and reference the specific investigation throughout its lifecycle.</p>
+   * @public
+   */
+  investigationId: string | undefined;
+
+  /**
+   * <p>The type of investigation action being performed. This categorizes the investigation method or approach used in the case.</p>
+   * @public
+   */
+  actionType: ActionType | undefined;
+
+  /**
+   * <p>Human-readable summary of the investigation focus. This provides a brief description of what the investigation is examining or analyzing.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>Detailed investigation results in rich markdown format. This field contains the comprehensive findings, analysis, and conclusions from the investigation.</p>
+   * @public
+   */
+  content: string | undefined;
+
+  /**
+   * <p>The current execution status of the investigation. This indicates whether the investigation is pending, in progress, completed, or failed.</p>
+   * @public
+   */
+  status: ExecutionStatus | undefined;
+
+  /**
+   * <p>ISO 8601 timestamp of the most recent status update. This indicates when the investigation was last modified or when its status last changed.</p>
+   * @public
+   */
+  lastUpdated: Date | undefined;
+
+  /**
+   * <p>User feedback for this investigation result. This contains the user's assessment and comments about the quality and usefulness of the investigation findings.</p>
+   * @public
+   */
+  feedback?: InvestigationFeedback | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvestigationsResponse {
+  /**
+   * <p>Investigation performed by an agent for a security incident for next Token</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Investigation performed by an agent for a security incid…Unique identifier for the specific investigation&gt;</p>
+   * @public
+   */
+  investigationActions: InvestigationAction[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendFeedbackRequest {
+  /**
+   * <p>Send feedback based on request caseID</p>
+   * @public
+   */
+  caseId: string | undefined;
+
+  /**
+   * <p>Send feedback based on request result ID</p>
+   * @public
+   */
+  resultId: string | undefined;
+
+  /**
+   * <p>Required enum value indicating user assessment of result q.....</p>
+   * @public
+   */
+  usefulness: UsefulnessRating | undefined;
+
+  /**
+   * <p>Send feedback based on request comments</p>
+   * @public
+   */
+  comment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendFeedbackResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateCaseRequest {
   /**
    * <p>Required element for UpdateCase to identify the case ID for updates.</p>
@@ -945,6 +1118,12 @@ export interface UpdateCaseRequest {
    * @public
    */
   impactedAccountsToDelete?: string[] | undefined;
+
+  /**
+   * <p>Update the case request with case metadata</p>
+   * @public
+   */
+  caseMetadata?: CaseMetadataEntry[] | undefined;
 }
 
 /**

@@ -18,11 +18,13 @@ const _CD = "CaseDescription";
 const _CE = "ConflictException";
 const _CEI = "CaseEditItem";
 const _CEIa = "CaseEditItems";
-const _CM = "CancelMembership";
+const _CM = "CaseMetadata";
+const _CME = "CaseMetadataEntry";
 const _CMR = "CancelMembershipRequest";
 const _CMRa = "CancelMembershipResponse";
 const _CMRr = "CreateMembershipRequest";
 const _CMRre = "CreateMembershipResponse";
+const _CMa = "CancelMembership";
 const _CMr = "CreateMembership";
 const _CT = "CaseTitle";
 const _EA = "EmailAddress";
@@ -43,8 +45,11 @@ const _GMADI = "GetMembershipAccountDetailItem";
 const _GMADIe = "GetMembershipAccountDetailItems";
 const _GMR = "GetMembershipRequest";
 const _GMRe = "GetMembershipResponse";
+const _IA = "InvestigationAction";
+const _IAL = "InvestigationActionList";
 const _IAR = "ImpactedAwsRegion";
 const _IARL = "ImpactedAwsRegionList";
+const _IF = "InvestigationFeedback";
 const _IPA = "IPAddress";
 const _IR = "IncidentResponder";
 const _IRN = "IncidentResponderName";
@@ -65,6 +70,9 @@ const _LCRi = "ListCasesResponse";
 const _LCRis = "ListCommentsRequest";
 const _LCRist = "ListCommentsResponse";
 const _LCi = "ListComments";
+const _LI = "ListInvestigations";
+const _LIR = "ListInvestigationsRequest";
+const _LIRi = "ListInvestigationsResponse";
 const _LM = "ListMemberships";
 const _LMI = "ListMembershipItem";
 const _LMIi = "ListMembershipItems";
@@ -81,6 +89,9 @@ const _OIFp = "OptInFeatures";
 const _PN = "PersonName";
 const _RA = "Retry-After";
 const _RNFE = "ResourceNotFoundException";
+const _SF = "SendFeedback";
+const _SFR = "SendFeedbackRequest";
+const _SFRe = "SendFeedbackResponse";
 const _SIRNAE = "SecurityIncidentResponseNotActiveException";
 const _SQEE = "ServiceQuotaExceededException";
 const _TAI = "ThreatActorIp";
@@ -120,6 +131,7 @@ const _aIc = "accountId";
 const _aIt = "attachmentId";
 const _aPU = "attachmentPresignedUrl";
 const _aS = "attachmentStatus";
+const _aT = "actionType";
 const _b = "body";
 const _c = "client";
 const _cA = "caseArn";
@@ -131,10 +143,13 @@ const _cEO = "coverEntireOrganization";
 const _cI = "caseId";
 const _cIo = "commentId";
 const _cL = "contentLength";
+const _cM = "caseMetadata";
 const _cP = "communicationPreferences";
 const _cS = "caseStatus";
 const _cT = "clientToken";
 const _cTu = "customerType";
+const _co = "content";
+const _com = "comment";
 const _cr = "creator";
 const _d = "description";
 const _e = "error";
@@ -142,6 +157,7 @@ const _eT = "eventTimestamp";
 const _eTn = "engagementType";
 const _em = "email";
 const _er = "errors";
+const _f = "feedback";
 const _fL = "fieldList";
 const _fN = "fileName";
 const _fNe = "featureName";
@@ -156,13 +172,17 @@ const _iARTA = "impactedAwsRegionsToAdd";
 const _iARTD = "impactedAwsRegionsToDelete";
 const _iATA = "impactedAccountsToAdd";
 const _iATD = "impactedAccountsToDelete";
+const _iAn = "investigationActions";
 const _iAp = "ipAddress";
 const _iE = "isEnabled";
+const _iI = "investigationId";
 const _iRT = "incidentResponseTeam";
 const _iS = "impactedServices";
 const _iSTA = "impactedServicesToAdd";
 const _iSTD = "impactedServicesToDelete";
 const _jT = "jobTitle";
+const _k = "key";
+const _lU = "lastUpdated";
 const _lUB = "lastUpdatedBy";
 const _lUD = "lastUpdatedDate";
 const _m = "message";
@@ -190,14 +210,17 @@ const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rISD = "reportedIncidentStartDate";
+const _rIe = "resultId";
 const _rS = "relationshipStatus";
 const _rT = "resourceType";
 const _rTe = "resolverType";
 const _rTel = "relationshipType";
 const _re = "reason";
 const _s = "server";
+const _sA = "submittedAt";
 const _sC = "serviceCode";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.securityir";
+const _st = "status";
 const _t = "title";
 const _tAIA = "threatActorIpAddresses";
 const _tAIATA = "threatActorIpAddressesToAdd";
@@ -205,8 +228,10 @@ const _tAIATD = "threatActorIpAddressesToDelete";
 const _tK = "tagKeys";
 const _ta = "tags";
 const _to = "total";
+const _u = "usefulness";
 const _uA = "userAgent";
 const _uMC = "undoMembershipCancellation";
+const _v = "value";
 const _w = "watchers";
 const _wTA = "watchersToAdd";
 const _wTD = "watchersToDelete";
@@ -289,6 +314,7 @@ export var CaseAttachmentAttributes: StaticStructureSchema = [
   [0, [() => FileName, 0], 0, 0, 4],
 ];
 export var CaseEditItem: StaticStructureSchema = [3, n0, _CEI, 0, [_eT, _p, _a, _m], [4, 0, 0, 0]];
+export var CaseMetadataEntry: StaticStructureSchema = [3, n0, _CME, 0, [_k, _v], [0, 0]];
 export var CloseCaseRequest: StaticStructureSchema = [3, n0, _CCR, 0, [_cI], [[0, 1]]];
 export var CloseCaseResponse: StaticStructureSchema = [3, n0, _CCRl, 0, [_cS, _cDl], [0, 4]];
 export var ConflictException: StaticErrorSchema = [
@@ -375,7 +401,7 @@ export var GetCaseResponse: StaticStructureSchema = [
   n0,
   _GCRe,
   0,
-  [_t, _cA, _d, _cS, _eTn, _rISD, _aISD, _iAR, _tAIA, _pA, _iA, _w, _cD, _lUD, _cC, _rTe, _iS, _cAa, _cDl],
+  [_t, _cA, _d, _cS, _eTn, _rISD, _aISD, _iAR, _tAIA, _pA, _iA, _w, _cD, _lUD, _cC, _rTe, _iS, _cAa, _cDl, _cM],
   [
     [() => CaseTitle, 0],
     0,
@@ -396,6 +422,7 @@ export var GetCaseResponse: StaticStructureSchema = [
     64 | 0,
     [() => CaseAttachmentsList, 0],
     4,
+    () => CaseMetadata,
   ],
 ];
 export var GetMembershipAccountDetailError: StaticStructureSchema = [3, n0, _GMADE, 0, [_aIc, _e, _m], [0, 0, 0]];
@@ -466,6 +493,15 @@ export var InvalidTokenException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InvalidTokenException, __InvalidTokenException);
 
+export var InvestigationAction: StaticStructureSchema = [
+  3,
+  n0,
+  _IA,
+  0,
+  [_iI, _aT, _t, _co, _st, _lU, _f],
+  [0, 0, 0, 0, 0, 4, () => InvestigationFeedback],
+];
+export var InvestigationFeedback: StaticStructureSchema = [3, n0, _IF, 0, [_u, _com, _sA], [0, 0, 4]];
 export var ListCaseEditsRequest: StaticStructureSchema = [3, n0, _LCER, 0, [_nT, _mR, _cI], [0, 1, [0, 1]]];
 export var ListCaseEditsResponse: StaticStructureSchema = [
   3,
@@ -508,6 +544,36 @@ export var ListCommentsResponse: StaticStructureSchema = [
   0,
   [_nT, _i, _to],
   [0, [() => ListCommentsItems, 0], 1],
+];
+export var ListInvestigationsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LIR,
+  0,
+  [_nT, _mR, _cI],
+  [
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [0, 1],
+  ],
+];
+export var ListInvestigationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRi,
+  0,
+  [_nT, _iAn],
+  [0, () => InvestigationActionList],
 ];
 export var ListMembershipItem: StaticStructureSchema = [3, n0, _LMI, 0, [_mI, _aIc, _r, _mA, _mS], [0, 0, 0, 0, 0]];
 export var ListMembershipsRequest: StaticStructureSchema = [3, n0, _LMR, 0, [_nT, _mR], [0, 1]];
@@ -560,6 +626,8 @@ TypeRegistry.for(n0).registerError(
   __SecurityIncidentResponseNotActiveException
 );
 
+export var SendFeedbackRequest: StaticStructureSchema = [3, n0, _SFR, 0, [_cI, _rIe, _u, _com], [[0, 1], [0, 1], 0, 0]];
+export var SendFeedbackResponse: StaticStructureSchema = [3, n0, _SFRe, 0, [], []];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -641,7 +709,7 @@ export var UpdateCaseRequest: StaticStructureSchema = [
   n0,
   _UCR,
   0,
-  [_cI, _t, _d, _rISD, _aISD, _eTn, _wTA, _wTD, _tAIATA, _tAIATD, _iSTA, _iSTD, _iARTA, _iARTD, _iATA, _iATD],
+  [_cI, _t, _d, _rISD, _aISD, _eTn, _wTA, _wTD, _tAIATA, _tAIATD, _iSTA, _iSTD, _iARTA, _iARTD, _iATA, _iATD, _cM],
   [
     [0, 1],
     [() => CaseTitle, 0],
@@ -659,6 +727,7 @@ export var UpdateCaseRequest: StaticStructureSchema = [
     () => ImpactedAwsRegionList,
     64 | 0,
     64 | 0,
+    () => CaseMetadata,
   ],
 ];
 export var UpdateCaseResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [], []];
@@ -717,6 +786,7 @@ export var AWSAccountIds = 64 | 0;
 
 export var CaseAttachmentsList: StaticListSchema = [1, n0, _CAL, 0, [() => CaseAttachmentAttributes, 0]];
 export var CaseEditItems: StaticListSchema = [1, n0, _CEIa, 0, () => CaseEditItem];
+export var CaseMetadata: StaticListSchema = [1, n0, _CM, 0, () => CaseMetadataEntry];
 export var CommunicationPreferences = 64 | 0;
 
 export var GetMembershipAccountDetailErrors: StaticListSchema = [
@@ -739,6 +809,7 @@ export var ImpactedAwsRegionList: StaticListSchema = [1, n0, _IARL, 0, () => Imp
 export var ImpactedServicesList = 64 | 0;
 
 export var IncidentResponseTeam: StaticListSchema = [1, n0, _IRT, 0, [() => IncidentResponder, 0]];
+export var InvestigationActionList: StaticListSchema = [1, n0, _IAL, 0, () => InvestigationAction];
 export var ListCasesItems: StaticListSchema = [1, n0, _LCIis, 0, [() => ListCasesItem, 0]];
 export var ListCommentsItems: StaticListSchema = [1, n0, _LCIist, 0, [() => ListCommentsItem, 0]];
 export var ListMembershipItems: StaticListSchema = [1, n0, _LMIi, 0, () => ListMembershipItem];
@@ -765,7 +836,7 @@ export var BatchGetMemberAccountDetails: StaticOperationSchema = [
 export var CancelMembership: StaticOperationSchema = [
   9,
   n0,
-  _CM,
+  _CMa,
   {
     [_h]: ["PUT", "/v1/membership/{membershipId}", 200],
   },
@@ -882,6 +953,16 @@ export var ListComments: StaticOperationSchema = [
   () => ListCommentsRequest,
   () => ListCommentsResponse,
 ];
+export var ListInvestigations: StaticOperationSchema = [
+  9,
+  n0,
+  _LI,
+  {
+    [_h]: ["GET", "/v1/cases/{caseId}/list-investigations", 200],
+  },
+  () => ListInvestigationsRequest,
+  () => ListInvestigationsResponse,
+];
 export var ListMemberships: StaticOperationSchema = [
   9,
   n0,
@@ -901,6 +982,16 @@ export var ListTagsForResource: StaticOperationSchema = [
   },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
+];
+export var SendFeedback: StaticOperationSchema = [
+  9,
+  n0,
+  _SF,
+  {
+    [_h]: ["POST", "/v1/cases/{caseId}/feedback/{resultId}/send-feedback", 200],
+  },
+  () => SendFeedbackRequest,
+  () => SendFeedbackResponse,
 ];
 export var TagResource: StaticOperationSchema = [
   9,

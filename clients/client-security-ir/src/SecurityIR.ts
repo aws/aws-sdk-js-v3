@@ -52,6 +52,11 @@ import {
   ListCommentsCommandOutput,
 } from "./commands/ListCommentsCommand";
 import {
+  ListInvestigationsCommand,
+  ListInvestigationsCommandInput,
+  ListInvestigationsCommandOutput,
+} from "./commands/ListInvestigationsCommand";
+import {
   ListMembershipsCommand,
   ListMembershipsCommandInput,
   ListMembershipsCommandOutput,
@@ -61,6 +66,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  SendFeedbackCommand,
+  SendFeedbackCommandInput,
+  SendFeedbackCommandOutput,
+} from "./commands/SendFeedbackCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -104,8 +114,10 @@ const commands = {
   ListCaseEditsCommand,
   ListCasesCommand,
   ListCommentsCommand,
+  ListInvestigationsCommand,
   ListMembershipsCommand,
   ListTagsForResourceCommand,
+  SendFeedbackCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCaseCommand,
@@ -297,6 +309,23 @@ export interface SecurityIR {
   ): void;
 
   /**
+   * @see {@link ListInvestigationsCommand}
+   */
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInvestigationsCommandOutput>;
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    cb: (err: any, data?: ListInvestigationsCommandOutput) => void
+  ): void;
+  listInvestigations(
+    args: ListInvestigationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInvestigationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMembershipsCommand}
    */
   listMemberships(): Promise<ListMembershipsCommandOutput>;
@@ -326,6 +355,17 @@ export interface SecurityIR {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendFeedbackCommand}
+   */
+  sendFeedback(args: SendFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<SendFeedbackCommandOutput>;
+  sendFeedback(args: SendFeedbackCommandInput, cb: (err: any, data?: SendFeedbackCommandOutput) => void): void;
+  sendFeedback(
+    args: SendFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendFeedbackCommandOutput) => void
   ): void;
 
   /**

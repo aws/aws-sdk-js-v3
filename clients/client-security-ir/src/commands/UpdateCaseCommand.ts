@@ -91,6 +91,12 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  *   impactedAccountsToDelete: [
  *     "STRING_VALUE",
  *   ],
+ *   caseMetadata: [ // CaseMetadata
+ *     { // CaseMetadataEntry
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateCaseCommand(input);
  * const response = await client.send(command);

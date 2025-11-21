@@ -79,11 +79,13 @@ import { GetMembershipCommandInput, GetMembershipCommandOutput } from "./command
 import { ListCaseEditsCommandInput, ListCaseEditsCommandOutput } from "./commands/ListCaseEditsCommand";
 import { ListCasesCommandInput, ListCasesCommandOutput } from "./commands/ListCasesCommand";
 import { ListCommentsCommandInput, ListCommentsCommandOutput } from "./commands/ListCommentsCommand";
+import { ListInvestigationsCommandInput, ListInvestigationsCommandOutput } from "./commands/ListInvestigationsCommand";
 import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { SendFeedbackCommandInput, SendFeedbackCommandOutput } from "./commands/SendFeedbackCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateCaseCommandInput, UpdateCaseCommandOutput } from "./commands/UpdateCaseCommand";
@@ -119,8 +121,10 @@ export type ServiceInputTypes =
   | ListCaseEditsCommandInput
   | ListCasesCommandInput
   | ListCommentsCommandInput
+  | ListInvestigationsCommandInput
   | ListMembershipsCommandInput
   | ListTagsForResourceCommandInput
+  | SendFeedbackCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCaseCommandInput
@@ -146,8 +150,10 @@ export type ServiceOutputTypes =
   | ListCaseEditsCommandOutput
   | ListCasesCommandOutput
   | ListCommentsCommandOutput
+  | ListInvestigationsCommandOutput
   | ListMembershipsCommandOutput
   | ListTagsForResourceCommandOutput
+  | SendFeedbackCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCaseCommandOutput

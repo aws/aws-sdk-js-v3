@@ -88,6 +88,12 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * //     },
  * //   ],
  * //   closedDate: new Date("TIMESTAMP"),
+ * //   caseMetadata: [ // CaseMetadata
+ * //     { // CaseMetadataEntry
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

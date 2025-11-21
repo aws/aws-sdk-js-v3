@@ -3,6 +3,20 @@
  * @public
  * @enum
  */
+export const ActionType = {
+  EVIDENCE_COLLECTION: "Evidence",
+  INVESTIGATION_ANALYSIS: "Investigation",
+  SUMMARIZATION: "Summarization",
+} as const;
+/**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AwsRegion = {
   AF_SOUTH_1: "af-south-1",
   AP_EAST_1: "ap-east-1",
@@ -175,6 +189,36 @@ export const PendingAction = {
  * @public
  */
 export type PendingAction = (typeof PendingAction)[keyof typeof PendingAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsefulnessRating = {
+  NOT_USEFUL: "NOT_USEFUL",
+  USEFUL: "USEFUL",
+} as const;
+/**
+ * @public
+ */
+export type UsefulnessRating = (typeof UsefulnessRating)[keyof typeof UsefulnessRating];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  WAITING: "Waiting",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public

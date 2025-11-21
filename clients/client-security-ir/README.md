@@ -309,6 +309,14 @@ ListComments
 </details>
 <details>
 <summary>
+ListInvestigations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/security-ir/command/ListInvestigationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/ListInvestigationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/ListInvestigationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListMemberships
 </summary>
 
@@ -321,6 +329,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/security-ir/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+SendFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/security-ir/command/SendFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/SendFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/SendFeedbackCommandOutput/)
 
 </details>
 <details>
