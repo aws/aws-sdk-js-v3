@@ -163,6 +163,20 @@ export type LocalWriteForwardingStatus = (typeof LocalWriteForwardingStatus)[key
  * @public
  * @enum
  */
+export const UpgradeRolloutOrder = {
+  FIRST: "first",
+  LAST: "last",
+  SECOND: "second",
+} as const;
+/**
+ * @public
+ */
+export type UpgradeRolloutOrder = (typeof UpgradeRolloutOrder)[keyof typeof UpgradeRolloutOrder];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutomationMode = {
   ALL_PAUSED: "all-paused",
   FULL: "full",

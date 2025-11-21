@@ -1463,6 +1463,7 @@ const _UETOPITU = "UseEarliestTimeOnPointInTimeUnavailable";
 const _ULRT = "UseLatestRestorableTime";
 const _UN = "UserName";
 const _UP = "UsagePrice";
+const _URO = "UpgradeRolloutOrder";
 const _USC = "UpgradeStorageConfig";
 const _UT = "UpdatedTime";
 const _UTSC = "UpgradeTargetStorageConfig";
@@ -2630,6 +2631,7 @@ export var DBCluster: StaticStructureSchema = [
     _DBCOGM,
     _PBW,
     _PMW,
+    _URO,
     _RSI,
     _RRI,
     _SIt,
@@ -2714,6 +2716,7 @@ export var DBCluster: StaticStructureSchema = [
     1,
     0,
     [() => DBClusterOptionGroupMemberships, 0],
+    0,
     0,
     0,
     0,
@@ -3327,6 +3330,7 @@ export var DBInstance: StaticStructureSchema = [
     _AZ,
     _DBSGu,
     _PMW,
+    _URO,
     _PMV,
     _LRT,
     _MAZ,
@@ -3415,6 +3419,7 @@ export var DBInstance: StaticStructureSchema = [
     [() => DBParameterGroupStatusList, 0],
     0,
     [() => DBSubnetGroup, 0],
+    0,
     0,
     [() => PendingModifiedValues, 0],
     4,

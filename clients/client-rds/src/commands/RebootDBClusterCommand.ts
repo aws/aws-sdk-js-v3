@@ -85,6 +85,7 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * //     ],
  * //     PreferredBackupWindow: "STRING_VALUE",
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     UpgradeRolloutOrder: "first" || "second" || "last",
  * //     ReplicationSourceIdentifier: "STRING_VALUE",
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",

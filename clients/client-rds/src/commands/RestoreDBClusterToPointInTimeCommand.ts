@@ -157,6 +157,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     ],
  * //     PreferredBackupWindow: "STRING_VALUE",
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     UpgradeRolloutOrder: "first" || "second" || "last",
  * //     ReplicationSourceIdentifier: "STRING_VALUE",
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
@@ -405,8 +406,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance
- *             type supports the Nitro encryption-in-transit capability,
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB
+ *             instance type supports the Nitro encryption-in-transit capability,
  *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}

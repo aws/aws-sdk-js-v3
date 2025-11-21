@@ -143,6 +143,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //     ],
  * //     PreferredBackupWindow: "STRING_VALUE",
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     UpgradeRolloutOrder: "first" || "second" || "last",
  * //     ReplicationSourceIdentifier: "STRING_VALUE",
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",

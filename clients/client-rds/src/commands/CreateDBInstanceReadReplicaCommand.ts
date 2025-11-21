@@ -176,6 +176,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     UpgradeRolloutOrder: "first" || "second" || "last",
  * //     PendingModifiedValues: { // PendingModifiedValues
  * //       DBInstanceClass: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
@@ -442,8 +443,8 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *             account.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance
- *             type supports the Nitro encryption-in-transit capability,
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB
+ *             instance type supports the Nitro encryption-in-transit capability,
  *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}

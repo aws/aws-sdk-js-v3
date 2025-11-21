@@ -1390,8 +1390,8 @@ export class StorageTypeNotSupportedFault extends __BaseException {
 }
 
 /**
- * <p>The operation violates VPC encryption control settings. Make sure that your DB instance
- *             type supports the Nitro encryption-in-transit capability,
+ * <p>The operation violates VPC encryption control settings. Make sure that your DB
+ *             instance type supports the Nitro encryption-in-transit capability,
  *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  * @public
  */

@@ -75,6 +75,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * //     ],
  * //     PreferredBackupWindow: "STRING_VALUE",
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     UpgradeRolloutOrder: "first" || "second" || "last",
  * //     ReplicationSourceIdentifier: "STRING_VALUE",
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",

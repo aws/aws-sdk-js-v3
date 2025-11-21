@@ -113,6 +113,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     UpgradeRolloutOrder: "first" || "second" || "last",
  * //     PendingModifiedValues: { // PendingModifiedValues
  * //       DBInstanceClass: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),

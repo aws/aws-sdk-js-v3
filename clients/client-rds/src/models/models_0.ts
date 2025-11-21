@@ -31,6 +31,7 @@ import {
   TargetRole,
   TargetState,
   TargetType,
+  UpgradeRolloutOrder,
   WriteForwardingStatus,
 } from "./enums";
 
@@ -5059,6 +5060,23 @@ export interface DBCluster {
   PreferredMaintenanceWindow?: string | undefined;
 
   /**
+   * <p>This data type represents the order in which the clusters are upgraded.</p>
+   *          <ul>
+   *             <li>
+   *                <p>[first] - Typically used for development or testing environments.</p>
+   *             </li>
+   *             <li>
+   *                <p>[second] - Default order for resources not specifically configured.</p>
+   *             </li>
+   *             <li>
+   *                <p>[last] - Usually reserved for production environments.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UpgradeRolloutOrder?: UpgradeRolloutOrder | undefined;
+
+  /**
    * <p>The identifier of the source DB cluster if this DB cluster is a read
    *             replica.</p>
    * @public
@@ -7955,6 +7973,23 @@ export interface DBInstance {
    * @public
    */
   PreferredMaintenanceWindow?: string | undefined;
+
+  /**
+   * <p>This data type represents the order in which the instances are upgraded.</p>
+   *          <ul>
+   *             <li>
+   *                <p>[first] - Typically used for development or testing environments.</p>
+   *             </li>
+   *             <li>
+   *                <p>[second] - Default order for resources not specifically configured.</p>
+   *             </li>
+   *             <li>
+   *                <p>[last] - Usually reserved for production environments.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UpgradeRolloutOrder?: UpgradeRolloutOrder | undefined;
 
   /**
    * <p>Information about pending changes to the DB instance. This information is returned only when there are pending changes. Specific changes are identified by subelements.</p>

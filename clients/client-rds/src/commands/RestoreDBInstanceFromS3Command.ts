@@ -175,6 +175,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     UpgradeRolloutOrder: "first" || "second" || "last",
  * //     PendingModifiedValues: { // PendingModifiedValues
  * //       DBInstanceClass: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
@@ -423,8 +424,8 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance
- *             type supports the Nitro encryption-in-transit capability,
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB
+ *             instance type supports the Nitro encryption-in-transit capability,
  *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
