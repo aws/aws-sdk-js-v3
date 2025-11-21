@@ -138,10 +138,20 @@ import {
   CreateContactFlowCommandOutput,
 } from "./commands/CreateContactFlowCommand";
 import {
+  CreateContactFlowModuleAliasCommand,
+  CreateContactFlowModuleAliasCommandInput,
+  CreateContactFlowModuleAliasCommandOutput,
+} from "./commands/CreateContactFlowModuleAliasCommand";
+import {
   CreateContactFlowModuleCommand,
   CreateContactFlowModuleCommandInput,
   CreateContactFlowModuleCommandOutput,
 } from "./commands/CreateContactFlowModuleCommand";
+import {
+  CreateContactFlowModuleVersionCommand,
+  CreateContactFlowModuleVersionCommandInput,
+  CreateContactFlowModuleVersionCommandOutput,
+} from "./commands/CreateContactFlowModuleVersionCommand";
 import {
   CreateContactFlowVersionCommand,
   CreateContactFlowVersionCommandInput,
@@ -272,10 +282,20 @@ import {
   DeleteContactFlowCommandOutput,
 } from "./commands/DeleteContactFlowCommand";
 import {
+  DeleteContactFlowModuleAliasCommand,
+  DeleteContactFlowModuleAliasCommandInput,
+  DeleteContactFlowModuleAliasCommandOutput,
+} from "./commands/DeleteContactFlowModuleAliasCommand";
+import {
   DeleteContactFlowModuleCommand,
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
+import {
+  DeleteContactFlowModuleVersionCommand,
+  DeleteContactFlowModuleVersionCommandInput,
+  DeleteContactFlowModuleVersionCommandOutput,
+} from "./commands/DeleteContactFlowModuleVersionCommand";
 import {
   DeleteContactFlowVersionCommand,
   DeleteContactFlowVersionCommandInput,
@@ -400,6 +420,11 @@ import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeContactFlowModuleAliasCommand,
+  DescribeContactFlowModuleAliasCommandInput,
+  DescribeContactFlowModuleAliasCommandOutput,
+} from "./commands/DescribeContactFlowModuleAliasCommand";
 import {
   DescribeContactFlowModuleCommand,
   DescribeContactFlowModuleCommandInput,
@@ -692,10 +717,20 @@ import {
   ListContactEvaluationsCommandOutput,
 } from "./commands/ListContactEvaluationsCommand";
 import {
+  ListContactFlowModuleAliasesCommand,
+  ListContactFlowModuleAliasesCommandInput,
+  ListContactFlowModuleAliasesCommandOutput,
+} from "./commands/ListContactFlowModuleAliasesCommand";
+import {
   ListContactFlowModulesCommand,
   ListContactFlowModulesCommandInput,
   ListContactFlowModulesCommandOutput,
 } from "./commands/ListContactFlowModulesCommand";
+import {
+  ListContactFlowModuleVersionsCommand,
+  ListContactFlowModuleVersionsCommandInput,
+  ListContactFlowModuleVersionsCommandOutput,
+} from "./commands/ListContactFlowModuleVersionsCommand";
 import {
   ListContactFlowsCommand,
   ListContactFlowsCommandInput,
@@ -1152,6 +1187,11 @@ import {
   UpdateContactFlowMetadataCommandOutput,
 } from "./commands/UpdateContactFlowMetadataCommand";
 import {
+  UpdateContactFlowModuleAliasCommand,
+  UpdateContactFlowModuleAliasCommandInput,
+  UpdateContactFlowModuleAliasCommandOutput,
+} from "./commands/UpdateContactFlowModuleAliasCommand";
+import {
   UpdateContactFlowModuleContentCommand,
   UpdateContactFlowModuleContentCommandInput,
   UpdateContactFlowModuleContentCommandOutput,
@@ -1398,6 +1438,8 @@ const commands = {
   CreateContactCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
+  CreateContactFlowModuleAliasCommand,
+  CreateContactFlowModuleVersionCommand,
   CreateContactFlowVersionCommand,
   CreateEmailAddressCommand,
   CreateEvaluationFormCommand,
@@ -1428,6 +1470,8 @@ const commands = {
   DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
+  DeleteContactFlowModuleAliasCommand,
+  DeleteContactFlowModuleVersionCommand,
   DeleteContactFlowVersionCommand,
   DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
@@ -1457,6 +1501,7 @@ const commands = {
   DescribeContactEvaluationCommand,
   DescribeContactFlowCommand,
   DescribeContactFlowModuleCommand,
+  DescribeContactFlowModuleAliasCommand,
   DescribeEmailAddressCommand,
   DescribeEvaluationFormCommand,
   DescribeHoursOfOperationCommand,
@@ -1515,7 +1560,9 @@ const commands = {
   ListAuthenticationProfilesCommand,
   ListBotsCommand,
   ListContactEvaluationsCommand,
+  ListContactFlowModuleAliasesCommand,
   ListContactFlowModulesCommand,
+  ListContactFlowModuleVersionsCommand,
   ListContactFlowsCommand,
   ListContactFlowVersionsCommand,
   ListContactReferencesCommand,
@@ -1615,6 +1662,7 @@ const commands = {
   UpdateContactEvaluationCommand,
   UpdateContactFlowContentCommand,
   UpdateContactFlowMetadataCommand,
+  UpdateContactFlowModuleAliasCommand,
   UpdateContactFlowModuleContentCommand,
   UpdateContactFlowModuleMetadataCommand,
   UpdateContactFlowNameCommand,
@@ -2115,6 +2163,40 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateContactFlowModuleAliasCommand}
+   */
+  createContactFlowModuleAlias(
+    args: CreateContactFlowModuleAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactFlowModuleAliasCommandOutput>;
+  createContactFlowModuleAlias(
+    args: CreateContactFlowModuleAliasCommandInput,
+    cb: (err: any, data?: CreateContactFlowModuleAliasCommandOutput) => void
+  ): void;
+  createContactFlowModuleAlias(
+    args: CreateContactFlowModuleAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactFlowModuleAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateContactFlowModuleVersionCommand}
+   */
+  createContactFlowModuleVersion(
+    args: CreateContactFlowModuleVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactFlowModuleVersionCommandOutput>;
+  createContactFlowModuleVersion(
+    args: CreateContactFlowModuleVersionCommandInput,
+    cb: (err: any, data?: CreateContactFlowModuleVersionCommandOutput) => void
+  ): void;
+  createContactFlowModuleVersion(
+    args: CreateContactFlowModuleVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactFlowModuleVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateContactFlowVersionCommand}
    */
   createContactFlowVersion(
@@ -2586,6 +2668,40 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteContactFlowModuleAliasCommand}
+   */
+  deleteContactFlowModuleAlias(
+    args: DeleteContactFlowModuleAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactFlowModuleAliasCommandOutput>;
+  deleteContactFlowModuleAlias(
+    args: DeleteContactFlowModuleAliasCommandInput,
+    cb: (err: any, data?: DeleteContactFlowModuleAliasCommandOutput) => void
+  ): void;
+  deleteContactFlowModuleAlias(
+    args: DeleteContactFlowModuleAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactFlowModuleAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteContactFlowModuleVersionCommand}
+   */
+  deleteContactFlowModuleVersion(
+    args: DeleteContactFlowModuleVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactFlowModuleVersionCommandOutput>;
+  deleteContactFlowModuleVersion(
+    args: DeleteContactFlowModuleVersionCommandInput,
+    cb: (err: any, data?: DeleteContactFlowModuleVersionCommandOutput) => void
+  ): void;
+  deleteContactFlowModuleVersion(
+    args: DeleteContactFlowModuleVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactFlowModuleVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteContactFlowVersionCommand}
    */
   deleteContactFlowVersion(
@@ -3034,6 +3150,23 @@ export interface Connect {
     args: DescribeContactFlowModuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeContactFlowModuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeContactFlowModuleAliasCommand}
+   */
+  describeContactFlowModuleAlias(
+    args: DescribeContactFlowModuleAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContactFlowModuleAliasCommandOutput>;
+  describeContactFlowModuleAlias(
+    args: DescribeContactFlowModuleAliasCommandInput,
+    cb: (err: any, data?: DescribeContactFlowModuleAliasCommandOutput) => void
+  ): void;
+  describeContactFlowModuleAlias(
+    args: DescribeContactFlowModuleAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContactFlowModuleAliasCommandOutput) => void
   ): void;
 
   /**
@@ -3966,6 +4099,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListContactFlowModuleAliasesCommand}
+   */
+  listContactFlowModuleAliases(
+    args: ListContactFlowModuleAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactFlowModuleAliasesCommandOutput>;
+  listContactFlowModuleAliases(
+    args: ListContactFlowModuleAliasesCommandInput,
+    cb: (err: any, data?: ListContactFlowModuleAliasesCommandOutput) => void
+  ): void;
+  listContactFlowModuleAliases(
+    args: ListContactFlowModuleAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactFlowModuleAliasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListContactFlowModulesCommand}
    */
   listContactFlowModules(
@@ -3980,6 +4130,23 @@ export interface Connect {
     args: ListContactFlowModulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListContactFlowModulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContactFlowModuleVersionsCommand}
+   */
+  listContactFlowModuleVersions(
+    args: ListContactFlowModuleVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactFlowModuleVersionsCommandOutput>;
+  listContactFlowModuleVersions(
+    args: ListContactFlowModuleVersionsCommandInput,
+    cb: (err: any, data?: ListContactFlowModuleVersionsCommandOutput) => void
+  ): void;
+  listContactFlowModuleVersions(
+    args: ListContactFlowModuleVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactFlowModuleVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -5537,6 +5704,23 @@ export interface Connect {
     args: UpdateContactFlowMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateContactFlowMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateContactFlowModuleAliasCommand}
+   */
+  updateContactFlowModuleAlias(
+    args: UpdateContactFlowModuleAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactFlowModuleAliasCommandOutput>;
+  updateContactFlowModuleAlias(
+    args: UpdateContactFlowModuleAliasCommandInput,
+    cb: (err: any, data?: UpdateContactFlowModuleAliasCommandOutput) => void
+  ): void;
+  updateContactFlowModuleAlias(
+    args: UpdateContactFlowModuleAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactFlowModuleAliasCommandOutput) => void
   ): void;
 
   /**

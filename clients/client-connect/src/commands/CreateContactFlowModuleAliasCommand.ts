@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateContactFlowModuleRequest, CreateContactFlowModuleResponse } from "../models/models_0";
-import { CreateContactFlowModule } from "../schemas/schemas_0";
+import { CreateContactFlowModuleAliasRequest, CreateContactFlowModuleAliasResponse } from "../models/models_0";
+import { CreateContactFlowModuleAlias } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,53 +16,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateContactFlowModuleCommand}.
+ * The input for {@link CreateContactFlowModuleAliasCommand}.
  */
-export interface CreateContactFlowModuleCommandInput extends CreateContactFlowModuleRequest {}
+export interface CreateContactFlowModuleAliasCommandInput extends CreateContactFlowModuleAliasRequest {}
 /**
  * @public
  *
- * The output of {@link CreateContactFlowModuleCommand}.
+ * The output of {@link CreateContactFlowModuleAliasCommand}.
  */
-export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowModuleResponse, __MetadataBearer {}
+export interface CreateContactFlowModuleAliasCommandOutput
+  extends CreateContactFlowModuleAliasResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Creates a flow module for the specified Amazon Connect instance. </p>
+ * <p>Creates a named alias that points to a specific version of a contact flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateContactFlowModuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateContactFlowModuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateContactFlowModuleAliasCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CreateContactFlowModuleAliasCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // CreateContactFlowModuleRequest
+ * const input = { // CreateContactFlowModuleAliasRequest
  *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Content: "STRING_VALUE", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   ClientToken: "STRING_VALUE",
- *   Settings: "STRING_VALUE",
- *   ExternalInvocationConfiguration: { // ExternalInvocationConfiguration
- *     Enabled: true || false,
- *   },
+ *   ContactFlowModuleId: "STRING_VALUE", // required
+ *   ContactFlowModuleVersion: Number("long"), // required
+ *   AliasName: "STRING_VALUE", // required
  * };
- * const command = new CreateContactFlowModuleCommand(input);
+ * const command = new CreateContactFlowModuleAliasCommand(input);
  * const response = await client.send(command);
- * // { // CreateContactFlowModuleResponse
+ * // { // CreateContactFlowModuleAliasResponse
+ * //   ContactFlowModuleArn: "STRING_VALUE",
  * //   Id: "STRING_VALUE",
- * //   Arn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateContactFlowModuleCommandInput - {@link CreateContactFlowModuleCommandInput}
- * @returns {@link CreateContactFlowModuleCommandOutput}
- * @see {@link CreateContactFlowModuleCommandInput} for command's `input` shape.
- * @see {@link CreateContactFlowModuleCommandOutput} for command's `response` shape.
+ * @param CreateContactFlowModuleAliasCommandInput - {@link CreateContactFlowModuleAliasCommandInput}
+ * @returns {@link CreateContactFlowModuleAliasCommandOutput}
+ * @see {@link CreateContactFlowModuleAliasCommandInput} for command's `input` shape.
+ * @see {@link CreateContactFlowModuleAliasCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,14 +66,8 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  * @throws {@link DuplicateResourceException} (client fault)
  *  <p>A resource with the specified name already exists.</p>
  *
- * @throws {@link IdempotencyException} (client fault)
- *  <p>An entity with the same name already exists.</p>
- *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
- *
- * @throws {@link InvalidContactFlowModuleException} (client fault)
- *  <p>The problems with the module. Please fix before trying again.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
@@ -101,10 +90,10 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  *
  * @public
  */
-export class CreateContactFlowModuleCommand extends $Command
+export class CreateContactFlowModuleAliasCommand extends $Command
   .classBuilder<
-    CreateContactFlowModuleCommandInput,
-    CreateContactFlowModuleCommandOutput,
+    CreateContactFlowModuleAliasCommandInput,
+    CreateContactFlowModuleAliasCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -113,19 +102,19 @@ export class CreateContactFlowModuleCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "CreateContactFlowModule", {})
-  .n("ConnectClient", "CreateContactFlowModuleCommand")
-  .sc(CreateContactFlowModule)
+  .s("AmazonConnectService", "CreateContactFlowModuleAlias", {})
+  .n("ConnectClient", "CreateContactFlowModuleAliasCommand")
+  .sc(CreateContactFlowModuleAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateContactFlowModuleRequest;
-      output: CreateContactFlowModuleResponse;
+      input: CreateContactFlowModuleAliasRequest;
+      output: CreateContactFlowModuleAliasResponse;
     };
     sdk: {
-      input: CreateContactFlowModuleCommandInput;
-      output: CreateContactFlowModuleCommandOutput;
+      input: CreateContactFlowModuleAliasCommandInput;
+      output: CreateContactFlowModuleAliasCommandOutput;
     };
   };
 }

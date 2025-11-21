@@ -45,7 +45,8 @@ export interface UpdateContactFlowModuleContentCommandOutput
  * const input = { // UpdateContactFlowModuleContentRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactFlowModuleId: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE",
+ *   Settings: "STRING_VALUE",
  * };
  * const command = new UpdateContactFlowModuleContentCommand(input);
  * const response = await client.send(command);

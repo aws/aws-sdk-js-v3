@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchContactFlowModulesRequest, SearchContactFlowModulesResponse } from "../models/models_2";
+import { SearchContactFlowModulesResponse } from "../models/models_2";
+import { SearchContactFlowModulesRequest } from "../models/models_3";
 import { SearchContactFlowModules } from "../schemas/schemas_0";
 
 /**
@@ -103,6 +104,13 @@ export interface SearchContactFlowModulesCommandOutput extends SearchContactFlow
  * //       Status: "PUBLISHED" || "SAVED",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       FlowModuleContentSha256: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //       VersionDescription: "STRING_VALUE",
+ * //       Settings: "STRING_VALUE",
+ * //       ExternalInvocationConfiguration: { // ExternalInvocationConfiguration
+ * //         Enabled: true || false,
  * //       },
  * //     },
  * //   ],

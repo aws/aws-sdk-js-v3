@@ -58,6 +58,13 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     FlowModuleContentSha256: "STRING_VALUE",
+ * //     Version: Number("long"),
+ * //     VersionDescription: "STRING_VALUE",
+ * //     Settings: "STRING_VALUE",
+ * //     ExternalInvocationConfiguration: { // ExternalInvocationConfiguration
+ * //       Enabled: true || false,
+ * //     },
  * //   },
  * // };
  *

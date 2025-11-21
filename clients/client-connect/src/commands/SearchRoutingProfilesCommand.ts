@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_2";
+import { SearchRoutingProfilesResponse } from "../models/models_2";
+import { SearchRoutingProfilesRequest } from "../models/models_3";
 import { SearchRoutingProfiles } from "../schemas/schemas_0";
 
 /**

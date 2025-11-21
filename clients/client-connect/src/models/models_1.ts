@@ -17,7 +17,10 @@ import {
   CurrentMetricName,
   DirectoryType,
   EvaluationFormVersionStatus,
+  EvaluationQuestionAnswerAnalysisType,
   EvaluationStatus,
+  EvaluationSuggestedAnswerStatus,
+  EvaluationTranscriptType,
   EvaluationType,
   EventSourceName,
   FileStatusType,
@@ -37,6 +40,7 @@ import {
   PhoneNumberCountryCode,
   PhoneNumberType,
   PhoneNumberWorkflowStatus,
+  QuestionRuleCategoryAutomationCondition,
   QueueStatus,
   QueueType,
   QuickConnectType,
@@ -69,11 +73,10 @@ import {
   AgentStatusSummary,
   AliasConfiguration,
   AnalyticsDataAssociationResult,
-  Application,
   CreatedByInfo,
   Distribution,
-  EvaluationAcknowledgement,
-  EvaluationAnswerOutput,
+  EvaluationTranscriptPointOfInterest,
+  ExternalInvocationConfiguration,
   FlowAssociationSummary,
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
@@ -97,6 +100,280 @@ import {
   UserPhoneConfig,
   View,
 } from "./models_0";
+
+/**
+ * <p>The Contact Lens category used by evaluation automation.</p>
+ * @public
+ */
+export interface EvaluationAutomationRuleCategory {
+  /**
+   * <p>A category label.</p>
+   * @public
+   */
+  Category: string | undefined;
+
+  /**
+   * <p>An automation condition for a Contact Lens category.</p>
+   * @public
+   */
+  Condition: QuestionRuleCategoryAutomationCondition | undefined;
+
+  /**
+   * <p>A point of interest in a contact transcript that indicates match of condition.</p>
+   * @public
+   */
+  PointsOfInterest?: EvaluationTranscriptPointOfInterest[] | undefined;
+}
+
+/**
+ * <p>Analysis details providing explanation for Contact Lens automation decision.</p>
+ * @public
+ */
+export interface EvaluationContactLensAnswerAnalysisDetails {
+  /**
+   * <p>A list of match rule categories.</p>
+   * @public
+   */
+  MatchedRuleCategories?: EvaluationAutomationRuleCategory[] | undefined;
+}
+
+/**
+ * <p>An analysis for a generative AI answer to the question.</p>
+ * @public
+ */
+export interface EvaluationGenAIAnswerAnalysisDetails {
+  /**
+   * <p>Generative AI automation answer justification.</p>
+   * @public
+   */
+  Justification?: string | undefined;
+
+  /**
+   * <p>Generative AI automation answer analysis points of interest.</p>
+   * @public
+   */
+  PointsOfInterest?: EvaluationTranscriptPointOfInterest[] | undefined;
+}
+
+/**
+ * <p>Detailed analysis results of the automated answer to the evaluation question.</p>
+ * @public
+ */
+export type EvaluationQuestionAnswerAnalysisDetails =
+  | EvaluationQuestionAnswerAnalysisDetails.ContactLensMember
+  | EvaluationQuestionAnswerAnalysisDetails.GenAIMember
+  | EvaluationQuestionAnswerAnalysisDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationQuestionAnswerAnalysisDetails {
+  /**
+   * <p>Analysis results from the generative AI automation for the question.</p>
+   * @public
+   */
+  export interface GenAIMember {
+    GenAI: EvaluationGenAIAnswerAnalysisDetails;
+    ContactLens?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Analysis results from the Contact Lens automation for the question.</p>
+   * @public
+   */
+  export interface ContactLensMember {
+    GenAI?: never;
+    ContactLens: EvaluationContactLensAnswerAnalysisDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    GenAI?: never;
+    ContactLens?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    GenAI: (value: EvaluationGenAIAnswerAnalysisDetails) => T;
+    ContactLens: (value: EvaluationContactLensAnswerAnalysisDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details of the input data used for automated question processing.</p>
+ * @public
+ */
+export interface EvaluationQuestionInputDetails {
+  /**
+   * <p>Transcript type.</p>
+   * @public
+   */
+  TranscriptType?: EvaluationTranscriptType | undefined;
+}
+
+/**
+ * <p>Information about answer data for a contact evaluation. Answer data must be either string,
+ *    numeric, or not applicable.</p>
+ * @public
+ */
+export type EvaluationAnswerData =
+  | EvaluationAnswerData.NotApplicableMember
+  | EvaluationAnswerData.NumericValueMember
+  | EvaluationAnswerData.StringValueMember
+  | EvaluationAnswerData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationAnswerData {
+  /**
+   * <p>The string value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    NumericValue?: never;
+    NotApplicable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The numeric value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  export interface NumericValueMember {
+    StringValue?: never;
+    NumericValue: number;
+    NotApplicable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The flag to mark the question as not applicable.</p>
+   * @public
+   */
+  export interface NotApplicableMember {
+    StringValue?: never;
+    NumericValue?: never;
+    NotApplicable: boolean;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    NumericValue?: never;
+    NotApplicable?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    NumericValue: (value: number) => T;
+    NotApplicable: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The information about the suggested answer for the question.</p>
+ * @public
+ */
+export interface EvaluationSuggestedAnswer {
+  /**
+   * <p>Information about answer data for a contact evaluation. Answer data must be either string,
+   *    numeric, or not applicable.</p>
+   * @public
+   */
+  Value?: EvaluationAnswerData | undefined;
+
+  /**
+   * <p>The status of the suggested answer. D</p>
+   * @public
+   */
+  Status: EvaluationSuggestedAnswerStatus | undefined;
+
+  /**
+   * <p>Details about the input used to question automation.</p>
+   * @public
+   */
+  Input?: EvaluationQuestionInputDetails | undefined;
+
+  /**
+   * <p>Type of analysis used to provide suggested answer.</p>
+   * @public
+   */
+  AnalysisType: EvaluationQuestionAnswerAnalysisType | undefined;
+
+  /**
+   * <p>Detailed analysis results.</p>
+   * @public
+   */
+  AnalysisDetails?: EvaluationQuestionAnswerAnalysisDetails | undefined;
+}
+
+/**
+ * <p>Information about output answers for a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationAnswerOutput {
+  /**
+   * <p>The value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  Value?: EvaluationAnswerData | undefined;
+
+  /**
+   * <p>The system suggested value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  SystemSuggestedValue?: EvaluationAnswerData | undefined;
+
+  /**
+   * <p>Automation suggested answers for the questions.</p>
+   * @public
+   */
+  SuggestedAnswers?: EvaluationSuggestedAnswer[] | undefined;
+}
+
+/**
+ * <p>Information about the evaluation acknowledgement.</p>
+ * @public
+ */
+export interface EvaluationAcknowledgement {
+  /**
+   * <p>When the agent acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedTime: Date | undefined;
+
+  /**
+   * <p>The agent who acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedBy: string | undefined;
+
+  /**
+   * <p>A comment from the agent when they confirmed they acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgerComment?: string | undefined;
+}
 
 /**
  * <p>Details about automated evaluations.</p>
@@ -470,6 +747,36 @@ export interface ContactFlowModule {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Hash of the module content for integrity verification.</p>
+   * @public
+   */
+  FlowModuleContentSha256?: string | undefined;
+
+  /**
+   * <p>The version of the flow module.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>Description of the version.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The configuration settings for the flow module.</p>
+   * @public
+   */
+  Settings?: string | undefined;
+
+  /**
+   * <p>The external invocation configuration for the flow module</p>
+   * @public
+   */
+  ExternalInvocationConfiguration?: ExternalInvocationConfiguration | undefined;
 }
 
 /**
@@ -481,6 +788,94 @@ export interface DescribeContactFlowModuleResponse {
    * @public
    */
   ContactFlowModule?: ContactFlowModule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowModuleAliasRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId: string | undefined;
+}
+
+/**
+ * <p>Contains information about an alias.</p>
+ * @public
+ */
+export interface ContactFlowModuleAliasInfo {
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId?: string | undefined;
+
+  /**
+   * <p>The version of the flow module.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowModuleAliasResponse {
+  /**
+   * <p>Information about the flow module alias.</p>
+   * @public
+   */
+  ContactFlowModuleAlias?: ContactFlowModuleAliasInfo | undefined;
 }
 
 /**
@@ -7393,6 +7788,95 @@ export interface ListContactEvaluationsResponse {
 /**
  * @public
  */
+export interface ListContactFlowModuleAliasesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains information about an alias.</p>
+ * @public
+ */
+export interface ContactFlowModuleAliasSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow module alias.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId?: string | undefined;
+
+  /**
+   * <p>The version of the flow module.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  AliasDescription?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowModuleAliasesResponse {
+  /**
+   * <p>Information about the flow module aliases.</p>
+   * @public
+   */
+  ContactFlowModuleAliasSummaryList?: ContactFlowModuleAliasSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListContactFlowModulesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -7459,6 +7943,77 @@ export interface ListContactFlowModulesResponse {
    * @public
    */
   ContactFlowModulesSummaryList?: ContactFlowModuleSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowModuleVersionsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains information about a version.</p>
+ * @public
+ */
+export interface ContactFlowModuleVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow module version.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The description of the flow module version.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The version of the flow module.</p>
+   * @public
+   */
+  Version?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowModuleVersionsResponse {
+  /**
+   * <p>Information about the flow module versions.</p>
+   * @public
+   */
+  ContactFlowModuleVersionSummaryList?: ContactFlowModuleVersionSummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -10492,523 +11047,4 @@ export interface ListSecurityKeysRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>Configuration information of the security key.</p>
- * @public
- */
-export interface SecurityKey {
-  /**
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   * @public
-   */
-  AssociationId?: string | undefined;
-
-  /**
-   * <p>The key of the security key.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>When the security key was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityKeysResponse {
-  /**
-   * <p>The security keys.</p>
-   * @public
-   */
-  SecurityKeys?: SecurityKey[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfileApplicationsRequest {
-  /**
-   * <p>The identifier for the security profle.</p>
-   * @public
-   */
-  SecurityProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfileApplicationsResponse {
-  /**
-   * <p>A list of the third-party application's metadata.</p>
-   * @public
-   */
-  Applications?: Application[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilePermissionsRequest {
-  /**
-   * <p>The identifier for the security profle.</p>
-   * @public
-   */
-  SecurityProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilePermissionsResponse {
-  /**
-   * <p>The permissions granted to the security profile. For a complete list of valid permissions,
-   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
-   *     of security profile permissions</a>.</p>
-   * @public
-   */
-  Permissions?: string[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about a security profile.</p>
- * @public
- */
-export interface SecurityProfileSummary {
-  /**
-   * <p>The identifier of the security profile.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the security profile.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilesResponse {
-  /**
-   * <p>Information about the security profiles.</p>
-   * @public
-   */
-  SecurityProfileSummaryList?: SecurityProfileSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances, queues, flows, routing
-   *    profiles, etc) have an ARN. To locate the ARN for an instance, for example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">Find your Amazon Connect instance ID/ARN</a>. </p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>Information about the tags.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTaskTemplatesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   *          <important>
-   *             <p>It is not expected that you set this because the value returned in the previous response is
-   *     always null.</p>
-   *          </important>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   *          <important>
-   *             <p>It is not expected that you set this.</p>
-   *          </important>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
-   * Tasks can only be created from <code>ACTIVE</code> templates.
-   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
-   * @public
-   */
-  Status?: TaskTemplateStatus | undefined;
-
-  /**
-   * <p>The name of the task template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * <p>Contains summary information about the task template.</p>
- * @public
- */
-export interface TaskTemplateMetadata {
-  /**
-   * <p>A unique identifier for the task template.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the task template.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the task template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the task template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
-   * Tasks can only be created from <code>ACTIVE</code> templates.
-   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
-   * @public
-   */
-  Status?: TaskTemplateStatus | undefined;
-
-  /**
-   * <p>The timestamp when the task template was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the task template was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTaskTemplatesResponse {
-  /**
-   * <p>Provides details about a list of task templates belonging to an instance.</p>
-   * @public
-   */
-  TaskTemplates?: TaskTemplateMetadata[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   *          <important>
-   *             <p>This is always returned as a null in the response.</p>
-   *          </important>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrafficDistributionGroupsRequest {
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-}
-
-/**
- * <p>Information about traffic distribution groups.</p>
- * @public
- */
-export interface TrafficDistributionGroupSummary {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the traffic distribution group.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
-   * @public
-   */
-  InstanceArn?: string | undefined;
-
-  /**
-   * <p>The status of the traffic distribution group. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: TrafficDistributionGroupStatus | undefined;
-
-  /**
-   * <p>Whether this is the default traffic distribution group created during instance
-   *    replication. The default traffic distribution group cannot be deleted by the
-   *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
-   *    part of the process for deleting a replica.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrafficDistributionGroupsResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of traffic distribution groups.</p>
-   * @public
-   */
-  TrafficDistributionGroupSummaryList?: TrafficDistributionGroupSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrafficDistributionGroupUsersRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
-   * @public
-   */
-  TrafficDistributionGroupId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -142,9 +142,17 @@ import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from ".
 import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
 import {
+  CreateContactFlowModuleAliasCommandInput,
+  CreateContactFlowModuleAliasCommandOutput,
+} from "./commands/CreateContactFlowModuleAliasCommand";
+import {
   CreateContactFlowModuleCommandInput,
   CreateContactFlowModuleCommandOutput,
 } from "./commands/CreateContactFlowModuleCommand";
+import {
+  CreateContactFlowModuleVersionCommandInput,
+  CreateContactFlowModuleVersionCommandOutput,
+} from "./commands/CreateContactFlowModuleVersionCommand";
 import {
   CreateContactFlowVersionCommandInput,
   CreateContactFlowVersionCommandOutput,
@@ -217,9 +225,17 @@ import {
 } from "./commands/DeleteContactEvaluationCommand";
 import { DeleteContactFlowCommandInput, DeleteContactFlowCommandOutput } from "./commands/DeleteContactFlowCommand";
 import {
+  DeleteContactFlowModuleAliasCommandInput,
+  DeleteContactFlowModuleAliasCommandOutput,
+} from "./commands/DeleteContactFlowModuleAliasCommand";
+import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
+import {
+  DeleteContactFlowModuleVersionCommandInput,
+  DeleteContactFlowModuleVersionCommandOutput,
+} from "./commands/DeleteContactFlowModuleVersionCommand";
 import {
   DeleteContactFlowVersionCommandInput,
   DeleteContactFlowVersionCommandOutput,
@@ -293,6 +309,10 @@ import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeContactFlowModuleAliasCommandInput,
+  DescribeContactFlowModuleAliasCommandOutput,
+} from "./commands/DescribeContactFlowModuleAliasCommand";
 import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
@@ -461,9 +481,17 @@ import {
   ListContactEvaluationsCommandOutput,
 } from "./commands/ListContactEvaluationsCommand";
 import {
+  ListContactFlowModuleAliasesCommandInput,
+  ListContactFlowModuleAliasesCommandOutput,
+} from "./commands/ListContactFlowModuleAliasesCommand";
+import {
   ListContactFlowModulesCommandInput,
   ListContactFlowModulesCommandOutput,
 } from "./commands/ListContactFlowModulesCommand";
+import {
+  ListContactFlowModuleVersionsCommandInput,
+  ListContactFlowModuleVersionsCommandOutput,
+} from "./commands/ListContactFlowModuleVersionsCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
 import {
   ListContactFlowVersionsCommandInput,
@@ -735,6 +763,10 @@ import {
   UpdateContactFlowMetadataCommandOutput,
 } from "./commands/UpdateContactFlowMetadataCommand";
 import {
+  UpdateContactFlowModuleAliasCommandInput,
+  UpdateContactFlowModuleAliasCommandOutput,
+} from "./commands/UpdateContactFlowModuleAliasCommand";
+import {
   UpdateContactFlowModuleContentCommandInput,
   UpdateContactFlowModuleContentCommandOutput,
 } from "./commands/UpdateContactFlowModuleContentCommand";
@@ -928,7 +960,9 @@ export type ServiceInputTypes =
   | CreateAgentStatusCommandInput
   | CreateContactCommandInput
   | CreateContactFlowCommandInput
+  | CreateContactFlowModuleAliasCommandInput
   | CreateContactFlowModuleCommandInput
+  | CreateContactFlowModuleVersionCommandInput
   | CreateContactFlowVersionCommandInput
   | CreateEmailAddressCommandInput
   | CreateEvaluationFormCommandInput
@@ -958,7 +992,9 @@ export type ServiceInputTypes =
   | DeleteAttachedFileCommandInput
   | DeleteContactEvaluationCommandInput
   | DeleteContactFlowCommandInput
+  | DeleteContactFlowModuleAliasCommandInput
   | DeleteContactFlowModuleCommandInput
+  | DeleteContactFlowModuleVersionCommandInput
   | DeleteContactFlowVersionCommandInput
   | DeleteEmailAddressCommandInput
   | DeleteEvaluationFormCommandInput
@@ -987,6 +1023,7 @@ export type ServiceInputTypes =
   | DescribeContactCommandInput
   | DescribeContactEvaluationCommandInput
   | DescribeContactFlowCommandInput
+  | DescribeContactFlowModuleAliasCommandInput
   | DescribeContactFlowModuleCommandInput
   | DescribeEmailAddressCommandInput
   | DescribeEvaluationFormCommandInput
@@ -1046,6 +1083,8 @@ export type ServiceInputTypes =
   | ListAuthenticationProfilesCommandInput
   | ListBotsCommandInput
   | ListContactEvaluationsCommandInput
+  | ListContactFlowModuleAliasesCommandInput
+  | ListContactFlowModuleVersionsCommandInput
   | ListContactFlowModulesCommandInput
   | ListContactFlowVersionsCommandInput
   | ListContactFlowsCommandInput
@@ -1146,6 +1185,7 @@ export type ServiceInputTypes =
   | UpdateContactEvaluationCommandInput
   | UpdateContactFlowContentCommandInput
   | UpdateContactFlowMetadataCommandInput
+  | UpdateContactFlowModuleAliasCommandInput
   | UpdateContactFlowModuleContentCommandInput
   | UpdateContactFlowModuleMetadataCommandInput
   | UpdateContactFlowNameCommandInput
@@ -1222,7 +1262,9 @@ export type ServiceOutputTypes =
   | CreateAgentStatusCommandOutput
   | CreateContactCommandOutput
   | CreateContactFlowCommandOutput
+  | CreateContactFlowModuleAliasCommandOutput
   | CreateContactFlowModuleCommandOutput
+  | CreateContactFlowModuleVersionCommandOutput
   | CreateContactFlowVersionCommandOutput
   | CreateEmailAddressCommandOutput
   | CreateEvaluationFormCommandOutput
@@ -1252,7 +1294,9 @@ export type ServiceOutputTypes =
   | DeleteAttachedFileCommandOutput
   | DeleteContactEvaluationCommandOutput
   | DeleteContactFlowCommandOutput
+  | DeleteContactFlowModuleAliasCommandOutput
   | DeleteContactFlowModuleCommandOutput
+  | DeleteContactFlowModuleVersionCommandOutput
   | DeleteContactFlowVersionCommandOutput
   | DeleteEmailAddressCommandOutput
   | DeleteEvaluationFormCommandOutput
@@ -1281,6 +1325,7 @@ export type ServiceOutputTypes =
   | DescribeContactCommandOutput
   | DescribeContactEvaluationCommandOutput
   | DescribeContactFlowCommandOutput
+  | DescribeContactFlowModuleAliasCommandOutput
   | DescribeContactFlowModuleCommandOutput
   | DescribeEmailAddressCommandOutput
   | DescribeEvaluationFormCommandOutput
@@ -1340,6 +1385,8 @@ export type ServiceOutputTypes =
   | ListAuthenticationProfilesCommandOutput
   | ListBotsCommandOutput
   | ListContactEvaluationsCommandOutput
+  | ListContactFlowModuleAliasesCommandOutput
+  | ListContactFlowModuleVersionsCommandOutput
   | ListContactFlowModulesCommandOutput
   | ListContactFlowVersionsCommandOutput
   | ListContactFlowsCommandOutput
@@ -1440,6 +1487,7 @@ export type ServiceOutputTypes =
   | UpdateContactEvaluationCommandOutput
   | UpdateContactFlowContentCommandOutput
   | UpdateContactFlowMetadataCommandOutput
+  | UpdateContactFlowModuleAliasCommandOutput
   | UpdateContactFlowModuleContentCommandOutput
   | UpdateContactFlowModuleMetadataCommandOutput
   | UpdateContactFlowNameCommandOutput

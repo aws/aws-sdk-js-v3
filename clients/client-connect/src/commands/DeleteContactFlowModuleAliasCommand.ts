@@ -5,9 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSecurityKeysRequest } from "../models/models_1";
-import { ListSecurityKeysResponse } from "../models/models_2";
-import { ListSecurityKeys } from "../schemas/schemas_0";
+import { DeleteContactFlowModuleAliasRequest, DeleteContactFlowModuleAliasResponse } from "../models/models_0";
+import { DeleteContactFlowModuleAlias } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,52 +16,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListSecurityKeysCommand}.
+ * The input for {@link DeleteContactFlowModuleAliasCommand}.
  */
-export interface ListSecurityKeysCommandInput extends ListSecurityKeysRequest {}
+export interface DeleteContactFlowModuleAliasCommandInput extends DeleteContactFlowModuleAliasRequest {}
 /**
  * @public
  *
- * The output of {@link ListSecurityKeysCommand}.
+ * The output of {@link DeleteContactFlowModuleAliasCommand}.
  */
-export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse, __MetadataBearer {}
+export interface DeleteContactFlowModuleAliasCommandOutput
+  extends DeleteContactFlowModuleAliasResponse,
+    __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Returns a paginated list of all security keys associated with the instance.</p>
+ * <p>Removes an alias reference, breaking the named connection to the underlying module version without affecting the version itself.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListSecurityKeysCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListSecurityKeysCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteContactFlowModuleAliasCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteContactFlowModuleAliasCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // ListSecurityKeysRequest
+ * const input = { // DeleteContactFlowModuleAliasRequest
  *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ContactFlowModuleId: "STRING_VALUE", // required
+ *   AliasId: "STRING_VALUE", // required
  * };
- * const command = new ListSecurityKeysCommand(input);
+ * const command = new DeleteContactFlowModuleAliasCommand(input);
  * const response = await client.send(command);
- * // { // ListSecurityKeysResponse
- * //   SecurityKeys: [ // SecurityKeysList
- * //     { // SecurityKey
- * //       AssociationId: "STRING_VALUE",
- * //       Key: "STRING_VALUE",
- * //       CreationTime: new Date("TIMESTAMP"),
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListSecurityKeysCommandInput - {@link ListSecurityKeysCommandInput}
- * @returns {@link ListSecurityKeysCommandOutput}
- * @see {@link ListSecurityKeysCommandInput} for command's `input` shape.
- * @see {@link ListSecurityKeysCommandOutput} for command's `response` shape.
+ * @param DeleteContactFlowModuleAliasCommandInput - {@link DeleteContactFlowModuleAliasCommandInput}
+ * @returns {@link DeleteContactFlowModuleAliasCommandOutput}
+ * @see {@link DeleteContactFlowModuleAliasCommandInput} for command's `input` shape.
+ * @see {@link DeleteContactFlowModuleAliasCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -85,10 +79,10 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  *
  * @public
  */
-export class ListSecurityKeysCommand extends $Command
+export class DeleteContactFlowModuleAliasCommand extends $Command
   .classBuilder<
-    ListSecurityKeysCommandInput,
-    ListSecurityKeysCommandOutput,
+    DeleteContactFlowModuleAliasCommandInput,
+    DeleteContactFlowModuleAliasCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,19 +91,19 @@ export class ListSecurityKeysCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "ListSecurityKeys", {})
-  .n("ConnectClient", "ListSecurityKeysCommand")
-  .sc(ListSecurityKeys)
+  .s("AmazonConnectService", "DeleteContactFlowModuleAlias", {})
+  .n("ConnectClient", "DeleteContactFlowModuleAliasCommand")
+  .sc(DeleteContactFlowModuleAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListSecurityKeysRequest;
-      output: ListSecurityKeysResponse;
+      input: DeleteContactFlowModuleAliasRequest;
+      output: {};
     };
     sdk: {
-      input: ListSecurityKeysCommandInput;
-      output: ListSecurityKeysCommandOutput;
+      input: DeleteContactFlowModuleAliasCommandInput;
+      output: DeleteContactFlowModuleAliasCommandOutput;
     };
   };
 }

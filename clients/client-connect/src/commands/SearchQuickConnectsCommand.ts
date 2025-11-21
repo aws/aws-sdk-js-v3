@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchQuickConnectsRequest, SearchQuickConnectsResponse } from "../models/models_2";
+import { SearchQuickConnectsResponse } from "../models/models_2";
+import { SearchQuickConnectsRequest } from "../models/models_3";
 import { SearchQuickConnects } from "../schemas/schemas_0";
 
 /**

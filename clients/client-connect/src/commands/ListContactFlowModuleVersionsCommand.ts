@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTaskTemplatesRequest, ListTaskTemplatesResponse } from "../models/models_2";
-import { ListTaskTemplates } from "../schemas/schemas_0";
+import { ListContactFlowModuleVersionsRequest, ListContactFlowModuleVersionsResponse } from "../models/models_1";
+import { ListContactFlowModuleVersions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,45 +16,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTaskTemplatesCommand}.
+ * The input for {@link ListContactFlowModuleVersionsCommand}.
  */
-export interface ListTaskTemplatesCommandInput extends ListTaskTemplatesRequest {}
+export interface ListContactFlowModuleVersionsCommandInput extends ListContactFlowModuleVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListTaskTemplatesCommand}.
+ * The output of {@link ListContactFlowModuleVersionsCommand}.
  */
-export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesResponse, __MetadataBearer {}
+export interface ListContactFlowModuleVersionsCommandOutput
+  extends ListContactFlowModuleVersionsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Lists task templates for the specified Amazon Connect instance.</p>
+ * <p>Retrieves a paginated list of all versions for a specific contact flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListTaskTemplatesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListTaskTemplatesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListContactFlowModuleVersionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListContactFlowModuleVersionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // ListTaskTemplatesRequest
+ * const input = { // ListContactFlowModuleVersionsRequest
  *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowModuleId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Status: "ACTIVE" || "INACTIVE",
- *   Name: "STRING_VALUE",
  * };
- * const command = new ListTaskTemplatesCommand(input);
+ * const command = new ListContactFlowModuleVersionsCommand(input);
  * const response = await client.send(command);
- * // { // ListTaskTemplatesResponse
- * //   TaskTemplates: [ // TaskTemplateList
- * //     { // TaskTemplateMetadata
- * //       Id: "STRING_VALUE",
+ * // { // ListContactFlowModuleVersionsResponse
+ * //   ContactFlowModuleVersionSummaryList: [ // ContactFlowModuleVersionSummaryList
+ * //     { // ContactFlowModuleVersionSummary
  * //       Arn: "STRING_VALUE",
- * //       Name: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       Status: "ACTIVE" || "INACTIVE",
- * //       LastModifiedTime: new Date("TIMESTAMP"),
- * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       VersionDescription: "STRING_VALUE",
+ * //       Version: Number("long"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -62,11 +59,14 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  *
  * ```
  *
- * @param ListTaskTemplatesCommandInput - {@link ListTaskTemplatesCommandInput}
- * @returns {@link ListTaskTemplatesCommandOutput}
- * @see {@link ListTaskTemplatesCommandInput} for command's `input` shape.
- * @see {@link ListTaskTemplatesCommandOutput} for command's `response` shape.
+ * @param ListContactFlowModuleVersionsCommandInput - {@link ListContactFlowModuleVersionsCommandInput}
+ * @returns {@link ListContactFlowModuleVersionsCommandOutput}
+ * @see {@link ListContactFlowModuleVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListContactFlowModuleVersionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -89,10 +89,10 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  *
  * @public
  */
-export class ListTaskTemplatesCommand extends $Command
+export class ListContactFlowModuleVersionsCommand extends $Command
   .classBuilder<
-    ListTaskTemplatesCommandInput,
-    ListTaskTemplatesCommandOutput,
+    ListContactFlowModuleVersionsCommandInput,
+    ListContactFlowModuleVersionsCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,19 +101,19 @@ export class ListTaskTemplatesCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "ListTaskTemplates", {})
-  .n("ConnectClient", "ListTaskTemplatesCommand")
-  .sc(ListTaskTemplates)
+  .s("AmazonConnectService", "ListContactFlowModuleVersions", {})
+  .n("ConnectClient", "ListContactFlowModuleVersionsCommand")
+  .sc(ListContactFlowModuleVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTaskTemplatesRequest;
-      output: ListTaskTemplatesResponse;
+      input: ListContactFlowModuleVersionsRequest;
+      output: ListContactFlowModuleVersionsResponse;
     };
     sdk: {
-      input: ListTaskTemplatesCommandInput;
-      output: ListTaskTemplatesCommandOutput;
+      input: ListContactFlowModuleVersionsCommandInput;
+      output: ListContactFlowModuleVersionsCommandOutput;
     };
   };
 }

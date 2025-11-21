@@ -42,7 +42,7 @@ const _ACn = "AndConditions";
 const _ACnd = "AndCondition";
 const _ACt = "AttributeCondition";
 const _ACtt = "AttributeConfiguration";
-const _AD = "AnalysisDetails";
+const _AD = "AliasDescription";
 const _ADAR = "AnalyticsDataAssociationResult";
 const _ADARn = "AnalyticsDataAssociationResults";
 const _ADE = "AccessDeniedException";
@@ -51,6 +51,7 @@ const _ADSRn = "AnalyticsDataSetsResults";
 const _ADV = "AssociateDefaultVocabulary";
 const _ADVR = "AssociateDefaultVocabularyRequest";
 const _ADVRs = "AssociateDefaultVocabularyResponse";
+const _ADn = "AnalysisDetails";
 const _AE = "AuthenticationError";
 const _AEAA = "AssociateEmailAddressAlias";
 const _AEAAR = "AssociateEmailAddressAliasRequest";
@@ -94,6 +95,7 @@ const _AISCR = "AssociateInstanceStorageConfigRequest";
 const _AISCRs = "AssociateInstanceStorageConfigResponse";
 const _AIg = "AgentIds";
 const _AIl = "AllowedIps";
+const _AIli = "AliasId";
 const _AIs = "AssociationId";
 const _AIt = "AttendeeId";
 const _AItt = "AttachmentId";
@@ -108,10 +110,11 @@ const _AMAQI = "AssociatedManualAssignmentQueueIds";
 const _AMC = "AllowedMonitorCapabilities";
 const _AMDC = "AnswerMachineDetectionConfig";
 const _AMDS = "AnsweringMachineDetectionStatus";
-const _AN = "AttachmentName";
+const _AN = "AliasName";
 const _ANL = "AvailableNumbersList";
 const _ANS = "AvailableNumberSummary";
-const _ANt = "AttributeName";
+const _ANt = "AttachmentName";
+const _ANtt = "AttributeName";
 const _AOCL = "AttributeOrConditionList";
 const _AP = "ApplicationPermissions";
 const _APDIS = "AgentPauseDurationInSeconds";
@@ -238,8 +241,14 @@ const _CCAD = "CreateCaseActionDefinition";
 const _CCB = "CrossChannelBehavior";
 const _CCF = "CreateContactFlow";
 const _CCFM = "CreateContactFlowModule";
+const _CCFMA = "CreateContactFlowModuleAlias";
+const _CCFMAR = "CreateContactFlowModuleAliasRequest";
+const _CCFMARr = "CreateContactFlowModuleAliasResponse";
 const _CCFMR = "CreateContactFlowModuleRequest";
 const _CCFMRr = "CreateContactFlowModuleResponse";
+const _CCFMV = "CreateContactFlowModuleVersion";
+const _CCFMVR = "CreateContactFlowModuleVersionRequest";
+const _CCFMVRr = "CreateContactFlowModuleVersionResponse";
 const _CCFR = "CreateContactFlowRequest";
 const _CCFRr = "CreateContactFlowResponse";
 const _CCFV = "CreateContactFlowVersion";
@@ -273,6 +282,11 @@ const _CFA = "ContactFlowArn";
 const _CFCI = "ContinuedFromContactId";
 const _CFI = "ContactFlowId";
 const _CFM = "ContactFlowModule";
+const _CFMA = "ContactFlowModuleArn";
+const _CFMAI = "ContactFlowModuleAliasInfo";
+const _CFMAS = "ContactFlowModuleAliasSummary";
+const _CFMASL = "ContactFlowModuleAliasSummaryList";
+const _CFMAo = "ContactFlowModuleAlias";
 const _CFMI = "ContactFlowModuleId";
 const _CFMS = "ContactFlowModuleSummary";
 const _CFMSC = "ContactFlowModuleSearchCriteria";
@@ -281,6 +295,9 @@ const _CFMSF = "ContactFlowModuleSearchFilter";
 const _CFMSL = "ContactFlowModulesSummaryList";
 const _CFMSSL = "ContactFlowModuleSearchSummaryList";
 const _CFMSo = "ContactFlowModuleState";
+const _CFMV = "ContactFlowModuleVersion";
+const _CFMVS = "ContactFlowModuleVersionSummary";
+const _CFMVSL = "ContactFlowModuleVersionSummaryList";
 const _CFMo = "ContactFlowModules";
 const _CFNPE = "ContactFlowNotPublishedException";
 const _CFS = "ContactFlowSummary";
@@ -473,10 +490,19 @@ const _DCERes = "DescribeContactEvaluationResponse";
 const _DCEe = "DescribeContactEvaluation";
 const _DCF = "DeleteContactFlow";
 const _DCFM = "DeleteContactFlowModule";
+const _DCFMA = "DeleteContactFlowModuleAlias";
+const _DCFMAR = "DeleteContactFlowModuleAliasRequest";
+const _DCFMARe = "DeleteContactFlowModuleAliasResponse";
+const _DCFMARes = "DescribeContactFlowModuleAliasRequest";
+const _DCFMAResc = "DescribeContactFlowModuleAliasResponse";
+const _DCFMAe = "DescribeContactFlowModuleAlias";
 const _DCFMR = "DeleteContactFlowModuleRequest";
 const _DCFMRe = "DeleteContactFlowModuleResponse";
 const _DCFMRes = "DescribeContactFlowModuleRequest";
 const _DCFMResc = "DescribeContactFlowModuleResponse";
+const _DCFMV = "DeleteContactFlowModuleVersion";
+const _DCFMVR = "DeleteContactFlowModuleVersionRequest";
+const _DCFMVRe = "DeleteContactFlowModuleVersionResponse";
 const _DCFMe = "DescribeContactFlowModule";
 const _DCFR = "DeleteContactFlowRequest";
 const _DCFRe = "DeleteContactFlowResponse";
@@ -764,6 +790,7 @@ const _EGAIAAD = "EvaluationGenAIAnswerAnalysisDetails";
 const _EHOO = "EffectiveHoursOfOperations";
 const _EHOOL = "EffectiveHoursOfOperationList";
 const _EI = "EvaluationId";
+const _EIC = "ExternalInvocationConfiguration";
 const _EIU = "EventIngestionUrl";
 const _EIn = "EndpointInfo";
 const _EL = "ExportLocation";
@@ -837,6 +864,7 @@ const _FIie = "FieldId";
 const _FIil = "FileIds";
 const _FIo = "FormId";
 const _FK = "FilterKey";
+const _FMCS = "FlowModuleContentSha256";
 const _FN = "FileName";
 const _FNi = "FieldName";
 const _FNir = "FirstName";
@@ -1052,8 +1080,14 @@ const _LCER = "ListContactEvaluationsRequest";
 const _LCERi = "ListContactEvaluationsResponse";
 const _LCF = "ListContactFlows";
 const _LCFM = "ListContactFlowModules";
+const _LCFMA = "ListContactFlowModuleAliases";
+const _LCFMAR = "ListContactFlowModuleAliasesRequest";
+const _LCFMARi = "ListContactFlowModuleAliasesResponse";
 const _LCFMR = "ListContactFlowModulesRequest";
 const _LCFMRi = "ListContactFlowModulesResponse";
+const _LCFMV = "ListContactFlowModuleVersions";
+const _LCFMVR = "ListContactFlowModuleVersionsRequest";
+const _LCFMVRi = "ListContactFlowModuleVersionsResponse";
 const _LCFR = "ListContactFlowsRequest";
 const _LCFRi = "ListContactFlowsResponse";
 const _LCFV = "ListContactFlowVersions";
@@ -1821,8 +1855,9 @@ const _SWRTCCR = "StartWebRTCContactRequest";
 const _SWRTCCRt = "StartWebRTCContactResponse";
 const _Sc = "Scores";
 const _Sco = "Score";
-const _Se = "Segments";
+const _Se = "Settings";
 const _Sec = "Section";
+const _Seg = "Segments";
 const _Sen = "Sentiment";
 const _So = "Source";
 const _Sor = "Sort";
@@ -1944,6 +1979,9 @@ const _UCFC = "UpdateContactFlowContent";
 const _UCFCR = "UpdateContactFlowContentRequest";
 const _UCFCRp = "UpdateContactFlowContentResponse";
 const _UCFM = "UpdateContactFlowMetadata";
+const _UCFMA = "UpdateContactFlowModuleAlias";
+const _UCFMAR = "UpdateContactFlowModuleAliasRequest";
+const _UCFMARp = "UpdateContactFlowModuleAliasResponse";
 const _UCFMC = "UpdateContactFlowModuleContent";
 const _UCFMCR = "UpdateContactFlowModuleContentRequest";
 const _UCFMCRp = "UpdateContactFlowModuleContentResponse";
@@ -2913,8 +2951,24 @@ export var ContactFlowModule: StaticStructureSchema = [
   n0,
   _CFM,
   0,
-  [_A, _I, _N, _Co, _D, _S, _St, _Ta],
-  [0, 0, 0, 0, 0, 0, 0, 128 | 0],
+  [_A, _I, _N, _Co, _D, _S, _St, _Ta, _FMCS, _Ve, _VD, _Se, _EIC],
+  [0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1, 0, 0, () => ExternalInvocationConfiguration],
+];
+export var ContactFlowModuleAliasInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _CFMAI,
+  0,
+  [_CFMI, _CFMA, _AIli, _Ve, _N, _D, _LMR, _LMT],
+  [0, 0, 0, 1, 0, 0, 0, 4],
+];
+export var ContactFlowModuleAliasSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _CFMAS,
+  0,
+  [_A, _AIli, _Ve, _AN, _AD, _LMT],
+  [0, 0, 1, 0, 0, 4],
 ];
 export var ContactFlowModuleSearchCriteria: StaticStructureSchema = [
   3,
@@ -2933,6 +2987,7 @@ export var ContactFlowModuleSearchFilter: StaticStructureSchema = [
   [() => ControlPlaneTagFilter],
 ];
 export var ContactFlowModuleSummary: StaticStructureSchema = [3, n0, _CFMS, 0, [_I, _A, _N, _S], [0, 0, 0, 0]];
+export var ContactFlowModuleVersionSummary: StaticStructureSchema = [3, n0, _CFMVS, 0, [_A, _VD, _Ve], [0, 0, 1]];
 export var ContactFlowNotPublishedException: StaticErrorSchema = [
   -3,
   n0,
@@ -3047,15 +3102,33 @@ export var CreateAgentStatusRequest: StaticStructureSchema = [
 ];
 export var CreateAgentStatusResponse: StaticStructureSchema = [3, n0, _CASRr, 0, [_ASARN, _ASI], [0, 0]];
 export var CreateCaseActionDefinition: StaticStructureSchema = [3, n0, _CCAD, 0, [_Fi, _TI], [() => FieldValues, 0]];
+export var CreateContactFlowModuleAliasRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CCFMAR,
+  0,
+  [_II, _D, _CFMI, _CFMV, _AN],
+  [[0, 1], 0, [0, 1], 1, 0],
+];
+export var CreateContactFlowModuleAliasResponse: StaticStructureSchema = [3, n0, _CCFMARr, 0, [_CFMA, _I], [0, 0]];
 export var CreateContactFlowModuleRequest: StaticStructureSchema = [
   3,
   n0,
   _CCFMR,
   0,
-  [_II, _N, _D, _Co, _Ta, _CT],
-  [[0, 1], 0, 0, 0, 128 | 0, [0, 4]],
+  [_II, _N, _D, _Co, _Ta, _CT, _Se, _EIC],
+  [[0, 1], 0, 0, 0, 128 | 0, [0, 4], 0, () => ExternalInvocationConfiguration],
 ];
 export var CreateContactFlowModuleResponse: StaticStructureSchema = [3, n0, _CCFMRr, 0, [_I, _A], [0, 0]];
+export var CreateContactFlowModuleVersionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CCFMVR,
+  0,
+  [_II, _D, _CFMI, _FMCS],
+  [[0, 1], 0, [0, 1], 0],
+];
+export var CreateContactFlowModuleVersionResponse: StaticStructureSchema = [3, n0, _CCFMVRr, 0, [_CFMA, _Ve], [0, 1]];
 export var CreateContactFlowRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3412,6 +3485,19 @@ export var DeleteContactEvaluationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
+export var DeleteContactFlowModuleAliasRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DCFMAR,
+  0,
+  [_II, _CFMI, _AIli],
+  [
+    [0, 1],
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var DeleteContactFlowModuleAliasResponse: StaticStructureSchema = [3, n0, _DCFMARe, 0, [], []];
 export var DeleteContactFlowModuleRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3424,6 +3510,19 @@ export var DeleteContactFlowModuleRequest: StaticStructureSchema = [
   ],
 ];
 export var DeleteContactFlowModuleResponse: StaticStructureSchema = [3, n0, _DCFMRe, 0, [], []];
+export var DeleteContactFlowModuleVersionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DCFMVR,
+  0,
+  [_II, _CFMI, _CFMV],
+  [
+    [0, 1],
+    [0, 1],
+    [1, 1],
+  ],
+];
+export var DeleteContactFlowModuleVersionResponse: StaticStructureSchema = [3, n0, _DCFMVRe, 0, [], []];
 export var DeleteContactFlowRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3758,6 +3857,26 @@ export var DescribeContactEvaluationResponse: StaticStructureSchema = [
   0,
   [_Ev, _EFv],
   [() => Evaluation, () => EvaluationFormContent],
+];
+export var DescribeContactFlowModuleAliasRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DCFMARes,
+  0,
+  [_II, _CFMI, _AIli],
+  [
+    [0, 1],
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var DescribeContactFlowModuleAliasResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DCFMAResc,
+  0,
+  [_CFMAo],
+  [() => ContactFlowModuleAliasInfo],
 ];
 export var DescribeContactFlowModuleRequest: StaticStructureSchema = [
   3,
@@ -4720,7 +4839,7 @@ export var EvaluationSuggestedAnswer: StaticStructureSchema = [
   n0,
   _ESA,
   0,
-  [_V, _St, _Inp, _ATn, _AD],
+  [_V, _St, _Inp, _ATn, _ADn],
   [
     () => EvaluationAnswerData,
     0,
@@ -4763,6 +4882,7 @@ export var Expression: StaticStructureSchema = [
   [_ACt, _AEn, _OE, _NAC],
   [() => AttributeCondition, () => Expressions, () => Expressions, () => AttributeCondition],
 ];
+export var ExternalInvocationConfiguration: StaticStructureSchema = [3, n0, _EIC, 0, [_En], [2]];
 export var FailedRequest: StaticStructureSchema = [3, n0, _FR, 0, [_RIeq, _FRC, _FRM], [0, 0, 0]];
 export var FieldValue: StaticStructureSchema = [3, n0, _FV, 0, [_I, _V], [0, () => FieldValueUnion]];
 export var FieldValueUnion: StaticStructureSchema = [
@@ -5598,6 +5718,37 @@ export var ListContactEvaluationsResponse: StaticStructureSchema = [
   [_ESL, _NT],
   [() => EvaluationSummaryList, 0],
 ];
+export var ListContactFlowModuleAliasesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCFMAR,
+  0,
+  [_II, _CFMI, _NT, _MRa],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+  ],
+];
+export var ListContactFlowModuleAliasesResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCFMARi,
+  0,
+  [_CFMASL, _NT],
+  [() => ContactFlowModuleAliasSummaryList, 0],
+];
 export var ListContactFlowModulesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -5633,6 +5784,37 @@ export var ListContactFlowModulesResponse: StaticStructureSchema = [
   0,
   [_CFMSL, _NT],
   [() => ContactFlowModulesSummaryList, 0],
+];
+export var ListContactFlowModuleVersionsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCFMVR,
+  0,
+  [_II, _CFMI, _NT, _MRa],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+  ],
+];
+export var ListContactFlowModuleVersionsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCFMVRi,
+  0,
+  [_CFMVSL, _NT],
+  [() => ContactFlowModuleVersionSummaryList, 0],
 ];
 export var ListContactFlowsRequest: StaticStructureSchema = [
   3,
@@ -6317,7 +6499,7 @@ export var ListRealtimeContactAnalysisSegmentsV2Response: StaticStructureSchema 
   n0,
   _LRCASVRi,
   0,
-  [_C, _St, _Se, _NT],
+  [_C, _St, _Seg, _NT],
   [0, 0, () => RealtimeContactAnalysisSegments, 0],
 ];
 export var ListRoutingProfileManualAssignmentQueuesRequest: StaticStructureSchema = [
@@ -7148,7 +7330,7 @@ export var RealTimeContactAnalysisAttachment: StaticStructureSchema = [
   n0,
   _RTCAA,
   0,
-  [_AN, _CTon, _AItt, _St],
+  [_ANt, _CTon, _AItt, _St],
   [0, 0, 0, 0],
 ];
 export var RealTimeContactAnalysisCategoryDetails: StaticStructureSchema = [
@@ -8446,13 +8628,22 @@ export var UpdateContactFlowMetadataRequest: StaticStructureSchema = [
   [[0, 1], [0, 1], 0, 0, 0],
 ];
 export var UpdateContactFlowMetadataResponse: StaticStructureSchema = [3, n0, _UCFMRp, 0, [], []];
+export var UpdateContactFlowModuleAliasRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UCFMAR,
+  0,
+  [_II, _CFMI, _AIli, _N, _D, _CFMV],
+  [[0, 1], [0, 1], [0, 1], 0, 0, 1],
+];
+export var UpdateContactFlowModuleAliasResponse: StaticStructureSchema = [3, n0, _UCFMARp, 0, [], []];
 export var UpdateContactFlowModuleContentRequest: StaticStructureSchema = [
   3,
   n0,
   _UCFMCR,
   0,
-  [_II, _CFMI, _Co],
-  [[0, 1], [0, 1], 0],
+  [_II, _CFMI, _Co, _Se],
+  [[0, 1], [0, 1], 0, 0],
 ];
 export var UpdateContactFlowModuleContentResponse: StaticStructureSchema = [3, n0, _UCFMCRp, 0, [], []];
 export var UpdateContactFlowModuleMetadataRequest: StaticStructureSchema = [
@@ -8939,8 +9130,8 @@ export var UserPhoneConfig: StaticStructureSchema = [
   [_PTh, _AAu, _ACWTL, _DPNe, _PCer],
   [0, 2, 1, 0, 2],
 ];
-export var UserProficiency: StaticStructureSchema = [3, n0, _UPs, 0, [_ANt, _AVt, _Level__], [0, 0, 1]];
-export var UserProficiencyDisassociate: StaticStructureSchema = [3, n0, _UPD, 0, [_ANt, _AVt], [0, 0]];
+export var UserProficiency: StaticStructureSchema = [3, n0, _UPs, 0, [_ANtt, _AVt, _Level__], [0, 0, 1]];
+export var UserProficiencyDisassociate: StaticStructureSchema = [3, n0, _UPD, 0, [_ANtt, _AVt], [0, 0]];
 export var UserQuickConnectConfig: StaticStructureSchema = [3, n0, _UQCC, 0, [_UI, _CFI], [0, 0]];
 export var UserReference: StaticStructureSchema = [3, n0, _URs, 0, [_I, _A], [0, 0]];
 export var UserSearchCriteria: StaticStructureSchema = [
@@ -9071,6 +9262,13 @@ export var Channels = 64 | 0;
 export var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL, 0, () => CommonAttributeAndCondition];
 export var Conditions: StaticListSchema = [1, n0, _Cond, 0, () => Condition];
 export var ContactDataRequestList: StaticListSchema = [1, n0, _CDRL, 0, () => ContactDataRequest];
+export var ContactFlowModuleAliasSummaryList: StaticListSchema = [
+  1,
+  n0,
+  _CFMASL,
+  0,
+  () => ContactFlowModuleAliasSummary,
+];
 export var ContactFlowModuleSearchConditionList: StaticListSchema = [
   1,
   n0,
@@ -9080,6 +9278,13 @@ export var ContactFlowModuleSearchConditionList: StaticListSchema = [
 ];
 export var ContactFlowModuleSearchSummaryList: StaticListSchema = [1, n0, _CFMSSL, 0, () => ContactFlowModule];
 export var ContactFlowModulesSummaryList: StaticListSchema = [1, n0, _CFMSL, 0, () => ContactFlowModuleSummary];
+export var ContactFlowModuleVersionSummaryList: StaticListSchema = [
+  1,
+  n0,
+  _CFMVSL,
+  0,
+  () => ContactFlowModuleVersionSummary,
+];
 export var ContactFlowSearchConditionList: StaticListSchema = [1, n0, _CFSCL, 0, () => ContactFlowSearchCriteria];
 export var ContactFlowSearchSummaryList: StaticListSchema = [1, n0, _CFSSL, 0, () => ContactFlow];
 export var ContactFlowSummaryList: StaticListSchema = [1, n0, _CFSL, 0, () => ContactFlowSummary];
@@ -9916,6 +10121,26 @@ export var CreateContactFlowModule: StaticOperationSchema = [
   () => CreateContactFlowModuleRequest,
   () => CreateContactFlowModuleResponse,
 ];
+export var CreateContactFlowModuleAlias: StaticOperationSchema = [
+  9,
+  n0,
+  _CCFMA,
+  {
+    [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias", 200],
+  },
+  () => CreateContactFlowModuleAliasRequest,
+  () => CreateContactFlowModuleAliasResponse,
+];
+export var CreateContactFlowModuleVersion: StaticOperationSchema = [
+  9,
+  n0,
+  _CCFMV,
+  {
+    [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/version", 200],
+  },
+  () => CreateContactFlowModuleVersionRequest,
+  () => CreateContactFlowModuleVersionResponse,
+];
 export var CreateContactFlowVersion: StaticOperationSchema = [
   9,
   n0,
@@ -10216,6 +10441,30 @@ export var DeleteContactFlowModule: StaticOperationSchema = [
   () => DeleteContactFlowModuleRequest,
   () => DeleteContactFlowModuleResponse,
 ];
+export var DeleteContactFlowModuleAlias: StaticOperationSchema = [
+  9,
+  n0,
+  _DCFMA,
+  {
+    [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200],
+  },
+  () => DeleteContactFlowModuleAliasRequest,
+  () => DeleteContactFlowModuleAliasResponse,
+];
+export var DeleteContactFlowModuleVersion: StaticOperationSchema = [
+  9,
+  n0,
+  _DCFMV,
+  {
+    [_h]: [
+      "DELETE",
+      "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/version/{ContactFlowModuleVersion}",
+      200,
+    ],
+  },
+  () => DeleteContactFlowModuleVersionRequest,
+  () => DeleteContactFlowModuleVersionResponse,
+];
 export var DeleteContactFlowVersion: StaticOperationSchema = [
   9,
   n0,
@@ -10513,6 +10762,16 @@ export var DescribeContactFlowModule: StaticOperationSchema = [
   },
   () => DescribeContactFlowModuleRequest,
   () => DescribeContactFlowModuleResponse,
+];
+export var DescribeContactFlowModuleAlias: StaticOperationSchema = [
+  9,
+  n0,
+  _DCFMAe,
+  {
+    [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200],
+  },
+  () => DescribeContactFlowModuleAliasRequest,
+  () => DescribeContactFlowModuleAliasResponse,
 ];
 export var DescribeEmailAddress: StaticOperationSchema = [
   9,
@@ -11094,6 +11353,16 @@ export var ListContactEvaluations: StaticOperationSchema = [
   () => ListContactEvaluationsRequest,
   () => ListContactEvaluationsResponse,
 ];
+export var ListContactFlowModuleAliases: StaticOperationSchema = [
+  9,
+  n0,
+  _LCFMA,
+  {
+    [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/aliases", 200],
+  },
+  () => ListContactFlowModuleAliasesRequest,
+  () => ListContactFlowModuleAliasesResponse,
+];
 export var ListContactFlowModules: StaticOperationSchema = [
   9,
   n0,
@@ -11103,6 +11372,16 @@ export var ListContactFlowModules: StaticOperationSchema = [
   },
   () => ListContactFlowModulesRequest,
   () => ListContactFlowModulesResponse,
+];
+export var ListContactFlowModuleVersions: StaticOperationSchema = [
+  9,
+  n0,
+  _LCFMV,
+  {
+    [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/versions", 200],
+  },
+  () => ListContactFlowModuleVersionsRequest,
+  () => ListContactFlowModuleVersionsResponse,
 ];
 export var ListContactFlows: StaticOperationSchema = [
   9,
@@ -12093,6 +12372,16 @@ export var UpdateContactFlowMetadata: StaticOperationSchema = [
   },
   () => UpdateContactFlowMetadataRequest,
   () => UpdateContactFlowMetadataResponse,
+];
+export var UpdateContactFlowModuleAlias: StaticOperationSchema = [
+  9,
+  n0,
+  _UCFMA,
+  {
+    [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200],
+  },
+  () => UpdateContactFlowModuleAliasRequest,
+  () => UpdateContactFlowModuleAliasResponse,
 ];
 export var UpdateContactFlowModuleContent: StaticOperationSchema = [
   9,

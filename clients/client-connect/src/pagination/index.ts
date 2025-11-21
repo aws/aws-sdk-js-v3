@@ -12,6 +12,8 @@ export * from "./ListApprovedOriginsPaginator";
 export * from "./ListAuthenticationProfilesPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListContactEvaluationsPaginator";
+export * from "./ListContactFlowModuleAliasesPaginator";
+export * from "./ListContactFlowModuleVersionsPaginator";
 export * from "./ListContactFlowModulesPaginator";
 export * from "./ListContactFlowVersionsPaginator";
 export * from "./ListContactFlowsPaginator";

@@ -24,9 +24,6 @@ import {
   EvaluationFormScoringMode,
   EvaluationFormScoringStatus,
   EvaluationFormSingleSelectQuestionDisplayMode,
-  EvaluationQuestionAnswerAnalysisType,
-  EvaluationSuggestedAnswerStatus,
-  EvaluationTranscriptType,
   EventSourceName,
   FailureReasonCode,
   FileStatusType,
@@ -47,7 +44,6 @@ import {
   ParticipantType,
   PhoneType,
   PropertyValidationExceptionReason,
-  QuestionRuleCategoryAutomationCondition,
   QuickConnectType,
   RecordingStatus,
   ReferenceStatus,
@@ -2697,6 +2693,18 @@ export interface ProblemDetail {
 }
 
 /**
+ * <p>The external invocation configuration for the flow module</p>
+ * @public
+ */
+export interface ExternalInvocationConfiguration {
+  /**
+   * <p>Enable external invocation.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateContactFlowModuleRequest {
@@ -2739,6 +2747,18 @@ export interface CreateContactFlowModuleRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The configuration settings for the flow module.</p>
+   * @public
+   */
+  Settings?: string | undefined;
+
+  /**
+   * <p>The external invocation configuration for the flow module.</p>
+   * @public
+   */
+  ExternalInvocationConfiguration?: ExternalInvocationConfiguration | undefined;
 }
 
 /**
@@ -2756,6 +2776,104 @@ export interface CreateContactFlowModuleResponse {
    * @public
    */
   Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowModuleAliasRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The version of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleVersion: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowModuleAliasResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowModuleVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The description of the flow module version.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>Indicates the checksum value of the flow module content.</p>
+   * @public
+   */
+  FlowModuleContentSha256?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowModuleVersionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleArn?: string | undefined;
+
+  /**
+   * <p>The version of the flow module.</p>
+   * @public
+   */
+  Version?: number | undefined;
 }
 
 /**
@@ -6228,6 +6346,62 @@ export interface DeleteContactFlowModuleResponse {}
 /**
  * @public
  */
+export interface DeleteContactFlowModuleAliasRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleAliasResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The version of the flow module to delete.</p>
+   * @public
+   */
+  ContactFlowModuleVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleVersionResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteContactFlowVersionRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -7486,278 +7660,4 @@ export interface EvaluationTranscriptPointOfInterest {
    * @public
    */
   TranscriptSegment?: string | undefined;
-}
-
-/**
- * <p>The Contact Lens category used by evaluation automation.</p>
- * @public
- */
-export interface EvaluationAutomationRuleCategory {
-  /**
-   * <p>A category label.</p>
-   * @public
-   */
-  Category: string | undefined;
-
-  /**
-   * <p>An automation condition for a Contact Lens category.</p>
-   * @public
-   */
-  Condition: QuestionRuleCategoryAutomationCondition | undefined;
-
-  /**
-   * <p>A point of interest in a contact transcript that indicates match of condition.</p>
-   * @public
-   */
-  PointsOfInterest?: EvaluationTranscriptPointOfInterest[] | undefined;
-}
-
-/**
- * <p>Analysis details providing explanation for Contact Lens automation decision.</p>
- * @public
- */
-export interface EvaluationContactLensAnswerAnalysisDetails {
-  /**
-   * <p>A list of match rule categories.</p>
-   * @public
-   */
-  MatchedRuleCategories?: EvaluationAutomationRuleCategory[] | undefined;
-}
-
-/**
- * <p>An analysis for a generative AI answer to the question.</p>
- * @public
- */
-export interface EvaluationGenAIAnswerAnalysisDetails {
-  /**
-   * <p>Generative AI automation answer justification.</p>
-   * @public
-   */
-  Justification?: string | undefined;
-
-  /**
-   * <p>Generative AI automation answer analysis points of interest.</p>
-   * @public
-   */
-  PointsOfInterest?: EvaluationTranscriptPointOfInterest[] | undefined;
-}
-
-/**
- * <p>Detailed analysis results of the automated answer to the evaluation question.</p>
- * @public
- */
-export type EvaluationQuestionAnswerAnalysisDetails =
-  | EvaluationQuestionAnswerAnalysisDetails.ContactLensMember
-  | EvaluationQuestionAnswerAnalysisDetails.GenAIMember
-  | EvaluationQuestionAnswerAnalysisDetails.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationQuestionAnswerAnalysisDetails {
-  /**
-   * <p>Analysis results from the generative AI automation for the question.</p>
-   * @public
-   */
-  export interface GenAIMember {
-    GenAI: EvaluationGenAIAnswerAnalysisDetails;
-    ContactLens?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Analysis results from the Contact Lens automation for the question.</p>
-   * @public
-   */
-  export interface ContactLensMember {
-    GenAI?: never;
-    ContactLens: EvaluationContactLensAnswerAnalysisDetails;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    GenAI?: never;
-    ContactLens?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    GenAI: (value: EvaluationGenAIAnswerAnalysisDetails) => T;
-    ContactLens: (value: EvaluationContactLensAnswerAnalysisDetails) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Details of the input data used for automated question processing.</p>
- * @public
- */
-export interface EvaluationQuestionInputDetails {
-  /**
-   * <p>Transcript type.</p>
-   * @public
-   */
-  TranscriptType?: EvaluationTranscriptType | undefined;
-}
-
-/**
- * <p>Information about answer data for a contact evaluation. Answer data must be either string,
- *    numeric, or not applicable.</p>
- * @public
- */
-export type EvaluationAnswerData =
-  | EvaluationAnswerData.NotApplicableMember
-  | EvaluationAnswerData.NumericValueMember
-  | EvaluationAnswerData.StringValueMember
-  | EvaluationAnswerData.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationAnswerData {
-  /**
-   * <p>The string value for an answer in a contact evaluation.</p>
-   * @public
-   */
-  export interface StringValueMember {
-    StringValue: string;
-    NumericValue?: never;
-    NotApplicable?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The numeric value for an answer in a contact evaluation.</p>
-   * @public
-   */
-  export interface NumericValueMember {
-    StringValue?: never;
-    NumericValue: number;
-    NotApplicable?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The flag to mark the question as not applicable.</p>
-   * @public
-   */
-  export interface NotApplicableMember {
-    StringValue?: never;
-    NumericValue?: never;
-    NotApplicable: boolean;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    StringValue?: never;
-    NumericValue?: never;
-    NotApplicable?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    StringValue: (value: string) => T;
-    NumericValue: (value: number) => T;
-    NotApplicable: (value: boolean) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The information about the suggested answer for the question.</p>
- * @public
- */
-export interface EvaluationSuggestedAnswer {
-  /**
-   * <p>Information about answer data for a contact evaluation. Answer data must be either string,
-   *    numeric, or not applicable.</p>
-   * @public
-   */
-  Value?: EvaluationAnswerData | undefined;
-
-  /**
-   * <p>The status of the suggested answer. D</p>
-   * @public
-   */
-  Status: EvaluationSuggestedAnswerStatus | undefined;
-
-  /**
-   * <p>Details about the input used to question automation.</p>
-   * @public
-   */
-  Input?: EvaluationQuestionInputDetails | undefined;
-
-  /**
-   * <p>Type of analysis used to provide suggested answer.</p>
-   * @public
-   */
-  AnalysisType: EvaluationQuestionAnswerAnalysisType | undefined;
-
-  /**
-   * <p>Detailed analysis results.</p>
-   * @public
-   */
-  AnalysisDetails?: EvaluationQuestionAnswerAnalysisDetails | undefined;
-}
-
-/**
- * <p>Information about output answers for a contact evaluation.</p>
- * @public
- */
-export interface EvaluationAnswerOutput {
-  /**
-   * <p>The value for an answer in a contact evaluation.</p>
-   * @public
-   */
-  Value?: EvaluationAnswerData | undefined;
-
-  /**
-   * <p>The system suggested value for an answer in a contact evaluation.</p>
-   * @public
-   */
-  SystemSuggestedValue?: EvaluationAnswerData | undefined;
-
-  /**
-   * <p>Automation suggested answers for the questions.</p>
-   * @public
-   */
-  SuggestedAnswers?: EvaluationSuggestedAnswer[] | undefined;
-}
-
-/**
- * <p>Information about the evaluation acknowledgement.</p>
- * @public
- */
-export interface EvaluationAcknowledgement {
-  /**
-   * <p>When the agent acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgedTime: Date | undefined;
-
-  /**
-   * <p>The agent who acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgedBy: string | undefined;
-
-  /**
-   * <p>A comment from the agent when they confirmed they acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgerComment?: string | undefined;
 }

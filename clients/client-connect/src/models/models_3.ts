@@ -4,11 +4,14 @@ import {
   Channel,
   ContactInitiationMethod,
   EvaluationFormVersionStatus,
+  InitiateAs,
+  RoutingCriteriaStepStatus,
 } from "./enums";
 
 import {
   AdditionalEmailRecipients,
   AgentInfo,
+  AgentStatusSearchFilter,
   Campaign,
   ChatMetrics,
   ContactDetails,
@@ -20,6 +23,7 @@ import {
   EndpointInfo,
   EvaluationFormAutoEvaluationConfiguration,
   EvaluationFormScoringStrategy,
+  Expiry,
   OutboundStrategy,
   QualityMetrics,
   QueueInfo,
@@ -33,21 +37,960 @@ import {
 import { Evaluation } from "./models_1";
 
 import {
+  AgentStatusSearchCriteria,
   ChatMessage,
+  ContactFlowModuleSearchCriteria,
+  ContactFlowModuleSearchFilter,
+  ContactFlowSearchCriteria,
+  ContactFlowSearchFilter,
   ContactSearchSummaryAgentInfo,
   ContactSearchSummaryQueueInfo,
-  ContactSearchSummarySegmentAttributeValue,
   EmailAddressInfo,
+  EmailAddressSearchCriteria,
+  EmailAddressSearchFilter,
   EmailAttachment,
   EvaluationFormQuestion,
+  EvaluationFormSearchCriteria,
+  EvaluationFormSearchFilter,
+  EvaluationSearchCriteria,
+  EvaluationSearchFilter,
+  Expression,
+  HoursOfOperationOverrideSearchCriteria,
+  HoursOfOperationSearchCriteria,
+  HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundEmailContent,
   ParticipantDetails,
+  PersistentChat,
+  PredefinedAttributeSearchCriteria,
+  PromptSearchCriteria,
+  PromptSearchFilter,
   QueueInfoInput,
+  QueueSearchCriteria,
+  QueueSearchFilter,
+  QuickConnectSearchCriteria,
+  QuickConnectSearchFilter,
   RoutingCriteriaInputStep,
+  RoutingProfileSearchCriteria,
+  RoutingProfileSearchFilter,
+  SecurityProfileSearchCriteria,
+  SecurityProfilesSearchFilter,
   SegmentAttributeValue,
-  Step,
+  UserHierarchyGroupSearchCriteria,
+  UserHierarchyGroupSearchFilter,
+  UserSearchCriteria,
+  UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface SearchAgentStatusesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: AgentStatusSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return agent statuses.</p>
+   * @public
+   */
+  SearchCriteria?: AgentStatusSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactEvaluationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return contact evaluations.</p>
+   * @public
+   */
+  SearchCriteria?: EvaluationSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: EvaluationSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactFlowModulesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: ContactFlowModuleSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return flow modules.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with a
+   *     minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will result in invalid results.</p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: ContactFlowModuleSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactFlowsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: ContactFlowSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return flows.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with a
+   *     minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will result in invalid results.</p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: ContactFlowSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchEmailAddressesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The search criteria to be used to return email addresses.</p>
+   * @public
+   */
+  SearchCriteria?: EmailAddressSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: EmailAddressSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchEvaluationFormsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return evaluation forms.</p>
+   * @public
+   */
+  SearchCriteria?: EvaluationFormSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: EvaluationFormSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchHoursOfOperationOverridesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: HoursOfOperationSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return hours of operations overrides.</p>
+   * @public
+   */
+  SearchCriteria?: HoursOfOperationOverrideSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: HoursOfOperationSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return hours of operations.</p>
+   * @public
+   */
+  SearchCriteria?: HoursOfOperationSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchPredefinedAttributesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return predefined attributes.</p>
+   * @public
+   */
+  SearchCriteria?: PredefinedAttributeSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchPromptsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: PromptSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return prompts.</p>
+   * @public
+   */
+  SearchCriteria?: PromptSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchQueuesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: QueueSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return queues.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results. </p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: QueueSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: QuickConnectSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return quick connects.</p>
+   * @public
+   */
+  SearchCriteria?: QuickConnectSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchRoutingProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: RoutingProfileSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return routing profiles.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results. </p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: RoutingProfileSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSecurityProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return security profiles. </p>
+   *          <note>
+   *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and
+   *     maximum of 25 characters. Any queries with character lengths outside of this range will throw
+   *     invalid results.</p>
+   *          </note>
+   *          <note>
+   *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: SecurityProfileSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: SecurityProfilesSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchUserHierarchyGroupsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: UserHierarchyGroupSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return UserHierarchyGroups.</p>
+   * @public
+   */
+  SearchCriteria?: UserHierarchyGroupSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchUsersRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: UserSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return users.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results.  </p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: UserSearchCriteria | undefined;
+}
+
+/**
+ * <p>Step signifies the criteria to be used for routing to an agent</p>
+ * @public
+ */
+export interface Step {
+  /**
+   * <p>An object to specify the expiration of a routing step.</p>
+   * @public
+   */
+  Expiry?: Expiry | undefined;
+
+  /**
+   * <p>A tagged union to specify expression for a routing step.</p>
+   * @public
+   */
+  Expression?: Expression | undefined;
+
+  /**
+   * <p>Represents status of the Routing step.</p>
+   * @public
+   */
+  Status?: RoutingCriteriaStepStatus | undefined;
+}
+
+/**
+ * <p>The value of a segment attribute. This is structured as a map with a single key-value pair.
+ *    The key 'valueString' indicates that the attribute type is a string, and its corresponding value
+ *    is the actual string value of the segment attribute.</p>
+ * @public
+ */
+export interface ContactSearchSummarySegmentAttributeValue {
+  /**
+   * <p>The value of a segment attribute represented as a string.</p>
+   * @public
+   */
+  ValueString?: string | undefined;
+
+  /**
+   * <p>The key and value of a segment attribute.</p>
+   * @public
+   */
+  ValueMap?: Record<string, SegmentAttributeValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  RelatedContactId?: string | undefined;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
+   *    the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> |
+   *     <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code> | <code>ATTACHMENT</code>.</p>
+   * @public
+   */
+  References?: Record<string, Reference> | undefined;
+
+  /**
+   * <p>The channel for the contact.</p>
+   *          <important>
+   *             <p>The CHAT channel is not supported. The following information is incorrect. We're working to
+   *     correct it.</p>
+   *          </important>
+   * @public
+   */
+  Channel: Channel | undefined;
+
+  /**
+   * <p>Indicates how the contact was initiated. </p>
+   *          <important>
+   *             <p>CreateContact only supports the following initiation methods. Valid values by channel are: </p>
+   *             <ul>
+   *                <li>
+   *                   <p>For VOICE: <code>TRANSFER</code> and the subtype <code>connect:ExternalAudio</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>For EMAIL: <code>OUTBOUND</code> | <code>AGENT_REPLY</code> | <code>FLOW</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>For TASK: <code>API</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *             <p>The other channels listed below are incorrect. We're working to correct this
+   *     information.</p>
+   *          </important>
+   * @public
+   */
+  InitiationMethod: ContactInitiationMethod | undefined;
+
+  /**
+   * <p>Number of minutes the contact will be active for before expiring</p>
+   * @public
+   */
+  ExpiryDurationInMinutes?: number | undefined;
+
+  /**
+   * <p>User details for the contact</p>
+   *          <important>
+   *             <p>UserInfo is required when creating an EMAIL contact with <code>OUTBOUND</code> and
+   *      <code>AGENT_REPLY</code> contact initiation methods.</p>
+   *          </important>
+   * @public
+   */
+  UserInfo?: UserInfo | undefined;
+
+  /**
+   * <p>Initial state of the contact when it's created. Only TASK channel contacts can be initiated
+   *    with <code>COMPLETED</code> state.</p>
+   * @public
+   */
+  InitiateAs?: InitiateAs | undefined;
+
+  /**
+   * <p>The name of a the contact.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the contact.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A set of system defined key-value pairs stored on individual contact segments (unique
+   *    contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
+   *    They can be accessed in flows.</p>
+   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
+   *          <p>This field can be used to set Segment Contact Expiry as a duration in minutes.</p>
+   *          <note>
+   *             <p>To set contact expiry, a ValueMap must be specified containing the integer number of
+   *     minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like
+   *     \{ <code> "connect:ContactExpiry": \{"ValueMap" : \{ "ExpiryDuration": \{ "ValueInteger":
+   *      135\}\}\}\}</code>. </p>
+   *          </note>
+   * @public
+   */
+  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>The ID of the previous contact when creating a transfer contact. This value can be provided
+   *    only for external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Integrate Amazon Connect Contact Lens
+   *     with external voice systems</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  PreviousContactId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartChatContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow for initiating the chat.
+   *    To
+   *    see the ContactFlowId in the Amazon Connect admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>. Choose the flow. On the flow page,
+   *    under the name of the flow, choose <b>Show additional flow
+   *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
+   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
+   *          </p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows just like any other contact attributes. </p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Information identifying the participant.</p>
+   * @public
+   */
+  ParticipantDetails: ParticipantDetails | undefined;
+
+  /**
+   * <p>The initial message to be sent to the newly created chat.</p>
+   * @public
+   */
+  InitialMessage?: ChatMessage | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The total duration of the newly started chat session. If not specified, the chat session
+   *    duration defaults to 25 hour. The minimum configurable time is 60 minutes. The maximum
+   *    configurable time is 10,080 minutes (7 days).</p>
+   * @public
+   */
+  ChatDurationInMinutes?: number | undefined;
+
+  /**
+   * <p>The supported chat message content types. Supported types are <code>text/plain</code>,
+   *     <code>text/markdown</code>, <code>application/json</code>,
+   *     <code>application/vnd.amazonaws.connect.message.interactive</code>, and
+   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </p>
+   *          <p>Content types must always contain <code>text/plain</code>. You can then put any other
+   *    supported type in the list. For example, all the following lists are valid because they contain
+   *     <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>,
+   *     <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json,
+   *     application/vnd.amazonaws.connect.message.interactive.response]</code>. </p>
+   *          <note>
+   *             <p>The type <code>application/vnd.amazonaws.connect.message.interactive</code> is required to
+   *     use the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html">Show
+   *      view</a> flow block.</p>
+   *          </note>
+   * @public
+   */
+  SupportedMessagingContentTypes?: string[] | undefined;
+
+  /**
+   * <p>Enable persistent chats. For more information about enabling persistent chat, and for
+   *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+   * @public
+   */
+  PersistentChat?: PersistentChat | undefined;
+
+  /**
+   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
+   *    chat starting.</p>
+   *          <note>
+   *             <p>You cannot provide data for both RelatedContactId and PersistentChat. </p>
+   *          </note>
+   * @public
+   */
+  RelatedContactId?: string | undefined;
+
+  /**
+   * <p>A set of system defined key-value pairs stored on individual contact segments using an
+   *    attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in
+   *    flows.</p>
+   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
+   *          <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p>
+   *          <note>
+   *             <p>The types <code>application/vnd.amazonaws.connect.message.interactive</code> and
+   *      <code>application/vnd.amazonaws.connect.message.interactive.response</code> must be present in
+   *     the SupportedMessagingContentTypes field of this API in order to set
+   *      <code>SegmentAttributes</code> as \{<code> "connect:Subtype": \{"valueString" : "connect:Guide"
+   *      \}\}</code>.</p>
+   *          </note>
+   * @public
+   */
+  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>The customer's identification number. For example, the <code>CustomerId</code> may be a
+   *    customer number from your CRM.</p>
+   * @public
+   */
+  CustomerId?: string | undefined;
+}
 
 /**
  * @public
