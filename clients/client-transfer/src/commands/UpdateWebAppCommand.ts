@@ -27,7 +27,7 @@ export interface UpdateWebAppCommandInput extends UpdateWebAppRequest {}
 export interface UpdateWebAppCommandOutput extends UpdateWebAppResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns new properties to a web app. You can modify the access point, identity provider details, and the web app units.</p>
+ * <p>Assigns new properties to a web app. You can modify the access point, identity provider details, endpoint configuration, and the web app units.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html">Create a Transfer Family web app in a VPC</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +46,13 @@ export interface UpdateWebAppCommandOutput extends UpdateWebAppResponse, __Metad
  *   AccessEndpoint: "STRING_VALUE",
  *   WebAppUnits: { // WebAppUnits Union: only one key present
  *     Provisioned: Number("int"),
+ *   },
+ *   EndpointDetails: { // UpdateWebAppEndpointDetails Union: only one key present
+ *     Vpc: { // UpdateWebAppVpcConfig
+ *       SubnetIds: [ // SubnetIds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateWebAppCommand(input);

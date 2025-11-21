@@ -90,6 +90,7 @@ const _DCele = "DeleteConnector";
 const _DCes = "DescribeCertificate";
 const _DCesc = "DescribeConnector";
 const _DE = "DescribedExecution";
+const _DED = "DescribedEndpointDetails";
 const _DER = "DescribeExecutionRequest";
 const _DERe = "DescribeExecutionResponse";
 const _DEe = "DescribeExecution";
@@ -141,10 +142,12 @@ const _DWACRe = "DescribeWebAppCustomizationRequest";
 const _DWACRes = "DescribeWebAppCustomizationResponse";
 const _DWACe = "DeleteWebAppCustomization";
 const _DWACes = "DescribeWebAppCustomization";
+const _DWAED = "DescribedWebAppEndpointDetails";
 const _DWAIPD = "DescribedWebAppIdentityProviderDetails";
 const _DWAR = "DeleteWebAppRequest";
 const _DWARe = "DescribeWebAppRequest";
 const _DWARes = "DescribeWebAppResponse";
+const _DWAVC = "DescribedWebAppVpcConfig";
 const _DWAe = "DeleteWebApp";
 const _DWAes = "DescribeWebApp";
 const _DWR = "DeleteWorkflowRequest";
@@ -470,10 +473,12 @@ const _UWA = "UpdateWebApp";
 const _UWAC = "UpdateWebAppCustomization";
 const _UWACR = "UpdateWebAppCustomizationRequest";
 const _UWACRp = "UpdateWebAppCustomizationResponse";
+const _UWAED = "UpdateWebAppEndpointDetails";
 const _UWAICC = "UpdateWebAppIdentityCenterConfig";
 const _UWAIPD = "UpdateWebAppIdentityProviderDetails";
 const _UWAR = "UpdateWebAppRequest";
 const _UWARp = "UpdateWebAppResponse";
+const _UWAVC = "UpdateWebAppVpcConfig";
 const _Ui = "Uid";
 const _Us = "Usage";
 const _Use = "User";
@@ -483,16 +488,19 @@ const _VEI = "VpcEndpointId";
 const _VI = "VpcId";
 const _VIe = "VersionId";
 const _VL = "VpcLattice";
+const _Vp = "Vpc";
 const _W = "Workflow";
 const _WA = "WebApp";
 const _WAC = "WebAppCustomization";
 const _WAE = "WebAppEndpoint";
+const _WAED = "WebAppEndpointDetails";
 const _WAEP = "WebAppEndpointPolicy";
 const _WAFF = "WebAppFaviconFile";
 const _WAI = "WebAppId";
 const _WAIPD = "WebAppIdentityProviderDetails";
 const _WALF = "WebAppLogoFile";
 const _WAU = "WebAppUnits";
+const _WAVC = "WebAppVpcConfig";
 const _WAe = "WebApps";
 const _WD = "WorkflowDetails";
 const _WDo = "WorkflowDetail";
@@ -665,8 +673,8 @@ export var CreateWebAppRequest: StaticStructureSchema = [
   n0,
   _CWAR,
   0,
-  [_IPD, _AE, _WAU, _T, _WAEP],
-  [() => WebAppIdentityProviderDetails, 0, () => WebAppUnits, () => Tags, 0],
+  [_IPD, _AE, _WAU, _T, _WAEP, _ED],
+  [() => WebAppIdentityProviderDetails, 0, () => WebAppUnits, () => Tags, 0, () => WebAppEndpointDetails],
 ];
 export var CreateWebAppResponse: StaticStructureSchema = [3, n0, _CWARr, 0, [_WAI], [0]];
 export var CreateWorkflowRequest: StaticStructureSchema = [
@@ -882,8 +890,19 @@ export var DescribedWebApp: StaticStructureSchema = [
   n0,
   _DWA,
   0,
-  [_Ar, _WAI, _DIPD, _AE, _WAE, _WAU, _T, _WAEP],
-  [0, 0, () => DescribedWebAppIdentityProviderDetails, 0, 0, () => WebAppUnits, () => Tags, 0],
+  [_Ar, _WAI, _DIPD, _AE, _WAE, _WAU, _T, _WAEP, _ET, _DED],
+  [
+    0,
+    0,
+    () => DescribedWebAppIdentityProviderDetails,
+    0,
+    0,
+    () => WebAppUnits,
+    () => Tags,
+    0,
+    0,
+    () => DescribedWebAppEndpointDetails,
+  ],
 ];
 export var DescribedWebAppCustomization: StaticStructureSchema = [
   3,
@@ -893,6 +912,7 @@ export var DescribedWebAppCustomization: StaticStructureSchema = [
   [_Ar, _WAI, _Ti, _LF, _FF],
   [0, 0, 0, [() => WebAppLogoFile, 0], [() => WebAppFaviconFile, 0]],
 ];
+export var DescribedWebAppVpcConfig: StaticStructureSchema = [3, n0, _DWAVC, 0, [_SIu, _VI, _VEI], [64 | 0, 0, 0]];
 export var DescribedWorkflow: StaticStructureSchema = [
   3,
   n0,
@@ -1117,7 +1137,7 @@ export var ListedServer: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 1],
 ];
 export var ListedUser: StaticStructureSchema = [3, n0, _LU, 0, [_Ar, _HD, _HDT, _R, _SPKC, _UN], [0, 0, 0, 0, 1, 0]];
-export var ListedWebApp: StaticStructureSchema = [3, n0, _LWA, 0, [_Ar, _WAI, _AE, _WAE], [0, 0, 0, 0]];
+export var ListedWebApp: StaticStructureSchema = [3, n0, _LWA, 0, [_Ar, _WAI, _AE, _WAE, _ET], [0, 0, 0, 0, 0]];
 export var ListedWorkflow: StaticStructureSchema = [3, n0, _LW, 0, [_WI, _D, _Ar], [0, 0, 0]];
 export var ListExecutionsRequest: StaticStructureSchema = [3, n0, _LER, 0, [_MRa, _NT, _WI], [1, 0, 0]];
 export var ListExecutionsResponse: StaticStructureSchema = [
@@ -1371,11 +1391,13 @@ export var UpdateWebAppRequest: StaticStructureSchema = [
   n0,
   _UWAR,
   0,
-  [_WAI, _IPD, _AE, _WAU],
-  [0, () => UpdateWebAppIdentityProviderDetails, 0, () => WebAppUnits],
+  [_WAI, _IPD, _AE, _WAU, _ED],
+  [0, () => UpdateWebAppIdentityProviderDetails, 0, () => WebAppUnits, () => UpdateWebAppEndpointDetails],
 ];
 export var UpdateWebAppResponse: StaticStructureSchema = [3, n0, _UWARp, 0, [_WAI], [0]];
+export var UpdateWebAppVpcConfig: StaticStructureSchema = [3, n0, _UWAVC, 0, [_SIu], [64 | 0]];
 export var UserDetails: StaticStructureSchema = [3, n0, _UD, 0, [_UN, _SI, _SIe], [0, 0, 0]];
+export var WebAppVpcConfig: StaticStructureSchema = [3, n0, _WAVC, 0, [_SIu, _VI, _SGI], [64 | 0, 0, 64 | 0]];
 export var WorkflowDetail: StaticStructureSchema = [3, n0, _WDo, 0, [_WI, _ER], [0, 0]];
 export var WorkflowDetails: StaticStructureSchema = [
   3,
@@ -1471,6 +1493,14 @@ export var DescribedConnectorEgressConfig: StaticStructureSchema = [
   [_VL],
   [() => DescribedConnectorVpcLatticeEgressConfig],
 ];
+export var DescribedWebAppEndpointDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _DWAED,
+  0,
+  [_Vp],
+  [() => DescribedWebAppVpcConfig],
+];
 export var DescribedWebAppIdentityProviderDetails: StaticStructureSchema = [
   3,
   n0,
@@ -1487,6 +1517,14 @@ export var UpdateConnectorEgressConfig: StaticStructureSchema = [
   [_VL],
   [() => UpdateConnectorVpcLatticeEgressConfig],
 ];
+export var UpdateWebAppEndpointDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _UWAED,
+  0,
+  [_Vp],
+  [() => UpdateWebAppVpcConfig],
+];
 export var UpdateWebAppIdentityProviderDetails: StaticStructureSchema = [
   3,
   n0,
@@ -1495,6 +1533,7 @@ export var UpdateWebAppIdentityProviderDetails: StaticStructureSchema = [
   [_ICC],
   [() => UpdateWebAppIdentityCenterConfig],
 ];
+export var WebAppEndpointDetails: StaticStructureSchema = [3, n0, _WAED, 0, [_Vp], [() => WebAppVpcConfig]];
 export var WebAppIdentityProviderDetails: StaticStructureSchema = [
   3,
   n0,

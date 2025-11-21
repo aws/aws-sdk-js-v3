@@ -27,7 +27,7 @@ export interface CreateWebAppCommandInput extends CreateWebAppRequest {}
 export interface CreateWebAppCommandOutput extends CreateWebAppResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a web app based on specified parameters, and returns the ID for the new web app.</p>
+ * <p>Creates a web app based on specified parameters, and returns the ID for the new web app. You can configure the web app to be publicly accessible or hosted within a VPC.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html">Create a Transfer Family web app in a VPC</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,17 @@ export interface CreateWebAppCommandOutput extends CreateWebAppResponse, __Metad
  *     },
  *   ],
  *   WebAppEndpointPolicy: "FIPS" || "STANDARD",
+ *   EndpointDetails: { // WebAppEndpointDetails Union: only one key present
+ *     Vpc: { // WebAppVpcConfig
+ *       SubnetIds: [ // SubnetIds
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcId: "STRING_VALUE",
+ *       SecurityGroupIds: [ // SecurityGroupIds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new CreateWebAppCommand(input);
  * const response = await client.send(command);

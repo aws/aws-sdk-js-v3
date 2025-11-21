@@ -27,7 +27,7 @@ export interface ListWebAppsCommandInput extends ListWebAppsRequest {}
 export interface ListWebAppsCommandOutput extends ListWebAppsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all web apps associated with your Amazon Web Services account for your current region.</p>
+ * <p>Lists all web apps associated with your Amazon Web Services account for your current region. The response includes the endpoint type for each web app, showing whether it is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html">Create a Transfer Family web app in a VPC</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,7 @@ export interface ListWebAppsCommandOutput extends ListWebAppsResponse, __Metadat
  * //       WebAppId: "STRING_VALUE", // required
  * //       AccessEndpoint: "STRING_VALUE",
  * //       WebAppEndpoint: "STRING_VALUE",
+ * //       EndpointType: "PUBLIC" || "VPC",
  * //     },
  * //   ],
  * // };

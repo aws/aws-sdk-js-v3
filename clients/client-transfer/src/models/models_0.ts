@@ -37,6 +37,7 @@ import {
   TlsSessionResumptionMode,
   TransferTableStatus,
   WebAppEndpointPolicy,
+  WebAppEndpointType,
   WorkflowStepType,
 } from "./enums";
 
@@ -1987,6 +1988,67 @@ export interface CreateUserResponse {
 }
 
 /**
+ * <p>Contains the VPC configuration settings for hosting a web app endpoint, including the VPC ID, subnet IDs, and security group IDs for access control.</p>
+ * @public
+ */
+export interface WebAppVpcConfig {
+  /**
+   * <p>The list of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the VpcId parameter.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the VPC where the web app endpoint will be hosted.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The list of security group IDs that control access to the web app endpoint. These security groups determine which sources can access the endpoint based on IP addresses and port configurations.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+}
+
+/**
+ * <p>Contains the endpoint configuration for a web app, including VPC settings when the endpoint is hosted within a VPC.</p>
+ * @public
+ */
+export type WebAppEndpointDetails = WebAppEndpointDetails.VpcMember | WebAppEndpointDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WebAppEndpointDetails {
+  /**
+   * <p>The VPC configuration for hosting the web app endpoint within a VPC.</p>
+   * @public
+   */
+  export interface VpcMember {
+    Vpc: WebAppVpcConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Vpc?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Vpc: (value: WebAppVpcConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>A structure that describes the values to use for the IAM Identity Center settings when you create or update a web app.</p>
  * @public
  */
@@ -2113,6 +2175,12 @@ export interface CreateWebAppRequest {
    * @public
    */
   WebAppEndpointPolicy?: WebAppEndpointPolicy | undefined;
+
+  /**
+   * <p>The endpoint configuration for the web app. You can specify whether the web app endpoint is publicly accessible or hosted within a VPC.</p>
+   * @public
+   */
+  EndpointDetails?: WebAppEndpointDetails | undefined;
 }
 
 /**
@@ -3170,6 +3238,69 @@ export interface DescribedUser {
 }
 
 /**
+ * <p>Contains the VPC configuration details for a web app endpoint, including the VPC identifier, subnet IDs, and VPC endpoint ID used for hosting the endpoint.</p>
+ * @public
+ */
+export interface DescribedWebAppVpcConfig {
+  /**
+   * <p>The list of subnet IDs within the VPC where the web app endpoint is deployed. These subnets must be in the same VPC and provide network connectivity for the endpoint.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the VPC where the web app endpoint is hosted.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC endpoint created for the web app.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+}
+
+/**
+ * <p>Contains the endpoint configuration details for a web app, including VPC configuration when the endpoint is hosted within a VPC.</p>
+ * @public
+ */
+export type DescribedWebAppEndpointDetails =
+  | DescribedWebAppEndpointDetails.VpcMember
+  | DescribedWebAppEndpointDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DescribedWebAppEndpointDetails {
+  /**
+   * <p>The VPC configuration details when the web app endpoint is hosted within a VPC. This includes the VPC ID, subnet IDs, and VPC endpoint ID.</p>
+   * @public
+   */
+  export interface VpcMember {
+    Vpc: DescribedWebAppVpcConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Vpc?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Vpc: (value: DescribedWebAppVpcConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Returns a structure that contains the identity provider details for your web app.</p>
  * @public
  */
@@ -3260,6 +3391,18 @@ export interface DescribedWebApp {
    * @public
    */
   WebAppEndpointPolicy?: WebAppEndpointPolicy | undefined;
+
+  /**
+   * <p>The type of endpoint hosting the web app. Valid values are <code>PUBLIC</code> for publicly accessible endpoints and <code>VPC</code> for VPC-hosted endpoints that provide network isolation.</p>
+   * @public
+   */
+  EndpointType?: WebAppEndpointType | undefined;
+
+  /**
+   * <p>The endpoint configuration details for the web app, including VPC settings if the endpoint is hosted within a VPC.</p>
+   * @public
+   */
+  DescribedEndpointDetails?: DescribedWebAppEndpointDetails | undefined;
 }
 
 /**
@@ -3963,6 +4106,12 @@ export interface ListedWebApp {
    * @public
    */
   WebAppEndpoint?: string | undefined;
+
+  /**
+   * <p>The type of endpoint hosting the web app. Valid values are <code>PUBLIC</code> for publicly accessible endpoints and <code>VPC</code> for VPC-hosted endpoints.</p>
+   * @public
+   */
+  EndpointType?: WebAppEndpointType | undefined;
 }
 
 /**
@@ -5123,6 +5272,57 @@ export interface UpdateWebAppCustomizationResponse {
 }
 
 /**
+ * <p>Contains the VPC configuration settings for updating a web app endpoint, including the subnet IDs where the endpoint should be deployed.</p>
+ * @public
+ */
+export interface UpdateWebAppVpcConfig {
+  /**
+   * <p>The list of subnet IDs within the VPC where the web app endpoint should be deployed during the update operation.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+}
+
+/**
+ * <p>Contains the endpoint configuration details for updating a web app, including VPC settings for endpoints hosted within a VPC.</p>
+ * @public
+ */
+export type UpdateWebAppEndpointDetails =
+  | UpdateWebAppEndpointDetails.VpcMember
+  | UpdateWebAppEndpointDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateWebAppEndpointDetails {
+  /**
+   * <p>The VPC configuration details for updating a web app endpoint hosted within a VPC. This includes the subnet IDs for endpoint deployment.</p>
+   * @public
+   */
+  export interface VpcMember {
+    Vpc: UpdateWebAppVpcConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Vpc?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Vpc: (value: UpdateWebAppVpcConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>A structure that describes the values to use for the IAM Identity Center settings when you update a web app.</p>
  * @public
  */
@@ -5200,6 +5400,12 @@ export interface UpdateWebAppRequest {
    * @public
    */
   WebAppUnits?: WebAppUnits | undefined;
+
+  /**
+   * <p>The updated endpoint configuration for the web app. You can modify the endpoint type and VPC configuration settings.</p>
+   * @public
+   */
+  EndpointDetails?: UpdateWebAppEndpointDetails | undefined;
 }
 
 /**

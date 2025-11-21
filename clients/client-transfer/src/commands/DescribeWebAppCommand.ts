@@ -27,7 +27,7 @@ export interface DescribeWebAppCommandInput extends DescribeWebAppRequest {}
 export interface DescribeWebAppCommandOutput extends DescribeWebAppResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the web app that's identified by <code>WebAppId</code>.</p>
+ * <p>Describes the web app that's identified by <code>WebAppId</code>. The response includes endpoint configuration details such as whether the web app is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html">Create a Transfer Family web app in a VPC</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +64,16 @@ export interface DescribeWebAppCommandOutput extends DescribeWebAppResponse, __M
  * //       },
  * //     ],
  * //     WebAppEndpointPolicy: "FIPS" || "STANDARD",
+ * //     EndpointType: "PUBLIC" || "VPC",
+ * //     DescribedEndpointDetails: { // DescribedWebAppEndpointDetails Union: only one key present
+ * //       Vpc: { // DescribedWebAppVpcConfig
+ * //         SubnetIds: [ // SubnetIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         VpcId: "STRING_VALUE",
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

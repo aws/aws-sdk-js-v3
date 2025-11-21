@@ -529,3 +529,16 @@ export const State = {
  * @public
  */
 export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * @enum
+ */
+export const WebAppEndpointType = {
+  PUBLIC: "PUBLIC",
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type WebAppEndpointType = (typeof WebAppEndpointType)[keyof typeof WebAppEndpointType];
