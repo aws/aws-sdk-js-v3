@@ -153,6 +153,7 @@ export const UpdateParamType = {
   NODE_REPAIR_ENABLED: "NodeRepairEnabled",
   PLATFORM_VERSION: "PlatformVersion",
   POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
+  PREVIOUS_TIER: "PreviousTier",
   PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
   RELEASE_VERSION: "ReleaseVersion",
   REMOTE_NETWORK_CONFIG: "RemoteNetworkConfig",
@@ -163,6 +164,7 @@ export const UpdateParamType = {
   SUBNETS: "Subnets",
   TAINTS_TO_ADD: "TaintsToAdd",
   TAINTS_TO_REMOVE: "TaintsToRemove",
+  UPDATED_TIER: "UpdatedTier",
   UPDATE_STRATEGY: "UpdateStrategy",
   UPGRADE_POLICY: "UpgradePolicy",
   VERSION: "Version",
@@ -199,6 +201,7 @@ export const UpdateType = {
   ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
   AUTO_MODE_UPDATE: "AutoModeUpdate",
   CONFIG_UPDATE: "ConfigUpdate",
+  CONTROL_PLANE_SCALING_CONFIG_UPDATE: "ControlPlaneScalingConfigUpdate",
   DELETION_PROTECTION_UPDATE: "DeletionProtectionUpdate",
   DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
   ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
@@ -227,6 +230,22 @@ export const ResolveConflicts = {
  * @public
  */
 export type ResolveConflicts = (typeof ResolveConflicts)[keyof typeof ResolveConflicts];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedControlPlaneTier = {
+  STANDARD: "standard",
+  TIER_2XL: "tier-2xl",
+  TIER_4XL: "tier-4xl",
+  TIER_XL: "tier-xl",
+} as const;
+/**
+ * @public
+ */
+export type ProvisionedControlPlaneTier =
+  (typeof ProvisionedControlPlaneTier)[keyof typeof ProvisionedControlPlaneTier];
 
 /**
  * @public

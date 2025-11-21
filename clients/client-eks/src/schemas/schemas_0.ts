@@ -68,6 +68,7 @@ const _CPIAR = "CreatePodIdentityAssociationRequest";
 const _CPIARr = "CreatePodIdentityAssociationResponse";
 const _CPPR = "ControlPlanePlacementRequest";
 const _CPPRo = "ControlPlanePlacementResponse";
+const _CPSC = "ControlPlaneScalingConfig";
 const _CS = "ClientStat";
 const _CSl = "ClientStats";
 const _CVI = "ClusterVersionInformation";
@@ -358,6 +359,7 @@ const _cL = "clusterLogging";
 const _cN = "clusterName";
 const _cPIT = "controlPlaneInstanceType";
 const _cPP = "controlPlanePlacement";
+const _cPSC = "controlPlaneScalingConfig";
 const _cRT = "clientRequestToken";
 const _cS = "clientStats";
 const _cSGI = "clusterSecurityGroupId";
@@ -557,6 +559,7 @@ const _tL = "taintsList";
 const _tRA = "targetRoleArn";
 const _ta = "taints";
 const _te = "term";
+const _ti = "tier";
 const _to = "token";
 const _ty = "type";
 const _typ = "types";
@@ -795,6 +798,7 @@ export var Cluster: StaticStructureSchema = [
     _cCo,
     _sC,
     _dP,
+    _cPSC,
   ],
   [
     0,
@@ -824,6 +828,7 @@ export var Cluster: StaticStructureSchema = [
     () => ComputeConfigResponse,
     () => StorageConfigResponse,
     2,
+    () => ControlPlaneScalingConfig,
   ],
 ];
 export var ClusterHealth: StaticStructureSchema = [3, n0, _CH, 0, [_i], [() => ClusterIssueList]];
@@ -850,6 +855,7 @@ export var ConnectorConfigResponse: StaticStructureSchema = [
 ];
 export var ControlPlanePlacementRequest: StaticStructureSchema = [3, n0, _CPPR, 0, [_gN], [0]];
 export var ControlPlanePlacementResponse: StaticStructureSchema = [3, n0, _CPPRo, 0, [_gN], [0]];
+export var ControlPlaneScalingConfig: StaticStructureSchema = [3, n0, _CPSC, 0, [_ti], [0]];
 export var CreateAccessConfigRequest: StaticStructureSchema = [3, n0, _CACR, 0, [_bCCAP, _aM], [2, 0]];
 export var CreateAccessEntryRequest: StaticStructureSchema = [
   3,
@@ -874,7 +880,7 @@ export var CreateClusterRequest: StaticStructureSchema = [
   n0,
   _CCRr,
   0,
-  [_n, _v, _rA, _rVC, _kNC, _l, _cRT, _t, _eC, _oC, _aC, _bSMA, _uP, _zSC, _rNC, _cCo, _sC, _dP],
+  [_n, _v, _rA, _rVC, _kNC, _l, _cRT, _t, _eC, _oC, _aC, _bSMA, _uP, _zSC, _rNC, _cCo, _sC, _dP, _cPSC],
   [
     0,
     0,
@@ -894,6 +900,7 @@ export var CreateClusterRequest: StaticStructureSchema = [
     () => ComputeConfigRequest,
     () => StorageConfigRequest,
     2,
+    () => ControlPlaneScalingConfig,
   ],
 ];
 export var CreateClusterResponse: StaticStructureSchema = [3, n0, _CCRre, 0, [_cl], [() => Cluster]];
@@ -2184,7 +2191,7 @@ export var UpdateClusterConfigRequest: StaticStructureSchema = [
   n0,
   _UCCR,
   0,
-  [_n, _rVC, _l, _cRT, _aC, _uP, _zSC, _cCo, _kNC, _sC, _rNC, _dP],
+  [_n, _rVC, _l, _cRT, _aC, _uP, _zSC, _cCo, _kNC, _sC, _rNC, _dP, _cPSC],
   [
     [0, 1],
     () => VpcConfigRequest,
@@ -2198,6 +2205,7 @@ export var UpdateClusterConfigRequest: StaticStructureSchema = [
     () => StorageConfigRequest,
     () => RemoteNetworkConfigRequest,
     2,
+    () => ControlPlaneScalingConfig,
   ],
 ];
 export var UpdateClusterConfigResponse: StaticStructureSchema = [3, n0, _UCCRp, 0, [_up], [() => Update]];

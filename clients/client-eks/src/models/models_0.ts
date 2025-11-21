@@ -25,6 +25,7 @@ import {
   NodegroupIssueCode,
   NodegroupStatus,
   NodegroupUpdateStrategies,
+  ProvisionedControlPlaneTier,
   RepairAction,
   ResolveConflicts,
   SupportType,
@@ -948,12 +949,12 @@ export interface AssociateIdentityProviderConfigResponse {
 }
 
 /**
- * <p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
+ * <p>An Amazon EC2 Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
  * @public
  */
 export interface AutoScalingGroup {
   /**
-   * <p>The name of the Auto Scaling group associated with an Amazon EKS managed node group.</p>
+   * <p>The name of the Amazon EC2 Auto Scaling group associated with an Amazon EKS managed node group.</p>
    * @public
    */
   name?: string | undefined;
@@ -1254,6 +1255,18 @@ export interface ComputeConfigRequest {
    * @public
    */
   nodeRoleArn?: string | undefined;
+}
+
+/**
+ * <p>The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
+ * @public
+ */
+export interface ControlPlaneScalingConfig {
+  /**
+   * <p>The control plane scaling tier configuration. Available options are <code>standard</code>, <code>tier-xl</code>, <code>tier-2xl</code>, or <code>tier-4xl</code>. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
+   * @public
+   */
+  tier?: ProvisionedControlPlaneTier | undefined;
 }
 
 /**
@@ -1927,6 +1940,12 @@ export interface CreateClusterRequest {
    * @public
    */
   deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
+   * @public
+   */
+  controlPlaneScalingConfig?: ControlPlaneScalingConfig | undefined;
 }
 
 /**
@@ -2499,6 +2518,12 @@ export interface Cluster {
    * @public
    */
   deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
+   * @public
+   */
+  controlPlaneScalingConfig?: ControlPlaneScalingConfig | undefined;
 }
 
 /**
@@ -3080,7 +3105,7 @@ export interface RemoteAccessConfig {
 }
 
 /**
- * <p>An object representing the scaling configuration details for the Auto Scaling group that is
+ * <p>An object representing the scaling configuration details for the Amazon EC2 Auto Scaling group that is
  *             associated with your node group. When creating a node group, you must specify all or
  *             none of the properties. When updating a node group, you can specify any or none of the
  *             properties.</p>
@@ -3394,14 +3419,14 @@ export interface Issue {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AsgInstanceLaunchFailures</b>: Your Auto Scaling group is
+   *                   <b>AsgInstanceLaunchFailures</b>: Your Amazon EC2 Auto Scaling group is
    *                     experiencing failures while attempting to launch instances.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>AutoScalingGroupNotFound</b>: We couldn't find
-   *                     the Auto Scaling group associated with the managed node group. You may be able to
-   *                     recreate an Auto Scaling group with the same settings to recover.</p>
+   *                     the Amazon EC2 Auto Scaling group associated with the managed node group. You may be able to
+   *                     recreate an Amazon EC2 Auto Scaling group with the same settings to recover.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6603,6 +6628,12 @@ export interface UpdateClusterConfigRequest {
    * @public
    */
   deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
+   * @public
+   */
+  controlPlaneScalingConfig?: ControlPlaneScalingConfig | undefined;
 }
 
 /**
@@ -6816,9 +6847,10 @@ export interface UpdateNodegroupVersionRequest {
   nodegroupName: string | undefined;
 
   /**
-   * <p>The Kubernetes version to update to. If no version is specified, then the Kubernetes version of
-   *             the node group does not change. You can specify the Kubernetes version of the cluster to
-   *             update the node group to the latest AMI version of the cluster's Kubernetes version.
+   * <p>The Kubernetes version to update to. If no version is specified, then the node group
+   *             will be updated to match the cluster's current Kubernetes version, and the latest available
+   *             AMI for that version will be used. You can also specify the Kubernetes version of the cluster
+   *             to update the node group to the latest AMI version of the cluster's Kubernetes version.
    *             If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify  <code>version</code>,
    *             or the node group  update will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public

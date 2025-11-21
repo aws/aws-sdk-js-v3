@@ -38,7 +38,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *             can update the launch template version with necessary changes. For more information
  *             about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with
  *                 launch templates</a>.</p>
- *          <p>An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
+ *          <p>An Amazon EKS managed node group is an Amazon EC2 Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
  *             are managed by Amazon Web Services for an Amazon EKS cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
  *                 node groups</a> in the <i>Amazon EKS User Guide</i>.</p>
  *          <note>

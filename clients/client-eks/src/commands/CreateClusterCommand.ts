@@ -33,7 +33,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *             account managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS API server endpoint.
  *             Each Amazon EKS cluster control plane is single tenant and unique. It runs on its own set of
  *             Amazon EC2 instances.</p>
- *          <p>The cluster control plane is provisioned across multiple Availability Zones and fronted by an Elastic Load Balancing
+ *          <p>The cluster control plane is provisioned across multiple Availability Zones and fronted by an ELB
  *             Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide
  *             connectivity from the control plane instances to the nodes (for example, to support
  *                 <code>kubectl exec</code>, <code>logs</code>, and <code>proxy</code> data
@@ -165,6 +165,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     },
  *   },
  *   deletionProtection: true || false,
+ *   controlPlaneScalingConfig: { // ControlPlaneScalingConfig
+ *     tier: "standard" || "tier-xl" || "tier-2xl" || "tier-4xl",
+ *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -290,6 +293,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       },
  * //     },
  * //     deletionProtection: true || false,
+ * //     controlPlaneScalingConfig: { // ControlPlaneScalingConfig
+ * //       tier: "standard" || "tier-xl" || "tier-2xl" || "tier-4xl",
+ * //     },
  * //   },
  * // };
  *

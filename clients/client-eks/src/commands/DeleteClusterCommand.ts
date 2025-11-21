@@ -171,6 +171,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       },
  * //     },
  * //     deletionProtection: true || false,
+ * //     controlPlaneScalingConfig: { // ControlPlaneScalingConfig
+ * //       tier: "standard" || "tier-xl" || "tier-2xl" || "tier-4xl",
+ * //     },
  * //   },
  * // };
  *
