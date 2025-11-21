@@ -44,7 +44,6 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
  * // { // GetLandingZoneOutput
  * //   landingZone: { // LandingZoneDetail
  * //     version: "STRING_VALUE", // required
- * //     manifest: "DOCUMENT_VALUE", // required
  * //     remediationTypes: [ // RemediationTypes
  * //       "INHERITANCE_DRIFT",
  * //     ],
@@ -54,6 +53,7 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
  * //     driftStatus: { // LandingZoneDriftStatusSummary
  * //       status: "DRIFTED" || "IN_SYNC",
  * //     },
+ * //     manifest: "DOCUMENT_VALUE", // required
  * //   },
  * // };
  *

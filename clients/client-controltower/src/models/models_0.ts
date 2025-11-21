@@ -1423,12 +1423,6 @@ export interface CreateLandingZoneInput {
   version: string | undefined;
 
   /**
-   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. </p>
-   * @public
-   */
-  manifest: __DocumentType | undefined;
-
-  /**
    * <p>Specifies the types of remediation actions to apply when creating the landing zone, such as automatic drift correction or compliance enforcement.</p>
    * @public
    */
@@ -1439,6 +1433,12 @@ export interface CreateLandingZoneInput {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. </p>
+   * @public
+   */
+  manifest?: __DocumentType | undefined;
 }
 
 /**
@@ -1515,12 +1515,6 @@ export interface LandingZoneDetail {
   version: string | undefined;
 
   /**
-   * <p>The landing zone manifest JSON text file that specifies the landing zone configurations. </p>
-   * @public
-   */
-  manifest: __DocumentType | undefined;
-
-  /**
    * <p>The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.</p>
    * @public
    */
@@ -1549,6 +1543,12 @@ export interface LandingZoneDetail {
    * @public
    */
   driftStatus?: LandingZoneDriftStatusSummary | undefined;
+
+  /**
+   * <p>The landing zone manifest JSON text file that specifies the landing zone configurations. </p>
+   * @public
+   */
+  manifest: __DocumentType | undefined;
 }
 
 /**
@@ -1641,12 +1641,6 @@ export interface UpdateLandingZoneInput {
   version: string | undefined;
 
   /**
-   * <p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>
-   * @public
-   */
-  manifest: __DocumentType | undefined;
-
-  /**
    * <p>Specifies the types of remediation actions to apply when updating the landing zone configuration.</p>
    * @public
    */
@@ -1657,6 +1651,12 @@ export interface UpdateLandingZoneInput {
    * @public
    */
   landingZoneIdentifier: string | undefined;
+
+  /**
+   * <p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>
+   * @public
+   */
+  manifest?: __DocumentType | undefined;
 }
 
 /**

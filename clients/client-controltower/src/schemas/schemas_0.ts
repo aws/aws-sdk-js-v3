@@ -293,8 +293,8 @@ export var CreateLandingZoneInput: StaticStructureSchema = [
   n0,
   _CLZI,
   0,
-  [_v, _ma, _rT, _t],
-  [0, 15, 64 | 0, 128 | 0],
+  [_v, _rT, _t, _ma],
+  [0, 64 | 0, 128 | 0, 15],
 ];
 export var CreateLandingZoneOutput: StaticStructureSchema = [3, n0, _CLZO, 0, [_a, _oI], [0, 0]];
 export var DeleteLandingZoneInput: StaticStructureSchema = [3, n0, _DLZI, 0, [_lZI], [0]];
@@ -466,8 +466,8 @@ export var LandingZoneDetail: StaticStructureSchema = [
   n0,
   _LZD,
   0,
-  [_v, _ma, _rT, _a, _s, _lAV, _dS],
-  [0, 15, 64 | 0, 0, 0, 0, () => LandingZoneDriftStatusSummary],
+  [_v, _rT, _a, _s, _lAV, _dS, _ma],
+  [0, 64 | 0, 0, 0, 0, () => LandingZoneDriftStatusSummary, 15],
 ];
 export var LandingZoneDriftStatusSummary: StaticStructureSchema = [3, n0, _LZDSS, 0, [_s], [0]];
 export var LandingZoneOperationDetail: StaticStructureSchema = [
@@ -644,7 +644,7 @@ export var UpdateEnabledControlInput: StaticStructureSchema = [
   [() => EnabledControlParameters, 0],
 ];
 export var UpdateEnabledControlOutput: StaticStructureSchema = [3, n0, _UECO, 0, [_oI], [0]];
-export var UpdateLandingZoneInput: StaticStructureSchema = [3, n0, _ULZI, 0, [_v, _ma, _rT, _lZI], [0, 15, 64 | 0, 0]];
+export var UpdateLandingZoneInput: StaticStructureSchema = [3, n0, _ULZI, 0, [_v, _rT, _lZI, _ma], [0, 64 | 0, 0, 15]];
 export var UpdateLandingZoneOutput: StaticStructureSchema = [3, n0, _ULZO, 0, [_oI], [0]];
 export var ValidationException: StaticErrorSchema = [
   -3,

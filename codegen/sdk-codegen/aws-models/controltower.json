@@ -1413,13 +1413,6 @@
             "smithy.api#required": {}
           }
         },
-        "manifest": {
-          "target": "com.amazonaws.controltower#Manifest",
-          "traits": {
-            "smithy.api#documentation": "<p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "remediationTypes": {
           "target": "com.amazonaws.controltower#RemediationTypes",
           "traits": {
@@ -1431,6 +1424,12 @@
           "traits": {
             "aws.cloudformation#cfnMutability": "write",
             "smithy.api#documentation": "<p>Tags to be applied to the landing zone. </p>"
+          }
+        },
+        "manifest": {
+          "target": "com.amazonaws.controltower#Manifest",
+          "traits": {
+            "smithy.api#documentation": "<p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. </p>"
           }
         }
       },
@@ -3146,13 +3145,6 @@
             "smithy.api#required": {}
           }
         },
-        "manifest": {
-          "target": "com.amazonaws.controltower#Manifest",
-          "traits": {
-            "smithy.api#documentation": "<p>The landing zone manifest JSON text file that specifies the landing zone configurations. </p>",
-            "smithy.api#required": {}
-          }
-        },
         "remediationTypes": {
           "target": "com.amazonaws.controltower#RemediationTypes",
           "traits": {
@@ -3181,6 +3173,13 @@
           "target": "com.amazonaws.controltower#LandingZoneDriftStatusSummary",
           "traits": {
             "smithy.api#documentation": "<p>The drift status of the landing zone.</p>"
+          }
+        },
+        "manifest": {
+          "target": "com.amazonaws.controltower#Manifest",
+          "traits": {
+            "smithy.api#documentation": "<p>The landing zone manifest JSON text file that specifies the landing zone configurations. </p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4923,13 +4922,6 @@
             "smithy.api#required": {}
           }
         },
-        "manifest": {
-          "target": "com.amazonaws.controltower#Manifest",
-          "traits": {
-            "smithy.api#documentation": "<p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "remediationTypes": {
           "target": "com.amazonaws.controltower#RemediationTypes",
           "traits": {
@@ -4941,6 +4933,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the landing zone.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "manifest": {
+          "target": "com.amazonaws.controltower#Manifest",
+          "traits": {
+            "smithy.api#documentation": "<p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>"
           }
         }
       },

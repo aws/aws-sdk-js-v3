@@ -38,13 +38,13 @@ export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput,
  * const client = new ControlTowerClient(config);
  * const input = { // CreateLandingZoneInput
  *   version: "STRING_VALUE", // required
- *   manifest: "DOCUMENT_VALUE", // required
  *   remediationTypes: [ // RemediationTypes
  *     "INHERITANCE_DRIFT",
  *   ],
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   manifest: "DOCUMENT_VALUE",
  * };
  * const command = new CreateLandingZoneCommand(input);
  * const response = await client.send(command);
