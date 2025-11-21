@@ -583,6 +583,12 @@ export interface QueryExecutionStatistics {
    * @public
    */
   ResultReuseInformation?: ResultReuseInformation | undefined;
+
+  /**
+   * <p>The number of Data Processing Units (DPUs) that Athena used to run the query.</p>
+   * @public
+   */
+  DpuCount?: number | undefined;
 }
 
 /**
@@ -644,9 +650,9 @@ export interface QueryExecutionStatus {
    *             complete processing. <code>CANCELLED</code> indicates that a user input interrupted
    *             query execution.</p>
    *          <note>
-   *             <p>Athena automatically retries your queries in cases of certain
-   *                 transient errors. As a result, you may see the query state transition from
-   *                     <code>RUNNING</code> or <code>FAILED</code> to <code>QUEUED</code>. </p>
+   *             <p>For queries that experience certain transient errors, the state transitions from
+   *                     <code>RUNNING</code> back to <code>QUEUED</code>. The <code>FAILED</code> state
+   *                 is always terminal with no automatic retry. </p>
    *          </note>
    * @public
    */
@@ -698,8 +704,8 @@ export interface QueryExecution {
    * <p>The type of query statement that was run. <code>DDL</code> indicates DDL query
    *             statements. <code>DML</code> indicates DML (Data Manipulation Language) query
    *             statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates
-   *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, or
-   *                 <code>DESCRIBE TABLE</code>.</p>
+   *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>,
+   *                 <code>EXPLAIN</code>, <code>DESCRIBE</code>, or <code>SHOW TABLES</code>.</p>
    * @public
    */
   StatementType?: StatementType | undefined;
@@ -1461,6 +1467,76 @@ export interface CustomerContentEncryptionConfiguration {
 }
 
 /**
+ * <p>A classification refers to a set of specific configurations.</p>
+ * @public
+ */
+export interface Classification {
+  /**
+   * <p>The name of the configuration classification.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A set of properties specified within a configuration classification.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains data processing unit (DPU) configuration settings and parameter mappings for
+ *             a notebook engine.</p>
+ * @public
+ */
+export interface EngineConfiguration {
+  /**
+   * <p>The number of DPUs to use for the coordinator. A coordinator is a special executor
+   *             that orchestrates processing work and manages other executors in a notebook session. The
+   *             default is 1.</p>
+   * @public
+   */
+  CoordinatorDpuSize?: number | undefined;
+
+  /**
+   * <p>The maximum number of DPUs that can run concurrently.</p>
+   * @public
+   */
+  MaxConcurrentDpus?: number | undefined;
+
+  /**
+   * <p>The default number of DPUs to use for executors. An executor is the smallest unit of
+   *             compute that a notebook session can request from Athena. The default is
+   *             1.</p>
+   * @public
+   */
+  DefaultExecutorDpuSize?: number | undefined;
+
+  /**
+   * <p>Contains additional notebook engine <code>MAP<string, string></code> parameter
+   *             mappings in the form of key-value pairs. To specify an Athena notebook that
+   *             the Jupyter server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a> field, and then add a key named
+   *                 <code>NotebookId</code> to <code>AdditionalConfigs</code> that has the value of the
+   *                 Athena notebook ID.</p>
+   * @public
+   */
+  AdditionalConfigs?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies custom jar files and Spark properties for use cases like cluster encryption,
+   *             table formats, and general Spark tuning.</p>
+   * @public
+   */
+  SparkProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration classifications that can be specified for the engine.</p>
+   * @public
+   */
+  Classifications?: Classification[] | undefined;
+}
+
+/**
  * <p>Specifies whether the workgroup is IAM Identity Center supported.</p>
  * @public
  */
@@ -1476,6 +1552,107 @@ export interface IdentityCenterConfiguration {
    * @public
    */
   IdentityCenterInstanceArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for delivering logs to Amazon CloudWatch log groups.</p>
+ * @public
+ */
+export interface CloudWatchLoggingConfiguration {
+  /**
+   * <p>Enables CloudWatch logging.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The name of the log group in Amazon CloudWatch Logs where you want to publish
+   *             your logs.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+
+  /**
+   * <p>Prefix for the CloudWatch log stream name.</p>
+   * @public
+   */
+  LogStreamNamePrefix?: string | undefined;
+
+  /**
+   * <p>The types of logs that you want to publish to CloudWatch.</p>
+   * @public
+   */
+  LogTypes?: Record<string, string[]> | undefined;
+}
+
+/**
+ * <p>Configuration settings for delivering logs to Amazon S3 buckets.</p>
+ * @public
+ */
+export interface ManagedLoggingConfiguration {
+  /**
+   * <p>Enables mamanged log persistence.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The KMS key ARN to encrypt the logs stored in managed log persistence.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for delivering logs to Amazon S3 buckets.</p>
+ * @public
+ */
+export interface S3LoggingConfiguration {
+  /**
+   * <p>Enables S3 log delivery.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 destination URI for log publishing.</p>
+   * @public
+   */
+  LogLocation?: string | undefined;
+}
+
+/**
+ * <p>Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets,
+ *             Amazon CloudWatch log groups etc.</p>
+ * @public
+ */
+export interface MonitoringConfiguration {
+  /**
+   * <p>Configuration settings for delivering logs to Amazon CloudWatch log groups.
+   *         </p>
+   * @public
+   */
+  CloudWatchLoggingConfiguration?: CloudWatchLoggingConfiguration | undefined;
+
+  /**
+   * <p>Configuration settings for managed log persistence.
+   *         </p>
+   * @public
+   */
+  ManagedLoggingConfiguration?: ManagedLoggingConfiguration | undefined;
+
+  /**
+   * <p>Configuration settings for delivering logs to Amazon S3 buckets.
+   *         </p>
+   * @public
+   */
+  S3LoggingConfiguration?: S3LoggingConfiguration | undefined;
 }
 
 /**
@@ -1509,7 +1686,9 @@ export interface WorkGroupConfiguration {
 
   /**
    * <p>If set to "true", the settings for the workgroup override client-side settings. If set
-   *             to "false", client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
+   *             to "false", client-side settings are used. This property is not required for Apache
+   *             Spark enabled workgroups. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
+   *                 Client-Side Settings</a>.</p>
    * @public
    */
   EnforceWorkGroupConfiguration?: boolean | undefined;
@@ -1561,6 +1740,20 @@ export interface WorkGroupConfiguration {
    * @public
    */
   ExecutionRole?: string | undefined;
+
+  /**
+   * <p>Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets,
+   *             Amazon CloudWatch log groups etc.</p>
+   * @public
+   */
+  MonitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>Contains data processing unit (DPU) configuration settings and parameter mappings for
+   *             a notebook engine.</p>
+   * @public
+   */
+  EngineConfiguration?: EngineConfiguration | undefined;
 
   /**
    * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.</p>
@@ -2670,58 +2863,34 @@ export interface QueryRuntimeStatisticsTimeline {
 /**
  * @public
  */
+export interface GetResourceDashboardRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) for a session.</p>
+   * @public
+   */
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourceDashboardResponse {
+  /**
+   * <p>The Live UI/Persistence UI url for a session.</p>
+   * @public
+   */
+  Url: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSessionRequest {
   /**
    * <p>The session ID.</p>
    * @public
    */
   SessionId: string | undefined;
-}
-
-/**
- * <p>Contains data processing unit (DPU) configuration settings and parameter mappings for
- *             a notebook engine.</p>
- * @public
- */
-export interface EngineConfiguration {
-  /**
-   * <p>The number of DPUs to use for the coordinator. A coordinator is a special executor
-   *             that orchestrates processing work and manages other executors in a notebook session. The
-   *             default is 1.</p>
-   * @public
-   */
-  CoordinatorDpuSize?: number | undefined;
-
-  /**
-   * <p>The maximum number of DPUs that can run concurrently.</p>
-   * @public
-   */
-  MaxConcurrentDpus: number | undefined;
-
-  /**
-   * <p>The default number of DPUs to use for executors. An executor is the smallest unit of
-   *             compute that a notebook session can request from Athena. The default is
-   *             1.</p>
-   * @public
-   */
-  DefaultExecutorDpuSize?: number | undefined;
-
-  /**
-   * <p>Contains additional notebook engine <code>MAP<string, string></code> parameter
-   *             mappings in the form of key-value pairs. To specify an Athena notebook that
-   *             the Jupyter server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a> field, and then add a key named
-   *                 <code>NotebookId</code> to <code>AdditionalConfigs</code> that has the value of the
-   *                 Athena notebook ID.</p>
-   * @public
-   */
-  AdditionalConfigs?: Record<string, string> | undefined;
-
-  /**
-   * <p>Specifies custom jar files and Spark properties for use cases like cluster encryption,
-   *             table formats, and general Spark tuning.</p>
-   * @public
-   */
-  SparkProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -2748,6 +2917,12 @@ export interface SessionConfiguration {
    * @public
    */
   IdleTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The idle timeout in seconds for the session.</p>
+   * @public
+   */
+  SessionIdleTimeoutInMinutes?: number | undefined;
 
   /**
    * <p>If query and calculation results are encrypted in Amazon S3, indicates the
@@ -2875,6 +3050,13 @@ export interface GetSessionResponse {
   NotebookVersion?: string | undefined;
 
   /**
+   * <p>Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets,
+   *             Amazon CloudWatch log groups etc.</p>
+   * @public
+   */
+  MonitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
    * <p>Contains the workgroup configuration information used by the session.</p>
    * @public
    */
@@ -2891,6 +3073,40 @@ export interface GetSessionResponse {
    * @public
    */
   Statistics?: SessionStatistics | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionEndpointRequest {
+  /**
+   * <p>The session ID.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionEndpointResponse {
+  /**
+   * <p>The endpoint for connecting to the session.</p>
+   * @public
+   */
+  EndpointUrl: string | undefined;
+
+  /**
+   * <p>Authentication token for the connection</p>
+   * @public
+   */
+  AuthToken: string | undefined;
+
+  /**
+   * <p>Expiration time of the auth token.</p>
+   * @public
+   */
+  AuthTokenExpirationTime: Date | undefined;
 }
 
 /**
@@ -4472,6 +4688,13 @@ export interface StartQueryExecutionInput {
    * @public
    */
   ResultReuseConfiguration?: ResultReuseConfiguration | undefined;
+
+  /**
+   * <p>Contains data processing unit (DPU) configuration settings and parameter mappings for
+   *             a notebook engine.</p>
+   * @public
+   */
+  EngineConfiguration?: EngineConfiguration | undefined;
 }
 
 /**
@@ -4509,6 +4732,21 @@ export interface StartSessionRequest {
   EngineConfiguration: EngineConfiguration | undefined;
 
   /**
+   * <p>The ARN of the execution role used to access user resources for Spark sessions and
+   *             Identity Center enabled workgroups. This property applies only to Spark enabled
+   *             workgroups and Identity Center enabled workgroups.</p>
+   * @public
+   */
+  ExecutionRole?: string | undefined;
+
+  /**
+   * <p>Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets,
+   *             Amazon CloudWatch log groups etc.</p>
+   * @public
+   */
+  MonitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
    * <p>The notebook version. This value is supplied automatically for notebook sessions in
    *             the Athena console and is not required for programmatic session access. The
    *             only valid notebook version is <code>Athena notebook version 1</code>. If
@@ -4538,6 +4776,18 @@ export interface StartSessionRequest {
    * @public
    */
   ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>A list of comma separated tags to add to the session that is created.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Copies the tags from the Workgroup to the Session when.</p>
+   * @public
+   */
+  CopyWorkGroupTags?: boolean | undefined;
 }
 
 /**
@@ -5209,6 +5459,20 @@ export interface WorkGroupConfigurationUpdates {
    * @public
    */
   QueryResultsS3AccessGrantsConfiguration?: QueryResultsS3AccessGrantsConfiguration | undefined;
+
+  /**
+   * <p>Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets,
+   *             Amazon CloudWatch log groups etc.</p>
+   * @public
+   */
+  MonitoringConfiguration?: MonitoringConfiguration | undefined;
+
+  /**
+   * <p>Contains data processing unit (DPU) configuration settings and parameter mappings for
+   *             a notebook engine.</p>
+   * @public
+   */
+  EngineConfiguration?: EngineConfiguration | undefined;
 }
 
 /**

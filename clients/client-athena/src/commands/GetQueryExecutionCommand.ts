@@ -99,6 +99,7 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * //       ResultReuseInformation: { // ResultReuseInformation
  * //         ReusedPreviousResult: true || false, // required
  * //       },
+ * //       DpuCount: Number("double"),
  * //     },
  * //     WorkGroup: "STRING_VALUE",
  * //     EngineVersion: { // EngineVersion

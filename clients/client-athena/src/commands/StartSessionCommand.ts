@@ -42,7 +42,7 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *   WorkGroup: "STRING_VALUE", // required
  *   EngineConfiguration: { // EngineConfiguration
  *     CoordinatorDpuSize: Number("int"),
- *     MaxConcurrentDpus: Number("int"), // required
+ *     MaxConcurrentDpus: Number("int"),
  *     DefaultExecutorDpuSize: Number("int"),
  *     AdditionalConfigs: { // ParametersMap
  *       "<keys>": "STRING_VALUE",
@@ -50,10 +50,47 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *     SparkProperties: {
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     Classifications: [ // ClassificationList
+ *       { // Classification
+ *         Name: "STRING_VALUE",
+ *         Properties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ExecutionRole: "STRING_VALUE",
+ *   MonitoringConfiguration: { // MonitoringConfiguration
+ *     CloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ *       Enabled: true || false, // required
+ *       LogGroup: "STRING_VALUE",
+ *       LogStreamNamePrefix: "STRING_VALUE",
+ *       LogTypes: { // LogTypesMap
+ *         "<keys>": [ // LogTypeValuesList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     ManagedLoggingConfiguration: { // ManagedLoggingConfiguration
+ *       Enabled: true || false, // required
+ *       KmsKey: "STRING_VALUE",
+ *     },
+ *     S3LoggingConfiguration: { // S3LoggingConfiguration
+ *       Enabled: true || false, // required
+ *       KmsKey: "STRING_VALUE",
+ *       LogLocation: "STRING_VALUE",
+ *     },
  *   },
  *   NotebookVersion: "STRING_VALUE",
  *   SessionIdleTimeoutInMinutes: Number("int"),
  *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   CopyWorkGroupTags: true || false,
  * };
  * const command = new StartSessionCommand(input);
  * const response = await client.send(command);

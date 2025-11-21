@@ -20,7 +20,7 @@ const _BGQE = "BatchGetQueryExecution";
 const _BGQEI = "BatchGetQueryExecutionInput";
 const _BGQEO = "BatchGetQueryExecutionOutput";
 const _BSCPQ = "BytesScannedCutoffPerQuery";
-const _C = "Column";
+const _C = "Classification";
 const _CA = "CapacityAllocation";
 const _CAC = "CapacityAssignmentConfiguration";
 const _CAL = "CapacityAssignmentsList";
@@ -44,6 +44,7 @@ const _CEI = "CalculationExecutionId";
 const _CI = "ColumnInfo";
 const _CIL = "ColumnInfoList";
 const _CL = "CalculationsList";
+const _CLl = "ClassificationList";
 const _CLo = "ColumnList";
 const _CN = "CatalogName";
 const _CNI = "CreateNotebookInput";
@@ -76,11 +77,15 @@ const _CULP = "CreateUserLevelPrefix";
 const _CWG = "CreateWorkGroup";
 const _CWGI = "CreateWorkGroupInput";
 const _CWGO = "CreateWorkGroupOutput";
+const _CWGT = "CopyWorkGroupTags";
+const _CWLC = "CloudWatchLoggingConfiguration";
 const _Ca = "Calculations";
 const _Cat = "Catalog";
 const _Ch = "Children";
-const _Co = "Comment";
+const _Cl = "Classifications";
+const _Co = "Column";
 const _Col = "Columns";
+const _Com = "Comment";
 const _Con = "Configuration";
 const _D = "Description";
 const _DC = "DataCatalog";
@@ -91,6 +96,7 @@ const _DCRO = "DeleteCapacityReservationOutput";
 const _DCS = "DataCatalogSummary";
 const _DCSL = "DataCatalogSummaryList";
 const _DCSa = "DataCatalogsSummary";
+const _DCp = "DpuCount";
 const _DDC = "DeleteDataCatalog";
 const _DDCI = "DeleteDataCatalogInput";
 const _DDCO = "DeleteDataCatalogOutput";
@@ -115,7 +121,7 @@ const _DWGO = "DeleteWorkGroupOutput";
 const _Da = "Database";
 const _Dat = "Datum";
 const _Data = "Data";
-const _E = "Error";
+const _E = "Enabled";
 const _EBO = "ExpectedBucketOwner";
 const _EC = "ErrorCategory";
 const _ECn = "EncryptionConfiguration";
@@ -143,11 +149,12 @@ const _ESxe = "ExecutorSize";
 const _ET = "ErrorType";
 const _ETx = "ExecutorType";
 const _ETxe = "ExecutionTime";
+const _EU = "EndpointUrl";
 const _EV = "EngineVersion";
 const _EVL = "EngineVersionsList";
 const _EVn = "EngineVersions";
 const _EWGC = "EnforceWorkGroupConfiguration";
-const _En = "Enabled";
+const _Er = "Error";
 const _Ex = "Expression";
 const _F = "Filters";
 const _FD = "FilterDefinition";
@@ -190,7 +197,13 @@ const _GQRO = "GetQueryResultsOutput";
 const _GQRS = "GetQueryRuntimeStatistics";
 const _GQRSI = "GetQueryRuntimeStatisticsInput";
 const _GQRSO = "GetQueryRuntimeStatisticsOutput";
+const _GRD = "GetResourceDashboard";
+const _GRDR = "GetResourceDashboardRequest";
+const _GRDRe = "GetResourceDashboardResponse";
 const _GS = "GetSession";
+const _GSE = "GetSessionEndpoint";
+const _GSER = "GetSessionEndpointRequest";
+const _GSERe = "GetSessionEndpointResponse";
 const _GSR = "GetSessionRequest";
 const _GSRe = "GetSessionResponse";
 const _GSS = "GetSessionStatus";
@@ -241,6 +254,8 @@ const _LERi = "ListExecutorsResponse";
 const _LEV = "ListEngineVersions";
 const _LEVI = "ListEngineVersionsInput";
 const _LEVO = "ListEngineVersionsOutput";
+const _LG = "LogGroup";
+const _LL = "LogLocation";
 const _LMDT = "LastModifiedDateTime";
 const _LMT = "LastModifiedTime";
 const _LNM = "ListNotebookMetadata";
@@ -260,21 +275,26 @@ const _LQEI = "ListQueryExecutionsInput";
 const _LQEO = "ListQueryExecutionsOutput";
 const _LS = "ListSessions";
 const _LSAT = "LastSuccessfulAllocationTime";
+const _LSNP = "LogStreamNamePrefix";
 const _LSR = "ListSessionsRequest";
 const _LSRi = "ListSessionsResponse";
+const _LT = "LogTypes";
 const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
-const _LTM = "ListTableMetadata";
+const _LTM = "LogTypesMap";
 const _LTMI = "ListTableMetadataInput";
 const _LTMO = "ListTableMetadataOutput";
+const _LTMi = "ListTableMetadata";
 const _LWG = "ListWorkGroups";
 const _LWGI = "ListWorkGroupsInput";
 const _LWGO = "ListWorkGroupsOutput";
 const _M = "Message";
 const _MAIM = "MaxAgeInMinutes";
+const _MC = "MonitoringConfiguration";
 const _MCD = "MaxConcurrentDpus";
 const _ME = "MetadataException";
+const _MLC = "ManagedLoggingConfiguration";
 const _MQRC = "ManagedQueryResultsConfiguration";
 const _MQRCU = "ManagedQueryResultsConfigurationUpdates";
 const _MQREC = "ManagedQueryResultsEncryptionConfiguration";
@@ -314,7 +334,8 @@ const _PSS = "PreparedStatementSummary";
 const _PSr = "PreparedStatement";
 const _Pa = "Parameters";
 const _Pay = "Payload";
-const _Pr = "Precision";
+const _Pr = "Properties";
+const _Pre = "Precision";
 const _Q = "Query";
 const _QE = "QueryExecutions";
 const _QEC = "QueryExecutionContext";
@@ -389,6 +410,7 @@ const _SI = "SessionId";
 const _SITIM = "SessionIdleTimeoutInMinutes";
 const _SIt = "StageId";
 const _SL = "SessionsList";
+const _SLC = "S3LoggingConfiguration";
 const _SM = "StatusMessage";
 const _SN = "SchemaName";
 const _SNt = "StatementName";
@@ -435,6 +457,7 @@ const _TT = "TableType";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Ti = "Timeline";
+const _U = "Url";
 const _UC = "UpdateCount";
 const _UCR = "UpdateCapacityReservation";
 const _UCRI = "UpdateCapacityReservationInput";
@@ -571,13 +594,22 @@ export var CapacityReservation: StaticStructureSchema = [
   [_N, _St, _TD, _AD, _LA, _LSAT, _CT],
   [0, 0, 1, 1, () => CapacityAllocation, 4, 4],
 ];
-export var Column: StaticStructureSchema = [3, n0, _C, 0, [_N, _T, _Co], [0, 0, 0]];
+export var Classification: StaticStructureSchema = [3, n0, _C, 0, [_N, _Pr], [0, 128 | 0]];
+export var CloudWatchLoggingConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _CWLC,
+  0,
+  [_E, _LG, _LSNP, _LT],
+  [2, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]],
+];
+export var Column: StaticStructureSchema = [3, n0, _Co, 0, [_N, _T, _Com], [0, 0, 0]];
 export var ColumnInfo: StaticStructureSchema = [
   3,
   n0,
   _CI,
   0,
-  [_CN, _SN, _TN, _N, _L, _T, _Pr, _Sc, _Nu, _CSas],
+  [_CN, _SN, _TN, _N, _L, _T, _Pre, _Sc, _Nu, _CSas],
   [0, 0, 0, 0, 0, 0, 1, 1, 0, 2],
 ];
 export var CreateCapacityReservationInput: StaticStructureSchema = [
@@ -636,10 +668,10 @@ export var DataCatalog: StaticStructureSchema = [
   n0,
   _DC,
   0,
-  [_N, _D, _T, _Pa, _St, _CTo, _E],
+  [_N, _D, _T, _Pa, _St, _CTo, _Er],
   [0, 0, 0, 128 | 0, 0, 0, 0],
 ];
-export var DataCatalogSummary: StaticStructureSchema = [3, n0, _DCS, 0, [_CN, _T, _St, _CTo, _E], [0, 0, 0, 0, 0]];
+export var DataCatalogSummary: StaticStructureSchema = [3, n0, _DCS, 0, [_CN, _T, _St, _CTo, _Er], [0, 0, 0, 0, 0]];
 export var Datum: StaticStructureSchema = [3, n0, _Dat, 0, [_VCV], [0]];
 export var DeleteCapacityReservationInput: StaticStructureSchema = [3, n0, _DCRI, 0, [_N], [0]];
 export var DeleteCapacityReservationOutput: StaticStructureSchema = [3, n0, _DCRO, 0, [], []];
@@ -659,8 +691,8 @@ export var EngineConfiguration: StaticStructureSchema = [
   n0,
   _ECng,
   0,
-  [_CDS, _MCD, _DEDS, _ACd, _SP],
-  [1, 1, 1, 128 | 0, 128 | 0],
+  [_CDS, _MCD, _DEDS, _ACd, _SP, _Cl],
+  [1, 1, 1, 128 | 0, 128 | 0, () => ClassificationList],
 ];
 export var EngineVersion: StaticStructureSchema = [3, n0, _EV, 0, [_SEV, _EEV], [0, 0]];
 export var ExecutorsSummary: StaticStructureSchema = [
@@ -728,14 +760,29 @@ export var GetQueryRuntimeStatisticsOutput: StaticStructureSchema = [
   [_QRS],
   [() => QueryRuntimeStatistics],
 ];
+export var GetResourceDashboardRequest: StaticStructureSchema = [3, n0, _GRDR, 0, [_RARN], [0]];
+export var GetResourceDashboardResponse: StaticStructureSchema = [3, n0, _GRDRe, 0, [_U], [0]];
+export var GetSessionEndpointRequest: StaticStructureSchema = [3, n0, _GSER, 0, [_SI], [0]];
+export var GetSessionEndpointResponse: StaticStructureSchema = [3, n0, _GSERe, 0, [_EU, _AT, _ATET], [0, 0, 4]];
 export var GetSessionRequest: StaticStructureSchema = [3, n0, _GSR, 0, [_SI], [0]];
 export var GetSessionResponse: StaticStructureSchema = [
   3,
   n0,
   _GSRe,
   0,
-  [_SI, _D, _WG, _EV, _ECng, _NV, _SC, _St, _Sta],
-  [0, 0, 0, 0, () => EngineConfiguration, 0, () => SessionConfiguration, () => SessionStatus, () => SessionStatistics],
+  [_SI, _D, _WG, _EV, _ECng, _NV, _MC, _SC, _St, _Sta],
+  [
+    0,
+    0,
+    0,
+    0,
+    () => EngineConfiguration,
+    0,
+    () => MonitoringConfiguration,
+    () => SessionConfiguration,
+    () => SessionStatus,
+    () => SessionStatistics,
+  ],
 ];
 export var GetSessionStatusRequest: StaticStructureSchema = [3, n0, _GSSR, 0, [_SI], [0]];
 export var GetSessionStatusResponse: StaticStructureSchema = [3, n0, _GSSRe, 0, [_SI, _St], [0, () => SessionStatus]];
@@ -900,12 +947,13 @@ export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, 
 export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_Ta, _NT], [() => TagList, 0]];
 export var ListWorkGroupsInput: StaticStructureSchema = [3, n0, _LWGI, 0, [_NT, _MR], [0, 1]];
 export var ListWorkGroupsOutput: StaticStructureSchema = [3, n0, _LWGO, 0, [_WGo, _NT], [() => WorkGroupsList, 0]];
+export var ManagedLoggingConfiguration: StaticStructureSchema = [3, n0, _MLC, 0, [_E, _KK], [2, 0]];
 export var ManagedQueryResultsConfiguration: StaticStructureSchema = [
   3,
   n0,
   _MQRC,
   0,
-  [_En, _ECn],
+  [_E, _ECn],
   [2, () => ManagedQueryResultsEncryptionConfiguration],
 ];
 export var ManagedQueryResultsConfigurationUpdates: StaticStructureSchema = [
@@ -913,7 +961,7 @@ export var ManagedQueryResultsConfigurationUpdates: StaticStructureSchema = [
   n0,
   _MQRCU,
   0,
-  [_En, _ECn, _REC],
+  [_E, _ECn, _REC],
   [2, () => ManagedQueryResultsEncryptionConfiguration, 2],
 ];
 export var ManagedQueryResultsEncryptionConfiguration: StaticStructureSchema = [3, n0, _MQREC, 0, [_KK], [0]];
@@ -929,6 +977,14 @@ export var MetadataException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(MetadataException, __MetadataException);
 
+export var MonitoringConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _MC,
+  0,
+  [_CWLC, _MLC, _SLC],
+  [() => CloudWatchLoggingConfiguration, () => ManagedLoggingConfiguration, () => S3LoggingConfiguration],
+];
 export var NamedQuery: StaticStructureSchema = [3, n0, _NQa, 0, [_N, _D, _Da, _QS, _NQIa, _WG], [0, 0, 0, 0, 0, 0]];
 export var NotebookMetadata: StaticStructureSchema = [3, n0, _NM, 0, [_NI, _N, _WG, _CT, _T, _LMT], [0, 0, 0, 4, 0, 4]];
 export var NotebookSessionSummary: StaticStructureSchema = [3, n0, _NSS, 0, [_SI, _CT], [0, 4]];
@@ -972,8 +1028,8 @@ export var QueryExecutionStatistics: StaticStructureSchema = [
   n0,
   _QES,
   0,
-  [_EETIM, _DSIB, _DML, _TETIM, _QQTIM, _SPPTIM, _QPTIM, _SPTIM, _RRI],
-  [1, 1, 0, 1, 1, 1, 1, 1, () => ResultReuseInformation],
+  [_EETIM, _DSIB, _DML, _TETIM, _QQTIM, _SPPTIM, _QPTIM, _SPTIM, _RRI, _DCp],
+  [1, 1, 0, 1, 1, 1, 1, 1, () => ResultReuseInformation, 1],
 ];
 export var QueryExecutionStatus: StaticStructureSchema = [
   3,
@@ -1052,7 +1108,7 @@ export var ResultConfigurationUpdates: StaticStructureSchema = [
   [_OL, _ROL, _ECn, _REC, _EBO, _REBO, _AC, _RAC],
   [0, 2, () => EncryptionConfiguration, 2, 0, 2, () => AclConfiguration, 2],
 ];
-export var ResultReuseByAgeConfiguration: StaticStructureSchema = [3, n0, _RRBAC, 0, [_En, _MAIM], [2, 1]];
+export var ResultReuseByAgeConfiguration: StaticStructureSchema = [3, n0, _RRBAC, 0, [_E, _MAIM], [2, 1]];
 export var ResultReuseConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1065,6 +1121,7 @@ export var ResultReuseInformation: StaticStructureSchema = [3, n0, _RRI, 0, [_RP
 export var ResultSet: StaticStructureSchema = [3, n0, _RS, 0, [_Ro, _RSM], [() => RowList, () => ResultSetMetadata]];
 export var ResultSetMetadata: StaticStructureSchema = [3, n0, _RSM, 0, [_CI], [() => ColumnInfoList]];
 export var Row: StaticStructureSchema = [3, n0, _Row, 0, [_Data], [() => datumList]];
+export var S3LoggingConfiguration: StaticStructureSchema = [3, n0, _SLC, 0, [_E, _KK, _LL], [2, 0, 0]];
 export var SessionAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
@@ -1082,8 +1139,8 @@ export var SessionConfiguration: StaticStructureSchema = [
   n0,
   _SC,
   0,
-  [_ER, _WD, _ITS, _ECn],
-  [0, 0, 1, () => EncryptionConfiguration],
+  [_ER, _WD, _ITS, _SITIM, _ECn],
+  [0, 0, 1, 1, () => EncryptionConfiguration],
 ];
 export var SessionStatistics: StaticStructureSchema = [3, n0, _SSe, 0, [_DEIM], [1]];
 export var SessionStatus: StaticStructureSchema = [
@@ -1116,8 +1173,17 @@ export var StartQueryExecutionInput: StaticStructureSchema = [
   n0,
   _SQEI,
   0,
-  [_QS, _CRT, _QEC, _RC, _WG, _EP, _RRC],
-  [0, [0, 4], () => QueryExecutionContext, () => ResultConfiguration, 0, 64 | 0, () => ResultReuseConfiguration],
+  [_QS, _CRT, _QEC, _RC, _WG, _EP, _RRC, _ECng],
+  [
+    0,
+    [0, 4],
+    () => QueryExecutionContext,
+    () => ResultConfiguration,
+    0,
+    64 | 0,
+    () => ResultReuseConfiguration,
+    () => EngineConfiguration,
+  ],
 ];
 export var StartQueryExecutionOutput: StaticStructureSchema = [3, n0, _SQEO, 0, [_QEIu], [0]];
 export var StartSessionRequest: StaticStructureSchema = [
@@ -1125,8 +1191,8 @@ export var StartSessionRequest: StaticStructureSchema = [
   n0,
   _SSR,
   0,
-  [_D, _WG, _ECng, _NV, _SITIM, _CRT],
-  [0, 0, () => EngineConfiguration, 0, 1, 0],
+  [_D, _WG, _ECng, _ER, _MC, _NV, _SITIM, _CRT, _Ta, _CWGT],
+  [0, 0, () => EngineConfiguration, 0, () => MonitoringConfiguration, 0, 1, 0, () => TagList, 2],
 ];
 export var StartSessionResponse: StaticStructureSchema = [3, n0, _SSRt, 0, [_SI, _S], [0, 0]];
 export var StopCalculationExecutionRequest: StaticStructureSchema = [3, n0, _SCERto, 0, [_CEI], [0]];
@@ -1197,7 +1263,7 @@ export var WorkGroupConfiguration: StaticStructureSchema = [
   n0,
   _WGC,
   0,
-  [_RC, _MQRC, _EWGC, _PCWME, _BSCPQ, _RPE, _EV, _ACdd, _ER, _CCEC, _EMEC, _ICC, _QRSAGC],
+  [_RC, _MQRC, _EWGC, _PCWME, _BSCPQ, _RPE, _EV, _ACdd, _ER, _MC, _ECng, _CCEC, _EMEC, _ICC, _QRSAGC],
   [
     () => ResultConfiguration,
     () => ManagedQueryResultsConfiguration,
@@ -1208,6 +1274,8 @@ export var WorkGroupConfiguration: StaticStructureSchema = [
     () => EngineVersion,
     0,
     0,
+    () => MonitoringConfiguration,
+    () => EngineConfiguration,
     () => CustomerContentEncryptionConfiguration,
     2,
     () => IdentityCenterConfiguration,
@@ -1219,7 +1287,7 @@ export var WorkGroupConfigurationUpdates: StaticStructureSchema = [
   n0,
   _WGCU,
   0,
-  [_EWGC, _RCU, _MQRCU, _PCWME, _BSCPQ, _RBSCPQ, _RPE, _EV, _RCCEC, _ACdd, _ER, _CCEC, _EMEC, _QRSAGC],
+  [_EWGC, _RCU, _MQRCU, _PCWME, _BSCPQ, _RBSCPQ, _RPE, _EV, _RCCEC, _ACdd, _ER, _CCEC, _EMEC, _QRSAGC, _MC, _ECng],
   [
     2,
     () => ResultConfigurationUpdates,
@@ -1235,6 +1303,8 @@ export var WorkGroupConfigurationUpdates: StaticStructureSchema = [
     () => CustomerContentEncryptionConfiguration,
     2,
     () => QueryResultsS3AccessGrantsConfiguration,
+    () => MonitoringConfiguration,
+    () => EngineConfiguration,
   ],
 ];
 export var WorkGroupSummary: StaticStructureSchema = [
@@ -1254,6 +1324,7 @@ export var ApplicationDPUSizesList: StaticListSchema = [1, n0, _ADPUSL, 0, () =>
 export var CalculationsList: StaticListSchema = [1, n0, _CL, 0, () => CalculationSummary];
 export var CapacityAssignmentsList: StaticListSchema = [1, n0, _CAL, 0, () => CapacityAssignment];
 export var CapacityReservationsList: StaticListSchema = [1, n0, _CRL, 0, () => CapacityReservation];
+export var ClassificationList: StaticListSchema = [1, n0, _CLl, 0, () => Classification];
 export var ColumnInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ColumnInfo];
 export var ColumnList: StaticListSchema = [1, n0, _CLo, 0, () => Column];
 export var DatabaseList: StaticListSchema = [1, n0, _DL, 0, () => Database];
@@ -1263,6 +1334,8 @@ export var EngineVersionsList: StaticListSchema = [1, n0, _EVL, 0, () => EngineV
 export var ExecutionParameters = 64 | 0;
 
 export var ExecutorsSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExecutorsSummary];
+export var LogTypeValuesList = 64 | 0;
+
 export var NamedQueryIdList = 64 | 0;
 
 export var NamedQueryList: StaticListSchema = [1, n0, _NQL, 0, () => NamedQuery];
@@ -1299,6 +1372,7 @@ export var UnprocessedQueryExecutionIdList: StaticListSchema = [1, n0, _UQEIL, 0
 export var WorkGroupNamesList = 64 | 0;
 
 export var WorkGroupsList: StaticListSchema = [1, n0, _WGL, 0, () => WorkGroupSummary];
+export var LogTypesMap: StaticMapSchema = [2, n0, _LTM, 0, 0, 64 | 0];
 export var ParametersMap = 128 | 0;
 
 export var BatchGetNamedQuery: StaticOperationSchema = [
@@ -1535,7 +1609,23 @@ export var GetQueryRuntimeStatistics: StaticOperationSchema = [
   () => GetQueryRuntimeStatisticsInput,
   () => GetQueryRuntimeStatisticsOutput,
 ];
+export var GetResourceDashboard: StaticOperationSchema = [
+  9,
+  n0,
+  _GRD,
+  0,
+  () => GetResourceDashboardRequest,
+  () => GetResourceDashboardResponse,
+];
 export var GetSession: StaticOperationSchema = [9, n0, _GS, 0, () => GetSessionRequest, () => GetSessionResponse];
+export var GetSessionEndpoint: StaticOperationSchema = [
+  9,
+  n0,
+  _GSE,
+  0,
+  () => GetSessionEndpointRequest,
+  () => GetSessionEndpointResponse,
+];
 export var GetSessionStatus: StaticOperationSchema = [
   9,
   n0,
@@ -1654,7 +1744,7 @@ export var ListSessions: StaticOperationSchema = [9, n0, _LS, 0, () => ListSessi
 export var ListTableMetadata: StaticOperationSchema = [
   9,
   n0,
-  _LTM,
+  _LTMi,
   0,
   () => ListTableMetadataInput,
   () => ListTableMetadataOutput,

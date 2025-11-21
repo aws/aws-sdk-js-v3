@@ -136,7 +136,12 @@ import {
   GetQueryRuntimeStatisticsCommandInput,
   GetQueryRuntimeStatisticsCommandOutput,
 } from "./commands/GetQueryRuntimeStatisticsCommand";
+import {
+  GetResourceDashboardCommandInput,
+  GetResourceDashboardCommandOutput,
+} from "./commands/GetResourceDashboardCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { GetSessionEndpointCommandInput, GetSessionEndpointCommandOutput } from "./commands/GetSessionEndpointCommand";
 import { GetSessionStatusCommandInput, GetSessionStatusCommandOutput } from "./commands/GetSessionStatusCommand";
 import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
 import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
@@ -264,7 +269,9 @@ export type ServiceInputTypes =
   | GetQueryExecutionCommandInput
   | GetQueryResultsCommandInput
   | GetQueryRuntimeStatisticsCommandInput
+  | GetResourceDashboardCommandInput
   | GetSessionCommandInput
+  | GetSessionEndpointCommandInput
   | GetSessionStatusCommandInput
   | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
@@ -337,7 +344,9 @@ export type ServiceOutputTypes =
   | GetQueryExecutionCommandOutput
   | GetQueryResultsCommandOutput
   | GetQueryRuntimeStatisticsCommandOutput
+  | GetResourceDashboardCommandOutput
   | GetSessionCommandOutput
+  | GetSessionEndpointCommandOutput
   | GetSessionStatusCommandOutput
   | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput

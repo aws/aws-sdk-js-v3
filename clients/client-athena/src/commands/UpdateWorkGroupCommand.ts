@@ -84,6 +84,46 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  *       CreateUserLevelPrefix: true || false,
  *       AuthenticationType: "DIRECTORY_IDENTITY", // required
  *     },
+ *     MonitoringConfiguration: { // MonitoringConfiguration
+ *       CloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ *         Enabled: true || false, // required
+ *         LogGroup: "STRING_VALUE",
+ *         LogStreamNamePrefix: "STRING_VALUE",
+ *         LogTypes: { // LogTypesMap
+ *           "<keys>": [ // LogTypeValuesList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ManagedLoggingConfiguration: { // ManagedLoggingConfiguration
+ *         Enabled: true || false, // required
+ *         KmsKey: "STRING_VALUE",
+ *       },
+ *       S3LoggingConfiguration: { // S3LoggingConfiguration
+ *         Enabled: true || false, // required
+ *         KmsKey: "STRING_VALUE",
+ *         LogLocation: "STRING_VALUE",
+ *       },
+ *     },
+ *     EngineConfiguration: { // EngineConfiguration
+ *       CoordinatorDpuSize: Number("int"),
+ *       MaxConcurrentDpus: Number("int"),
+ *       DefaultExecutorDpuSize: Number("int"),
+ *       AdditionalConfigs: { // ParametersMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       SparkProperties: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Classifications: [ // ClassificationList
+ *         { // Classification
+ *           Name: "STRING_VALUE",
+ *           Properties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
  *   },
  *   State: "ENABLED" || "DISABLED",
  * };

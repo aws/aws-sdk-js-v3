@@ -67,6 +67,46 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *     },
  *     AdditionalConfiguration: "STRING_VALUE",
  *     ExecutionRole: "STRING_VALUE",
+ *     MonitoringConfiguration: { // MonitoringConfiguration
+ *       CloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ *         Enabled: true || false, // required
+ *         LogGroup: "STRING_VALUE",
+ *         LogStreamNamePrefix: "STRING_VALUE",
+ *         LogTypes: { // LogTypesMap
+ *           "<keys>": [ // LogTypeValuesList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ManagedLoggingConfiguration: { // ManagedLoggingConfiguration
+ *         Enabled: true || false, // required
+ *         KmsKey: "STRING_VALUE",
+ *       },
+ *       S3LoggingConfiguration: { // S3LoggingConfiguration
+ *         Enabled: true || false, // required
+ *         KmsKey: "STRING_VALUE",
+ *         LogLocation: "STRING_VALUE",
+ *       },
+ *     },
+ *     EngineConfiguration: { // EngineConfiguration
+ *       CoordinatorDpuSize: Number("int"),
+ *       MaxConcurrentDpus: Number("int"),
+ *       DefaultExecutorDpuSize: Number("int"),
+ *       AdditionalConfigs: { // ParametersMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       SparkProperties: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Classifications: [ // ClassificationList
+ *         { // Classification
+ *           Name: "STRING_VALUE",
+ *           Properties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
  *     CustomerContentEncryptionConfiguration: { // CustomerContentEncryptionConfiguration
  *       KmsKey: "STRING_VALUE", // required
  *     },

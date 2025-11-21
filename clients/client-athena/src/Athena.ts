@@ -154,7 +154,17 @@ import {
   GetQueryRuntimeStatisticsCommandInput,
   GetQueryRuntimeStatisticsCommandOutput,
 } from "./commands/GetQueryRuntimeStatisticsCommand";
+import {
+  GetResourceDashboardCommand,
+  GetResourceDashboardCommandInput,
+  GetResourceDashboardCommandOutput,
+} from "./commands/GetResourceDashboardCommand";
 import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import {
+  GetSessionEndpointCommand,
+  GetSessionEndpointCommandInput,
+  GetSessionEndpointCommandOutput,
+} from "./commands/GetSessionEndpointCommand";
 import {
   GetSessionStatusCommand,
   GetSessionStatusCommandInput,
@@ -364,7 +374,9 @@ const commands = {
   GetQueryExecutionCommand,
   GetQueryResultsCommand,
   GetQueryRuntimeStatisticsCommand,
+  GetResourceDashboardCommand,
   GetSessionCommand,
+  GetSessionEndpointCommand,
   GetSessionStatusCommand,
   GetTableMetadataCommand,
   GetWorkGroupCommand,
@@ -899,6 +911,23 @@ export interface Athena {
   ): void;
 
   /**
+   * @see {@link GetResourceDashboardCommand}
+   */
+  getResourceDashboard(
+    args: GetResourceDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceDashboardCommandOutput>;
+  getResourceDashboard(
+    args: GetResourceDashboardCommandInput,
+    cb: (err: any, data?: GetResourceDashboardCommandOutput) => void
+  ): void;
+  getResourceDashboard(
+    args: GetResourceDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceDashboardCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSessionCommand}
    */
   getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
@@ -907,6 +936,23 @@ export interface Athena {
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionEndpointCommand}
+   */
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionEndpointCommandOutput>;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
+  ): void;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
   ): void;
 
   /**

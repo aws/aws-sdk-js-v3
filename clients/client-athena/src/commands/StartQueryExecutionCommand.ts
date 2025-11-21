@@ -69,6 +69,25 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  *       MaxAgeInMinutes: Number("int"),
  *     },
  *   },
+ *   EngineConfiguration: { // EngineConfiguration
+ *     CoordinatorDpuSize: Number("int"),
+ *     MaxConcurrentDpus: Number("int"),
+ *     DefaultExecutorDpuSize: Number("int"),
+ *     AdditionalConfigs: { // ParametersMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     SparkProperties: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Classifications: [ // ClassificationList
+ *       { // Classification
+ *         Name: "STRING_VALUE",
+ *         Properties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new StartQueryExecutionCommand(input);
  * const response = await client.send(command);
