@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-api-gateway:** API Gateway supports VPC link V2 for REST APIs. ([00f40f2](https://github.com/aws/aws-sdk-js-v3/commit/00f40f2511c4d8fcc723fa013b8df38417432e1d))
+
+
+
+
+
 # [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-api-gateway

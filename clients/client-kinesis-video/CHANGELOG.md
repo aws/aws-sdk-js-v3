@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-kinesis-video:** This release adds support for Tiered Storage ([2b78ecf](https://github.com/aws/aws-sdk-js-v3/commit/2b78ecfc3a34d662b56edb291e5c93f2945d7a46))
+
+
+
+
+
 # [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video

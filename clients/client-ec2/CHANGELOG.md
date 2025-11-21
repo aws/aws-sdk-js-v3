@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-ec2:** This release adds a new capability to create and manage interruptible EC2 Capacity Reservations. ([3ffbbeb](https://github.com/aws/aws-sdk-js-v3/commit/3ffbbebe57640105407c4267cc1452774b568344))
+
+
+
+
+
 # [3.937.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.936.0...v3.937.0) (2025-11-20)
 
 

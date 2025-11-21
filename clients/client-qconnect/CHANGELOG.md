@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-qconnect:** This release introduces two new messaging channel subtypes: Push, WhatsApp, under MessageTemplate which is a resource in Amazon Q in Connect. ([4272869](https://github.com/aws/aws-sdk-js-v3/commit/4272869a8f2df82de2fdf2d7a885b081bd6f616f))
+
+
+
+
+
 # [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect

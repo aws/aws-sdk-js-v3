@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Support for agentcore gateway interceptor configurations and NONE authorizer type ([0a5f317](https://github.com/aws/aws-sdk-js-v3/commit/0a5f31730909b9b133920d854078713ccfe3df3c))
+
+
+
+
+
 # [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

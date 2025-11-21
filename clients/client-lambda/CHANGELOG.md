@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-lambda:** Launching Enhanced Error Handling and ESM Grouping capabilities for Kafka ESMs ([adfe1d8](https://github.com/aws/aws-sdk-js-v3/commit/adfe1d8091f9c7e5cf8b0ca64ed8c55d2ad85c06))
+
+
+
+
+
 # [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

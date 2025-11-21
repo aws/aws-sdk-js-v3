@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-api-gateway:** API Gateway supports VPC link V2 for REST APIs. ([00f40f2](https://github.com/aws/aws-sdk-js-v3/commit/00f40f2511c4d8fcc723fa013b8df38417432e1d))
+* **client-athena:** Introduces Spark workgroup features including log persistence, S3/CloudWatch delivery, UI and History Server APIs, and SparkConnect 3.5.6 support. Adds DPU usage limits at workgroup and query levels as well as DPU usage tracking for Capacity Reservation queries to optimize performance and costs. ([35f7d85](https://github.com/aws/aws-sdk-js-v3/commit/35f7d8599abc87dec71564a186b517ea4061af90))
+* **client-bedrock-agentcore-control:** Support for agentcore gateway interceptor configurations and NONE authorizer type ([0a5f317](https://github.com/aws/aws-sdk-js-v3/commit/0a5f31730909b9b133920d854078713ccfe3df3c))
+* **client-bedrock-data-automation-runtime:** Adding new fields to GetDataAutomationStatus: jobSubmissionTime, jobCompletionTime, and jobDurationInSeconds ([1bc9c4b](https://github.com/aws/aws-sdk-js-v3/commit/1bc9c4b83c9e03e88104f1dc26b70bd62c409049))
+* **client-bedrock-runtime:** Add support to automatically enforce safeguards across accounts within an AWS Organization. ([dd84b78](https://github.com/aws/aws-sdk-js-v3/commit/dd84b782452959b5f412706393175400d6fc2ab4))
+* **client-bedrock:** Add support to automatically enforce safeguards across accounts within an AWS Organization. ([d9320cb](https://github.com/aws/aws-sdk-js-v3/commit/d9320cb2809e23b2b1e75785f58e6e2b98d3345b))
+* **client-cloudformation:** Adds the DependsOn field to the AutoDeployment configuration parameter for CreateStackSet, UpdateStackSet, and DescribeStackSet APIs, allowing users to set and read auto-deployment dependencies between StackSets ([3f003f8](https://github.com/aws/aws-sdk-js-v3/commit/3f003f890d8a2213b900247713205aafa4546cde))
+* **client-compute-optimizer-automation:** Initial release of AWS Compute Optimizer Automation. Create automation rules to implement recommended actions on a recurring schedule based on your specified criteria. Supported actions include: snapshot and delete unattached EBS volumes and upgrade volume types to the latest generation. ([f15059d](https://github.com/aws/aws-sdk-js-v3/commit/f15059dd2d6e2ee5e2a498a81fc210bfbb324ac0))
+* **client-connect:** New APIs to support aliases and versions for ContactFlowModule. Updated ContactFlowModule APIs to support custom blocks. ([80c940b](https://github.com/aws/aws-sdk-js-v3/commit/80c940b0522e73f5042989df8649361802364188))
+* **client-controltower:** The manifest field is now optional for the AWS Control Tower CreateLandingZone and UpdateLandingZone APIs for Landing Zone version 4.0 ([3f0820d](https://github.com/aws/aws-sdk-js-v3/commit/3f0820d915eb6bbe64ddf53779de401bb8da8038))
+* **client-ec2:** This release adds a new capability to create and manage interruptible EC2 Capacity Reservations. ([3ffbbeb](https://github.com/aws/aws-sdk-js-v3/commit/3ffbbebe57640105407c4267cc1452774b568344))
+* **client-ecr:** Add support for ECR managed signing ([678f856](https://github.com/aws/aws-sdk-js-v3/commit/678f8562ea03788a19dcf2f43167e0c5befecc7b))
+* **client-eks:** Adds support for controlPlaneScalingConfig on EKS Clusters. ([ee03889](https://github.com/aws/aws-sdk-js-v3/commit/ee0388922d0390a060c7588ef8fa83097f4168d8))
+* **client-invoicing:** Added the CreateProcurementPortalPreference, GetProcurementPortalPreference, PutProcurementPortalPreference, UpdateProcurementPortalPreferenceStatus, ListProcurementPortalPreferences and DeleteProcurementPortalPreference APIs for procurement portal preference management. ([612d1d7](https://github.com/aws/aws-sdk-js-v3/commit/612d1d7cd3d35dfbe062887d8926edc47bb34681))
+* **client-kinesis-video:** This release adds support for Tiered Storage ([2b78ecf](https://github.com/aws/aws-sdk-js-v3/commit/2b78ecfc3a34d662b56edb291e5c93f2945d7a46))
+* **client-kms:** Support for on-demand rotation of AWS KMS Multi-Region keys with imported key material ([ef12269](https://github.com/aws/aws-sdk-js-v3/commit/ef12269ada3d9da7727c6d51754eb0e146d8e1cf))
+* **client-lambda:** Launching Enhanced Error Handling and ESM Grouping capabilities for Kafka ESMs ([adfe1d8](https://github.com/aws/aws-sdk-js-v3/commit/adfe1d8091f9c7e5cf8b0ca64ed8c55d2ad85c06))
+* **client-lex-models-v2:** Adds support for Intent Disambiguation, allowing resolution of ambiguous user inputs when multiple intents match by presenting clarifying questions to users. Also adds Speech Detection Sensitivity configuration for optimizing voice activity detection sensitivity levels in various noise environments. ([7338fd9](https://github.com/aws/aws-sdk-js-v3/commit/7338fd92eff1080d144fc7f0d56cd5ec01d93b05))
+* **client-mailmanager:** Add support for resources in the aws-eusc partition. ([5daa337](https://github.com/aws/aws-sdk-js-v3/commit/5daa337c13649f89be97e9c4a86b0bf5da64ed97))
+* **client-marketplace-entitlement-service:** Endpoint update for new region ([764e4bf](https://github.com/aws/aws-sdk-js-v3/commit/764e4bf5c2ff754c151e07456450f8820975b8a7))
+* **client-marketplace-metering:** Endpoint update for new region ([5fa8f49](https://github.com/aws/aws-sdk-js-v3/commit/5fa8f494022dbd8746dc1e016411221cdb3a49a7))
+* **client-mediapackagev2:** Adds support for excluding session key tags from HLS multivariant playlists ([e976d9c](https://github.com/aws/aws-sdk-js-v3/commit/e976d9c9ddf0f1564bdb795c339a224108e4f8d4))
+* **client-odb:** Adds AssociateIamRoleToResource and DisassociateIamRoleFromResource APIs for managing IAM roles. Enhances CreateOdbNetwork and UpdateOdbNetwork APIs with KMS, STS, and cross-region S3 parameters. Adds OCI identity domain support to InitializeService API. ([397d275](https://github.com/aws/aws-sdk-js-v3/commit/397d275bc0754a268fceb8e8a396ed5f8d769936))
+* **client-organizations:** Add support for policy operations on the UPGRADE_ROLLOUT_POLICY policy type. ([2d3783e](https://github.com/aws/aws-sdk-js-v3/commit/2d3783e0952c361126817c6441e384b22981962f))
+* **client-qconnect:** This release introduces two new messaging channel subtypes: Push, WhatsApp, under MessageTemplate which is a resource in Amazon Q in Connect. ([4272869](https://github.com/aws/aws-sdk-js-v3/commit/4272869a8f2df82de2fdf2d7a885b081bd6f616f))
+* **client-quicksight:** Amazon Quick Suite now supports QuickChat as an embedding type when calling the GenerateEmbedUrlForRegisteredUser API, enabling developers to embed conversational AI agents directly into their applications. ([1fb4616](https://github.com/aws/aws-sdk-js-v3/commit/1fb46165f7f67a0ab96846eec0447f2daaebc67a))
+* **client-rds:** Add support for Upgrade Rollout Order ([12385db](https://github.com/aws/aws-sdk-js-v3/commit/12385db14024ca61117fd3da6d6303643b2c543f))
+* **client-redshift-serverless:** Added UpdateLakehouseConfiguration API to manage Amazon Redshift Federated Permissions and AWS IAM Identity Center trusted identity propagation for namespaces. ([e45c0a7](https://github.com/aws/aws-sdk-js-v3/commit/e45c0a74a12faad4842e7de051fdc1abb81fee97))
+* **client-redshift:** Added support for Amazon Redshift Federated Permissions and AWS IAM Identity Center trusted identity propagation. ([b030ee0](https://github.com/aws/aws-sdk-js-v3/commit/b030ee0c329a612b22e5fe553e9e6eb995c15f98))
+* **client-sagemaker-runtime-http2:** Add support for bidirectional streaming invocations on SageMaker AI real-time endpoints ([32887fc](https://github.com/aws/aws-sdk-js-v3/commit/32887fca4b3ebd2e2c88690e86650ed8139d947a))
+* **client-sagemaker:** Enhanced SageMaker HyperPod instance groups with support for MinInstanceCount, CapacityRequirements (Spot/On-Demand), and KubernetesConfig (labels and taints). Also Added speculative decoding and MaxInstanceCount for model optimization jobs. ([8680432](https://github.com/aws/aws-sdk-js-v3/commit/86804322748d0a4c5904e3235aa4cddaa66ecae0))
+* **client-security-ir:** Add ListInvestigations and SendFeedback APIs to support SecurityIR AI agents ([f2c6b23](https://github.com/aws/aws-sdk-js-v3/commit/f2c6b23c4301a7f1696af78e92c74a98487dc7c7))
+* **client-sesv2:** Added support for new SES regions - Asia Pacific (Malaysia) and Canada (Calgary) ([996a8ce](https://github.com/aws/aws-sdk-js-v3/commit/996a8ce4b224828af06f1acda75ee58f7e25bd86))
+* **client-transfer:** Adds support for creating Webapps accessible from a VPC. ([b863762](https://github.com/aws/aws-sdk-js-v3/commit/b863762bdfa74b87a47f3671600c494b72a454e6))
+* **clients:** update client endpoints as of 2025-11-21 ([770cf0d](https://github.com/aws/aws-sdk-js-v3/commit/770cf0d92ccc211353f30e9a01c0bf5add6a68d5))
+
+
+
+
+
 # [3.937.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.936.0...v3.937.0) (2025-11-20)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-connect:** New APIs to support aliases and versions for ContactFlowModule. Updated ContactFlowModule APIs to support custom blocks. ([80c940b](https://github.com/aws/aws-sdk-js-v3/commit/80c940b0522e73f5042989df8649361802364188))
+
+
+
+
+
 # [3.937.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.936.0...v3.937.0) (2025-11-20)
 
 

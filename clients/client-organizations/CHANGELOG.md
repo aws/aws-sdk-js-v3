@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.938.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.937.0...v3.938.0) (2025-11-21)
+
+
+### Features
+
+* **client-organizations:** Add support for policy operations on the UPGRADE_ROLLOUT_POLICY policy type. ([2d3783e](https://github.com/aws/aws-sdk-js-v3/commit/2d3783e0952c361126817c6441e384b22981962f))
+
+
+
+
+
 # [3.937.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.936.0...v3.937.0) (2025-11-20)
 
 
