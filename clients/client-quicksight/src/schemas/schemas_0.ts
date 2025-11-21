@@ -2261,6 +2261,7 @@ const _QARe = "QAResults";
 const _QBIE = "QBusinessInsightsEnabled";
 const _QBIS = "QBusinessInsightsStatus";
 const _QBP = "QBusinessParameters";
+const _QC = "QuickChat";
 const _QDK = "QDataKey";
 const _QDKA = "QDataKeyArn";
 const _QDKT = "QDataKeyType";
@@ -2425,6 +2426,7 @@ const _RUDVEC = "RegisteredUserDashboardVisualEmbeddingConfiguration";
 const _RUE = "ResourceUnavailableException";
 const _RUEEC = "RegisteredUserEmbeddingExperienceConfiguration";
 const _RUGQAEC = "RegisteredUserGenerativeQnAEmbeddingConfiguration";
+const _RUQCEC = "RegisteredUserQuickChatEmbeddingConfiguration";
 const _RUQSBEC = "RegisteredUserQSearchBarEmbeddingConfiguration";
 const _RUQSCEC = "RegisteredUserQuickSightConsoleEmbeddingConfiguration";
 const _RUR = "RegisterUserRequest";
@@ -11814,17 +11816,19 @@ export var RegisteredUserEmbeddingExperienceConfiguration: StaticStructureSchema
   n0,
   _RUEEC,
   0,
-  [_Da, _QSC, _QSB, _DV, _GQA],
+  [_Da, _QSC, _QSB, _DV, _GQA, _QC],
   [
     () => RegisteredUserDashboardEmbeddingConfiguration,
     () => RegisteredUserQuickSightConsoleEmbeddingConfiguration,
     () => RegisteredUserQSearchBarEmbeddingConfiguration,
     () => RegisteredUserDashboardVisualEmbeddingConfiguration,
     () => RegisteredUserGenerativeQnAEmbeddingConfiguration,
+    () => RegisteredUserQuickChatEmbeddingConfiguration,
   ],
 ];
 export var RegisteredUserGenerativeQnAEmbeddingConfiguration: StaticStructureSchema = [3, n0, _RUGQAEC, 0, [_ITI], [0]];
 export var RegisteredUserQSearchBarEmbeddingConfiguration: StaticStructureSchema = [3, n0, _RUQSBEC, 0, [_ITI], [0]];
+export var RegisteredUserQuickChatEmbeddingConfiguration: StaticStructureSchema = [3, n0, _RUQCEC, 0, [], []];
 export var RegisteredUserQuickSightConsoleEmbeddingConfiguration: StaticStructureSchema = [
   3,
   n0,

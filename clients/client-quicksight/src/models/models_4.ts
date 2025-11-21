@@ -879,6 +879,12 @@ export interface RegisteredUserQSearchBarEmbeddingConfiguration {
 }
 
 /**
+ * <p>An object that provides information about the configuration of a chat agent.</p>
+ * @public
+ */
+export interface RegisteredUserQuickChatEmbeddingConfiguration {}
+
+/**
  * <p>The feature configurations of an embedded Amazon Quick Sight console.</p>
  * @public
  */
@@ -1048,6 +1054,12 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    * @public
    */
   GenerativeQnA?: RegisteredUserGenerativeQnAEmbeddingConfiguration | undefined;
+
+  /**
+   * <p>The configuration details for embedding the Quick chat agent.</p>
+   * @public
+   */
+  QuickChat?: RegisteredUserQuickChatEmbeddingConfiguration | undefined;
 }
 
 /**

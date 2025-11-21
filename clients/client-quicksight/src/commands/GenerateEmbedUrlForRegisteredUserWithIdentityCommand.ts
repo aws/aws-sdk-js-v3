@@ -131,6 +131,7 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
  *     GenerativeQnA: { // RegisteredUserGenerativeQnAEmbeddingConfiguration
  *       InitialTopicId: "STRING_VALUE",
  *     },
+ *     QuickChat: {},
  *   },
  *   AllowedDomains: [ // StringList
  *     "STRING_VALUE",
