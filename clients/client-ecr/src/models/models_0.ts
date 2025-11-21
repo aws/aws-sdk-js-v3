@@ -23,6 +23,8 @@ import {
   ScanningRepositoryFilterType,
   ScanStatus,
   ScanType,
+  SigningRepositoryFilterType,
+  SigningStatus,
   TagStatus,
   TargetStorageClass,
   UpstreamRegistry,
@@ -1350,6 +1352,109 @@ export interface DeleteRepositoryPolicyResponse {
 /**
  * @public
  */
+export interface DeleteSigningConfigurationRequest {}
+
+/**
+ * <p>A repository filter used to determine which repositories have their
+ *             images automatically signed on push. Each filter consists of a filter type and filter value.</p>
+ * @public
+ */
+export interface SigningRepositoryFilter {
+  /**
+   * <p>The filter value used to match repository names. When using
+   *             <code>WILDCARD_MATCH</code>, the <code>*</code> character matches any sequence of characters.</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>myapp/*</code> - Matches all repositories starting with
+   *                     <code>myapp/</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>*\/production</code> - Matches all repositories ending with
+   *                     <code>/production</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>*prod*</code> - Matches all repositories containing
+   *                     <code>prod</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  filter: string | undefined;
+
+  /**
+   * <p>The type of filter to apply. Currently, only <code>WILDCARD_MATCH</code> is supported,
+   *             which uses wildcard patterns to match repository names.</p>
+   * @public
+   */
+  filterType: SigningRepositoryFilterType | undefined;
+}
+
+/**
+ * <p>A signing rule that specifies a signing profile and optional
+ *             repository filters. When an image is pushed to a matching repository, a
+ *             signing job is created using the specified profile.</p>
+ * @public
+ */
+export interface SigningRule {
+  /**
+   * <p>The ARN of the Amazon Web Services Signer signing profile to use for signing images that match this
+   *             rule. For more information about signing profiles, see <a href="https://docs.aws.amazon.com/signer/latest/developerguide/signing-profiles.html">Signing profiles</a> in
+   *             the <i>Amazon Web Services Signer Developer Guide</i>.</p>
+   * @public
+   */
+  signingProfileArn: string | undefined;
+
+  /**
+   * <p>A list of repository filters that determine which repositories
+   *             have their images signed on push. If no filters are specified, all
+   *             images pushed to the registry are signed using the rule's signing
+   *             profile. Maximum of 100 filters per rule.</p>
+   * @public
+   */
+  repositoryFilters?: SigningRepositoryFilter[] | undefined;
+}
+
+/**
+ * <p>The signing configuration for a registry, which specifies rules
+ *             for automatically signing images when pushed.</p>
+ * @public
+ */
+export interface SigningConfiguration {
+  /**
+   * <p>A list of signing rules. Each rule defines a signing profile and optional repository
+   *             filters that determine which images are automatically signed. Maximum of 10 rules.</p>
+   * @public
+   */
+  rules: SigningRule[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSigningConfigurationResponse {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The registry's deleted signing configuration.</p>
+   * @public
+   */
+  signingConfiguration?: SigningConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeregisterPullTimeUpdateExclusionRequest {
   /**
    * <p>The ARN of the IAM principal to remove from the pull time update exclusion list.</p>
@@ -2363,6 +2468,106 @@ export interface DescribeImageScanFindingsResponse {
 /**
  * @public
  */
+export interface DescribeImageSigningStatusRequest {
+  /**
+   * <p>The name of the repository that contains the image.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>An object containing identifying information for an image.</p>
+   * @public
+   */
+  imageId: ImageIdentifier | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+}
+
+/**
+ * <p>The signing status for an image. Each status corresponds to a signing profile.</p>
+ * @public
+ */
+export interface ImageSigningStatus {
+  /**
+   * <p>The ARN of the Amazon Web Services Signer signing profile used to sign the image.</p>
+   * @public
+   */
+  signingProfileArn?: string | undefined;
+
+  /**
+   * <p>The failure code, which is only present if <code>status</code>
+   *             is <code>FAILED</code>.</p>
+   * @public
+   */
+  failureCode?: string | undefined;
+
+  /**
+   * <p>A description of why signing the image failed. This field is only
+   *             present if <code>status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
+   * <p>The image's signing status. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> - Signing is currently in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code> - The signature was successfully generated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Signing failed. See
+   *                     <code>failureCode</code> and <code>failureReason</code> for details.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: SigningStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageSigningStatusResponse {
+  /**
+   * <p>The name of the repository.</p>
+   * @public
+   */
+  repositoryName?: string | undefined;
+
+  /**
+   * <p>An object with identifying information for the image.</p>
+   * @public
+   */
+  imageId?: ImageIdentifier | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>A list of signing statuses for the specified image. Each status corresponds to a
+   *             signing profile.</p>
+   * @public
+   */
+  signingStatuses?: ImageSigningStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribePullThroughCacheRulesRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry to return the pull through cache
@@ -3262,6 +3467,28 @@ export interface GetRepositoryPolicyResponse {
 /**
  * @public
  */
+export interface GetSigningConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface GetSigningConfigurationResponse {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The registry's signing configuration.</p>
+   * @public
+   */
+  signingConfiguration?: SigningConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
 export interface InitiateLayerUploadRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry to which you intend to upload
@@ -3957,6 +4184,28 @@ export interface PutReplicationConfigurationResponse {
    * @public
    */
   replicationConfiguration?: ReplicationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSigningConfigurationRequest {
+  /**
+   * <p>The signing configuration to assign to the registry.</p>
+   * @public
+   */
+  signingConfiguration: SigningConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSigningConfigurationResponse {
+  /**
+   * <p>The registry's updated signing configuration.</p>
+   * @public
+   */
+  signingConfiguration?: SigningConfiguration | undefined;
 }
 
 /**

@@ -166,6 +166,19 @@ export type RCTAppliedFor = (typeof RCTAppliedFor)[keyof typeof RCTAppliedFor];
  * @public
  * @enum
  */
+export const SigningRepositoryFilterType = {
+  WILDCARD_MATCH: "WILDCARD_MATCH",
+} as const;
+/**
+ * @public
+ */
+export type SigningRepositoryFilterType =
+  (typeof SigningRepositoryFilterType)[keyof typeof SigningRepositoryFilterType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicationStatus = {
   COMPLETE: "COMPLETE",
   FAILED: "FAILED",
@@ -256,6 +269,20 @@ export const ImageStatus = {
  * @public
  */
 export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SigningStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type SigningStatus = (typeof SigningStatus)[keyof typeof SigningStatus];
 
 /**
  * @public

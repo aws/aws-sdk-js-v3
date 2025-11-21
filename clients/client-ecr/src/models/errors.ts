@@ -571,6 +571,27 @@ export class RepositoryPolicyNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The specified signing configuration was not found. This occurs when
+ *             attempting to retrieve or delete a signing configuration that does not exist.</p>
+ * @public
+ */
+export class SigningConfigurationNotFoundException extends __BaseException {
+  readonly name = "SigningConfigurationNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SigningConfigurationNotFoundException, __BaseException>) {
+    super({
+      name: "SigningConfigurationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SigningConfigurationNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The specified pull time update exclusion was not found.</p>
  * @public
  */

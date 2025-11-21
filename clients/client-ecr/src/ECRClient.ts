@@ -102,6 +102,10 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  DeleteSigningConfigurationCommandInput,
+  DeleteSigningConfigurationCommandOutput,
+} from "./commands/DeleteSigningConfigurationCommand";
+import {
   DeregisterPullTimeUpdateExclusionCommandInput,
   DeregisterPullTimeUpdateExclusionCommandOutput,
 } from "./commands/DeregisterPullTimeUpdateExclusionCommand";
@@ -114,6 +118,10 @@ import {
   DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
+import {
+  DescribeImageSigningStatusCommandInput,
+  DescribeImageSigningStatusCommandOutput,
+} from "./commands/DescribeImageSigningStatusCommand";
 import {
   DescribePullThroughCacheRulesCommandInput,
   DescribePullThroughCacheRulesCommandOutput,
@@ -151,6 +159,10 @@ import {
   GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
 import {
+  GetSigningConfigurationCommandInput,
+  GetSigningConfigurationCommandOutput,
+} from "./commands/GetSigningConfigurationCommand";
+import {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
@@ -184,6 +196,10 @@ import {
   PutReplicationConfigurationCommandInput,
   PutReplicationConfigurationCommandOutput,
 } from "./commands/PutReplicationConfigurationCommand";
+import {
+  PutSigningConfigurationCommandInput,
+  PutSigningConfigurationCommandOutput,
+} from "./commands/PutSigningConfigurationCommand";
 import {
   RegisterPullTimeUpdateExclusionCommandInput,
   RegisterPullTimeUpdateExclusionCommandOutput,
@@ -245,9 +261,11 @@ export type ServiceInputTypes =
   | DeleteRepositoryCommandInput
   | DeleteRepositoryCreationTemplateCommandInput
   | DeleteRepositoryPolicyCommandInput
+  | DeleteSigningConfigurationCommandInput
   | DeregisterPullTimeUpdateExclusionCommandInput
   | DescribeImageReplicationStatusCommandInput
   | DescribeImageScanFindingsCommandInput
+  | DescribeImageSigningStatusCommandInput
   | DescribeImagesCommandInput
   | DescribePullThroughCacheRulesCommandInput
   | DescribeRegistryCommandInput
@@ -261,6 +279,7 @@ export type ServiceInputTypes =
   | GetRegistryPolicyCommandInput
   | GetRegistryScanningConfigurationCommandInput
   | GetRepositoryPolicyCommandInput
+  | GetSigningConfigurationCommandInput
   | InitiateLayerUploadCommandInput
   | ListImageReferrersCommandInput
   | ListImagesCommandInput
@@ -274,6 +293,7 @@ export type ServiceInputTypes =
   | PutRegistryPolicyCommandInput
   | PutRegistryScanningConfigurationCommandInput
   | PutReplicationConfigurationCommandInput
+  | PutSigningConfigurationCommandInput
   | RegisterPullTimeUpdateExclusionCommandInput
   | SetRepositoryPolicyCommandInput
   | StartImageScanCommandInput
@@ -304,9 +324,11 @@ export type ServiceOutputTypes =
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryCreationTemplateCommandOutput
   | DeleteRepositoryPolicyCommandOutput
+  | DeleteSigningConfigurationCommandOutput
   | DeregisterPullTimeUpdateExclusionCommandOutput
   | DescribeImageReplicationStatusCommandOutput
   | DescribeImageScanFindingsCommandOutput
+  | DescribeImageSigningStatusCommandOutput
   | DescribeImagesCommandOutput
   | DescribePullThroughCacheRulesCommandOutput
   | DescribeRegistryCommandOutput
@@ -320,6 +342,7 @@ export type ServiceOutputTypes =
   | GetRegistryPolicyCommandOutput
   | GetRegistryScanningConfigurationCommandOutput
   | GetRepositoryPolicyCommandOutput
+  | GetSigningConfigurationCommandOutput
   | InitiateLayerUploadCommandOutput
   | ListImageReferrersCommandOutput
   | ListImagesCommandOutput
@@ -333,6 +356,7 @@ export type ServiceOutputTypes =
   | PutRegistryPolicyCommandOutput
   | PutRegistryScanningConfigurationCommandOutput
   | PutReplicationConfigurationCommandOutput
+  | PutSigningConfigurationCommandOutput
   | RegisterPullTimeUpdateExclusionCommandOutput
   | SetRepositoryPolicyCommandOutput
   | StartImageScanCommandOutput

@@ -43,6 +43,9 @@ const _DIRe = "DescribeImagesResponse";
 const _DISF = "DescribeImageScanFindings";
 const _DISFR = "DescribeImageScanFindingsRequest";
 const _DISFRe = "DescribeImageScanFindingsResponse";
+const _DISS = "DescribeImageSigningStatus";
+const _DISSR = "DescribeImageSigningStatusRequest";
+const _DISSRe = "DescribeImageSigningStatusResponse";
 const _DLP = "DeleteLifecyclePolicy";
 const _DLPR = "DeleteLifecyclePolicyRequest";
 const _DLPRe = "DeleteLifecyclePolicyResponse";
@@ -76,6 +79,9 @@ const _DRRescr = "DescribeRepositoriesRequest";
 const _DRRescri = "DescribeRepositoriesResponse";
 const _DRe = "DescribeRegistry";
 const _DRes = "DescribeRepositories";
+const _DSC = "DeleteSigningConfiguration";
+const _DSCR = "DeleteSigningConfigurationRequest";
+const _DSCRe = "DeleteSigningConfigurationResponse";
 const _EAEE = "ExclusionAlreadyExistsException";
 const _EC = "EncryptionConfiguration";
 const _ECFRCT = "EncryptionConfigurationForRepositoryCreationTemplate";
@@ -107,6 +113,9 @@ const _GRPe = "GetRepositoryPolicy";
 const _GRSC = "GetRegistryScanningConfiguration";
 const _GRSCR = "GetRegistryScanningConfigurationRequest";
 const _GRSCRe = "GetRegistryScanningConfigurationResponse";
+const _GSC = "GetSigningConfiguration";
+const _GSCR = "GetSigningConfigurationRequest";
+const _GSCRe = "GetSigningConfigurationResponse";
 const _I = "Image";
 const _IAE = "ImageArchivedException";
 const _IAEE = "ImageAlreadyExistsException";
@@ -136,6 +145,8 @@ const _ISFL = "ImageScanFindingList";
 const _ISFS = "ImageScanFindingsSummary";
 const _ISFm = "ImageScanFindings";
 const _ISS = "ImageScanStatus";
+const _ISSL = "ImageSigningStatusList";
+const _ISSm = "ImageSigningStatus";
 const _ITAEE = "ImageTagAlreadyExistsException";
 const _ITMEF = "ImageTagMutabilityExclusionFilter";
 const _ITMEFm = "ImageTagMutabilityExclusionFilters";
@@ -197,6 +208,9 @@ const _PRPRu = "PutRegistryPolicyResponse";
 const _PRSC = "PutRegistryScanningConfiguration";
 const _PRSCR = "PutRegistryScanningConfigurationRequest";
 const _PRSCRu = "PutRegistryScanningConfigurationResponse";
+const _PSC = "PutSigningConfiguration";
+const _PSCR = "PutSigningConfigurationRequest";
+const _PSCRu = "PutSigningConfigurationResponse";
 const _PTCR = "PullThroughCacheRule";
 const _PTCRAEE = "PullThroughCacheRuleAlreadyExistsException";
 const _PTCRL = "PullThroughCacheRuleList";
@@ -234,6 +248,8 @@ const _RSRL = "RegistryScanningRuleList";
 const _Re = "Remediation";
 const _Rep = "Repository";
 const _Res = "Resource";
+const _SC = "SigningConfiguration";
+const _SCNFE = "SigningConfigurationNotFoundException";
 const _SD = "ScoreDetails";
 const _SE = "ServerException";
 const _SI = "SubjectIdentifier";
@@ -245,8 +261,12 @@ const _SLPPR = "StartLifecyclePolicyPreviewRequest";
 const _SLPPRt = "StartLifecyclePolicyPreviewResponse";
 const _SNFE = "ScanNotFoundException";
 const _SNFEe = "SecretNotFoundException";
+const _SR = "SigningRule";
 const _SRF = "ScanningRepositoryFilter";
 const _SRFL = "ScanningRepositoryFilterList";
+const _SRFLi = "SigningRepositoryFilterList";
+const _SRFi = "SigningRepositoryFilter";
+const _SRL = "SigningRuleList";
 const _SRP = "SetRepositoryPolicy";
 const _SRPR = "SetRepositoryPolicyRequest";
 const _SRPRe = "SetRepositoryPolicyResponse";
@@ -440,6 +460,7 @@ const _ru = "rules";
 const _s = "source";
 const _sC = "scanningConfigurations";
 const _sCc = "scanningConfiguration";
+const _sCi = "signingConfiguration";
 const _sCt = "storageClass";
 const _sD = "scoreDetails";
 const _sF = "scanFrequency";
@@ -447,7 +468,9 @@ const _sI = "subjectId";
 const _sLH = "sourceLayerHash";
 const _sMD = "subjectManifestDigest";
 const _sOP = "scanOnPush";
+const _sPA = "signingProfileArn";
 const _sS = "scoreSource";
+const _sSi = "signingStatuses";
 const _sT = "scanType";
 const _sU = "sourceUrl";
 const _sV = "scoringVector";
@@ -529,6 +552,7 @@ import {
   ScanNotFoundException as __ScanNotFoundException,
   SecretNotFoundException as __SecretNotFoundException,
   ServerException as __ServerException,
+  SigningConfigurationNotFoundException as __SigningConfigurationNotFoundException,
   TemplateAlreadyExistsException as __TemplateAlreadyExistsException,
   TemplateNotFoundException as __TemplateNotFoundException,
   TooManyTagsException as __TooManyTagsException,
@@ -742,6 +766,15 @@ export var DeleteRepositoryPolicyRequest: StaticStructureSchema = [3, n0, _DRPRe
 export var DeleteRepositoryPolicyResponse: StaticStructureSchema = [3, n0, _DRPRele, 0, [_rI, _rN, _pT], [0, 0, 0]];
 export var DeleteRepositoryRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_rI, _rN, _fo], [0, 0, 2]];
 export var DeleteRepositoryResponse: StaticStructureSchema = [3, n0, _DRRe, 0, [_re], [() => Repository]];
+export var DeleteSigningConfigurationRequest: StaticStructureSchema = [3, n0, _DSCR, 0, [], []];
+export var DeleteSigningConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DSCRe,
+  0,
+  [_rI, _sCi],
+  [0, () => SigningConfiguration],
+];
 export var DeregisterPullTimeUpdateExclusionRequest: StaticStructureSchema = [3, n0, _DPTUER, 0, [_pAr], [0]];
 export var DeregisterPullTimeUpdateExclusionResponse: StaticStructureSchema = [3, n0, _DPTUERe, 0, [_pAr], [0]];
 export var DescribeImageReplicationStatusRequest: StaticStructureSchema = [
@@ -777,6 +810,22 @@ export var DescribeImageScanFindingsResponse: StaticStructureSchema = [
   [0, 0, () => ImageIdentifier, () => ImageScanStatus, () => ImageScanFindings, 0],
 ];
 export var DescribeImagesFilter: StaticStructureSchema = [3, n0, _DIF, 0, [_tS, _iS], [0, 0]];
+export var DescribeImageSigningStatusRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DISSR,
+  0,
+  [_rN, _iIm, _rI],
+  [0, () => ImageIdentifier, 0],
+];
+export var DescribeImageSigningStatusResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DISSRe,
+  0,
+  [_rN, _iIm, _rI, _sSi],
+  [0, () => ImageIdentifier, 0, () => ImageSigningStatusList],
+];
 export var DescribeImagesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -958,6 +1007,15 @@ export var GetRegistryScanningConfigurationResponse: StaticStructureSchema = [
 ];
 export var GetRepositoryPolicyRequest: StaticStructureSchema = [3, n0, _GRPRet, 0, [_rI, _rN], [0, 0]];
 export var GetRepositoryPolicyResponse: StaticStructureSchema = [3, n0, _GRPRete, 0, [_rI, _rN, _pT], [0, 0, 0]];
+export var GetSigningConfigurationRequest: StaticStructureSchema = [3, n0, _GSCR, 0, [], []];
+export var GetSigningConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GSCRe,
+  0,
+  [_rI, _sCi],
+  [0, () => SigningConfiguration],
+];
 export var Image: StaticStructureSchema = [
   3,
   n0,
@@ -1052,6 +1110,7 @@ export var ImageScanFindings: StaticStructureSchema = [
 export var ImageScanFindingsSummary: StaticStructureSchema = [3, n0, _ISFS, 0, [_iSCA, _vSUA, _fSC], [4, 4, 128 | 1]];
 export var ImageScanningConfiguration: StaticStructureSchema = [3, n0, _ISC, 0, [_sOP], [2]];
 export var ImageScanStatus: StaticStructureSchema = [3, n0, _ISS, 0, [_st, _d], [0, 0]];
+export var ImageSigningStatus: StaticStructureSchema = [3, n0, _ISSm, 0, [_sPA, _fC, _fR, _st], [0, 0, 0, 0]];
 export var ImageStorageClassUpdateNotSupportedException: StaticErrorSchema = [
   -3,
   n0,
@@ -1421,6 +1480,22 @@ export var PutReplicationConfigurationResponse: StaticStructureSchema = [
   [_rC],
   [() => ReplicationConfiguration],
 ];
+export var PutSigningConfigurationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PSCR,
+  0,
+  [_sCi],
+  [() => SigningConfiguration],
+];
+export var PutSigningConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _PSCRu,
+  0,
+  [_sCi],
+  [() => SigningConfiguration],
+];
 export var Recommendation: StaticStructureSchema = [3, n0, _R, 0, [_ur, _te], [0, 0]];
 export var ReferencedImagesNotFoundException: StaticErrorSchema = [
   -3,
@@ -1628,6 +1703,21 @@ TypeRegistry.for(n0).registerError(ServerException, __ServerException);
 
 export var SetRepositoryPolicyRequest: StaticStructureSchema = [3, n0, _SRPR, 0, [_rI, _rN, _pT, _fo], [0, 0, 0, 2]];
 export var SetRepositoryPolicyResponse: StaticStructureSchema = [3, n0, _SRPRe, 0, [_rI, _rN, _pT], [0, 0, 0]];
+export var SigningConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_ru], [() => SigningRuleList]];
+export var SigningConfigurationNotFoundException: StaticErrorSchema = [
+  -3,
+  n0,
+  _SCNFE,
+  {
+    [_e]: _c,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(SigningConfigurationNotFoundException, __SigningConfigurationNotFoundException);
+
+export var SigningRepositoryFilter: StaticStructureSchema = [3, n0, _SRFi, 0, [_fi, _fT], [0, 0]];
+export var SigningRule: StaticStructureSchema = [3, n0, _SR, 0, [_sPA, _rF], [0, () => SigningRepositoryFilterList]];
 export var StartImageScanRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1901,6 +1991,7 @@ export var ImageList: StaticListSchema = [1, n0, _IL, 0, () => Image];
 export var ImageReferrerList: StaticListSchema = [1, n0, _IRL, 0, () => ImageReferrer];
 export var ImageReplicationStatusList: StaticListSchema = [1, n0, _IRSL, 0, () => ImageReplicationStatus];
 export var ImageScanFindingList: StaticListSchema = [1, n0, _ISFL, 0, () => ImageScanFinding];
+export var ImageSigningStatusList: StaticListSchema = [1, n0, _ISSL, 0, () => ImageSigningStatus];
 export var ImageTagList = 64 | 0;
 
 export var ImageTagMutabilityExclusionFilters: StaticListSchema = [
@@ -1958,6 +2049,8 @@ export var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource];
 export var ScanningConfigurationRepositoryNameList = 64 | 0;
 
 export var ScanningRepositoryFilterList: StaticListSchema = [1, n0, _SRFL, 0, () => ScanningRepositoryFilter];
+export var SigningRepositoryFilterList: StaticListSchema = [1, n0, _SRFLi, 0, () => SigningRepositoryFilter];
+export var SigningRuleList: StaticListSchema = [1, n0, _SRL, 0, () => SigningRule];
 export var TagKeyList = 64 | 0;
 
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
@@ -2081,6 +2174,14 @@ export var DeleteRepositoryPolicy: StaticOperationSchema = [
   () => DeleteRepositoryPolicyRequest,
   () => DeleteRepositoryPolicyResponse,
 ];
+export var DeleteSigningConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _DSC,
+  0,
+  () => DeleteSigningConfigurationRequest,
+  () => DeleteSigningConfigurationResponse,
+];
 export var DeregisterPullTimeUpdateExclusion: StaticOperationSchema = [
   9,
   n0,
@@ -2112,6 +2213,14 @@ export var DescribeImageScanFindings: StaticOperationSchema = [
   0,
   () => DescribeImageScanFindingsRequest,
   () => DescribeImageScanFindingsResponse,
+];
+export var DescribeImageSigningStatus: StaticOperationSchema = [
+  9,
+  n0,
+  _DISS,
+  0,
+  () => DescribeImageSigningStatusRequest,
+  () => DescribeImageSigningStatusResponse,
 ];
 export var DescribePullThroughCacheRules: StaticOperationSchema = [
   9,
@@ -2209,6 +2318,14 @@ export var GetRepositoryPolicy: StaticOperationSchema = [
   () => GetRepositoryPolicyRequest,
   () => GetRepositoryPolicyResponse,
 ];
+export var GetSigningConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _GSC,
+  0,
+  () => GetSigningConfigurationRequest,
+  () => GetSigningConfigurationResponse,
+];
 export var InitiateLayerUpload: StaticOperationSchema = [
   9,
   n0,
@@ -2298,6 +2415,14 @@ export var PutReplicationConfiguration: StaticOperationSchema = [
   0,
   () => PutReplicationConfigurationRequest,
   () => PutReplicationConfigurationResponse,
+];
+export var PutSigningConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _PSC,
+  0,
+  () => PutSigningConfigurationRequest,
+  () => PutSigningConfigurationResponse,
 ];
 export var RegisterPullTimeUpdateExclusion: StaticOperationSchema = [
   9,

@@ -73,6 +73,11 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  DeleteSigningConfigurationCommand,
+  DeleteSigningConfigurationCommandInput,
+  DeleteSigningConfigurationCommandOutput,
+} from "./commands/DeleteSigningConfigurationCommand";
+import {
   DeregisterPullTimeUpdateExclusionCommand,
   DeregisterPullTimeUpdateExclusionCommandInput,
   DeregisterPullTimeUpdateExclusionCommandOutput,
@@ -92,6 +97,11 @@ import {
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
+import {
+  DescribeImageSigningStatusCommand,
+  DescribeImageSigningStatusCommandInput,
+  DescribeImageSigningStatusCommandOutput,
+} from "./commands/DescribeImageSigningStatusCommand";
 import {
   DescribePullThroughCacheRulesCommand,
   DescribePullThroughCacheRulesCommandInput,
@@ -153,6 +163,11 @@ import {
   GetRepositoryPolicyCommandOutput,
 } from "./commands/GetRepositoryPolicyCommand";
 import {
+  GetSigningConfigurationCommand,
+  GetSigningConfigurationCommandInput,
+  GetSigningConfigurationCommandOutput,
+} from "./commands/GetSigningConfigurationCommand";
+import {
   InitiateLayerUploadCommand,
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
@@ -209,6 +224,11 @@ import {
   PutReplicationConfigurationCommandInput,
   PutReplicationConfigurationCommandOutput,
 } from "./commands/PutReplicationConfigurationCommand";
+import {
+  PutSigningConfigurationCommand,
+  PutSigningConfigurationCommandInput,
+  PutSigningConfigurationCommandOutput,
+} from "./commands/PutSigningConfigurationCommand";
 import {
   RegisterPullTimeUpdateExclusionCommand,
   RegisterPullTimeUpdateExclusionCommandInput,
@@ -277,10 +297,12 @@ const commands = {
   DeleteRepositoryCommand,
   DeleteRepositoryCreationTemplateCommand,
   DeleteRepositoryPolicyCommand,
+  DeleteSigningConfigurationCommand,
   DeregisterPullTimeUpdateExclusionCommand,
   DescribeImageReplicationStatusCommand,
   DescribeImagesCommand,
   DescribeImageScanFindingsCommand,
+  DescribeImageSigningStatusCommand,
   DescribePullThroughCacheRulesCommand,
   DescribeRegistryCommand,
   DescribeRepositoriesCommand,
@@ -293,6 +315,7 @@ const commands = {
   GetRegistryPolicyCommand,
   GetRegistryScanningConfigurationCommand,
   GetRepositoryPolicyCommand,
+  GetSigningConfigurationCommand,
   InitiateLayerUploadCommand,
   ListImageReferrersCommand,
   ListImagesCommand,
@@ -306,6 +329,7 @@ const commands = {
   PutRegistryPolicyCommand,
   PutRegistryScanningConfigurationCommand,
   PutReplicationConfigurationCommand,
+  PutSigningConfigurationCommand,
   RegisterPullTimeUpdateExclusionCommand,
   SetRepositoryPolicyCommand,
   StartImageScanCommand,
@@ -554,6 +578,24 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link DeleteSigningConfigurationCommand}
+   */
+  deleteSigningConfiguration(): Promise<DeleteSigningConfigurationCommandOutput>;
+  deleteSigningConfiguration(
+    args: DeleteSigningConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSigningConfigurationCommandOutput>;
+  deleteSigningConfiguration(
+    args: DeleteSigningConfigurationCommandInput,
+    cb: (err: any, data?: DeleteSigningConfigurationCommandOutput) => void
+  ): void;
+  deleteSigningConfiguration(
+    args: DeleteSigningConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSigningConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeregisterPullTimeUpdateExclusionCommand}
    */
   deregisterPullTimeUpdateExclusion(
@@ -616,6 +658,23 @@ export interface ECR {
     args: DescribeImageScanFindingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeImageSigningStatusCommand}
+   */
+  describeImageSigningStatus(
+    args: DescribeImageSigningStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageSigningStatusCommandOutput>;
+  describeImageSigningStatus(
+    args: DescribeImageSigningStatusCommandInput,
+    cb: (err: any, data?: DescribeImageSigningStatusCommandOutput) => void
+  ): void;
+  describeImageSigningStatus(
+    args: DescribeImageSigningStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageSigningStatusCommandOutput) => void
   ): void;
 
   /**
@@ -830,6 +889,24 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link GetSigningConfigurationCommand}
+   */
+  getSigningConfiguration(): Promise<GetSigningConfigurationCommandOutput>;
+  getSigningConfiguration(
+    args: GetSigningConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSigningConfigurationCommandOutput>;
+  getSigningConfiguration(
+    args: GetSigningConfigurationCommandInput,
+    cb: (err: any, data?: GetSigningConfigurationCommandOutput) => void
+  ): void;
+  getSigningConfiguration(
+    args: GetSigningConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSigningConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link InitiateLayerUploadCommand}
    */
   initiateLayerUpload(
@@ -1038,6 +1115,23 @@ export interface ECR {
     args: PutReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutReplicationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSigningConfigurationCommand}
+   */
+  putSigningConfiguration(
+    args: PutSigningConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSigningConfigurationCommandOutput>;
+  putSigningConfiguration(
+    args: PutSigningConfigurationCommandInput,
+    cb: (err: any, data?: PutSigningConfigurationCommandOutput) => void
+  ): void;
+  putSigningConfiguration(
+    args: PutSigningConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSigningConfigurationCommandOutput) => void
   ): void;
 
   /**
