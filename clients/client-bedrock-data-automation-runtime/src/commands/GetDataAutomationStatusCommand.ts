@@ -52,6 +52,9 @@ export interface GetDataAutomationStatusCommandOutput extends GetDataAutomationS
  * //   outputConfiguration: { // OutputConfiguration
  * //     s3Uri: "STRING_VALUE", // required
  * //   },
+ * //   jobSubmissionTime: new Date("TIMESTAMP"),
+ * //   jobCompletionTime: new Date("TIMESTAMP"),
+ * //   jobDurationInSeconds: Number("int"),
  * // };
  *
  * ```

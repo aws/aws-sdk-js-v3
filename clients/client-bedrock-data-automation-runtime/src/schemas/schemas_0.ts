@@ -61,6 +61,9 @@ const _eTM = "endTimeMillis";
 const _hE = "httpError";
 const _iA = "invocationArn";
 const _iC = "inputConfiguration";
+const _jCT = "jobCompletionTime";
+const _jDIS = "jobDurationInSeconds";
+const _jST = "jobSubmissionTime";
 const _k = "key";
 const _kEC = "kmsEncryptionContext";
 const _kKI = "kmsKeyId";
@@ -140,8 +143,8 @@ export var GetDataAutomationStatusResponse: StaticStructureSchema = [
   n0,
   _GDASRe,
   0,
-  [_st, _eT, _eM, _oC],
-  [0, 0, 0, () => OutputConfiguration],
+  [_st, _eT, _eM, _oC, _jST, _jCT, _jDIS],
+  [0, 0, 0, () => OutputConfiguration, 5, 5, 1],
 ];
 export var InputConfiguration: StaticStructureSchema = [
   3,

@@ -59,6 +59,24 @@ export interface GetDataAutomationStatusResponse {
    * @public
    */
   outputConfiguration?: OutputConfiguration | undefined;
+
+  /**
+   * Job Submission time.
+   * @public
+   */
+  jobSubmissionTime?: Date | undefined;
+
+  /**
+   * Job completion time.
+   * @public
+   */
+  jobCompletionTime?: Date | undefined;
+
+  /**
+   * Job duration in seconds.
+   * @public
+   */
+  jobDurationInSeconds?: number | undefined;
 }
 
 /**
