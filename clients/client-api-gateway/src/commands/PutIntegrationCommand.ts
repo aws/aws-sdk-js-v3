@@ -63,6 +63,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  *     insecureSkipVerification: true || false,
  *   },
  *   responseTransferMode: "BUFFERED" || "STREAM",
+ *   integrationTarget: "STRING_VALUE",
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
@@ -103,6 +104,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  * //     insecureSkipVerification: true || false,
  * //   },
  * //   responseTransferMode: "BUFFERED" || "STREAM",
+ * //   integrationTarget: "STRING_VALUE",
  * // };
  *
  * ```

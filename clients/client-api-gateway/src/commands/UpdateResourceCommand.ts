@@ -109,6 +109,7 @@ export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer 
  * //           insecureSkipVerification: true || false,
  * //         },
  * //         responseTransferMode: "BUFFERED" || "STREAM",
+ * //         integrationTarget: "STRING_VALUE",
  * //       },
  * //       authorizationScopes: [
  * //         "STRING_VALUE",

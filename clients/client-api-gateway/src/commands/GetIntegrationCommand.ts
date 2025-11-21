@@ -80,6 +80,7 @@ export interface GetIntegrationCommandOutput extends Integration, __MetadataBear
  * //     insecureSkipVerification: true || false,
  * //   },
  * //   responseTransferMode: "BUFFERED" || "STREAM",
+ * //   integrationTarget: "STRING_VALUE",
  * // };
  *
  * ```

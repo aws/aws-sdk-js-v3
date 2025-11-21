@@ -88,6 +88,7 @@ export interface UpdateIntegrationCommandOutput extends Integration, __MetadataB
  * //     insecureSkipVerification: true || false,
  * //   },
  * //   responseTransferMode: "BUFFERED" || "STREAM",
+ * //   integrationTarget: "STRING_VALUE",
  * // };
  *
  * ```

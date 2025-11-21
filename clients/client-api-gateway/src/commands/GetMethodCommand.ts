@@ -96,6 +96,7 @@ export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
  * //       insecureSkipVerification: true || false,
  * //     },
  * //     responseTransferMode: "BUFFERED" || "STREAM",
+ * //     integrationTarget: "STRING_VALUE",
  * //   },
  * //   authorizationScopes: [
  * //     "STRING_VALUE",

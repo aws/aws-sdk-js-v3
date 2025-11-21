@@ -460,6 +460,7 @@ const _iHM = "integrationHttpMethod";
 const _iR = "integrationResponses";
 const _iS = "identitySource";
 const _iSV = "insecureSkipVerification";
+const _iT = "integrationTarget";
 const _iV = "includeValue";
 const _iVE = "identityValidationExpression";
 const _iVn = "includeValues";
@@ -2229,8 +2230,8 @@ export var Integration: StaticStructureSchema = [
   n0,
   _I,
   0,
-  [_ty, _hM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cH, _tIM, _cNa, _cKP, _iR, _tC, _rTM],
-  [0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 1, 0, 64 | 0, () => MapOfIntegrationResponse, () => TlsConfig, 0],
+  [_ty, _hM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cH, _tIM, _cNa, _cKP, _iR, _tC, _rTM, _iT],
+  [0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 1, 0, 64 | 0, () => MapOfIntegrationResponse, () => TlsConfig, 0, 0],
 ];
 export var IntegrationResponse: StaticStructureSchema = [
   3,
@@ -2330,7 +2331,7 @@ export var PutIntegrationRequest: StaticStructureSchema = [
   n0,
   _PIR,
   0,
-  [_rAI, _rI, _hM, _ty, _iHM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cNa, _cKP, _cH, _tIM, _tC, _rTM],
+  [_rAI, _rI, _hM, _ty, _iHM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cNa, _cKP, _cH, _tIM, _tC, _rTM, _iT],
   [
     [0, 1],
     [0, 1],
@@ -2360,6 +2361,7 @@ export var PutIntegrationRequest: StaticStructureSchema = [
     0,
     1,
     () => TlsConfig,
+    0,
     0,
   ],
 ];

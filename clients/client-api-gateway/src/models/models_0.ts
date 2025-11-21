@@ -1586,6 +1586,14 @@ export interface Integration {
    * @public
    */
   responseTransferMode?: ResponseTransferMode | undefined;
+
+  /**
+   * <p>
+   * The ALB or NLB listener to send the request to.
+   * </p>
+   * @public
+   */
+  integrationTarget?: string | undefined;
 }
 
 /**
@@ -4830,6 +4838,14 @@ export interface PutIntegrationRequest {
    * @public
    */
   responseTransferMode?: ResponseTransferMode | undefined;
+
+  /**
+   * <p>
+   * The ALB or NLB listener to send the request to.
+   * </p>
+   * @public
+   */
+  integrationTarget?: string | undefined;
 }
 
 /**
