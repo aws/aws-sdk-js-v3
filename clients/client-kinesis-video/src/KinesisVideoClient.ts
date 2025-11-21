@@ -96,6 +96,10 @@ import {
   DescribeSignalingChannelCommandOutput,
 } from "./commands/DescribeSignalingChannelCommand";
 import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
+import {
+  DescribeStreamStorageConfigurationCommandInput,
+  DescribeStreamStorageConfigurationCommandOutput,
+} from "./commands/DescribeStreamStorageConfigurationCommand";
 import { GetDataEndpointCommandInput, GetDataEndpointCommandOutput } from "./commands/GetDataEndpointCommand";
 import {
   GetSignalingChannelEndpointCommandInput,
@@ -145,6 +149,10 @@ import {
 } from "./commands/UpdateSignalingChannelCommand";
 import { UpdateStreamCommandInput, UpdateStreamCommandOutput } from "./commands/UpdateStreamCommand";
 import {
+  UpdateStreamStorageConfigurationCommandInput,
+  UpdateStreamStorageConfigurationCommandOutput,
+} from "./commands/UpdateStreamStorageConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -171,6 +179,7 @@ export type ServiceInputTypes =
   | DescribeNotificationConfigurationCommandInput
   | DescribeSignalingChannelCommandInput
   | DescribeStreamCommandInput
+  | DescribeStreamStorageConfigurationCommandInput
   | GetDataEndpointCommandInput
   | GetSignalingChannelEndpointCommandInput
   | ListEdgeAgentConfigurationsCommandInput
@@ -188,7 +197,8 @@ export type ServiceInputTypes =
   | UpdateMediaStorageConfigurationCommandInput
   | UpdateNotificationConfigurationCommandInput
   | UpdateSignalingChannelCommandInput
-  | UpdateStreamCommandInput;
+  | UpdateStreamCommandInput
+  | UpdateStreamStorageConfigurationCommandInput;
 
 /**
  * @public
@@ -206,6 +216,7 @@ export type ServiceOutputTypes =
   | DescribeNotificationConfigurationCommandOutput
   | DescribeSignalingChannelCommandOutput
   | DescribeStreamCommandOutput
+  | DescribeStreamStorageConfigurationCommandOutput
   | GetDataEndpointCommandOutput
   | GetSignalingChannelEndpointCommandOutput
   | ListEdgeAgentConfigurationsCommandOutput
@@ -223,7 +234,8 @@ export type ServiceOutputTypes =
   | UpdateMediaStorageConfigurationCommandOutput
   | UpdateNotificationConfigurationCommandOutput
   | UpdateSignalingChannelCommandOutput
-  | UpdateStreamCommandOutput;
+  | UpdateStreamCommandOutput
+  | UpdateStreamStorageConfigurationCommandOutput;
 
 /**
  * @public

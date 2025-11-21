@@ -301,6 +301,14 @@ DescribeStream
 </details>
 <details>
 <summary>
+DescribeStreamStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video/command/DescribeStreamStorageConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video/Interface/DescribeStreamStorageConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video/Interface/DescribeStreamStorageConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataEndpoint
 </summary>
 
@@ -441,5 +449,13 @@ UpdateStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video/command/UpdateStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video/Interface/UpdateStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video/Interface/UpdateStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateStreamStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video/command/UpdateStreamStorageConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video/Interface/UpdateStreamStorageConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video/Interface/UpdateStreamStorageConfigurationCommandOutput/)
 
 </details>

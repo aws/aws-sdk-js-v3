@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { CreateStreamInput, CreateStreamOutput } from "../models/models_0";
-import { CreateStream } from "../schemas/schemas_0";
+import { UpdateStreamStorageConfigurationInput, UpdateStreamStorageConfigurationOutput } from "../models/models_0";
+import { UpdateStreamStorageConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,76 +16,61 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateStreamCommand}.
+ * The input for {@link UpdateStreamStorageConfigurationCommand}.
  */
-export interface CreateStreamCommandInput extends CreateStreamInput {}
+export interface UpdateStreamStorageConfigurationCommandInput extends UpdateStreamStorageConfigurationInput {}
 /**
  * @public
  *
- * The output of {@link CreateStreamCommand}.
+ * The output of {@link UpdateStreamStorageConfigurationCommand}.
  */
-export interface CreateStreamCommandOutput extends CreateStreamOutput, __MetadataBearer {}
+export interface UpdateStreamStorageConfigurationCommandOutput
+  extends UpdateStreamStorageConfigurationOutput,
+    __MetadataBearer {}
 
 /**
- * <p>Creates a new Kinesis video stream. </p>
- *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
- *             When you change the stream's metadata, Kinesis Video Streams updates the version. </p>
+ * <p>Updates the storage configuration for an existing Kinesis video stream.</p>
+ *          <p>This operation allows you to modify the storage tier settings for a stream, enabling you to optimize storage costs and performance based on your access patterns.</p>
  *          <p>
- *             <code>CreateStream</code> is an asynchronous operation.</p>
- *          <p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
- *          <p>You must have permissions for the <code>KinesisVideo:CreateStream</code>
- *             action.</p>
+ *             <code>UpdateStreamStorageConfiguration</code> is an asynchronous operation.</p>
+ *          <p>You must have permissions for the <code>KinesisVideo:UpdateStreamStorageConfiguration</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, CreateStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, CreateStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, UpdateStreamStorageConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, UpdateStreamStorageConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * // import type { KinesisVideoClientConfig } from "@aws-sdk/client-kinesis-video";
  * const config = {}; // type is KinesisVideoClientConfig
  * const client = new KinesisVideoClient(config);
- * const input = { // CreateStreamInput
- *   DeviceName: "STRING_VALUE",
- *   StreamName: "STRING_VALUE", // required
- *   MediaType: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
- *   DataRetentionInHours: Number("int"),
- *   Tags: { // ResourceTags
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // UpdateStreamStorageConfigurationInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   CurrentVersion: "STRING_VALUE", // required
  *   StreamStorageConfiguration: { // StreamStorageConfiguration
  *     DefaultStorageTier: "HOT" || "WARM", // required
  *   },
  * };
- * const command = new CreateStreamCommand(input);
+ * const command = new UpdateStreamStorageConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // CreateStreamOutput
- * //   StreamARN: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
- * @returns {@link CreateStreamCommandOutput}
- * @see {@link CreateStreamCommandInput} for command's `input` shape.
- * @see {@link CreateStreamCommandOutput} for command's `response` shape.
+ * @param UpdateStreamStorageConfigurationCommandInput - {@link UpdateStreamStorageConfigurationCommandInput}
+ * @returns {@link UpdateStreamStorageConfigurationCommandOutput}
+ * @see {@link UpdateStreamStorageConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateStreamStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
- * @throws {@link AccountStreamLimitExceededException} (client fault)
- *  <p>The number of streams created for the account is too high.</p>
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
  *
  * @throws {@link ClientLimitExceededException} (client fault)
  *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *             allowed client calls. Try making the call later.</p>
  *
- * @throws {@link DeviceStreamLimitExceededException} (client fault)
- *  <p>Not implemented.
- *             </p>
- *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>The value for this input parameter is invalid.</p>
- *
- * @throws {@link InvalidDeviceException} (client fault)
- *  <p>Not implemented.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
@@ -107,9 +92,13 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  *             </li>
  *          </ol>
  *
- * @throws {@link TagsPerResourceExceededLimitException} (client fault)
- *  <p>You have exceeded the limit of tags that you can associate with the resource.
- *             A Kinesis video stream can support up to 50 tags. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * @throws {@link VersionMismatchException} (client fault)
+ *  <p>The stream version that you specified is not the latest version. To get the latest
+ *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
+ *             API.</p>
  *
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
@@ -117,10 +106,10 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  *
  * @public
  */
-export class CreateStreamCommand extends $Command
+export class UpdateStreamStorageConfigurationCommand extends $Command
   .classBuilder<
-    CreateStreamCommandInput,
-    CreateStreamCommandOutput,
+    UpdateStreamStorageConfigurationCommandInput,
+    UpdateStreamStorageConfigurationCommandOutput,
     KinesisVideoClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -129,19 +118,19 @@ export class CreateStreamCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("KinesisVideo_20170930", "CreateStream", {})
-  .n("KinesisVideoClient", "CreateStreamCommand")
-  .sc(CreateStream)
+  .s("KinesisVideo_20170930", "UpdateStreamStorageConfiguration", {})
+  .n("KinesisVideoClient", "UpdateStreamStorageConfigurationCommand")
+  .sc(UpdateStreamStorageConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateStreamInput;
-      output: CreateStreamOutput;
+      input: UpdateStreamStorageConfigurationInput;
+      output: {};
     };
     sdk: {
-      input: CreateStreamCommandInput;
-      output: CreateStreamCommandOutput;
+      input: UpdateStreamStorageConfigurationCommandInput;
+      output: UpdateStreamStorageConfigurationCommandOutput;
     };
   };
 }

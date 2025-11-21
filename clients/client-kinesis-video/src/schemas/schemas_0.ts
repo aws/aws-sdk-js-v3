@@ -60,6 +60,10 @@ const _DSIe = "DescribeStreamInput";
 const _DSLEE = "DeviceStreamLimitExceededException";
 const _DSO = "DeleteStreamOutput";
 const _DSOe = "DescribeStreamOutput";
+const _DSSC = "DescribeStreamStorageConfiguration";
+const _DSSCI = "DescribeStreamStorageConfigurationInput";
+const _DSSCO = "DescribeStreamStorageConfigurationOutput";
+const _DST = "DefaultStorageTier";
 const _DSe = "DescribeStream";
 const _EAS = "EdgeAgentStatus";
 const _EC = "EdgeConfig";
@@ -152,6 +156,7 @@ const _SN = "StreamName";
 const _SNC = "StreamNameCondition";
 const _SOFS = "StrategyOnFullSize";
 const _SS = "SyncStatus";
+const _SSC = "StreamStorageConfiguration";
 const _T = "Tags";
 const _TKL = "TagKeyList";
 const _TL = "TagList";
@@ -190,6 +195,9 @@ const _USI = "UntagStreamInput";
 const _USIp = "UpdateStreamInput";
 const _USO = "UntagStreamOutput";
 const _USOp = "UpdateStreamOutput";
+const _USSC = "UpdateStreamStorageConfiguration";
+const _USSCI = "UpdateStreamStorageConfigurationInput";
+const _USSCO = "UpdateStreamStorageConfigurationOutput";
 const _USn = "UntagStream";
 const _USp = "UpdateStream";
 const _V = "Version";
@@ -311,8 +319,8 @@ export var CreateStreamInput: StaticStructureSchema = [
   n0,
   _CSI,
   0,
-  [_DN, _SN, _MT, _KKI, _DRIH, _T],
-  [0, 0, 0, 0, 1, 128 | 0],
+  [_DN, _SN, _MT, _KKI, _DRIH, _T, _SSC],
+  [0, 0, 0, 0, 1, 128 | 0, () => StreamStorageConfiguration],
 ];
 export var CreateStreamOutput: StaticStructureSchema = [3, n0, _CSO, 0, [_SARN], [0]];
 export var DeleteEdgeConfigurationInput: StaticStructureSchema = [3, n0, _DECI, 0, [_SN, _SARN], [0, 0]];
@@ -378,6 +386,15 @@ export var DescribeSignalingChannelInput: StaticStructureSchema = [3, n0, _DSCIe
 export var DescribeSignalingChannelOutput: StaticStructureSchema = [3, n0, _DSCOe, 0, [_CI], [() => ChannelInfo]];
 export var DescribeStreamInput: StaticStructureSchema = [3, n0, _DSIe, 0, [_SN, _SARN], [0, 0]];
 export var DescribeStreamOutput: StaticStructureSchema = [3, n0, _DSOe, 0, [_SI], [() => StreamInfo]];
+export var DescribeStreamStorageConfigurationInput: StaticStructureSchema = [3, n0, _DSSCI, 0, [_SN, _SARN], [0, 0]];
+export var DescribeStreamStorageConfigurationOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _DSSCO,
+  0,
+  [_SN, _SARN, _SSC],
+  [0, 0, () => StreamStorageConfiguration],
+];
 export var DeviceStreamLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -646,6 +663,7 @@ export var StreamInfo: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 4, 1],
 ];
 export var StreamNameCondition: StaticStructureSchema = [3, n0, _SNC, 0, [_CO, _CV], [0, 0]];
+export var StreamStorageConfiguration: StaticStructureSchema = [3, n0, _SSC, 0, [_DST], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RARN, _T], [0, () => TagList]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
@@ -715,6 +733,15 @@ export var UpdateSignalingChannelInput: StaticStructureSchema = [
 export var UpdateSignalingChannelOutput: StaticStructureSchema = [3, n0, _USCO, 0, [], []];
 export var UpdateStreamInput: StaticStructureSchema = [3, n0, _USIp, 0, [_SN, _SARN, _CVu, _DN, _MT], [0, 0, 0, 0, 0]];
 export var UpdateStreamOutput: StaticStructureSchema = [3, n0, _USOp, 0, [], []];
+export var UpdateStreamStorageConfigurationInput: StaticStructureSchema = [
+  3,
+  n0,
+  _USSCI,
+  0,
+  [_SN, _SARN, _CVu, _SSC],
+  [0, 0, 0, () => StreamStorageConfiguration],
+];
+export var UpdateStreamStorageConfigurationOutput: StaticStructureSchema = [3, n0, _USSCO, 0, [], []];
 export var UploaderConfig: StaticStructureSchema = [3, n0, _UC, 0, [_SC], [() => ScheduleConfig]];
 export var VersionMismatchException: StaticErrorSchema = [
   -3,
@@ -880,6 +907,16 @@ export var DescribeStream: StaticOperationSchema = [
   },
   () => DescribeStreamInput,
   () => DescribeStreamOutput,
+];
+export var DescribeStreamStorageConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _DSSC,
+  {
+    [_h]: ["POST", "/describeStreamStorageConfiguration", 200],
+  },
+  () => DescribeStreamStorageConfigurationInput,
+  () => DescribeStreamStorageConfigurationOutput,
 ];
 export var GetDataEndpoint: StaticOperationSchema = [
   9,
@@ -1060,4 +1097,14 @@ export var UpdateStream: StaticOperationSchema = [
   },
   () => UpdateStreamInput,
   () => UpdateStreamOutput,
+];
+export var UpdateStreamStorageConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _USSC,
+  {
+    [_h]: ["POST", "/updateStreamStorageConfiguration", 200],
+  },
+  () => UpdateStreamStorageConfigurationInput,
+  () => UpdateStreamStorageConfigurationOutput,
 ];

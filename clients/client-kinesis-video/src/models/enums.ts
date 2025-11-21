@@ -102,6 +102,19 @@ export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof Conf
  * @public
  * @enum
  */
+export const DefaultStorageTier = {
+  HOT: "HOT",
+  WARM: "WARM",
+} as const;
+/**
+ * @public
+ */
+export type DefaultStorageTier = (typeof DefaultStorageTier)[keyof typeof DefaultStorageTier];
+
+/**
+ * @public
+ * @enum
+ */
 export const StrategyOnFullSize = {
   DELETE_OLDEST_MEDIA: "DELETE_OLDEST_MEDIA",
   DENY_NEW_MEDIA: "DENY_NEW_MEDIA",

@@ -6,6 +6,7 @@ import {
   ChannelType,
   ComparisonOperator,
   ConfigurationStatus,
+  DefaultStorageTier,
   Format,
   FormatConfigKey,
   ImageSelectorType,
@@ -26,8 +27,9 @@ import {
  */
 export interface SingleMasterConfiguration {
   /**
-   * <p>The period of time a signaling channel retains undelivered messages before they are
-   *             discarded.</p>
+   * <p>The period of time (in seconds) a signaling channel retains undelivered messages
+   *             before they are discarded. Use  to update
+   *             this value.</p>
    * @public
    */
   MessageTtlSeconds?: number | undefined;
@@ -141,7 +143,8 @@ export interface CreateSignalingChannelInput {
 
   /**
    * <p>A structure containing the configuration for the <code>SINGLE_MASTER</code> channel
-   *             type. </p>
+   *             type. The default configuration for the channel message's time to live is 60 seconds (1
+   *             minute).</p>
    * @public
    */
   SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
@@ -165,14 +168,36 @@ export interface CreateSignalingChannelOutput {
 }
 
 /**
+ * <p>The configuration for stream storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.</p>
+ * @public
+ */
+export interface StreamStorageConfiguration {
+  /**
+   * <p>The default storage tier for the stream data. This setting determines the storage class used for stream data, affecting both performance characteristics and storage costs.</p>
+   *          <p>Available storage tiers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HOT</code> - Optimized for frequent access with the lowest latency and highest performance. Ideal for real-time applications and frequently accessed data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WARM</code> - Balanced performance and cost for moderately accessed data. Suitable for data that is accessed regularly but not continuously.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DefaultStorageTier: DefaultStorageTier | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateStreamInput {
   /**
    * <p>The name of the device that is writing to the stream. </p>
    *          <note>
-   *             <p>In the current implementation, Kinesis Video Streams does not use this
-   *                 name.</p>
+   *             <p>In the current implementation, Kinesis Video Streams doesn't use this name.</p>
    *          </note>
    * @public
    */
@@ -202,7 +227,7 @@ export interface CreateStreamInput {
    * <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video
    *             Streams to use to encrypt stream data.</p>
    *          <p>If no key ID is specified, the default, Kinesis Video-managed key
-   *             (<code>Amazon Web Services/kinesisvideo</code>) is used.</p>
+   *             (<code>aws/kinesisvideo</code>) is used.</p>
    *          <p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
    * @public
    */
@@ -210,7 +235,8 @@ export interface CreateStreamInput {
 
   /**
    * <p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p>
-   *          <p>The default value is 0, indicating that the stream does not persist data.</p>
+   *          <p>The default value is 0, indicating that the stream does not persist data. The minimum
+   *             is 1 hour.</p>
    *          <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
    *             the fragments that remain in the service host buffer, which has a retention time limit
    *             of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the
@@ -225,6 +251,13 @@ export interface CreateStreamInput {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for the stream's storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.</p>
+   *          <p>If not specified, the stream will use the default storage configuration with HOT tier for optimal performance.</p>
+   * @public
+   */
+  StreamStorageConfiguration?: StreamStorageConfiguration | undefined;
 }
 
 /**
@@ -500,7 +533,7 @@ export interface ScheduleConfig {
    *             camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>,
    *             then the Edge Agent will always be set to recording mode.</p>
    *          <p>For more information about Quartz, refer to the
-   *             <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html">
+   *             <a href="https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html">
    *                <i>Cron Trigger Tutorial</i>
    *             </a> page to understand the valid expressions and its use.</p>
    * @public
@@ -517,7 +550,7 @@ export interface ScheduleConfig {
 
 /**
  * <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as
- *             credentials to accesss the local media files streamed on the camera. </p>
+ *             credentials to access the local media files streamed on the camera. </p>
  * @public
  */
 export interface RecorderConfig {
@@ -911,7 +944,11 @@ export interface NotificationDestinationConfig {
 }
 
 /**
- * <p>The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.</p>
+ * <p>Use this API to configure Amazon Simple Notification Service (Amazon SNS)
+ *             notifications for when fragments become available in a stream. If this parameter is
+ *             null, the configuration will be deleted from the stream.</p>
+ *          <p>See <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/notifications.html">Notifications in Kinesis
+ *                 Video Streams</a> for more information.</p>
  * @public
  */
 export interface NotificationConfiguration {
@@ -1055,6 +1092,46 @@ export interface DescribeStreamOutput {
    * @public
    */
   StreamInfo?: StreamInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStreamStorageConfigurationInput {
+  /**
+   * <p>The name of the stream for which you want to retrieve the storage configuration.</p>
+   * @public
+   */
+  StreamName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream for which you want to retrieve the storage configuration.</p>
+   * @public
+   */
+  StreamARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStreamStorageConfigurationOutput {
+  /**
+   * <p>The name of the stream.</p>
+   * @public
+   */
+  StreamName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   * @public
+   */
+  StreamARN?: string | undefined;
+
+  /**
+   * <p>The current storage configuration for the stream, including the default storage tier and other storage-related settings.</p>
+   * @public
+   */
+  StreamStorageConfiguration?: StreamStorageConfiguration | undefined;
 }
 
 /**
@@ -1783,7 +1860,9 @@ export interface UpdateSignalingChannelInput {
 
   /**
    * <p>The structure containing the configuration for the <code>SINGLE_MASTER</code> type of
-   *             the signaling channel that you want to update. </p>
+   *             the signaling channel that you want to update. This parameter and the channel message's
+   *             time-to-live are required for channels with the <code>SINGLE_MASTER</code> channel
+   *             type.</p>
    * @public
    */
   SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
@@ -1846,3 +1925,40 @@ export interface UpdateStreamInput {
  * @public
  */
 export interface UpdateStreamOutput {}
+
+/**
+ * @public
+ */
+export interface UpdateStreamStorageConfigurationInput {
+  /**
+   * <p>The name of the stream for which you want to update the storage configuration.</p>
+   * @public
+   */
+  StreamName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream for which you want to update the storage configuration.</p>
+   * @public
+   */
+  StreamARN?: string | undefined;
+
+  /**
+   * <p>The version of the stream whose storage configuration you want to change. To get the
+   *             version, call either the <code>DescribeStream</code> or the <code>ListStreams</code>
+   *             API.</p>
+   * @public
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * <p>The new storage configuration for the stream. This includes the default storage tier that determines how stream data is stored and accessed.</p>
+   *          <p>Different storage tiers offer varying levels of performance and cost optimization to match your specific use case requirements.</p>
+   * @public
+   */
+  StreamStorageConfiguration: StreamStorageConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStreamStorageConfigurationOutput {}

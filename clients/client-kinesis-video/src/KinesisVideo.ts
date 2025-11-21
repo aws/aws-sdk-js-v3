@@ -63,6 +63,11 @@ import {
   DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
 import {
+  DescribeStreamStorageConfigurationCommand,
+  DescribeStreamStorageConfigurationCommandInput,
+  DescribeStreamStorageConfigurationCommandOutput,
+} from "./commands/DescribeStreamStorageConfigurationCommand";
+import {
   GetDataEndpointCommand,
   GetDataEndpointCommandInput,
   GetDataEndpointCommandOutput,
@@ -136,6 +141,11 @@ import {
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput,
 } from "./commands/UpdateStreamCommand";
+import {
+  UpdateStreamStorageConfigurationCommand,
+  UpdateStreamStorageConfigurationCommandInput,
+  UpdateStreamStorageConfigurationCommandOutput,
+} from "./commands/UpdateStreamStorageConfigurationCommand";
 import { KinesisVideoClient, KinesisVideoClientConfig } from "./KinesisVideoClient";
 
 const commands = {
@@ -151,6 +161,7 @@ const commands = {
   DescribeNotificationConfigurationCommand,
   DescribeSignalingChannelCommand,
   DescribeStreamCommand,
+  DescribeStreamStorageConfigurationCommand,
   GetDataEndpointCommand,
   GetSignalingChannelEndpointCommand,
   ListEdgeAgentConfigurationsCommand,
@@ -169,6 +180,7 @@ const commands = {
   UpdateNotificationConfigurationCommand,
   UpdateSignalingChannelCommand,
   UpdateStreamCommand,
+  UpdateStreamStorageConfigurationCommand,
 };
 
 export interface KinesisVideo {
@@ -367,6 +379,24 @@ export interface KinesisVideo {
     args: DescribeStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeStreamStorageConfigurationCommand}
+   */
+  describeStreamStorageConfiguration(): Promise<DescribeStreamStorageConfigurationCommandOutput>;
+  describeStreamStorageConfiguration(
+    args: DescribeStreamStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStreamStorageConfigurationCommandOutput>;
+  describeStreamStorageConfiguration(
+    args: DescribeStreamStorageConfigurationCommandInput,
+    cb: (err: any, data?: DescribeStreamStorageConfigurationCommandOutput) => void
+  ): void;
+  describeStreamStorageConfiguration(
+    args: DescribeStreamStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStreamStorageConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -639,6 +669,23 @@ export interface KinesisVideo {
     args: UpdateStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateStreamStorageConfigurationCommand}
+   */
+  updateStreamStorageConfiguration(
+    args: UpdateStreamStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStreamStorageConfigurationCommandOutput>;
+  updateStreamStorageConfiguration(
+    args: UpdateStreamStorageConfigurationCommandInput,
+    cb: (err: any, data?: UpdateStreamStorageConfigurationCommandOutput) => void
+  ): void;
+  updateStreamStorageConfiguration(
+    args: UpdateStreamStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStreamStorageConfigurationCommandOutput) => void
   ): void;
 }
 

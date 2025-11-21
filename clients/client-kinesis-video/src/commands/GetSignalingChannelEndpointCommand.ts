@@ -34,7 +34,9 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  *             <code>Protocols</code> is used to determine the communication mechanism. For example,
  *             if you specify <code>WSS</code> as the protocol, this API produces a secure websocket
  *             endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS
- *             endpoint. </p>
+ *             endpoint. If you specify <code>WEBRTC</code> as the protocol, but the signaling channel isn't
+ *             configured for ingestion, you will receive the error
+ *                 <code>InvalidArgumentException</code>.</p>
  *          <p>
  *             <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
  *             results in this API generating an endpoint that a client can use to communicate with any
