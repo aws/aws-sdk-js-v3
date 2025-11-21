@@ -94,6 +94,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       ProgramDateTimeIntervalSeconds: Number("int"),
  *       FilterConfiguration: { // FilterConfiguration
  *         ManifestFilter: "STRING_VALUE",
+ *         DrmSettings: "STRING_VALUE",
  *         Start: new Date("TIMESTAMP"),
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
@@ -117,6 +118,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       ProgramDateTimeIntervalSeconds: Number("int"),
  *       FilterConfiguration: {
  *         ManifestFilter: "STRING_VALUE",
+ *         DrmSettings: "STRING_VALUE",
  *         Start: new Date("TIMESTAMP"),
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
@@ -131,6 +133,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       ManifestWindowSeconds: Number("int"),
  *       FilterConfiguration: {
  *         ManifestFilter: "STRING_VALUE",
+ *         DrmSettings: "STRING_VALUE",
  *         Start: new Date("TIMESTAMP"),
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
@@ -196,6 +199,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       ManifestWindowSeconds: Number("int"),
  *       FilterConfiguration: {
  *         ManifestFilter: "STRING_VALUE",
+ *         DrmSettings: "STRING_VALUE",
  *         Start: new Date("TIMESTAMP"),
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
@@ -272,6 +276,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       },
  * //       FilterConfiguration: { // FilterConfiguration
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
@@ -296,6 +301,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       },
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
@@ -315,6 +321,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       ManifestWindowSeconds: Number("int"),
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
@@ -380,6 +387,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       Url: "STRING_VALUE", // required
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),

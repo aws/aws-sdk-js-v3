@@ -101,6 +101,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       },
  * //       FilterConfiguration: { // FilterConfiguration
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
@@ -125,6 +126,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       },
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
@@ -144,6 +146,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       ManifestWindowSeconds: Number("int"),
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
@@ -209,6 +212,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       Url: "STRING_VALUE", // required
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
+ * //         DrmSettings: "STRING_VALUE",
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),

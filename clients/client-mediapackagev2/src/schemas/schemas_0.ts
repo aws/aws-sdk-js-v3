@@ -75,7 +75,8 @@ const _DPI = "DashProgramInformation";
 const _DPe = "DestinationPath";
 const _DS = "DrmSignaling";
 const _DSC = "DashSubtitleConfiguration";
-const _DSr = "DrmSystems";
+const _DSr = "DrmSettings";
+const _DSrm = "DrmSystems";
 const _DSv = "DvbSettings";
 const _DTC = "DashTtmlConfiguration";
 const _DUT = "DashUtcTiming";
@@ -699,7 +700,14 @@ export var Encryption: StaticStructureSchema = [
 ];
 export var EncryptionContractConfiguration: StaticStructureSchema = [3, n0, _ECC, 0, [_PSA, _PSV], [0, 0]];
 export var EncryptionMethod: StaticStructureSchema = [3, n0, _EMn, 0, [_TEM, _CEM, _IEM], [0, 0, 0]];
-export var FilterConfiguration: StaticStructureSchema = [3, n0, _FC, 0, [_MF, _St, _En, _TDS, _CST], [0, 4, 4, 1, 4]];
+export var FilterConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _FC,
+  0,
+  [_MF, _DSr, _St, _En, _TDS, _CST],
+  [0, 0, 4, 4, 1, 4],
+];
 export var ForceEndpointErrorConfiguration: StaticStructureSchema = [3, n0, _FEEC, 0, [_EEC], [64 | 0]];
 export var GetChannelGroupRequest: StaticStructureSchema = [3, n0, _GCGR, 0, [_CGN], [[0, 1]]];
 export var GetChannelGroupResponse: StaticStructureSchema = [
@@ -1211,7 +1219,7 @@ export var SpekeKeyProvider: StaticStructureSchema = [
   n0,
   _SKP,
   0,
-  [_ECC, _RI, _DSr, _RAo, _U],
+  [_ECC, _RI, _DSrm, _RAo, _U],
   [() => EncryptionContractConfiguration, 0, 64 | 0, 0, 0],
 ];
 export var StartTag: StaticStructureSchema = [3, n0, _ST, 0, [_TO, _Pre], [1, 2]];

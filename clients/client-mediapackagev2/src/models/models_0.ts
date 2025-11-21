@@ -698,6 +698,12 @@ export interface FilterConfiguration {
   ManifestFilter?: string | undefined;
 
   /**
+   * <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+   * @public
+   */
+  DrmSettings?: string | undefined;
+
+  /**
    * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
    * @public
    */
