@@ -55,7 +55,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       searchType: "SEMANTIC",
  *     },
  *   },
- *   authorizerType: "CUSTOM_JWT" || "AWS_IAM", // required
+ *   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE", // required
  *   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  *     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  *       discoveryUrl: "STRING_VALUE", // required
@@ -68,6 +68,21 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",
+ *   interceptorConfigurations: [ // GatewayInterceptorConfigurations
+ *     { // GatewayInterceptorConfiguration
+ *       interceptor: { // InterceptorConfiguration Union: only one key present
+ *         lambda: { // LambdaInterceptorConfiguration
+ *           arn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       interceptionPoints: [ // GatewayInterceptionPoints // required
+ *         "REQUEST" || "RESPONSE",
+ *       ],
+ *       inputConfiguration: { // InterceptorInputConfiguration
+ *         passRequestHeaders: true || false, // required
+ *       },
+ *     },
+ *   ],
  *   exceptionLevel: "DEBUG",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
@@ -98,7 +113,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //       searchType: "SEMANTIC",
  * //     },
  * //   },
- * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM", // required
+ * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE", // required
  * //   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  * //     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  * //       discoveryUrl: "STRING_VALUE", // required
@@ -111,6 +126,21 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //     },
  * //   },
  * //   kmsKeyArn: "STRING_VALUE",
+ * //   interceptorConfigurations: [ // GatewayInterceptorConfigurations
+ * //     { // GatewayInterceptorConfiguration
+ * //       interceptor: { // InterceptorConfiguration Union: only one key present
+ * //         lambda: { // LambdaInterceptorConfiguration
+ * //           arn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       interceptionPoints: [ // GatewayInterceptionPoints // required
+ * //         "REQUEST" || "RESPONSE",
+ * //       ],
+ * //       inputConfiguration: { // InterceptorInputConfiguration
+ * //         passRequestHeaders: true || false, // required
+ * //       },
+ * //     },
+ * //   ],
  * //   workloadIdentityDetails: { // WorkloadIdentityDetails
  * //     workloadIdentityArn: "STRING_VALUE", // required
  * //   },

@@ -55,7 +55,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * //       description: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
- * //       authorizerType: "CUSTOM_JWT" || "AWS_IAM", // required
+ * //       authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE", // required
  * //       protocolType: "MCP", // required
  * //     },
  * //   ],

@@ -12,6 +12,7 @@ import {
   CredentialProviderType,
   CredentialProviderVendorType,
   ExceptionLevel,
+  GatewayInterceptionPoint,
   GatewayProtocolType,
   GatewayStatus,
   KeyType,
@@ -2188,6 +2189,91 @@ export interface ListCodeInterpretersResponse {
 }
 
 /**
+ * <p>The input configuration of the interceptor.</p>
+ * @public
+ */
+export interface InterceptorInputConfiguration {
+  /**
+   * <p>Indicates whether to pass request headers as input into the interceptor. When set to true, request headers will be passed.</p>
+   * @public
+   */
+  passRequestHeaders: boolean | undefined;
+}
+
+/**
+ * <p>The lambda configuration for the interceptor</p>
+ * @public
+ */
+export interface LambdaInterceptorConfiguration {
+  /**
+   * <p>The arn of the lambda function to be invoked for the interceptor.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * <p>The interceptor configuration.</p>
+ * @public
+ */
+export type InterceptorConfiguration = InterceptorConfiguration.LambdaMember | InterceptorConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InterceptorConfiguration {
+  /**
+   * <p>The details of the lambda function used for the interceptor.</p>
+   * @public
+   */
+  export interface LambdaMember {
+    lambda: LambdaInterceptorConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    lambda?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    lambda: (value: LambdaInterceptorConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration for an interceptor on a gateway. This structure defines settings for an interceptor that will be invoked during the invocation of the gateway.</p>
+ * @public
+ */
+export interface GatewayInterceptorConfiguration {
+  /**
+   * <p>The infrastructure settings of an interceptor configuration. This structure defines how the interceptor can be invoked.</p>
+   * @public
+   */
+  interceptor: InterceptorConfiguration | undefined;
+
+  /**
+   * <p>The supported points of interception. This field specifies which points during the gateway invocation to invoke the interceptor</p>
+   * @public
+   */
+  interceptionPoints: GatewayInterceptionPoint[] | undefined;
+
+  /**
+   * <p>The configuration for the input of the interceptor. This field specifies how the input to the interceptor is constructed</p>
+   * @public
+   */
+  inputConfiguration?: InterceptorInputConfiguration | undefined;
+}
+
+/**
  * <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
  * @public
  */
@@ -2291,7 +2377,7 @@ export interface CreateGatewayRequest {
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The type of authorizer to use for the gateway.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * <p>The type of authorizer to use for the gateway.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> <li> <p> <code>NONE</code> - No authorization</p> </li> </ul>
    * @public
    */
   authorizerType: AuthorizerType | undefined;
@@ -2307,6 +2393,12 @@ export interface CreateGatewayRequest {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>A list of configuration settings for a gateway interceptor. Gateway interceptors allow custom code to be invoked during gateway invocations.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
    * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
@@ -2414,6 +2506,12 @@ export interface CreateGatewayResponse {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The list of interceptor configurations for the created gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
    * <p>The workload identity details for the created gateway.</p>
@@ -2566,6 +2664,12 @@ export interface GetGatewayResponse {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The interceptors configured on the gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
    * <p>The workload identity details for the gateway.</p>
@@ -2727,6 +2831,12 @@ export interface UpdateGatewayRequest {
   kmsKeyArn?: string | undefined;
 
   /**
+   * <p>The updated interceptor configurations for the gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
+
+  /**
    * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
    * @public
    */
@@ -2826,6 +2936,12 @@ export interface UpdateGatewayResponse {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The updated interceptor configurations for the gateway.</p>
+   * @public
+   */
+  interceptorConfigurations?: GatewayInterceptorConfiguration[] | undefined;
 
   /**
    * <p>The workload identity details for the updated gateway.</p>

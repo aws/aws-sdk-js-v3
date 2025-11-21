@@ -129,6 +129,8 @@ const _GGRe = "GetGatewayResponse";
 const _GGT = "GetGatewayTarget";
 const _GGTR = "GetGatewayTargetRequest";
 const _GGTRe = "GetGatewayTargetResponse";
+const _GIC = "GatewayInterceptorConfiguration";
+const _GICa = "GatewayInterceptorConfigurations";
 const _GM = "GetMemory";
 const _GMI = "GetMemoryInput";
 const _GMO = "GetMemoryOutput";
@@ -153,6 +155,8 @@ const _GWIR = "GetWorkloadIdentityRequest";
 const _GWIRe = "GetWorkloadIdentityResponse";
 const _IC = "InvocationConfiguration";
 const _ICI = "InvocationConfigurationInput";
+const _ICn = "InterceptorConfiguration";
+const _IIC = "InterceptorInputConfiguration";
 const _IOPCI = "IncludedOauth2ProviderConfigInput";
 const _IOPCO = "IncludedOauth2ProviderConfigOutput";
 const _IP = "InlinePayload";
@@ -183,6 +187,7 @@ const _LGRi = "ListGatewaysResponse";
 const _LGT = "ListGatewayTargets";
 const _LGTR = "ListGatewayTargetsRequest";
 const _LGTRi = "ListGatewayTargetsResponse";
+const _LIC = "LambdaInterceptorConfiguration";
 const _LM = "ListMemories";
 const _LMI = "ListMemoriesInput";
 const _LMO = "ListMemoriesOutput";
@@ -414,14 +419,18 @@ const _hCWS = "historicalContextWindowSize";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "id";
-const _iC = "invocationConfiguration";
+const _iC = "interceptorConfigurations";
+const _iCn = "inputConfiguration";
+const _iCnv = "invocationConfiguration";
 const _iOPC = "includedOauth2ProviderConfig";
-const _iP = "inlinePayload";
+const _iP = "interceptionPoints";
+const _iPn = "inlinePayload";
 const _iRST = "idleRuntimeSessionTimeout";
 const _iS = "inputSchema";
 const _iST = "idleSessionTimeout";
 const _iT = "idempotencyToken";
-const _in = "instructions";
+const _in = "interceptor";
+const _ins = "instructions";
 const _is = "issuer";
 const _it = "items";
 const _kC = "kmsConfiguration";
@@ -468,6 +477,7 @@ const _p = "prefix";
 const _pA = "providerArn";
 const _pC = "protocolConfiguration";
 const _pDBN = "payloadDeliveryBucketName";
+const _pRH = "passRequestHeaders";
 const _pT = "protocolType";
 const _pr = "properties";
 const _r = "runtime";
@@ -788,7 +798,7 @@ export var CreateGatewayRequest: StaticStructureSchema = [
   n0,
   _CGR,
   0,
-  [_n, _d, _cTl, _rA, _pT, _pC, _aT, _aC, _kKA, _eL, _t],
+  [_n, _d, _cTl, _rA, _pT, _pC, _aT, _aC, _kKA, _iC, _eL, _t],
   [
     [() => GatewayName, 0],
     [() => GatewayDescription, 0],
@@ -799,6 +809,7 @@ export var CreateGatewayRequest: StaticStructureSchema = [
     0,
     () => AuthorizerConfiguration,
     0,
+    () => GatewayInterceptorConfigurations,
     0,
     128 | 0,
   ],
@@ -808,7 +819,7 @@ export var CreateGatewayResponse: StaticStructureSchema = [
   n0,
   _CGRr,
   0,
-  [_gA, _gI, _gU, _cA, _uA, _s, _sR, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _wID, _eL],
+  [_gA, _gI, _gU, _cA, _uA, _s, _sR, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _iC, _wID, _eL],
   [
     0,
     0,
@@ -825,6 +836,7 @@ export var CreateGatewayResponse: StaticStructureSchema = [
     0,
     () => AuthorizerConfiguration,
     0,
+    () => GatewayInterceptorConfigurations,
     () => WorkloadIdentityDetails,
     0,
   ],
@@ -1105,6 +1117,14 @@ export var GatewayApiKeyCredentialProvider: StaticStructureSchema = [
   [_pA, _cPN, _cPr, _cL],
   [0, 0, 0, 0],
 ];
+export var GatewayInterceptorConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _GIC,
+  0,
+  [_in, _iP, _iCn],
+  [() => InterceptorConfiguration, 64 | 0, () => InterceptorInputConfiguration],
+];
 export var GatewaySummary: StaticStructureSchema = [
   3,
   n0,
@@ -1240,7 +1260,7 @@ export var GetGatewayResponse: StaticStructureSchema = [
   n0,
   _GGRe,
   0,
-  [_gA, _gI, _gU, _cA, _uA, _s, _sR, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _wID, _eL],
+  [_gA, _gI, _gU, _cA, _uA, _s, _sR, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _iC, _wID, _eL],
   [
     0,
     0,
@@ -1257,6 +1277,7 @@ export var GetGatewayResponse: StaticStructureSchema = [
     0,
     () => AuthorizerConfiguration,
     0,
+    () => GatewayInterceptorConfigurations,
     () => WorkloadIdentityDetails,
     0,
   ],
@@ -1369,6 +1390,7 @@ export var IncludedOauth2ProviderConfigOutput: StaticStructureSchema = [
   [_oD, _cI],
   [() => Oauth2Discovery, 0],
 ];
+export var InterceptorInputConfiguration: StaticStructureSchema = [3, n0, _IIC, 0, [_pRH], [2]];
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
@@ -1385,6 +1407,7 @@ TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerExce
 export var InvocationConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_tA, _pDBN], [0, 0]];
 export var InvocationConfigurationInput: StaticStructureSchema = [3, n0, _ICI, 0, [_tA, _pDBN], [0, 0]];
 export var KmsConfiguration: StaticStructureSchema = [3, n0, _KC, 0, [_kT, _kKA], [0, 0]];
+export var LambdaInterceptorConfiguration: StaticStructureSchema = [3, n0, _LIC, 0, [_a], [0]];
 export var LifecycleConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_iRST, _mL], [1, 1]];
 export var LinkedinOauth2ProviderConfigInput: StaticStructureSchema = [
   3,
@@ -1651,7 +1674,7 @@ export var ListWorkloadIdentitiesResponse: StaticStructureSchema = [
   [_wI, _nT],
   [() => WorkloadIdentityList, 0],
 ];
-export var MCPGatewayConfiguration: StaticStructureSchema = [3, n0, _MCPGC, 0, [_sV, _in, _sT], [64 | 0, 0, 0]];
+export var MCPGatewayConfiguration: StaticStructureSchema = [3, n0, _MCPGC, 0, [_sV, _ins, _sT], [64 | 0, 0, 0]];
 export var McpLambdaTargetConfiguration: StaticStructureSchema = [3, n0, _MLTC, 0, [_lA, _tS], [0, () => ToolSchema]];
 export var McpServerTargetConfiguration: StaticStructureSchema = [3, n0, _MSTC, 0, [_end], [0]];
 export var Memory: StaticStructureSchema = [
@@ -1711,7 +1734,7 @@ export var ModifySelfManagedConfiguration: StaticStructureSchema = [
   n0,
   _MSMC,
   0,
-  [_tCr, _iC, _hCWS],
+  [_tCr, _iCnv, _hCWS],
   [() => TriggerConditionInputList, () => ModifyInvocationConfigurationInput, 1],
 ];
 export var ModifyStrategyConfiguration: StaticStructureSchema = [
@@ -1811,7 +1834,7 @@ export var SelfManagedConfiguration: StaticStructureSchema = [
   n0,
   _SMC,
   0,
-  [_tCr, _iC, _hCWS],
+  [_tCr, _iCnv, _hCWS],
   [() => TriggerConditionsList, () => InvocationConfiguration, 1],
 ];
 export var SelfManagedConfigurationInput: StaticStructureSchema = [
@@ -1819,7 +1842,7 @@ export var SelfManagedConfigurationInput: StaticStructureSchema = [
   n0,
   _SMCI,
   0,
-  [_tCr, _iC, _hCWS],
+  [_tCr, _iCnv, _hCWS],
   [() => TriggerConditionInputList, () => InvocationConfigurationInput, 1],
 ];
 export var SemanticConsolidationOverride: StaticStructureSchema = [
@@ -2116,7 +2139,7 @@ export var UpdateGatewayRequest: StaticStructureSchema = [
   n0,
   _UGR,
   0,
-  [_gIa, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _eL],
+  [_gIa, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _iC, _eL],
   [
     [0, 1],
     [() => GatewayName, 0],
@@ -2127,6 +2150,7 @@ export var UpdateGatewayRequest: StaticStructureSchema = [
     0,
     () => AuthorizerConfiguration,
     0,
+    () => GatewayInterceptorConfigurations,
     0,
   ],
 ];
@@ -2135,7 +2159,7 @@ export var UpdateGatewayResponse: StaticStructureSchema = [
   n0,
   _UGRp,
   0,
-  [_gA, _gI, _gU, _cA, _uA, _s, _sR, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _wID, _eL],
+  [_gA, _gI, _gU, _cA, _uA, _s, _sR, _n, _d, _rA, _pT, _pC, _aT, _aC, _kKA, _iC, _wID, _eL],
   [
     0,
     0,
@@ -2152,6 +2176,7 @@ export var UpdateGatewayResponse: StaticStructureSchema = [
     0,
     () => AuthorizerConfiguration,
     0,
+    () => GatewayInterceptorConfigurations,
     () => WorkloadIdentityDetails,
     0,
   ],
@@ -2324,6 +2349,15 @@ export var CredentialProviderConfigurations: StaticListSchema = [
 export var DeleteMemoryStrategiesList: StaticListSchema = [1, n0, _DMSL, 0, () => DeleteMemoryStrategyInput];
 export var EntryPoints = 64 | 0;
 
+export var GatewayInterceptionPoints = 64 | 0;
+
+export var GatewayInterceptorConfigurations: StaticListSchema = [
+  1,
+  n0,
+  _GICa,
+  0,
+  () => GatewayInterceptorConfiguration,
+];
 export var GatewaySummaries: StaticListSchema = [1, n0, _GSa, 0, [() => GatewaySummary, 0]];
 export var GatewayTargetList: StaticListSchema = [1, n0, _GTL, 0, [() => GatewayTarget, 0]];
 export var McpSupportedVersions = 64 | 0;
@@ -2381,7 +2415,7 @@ export var ApiSchemaConfiguration: StaticStructureSchema = [
   n0,
   _ASC,
   0,
-  [_s_, _iP],
+  [_s_, _iPn],
   [() => S3Configuration, [() => InlinePayload, 0]],
 ];
 export var AuthorizerConfiguration: StaticStructureSchema = [
@@ -2484,6 +2518,14 @@ export var GatewayProtocolConfiguration: StaticStructureSchema = [
   [_mc],
   [() => MCPGatewayConfiguration],
 ];
+export var InterceptorConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _ICn,
+  0,
+  [_l],
+  [() => LambdaInterceptorConfiguration],
+];
 export var McpTargetConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2577,7 +2619,7 @@ export var ToolSchema: StaticStructureSchema = [
   n0,
   _TSo,
   0,
-  [_s_, _iP],
+  [_s_, _iPn],
   [() => S3Configuration, () => ToolDefinitions],
 ];
 export var TriggerCondition: StaticStructureSchema = [

@@ -172,6 +172,7 @@ export type CodeInterpreterStatus = (typeof CodeInterpreterStatus)[keyof typeof 
 export const AuthorizerType = {
   AWS_IAM: "AWS_IAM",
   CUSTOM_JWT: "CUSTOM_JWT",
+  NONE: "NONE",
 } as const;
 /**
  * @public
@@ -189,6 +190,19 @@ export const ExceptionLevel = {
  * @public
  */
 export type ExceptionLevel = (typeof ExceptionLevel)[keyof typeof ExceptionLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayInterceptionPoint = {
+  REQUEST: "REQUEST",
+  RESPONSE: "RESPONSE",
+} as const;
+/**
+ * @public
+ */
+export type GatewayInterceptionPoint = (typeof GatewayInterceptionPoint)[keyof typeof GatewayInterceptionPoint];
 
 /**
  * @public
