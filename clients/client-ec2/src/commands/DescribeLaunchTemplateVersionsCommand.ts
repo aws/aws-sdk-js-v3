@@ -206,7 +206,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //           "STRING_VALUE",
  * //         ],
  * //         InstanceMarketOptions: { // LaunchTemplateInstanceMarketOptions
- * //           MarketType: "spot" || "capacity-block",
+ * //           MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation",
  * //           SpotOptions: { // LaunchTemplateSpotMarketOptions
  * //             MaxPrice: "STRING_VALUE",
  * //             SpotInstanceType: "one-time" || "persistent",

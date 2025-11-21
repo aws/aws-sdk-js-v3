@@ -20,6 +20,8 @@ import {
   InstanceMetadataTagsState,
   InternetGatewayBlockMode,
   InternetGatewayExclusionMode,
+  InterruptibleCapacityReservationAllocationStatus,
+  InterruptionType,
   IpAddressType,
   MarketType,
   MembershipType,
@@ -38,6 +40,7 @@ import {
   TpmSupportValues,
   TransitGatewayAttachmentResourceType,
   VerificationMethod,
+  VolumeType,
   VpcEncryptionControlExclusionStateInput,
   VpcEncryptionControlMode,
   VpcTenancy,
@@ -60,6 +63,7 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
+  VerifiedAccessTrustProvider,
   VpcEncryptionControl,
 } from "./models_0";
 
@@ -116,9 +120,167 @@ import {
   SpotPlacement,
 } from "./models_4";
 
-import { Purchase, VpcBlockPublicAccessOptions } from "./models_5";
+import { Purchase, VolumeModification, VpcBlockPublicAccessOptions } from "./models_5";
 
 import { CapacityReservationSpecification } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessTrustProviderResult {
+  /**
+   * <p>Details about the Verified Access trust provider.</p>
+   * @public
+   */
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVolumeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>The target size of the volume, in GiB. The target volume size must be greater than or
+   *       equal to the existing size of the volume.</p>
+   *          <p>The following are the supported volumes sizes for each volume type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code>: 4 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io2</code>: 4 - 65,536 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1 - 1024 GiB</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: The existing size is retained.</p>
+   * @public
+   */
+  Size?: number | undefined;
+
+  /**
+   * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>
+   *          <p>Default: The existing type is retained.</p>
+   * @public
+   */
+  VolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
+   *          <p>The following are the supported values for each volume type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code>: 100 - 64,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io2</code>: 100 - 256,000 IOPS</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *                <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
+   * Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000
+   * IOPS.</p>
+   *          </note>
+   *          <p>Default: The existing value is retained if you keep the same volume type. If you change
+   *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes.
+   *       The maximum value is 2,000.</p>
+   *          <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
+   *       Otherwise, the default value is 125.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
+   * 	  volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
+   * 			Nitro-based instances</a> in the same Availability Zone. This parameter is
+   * 		supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see
+   * 	  <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+   * 			Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
+   * @public
+   */
+  MultiAttachEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVolumeResult {
+  /**
+   * <p>Information about the volume modification.</p>
+   * @public
+   */
+  VolumeModification?: VolumeModification | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVolumeAttributeRequest {
+  /**
+   * <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
+   * @public
+   */
+  AutoEnableIO?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -6705,6 +6867,88 @@ export interface UpdateCapacityManagerOrganizationsAccessResult {
    * @public
    */
   OrganizationsAccess?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInterruptibleCapacityReservationAllocationRequest {
+  /**
+   * <p>
+   * 			The ID of the source Capacity Reservation containing the interruptible allocation to modify.
+   * 		</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>
+   * 			The new number of instances to allocate. Enter a higher number to add more capacity to share, or a lower number to reclaim capacity to your source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  TargetInstanceCount: number | undefined;
+
+  /**
+   * <p>
+   * 			Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * 		</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInterruptibleCapacityReservationAllocationResult {
+  /**
+   * <p>
+   * 			The ID of the interruptible Capacity Reservation that was modified.
+   * 		</p>
+   * @public
+   */
+  InterruptibleCapacityReservationId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The ID of the source Capacity Reservation to which capacity was reclaimed or from which capacity was allocated.
+   * 		</p>
+   * @public
+   */
+  SourceCapacityReservationId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The current number of instances allocated to the interruptible reservation.
+   * 		</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>
+   * 			The requested number of instances for the interruptible Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  TargetInstanceCount?: number | undefined;
+
+  /**
+   * <p>
+   * 			The current status of the allocation (updating during reclamation, active when complete).
+   * 		</p>
+   * @public
+   */
+  Status?: InterruptibleCapacityReservationAllocationStatus | undefined;
+
+  /**
+   * <p>
+   * 			The interruption type for the interruptible reservation.
+   * 		</p>
+   * @public
+   */
+  InterruptionType?: InterruptionType | undefined;
 }
 
 /**

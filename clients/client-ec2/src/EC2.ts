@@ -411,6 +411,11 @@ import {
   CreateInternetGatewayCommandInput,
   CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand";
+import {
+  CreateInterruptibleCapacityReservationAllocationCommand,
+  CreateInterruptibleCapacityReservationAllocationCommandInput,
+  CreateInterruptibleCapacityReservationAllocationCommandOutput,
+} from "./commands/CreateInterruptibleCapacityReservationAllocationCommand";
 import { CreateIpamCommand, CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
 import {
   CreateIpamExternalResourceVerificationTokenCommand,
@@ -3651,6 +3656,11 @@ import {
   UpdateCapacityManagerOrganizationsAccessCommandOutput,
 } from "./commands/UpdateCapacityManagerOrganizationsAccessCommand";
 import {
+  UpdateInterruptibleCapacityReservationAllocationCommand,
+  UpdateInterruptibleCapacityReservationAllocationCommandInput,
+  UpdateInterruptibleCapacityReservationAllocationCommandOutput,
+} from "./commands/UpdateInterruptibleCapacityReservationAllocationCommand";
+import {
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
@@ -3753,6 +3763,7 @@ const commands = {
   CreateInstanceEventWindowCommand,
   CreateInstanceExportTaskCommand,
   CreateInternetGatewayCommand,
+  CreateInterruptibleCapacityReservationAllocationCommand,
   CreateIpamCommand,
   CreateIpamExternalResourceVerificationTokenCommand,
   CreateIpamPolicyCommand,
@@ -4412,6 +4423,7 @@ const commands = {
   UnlockSnapshotCommand,
   UnmonitorInstancesCommand,
   UpdateCapacityManagerOrganizationsAccessCommand,
+  UpdateInterruptibleCapacityReservationAllocationCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
   WithdrawByoipCidrCommand,
@@ -5805,6 +5817,23 @@ export interface EC2 {
     args: CreateInternetGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateInternetGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInterruptibleCapacityReservationAllocationCommand}
+   */
+  createInterruptibleCapacityReservationAllocation(
+    args: CreateInterruptibleCapacityReservationAllocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInterruptibleCapacityReservationAllocationCommandOutput>;
+  createInterruptibleCapacityReservationAllocation(
+    args: CreateInterruptibleCapacityReservationAllocationCommandInput,
+    cb: (err: any, data?: CreateInterruptibleCapacityReservationAllocationCommandOutput) => void
+  ): void;
+  createInterruptibleCapacityReservationAllocation(
+    args: CreateInterruptibleCapacityReservationAllocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInterruptibleCapacityReservationAllocationCommandOutput) => void
   ): void;
 
   /**
@@ -16922,6 +16951,23 @@ export interface EC2 {
     args: UpdateCapacityManagerOrganizationsAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCapacityManagerOrganizationsAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInterruptibleCapacityReservationAllocationCommand}
+   */
+  updateInterruptibleCapacityReservationAllocation(
+    args: UpdateInterruptibleCapacityReservationAllocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInterruptibleCapacityReservationAllocationCommandOutput>;
+  updateInterruptibleCapacityReservationAllocation(
+    args: UpdateInterruptibleCapacityReservationAllocationCommandInput,
+    cb: (err: any, data?: UpdateInterruptibleCapacityReservationAllocationCommandOutput) => void
+  ): void;
+  updateInterruptibleCapacityReservationAllocation(
+    args: UpdateInterruptibleCapacityReservationAllocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInterruptibleCapacityReservationAllocationCommandOutput) => void
   ): void;
 
   /**

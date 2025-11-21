@@ -174,7 +174,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *     Version: "STRING_VALUE",
  *   },
  *   InstanceMarketOptions: { // InstanceMarketOptionsRequest
- *     MarketType: "spot" || "capacity-block",
+ *     MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation",
  *     SpotOptions: { // SpotMarketOptions
  *       MaxPrice: "STRING_VALUE",
  *       SpotInstanceType: "one-time" || "persistent",
@@ -340,7 +340,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //         Arn: "STRING_VALUE",
  * //         Id: "STRING_VALUE",
  * //       },
- * //       InstanceLifecycle: "spot" || "scheduled" || "capacity-block",
+ * //       InstanceLifecycle: "spot" || "scheduled" || "capacity-block" || "interruptible-capacity-reservation",
  * //       ElasticGpuAssociations: [ // ElasticGpuAssociationList
  * //         { // ElasticGpuAssociation
  * //           ElasticGpuId: "STRING_VALUE",

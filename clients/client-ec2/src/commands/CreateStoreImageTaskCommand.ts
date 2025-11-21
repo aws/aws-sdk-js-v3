@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateStoreImageTaskRequest, CreateStoreImageTaskResult } from "../models/models_1";
+import { CreateStoreImageTaskRequest, CreateStoreImageTaskResult } from "../models/models_2";
 import { CreateStoreImageTask } from "../schemas/schemas_0";
 
 /**

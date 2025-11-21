@@ -888,6 +888,14 @@ CreateInternetGateway
 </details>
 <details>
 <summary>
+CreateInterruptibleCapacityReservationAllocation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateInterruptibleCapacityReservationAllocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateInterruptibleCapacityReservationAllocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateInterruptibleCapacityReservationAllocationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateIpam
 </summary>
 
@@ -6156,6 +6164,14 @@ UpdateCapacityManagerOrganizationsAccess
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/UpdateCapacityManagerOrganizationsAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UpdateCapacityManagerOrganizationsAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UpdateCapacityManagerOrganizationsAccessCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateInterruptibleCapacityReservationAllocation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/UpdateInterruptibleCapacityReservationAllocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UpdateInterruptibleCapacityReservationAllocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/UpdateInterruptibleCapacityReservationAllocationCommandOutput/)
 
 </details>
 <details>

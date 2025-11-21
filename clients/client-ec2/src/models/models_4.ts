@@ -26,7 +26,9 @@ import {
   FleetType,
   FlexibleEnaQueuesSupport,
   HaStatus,
+  HostnameType,
   HypervisorType,
+  InstanceBandwidthWeighting,
   InstanceBootModeValues,
   InstanceInterruptionBehavior,
   InstanceLifecycleType,
@@ -37,6 +39,7 @@ import {
   LockState,
   MoveStatus,
   NetworkInterfaceAttribute,
+  NetworkInterfaceStatus,
   NitroEnclavesSupport,
   NitroTpmSupport,
   OfferingClassType,
@@ -80,7 +83,6 @@ import {
 import {
   ActiveInstance,
   AlternatePathHint,
-  AttributeValue,
   Explanation,
   IamInstanceProfile,
   IamInstanceProfileSpecification,
@@ -101,6 +103,7 @@ import {
 } from "./models_0";
 
 import {
+  AttributeValue,
   BlockDeviceMapping,
   ConnectionTrackingSpecificationRequest,
   EnaSrdSpecificationRequest,
@@ -169,6 +172,7 @@ import {
   AttributeBooleanValue,
   Byoasn,
   CapacityReservationSpecificationResponse,
+  ConnectionTrackingSpecificationResponse,
   CpuOptions,
   ElasticGpuAssociation,
   ElasticInferenceAcceleratorAssociation,
@@ -178,16 +182,223 @@ import {
   HibernationOptions,
   IdFormat,
   InstanceBlockDeviceMapping,
+  InstanceIpv4Prefix,
+  InstanceIpv6Prefix,
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
-  InstanceNetworkInterface,
-  InstanceNetworkPerformanceOptions,
+  InstanceNetworkInterfaceAssociation,
+  InstanceNetworkInterfaceAttachment,
   InstanceState,
   LicenseConfiguration,
   Monitoring,
-  PrivateDnsNameOptionsResponse,
   ProductCode,
 } from "./models_3";
+
+/**
+ * <p>Describes a private IPv4 address.</p>
+ * @public
+ */
+export interface InstancePrivateIpAddress {
+  /**
+   * <p>The association information for an Elastic IP address for the network
+   *             interface.</p>
+   * @public
+   */
+  Association?: InstanceNetworkInterfaceAssociation | undefined;
+
+  /**
+   * <p>Indicates whether this IPv4 address is the primary private IP address of the network
+   *             interface.</p>
+   * @public
+   */
+  Primary?: boolean | undefined;
+
+  /**
+   * <p>The private IPv4 DNS name.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>The private IPv4 address of the network interface.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Describes a network interface.</p>
+ * @public
+ */
+export interface InstanceNetworkInterface {
+  /**
+   * <p>The association information for an Elastic IPv4 associated with the network
+   *             interface.</p>
+   * @public
+   */
+  Association?: InstanceNetworkInterfaceAssociation | undefined;
+
+  /**
+   * <p>The network interface attachment.</p>
+   * @public
+   */
+  Attachment?: InstanceNetworkInterfaceAttachment | undefined;
+
+  /**
+   * <p>The description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The security groups.</p>
+   * @public
+   */
+  Groups?: GroupIdentifier[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses associated with the network interface.</p>
+   * @public
+   */
+  Ipv6Addresses?: InstanceIpv6Address[] | undefined;
+
+  /**
+   * <p>The MAC address.</p>
+   * @public
+   */
+  MacAddress?: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that created the network interface.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The private DNS name.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>The IPv4 address of the network interface within the subnet.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+
+  /**
+   * <p>The private IPv4 addresses associated with the network interface.</p>
+   * @public
+   */
+  PrivateIpAddresses?: InstancePrivateIpAddress[] | undefined;
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   * @public
+   */
+  SourceDestCheck?: boolean | undefined;
+
+  /**
+   * <p>The status of the network interface.</p>
+   * @public
+   */
+  Status?: NetworkInterfaceStatus | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The type of network interface.</p>
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code> | <code>evs</code> |
+   *                 <code>trunk</code>
+   *          </p>
+   * @public
+   */
+  InterfaceType?: string | undefined;
+
+  /**
+   * <p>The IPv4 delegated prefixes that are assigned to the network interface.</p>
+   * @public
+   */
+  Ipv4Prefixes?: InstanceIpv4Prefix[] | undefined;
+
+  /**
+   * <p>The IPv6 delegated prefixes that are assigned to the network interface.</p>
+   * @public
+   */
+  Ipv6Prefixes?: InstanceIpv6Prefix[] | undefined;
+
+  /**
+   * <p>A security group connection tracking configuration that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ConnectionTrackingConfiguration?: ConnectionTrackingSpecificationResponse | undefined;
+
+  /**
+   * <p>The service provider that manages the network interface.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+}
+
+/**
+ * <p>With network performance options, you can adjust your bandwidth preferences to meet
+ *     		the needs of the workload that runs on your instance.</p>
+ * @public
+ */
+export interface InstanceNetworkPerformanceOptions {
+  /**
+   * <p>When you configure network bandwidth weighting, you can boost your baseline bandwidth for either
+   *     		networking or EBS by up to 25%. The total available baseline bandwidth for your instance remains
+   *     		the same. The default option uses the standard bandwidth configuration for your instance type.</p>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
+}
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ * @public
+ */
+export interface PrivateDnsNameOptionsResponse {
+  /**
+   * <p>The type of hostname to assign to an instance.</p>
+   * @public
+   */
+  HostnameType?: HostnameType | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsARecord?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsAAAARecord?: boolean | undefined;
+}
 
 /**
  * <p>Describes an instance.</p>
@@ -13682,111 +13893,4 @@ export interface VerifiedAccessLogKinesisDataFirehoseDestination {
    * @public
    */
   DeliveryStream?: string | undefined;
-}
-
-/**
- * <p>Options for Amazon S3 as a logging destination.</p>
- * @public
- */
-export interface VerifiedAccessLogS3Destination {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The delivery status.</p>
-   * @public
-   */
-  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
-
-  /**
-   * <p>The bucket name.</p>
-   * @public
-   */
-  BucketName?: string | undefined;
-
-  /**
-   * <p>The bucket prefix.</p>
-   * @public
-   */
-  Prefix?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account number that owns the bucket.</p>
-   * @public
-   */
-  BucketOwner?: string | undefined;
-}
-
-/**
- * <p>Describes the options for Verified Access logs.</p>
- * @public
- */
-export interface VerifiedAccessLogs {
-  /**
-   * <p>Amazon S3 logging options.</p>
-   * @public
-   */
-  S3?: VerifiedAccessLogS3Destination | undefined;
-
-  /**
-   * <p>CloudWatch Logs logging destination.</p>
-   * @public
-   */
-  CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestination | undefined;
-
-  /**
-   * <p>Kinesis logging destination.</p>
-   * @public
-   */
-  KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestination | undefined;
-
-  /**
-   * <p>The log version.</p>
-   * @public
-   */
-  LogVersion?: string | undefined;
-
-  /**
-   * <p>Indicates whether trust data is included in the logs.</p>
-   * @public
-   */
-  IncludeTrustContext?: boolean | undefined;
-}
-
-/**
- * <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
- * @public
- */
-export interface VerifiedAccessInstanceLoggingConfiguration {
-  /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId?: string | undefined;
-
-  /**
-   * <p>Details about the logging options.</p>
-   * @public
-   */
-  AccessLogs?: VerifiedAccessLogs | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
-  /**
-   * <p>The logging configuration for the Verified Access instances.</p>
-   * @public
-   */
-  LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

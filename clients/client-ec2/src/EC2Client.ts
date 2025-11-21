@@ -331,6 +331,10 @@ import {
   CreateInternetGatewayCommandInput,
   CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand";
+import {
+  CreateInterruptibleCapacityReservationAllocationCommandInput,
+  CreateInterruptibleCapacityReservationAllocationCommandOutput,
+} from "./commands/CreateInterruptibleCapacityReservationAllocationCommand";
 import { CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
 import {
   CreateIpamExternalResourceVerificationTokenCommandInput,
@@ -2626,6 +2630,10 @@ import {
   UpdateCapacityManagerOrganizationsAccessCommandOutput,
 } from "./commands/UpdateCapacityManagerOrganizationsAccessCommand";
 import {
+  UpdateInterruptibleCapacityReservationAllocationCommandInput,
+  UpdateInterruptibleCapacityReservationAllocationCommandOutput,
+} from "./commands/UpdateInterruptibleCapacityReservationAllocationCommand";
+import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsEgressCommand";
@@ -2734,6 +2742,7 @@ export type ServiceInputTypes =
   | CreateInstanceEventWindowCommandInput
   | CreateInstanceExportTaskCommandInput
   | CreateInternetGatewayCommandInput
+  | CreateInterruptibleCapacityReservationAllocationCommandInput
   | CreateIpamCommandInput
   | CreateIpamExternalResourceVerificationTokenCommandInput
   | CreateIpamPolicyCommandInput
@@ -3393,6 +3402,7 @@ export type ServiceInputTypes =
   | UnlockSnapshotCommandInput
   | UnmonitorInstancesCommandInput
   | UpdateCapacityManagerOrganizationsAccessCommandInput
+  | UpdateInterruptibleCapacityReservationAllocationCommandInput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandInput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandInput
   | WithdrawByoipCidrCommandInput;
@@ -3486,6 +3496,7 @@ export type ServiceOutputTypes =
   | CreateInstanceEventWindowCommandOutput
   | CreateInstanceExportTaskCommandOutput
   | CreateInternetGatewayCommandOutput
+  | CreateInterruptibleCapacityReservationAllocationCommandOutput
   | CreateIpamCommandOutput
   | CreateIpamExternalResourceVerificationTokenCommandOutput
   | CreateIpamPolicyCommandOutput
@@ -4145,6 +4156,7 @@ export type ServiceOutputTypes =
   | UnlockSnapshotCommandOutput
   | UnmonitorInstancesCommandOutput
   | UpdateCapacityManagerOrganizationsAccessCommandOutput
+  | UpdateInterruptibleCapacityReservationAllocationCommandOutput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
   | WithdrawByoipCidrCommandOutput;

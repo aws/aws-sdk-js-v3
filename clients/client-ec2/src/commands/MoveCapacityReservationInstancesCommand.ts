@@ -113,6 +113,18 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //     },
  * //     DeliveryPreference: "fixed" || "incremental",
  * //     CapacityBlockId: "STRING_VALUE",
+ * //     Interruptible: true || false,
+ * //     InterruptibleCapacityAllocation: { // InterruptibleCapacityAllocation
+ * //       InstanceCount: Number("int"),
+ * //       TargetInstanceCount: Number("int"),
+ * //       Status: "pending" || "active" || "updating" || "canceling" || "canceled" || "failed",
+ * //       InterruptibleCapacityReservationId: "STRING_VALUE",
+ * //       InterruptionType: "adhoc",
+ * //     },
+ * //     InterruptionInfo: { // InterruptionInfo
+ * //       SourceCapacityReservationId: "STRING_VALUE",
+ * //       InterruptionType: "adhoc",
+ * //     },
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -156,6 +168,18 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //     },
  * //     DeliveryPreference: "fixed" || "incremental",
  * //     CapacityBlockId: "STRING_VALUE",
+ * //     Interruptible: true || false,
+ * //     InterruptibleCapacityAllocation: {
+ * //       InstanceCount: Number("int"),
+ * //       TargetInstanceCount: Number("int"),
+ * //       Status: "pending" || "active" || "updating" || "canceling" || "canceled" || "failed",
+ * //       InterruptibleCapacityReservationId: "STRING_VALUE",
+ * //       InterruptionType: "adhoc",
+ * //     },
+ * //     InterruptionInfo: {
+ * //       SourceCapacityReservationId: "STRING_VALUE",
+ * //       InterruptionType: "adhoc",
+ * //     },
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

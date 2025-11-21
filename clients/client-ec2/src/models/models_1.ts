@@ -37,6 +37,8 @@ import {
   InstanceInterruptionBehavior,
   InstanceLifecycle,
   InterfacePermissionType,
+  InterruptibleCapacityReservationAllocationStatus,
+  InterruptionType,
   IpAddressType,
   IpamExternalResourceVerificationTokenState,
   IpamMeteredAccount,
@@ -125,11 +127,11 @@ import {
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
-  AttributeValue,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   MacModificationTask,
   NatGatewayAddress,
+  NewDhcpConfiguration,
   OperatorResponse,
   PortRange,
   ReservedInstancesListing,
@@ -138,6 +140,43 @@ import {
   TagSpecification,
   UnsuccessfulItem,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateDhcpOptionsRequest {
+  /**
+   * <p>A DHCP configuration option.</p>
+   * @public
+   */
+  DhcpConfigurations: NewDhcpConfiguration[] | undefined;
+
+  /**
+   * <p>The tags to assign to the DHCP option.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a value for a resource attribute that is a String.</p>
+ * @public
+ */
+export interface AttributeValue {
+  /**
+   * <p>The attribute value. The value is case-sensitive.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
 
 /**
  * <p>Describes a DHCP configuration option.</p>
@@ -4596,6 +4635,88 @@ export interface CreateInternetGatewayResult {
    * @public
    */
   InternetGateway?: InternetGateway | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInterruptibleCapacityReservationAllocationRequest {
+  /**
+   * <p>
+   * 			The ID of the source Capacity Reservation from which to create the interruptible Capacity Reservation. Your Capacity Reservation must be in active state with no end date set and have available capacity for allocation.
+   * 		</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>
+   * 			The number of instances to allocate from your source reservation. You can only allocate available instances (also called unused capacity).
+   * 		</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>
+   * 			Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * 		</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>
+   * 			Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * 		</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * 			The tags to apply to the interruptible Capacity Reservation during creation.
+   * 		</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInterruptibleCapacityReservationAllocationResult {
+  /**
+   * <p>
+   * 			The ID of the source Capacity Reservation from which the interruptible Capacity Reservation was created.
+   * 		</p>
+   * @public
+   */
+  SourceCapacityReservationId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The number of instances allocated to the interruptible reservation.
+   * 		</p>
+   * @public
+   */
+  TargetInstanceCount?: number | undefined;
+
+  /**
+   * <p>
+   * 			The current status of the allocation request (creating, active, updating).
+   * 		</p>
+   * @public
+   */
+  Status?: InterruptibleCapacityReservationAllocationStatus | undefined;
+
+  /**
+   * <p>
+   * 			The type of interruption applied to the interruptible reservation.
+   * 		</p>
+   * @public
+   */
+  InterruptionType?: InterruptionType | undefined;
 }
 
 /**
@@ -14188,84 +14309,4 @@ export interface SpotDatafeedSubscription {
    * @public
    */
   State?: DatafeedSubscriptionState | undefined;
-}
-
-/**
- * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
- * @public
- */
-export interface CreateSpotDatafeedSubscriptionResult {
-  /**
-   * <p>The Spot Instance data feed subscription.</p>
-   * @public
-   */
-  SpotDatafeedSubscription?: SpotDatafeedSubscription | undefined;
-}
-
-/**
- * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
- *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
- *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
- * @public
- */
-export interface S3ObjectTag {
-  /**
-   * <p>The key of the tag.</p>
-   *          <p>Constraints: Tag keys are case-sensitive and can be up to 128 Unicode characters in
-   *       length. May not begin with <code>aws</code>:.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The value of the tag.</p>
-   *          <p>Constraints: Tag values are case-sensitive and can be up to 256 Unicode characters in
-   *       length.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateStoreImageTaskRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket in which the AMI object will be stored. The bucket must be in
-   *       the Region in which the request is being made. The AMI object appears in the bucket only after
-   *       the upload task has completed. </p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. </p>
-   * @public
-   */
-  S3ObjectTags?: S3ObjectTag[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateStoreImageTaskResult {
-  /**
-   * <p>The name of the stored AMI object in the S3 bucket.</p>
-   * @public
-   */
-  ObjectKey?: string | undefined;
 }

@@ -35,6 +35,8 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  *             the output includes information for all instances, which can affect performance. We
  *             recommend that you use pagination to ensure that the operation returns quickly and
  *             successfully.</p>
+ *          <p>The response includes SQL license exemption status information for instances registered
+ *             with the SQL LE service, providing visibility into license exemption configuration and status.</p>
  *          <p>If you specify an instance ID that is not valid, an error is returned. If you specify
  *             an instance that you do not own, it is not included in the output.</p>
  *          <p>Recently terminated instances might appear in the returned results. This interval is
@@ -126,7 +128,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //             Arn: "STRING_VALUE",
  * //             Id: "STRING_VALUE",
  * //           },
- * //           InstanceLifecycle: "spot" || "scheduled" || "capacity-block",
+ * //           InstanceLifecycle: "spot" || "scheduled" || "capacity-block" || "interruptible-capacity-reservation",
  * //           ElasticGpuAssociations: [ // ElasticGpuAssociationList
  * //             { // ElasticGpuAssociation
  * //               ElasticGpuId: "STRING_VALUE",

@@ -35,7 +35,9 @@ import {
   InstanceMetadataTagsState,
   InstanceRebootMigrationState,
   IpAddressType,
+  IpamAddressHistoryResourceType,
   IpamComplianceStatus,
+  IpamDiscoveryFailureCode,
   IpamManagementState,
   IpamMeteredAccount,
   IpamNetworkInterfaceAttachmentStatus,
@@ -92,7 +94,6 @@ import {
   AddIpamOrganizationalUnitExclusion,
   AddPrefixListEntry,
   AddressAttribute,
-  AttributeValue,
   ClientConnectOptions,
   ClientLoginBannerOptions,
   ClientRouteEnforcementOptions,
@@ -111,10 +112,10 @@ import {
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
-  VerifiedAccessTrustProvider,
 } from "./models_0";
 
 import {
+  AttributeValue,
   CapacityReservationTarget,
   ConnectionTrackingSpecificationRequest,
   ExternalAuthorityConfiguration,
@@ -173,15 +174,189 @@ import {
   InstanceStatusEvent,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
-  VerifiedAccessInstanceLoggingConfiguration,
 } from "./models_4";
 
 import {
   InstanceFamilyCreditSpecification,
-  IpamDiscoveryFailureReason,
   RouteServerPropagation,
-  VolumeModification,
+  VerifiedAccessInstanceLoggingConfiguration,
 } from "./models_5";
+
+/**
+ * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *       </p>
+ * @public
+ */
+export interface IpamAddressHistoryRecord {
+  /**
+   * <p>The ID of the resource owner.</p>
+   * @public
+   */
+  ResourceOwnerId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource.</p>
+   * @public
+   */
+  ResourceRegion?: string | undefined;
+
+  /**
+   * <p>The type of the resource.</p>
+   * @public
+   */
+  ResourceType?: IpamAddressHistoryResourceType | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The CIDR of the resource.</p>
+   * @public
+   */
+  ResourceCidr?: string | undefined;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  ResourceComplianceStatus?: IpamComplianceStatus | undefined;
+
+  /**
+   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  ResourceOverlapStatus?: IpamOverlapStatus | undefined;
+
+  /**
+   * <p>The VPC ID of the resource.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>Sampled start time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the start time may have occurred before this specific time.</p>
+   * @public
+   */
+  SampledStartTime?: Date | undefined;
+
+  /**
+   * <p>Sampled end time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the end time may have occurred before this specific time.</p>
+   * @public
+   */
+  SampledEndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamAddressHistoryResult {
+  /**
+   * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
+   * @public
+   */
+  HistoryRecords?: IpamAddressHistoryRecord[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredAccountsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the account information is returned from.</p>
+   * @public
+   */
+  DiscoveryRegion: string | undefined;
+
+  /**
+   * <p>Discovered account filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of discovered accounts to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The discovery failure reason.</p>
+ * @public
+ */
+export interface IpamDiscoveryFailureReason {
+  /**
+   * <p>The discovery failure code.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>assume-role-failure</code> - IPAM could not assume the Amazon Web Services IAM service-linked role. This could be because of any of the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>SLR has not been created yet and IPAM is still creating it.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>You have opted-out of the IPAM home Region.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Account you are using as your IPAM account has been suspended.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>throttling-failure</code> - IPAM account is already using the allotted transactions per second and IPAM is receiving a throttling error when assuming the Amazon Web Services IAM SLR.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Code?: IpamDiscoveryFailureCode | undefined;
+
+  /**
+   * <p>The discovery failure message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
 
 /**
  * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
@@ -10015,162 +10190,4 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
    * @public
    */
   NativeApplicationOidcOptions?: ModifyVerifiedAccessNativeApplicationOidcOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessTrustProviderResult {
-  /**
-   * <p>Details about the Verified Access trust provider.</p>
-   * @public
-   */
-  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVolumeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the volume.</p>
-   * @public
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>The target size of the volume, in GiB. The target volume size must be greater than or
-   *       equal to the existing size of the volume.</p>
-   *          <p>The following are the supported volumes sizes for each volume type:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io1</code>: 4 - 16,384 GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io2</code>: 4 - 65,536 GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>standard</code>: 1 - 1024 GiB</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: The existing size is retained.</p>
-   * @public
-   */
-  Size?: number | undefined;
-
-  /**
-   * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>
-   *          <p>Default: The existing type is retained.</p>
-   * @public
-   */
-  VolumeType?: VolumeType | undefined;
-
-  /**
-   * <p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
-   *          <p>The following are the supported values for each volume type:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io1</code>: 100 - 64,000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io2</code>: 100 - 256,000 IOPS</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>
-   *                <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
-   * Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000
-   * IOPS.</p>
-   *          </note>
-   *          <p>Default: The existing value is retained if you keep the same volume type. If you change
-   *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
-   * @public
-   */
-  Iops?: number | undefined;
-
-  /**
-   * <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes.
-   *       The maximum value is 2,000.</p>
-   *          <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
-   *       Otherwise, the default value is 125.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
-   * @public
-   */
-  Throughput?: number | undefined;
-
-  /**
-   * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
-   * 	  volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
-   * 			Nitro-based instances</a> in the same Availability Zone. This parameter is
-   * 		supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see
-   * 	  <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
-   * 			Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  MultiAttachEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVolumeResult {
-  /**
-   * <p>Information about the volume modification.</p>
-   * @public
-   */
-  VolumeModification?: VolumeModification | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVolumeAttributeRequest {
-  /**
-   * <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
-   * @public
-   */
-  AutoEnableIO?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The ID of the volume.</p>
-   * @public
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

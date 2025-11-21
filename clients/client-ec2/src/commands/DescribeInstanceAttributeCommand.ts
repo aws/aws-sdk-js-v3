@@ -28,7 +28,8 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
 
 /**
  * <p>Describes the specified attribute of the specified instance. You can specify only one
- *             attribute at a time.
+ *             attribute at a time. Available attributes include SQL license exemption configuration
+ *             for instances registered with the SQL LE service.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

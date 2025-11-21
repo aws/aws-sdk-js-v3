@@ -1312,6 +1312,36 @@ export type CapacityReservationTenancy = (typeof CapacityReservationTenancy)[key
  * @public
  * @enum
  */
+export const InterruptionType = {
+  adhoc: "adhoc",
+} as const;
+/**
+ * @public
+ */
+export type InterruptionType = (typeof InterruptionType)[keyof typeof InterruptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InterruptibleCapacityReservationAllocationStatus = {
+  active: "active",
+  canceled: "canceled",
+  canceling: "canceling",
+  failed: "failed",
+  pending: "pending",
+  updating: "updating",
+} as const;
+/**
+ * @public
+ */
+export type InterruptibleCapacityReservationAllocationStatus =
+  (typeof InterruptibleCapacityReservationAllocationStatus)[keyof typeof InterruptibleCapacityReservationAllocationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationType = {
   CAPACITY_BLOCK: "capacity-block",
   DEFAULT: "default",
@@ -3572,6 +3602,7 @@ export type ShutdownBehavior = (typeof ShutdownBehavior)[keyof typeof ShutdownBe
  */
 export const MarketType = {
   capacity_block: "capacity-block",
+  interruptible_capacity_reservation: "interruptible-capacity-reservation",
   spot: "spot",
 } as const;
 /**
@@ -5834,6 +5865,7 @@ export type InstanceBootModeValues = (typeof InstanceBootModeValues)[keyof typeo
  */
 export const InstanceLifecycleType = {
   capacity_block: "capacity-block",
+  interruptible_capacity_reservation: "interruptible-capacity-reservation",
   scheduled: "scheduled",
   spot: "spot",
 } as const;

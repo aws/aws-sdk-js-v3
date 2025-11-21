@@ -136,6 +136,18 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * //     },
  * //     DeliveryPreference: "fixed" || "incremental",
  * //     CapacityBlockId: "STRING_VALUE",
+ * //     Interruptible: true || false,
+ * //     InterruptibleCapacityAllocation: { // InterruptibleCapacityAllocation
+ * //       InstanceCount: Number("int"),
+ * //       TargetInstanceCount: Number("int"),
+ * //       Status: "pending" || "active" || "updating" || "canceling" || "canceled" || "failed",
+ * //       InterruptibleCapacityReservationId: "STRING_VALUE",
+ * //       InterruptionType: "adhoc",
+ * //     },
+ * //     InterruptionInfo: { // InterruptionInfo
+ * //       SourceCapacityReservationId: "STRING_VALUE",
+ * //       InterruptionType: "adhoc",
+ * //     },
  * //   },
  * // };
  *

@@ -43,6 +43,8 @@ import {
   InstanceHealthStatus,
   InstanceMatchCriteria,
   InterfaceProtocolType,
+  InterruptibleCapacityReservationAllocationStatus,
+  InterruptionType,
   IpamAssociatedResourceDiscoveryStatus,
   IpamPoolAllocationResourceType,
   IpamResourceDiscoveryAssociationState,
@@ -8202,9 +8204,9 @@ export interface CreateCapacityReservationRequest {
    * <p>The number of instances for which to reserve capacity.</p>
    *          <note>
    *             <p>You can request future-dated Capacity Reservations for an instance count with a
-   * 				minimum of 64 vCPUs. For example, if you request a future-dated Capacity
-   * 				Reservation for <code>m5.xlarge</code> instances, you must request at least 25
-   * 				instances (<i>16 * m5.xlarge = 64 vCPUs</i>).</p>
+   * 				minimum of 32 vCPUs. For example, if you request a future-dated Capacity
+   * 				Reservation for <code>m5.xlarge</code> instances, you must request at least 8
+   * 				instances (<i>8 * m5.xlarge = 32 vCPUs</i>).</p>
    *          </note>
    *          <p>Valid range: 1 - 1000</p>
    * @public
@@ -8414,6 +8416,78 @@ export interface CapacityReservationCommitmentInfo {
    * @public
    */
   CommitmentEndDate?: Date | undefined;
+}
+
+/**
+ * <p>
+ * 			Represents the allocation of capacity from a source reservation to an interruptible reservation, tracking current and target instance counts for allocation management.
+ * 		</p>
+ * @public
+ */
+export interface InterruptibleCapacityAllocation {
+  /**
+   * <p>
+   * 			The current number of instances allocated to the interruptible reservation.
+   * 		</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>
+   * 			After your modify request, the requested number of instances allocated to interruptible reservation.
+   * 		</p>
+   * @public
+   */
+  TargetInstanceCount?: number | undefined;
+
+  /**
+   * <p>
+   * 			The current status of the allocation (updating during reclamation, active when complete).
+   * 		</p>
+   * @public
+   */
+  Status?: InterruptibleCapacityReservationAllocationStatus | undefined;
+
+  /**
+   * <p>
+   * 			The ID of the interruptible Capacity Reservation created from the allocation.
+   * 		</p>
+   * @public
+   */
+  InterruptibleCapacityReservationId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The type of interruption policy applied to the interruptible reservation.
+   * 		</p>
+   * @public
+   */
+  InterruptionType?: InterruptionType | undefined;
+}
+
+/**
+ * <p>
+ * 			Contains information about how and when instances in an interruptible reservation can be terminated when capacity is reclaimed.
+ * 		</p>
+ * @public
+ */
+export interface InterruptionInfo {
+  /**
+   * <p>
+   * 			The ID of the source Capacity Reservation from which the interruptible reservation was created.
+   * 		</p>
+   * @public
+   */
+  SourceCapacityReservationId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The interruption type that determines how instances are terminated when capacity is reclaimed.
+   * 		</p>
+   * @public
+   */
+  InterruptionType?: InterruptionType | undefined;
 }
 
 /**
@@ -8713,6 +8787,30 @@ export interface CapacityReservation {
    * @public
    */
   CapacityBlockId?: string | undefined;
+
+  /**
+   * <p>
+   * 			Indicates whether this Capacity Reservation is interruptible, meaning instances may be terminated when the owner reclaims capacity.
+   * 		</p>
+   * @public
+   */
+  Interruptible?: boolean | undefined;
+
+  /**
+   * <p>
+   * 			Contains allocation details for interruptible reservations, including current allocated instances and target instance counts within the interruptibleCapacityAllocation object.
+   * 		</p>
+   * @public
+   */
+  InterruptibleCapacityAllocation?: InterruptibleCapacityAllocation | undefined;
+
+  /**
+   * <p>
+   * 			Information about the interruption configuration and association with the source reservation for interruptible Capacity Reservations.
+   * 		</p>
+   * @public
+   */
+  InterruptionInfo?: InterruptionInfo | undefined;
 }
 
 /**
@@ -10700,41 +10798,4 @@ export interface NewDhcpConfiguration {
    * @public
    */
   Values?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDhcpOptionsRequest {
-  /**
-   * <p>A DHCP configuration option.</p>
-   * @public
-   */
-  DhcpConfigurations: NewDhcpConfiguration[] | undefined;
-
-  /**
-   * <p>The tags to assign to the DHCP option.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a value for a resource attribute that is a String.</p>
- * @public
- */
-export interface AttributeValue {
-  /**
-   * <p>The attribute value. The value is case-sensitive.</p>
-   * @public
-   */
-  Value?: string | undefined;
 }

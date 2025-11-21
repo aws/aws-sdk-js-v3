@@ -649,6 +649,9 @@ const _CIC = "CommittedInstanceCount";
 const _CICE = "CreateInstanceConnectEndpoint";
 const _CICER = "CreateInstanceConnectEndpointRequest";
 const _CICERr = "CreateInstanceConnectEndpointResult";
+const _CICRA = "CreateInterruptibleCapacityReservationAllocation";
+const _CICRAR = "CreateInterruptibleCapacityReservationAllocationRequest";
+const _CICRARr = "CreateInterruptibleCapacityReservationAllocationResult";
 const _CIERVT = "CreateIpamExternalResourceVerificationToken";
 const _CIERVTR = "CreateIpamExternalResourceVerificationTokenRequest";
 const _CIERVTRr = "CreateIpamExternalResourceVerificationTokenResult";
@@ -2938,10 +2941,11 @@ const _IBDMS = "InstanceBlockDeviceMappingSpecification";
 const _IBDMSL = "InstanceBlockDeviceMappingSpecificationList";
 const _IBPAS = "ImageBlockPublicAccessState";
 const _IC = "InstanceCount";
-const _ICA = "Ipv6CidrAssociations";
+const _ICA = "InterruptibleCapacityAllocation";
 const _ICAC = "IpamCidrAuthorizationContext";
 const _ICAS = "Ipv6CidrAssociationSet";
-const _ICAp = "Ipv6CidrAssociation";
+const _ICAp = "Ipv6CidrAssociations";
+const _ICApv = "Ipv6CidrAssociation";
 const _ICB = "Ipv6CidrBlock";
 const _ICBA = "Ipv6CidrBlockAssociation";
 const _ICBAS = "Ipv6CidrBlockAssociationSet";
@@ -2961,6 +2965,7 @@ const _ICEn = "InstanceConnectEndpoints";
 const _ICL = "ImageCriterionList";
 const _ICLn = "InstanceCountList";
 const _ICR = "ImageCriterionRequest";
+const _ICRI = "InterruptibleCapacityReservationId";
 const _ICRL = "ImageCriterionRequestList";
 const _ICS = "InstanceCreditSpecifications";
 const _ICSL = "InstanceCreditSpecificationList";
@@ -3087,7 +3092,8 @@ const _IIm = "ImageId";
 const _IIma = "ImageIds";
 const _IImp = "ImportInstance";
 const _IImpo = "ImportImage";
-const _IIn = "InstanceIds";
+const _IIn = "InterruptionInfo";
+const _IIns = "InstanceIds";
 const _IIp = "IpamId";
 const _IIpa = "IpamIds";
 const _IKEV = "InternetKeyExchangeVersion";
@@ -3362,13 +3368,14 @@ const _ITOn = "InstanceTypeOffering";
 const _ITS = "InstanceTypeSpecifications";
 const _ITSn = "InstanceTypeSpecification";
 const _ITm = "ImageType";
-const _ITn = "InterfaceType";
+const _ITn = "InterruptionType";
 const _ITni = "InitializationType";
 const _ITns = "InstanceTenancy";
 const _ITnst = "InstanceTypes";
 const _ITnsta = "InstanceTags";
 const _ITnstan = "InstanceTag";
 const _ITnstanc = "InstanceTopology";
+const _ITnt = "InterfaceType";
 const _IU = "InstanceUsages";
 const _IUR = "ImageUsageReports";
 const _IURE = "ImageUsageReportEntries";
@@ -3401,7 +3408,8 @@ const _Im = "Images";
 const _Ima = "Image";
 const _In = "Instance";
 const _Ins = "Instances";
-const _Int = "Interval";
+const _Int = "Interruptible";
+const _Inte = "Interval";
 const _Io = "Iops";
 const _Ip = "Ipam";
 const _Ipa = "Ipams";
@@ -5470,6 +5478,7 @@ const _TIAIL = "TrunkInterfaceAssociationIdList";
 const _TIAL = "TrunkInterfaceAssociationList";
 const _TIAT = "TrafficIpAddressType";
 const _TIC = "TotalInstanceCount";
+const _TICa = "TargetInstanceCount";
 const _TICu = "TunnelInsideCidr";
 const _TII = "TrunkInterfaceId";
 const _TIIC = "TunnelInsideIpv6Cidr";
@@ -5608,6 +5617,9 @@ const _UIAR = "UnassignIpv6AddressesRequest";
 const _UIARn = "UnassignIpv6AddressesResult";
 const _UIAn = "UnassignIpv6Addresses";
 const _UIC = "UsedInstanceCount";
+const _UICRA = "UpdateInterruptibleCapacityReservationAllocation";
+const _UICRAR = "UpdateInterruptibleCapacityReservationAllocationRequest";
+const _UICRARp = "UpdateInterruptibleCapacityReservationAllocationResult";
 const _UICS = "UnsuccessfulInstanceCreditSpecifications";
 const _UICSI = "UnsuccessfulInstanceCreditSpecificationItem";
 const _UICSIE = "UnsuccessfulInstanceCreditSpecificationItemError";
@@ -6608,6 +6620,7 @@ const _iApv = "ipv6Address";
 const _iB = "ingressBytes";
 const _iBPAS = "imageBlockPublicAccessState";
 const _iC = "instanceCount";
+const _iCA = "interruptibleCapacityAllocation";
 const _iCAS = "ipv6CidrAssociationSet";
 const _iCB = "ipv6CidrBlock";
 const _iCBA = "ipv6CidrBlockAssociation";
@@ -6619,6 +6632,7 @@ const _iCE = "instanceConnectEndpoint";
 const _iCEA = "instanceConnectEndpointArn";
 const _iCEI = "instanceConnectEndpointId";
 const _iCES = "instanceConnectEndpointSet";
+const _iCRI = "interruptibleCapacityReservationId";
 const _iCS = "imageCriterionSet";
 const _iCSS = "instanceCreditSpecificationSet";
 const _iCn = "instanceCounts";
@@ -6663,7 +6677,8 @@ const _iISB = "instanceInitiatedShutdownBehavior";
 const _iITS = "importImageTaskSet";
 const _iIm = "importInstance";
 const _iIma = "imageId";
-const _iIn = "instanceIds";
+const _iIn = "interruptionInfo";
+const _iIns = "instanceIds";
 const _iIp = "ipamId";
 const _iL = "imageLocation";
 const _iLn = "instanceLifecycle";
@@ -6787,9 +6802,10 @@ const _iTS = "instanceTypeSet";
 const _iTSS = "instanceTypeSpecificationSet";
 const _iTd = "idempotencyToken";
 const _iTm = "imageType";
-const _iTn = "instanceTenancy";
+const _iTn = "interruptionType";
 const _iTni = "initializationType";
-const _iTns = "instanceTypes";
+const _iTns = "instanceTenancy";
+const _iTnst = "instanceTypes";
 const _iTnt = "interfaceType";
 const _iU = "ipUsage";
 const _iURES = "imageUsageReportEntrySet";
@@ -6802,7 +6818,8 @@ const _iVm = "importVolume";
 const _im = "image";
 const _in = "instance";
 const _ins = "instances";
-const _int = "interval";
+const _int = "interruptible";
+const _inte = "interval";
 const _io = "iops";
 const _ip = "ipam";
 const _ipv = "ipv4";
@@ -7471,7 +7488,8 @@ const _sCA = "serverCertificateArn";
 const _sCAE = "serialConsoleAccessEnabled";
 const _sCB = "sourceCidrBlock";
 const _sCR = "sourceCapacityReservation";
-const _sCRI = "subnetCidrReservationId";
+const _sCRI = "sourceCapacityReservationId";
+const _sCRIu = "subnetCidrReservationId";
 const _sCRu = "subnetCidrReservation";
 const _sCS = "serviceConfigurationSet";
 const _sCSIG = "sustainedClockSpeedInGhz";
@@ -7719,6 +7737,7 @@ const _tHP = "totalHourlyPrice";
 const _tI = "terminateInstances";
 const _tIAT = "trafficIpAddressType";
 const _tIC = "totalInstanceCount";
+const _tICa = "targetInstanceCount";
 const _tICu = "tunnelInsideCidr";
 const _tII = "trunkInterfaceId";
 const _tIIC = "tunnelInsideIpv6Cidr";
@@ -12636,6 +12655,9 @@ export var CapacityReservation: StaticStructureSchema = [
     _CIom,
     _DP,
     _CBI,
+    _Int,
+    _ICA,
+    _IIn,
   ],
   [
     [
@@ -12832,6 +12854,27 @@ export var CapacityReservation: StaticStructureSchema = [
       {
         [_eQN]: `CapacityBlockId`,
         [_xN]: _cBI,
+      },
+    ],
+    [
+      2,
+      {
+        [_eQN]: `Interruptible`,
+        [_xN]: _int,
+      },
+    ],
+    [
+      () => InterruptibleCapacityAllocation,
+      {
+        [_eQN]: `InterruptibleCapacityAllocation`,
+        [_xN]: _iCA,
+      },
+    ],
+    [
+      () => InterruptionInfo,
+      {
+        [_eQN]: `InterruptionInfo`,
+        [_xN]: _iIn,
       },
     ],
   ],
@@ -15476,7 +15519,7 @@ export var CreateFleetInstance: StaticStructureSchema = [
   n0,
   _CFI,
   0,
-  [_LTAO, _L, _IIn, _IT, _Pl],
+  [_LTAO, _L, _IIns, _IT, _Pl],
   [
     [
       () => LaunchTemplateAndOverridesResponse,
@@ -15496,7 +15539,7 @@ export var CreateFleetInstance: StaticStructureSchema = [
       () => InstanceIdsSet,
       {
         [_eQN]: `InstanceIds`,
-        [_xN]: _iIn,
+        [_xN]: _iIns,
       },
     ],
     [
@@ -15982,6 +16025,62 @@ export var CreateInternetGatewayResult: StaticStructureSchema = [
       {
         [_eQN]: `InternetGateway`,
         [_xN]: _iG,
+      },
+    ],
+  ],
+];
+export var CreateInterruptibleCapacityReservationAllocationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CICRAR,
+  0,
+  [_CRI, _IC, _CT, _DR, _TS],
+  [
+    0,
+    1,
+    [0, 4],
+    2,
+    [
+      () => TagSpecificationList,
+      {
+        [_xN]: _TSa,
+      },
+    ],
+  ],
+];
+export var CreateInterruptibleCapacityReservationAllocationResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CICRARr,
+  0,
+  [_SCRI, _TICa, _Sta, _ITn],
+  [
+    [
+      0,
+      {
+        [_eQN]: `SourceCapacityReservationId`,
+        [_xN]: _sCRI,
+      },
+    ],
+    [
+      1,
+      {
+        [_eQN]: `TargetInstanceCount`,
+        [_xN]: _tICa,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Status`,
+        [_xN]: _sta,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `InterruptionType`,
+        [_xN]: _iTn,
       },
     ],
   ],
@@ -17002,7 +17101,7 @@ export var CreateNetworkInterfaceRequest: StaticStructureSchema = [
   n0,
   _CNIR,
   0,
-  [_IPpvr, _IPCp, _IPp, _IPC, _ITn, _TS, _CT, _EPI, _CTS, _Op, _SIu, _De, _PIAr, _G, _PIAri, _SPIAC, _IA, _IAC, _DR],
+  [_IPpvr, _IPCp, _IPp, _IPC, _ITnt, _TS, _CT, _EPI, _CTS, _Op, _SIu, _De, _PIAr, _G, _PIAri, _SPIAC, _IA, _IAC, _DR],
   [
     [
       () => Ipv4PrefixList,
@@ -19195,7 +19294,7 @@ export var CreateVpcRequest: StaticStructureSchema = [
       0,
       {
         [_eQN]: `InstanceTenancy`,
-        [_xN]: _iTn,
+        [_xN]: _iTns,
       },
     ],
     [
@@ -22818,7 +22917,7 @@ export var DescribeClassicLinkInstancesRequest: StaticStructureSchema = [
   n0,
   _DCLIR,
   0,
-  [_DR, _IIn, _Fi, _NTe, _MR],
+  [_DR, _IIns, _Fi, _NTe, _MR],
   [
     [
       2,
@@ -23900,7 +23999,7 @@ export var DescribeFleetsInstances: StaticStructureSchema = [
   n0,
   _DFI,
   0,
-  [_LTAO, _L, _IIn, _IT, _Pl],
+  [_LTAO, _L, _IIns, _IT, _Pl],
   [
     [
       () => LaunchTemplateAndOverridesResponse,
@@ -23920,7 +24019,7 @@ export var DescribeFleetsInstances: StaticStructureSchema = [
       () => InstanceIdsSet,
       {
         [_eQN]: `InstanceIds`,
-        [_xN]: _iIn,
+        [_xN]: _iIns,
       },
     ],
     [
@@ -24737,7 +24836,7 @@ export var DescribeInstanceCreditSpecificationsRequest: StaticStructureSchema = 
   n0,
   _DICSR,
   0,
-  [_DR, _Fi, _IIn, _MR, _NTe],
+  [_DR, _Fi, _IIns, _MR, _NTe],
   [
     2,
     [
@@ -24855,7 +24954,7 @@ export var DescribeInstanceImageMetadataRequest: StaticStructureSchema = [
   n0,
   _DIIMR,
   0,
-  [_Fi, _IIn, _MR, _NTe, _DR],
+  [_Fi, _IIns, _MR, _NTe, _DR],
   [
     [
       () => FilterList,
@@ -24902,7 +25001,7 @@ export var DescribeInstanceSqlHaHistoryStatesRequest: StaticStructureSchema = [
   n0,
   _DISHHSR,
   0,
-  [_IIn, _ST, _ETnd, _NTe, _MR, _Fi, _DR],
+  [_IIns, _ST, _ETnd, _NTe, _MR, _Fi, _DR],
   [
     [
       () => InstanceIdStringList,
@@ -24951,7 +25050,7 @@ export var DescribeInstanceSqlHaStatesRequest: StaticStructureSchema = [
   n0,
   _DISHSR,
   0,
-  [_IIn, _NTe, _MR, _Fi, _DR],
+  [_IIns, _NTe, _MR, _Fi, _DR],
   [
     [
       () => InstanceIdStringList,
@@ -24998,7 +25097,7 @@ export var DescribeInstancesRequest: StaticStructureSchema = [
   n0,
   _DIRescr,
   0,
-  [_IIn, _DR, _Fi, _NTe, _MR],
+  [_IIns, _DR, _Fi, _NTe, _MR],
   [
     [
       () => InstanceIdStringList,
@@ -25063,7 +25162,7 @@ export var DescribeInstanceStatusRequest: StaticStructureSchema = [
   n0,
   _DISRes,
   0,
-  [_IIn, _MR, _NTe, _DR, _Fi, _IAI],
+  [_IIns, _MR, _NTe, _DR, _Fi, _IAI],
   [
     [
       () => InstanceIdStringList,
@@ -25123,7 +25222,7 @@ export var DescribeInstanceTopologyRequest: StaticStructureSchema = [
   n0,
   _DITR,
   0,
-  [_DR, _NTe, _MR, _IIn, _GNr, _Fi],
+  [_DR, _NTe, _MR, _IIns, _GNr, _Fi],
   [
     2,
     0,
@@ -27430,7 +27529,7 @@ export var DescribeReservedInstancesOfferingsRequest: StaticStructureSchema = [
       0,
       {
         [_eQN]: `InstanceTenancy`,
-        [_xN]: _iTn,
+        [_xN]: _iTns,
       },
     ],
     [
@@ -31552,7 +31651,7 @@ export var DisableInstanceSqlHaStandbyDetectionsRequest: StaticStructureSchema =
   n0,
   _DISHSDR,
   0,
-  [_IIn, _DR],
+  [_IIns, _DR],
   [
     [
       () => InstanceIdUpdateStringList,
@@ -33660,7 +33759,7 @@ export var EnableInstanceSqlHaStandbyDetectionsRequest: StaticStructureSchema = 
   n0,
   _EISHSDR,
   0,
-  [_IIn, _SSC, _DR],
+  [_IIns, _SSC, _DR],
   [
     [
       () => InstanceIdUpdateStringList,
@@ -36000,7 +36099,7 @@ export var FpgaImage: StaticStructureSchema = [
       () => InstanceTypesList,
       {
         [_eQN]: `InstanceTypes`,
-        [_xN]: _iTns,
+        [_xN]: _iTnst,
       },
     ],
   ],
@@ -36187,7 +36286,7 @@ export var GetAssociatedIpv6PoolCidrsResult: StaticStructureSchema = [
   n0,
   _GAIPCRe,
   0,
-  [_ICA, _NTe],
+  [_ICAp, _NTe],
   [
     [
       () => Ipv6CidrAssociationSet,
@@ -36421,7 +36520,7 @@ export var GetCapacityReservationUsageResult: StaticStructureSchema = [
   n0,
   _GCRURe,
   0,
-  [_NTe, _CRI, _IT, _TIC, _AICv, _St, _IU],
+  [_NTe, _CRI, _IT, _TIC, _AICv, _St, _IU, _Int, _ICA, _IIn],
   [
     [
       0,
@@ -36470,6 +36569,27 @@ export var GetCapacityReservationUsageResult: StaticStructureSchema = [
       {
         [_eQN]: `InstanceUsageSet`,
         [_xN]: _iUS,
+      },
+    ],
+    [
+      2,
+      {
+        [_eQN]: `Interruptible`,
+        [_xN]: _int,
+      },
+    ],
+    [
+      () => InterruptibleCapacityAllocation,
+      {
+        [_eQN]: `InterruptibleCapacityAllocation`,
+        [_xN]: _iCA,
+      },
+    ],
+    [
+      () => InterruptionInfo,
+      {
+        [_eQN]: `InterruptionInfo`,
+        [_xN]: _iIn,
       },
     ],
   ],
@@ -42191,7 +42311,7 @@ export var InstanceEventWindowAssociationRequest: StaticStructureSchema = [
   n0,
   _IEWAR,
   0,
-  [_IIn, _ITnsta, _DHI],
+  [_IIns, _ITnsta, _DHI],
   [
     [
       () => InstanceIdList,
@@ -42218,7 +42338,7 @@ export var InstanceEventWindowAssociationTarget: StaticStructureSchema = [
   n0,
   _IEWAT,
   0,
-  [_IIn, _T, _DHI],
+  [_IIns, _T, _DHI],
   [
     [
       () => InstanceIdList,
@@ -42248,7 +42368,7 @@ export var InstanceEventWindowDisassociationRequest: StaticStructureSchema = [
   n0,
   _IEWDR,
   0,
-  [_IIn, _ITnsta, _DHI],
+  [_IIns, _ITnsta, _DHI],
   [
     [
       () => InstanceIdList,
@@ -42705,7 +42825,7 @@ export var InstanceNetworkInterface: StaticStructureSchema = [
     _Sta,
     _SIu,
     _VI,
-    _ITn,
+    _ITnt,
     _IPpvr,
     _IPp,
     _CTC,
@@ -42982,7 +43102,7 @@ export var InstanceNetworkInterfaceSpecification: StaticStructureSchema = [
     _SPIAC,
     _SIu,
     _ACIA,
-    _ITn,
+    _ITnt,
     _NCI,
     _IPpvr,
     _IPCp,
@@ -44265,6 +44385,73 @@ export var InternetGatewayAttachment: StaticStructureSchema = [
       {
         [_eQN]: `VpcId`,
         [_xN]: _vI,
+      },
+    ],
+  ],
+];
+export var InterruptibleCapacityAllocation: StaticStructureSchema = [
+  3,
+  n0,
+  _ICA,
+  0,
+  [_IC, _TICa, _Sta, _ICRI, _ITn],
+  [
+    [
+      1,
+      {
+        [_eQN]: `InstanceCount`,
+        [_xN]: _iC,
+      },
+    ],
+    [
+      1,
+      {
+        [_eQN]: `TargetInstanceCount`,
+        [_xN]: _tICa,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Status`,
+        [_xN]: _sta,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `InterruptibleCapacityReservationId`,
+        [_xN]: _iCRI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `InterruptionType`,
+        [_xN]: _iTn,
+      },
+    ],
+  ],
+];
+export var InterruptionInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _IIn,
+  0,
+  [_SCRI, _ITn],
+  [
+    [
+      0,
+      {
+        [_eQN]: `SourceCapacityReservationId`,
+        [_xN]: _sCRI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `InterruptionType`,
+        [_xN]: _iTn,
       },
     ],
   ],
@@ -46383,7 +46570,7 @@ export var Ipv4PrefixSpecificationResponse: StaticStructureSchema = [
 export var Ipv6CidrAssociation: StaticStructureSchema = [
   3,
   n0,
-  _ICAp,
+  _ICApv,
   0,
   [_ICp, _ARss],
   [
@@ -47344,7 +47531,7 @@ export var LaunchTemplateInstanceNetworkInterfaceSpecification: StaticStructureS
     _De,
     _DI,
     _G,
-    _ITn,
+    _ITnt,
     _IAC,
     _IA,
     _NII,
@@ -47538,7 +47725,7 @@ export var LaunchTemplateInstanceNetworkInterfaceSpecificationRequest: StaticStr
     _De,
     _DI,
     _G,
-    _ITn,
+    _ITnt,
     _IAC,
     _IA,
     _NII,
@@ -52143,7 +52330,7 @@ export var MonitorInstancesRequest: StaticStructureSchema = [
   n0,
   _MIRon,
   0,
-  [_IIn, _DR],
+  [_IIns, _DR],
   [
     [
       () => InstanceIdStringList,
@@ -53328,7 +53515,7 @@ export var NetworkInterface: StaticStructureSchema = [
     _CTC,
     _De,
     _G,
-    _ITn,
+    _ITnt,
     _IA,
     _MAa,
     _NII,
@@ -56066,7 +56253,7 @@ export var RebootInstancesRequest: StaticStructureSchema = [
   n0,
   _RIR,
   0,
-  [_IIn, _DR],
+  [_IIns, _DR],
   [
     [
       () => InstanceIdStringList,
@@ -57735,7 +57922,7 @@ export var ReservedInstances: StaticStructureSchema = [
       0,
       {
         [_eQN]: `InstanceTenancy`,
-        [_xN]: _iTn,
+        [_xN]: _iTns,
       },
     ],
     [
@@ -58118,7 +58305,7 @@ export var ReservedInstancesOffering: StaticStructureSchema = [
       0,
       {
         [_eQN]: `InstanceTenancy`,
-        [_xN]: _iTn,
+        [_xN]: _iTns,
       },
     ],
     [
@@ -60538,7 +60725,7 @@ export var ScheduledInstanceRecurrence: StaticStructureSchema = [
   n0,
   _SIRc,
   0,
-  [_Fre, _Int, _ODS, _ORTE, _OU],
+  [_Fre, _Inte, _ODS, _ORTE, _OU],
   [
     [
       0,
@@ -60551,7 +60738,7 @@ export var ScheduledInstanceRecurrence: StaticStructureSchema = [
       1,
       {
         [_eQN]: `Interval`,
-        [_xN]: _int,
+        [_xN]: _inte,
       },
     ],
     [
@@ -60582,7 +60769,7 @@ export var ScheduledInstanceRecurrenceRequest: StaticStructureSchema = [
   n0,
   _SIRR,
   0,
-  [_Fre, _Int, _OD, _ORTE, _OU],
+  [_Fre, _Inte, _OD, _ORTE, _OU],
   [
     0,
     1,
@@ -63228,7 +63415,7 @@ export var StartInstancesRequest: StaticStructureSchema = [
   n0,
   _SIRt,
   0,
-  [_IIn, _AId, _DR],
+  [_IIns, _AId, _DR],
   [
     [
       () => InstanceIdStringList,
@@ -63406,7 +63593,7 @@ export var StopInstancesRequest: StaticStructureSchema = [
   n0,
   _SIRto,
   0,
-  [_IIn, _Hi, _SOS, _DR, _F],
+  [_IIns, _Hi, _SOS, _DR, _F],
   [
     [
       () => InstanceIdStringList,
@@ -63773,7 +63960,7 @@ export var SubnetCidrReservation: StaticStructureSchema = [
       0,
       {
         [_eQN]: `SubnetCidrReservationId`,
-        [_xN]: _sCRI,
+        [_xN]: _sCRIu,
       },
     ],
     [
@@ -64324,7 +64511,7 @@ export var TerminateInstancesRequest: StaticStructureSchema = [
   n0,
   _TIR,
   0,
-  [_IIn, _F, _SOS, _DR],
+  [_IIns, _F, _SOS, _DR],
   [
     [
       () => InstanceIdStringList,
@@ -67110,7 +67297,7 @@ export var UnmonitorInstancesRequest: StaticStructureSchema = [
   n0,
   _UIR,
   0,
-  [_IIn, _DR],
+  [_IIns, _DR],
   [
     [
       () => InstanceIdStringList,
@@ -67262,6 +67449,65 @@ export var UpdateCapacityManagerOrganizationsAccessResult: StaticStructureSchema
       {
         [_eQN]: `OrganizationsAccess`,
         [_xN]: _oAr,
+      },
+    ],
+  ],
+];
+export var UpdateInterruptibleCapacityReservationAllocationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UICRAR,
+  0,
+  [_CRI, _TICa, _DR],
+  [0, 1, 2],
+];
+export var UpdateInterruptibleCapacityReservationAllocationResult: StaticStructureSchema = [
+  3,
+  n0,
+  _UICRARp,
+  0,
+  [_ICRI, _SCRI, _IC, _TICa, _Sta, _ITn],
+  [
+    [
+      0,
+      {
+        [_eQN]: `InterruptibleCapacityReservationId`,
+        [_xN]: _iCRI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SourceCapacityReservationId`,
+        [_xN]: _sCRI,
+      },
+    ],
+    [
+      1,
+      {
+        [_eQN]: `InstanceCount`,
+        [_xN]: _iC,
+      },
+    ],
+    [
+      1,
+      {
+        [_eQN]: `TargetInstanceCount`,
+        [_xN]: _tICa,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Status`,
+        [_xN]: _sta,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `InterruptionType`,
+        [_xN]: _iTn,
       },
     ],
   ],
@@ -69448,7 +69694,7 @@ export var Vpc: StaticStructureSchema = [
       0,
       {
         [_eQN]: `InstanceTenancy`,
-        [_xN]: _iTn,
+        [_xN]: _iTns,
       },
     ],
     [
@@ -79851,6 +80097,14 @@ export var CreateInternetGateway: StaticOperationSchema = [
   () => CreateInternetGatewayRequest,
   () => CreateInternetGatewayResult,
 ];
+export var CreateInterruptibleCapacityReservationAllocation: StaticOperationSchema = [
+  9,
+  n0,
+  _CICRA,
+  0,
+  () => CreateInterruptibleCapacityReservationAllocationRequest,
+  () => CreateInterruptibleCapacityReservationAllocationResult,
+];
 export var CreateIpam: StaticOperationSchema = [9, n0, _CIre, 0, () => CreateIpamRequest, () => CreateIpamResult];
 export var CreateIpamExternalResourceVerificationToken: StaticOperationSchema = [
   9,
@@ -84856,6 +85110,14 @@ export var UpdateCapacityManagerOrganizationsAccess: StaticOperationSchema = [
   0,
   () => UpdateCapacityManagerOrganizationsAccessRequest,
   () => UpdateCapacityManagerOrganizationsAccessResult,
+];
+export var UpdateInterruptibleCapacityReservationAllocation: StaticOperationSchema = [
+  9,
+  n0,
+  _UICRA,
+  0,
+  () => UpdateInterruptibleCapacityReservationAllocationRequest,
+  () => UpdateInterruptibleCapacityReservationAllocationResult,
 ];
 export var UpdateSecurityGroupRuleDescriptionsEgress: StaticOperationSchema = [
   9,
