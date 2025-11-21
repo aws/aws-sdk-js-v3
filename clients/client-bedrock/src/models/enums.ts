@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const InputTags = {
+  HONOR: "HONOR",
+  IGNORE: "IGNORE",
+} as const;
+/**
+ * @public
+ */
+export type InputTags = (typeof InputTags)[keyof typeof InputTags];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgreementStatus = {
   AVAILABLE: "AVAILABLE",
   ERROR: "ERROR",

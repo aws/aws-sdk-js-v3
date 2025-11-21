@@ -38,6 +38,7 @@ import {
   GuardrailWordAction,
   InferenceProfileStatus,
   InferenceProfileType,
+  InputTags,
   ModelStatus,
   PerformanceConfigLatency,
   QueryTransformationType,
@@ -48,6 +49,112 @@ import {
   Status,
   VectorSearchRerankingConfigurationType,
 } from "./enums";
+
+/**
+ * <p>Account-level enforced guardrail input configuration.</p>
+ * @public
+ */
+export interface AccountEnforcedGuardrailInferenceInputConfiguration {
+  /**
+   * <p>Identifier for the guardrail, could be the ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>Numerical guardrail version.</p>
+   * @public
+   */
+  guardrailVersion: string | undefined;
+
+  /**
+   * <p>Whether to honor or ignore input tags at runtime.</p>
+   * @public
+   */
+  inputTags: InputTags | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationOwner = {
+  /**
+   * Configuration owned by the account
+   */
+  ACCOUNT: "ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationOwner = (typeof ConfigurationOwner)[keyof typeof ConfigurationOwner];
+
+/**
+ * <p>Account enforced guardrail output configuration.</p>
+ * @public
+ */
+export interface AccountEnforcedGuardrailOutputConfiguration {
+  /**
+   * <p>Unique ID for the account enforced configuration.</p>
+   * @public
+   */
+  configId?: string | undefined;
+
+  /**
+   * <p>ARN representation for the guardrail.</p>
+   * @public
+   */
+  guardrailArn?: string | undefined;
+
+  /**
+   * <p>Unique ID for the guardrail.</p>
+   * @public
+   */
+  guardrailId?: string | undefined;
+
+  /**
+   * <p>Whether to honor or ignore input tags at runtime.</p>
+   * @public
+   */
+  inputTags?: InputTags | undefined;
+
+  /**
+   * <p>Numerical guardrail version.</p>
+   * @public
+   */
+  guardrailVersion?: string | undefined;
+
+  /**
+   * <p>Timestamp.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The ARN of the role used to update the configuration.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>Timestamp.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The ARN of the role used to update the configuration.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>Configuration owner type.</p>
+   * @public
+   */
+  owner?: ConfigurationOwner | undefined;
+}
 
 /**
  * <p>Information about the agreement availability</p>
@@ -4889,6 +4996,90 @@ export interface ListCustomModelsResponse {
 /**
  * @public
  */
+export interface DeleteEnforcedGuardrailConfigurationRequest {
+  /**
+   * <p>Unique ID for the account enforced configuration.</p>
+   * @public
+   */
+  configId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEnforcedGuardrailConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface ListEnforcedGuardrailsConfigurationRequest {
+  /**
+   * <p>Opaque continuation token of previous paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnforcedGuardrailsConfigurationResponse {
+  /**
+   * <p>Array of AccountEnforcedGuardrailOutputConfiguration objects.</p>
+   * @public
+   */
+  guardrailsConfig: AccountEnforcedGuardrailOutputConfiguration[] | undefined;
+
+  /**
+   * <p>Opaque continuation token of previous paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEnforcedGuardrailConfigurationRequest {
+  /**
+   * <p>Unique ID for the account enforced configuration.</p>
+   * @public
+   */
+  configId?: string | undefined;
+
+  /**
+   * <p>Account-level enforced guardrail input configuration.</p>
+   * @public
+   */
+  guardrailInferenceConfig: AccountEnforcedGuardrailInferenceInputConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEnforcedGuardrailConfigurationResponse {
+  /**
+   * <p>Unique ID for the account enforced configuration.</p>
+   * @public
+   */
+  configId?: string | undefined;
+
+  /**
+   * <p>Timestamp.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The ARN of the role used to update the configuration.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface BatchDeleteEvaluationJobRequest {
   /**
    * <p>A list of one or more evaluation job Amazon Resource Names (ARNs) you want to delete.</p>
@@ -8000,142 +8191,4 @@ export interface InferenceProfileSummary {
    * @public
    */
   type: InferenceProfileType | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInferenceProfilesResponse {
-  /**
-   * <p>A list of information about each inference profile that you can use.</p>
-   * @public
-   */
-  inferenceProfileSummaries?: InferenceProfileSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteModelInvocationLoggingConfigurationRequest {}
-
-/**
- * @public
- */
-export interface DeleteModelInvocationLoggingConfigurationResponse {}
-
-/**
- * @public
- */
-export interface GetModelInvocationLoggingConfigurationRequest {}
-
-/**
- * <p>S3 configuration for storing log data.</p>
- * @public
- */
-export interface S3Config {
-  /**
-   * <p>S3 bucket name.</p>
-   * @public
-   */
-  bucketName: string | undefined;
-
-  /**
-   * <p>S3 prefix. </p>
-   * @public
-   */
-  keyPrefix?: string | undefined;
-}
-
-/**
- * <p>CloudWatch logging configuration.</p>
- * @public
- */
-export interface CloudWatchConfig {
-  /**
-   * <p>The log group name.</p>
-   * @public
-   */
-  logGroupName: string | undefined;
-
-  /**
-   * <p>The role Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>S3 configuration for delivering a large amount of data.</p>
-   * @public
-   */
-  largeDataDeliveryS3Config?: S3Config | undefined;
-}
-
-/**
- * <p>Configuration fields for invocation logging.</p>
- * @public
- */
-export interface LoggingConfig {
-  /**
-   * <p>CloudWatch logging configuration.</p>
-   * @public
-   */
-  cloudWatchConfig?: CloudWatchConfig | undefined;
-
-  /**
-   * <p>S3 configuration for storing log data.</p>
-   * @public
-   */
-  s3Config?: S3Config | undefined;
-
-  /**
-   * <p>Set to include text data in the log delivery.</p>
-   * @public
-   */
-  textDataDeliveryEnabled?: boolean | undefined;
-
-  /**
-   * <p>Set to include image data in the log delivery.</p>
-   * @public
-   */
-  imageDataDeliveryEnabled?: boolean | undefined;
-
-  /**
-   * <p>Set to include embeddings data in the log delivery.</p>
-   * @public
-   */
-  embeddingDataDeliveryEnabled?: boolean | undefined;
-
-  /**
-   * <p>Set to include video data in the log delivery.</p>
-   * @public
-   */
-  videoDataDeliveryEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetModelInvocationLoggingConfigurationResponse {
-  /**
-   * <p>The current configuration values.</p>
-   * @public
-   */
-  loggingConfig?: LoggingConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface PutModelInvocationLoggingConfigurationRequest {
-  /**
-   * <p>The logging configuration values to set.</p>
-   * @public
-   */
-  loggingConfig: LoggingConfig | undefined;
 }

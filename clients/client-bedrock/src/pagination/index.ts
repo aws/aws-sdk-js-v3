@@ -6,6 +6,7 @@ export * from "./ListAutomatedReasoningPolicyTestCasesPaginator";
 export * from "./ListAutomatedReasoningPolicyTestResultsPaginator";
 export * from "./ListCustomModelDeploymentsPaginator";
 export * from "./ListCustomModelsPaginator";
+export * from "./ListEnforcedGuardrailsConfigurationPaginator";
 export * from "./ListEvaluationJobsPaginator";
 export * from "./ListGuardrailsPaginator";
 export * from "./ListImportedModelsPaginator";

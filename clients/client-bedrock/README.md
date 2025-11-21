@@ -397,6 +397,14 @@ DeleteCustomModelDeployment
 </details>
 <details>
 <summary>
+DeleteEnforcedGuardrailConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/DeleteEnforcedGuardrailConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteEnforcedGuardrailConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteEnforcedGuardrailConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteFoundationModelAgreement
 </summary>
 
@@ -717,6 +725,14 @@ ListCustomModels
 </details>
 <details>
 <summary>
+ListEnforcedGuardrailsConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListEnforcedGuardrailsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListEnforcedGuardrailsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListEnforcedGuardrailsConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListEvaluationJobs
 </summary>
 
@@ -825,6 +841,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutEnforcedGuardrailConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/PutEnforcedGuardrailConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/PutEnforcedGuardrailConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/PutEnforcedGuardrailConfigurationCommandOutput/)
 
 </details>
 <details>

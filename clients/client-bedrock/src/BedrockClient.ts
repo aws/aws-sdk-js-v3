@@ -139,6 +139,10 @@ import {
   DeleteCustomModelDeploymentCommandOutput,
 } from "./commands/DeleteCustomModelDeploymentCommand";
 import {
+  DeleteEnforcedGuardrailConfigurationCommandInput,
+  DeleteEnforcedGuardrailConfigurationCommandOutput,
+} from "./commands/DeleteEnforcedGuardrailConfigurationCommand";
+import {
   DeleteFoundationModelAgreementCommandInput,
   DeleteFoundationModelAgreementCommandOutput,
 } from "./commands/DeleteFoundationModelAgreementCommand";
@@ -265,6 +269,10 @@ import {
   ListCustomModelDeploymentsCommandOutput,
 } from "./commands/ListCustomModelDeploymentsCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "./commands/ListCustomModelsCommand";
+import {
+  ListEnforcedGuardrailsConfigurationCommandInput,
+  ListEnforcedGuardrailsConfigurationCommandOutput,
+} from "./commands/ListEnforcedGuardrailsConfigurationCommand";
 import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "./commands/ListEvaluationJobsCommand";
 import {
   ListFoundationModelAgreementOffersCommandInput,
@@ -306,6 +314,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutEnforcedGuardrailConfigurationCommandInput,
+  PutEnforcedGuardrailConfigurationCommandOutput,
+} from "./commands/PutEnforcedGuardrailConfigurationCommand";
 import {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
@@ -397,6 +409,7 @@ export type ServiceInputTypes =
   | DeleteAutomatedReasoningPolicyTestCaseCommandInput
   | DeleteCustomModelCommandInput
   | DeleteCustomModelDeploymentCommandInput
+  | DeleteEnforcedGuardrailConfigurationCommandInput
   | DeleteFoundationModelAgreementCommandInput
   | DeleteGuardrailCommandInput
   | DeleteImportedModelCommandInput
@@ -437,6 +450,7 @@ export type ServiceInputTypes =
   | ListAutomatedReasoningPolicyTestResultsCommandInput
   | ListCustomModelDeploymentsCommandInput
   | ListCustomModelsCommandInput
+  | ListEnforcedGuardrailsConfigurationCommandInput
   | ListEvaluationJobsCommandInput
   | ListFoundationModelAgreementOffersCommandInput
   | ListFoundationModelsCommandInput
@@ -451,6 +465,7 @@ export type ServiceInputTypes =
   | ListPromptRoutersCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
+  | PutEnforcedGuardrailConfigurationCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
   | PutUseCaseForModelAccessCommandInput
   | RegisterMarketplaceModelEndpointCommandInput
@@ -496,6 +511,7 @@ export type ServiceOutputTypes =
   | DeleteAutomatedReasoningPolicyTestCaseCommandOutput
   | DeleteCustomModelCommandOutput
   | DeleteCustomModelDeploymentCommandOutput
+  | DeleteEnforcedGuardrailConfigurationCommandOutput
   | DeleteFoundationModelAgreementCommandOutput
   | DeleteGuardrailCommandOutput
   | DeleteImportedModelCommandOutput
@@ -536,6 +552,7 @@ export type ServiceOutputTypes =
   | ListAutomatedReasoningPolicyTestResultsCommandOutput
   | ListCustomModelDeploymentsCommandOutput
   | ListCustomModelsCommandOutput
+  | ListEnforcedGuardrailsConfigurationCommandOutput
   | ListEvaluationJobsCommandOutput
   | ListFoundationModelAgreementOffersCommandOutput
   | ListFoundationModelsCommandOutput
@@ -550,6 +567,7 @@ export type ServiceOutputTypes =
   | ListPromptRoutersCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutEnforcedGuardrailConfigurationCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
   | PutUseCaseForModelAccessCommandOutput
   | RegisterMarketplaceModelEndpointCommandOutput

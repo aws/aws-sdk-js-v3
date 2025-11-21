@@ -124,6 +124,11 @@ import {
   DeleteCustomModelDeploymentCommandOutput,
 } from "./commands/DeleteCustomModelDeploymentCommand";
 import {
+  DeleteEnforcedGuardrailConfigurationCommand,
+  DeleteEnforcedGuardrailConfigurationCommandInput,
+  DeleteEnforcedGuardrailConfigurationCommandOutput,
+} from "./commands/DeleteEnforcedGuardrailConfigurationCommand";
+import {
   DeleteFoundationModelAgreementCommand,
   DeleteFoundationModelAgreementCommandInput,
   DeleteFoundationModelAgreementCommandOutput,
@@ -324,6 +329,11 @@ import {
   ListCustomModelsCommandOutput,
 } from "./commands/ListCustomModelsCommand";
 import {
+  ListEnforcedGuardrailsConfigurationCommand,
+  ListEnforcedGuardrailsConfigurationCommandInput,
+  ListEnforcedGuardrailsConfigurationCommandOutput,
+} from "./commands/ListEnforcedGuardrailsConfigurationCommand";
+import {
   ListEvaluationJobsCommand,
   ListEvaluationJobsCommandInput,
   ListEvaluationJobsCommandOutput,
@@ -393,6 +403,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutEnforcedGuardrailConfigurationCommand,
+  PutEnforcedGuardrailConfigurationCommandInput,
+  PutEnforcedGuardrailConfigurationCommandOutput,
+} from "./commands/PutEnforcedGuardrailConfigurationCommand";
 import {
   PutModelInvocationLoggingConfigurationCommand,
   PutModelInvocationLoggingConfigurationCommandInput,
@@ -495,6 +510,7 @@ const commands = {
   DeleteAutomatedReasoningPolicyTestCaseCommand,
   DeleteCustomModelCommand,
   DeleteCustomModelDeploymentCommand,
+  DeleteEnforcedGuardrailConfigurationCommand,
   DeleteFoundationModelAgreementCommand,
   DeleteGuardrailCommand,
   DeleteImportedModelCommand,
@@ -535,6 +551,7 @@ const commands = {
   ListAutomatedReasoningPolicyTestResultsCommand,
   ListCustomModelDeploymentsCommand,
   ListCustomModelsCommand,
+  ListEnforcedGuardrailsConfigurationCommand,
   ListEvaluationJobsCommand,
   ListFoundationModelAgreementOffersCommand,
   ListFoundationModelsCommand,
@@ -549,6 +566,7 @@ const commands = {
   ListPromptRoutersCommand,
   ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
+  PutEnforcedGuardrailConfigurationCommand,
   PutModelInvocationLoggingConfigurationCommand,
   PutUseCaseForModelAccessCommand,
   RegisterMarketplaceModelEndpointCommand,
@@ -971,6 +989,23 @@ export interface Bedrock {
     args: DeleteCustomModelDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCustomModelDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEnforcedGuardrailConfigurationCommand}
+   */
+  deleteEnforcedGuardrailConfiguration(
+    args: DeleteEnforcedGuardrailConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEnforcedGuardrailConfigurationCommandOutput>;
+  deleteEnforcedGuardrailConfiguration(
+    args: DeleteEnforcedGuardrailConfigurationCommandInput,
+    cb: (err: any, data?: DeleteEnforcedGuardrailConfigurationCommandOutput) => void
+  ): void;
+  deleteEnforcedGuardrailConfiguration(
+    args: DeleteEnforcedGuardrailConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEnforcedGuardrailConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1642,6 +1677,24 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link ListEnforcedGuardrailsConfigurationCommand}
+   */
+  listEnforcedGuardrailsConfiguration(): Promise<ListEnforcedGuardrailsConfigurationCommandOutput>;
+  listEnforcedGuardrailsConfiguration(
+    args: ListEnforcedGuardrailsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnforcedGuardrailsConfigurationCommandOutput>;
+  listEnforcedGuardrailsConfiguration(
+    args: ListEnforcedGuardrailsConfigurationCommandInput,
+    cb: (err: any, data?: ListEnforcedGuardrailsConfigurationCommandOutput) => void
+  ): void;
+  listEnforcedGuardrailsConfiguration(
+    args: ListEnforcedGuardrailsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnforcedGuardrailsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEvaluationJobsCommand}
    */
   listEvaluationJobs(): Promise<ListEvaluationJobsCommandOutput>;
@@ -1886,6 +1939,23 @@ export interface Bedrock {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutEnforcedGuardrailConfigurationCommand}
+   */
+  putEnforcedGuardrailConfiguration(
+    args: PutEnforcedGuardrailConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEnforcedGuardrailConfigurationCommandOutput>;
+  putEnforcedGuardrailConfiguration(
+    args: PutEnforcedGuardrailConfigurationCommandInput,
+    cb: (err: any, data?: PutEnforcedGuardrailConfigurationCommandOutput) => void
+  ): void;
+  putEnforcedGuardrailConfiguration(
+    args: PutEnforcedGuardrailConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEnforcedGuardrailConfigurationCommandOutput) => void
   ): void;
 
   /**

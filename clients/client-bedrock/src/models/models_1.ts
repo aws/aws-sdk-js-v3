@@ -42,6 +42,7 @@ import {
   FilterAttribute,
   GenerationConfiguration,
   ImplicitFilterConfiguration,
+  InferenceProfileSummary,
   ModelDataSource,
   OrchestrationConfiguration,
   OutputDataConfig,
@@ -53,6 +54,144 @@ import {
   VectorSearchRerankingConfiguration,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesResponse {
+  /**
+   * <p>A list of information about each inference profile that you can use.</p>
+   * @public
+   */
+  inferenceProfileSummaries?: InferenceProfileSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteModelInvocationLoggingConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface DeleteModelInvocationLoggingConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface GetModelInvocationLoggingConfigurationRequest {}
+
+/**
+ * <p>S3 configuration for storing log data.</p>
+ * @public
+ */
+export interface S3Config {
+  /**
+   * <p>S3 bucket name.</p>
+   * @public
+   */
+  bucketName: string | undefined;
+
+  /**
+   * <p>S3 prefix. </p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p>CloudWatch logging configuration.</p>
+ * @public
+ */
+export interface CloudWatchConfig {
+  /**
+   * <p>The log group name.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+
+  /**
+   * <p>The role Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>S3 configuration for delivering a large amount of data.</p>
+   * @public
+   */
+  largeDataDeliveryS3Config?: S3Config | undefined;
+}
+
+/**
+ * <p>Configuration fields for invocation logging.</p>
+ * @public
+ */
+export interface LoggingConfig {
+  /**
+   * <p>CloudWatch logging configuration.</p>
+   * @public
+   */
+  cloudWatchConfig?: CloudWatchConfig | undefined;
+
+  /**
+   * <p>S3 configuration for storing log data.</p>
+   * @public
+   */
+  s3Config?: S3Config | undefined;
+
+  /**
+   * <p>Set to include text data in the log delivery.</p>
+   * @public
+   */
+  textDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include image data in the log delivery.</p>
+   * @public
+   */
+  imageDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include embeddings data in the log delivery.</p>
+   * @public
+   */
+  embeddingDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include video data in the log delivery.</p>
+   * @public
+   */
+  videoDataDeliveryEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetModelInvocationLoggingConfigurationResponse {
+  /**
+   * <p>The current configuration values.</p>
+   * @public
+   */
+  loggingConfig?: LoggingConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutModelInvocationLoggingConfigurationRequest {
+  /**
+   * <p>The logging configuration values to set.</p>
+   * @public
+   */
+  loggingConfig: LoggingConfig | undefined;
+}
 
 /**
  * @public

@@ -4,6 +4,9 @@ const _AEC = "AutomatedEvaluationConfig";
 const _AECM = "AutomatedEvaluationCustomMetrics";
 const _AECMC = "AutomatedEvaluationCustomMetricConfig";
 const _AECMS = "AutomatedEvaluationCustomMetricSource";
+const _AEGIIC = "AccountEnforcedGuardrailInferenceInputConfiguration";
+const _AEGOC = "AccountEnforcedGuardrailOutputConfiguration";
+const _AEGOCc = "AccountEnforcedGuardrailsOutputConfiguration";
 const _ARCDSL = "AutomatedReasoningCheckDifferenceScenarioList";
 const _ARCF = "AutomatedReasoningCheckFinding";
 const _ARCFL = "AutomatedReasoningCheckFindingList";
@@ -214,6 +217,9 @@ const _DCMDR = "DeleteCustomModelDeploymentRequest";
 const _DCMDRe = "DeleteCustomModelDeploymentResponse";
 const _DCMR = "DeleteCustomModelRequest";
 const _DCMRe = "DeleteCustomModelResponse";
+const _DEGC = "DeleteEnforcedGuardrailConfiguration";
+const _DEGCR = "DeleteEnforcedGuardrailConfigurationRequest";
+const _DEGCRe = "DeleteEnforcedGuardrailConfigurationResponse";
 const _DFMA = "DeleteFoundationModelAgreement";
 const _DFMAR = "DeleteFoundationModelAgreementRequest";
 const _DFMARe = "DeleteFoundationModelAgreementResponse";
@@ -469,6 +475,9 @@ const _LCMDR = "ListCustomModelDeploymentsRequest";
 const _LCMDRi = "ListCustomModelDeploymentsResponse";
 const _LCMR = "ListCustomModelsRequest";
 const _LCMRi = "ListCustomModelsResponse";
+const _LEGC = "ListEnforcedGuardrailsConfiguration";
+const _LEGCR = "ListEnforcedGuardrailsConfigurationRequest";
+const _LEGCRi = "ListEnforcedGuardrailsConfigurationResponse";
 const _LEJ = "ListEvaluationJobs";
 const _LEJR = "ListEvaluationJobsRequest";
 const _LEJRi = "ListEvaluationJobsResponse";
@@ -538,6 +547,9 @@ const _OC = "OrchestrationConfiguration";
 const _ODC = "OutputDataConfig";
 const _Of = "Offers";
 const _PC = "PerformanceConfiguration";
+const _PEGC = "PutEnforcedGuardrailConfiguration";
+const _PEGCR = "PutEnforcedGuardrailConfigurationRequest";
+const _PEGCRu = "PutEnforcedGuardrailConfigurationResponse";
 const _PMILC = "PutModelInvocationLoggingConfiguration";
 const _PMILCR = "PutModelInvocationLoggingConfigurationRequest";
 const _PMILCRu = "PutModelInvocationLoggingConfigurationResponse";
@@ -696,7 +708,8 @@ const _bWT = "buildWorkflowType";
 const _c = "client";
 const _cA = "createdAt";
 const _cAr = "createdAfter";
-const _cB = "createdBefore";
+const _cB = "createdBy";
+const _cBr = "createdBefore";
 const _cC = "customizationConfig";
 const _cD = "commitmentDuration";
 const _cEKI = "customerEncryptionKeyId";
@@ -705,6 +718,7 @@ const _cF = "copyFrom";
 const _cFS = "claimsFalseScenario";
 const _cGP = "contextualGroundingPolicy";
 const _cGPC = "contextualGroundingPolicyConfig";
+const _cI = "configId";
 const _cM = "customMetrics";
 const _cMA = "customModelArn";
 const _cMC = "customMetricConfig";
@@ -813,8 +827,10 @@ const _gA = "guardrailArn";
 const _gC = "guardContent";
 const _gCe = "generationConfiguration";
 const _gCu = "guardrailConfiguration";
-const _gI = "guardrailId";
-const _gIu = "guardrailIdentifier";
+const _gCua = "guardrailsConfig";
+const _gI = "guardrailIdentifier";
+const _gIC = "guardrailInferenceConfig";
+const _gIu = "guardrailId";
 const _gPA = "guardrailProfileArn";
 const _gPI = "guardrailProfileIdentifier";
 const _gPIu = "guardrailProfileId";
@@ -858,9 +874,10 @@ const _iPS = "inferenceProfileSummaries";
 const _iS = "instructSupported";
 const _iSI = "inferenceSourceIdentifier";
 const _iSn = "inputStrength";
-const _iT = "instanceType";
+const _iT = "inputTags";
 const _iTS = "inferenceTypesSupported";
 const _iTd = "idempotencyToken";
+const _iTn = "instanceType";
 const _id = "identifier";
 const _im = "impossible";
 const _in = "instructions";
@@ -953,7 +970,7 @@ const _nORR = "numberOfRerankedResults";
 const _nT = "nextToken";
 const _nTo = "noTranslations";
 const _nV = "newValue";
-const _o = "options";
+const _o = "owner";
 const _oA = "outputAction";
 const _oAI = "ownerAccountId";
 const _oAr = "orAll";
@@ -971,6 +988,7 @@ const _oST = "overrideSearchType";
 const _oT = "offerToken";
 const _oTf = "offerType";
 const _of = "offers";
+const _op = "options";
 const _p = "premises";
 const _pA = "policyArn";
 const _pC = "performanceConfig";
@@ -1129,6 +1147,7 @@ const _ty = "type";
 const _typ = "types";
 const _u = "unit";
 const _uA = "updatedAt";
+const _uB = "updatedBy";
 const _uBPT = "usageBasedPricingTerm";
 const _uC = "untranslatedClaims";
 const _uFRF = "updateFromRulesFeedback";
@@ -1260,6 +1279,22 @@ export var AccessDeniedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
 
+export var AccountEnforcedGuardrailInferenceInputConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _AEGIIC,
+  0,
+  [_gI, _gV, _iT],
+  [0, 0, 0],
+];
+export var AccountEnforcedGuardrailOutputConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _AEGOC,
+  0,
+  [_cI, _gA, _gIu, _iT, _gV, _cA, _cB, _uA, _uB, _o],
+  [0, 0, 0, 0, 0, 5, 0, 5, 0, 0],
+];
 export var AgreementAvailability: StaticStructureSchema = [3, n0, _AA, 0, [_s, _eM], [0, 0]];
 export var AutomatedEvaluationConfig: StaticStructureSchema = [
   3,
@@ -1364,7 +1399,7 @@ export var AutomatedReasoningCheckTranslationAmbiguousFinding: StaticStructureSc
   n0,
   _ARCTAF,
   0,
-  [_o, _dS],
+  [_op, _dS],
   [
     [() => AutomatedReasoningCheckTranslationOptionList, 0],
     [() => AutomatedReasoningCheckDifferenceScenarioList, 0],
@@ -2018,20 +2053,20 @@ export var CreateGuardrailRequest: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var CreateGuardrailResponse: StaticStructureSchema = [3, n0, _CGRr, 0, [_gI, _gA, _ve, _cA], [0, 0, 0, 5]];
+export var CreateGuardrailResponse: StaticStructureSchema = [3, n0, _CGRr, 0, [_gIu, _gA, _ve, _cA], [0, 0, 0, 5]];
 export var CreateGuardrailVersionRequest: StaticStructureSchema = [
   3,
   n0,
   _CGVR,
   0,
-  [_gIu, _d, _cRT],
+  [_gI, _d, _cRT],
   [
     [0, 1],
     [() => GuardrailDescription, 0],
     [0, 4],
   ],
 ];
-export var CreateGuardrailVersionResponse: StaticStructureSchema = [3, n0, _CGVRr, 0, [_gI, _ve], [0, 0]];
+export var CreateGuardrailVersionResponse: StaticStructureSchema = [3, n0, _CGVRr, 0, [_gIu, _ve], [0, 0]];
 export var CreateInferenceProfileRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2237,6 +2272,8 @@ export var DeleteCustomModelDeploymentRequest: StaticStructureSchema = [3, n0, _
 export var DeleteCustomModelDeploymentResponse: StaticStructureSchema = [3, n0, _DCMDRe, 0, [], []];
 export var DeleteCustomModelRequest: StaticStructureSchema = [3, n0, _DCMR, 0, [_mI], [[0, 1]]];
 export var DeleteCustomModelResponse: StaticStructureSchema = [3, n0, _DCMRe, 0, [], []];
+export var DeleteEnforcedGuardrailConfigurationRequest: StaticStructureSchema = [3, n0, _DEGCR, 0, [_cI], [[0, 1]]];
+export var DeleteEnforcedGuardrailConfigurationResponse: StaticStructureSchema = [3, n0, _DEGCRe, 0, [], []];
 export var DeleteFoundationModelAgreementRequest: StaticStructureSchema = [3, n0, _DFMAR, 0, [_mIo], [0]];
 export var DeleteFoundationModelAgreementResponse: StaticStructureSchema = [3, n0, _DFMARe, 0, [], []];
 export var DeleteGuardrailRequest: StaticStructureSchema = [
@@ -2244,7 +2281,7 @@ export var DeleteGuardrailRequest: StaticStructureSchema = [
   n0,
   _DGR,
   0,
-  [_gIu, _gV],
+  [_gI, _gV],
   [
     [0, 1],
     [
@@ -2615,7 +2652,7 @@ export var GetGuardrailRequest: StaticStructureSchema = [
   n0,
   _GGR,
   0,
-  [_gIu, _gV],
+  [_gI, _gV],
   [
     [0, 1],
     [
@@ -2631,7 +2668,7 @@ export var GetGuardrailResponse: StaticStructureSchema = [
   n0,
   _GGRe,
   0,
-  [_n, _d, _gI, _gA, _ve, _s, _tP, _cP, _wP, _sIP, _cGP, _aRP, _cRD, _cA, _uA, _sRt, _fR, _bIM, _bOM, _kKA],
+  [_n, _d, _gIu, _gA, _ve, _s, _tP, _cP, _wP, _sIP, _cGP, _aRP, _cRD, _cA, _uA, _sRt, _fR, _bIM, _bOM, _kKA],
   [
     [() => GuardrailName, 0],
     [() => GuardrailDescription, 0],
@@ -2824,7 +2861,7 @@ export var GetUseCaseForModelAccessRequest: StaticStructureSchema = [3, n0, _GUC
 export var GetUseCaseForModelAccessResponse: StaticStructureSchema = [3, n0, _GUCFMARe, 0, [_fD], [21]];
 export var GuardrailAutomatedReasoningPolicy: StaticStructureSchema = [3, n0, _GARP, 0, [_po, _cT], [64 | 0, 1]];
 export var GuardrailAutomatedReasoningPolicyConfig: StaticStructureSchema = [3, n0, _GARPC, 0, [_po, _cT], [64 | 0, 1]];
-export var GuardrailConfiguration: StaticStructureSchema = [3, n0, _GCu, 0, [_gI, _gV], [0, 0]];
+export var GuardrailConfiguration: StaticStructureSchema = [3, n0, _GCu, 0, [_gIu, _gV], [0, 0]];
 export var GuardrailContentFilter: StaticStructureSchema = [
   3,
   n0,
@@ -3344,12 +3381,12 @@ export var ListCustomModelDeploymentsRequest: StaticStructureSchema = [
   n0,
   _LCMDR,
   0,
-  [_cB, _cAr, _nC, _mR, _nT, _sB, _sO, _sEt, _mAE],
+  [_cBr, _cAr, _nC, _mR, _nT, _sB, _sO, _sEt, _mAE],
   [
     [
       5,
       {
-        [_hQ]: _cB,
+        [_hQ]: _cBr,
       },
     ],
     [
@@ -3493,6 +3530,29 @@ export var ListCustomModelsResponse: StaticStructureSchema = [
   [_nT, _mSod],
   [0, () => CustomModelSummaryList],
 ];
+export var ListEnforcedGuardrailsConfigurationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LEGCR,
+  0,
+  [_nT],
+  [
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+  ],
+];
+export var ListEnforcedGuardrailsConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LEGCRi,
+  0,
+  [_gCua, _nT],
+  [() => AccountEnforcedGuardrailsOutputConfiguration, 0],
+];
 export var ListEvaluationJobsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3634,12 +3694,12 @@ export var ListGuardrailsRequest: StaticStructureSchema = [
   n0,
   _LGR,
   0,
-  [_gIu, _mR, _nT],
+  [_gI, _mR, _nT],
   [
     [
       0,
       {
-        [_hQ]: _gIu,
+        [_hQ]: _gI,
       },
     ],
     [
@@ -4311,6 +4371,22 @@ export var ProvisionedModelSummary: StaticStructureSchema = [
   [_pMN, _pMA, _mA, _dMA, _fMA, _mU, _dMU, _s, _cD, _cET, _cTr, _lMT],
   [0, 0, 0, 0, 0, 1, 1, 0, 0, 5, 5, 5],
 ];
+export var PutEnforcedGuardrailConfigurationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PEGCR,
+  0,
+  [_cI, _gIC],
+  [0, () => AccountEnforcedGuardrailInferenceInputConfiguration],
+];
+export var PutEnforcedGuardrailConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _PEGCRu,
+  0,
+  [_cI, _uA, _uB],
+  [0, 5, 0],
+];
 export var PutModelInvocationLoggingConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4406,7 +4482,7 @@ export var SageMakerEndpoint: StaticStructureSchema = [
   n0,
   _SME,
   0,
-  [_iIC, _iT, _eRx, _kEK, _vp],
+  [_iIC, _iTn, _eRx, _kEK, _vp],
   [1, 0, 0, 0, () => VpcConfig],
 ];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
@@ -4611,7 +4687,7 @@ export var UpdateGuardrailRequest: StaticStructureSchema = [
   n0,
   _UGR,
   0,
-  [_gIu, _n, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC, _aRPC, _cRC, _bIM, _bOM, _kKI],
+  [_gI, _n, _d, _tPC, _cPC, _wPC, _sIPC, _cGPC, _aRPC, _cRC, _bIM, _bOM, _kKI],
   [
     [0, 1],
     [() => GuardrailName, 0],
@@ -4628,7 +4704,7 @@ export var UpdateGuardrailRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var UpdateGuardrailResponse: StaticStructureSchema = [3, n0, _UGRp, 0, [_gI, _gA, _ve, _uA], [0, 0, 0, 5]];
+export var UpdateGuardrailResponse: StaticStructureSchema = [3, n0, _UGRp, 0, [_gIu, _gA, _ve, _uA], [0, 0, 0, 5]];
 export var UpdateMarketplaceModelEndpointRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4702,6 +4778,13 @@ export var __Unit = "unit" as const;
 export var BedrockServiceException: StaticErrorSchema = [-3, _sm, "BedrockServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockServiceException, __BedrockServiceException);
 
+export var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [
+  1,
+  n0,
+  _AEGOCc,
+  0,
+  () => AccountEnforcedGuardrailOutputConfiguration,
+];
 export var AutomatedEvaluationCustomMetrics: StaticListSchema = [
   1,
   n0,
@@ -5530,6 +5613,16 @@ export var DeleteCustomModelDeployment: StaticOperationSchema = [
   () => DeleteCustomModelDeploymentRequest,
   () => DeleteCustomModelDeploymentResponse,
 ];
+export var DeleteEnforcedGuardrailConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _DEGC,
+  {
+    [_ht]: ["DELETE", "/enforcedGuardrailsConfiguration/{configId}", 200],
+  },
+  () => DeleteEnforcedGuardrailConfigurationRequest,
+  () => DeleteEnforcedGuardrailConfigurationResponse,
+];
 export var DeleteFoundationModelAgreement: StaticOperationSchema = [
   9,
   n0,
@@ -5934,6 +6027,16 @@ export var ListCustomModels: StaticOperationSchema = [
   () => ListCustomModelsRequest,
   () => ListCustomModelsResponse,
 ];
+export var ListEnforcedGuardrailsConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _LEGC,
+  {
+    [_ht]: ["GET", "/enforcedGuardrailsConfiguration", 200],
+  },
+  () => ListEnforcedGuardrailsConfigurationRequest,
+  () => ListEnforcedGuardrailsConfigurationResponse,
+];
 export var ListEvaluationJobs: StaticOperationSchema = [
   9,
   n0,
@@ -6073,6 +6176,16 @@ export var ListTagsForResource: StaticOperationSchema = [
   },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
+];
+export var PutEnforcedGuardrailConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _PEGC,
+  {
+    [_ht]: ["PUT", "/enforcedGuardrailsConfiguration", 200],
+  },
+  () => PutEnforcedGuardrailConfigurationRequest,
+  () => PutEnforcedGuardrailConfigurationResponse,
 ];
 export var PutModelInvocationLoggingConfiguration: StaticOperationSchema = [
   9,
