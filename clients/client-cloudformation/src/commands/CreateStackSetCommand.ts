@@ -65,6 +65,9 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  *   AutoDeployment: { // AutoDeployment
  *     Enabled: true || false,
  *     RetainStacksOnAccountRemoval: true || false,
+ *     DependsOn: [ // StackSetARNList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   CallAs: "SELF" || "DELEGATED_ADMIN",
  *   ClientRequestToken: "STRING_VALUE",

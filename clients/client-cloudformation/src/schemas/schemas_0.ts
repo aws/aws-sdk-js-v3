@@ -124,6 +124,7 @@ const _DGTe = "DescribeGeneratedTemplate";
 const _DI = "DriftInformation";
 const _DM = "DeploymentMode";
 const _DMe = "DeletionMode";
+const _DO = "DependsOn";
 const _DOA = "DeactivateOrganizationsAccess";
 const _DOAI = "DeactivateOrganizationsAccessInput";
 const _DOAIe = "DescribeOrganizationsAccessInput";
@@ -842,7 +843,7 @@ export var AlreadyExistsException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
 
 export var Annotation: StaticStructureSchema = [3, n0, _An, 0, [_AN, _S, _SM, _RM, _RL, _SL], [0, 0, 0, 0, 0, 0]];
-export var AutoDeployment: StaticStructureSchema = [3, n0, _AD, 0, [_E, _RSOAR], [2, 2]];
+export var AutoDeployment: StaticStructureSchema = [3, n0, _AD, 0, [_E, _RSOAR, _DO], [2, 2, 64 | 0]];
 export var BatchDescribeTypeConfigurationsError: StaticStructureSchema = [
   3,
   n0,
@@ -2661,6 +2662,8 @@ export var StackResourceDriftStatusFilters = 64 | 0;
 export var StackResources: StaticListSchema = [1, n0, _SRt, 0, () => StackResource];
 export var StackResourceSummaries: StaticListSchema = [1, n0, _SRSt, 0, () => StackResourceSummary];
 export var Stacks: StaticListSchema = [1, n0, _St, 0, () => Stack];
+export var StackSetARNList = 64 | 0;
+
 export var StackSetAutoDeploymentTargetSummaries: StaticListSchema = [
   1,
   n0,

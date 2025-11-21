@@ -76,6 +76,9 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * //       AutoDeployment: { // AutoDeployment
  * //         Enabled: true || false,
  * //         RetainStacksOnAccountRemoval: true || false,
+ * //         DependsOn: [ // StackSetARNList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
  * //       DriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",

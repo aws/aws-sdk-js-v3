@@ -86,6 +86,9 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * //     AutoDeployment: { // AutoDeployment
  * //       Enabled: true || false,
  * //       RetainStacksOnAccountRemoval: true || false,
+ * //       DependsOn: [ // StackSetARNList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
  * //     OrganizationalUnitIds: [ // OrganizationalUnitIdList

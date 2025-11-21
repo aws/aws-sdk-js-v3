@@ -109,6 +109,9 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *   AutoDeployment: { // AutoDeployment
  *     Enabled: true || false,
  *     RetainStacksOnAccountRemoval: true || false,
+ *     DependsOn: [ // StackSetARNList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   OperationId: "STRING_VALUE",
  *   Accounts: [
