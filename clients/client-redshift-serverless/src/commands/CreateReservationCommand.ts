@@ -31,8 +31,7 @@ export interface CreateReservationCommandInput extends CreateReservationRequest 
 export interface CreateReservationCommandOutput extends CreateReservationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs)
- *          for a year at a discount from Serverless on-demand (OD) rates.</p>
+ * <p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,7 +93,7 @@ export interface CreateReservationCommandOutput extends CreateReservationRespons
  *  <p>The request exceeded the number of tags allowed for a resource.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

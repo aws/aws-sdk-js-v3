@@ -31,8 +31,7 @@ export interface GetReservationCommandInput extends GetReservationRequest {}
 export interface GetReservationCommandOutput extends GetReservationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an Amazon Redshift Serverless reservation. A reservation gives you the option to commit to a specified number of Redshift Processing Units (RPUs)
- *          for a year at a discount from Serverless on-demand (OD) rates.</p>
+ * <p>Gets an Amazon Redshift Serverless reservation. A reservation gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +82,7 @@ export interface GetReservationCommandOutput extends GetReservationResponse, __M
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

@@ -31,8 +31,7 @@ export interface RestoreTableFromSnapshotCommandInput extends RestoreTableFromSn
 export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to
- *          restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
+ * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,7 +93,7 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

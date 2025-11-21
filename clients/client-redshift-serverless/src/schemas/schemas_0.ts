@@ -45,6 +45,7 @@ const _DN = "DeleteNamespace";
 const _DNR = "DeleteNamespaceRequest";
 const _DNRe = "DeleteNamespaceResponse";
 const _DP = "DbPassword";
+const _DRE = "DryRunException";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
 const _DRPRe = "DeleteResourcePolicyResponse";
@@ -216,6 +217,9 @@ const _UEA = "UpdateEndpointAccess";
 const _UEAR = "UpdateEndpointAccessRequest";
 const _UEARp = "UpdateEndpointAccessResponse";
 const _UL = "UsageLimit";
+const _ULC = "UpdateLakehouseConfiguration";
+const _ULCR = "UpdateLakehouseConfigurationRequest";
+const _ULCRp = "UpdateLakehouseConfigurationResponse";
 const _ULs = "UsageLimits";
 const _UN = "UpdateNamespace";
 const _UNR = "UpdateNamespaceRequest";
@@ -264,6 +268,7 @@ const _bA = "breachAction";
 const _bC = "baseCapacity";
 const _bPIMB = "backupProgressInMegaBytes";
 const _c = "client";
+const _cA = "catalogArn";
 const _cAV = "crossAccountVpcs";
 const _cBRIMBPS = "currentBackupRateInMegaBytesPerSecond";
 const _cC = "currencyCode";
@@ -271,6 +276,7 @@ const _cD = "creationDate";
 const _cDCA = "customDomainCertificateArn";
 const _cDCET = "customDomainCertificateExpiryTime";
 const _cDN = "customDomainName";
+const _cN = "catalogName";
 const _cP = "configParameters";
 const _cS = "createSnapshot";
 const _cT = "clientToken";
@@ -283,6 +289,7 @@ const _dKKI = "destinationKmsKeyId";
 const _dN = "dbName";
 const _dP = "dbPassword";
 const _dR = "destinationRegion";
+const _dRr = "dryRun";
 const _dS = "durationSeconds";
 const _dU = "dbUser";
 const _e = "error";
@@ -311,6 +318,10 @@ const _k = "key";
 const _kKI = "kmsKeyId";
 const _l = "level";
 const _lE = "logExports";
+const _lIAA = "lakehouseIdcApplicationArn";
+const _lIR = "lakehouseIdcRegistration";
+const _lR = "lakehouseRegistration";
+const _lRS = "lakehouseRegistrationStatus";
 const _m = "message";
 const _mAP = "manageAdminPassword";
 const _mC = "maxCapacity";
@@ -443,6 +454,7 @@ import {
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
+  DryRunException as __DryRunException,
   InsufficientCapacityException as __InsufficientCapacityException,
   InternalServerException as __InternalServerException,
   InvalidPaginationException as __InvalidPaginationException,
@@ -631,6 +643,19 @@ export var DeleteUsageLimitRequest: StaticStructureSchema = [3, n0, _DULR, 0, [_
 export var DeleteUsageLimitResponse: StaticStructureSchema = [3, n0, _DULRe, 0, [_uL], [() => UsageLimit]];
 export var DeleteWorkgroupRequest: StaticStructureSchema = [3, n0, _DWR, 0, [_wN], [0]];
 export var DeleteWorkgroupResponse: StaticStructureSchema = [3, n0, _DWRe, 0, [_w], [() => Workgroup]];
+export var DryRunException: StaticErrorSchema = [
+  -3,
+  n0,
+  _DRE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(DryRunException, __DryRunException);
+
 export var Endpoint: StaticStructureSchema = [3, n0, _E, 0, [_ad, _po, _vE], [0, 1, () => VpcEndpointList]];
 export var EndpointAccess: StaticStructureSchema = [
   3,
@@ -1156,8 +1181,8 @@ export var Namespace: StaticStructureSchema = [
   n0,
   _N,
   0,
-  [_nA, _nI, _nN, _aU, _dN, _kKI, _dIRA, _iR, _lE, _st, _cD, _aPSA, _aPSKKI],
-  [0, 0, 0, [() => DbUser, 0], 0, 0, 0, 64 | 0, 64 | 0, 0, 5, 0, 0],
+  [_nA, _nI, _nN, _aU, _dN, _kKI, _dIRA, _iR, _lE, _st, _cD, _aPSA, _aPSKKI, _lRS, _cA],
+  [0, 0, 0, [() => DbUser, 0], 0, 0, 0, 64 | 0, 64 | 0, 0, 5, 0, 0, 0, 0],
 ];
 export var NetworkInterface: StaticStructureSchema = [3, n0, _NI, 0, [_nII, _sIu, _pIA, _aZ, _iA], [0, 0, 0, 0, 0]];
 export var PerformanceTarget: StaticStructureSchema = [3, n0, _PT, 0, [_st, _l], [0, 1]];
@@ -1377,6 +1402,22 @@ export var UpdateCustomDomainAssociationResponse: StaticStructureSchema = [
 ];
 export var UpdateEndpointAccessRequest: StaticStructureSchema = [3, n0, _UEAR, 0, [_eN, _vSGI], [0, 64 | 0]];
 export var UpdateEndpointAccessResponse: StaticStructureSchema = [3, n0, _UEARp, 0, [_en], [() => EndpointAccess]];
+export var UpdateLakehouseConfigurationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _ULCR,
+  0,
+  [_nN, _lR, _cN, _lIR, _lIAA, _dRr],
+  [0, 0, 0, 0, 0, 2],
+];
+export var UpdateLakehouseConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _ULCRp,
+  0,
+  [_nN, _lIAA, _lRS, _cA],
+  [0, 0, 0, 0],
+];
 export var UpdateNamespaceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1980,6 +2021,14 @@ export var UpdateEndpointAccess: StaticOperationSchema = [
   0,
   () => UpdateEndpointAccessRequest,
   () => UpdateEndpointAccessResponse,
+];
+export var UpdateLakehouseConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _ULC,
+  0,
+  () => UpdateLakehouseConfigurationRequest,
+  () => UpdateLakehouseConfigurationResponse,
 ];
 export var UpdateNamespace: StaticOperationSchema = [
   9,

@@ -141,7 +141,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -221,6 +221,26 @@ export class Ipv6CidrBlockNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, Ipv6CidrBlockNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>This exception is thrown when the request was successful, but dry run was enabled so no action was taken.</p>
+ * @public
+ */
+export class DryRunException extends __BaseException {
+  readonly name = "DryRunException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DryRunException, __BaseException>) {
+    super({
+      name: "DryRunException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DryRunException.prototype);
   }
 }
 

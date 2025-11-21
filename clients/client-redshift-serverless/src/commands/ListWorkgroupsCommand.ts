@@ -124,7 +124,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

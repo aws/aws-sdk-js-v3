@@ -31,8 +31,7 @@ export interface CreateScheduledActionCommandInput extends CreateScheduledAction
 export interface CreateScheduledActionCommandOutput extends CreateScheduledActionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
- *          For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
+ * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,7 +119,7 @@ export interface CreateScheduledActionCommandOutput extends CreateScheduledActio
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

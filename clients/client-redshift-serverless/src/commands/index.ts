@@ -56,6 +56,7 @@ export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateCustomDomainAssociationCommand";
 export * from "./UpdateEndpointAccessCommand";
+export * from "./UpdateLakehouseConfigurationCommand";
 export * from "./UpdateNamespaceCommand";
 export * from "./UpdateScheduledActionCommand";
 export * from "./UpdateSnapshotCommand";

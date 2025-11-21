@@ -31,9 +31,7 @@ export interface UpdateNamespaceCommandInput extends UpdateNamespaceRequest {}
 export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example,
- *       you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code>
- *       and <code>logExports</code> in a single request.</p>
+ * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example, you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code> and <code>logExports</code> in a single request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +76,8 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  * //     creationDate: new Date("TIMESTAMP"),
  * //     adminPasswordSecretArn: "STRING_VALUE",
  * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     lakehouseRegistrationStatus: "STRING_VALUE",
+ * //     catalogArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -99,7 +99,7 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

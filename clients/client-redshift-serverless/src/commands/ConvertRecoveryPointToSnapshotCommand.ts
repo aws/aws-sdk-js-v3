@@ -33,8 +33,7 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots,
- *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working with snapshots and recovery points</a>.</p>
+ * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working with snapshots and recovery points</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,7 +110,7 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  *  <p>The request exceeded the number of tags allowed for a resource.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

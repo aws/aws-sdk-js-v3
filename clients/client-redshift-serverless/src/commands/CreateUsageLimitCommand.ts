@@ -31,8 +31,7 @@ export interface CreateUsageLimitCommandInput extends CreateUsageLimitRequest {}
 export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a usage limit for a specified Amazon Redshift Serverless usage type. The usage limit is identified by the returned usage limit identifier.
- *       </p>
+ * <p>Creates a usage limit for a specified Amazon Redshift Serverless usage type. The usage limit is identified by the returned usage limit identifier. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +82,7 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  *  <p>The service limit was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>

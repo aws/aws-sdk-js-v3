@@ -37,11 +37,7 @@ export interface Association {
  */
 export interface ConfigParameter {
   /**
-   * <p>The key of the parameter. The
-   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let
-   *          you define performance boundaries. For more information about query monitoring rules and available metrics, see
-   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
+   * <p>The key of the parameter. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
   parameterKey?: string | undefined;
@@ -94,8 +90,7 @@ export interface ConvertRecoveryPointToSnapshotRequest {
   retentionPeriod?: number | undefined;
 
   /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a>
-   *          to associate with the created snapshot.</p>
+   * <p>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag objects</a> to associate with the created snapshot.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -233,8 +228,7 @@ export interface Snapshot {
   snapshotArn?: string | undefined;
 
   /**
-   * <p>All of the Amazon Web Services accounts that have access to
-   *          restore a snapshot to a namespace.</p>
+   * <p>All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.</p>
    * @public
    */
   accountsWithRestoreAccess?: string[] | undefined;
@@ -326,16 +320,13 @@ export interface CreateCustomDomainAssociationResponse {
  */
 export interface CreateEndpointAccessRequest {
   /**
-   * <p>The name of the VPC endpoint. An endpoint name must contain 1-30 characters.
-   *          Valid characters are A-Z, a-z, 0-9, and hyphen(-). The first character must be a letter.
-   *          The name can't contain two consecutive hyphens or end with a hyphen.</p>
+   * <p>The name of the VPC endpoint. An endpoint name must contain 1-30 characters. Valid characters are A-Z, a-z, 0-9, and hyphen(-). The first character must be a letter. The name can't contain two consecutive hyphens or end with a hyphen.</p>
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The unique identifers of subnets from which
-   *          Amazon Redshift Serverless chooses one to deploy a VPC endpoint.</p>
+   * <p>The unique identifers of subnets from which Amazon Redshift Serverless chooses one to deploy a VPC endpoint.</p>
    * @public
    */
   subnetIds: string[] | undefined;
@@ -347,8 +338,7 @@ export interface CreateEndpointAccessRequest {
   workgroupName: string | undefined;
 
   /**
-   * <p>The unique identifiers of the security group that defines the ports,
-   *          protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
+   * <p>The unique identifiers of the security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
@@ -361,9 +351,7 @@ export interface CreateEndpointAccessRequest {
 }
 
 /**
- * <p>Contains information about a network interface
- *          in an Amazon Redshift Serverless managed VPC endpoint.
- *       </p>
+ * <p>Contains information about a network interface in an Amazon Redshift Serverless managed VPC endpoint. </p>
  * @public
  */
 export interface NetworkInterface {
@@ -482,8 +470,7 @@ export interface EndpointAccess {
   address?: string | undefined;
 
   /**
-   * <p>The unique identifier of subnets
-   *          where Amazon Redshift Serverless choose to deploy the VPC endpoint.</p>
+   * <p>The unique identifier of subnets where Amazon Redshift Serverless choose to deploy the VPC endpoint.</p>
    * @public
    */
   subnetIds?: string[] | undefined;
@@ -550,8 +537,7 @@ export interface CreateNamespaceRequest {
   adminUsername?: string | undefined;
 
   /**
-   * <p>The password of the administrator for the first database created in the namespace.</p>
-   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
+   * <p>The password of the administrator for the first database created in the namespace.</p> <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
    * @public
    */
   adminUserPassword?: string | undefined;
@@ -581,8 +567,7 @@ export interface CreateNamespaceRequest {
   iamRoles?: string[] | undefined;
 
   /**
-   * <p>The types of logs the namespace can export.
-   *          Available export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
+   * <p>The types of logs the namespace can export. Available export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    * @public
    */
   logExports?: LogExport[] | undefined;
@@ -594,18 +579,13 @@ export interface CreateNamespaceRequest {
   tags?: Tag[] | undefined;
 
   /**
-   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials.
-   *          You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true.
-   *          If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses
-   *          <code>adminUserPassword</code> for the admin user account's password.
-   *       </p>
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses <code>adminUserPassword</code> for the admin user account's password. </p>
    * @public
    */
   manageAdminPassword?: boolean | undefined;
 
   /**
-   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
-   *          You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
    * @public
    */
   adminPasswordSecretKmsKeyId?: string | undefined;
@@ -650,10 +630,7 @@ export interface Namespace {
   namespaceId?: string | undefined;
 
   /**
-   * <p>The name of the namespace.
-   *       Must be between 3-64 alphanumeric characters in lowercase,
-   *       and it cannot be a reserved word. A list of reserved words can be found
-   *       in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p>
+   * <p>The name of the namespace. Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p>
    * @public
    */
   namespaceName?: string | undefined;
@@ -717,6 +694,18 @@ export interface Namespace {
    * @public
    */
   adminPasswordSecretKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The status of the lakehouse registration for the namespace. Indicates whether the namespace is successfully registered with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  lakehouseRegistrationStatus?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Glue Data Catalog associated with the namespace enabled with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  catalogArn?: string | undefined;
 }
 
 /**
@@ -747,10 +736,7 @@ export interface CreateReservationRequest {
   offeringId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services
-   *          SDK populates this field. This token must be a valid UUIDv4 value. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">
-   *             Making retries safe with idempotent APIs
-   *          </a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. This token must be a valid UUIDv4 value. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/"> Making retries safe with idempotent APIs </a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -771,8 +757,7 @@ export const OfferingType = {
 export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
 
 /**
- * <p>The class of offering for the reservation. The offering class determines the payment
- *          schedule for the reservation.</p>
+ * <p>The class of offering for the reservation. The offering class determines the payment schedule for the reservation.</p>
  * @public
  */
 export interface ReservationOffering {
@@ -814,8 +799,7 @@ export interface ReservationOffering {
 }
 
 /**
- * <p>Represents an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs)
- *          for a year at a discount from Serverless on-demand (OD) rates.</p>
+ * <p>Represents an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
  * @public
  */
 export interface Reservation {
@@ -832,8 +816,7 @@ export interface Reservation {
   reservationArn?: string | undefined;
 
   /**
-   * <p>The start date for the serverless reservation. This is the date you specified for the reservation to start when
-   *          you created the reservation.</p>
+   * <p>The start date for the serverless reservation. This is the date you created the reservation.</p>
    * @public
    */
   startDate?: Date | undefined;
@@ -857,29 +840,7 @@ export interface Reservation {
   offering?: ReservationOffering | undefined;
 
   /**
-   * <p>The status of the reservation. Possible values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>payment-pending</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>active</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>payment-failed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>retired</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the reservation. Possible values include the following:</p> <ul> <li> <p> <code>payment-pending</code> </p> </li> <li> <p> <code>active</code> </p> </li> <li> <p> <code>payment-failed</code> </p> </li> <li> <p> <code>retired</code> </p> </li> </ul>
    * @public
    */
   status?: string | undefined;
@@ -917,9 +878,7 @@ export namespace Schedule {
   }
 
   /**
-   * <p>The cron expression to use to schedule a recurring scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p>
-   *          <p>Format of cron expressions is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
+   * <p>The cron expression to use to schedule a recurring scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <p>Format of cron expressions is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
    * @public
    */
   export interface CronMember {
@@ -949,8 +908,7 @@ export namespace Schedule {
 }
 
 /**
- * <p>The parameters that you can use to configure a <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">scheduled action</a> to create a snapshot. For more information about creating a scheduled action, see
- *          <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">CreateScheduledAction</a>.</p>
+ * <p>The parameters that you can use to configure a <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">scheduled action</a> to create a snapshot. For more information about creating a scheduled action, see <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">CreateScheduledAction</a>.</p>
  * @public
  */
 export interface CreateSnapshotScheduleActionParameters {
@@ -961,8 +919,7 @@ export interface CreateSnapshotScheduleActionParameters {
   namespaceName: string | undefined;
 
   /**
-   * <p>A string prefix that is attached to the name of the snapshot created by the scheduled action. The final
-   *       name of the snapshot is the string prefix appended by the date and time of when the snapshot was created.</p>
+   * <p>A string prefix that is attached to the name of the snapshot created by the scheduled action. The final name of the snapshot is the string prefix appended by the date and time of when the snapshot was created.</p>
    * @public
    */
   snapshotNamePrefix: string | undefined;
@@ -981,10 +938,7 @@ export interface CreateSnapshotScheduleActionParameters {
 }
 
 /**
- * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
- *          <p>
- *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
- *          </p>
+ * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p> <p> <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code> </p>
  * @public
  */
 export type TargetAction = TargetAction.CreateSnapshotMember | TargetAction.$UnknownMember;
@@ -994,8 +948,7 @@ export type TargetAction = TargetAction.CreateSnapshotMember | TargetAction.$Unk
  */
 export namespace TargetAction {
   /**
-   * <p>The parameters that you can use to configure a <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">scheduled action</a> to create a snapshot. For more information about creating a scheduled action, see
-   *          <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">CreateScheduledAction</a>.</p>
+   * <p>The parameters that you can use to configure a <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">scheduled action</a> to create a snapshot. For more information about creating a scheduled action, see <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html">CreateScheduledAction</a>.</p>
    * @public
    */
   export interface CreateSnapshotMember {
@@ -1032,34 +985,19 @@ export interface CreateScheduledActionRequest {
   scheduledActionName: string | undefined;
 
   /**
-   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
-   *          <p>
-   *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
-   *          </p>
+   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p> <p> <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code> </p>
    * @public
    */
   targetAction: TargetAction | undefined;
 
   /**
-   * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <ul> <li> <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p> </li> <li> <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> </li> </ul>
    * @public
    */
   schedule: Schedule | undefined;
 
   /**
-   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
-   *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
-   *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
-   *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
+   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
   roleArn: string | undefined;
@@ -1071,8 +1009,7 @@ export interface CreateScheduledActionRequest {
   namespaceName: string | undefined;
 
   /**
-   * <p>Indicates whether the schedule is enabled. If false, the scheduled action does not trigger. For more information about <code>state</code>
-   *          of the scheduled action, see <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html">ScheduledAction</a>.</p>
+   * <p>Indicates whether the schedule is enabled. If false, the scheduled action does not trigger. For more information about <code>state</code> of the scheduled action, see <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html">ScheduledAction</a>.</p>
    * @public
    */
   enabled?: boolean | undefined;
@@ -1122,16 +1059,7 @@ export interface ScheduledActionResponse {
   scheduledActionName?: string | undefined;
 
   /**
-   * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <ul> <li> <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p> </li> <li> <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> </li> </ul>
    * @public
    */
   schedule?: Schedule | undefined;
@@ -1149,10 +1077,7 @@ export interface ScheduledActionResponse {
   nextInvocations?: Date[] | undefined;
 
   /**
-   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
-   *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
-   *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
-   *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
+   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -1176,10 +1101,7 @@ export interface ScheduledActionResponse {
   endTime?: Date | undefined;
 
   /**
-   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
-   *          <p>
-   *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
-   *          </p>
+   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p> <p> <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code> </p>
    * @public
    */
   targetAction?: TargetAction | undefined;
@@ -1391,8 +1313,7 @@ export interface CreateUsageLimitRequest {
   usageType: UsageLimitUsageType | undefined;
 
   /**
-   * <p>The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data
-   *          transferred between Regions in cross-account sharing. The value must be a positive number.</p>
+   * <p>The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.</p>
    * @public
    */
   amount: number | undefined;
@@ -1495,8 +1416,7 @@ export interface PerformanceTarget {
   status?: PerformanceTargetStatus | undefined;
 
   /**
-   * <p>The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These
-   *          correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.</p>
+   * <p>The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.</p>
    * @public
    */
   level?: number | undefined;
@@ -1525,18 +1445,13 @@ export interface CreateWorkgroupRequest {
   baseCapacity?: number | undefined;
 
   /**
-   * <p>The value that specifies whether to turn on enhanced virtual
-   *          private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.</p>
+   * <p>The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.</p>
    * @public
    */
   enhancedVpcRouting?: boolean | undefined;
 
   /**
-   * <p>An array of parameters to set for advanced control over a database. The
-   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see
-   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
-   *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
+   * <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
   configParameters?: ConfigParameter[] | undefined;
@@ -1590,8 +1505,7 @@ export interface CreateWorkgroupRequest {
   ipAddressType?: string | undefined;
 
   /**
-   * <p>An optional parameter for the name of the track for the workgroup. If you don't provide
-   *          a track name, the workgroup is assigned to the <code>current</code> track.</p>
+   * <p>An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the <code>current</code> track.</p>
    * @public
    */
   trackName?: string | undefined;
@@ -1673,17 +1587,13 @@ export interface Workgroup {
   baseCapacity?: number | undefined;
 
   /**
-   * <p>The value that specifies whether to enable enhanced virtual
-   *       private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
+   * <p>The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
    * @public
    */
   enhancedVpcRouting?: boolean | undefined;
 
   /**
-   * <p>An array of parameters to set for advanced control over a database. The
-   *         options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *         <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries.
-   *         For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
+   * <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
   configParameters?: ConfigParameter[] | undefined;
@@ -1755,8 +1665,7 @@ export interface Workgroup {
   workgroupVersion?: string | undefined;
 
   /**
-   * <p>The patch version of your Amazon Redshift Serverless workgroup. For more information about patch versions, see
-   *          <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
+   * <p>The patch version of your Amazon Redshift Serverless workgroup. For more information about patch versions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
    * @public
    */
   patchVersion?: string | undefined;
@@ -1792,9 +1701,7 @@ export interface Workgroup {
   trackName?: string | undefined;
 
   /**
-   * <p>The name for the track that you want to assign to the workgroup. When the track changes, the
-   *          workgroup is switched to the latest workgroup release available for the track. At this point, the
-   *          track name is applied.</p>
+   * <p>The name for the track that you want to assign to the workgroup. When the track changes, the workgroup is switched to the latest workgroup release available for the track. At this point, the track name is applied.</p>
    * @public
    */
   pendingTrackName?: string | undefined;
@@ -1860,16 +1767,13 @@ export interface GetEndpointAccessResponse {
  */
 export interface ListEndpointAccessRequest {
   /**
-   * <p>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code> operations,
-   *          which returns results in the next page.</p>
+   * <p>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code> operations, which returns results in the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1898,9 +1802,7 @@ export interface ListEndpointAccessRequest {
  */
 export interface ListEndpointAccessResponse {
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2127,34 +2029,13 @@ export interface DeleteWorkgroupResponse {
  */
 export interface GetCredentialsRequest {
   /**
-   * <p>The name of the database to get temporary authorization to log on to.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be 1 to 64 alphanumeric characters or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must contain only uppercase or lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p>
-   *             </li>
-   *             <li>
-   *                <p>The first character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must not contain a colon ( : ) or slash ( / ).</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot be a reserved word. A list of reserved words can be found
-   *                in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words </a>
-   *                in the Amazon Redshift Database Developer Guide</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the database to get temporary authorization to log on to.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 64 alphanumeric characters or hyphens.</p> </li> <li> <p>Must contain only uppercase or lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Must not contain a colon ( : ) or slash ( / ).</p> </li> <li> <p>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words </a> in the Amazon Redshift Database Developer Guide</p> </li> </ul>
    * @public
    */
   dbName?: string | undefined;
 
   /**
-   * <p>The number of seconds until the returned temporary password expires.
-   *          The minimum is 900 seconds, and the maximum is 3600 seconds.</p>
+   * <p>The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.</p>
    * @public
    */
   durationSeconds?: number | undefined;
@@ -2177,17 +2058,13 @@ export interface GetCredentialsRequest {
  */
 export interface GetCredentialsResponse {
   /**
-   * <p>A database user name that is authorized to log on to the database <code>DbName</code>
-   *          using the password <code>DbPassword</code>. If the specified <code>DbUser</code> exists in the database,
-   *          the new user name has the same database privileges as the the user named in
-   *          <code>DbUser</code>. By default, the user is added to PUBLIC.</p>
+   * <p>A database user name that is authorized to log on to the database <code>DbName</code> using the password <code>DbPassword</code>. If the specified <code>DbUser</code> exists in the database, the new user name has the same database privileges as the the user named in <code>DbUser</code>. By default, the user is added to PUBLIC.</p>
    * @public
    */
   dbUser?: string | undefined;
 
   /**
-   * <p>A temporary password that authorizes the user name returned by
-   *          <code>DbUser</code> to log on to the database <code>DbName</code>.</p>
+   * <p>A temporary password that authorizes the user name returned by <code>DbUser</code> to log on to the database <code>DbName</code>.</p>
    * @public
    */
   dbPassword?: string | undefined;
@@ -2199,8 +2076,7 @@ export interface GetCredentialsResponse {
   expiration?: Date | undefined;
 
   /**
-   * <p>The date and time of when the <code>DbUser</code> and <code>DbPassword</code>
-   *          authorization refreshes.</p>
+   * <p>The date and time of when the <code>DbUser</code> and <code>DbPassword</code> authorization refreshes.</p>
    * @public
    */
   nextRefreshTime?: Date | undefined;
@@ -2286,8 +2162,7 @@ export interface GetRecoveryPointRequest {
 }
 
 /**
- * <p>The automatically created recovery point of a namespace.
- *          Recovery points are created every 30 minutes and kept for 24 hours.</p>
+ * <p>The automatically created recovery point of a namespace. Recovery points are created every 30 minutes and kept for 24 hours.</p>
  * @public
  */
 export interface RecoveryPoint {
@@ -2502,8 +2377,7 @@ export interface TableRestoreStatus {
   tableRestoreRequestId?: string | undefined;
 
   /**
-   * <p>A value that describes the current state of the table restore request.
-   *          Possible values are <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>
+   * <p>A value that describes the current state of the table restore request. Possible values are <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, and <code>IN_PROGRESS</code>.</p>
    * @public
    */
   status?: string | undefined;
@@ -2515,8 +2389,7 @@ export interface TableRestoreStatus {
   message?: string | undefined;
 
   /**
-   * <p>The time that the table restore request was made,
-   *          in Universal Coordinated Time (UTC).</p>
+   * <p>The time that the table restore request was made, in Universal Coordinated Time (UTC).</p>
    * @public
    */
   requestTime?: Date | undefined;
@@ -2599,8 +2472,7 @@ export interface TableRestoreStatus {
  */
 export interface GetTableRestoreStatusResponse {
   /**
-   * <p>The returned <code>TableRestoreStatus</code> object that contains information about
-   *          the status of your <code>RestoreTableFromSnapshot</code> request.</p>
+   * <p>The returned <code>TableRestoreStatus</code> object that contains information about the status of your <code>RestoreTableFromSnapshot</code> request.</p>
    * @public
    */
   tableRestoreStatus?: TableRestoreStatus | undefined;
@@ -2636,10 +2508,7 @@ export interface UpdateTarget {
 }
 
 /**
- * <p>Defines a track that determines which Amazon Redshift version
- *          to apply after a new version is released. If the value for <code>ServerlessTrack</code> is
- *          <code>current</code>, the workgroup is updated to the most recently certified release.
- *          If the value is <code>trailing</code>, the workgroup is updated to the previously certified release.</p>
+ * <p>Defines a track that determines which Amazon Redshift version to apply after a new version is released. If the value for <code>ServerlessTrack</code> is <code>current</code>, the workgroup is updated to the most recently certified release. If the value is <code>trailing</code>, the workgroup is updated to the previously certified release.</p>
  * @public
  */
 export interface ServerlessTrack {
@@ -2719,19 +2588,44 @@ export interface GetWorkgroupResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const LakehouseIdcRegistration = {
+  ASSOCIATE: "Associate",
+  DISASSOCIATE: "Disassociate",
+} as const;
+
+/**
+ * @public
+ */
+export type LakehouseIdcRegistration = (typeof LakehouseIdcRegistration)[keyof typeof LakehouseIdcRegistration];
+
+/**
+ * @public
+ * @enum
+ */
+export const LakehouseRegistration = {
+  DEREGISTER: "Deregister",
+  REGISTER: "Register",
+} as const;
+
+/**
+ * @public
+ */
+export type LakehouseRegistration = (typeof LakehouseRegistration)[keyof typeof LakehouseRegistration];
+
+/**
+ * @public
  */
 export interface ListCustomDomainAssociationsRequest {
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2754,9 +2648,7 @@ export interface ListCustomDomainAssociationsRequest {
  */
 export interface ListCustomDomainAssociationsResponse {
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2773,30 +2665,26 @@ export interface ListCustomDomainAssociationsResponse {
  */
 export interface ListManagedWorkgroupsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the managed
-   *          workgroup in the AWS Glue Data Catalog.</p>
+   * <p>The Amazon Resource Name (ARN) for the managed workgroup in the Glue Data Catalog.</p>
    * @public
    */
   sourceArn?: string | undefined;
 
   /**
-   * <p>If your initial ListManagedWorkgroups operation returns a nextToken,
-   *          you can include the returned nextToken in following ListManagedWorkgroups
-   *          operations, which returns results in the next page.</p>
+   * <p>If your initial ListManagedWorkgroups operation returns a nextToken, you can include the returned nextToken in following ListManagedWorkgroups operations, which returns results in the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number
-   *          of results to return. You can use nextToken to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A collection of Amazon Redshift compute resources managed by AWS Glue.</p>
+ * <p>A collection of Amazon Redshift compute resources managed by Glue.</p>
  * @public
  */
 export interface ManagedWorkgroupListItem {
@@ -2813,8 +2701,7 @@ export interface ManagedWorkgroupListItem {
   managedWorkgroupId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the managed
-   *          workgroup in the AWS Glue Data Catalog.</p>
+   * <p>The Amazon Resource Name (ARN) for the managed workgroup in the Glue Data Catalog.</p>
    * @public
    */
   sourceArn?: string | undefined;
@@ -2837,9 +2724,7 @@ export interface ManagedWorkgroupListItem {
  */
 export interface ListManagedWorkgroupsResponse {
   /**
-   * <p>If nextToken is returned, there are more results available.
-   *          The value of nextToken is a unique pagination token for each page.
-   *          To retrieve the next page, make the call again using the returned token.</p>
+   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2856,16 +2741,13 @@ export interface ListManagedWorkgroupsResponse {
  */
 export interface ListNamespacesRequest {
   /**
-   * <p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in following <code>ListNamespaces</code> operations,
-   *          which returns results in the next page.</p>
+   * <p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListNamespaces</code> operations, which returns results in the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2876,9 +2758,7 @@ export interface ListNamespacesRequest {
  */
 export interface ListNamespacesResponse {
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2895,16 +2775,13 @@ export interface ListNamespacesResponse {
  */
 export interface ListRecoveryPointsRequest {
   /**
-   * <p>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in following <code>ListRecoveryPoints</code> operations,
-   *          which returns results in the next page.</p>
+   * <p>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListRecoveryPoints</code> operations, which returns results in the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2945,9 +2822,7 @@ export interface ListRecoveryPointsResponse {
   recoveryPoints?: RecoveryPoint[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3026,8 +2901,7 @@ export interface ListReservationsResponse {
  */
 export interface ListScheduledActionsRequest {
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3091,8 +2965,7 @@ export interface ListSnapshotCopyConfigurationsRequest {
   namespaceName?: string | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using
-   *          the returned token to retrieve the next page.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3109,8 +2982,7 @@ export interface ListSnapshotCopyConfigurationsRequest {
  */
 export interface ListSnapshotCopyConfigurationsResponse {
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using
-   *          the returned token to retrieve the next page.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3127,16 +2999,13 @@ export interface ListSnapshotCopyConfigurationsResponse {
  */
 export interface ListSnapshotsRequest {
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -3177,9 +3046,7 @@ export interface ListSnapshotsRequest {
  */
 export interface ListSnapshotsResponse {
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3196,16 +3063,13 @@ export interface ListSnapshotsResponse {
  */
 export interface ListTableRestoreStatusRequest {
   /**
-   * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a nextToken,
-   *          you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>
-   *          operations. This will return results on the next page.</p>
+   * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a nextToken, you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code> operations. This will return results on the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to
-   *          return. You can use nextToken to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -3228,9 +3092,7 @@ export interface ListTableRestoreStatusRequest {
  */
 export interface ListTableRestoreStatusResponse {
   /**
-   * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>
-   *          operations. This will returns results on the next page.</p>
+   * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code> operations. This will returns results on the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3269,19 +3131,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTracksRequest {
   /**
-   * <p>If your initial <code>ListTracksRequest</code> operation returns a
-   *          <code>nextToken</code>, you can include the returned <code>nextToken</code>
-   *          in following <code>ListTracksRequest</code> operations, which returns results in the next page.</p>
+   * <p>If your initial <code>ListTracksRequest</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListTracksRequest</code> operations, which returns results in the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of response records to return in each call.
-   *          If the number of remaining response records exceeds the specified
-   *          MaxRecords value, a value is returned in a marker field of the response.
-   *          You can retrieve the next set of records by retrying the command with the
-   *          returned marker value.</p>
+   * <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -3298,8 +3154,7 @@ export interface ListTracksResponse {
   tracks?: ServerlessTrack[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code>
-   *          is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3322,17 +3177,13 @@ export interface ListUsageLimitsRequest {
   usageType?: UsageLimitUsageType | undefined;
 
   /**
-   * <p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in following <code>ListUsageLimits</code> operations,
-   *          which returns results in the next page.
-   *       </p>
+   * <p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListUsageLimits</code> operations, which returns results in the next page. </p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to get the next page of results. The default is 100.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -3349,9 +3200,7 @@ export interface ListUsageLimitsResponse {
   usageLimits?: UsageLimit[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3362,16 +3211,13 @@ export interface ListUsageLimitsResponse {
  */
 export interface ListWorkgroupsRequest {
   /**
-   * <p>If your initial ListWorkgroups operation returns a <code>nextToken</code>,
-   *          you can include the returned <code>nextToken</code> in following ListNamespaces operations,
-   *          which returns results in the next page.</p>
+   * <p>If your initial ListWorkgroups operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following ListNamespaces operations, which returns results in the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return.
-   *          You can use <code>nextToken</code> to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -3388,10 +3234,7 @@ export interface ListWorkgroupsRequest {
  */
 export interface ListWorkgroupsResponse {
   /**
-   * <p>
-   *          If <code>nextToken</code> is returned, there are more results available.
-   *          The value of <code>nextToken</code> is a unique pagination token for each page.
-   *          To retrieve the next page, make the call again using the returned token.</p>
+   * <p> If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3406,6 +3249,76 @@ export interface ListWorkgroupsResponse {
 /**
  * @public
  */
+export interface UpdateLakehouseConfigurationRequest {
+  /**
+   * <p>The name of the namespace whose lakehouse configuration you want to modify.</p>
+   * @public
+   */
+  namespaceName: string | undefined;
+
+  /**
+   * <p>Specifies whether to register or deregister the namespace with Amazon Redshift federated permissions. Valid values are <code>Register</code> or <code>Deregister</code>.</p>
+   * @public
+   */
+  lakehouseRegistration?: LakehouseRegistration | undefined;
+
+  /**
+   * <p>The name of the Glue Data Catalog that will be associated with the namespace enabled with Amazon Redshift federated permissions.</p> <p>Pattern: <code>^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$</code> </p>
+   * @public
+   */
+  catalogName?: string | undefined;
+
+  /**
+   * <p>Modifies the Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions. Valid values are <code>Associate</code> or <code>Disassociate</code>.</p>
+   * @public
+   */
+  lakehouseIdcRegistration?: LakehouseIdcRegistration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  lakehouseIdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>A boolean value that, if <code>true</code>, validates the request without actually updating the lakehouse configuration. Use this to check for errors before making changes.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLakehouseConfigurationResponse {
+  /**
+   * <p>The name of the namespace.</p>
+   * @public
+   */
+  namespaceName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation.</p>
+   * @public
+   */
+  lakehouseIdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The current status of the lakehouse registration. Indicates whether the namespace is successfully registered with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  lakehouseRegistrationStatus?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Glue Data Catalog associated with the lakehouse configuration.</p>
+   * @public
+   */
+  catalogArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateNamespaceRequest {
   /**
    * <p>The name of the namespace to update. You can't update the name of a namespace once it is created.</p>
@@ -3414,16 +3327,13 @@ export interface UpdateNamespaceRequest {
   namespaceName: string | undefined;
 
   /**
-   * <p>The password of the administrator for the first database created in the namespace. This parameter must be updated together
-   *       with <code>adminUsername</code>.</p>
-   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
+   * <p>The password of the administrator for the first database created in the namespace. This parameter must be updated together with <code>adminUsername</code>.</p> <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
    * @public
    */
   adminUserPassword?: string | undefined;
 
   /**
-   * <p>The username of the administrator for the first database created in the namespace. This parameter must be updated
-   *       together with <code>adminUserPassword</code>.</p>
+   * <p>The username of the administrator for the first database created in the namespace. This parameter must be updated together with <code>adminUserPassword</code>.</p>
    * @public
    */
   adminUsername?: string | undefined;
@@ -3435,8 +3345,7 @@ export interface UpdateNamespaceRequest {
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. This parameter must be updated together
-   *       with <code>iamRoles</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. This parameter must be updated together with <code>iamRoles</code>.</p>
    * @public
    */
   defaultIamRoleArn?: string | undefined;
@@ -3454,18 +3363,13 @@ export interface UpdateNamespaceRequest {
   logExports?: LogExport[] | undefined;
 
   /**
-   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials.
-   *          You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true.
-   *          If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses
-   *          <code>adminUserPassword</code> for the admin user account's password.
-   *       </p>
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses <code>adminUserPassword</code> for the admin user account's password. </p>
    * @public
    */
   manageAdminPassword?: boolean | undefined;
 
   /**
-   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
-   *          You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
    * @public
    */
   adminPasswordSecretKmsKeyId?: string | undefined;
@@ -3493,13 +3397,7 @@ export interface PutResourcePolicyRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.</p>
-   *          <p>
-   *             <code>"\{\"Version\": \"2012-10-17\", \"Statement\" :
-   *             [\{ \"Sid\": \"AllowUserRestoreFromSnapshot\", \"Principal\":\{\"AWS\":
-   *             [\"739247239426\"]\}, \"Action\": [\"redshift-serverless:RestoreFromSnapshot\"]
-   *             , \"Effect\": \"Allow\" \}]\}"</code>
-   *          </p>
+   * <p>The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.</p> <p> <code>"\{\"Version\": \"2012-10-17\", \"Statement\" : [\{ \"Sid\": \"AllowUserRestoreFromSnapshot\", \"Principal\":\{\"AWS\": [\"739247239426\"]\}, \"Action\": [\"redshift-serverless:RestoreFromSnapshot\"] , \"Effect\": \"Allow\" \}]\}"</code> </p>
    * @public
    */
   policy: string | undefined;
@@ -3643,34 +3541,19 @@ export interface UpdateScheduledActionRequest {
   scheduledActionName: string | undefined;
 
   /**
-   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p>
-   *          <p>
-   *             <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code>
-   *          </p>
+   * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p> <p> <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code> </p>
    * @public
    */
   targetAction?: TargetAction | undefined;
 
   /**
-   * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The schedule for a one-time (at timestamp format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour. Times are in UTC.</p> <ul> <li> <p>Format of at timestamp is <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2016-03-04T17:27:00</code>.</p> </li> <li> <p>Format of cron expression is <code>(Minutes Hours Day-of-month Month Day-of-week Year)</code>. For example, <code>"(0 10 ? * MON *)"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> </li> </ul>
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
-   *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
-   *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
-   *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
+   * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -3734,10 +3617,7 @@ export interface RestoreFromSnapshotRequest {
   snapshotName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring
-   *          from a provisioned cluster to Amazon Redshift Serverless. Must not be specified at the same time as
-   *             <code>snapshotName</code>.</p>
-   *          <p>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring from a provisioned cluster to Amazon Redshift Serverless. Must not be specified at the same time as <code>snapshotName</code>.</p> <p>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</p>
    * @public
    */
   snapshotArn?: string | undefined;
@@ -3749,10 +3629,7 @@ export interface RestoreFromSnapshotRequest {
   ownerAccount?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
-   *          snapshot's admin credentials. If <code>MmanageAdminPassword</code> is false or not set,
-   *          Amazon Redshift uses the admin credentials that the namespace or cluster
-   *          had at the time the snapshot was taken.</p>
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored snapshot's admin credentials. If <code>MmanageAdminPassword</code> is false or not set, Amazon Redshift uses the admin credentials that the namespace or cluster had at the time the snapshot was taken.</p>
    * @public
    */
   manageAdminPassword?: boolean | undefined;
@@ -3846,9 +3723,7 @@ export interface RestoreTableFromSnapshotRequest {
   newTableName: string | undefined;
 
   /**
-   * <p>Indicates whether name identifiers for database, schema, and table
-   *          are case sensitive. If true, the names are case sensitive. If
-   *          false, the names are not case sensitive. The default is false.</p>
+   * <p>Indicates whether name identifiers for database, schema, and table are case sensitive. If true, the names are case sensitive. If false, the names are not case sensitive. The default is false.</p>
    * @public
    */
   activateCaseSensitiveIdentifier?: boolean | undefined;
@@ -4028,9 +3903,7 @@ export interface UpdateUsageLimitRequest {
   usageLimitId: string | undefined;
 
   /**
-   * <p>The new limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour.
-   *          If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing.
-   *          The value must be a positive number.</p>
+   * <p>The new limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.</p>
    * @public
    */
   amount?: number | undefined;
@@ -4070,19 +3943,13 @@ export interface UpdateWorkgroupRequest {
   baseCapacity?: number | undefined;
 
   /**
-   * <p>The value that specifies whether to turn on enhanced virtual
-   *          private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
+   * <p>The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
    * @public
    */
   enhancedVpcRouting?: boolean | undefined;
 
   /**
-   * <p>An array of parameters to set for advanced control over a database. The
-   *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you
-   *          define performance boundaries. For more information about query monitoring rules and available metrics, see
-   *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
-   *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
+   * <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
   configParameters?: ConfigParameter[] | undefined;
@@ -4130,8 +3997,7 @@ export interface UpdateWorkgroupRequest {
   pricePerformanceTarget?: PerformanceTarget | undefined;
 
   /**
-   * <p>An optional parameter for the name of the track for the workgroup. If you don't provide
-   *          a track name, the workgroup is assigned to the <code>current</code> track.</p>
+   * <p>An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the <code>current</code> track.</p>
    * @public
    */
   trackName?: string | undefined;

@@ -31,8 +31,7 @@ export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a namespace from Amazon Redshift Serverless.
- *          Before you delete the namespace, you can create a final snapshot that has all of the data within the namespace.</p>
+ * <p>Deletes a namespace from Amazon Redshift Serverless. Before you delete the namespace, you can create a final snapshot that has all of the data within the namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +66,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * //     creationDate: new Date("TIMESTAMP"),
  * //     adminPasswordSecretArn: "STRING_VALUE",
  * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     lakehouseRegistrationStatus: "STRING_VALUE",
+ * //     catalogArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -88,7 +89,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
