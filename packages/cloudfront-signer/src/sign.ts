@@ -147,7 +147,7 @@ export function getSignedUrl({
     if (url.includes("?")) {
       const [hostAndPath, query] = url.split("?");
       const params = [...new URLSearchParams(query).entries()]
-        .map(([key, value]) => `${extendedEncodeURIComponent(key)}=${extendedEncodeURIComponent(value)}`)
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
         .join("&");
       return `${hostAndPath}?${params}`;
     }
