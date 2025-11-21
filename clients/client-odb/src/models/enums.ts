@@ -31,6 +31,18 @@ export type Access = (typeof Access)[keyof typeof Access];
  * @public
  * @enum
  */
+export const SupportedAwsIntegration = {
+  KmsTde: "KmsTde",
+} as const;
+/**
+ * @public
+ */
+export type SupportedAwsIntegration = (typeof SupportedAwsIntegration)[keyof typeof SupportedAwsIntegration];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceStatus = {
   AVAILABLE: "AVAILABLE",
   FAILED: "FAILED",
@@ -170,6 +182,24 @@ export type DiskRedundancy = (typeof DiskRedundancy)[keyof typeof DiskRedundancy
  * @public
  * @enum
  */
+export const IamRoleStatus = {
+  ASSOCIATING: "ASSOCIATING",
+  CONNECTED: "CONNECTED",
+  DISASSOCIATING: "DISASSOCIATING",
+  DISCONNECTED: "DISCONNECTED",
+  FAILED: "FAILED",
+  PARTIALLY_CONNECTED: "PARTIALLY_CONNECTED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type IamRoleStatus = (typeof IamRoleStatus)[keyof typeof IamRoleStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const IormLifecycleState = {
   BOOTSTRAPPING: "BOOTSTRAPPING",
   DISABLED: "DISABLED",
@@ -197,6 +227,21 @@ export const Objective = {
  * @public
  */
 export type Objective = (typeof Objective)[keyof typeof Objective];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedResourceStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+/**
+ * @public
+ */
+export type ManagedResourceStatus = (typeof ManagedResourceStatus)[keyof typeof ManagedResourceStatus];
 
 /**
  * @public
@@ -267,21 +312,6 @@ export const OciOnboardingStatus = {
  * @public
  */
 export type OciOnboardingStatus = (typeof OciOnboardingStatus)[keyof typeof OciOnboardingStatus];
-
-/**
- * @public
- * @enum
- */
-export const ManagedResourceStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-} as const;
-/**
- * @public
- */
-export type ManagedResourceStatus = (typeof ManagedResourceStatus)[keyof typeof ManagedResourceStatus];
 
 /**
  * @public

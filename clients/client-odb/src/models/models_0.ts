@@ -7,6 +7,7 @@ import {
   DbNodeResourceStatus,
   DbServerPatchingStatus,
   DiskRedundancy,
+  IamRoleStatus,
   IormLifecycleState,
   LicenseModel,
   ManagedResourceStatus,
@@ -17,6 +18,7 @@ import {
   PreferenceType,
   ResourceStatus,
   ShapeType,
+  SupportedAwsIntegration,
   VpcEndpointType,
 } from "./enums";
 
@@ -53,6 +55,34 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface AssociateIamRoleToResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role to associate with the resource.</p>
+   * @public
+   */
+  iamRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services integration configuration settings for the IAM service role association.</p>
+   * @public
+   */
+  awsIntegration: SupportedAwsIntegration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target resource to associate with the IAM service role.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateIamRoleToResourceOutput {}
 
 /**
  * <p>A summary of an Autonomous Virtual Machine (VM) within an Autonomous VM cluster.</p>
@@ -2255,6 +2285,36 @@ export interface DataCollectionOptions {
 }
 
 /**
+ * <p>Information about an Amazon Web Services Identity and Access Management (IAM) service role associated with a resource.</p>
+ * @public
+ */
+export interface IamRole {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role.</p>
+   * @public
+   */
+  iamRoleArn?: string | undefined;
+
+  /**
+   * <p>The current status of the IAM service role.</p>
+   * @public
+   */
+  status?: IamRoleStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the IAM service role, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services integration configuration settings for the IAM service role.</p>
+   * @public
+   */
+  awsIntegration?: SupportedAwsIntegration | undefined;
+}
+
+/**
  * <p>The IORM configuration settings for the database.</p>
  * @public
  */
@@ -2552,6 +2612,12 @@ export interface CloudVmCluster {
    * @public
    */
   computeModel?: ComputeModel | undefined;
+
+  /**
+   * <p>The Amazon Web Services Identity and Access Management (IAM) service roles associated with the VM cluster.</p>
+   * @public
+   */
+  iamRoles?: IamRole[] | undefined;
 }
 
 /**
@@ -2798,6 +2864,12 @@ export interface CloudVmClusterSummary {
    * @public
    */
   computeModel?: ComputeModel | undefined;
+
+  /**
+   * <p>The Amazon Web Services Identity and Access Management (IAM) service roles associated with the VM cluster in the summary information.</p>
+   * @public
+   */
+  iamRoles?: IamRole[] | undefined;
 }
 
 /**
@@ -3103,10 +3175,40 @@ export interface CreateOdbNetworkInput {
   zeroEtlAccess?: Access | undefined;
 
   /**
+   * <p>The Amazon Web Services Security Token Service (STS) access configuration for the ODB network.</p>
+   * @public
+   */
+  stsAccess?: Access | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (KMS) access configuration for the ODB network.</p>
+   * @public
+   */
+  kmsAccess?: Access | undefined;
+
+  /**
    * <p>Specifies the endpoint policy for Amazon S3 access from the ODB network.</p>
    * @public
    */
   s3PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The STS policy document that defines permissions for token service usage within the ODB network.</p>
+   * @public
+   */
+  stsPolicyDocument?: string | undefined;
+
+  /**
+   * <p>The KMS policy document that defines permissions for key usage within the ODB network.</p>
+   * @public
+   */
+  kmsPolicyDocument?: string | undefined;
+
+  /**
+   * <p>The cross-Region Amazon S3 restore sources to enable for the ODB network.</p>
+   * @public
+   */
+  crossRegionS3RestoreSourcesToEnable?: string[] | undefined;
 
   /**
    * <p>The list of resource tags to apply to the ODB network.</p>
@@ -3212,6 +3314,30 @@ export interface CreateOdbPeeringConnectionOutput {
    * @public
    */
   odbPeeringConnectionId: string | undefined;
+}
+
+/**
+ * <p>The configuration access for the cross-Region Amazon S3 database restore source for the ODB network.</p>
+ * @public
+ */
+export interface CrossRegionS3RestoreSourcesAccess {
+  /**
+   * <p>The Amazon Web Services Region for cross-Region S3 restore access.</p>
+   * @public
+   */
+  region?: string | undefined;
+
+  /**
+   * <p>The IPv4 addresses allowed for cross-Region S3 restore access.</p>
+   * @public
+   */
+  ipv4Addresses?: string[] | undefined;
+
+  /**
+   * <p>The current status of the cross-Region S3 restore access configuration.</p>
+   * @public
+   */
+  status?: ManagedResourceStatus | undefined;
 }
 
 /**
@@ -3929,7 +4055,77 @@ export interface DeleteOdbPeeringConnectionOutput {}
 /**
  * @public
  */
+export interface DisassociateIamRoleFromResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role to disassociate from the resource.</p>
+   * @public
+   */
+  iamRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services integration configuration settings for the IAM service role disassociation.</p>
+   * @public
+   */
+  awsIntegration: SupportedAwsIntegration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target resource to disassociate from the IAM service role.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateIamRoleFromResourceOutput {}
+
+/**
+ * @public
+ */
 export interface GetOciOnboardingStatusInput {}
+
+/**
+ * <p>Information about an Oracle Cloud Infrastructure (OCI) identity domain configuration.</p>
+ * @public
+ */
+export interface OciIdentityDomain {
+  /**
+   * <p>The unique identifier of the OCI identity domain.</p>
+   * @public
+   */
+  ociIdentityDomainId?: string | undefined;
+
+  /**
+   * <p>The resource URL for accessing the OCI identity domain.</p>
+   * @public
+   */
+  ociIdentityDomainResourceUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the OCI identity domain.</p>
+   * @public
+   */
+  ociIdentityDomainUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the OCI identity domain.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the OCI identity domain, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services CloudFormation URL for setting up the account integration with the OCI identity domain.</p>
+   * @public
+   */
+  accountSetupCloudFormationUrl?: string | undefined;
+}
 
 /**
  * @public
@@ -3952,6 +4148,12 @@ export interface GetOciOnboardingStatusOutput {
    * @public
    */
   newTenancyActivationLink?: string | undefined;
+
+  /**
+   * <p>The Oracle Cloud Infrastructure (OCI) identity domain information in the onboarding status response.</p>
+   * @public
+   */
+  ociIdentityDomain?: OciIdentityDomain | undefined;
 }
 
 /**
@@ -3963,6 +4165,36 @@ export interface GetOdbNetworkInput {
    * @public
    */
   odbNetworkId: string | undefined;
+}
+
+/**
+ * <p>Configuration for Amazon Web Services Key Management Service (KMS) access from the ODB network.</p>
+ * @public
+ */
+export interface KmsAccess {
+  /**
+   * <p>The current status of the KMS access configuration.</p>
+   * @public
+   */
+  status?: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>The IPv4 addresses allowed for KMS access.</p>
+   * @public
+   */
+  ipv4Addresses?: string[] | undefined;
+
+  /**
+   * <p>The domain name for KMS access configuration.</p>
+   * @public
+   */
+  domainName?: string | undefined;
+
+  /**
+   * <p>The KMS policy document that defines permissions for key usage.</p>
+   * @public
+   */
+  kmsPolicyDocument?: string | undefined;
 }
 
 /**
@@ -4032,6 +4264,36 @@ export interface ServiceNetworkEndpoint {
 }
 
 /**
+ * <p>Configuration for Amazon Web Services Security Token Service (STS) access from the ODB network.</p>
+ * @public
+ */
+export interface StsAccess {
+  /**
+   * <p>The current status of the STS access configuration.</p>
+   * @public
+   */
+  status?: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>The IPv4 addresses allowed for STS access.</p>
+   * @public
+   */
+  ipv4Addresses?: string[] | undefined;
+
+  /**
+   * <p>The domain name for STS access configuration.</p>
+   * @public
+   */
+  domainName?: string | undefined;
+
+  /**
+   * <p>The STS policy document that defines permissions for token service usage.</p>
+   * @public
+   */
+  stsPolicyDocument?: string | undefined;
+}
+
+/**
  * <p>The configuration for Zero-ETL access from the ODB network.</p>
  * @public
  */
@@ -4095,6 +4357,24 @@ export interface ManagedServices {
    * @public
    */
   s3Access?: S3Access | undefined;
+
+  /**
+   * <p>The Amazon Web Services Security Token Service (STS) access configuration for managed services.</p>
+   * @public
+   */
+  stsAccess?: StsAccess | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (KMS) access configuration for managed services.</p>
+   * @public
+   */
+  kmsAccess?: KmsAccess | undefined;
+
+  /**
+   * <p>The access configuration for the cross-Region Amazon S3 database restore source.</p>
+   * @public
+   */
+  crossRegionS3RestoreSourcesAccess?: CrossRegionS3RestoreSourcesAccess[] | undefined;
 }
 
 /**
@@ -4367,7 +4647,13 @@ export interface GiVersionSummary {
 /**
  * @public
  */
-export interface InitializeServiceInput {}
+export interface InitializeServiceInput {
+  /**
+   * <p>The Oracle Cloud Infrastructure (OCI) identity domain configuration for service initialization.</p>
+   * @public
+   */
+  ociIdentityDomain?: boolean | undefined;
+}
 
 /**
  * @public
@@ -4871,10 +5157,46 @@ export interface UpdateOdbNetworkInput {
   zeroEtlAccess?: Access | undefined;
 
   /**
+   * <p>The Amazon Web Services Security Token Service (STS) access configuration for the ODB network.</p>
+   * @public
+   */
+  stsAccess?: Access | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (KMS) access configuration for the ODB network.</p>
+   * @public
+   */
+  kmsAccess?: Access | undefined;
+
+  /**
    * <p>Specifies the updated endpoint policy for Amazon S3 access from the ODB network.</p>
    * @public
    */
   s3PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The STS policy document that defines permissions for token service usage within the ODB network.</p>
+   * @public
+   */
+  stsPolicyDocument?: string | undefined;
+
+  /**
+   * <p>The KMS policy document that defines permissions for key usage within the ODB network.</p>
+   * @public
+   */
+  kmsPolicyDocument?: string | undefined;
+
+  /**
+   * <p>The cross-Region Amazon S3 restore sources to enable for the ODB network.</p>
+   * @public
+   */
+  crossRegionS3RestoreSourcesToEnable?: string[] | undefined;
+
+  /**
+   * <p>The cross-Region Amazon S3 restore sources to disable for the ODB network.</p>
+   * @public
+   */
+  crossRegionS3RestoreSourcesToDisable?: string[] | undefined;
 }
 
 /**

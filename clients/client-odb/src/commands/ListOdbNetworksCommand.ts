@@ -97,6 +97,25 @@ export interface ListOdbNetworksCommandOutput extends ListOdbNetworksOutput, __M
  * //           domainName: "STRING_VALUE",
  * //           s3PolicyDocument: "STRING_VALUE",
  * //         },
+ * //         stsAccess: { // StsAccess
+ * //           status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
+ * //           ipv4Addresses: "<StringList>",
+ * //           domainName: "STRING_VALUE",
+ * //           stsPolicyDocument: "STRING_VALUE",
+ * //         },
+ * //         kmsAccess: { // KmsAccess
+ * //           status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
+ * //           ipv4Addresses: "<StringList>",
+ * //           domainName: "STRING_VALUE",
+ * //           kmsPolicyDocument: "STRING_VALUE",
+ * //         },
+ * //         crossRegionS3RestoreSourcesAccess: [ // CrossRegionS3RestoreSourcesAccessList
+ * //           { // CrossRegionS3RestoreSourcesAccess
+ * //             region: "STRING_VALUE",
+ * //             ipv4Addresses: "<StringList>",
+ * //             status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   ],

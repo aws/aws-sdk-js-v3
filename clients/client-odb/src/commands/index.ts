@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AcceptMarketplaceRegistrationCommand";
+export * from "./AssociateIamRoleToResourceCommand";
 export * from "./CreateCloudAutonomousVmClusterCommand";
 export * from "./CreateCloudExadataInfrastructureCommand";
 export * from "./CreateCloudVmClusterCommand";
@@ -10,6 +11,7 @@ export * from "./DeleteCloudExadataInfrastructureCommand";
 export * from "./DeleteCloudVmClusterCommand";
 export * from "./DeleteOdbNetworkCommand";
 export * from "./DeleteOdbPeeringConnectionCommand";
+export * from "./DisassociateIamRoleFromResourceCommand";
 export * from "./GetCloudAutonomousVmClusterCommand";
 export * from "./GetCloudExadataInfrastructureCommand";
 export * from "./GetCloudExadataInfrastructureUnallocatedResourcesCommand";

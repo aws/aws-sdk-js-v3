@@ -213,6 +213,14 @@ AcceptMarketplaceRegistration
 </details>
 <details>
 <summary>
+AssociateIamRoleToResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/AssociateIamRoleToResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/AssociateIamRoleToResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/AssociateIamRoleToResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCloudAutonomousVmCluster
 </summary>
 
@@ -289,6 +297,14 @@ DeleteOdbPeeringConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/DeleteOdbPeeringConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DeleteOdbPeeringConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DeleteOdbPeeringConnectionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateIamRoleFromResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/DisassociateIamRoleFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateIamRoleFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/DisassociateIamRoleFromResourceCommandOutput/)
 
 </details>
 <details>

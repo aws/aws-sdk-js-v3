@@ -8,6 +8,11 @@ import {
   AcceptMarketplaceRegistrationCommandOutput,
 } from "./commands/AcceptMarketplaceRegistrationCommand";
 import {
+  AssociateIamRoleToResourceCommand,
+  AssociateIamRoleToResourceCommandInput,
+  AssociateIamRoleToResourceCommandOutput,
+} from "./commands/AssociateIamRoleToResourceCommand";
+import {
   CreateCloudAutonomousVmClusterCommand,
   CreateCloudAutonomousVmClusterCommandInput,
   CreateCloudAutonomousVmClusterCommandOutput,
@@ -57,6 +62,11 @@ import {
   DeleteOdbPeeringConnectionCommandInput,
   DeleteOdbPeeringConnectionCommandOutput,
 } from "./commands/DeleteOdbPeeringConnectionCommand";
+import {
+  DisassociateIamRoleFromResourceCommand,
+  DisassociateIamRoleFromResourceCommandInput,
+  DisassociateIamRoleFromResourceCommandOutput,
+} from "./commands/DisassociateIamRoleFromResourceCommand";
 import {
   GetCloudAutonomousVmClusterCommand,
   GetCloudAutonomousVmClusterCommandInput,
@@ -187,6 +197,7 @@ import { OdbClient, OdbClientConfig } from "./OdbClient";
 
 const commands = {
   AcceptMarketplaceRegistrationCommand,
+  AssociateIamRoleToResourceCommand,
   CreateCloudAutonomousVmClusterCommand,
   CreateCloudExadataInfrastructureCommand,
   CreateCloudVmClusterCommand,
@@ -197,6 +208,7 @@ const commands = {
   DeleteCloudVmClusterCommand,
   DeleteOdbNetworkCommand,
   DeleteOdbPeeringConnectionCommand,
+  DisassociateIamRoleFromResourceCommand,
   GetCloudAutonomousVmClusterCommand,
   GetCloudExadataInfrastructureCommand,
   GetCloudExadataInfrastructureUnallocatedResourcesCommand,
@@ -245,6 +257,23 @@ export interface Odb {
     args: AcceptMarketplaceRegistrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptMarketplaceRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateIamRoleToResourceCommand}
+   */
+  associateIamRoleToResource(
+    args: AssociateIamRoleToResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIamRoleToResourceCommandOutput>;
+  associateIamRoleToResource(
+    args: AssociateIamRoleToResourceCommandInput,
+    cb: (err: any, data?: AssociateIamRoleToResourceCommandOutput) => void
+  ): void;
+  associateIamRoleToResource(
+    args: AssociateIamRoleToResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIamRoleToResourceCommandOutput) => void
   ): void;
 
   /**
@@ -415,6 +444,23 @@ export interface Odb {
     args: DeleteOdbPeeringConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOdbPeeringConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateIamRoleFromResourceCommand}
+   */
+  disassociateIamRoleFromResource(
+    args: DisassociateIamRoleFromResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIamRoleFromResourceCommandOutput>;
+  disassociateIamRoleFromResource(
+    args: DisassociateIamRoleFromResourceCommandInput,
+    cb: (err: any, data?: DisassociateIamRoleFromResourceCommandOutput) => void
+  ): void;
+  disassociateIamRoleFromResource(
+    args: DisassociateIamRoleFromResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIamRoleFromResourceCommandOutput) => void
   ): void;
 
   /**

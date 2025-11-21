@@ -36,7 +36,9 @@ export interface InitializeServiceCommandOutput extends InitializeServiceOutput,
  * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
  * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
- * const input = {};
+ * const input = { // InitializeServiceInput
+ *   ociIdentityDomain: true || false,
+ * };
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
  * // {};
@@ -86,7 +88,7 @@ export class InitializeServiceCommand extends $Command
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
+      input: InitializeServiceInput;
       output: {};
     };
     sdk: {

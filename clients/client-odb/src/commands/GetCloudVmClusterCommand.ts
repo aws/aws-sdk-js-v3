@@ -106,6 +106,14 @@ export interface GetCloudVmClusterCommandOutput extends GetCloudVmClusterOutput,
  * //     odbNetworkId: "STRING_VALUE",
  * //     percentProgress: Number("float"),
  * //     computeModel: "ECPU" || "OCPU",
+ * //     iamRoles: [ // IamRoleList
+ * //       { // IamRole
+ * //         iamRoleArn: "STRING_VALUE",
+ * //         status: "ASSOCIATING" || "DISASSOCIATING" || "FAILED" || "CONNECTED" || "DISCONNECTED" || "PARTIALLY_CONNECTED" || "UNKNOWN",
+ * //         statusReason: "STRING_VALUE",
+ * //         awsIntegration: "KmsTde",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

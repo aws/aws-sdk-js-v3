@@ -47,7 +47,14 @@ export interface CreateOdbNetworkCommandOutput extends CreateOdbNetworkOutput, _
  *   clientToken: "STRING_VALUE",
  *   s3Access: "ENABLED" || "DISABLED",
  *   zeroEtlAccess: "ENABLED" || "DISABLED",
+ *   stsAccess: "ENABLED" || "DISABLED",
+ *   kmsAccess: "ENABLED" || "DISABLED",
  *   s3PolicyDocument: "STRING_VALUE",
+ *   stsPolicyDocument: "STRING_VALUE",
+ *   kmsPolicyDocument: "STRING_VALUE",
+ *   crossRegionS3RestoreSourcesToEnable: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",
  *   },

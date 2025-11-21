@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateOdbNetworkInput, UpdateOdbNetworkOutput } from "../models/models_0";
+import { DisassociateIamRoleFromResourceInput, DisassociateIamRoleFromResourceOutput } from "../models/models_0";
 import { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { UpdateOdbNetwork } from "../schemas/schemas_0";
+import { DisassociateIamRoleFromResource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,64 +16,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateOdbNetworkCommand}.
+ * The input for {@link DisassociateIamRoleFromResourceCommand}.
  */
-export interface UpdateOdbNetworkCommandInput extends UpdateOdbNetworkInput {}
+export interface DisassociateIamRoleFromResourceCommandInput extends DisassociateIamRoleFromResourceInput {}
 /**
  * @public
  *
- * The output of {@link UpdateOdbNetworkCommand}.
+ * The output of {@link DisassociateIamRoleFromResourceCommand}.
  */
-export interface UpdateOdbNetworkCommandOutput extends UpdateOdbNetworkOutput, __MetadataBearer {}
+export interface DisassociateIamRoleFromResourceCommandOutput
+  extends DisassociateIamRoleFromResourceOutput,
+    __MetadataBearer {}
 
 /**
- * <p>Updates properties of a specified ODB network.</p>
+ * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) service role from a specified resource to disable Amazon Web Services service integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OdbClient, UpdateOdbNetworkCommand } from "@aws-sdk/client-odb"; // ES Modules import
- * // const { OdbClient, UpdateOdbNetworkCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * import { OdbClient, DisassociateIamRoleFromResourceCommand } from "@aws-sdk/client-odb"; // ES Modules import
+ * // const { OdbClient, DisassociateIamRoleFromResourceCommand } = require("@aws-sdk/client-odb"); // CommonJS import
  * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
  * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
- * const input = { // UpdateOdbNetworkInput
- *   odbNetworkId: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   peeredCidrsToBeAdded: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   peeredCidrsToBeRemoved: [
- *     "STRING_VALUE",
- *   ],
- *   s3Access: "ENABLED" || "DISABLED",
- *   zeroEtlAccess: "ENABLED" || "DISABLED",
- *   stsAccess: "ENABLED" || "DISABLED",
- *   kmsAccess: "ENABLED" || "DISABLED",
- *   s3PolicyDocument: "STRING_VALUE",
- *   stsPolicyDocument: "STRING_VALUE",
- *   kmsPolicyDocument: "STRING_VALUE",
- *   crossRegionS3RestoreSourcesToEnable: [
- *     "STRING_VALUE",
- *   ],
- *   crossRegionS3RestoreSourcesToDisable: [
- *     "STRING_VALUE",
- *   ],
+ * const input = { // DisassociateIamRoleFromResourceInput
+ *   iamRoleArn: "STRING_VALUE", // required
+ *   awsIntegration: "KmsTde", // required
+ *   resourceArn: "STRING_VALUE", // required
  * };
- * const command = new UpdateOdbNetworkCommand(input);
+ * const command = new DisassociateIamRoleFromResourceCommand(input);
  * const response = await client.send(command);
- * // { // UpdateOdbNetworkOutput
- * //   displayName: "STRING_VALUE",
- * //   status: "AVAILABLE" || "FAILED" || "PROVISIONING" || "TERMINATED" || "TERMINATING" || "UPDATING" || "MAINTENANCE_IN_PROGRESS",
- * //   statusReason: "STRING_VALUE",
- * //   odbNetworkId: "STRING_VALUE", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param UpdateOdbNetworkCommandInput - {@link UpdateOdbNetworkCommandInput}
- * @returns {@link UpdateOdbNetworkCommandOutput}
- * @see {@link UpdateOdbNetworkCommandInput} for command's `input` shape.
- * @see {@link UpdateOdbNetworkCommandOutput} for command's `response` shape.
+ * @param DisassociateIamRoleFromResourceCommandInput - {@link DisassociateIamRoleFromResourceCommandInput}
+ * @returns {@link DisassociateIamRoleFromResourceCommandOutput}
+ * @see {@link DisassociateIamRoleFromResourceCommandInput} for command's `input` shape.
+ * @see {@link DisassociateIamRoleFromResourceCommandOutput} for command's `response` shape.
  * @see {@link OdbClientResolvedConfig | config} for OdbClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,10 +79,10 @@ export interface UpdateOdbNetworkCommandOutput extends UpdateOdbNetworkOutput, _
  *
  * @public
  */
-export class UpdateOdbNetworkCommand extends $Command
+export class DisassociateIamRoleFromResourceCommand extends $Command
   .classBuilder<
-    UpdateOdbNetworkCommandInput,
-    UpdateOdbNetworkCommandOutput,
+    DisassociateIamRoleFromResourceCommandInput,
+    DisassociateIamRoleFromResourceCommandOutput,
     OdbClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,19 +91,19 @@ export class UpdateOdbNetworkCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Odb", "UpdateOdbNetwork", {})
-  .n("OdbClient", "UpdateOdbNetworkCommand")
-  .sc(UpdateOdbNetwork)
+  .s("Odb", "DisassociateIamRoleFromResource", {})
+  .n("OdbClient", "DisassociateIamRoleFromResourceCommand")
+  .sc(DisassociateIamRoleFromResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateOdbNetworkInput;
-      output: UpdateOdbNetworkOutput;
+      input: DisassociateIamRoleFromResourceInput;
+      output: {};
     };
     sdk: {
-      input: UpdateOdbNetworkCommandInput;
-      output: UpdateOdbNetworkCommandOutput;
+      input: DisassociateIamRoleFromResourceCommandInput;
+      output: DisassociateIamRoleFromResourceCommandOutput;
     };
   };
 }

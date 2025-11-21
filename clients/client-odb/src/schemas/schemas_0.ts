@@ -1,4 +1,7 @@
 const _ADE = "AccessDeniedException";
+const _AIRTR = "AssociateIamRoleToResource";
+const _AIRTRI = "AssociateIamRoleToResourceInput";
+const _AIRTRO = "AssociateIamRoleToResourceOutput";
 const _AMR = "AcceptMarketplaceRegistration";
 const _AMRI = "AcceptMarketplaceRegistrationInput";
 const _AMRO = "AcceptMarketplaceRegistrationOutput";
@@ -31,6 +34,8 @@ const _CONO = "CreateOdbNetworkOutput";
 const _COPC = "CreateOdbPeeringConnection";
 const _COPCI = "CreateOdbPeeringConnectionInput";
 const _COPCO = "CreateOdbPeeringConnectionOutput";
+const _CRSRSA = "CrossRegionS3RestoreSourcesAccess";
+const _CRSRSAL = "CrossRegionS3RestoreSourcesAccessList";
 const _CVC = "CloudVmCluster";
 const _CVCL = "CloudVmClusterList";
 const _CVCS = "CloudVmClusterSummary";
@@ -46,6 +51,9 @@ const _DCVCI = "DeleteCloudVmClusterInput";
 const _DCVCO = "DeleteCloudVmClusterOutput";
 const _DIC = "DbIormConfig";
 const _DICL = "DbIormConfigList";
+const _DIRFR = "DisassociateIamRoleFromResource";
+const _DIRFRI = "DisassociateIamRoleFromResourceInput";
+const _DIRFRO = "DisassociateIamRoleFromResourceOutput";
 const _DN = "DbNode";
 const _DNL = "DbNodeList";
 const _DNS = "DbNodeSummary";
@@ -93,10 +101,13 @@ const _GOPCI = "GetOdbPeeringConnectionInput";
 const _GOPCO = "GetOdbPeeringConnectionOutput";
 const _GVL = "GiVersionList";
 const _GVS = "GiVersionSummary";
+const _IR = "IamRole";
+const _IRL = "IamRoleList";
 const _IS = "InitializeService";
 const _ISE = "InternalServerException";
 const _ISI = "InitializeServiceInput";
 const _ISO = "InitializeServiceOutput";
+const _KA = "KmsAccess";
 const _LAVM = "ListAutonomousVirtualMachines";
 const _LAVMI = "ListAutonomousVirtualMachinesInput";
 const _LAVMO = "ListAutonomousVirtualMachinesOutput";
@@ -140,6 +151,7 @@ const _MW = "MaintenanceWindow";
 const _Mo = "Months";
 const _ODFC = "OciDnsForwardingConfig";
 const _ODFCL = "OciDnsForwardingConfigList";
+const _OID = "OciIdentityDomain";
 const _ON = "OdbNetwork";
 const _ONL = "OdbNetworkList";
 const _ONS = "OdbNetworkSummary";
@@ -152,6 +164,7 @@ const _RDNI = "RebootDbNodeInput";
 const _RDNO = "RebootDbNodeOutput";
 const _RNFE = "ResourceNotFoundException";
 const _SA = "S3Access";
+const _SAt = "StsAccess";
 const _SDN = "StartDbNode";
 const _SDNI = "StartDbNodeInput";
 const _SDNIt = "StopDbNodeInput";
@@ -196,9 +209,11 @@ const _aDSITB = "availableDataStorageInTBs";
 const _aDSP = "autonomousDataStoragePercentage";
 const _aDSPSITB = "availableDataStoragePerServerInTBs";
 const _aDSSITB = "autonomousDataStorageSizeInTBs";
+const _aI = "awsIntegration";
 const _aMIGB = "availableMemoryInGBs";
 const _aMPNIGB = "availableMemoryPerNodeInGBs";
 const _aSC = "activatedStorageCount";
+const _aSCFU = "accountSetupCloudFormationUrl";
 const _aSCd = "additionalStorageCount";
 const _aSSIGB = "availableStorageSizeInGBs";
 const _aSTS = "areServerTypesSupported";
@@ -236,6 +251,9 @@ const _cIA = "clientIpAddress";
 const _cM = "computeModel";
 const _cN = "clusterName";
 const _cP = "cpuPercentage";
+const _cRSRSA = "crossRegionS3RestoreSourcesAccess";
+const _cRSRSTD = "crossRegionS3RestoreSourcesToDisable";
+const _cRSRSTE = "crossRegionS3RestoreSourcesToEnable";
 const _cSC = "clientSubnetCidr";
 const _cT = "clientToken";
 const _cVC = "cloudVmCluster";
@@ -297,7 +315,11 @@ const _iHME = "isHealthMonitoringEnabled";
 const _iILE = "isIncidentLogsEnabled";
 const _iLBE = "isLocalBackupEnabled";
 const _iMEVC = "isMtlsEnabledVmCluster";
+const _iR = "iamRoles";
+const _iRA = "iamRoleArn";
 const _iSDE = "isSparseDiskgroupEnabled";
+const _kA = "kmsAccess";
+const _kPD = "kmsPolicyDocument";
 const _lD = "lifecycleDetails";
 const _lM = "licenseModel";
 const _lMRI = "lastMaintenanceRunId";
@@ -344,6 +366,10 @@ const _nTAL = "newTenancyActivationLink";
 const _o = "ocid";
 const _oDFC = "ociDnsForwardingConfigs";
 const _oDLI = "ociDnsListenerIp";
+const _oID = "ociIdentityDomain";
+const _oIDI = "ociIdentityDomainId";
+const _oIDRU = "ociIdentityDomainResourceUrl";
+const _oIDU = "ociIdentityDomainUrl";
 const _oN = "odbNetwork";
 const _oNA = "odbNetworkArn";
 const _oNAI = "ociNetworkAnchorId";
@@ -378,7 +404,7 @@ const _pNI = "peerNetworkId";
 const _pP = "percentProgress";
 const _pS = "patchingStatus";
 const _qC = "quotaCode";
-const _r = "reason";
+const _r = "region";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rC = "reclaimableCpus";
@@ -387,8 +413,10 @@ const _rGA = "resourceGatewayArn";
 const _rI = "resourceId";
 const _rMCC = "runtimeMinimumCoreCount";
 const _rT = "resourceType";
+const _re = "reason";
 const _s = "status";
 const _sA = "s3Access";
+const _sAt = "stsAccess";
 const _sC = "storageCount";
 const _sDN = "scanDnsName";
 const _sDRI = "scanDnsRecordId";
@@ -400,6 +428,7 @@ const _sLPTc = "scanListenerPortTcp";
 const _sNA = "serviceNetworkArn";
 const _sNE = "serviceNetworkEndpoint";
 const _sPD = "s3PolicyDocument";
+const _sPDt = "stsPolicyDocument";
 const _sPK = "sshPublicKeys";
 const _sR = "statusReason";
 const _sRk = "skipRu";
@@ -479,6 +508,8 @@ export var AccessDeniedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
 
+export var AssociateIamRoleToResourceInput: StaticStructureSchema = [3, n0, _AIRTRI, 0, [_iRA, _aI, _rA], [0, 0, 0]];
+export var AssociateIamRoleToResourceOutput: StaticStructureSchema = [3, n0, _AIRTRO, 0, [], []];
 export var AutonomousVirtualMachineSummary: StaticStructureSchema = [
   3,
   n0,
@@ -937,6 +968,7 @@ export var CloudVmCluster: StaticStructureSchema = [
     _oNI,
     _pP,
     _cM,
+    _iR,
   ],
   [
     0,
@@ -979,6 +1011,7 @@ export var CloudVmCluster: StaticStructureSchema = [
     0,
     1,
     0,
+    () => IamRoleList,
   ],
 ];
 export var CloudVmClusterSummary: StaticStructureSchema = [
@@ -1027,6 +1060,7 @@ export var CloudVmClusterSummary: StaticStructureSchema = [
     _oNI,
     _pP,
     _cM,
+    _iR,
   ],
   [
     0,
@@ -1069,6 +1103,7 @@ export var CloudVmClusterSummary: StaticStructureSchema = [
     0,
     1,
     0,
+    () => IamRoleList,
   ],
 ];
 export var ConflictException: StaticErrorSchema = [
@@ -1152,8 +1187,8 @@ export var CreateOdbNetworkInput: StaticStructureSchema = [
   n0,
   _CONI,
   0,
-  [_dN, _aZ, _aZI, _cSC, _bSC, _cDN, _dDP, _cT, _sA, _zEA, _sPD, _t],
-  [0, 0, 0, 0, 0, 0, 0, [0, 4], 0, 0, 0, 128 | 0],
+  [_dN, _aZ, _aZI, _cSC, _bSC, _cDN, _dDP, _cT, _sA, _zEA, _sAt, _kA, _sPD, _sPDt, _kPD, _cRSRSTE, _t],
+  [0, 0, 0, 0, 0, 0, 0, [0, 4], 0, 0, 0, 0, 0, 0, 0, 64 | 0, 128 | 0],
 ];
 export var CreateOdbNetworkOutput: StaticStructureSchema = [3, n0, _CONO, 0, [_dN, _s, _sR, _oNI], [0, 0, 0, 0]];
 export var CreateOdbPeeringConnectionInput: StaticStructureSchema = [
@@ -1171,6 +1206,14 @@ export var CreateOdbPeeringConnectionOutput: StaticStructureSchema = [
   0,
   [_dN, _s, _sR, _oPCI],
   [0, 0, 0, 0],
+];
+export var CrossRegionS3RestoreSourcesAccess: StaticStructureSchema = [
+  3,
+  n0,
+  _CRSRSA,
+  0,
+  [_r, _iA, _s],
+  [0, 64 | 0, 0],
 ];
 export var CustomerContact: StaticStructureSchema = [3, n0, _CC, 0, [_em], [[() => SensitiveString, 0]]];
 export var DataCollectionOptions: StaticStructureSchema = [3, n0, _DCO, 0, [_iDEE, _iHME, _iILE], [2, 2, 2]];
@@ -1350,6 +1393,15 @@ export var DeleteOdbNetworkInput: StaticStructureSchema = [3, n0, _DONI, 0, [_oN
 export var DeleteOdbNetworkOutput: StaticStructureSchema = [3, n0, _DONO, 0, [], []];
 export var DeleteOdbPeeringConnectionInput: StaticStructureSchema = [3, n0, _DOPCI, 0, [_oPCI], [[0, 1]]];
 export var DeleteOdbPeeringConnectionOutput: StaticStructureSchema = [3, n0, _DOPCO, 0, [], []];
+export var DisassociateIamRoleFromResourceInput: StaticStructureSchema = [
+  3,
+  n0,
+  _DIRFRI,
+  0,
+  [_iRA, _aI, _rA],
+  [0, 0, 0],
+];
+export var DisassociateIamRoleFromResourceOutput: StaticStructureSchema = [3, n0, _DIRFRO, 0, [], []];
 export var ExadataIormConfig: StaticStructureSchema = [
   3,
   n0,
@@ -1419,7 +1471,14 @@ export var GetDbServerInput: StaticStructureSchema = [
 ];
 export var GetDbServerOutput: StaticStructureSchema = [3, n0, _GDSO, 0, [_dSb], [() => DbServer]];
 export var GetOciOnboardingStatusInput: StaticStructureSchema = [3, n0, _GOOSI, 0, [], []];
-export var GetOciOnboardingStatusOutput: StaticStructureSchema = [3, n0, _GOOSO, 0, [_s, _eTAL, _nTAL], [0, 0, 0]];
+export var GetOciOnboardingStatusOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _GOOSO,
+  0,
+  [_s, _eTAL, _nTAL, _oID],
+  [0, 0, 0, () => OciIdentityDomain],
+];
 export var GetOdbNetworkInput: StaticStructureSchema = [3, n0, _GONI, 0, [_oNI], [[0, 1]]];
 export var GetOdbNetworkOutput: StaticStructureSchema = [3, n0, _GONO, 0, [_oN], [() => OdbNetwork]];
 export var GetOdbPeeringConnectionInput: StaticStructureSchema = [3, n0, _GOPCI, 0, [_oPCI], [[0, 1]]];
@@ -1432,7 +1491,8 @@ export var GetOdbPeeringConnectionOutput: StaticStructureSchema = [
   [() => OdbPeeringConnection],
 ];
 export var GiVersionSummary: StaticStructureSchema = [3, n0, _GVS, 0, [_v], [0]];
-export var InitializeServiceInput: StaticStructureSchema = [3, n0, _ISI, 0, [], []];
+export var IamRole: StaticStructureSchema = [3, n0, _IR, 0, [_iRA, _s, _sR, _aI], [0, 0, 0, 0]];
+export var InitializeServiceInput: StaticStructureSchema = [3, n0, _ISI, 0, [_oID], [2]];
 export var InitializeServiceOutput: StaticStructureSchema = [3, n0, _ISO, 0, [], []];
 export var InternalServerException: StaticErrorSchema = [
   -3,
@@ -1455,6 +1515,7 @@ export var InternalServerException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
 
+export var KmsAccess: StaticStructureSchema = [3, n0, _KA, 0, [_s, _iA, _dNo, _kPD], [0, 64 | 0, 0, 0]];
 export var ListAutonomousVirtualMachinesInput: StaticStructureSchema = [
   3,
   n0,
@@ -1773,11 +1834,30 @@ export var ManagedServices: StaticStructureSchema = [
   n0,
   _MS,
   0,
-  [_sNA, _rGA, _mSIC, _sNE, _mSBA, _zEA, _sA],
-  [0, 0, 64 | 0, () => ServiceNetworkEndpoint, () => ManagedS3BackupAccess, () => ZeroEtlAccess, () => S3Access],
+  [_sNA, _rGA, _mSIC, _sNE, _mSBA, _zEA, _sA, _sAt, _kA, _cRSRSA],
+  [
+    0,
+    0,
+    64 | 0,
+    () => ServiceNetworkEndpoint,
+    () => ManagedS3BackupAccess,
+    () => ZeroEtlAccess,
+    () => S3Access,
+    () => StsAccess,
+    () => KmsAccess,
+    () => CrossRegionS3RestoreSourcesAccessList,
+  ],
 ];
 export var Month: StaticStructureSchema = [3, n0, _M, 0, [_n], [0]];
 export var OciDnsForwardingConfig: StaticStructureSchema = [3, n0, _ODFC, 0, [_dNo, _oDLI], [0, 0]];
+export var OciIdentityDomain: StaticStructureSchema = [
+  3,
+  n0,
+  _OID,
+  0,
+  [_oIDI, _oIDRU, _oIDU, _s, _sR, _aSCFU],
+  [0, 0, 0, 0, 0, 0],
+];
 export var OdbNetwork: StaticStructureSchema = [
   3,
   n0,
@@ -1962,6 +2042,7 @@ export var StopDbNodeInput: StaticStructureSchema = [
   ],
 ];
 export var StopDbNodeOutput: StaticStructureSchema = [3, n0, _SDNOt, 0, [_dNI, _s, _sR], [0, 0, 0]];
+export var StsAccess: StaticStructureSchema = [3, n0, _SAt, 0, [_s, _iA, _dNo, _sPDt], [0, 64 | 0, 0, 0]];
 export var SystemVersionSummary: StaticStructureSchema = [3, n0, _SVS, 0, [_gV, _sh, _sVy], [0, 0, 64 | 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -2009,8 +2090,8 @@ export var UpdateOdbNetworkInput: StaticStructureSchema = [
   n0,
   _UONI,
   0,
-  [_oNI, _dN, _pCTBA, _pCTBR, _sA, _zEA, _sPD],
-  [[0, 1], 0, 64 | 0, 64 | 0, 0, 0, 0],
+  [_oNI, _dN, _pCTBA, _pCTBR, _sA, _zEA, _sAt, _kA, _sPD, _sPDt, _kPD, _cRSRSTE, _cRSRSTD],
+  [[0, 1], 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0],
 ];
 export var UpdateOdbNetworkOutput: StaticStructureSchema = [3, n0, _UONO, 0, [_dN, _s, _sR, _oNI], [0, 0, 0, 0]];
 export var UpdateOdbPeeringConnectionInput: StaticStructureSchema = [
@@ -2037,7 +2118,7 @@ export var ValidationException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_m, _r, _fL],
+  [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
@@ -2066,6 +2147,13 @@ export var CloudExadataInfrastructureList: StaticListSchema = [
   [() => CloudExadataInfrastructureSummary, 0],
 ];
 export var CloudVmClusterList: StaticListSchema = [1, n0, _CVCL, 0, [() => CloudVmClusterSummary, 0]];
+export var CrossRegionS3RestoreSourcesAccessList: StaticListSchema = [
+  1,
+  n0,
+  _CRSRSAL,
+  0,
+  () => CrossRegionS3RestoreSourcesAccess,
+];
 export var CustomerContacts: StaticListSchema = [1, n0, _CCu, 0, [() => CustomerContact, 0]];
 export var DaysOfWeek: StaticListSchema = [1, n0, _DOWa, 0, () => DayOfWeek];
 export var DbIormConfigList: StaticListSchema = [1, n0, _DICL, 0, () => DbIormConfig];
@@ -2075,6 +2163,7 @@ export var DbSystemShapeList: StaticListSchema = [1, n0, _DSSL, 0, () => DbSyste
 export var GiVersionList: StaticListSchema = [1, n0, _GVL, 0, () => GiVersionSummary];
 export var HoursOfDay = 64 | 1;
 
+export var IamRoleList: StaticListSchema = [1, n0, _IRL, 0, () => IamRole];
 export var Months: StaticListSchema = [1, n0, _Mo, 0, () => Month];
 export var OciDnsForwardingConfigList: StaticListSchema = [1, n0, _ODFCL, 0, () => OciDnsForwardingConfig];
 export var OdbNetworkList: StaticListSchema = [1, n0, _ONL, 0, () => OdbNetworkSummary];
@@ -2101,6 +2190,14 @@ export var AcceptMarketplaceRegistration: StaticOperationSchema = [
   2,
   () => AcceptMarketplaceRegistrationInput,
   () => AcceptMarketplaceRegistrationOutput,
+];
+export var AssociateIamRoleToResource: StaticOperationSchema = [
+  9,
+  n0,
+  _AIRTR,
+  0,
+  () => AssociateIamRoleToResourceInput,
+  () => AssociateIamRoleToResourceOutput,
 ];
 export var CreateCloudAutonomousVmCluster: StaticOperationSchema = [
   9,
@@ -2181,6 +2278,14 @@ export var DeleteOdbPeeringConnection: StaticOperationSchema = [
   2,
   () => DeleteOdbPeeringConnectionInput,
   () => DeleteOdbPeeringConnectionOutput,
+];
+export var DisassociateIamRoleFromResource: StaticOperationSchema = [
+  9,
+  n0,
+  _DIRFR,
+  0,
+  () => DisassociateIamRoleFromResourceInput,
+  () => DisassociateIamRoleFromResourceOutput,
 ];
 export var GetCloudAutonomousVmCluster: StaticOperationSchema = [
   9,

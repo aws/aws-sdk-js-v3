@@ -43,6 +43,14 @@ export interface GetOciOnboardingStatusCommandOutput extends GetOciOnboardingSta
  * //   status: "NOT_STARTED" || "PENDING_LINK_GENERATION" || "PENDING_CUSTOMER_ACTION" || "PENDING_INITIALIZATION" || "ACTIVATING" || "ACTIVE_IN_HOME_REGION" || "ACTIVE" || "ACTIVE_LIMITED" || "FAILED" || "PUBLIC_OFFER_UNSUPPORTED" || "SUSPENDED" || "CANCELED",
  * //   existingTenancyActivationLink: "STRING_VALUE",
  * //   newTenancyActivationLink: "STRING_VALUE",
+ * //   ociIdentityDomain: { // OciIdentityDomain
+ * //     ociIdentityDomainId: "STRING_VALUE",
+ * //     ociIdentityDomainResourceUrl: "STRING_VALUE",
+ * //     ociIdentityDomainUrl: "STRING_VALUE",
+ * //     status: "AVAILABLE" || "FAILED" || "PROVISIONING" || "TERMINATED" || "TERMINATING" || "UPDATING" || "MAINTENANCE_IN_PROGRESS",
+ * //     statusReason: "STRING_VALUE",
+ * //     accountSetupCloudFormationUrl: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

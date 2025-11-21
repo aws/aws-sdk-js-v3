@@ -62,6 +62,10 @@ import {
   AcceptMarketplaceRegistrationCommandOutput,
 } from "./commands/AcceptMarketplaceRegistrationCommand";
 import {
+  AssociateIamRoleToResourceCommandInput,
+  AssociateIamRoleToResourceCommandOutput,
+} from "./commands/AssociateIamRoleToResourceCommand";
+import {
   CreateCloudAutonomousVmClusterCommandInput,
   CreateCloudAutonomousVmClusterCommandOutput,
 } from "./commands/CreateCloudAutonomousVmClusterCommand";
@@ -95,6 +99,10 @@ import {
   DeleteOdbPeeringConnectionCommandInput,
   DeleteOdbPeeringConnectionCommandOutput,
 } from "./commands/DeleteOdbPeeringConnectionCommand";
+import {
+  DisassociateIamRoleFromResourceCommandInput,
+  DisassociateIamRoleFromResourceCommandOutput,
+} from "./commands/DisassociateIamRoleFromResourceCommand";
 import {
   GetCloudAutonomousVmClusterCommandInput,
   GetCloudAutonomousVmClusterCommandOutput,
@@ -180,6 +188,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AcceptMarketplaceRegistrationCommandInput
+  | AssociateIamRoleToResourceCommandInput
   | CreateCloudAutonomousVmClusterCommandInput
   | CreateCloudExadataInfrastructureCommandInput
   | CreateCloudVmClusterCommandInput
@@ -190,6 +199,7 @@ export type ServiceInputTypes =
   | DeleteCloudVmClusterCommandInput
   | DeleteOdbNetworkCommandInput
   | DeleteOdbPeeringConnectionCommandInput
+  | DisassociateIamRoleFromResourceCommandInput
   | GetCloudAutonomousVmClusterCommandInput
   | GetCloudExadataInfrastructureCommandInput
   | GetCloudExadataInfrastructureUnallocatedResourcesCommandInput
@@ -226,6 +236,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AcceptMarketplaceRegistrationCommandOutput
+  | AssociateIamRoleToResourceCommandOutput
   | CreateCloudAutonomousVmClusterCommandOutput
   | CreateCloudExadataInfrastructureCommandOutput
   | CreateCloudVmClusterCommandOutput
@@ -236,6 +247,7 @@ export type ServiceOutputTypes =
   | DeleteCloudVmClusterCommandOutput
   | DeleteOdbNetworkCommandOutput
   | DeleteOdbPeeringConnectionCommandOutput
+  | DisassociateIamRoleFromResourceCommandOutput
   | GetCloudAutonomousVmClusterCommandOutput
   | GetCloudExadataInfrastructureCommandOutput
   | GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput
