@@ -30,6 +30,19 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
  * @public
  * @enum
  */
+export const ApplicationType = {
+  LAKEHOUSE: "Lakehouse",
+  NONE: "None",
+} as const;
+/**
+ * @public
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AquaConfigurationStatus = {
   AUTO: "auto",
   DISABLED: "disabled",
@@ -145,6 +158,19 @@ export type ParameterApplyType = (typeof ParameterApplyType)[keyof typeof Parame
  * @public
  * @enum
  */
+export const ServiceAuthorization = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type ServiceAuthorization = (typeof ServiceAuthorization)[keyof typeof ServiceAuthorization];
+
+/**
+ * @public
+ * @enum
+ */
 export const ZeroETLIntegrationStatus = {
   ACTIVE: "active",
   CREATING: "creating",
@@ -158,19 +184,6 @@ export const ZeroETLIntegrationStatus = {
  * @public
  */
 export type ZeroETLIntegrationStatus = (typeof ZeroETLIntegrationStatus)[keyof typeof ZeroETLIntegrationStatus];
-
-/**
- * @public
- * @enum
- */
-export const ServiceAuthorization = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-/**
- * @public
- */
-export type ServiceAuthorization = (typeof ServiceAuthorization)[keyof typeof ServiceAuthorization];
 
 /**
  * @public
@@ -487,6 +500,32 @@ export const ImpactRankingType = {
  * @public
  */
 export type ImpactRankingType = (typeof ImpactRankingType)[keyof typeof ImpactRankingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LakehouseIdcRegistration = {
+  ASSOCIATE: "Associate",
+  DISASSOCIATE: "Disassociate",
+} as const;
+/**
+ * @public
+ */
+export type LakehouseIdcRegistration = (typeof LakehouseIdcRegistration)[keyof typeof LakehouseIdcRegistration];
+
+/**
+ * @public
+ * @enum
+ */
+export const LakehouseRegistration = {
+  DEREGISTER: "Deregister",
+  REGISTER: "Register",
+} as const;
+/**
+ * @public
+ */
+export type LakehouseRegistration = (typeof LakehouseRegistration)[keyof typeof LakehouseRegistration];
 
 /**
  * @public

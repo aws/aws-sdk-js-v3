@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyRedshiftIdcApplicationMessage, ModifyRedshiftIdcApplicationResult } from "../models/models_0";
+import { ModifyRedshiftIdcApplicationMessage, ModifyRedshiftIdcApplicationResult } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ModifyRedshiftIdcApplication } from "../schemas/schemas_0";
 
@@ -67,6 +67,13 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
  *           },
  *         },
  *       ],
+ *       Redshift: [ // RedshiftServiceIntegrations
+ *         { // RedshiftScopeUnion Union: only one key present
+ *           Connect: { // Connect
+ *             Authorization: "Enabled" || "Disabled", // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
  * };
@@ -106,8 +113,16 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
  * //             },
  * //           },
  * //         ],
+ * //         Redshift: [ // RedshiftServiceIntegrations
+ * //           { // RedshiftScopeUnion Union: only one key present
+ * //             Connect: { // Connect
+ * //               Authorization: "Enabled" || "Disabled", // required
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
+ * //     ApplicationType: "None" || "Lakehouse",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE",

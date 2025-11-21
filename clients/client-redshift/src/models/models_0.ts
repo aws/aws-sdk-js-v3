@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   ActionType,
+  ApplicationType,
   AquaConfigurationStatus,
   AquaStatus,
   AuthorizationStatus,
@@ -2622,6 +2623,18 @@ export interface Cluster {
    * @public
    */
   MultiAZSecondary?: SecondaryClusterInfo | undefined;
+
+  /**
+   * <p>The status of the lakehouse registration for the cluster. Indicates whether the cluster is successfully registered with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  LakehouseRegistrationStatus?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Glue data catalog associated with the cluster enabled with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  CatalogArn?: string | undefined;
 }
 
 /**
@@ -3114,6 +3127,18 @@ export interface ClusterVersionsMessage {
    * @public
    */
   ClusterVersions?: ClusterVersion[] | undefined;
+}
+
+/**
+ * <p>A structure that defines the Amazon Redshift connect service integration scope.</p>
+ * @public
+ */
+export interface Connect {
+  /**
+   * <p>Determines whether the Amazon Redshift connect integration is enabled or disabled for the application.</p>
+   * @public
+   */
+  Authorization: ServiceAuthorization | undefined;
 }
 
 /**
@@ -3684,6 +3709,25 @@ export interface CreateClusterMessage {
    * @public
    */
   RedshiftIdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The name of the Glue data catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain at least one lowercase letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$</code>
+   *          </p>
+   *          <p>Example: <code>my-catalog_01</code>
+   *          </p>
+   * @public
+   */
+  CatalogName?: string | undefined;
 }
 
 /**
@@ -4639,6 +4683,43 @@ export namespace LakeFormationScopeUnion {
 }
 
 /**
+ * <p>A union structure that defines the scope of Amazon Redshift service integrations. Contains configuration for different integration types such as Amazon Redshift.</p>
+ * @public
+ */
+export type RedshiftScopeUnion = RedshiftScopeUnion.ConnectMember | RedshiftScopeUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RedshiftScopeUnion {
+  /**
+   * <p>The Amazon Redshift connect integration scope configuration. Defines authorization settings for Amazon Redshift connect service integration.</p>
+   * @public
+   */
+  export interface ConnectMember {
+    Connect: Connect;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Connect?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Connect: (value: Connect) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The S3 Access Grants scope.</p>
  * @public
  */
@@ -4695,6 +4776,7 @@ export namespace S3AccessGrantsScopeUnion {
  */
 export type ServiceIntegrationsUnion =
   | ServiceIntegrationsUnion.LakeFormationMember
+  | ServiceIntegrationsUnion.RedshiftMember
   | ServiceIntegrationsUnion.S3AccessGrantsMember
   | ServiceIntegrationsUnion.$UnknownMember;
 
@@ -4709,6 +4791,7 @@ export namespace ServiceIntegrationsUnion {
   export interface LakeFormationMember {
     LakeFormation: LakeFormationScopeUnion[];
     S3AccessGrants?: never;
+    Redshift?: never;
     $unknown?: never;
   }
 
@@ -4719,6 +4802,18 @@ export namespace ServiceIntegrationsUnion {
   export interface S3AccessGrantsMember {
     LakeFormation?: never;
     S3AccessGrants: S3AccessGrantsScopeUnion[];
+    Redshift?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of scopes set up for Amazon Redshift integration.</p>
+   * @public
+   */
+  export interface RedshiftMember {
+    LakeFormation?: never;
+    S3AccessGrants?: never;
+    Redshift: RedshiftScopeUnion[];
     $unknown?: never;
   }
 
@@ -4728,6 +4823,7 @@ export namespace ServiceIntegrationsUnion {
   export interface $UnknownMember {
     LakeFormation?: never;
     S3AccessGrants?: never;
+    Redshift?: never;
     $unknown: [string, any];
   }
 
@@ -4738,6 +4834,7 @@ export namespace ServiceIntegrationsUnion {
   export interface Visitor<T> {
     LakeFormation: (value: LakeFormationScopeUnion[]) => T;
     S3AccessGrants: (value: S3AccessGrantsScopeUnion[]) => T;
+    Redshift: (value: RedshiftScopeUnion[]) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4789,6 +4886,12 @@ export interface CreateRedshiftIdcApplicationMessage {
    * @public
    */
   ServiceIntegrations?: ServiceIntegrationsUnion[] | undefined;
+
+  /**
+   * <p>The type of application being created. Valid values are <code>None</code> or <code>Lakehouse</code>. Use <code>Lakehouse</code> to enable Amazon Redshift federated permissions on cluster.</p>
+   * @public
+   */
+  ApplicationType?: ApplicationType | undefined;
 
   /**
    * <p>A list of tags.</p>
@@ -4869,6 +4972,12 @@ export interface RedshiftIdcApplication {
    * @public
    */
   ServiceIntegrations?: ServiceIntegrationsUnion[] | undefined;
+
+  /**
+   * <p>The type of application being created. Valid values are <code>None</code> or <code>Lakehouse</code>. Use <code>Lakehouse</code> to enable Amazon Redshift federated permissions on cluster.</p>
+   * @public
+   */
+  ApplicationType?: ApplicationType | undefined;
 
   /**
    * <p>A list of tags.</p>
@@ -9736,6 +9845,36 @@ export interface GetResourcePolicyResult {
 }
 
 /**
+ * <p>Contains configuration information for lakehouse integration, including the cluster identifier, catalog ARN, and registration status.</p>
+ * @public
+ */
+export interface LakehouseConfiguration {
+  /**
+   * <p>The unique identifier of the cluster associated with this lakehouse configuration.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  LakehouseIdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The current status of the lakehouse registration. Indicates whether the cluster is successfully registered with the lakehouse.</p>
+   * @public
+   */
+  LakehouseRegistrationStatus?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Glue data catalog associated with the lakehouse configuration.</p>
+   * @public
+   */
+  CatalogArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListRecommendationsMessage {
@@ -10757,116 +10896,4 @@ export interface ModifyIntegrationMessage {
    * @public
    */
   IntegrationName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyRedshiftIdcApplicationMessage {
-  /**
-   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
-   * @public
-   */
-  RedshiftIdcApplicationArn: string | undefined;
-
-  /**
-   * <p>The namespace for the Amazon Redshift IAM Identity Center application to change. It determines which managed application
-   *             verifies the connection token.</p>
-   * @public
-   */
-  IdentityNamespace?: string | undefined;
-
-  /**
-   * <p>The IAM role ARN associated with the Amazon Redshift IAM Identity Center application to change. It has the required permissions
-   *             to be assumed and invoke the IDC Identity Center API.</p>
-   * @public
-   */
-  IamRoleArn?: string | undefined;
-
-  /**
-   * <p>The display name for the Amazon Redshift IAM Identity Center application to change. It appears on the console.</p>
-   * @public
-   */
-  IdcDisplayName?: string | undefined;
-
-  /**
-   * <p>The authorized token issuer list for the Amazon Redshift IAM Identity Center application to change.</p>
-   * @public
-   */
-  AuthorizedTokenIssuerList?: AuthorizedTokenIssuer[] | undefined;
-
-  /**
-   * <p>A collection of service integrations associated with the application.</p>
-   * @public
-   */
-  ServiceIntegrations?: ServiceIntegrationsUnion[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyRedshiftIdcApplicationResult {
-  /**
-   * <p>Contains properties for the Redshift IDC application.</p>
-   * @public
-   */
-  RedshiftIdcApplication?: RedshiftIdcApplication | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyScheduledActionMessage {
-  /**
-   * <p>The name of the scheduled action to modify. </p>
-   * @public
-   */
-  ScheduledActionName: string | undefined;
-
-  /**
-   * <p>A modified JSON format of the scheduled action.
-   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
-   * @public
-   */
-  TargetAction?: ScheduledActionType | undefined;
-
-  /**
-   * <p>A modified schedule in either <code>at( )</code> or <code>cron( )</code> format.
-   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
-   * @public
-   */
-  Schedule?: string | undefined;
-
-  /**
-   * <p>A different IAM role to assume to run the target action.
-   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
-   * @public
-   */
-  IamRole?: string | undefined;
-
-  /**
-   * <p>A modified description of the scheduled action. </p>
-   * @public
-   */
-  ScheduledActionDescription?: string | undefined;
-
-  /**
-   * <p>A modified start time of the scheduled action.
-   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>A modified end time of the scheduled action.
-   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled. </p>
-   * @public
-   */
-  Enable?: boolean | undefined;
 }

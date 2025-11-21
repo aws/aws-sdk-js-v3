@@ -113,6 +113,8 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  *   IpAddressType: "STRING_VALUE",
  *   MultiAZ: true || false,
+ *   CatalogName: "STRING_VALUE",
+ *   RedshiftIdcApplicationArn: "STRING_VALUE",
  * };
  * const command = new RestoreFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
@@ -305,6 +307,8 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -343,6 +347,9 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
  *  <p>The cluster subnet group name does not refer to an existing cluster subnet
  *             group.</p>
+ *
+ * @throws {@link DependentServiceAccessDeniedFault} (client fault)
+ *  <p>A dependent service denied access for the integration.</p>
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
  *  <p>The request cannot be completed because a dependent service is throttling requests
@@ -408,6 +415,9 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
+ *
+ * @throws {@link RedshiftIdcApplicationNotExistsFault} (client fault)
+ *  <p>The application you attempted to find doesn't exist.</p>
  *
  * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
  *  <p>User already has a reservation with the given identifier.</p>

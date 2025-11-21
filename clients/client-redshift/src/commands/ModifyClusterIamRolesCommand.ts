@@ -241,6 +241,8 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *

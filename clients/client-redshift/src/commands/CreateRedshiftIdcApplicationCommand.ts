@@ -68,8 +68,16 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  *           },
  *         },
  *       ],
+ *       Redshift: [ // RedshiftServiceIntegrations
+ *         { // RedshiftScopeUnion Union: only one key present
+ *           Connect: { // Connect
+ *             Authorization: "Enabled" || "Disabled", // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
+ *   ApplicationType: "None" || "Lakehouse",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE",
@@ -116,8 +124,16 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  * //             },
  * //           },
  * //         ],
+ * //         Redshift: [ // RedshiftServiceIntegrations
+ * //           { // RedshiftScopeUnion Union: only one key present
+ * //             Connect: { // Connect
+ * //               Authorization: "Enabled" || "Disabled", // required
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
+ * //     ApplicationType: "None" || "Lakehouse",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE",

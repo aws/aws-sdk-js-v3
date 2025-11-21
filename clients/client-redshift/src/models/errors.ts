@@ -1082,6 +1082,26 @@ export class InvalidAuthenticationProfileRequestFault extends __BaseException {
 }
 
 /**
+ * <p>A dependent service denied access for the integration.</p>
+ * @public
+ */
+export class DependentServiceAccessDeniedFault extends __BaseException {
+  readonly name = "DependentServiceAccessDeniedFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependentServiceAccessDeniedFault, __BaseException>) {
+    super({
+      name: "DependentServiceAccessDeniedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependentServiceAccessDeniedFault.prototype);
+  }
+}
+
+/**
  * <p>There is no Amazon Redshift HSM client certificate with the specified
  *             identifier.</p>
  * @public
@@ -1867,26 +1887,6 @@ export class IntegrationTargetNotFoundFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IntegrationTargetNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>A dependent service denied access for the integration.</p>
- * @public
- */
-export class DependentServiceAccessDeniedFault extends __BaseException {
-  readonly name = "DependentServiceAccessDeniedFault" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependentServiceAccessDeniedFault, __BaseException>) {
-    super({
-      name: "DependentServiceAccessDeniedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependentServiceAccessDeniedFault.prototype);
   }
 }
 

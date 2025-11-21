@@ -237,6 +237,8 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *

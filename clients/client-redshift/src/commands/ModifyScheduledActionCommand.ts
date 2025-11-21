@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyScheduledActionMessage, ScheduledAction } from "../models/models_0";
+import { ScheduledAction } from "../models/models_0";
+import { ModifyScheduledActionMessage } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ModifyScheduledAction } from "../schemas/schemas_0";
 

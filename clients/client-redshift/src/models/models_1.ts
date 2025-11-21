@@ -1,21 +1,193 @@
 // smithy-typescript generated code
 import {
   AquaConfigurationStatus,
+  LakehouseIdcRegistration,
+  LakehouseRegistration,
   NamespaceRegistrationStatus,
   PartnerIntegrationStatus,
   UsageLimitBreachAction,
 } from "./enums";
 
 import {
+  AuthorizedTokenIssuer,
   Cluster,
   ClusterSecurityGroup,
   NamespaceIdentifierUnion,
   Parameter,
+  RedshiftIdcApplication,
   ReservedNode,
   ResourcePolicy,
+  ScheduledActionType,
+  ServiceIntegrationsUnion,
   Snapshot,
   TableRestoreStatus,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ModifyLakehouseConfigurationMessage {
+  /**
+   * <p>The unique identifier of the cluster whose lakehouse configuration you want to modify.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies whether to register or deregister the cluster with Amazon Redshift federated permissions. Valid values are <code>Register</code> or <code>Deregister</code>.</p>
+   * @public
+   */
+  LakehouseRegistration?: LakehouseRegistration | undefined;
+
+  /**
+   * <p>The name of the Glue data catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain at least one lowercase letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$</code>
+   *          </p>
+   *          <p>Example: <code>my-catalog_01</code>
+   *          </p>
+   * @public
+   */
+  CatalogName?: string | undefined;
+
+  /**
+   * <p>Modifies the Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions. Valid values are <code>Associate</code> or <code>Disassociate</code>.</p>
+   * @public
+   */
+  LakehouseIdcRegistration?: LakehouseIdcRegistration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  LakehouseIdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>A boolean value that, if <code>true</code>, validates the request without actually modifying the lakehouse configuration. Use this to check for errors before making changes.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyRedshiftIdcApplicationMessage {
+  /**
+   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+   * @public
+   */
+  RedshiftIdcApplicationArn: string | undefined;
+
+  /**
+   * <p>The namespace for the Amazon Redshift IAM Identity Center application to change. It determines which managed application
+   *             verifies the connection token.</p>
+   * @public
+   */
+  IdentityNamespace?: string | undefined;
+
+  /**
+   * <p>The IAM role ARN associated with the Amazon Redshift IAM Identity Center application to change. It has the required permissions
+   *             to be assumed and invoke the IDC Identity Center API.</p>
+   * @public
+   */
+  IamRoleArn?: string | undefined;
+
+  /**
+   * <p>The display name for the Amazon Redshift IAM Identity Center application to change. It appears on the console.</p>
+   * @public
+   */
+  IdcDisplayName?: string | undefined;
+
+  /**
+   * <p>The authorized token issuer list for the Amazon Redshift IAM Identity Center application to change.</p>
+   * @public
+   */
+  AuthorizedTokenIssuerList?: AuthorizedTokenIssuer[] | undefined;
+
+  /**
+   * <p>A collection of service integrations associated with the application.</p>
+   * @public
+   */
+  ServiceIntegrations?: ServiceIntegrationsUnion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyRedshiftIdcApplicationResult {
+  /**
+   * <p>Contains properties for the Redshift IDC application.</p>
+   * @public
+   */
+  RedshiftIdcApplication?: RedshiftIdcApplication | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyScheduledActionMessage {
+  /**
+   * <p>The name of the scheduled action to modify. </p>
+   * @public
+   */
+  ScheduledActionName: string | undefined;
+
+  /**
+   * <p>A modified JSON format of the scheduled action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
+   * @public
+   */
+  TargetAction?: ScheduledActionType | undefined;
+
+  /**
+   * <p>A modified schedule in either <code>at( )</code> or <code>cron( )</code> format.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   * @public
+   */
+  Schedule?: string | undefined;
+
+  /**
+   * <p>A different IAM role to assume to run the target action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   * @public
+   */
+  IamRole?: string | undefined;
+
+  /**
+   * <p>A modified description of the scheduled action. </p>
+   * @public
+   */
+  ScheduledActionDescription?: string | undefined;
+
+  /**
+   * <p>A modified start time of the scheduled action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>A modified end time of the scheduled action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled. </p>
+   * @public
+   */
+  Enable?: boolean | undefined;
+}
 
 /**
  * <p></p>
@@ -621,6 +793,31 @@ export interface RestoreFromClusterSnapshotMessage {
    * @public
    */
   MultiAZ?: boolean | undefined;
+
+  /**
+   * <p>The name of the Glue Data Catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain at least one lowercase letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$</code>
+   *          </p>
+   *          <p>Example: <code>my-catalog_01</code>
+   *          </p>
+   * @public
+   */
+  CatalogName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions.</p>
+   * @public
+   */
+  RedshiftIdcApplicationArn?: string | undefined;
 }
 
 /**

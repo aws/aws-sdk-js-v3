@@ -459,6 +459,10 @@ import {
 } from "./commands/ModifyEventSubscriptionCommand";
 import { ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput } from "./commands/ModifyIntegrationCommand";
 import {
+  ModifyLakehouseConfigurationCommandInput,
+  ModifyLakehouseConfigurationCommandOutput,
+} from "./commands/ModifyLakehouseConfigurationCommand";
+import {
   ModifyRedshiftIdcApplicationCommandInput,
   ModifyRedshiftIdcApplicationCommandOutput,
 } from "./commands/ModifyRedshiftIdcApplicationCommand";
@@ -652,6 +656,7 @@ export type ServiceInputTypes =
   | ModifyEndpointAccessCommandInput
   | ModifyEventSubscriptionCommandInput
   | ModifyIntegrationCommandInput
+  | ModifyLakehouseConfigurationCommandInput
   | ModifyRedshiftIdcApplicationCommandInput
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
@@ -797,6 +802,7 @@ export type ServiceOutputTypes =
   | ModifyEndpointAccessCommandOutput
   | ModifyEventSubscriptionCommandOutput
   | ModifyIntegrationCommandOutput
+  | ModifyLakehouseConfigurationCommandOutput
   | ModifyRedshiftIdcApplicationCommandOutput
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput

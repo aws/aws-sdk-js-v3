@@ -118,6 +118,7 @@ export * from "./ModifyCustomDomainAssociationCommand";
 export * from "./ModifyEndpointAccessCommand";
 export * from "./ModifyEventSubscriptionCommand";
 export * from "./ModifyIntegrationCommand";
+export * from "./ModifyLakehouseConfigurationCommand";
 export * from "./ModifyRedshiftIdcApplicationCommand";
 export * from "./ModifyScheduledActionCommand";
 export * from "./ModifySnapshotCopyRetentionPeriodCommand";

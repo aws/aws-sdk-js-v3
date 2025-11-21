@@ -80,8 +80,16 @@ export interface DescribeRedshiftIdcApplicationsCommandOutput
  * //               },
  * //             },
  * //           ],
+ * //           Redshift: [ // RedshiftServiceIntegrations
+ * //             { // RedshiftScopeUnion Union: only one key present
+ * //               Connect: { // Connect
+ * //                 Authorization: "Enabled" || "Disabled", // required
+ * //               },
+ * //             },
+ * //           ],
  * //         },
  * //       ],
+ * //       ApplicationType: "None" || "Lakehouse",
  * //       Tags: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",

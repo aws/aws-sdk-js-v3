@@ -240,6 +240,8 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -234,6 +234,8 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *

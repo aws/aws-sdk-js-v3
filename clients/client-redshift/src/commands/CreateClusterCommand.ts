@@ -115,6 +115,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   IpAddressType: "STRING_VALUE",
  *   MultiAZ: true || false,
  *   RedshiftIdcApplicationArn: "STRING_VALUE",
+ *   CatalogName: "STRING_VALUE",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -307,6 +308,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -339,9 +342,16 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *  <p>The cluster subnet group name does not refer to an existing cluster subnet
  *             group.</p>
  *
+ * @throws {@link DependentServiceAccessDeniedFault} (client fault)
+ *  <p>A dependent service denied access for the integration.</p>
+ *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
  *  <p>The request cannot be completed because a dependent service is throttling requests
  *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link DependentServiceUnavailableFault} (client fault)
+ *  <p>Your request cannot be completed because a dependent internal service is
+ *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
  *
  * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
  *  <p>There is no Amazon Redshift HSM client certificate with the specified

@@ -55,11 +55,12 @@ const _ASAM = "AuthorizeSnapshotAccessMessage";
 const _ASAR = "AuthorizeSnapshotAccessResult";
 const _ASRP = "AutomatedSnapshotRetentionPeriod";
 const _ASp = "ApplyStatus";
-const _AT = "ActionType";
+const _AT = "ApplicationType";
 const _ATCDF = "AccessToClusterDeniedFault";
 const _ATI = "AuthorizedTokenIssuer";
 const _ATIL = "AuthorizedTokenIssuerList";
 const _ATSDF = "AccessToSnapshotDeniedFault";
+const _ATc = "ActionType";
 const _ATp = "ApplyType";
 const _ATu = "AuthorizeTime";
 const _AV = "AttributeValues";
@@ -110,6 +111,7 @@ const _CAPR = "CreateAuthenticationProfileResult";
 const _CAS = "ClusterAvailabilityStatus";
 const _CATS = "ClusterAssociatedToSchedule";
 const _CAW = "ConsumerAcceptedWrites";
+const _CAa = "CatalogArn";
 const _CAe = "CertificateAssociations";
 const _CAer = "CertificateAssociation";
 const _CAr = "CreatedAt";
@@ -180,6 +182,7 @@ const _CN = "ClusterNodes";
 const _CNA = "ClusterNamespaceArn";
 const _CNFF = "ClusterNotFoundFault";
 const _CNL = "ClusterNodesList";
+const _CNa = "CatalogName";
 const _CNl = "ClusterNode";
 const _COLRF = "ClusterOnLatestRevisionFault";
 const _CPG = "ClusterParameterGroups";
@@ -253,7 +256,8 @@ const _CVM = "ClusterVersionsMessage";
 const _CVl = "ClusterVersions";
 const _Cl = "Clusters";
 const _Cla = "Classic";
-const _Co = "Command";
+const _Co = "Connect";
+const _Com = "Command";
 const _D = "Description";
 const _DAA = "DescribeAccountAttributes";
 const _DAAM = "DescribeAccountAttributesMessage";
@@ -650,6 +654,7 @@ const _K = "Key";
 const _KKI = "KmsKeyId";
 const _KMSKI = "KMSKeyId";
 const _L = "Link";
+const _LC = "LakehouseConfiguration";
 const _LDT = "LogDestinationType";
 const _LE = "LogExports";
 const _LEF = "LimitExceededFault";
@@ -660,9 +665,13 @@ const _LFQ = "LakeFormationQuery";
 const _LFSI = "LakeFormationServiceIntegrations";
 const _LFSU = "LakeFormationScopeUnion";
 const _LFT = "LastFailureTime";
-const _LR = "ListRecommendations";
+const _LIAA = "LakehouseIdcApplicationArn";
+const _LIR = "LakehouseIdcRegistration";
+const _LR = "LakehouseRegistration";
 const _LRM = "ListRecommendationsMessage";
 const _LRR = "ListRecommendationsResult";
+const _LRS = "LakehouseRegistrationStatus";
+const _LRi = "ListRecommendations";
 const _LS = "LoggingStatus";
 const _LSD = "LoadSampleData";
 const _LSDT = "LastSuccessfulDeliveryTime";
@@ -710,6 +719,8 @@ const _MESR = "ModifyEventSubscriptionResult";
 const _MEV = "MinimumEngineVersion";
 const _MI = "ModifyIntegration";
 const _MIM = "ModifyIntegrationMessage";
+const _MLC = "ModifyLakehouseConfiguration";
+const _MLCM = "ModifyLakehouseConfigurationMessage";
 const _MMP = "ManageMasterPassword";
 const _MPSA = "MasterPasswordSecretArn";
 const _MPSKKI = "MasterPasswordSecretKmsKeyId";
@@ -900,6 +911,8 @@ const _RS = "RestoreStatus";
 const _RSA = "RevokeSnapshotAccess";
 const _RSAM = "RevokeSnapshotAccessMessage";
 const _RSAR = "RevokeSnapshotAccessResult";
+const _RSI = "RedshiftServiceIntegrations";
+const _RSU = "RedshiftScopeUnion";
 const _RT = "RevisionTargets";
 const _RTFCS = "RestoreTableFromClusterSnapshot";
 const _RTFCSM = "RestoreTableFromClusterSnapshotMessage";
@@ -914,6 +927,7 @@ const _RTev = "RevisionTarget";
 const _RWA = "ReadWriteAccess";
 const _Re = "Recommendations";
 const _Rec = "Recommendation";
+const _Red = "Redshift";
 const _S = "Snapshot";
 const _SA = "SnapshotArn";
 const _SAAEF = "ScheduledActionAlreadyExistsFault";
@@ -1627,6 +1641,8 @@ export var Cluster: StaticStructureSchema = [
     _IAT,
     _MAZ,
     _MAZS,
+    _LRS,
+    _CAa,
   ],
   [
     0,
@@ -1689,6 +1705,8 @@ export var Cluster: StaticStructureSchema = [
     0,
     0,
     () => SecondaryClusterInfo,
+    0,
+    0,
   ],
 ];
 export var ClusterAlreadyExistsFault: StaticErrorSchema = [
@@ -2056,6 +2074,7 @@ export var ConflictPolicyUpdateFault: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ConflictPolicyUpdateFault, __ConflictPolicyUpdateFault);
 
+export var Connect: StaticStructureSchema = [3, n0, _Co, 0, [_Au], [0]];
 export var CopyClusterSnapshotMessage: StaticStructureSchema = [
   3,
   n0,
@@ -2126,6 +2145,7 @@ export var CreateClusterMessage: StaticStructureSchema = [
     _IAT,
     _MAZ,
     _RIAA,
+    _CNa,
   ],
   [
     0,
@@ -2166,6 +2186,7 @@ export var CreateClusterMessage: StaticStructureSchema = [
     0,
     0,
     2,
+    0,
     0,
   ],
 ];
@@ -2312,7 +2333,7 @@ export var CreateRedshiftIdcApplicationMessage: StaticStructureSchema = [
   n0,
   _CRIAM,
   0,
-  [_IIA, _RIAN, _INd, _IDN, _IRA, _ATIL, _SIe, _T, _STK],
+  [_IIA, _RIAN, _INd, _IDN, _IRA, _ATIL, _SIe, _AT, _T, _STK],
   [
     0,
     0,
@@ -2321,6 +2342,7 @@ export var CreateRedshiftIdcApplicationMessage: StaticStructureSchema = [
     0,
     () => AuthorizedTokenIssuerList,
     () => ServiceIntegrationList,
+    0,
     [() => TagList, 0],
     [() => TagKeyList, 0],
   ],
@@ -2730,7 +2752,7 @@ export var DescribeNodeConfigurationOptionsMessage: StaticStructureSchema = [
   n0,
   _DNCOM,
   0,
-  [_AT, _CIl, _SI, _SA, _OA, _Fi, _M, _MR],
+  [_ATc, _CIl, _SI, _SA, _OA, _Fi, _M, _MR],
   [
     0,
     0,
@@ -3131,7 +3153,7 @@ export var GetReservedNodeExchangeConfigurationOptionsInputMessage: StaticStruct
   n0,
   _GRNECOIM,
   0,
-  [_AT, _CIl, _SI, _MR, _M],
+  [_ATc, _CIl, _SI, _MR, _M],
   [0, 0, 0, 1, 0],
 ];
 export var GetReservedNodeExchangeConfigurationOptionsOutputMessage: StaticStructureSchema = [
@@ -3916,6 +3938,7 @@ export var Ipv6CidrBlockNotFoundFault: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(Ipv6CidrBlockNotFoundFault, __Ipv6CidrBlockNotFoundFault);
 
 export var LakeFormationQuery: StaticStructureSchema = [3, n0, _LFQ, 0, [_Au], [0]];
+export var LakehouseConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_CIl, _LIAA, _LRS, _CAa], [0, 0, 0, 0]];
 export var LimitExceededFault: StaticErrorSchema = [
   -3,
   n0,
@@ -4123,6 +4146,14 @@ export var ModifyEventSubscriptionResult: StaticStructureSchema = [
   [[() => EventSubscription, 0]],
 ];
 export var ModifyIntegrationMessage: StaticStructureSchema = [3, n0, _MIM, 0, [_IA, _D, _IN], [0, 0, 0]];
+export var ModifyLakehouseConfigurationMessage: StaticStructureSchema = [
+  3,
+  n0,
+  _MLCM,
+  0,
+  [_CIl, _LR, _CNa, _LIR, _LIAA, _DRr],
+  [0, 0, 0, 0, 0, 2],
+];
 export var ModifyRedshiftIdcApplicationMessage: StaticStructureSchema = [
   3,
   n0,
@@ -4318,14 +4349,14 @@ export var Recommendation: StaticStructureSchema = [
   [_Id, _CIl, _NA, _CAr, _RTec, _Ti, _D, _Ob, _IRm, _RTeco, _RAe, _RL],
   [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, [() => RecommendedActionList, 0], [() => ReferenceLinkList, 0]],
 ];
-export var RecommendedAction: StaticStructureSchema = [3, n0, _RAec, 0, [_Te, _Dat, _Co, _Ty], [0, 0, 0, 0]];
+export var RecommendedAction: StaticStructureSchema = [3, n0, _RAec, 0, [_Te, _Dat, _Com, _Ty], [0, 0, 0, 0]];
 export var RecurringCharge: StaticStructureSchema = [3, n0, _RC, 0, [_RCA, _RCF], [1, 0]];
 export var RedshiftIdcApplication: StaticStructureSchema = [
   3,
   n0,
   _RIA,
   0,
-  [_IIA, _RIAN, _RIAA, _INd, _IDN, _IRA, _IMAA, _IOS, _ATIL, _SIe, _T, _STK],
+  [_IIA, _RIAN, _RIAA, _INd, _IDN, _IRA, _IMAA, _IOS, _ATIL, _SIe, _AT, _T, _STK],
   [
     0,
     0,
@@ -4337,6 +4368,7 @@ export var RedshiftIdcApplication: StaticStructureSchema = [
     0,
     () => AuthorizedTokenIssuerList,
     () => ServiceIntegrationList,
+    0,
     [() => TagList, 0],
     [() => TagKeyList, 0],
   ],
@@ -4644,6 +4676,8 @@ export var RestoreFromClusterSnapshotMessage: StaticStructureSchema = [
     _MPSKKI,
     _IAT,
     _MAZ,
+    _CNa,
+    _RIAA,
   ],
   [
     0,
@@ -4683,6 +4717,8 @@ export var RestoreFromClusterSnapshotMessage: StaticStructureSchema = [
     0,
     0,
     2,
+    0,
+    0,
   ],
 ];
 export var RestoreFromClusterSnapshotResult: StaticStructureSchema = [3, n0, _RFCSR, 0, [_C], [[() => Cluster, 0]]];
@@ -6058,6 +6094,7 @@ export var RecurringChargeList: StaticListSchema = [
   ],
 ];
 export var RedshiftIdcApplicationList: StaticListSchema = [1, n0, _RIAL, 0, [() => RedshiftIdcApplication, 0]];
+export var RedshiftServiceIntegrations: StaticListSchema = [1, n0, _RSI, 0, () => RedshiftScopeUnion];
 export var ReferenceLinkList: StaticListSchema = [
   1,
   n0,
@@ -6468,14 +6505,15 @@ export var NamespaceIdentifierUnion: StaticStructureSchema = [
   [_SIer, _PI],
   [() => ServerlessIdentifier, () => ProvisionedIdentifier],
 ];
+export var RedshiftScopeUnion: StaticStructureSchema = [3, n0, _RSU, 0, [_Co], [() => Connect]];
 export var S3AccessGrantsScopeUnion: StaticStructureSchema = [3, n0, _SAGSU, 0, [_RWA], [() => ReadWriteAccess]];
 export var ServiceIntegrationsUnion: StaticStructureSchema = [
   3,
   n0,
   _SIU,
   0,
-  [_LF, _SAG],
-  [() => LakeFormationServiceIntegrations, () => S3AccessGrantsServiceIntegrations],
+  [_LF, _SAG, _Red],
+  [() => LakeFormationServiceIntegrations, () => S3AccessGrantsServiceIntegrations, () => RedshiftServiceIntegrations],
 ];
 export var AcceptReservedNodeExchange: StaticOperationSchema = [
   9,
@@ -7256,7 +7294,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
 export var ListRecommendations: StaticOperationSchema = [
   9,
   n0,
-  _LR,
+  _LRi,
   0,
   () => ListRecommendationsMessage,
   () => ListRecommendationsResult,
@@ -7372,6 +7410,14 @@ export var ModifyIntegration: StaticOperationSchema = [
   0,
   () => ModifyIntegrationMessage,
   () => Integration,
+];
+export var ModifyLakehouseConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _MLC,
+  0,
+  () => ModifyLakehouseConfigurationMessage,
+  () => LakehouseConfiguration,
 ];
 export var ModifyRedshiftIdcApplication: StaticOperationSchema = [
   9,

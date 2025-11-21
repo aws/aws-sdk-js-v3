@@ -248,6 +248,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *

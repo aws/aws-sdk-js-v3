@@ -586,6 +586,11 @@ import {
   ModifyIntegrationCommandOutput,
 } from "./commands/ModifyIntegrationCommand";
 import {
+  ModifyLakehouseConfigurationCommand,
+  ModifyLakehouseConfigurationCommandInput,
+  ModifyLakehouseConfigurationCommandOutput,
+} from "./commands/ModifyLakehouseConfigurationCommand";
+import {
   ModifyRedshiftIdcApplicationCommand,
   ModifyRedshiftIdcApplicationCommandInput,
   ModifyRedshiftIdcApplicationCommandOutput,
@@ -812,6 +817,7 @@ const commands = {
   ModifyEndpointAccessCommand,
   ModifyEventSubscriptionCommand,
   ModifyIntegrationCommand,
+  ModifyLakehouseConfigurationCommand,
   ModifyRedshiftIdcApplicationCommand,
   ModifyScheduledActionCommand,
   ModifySnapshotCopyRetentionPeriodCommand,
@@ -2823,6 +2829,23 @@ export interface Redshift {
     args: ModifyIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyLakehouseConfigurationCommand}
+   */
+  modifyLakehouseConfiguration(
+    args: ModifyLakehouseConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyLakehouseConfigurationCommandOutput>;
+  modifyLakehouseConfiguration(
+    args: ModifyLakehouseConfigurationCommandInput,
+    cb: (err: any, data?: ModifyLakehouseConfigurationCommandOutput) => void
+  ): void;
+  modifyLakehouseConfiguration(
+    args: ModifyLakehouseConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyLakehouseConfigurationCommandOutput) => void
   ): void;
 
   /**

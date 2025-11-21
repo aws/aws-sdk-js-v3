@@ -252,6 +252,8 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * //           },
  * //         ],
  * //       },
+ * //       LakehouseRegistrationStatus: "STRING_VALUE",
+ * //       CatalogArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

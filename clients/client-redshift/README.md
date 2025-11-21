@@ -1178,6 +1178,14 @@ ModifyIntegration
 </details>
 <details>
 <summary>
+ModifyLakehouseConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/ModifyLakehouseConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ModifyLakehouseConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ModifyLakehouseConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyRedshiftIdcApplication
 </summary>
 

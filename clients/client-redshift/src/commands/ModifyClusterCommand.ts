@@ -292,6 +292,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //         },
  * //       ],
  * //     },
+ * //     LakehouseRegistrationStatus: "STRING_VALUE",
+ * //     CatalogArn: "STRING_VALUE",
  * //   },
  * // };
  *
