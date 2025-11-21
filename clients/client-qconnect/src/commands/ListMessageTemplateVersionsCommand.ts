@@ -54,6 +54,7 @@ export interface ListMessageTemplateVersionsCommandOutput
  * //       knowledgeBaseArn: "STRING_VALUE", // required
  * //       knowledgeBaseId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
+ * //       channel: "STRING_VALUE",
  * //       channelSubtype: "STRING_VALUE", // required
  * //       isActive: true || false, // required
  * //       versionNumber: Number("long"), // required

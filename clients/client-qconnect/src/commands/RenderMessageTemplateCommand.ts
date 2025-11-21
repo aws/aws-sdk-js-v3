@@ -148,6 +148,70 @@ export interface RenderMessageTemplateCommandOutput extends RenderMessageTemplat
  * //         },
  * //       },
  * //     },
+ * //     whatsApp: { // WhatsAppMessageTemplateContent
+ * //       data: "STRING_VALUE",
+ * //     },
+ * //     push: { // PushMessageTemplateContent
+ * //       adm: { // PushADMMessageTemplateContent
+ * //         title: "STRING_VALUE",
+ * //         body: {//  Union: only one key present
+ * //           content: "STRING_VALUE",
+ * //         },
+ * //         action: "STRING_VALUE",
+ * //         sound: "STRING_VALUE",
+ * //         url: "STRING_VALUE",
+ * //         imageUrl: "STRING_VALUE",
+ * //         imageIconUrl: "STRING_VALUE",
+ * //         smallImageIconUrl: "STRING_VALUE",
+ * //         rawContent: {//  Union: only one key present
+ * //           content: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       apns: { // PushAPNSMessageTemplateContent
+ * //         title: "STRING_VALUE",
+ * //         body: "<MessageTemplateBodyContentProvider>",
+ * //         action: "STRING_VALUE",
+ * //         sound: "STRING_VALUE",
+ * //         url: "STRING_VALUE",
+ * //         mediaUrl: "STRING_VALUE",
+ * //         rawContent: "<MessageTemplateBodyContentProvider>",
+ * //       },
+ * //       fcm: { // PushFCMMessageTemplateContent
+ * //         title: "STRING_VALUE",
+ * //         body: "<MessageTemplateBodyContentProvider>",
+ * //         action: "STRING_VALUE",
+ * //         sound: "STRING_VALUE",
+ * //         url: "STRING_VALUE",
+ * //         imageUrl: "STRING_VALUE",
+ * //         imageIconUrl: "STRING_VALUE",
+ * //         smallImageIconUrl: "STRING_VALUE",
+ * //         rawContent: "<MessageTemplateBodyContentProvider>",
+ * //       },
+ * //       baidu: { // PushBaiduMessageTemplateContent
+ * //         title: "STRING_VALUE",
+ * //         body: "<MessageTemplateBodyContentProvider>",
+ * //         action: "STRING_VALUE",
+ * //         sound: "STRING_VALUE",
+ * //         url: "STRING_VALUE",
+ * //         imageUrl: "STRING_VALUE",
+ * //         imageIconUrl: "STRING_VALUE",
+ * //         smallImageIconUrl: "STRING_VALUE",
+ * //         rawContent: "<MessageTemplateBodyContentProvider>",
+ * //       },
+ * //     },
+ * //   },
+ * //   sourceConfigurationSummary: { // MessageTemplateSourceConfigurationSummary Union: only one key present
+ * //     whatsApp: { // WhatsAppMessageTemplateSourceConfigurationSummary
+ * //       businessAccountId: "STRING_VALUE", // required
+ * //       templateId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       language: "STRING_VALUE",
+ * //       components: [ // WhatsAppMessageTemplateComponents
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE",
+ * //       statusReason: "STRING_VALUE",
+ * //     },
  * //   },
  * //   attributesNotInterpolated: [ // MessageTemplateAttributeKeyList
  * //     "STRING_VALUE",

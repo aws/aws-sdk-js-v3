@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateMessageTemplateRequest, CreateMessageTemplateResponse } from "../models/models_0";
+import { CreateMessageTemplateRequest } from "../models/models_0";
+import { CreateMessageTemplateResponse } from "../models/models_1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateMessageTemplate } from "../schemas/schemas_0";
 
@@ -38,7 +39,7 @@ export interface CreateMessageTemplateCommandOutput extends CreateMessageTemplat
  * const client = new QConnectClient(config);
  * const input = { // CreateMessageTemplateRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
  *   content: { // MessageTemplateContentProvider Union: only one key present
  *     email: { // EmailMessageTemplateContent
  *       subject: "STRING_VALUE",
@@ -64,10 +65,70 @@ export interface CreateMessageTemplateCommandOutput extends CreateMessageTemplat
  *         },
  *       },
  *     },
+ *     whatsApp: { // WhatsAppMessageTemplateContent
+ *       data: "STRING_VALUE",
+ *     },
+ *     push: { // PushMessageTemplateContent
+ *       adm: { // PushADMMessageTemplateContent
+ *         title: "STRING_VALUE",
+ *         body: {//  Union: only one key present
+ *           content: "STRING_VALUE",
+ *         },
+ *         action: "STRING_VALUE",
+ *         sound: "STRING_VALUE",
+ *         url: "STRING_VALUE",
+ *         imageUrl: "STRING_VALUE",
+ *         imageIconUrl: "STRING_VALUE",
+ *         smallImageIconUrl: "STRING_VALUE",
+ *         rawContent: {//  Union: only one key present
+ *           content: "STRING_VALUE",
+ *         },
+ *       },
+ *       apns: { // PushAPNSMessageTemplateContent
+ *         title: "STRING_VALUE",
+ *         body: "<MessageTemplateBodyContentProvider>",
+ *         action: "STRING_VALUE",
+ *         sound: "STRING_VALUE",
+ *         url: "STRING_VALUE",
+ *         mediaUrl: "STRING_VALUE",
+ *         rawContent: "<MessageTemplateBodyContentProvider>",
+ *       },
+ *       fcm: { // PushFCMMessageTemplateContent
+ *         title: "STRING_VALUE",
+ *         body: "<MessageTemplateBodyContentProvider>",
+ *         action: "STRING_VALUE",
+ *         sound: "STRING_VALUE",
+ *         url: "STRING_VALUE",
+ *         imageUrl: "STRING_VALUE",
+ *         imageIconUrl: "STRING_VALUE",
+ *         smallImageIconUrl: "STRING_VALUE",
+ *         rawContent: "<MessageTemplateBodyContentProvider>",
+ *       },
+ *       baidu: { // PushBaiduMessageTemplateContent
+ *         title: "STRING_VALUE",
+ *         body: "<MessageTemplateBodyContentProvider>",
+ *         action: "STRING_VALUE",
+ *         sound: "STRING_VALUE",
+ *         url: "STRING_VALUE",
+ *         imageUrl: "STRING_VALUE",
+ *         imageIconUrl: "STRING_VALUE",
+ *         smallImageIconUrl: "STRING_VALUE",
+ *         rawContent: "<MessageTemplateBodyContentProvider>",
+ *       },
+ *     },
  *   },
  *   description: "STRING_VALUE",
  *   channelSubtype: "STRING_VALUE", // required
  *   language: "STRING_VALUE",
+ *   sourceConfiguration: { // MessageTemplateSourceConfiguration Union: only one key present
+ *     whatsApp: { // WhatsAppMessageTemplateSourceConfiguration
+ *       businessAccountId: "STRING_VALUE", // required
+ *       templateId: "STRING_VALUE", // required
+ *       components: [ // WhatsAppMessageTemplateComponents
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  *   defaultAttributes: { // MessageTemplateAttributes
  *     systemAttributes: { // SystemAttributes
  *       name: "STRING_VALUE",
@@ -168,6 +229,7 @@ export interface CreateMessageTemplateCommandOutput extends CreateMessageTemplat
  * //     knowledgeBaseArn: "STRING_VALUE", // required
  * //     knowledgeBaseId: "STRING_VALUE", // required
  * //     name: "STRING_VALUE", // required
+ * //     channel: "STRING_VALUE",
  * //     channelSubtype: "STRING_VALUE", // required
  * //     createdTime: new Date("TIMESTAMP"), // required
  * //     lastModifiedTime: new Date("TIMESTAMP"), // required
@@ -197,9 +259,73 @@ export interface CreateMessageTemplateCommandOutput extends CreateMessageTemplat
  * //           },
  * //         },
  * //       },
+ * //       whatsApp: { // WhatsAppMessageTemplateContent
+ * //         data: "STRING_VALUE",
+ * //       },
+ * //       push: { // PushMessageTemplateContent
+ * //         adm: { // PushADMMessageTemplateContent
+ * //           title: "STRING_VALUE",
+ * //           body: {//  Union: only one key present
+ * //             content: "STRING_VALUE",
+ * //           },
+ * //           action: "STRING_VALUE",
+ * //           sound: "STRING_VALUE",
+ * //           url: "STRING_VALUE",
+ * //           imageUrl: "STRING_VALUE",
+ * //           imageIconUrl: "STRING_VALUE",
+ * //           smallImageIconUrl: "STRING_VALUE",
+ * //           rawContent: {//  Union: only one key present
+ * //             content: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         apns: { // PushAPNSMessageTemplateContent
+ * //           title: "STRING_VALUE",
+ * //           body: "<MessageTemplateBodyContentProvider>",
+ * //           action: "STRING_VALUE",
+ * //           sound: "STRING_VALUE",
+ * //           url: "STRING_VALUE",
+ * //           mediaUrl: "STRING_VALUE",
+ * //           rawContent: "<MessageTemplateBodyContentProvider>",
+ * //         },
+ * //         fcm: { // PushFCMMessageTemplateContent
+ * //           title: "STRING_VALUE",
+ * //           body: "<MessageTemplateBodyContentProvider>",
+ * //           action: "STRING_VALUE",
+ * //           sound: "STRING_VALUE",
+ * //           url: "STRING_VALUE",
+ * //           imageUrl: "STRING_VALUE",
+ * //           imageIconUrl: "STRING_VALUE",
+ * //           smallImageIconUrl: "STRING_VALUE",
+ * //           rawContent: "<MessageTemplateBodyContentProvider>",
+ * //         },
+ * //         baidu: { // PushBaiduMessageTemplateContent
+ * //           title: "STRING_VALUE",
+ * //           body: "<MessageTemplateBodyContentProvider>",
+ * //           action: "STRING_VALUE",
+ * //           sound: "STRING_VALUE",
+ * //           url: "STRING_VALUE",
+ * //           imageUrl: "STRING_VALUE",
+ * //           imageIconUrl: "STRING_VALUE",
+ * //           smallImageIconUrl: "STRING_VALUE",
+ * //           rawContent: "<MessageTemplateBodyContentProvider>",
+ * //         },
+ * //       },
  * //     },
  * //     description: "STRING_VALUE",
  * //     language: "STRING_VALUE",
+ * //     sourceConfigurationSummary: { // MessageTemplateSourceConfigurationSummary Union: only one key present
+ * //       whatsApp: { // WhatsAppMessageTemplateSourceConfigurationSummary
+ * //         businessAccountId: "STRING_VALUE", // required
+ * //         templateId: "STRING_VALUE", // required
+ * //         name: "STRING_VALUE",
+ * //         language: "STRING_VALUE",
+ * //         components: [ // WhatsAppMessageTemplateComponents
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         status: "STRING_VALUE",
+ * //         statusReason: "STRING_VALUE",
+ * //       },
+ * //     },
  * //     groupingConfiguration: { // GroupingConfiguration
  * //       criteria: "STRING_VALUE",
  * //       values: [ // GroupingValues

@@ -3,23 +3,22 @@ import {
   ChannelSubtype,
   Configuration,
   ContentDataDetails,
+  ContentDisposition,
   ContentSummary,
   DataReference,
   Document,
   EmailOverviewChunkDataDetails,
   EmailResponseChunkDataDetails,
-  ExtendedMessageTemplateData,
   GroupingConfiguration,
   IntentDetectedDataDetails,
   KnowledgeBaseData,
   KnowledgeBaseStatus,
   KnowledgeBaseType,
-  MessageTemplateAttachment,
   MessageTemplateAttributes,
+  MessageTemplateAttributeType,
   MessageTemplateContentProvider,
-  MessageTemplateData,
+  MessageTemplateSourceConfiguration,
   QueryResultType,
-  QuickResponseDataProvider,
   RankingData,
   RecommendationTrigger,
   RecommendationType,
@@ -30,7 +29,608 @@ import {
   SourceConfiguration,
   SourceContentDataDetails,
   VectorIngestionConfiguration,
+  WhatsAppSourceConfigurationStatus,
 } from "./models_0";
+
+/**
+ * <p>Configuration information about the external data source.</p>
+ * @public
+ */
+export interface WhatsAppMessageTemplateSourceConfigurationSummary {
+  /**
+   * <p>The ID of the End User Messaging WhatsApp Business Account to associate with this template.</p>
+   * @public
+   */
+  businessAccountId: string | undefined;
+
+  /**
+   * <p>The ID of WhatsApp template.</p>
+   * @public
+   */
+  templateId: string | undefined;
+
+  /**
+   * <p>The name of the WhatsApp template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The language of the WhatsApp template.</p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The list of component mapping from WhatsApp template parameters to Message Template attributes.</p>
+   * @public
+   */
+  components?: string[] | undefined;
+
+  /**
+   * <p>The status of the message template.</p>
+   * @public
+   */
+  status?: WhatsAppSourceConfigurationStatus | undefined;
+
+  /**
+   * <p>The status reason of the message template.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>The container of message template source configuration summary.</p>
+ * @public
+ */
+export type MessageTemplateSourceConfigurationSummary =
+  | MessageTemplateSourceConfigurationSummary.WhatsAppMember
+  | MessageTemplateSourceConfigurationSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MessageTemplateSourceConfigurationSummary {
+  /**
+   * <p>The sourceConfiguration summary of the message template that applies to the WHATSAPP channel subtype.</p>
+   * @public
+   */
+  export interface WhatsAppMember {
+    whatsApp: WhatsAppMessageTemplateSourceConfigurationSummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    whatsApp?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    whatsApp: (value: WhatsAppMessageTemplateSourceConfigurationSummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The data of a message template.</p>
+ * @public
+ */
+export interface MessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The source configuration summary of the message template.</p>
+   * @public
+   */
+  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes that the message template contains.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
+   * @public
+   */
+  body: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Information about the message template attachment.</p>
+ * @public
+ */
+export interface MessageTemplateAttachment {
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the attachment file was uploaded.</p>
+   * @public
+   */
+  uploadedTime: Date | undefined;
+
+  /**
+   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentResponse {
+  /**
+   * <p>The message template attachment.</p>
+   * @public
+   */
+  attachment?: MessageTemplateAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
+   * @public
+   */
+  messageTemplateContentSha256?: string | undefined;
+}
+
+/**
+ * <p>The extended data of a message template.</p>
+ * @public
+ */
+export interface ExtendedMessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The source configuration summary of the message template.</p>
+   * @public
+   */
+  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes contain the message template.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The message template attachments.</p>
+   * @public
+   */
+  attachments?: MessageTemplateAttachment[] | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
+ * <p>The container of quick response data.</p>
+ * @public
+ */
+export type QuickResponseDataProvider =
+  | QuickResponseDataProvider.ContentMember
+  | QuickResponseDataProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickResponseDataProvider {
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateQuickResponseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  content: QuickResponseDataProvider | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p> </li> </ul>
+   * @public
+   */
+  contentType?: string | undefined;
+
+  /**
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base. </p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect channels this quick response applies to.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * <p>The container quick response content.</p>
@@ -913,6 +1513,12 @@ export interface MessageTemplateSummary {
   name: string | undefined;
 
   /**
+   * <p>The channel this message template applies to.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
    * <p>The channel subtype this message template applies to.</p>
    * @public
    */
@@ -935,6 +1541,12 @@ export interface MessageTemplateSummary {
    * @public
    */
   lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The container of message template source configuration.</p>
+   * @public
+   */
+  sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
 
   /**
    * <p>The version number of the message template version that is activated.</p>
@@ -1037,6 +1649,12 @@ export interface MessageTemplateVersionSummary {
   name: string | undefined;
 
   /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
    * <p>The channel subtype this message template applies to.</p>
    * @public
    */
@@ -1103,7 +1721,13 @@ export interface RenderMessageTemplateResponse {
    * <p>The content of the message template.</p>
    * @public
    */
-  content: MessageTemplateContentProvider | undefined;
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The source configuration of the message template.</p>
+   * @public
+   */
+  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
 
   /**
    * <p>The attribute keys that are not resolved.</p>
@@ -1145,6 +1769,12 @@ export interface UpdateMessageTemplateRequest {
    * @public
    */
   language?: string | undefined;
+
+  /**
+   * <p>The source configuration of the message template. Only set this argument for WHATSAPP channel subtype.</p>
+   * @public
+   */
+  sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
 
   /**
    * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
@@ -1734,6 +2364,12 @@ export interface MessageTemplateSearchResultData {
   name: string | undefined;
 
   /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
    * <p>The channel subtype this message template applies to.</p>
    * @public
    */
@@ -1774,6 +2410,12 @@ export interface MessageTemplateSearchResultData {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The source configuration summary of the message template.</p>
+   * @public
+   */
+  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
 
   /**
    * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>

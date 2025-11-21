@@ -5529,7 +5529,9 @@ export interface BedrockFoundationModelConfigurationForParsing {
  */
 export const ChannelSubtype = {
   EMAIL: "EMAIL",
+  PUSH: "PUSH",
   SMS: "SMS",
+  WHATSAPP: "WHATSAPP",
 } as const;
 
 /**
@@ -7026,6 +7028,279 @@ export interface EmailMessageTemplateContent {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const PushMessageAction = {
+  DEEP_LINK: "DEEP_LINK",
+  OPEN_APP: "OPEN_APP",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type PushMessageAction = (typeof PushMessageAction)[keyof typeof PushMessageAction];
+
+/**
+ * <p>The content of the push message template that applies to ADM (Amazon Device Messaging) notification service.</p>
+ * @public
+ */
+export interface PushADMMessageTemplateContent {
+  /**
+   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * @public
+   */
+  body?: MessageTemplateBodyContentProvider | undefined;
+
+  /**
+   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * @public
+   */
+  action?: PushMessageAction | undefined;
+
+  /**
+   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in <code>/res/raw/</code>.</p>
+   * @public
+   */
+  sound?: string | undefined;
+
+  /**
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
+   * @public
+   */
+  imageUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  imageIconUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  smallImageIconUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  rawContent?: MessageTemplateBodyContentProvider | undefined;
+}
+
+/**
+ * <p>The content of the push message template that applies to APNS (Apple Push Notification service) notification service.</p>
+ * @public
+ */
+export interface PushAPNSMessageTemplateContent {
+  /**
+   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * @public
+   */
+  body?: MessageTemplateBodyContentProvider | undefined;
+
+  /**
+   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the iOS platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * @public
+   */
+  action?: PushMessageAction | undefined;
+
+  /**
+   * <p>The key for the sound to play when the recipient receives a push notification that's based on the message template. The value for this key is the name of a sound file in your app's main bundle or the <code>Library/Sounds</code> folder in your app's data container. If the sound file can't be found or you specify <code>default</code> for the value, the system plays the default alert sound.</p>
+   * @public
+   */
+  sound?: string | undefined;
+
+  /**
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>The URL of an image or video to display in push notifications that are based on the message template.</p>
+   * @public
+   */
+  mediaUrl?: string | undefined;
+
+  /**
+   * <p>The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.</p>
+   * @public
+   */
+  rawContent?: MessageTemplateBodyContentProvider | undefined;
+}
+
+/**
+ * <p>The content of the push message template that applies to Baidu notification service.</p>
+ * @public
+ */
+export interface PushBaiduMessageTemplateContent {
+  /**
+   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * @public
+   */
+  body?: MessageTemplateBodyContentProvider | undefined;
+
+  /**
+   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * @public
+   */
+  action?: PushMessageAction | undefined;
+
+  /**
+   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in <code>/res/raw/</code>.</p>
+   * @public
+   */
+  sound?: string | undefined;
+
+  /**
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
+   * @public
+   */
+  imageUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  imageIconUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  smallImageIconUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  rawContent?: MessageTemplateBodyContentProvider | undefined;
+}
+
+/**
+ * <p>The content of the push message template that applies to FCM (Firebase Cloud Messaging) notification service.</p>
+ * @public
+ */
+export interface PushFCMMessageTemplateContent {
+  /**
+   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The message body to use in a push notification that is based on the message template.</p>
+   * @public
+   */
+  body?: MessageTemplateBodyContentProvider | undefined;
+
+  /**
+   * <p>The action to occur if a recipient taps a push notification that is based on the message template. Valid values are:</p> <ul> <li> <p> <code>OPEN_APP</code> - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p> </li> <li> <p> <code>DEEP_LINK</code> - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p> </li> <li> <p> <code>URL</code> - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p> </li> </ul>
+   * @public
+   */
+  action?: PushMessageAction | undefined;
+
+  /**
+   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in <code>/res/raw/</code>.</p>
+   * @public
+   */
+  sound?: string | undefined;
+
+  /**
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the <code>action</code> property is <code>URL</code>.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>The URL of an image to display in a push notification that's based on the message template.</p>
+   * @public
+   */
+  imageUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  imageIconUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  smallImageIconUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * @public
+   */
+  rawContent?: MessageTemplateBodyContentProvider | undefined;
+}
+
+/**
+ * <p>The content of the message template that applies to the push channel subtype.</p>
+ * @public
+ */
+export interface PushMessageTemplateContent {
+  /**
+   * <p>The content of the message template that applies to ADM (Amazon Device Messaging) notification service.</p>
+   * @public
+   */
+  adm?: PushADMMessageTemplateContent | undefined;
+
+  /**
+   * <p>The content of the message template that applies to APNS(Apple Push Notification service) notification service.</p>
+   * @public
+   */
+  apns?: PushAPNSMessageTemplateContent | undefined;
+
+  /**
+   * <p>The content of the message template that applies to FCM (Firebase Cloud Messaging) notification service.</p>
+   * @public
+   */
+  fcm?: PushFCMMessageTemplateContent | undefined;
+
+  /**
+   * <p>The content of the message template that applies to Baidu notification service.</p>
+   * @public
+   */
+  baidu?: PushBaiduMessageTemplateContent | undefined;
+}
+
+/**
  * <p>The body to use in SMS messages.</p>
  * @public
  */
@@ -7050,12 +7325,26 @@ export interface SMSMessageTemplateContent {
 }
 
 /**
+ * <p>The content of the message template that applies to the WHATSAPP channel subtype.</p>
+ * @public
+ */
+export interface WhatsAppMessageTemplateContent {
+  /**
+   * <p>The data.</p>
+   * @public
+   */
+  data?: string | undefined;
+}
+
+/**
  * <p>The container of message template content.</p>
  * @public
  */
 export type MessageTemplateContentProvider =
   | MessageTemplateContentProvider.EmailMember
+  | MessageTemplateContentProvider.PushMember
   | MessageTemplateContentProvider.SmsMember
+  | MessageTemplateContentProvider.WhatsAppMember
   | MessageTemplateContentProvider.$UnknownMember;
 
 /**
@@ -7069,6 +7358,8 @@ export namespace MessageTemplateContentProvider {
   export interface EmailMember {
     email: EmailMessageTemplateContent;
     sms?: never;
+    whatsApp?: never;
+    push?: never;
     $unknown?: never;
   }
 
@@ -7079,6 +7370,32 @@ export namespace MessageTemplateContentProvider {
   export interface SmsMember {
     email?: never;
     sms: SMSMessageTemplateContent;
+    whatsApp?: never;
+    push?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The content of the message template that applies to the WHATSAPP channel subtype.</p>
+   * @public
+   */
+  export interface WhatsAppMember {
+    email?: never;
+    sms?: never;
+    whatsApp: WhatsAppMessageTemplateContent;
+    push?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The content of the message template that applies to the push channel subtype.</p>
+   * @public
+   */
+  export interface PushMember {
+    email?: never;
+    sms?: never;
+    whatsApp?: never;
+    push: PushMessageTemplateContent;
     $unknown?: never;
   }
 
@@ -7088,6 +7405,8 @@ export namespace MessageTemplateContentProvider {
   export interface $UnknownMember {
     email?: never;
     sms?: never;
+    whatsApp?: never;
+    push?: never;
     $unknown: [string, any];
   }
 
@@ -7098,6 +7417,8 @@ export namespace MessageTemplateContentProvider {
   export interface Visitor<T> {
     email: (value: EmailMessageTemplateContent) => T;
     sms: (value: SMSMessageTemplateContent) => T;
+    whatsApp: (value: WhatsAppMessageTemplateContent) => T;
+    push: (value: PushMessageTemplateContent) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7541,6 +7862,69 @@ export interface GroupingConfiguration {
 }
 
 /**
+ * <p>Configuration information about the external data source.</p>
+ * @public
+ */
+export interface WhatsAppMessageTemplateSourceConfiguration {
+  /**
+   * <p>The ID of the End User Messaging WhatsApp Business Account to associate with this template.</p>
+   * @public
+   */
+  businessAccountId: string | undefined;
+
+  /**
+   * <p>The WhatsApp template ID.</p>
+   * @public
+   */
+  templateId: string | undefined;
+
+  /**
+   * <p>The list of component mapping from WhatsApp template parameters to Message Template attributes.</p>
+   * @public
+   */
+  components?: string[] | undefined;
+}
+
+/**
+ * <p>The container of message template source configuration.</p>
+ * @public
+ */
+export type MessageTemplateSourceConfiguration =
+  | MessageTemplateSourceConfiguration.WhatsAppMember
+  | MessageTemplateSourceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MessageTemplateSourceConfiguration {
+  /**
+   * <p>The sourceConfiguration of the message template that applies to the WHATSAPP channel subtype.</p>
+   * @public
+   */
+  export interface WhatsAppMember {
+    whatsApp: WhatsAppMessageTemplateSourceConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    whatsApp?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    whatsApp: (value: WhatsAppMessageTemplateSourceConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * @public
  */
 export interface CreateMessageTemplateRequest {
@@ -7554,13 +7938,13 @@ export interface CreateMessageTemplateRequest {
    * <p>The name of the message template.</p>
    * @public
    */
-  name: string | undefined;
+  name?: string | undefined;
 
   /**
    * <p>The content of the message template.</p>
    * @public
    */
-  content: MessageTemplateContentProvider | undefined;
+  content?: MessageTemplateContentProvider | undefined;
 
   /**
    * <p>The description of the message template.</p>
@@ -7579,6 +7963,12 @@ export interface CreateMessageTemplateRequest {
    * @public
    */
   language?: string | undefined;
+
+  /**
+   * <p>The source configuration of the message template. Only set this argument for WHATSAPP channel subtype.</p>
+   * @public
+   */
+  sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
 
   /**
    * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
@@ -7623,490 +8013,17 @@ export type MessageTemplateAttributeType =
   (typeof MessageTemplateAttributeType)[keyof typeof MessageTemplateAttributeType];
 
 /**
- * <p>The data of a message template.</p>
  * @public
+ * @enum
  */
-export interface MessageTemplateData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>The timestamp when the message template was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the message template data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
-   * @public
-   */
-  lastModifiedBy: string | undefined;
-
-  /**
-   * <p>The content of the message template.</p>
-   * @public
-   */
-  content: MessageTemplateContentProvider | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
-   * @public
-   */
-  defaultAttributes?: MessageTemplateAttributes | undefined;
-
-  /**
-   * <p>The types of attributes that the message template contains.</p>
-   * @public
-   */
-  attributeTypes?: MessageTemplateAttributeType[] | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
-   * @public
-   */
-  messageTemplateContentSha256: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
+export const WhatsAppSourceConfigurationStatus = {
+  INVALID: "INVALID",
+  REJECTED: "REJECTED",
+  VALID: "VALID",
+} as const;
 
 /**
  * @public
  */
-export interface CreateMessageTemplateResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: MessageTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateAttachmentRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The presentation information for the attachment file.</p>
-   * @public
-   */
-  contentDisposition: ContentDisposition | undefined;
-
-  /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
-   * @public
-   */
-  body: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * <p>Information about the message template attachment.</p>
- * @public
- */
-export interface MessageTemplateAttachment {
-  /**
-   * <p>The presentation information for the attachment file.</p>
-   * @public
-   */
-  contentDisposition: ContentDisposition | undefined;
-
-  /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the attachment file was uploaded.</p>
-   * @public
-   */
-  uploadedTime: Date | undefined;
-
-  /**
-   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
-   * @public
-   */
-  urlExpiry: Date | undefined;
-
-  /**
-   * <p>The identifier of the attachment file.</p>
-   * @public
-   */
-  attachmentId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateAttachmentResponse {
-  /**
-   * <p>The message template attachment.</p>
-   * @public
-   */
-  attachment?: MessageTemplateAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateVersionRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
-   * @public
-   */
-  messageTemplateContentSha256?: string | undefined;
-}
-
-/**
- * <p>The extended data of a message template.</p>
- * @public
- */
-export interface ExtendedMessageTemplateData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>The timestamp when the message template was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the message template data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
-   * @public
-   */
-  lastModifiedBy: string | undefined;
-
-  /**
-   * <p>The content of the message template.</p>
-   * @public
-   */
-  content: MessageTemplateContentProvider | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
-   * @public
-   */
-  defaultAttributes?: MessageTemplateAttributes | undefined;
-
-  /**
-   * <p>The types of attributes contain the message template.</p>
-   * @public
-   */
-  attributeTypes?: MessageTemplateAttributeType[] | undefined;
-
-  /**
-   * <p>The message template attachments.</p>
-   * @public
-   */
-  attachments?: MessageTemplateAttachment[] | undefined;
-
-  /**
-   * <p>Whether the version of the message template is activated.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The version number of the message template version.</p>
-   * @public
-   */
-  versionNumber?: number | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
-   * @public
-   */
-  messageTemplateContentSha256: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateVersionResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: ExtendedMessageTemplateData | undefined;
-}
-
-/**
- * <p>The container of quick response data.</p>
- * @public
- */
-export type QuickResponseDataProvider =
-  | QuickResponseDataProvider.ContentMember
-  | QuickResponseDataProvider.$UnknownMember;
-
-/**
- * @public
- */
-export namespace QuickResponseDataProvider {
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  export interface ContentMember {
-    content: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    content?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    content: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateQuickResponseRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  content: QuickResponseDataProvider | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p> </li> </ul>
-   * @public
-   */
-  contentType?: string | undefined;
-
-  /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>The description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base. </p>
-   * @public
-   */
-  shortcutKey?: string | undefined;
-
-  /**
-   * <p>Whether the quick response is active.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Connect channels this quick response applies to.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
+export type WhatsAppSourceConfigurationStatus =
+  (typeof WhatsAppSourceConfigurationStatus)[keyof typeof WhatsAppSourceConfigurationStatus];

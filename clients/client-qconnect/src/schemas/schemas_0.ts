@@ -360,6 +360,8 @@ const _MTOF = "MessageTemplateOrderField";
 const _MTQF = "MessageTemplateQueryField";
 const _MTQFL = "MessageTemplateQueryFieldList";
 const _MTS = "MessageTemplateSummary";
+const _MTSC = "MessageTemplateSourceConfiguration";
+const _MTSCS = "MessageTemplateSourceConfigurationSummary";
 const _MTSE = "MessageTemplateSearchExpression";
 const _MTSL = "MessageTemplateSummaryList";
 const _MTSRD = "MessageTemplateSearchResultData";
@@ -375,11 +377,16 @@ const _NRRR = "NotifyRecommendationsReceivedRequest";
 const _NRRRo = "NotifyRecommendationsReceivedResponse";
 const _OC = "OrConditions";
 const _OCr = "OrCondition";
+const _PADMMTC = "PushADMMessageTemplateContent";
+const _PAPNSMTC = "PushAPNSMessageTemplateContent";
+const _PBMTC = "PushBaiduMessageTemplateContent";
 const _PC = "ParsingConfiguration";
 const _PF = "PutFeedback";
+const _PFCMMTC = "PushFCMMessageTemplateContent";
 const _PFE = "PreconditionFailedException";
 const _PFR = "PutFeedbackRequest";
 const _PFRu = "PutFeedbackResponse";
+const _PMTC = "PushMessageTemplateContent";
 const _PP = "ParsingPrompt";
 const _QA = "QueryAssistant";
 const _QAR = "QueryAssistantRequest";
@@ -524,6 +531,9 @@ const _USR = "UpdateSessionRequest";
 const _USRp = "UpdateSessionResponse";
 const _VE = "ValidationException";
 const _VIC = "VectorIngestionConfiguration";
+const _WAMTC = "WhatsAppMessageTemplateContent";
+const _WAMTSC = "WhatsAppMessageTemplateSourceConfiguration";
+const _WAMTSCS = "WhatsAppMessageTemplateSourceConfigurationSummary";
 const _WCC = "WebCrawlerConfiguration";
 const _WCL = "WebCrawlerLimits";
 const _a = "association";
@@ -582,12 +592,15 @@ const _add = "address2";
 const _addr = "address3";
 const _addre = "address4";
 const _addres = "address";
+const _adm = "adm";
+const _ap = "apns";
 const _as = "assistant";
 const _at = "attachment";
 const _att = "attachments";
 const _attr = "attributes";
 const _b = "body";
 const _bA = "billingAddress1";
+const _bAI = "businessAccountId";
 const _bAi = "billingAddress2";
 const _bAil = "billingAddress3";
 const _bAill = "billingAddress4";
@@ -608,6 +621,7 @@ const _bPT = "breakpointPercentileThreshold";
 const _bR = "botResponse";
 const _bS = "billingState";
 const _bSu = "bufferSize";
+const _ba = "baidu";
 const _c = "client";
 const _cA = "contentArn";
 const _cAA = "contentAssociationArn";
@@ -642,10 +656,12 @@ const _cTF = "contentTagFilter";
 const _cTl = "clientToken";
 const _cTr = "createdTime";
 const _ch = "channels";
+const _cha = "channel";
 const _ci = "city";
 const _co = "configuration";
 const _com = "completion";
 const _comp = "comparator";
+const _compo = "components";
 const _con = "content";
 const _cont = "contents";
 const _cou = "county";
@@ -683,6 +699,7 @@ const _fI = "flowId";
 const _fN = "firstName";
 const _fRR = "failedRecordReport";
 const _fSCC = "fixedSizeChunkingConfiguration";
+const _fc = "fcm";
 const _fi = "filters";
 const _g = "gender";
 const _gC = "groupingConfiguration";
@@ -709,6 +726,7 @@ const _iF = "inclusionFilters";
 const _iFR = "ingestionFailureReasons";
 const _iI = "instanceId";
 const _iID = "intentInputData";
+const _iIU = "imageIconUrl";
 const _iIn = "intentId";
 const _iJ = "importJob";
 const _iJI = "importJobId";
@@ -719,6 +737,7 @@ const _iNE = "includeNoExistence";
 const _iS = "inputStrength";
 const _iSn = "ingestionStatus";
 const _iT = "inputTranscript";
+const _iU = "imageUrl";
 const _id = "id";
 const _k = "key";
 const _kB = "knowledgeBase";
@@ -764,6 +783,7 @@ const _mTS = "messageTemplateSummaries";
 const _mTVS = "messageTemplateVersionSummaries";
 const _mTa = "maxTokens";
 const _mTe = "messageTemplate";
+const _mU = "mediaUrl";
 const _mWLC = "managedWordListsConfig";
 const _ma = "markdown";
 const _me = "metadata";
@@ -800,6 +820,7 @@ const _pUTTL = "presignedUrlTimeToLive";
 const _pa = "pattern";
 const _par = "participant";
 const _pr = "priority";
+const _pu = "push";
 const _q = "queries";
 const _qC = "queryCondition";
 const _qID = "queryInputData";
@@ -814,6 +835,7 @@ const _qu = "query";
 const _r = "reason";
 const _rA = "resourceArn";
 const _rC = "regexesConfig";
+const _rCa = "rawContent";
 const _rCe = "renderingConfiguration";
 const _rD = "rankingData";
 const _rDe = "removeDescription";
@@ -846,16 +868,19 @@ const _sAy = "systemAttributes";
 const _sC = "sourceConfiguration";
 const _sCC = "semanticChunkingConfiguration";
 const _sCD = "sourceContentData";
+const _sCS = "sourceConfigurationSummary";
 const _sCh = "shippingCity";
 const _sChi = "shippingCounty";
 const _sChip = "shippingCountry";
 const _sE = "searchExpression";
 const _sEy = "systemEndpoint";
 const _sI = "sessionId";
+const _sIIU = "smallImageIconUrl";
 const _sIPC = "sensitiveInformationPolicyConfig";
 const _sK = "shortcutKey";
 const _sP = "shippingProvince";
 const _sPC = "shippingPostalCode";
+const _sR = "statusReason";
 const _sS = "shippingState";
 const _sSAGAIPI = "selfServiceAnswerGenerationAIPromptId";
 const _sSAIAC = "selfServiceAIAgentConfiguration";
@@ -873,6 +898,7 @@ const _si = "single";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.qconnect";
 const _sms = "sms";
 const _so = "source";
+const _sou = "sound";
 const _st = "state";
 const _su = "subject";
 const _t = "type";
@@ -884,6 +910,7 @@ const _tF = "tagFilter";
 const _tFAIPETC = "textFullAIPromptEditTemplateConfiguration";
 const _tI = "targetId";
 const _tIA = "topicIntegrationArn";
+const _tIe = "templateId";
 const _tK = "tagKeys";
 const _tN = "turnNumber";
 const _tPC = "topicPolicyConfig";
@@ -906,6 +933,7 @@ const _vIC = "vectorIngestionConfiguration";
 const _vN = "versionNumber";
 const _vS = "visibilityStatus";
 const _va = "values";
+const _wA = "whatsApp";
 const _wC = "wordsConfig";
 const _wCC = "webCrawlerConfiguration";
 const _wPC = "wordPolicyConfig";
@@ -1482,7 +1510,7 @@ export var CreateMessageTemplateRequest: StaticStructureSchema = [
   n0,
   _CMTR,
   0,
-  [_kBI, _n, _con, _d, _cSh, _la, _dA, _gC, _cTl, _ta],
+  [_kBI, _n, _con, _d, _cSh, _la, _sC, _dA, _gC, _cTl, _ta],
   [
     [0, 1],
     0,
@@ -1490,6 +1518,7 @@ export var CreateMessageTemplateRequest: StaticStructureSchema = [
     0,
     0,
     0,
+    () => MessageTemplateSourceConfiguration,
     [() => MessageTemplateAttributes, 0],
     [() => GroupingConfiguration, 0],
     [0, 4],
@@ -1965,13 +1994,37 @@ export var ExtendedMessageTemplateData: StaticStructureSchema = [
   n0,
   _EMTD,
   0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cSh, _cTr, _lMT, _lMB, _con, _d, _la, _gC, _dA, _aTt, _att, _iA, _vN, _mTCS, _ta],
+  [
+    _mTA,
+    _mTI,
+    _kBA,
+    _kBI,
+    _n,
+    _cha,
+    _cSh,
+    _cTr,
+    _lMT,
+    _lMB,
+    _con,
+    _d,
+    _la,
+    _sCS,
+    _gC,
+    _dA,
+    _aTt,
+    _att,
+    _iA,
+    _vN,
+    _mTCS,
+    _ta,
+  ],
   [
     0,
     0,
     0,
     0,
     0,
+    [() => Channel, 0],
     0,
     5,
     5,
@@ -1979,6 +2032,7 @@ export var ExtendedMessageTemplateData: StaticStructureSchema = [
     [() => MessageTemplateContentProvider, 0],
     0,
     0,
+    [() => MessageTemplateSourceConfigurationSummary, 0],
     [() => GroupingConfiguration, 0],
     [() => MessageTemplateAttributes, 0],
     64 | 0,
@@ -2831,7 +2885,7 @@ export var ListMessageTemplatesResponse: StaticStructureSchema = [
   _LMTRi,
   0,
   [_mTS, _nT],
-  [() => MessageTemplateSummaryList, 0],
+  [[() => MessageTemplateSummaryList, 0], 0],
 ];
 export var ListMessageTemplateVersionsRequest: StaticStructureSchema = [
   3,
@@ -2862,7 +2916,7 @@ export var ListMessageTemplateVersionsResponse: StaticStructureSchema = [
   _LMTVRi,
   0,
   [_mTVS, _nT],
-  [() => MessageTemplateVersionSummaryList, 0],
+  [[() => MessageTemplateVersionSummaryList, 0], 0],
 ];
 export var ListQuickResponsesRequest: StaticStructureSchema = [
   3,
@@ -2940,13 +2994,14 @@ export var MessageTemplateData: StaticStructureSchema = [
   n0,
   _MTD,
   0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cSh, _cTr, _lMT, _lMB, _con, _d, _la, _gC, _dA, _aTt, _mTCS, _ta],
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _con, _d, _la, _sCS, _gC, _dA, _aTt, _mTCS, _ta],
   [
     0,
     0,
     0,
     0,
     0,
+    [() => Channel, 0],
     0,
     5,
     5,
@@ -2954,6 +3009,7 @@ export var MessageTemplateData: StaticStructureSchema = [
     [() => MessageTemplateContentProvider, 0],
     0,
     0,
+    [() => MessageTemplateSourceConfigurationSummary, 0],
     [() => GroupingConfiguration, 0],
     [() => MessageTemplateAttributes, 0],
     64 | 0,
@@ -2991,24 +3047,42 @@ export var MessageTemplateSearchResultData: StaticStructureSchema = [
   n0,
   _MTSRD,
   0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cSh, _cTr, _lMT, _lMB, _iA, _vN, _d, _gC, _la, _ta],
-  [0, 0, 0, 0, 0, 0, 5, 5, 0, 2, 1, 0, [() => GroupingConfiguration, 0], 0, 128 | 0],
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _iA, _vN, _d, _sCS, _gC, _la, _ta],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    [() => Channel, 0],
+    0,
+    5,
+    5,
+    0,
+    2,
+    1,
+    0,
+    [() => MessageTemplateSourceConfigurationSummary, 0],
+    [() => GroupingConfiguration, 0],
+    0,
+    128 | 0,
+  ],
 ];
 export var MessageTemplateSummary: StaticStructureSchema = [
   3,
   n0,
   _MTS,
   0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cSh, _cTr, _lMT, _lMB, _aVN, _d, _ta],
-  [0, 0, 0, 0, 0, 0, 5, 5, 0, 1, 0, 128 | 0],
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _cTr, _lMT, _lMB, _sC, _aVN, _d, _ta],
+  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 5, 5, 0, () => MessageTemplateSourceConfiguration, 1, 0, 128 | 0],
 ];
 export var MessageTemplateVersionSummary: StaticStructureSchema = [
   3,
   n0,
   _MTVS,
   0,
-  [_mTA, _mTI, _kBA, _kBI, _n, _cSh, _iA, _vN],
-  [0, 0, 0, 0, 0, 0, 2, 1],
+  [_mTA, _mTI, _kBA, _kBI, _n, _cha, _cSh, _iA, _vN],
+  [0, 0, 0, 0, 0, [() => Channel, 0], 0, 2, 1],
 ];
 export var NotifyRecommendationsReceivedError: StaticStructureSchema = [3, n0, _NRRE, 0, [_rIe, _m], [0, 0]];
 export var NotifyRecommendationsReceivedRequest: StaticStructureSchema = [
@@ -3049,6 +3123,89 @@ export var PreconditionFailedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
 
+export var PushADMMessageTemplateContent: StaticStructureSchema = [
+  3,
+  n0,
+  _PADMMTC,
+  0,
+  [_ti, _b, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
+  [
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+    0,
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+  ],
+];
+export var PushAPNSMessageTemplateContent: StaticStructureSchema = [
+  3,
+  n0,
+  _PAPNSMTC,
+  0,
+  [_ti, _b, _ac, _sou, _u, _mU, _rCa],
+  [
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+    0,
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+  ],
+];
+export var PushBaiduMessageTemplateContent: StaticStructureSchema = [
+  3,
+  n0,
+  _PBMTC,
+  0,
+  [_ti, _b, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
+  [
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+    0,
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+  ],
+];
+export var PushFCMMessageTemplateContent: StaticStructureSchema = [
+  3,
+  n0,
+  _PFCMMTC,
+  0,
+  [_ti, _b, _ac, _sou, _u, _iU, _iIU, _sIIU, _rCa],
+  [
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+    0,
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => NonEmptyUnlimitedString, 0],
+    [() => MessageTemplateBodyContentProvider, 0],
+  ],
+];
+export var PushMessageTemplateContent: StaticStructureSchema = [
+  3,
+  n0,
+  _PMTC,
+  0,
+  [_adm, _ap, _fc, _ba],
+  [
+    [() => PushADMMessageTemplateContent, 0],
+    [() => PushAPNSMessageTemplateContent, 0],
+    [() => PushFCMMessageTemplateContent, 0],
+    [() => PushBaiduMessageTemplateContent, 0],
+  ],
+];
 export var PutFeedbackRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3231,9 +3388,10 @@ export var RenderMessageTemplateResponse: StaticStructureSchema = [
   n0,
   _RMTRe,
   0,
-  [_con, _aNI, _att],
+  [_con, _sCS, _aNI, _att],
   [
     [() => MessageTemplateContentProvider, 0],
+    [() => MessageTemplateSourceConfigurationSummary, 0],
     [() => MessageTemplateAttributeKeyList, 0],
     [() => MessageTemplateAttachmentList, 0],
   ],
@@ -3689,8 +3847,15 @@ export var UpdateMessageTemplateRequest: StaticStructureSchema = [
   n0,
   _UMTR,
   0,
-  [_kBI, _mTI, _con, _la, _dA],
-  [[0, 1], [0, 1], [() => MessageTemplateContentProvider, 0], 0, [() => MessageTemplateAttributes, 0]],
+  [_kBI, _mTI, _con, _la, _sC, _dA],
+  [
+    [0, 1],
+    [0, 1],
+    [() => MessageTemplateContentProvider, 0],
+    0,
+    () => MessageTemplateSourceConfiguration,
+    [() => MessageTemplateAttributes, 0],
+  ],
 ];
 export var UpdateMessageTemplateResponse: StaticStructureSchema = [
   3,
@@ -3787,6 +3952,23 @@ export var WebCrawlerConfiguration: StaticStructureSchema = [
   [() => UrlConfiguration, () => WebCrawlerLimits, [() => UrlFilterList, 0], [() => UrlFilterList, 0], 0],
 ];
 export var WebCrawlerLimits: StaticStructureSchema = [3, n0, _WCL, 0, [_rLa], [1]];
+export var WhatsAppMessageTemplateContent: StaticStructureSchema = [3, n0, _WAMTC, 0, [_da], [0]];
+export var WhatsAppMessageTemplateSourceConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _WAMTSC,
+  0,
+  [_bAI, _tIe, _compo],
+  [0, 0, 64 | 0],
+];
+export var WhatsAppMessageTemplateSourceConfigurationSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _WAMTSCS,
+  0,
+  [_bAI, _tIe, _n, _la, _compo, _s, _sR],
+  [0, 0, 0, 0, 64 | 0, 0, [() => NonEmptyUnlimitedString, 0]],
+];
 export var QConnectServiceException: StaticErrorSchema = [-3, _sm, "QConnectServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(QConnectServiceException, __QConnectServiceException);
 
@@ -3870,13 +4052,13 @@ export var MessageTemplateSearchResultsList: StaticListSchema = [
   0,
   [() => MessageTemplateSearchResultData, 0],
 ];
-export var MessageTemplateSummaryList: StaticListSchema = [1, n0, _MTSL, 0, () => MessageTemplateSummary];
+export var MessageTemplateSummaryList: StaticListSchema = [1, n0, _MTSL, 0, [() => MessageTemplateSummary, 0]];
 export var MessageTemplateVersionSummaryList: StaticListSchema = [
   1,
   n0,
   _MTVSL,
   0,
-  () => MessageTemplateVersionSummary,
+  [() => MessageTemplateVersionSummary, 0],
 ];
 export var NotifyRecommendationsReceivedErrorList: StaticListSchema = [
   1,
@@ -3921,6 +4103,8 @@ export var SessionSummaries: StaticListSchema = [1, n0, _SSes, 0, () => SessionS
 export var TagKeyList = 64 | 0;
 
 export var UrlFilterList: StaticListSchema = [1, n0, _UFL, 8, [() => UrlFilterPattern, 0]];
+export var WhatsAppMessageTemplateComponents = 64 | 0;
+
 export var AIAgentConfigurationMap: StaticMapSchema = [2, n0, _AIACM, 0, 0, () => AIAgentConfigurationData];
 export var ContactAttributes: StaticMapSchema = [2, n0, _CA, 8, 0, 0];
 export var ContentMetadata = 128 | 0;
@@ -4034,11 +4218,29 @@ export var MessageTemplateContentProvider: StaticStructureSchema = [
   n0,
   _MTCP,
   0,
-  [_em, _sms],
+  [_em, _sms, _wA, _pu],
   [
     [() => EmailMessageTemplateContent, 0],
     [() => SMSMessageTemplateContent, 0],
+    () => WhatsAppMessageTemplateContent,
+    [() => PushMessageTemplateContent, 0],
   ],
+];
+export var MessageTemplateSourceConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _MTSC,
+  0,
+  [_wA],
+  [() => WhatsAppMessageTemplateSourceConfiguration],
+];
+export var MessageTemplateSourceConfigurationSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _MTSCS,
+  0,
+  [_wA],
+  [[() => WhatsAppMessageTemplateSourceConfigurationSummary, 0]],
 ];
 export var OrCondition: StaticStructureSchema = [
   3,

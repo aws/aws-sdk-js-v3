@@ -78,6 +78,7 @@ export interface SearchMessageTemplatesCommandOutput extends SearchMessageTempla
  * //       knowledgeBaseArn: "STRING_VALUE", // required
  * //       knowledgeBaseId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
+ * //       channel: "STRING_VALUE",
  * //       channelSubtype: "STRING_VALUE", // required
  * //       createdTime: new Date("TIMESTAMP"), // required
  * //       lastModifiedTime: new Date("TIMESTAMP"), // required
@@ -85,6 +86,19 @@ export interface SearchMessageTemplatesCommandOutput extends SearchMessageTempla
  * //       isActive: true || false,
  * //       versionNumber: Number("long"),
  * //       description: "STRING_VALUE",
+ * //       sourceConfigurationSummary: { // MessageTemplateSourceConfigurationSummary Union: only one key present
+ * //         whatsApp: { // WhatsAppMessageTemplateSourceConfigurationSummary
+ * //           businessAccountId: "STRING_VALUE", // required
+ * //           templateId: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE",
+ * //           language: "STRING_VALUE",
+ * //           components: [ // WhatsAppMessageTemplateComponents
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           status: "STRING_VALUE",
+ * //           statusReason: "STRING_VALUE",
+ * //         },
+ * //       },
  * //       groupingConfiguration: { // GroupingConfiguration
  * //         criteria: "STRING_VALUE",
  * //         values: [ // GroupingValues

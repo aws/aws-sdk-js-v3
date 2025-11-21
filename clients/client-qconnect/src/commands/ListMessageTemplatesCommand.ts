@@ -51,10 +51,20 @@ export interface ListMessageTemplatesCommandOutput extends ListMessageTemplatesR
  * //       knowledgeBaseArn: "STRING_VALUE", // required
  * //       knowledgeBaseId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
+ * //       channel: "STRING_VALUE",
  * //       channelSubtype: "STRING_VALUE", // required
  * //       createdTime: new Date("TIMESTAMP"), // required
  * //       lastModifiedTime: new Date("TIMESTAMP"), // required
  * //       lastModifiedBy: "STRING_VALUE", // required
+ * //       sourceConfiguration: { // MessageTemplateSourceConfiguration Union: only one key present
+ * //         whatsApp: { // WhatsAppMessageTemplateSourceConfiguration
+ * //           businessAccountId: "STRING_VALUE", // required
+ * //           templateId: "STRING_VALUE", // required
+ * //           components: [ // WhatsAppMessageTemplateComponents
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //       activeVersionNumber: Number("long"),
  * //       description: "STRING_VALUE",
  * //       tags: { // Tags
