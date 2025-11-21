@@ -48,6 +48,7 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * // { // DescribeIntentResponse
  * //   intentId: "STRING_VALUE",
  * //   intentName: "STRING_VALUE",
+ * //   intentDisplayName: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   parentIntentSignature: "STRING_VALUE",
  * //   sampleUtterances: [ // SampleUtterancesList

@@ -27,6 +27,7 @@ import {
   SlotTypeFilterOperator,
   SlotTypeSortAttribute,
   SortOrder,
+  SpeechDetectionSensitivity,
   TestExecutionApiMode,
   TestExecutionModality,
   TestExecutionSortAttribute,
@@ -124,7 +125,6 @@ import {
   IntentLevelSlotResolutionTestResults,
   IntentSortBy,
   IntentSummary,
-  InvokedIntentSample,
   KendraConfiguration,
   MultipleValuesSetting,
   ObfuscationSetting,
@@ -150,6 +150,18 @@ import {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * <p>An object containing the name of an intent that was invoked.</p>
+ * @public
+ */
+export interface InvokedIntentSample {
+  /**
+   * <p>The name of an intent that was invoked.</p>
+   * @public
+   */
+  intentName?: string | undefined;
+}
 
 /**
  * <p>Specifies the time window that utterance statistics are returned
@@ -4601,6 +4613,12 @@ export interface UpdateBotLocaleRequest {
    * @public
    */
   generativeAISettings?: GenerativeAISettings | undefined;
+
+  /**
+   * <p>The new sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions.</p>
+   * @public
+   */
+  speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
 }
 
 /**
@@ -4693,6 +4711,12 @@ export interface UpdateBotLocaleResponse {
    * @public
    */
   generativeAISettings?: GenerativeAISettings | undefined;
+
+  /**
+   * <p>The updated sensitivity level for voice activity detection (VAD) in the bot locale.</p>
+   * @public
+   */
+  speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
 }
 
 /**
@@ -6774,6 +6798,15 @@ export interface CreateIntentRequest {
   intentName: string | undefined;
 
   /**
+   * <p>A display name for the intent. If configured, This name will be shown to
+   *           users during Intent Disambiguation instead of the intent name. Display names
+   *           should be user-friendly, descriptive and match the intent's purpose to improve user experience
+   *           during disambiguation.</p>
+   * @public
+   */
+  intentDisplayName?: string | undefined;
+
+  /**
    * <p>A description of the intent. Use the description to help identify
    *          the intent in lists.</p>
    * @public
@@ -6940,6 +6973,12 @@ export interface CreateIntentResponse {
   intentName?: string | undefined;
 
   /**
+   * <p>The display name specified for the intent.</p>
+   * @public
+   */
+  intentDisplayName?: string | undefined;
+
+  /**
    * <p>The description specified for the intent.</p>
    * @public
    */
@@ -7061,6 +7100,12 @@ export interface DescribeIntentResponse {
    * @public
    */
   intentName?: string | undefined;
+
+  /**
+   * <p>The display name specified for the intent.</p>
+   * @public
+   */
+  intentDisplayName?: string | undefined;
 
   /**
    * <p>The description of the intent.</p>
@@ -7203,6 +7248,12 @@ export interface UpdateIntentRequest {
   intentName: string | undefined;
 
   /**
+   * <p>The new display name for the intent.</p>
+   * @public
+   */
+  intentDisplayName?: string | undefined;
+
+  /**
    * <p>The new description of the intent.</p>
    * @public
    */
@@ -7332,6 +7383,12 @@ export interface UpdateIntentResponse {
    * @public
    */
   intentName?: string | undefined;
+
+  /**
+   * <p>The updated display name of the intent.</p>
+   * @public
+   */
+  intentDisplayName?: string | undefined;
 
   /**
    * <p>The updated description of the intent.</p>

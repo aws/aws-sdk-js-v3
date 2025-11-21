@@ -39,6 +39,7 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
  * const input = { // UpdateIntentRequest
  *   intentId: "STRING_VALUE", // required
  *   intentName: "STRING_VALUE", // required
+ *   intentDisplayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   parentIntentSignature: "STRING_VALUE",
  *   sampleUtterances: [ // SampleUtterancesList
@@ -521,6 +522,7 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
  * // { // UpdateIntentResponse
  * //   intentId: "STRING_VALUE",
  * //   intentName: "STRING_VALUE",
+ * //   intentDisplayName: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   parentIntentSignature: "STRING_VALUE",
  * //   sampleUtterances: [ // SampleUtterancesList

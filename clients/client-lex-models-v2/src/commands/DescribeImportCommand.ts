@@ -70,6 +70,7 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * //         voiceId: "STRING_VALUE", // required
  * //         engine: "standard" || "neural" || "long-form" || "generative",
  * //       },
+ * //       speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
  * //       botId: "STRING_VALUE", // required

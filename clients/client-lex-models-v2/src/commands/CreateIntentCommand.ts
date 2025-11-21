@@ -75,6 +75,7 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  * const client = new LexModelsV2Client(config);
  * const input = { // CreateIntentRequest
  *   intentName: "STRING_VALUE", // required
+ *   intentDisplayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   parentIntentSignature: "STRING_VALUE",
  *   sampleUtterances: [ // SampleUtterancesList
@@ -551,6 +552,7 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  * // { // CreateIntentResponse
  * //   intentId: "STRING_VALUE",
  * //   intentName: "STRING_VALUE",
+ * //   intentDisplayName: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   parentIntentSignature: "STRING_VALUE",
  * //   sampleUtterances: [ // SampleUtterancesList

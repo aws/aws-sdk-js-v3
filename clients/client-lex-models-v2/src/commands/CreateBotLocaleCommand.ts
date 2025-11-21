@@ -66,6 +66,11 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *       nluImprovement: { // NluImprovementSpecification
  *         enabled: true || false, // required
  *         assistedNluMode: "Primary" || "Fallback",
+ *         intentDisambiguationSettings: { // IntentDisambiguationSettings
+ *           enabled: true || false, // required
+ *           maxDisambiguationIntents: Number("int"),
+ *           customDisambiguationMessage: "STRING_VALUE",
+ *         },
  *       },
  *     },
  *     buildtimeSettings: { // BuildtimeSettings
@@ -95,6 +100,7 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *       },
  *     },
  *   },
+ *   speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
  * };
  * const command = new CreateBotLocaleCommand(input);
  * const response = await client.send(command);
@@ -128,6 +134,11 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //       nluImprovement: { // NluImprovementSpecification
  * //         enabled: true || false, // required
  * //         assistedNluMode: "Primary" || "Fallback",
+ * //         intentDisambiguationSettings: { // IntentDisambiguationSettings
+ * //           enabled: true || false, // required
+ * //           maxDisambiguationIntents: Number("int"),
+ * //           customDisambiguationMessage: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     buildtimeSettings: { // BuildtimeSettings
@@ -157,6 +168,7 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //       },
  * //     },
  * //   },
+ * //   speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
  * // };
  *
  * ```

@@ -356,6 +356,7 @@ const _ICTR = "IntentClassificationTestResults";
 const _ICTRI = "IntentClassificationTestResultItem";
 const _ICTRIC = "IntentClassificationTestResultItemCounts";
 const _ICTRIL = "IntentClassificationTestResultItemList";
+const _IDS = "IntentDisambiguationSettings";
 const _IEFP = "ImportExportFilePassword";
 const _IF = "ImportFilter";
 const _IFm = "ImportFilters";
@@ -781,6 +782,7 @@ const _cC = "confirmationConditional";
 const _cCa = "captureConditional";
 const _cD = "childDirected";
 const _cDFDR = "containsDataFromDeletedResources";
+const _cDM = "customDisambiguationMessage";
 const _cDS = "conversationDurationSeconds";
 const _cDT = "creationDateTime";
 const _cES = "conversationEndState";
@@ -911,6 +913,8 @@ const _iCTR = "intentClassificationTestResults";
 const _iCn = "inputContexts";
 const _iCnt = "intentsCount";
 const _iD = "intentDiscrepancies";
+const _iDN = "intentDisplayName";
+const _iDS = "intentDisambiguationSettings";
 const _iF = "includeFields";
 const _iI = "intentId";
 const _iIL = "importInputLocation";
@@ -963,6 +967,7 @@ const _lUI = "lastUsedIntent";
 const _m = "message";
 const _mA = "modelArn";
 const _mC = "missedCount";
+const _mDI = "maxDisambiguationIntents";
 const _mG = "messageGroups";
 const _mL = "maxLength";
 const _mLM = "maxLengthMs";
@@ -1052,6 +1057,7 @@ const _sC = "successConditional";
 const _sCS = "slotCaptureSetting";
 const _sCl = "slotConstraint";
 const _sD = "startDate";
+const _sDS = "speechDetectionSensitivity";
 const _sDT = "startDateTime";
 const _sDl = "slotDiscrepancies";
 const _sFIS = "slotsFilledInSession";
@@ -1429,8 +1435,8 @@ export var BotLocaleImportSpecification: StaticStructureSchema = [
   n0,
   _BLIS,
   0,
-  [_bI, _bV, _lI, _nICT, _vS],
-  [0, 0, 0, 1, () => VoiceSettings],
+  [_bI, _bV, _lI, _nICT, _vS, _sDS],
+  [0, 0, 0, 1, () => VoiceSettings, 0],
 ];
 export var BotLocaleSortBy: StaticStructureSchema = [3, n0, _BLSB, 0, [_a, _or], [0, 0]];
 export var BotLocaleSummary: StaticStructureSchema = [
@@ -1640,16 +1646,16 @@ export var CreateBotLocaleRequest: StaticStructureSchema = [
   n0,
   _CBLR,
   0,
-  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS],
-  [[0, 1], [0, 1], 0, 0, 1, () => VoiceSettings, () => GenerativeAISettings],
+  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS, _sDS],
+  [[0, 1], [0, 1], 0, 0, 1, () => VoiceSettings, () => GenerativeAISettings, 0],
 ];
 export var CreateBotLocaleResponse: StaticStructureSchema = [
   3,
   n0,
   _CBLRr,
   0,
-  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _bLS, _cDT, _gAIS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 4, () => GenerativeAISettings],
+  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _bLS, _cDT, _gAIS, _sDS],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 4, () => GenerativeAISettings, 0],
 ];
 export var CreateBotReplicaRequest: StaticStructureSchema = [3, n0, _CBRR, 0, [_bI, _rR], [[0, 1], 0]];
 export var CreateBotReplicaResponse: StaticStructureSchema = [
@@ -1713,8 +1719,9 @@ export var CreateIntentRequest: StaticStructureSchema = [
   n0,
   _CIR,
   0,
-  [_iN, _de, _pIS, _sU, _dCH, _fCH, _iCS, _iCSn, _iCn, _oC, _kC, _bI, _bV, _lI, _iRS, _qAIC, _qICIC],
+  [_iN, _iDN, _de, _pIS, _sU, _dCH, _fCH, _iCS, _iCSn, _iCn, _oC, _kC, _bI, _bV, _lI, _iRS, _qAIC, _qICIC],
   [
+    0,
     0,
     0,
     0,
@@ -1739,8 +1746,9 @@ export var CreateIntentResponse: StaticStructureSchema = [
   n0,
   _CIRr,
   0,
-  [_iI, _iN, _de, _pIS, _sU, _dCH, _fCH, _iCS, _iCSn, _iCn, _oC, _kC, _bI, _bV, _lI, _cDT, _iRS, _qAIC, _qICIC],
+  [_iI, _iN, _iDN, _de, _pIS, _sU, _dCH, _fCH, _iCS, _iCSn, _iCn, _oC, _kC, _bI, _bV, _lI, _cDT, _iRS, _qAIC, _qICIC],
   [
+    0,
     0,
     0,
     0,
@@ -2166,7 +2174,7 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
   n0,
   _DBLResc,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS],
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS, _sDS],
   [
     0,
     0,
@@ -2185,6 +2193,7 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
     () => BotLocaleHistoryEventsList,
     64 | 0,
     () => GenerativeAISettings,
+    0,
   ],
 ];
 export var DescribeBotRecommendationRequest: StaticStructureSchema = [
@@ -2347,6 +2356,7 @@ export var DescribeIntentResponse: StaticStructureSchema = [
   [
     _iI,
     _iN,
+    _iDN,
     _de,
     _pIS,
     _sU,
@@ -2368,6 +2378,7 @@ export var DescribeIntentResponse: StaticStructureSchema = [
     _qICIC,
   ],
   [
+    0,
     0,
     0,
     0,
@@ -2734,6 +2745,7 @@ export var IntentConfirmationSetting: StaticStructureSchema = [
     () => ElicitationCodeHookInvocationSetting,
   ],
 ];
+export var IntentDisambiguationSettings: StaticStructureSchema = [3, n0, _IDS, 0, [_e, _mDI, _cDM], [2, 1, 0]];
 export var IntentFilter: StaticStructureSchema = [3, n0, _IFn, 0, [_n, _v, _o], [0, 64 | 0, 0]];
 export var IntentLevelSlotResolutionTestResultItem: StaticStructureSchema = [
   3,
@@ -2759,8 +2771,8 @@ export var IntentSummary: StaticStructureSchema = [
   n0,
   _ISnt,
   0,
-  [_iI, _iN, _de, _pIS, _iCn, _oC, _lUDT],
-  [0, 0, 0, 0, () => InputContextsList, () => OutputContextsList, 4],
+  [_iI, _iN, _iDN, _de, _pIS, _iCn, _oC, _lUDT],
+  [0, 0, 0, 0, 0, () => InputContextsList, () => OutputContextsList, 4],
 ];
 export var InternalServerException: StaticErrorSchema = [
   -3,
@@ -3302,7 +3314,14 @@ export var MessageGroup: StaticStructureSchema = [
 ];
 export var MultipleValuesSetting: StaticStructureSchema = [3, n0, _MVS, 0, [_aMV], [2]];
 export var NewCustomVocabularyItem: StaticStructureSchema = [3, n0, _NCVI, 0, [_ph, _w, _dA], [0, 1, 0]];
-export var NluImprovementSpecification: StaticStructureSchema = [3, n0, _NIS, 0, [_e, _aNM], [2, 0]];
+export var NluImprovementSpecification: StaticStructureSchema = [
+  3,
+  n0,
+  _NIS,
+  0,
+  [_e, _aNM, _iDS],
+  [2, 0, () => IntentDisambiguationSettings],
+];
 export var ObfuscationSetting: StaticStructureSchema = [3, n0, _OS, 0, [_oST], [0]];
 export var OpensearchConfiguration: StaticStructureSchema = [
   3,
@@ -3953,16 +3972,16 @@ export var UpdateBotLocaleRequest: StaticStructureSchema = [
   n0,
   _UBLR,
   0,
-  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS],
-  [[0, 1], [0, 1], [0, 1], 0, 1, () => VoiceSettings, () => GenerativeAISettings],
+  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS, _sDS],
+  [[0, 1], [0, 1], [0, 1], 0, 1, () => VoiceSettings, () => GenerativeAISettings, 0],
 ];
 export var UpdateBotLocaleResponse: StaticStructureSchema = [
   3,
   n0,
   _UBLRp,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings],
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings, 0],
 ];
 export var UpdateBotRecommendationRequest: StaticStructureSchema = [
   3,
@@ -4026,9 +4045,10 @@ export var UpdateIntentRequest: StaticStructureSchema = [
   n0,
   _UIR,
   0,
-  [_iI, _iN, _de, _pIS, _sU, _dCH, _fCH, _sP, _iCS, _iCSn, _iCn, _oC, _kC, _bI, _bV, _lI, _iRS, _qAIC, _qICIC],
+  [_iI, _iN, _iDN, _de, _pIS, _sU, _dCH, _fCH, _sP, _iCS, _iCSn, _iCn, _oC, _kC, _bI, _bV, _lI, _iRS, _qAIC, _qICIC],
   [
     [0, 1],
+    0,
     0,
     0,
     0,
@@ -4057,6 +4077,7 @@ export var UpdateIntentResponse: StaticStructureSchema = [
   [
     _iI,
     _iN,
+    _iDN,
     _de,
     _pIS,
     _sU,
@@ -4078,6 +4099,7 @@ export var UpdateIntentResponse: StaticStructureSchema = [
     _qICIC,
   ],
   [
+    0,
     0,
     0,
     0,

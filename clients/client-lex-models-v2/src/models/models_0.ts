@@ -72,6 +72,7 @@ import {
   SlotResolutionStrategy,
   SlotValueResolutionStrategy,
   SortOrder,
+  SpeechDetectionSensitivity,
   TestExecutionApiMode,
   TestExecutionModality,
   TestExecutionStatus,
@@ -3088,6 +3089,12 @@ export interface BotLocaleImportSpecification {
    * @public
    */
   voiceSettings?: VoiceSettings | undefined;
+
+  /**
+   * <p>The sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions.</p>
+   * @public
+   */
+  speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
 }
 
 /**
@@ -4559,6 +4566,30 @@ export interface CreateBotAliasResponse {
 }
 
 /**
+ * <p>Configures the Intent Disambiguation feature that helps resolve ambiguous user inputs when multiple intents could match. When enabled, the system presents clarifying questions to users, helping them specify their exact intent for improved conversation accuracy.</p>
+ * @public
+ */
+export interface IntentDisambiguationSettings {
+  /**
+   * <p>Determines whether the Intent Disambiguation feature is enabled. When set to <code>true</code>, Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being <code>false</code>.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.</p>
+   * @public
+   */
+  maxDisambiguationIntents?: number | undefined;
+
+  /**
+   * <p>Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.</p>
+   * @public
+   */
+  customDisambiguationMessage?: string | undefined;
+}
+
+/**
  * <p>Configures the Assisted Natural Language Understanding (NLU) feature for your bot. This specification determines whether enhanced intent recognition and utterance understanding capabilities are active.</p>
  * @public
  */
@@ -4574,6 +4605,12 @@ export interface NluImprovementSpecification {
    * @public
    */
   assistedNluMode?: AssistedNluMode | undefined;
+
+  /**
+   * <p>An object containing specifications for the Intent Disambiguation feature within the Assisted NLU settings. These settings determine how the bot handles ambiguous user inputs that could match multiple intents.</p>
+   * @public
+   */
+  intentDisambiguationSettings?: IntentDisambiguationSettings | undefined;
 }
 
 /**
@@ -4705,6 +4742,12 @@ export interface CreateBotLocaleRequest {
    * @public
    */
   generativeAISettings?: GenerativeAISettings | undefined;
+
+  /**
+   * <p>The sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions.</p>
+   * @public
+   */
+  speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
 }
 
 /**
@@ -4784,6 +4827,12 @@ export interface CreateBotLocaleResponse {
    * @public
    */
   generativeAISettings?: GenerativeAISettings | undefined;
+
+  /**
+   * <p>The sensitivity level for voice activity detection (VAD) that was specified for the bot locale.</p>
+   * @public
+   */
+  speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
 }
 
 /**
@@ -7341,6 +7390,12 @@ export interface DescribeBotLocaleResponse {
    * @public
    */
   generativeAISettings?: GenerativeAISettings | undefined;
+
+  /**
+   * <p>The sensitivity level for voice activity detection (VAD) configured for the bot locale.</p>
+   * @public
+   */
+  speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
 }
 
 /**
@@ -9407,6 +9462,12 @@ export interface IntentSummary {
   intentName?: string | undefined;
 
   /**
+   * <p>The display name of the intent.</p>
+   * @public
+   */
+  intentDisplayName?: string | undefined;
+
+  /**
    * <p>The description of the intent.</p>
    * @public
    */
@@ -9439,16 +9500,4 @@ export interface IntentSummary {
    * @public
    */
   lastUpdatedDateTime?: Date | undefined;
-}
-
-/**
- * <p>An object containing the name of an intent that was invoked.</p>
- * @public
- */
-export interface InvokedIntentSample {
-  /**
-   * <p>The name of an intent that was invoked.</p>
-   * @public
-   */
-  intentName?: string | undefined;
 }

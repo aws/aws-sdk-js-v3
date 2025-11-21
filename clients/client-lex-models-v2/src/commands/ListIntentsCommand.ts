@@ -66,6 +66,7 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  * //     { // IntentSummary
  * //       intentId: "STRING_VALUE",
  * //       intentName: "STRING_VALUE",
+ * //       intentDisplayName: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       parentIntentSignature: "STRING_VALUE",
  * //       inputContexts: [ // InputContextsList

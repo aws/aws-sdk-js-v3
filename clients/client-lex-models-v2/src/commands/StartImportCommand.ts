@@ -66,6 +66,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *         voiceId: "STRING_VALUE", // required
  *         engine: "standard" || "neural" || "long-form" || "generative",
  *       },
+ *       speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
  *     },
  *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
  *       botId: "STRING_VALUE", // required
@@ -125,6 +126,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //         voiceId: "STRING_VALUE", // required
  * //         engine: "standard" || "neural" || "long-form" || "generative",
  * //       },
+ * //       speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
  * //       botId: "STRING_VALUE", // required

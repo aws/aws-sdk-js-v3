@@ -561,6 +561,20 @@ export type BotLocaleFilterOperator = (typeof BotLocaleFilterOperator)[keyof typ
  * @public
  * @enum
  */
+export const SpeechDetectionSensitivity = {
+  Default: "Default",
+  HighNoiseTolerance: "HighNoiseTolerance",
+  MaximumNoiseTolerance: "MaximumNoiseTolerance",
+} as const;
+/**
+ * @public
+ */
+export type SpeechDetectionSensitivity = (typeof SpeechDetectionSensitivity)[keyof typeof SpeechDetectionSensitivity];
+
+/**
+ * @public
+ * @enum
+ */
 export const VoiceEngine = {
   Generative: "generative",
   LongForm: "long-form",
