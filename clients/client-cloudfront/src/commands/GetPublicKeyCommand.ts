@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPublicKeyRequest, GetPublicKeyResult } from "../models/models_0";
+import { GetPublicKeyRequest, GetPublicKeyResult } from "../models/models_1";
 import { GetPublicKey } from "../schemas/schemas_0";
 
 /**

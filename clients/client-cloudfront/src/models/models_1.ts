@@ -7,12 +7,15 @@ import {
   FunctionStage,
   HttpVersion,
   IpAddressType,
+  ManagedCertificateStatus,
   OriginAccessControlOriginTypes,
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
   OriginRequestPolicyType,
   PriceClass,
   ResponseHeadersPolicyType,
+  TrustStoreStatus,
+  ValidationTokenHost,
 } from "./enums";
 
 import {
@@ -20,12 +23,15 @@ import {
   AliasICPRecordal,
   AnycastIpList,
   AnycastIpListCollection,
+  CaCertificatesBundleSource,
   CacheBehaviors,
   CachePolicy,
   CachePolicyConfig,
   CachePolicyList,
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityConfig,
+  ConnectionFunctionAssociation,
+  ConnectionFunctionSummary,
   ConnectionGroup,
   ContentTypeProfileConfig,
   ContinuousDeploymentPolicy,
@@ -50,6 +56,7 @@ import {
   KeyGroupConfig,
   KeyValueStore,
   ManagedCertificateRequest,
+  MonitoringSubscription,
   OriginAccessControl,
   OriginAccessControlConfig,
   OriginGroups,
@@ -69,10 +76,267 @@ import {
   StreamingDistributionConfig,
   Tags,
   TrustedSigners,
+  TrustStore,
   ViewerCertificate,
+  ViewerMtlsConfig,
   VpcOrigin,
   VpcOriginEndpointConfig,
 } from "./models_0";
+
+/**
+ * <p>Contains details about the validation token.</p>
+ * @public
+ */
+export interface ValidationTokenDetail {
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  Domain: string | undefined;
+
+  /**
+   * <p>The domain to redirect to.</p>
+   * @public
+   */
+  RedirectTo?: string | undefined;
+
+  /**
+   * <p>The domain to redirect from.</p>
+   * @public
+   */
+  RedirectFrom?: string | undefined;
+}
+
+/**
+ * <p>Contains details about the CloudFront managed ACM certificate.</p>
+ * @public
+ */
+export interface ManagedCertificateDetails {
+  /**
+   * <p>The ARN of the CloudFront managed ACM certificate.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>The status of the CloudFront managed ACM certificate.</p> <note> <p>Your distribution tenant will be updated with the latest certificate status. When calling the <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionTenant.html">UpdateDistributionTenant</a> operation, use the latest value for the <code>ETag</code>.</p> </note>
+   * @public
+   */
+  CertificateStatus?: ManagedCertificateStatus | undefined;
+
+  /**
+   * <p>Contains details about the validation token host of the specified CloudFront managed ACM certificate.</p> <ul> <li> <p>For <code>cloudfront</code>, CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.</p> </li> <li> <p>For <code>self-hosted</code>, you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.</p> </li> </ul> <note> <p>This setting only affects the initial certificate request. Once the DNS points to CloudFront, all future certificate renewals are automatically handled through CloudFront.</p> </note>
+   * @public
+   */
+  ValidationTokenHost?: ValidationTokenHost | undefined;
+
+  /**
+   * <p>Contains details about the validation token of the specified CloudFront managed ACM certificate.</p>
+   * @public
+   */
+  ValidationTokenDetails?: ValidationTokenDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetManagedCertificateDetailsResult {
+  /**
+   * <p>Contains details about the CloudFront managed ACM certificate.</p>
+   * @public
+   */
+  ManagedCertificateDetails?: ManagedCertificateDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMonitoringSubscriptionRequest {
+  /**
+   * <p>The ID of the distribution that you are getting metrics information for.</p>
+   * @public
+   */
+  DistributionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMonitoringSubscriptionResult {
+  /**
+   * <p>A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+   * @public
+   */
+  MonitoringSubscription?: MonitoringSubscription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginAccessControlRequest {
+  /**
+   * <p>The unique identifier of the origin access control.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginAccessControlResult {
+  /**
+   * <p>Contains an origin access control, including its unique identifier.</p>
+   * @public
+   */
+  OriginAccessControl?: OriginAccessControl | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the origin access control.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginAccessControlConfigRequest {
+  /**
+   * <p>The unique identifier of the origin access control.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginAccessControlConfigResult {
+  /**
+   * <p>Contains an origin access control configuration.</p>
+   * @public
+   */
+  OriginAccessControlConfig?: OriginAccessControlConfig | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the origin access control.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginRequestPolicyRequest {
+  /**
+   * <p>The unique identifier for the origin request policy. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginRequestPolicyResult {
+  /**
+   * <p>The origin request policy.</p>
+   * @public
+   */
+  OriginRequestPolicy?: OriginRequestPolicy | undefined;
+
+  /**
+   * <p>The current version of the origin request policy.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginRequestPolicyConfigRequest {
+  /**
+   * <p>The unique identifier for the origin request policy. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOriginRequestPolicyConfigResult {
+  /**
+   * <p>The origin request policy configuration.</p>
+   * @public
+   */
+  OriginRequestPolicyConfig?: OriginRequestPolicyConfig | undefined;
+
+  /**
+   * <p>The current version of the origin request policy.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPublicKeyRequest {
+  /**
+   * <p>The identifier of the public key you are getting.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPublicKeyResult {
+  /**
+   * <p>The public key.</p>
+   * @public
+   */
+  PublicKey?: PublicKey | undefined;
+
+  /**
+   * <p>The identifier for this version of the public key.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPublicKeyConfigRequest {
+  /**
+   * <p>The identifier of the public key whose configuration you are getting.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPublicKeyConfigResult {
+  /**
+   * <p>A public key configuration.</p>
+   * @public
+   */
+  PublicKeyConfig?: PublicKeyConfig | undefined;
+
+  /**
+   * <p>The identifier for this version of the public key configuration.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
 
 /**
  * @public
@@ -241,6 +505,34 @@ export interface GetStreamingDistributionConfigResult {
 
   /**
    * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>. </p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreRequest {
+  /**
+   * <p>The trust store's identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreResult {
+  /**
+   * <p>The trust store.</p>
+   * @public
+   */
+  TrustStore?: TrustStore | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the trust store.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -524,6 +816,46 @@ export interface ListConflictingAliasesResult {
    * @public
    */
   ConflictingAliasesList?: ConflictingAliasesList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectionFunctionsRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of connection functions that you want returned in the response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>The connection function's stage.</p>
+   * @public
+   */
+  Stage?: FunctionStage | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectionFunctionsResult {
+  /**
+   * <p>Indicates the next page of connection functions. To get the next page of the list, use this value in the <code>Marker</code> field of your request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>A list of connection functions.</p>
+   * @public
+   */
+  ConnectionFunctions?: ConnectionFunctionSummary[] | undefined;
 }
 
 /**
@@ -886,6 +1218,18 @@ export interface DistributionSummary {
    * @public
    */
   AnycastIpListId?: string | undefined;
+
+  /**
+   * <p>The distribution's viewer mTLS configuration.</p>
+   * @public
+   */
+  ViewerMtlsConfig?: ViewerMtlsConfig | undefined;
+
+  /**
+   * <p>The distribution's connection function association.</p>
+   * @public
+   */
+  ConnectionFunctionAssociation?: ConnectionFunctionAssociation | undefined;
 }
 
 /**
@@ -1050,6 +1394,40 @@ export interface ListDistributionsByCachePolicyIdResult {
    * @public
    */
   DistributionIdList?: DistributionIdList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByConnectionFunctionRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of distributions that you want returned in the response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>The distributions by connection function identifier.</p>
+   * @public
+   */
+  ConnectionFunctionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByConnectionFunctionResult {
+  /**
+   * <p>A distribution list.</p>
+   * @public
+   */
+  DistributionList?: DistributionList | undefined;
 }
 
 /**
@@ -1320,6 +1698,40 @@ export interface ListDistributionsByResponseHeadersPolicyIdResult {
    * @public
    */
   DistributionIdList?: DistributionIdList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByTrustStoreRequest {
+  /**
+   * <p>The distributions by trust store identifier.</p>
+   * @public
+   */
+  TrustStoreIdentifier: string | undefined;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of distributions that you want returned in the response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByTrustStoreResult {
+  /**
+   * <p>A distribution list.</p>
+   * @public
+   */
+  DistributionList?: DistributionList | undefined;
 }
 
 /**
@@ -2795,6 +3207,94 @@ export interface ListTagsForResourceResult {
 /**
  * @public
  */
+export interface ListTrustStoresRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of trust stores that you want returned in the response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>A trust store summary.</p>
+ * @public
+ */
+export interface TrustStoreSummary {
+  /**
+   * <p>The trust store's ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The trust store's Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The trust store's name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The trust store's status.</p>
+   * @public
+   */
+  Status: TrustStoreStatus | undefined;
+
+  /**
+   * <p>The trust store's number of CA certificates.</p>
+   * @public
+   */
+  NumberOfCaCertificates: number | undefined;
+
+  /**
+   * <p>The trust store's last modified time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The trust store's reason.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the trust store.</p>
+   * @public
+   */
+  ETag: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrustStoresResult {
+  /**
+   * <p>Indicates the next page of trust stores. To get the next page of the list, use this value in the <code>Marker</code> field of your request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The trust store list.</p>
+   * @public
+   */
+  TrustStoreList?: TrustStoreSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListVpcOriginsRequest {
   /**
    * <p>The marker associated with the VPC origins list.</p>
@@ -2919,6 +3419,34 @@ export interface ListVpcOriginsResult {
 /**
  * @public
  */
+export interface PublishConnectionFunctionRequest {
+  /**
+   * <p>The connection function ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the connection function.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PublishConnectionFunctionResult {
+  /**
+   * <p>The connection function summary.</p>
+   * @public
+   */
+  ConnectionFunctionSummary?: ConnectionFunctionSummary | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PublishFunctionRequest {
   /**
    * <p>The name of the function that you are publishing.</p>
@@ -2988,6 +3516,82 @@ export interface TagResourceRequest {
    * @public
    */
   Tags: Tags | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestConnectionFunctionRequest {
+  /**
+   * <p>The connection function ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the connection function.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+
+  /**
+   * <p>The connection function stage.</p>
+   * @public
+   */
+  Stage?: FunctionStage | undefined;
+
+  /**
+   * <p>The connection object.</p>
+   * @public
+   */
+  ConnectionObject: Uint8Array | undefined;
+}
+
+/**
+ * <p>A connection function test result.</p>
+ * @public
+ */
+export interface ConnectionFunctionTestResult {
+  /**
+   * <p>The connection function summary.</p>
+   * @public
+   */
+  ConnectionFunctionSummary?: ConnectionFunctionSummary | undefined;
+
+  /**
+   * <p>The connection function compute utilization.</p>
+   * @public
+   */
+  ComputeUtilization?: string | undefined;
+
+  /**
+   * <p>The connection function execution logs.</p>
+   * @public
+   */
+  ConnectionFunctionExecutionLogs?: string[] | undefined;
+
+  /**
+   * <p>The connection function error message.</p>
+   * @public
+   */
+  ConnectionFunctionErrorMessage?: string | undefined;
+
+  /**
+   * <p>The connection function output.</p>
+   * @public
+   */
+  ConnectionFunctionOutput?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestConnectionFunctionResult {
+  /**
+   * <p>The connection function test result.</p>
+   * @public
+   */
+  ConnectionFunctionTestResult?: ConnectionFunctionTestResult | undefined;
 }
 
 /**
@@ -3213,6 +3817,52 @@ export interface UpdateCloudFrontOriginAccessIdentityResult {
 
   /**
    * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectionFunctionRequest {
+  /**
+   * <p>The connection function ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the connection function you are updating.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+
+  /**
+   * <p>Contains configuration information about a CloudFront function.</p>
+   * @public
+   */
+  ConnectionFunctionConfig: FunctionConfig | undefined;
+
+  /**
+   * <p>The connection function code.</p>
+   * @public
+   */
+  ConnectionFunctionCode: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectionFunctionResult {
+  /**
+   * <p>The connection function summary.</p>
+   * @public
+   */
+  ConnectionFunctionSummary?: ConnectionFunctionSummary | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the connection function.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -3963,6 +4613,46 @@ export interface UpdateStreamingDistributionResult {
 
   /**
    * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrustStoreRequest {
+  /**
+   * <p>The trust store ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The CA certificates bundle source.</p>
+   * @public
+   */
+  CaCertificatesBundleSource: CaCertificatesBundleSource | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the trust store you are updating.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrustStoreResult {
+  /**
+   * <p>The trust store.</p>
+   * @public
+   */
+  TrustStore?: TrustStore | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the trust store.</p>
    * @public
    */
   ETag?: string | undefined;

@@ -397,6 +397,17 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //         ],
  * //       },
  * //       ConnectionMode: "direct" || "tenant-only",
+ * //       ViewerMtlsConfig: { // ViewerMtlsConfig
+ * //         Mode: "required" || "optional",
+ * //         TrustStoreConfig: { // TrustStoreConfig
+ * //           TrustStoreId: "STRING_VALUE", // required
+ * //           AdvertiseTrustStoreCaNames: true || false,
+ * //           IgnoreCertificateExpiry: true || false,
+ * //         },
+ * //       },
+ * //       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
+ * //         Id: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal

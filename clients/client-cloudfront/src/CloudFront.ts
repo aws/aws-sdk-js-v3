@@ -39,6 +39,11 @@ import {
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
 import {
+  CreateConnectionFunctionCommand,
+  CreateConnectionFunctionCommandInput,
+  CreateConnectionFunctionCommandOutput,
+} from "./commands/CreateConnectionFunctionCommand";
+import {
   CreateConnectionGroupCommand,
   CreateConnectionGroupCommandInput,
   CreateConnectionGroupCommandOutput,
@@ -139,6 +144,11 @@ import {
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
 import {
+  CreateTrustStoreCommand,
+  CreateTrustStoreCommandInput,
+  CreateTrustStoreCommandOutput,
+} from "./commands/CreateTrustStoreCommand";
+import {
   CreateVpcOriginCommand,
   CreateVpcOriginCommandInput,
   CreateVpcOriginCommandOutput,
@@ -158,6 +168,11 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
+import {
+  DeleteConnectionFunctionCommand,
+  DeleteConnectionFunctionCommandInput,
+  DeleteConnectionFunctionCommandOutput,
+} from "./commands/DeleteConnectionFunctionCommand";
 import {
   DeleteConnectionGroupCommand,
   DeleteConnectionGroupCommandInput,
@@ -244,10 +259,20 @@ import {
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
 import {
+  DeleteTrustStoreCommand,
+  DeleteTrustStoreCommandInput,
+  DeleteTrustStoreCommandOutput,
+} from "./commands/DeleteTrustStoreCommand";
+import {
   DeleteVpcOriginCommand,
   DeleteVpcOriginCommandInput,
   DeleteVpcOriginCommandOutput,
 } from "./commands/DeleteVpcOriginCommand";
+import {
+  DescribeConnectionFunctionCommand,
+  DescribeConnectionFunctionCommandInput,
+  DescribeConnectionFunctionCommandOutput,
+} from "./commands/DescribeConnectionFunctionCommand";
 import {
   DescribeFunctionCommand,
   DescribeFunctionCommandInput,
@@ -293,6 +318,11 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+import {
+  GetConnectionFunctionCommand,
+  GetConnectionFunctionCommandInput,
+  GetConnectionFunctionCommandOutput,
+} from "./commands/GetConnectionFunctionCommand";
 import {
   GetConnectionGroupByRoutingEndpointCommand,
   GetConnectionGroupByRoutingEndpointCommandInput,
@@ -441,6 +471,11 @@ import {
   GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
 import {
+  GetTrustStoreCommand,
+  GetTrustStoreCommandInput,
+  GetTrustStoreCommandOutput,
+} from "./commands/GetTrustStoreCommand";
+import {
   GetVpcOriginCommand,
   GetVpcOriginCommandInput,
   GetVpcOriginCommandOutput,
@@ -466,6 +501,11 @@ import {
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
 import {
+  ListConnectionFunctionsCommand,
+  ListConnectionFunctionsCommandInput,
+  ListConnectionFunctionsCommandOutput,
+} from "./commands/ListConnectionFunctionsCommand";
+import {
   ListConnectionGroupsCommand,
   ListConnectionGroupsCommandInput,
   ListConnectionGroupsCommandOutput,
@@ -485,6 +525,11 @@ import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
+import {
+  ListDistributionsByConnectionFunctionCommand,
+  ListDistributionsByConnectionFunctionCommandInput,
+  ListDistributionsByConnectionFunctionCommandOutput,
+} from "./commands/ListDistributionsByConnectionFunctionCommand";
 import {
   ListDistributionsByConnectionModeCommand,
   ListDistributionsByConnectionModeCommandInput,
@@ -515,6 +560,11 @@ import {
   ListDistributionsByResponseHeadersPolicyIdCommandInput,
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
+import {
+  ListDistributionsByTrustStoreCommand,
+  ListDistributionsByTrustStoreCommandInput,
+  ListDistributionsByTrustStoreCommandOutput,
+} from "./commands/ListDistributionsByTrustStoreCommand";
 import {
   ListDistributionsByVpcOriginIdCommand,
   ListDistributionsByVpcOriginIdCommandInput,
@@ -616,10 +666,20 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTrustStoresCommand,
+  ListTrustStoresCommandInput,
+  ListTrustStoresCommandOutput,
+} from "./commands/ListTrustStoresCommand";
+import {
   ListVpcOriginsCommand,
   ListVpcOriginsCommandInput,
   ListVpcOriginsCommandOutput,
 } from "./commands/ListVpcOriginsCommand";
+import {
+  PublishConnectionFunctionCommand,
+  PublishConnectionFunctionCommandInput,
+  PublishConnectionFunctionCommandOutput,
+} from "./commands/PublishConnectionFunctionCommand";
 import {
   PublishFunctionCommand,
   PublishFunctionCommandInput,
@@ -631,6 +691,11 @@ import {
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestConnectionFunctionCommand,
+  TestConnectionFunctionCommandInput,
+  TestConnectionFunctionCommandOutput,
+} from "./commands/TestConnectionFunctionCommand";
 import {
   TestFunctionCommand,
   TestFunctionCommandInput,
@@ -656,6 +721,11 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
+import {
+  UpdateConnectionFunctionCommand,
+  UpdateConnectionFunctionCommandInput,
+  UpdateConnectionFunctionCommandOutput,
+} from "./commands/UpdateConnectionFunctionCommand";
 import {
   UpdateConnectionGroupCommand,
   UpdateConnectionGroupCommandInput,
@@ -742,6 +812,11 @@ import {
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
 import {
+  UpdateTrustStoreCommand,
+  UpdateTrustStoreCommandInput,
+  UpdateTrustStoreCommandOutput,
+} from "./commands/UpdateTrustStoreCommand";
+import {
   UpdateVpcOriginCommand,
   UpdateVpcOriginCommandInput,
   UpdateVpcOriginCommandOutput,
@@ -760,6 +835,7 @@ const commands = {
   CreateAnycastIpListCommand,
   CreateCachePolicyCommand,
   CreateCloudFrontOriginAccessIdentityCommand,
+  CreateConnectionFunctionCommand,
   CreateConnectionGroupCommand,
   CreateContinuousDeploymentPolicyCommand,
   CreateDistributionCommand,
@@ -780,10 +856,12 @@ const commands = {
   CreateResponseHeadersPolicyCommand,
   CreateStreamingDistributionCommand,
   CreateStreamingDistributionWithTagsCommand,
+  CreateTrustStoreCommand,
   CreateVpcOriginCommand,
   DeleteAnycastIpListCommand,
   DeleteCachePolicyCommand,
   DeleteCloudFrontOriginAccessIdentityCommand,
+  DeleteConnectionFunctionCommand,
   DeleteConnectionGroupCommand,
   DeleteContinuousDeploymentPolicyCommand,
   DeleteDistributionCommand,
@@ -801,7 +879,9 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeleteResponseHeadersPolicyCommand,
   DeleteStreamingDistributionCommand,
+  DeleteTrustStoreCommand,
   DeleteVpcOriginCommand,
+  DescribeConnectionFunctionCommand,
   DescribeFunctionCommand,
   DescribeKeyValueStoreCommand,
   DisassociateDistributionTenantWebACLCommand,
@@ -811,6 +891,7 @@ const commands = {
   GetCachePolicyConfigCommand,
   GetCloudFrontOriginAccessIdentityCommand,
   GetCloudFrontOriginAccessIdentityConfigCommand,
+  GetConnectionFunctionCommand,
   GetConnectionGroupCommand,
   GetConnectionGroupByRoutingEndpointCommand,
   GetContinuousDeploymentPolicyCommand,
@@ -842,22 +923,26 @@ const commands = {
   GetResponseHeadersPolicyConfigCommand,
   GetStreamingDistributionCommand,
   GetStreamingDistributionConfigCommand,
+  GetTrustStoreCommand,
   GetVpcOriginCommand,
   ListAnycastIpListsCommand,
   ListCachePoliciesCommand,
   ListCloudFrontOriginAccessIdentitiesCommand,
   ListConflictingAliasesCommand,
+  ListConnectionFunctionsCommand,
   ListConnectionGroupsCommand,
   ListContinuousDeploymentPoliciesCommand,
   ListDistributionsCommand,
   ListDistributionsByAnycastIpListIdCommand,
   ListDistributionsByCachePolicyIdCommand,
+  ListDistributionsByConnectionFunctionCommand,
   ListDistributionsByConnectionModeCommand,
   ListDistributionsByKeyGroupCommand,
   ListDistributionsByOriginRequestPolicyIdCommand,
   ListDistributionsByOwnedResourceCommand,
   ListDistributionsByRealtimeLogConfigCommand,
   ListDistributionsByResponseHeadersPolicyIdCommand,
+  ListDistributionsByTrustStoreCommand,
   ListDistributionsByVpcOriginIdCommand,
   ListDistributionsByWebACLIdCommand,
   ListDistributionTenantsCommand,
@@ -877,15 +962,19 @@ const commands = {
   ListResponseHeadersPoliciesCommand,
   ListStreamingDistributionsCommand,
   ListTagsForResourceCommand,
+  ListTrustStoresCommand,
   ListVpcOriginsCommand,
+  PublishConnectionFunctionCommand,
   PublishFunctionCommand,
   PutResourcePolicyCommand,
   TagResourceCommand,
+  TestConnectionFunctionCommand,
   TestFunctionCommand,
   UntagResourceCommand,
   UpdateAnycastIpListCommand,
   UpdateCachePolicyCommand,
   UpdateCloudFrontOriginAccessIdentityCommand,
+  UpdateConnectionFunctionCommand,
   UpdateConnectionGroupCommand,
   UpdateContinuousDeploymentPolicyCommand,
   UpdateDistributionCommand,
@@ -903,6 +992,7 @@ const commands = {
   UpdateRealtimeLogConfigCommand,
   UpdateResponseHeadersPolicyCommand,
   UpdateStreamingDistributionCommand,
+  UpdateTrustStoreCommand,
   UpdateVpcOriginCommand,
   VerifyDnsConfigurationCommand,
 };
@@ -1022,6 +1112,23 @@ export interface CloudFront {
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConnectionFunctionCommand}
+   */
+  createConnectionFunction(
+    args: CreateConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectionFunctionCommandOutput>;
+  createConnectionFunction(
+    args: CreateConnectionFunctionCommandInput,
+    cb: (err: any, data?: CreateConnectionFunctionCommandOutput) => void
+  ): void;
+  createConnectionFunction(
+    args: CreateConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -1356,6 +1463,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link CreateTrustStoreCommand}
+   */
+  createTrustStore(
+    args: CreateTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrustStoreCommandOutput>;
+  createTrustStore(
+    args: CreateTrustStoreCommandInput,
+    cb: (err: any, data?: CreateTrustStoreCommandOutput) => void
+  ): void;
+  createTrustStore(
+    args: CreateTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrustStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateVpcOriginCommand}
    */
   createVpcOrigin(
@@ -1418,6 +1542,23 @@ export interface CloudFront {
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectionFunctionCommand}
+   */
+  deleteConnectionFunction(
+    args: DeleteConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectionFunctionCommandOutput>;
+  deleteConnectionFunction(
+    args: DeleteConnectionFunctionCommandInput,
+    cb: (err: any, data?: DeleteConnectionFunctionCommandOutput) => void
+  ): void;
+  deleteConnectionFunction(
+    args: DeleteConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -1702,6 +1843,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link DeleteTrustStoreCommand}
+   */
+  deleteTrustStore(
+    args: DeleteTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrustStoreCommandOutput>;
+  deleteTrustStore(
+    args: DeleteTrustStoreCommandInput,
+    cb: (err: any, data?: DeleteTrustStoreCommandOutput) => void
+  ): void;
+  deleteTrustStore(
+    args: DeleteTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTrustStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteVpcOriginCommand}
    */
   deleteVpcOrigin(
@@ -1713,6 +1871,23 @@ export interface CloudFront {
     args: DeleteVpcOriginCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeConnectionFunctionCommand}
+   */
+  describeConnectionFunction(
+    args: DescribeConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectionFunctionCommandOutput>;
+  describeConnectionFunction(
+    args: DescribeConnectionFunctionCommandInput,
+    cb: (err: any, data?: DescribeConnectionFunctionCommandOutput) => void
+  ): void;
+  describeConnectionFunction(
+    args: DescribeConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -1863,6 +2038,23 @@ export interface CloudFront {
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectionFunctionCommand}
+   */
+  getConnectionFunction(
+    args: GetConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionFunctionCommandOutput>;
+  getConnectionFunction(
+    args: GetConnectionFunctionCommandInput,
+    cb: (err: any, data?: GetConnectionFunctionCommandOutput) => void
+  ): void;
+  getConnectionFunction(
+    args: GetConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -2370,6 +2562,17 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link GetTrustStoreCommand}
+   */
+  getTrustStore(args: GetTrustStoreCommandInput, options?: __HttpHandlerOptions): Promise<GetTrustStoreCommandOutput>;
+  getTrustStore(args: GetTrustStoreCommandInput, cb: (err: any, data?: GetTrustStoreCommandOutput) => void): void;
+  getTrustStore(
+    args: GetTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrustStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetVpcOriginCommand}
    */
   getVpcOrigin(args: GetVpcOriginCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcOriginCommandOutput>;
@@ -2449,6 +2652,24 @@ export interface CloudFront {
     args: ListConflictingAliasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListConflictingAliasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConnectionFunctionsCommand}
+   */
+  listConnectionFunctions(): Promise<ListConnectionFunctionsCommandOutput>;
+  listConnectionFunctions(
+    args: ListConnectionFunctionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectionFunctionsCommandOutput>;
+  listConnectionFunctions(
+    args: ListConnectionFunctionsCommandInput,
+    cb: (err: any, data?: ListConnectionFunctionsCommandOutput) => void
+  ): void;
+  listConnectionFunctions(
+    args: ListConnectionFunctionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectionFunctionsCommandOutput) => void
   ): void;
 
   /**
@@ -2537,6 +2758,23 @@ export interface CloudFront {
     args: ListDistributionsByCachePolicyIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDistributionsByConnectionFunctionCommand}
+   */
+  listDistributionsByConnectionFunction(
+    args: ListDistributionsByConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByConnectionFunctionCommandOutput>;
+  listDistributionsByConnectionFunction(
+    args: ListDistributionsByConnectionFunctionCommandInput,
+    cb: (err: any, data?: ListDistributionsByConnectionFunctionCommandOutput) => void
+  ): void;
+  listDistributionsByConnectionFunction(
+    args: ListDistributionsByConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -2640,6 +2878,23 @@ export interface CloudFront {
     args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDistributionsByResponseHeadersPolicyIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDistributionsByTrustStoreCommand}
+   */
+  listDistributionsByTrustStore(
+    args: ListDistributionsByTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByTrustStoreCommandOutput>;
+  listDistributionsByTrustStore(
+    args: ListDistributionsByTrustStoreCommandInput,
+    cb: (err: any, data?: ListDistributionsByTrustStoreCommandOutput) => void
+  ): void;
+  listDistributionsByTrustStore(
+    args: ListDistributionsByTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByTrustStoreCommandOutput) => void
   ): void;
 
   /**
@@ -2964,6 +3219,21 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link ListTrustStoresCommand}
+   */
+  listTrustStores(): Promise<ListTrustStoresCommandOutput>;
+  listTrustStores(
+    args: ListTrustStoresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrustStoresCommandOutput>;
+  listTrustStores(args: ListTrustStoresCommandInput, cb: (err: any, data?: ListTrustStoresCommandOutput) => void): void;
+  listTrustStores(
+    args: ListTrustStoresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrustStoresCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListVpcOriginsCommand}
    */
   listVpcOrigins(): Promise<ListVpcOriginsCommandOutput>;
@@ -2976,6 +3246,23 @@ export interface CloudFront {
     args: ListVpcOriginsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVpcOriginsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PublishConnectionFunctionCommand}
+   */
+  publishConnectionFunction(
+    args: PublishConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishConnectionFunctionCommandOutput>;
+  publishConnectionFunction(
+    args: PublishConnectionFunctionCommandInput,
+    cb: (err: any, data?: PublishConnectionFunctionCommandOutput) => void
+  ): void;
+  publishConnectionFunction(
+    args: PublishConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -3018,6 +3305,23 @@ export interface CloudFront {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestConnectionFunctionCommand}
+   */
+  testConnectionFunction(
+    args: TestConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestConnectionFunctionCommandOutput>;
+  testConnectionFunction(
+    args: TestConnectionFunctionCommandInput,
+    cb: (err: any, data?: TestConnectionFunctionCommandOutput) => void
+  ): void;
+  testConnectionFunction(
+    args: TestConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -3091,6 +3395,23 @@ export interface CloudFront {
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConnectionFunctionCommand}
+   */
+  updateConnectionFunction(
+    args: UpdateConnectionFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectionFunctionCommandOutput>;
+  updateConnectionFunction(
+    args: UpdateConnectionFunctionCommandInput,
+    cb: (err: any, data?: UpdateConnectionFunctionCommandOutput) => void
+  ): void;
+  updateConnectionFunction(
+    args: UpdateConnectionFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectionFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -3372,6 +3693,23 @@ export interface CloudFront {
     args: UpdateStreamingDistributionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTrustStoreCommand}
+   */
+  updateTrustStore(
+    args: UpdateTrustStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrustStoreCommandOutput>;
+  updateTrustStore(
+    args: UpdateTrustStoreCommandInput,
+    cb: (err: any, data?: UpdateTrustStoreCommandOutput) => void
+  ): void;
+  updateTrustStore(
+    args: UpdateTrustStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTrustStoreCommandOutput) => void
   ): void;
 
   /**

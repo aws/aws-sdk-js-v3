@@ -261,6 +261,14 @@ CreateCloudFrontOriginAccessIdentity
 </details>
 <details>
 <summary>
+CreateConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateConnectionFunctionCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateConnectionGroup
 </summary>
 
@@ -421,6 +429,14 @@ CreateStreamingDistributionWithTags
 </details>
 <details>
 <summary>
+CreateTrustStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateTrustStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateTrustStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateTrustStoreCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateVpcOrigin
 </summary>
 
@@ -449,6 +465,14 @@ DeleteCloudFrontOriginAccessIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteCloudFrontOriginAccessIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteCloudFrontOriginAccessIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteCloudFrontOriginAccessIdentityCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteConnectionFunctionCommandOutput/)
 
 </details>
 <details>
@@ -589,10 +613,26 @@ DeleteStreamingDistribution
 </details>
 <details>
 <summary>
+DeleteTrustStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteTrustStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteTrustStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteTrustStoreCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteVpcOrigin
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteVpcOriginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteVpcOriginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteVpcOriginCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DescribeConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DescribeConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DescribeConnectionFunctionCommandOutput/)
 
 </details>
 <details>
@@ -665,6 +705,14 @@ GetCloudFrontOriginAccessIdentityConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetCloudFrontOriginAccessIdentityConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetCloudFrontOriginAccessIdentityConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetCloudFrontOriginAccessIdentityConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetConnectionFunctionCommandOutput/)
 
 </details>
 <details>
@@ -917,6 +965,14 @@ GetStreamingDistributionConfig
 </details>
 <details>
 <summary>
+GetTrustStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetTrustStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetTrustStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetTrustStoreCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetVpcOrigin
 </summary>
 
@@ -957,6 +1013,14 @@ ListConflictingAliases
 </details>
 <details>
 <summary>
+ListConnectionFunctions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListConnectionFunctionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListConnectionFunctionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListConnectionFunctionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListConnectionGroups
 </summary>
 
@@ -993,6 +1057,14 @@ ListDistributionsByCachePolicyId
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByCachePolicyIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByCachePolicyIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByCachePolicyIdCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDistributionsByConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByConnectionFunctionCommandOutput/)
 
 </details>
 <details>
@@ -1041,6 +1113,14 @@ ListDistributionsByResponseHeadersPolicyId
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByResponseHeadersPolicyIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByResponseHeadersPolicyIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByResponseHeadersPolicyIdCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDistributionsByTrustStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByTrustStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByTrustStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByTrustStoreCommandOutput/)
 
 </details>
 <details>
@@ -1197,10 +1277,26 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListTrustStores
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListTrustStoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListTrustStoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListTrustStoresCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListVpcOrigins
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListVpcOriginsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListVpcOriginsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListVpcOriginsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PublishConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/PublishConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/PublishConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/PublishConnectionFunctionCommandOutput/)
 
 </details>
 <details>
@@ -1225,6 +1321,14 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+TestConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/TestConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/TestConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/TestConnectionFunctionCommandOutput/)
 
 </details>
 <details>
@@ -1265,6 +1369,14 @@ UpdateCloudFrontOriginAccessIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateCloudFrontOriginAccessIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateCloudFrontOriginAccessIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateCloudFrontOriginAccessIdentityCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateConnectionFunction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateConnectionFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateConnectionFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateConnectionFunctionCommandOutput/)
 
 </details>
 <details>
@@ -1401,6 +1513,14 @@ UpdateStreamingDistribution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateStreamingDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateStreamingDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateStreamingDistributionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateTrustStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateTrustStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateTrustStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateTrustStoreCommandOutput/)
 
 </details>
 <details>

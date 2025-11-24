@@ -360,6 +360,17 @@ export interface ListDistributionsByConnectionModeCommandOutput
  * //         Staging: true || false, // required
  * //         ConnectionMode: "direct" || "tenant-only",
  * //         AnycastIpListId: "STRING_VALUE",
+ * //         ViewerMtlsConfig: { // ViewerMtlsConfig
+ * //           Mode: "required" || "optional",
+ * //           TrustStoreConfig: { // TrustStoreConfig
+ * //             TrustStoreId: "STRING_VALUE", // required
+ * //             AdvertiseTrustStoreCaNames: true || false,
+ * //             IgnoreCertificateExpiry: true || false,
+ * //           },
+ * //         },
+ * //         ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
+ * //           Id: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //   },

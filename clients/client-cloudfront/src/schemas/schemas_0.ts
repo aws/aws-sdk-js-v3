@@ -38,6 +38,7 @@ const _AM = "AllowedMethods";
 const _ARN = "ARN";
 const _ATKG = "ActiveTrustedKeyGroups";
 const _ATS = "ActiveTrustedSigners";
+const _ATSCN = "AdvertiseTrustStoreCaNames";
 const _Ac = "Action";
 const _Al = "Alias";
 const _Ar = "Arn";
@@ -57,12 +58,17 @@ const _CBL = "CacheBehaviorList";
 const _CBa = "CacheBehaviors";
 const _CBo = "CookieBehavior";
 const _CC = "CookiesConfig";
+const _CCBS = "CaCertificatesBundleSource";
+const _CCBSL = "CaCertificatesBundleS3Location";
 const _CCDP = "CreateContinuousDeploymentPolicy";
 const _CCDPR = "CreateContinuousDeploymentPolicyRequest";
 const _CCDPRr = "CreateContinuousDeploymentPolicyResult";
+const _CCF = "CreateConnectionFunction";
 const _CCFOAI = "CreateCloudFrontOriginAccessIdentity";
 const _CCFOAIR = "CreateCloudFrontOriginAccessIdentityRequest";
 const _CCFOAIRr = "CreateCloudFrontOriginAccessIdentityResult";
+const _CCFR = "CreateConnectionFunctionRequest";
+const _CCFRr = "CreateConnectionFunctionResult";
 const _CCG = "CreateConnectionGroup";
 const _CCGR = "CreateConnectionGroupRequest";
 const _CCGRr = "CreateConnectionGroupResult";
@@ -97,14 +103,22 @@ const _CDr = "CreateDistribution";
 const _CER = "CustomErrorResponse";
 const _CERL = "CustomErrorResponseList";
 const _CERu = "CustomErrorResponses";
-const _CF = "CreateFunction";
+const _CF = "ConnectionFunctions";
+const _CFA = "ConnectionFunctionAssociation";
+const _CFAo = "ConnectionFunctionArn";
+const _CFC = "ConnectionFunctionConfig";
+const _CFCo = "ConnectionFunctionCode";
 const _CFDC = "CloudFrontDefaultCertificate";
+const _CFEL = "ConnectionFunctionExecutionLogs";
+const _CFEM = "ConnectionFunctionErrorMessage";
+const _CFI = "ConnectionFunctionIdentifier";
 const _CFLEC = "CreateFieldLevelEncryptionConfig";
 const _CFLECR = "CreateFieldLevelEncryptionConfigRequest";
 const _CFLECRr = "CreateFieldLevelEncryptionConfigResult";
 const _CFLEP = "CreateFieldLevelEncryptionProfile";
 const _CFLEPR = "CreateFieldLevelEncryptionProfileRequest";
 const _CFLEPRr = "CreateFieldLevelEncryptionProfileResult";
+const _CFO = "ConnectionFunctionOutput";
 const _CFOAI = "CloudFrontOriginAccessIdentity";
 const _CFOAIAE = "CloudFrontOriginAccessIdentityAlreadyExists";
 const _CFOAIC = "CloudFrontOriginAccessIdentityConfig";
@@ -114,6 +128,10 @@ const _CFOAIS = "CloudFrontOriginAccessIdentitySummary";
 const _CFOAISL = "CloudFrontOriginAccessIdentitySummaryList";
 const _CFR = "CreateFunctionRequest";
 const _CFRr = "CreateFunctionResult";
+const _CFS = "ConnectionFunctionSummary";
+const _CFSL = "ConnectionFunctionSummaryList";
+const _CFTR = "ConnectionFunctionTestResult";
+const _CFr = "CreateFunction";
 const _CG = "ConnectionGroup";
 const _CGAF = "ConnectionGroupAssociationFilter";
 const _CGI = "ConnectionGroupId";
@@ -143,6 +161,7 @@ const _CN = "CookieNames";
 const _CNAME = "CNAME";
 const _CNAMEAE = "CNAMEAlreadyExists";
 const _CNL = "CookieNameList";
+const _CO = "ConnectionObject";
 const _COAC = "CreateOriginAccessControl";
 const _COACR = "CreateOriginAccessControlRequest";
 const _COACRr = "CreateOriginAccessControlResult";
@@ -188,6 +207,9 @@ const _CTP = "ContentTypeProfile";
 const _CTPC = "ContentTypeProfileConfig";
 const _CTPL = "ContentTypeProfileList";
 const _CTPo = "ContentTypeProfiles";
+const _CTS = "CreateTrustStore";
+const _CTSR = "CreateTrustStoreRequest";
+const _CTSRr = "CreateTrustStoreResult";
 const _CT_ = "Content-Type";
 const _CTo = "ContentType";
 const _CTon = "ConnectionTimeout";
@@ -211,8 +233,13 @@ const _DC = "DistributionConfig";
 const _DCB = "DefaultCacheBehavior";
 const _DCDP = "DeleteContinuousDeploymentPolicy";
 const _DCDPR = "DeleteContinuousDeploymentPolicyRequest";
+const _DCF = "DeleteConnectionFunction";
 const _DCFOAI = "DeleteCloudFrontOriginAccessIdentity";
 const _DCFOAIR = "DeleteCloudFrontOriginAccessIdentityRequest";
+const _DCFR = "DeleteConnectionFunctionRequest";
+const _DCFRe = "DescribeConnectionFunctionRequest";
+const _DCFRes = "DescribeConnectionFunctionResult";
+const _DCFe = "DescribeConnectionFunction";
 const _DCG = "DeleteConnectionGroup";
 const _DCGR = "DeleteConnectionGroupRequest";
 const _DCL = "DnsConfigurationList";
@@ -290,6 +317,8 @@ const _DTAF = "DistributionTenantAssociationFilter";
 const _DTI = "DistributionTenantId";
 const _DTL = "DistributionTenantList";
 const _DTS = "DistributionTenantSummary";
+const _DTSR = "DeleteTrustStoreRequest";
+const _DTSe = "DeleteTrustStore";
 const _DTTL = "DefaultTTL";
 const _DV = "DefaultValue";
 const _DVO = "DeleteVpcOrigin";
@@ -378,12 +407,15 @@ const _GCDPCR = "GetContinuousDeploymentPolicyConfigRequest";
 const _GCDPCRe = "GetContinuousDeploymentPolicyConfigResult";
 const _GCDPR = "GetContinuousDeploymentPolicyRequest";
 const _GCDPRe = "GetContinuousDeploymentPolicyResult";
+const _GCF = "GetConnectionFunction";
 const _GCFOAI = "GetCloudFrontOriginAccessIdentity";
 const _GCFOAIC = "GetCloudFrontOriginAccessIdentityConfig";
 const _GCFOAICR = "GetCloudFrontOriginAccessIdentityConfigRequest";
 const _GCFOAICRe = "GetCloudFrontOriginAccessIdentityConfigResult";
 const _GCFOAIR = "GetCloudFrontOriginAccessIdentityRequest";
 const _GCFOAIRe = "GetCloudFrontOriginAccessIdentityResult";
+const _GCFR = "GetConnectionFunctionRequest";
+const _GCFRe = "GetConnectionFunctionResult";
 const _GCG = "GetConnectionGroup";
 const _GCGBRE = "GetConnectionGroupByRoutingEndpoint";
 const _GCGBRER = "GetConnectionGroupByRoutingEndpointRequest";
@@ -480,6 +512,9 @@ const _GSDCR = "GetStreamingDistributionConfigRequest";
 const _GSDCRe = "GetStreamingDistributionConfigResult";
 const _GSDR = "GetStreamingDistributionRequest";
 const _GSDRe = "GetStreamingDistributionResult";
+const _GTS = "GetTrustStore";
+const _GTSR = "GetTrustStoreRequest";
+const _GTSRe = "GetTrustStoreResult";
 const _GVO = "GetVpcOrigin";
 const _GVOR = "GetVpcOriginRequest";
 const _GVORe = "GetVpcOriginResult";
@@ -504,6 +539,7 @@ const _IC = "IpamConfig";
 const _ICC = "IpamCidrConfigs";
 const _ICCL = "IpamCidrConfigList";
 const _ICCp = "IpamCidrConfig";
+const _ICE = "IgnoreCertificateExpiry";
 const _ICPRS = "ICPRecordalStatus";
 const _ICn = "IncludeCookies";
 const _ICp = "IpCount";
@@ -586,9 +622,12 @@ const _LCARi = "ListConflictingAliasesResult";
 const _LCDP = "ListContinuousDeploymentPolicies";
 const _LCDPR = "ListContinuousDeploymentPoliciesRequest";
 const _LCDPRi = "ListContinuousDeploymentPoliciesResult";
+const _LCF = "ListConnectionFunctions";
 const _LCFOAI = "ListCloudFrontOriginAccessIdentities";
 const _LCFOAIR = "ListCloudFrontOriginAccessIdentitiesRequest";
 const _LCFOAIRi = "ListCloudFrontOriginAccessIdentitiesResult";
+const _LCFR = "ListConnectionFunctionsRequest";
+const _LCFRi = "ListConnectionFunctionsResult";
 const _LCG = "ListConnectionGroups";
 const _LCGR = "ListConnectionGroupsRequest";
 const _LCGRi = "ListConnectionGroupsResult";
@@ -599,6 +638,9 @@ const _LD = "ListDistributions";
 const _LDBAILI = "ListDistributionsByAnycastIpListId";
 const _LDBAILIR = "ListDistributionsByAnycastIpListIdRequest";
 const _LDBAILIRi = "ListDistributionsByAnycastIpListIdResult";
+const _LDBCF = "ListDistributionsByConnectionFunction";
+const _LDBCFR = "ListDistributionsByConnectionFunctionRequest";
+const _LDBCFRi = "ListDistributionsByConnectionFunctionResult";
 const _LDBCM = "ListDistributionsByConnectionMode";
 const _LDBCMR = "ListDistributionsByConnectionModeRequest";
 const _LDBCMRi = "ListDistributionsByConnectionModeResult";
@@ -620,6 +662,9 @@ const _LDBRHPIRi = "ListDistributionsByResponseHeadersPolicyIdResult";
 const _LDBRLC = "ListDistributionsByRealtimeLogConfig";
 const _LDBRLCR = "ListDistributionsByRealtimeLogConfigRequest";
 const _LDBRLCRi = "ListDistributionsByRealtimeLogConfigResult";
+const _LDBTS = "ListDistributionsByTrustStore";
+const _LDBTSR = "ListDistributionsByTrustStoreRequest";
+const _LDBTSRi = "ListDistributionsByTrustStoreResult";
 const _LDBVOI = "ListDistributionsByVpcOriginId";
 const _LDBVOIR = "ListDistributionsByVpcOriginIdRequest";
 const _LDBVOIRi = "ListDistributionsByVpcOriginIdResult";
@@ -685,6 +730,9 @@ const _LSDRi = "ListStreamingDistributionsResult";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResult";
+const _LTS = "ListTrustStores";
+const _LTSR = "ListTrustStoresRequest";
+const _LTSRi = "ListTrustStoresResult";
 const _LVO = "ListVpcOrigins";
 const _LVOR = "ListVpcOriginsRequest";
 const _LVORi = "ListVpcOriginsResult";
@@ -706,8 +754,10 @@ const _MTTLax = "MaximumTTL";
 const _Ma = "Marker";
 const _Me = "Members";
 const _Met = "Method";
+const _Mo = "Mode";
 const _N = "Name";
 const _NM = "NextMarker";
+const _NOCC = "NumberOfCaCertificates";
 const _NSCDP = "NoSuchContinuousDeploymentPolicy";
 const _NSCFOAI = "NoSuchCloudFrontOriginAccessIdentity";
 const _NSCP = "NoSuchCachePolicy";
@@ -772,6 +822,9 @@ const _Or = "Origin";
 const _Ov = "Override";
 const _P = "Parameters";
 const _PC = "PriceClass";
+const _PCF = "PublishConnectionFunction";
+const _PCFR = "PublishConnectionFunctionRequest";
+const _PCFRu = "PublishConnectionFunctionResult";
 const _PD = "PolicyDocument";
 const _PDI = "PrimaryDistributionId";
 const _PDN = "PrimaryDomainName";
@@ -820,7 +873,7 @@ const _QSCKL = "QueryStringCacheKeysList";
 const _QSN = "QueryStringNames";
 const _QSNL = "QueryStringNamesList";
 const _QSu = "QueryString";
-const _R = "Restrictions";
+const _R = "Region";
 const _RA = "ResourceArn";
 const _RARN = "RoleARN";
 const _RC = "ResponseCode";
@@ -874,7 +927,8 @@ const _RT = "ResourceType";
 const _RTe = "RestrictionType";
 const _RTed = "RedirectTo";
 const _RU = "ReportUri";
-const _Re = "Reason";
+const _Re = "Restrictions";
+const _Rea = "Reason";
 const _Req = "Required";
 const _Res = "Resource";
 const _Ru = "Runtime";
@@ -920,10 +974,13 @@ const _STS = "StrictTransportSecurity";
 const _STo = "SourceType";
 const _SWC = "SingleWeightConfig";
 const _Si = "Signer";
-const _St = "Staging";
-const _Sta = "Stage";
+const _St = "Stage";
+const _Sta = "Staging";
 const _T = "Type";
 const _TC = "TrafficConfig";
+const _TCF = "TestConnectionFunction";
+const _TCFR = "TestConnectionFunctionRequest";
+const _TCFRe = "TestConnectionFunctionResult";
 const _TCe = "TenantConfig";
 const _TDI = "TargetDistributionId";
 const _TF = "TestFunction";
@@ -994,7 +1051,13 @@ const _TRR = "TagResourceRequest";
 const _TRa = "TargetResource";
 const _TRag = "TagResource";
 const _TS = "TrustedSigners";
+const _TSC = "TrustStoreConfig";
 const _TSDNE = "TrustedSignerDoesNotExist";
+const _TSI = "TrustStoreIdentifier";
+const _TSIr = "TrustStoreId";
+const _TSL = "TrustStoreList";
+const _TSS = "TrustStoreSummary";
+const _TSr = "TrustStore";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _UAIL = "UpdateAnycastIpList";
@@ -1003,9 +1066,12 @@ const _UAILRp = "UpdateAnycastIpListResult";
 const _UCDP = "UpdateContinuousDeploymentPolicy";
 const _UCDPR = "UpdateContinuousDeploymentPolicyRequest";
 const _UCDPRp = "UpdateContinuousDeploymentPolicyResult";
+const _UCF = "UpdateConnectionFunction";
 const _UCFOAI = "UpdateCloudFrontOriginAccessIdentity";
 const _UCFOAIR = "UpdateCloudFrontOriginAccessIdentityRequest";
 const _UCFOAIRp = "UpdateCloudFrontOriginAccessIdentityResult";
+const _UCFR = "UpdateConnectionFunctionRequest";
+const _UCFRp = "UpdateConnectionFunctionResult";
 const _UCG = "UpdateConnectionGroup";
 const _UCGR = "UpdateConnectionGroupRequest";
 const _UCGRp = "UpdateConnectionGroupResult";
@@ -1060,14 +1126,18 @@ const _URR = "UntagResourceRequest";
 const _USD = "UpdateStreamingDistribution";
 const _USDR = "UpdateStreamingDistributionRequest";
 const _USDRp = "UpdateStreamingDistributionResult";
+const _UTS = "UpdateTrustStore";
+const _UTSR = "UpdateTrustStoreRequest";
+const _UTSRp = "UpdateTrustStoreResult";
 const _UVO = "UpdateVpcOrigin";
 const _UVOR = "UpdateVpcOriginRequest";
 const _UVORp = "UpdateVpcOriginResult";
-const _V = "Value";
+const _V = "Version";
 const _VC = "ViewerCertificate";
 const _VDC = "VerifyDnsConfiguration";
 const _VDCR = "VerifyDnsConfigurationRequest";
 const _VDCRe = "VerifyDnsConfigurationResult";
+const _VMC = "ViewerMtlsConfig";
 const _VO = "VpcOrigin";
 const _VOC = "VpcOriginConfig";
 const _VOEC = "VpcOriginEndpointConfig";
@@ -1080,6 +1150,7 @@ const _VTD = "ValidationTokenDetails";
 const _VTDL = "ValidationTokenDetailList";
 const _VTDa = "ValidationTokenDetail";
 const _VTH = "ValidationTokenHost";
+const _Va = "Value";
 const _W = "Weight";
 const _WA = "WebAcl";
 const _WAC = "WebAclCustomization";
@@ -1426,6 +1497,7 @@ export var BatchTooLarge: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(BatchTooLarge, __BatchTooLarge);
 
+export var CaCertificatesBundleS3Location: StaticStructureSchema = [3, n0, _CCBSL, 0, [_B, _K, _R, _V], [0, 0, 0, 0]];
 export var CacheBehavior: StaticStructureSchema = [
   3,
   n0,
@@ -1662,6 +1734,29 @@ export var ConflictingAliasesList: StaticStructureSchema = [
   [_NM, _MI, _Q, _I],
   [0, 1, 1, [() => ConflictingAliases, 0]],
 ];
+export var ConnectionFunctionAssociation: StaticStructureSchema = [3, n0, _CFA, 0, [_Id], [0]];
+export var ConnectionFunctionSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _CFS,
+  0,
+  [_N, _Id, _CFC, _CFAo, _S, _St, _CTr, _LMT],
+  [0, 0, [() => FunctionConfig, 0], 0, 0, 0, 4, 4],
+];
+export var ConnectionFunctionTestResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CFTR,
+  0,
+  [_CFS, _CU, _CFEL, _CFEM, _CFO],
+  [
+    [() => ConnectionFunctionSummary, 0],
+    0,
+    [() => FunctionExecutionLogList, 0],
+    [() => sensitiveStringType, 0],
+    [() => sensitiveStringType, 0],
+  ],
+];
 export var ConnectionGroup: StaticStructureSchema = [
   3,
   n0,
@@ -1754,7 +1849,7 @@ export var ContinuousDeploymentPolicySummary: StaticStructureSchema = [
   [_CDP],
   [[() => ContinuousDeploymentPolicy, 0]],
 ];
-export var ContinuousDeploymentSingleHeaderConfig: StaticStructureSchema = [3, n0, _CDSHC, 0, [_He, _V], [0, 0]];
+export var ContinuousDeploymentSingleHeaderConfig: StaticStructureSchema = [3, n0, _CDSHC, 0, [_He, _Va], [0, 0]];
 export var ContinuousDeploymentSingleWeightConfig: StaticStructureSchema = [
   3,
   n0,
@@ -1770,13 +1865,13 @@ export var CopyDistributionRequest: StaticStructureSchema = [
   n0,
   _CDR,
   0,
-  [_PDI, _St, _IM, _CR, _E],
+  [_PDI, _Sta, _IM, _CR, _E],
   [
     [0, 1],
     [
       2,
       {
-        [_hH]: _St,
+        [_hH]: _Sta,
       },
     ],
     [
@@ -1897,6 +1992,36 @@ export var CreateCloudFrontOriginAccessIdentityResult: StaticStructureSchema = [
   [_CFOAI, _L, _ET],
   [
     [() => CloudFrontOriginAccessIdentity, 16],
+    [
+      0,
+      {
+        [_hH]: _L,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _ET,
+      },
+    ],
+  ],
+];
+export var CreateConnectionFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CCFR,
+  0,
+  [_N, _CFC, _CFCo, _Ta],
+  [0, [() => FunctionConfig, 0], [() => FunctionBlob, 0], [() => Tags, 0]],
+];
+export var CreateConnectionFunctionResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CCFRr,
+  0,
+  [_CFS, _L, _ET],
+  [
+    [() => ConnectionFunctionSummary, 16],
     [
       0,
       {
@@ -2592,6 +2717,30 @@ export var CreateStreamingDistributionWithTagsResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var CreateTrustStoreRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CTSR,
+  0,
+  [_N, _CCBS, _Ta],
+  [0, () => CaCertificatesBundleSource, [() => Tags, 0]],
+];
+export var CreateTrustStoreResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CTSRr,
+  0,
+  [_TSr, _ET],
+  [
+    [() => TrustStore, 16],
+    [
+      0,
+      {
+        [_hH]: _ET,
+      },
+    ],
+  ],
+];
 export var CreateVpcOriginRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2715,6 +2864,22 @@ export var DeleteCloudFrontOriginAccessIdentityRequest: StaticStructureSchema = 
   3,
   n0,
   _DCFOAIR,
+  0,
+  [_Id, _IM],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hH]: _IM_,
+      },
+    ],
+  ],
+];
+export var DeleteConnectionFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DCFR,
   0,
   [_Id, _IM],
   [
@@ -2955,6 +3120,22 @@ export var DeleteStreamingDistributionRequest: StaticStructureSchema = [
     ],
   ],
 ];
+export var DeleteTrustStoreRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTSR,
+  0,
+  [_Id, _IM],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hH]: _IM_,
+      },
+    ],
+  ],
+];
 export var DeleteVpcOriginRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2987,18 +3168,50 @@ export var DeleteVpcOriginResult: StaticStructureSchema = [
     ],
   ],
 ];
-export var DescribeFunctionRequest: StaticStructureSchema = [
+export var DescribeConnectionFunctionRequest: StaticStructureSchema = [
   3,
   n0,
-  _DFRe,
+  _DCFRe,
   0,
-  [_N, _Sta],
+  [_Ide, _St],
   [
     [0, 1],
     [
       0,
       {
-        [_hQ]: _Sta,
+        [_hQ]: _St,
+      },
+    ],
+  ],
+];
+export var DescribeConnectionFunctionResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DCFRes,
+  0,
+  [_CFS, _ET],
+  [
+    [() => ConnectionFunctionSummary, 16],
+    [
+      0,
+      {
+        [_hH]: _ET,
+      },
+    ],
+  ],
+];
+export var DescribeFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DFRe,
+  0,
+  [_N, _St],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _St,
       },
     ],
   ],
@@ -3151,15 +3364,17 @@ export var DistributionConfig: StaticStructureSchema = [
     _PC,
     _E,
     _VC,
-    _R,
+    _Re,
     _WACLI,
     _HV,
     _IIPVE,
     _CDPI,
-    _St,
+    _Sta,
     _AILI,
     _TCe,
     _CMo,
+    _VMC,
+    _CFA,
   ],
   [
     0,
@@ -3184,6 +3399,8 @@ export var DistributionConfig: StaticStructureSchema = [
     0,
     [() => TenantConfig, 0],
     0,
+    () => ViewerMtlsConfig,
+    () => ConnectionFunctionAssociation,
   ],
 ];
 export var DistributionConfigWithTags: StaticStructureSchema = [
@@ -3258,14 +3475,16 @@ export var DistributionSummary: StaticStructureSchema = [
     _PC,
     _E,
     _VC,
-    _R,
+    _Re,
     _WACLI,
     _HV,
     _IIPVE,
     _AICPRl,
-    _St,
+    _Sta,
     _CMo,
     _AILI,
+    _VMC,
+    _CFA,
   ],
   [
     0,
@@ -3292,6 +3511,8 @@ export var DistributionSummary: StaticStructureSchema = [
     2,
     0,
     0,
+    () => ViewerMtlsConfig,
+    () => ConnectionFunctionAssociation,
   ],
 ];
 export var DistributionTenant: StaticStructureSchema = [
@@ -3311,7 +3532,7 @@ export var DistributionTenantSummary: StaticStructureSchema = [
   [_Id, _DI, _N, _Ar, _Do, _CGI, _Cu, _CTr, _LMT, _ET, _E, _S],
   [0, 0, 0, 0, () => DomainResultList, 0, [() => Customizations, 0], 4, 4, 0, 2, 0],
 ];
-export var DnsConfiguration: StaticStructureSchema = [3, n0, _DCn, 0, [_Dom, _S, _Re], [0, 0, 0]];
+export var DnsConfiguration: StaticStructureSchema = [3, n0, _DCn, 0, [_Dom, _S, _Rea], [0, 0, 0]];
 export var DomainConflict: StaticStructureSchema = [3, n0, _DCo, 0, [_Dom, _RT, _RI, _AIc], [0, 0, 0, 0]];
 export var DomainItem: StaticStructureSchema = [3, n0, _DIo, 0, [_Dom], [0]];
 export var DomainResult: StaticStructureSchema = [3, n0, _DR, 0, [_Dom, _S], [0, 0]];
@@ -3569,7 +3790,7 @@ export var FunctionList: StaticStructureSchema = [
   [_NM, _MI, _Q, _I],
   [0, 1, 1, [() => FunctionSummaryList, 0]],
 ];
-export var FunctionMetadata: StaticStructureSchema = [3, n0, _FM, 0, [_FARN, _Sta, _CTr, _LMT], [0, 0, 4, 4]];
+export var FunctionMetadata: StaticStructureSchema = [3, n0, _FM, 0, [_FARN, _St, _CTr, _LMT], [0, 0, 4, 4]];
 export var FunctionSizeLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
@@ -3688,6 +3909,44 @@ export var GetCloudFrontOriginAccessIdentityResult: StaticStructureSchema = [
       0,
       {
         [_hH]: _ET,
+      },
+    ],
+  ],
+];
+export var GetConnectionFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GCFR,
+  0,
+  [_Ide, _St],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _St,
+      },
+    ],
+  ],
+];
+export var GetConnectionFunctionResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GCFRe,
+  0,
+  [_CFCo, _ET, _CTo],
+  [
+    [() => FunctionBlob, 16],
+    [
+      0,
+      {
+        [_hH]: _ET,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _CT_,
       },
     ],
   ],
@@ -3929,13 +4188,13 @@ export var GetFunctionRequest: StaticStructureSchema = [
   n0,
   _GFR,
   0,
-  [_N, _Sta],
+  [_N, _St],
   [
     [0, 1],
     [
       0,
       {
-        [_hQ]: _Sta,
+        [_hQ]: _St,
       },
     ],
   ],
@@ -4218,6 +4477,23 @@ export var GetStreamingDistributionResult: StaticStructureSchema = [
   [_SD, _ET],
   [
     [() => StreamingDistribution, 16],
+    [
+      0,
+      {
+        [_hH]: _ET,
+      },
+    ],
+  ],
+];
+export var GetTrustStoreRequest: StaticStructureSchema = [3, n0, _GTSR, 0, [_Ide], [[0, 1]]];
+export var GetTrustStoreResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GTSRe,
+  0,
+  [_TSr, _ET],
+  [
+    [() => TrustStore, 16],
     [
       0,
       {
@@ -4874,6 +5150,15 @@ export var ListConflictingAliasesResult: StaticStructureSchema = [
   [_CAL],
   [[() => ConflictingAliasesList, 16]],
 ];
+export var ListConnectionFunctionsRequest: StaticStructureSchema = [3, n0, _LCFR, 0, [_Ma, _MI, _St], [0, 1, 0]];
+export var ListConnectionFunctionsResult: StaticStructureSchema = [
+  3,
+  n0,
+  _LCFRi,
+  0,
+  [_NM, _CF],
+  [0, [() => ConnectionFunctionSummaryList, 0]],
+];
 export var ListConnectionGroupsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4978,6 +5263,41 @@ export var ListDistributionsByCachePolicyIdResult: StaticStructureSchema = [
   0,
   [_DIL],
   [[() => DistributionIdList, 16]],
+];
+export var ListDistributionsByConnectionFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LDBCFR,
+  0,
+  [_Ma, _MI, _CFI],
+  [
+    [
+      0,
+      {
+        [_hQ]: _Ma,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _CFI,
+      },
+    ],
+  ],
+];
+export var ListDistributionsByConnectionFunctionResult: StaticStructureSchema = [
+  3,
+  n0,
+  _LDBCFRi,
+  0,
+  [_DL],
+  [[() => DistributionList, 16]],
 ];
 export var ListDistributionsByConnectionModeRequest: StaticStructureSchema = [
   3,
@@ -5144,6 +5464,41 @@ export var ListDistributionsByResponseHeadersPolicyIdResult: StaticStructureSche
   0,
   [_DIL],
   [[() => DistributionIdList, 16]],
+];
+export var ListDistributionsByTrustStoreRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LDBTSR,
+  0,
+  [_TSI, _Ma, _MI],
+  [
+    [
+      0,
+      {
+        [_hQ]: _TSI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _Ma,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MI,
+      },
+    ],
+  ],
+];
+export var ListDistributionsByTrustStoreResult: StaticStructureSchema = [
+  3,
+  n0,
+  _LDBTSRi,
+  0,
+  [_DL],
+  [[() => DistributionList, 16]],
 ];
 export var ListDistributionsByVpcOriginIdRequest: StaticStructureSchema = [
   3,
@@ -5338,7 +5693,7 @@ export var ListFunctionsRequest: StaticStructureSchema = [
   n0,
   _LFR,
   0,
-  [_Ma, _MI, _Sta],
+  [_Ma, _MI, _St],
   [
     [
       0,
@@ -5355,7 +5710,7 @@ export var ListFunctionsRequest: StaticStructureSchema = [
     [
       0,
       {
-        [_hQ]: _Sta,
+        [_hQ]: _St,
       },
     ],
   ],
@@ -5666,6 +6021,15 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [
   ],
 ];
 export var ListTagsForResourceResult: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [[() => Tags, 16]]];
+export var ListTrustStoresRequest: StaticStructureSchema = [3, n0, _LTSR, 0, [_Ma, _MI], [0, 1]];
+export var ListTrustStoresResult: StaticStructureSchema = [
+  3,
+  n0,
+  _LTSRi,
+  0,
+  [_NM, _TSL],
+  [0, [() => TrustStoreList, 0]],
+];
 export var ListVpcOriginsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -6150,7 +6514,7 @@ export var OriginRequestPolicySummary: StaticStructureSchema = [
 export var Origins: StaticStructureSchema = [3, n0, _O, 0, [_Q, _I], [1, [() => OriginList, 0]]];
 export var OriginShield: StaticStructureSchema = [3, n0, _OS, 0, [_E, _OSR], [2, 0]];
 export var OriginSslProtocols: StaticStructureSchema = [3, n0, _OSP, 0, [_Q, _I], [1, [() => SslProtocolsList, 0]]];
-export var Parameter: StaticStructureSchema = [3, n0, _Par, 0, [_N, _V], [0, 0]];
+export var Parameter: StaticStructureSchema = [3, n0, _Par, 0, [_N, _Va], [0, 0]];
 export var ParameterDefinition: StaticStructureSchema = [
   3,
   n0,
@@ -6225,6 +6589,30 @@ export var PublicKeyList: StaticStructureSchema = [
   [0, 1, 1, [() => PublicKeySummaryList, 0]],
 ];
 export var PublicKeySummary: StaticStructureSchema = [3, n0, _PKS, 0, [_Id, _N, _CTr, _EK, _Co], [0, 0, 4, 0, 0]];
+export var PublishConnectionFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PCFR,
+  0,
+  [_Id, _IM],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hH]: _IM_,
+      },
+    ],
+  ],
+];
+export var PublishConnectionFunctionResult: StaticStructureSchema = [
+  3,
+  n0,
+  _PCFRu,
+  0,
+  [_CFS],
+  [[() => ConnectionFunctionSummary, 16]],
+];
 export var PublishFunctionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -6445,7 +6833,7 @@ export var ResponseHeadersPolicyCorsConfig: StaticStructureSchema = [
     2,
   ],
 ];
-export var ResponseHeadersPolicyCustomHeader: StaticStructureSchema = [3, n0, _RHPCH, 0, [_He, _V, _Ov], [0, 0, 2]];
+export var ResponseHeadersPolicyCustomHeader: StaticStructureSchema = [3, n0, _RHPCH, 0, [_He, _Va, _Ov], [0, 0, 2]];
 export var ResponseHeadersPolicyCustomHeadersConfig: StaticStructureSchema = [
   3,
   n0,
@@ -6533,7 +6921,7 @@ export var ResponseHeadersPolicyXSSProtection: StaticStructureSchema = [
   [_Ov, _Pro, _MBo, _RU],
   [2, 2, 2, 0],
 ];
-export var Restrictions: StaticStructureSchema = [3, n0, _R, 0, [_GRe], [[() => GeoRestriction, 0]]];
+export var Restrictions: StaticStructureSchema = [3, n0, _Re, 0, [_GRe], [[() => GeoRestriction, 0]]];
 export var S3Origin: StaticStructureSchema = [3, n0, _SO, 0, [_DN, _OAIr], [0, 0]];
 export var S3OriginConfig: StaticStructureSchema = [3, n0, _SOC, 0, [_OAIr, _ORT], [0, 1]];
 export var SessionStickinessConfig: StaticStructureSchema = [3, n0, _SSC, 0, [_ITTL, _MTTLax], [1, 1]];
@@ -6638,7 +7026,7 @@ export var StringSchemaConfig: StaticStructureSchema = [
   [_Co, _DV, _Req],
   [[() => sensitiveStringType, 0], 0, 2],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
 export var TagKeys: StaticStructureSchema = [3, n0, _TK, 0, [_I], [[() => TagKeyList, 0]]];
 export var TagResourceRequest: StaticStructureSchema = [
   3,
@@ -6664,6 +7052,32 @@ export var TagResourceRequest: StaticStructureSchema = [
 ];
 export var Tags: StaticStructureSchema = [3, n0, _Ta, 0, [_I], [[() => TagList, 0]]];
 export var TenantConfig: StaticStructureSchema = [3, n0, _TCe, 0, [_PDar], [[() => ParameterDefinitions, 0]]];
+export var TestConnectionFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _TCFR,
+  0,
+  [_Id, _IM, _St, _CO],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hH]: _IM_,
+      },
+    ],
+    0,
+    [() => FunctionEventObject, 0],
+  ],
+];
+export var TestConnectionFunctionResult: StaticStructureSchema = [
+  3,
+  n0,
+  _TCFRe,
+  0,
+  [_CFTR],
+  [[() => ConnectionFunctionTestResult, 16]],
+];
 export var TestFunctionFailed: StaticErrorSchema = [
   -3,
   n0,
@@ -6682,7 +7096,7 @@ export var TestFunctionRequest: StaticStructureSchema = [
   n0,
   _TFR,
   0,
-  [_N, _IM, _Sta, _EO],
+  [_N, _IM, _St, _EO],
   [
     [0, 1],
     [
@@ -7487,6 +7901,23 @@ export var TrustedSigners: StaticStructureSchema = [
   [_E, _Q, _I],
   [2, 1, [() => AwsAccountNumberList, 0]],
 ];
+export var TrustStore: StaticStructureSchema = [
+  3,
+  n0,
+  _TSr,
+  0,
+  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea],
+  [0, 0, 0, 0, 1, 4, 0],
+];
+export var TrustStoreConfig: StaticStructureSchema = [3, n0, _TSC, 0, [_TSIr, _ATSCN, _ICE], [0, 2, 2]];
+export var TrustStoreSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _TSS,
+  0,
+  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea, _ET],
+  [0, 0, 0, 0, 1, 4, 0, 0],
+];
 export var UnsupportedOperation: StaticErrorSchema = [
   -3,
   n0,
@@ -7625,6 +8056,40 @@ export var UpdateCloudFrontOriginAccessIdentityResult: StaticStructureSchema = [
   [_CFOAI, _ET],
   [
     [() => CloudFrontOriginAccessIdentity, 16],
+    [
+      0,
+      {
+        [_hH]: _ET,
+      },
+    ],
+  ],
+];
+export var UpdateConnectionFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UCFR,
+  0,
+  [_Id, _IM, _CFC, _CFCo],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hH]: _IM_,
+      },
+    ],
+    [() => FunctionConfig, 0],
+    [() => FunctionBlob, 0],
+  ],
+];
+export var UpdateConnectionFunctionResult: StaticStructureSchema = [
+  3,
+  n0,
+  _UCFRp,
+  0,
+  [_CFS, _ET],
+  [
+    [() => ConnectionFunctionSummary, 16],
     [
       0,
       {
@@ -8252,6 +8717,39 @@ export var UpdateStreamingDistributionResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var UpdateTrustStoreRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UTSR,
+  0,
+  [_Id, _CCBS, _IM],
+  [
+    [0, 1],
+    [() => CaCertificatesBundleSource, 16],
+    [
+      0,
+      {
+        [_hH]: _IM_,
+      },
+    ],
+  ],
+];
+export var UpdateTrustStoreResult: StaticStructureSchema = [
+  3,
+  n0,
+  _UTSRp,
+  0,
+  [_TSr, _ET],
+  [
+    [() => TrustStore, 16],
+    [
+      0,
+      {
+        [_hH]: _ET,
+      },
+    ],
+  ],
+];
 export var UpdateVpcOriginRequest: StaticStructureSchema = [
   3,
   n0,
@@ -8309,6 +8807,7 @@ export var ViewerCertificate: StaticStructureSchema = [
   [_CFDC, _IAMCI, _ACMCA, _SSLSM, _MPV, _Ce, _CSe],
   [2, 0, 0, 0, 0, 0, 0],
 ];
+export var ViewerMtlsConfig: StaticStructureSchema = [3, n0, _VMC, 0, [_Mo, _TSC], [0, () => TrustStoreConfig]];
 export var VpcOrigin: StaticStructureSchema = [
   3,
   n0,
@@ -8501,6 +9000,18 @@ export var ConflictingAliases: StaticListSchema = [
     () => ConflictingAlias,
     {
       [_xN]: _CA,
+    },
+  ],
+];
+export var ConnectionFunctionSummaryList: StaticListSchema = [
+  1,
+  n0,
+  _CFSL,
+  0,
+  [
+    () => ConnectionFunctionSummary,
+    {
+      [_xN]: _CFS,
     },
   ],
 ];
@@ -9135,6 +9646,18 @@ export var TrustedKeyGroupIdList: StaticListSchema = [
     },
   ],
 ];
+export var TrustStoreList: StaticListSchema = [
+  1,
+  n0,
+  _TSL,
+  0,
+  [
+    () => TrustStoreSummary,
+    {
+      [_xN]: _TSS,
+    },
+  ],
+];
 export var ValidationTokenDetailList: StaticListSchema = [1, n0, _VTDL, 0, () => ValidationTokenDetail];
 export var VpcOriginSummaryList: StaticListSchema = [
   1,
@@ -9147,6 +9670,14 @@ export var VpcOriginSummaryList: StaticListSchema = [
       [_xN]: _VOS,
     },
   ],
+];
+export var CaCertificatesBundleSource: StaticStructureSchema = [
+  3,
+  n0,
+  _CCBS,
+  0,
+  [_CCBSL],
+  [() => CaCertificatesBundleS3Location],
 ];
 export var AssociateAlias: StaticOperationSchema = [
   9,
@@ -9217,6 +9748,16 @@ export var CreateCloudFrontOriginAccessIdentity: StaticOperationSchema = [
   },
   () => CreateCloudFrontOriginAccessIdentityRequest,
   () => CreateCloudFrontOriginAccessIdentityResult,
+];
+export var CreateConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _CCF,
+  {
+    [_h]: ["POST", "/2020-05-31/connection-function", 201],
+  },
+  () => CreateConnectionFunctionRequest,
+  () => CreateConnectionFunctionResult,
 ];
 export var CreateConnectionGroup: StaticOperationSchema = [
   9,
@@ -9291,7 +9832,7 @@ export var CreateFieldLevelEncryptionProfile: StaticOperationSchema = [
 export var CreateFunction: StaticOperationSchema = [
   9,
   n0,
-  _CF,
+  _CFr,
   {
     [_h]: ["POST", "/2020-05-31/function", 201],
   },
@@ -9418,6 +9959,16 @@ export var CreateStreamingDistributionWithTags: StaticOperationSchema = [
   () => CreateStreamingDistributionWithTagsRequest,
   () => CreateStreamingDistributionWithTagsResult,
 ];
+export var CreateTrustStore: StaticOperationSchema = [
+  9,
+  n0,
+  _CTS,
+  {
+    [_h]: ["POST", "/2020-05-31/trust-store", 201],
+  },
+  () => CreateTrustStoreRequest,
+  () => CreateTrustStoreResult,
+];
 export var CreateVpcOrigin: StaticOperationSchema = [
   9,
   n0,
@@ -9456,6 +10007,16 @@ export var DeleteCloudFrontOriginAccessIdentity: StaticOperationSchema = [
     [_h]: ["DELETE", "/2020-05-31/origin-access-identity/cloudfront/{Id}", 204],
   },
   () => DeleteCloudFrontOriginAccessIdentityRequest,
+  () => __Unit,
+];
+export var DeleteConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _DCF,
+  {
+    [_h]: ["DELETE", "/2020-05-31/connection-function/{Id}", 204],
+  },
+  () => DeleteConnectionFunctionRequest,
   () => __Unit,
 ];
 export var DeleteConnectionGroup: StaticOperationSchema = [
@@ -9628,6 +10189,16 @@ export var DeleteStreamingDistribution: StaticOperationSchema = [
   () => DeleteStreamingDistributionRequest,
   () => __Unit,
 ];
+export var DeleteTrustStore: StaticOperationSchema = [
+  9,
+  n0,
+  _DTSe,
+  {
+    [_h]: ["DELETE", "/2020-05-31/trust-store/{Id}", 204],
+  },
+  () => DeleteTrustStoreRequest,
+  () => __Unit,
+];
 export var DeleteVpcOrigin: StaticOperationSchema = [
   9,
   n0,
@@ -9637,6 +10208,16 @@ export var DeleteVpcOrigin: StaticOperationSchema = [
   },
   () => DeleteVpcOriginRequest,
   () => DeleteVpcOriginResult,
+];
+export var DescribeConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _DCFe,
+  {
+    [_h]: ["GET", "/2020-05-31/connection-function/{Identifier}/describe", 200],
+  },
+  () => DescribeConnectionFunctionRequest,
+  () => DescribeConnectionFunctionResult,
 ];
 export var DescribeFunction: StaticOperationSchema = [
   9,
@@ -9727,6 +10308,16 @@ export var GetCloudFrontOriginAccessIdentityConfig: StaticOperationSchema = [
   },
   () => GetCloudFrontOriginAccessIdentityConfigRequest,
   () => GetCloudFrontOriginAccessIdentityConfigResult,
+];
+export var GetConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _GCF,
+  {
+    [_h]: ["GET", "/2020-05-31/connection-function/{Identifier}", 200],
+  },
+  () => GetConnectionFunctionRequest,
+  () => GetConnectionFunctionResult,
 ];
 export var GetConnectionGroup: StaticOperationSchema = [
   9,
@@ -10038,6 +10629,16 @@ export var GetStreamingDistributionConfig: StaticOperationSchema = [
   () => GetStreamingDistributionConfigRequest,
   () => GetStreamingDistributionConfigResult,
 ];
+export var GetTrustStore: StaticOperationSchema = [
+  9,
+  n0,
+  _GTS,
+  {
+    [_h]: ["GET", "/2020-05-31/trust-store/{Identifier}", 200],
+  },
+  () => GetTrustStoreRequest,
+  () => GetTrustStoreResult,
+];
 export var GetVpcOrigin: StaticOperationSchema = [
   9,
   n0,
@@ -10088,6 +10689,16 @@ export var ListConflictingAliases: StaticOperationSchema = [
   () => ListConflictingAliasesRequest,
   () => ListConflictingAliasesResult,
 ];
+export var ListConnectionFunctions: StaticOperationSchema = [
+  9,
+  n0,
+  _LCF,
+  {
+    [_h]: ["POST", "/2020-05-31/connection-functions", 200],
+  },
+  () => ListConnectionFunctionsRequest,
+  () => ListConnectionFunctionsResult,
+];
 export var ListConnectionGroups: StaticOperationSchema = [
   9,
   n0,
@@ -10137,6 +10748,16 @@ export var ListDistributionsByCachePolicyId: StaticOperationSchema = [
   },
   () => ListDistributionsByCachePolicyIdRequest,
   () => ListDistributionsByCachePolicyIdResult,
+];
+export var ListDistributionsByConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _LDBCF,
+  {
+    [_h]: ["GET", "/2020-05-31/distributionsByConnectionFunction", 200],
+  },
+  () => ListDistributionsByConnectionFunctionRequest,
+  () => ListDistributionsByConnectionFunctionResult,
 ];
 export var ListDistributionsByConnectionMode: StaticOperationSchema = [
   9,
@@ -10197,6 +10818,16 @@ export var ListDistributionsByResponseHeadersPolicyId: StaticOperationSchema = [
   },
   () => ListDistributionsByResponseHeadersPolicyIdRequest,
   () => ListDistributionsByResponseHeadersPolicyIdResult,
+];
+export var ListDistributionsByTrustStore: StaticOperationSchema = [
+  9,
+  n0,
+  _LDBTS,
+  {
+    [_h]: ["GET", "/2020-05-31/distributionsByTrustStore", 200],
+  },
+  () => ListDistributionsByTrustStoreRequest,
+  () => ListDistributionsByTrustStoreResult,
 ];
 export var ListDistributionsByVpcOriginId: StaticOperationSchema = [
   9,
@@ -10388,6 +11019,16 @@ export var ListTagsForResource: StaticOperationSchema = [
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResult,
 ];
+export var ListTrustStores: StaticOperationSchema = [
+  9,
+  n0,
+  _LTS,
+  {
+    [_h]: ["POST", "/2020-05-31/trust-stores", 200],
+  },
+  () => ListTrustStoresRequest,
+  () => ListTrustStoresResult,
+];
 export var ListVpcOrigins: StaticOperationSchema = [
   9,
   n0,
@@ -10397,6 +11038,16 @@ export var ListVpcOrigins: StaticOperationSchema = [
   },
   () => ListVpcOriginsRequest,
   () => ListVpcOriginsResult,
+];
+export var PublishConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _PCF,
+  {
+    [_h]: ["POST", "/2020-05-31/connection-function/{Id}/publish", 200],
+  },
+  () => PublishConnectionFunctionRequest,
+  () => PublishConnectionFunctionResult,
 ];
 export var PublishFunction: StaticOperationSchema = [
   9,
@@ -10427,6 +11078,16 @@ export var TagResource: StaticOperationSchema = [
   },
   () => TagResourceRequest,
   () => __Unit,
+];
+export var TestConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _TCF,
+  {
+    [_h]: ["POST", "/2020-05-31/connection-function/{Id}/test", 200],
+  },
+  () => TestConnectionFunctionRequest,
+  () => TestConnectionFunctionResult,
 ];
 export var TestFunction: StaticOperationSchema = [
   9,
@@ -10477,6 +11138,16 @@ export var UpdateCloudFrontOriginAccessIdentity: StaticOperationSchema = [
   },
   () => UpdateCloudFrontOriginAccessIdentityRequest,
   () => UpdateCloudFrontOriginAccessIdentityResult,
+];
+export var UpdateConnectionFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _UCF,
+  {
+    [_h]: ["PUT", "/2020-05-31/connection-function/{Id}", 200],
+  },
+  () => UpdateConnectionFunctionRequest,
+  () => UpdateConnectionFunctionResult,
 ];
 export var UpdateConnectionGroup: StaticOperationSchema = [
   9,
@@ -10647,6 +11318,16 @@ export var UpdateStreamingDistribution: StaticOperationSchema = [
   },
   () => UpdateStreamingDistributionRequest,
   () => UpdateStreamingDistributionResult,
+];
+export var UpdateTrustStore: StaticOperationSchema = [
+  9,
+  n0,
+  _UTS,
+  {
+    [_h]: ["PUT", "/2020-05-31/trust-store/{Id}", 200],
+  },
+  () => UpdateTrustStoreRequest,
+  () => UpdateTrustStoreResult,
 ];
 export var UpdateVpcOrigin: StaticOperationSchema = [
   9,

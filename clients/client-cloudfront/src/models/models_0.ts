@@ -22,7 +22,6 @@ import {
   IpAddressType,
   IpamCidrStatus,
   ItemSelection,
-  ManagedCertificateStatus,
   Method,
   MinimumProtocolVersion,
   OriginAccessControlOriginTypes,
@@ -39,7 +38,9 @@ import {
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
   SslProtocol,
   SSLSupportMethod,
+  TrustStoreStatus,
   ValidationTokenHost,
+  ViewerMtlsMode,
   ViewerProtocolPolicy,
 } from "./enums";
 
@@ -540,6 +541,75 @@ export interface AssociateDistributionWebACLResult {
    * @public
    */
   ETag?: string | undefined;
+}
+
+/**
+ * <p>The CA certificates bundle location in Amazon S3.</p>
+ * @public
+ */
+export interface CaCertificatesBundleS3Location {
+  /**
+   * <p>The S3 bucket.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The location's key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The location's Region.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The location's version.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * <p>A CA certificates bundle source.</p>
+ * @public
+ */
+export type CaCertificatesBundleSource =
+  | CaCertificatesBundleSource.CaCertificatesBundleS3LocationMember
+  | CaCertificatesBundleSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CaCertificatesBundleSource {
+  /**
+   * <p>The CA certificates bundle location in Amazon S3.</p>
+   * @public
+   */
+  export interface CaCertificatesBundleS3LocationMember {
+    CaCertificatesBundleS3Location: CaCertificatesBundleS3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    CaCertificatesBundleS3Location?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    CaCertificatesBundleS3Location: (value: CaCertificatesBundleS3Location) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -1201,6 +1271,18 @@ export interface CopyDistributionRequest {
    * @public
    */
   Enabled?: boolean | undefined;
+}
+
+/**
+ * <p>A connection function association.</p>
+ * @public
+ */
+export interface ConnectionFunctionAssociation {
+  /**
+   * <p>The association's ID.</p>
+   * @public
+   */
+  Id: string | undefined;
 }
 
 /**
@@ -1936,6 +2018,48 @@ export interface ViewerCertificate {
 }
 
 /**
+ * <p>A trust store configuration.</p>
+ * @public
+ */
+export interface TrustStoreConfig {
+  /**
+   * <p>The trust store ID.</p>
+   * @public
+   */
+  TrustStoreId: string | undefined;
+
+  /**
+   * <p>The configuration to use to advertise trust store CA names.</p>
+   * @public
+   */
+  AdvertiseTrustStoreCaNames?: boolean | undefined;
+
+  /**
+   * <p>The configuration to use to ignore certificate expiration.</p>
+   * @public
+   */
+  IgnoreCertificateExpiry?: boolean | undefined;
+}
+
+/**
+ * <p>A viewer mTLS configuration.</p>
+ * @public
+ */
+export interface ViewerMtlsConfig {
+  /**
+   * <p>The viewer mTLS mode.</p>
+   * @public
+   */
+  Mode?: ViewerMtlsMode | undefined;
+
+  /**
+   * <p>The trust store configuration associated with the viewer mTLS configuration.</p>
+   * @public
+   */
+  TrustStoreConfig?: TrustStoreConfig | undefined;
+}
+
+/**
  * <p>A distribution configuration.</p>
  * @public
  */
@@ -2071,6 +2195,18 @@ export interface DistributionConfig {
    * @public
    */
   ConnectionMode?: ConnectionMode | undefined;
+
+  /**
+   * <p>The distribution's viewer mTLS configuration.</p>
+   * @public
+   */
+  ViewerMtlsConfig?: ViewerMtlsConfig | undefined;
+
+  /**
+   * <p>The distribution's connection function association.</p>
+   * @public
+   */
+  ConnectionFunctionAssociation?: ConnectionFunctionAssociation | undefined;
 }
 
 /**
@@ -2351,6 +2487,166 @@ export interface CreateCloudFrontOriginAccessIdentityResult {
 
   /**
    * <p>The current version of the origin access identity created.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * <p>The key value store association.</p>
+ * @public
+ */
+export interface KeyValueStoreAssociation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the key value store association.</p>
+   * @public
+   */
+  KeyValueStoreARN: string | undefined;
+}
+
+/**
+ * <p>The key value store associations.</p>
+ * @public
+ */
+export interface KeyValueStoreAssociations {
+  /**
+   * <p>The quantity of key value store associations.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The items of the key value store association.</p>
+   * @public
+   */
+  Items?: KeyValueStoreAssociation[] | undefined;
+}
+
+/**
+ * <p>Contains configuration information about a CloudFront function.</p>
+ * @public
+ */
+export interface FunctionConfig {
+  /**
+   * <p>A comment to describe the function.</p>
+   * @public
+   */
+  Comment: string | undefined;
+
+  /**
+   * <p>The function's runtime environment version.</p>
+   * @public
+   */
+  Runtime: FunctionRuntime | undefined;
+
+  /**
+   * <p>The configuration for the key value store associations.</p>
+   * @public
+   */
+  KeyValueStoreAssociations?: KeyValueStoreAssociations | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectionFunctionRequest {
+  /**
+   * <p>A name for the connection function.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Contains configuration information about a CloudFront function.</p>
+   * @public
+   */
+  ConnectionFunctionConfig: FunctionConfig | undefined;
+
+  /**
+   * <p>The code for the connection function.</p>
+   * @public
+   */
+  ConnectionFunctionCode: Uint8Array | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+}
+
+/**
+ * <p>A connection function summary.</p>
+ * @public
+ */
+export interface ConnectionFunctionSummary {
+  /**
+   * <p>The connection function name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The connection function ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Contains configuration information about a CloudFront function.</p>
+   * @public
+   */
+  ConnectionFunctionConfig: FunctionConfig | undefined;
+
+  /**
+   * <p>The connection function Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  ConnectionFunctionArn: string | undefined;
+
+  /**
+   * <p>The connection function status.</p>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The connection function stage.</p>
+   * @public
+   */
+  Stage: FunctionStage | undefined;
+
+  /**
+   * <p>The connection function created time.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The connection function last modified time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectionFunctionResult {
+  /**
+   * <p>The summary for the connection function.</p>
+   * @public
+   */
+  ConnectionFunctionSummary?: ConnectionFunctionSummary | undefined;
+
+  /**
+   * <p>The location of the connection function.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the connection function.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -3394,60 +3690,6 @@ export interface CreateFieldLevelEncryptionProfileResult {
    * @public
    */
   ETag?: string | undefined;
-}
-
-/**
- * <p>The key value store association.</p>
- * @public
- */
-export interface KeyValueStoreAssociation {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the key value store association.</p>
-   * @public
-   */
-  KeyValueStoreARN: string | undefined;
-}
-
-/**
- * <p>The key value store associations.</p>
- * @public
- */
-export interface KeyValueStoreAssociations {
-  /**
-   * <p>The quantity of key value store associations.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The items of the key value store association.</p>
-   * @public
-   */
-  Items?: KeyValueStoreAssociation[] | undefined;
-}
-
-/**
- * <p>Contains configuration information about a CloudFront function.</p>
- * @public
- */
-export interface FunctionConfig {
-  /**
-   * <p>A comment to describe the function.</p>
-   * @public
-   */
-  Comment: string | undefined;
-
-  /**
-   * <p>The function's runtime environment version.</p>
-   * @public
-   */
-  Runtime: FunctionRuntime | undefined;
-
-  /**
-   * <p>The configuration for the key value store associations.</p>
-   * @public
-   */
-  KeyValueStoreAssociations?: KeyValueStoreAssociations | undefined;
 }
 
 /**
@@ -5087,6 +5329,94 @@ export interface CreateStreamingDistributionWithTagsResult {
 }
 
 /**
+ * @public
+ */
+export interface CreateTrustStoreRequest {
+  /**
+   * <p>A name for the trust store.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The CA certificates bundle source for the trust store.</p>
+   * @public
+   */
+  CaCertificatesBundleSource: CaCertificatesBundleSource | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+}
+
+/**
+ * <p>A trust store.</p>
+ * @public
+ */
+export interface TrustStore {
+  /**
+   * <p>The trust store's ID.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The trust store's Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The trust store's name.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The trust store's status.</p>
+   * @public
+   */
+  Status?: TrustStoreStatus | undefined;
+
+  /**
+   * <p>The trust store's number of CA certificates.</p>
+   * @public
+   */
+  NumberOfCaCertificates?: number | undefined;
+
+  /**
+   * <p>The trust store's last modified time.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The trust store's reason.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrustStoreResult {
+  /**
+   * <p>The trust store.</p>
+   * @public
+   */
+  TrustStore?: TrustStore | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the trust store.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
  * <p>An Amazon CloudFront VPC origin endpoint configuration.</p>
  * @public
  */
@@ -5266,6 +5596,23 @@ export interface DeleteCloudFrontOriginAccessIdentityRequest {
    * @public
    */
   IfMatch?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectionFunctionRequest {
+  /**
+   * <p>The connection function's ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the connection function you are deleting.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
 }
 
 /**
@@ -5555,6 +5902,23 @@ export interface DeleteStreamingDistributionRequest {
 /**
  * @public
  */
+export interface DeleteTrustStoreRequest {
+  /**
+   * <p>The trust store's ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the trust store you are deleting.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteVpcOriginRequest {
   /**
    * <p>The VPC origin ID.</p>
@@ -5581,6 +5945,40 @@ export interface DeleteVpcOriginResult {
 
   /**
    * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectionFunctionRequest {
+  /**
+   * <p>The connection function's identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The connection function's stage.</p>
+   * @public
+   */
+  Stage?: FunctionStage | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectionFunctionResult {
+  /**
+   * <p>The connection function's summary.</p>
+   * @public
+   */
+  ConnectionFunctionSummary?: ConnectionFunctionSummary | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the connection function.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -5858,6 +6256,46 @@ export interface GetCloudFrontOriginAccessIdentityConfigResult {
    * @public
    */
   ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectionFunctionRequest {
+  /**
+   * <p>The connection function's identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The connection function's stage.</p>
+   * @public
+   */
+  Stage?: FunctionStage | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectionFunctionResult {
+  /**
+   * <p>The connection function's code.</p>
+   * @public
+   */
+  ConnectionFunctionCode?: Uint8Array | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the connection function.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>The connection function's content type.</p>
+   * @public
+   */
+  ContentType?: string | undefined;
 }
 
 /**
@@ -6363,259 +6801,4 @@ export interface GetManagedCertificateDetailsRequest {
    * @public
    */
   Identifier: string | undefined;
-}
-
-/**
- * <p>Contains details about the validation token.</p>
- * @public
- */
-export interface ValidationTokenDetail {
-  /**
-   * <p>The domain name.</p>
-   * @public
-   */
-  Domain: string | undefined;
-
-  /**
-   * <p>The domain to redirect to.</p>
-   * @public
-   */
-  RedirectTo?: string | undefined;
-
-  /**
-   * <p>The domain to redirect from.</p>
-   * @public
-   */
-  RedirectFrom?: string | undefined;
-}
-
-/**
- * <p>Contains details about the CloudFront managed ACM certificate.</p>
- * @public
- */
-export interface ManagedCertificateDetails {
-  /**
-   * <p>The ARN of the CloudFront managed ACM certificate.</p>
-   * @public
-   */
-  CertificateArn?: string | undefined;
-
-  /**
-   * <p>The status of the CloudFront managed ACM certificate.</p> <note> <p>Your distribution tenant will be updated with the latest certificate status. When calling the <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionTenant.html">UpdateDistributionTenant</a> operation, use the latest value for the <code>ETag</code>.</p> </note>
-   * @public
-   */
-  CertificateStatus?: ManagedCertificateStatus | undefined;
-
-  /**
-   * <p>Contains details about the validation token host of the specified CloudFront managed ACM certificate.</p> <ul> <li> <p>For <code>cloudfront</code>, CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.</p> </li> <li> <p>For <code>self-hosted</code>, you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.</p> </li> </ul> <note> <p>This setting only affects the initial certificate request. Once the DNS points to CloudFront, all future certificate renewals are automatically handled through CloudFront.</p> </note>
-   * @public
-   */
-  ValidationTokenHost?: ValidationTokenHost | undefined;
-
-  /**
-   * <p>Contains details about the validation token of the specified CloudFront managed ACM certificate.</p>
-   * @public
-   */
-  ValidationTokenDetails?: ValidationTokenDetail[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedCertificateDetailsResult {
-  /**
-   * <p>Contains details about the CloudFront managed ACM certificate.</p>
-   * @public
-   */
-  ManagedCertificateDetails?: ManagedCertificateDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMonitoringSubscriptionRequest {
-  /**
-   * <p>The ID of the distribution that you are getting metrics information for.</p>
-   * @public
-   */
-  DistributionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMonitoringSubscriptionResult {
-  /**
-   * <p>A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.</p>
-   * @public
-   */
-  MonitoringSubscription?: MonitoringSubscription | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginAccessControlRequest {
-  /**
-   * <p>The unique identifier of the origin access control.</p>
-   * @public
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginAccessControlResult {
-  /**
-   * <p>Contains an origin access control, including its unique identifier.</p>
-   * @public
-   */
-  OriginAccessControl?: OriginAccessControl | undefined;
-
-  /**
-   * <p>The version identifier for the current version of the origin access control.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginAccessControlConfigRequest {
-  /**
-   * <p>The unique identifier of the origin access control.</p>
-   * @public
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginAccessControlConfigResult {
-  /**
-   * <p>Contains an origin access control configuration.</p>
-   * @public
-   */
-  OriginAccessControlConfig?: OriginAccessControlConfig | undefined;
-
-  /**
-   * <p>The version identifier for the current version of the origin access control.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginRequestPolicyRequest {
-  /**
-   * <p>The unique identifier for the origin request policy. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
-   * @public
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginRequestPolicyResult {
-  /**
-   * <p>The origin request policy.</p>
-   * @public
-   */
-  OriginRequestPolicy?: OriginRequestPolicy | undefined;
-
-  /**
-   * <p>The current version of the origin request policy.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginRequestPolicyConfigRequest {
-  /**
-   * <p>The unique identifier for the origin request policy. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
-   * @public
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOriginRequestPolicyConfigResult {
-  /**
-   * <p>The origin request policy configuration.</p>
-   * @public
-   */
-  OriginRequestPolicyConfig?: OriginRequestPolicyConfig | undefined;
-
-  /**
-   * <p>The current version of the origin request policy.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPublicKeyRequest {
-  /**
-   * <p>The identifier of the public key you are getting.</p>
-   * @public
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPublicKeyResult {
-  /**
-   * <p>The public key.</p>
-   * @public
-   */
-  PublicKey?: PublicKey | undefined;
-
-  /**
-   * <p>The identifier for this version of the public key.</p>
-   * @public
-   */
-  ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPublicKeyConfigRequest {
-  /**
-   * <p>The identifier of the public key whose configuration you are getting.</p>
-   * @public
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPublicKeyConfigResult {
-  /**
-   * <p>A public key configuration.</p>
-   * @public
-   */
-  PublicKeyConfig?: PublicKeyConfig | undefined;
-
-  /**
-   * <p>The identifier for this version of the public key configuration.</p>
-   * @public
-   */
-  ETag?: string | undefined;
 }

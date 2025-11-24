@@ -6,10 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  ListDistributionsByAnycastIpListIdRequest,
-  ListDistributionsByAnycastIpListIdResult,
+  ListDistributionsByConnectionFunctionRequest,
+  ListDistributionsByConnectionFunctionResult,
 } from "../models/models_1";
-import { ListDistributionsByAnycastIpListId } from "../schemas/schemas_0";
+import { ListDistributionsByConnectionFunction } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -19,36 +19,37 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDistributionsByAnycastIpListIdCommand}.
+ * The input for {@link ListDistributionsByConnectionFunctionCommand}.
  */
-export interface ListDistributionsByAnycastIpListIdCommandInput extends ListDistributionsByAnycastIpListIdRequest {}
+export interface ListDistributionsByConnectionFunctionCommandInput
+  extends ListDistributionsByConnectionFunctionRequest {}
 /**
  * @public
  *
- * The output of {@link ListDistributionsByAnycastIpListIdCommand}.
+ * The output of {@link ListDistributionsByConnectionFunctionCommand}.
  */
-export interface ListDistributionsByAnycastIpListIdCommandOutput
-  extends ListDistributionsByAnycastIpListIdResult,
+export interface ListDistributionsByConnectionFunctionCommandOutput
+  extends ListDistributionsByConnectionFunctionResult,
     __MetadataBearer {}
 
 /**
- * <p>Lists the distributions in your account that are associated with the specified <code>AnycastIpListId</code>.</p>
+ * <p>Lists distributions by connection function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListDistributionsByAnycastIpListIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListDistributionsByAnycastIpListIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListDistributionsByConnectionFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByConnectionFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
  * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
- * const input = { // ListDistributionsByAnycastIpListIdRequest
+ * const input = { // ListDistributionsByConnectionFunctionRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
- *   AnycastIpListId: "STRING_VALUE", // required
+ *   ConnectionFunctionIdentifier: "STRING_VALUE", // required
  * };
- * const command = new ListDistributionsByAnycastIpListIdCommand(input);
+ * const command = new ListDistributionsByConnectionFunctionCommand(input);
  * const response = await client.send(command);
- * // { // ListDistributionsByAnycastIpListIdResult
+ * // { // ListDistributionsByConnectionFunctionResult
  * //   DistributionList: { // DistributionList
  * //     Marker: "STRING_VALUE", // required
  * //     NextMarker: "STRING_VALUE",
@@ -381,10 +382,10 @@ export interface ListDistributionsByAnycastIpListIdCommandOutput
  *
  * ```
  *
- * @param ListDistributionsByAnycastIpListIdCommandInput - {@link ListDistributionsByAnycastIpListIdCommandInput}
- * @returns {@link ListDistributionsByAnycastIpListIdCommandOutput}
- * @see {@link ListDistributionsByAnycastIpListIdCommandInput} for command's `input` shape.
- * @see {@link ListDistributionsByAnycastIpListIdCommandOutput} for command's `response` shape.
+ * @param ListDistributionsByConnectionFunctionCommandInput - {@link ListDistributionsByConnectionFunctionCommandInput}
+ * @returns {@link ListDistributionsByConnectionFunctionCommandOutput}
+ * @see {@link ListDistributionsByConnectionFunctionCommandInput} for command's `input` shape.
+ * @see {@link ListDistributionsByConnectionFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
@@ -396,19 +397,16 @@ export interface ListDistributionsByAnycastIpListIdCommandOutput
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
- * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
- *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  *
  * @public
  */
-export class ListDistributionsByAnycastIpListIdCommand extends $Command
+export class ListDistributionsByConnectionFunctionCommand extends $Command
   .classBuilder<
-    ListDistributionsByAnycastIpListIdCommandInput,
-    ListDistributionsByAnycastIpListIdCommandOutput,
+    ListDistributionsByConnectionFunctionCommandInput,
+    ListDistributionsByConnectionFunctionCommandOutput,
     CloudFrontClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -417,19 +415,19 @@ export class ListDistributionsByAnycastIpListIdCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Cloudfront2020_05_31", "ListDistributionsByAnycastIpListId", {})
-  .n("CloudFrontClient", "ListDistributionsByAnycastIpListIdCommand")
-  .sc(ListDistributionsByAnycastIpListId)
+  .s("Cloudfront2020_05_31", "ListDistributionsByConnectionFunction", {})
+  .n("CloudFrontClient", "ListDistributionsByConnectionFunctionCommand")
+  .sc(ListDistributionsByConnectionFunction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDistributionsByAnycastIpListIdRequest;
-      output: ListDistributionsByAnycastIpListIdResult;
+      input: ListDistributionsByConnectionFunctionRequest;
+      output: ListDistributionsByConnectionFunctionResult;
     };
     sdk: {
-      input: ListDistributionsByAnycastIpListIdCommandInput;
-      output: ListDistributionsByAnycastIpListIdCommandOutput;
+      input: ListDistributionsByConnectionFunctionCommandInput;
+      output: ListDistributionsByConnectionFunctionCommandOutput;
     };
   };
 }

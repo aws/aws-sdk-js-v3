@@ -354,6 +354,45 @@ export type SSLSupportMethod = (typeof SSLSupportMethod)[keyof typeof SSLSupport
  * @public
  * @enum
  */
+export const ViewerMtlsMode = {
+  Optional: "optional",
+  Required: "required",
+} as const;
+/**
+ * @public
+ */
+export type ViewerMtlsMode = (typeof ViewerMtlsMode)[keyof typeof ViewerMtlsMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const FunctionRuntime = {
+  cloudfront_js_1_0: "cloudfront-js-1.0",
+  cloudfront_js_2_0: "cloudfront-js-2.0",
+} as const;
+/**
+ * @public
+ */
+export type FunctionRuntime = (typeof FunctionRuntime)[keyof typeof FunctionRuntime];
+
+/**
+ * @public
+ * @enum
+ */
+export const FunctionStage = {
+  DEVELOPMENT: "DEVELOPMENT",
+  LIVE: "LIVE",
+} as const;
+/**
+ * @public
+ */
+export type FunctionStage = (typeof FunctionStage)[keyof typeof FunctionStage];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContinuousDeploymentPolicyType = {
   SingleHeader: "SingleHeader",
   SingleWeight: "SingleWeight",
@@ -414,32 +453,6 @@ export const Format = {
  * @public
  */
 export type Format = (typeof Format)[keyof typeof Format];
-
-/**
- * @public
- * @enum
- */
-export const FunctionRuntime = {
-  cloudfront_js_1_0: "cloudfront-js-1.0",
-  cloudfront_js_2_0: "cloudfront-js-2.0",
-} as const;
-/**
- * @public
- */
-export type FunctionRuntime = (typeof FunctionRuntime)[keyof typeof FunctionRuntime];
-
-/**
- * @public
- * @enum
- */
-export const FunctionStage = {
-  DEVELOPMENT: "DEVELOPMENT",
-  LIVE: "LIVE",
-} as const;
-/**
- * @public
- */
-export type FunctionStage = (typeof FunctionStage)[keyof typeof FunctionStage];
 
 /**
  * @public
@@ -591,6 +604,20 @@ export const ReferrerPolicyList = {
  * @public
  */
 export type ReferrerPolicyList = (typeof ReferrerPolicyList)[keyof typeof ReferrerPolicyList];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustStoreStatus = {
+  Active: "active",
+  Failed: "failed",
+  Pending: "pending",
+} as const;
+/**
+ * @public
+ */
+export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];
 
 /**
  * @public

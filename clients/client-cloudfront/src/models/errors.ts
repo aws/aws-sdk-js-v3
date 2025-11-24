@@ -1812,6 +1812,28 @@ export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
 }
 
 /**
+ * <p>The entity size limit was exceeded.</p>
+ * @public
+ */
+export class EntitySizeLimitExceeded extends __BaseException {
+  readonly name = "EntitySizeLimitExceeded" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntitySizeLimitExceeded, __BaseException>) {
+    super({
+      name: "EntitySizeLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntitySizeLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>A continuous deployment policy with this configuration already exists.</p>
  * @public
  */
@@ -2401,28 +2423,6 @@ export class TooManyPublicKeysInKeyGroup extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyPublicKeysInKeyGroup.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The entity size limit was exceeded.</p>
- * @public
- */
-export class EntitySizeLimitExceeded extends __BaseException {
-  readonly name = "EntitySizeLimitExceeded" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntitySizeLimitExceeded, __BaseException>) {
-    super({
-      name: "EntitySizeLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntitySizeLimitExceeded.prototype);
     this.Message = opts.Message;
   }
 }

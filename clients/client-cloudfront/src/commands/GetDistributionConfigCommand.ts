@@ -360,6 +360,17 @@ export interface GetDistributionConfigCommandOutput extends GetDistributionConfi
  * //       ],
  * //     },
  * //     ConnectionMode: "direct" || "tenant-only",
+ * //     ViewerMtlsConfig: { // ViewerMtlsConfig
+ * //       Mode: "required" || "optional",
+ * //       TrustStoreConfig: { // TrustStoreConfig
+ * //         TrustStoreId: "STRING_VALUE", // required
+ * //         AdvertiseTrustStoreCaNames: true || false,
+ * //         IgnoreCertificateExpiry: true || false,
+ * //       },
+ * //     },
+ * //     ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
+ * //       Id: "STRING_VALUE", // required
+ * //     },
  * //   },
  * //   ETag: "STRING_VALUE",
  * // };

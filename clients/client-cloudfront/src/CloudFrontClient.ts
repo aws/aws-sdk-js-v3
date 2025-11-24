@@ -77,6 +77,10 @@ import {
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
 import {
+  CreateConnectionFunctionCommandInput,
+  CreateConnectionFunctionCommandOutput,
+} from "./commands/CreateConnectionFunctionCommand";
+import {
   CreateConnectionGroupCommandInput,
   CreateConnectionGroupCommandOutput,
 } from "./commands/CreateConnectionGroupCommand";
@@ -141,6 +145,7 @@ import {
   CreateStreamingDistributionWithTagsCommandInput,
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
+import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
 import { CreateVpcOriginCommandInput, CreateVpcOriginCommandOutput } from "./commands/CreateVpcOriginCommand";
 import {
   DeleteAnycastIpListCommandInput,
@@ -151,6 +156,10 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
+import {
+  DeleteConnectionFunctionCommandInput,
+  DeleteConnectionFunctionCommandOutput,
+} from "./commands/DeleteConnectionFunctionCommand";
 import {
   DeleteConnectionGroupCommandInput,
   DeleteConnectionGroupCommandOutput,
@@ -207,7 +216,12 @@ import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
+import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
 import { DeleteVpcOriginCommandInput, DeleteVpcOriginCommandOutput } from "./commands/DeleteVpcOriginCommand";
+import {
+  DescribeConnectionFunctionCommandInput,
+  DescribeConnectionFunctionCommandOutput,
+} from "./commands/DescribeConnectionFunctionCommand";
 import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "./commands/DescribeFunctionCommand";
 import {
   DescribeKeyValueStoreCommandInput,
@@ -235,6 +249,10 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+import {
+  GetConnectionFunctionCommandInput,
+  GetConnectionFunctionCommandOutput,
+} from "./commands/GetConnectionFunctionCommand";
 import {
   GetConnectionGroupByRoutingEndpointCommandInput,
   GetConnectionGroupByRoutingEndpointCommandOutput,
@@ -332,6 +350,7 @@ import {
   GetStreamingDistributionConfigCommandInput,
   GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
+import { GetTrustStoreCommandInput, GetTrustStoreCommandOutput } from "./commands/GetTrustStoreCommand";
 import { GetVpcOriginCommandInput, GetVpcOriginCommandOutput } from "./commands/GetVpcOriginCommand";
 import { ListAnycastIpListsCommandInput, ListAnycastIpListsCommandOutput } from "./commands/ListAnycastIpListsCommand";
 import { ListCachePoliciesCommandInput, ListCachePoliciesCommandOutput } from "./commands/ListCachePoliciesCommand";
@@ -343,6 +362,10 @@ import {
   ListConflictingAliasesCommandInput,
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
+import {
+  ListConnectionFunctionsCommandInput,
+  ListConnectionFunctionsCommandOutput,
+} from "./commands/ListConnectionFunctionsCommand";
 import {
   ListConnectionGroupsCommandInput,
   ListConnectionGroupsCommandOutput,
@@ -359,6 +382,10 @@ import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
+import {
+  ListDistributionsByConnectionFunctionCommandInput,
+  ListDistributionsByConnectionFunctionCommandOutput,
+} from "./commands/ListDistributionsByConnectionFunctionCommand";
 import {
   ListDistributionsByConnectionModeCommandInput,
   ListDistributionsByConnectionModeCommandOutput,
@@ -383,6 +410,10 @@ import {
   ListDistributionsByResponseHeadersPolicyIdCommandInput,
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
+import {
+  ListDistributionsByTrustStoreCommandInput,
+  ListDistributionsByTrustStoreCommandOutput,
+} from "./commands/ListDistributionsByTrustStoreCommand";
 import {
   ListDistributionsByVpcOriginIdCommandInput,
   ListDistributionsByVpcOriginIdCommandOutput,
@@ -445,10 +476,19 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTrustStoresCommandInput, ListTrustStoresCommandOutput } from "./commands/ListTrustStoresCommand";
 import { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "./commands/ListVpcOriginsCommand";
+import {
+  PublishConnectionFunctionCommandInput,
+  PublishConnectionFunctionCommandOutput,
+} from "./commands/PublishConnectionFunctionCommand";
 import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "./commands/PublishFunctionCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestConnectionFunctionCommandInput,
+  TestConnectionFunctionCommandOutput,
+} from "./commands/TestConnectionFunctionCommand";
 import { TestFunctionCommandInput, TestFunctionCommandOutput } from "./commands/TestFunctionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -460,6 +500,10 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
+import {
+  UpdateConnectionFunctionCommandInput,
+  UpdateConnectionFunctionCommandOutput,
+} from "./commands/UpdateConnectionFunctionCommand";
 import {
   UpdateConnectionGroupCommandInput,
   UpdateConnectionGroupCommandOutput,
@@ -516,6 +560,7 @@ import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
+import { UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput } from "./commands/UpdateTrustStoreCommand";
 import { UpdateVpcOriginCommandInput, UpdateVpcOriginCommandOutput } from "./commands/UpdateVpcOriginCommand";
 import {
   VerifyDnsConfigurationCommandInput,
@@ -543,6 +588,7 @@ export type ServiceInputTypes =
   | CreateAnycastIpListCommandInput
   | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
+  | CreateConnectionFunctionCommandInput
   | CreateConnectionGroupCommandInput
   | CreateContinuousDeploymentPolicyCommandInput
   | CreateDistributionCommandInput
@@ -563,10 +609,12 @@ export type ServiceInputTypes =
   | CreateResponseHeadersPolicyCommandInput
   | CreateStreamingDistributionCommandInput
   | CreateStreamingDistributionWithTagsCommandInput
+  | CreateTrustStoreCommandInput
   | CreateVpcOriginCommandInput
   | DeleteAnycastIpListCommandInput
   | DeleteCachePolicyCommandInput
   | DeleteCloudFrontOriginAccessIdentityCommandInput
+  | DeleteConnectionFunctionCommandInput
   | DeleteConnectionGroupCommandInput
   | DeleteContinuousDeploymentPolicyCommandInput
   | DeleteDistributionCommandInput
@@ -584,7 +632,9 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeleteResponseHeadersPolicyCommandInput
   | DeleteStreamingDistributionCommandInput
+  | DeleteTrustStoreCommandInput
   | DeleteVpcOriginCommandInput
+  | DescribeConnectionFunctionCommandInput
   | DescribeFunctionCommandInput
   | DescribeKeyValueStoreCommandInput
   | DisassociateDistributionTenantWebACLCommandInput
@@ -594,6 +644,7 @@ export type ServiceInputTypes =
   | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
   | GetCloudFrontOriginAccessIdentityConfigCommandInput
+  | GetConnectionFunctionCommandInput
   | GetConnectionGroupByRoutingEndpointCommandInput
   | GetConnectionGroupCommandInput
   | GetContinuousDeploymentPolicyCommandInput
@@ -625,23 +676,27 @@ export type ServiceInputTypes =
   | GetResponseHeadersPolicyConfigCommandInput
   | GetStreamingDistributionCommandInput
   | GetStreamingDistributionConfigCommandInput
+  | GetTrustStoreCommandInput
   | GetVpcOriginCommandInput
   | ListAnycastIpListsCommandInput
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
   | ListConflictingAliasesCommandInput
+  | ListConnectionFunctionsCommandInput
   | ListConnectionGroupsCommandInput
   | ListContinuousDeploymentPoliciesCommandInput
   | ListDistributionTenantsByCustomizationCommandInput
   | ListDistributionTenantsCommandInput
   | ListDistributionsByAnycastIpListIdCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
+  | ListDistributionsByConnectionFunctionCommandInput
   | ListDistributionsByConnectionModeCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
   | ListDistributionsByOwnedResourceCommandInput
   | ListDistributionsByRealtimeLogConfigCommandInput
   | ListDistributionsByResponseHeadersPolicyIdCommandInput
+  | ListDistributionsByTrustStoreCommandInput
   | ListDistributionsByVpcOriginIdCommandInput
   | ListDistributionsByWebACLIdCommandInput
   | ListDistributionsCommandInput
@@ -660,15 +715,19 @@ export type ServiceInputTypes =
   | ListResponseHeadersPoliciesCommandInput
   | ListStreamingDistributionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTrustStoresCommandInput
   | ListVpcOriginsCommandInput
+  | PublishConnectionFunctionCommandInput
   | PublishFunctionCommandInput
   | PutResourcePolicyCommandInput
   | TagResourceCommandInput
+  | TestConnectionFunctionCommandInput
   | TestFunctionCommandInput
   | UntagResourceCommandInput
   | UpdateAnycastIpListCommandInput
   | UpdateCachePolicyCommandInput
   | UpdateCloudFrontOriginAccessIdentityCommandInput
+  | UpdateConnectionFunctionCommandInput
   | UpdateConnectionGroupCommandInput
   | UpdateContinuousDeploymentPolicyCommandInput
   | UpdateDistributionCommandInput
@@ -686,6 +745,7 @@ export type ServiceInputTypes =
   | UpdateRealtimeLogConfigCommandInput
   | UpdateResponseHeadersPolicyCommandInput
   | UpdateStreamingDistributionCommandInput
+  | UpdateTrustStoreCommandInput
   | UpdateVpcOriginCommandInput
   | VerifyDnsConfigurationCommandInput;
 
@@ -700,6 +760,7 @@ export type ServiceOutputTypes =
   | CreateAnycastIpListCommandOutput
   | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
+  | CreateConnectionFunctionCommandOutput
   | CreateConnectionGroupCommandOutput
   | CreateContinuousDeploymentPolicyCommandOutput
   | CreateDistributionCommandOutput
@@ -720,10 +781,12 @@ export type ServiceOutputTypes =
   | CreateResponseHeadersPolicyCommandOutput
   | CreateStreamingDistributionCommandOutput
   | CreateStreamingDistributionWithTagsCommandOutput
+  | CreateTrustStoreCommandOutput
   | CreateVpcOriginCommandOutput
   | DeleteAnycastIpListCommandOutput
   | DeleteCachePolicyCommandOutput
   | DeleteCloudFrontOriginAccessIdentityCommandOutput
+  | DeleteConnectionFunctionCommandOutput
   | DeleteConnectionGroupCommandOutput
   | DeleteContinuousDeploymentPolicyCommandOutput
   | DeleteDistributionCommandOutput
@@ -741,7 +804,9 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeleteResponseHeadersPolicyCommandOutput
   | DeleteStreamingDistributionCommandOutput
+  | DeleteTrustStoreCommandOutput
   | DeleteVpcOriginCommandOutput
+  | DescribeConnectionFunctionCommandOutput
   | DescribeFunctionCommandOutput
   | DescribeKeyValueStoreCommandOutput
   | DisassociateDistributionTenantWebACLCommandOutput
@@ -751,6 +816,7 @@ export type ServiceOutputTypes =
   | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
   | GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  | GetConnectionFunctionCommandOutput
   | GetConnectionGroupByRoutingEndpointCommandOutput
   | GetConnectionGroupCommandOutput
   | GetContinuousDeploymentPolicyCommandOutput
@@ -782,23 +848,27 @@ export type ServiceOutputTypes =
   | GetResponseHeadersPolicyConfigCommandOutput
   | GetStreamingDistributionCommandOutput
   | GetStreamingDistributionConfigCommandOutput
+  | GetTrustStoreCommandOutput
   | GetVpcOriginCommandOutput
   | ListAnycastIpListsCommandOutput
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
   | ListConflictingAliasesCommandOutput
+  | ListConnectionFunctionsCommandOutput
   | ListConnectionGroupsCommandOutput
   | ListContinuousDeploymentPoliciesCommandOutput
   | ListDistributionTenantsByCustomizationCommandOutput
   | ListDistributionTenantsCommandOutput
   | ListDistributionsByAnycastIpListIdCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
+  | ListDistributionsByConnectionFunctionCommandOutput
   | ListDistributionsByConnectionModeCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
   | ListDistributionsByOwnedResourceCommandOutput
   | ListDistributionsByRealtimeLogConfigCommandOutput
   | ListDistributionsByResponseHeadersPolicyIdCommandOutput
+  | ListDistributionsByTrustStoreCommandOutput
   | ListDistributionsByVpcOriginIdCommandOutput
   | ListDistributionsByWebACLIdCommandOutput
   | ListDistributionsCommandOutput
@@ -817,15 +887,19 @@ export type ServiceOutputTypes =
   | ListResponseHeadersPoliciesCommandOutput
   | ListStreamingDistributionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTrustStoresCommandOutput
   | ListVpcOriginsCommandOutput
+  | PublishConnectionFunctionCommandOutput
   | PublishFunctionCommandOutput
   | PutResourcePolicyCommandOutput
   | TagResourceCommandOutput
+  | TestConnectionFunctionCommandOutput
   | TestFunctionCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnycastIpListCommandOutput
   | UpdateCachePolicyCommandOutput
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
+  | UpdateConnectionFunctionCommandOutput
   | UpdateConnectionGroupCommandOutput
   | UpdateContinuousDeploymentPolicyCommandOutput
   | UpdateDistributionCommandOutput
@@ -843,6 +917,7 @@ export type ServiceOutputTypes =
   | UpdateRealtimeLogConfigCommandOutput
   | UpdateResponseHeadersPolicyCommandOutput
   | UpdateStreamingDistributionCommandOutput
+  | UpdateTrustStoreCommandOutput
   | UpdateVpcOriginCommandOutput
   | VerifyDnsConfigurationCommandOutput;
 

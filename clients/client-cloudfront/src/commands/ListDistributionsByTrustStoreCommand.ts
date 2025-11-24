@@ -5,11 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDistributionsByAnycastIpListIdRequest,
-  ListDistributionsByAnycastIpListIdResult,
-} from "../models/models_1";
-import { ListDistributionsByAnycastIpListId } from "../schemas/schemas_0";
+import { ListDistributionsByTrustStoreRequest, ListDistributionsByTrustStoreResult } from "../models/models_1";
+import { ListDistributionsByTrustStore } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -19,36 +16,36 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDistributionsByAnycastIpListIdCommand}.
+ * The input for {@link ListDistributionsByTrustStoreCommand}.
  */
-export interface ListDistributionsByAnycastIpListIdCommandInput extends ListDistributionsByAnycastIpListIdRequest {}
+export interface ListDistributionsByTrustStoreCommandInput extends ListDistributionsByTrustStoreRequest {}
 /**
  * @public
  *
- * The output of {@link ListDistributionsByAnycastIpListIdCommand}.
+ * The output of {@link ListDistributionsByTrustStoreCommand}.
  */
-export interface ListDistributionsByAnycastIpListIdCommandOutput
-  extends ListDistributionsByAnycastIpListIdResult,
+export interface ListDistributionsByTrustStoreCommandOutput
+  extends ListDistributionsByTrustStoreResult,
     __MetadataBearer {}
 
 /**
- * <p>Lists the distributions in your account that are associated with the specified <code>AnycastIpListId</code>.</p>
+ * <p>Lists distributions by trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListDistributionsByAnycastIpListIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListDistributionsByAnycastIpListIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListDistributionsByTrustStoreCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByTrustStoreCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
  * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
- * const input = { // ListDistributionsByAnycastIpListIdRequest
+ * const input = { // ListDistributionsByTrustStoreRequest
+ *   TrustStoreIdentifier: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
- *   AnycastIpListId: "STRING_VALUE", // required
  * };
- * const command = new ListDistributionsByAnycastIpListIdCommand(input);
+ * const command = new ListDistributionsByTrustStoreCommand(input);
  * const response = await client.send(command);
- * // { // ListDistributionsByAnycastIpListIdResult
+ * // { // ListDistributionsByTrustStoreResult
  * //   DistributionList: { // DistributionList
  * //     Marker: "STRING_VALUE", // required
  * //     NextMarker: "STRING_VALUE",
@@ -381,10 +378,10 @@ export interface ListDistributionsByAnycastIpListIdCommandOutput
  *
  * ```
  *
- * @param ListDistributionsByAnycastIpListIdCommandInput - {@link ListDistributionsByAnycastIpListIdCommandInput}
- * @returns {@link ListDistributionsByAnycastIpListIdCommandOutput}
- * @see {@link ListDistributionsByAnycastIpListIdCommandInput} for command's `input` shape.
- * @see {@link ListDistributionsByAnycastIpListIdCommandOutput} for command's `response` shape.
+ * @param ListDistributionsByTrustStoreCommandInput - {@link ListDistributionsByTrustStoreCommandInput}
+ * @returns {@link ListDistributionsByTrustStoreCommandOutput}
+ * @see {@link ListDistributionsByTrustStoreCommandInput} for command's `input` shape.
+ * @see {@link ListDistributionsByTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
@@ -396,19 +393,16 @@ export interface ListDistributionsByAnycastIpListIdCommandOutput
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
- * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
- *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  *
  * @public
  */
-export class ListDistributionsByAnycastIpListIdCommand extends $Command
+export class ListDistributionsByTrustStoreCommand extends $Command
   .classBuilder<
-    ListDistributionsByAnycastIpListIdCommandInput,
-    ListDistributionsByAnycastIpListIdCommandOutput,
+    ListDistributionsByTrustStoreCommandInput,
+    ListDistributionsByTrustStoreCommandOutput,
     CloudFrontClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -417,19 +411,19 @@ export class ListDistributionsByAnycastIpListIdCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Cloudfront2020_05_31", "ListDistributionsByAnycastIpListId", {})
-  .n("CloudFrontClient", "ListDistributionsByAnycastIpListIdCommand")
-  .sc(ListDistributionsByAnycastIpListId)
+  .s("Cloudfront2020_05_31", "ListDistributionsByTrustStore", {})
+  .n("CloudFrontClient", "ListDistributionsByTrustStoreCommand")
+  .sc(ListDistributionsByTrustStore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDistributionsByAnycastIpListIdRequest;
-      output: ListDistributionsByAnycastIpListIdResult;
+      input: ListDistributionsByTrustStoreRequest;
+      output: ListDistributionsByTrustStoreResult;
     };
     sdk: {
-      input: ListDistributionsByAnycastIpListIdCommandInput;
-      output: ListDistributionsByAnycastIpListIdCommandOutput;
+      input: ListDistributionsByTrustStoreCommandInput;
+      output: ListDistributionsByTrustStoreCommandOutput;
     };
   };
 }

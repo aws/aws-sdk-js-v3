@@ -355,6 +355,17 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       ],
  *     },
  *     ConnectionMode: "direct" || "tenant-only",
+ *     ViewerMtlsConfig: { // ViewerMtlsConfig
+ *       Mode: "required" || "optional",
+ *       TrustStoreConfig: { // TrustStoreConfig
+ *         TrustStoreId: "STRING_VALUE", // required
+ *         AdvertiseTrustStoreCaNames: true || false,
+ *         IgnoreCertificateExpiry: true || false,
+ *       },
+ *     },
+ *     ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
+ *       Id: "STRING_VALUE", // required
+ *     },
  *   },
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
@@ -717,6 +728,17 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //         ],
  * //       },
  * //       ConnectionMode: "direct" || "tenant-only",
+ * //       ViewerMtlsConfig: { // ViewerMtlsConfig
+ * //         Mode: "required" || "optional",
+ * //         TrustStoreConfig: { // TrustStoreConfig
+ * //           TrustStoreId: "STRING_VALUE", // required
+ * //           AdvertiseTrustStoreCaNames: true || false,
+ * //           IgnoreCertificateExpiry: true || false,
+ * //         },
+ * //       },
+ * //       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
+ * //         Id: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
