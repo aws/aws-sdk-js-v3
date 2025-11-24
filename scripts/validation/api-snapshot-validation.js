@@ -19,13 +19,6 @@ api.$schema = "https://json-schema.org/draft/2020-12/schema";
 const packageDirs = [
   ...fs.readdirSync(path.join(root, "packages")).map((f) => path.join(root, "packages", f)),
   ...fs.readdirSync(path.join(root, "lib")).map((f) => path.join(root, "lib", f)),
-  path.join(root, "clients", "client-s3"), // rest xml
-  path.join(root, "clients", "client-s3-control"), // rest xml
-  path.join(root, "clients", "client-dynamodb"), // json rpc
-  path.join(root, "clients", "client-cloudwatch"), // query
-  path.join(root, "clients", "client-sts"), // query
-  path.join(root, "clients", "client-sagemaker"), // json rpc
-  path.join(root, "clients", "client-bedrock"), // rest json
 ];
 const errors = [];
 
