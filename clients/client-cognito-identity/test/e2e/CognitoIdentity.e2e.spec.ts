@@ -1,6 +1,6 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CognitoIdentity } from "../../src/index";
 
 describe("@aws-sdk/client-cognito-identity", () => {
@@ -20,7 +20,7 @@ describe("@aws-sdk/client-cognito-identity", () => {
     unAuthClient = new CognitoIdentity({
       region,
     });
-  });
+  }, 60_000);
 
   it("should successfully fetch Id and get credentials", async () => {
     // Test getId()

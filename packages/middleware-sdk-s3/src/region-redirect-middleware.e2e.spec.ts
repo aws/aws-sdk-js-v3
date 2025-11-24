@@ -54,7 +54,7 @@ describe("S3 Global Client Test", () => {
       })
     );
     await Promise.all(bucketNames.map((bucketName, index) => s3Clients[index].headBucket({ Bucket: bucketName })));
-  });
+  }, 60_000);
 
   afterAll(async () => {
     await Promise.all(bucketNames.map((bucketName, index) => deleteBucket(s3Clients[index], bucketName)));
