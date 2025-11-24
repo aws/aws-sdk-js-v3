@@ -12,6 +12,7 @@ import {
   AudioExtractionStatus,
   AudioExtractionType,
   AutoSubscriptionStatus,
+  BrowserExtension,
   ChatResponseConfigurationStatus,
   ContentType,
   CreatorModeControl,
@@ -3432,20 +3433,6 @@ export interface UpdateApplicationRequest {
  * @public
  */
 export interface UpdateApplicationResponse {}
-
-/**
- * @public
- * @enum
- */
-export const BrowserExtension = {
-  CHROME: "CHROME",
-  FIREFOX: "FIREFOX",
-} as const;
-
-/**
- * @public
- */
-export type BrowserExtension = (typeof BrowserExtension)[keyof typeof BrowserExtension];
 
 /**
  * <p>The container for browser extension configuration for an Amazon Q Business web experience.</p>
@@ -7946,3 +7933,8 @@ export interface UpdateChatControlsConfigurationRequest {
    */
   hallucinationReductionConfiguration?: HallucinationReductionConfiguration | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateChatControlsConfigurationResponse {}

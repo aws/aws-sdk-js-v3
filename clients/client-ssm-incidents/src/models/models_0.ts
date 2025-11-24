@@ -1,17 +1,14 @@
 // smithy-typescript generated code
-/**
- * @public
- * @enum
- */
-export const VariableType = {
-  INCIDENT_RECORD_ARN: "INCIDENT_RECORD_ARN",
-  INVOLVED_RESOURCES: "INVOLVED_RESOURCES",
-} as const;
-
-/**
- * @public
- */
-export type VariableType = (typeof VariableType)[keyof typeof VariableType];
+import {
+  IncidentRecordStatus,
+  ItemType,
+  RegionStatus,
+  ReplicationSetStatus,
+  SortOrder,
+  SsmTargetAccount,
+  TimelineEventSort,
+  VariableType,
+} from "./enums";
 
 /**
  * <p>The dynamic SSM parameter value.</p>
@@ -52,20 +49,6 @@ export namespace DynamicSsmParameterValue {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const SsmTargetAccount = {
-  IMPACTED_ACCOUNT: "IMPACTED_ACCOUNT",
-  RESPONSE_PLAN_OWNER_ACCOUNT: "RESPONSE_PLAN_OWNER_ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type SsmTargetAccount = (typeof SsmTargetAccount)[keyof typeof SsmTargetAccount];
 
 /**
  * <p>Details about the Systems Manager automation document that will be used as a runbook
@@ -471,36 +454,6 @@ export interface BatchGetIncidentFindingsOutput {
    */
   errors: BatchGetIncidentFindingsError[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  INCIDENT_RECORD: "INCIDENT_RECORD",
-  REPLICATION_SET: "REPLICATION_SET",
-  RESOURCE_POLICY: "RESOURCE_POLICY",
-  RESPONSE_PLAN: "RESPONSE_PLAN",
-  TIMELINE_EVENT: "TIMELINE_EVENT",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const ServiceCode = {
-  SSM_INCIDENTS: "ssm-incidents",
-} as const;
-
-/**
- * @public
- */
-export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];
 
 /**
  * <p>Used to remove the chat channel from an incident record or response plan.</p>
@@ -1301,20 +1254,6 @@ export interface IncidentRecordSource {
 }
 
 /**
- * @public
- * @enum
- */
-export const IncidentRecordStatus = {
-  OPEN: "OPEN",
-  RESOLVED: "RESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type IncidentRecordStatus = (typeof IncidentRecordStatus)[keyof typeof IncidentRecordStatus];
-
-/**
  * <p>The record of the incident that's created when an incident occurs.</p>
  * @public
  */
@@ -1455,34 +1394,6 @@ export interface GetReplicationSetInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const RegionStatus = {
-  /**
-   * All operations have completed successfully and the region is ready to use
-   */
-  ACTIVE: "ACTIVE",
-  /**
-   * The region is in the process of being created.
-   */
-  CREATING: "CREATING",
-  /**
-   * The region is in the process of being deleted.
-   */
-  DELETING: "DELETING",
-  /**
-   * The region is not healthy and we cannot automatically fix it.
-   */
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type RegionStatus = (typeof RegionStatus)[keyof typeof RegionStatus];
-
-/**
  * <p>Information about a Amazon Web Services Region in your replication set.</p>
  * @public
  */
@@ -1511,38 +1422,6 @@ export interface RegionInfo {
    */
   statusUpdateDateTime: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicationSetStatus = {
-  /**
-   * All operations have completed successfully and the replication set is ready to use
-   */
-  ACTIVE: "ACTIVE",
-  /**
-   * Replication set is in the process of being created.
-   */
-  CREATING: "CREATING",
-  /**
-   * Replication set is in the process of being deleted.
-   */
-  DELETING: "DELETING",
-  /**
-   * Replication set is not healthy and we cannot fix it.
-   */
-  FAILED: "FAILED",
-  /**
-   * Replication set is in the process of being updated.
-   */
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationSetStatus = (typeof ReplicationSetStatus)[keyof typeof ReplicationSetStatus];
 
 /**
  * <p>The set of Amazon Web Services Region that your Incident Manager data will be replicated to and
@@ -1873,27 +1752,6 @@ export interface IncidentRecordSummary {
    */
   incidentRecordSource: IncidentRecordSource | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ItemType = {
-  ANALYSIS: "ANALYSIS",
-  ATTACHMENT: "ATTACHMENT",
-  AUTOMATION: "AUTOMATION",
-  INCIDENT: "INCIDENT",
-  INVOLVED_RESOURCE: "INVOLVED_RESOURCE",
-  METRIC: "METRIC",
-  OTHER: "OTHER",
-  PARENT: "PARENT",
-  TASK: "TASK",
-} as const;
-
-/**
- * @public
- */
-export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 /**
  * <p>Details about the PagerDuty incident associated with an incident created by an Incident Manager
@@ -2338,33 +2196,6 @@ export interface ListTagsForResourceResponse {
    */
   tags: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimelineEventSort = {
-  EVENT_TIME: "EVENT_TIME",
-} as const;
-
-/**
- * @public
- */
-export type TimelineEventSort = (typeof TimelineEventSort)[keyof typeof TimelineEventSort];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public

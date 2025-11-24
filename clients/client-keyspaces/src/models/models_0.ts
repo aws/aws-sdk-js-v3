@@ -1,4 +1,20 @@
 // smithy-typescript generated code
+import {
+  CdcPropagateTags,
+  CdcStatus,
+  ClientSideTimestampsStatus,
+  EncryptionType,
+  KeyspaceStatus,
+  PointInTimeRecoveryStatus,
+  Rs,
+  SortOrder,
+  TableStatus,
+  ThroughputMode,
+  TimeToLiveStatus,
+  TypeStatus,
+  ViewType,
+} from "./enums";
+
 /**
  * <p>The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.</p>
  * @public
@@ -90,20 +106,6 @@ export interface AutoScalingSpecification {
 }
 
 /**
- * @public
- * @enum
- */
-export const ThroughputMode = {
-  PAY_PER_REQUEST: "PAY_PER_REQUEST",
-  PROVISIONED: "PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type ThroughputMode = (typeof ThroughputMode)[keyof typeof ThroughputMode];
-
-/**
  * <p>Amazon Keyspaces has two read/write capacity modes for processing reads and writes on your tables: </p> <ul> <li> <p>On-demand (default)</p> </li> <li> <p>Provisioned</p> </li> </ul> <p>The read/write capacity mode that you choose controls how you are charged for read and write throughput and how table throughput capacity is managed.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  * @public
  */
@@ -158,36 +160,6 @@ export interface CapacitySpecificationSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const CdcPropagateTags = {
-  NONE: "NONE",
-  TABLE: "TABLE",
-} as const;
-
-/**
- * @public
- */
-export type CdcPropagateTags = (typeof CdcPropagateTags)[keyof typeof CdcPropagateTags];
-
-/**
- * @public
- * @enum
- */
-export const CdcStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-} as const;
-
-/**
- * @public
- */
-export type CdcStatus = (typeof CdcStatus)[keyof typeof CdcStatus];
-
-/**
  * <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.</p> <p>Amazon Web Services-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign. Amazon Web Services-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix <code>user:</code> in the Cost Allocation Report. You cannot backdate the application of a tag.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  * @public
  */
@@ -204,22 +176,6 @@ export interface Tag {
    */
   value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ViewType = {
-  KEYS_ONLY: "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE: "NEW_IMAGE",
-  OLD_IMAGE: "OLD_IMAGE",
-} as const;
-
-/**
- * @public
- */
-export type ViewType = (typeof ViewType)[keyof typeof ViewType];
 
 /**
  * <p>The settings for the CDC stream of a table. For more information about CDC streams, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html">Working with change data capture (CDC) streams in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
@@ -270,19 +226,6 @@ export interface CdcSpecificationSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ClientSideTimestampsStatus = {
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ClientSideTimestampsStatus = (typeof ClientSideTimestampsStatus)[keyof typeof ClientSideTimestampsStatus];
-
-/**
  * <p>The client-side timestamp setting of the table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html">How it works: Amazon Keyspaces client-side timestamps</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  * @public
  */
@@ -293,20 +236,6 @@ export interface ClientSideTimestamps {
    */
   status: ClientSideTimestampsStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * <p>The optional clustering column portion of your primary key determines how the data is clustered and sorted within each partition.</p>
@@ -355,20 +284,6 @@ export interface Comment {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Rs = {
-  MULTI_REGION: "MULTI_REGION",
-  SINGLE_REGION: "SINGLE_REGION",
-} as const;
-
-/**
- * @public
- */
-export type Rs = (typeof Rs)[keyof typeof Rs];
 
 /**
  * <p> The replication specification of the keyspace includes:</p> <ul> <li> <p> <code>regionList</code> - the Amazon Web Services Regions where the keyspace is replicated in.</p> </li> <li> <p> <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.</p> </li> </ul>
@@ -423,20 +338,6 @@ export interface CreateKeyspaceResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
-  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>Amazon Keyspaces encrypts and decrypts the table data at rest transparently and integrates with Key Management Service for storing and managing the encryption key. You can choose one of the following KMS keys (KMS keys):</p> <ul> <li> <p>Amazon Web Services owned key - This is the default encryption type. The key is owned by Amazon Keyspaces (no additional charge). </p> </li> <li> <p>Customer managed key - This key is stored in your account and is created, owned, and managed by you. You have full control over the customer managed key (KMS charges apply).</p> </li> </ul> <p>For more information about encryption at rest in Amazon Keyspaces, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <p>For more information about KMS, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">KMS management service concepts</a> in the <i>Key Management Service Developer Guide</i>.</p>
  * @public
  */
@@ -453,20 +354,6 @@ export interface EncryptionSpecification {
    */
   kmsKeyIdentifier?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PointInTimeRecoveryStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PointInTimeRecoveryStatus = (typeof PointInTimeRecoveryStatus)[keyof typeof PointInTimeRecoveryStatus];
 
 /**
  * <p>Point-in-time recovery (PITR) helps protect your Amazon Keyspaces tables from accidental write or delete operations by providing you continuous backups of your table data.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html">Point-in-time recovery</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
@@ -557,19 +444,6 @@ export interface SchemaDefinition {
    */
   staticColumns?: StaticColumn[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimeToLiveStatus = {
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLiveStatus];
 
 /**
  * <p>Enable custom Time to Live (TTL) settings for rows and columns without setting a TTL default for the specified table.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_enabling">Enabling TTL on tables</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
@@ -825,22 +699,6 @@ export interface GetKeyspaceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const KeyspaceStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type KeyspaceStatus = (typeof KeyspaceStatus)[keyof typeof KeyspaceStatus];
-
-/**
  * <p> This shows the summary status of the keyspace after a new Amazon Web Services Region was added. </p>
  * @public
  */
@@ -933,25 +791,6 @@ export interface PointInTimeRecoverySummary {
    */
   earliestRestorableTimestamp?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TableStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  RESTORING: "RESTORING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
  * <p>The Region-specific settings of a multi-Region table in the specified Amazon Web Services Region.</p> <p>If the multi-Region table is using provisioned capacity and has optional auto scaling policies configured, note that the Region specific summary returns both read and write capacity settings. But only Region specific read capacity settings can be configured for a multi-Region table. In a multi-Region table, your write capacity units will be synced across all Amazon Web Services Regions to ensure that there is enough capacity to replicate write events across Regions.</p>
@@ -1164,22 +1003,6 @@ export interface GetTypeRequest {
    */
   typeName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TypeStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  RESTORING: "RESTORING",
-} as const;
-
-/**
- * @public
- */
-export type TypeStatus = (typeof TypeStatus)[keyof typeof TypeStatus];
 
 /**
  * @public

@@ -31,6 +31,19 @@ export type AccessBudgetType = (typeof AccessBudgetType)[keyof typeof AccessBudg
  * @public
  * @enum
  */
+export const AccessDeniedExceptionReason = {
+  INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
+} as const;
+/**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const AdditionalAnalyses = {
   ALLOWED: "ALLOWED",
   NOT_ALLOWED: "NOT_ALLOWED",
@@ -40,6 +53,34 @@ export const AdditionalAnalyses = {
  * @public
  */
 export type AdditionalAnalyses = (typeof AdditionalAnalyses)[keyof typeof AdditionalAnalyses];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregateFunctionName = {
+  AVG: "AVG",
+  COUNT: "COUNT",
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+  SUM: "SUM",
+  SUM_DISTINCT: "SUM_DISTINCT",
+} as const;
+/**
+ * @public
+ */
+export type AggregateFunctionName = (typeof AggregateFunctionName)[keyof typeof AggregateFunctionName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregationType = {
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+} as const;
+/**
+ * @public
+ */
+export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
 
 /**
  * @public
@@ -155,6 +196,66 @@ export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
  * @public
  * @enum
  */
+export const JoinOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
+/**
+ * @public
+ */
+export type JoinOperator = (typeof JoinOperator)[keyof typeof JoinOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const JoinRequiredOption = {
+  QUERY_RUNNER: "QUERY_RUNNER",
+} as const;
+/**
+ * @public
+ */
+export type JoinRequiredOption = (typeof JoinRequiredOption)[keyof typeof JoinRequiredOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarFunctions = {
+  ABS: "ABS",
+  CAST: "CAST",
+  CEILING: "CEILING",
+  COALESCE: "COALESCE",
+  CONVERT: "CONVERT",
+  CURRENT_DATE: "CURRENT_DATE",
+  DATEADD: "DATEADD",
+  EXTRACT: "EXTRACT",
+  FLOOR: "FLOOR",
+  GETDATE: "GETDATE",
+  LN: "LN",
+  LOG: "LOG",
+  LOWER: "LOWER",
+  ROUND: "ROUND",
+  RTRIM: "RTRIM",
+  SQRT: "SQRT",
+  SUBSTRING: "SUBSTRING",
+  TO_CHAR: "TO_CHAR",
+  TO_DATE: "TO_DATE",
+  TO_NUMBER: "TO_NUMBER",
+  TO_TIMESTAMP: "TO_TIMESTAMP",
+  TRIM: "TRIM",
+  TRUNC: "TRUNC",
+  UPPER: "UPPER",
+} as const;
+/**
+ * @public
+ */
+export type ScalarFunctions = (typeof ScalarFunctions)[keyof typeof ScalarFunctions];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnalysisRuleType = {
   AGGREGATION: "AGGREGATION",
   CUSTOM: "CUSTOM",
@@ -205,6 +306,50 @@ export const AnalysisTemplateValidationType = {
  */
 export type AnalysisTemplateValidationType =
   (typeof AnalysisTemplateValidationType)[keyof typeof AnalysisTemplateValidationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConflictExceptionReason = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  INVALID_STATE: "INVALID_STATE",
+  SUBRESOURCES_EXIST: "SUBRESOURCES_EXIST",
+} as const;
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  COLLABORATION: "COLLABORATION",
+  CONFIGURED_TABLE: "CONFIGURED_TABLE",
+  CONFIGURED_TABLE_ASSOCIATION: "CONFIGURED_TABLE_ASSOCIATION",
+  MEMBERSHIP: "MEMBERSHIP",
+} as const;
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  IAM_SYNCHRONIZATION_DELAY: "IAM_SYNCHRONIZATION_DELAY",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+  INVALID_QUERY: "INVALID_QUERY",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -432,6 +577,21 @@ export type CollaborationQueryLogStatus =
  * @public
  * @enum
  */
+export const MemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+  LEFT: "LEFT",
+  REMOVED: "REMOVED",
+} as const;
+/**
+ * @public
+ */
+export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChangeSpecificationType = {
   MEMBER: "MEMBER",
 } as const;
@@ -516,6 +676,19 @@ export type DifferentialPrivacyAggregationType =
  * @public
  * @enum
  */
+export const FilterableMemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+} as const;
+/**
+ * @public
+ */
+export type FilterableMemberStatus = (typeof FilterableMemberStatus)[keyof typeof FilterableMemberStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConfiguredTableAssociationAnalysisRuleType = {
   AGGREGATION: "AGGREGATION",
   CUSTOM: "CUSTOM",
@@ -560,6 +733,19 @@ export type JobType = (typeof JobType)[keyof typeof JobType];
  * @public
  * @enum
  */
+export const ResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
+/**
+ * @public
+ */
+export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const MembershipJobLogStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -581,6 +767,20 @@ export const MembershipQueryLogStatus = {
  * @public
  */
 export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipStatus = {
+  ACTIVE: "ACTIVE",
+  COLLABORATION_DELETED: "COLLABORATION_DELETED",
+  REMOVED: "REMOVED",
+} as const;
+/**
+ * @public
+ */
+export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
 
 /**
  * @public
@@ -630,6 +830,24 @@ export type WorkerComputeType = (typeof WorkerComputeType)[keyof typeof WorkerCo
  * @public
  * @enum
  */
+export const ProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type ProtectedQueryStatus = (typeof ProtectedQueryStatus)[keyof typeof ProtectedQueryStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProtectedJobAnalysisType = {
   DIRECT_ANALYSIS: "DIRECT_ANALYSIS",
 } as const;
@@ -654,6 +872,18 @@ export type ProtectedJobType = (typeof ProtectedJobType)[keyof typeof ProtectedJ
  * @public
  * @enum
  */
+export const ProtectedQueryType = {
+  SQL: "SQL",
+} as const;
+/**
+ * @public
+ */
+export type ProtectedQueryType = (typeof ProtectedQueryType)[keyof typeof ProtectedQueryType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TargetProtectedJobStatus = {
   CANCELLED: "CANCELLED",
 } as const;
@@ -661,3 +891,15 @@ export const TargetProtectedJobStatus = {
  * @public
  */
 export type TargetProtectedJobStatus = (typeof TargetProtectedJobStatus)[keyof typeof TargetProtectedJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+} as const;
+/**
+ * @public
+ */
+export type TargetProtectedQueryStatus = (typeof TargetProtectedQueryStatus)[keyof typeof TargetProtectedQueryStatus];

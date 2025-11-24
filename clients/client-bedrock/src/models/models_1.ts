@@ -42,7 +42,6 @@ import {
   FilterAttribute,
   GenerationConfiguration,
   ImplicitFilterConfiguration,
-  InferenceProfileSummary,
   ModelDataSource,
   OrchestrationConfiguration,
   OutputDataConfig,
@@ -54,23 +53,6 @@ import {
   VectorSearchRerankingConfiguration,
   VpcConfig,
 } from "./models_0";
-
-/**
- * @public
- */
-export interface ListInferenceProfilesResponse {
-  /**
-   * <p>A list of information about each inference profile that you can use.</p>
-   * @public
-   */
-  inferenceProfileSummaries?: InferenceProfileSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
 
 /**
  * @public

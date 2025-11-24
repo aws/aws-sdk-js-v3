@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { DocumentType as __DocumentType } from "@smithy/types";
 
+import { AWSServiceAccessStatus, IndexState, IndexType, OperationStatus } from "./enums";
+
 /**
  * @public
  */
@@ -40,20 +42,6 @@ export interface ValidationExceptionField {
    */
   ValidationIssue: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AWSServiceAccessStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AWSServiceAccessStatus = (typeof AWSServiceAccessStatus)[keyof typeof AWSServiceAccessStatus];
 
 /**
  * @public
@@ -186,38 +174,6 @@ export interface CreateIndexInput {
 
 /**
  * @public
- * @enum
- */
-export const IndexState = {
-  /**
-   * Index is active.
-   */
-  ACTIVE: "ACTIVE",
-  /**
-   * Resource Explorer is creating the index.
-   */
-  CREATING: "CREATING",
-  /**
-   * Resource Explorer successfully deleted the index.
-   */
-  DELETED: "DELETED",
-  /**
-   * Resource Explorer is deleting the index.
-   */
-  DELETING: "DELETING",
-  /**
-   * Resource Explorer is switching the index type between local and aggregator.
-   */
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IndexState = (typeof IndexState)[keyof typeof IndexState];
-
-/**
- * @public
  */
 export interface CreateIndexOutput {
   /**
@@ -272,26 +228,6 @@ export interface DeleteIndexOutput {
    */
   LastUpdatedAt?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IndexType = {
-  /**
-   * aggregator index
-   */
-  AGGREGATOR: "AGGREGATOR",
-  /**
-   * local index
-   */
-  LOCAL: "LOCAL",
-} as const;
-
-/**
- * @public
- */
-export type IndexType = (typeof IndexType)[keyof typeof IndexType];
 
 /**
  * @public
@@ -862,22 +798,6 @@ export interface GetResourceExplorerSetupInput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SKIPPED: "SKIPPED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
 /**
  * <p>Contains information about the status of a Resource Explorer index operation in a specific Region.</p>

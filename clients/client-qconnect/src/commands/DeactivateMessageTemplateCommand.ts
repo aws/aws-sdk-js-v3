@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeactivateMessageTemplateRequest, DeactivateMessageTemplateResponse } from "../models/models_1";
+import { DeactivateMessageTemplateRequest, DeactivateMessageTemplateResponse } from "../models/models_0";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeactivateMessageTemplate } from "../schemas/schemas_0";
 

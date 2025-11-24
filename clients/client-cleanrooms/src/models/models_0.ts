@@ -4,6 +4,8 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import {
   AccessBudgetType,
   AdditionalAnalyses,
+  AggregateFunctionName,
+  AggregationType,
   AnalysisFormat,
   AnalysisMethod,
   AnalysisRuleType,
@@ -24,16 +26,23 @@ import {
   CustomMLMemberAbility,
   DifferentialPrivacyAggregationType,
   ErrorMessageType,
+  FilterableMemberStatus,
   IdNamespaceType,
   JobType,
+  JoinOperator,
+  JoinRequiredOption,
   MemberAbility,
   MembershipJobLogStatus,
   MembershipQueryLogStatus,
+  MembershipStatus,
+  MemberStatus,
   ParameterType,
   PrivacyBudgetTemplateAutoRefresh,
   PrivacyBudgetType,
   ProtectedJobStatus,
   ProtectedJobWorkerComputeType,
+  ResultFormat,
+  ScalarFunctions,
   SchemaConfiguration,
   SchemaStatus,
   SchemaStatusReasonCode,
@@ -182,37 +191,6 @@ export interface AccessBudgetsPrivacyTemplateUpdateParameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const AccessDeniedExceptionReason = {
-  INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
-} as const;
-
-/**
- * @public
- */
-export type AccessDeniedExceptionReason =
-  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const AggregateFunctionName = {
-  AVG: "AVG",
-  COUNT: "COUNT",
-  COUNT_DISTINCT: "COUNT_DISTINCT",
-  SUM: "SUM",
-  SUM_DISTINCT: "SUM_DISTINCT",
-} as const;
-
-/**
- * @public
- */
-export type AggregateFunctionName = (typeof AggregateFunctionName)[keyof typeof AggregateFunctionName];
-
-/**
  * <p>Column in configured table that can be used in aggregate function in query.</p>
  * @public
  */
@@ -229,19 +207,6 @@ export interface AggregateColumn {
    */
   function: AggregateFunctionName | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AggregationType = {
-  COUNT_DISTINCT: "COUNT_DISTINCT",
-} as const;
-
-/**
- * @public
- */
-export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
 
 /**
  * <p>Constraint on query output removing output rows that do not meet a minimum number of distinct values of a specified column.</p>
@@ -452,69 +417,6 @@ export namespace ConfiguredTableAssociationAnalysisRulePolicy {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const JoinOperator = {
-  AND: "AND",
-  OR: "OR",
-} as const;
-
-/**
- * @public
- */
-export type JoinOperator = (typeof JoinOperator)[keyof typeof JoinOperator];
-
-/**
- * @public
- * @enum
- */
-export const JoinRequiredOption = {
-  QUERY_RUNNER: "QUERY_RUNNER",
-} as const;
-
-/**
- * @public
- */
-export type JoinRequiredOption = (typeof JoinRequiredOption)[keyof typeof JoinRequiredOption];
-
-/**
- * @public
- * @enum
- */
-export const ScalarFunctions = {
-  ABS: "ABS",
-  CAST: "CAST",
-  CEILING: "CEILING",
-  COALESCE: "COALESCE",
-  CONVERT: "CONVERT",
-  CURRENT_DATE: "CURRENT_DATE",
-  DATEADD: "DATEADD",
-  EXTRACT: "EXTRACT",
-  FLOOR: "FLOOR",
-  GETDATE: "GETDATE",
-  LN: "LN",
-  LOG: "LOG",
-  LOWER: "LOWER",
-  ROUND: "ROUND",
-  RTRIM: "RTRIM",
-  SQRT: "SQRT",
-  SUBSTRING: "SUBSTRING",
-  TO_CHAR: "TO_CHAR",
-  TO_DATE: "TO_DATE",
-  TO_NUMBER: "TO_NUMBER",
-  TO_TIMESTAMP: "TO_TIMESTAMP",
-  TRIM: "TRIM",
-  TRUNC: "TRUNC",
-  UPPER: "UPPER",
-} as const;
-
-/**
- * @public
- */
-export type ScalarFunctions = (typeof ScalarFunctions)[keyof typeof ScalarFunctions];
 
 /**
  * <p> Controls on the analysis specifications that can be run on a configured table.</p>
@@ -1514,37 +1416,6 @@ export interface AnalysisTemplate {
 
 /**
  * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  ALREADY_EXISTS: "ALREADY_EXISTS",
-  INVALID_STATE: "INVALID_STATE",
-  SUBRESOURCES_EXIST: "SUBRESOURCES_EXIST",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  COLLABORATION: "COLLABORATION",
-  CONFIGURED_TABLE: "CONFIGURED_TABLE",
-  CONFIGURED_TABLE_ASSOCIATION: "CONFIGURED_TABLE_ASSOCIATION",
-  MEMBERSHIP: "MEMBERSHIP",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
  */
 export interface CreateAnalysisTemplateInput {
   /**
@@ -1630,22 +1501,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  IAM_SYNCHRONIZATION_DELAY: "IAM_SYNCHRONIZATION_DELAY",
-  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
-  INVALID_QUERY: "INVALID_QUERY",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -2670,22 +2525,6 @@ export interface CreateCollaborationInput {
    */
   allowedResultRegions?: SupportedS3Region[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MemberStatus = {
-  ACTIVE: "ACTIVE",
-  INVITED: "INVITED",
-  LEFT: "LEFT",
-  REMOVED: "REMOVED",
-} as const;
-
-/**
- * @public
- */
-export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
 
 /**
  * <p>The multi-party data share environment. The collaboration contains metadata about its purpose and participants.</p>
@@ -4302,20 +4141,6 @@ export interface ListCollaborationPrivacyBudgetTemplatesOutput {
    */
   collaborationPrivacyBudgetTemplateSummaries: CollaborationPrivacyBudgetTemplateSummary[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterableMemberStatus = {
-  ACTIVE: "ACTIVE",
-  INVITED: "INVITED",
-} as const;
-
-/**
- * @public
- */
-export type FilterableMemberStatus = (typeof FilterableMemberStatus)[keyof typeof FilterableMemberStatus];
 
 /**
  * @public
@@ -7159,20 +6984,6 @@ export interface MembershipProtectedJobResultConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResultFormat = {
-  CSV: "CSV",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
-
-/**
  * <p>Contains the configuration to write the query results to S3.</p>
  * @public
  */
@@ -7395,21 +7206,6 @@ export interface CreateMembershipInput {
    */
   paymentConfiguration?: MembershipPaymentConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MembershipStatus = {
-  ACTIVE: "ACTIVE",
-  COLLABORATION_DELETED: "COLLABORATION_DELETED",
-  REMOVED: "REMOVED",
-} as const;
-
-/**
- * @public
- */
-export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
 
 /**
  * <p>The membership object.</p>
@@ -8150,4 +7946,339 @@ export interface ProtectedQueryError {
    * @public
    */
   code: string | undefined;
+}
+
+/**
+ * <p>Details about the member who received the query result.</p>
+ * @public
+ */
+export interface ProtectedQuerySingleMemberOutput {
+  /**
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the query.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Contains output information for protected queries with an S3 output type.</p>
+ * @public
+ */
+export interface ProtectedQueryS3Output {
+  /**
+   * <p>The S3 location of the result.</p>
+   * @public
+   */
+  location: string | undefined;
+}
+
+/**
+ * <p> Contains the output information for a protected query with a distribute output configuration.</p> <p> This output type allows query results to be distributed to multiple receivers, including S3 and collaboration members. It is only available for queries using the Spark analytics engine.</p>
+ * @public
+ */
+export interface ProtectedQueryDistributeOutput {
+  /**
+   * <p>Contains output information for protected queries with an S3 output type.</p>
+   * @public
+   */
+  s3?: ProtectedQueryS3Output | undefined;
+
+  /**
+   * <p> Contains the output results for each member location specified in the distribute output configuration. Each entry provides details about the result distribution to a specific collaboration member. </p>
+   * @public
+   */
+  memberList?: ProtectedQuerySingleMemberOutput[] | undefined;
+}
+
+/**
+ * <p>Contains details about the protected query output.</p>
+ * @public
+ */
+export type ProtectedQueryOutput =
+  | ProtectedQueryOutput.DistributeMember
+  | ProtectedQueryOutput.MemberListMember
+  | ProtectedQueryOutput.S3Member
+  | ProtectedQueryOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryOutput {
+  /**
+   * <p>If present, the output for a protected query with an <code>S3</code> output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3Output;
+    memberList?: never;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The list of member Amazon Web Services account(s) that received the results of the query. </p>
+   * @public
+   */
+  export interface MemberListMember {
+    s3?: never;
+    memberList: ProtectedQuerySingleMemberOutput[];
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains output information for protected queries that use a <code>distribute</code> output type. This output type lets you send query results to multiple locations - either to S3 or to collaboration members. </p> <note> <p> You can only use the <code>distribute</code> output type with the Spark analytics engine. </p> </note>
+   * @public
+   */
+  export interface DistributeMember {
+    s3?: never;
+    memberList?: never;
+    distribute: ProtectedQueryDistributeOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    memberList?: never;
+    distribute?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3Output) => T;
+    memberList: (value: ProtectedQuerySingleMemberOutput[]) => T;
+    distribute: (value: ProtectedQueryDistributeOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details about the query results.</p>
+ * @public
+ */
+export interface ProtectedQueryResult {
+  /**
+   * <p>The output of the protected query.</p>
+   * @public
+   */
+  output: ProtectedQueryOutput | undefined;
+}
+
+/**
+ * <p> Contains configuration details for the protected query member output.</p>
+ * @public
+ */
+export interface ProtectedQueryMemberOutputConfiguration {
+  /**
+   * <p>The unique identifier for the account.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p> Specifies where you'll distribute the results of your protected query. You must configure either an S3 destination or a collaboration member destination.</p>
+ * @public
+ */
+export type ProtectedQueryDistributeOutputConfigurationLocation =
+  | ProtectedQueryDistributeOutputConfigurationLocation.MemberMember
+  | ProtectedQueryDistributeOutputConfigurationLocation.S3Member
+  | ProtectedQueryDistributeOutputConfigurationLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryDistributeOutputConfigurationLocation {
+  /**
+   * <p>Contains the configuration to write the query results to S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    member?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Contains configuration details for the protected query member output.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedQueryMemberOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> Specifies the configuration for distributing protected query results to multiple receivers, including S3 and collaboration members.</p>
+ * @public
+ */
+export interface ProtectedQueryDistributeOutputConfiguration {
+  /**
+   * <p> A list of locations where you want to distribute the protected query results. Each location must specify either an S3 destination or a collaboration member destination.</p> <important> <p>You can't specify more than one S3 location.</p> <p>You can't specify the query runner's account as a member location.</p> <p>You must include either an S3 or member output configuration for each location, but not both.</p> </important>
+   * @public
+   */
+  locations: ProtectedQueryDistributeOutputConfigurationLocation[] | undefined;
+}
+
+/**
+ * <p>Contains configuration details for protected query output.</p>
+ * @public
+ */
+export type ProtectedQueryOutputConfiguration =
+  | ProtectedQueryOutputConfiguration.DistributeMember
+  | ProtectedQueryOutputConfiguration.MemberMember
+  | ProtectedQueryOutputConfiguration.S3Member
+  | ProtectedQueryOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryOutputConfiguration {
+  /**
+   * <p>Required configuration for a protected query with an <code>s3</code> output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    member?: never;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Required configuration for a protected query with a <code>member</code> output type.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedQueryMemberOutputConfiguration;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Required configuration for a protected query with a <code>distribute</code> output type.</p>
+   * @public
+   */
+  export interface DistributeMember {
+    s3?: never;
+    member?: never;
+    distribute: ProtectedQueryDistributeOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    distribute?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
+    distribute: (value: ProtectedQueryDistributeOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export interface ProtectedQueryResultConfiguration {
+  /**
+   * <p>Configuration for protected query results.</p>
+   * @public
+   */
+  outputConfiguration: ProtectedQueryOutputConfiguration | undefined;
+}
+
+/**
+ * <p>The parameters for the SQL type Protected Query.</p>
+ * @public
+ */
+export interface ProtectedQuerySQLParameters {
+  /**
+   * <p>The query string to be submitted.</p>
+   * @public
+   */
+  queryString?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   * @public
+   */
+  analysisTemplateArn?: string | undefined;
+
+  /**
+   * <p>The protected query SQL parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected query.</p>
+ * @public
+ */
+export interface BilledResourceUtilization {
+  /**
+   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
+   * @public
+   */
+  units: number | undefined;
+}
+
+/**
+ * <p>Contains statistics about the execution of the protected query.</p>
+ * @public
+ */
+export interface ProtectedQueryStatistics {
+  /**
+   * <p>The duration of the protected query, from creation until query completion, in milliseconds.</p>
+   * @public
+   */
+  totalDurationInMillis?: number | undefined;
+
+  /**
+   * <p> The billed resource utilization.</p>
+   * @public
+   */
+  billedResourceUtilization?: BilledResourceUtilization | undefined;
 }

@@ -1,4 +1,16 @@
 // smithy-typescript generated code
+import {
+  ConfirmationStatus,
+  ErrorType,
+  ExecutionStatus,
+  ListFilteredTransactionEventsSortBy,
+  ListTransactionsSortBy,
+  QueryNetwork,
+  QueryTokenStandard,
+  QueryTransactionEventType,
+  SortOrder,
+} from "./enums";
+
 /**
  * <p>This is the container for the unique public address on the blockchain.</p>
  * @public
@@ -10,34 +22,6 @@ export interface AddressIdentifierFilter {
    */
   transactionEventToAddress: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryNetwork = {
-  /**
-   * Bitcoin main network
-   */
-  BITCOIN_MAINNET: "BITCOIN_MAINNET",
-  /**
-   * Bitcoin test network
-   */
-  BITCOIN_TESTNET: "BITCOIN_TESTNET",
-  /**
-   * Ethereum main network
-   */
-  ETHEREUM_MAINNET: "ETHEREUM_MAINNET",
-  /**
-   * SEPOLIA network (ethereum testnet)
-   */
-  ETHEREUM_SEPOLIA_TESTNET: "ETHEREUM_SEPOLIA_TESTNET",
-} as const;
-
-/**
- * @public
- */
-export type QueryNetwork = (typeof QueryNetwork)[keyof typeof QueryNetwork];
 
 /**
  * <p>Container for the blockchain address and network information about a contract.</p>
@@ -56,21 +40,6 @@ export interface ContractIdentifier {
    */
   contractAddress: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryTokenStandard = {
-  ERC1155: "ERC1155",
-  ERC20: "ERC20",
-  ERC721: "ERC721",
-} as const;
-
-/**
- * @public
- */
-export type QueryTokenStandard = (typeof QueryTokenStandard)[keyof typeof QueryTokenStandard];
 
 /**
  * <p>This container contains information about an contract.</p>
@@ -198,26 +167,6 @@ export interface BatchGetTokenBalanceInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorType = {
-  /**
-   * An API request retrieving an item that can't be found
-   */
-  RESOURCE_NOT_FOUND_EXCEPTION: "RESOURCE_NOT_FOUND_EXCEPTION",
-  /**
-   * An API request validation exception
-   */
-  VALIDATION_EXCEPTION: "VALIDATION_EXCEPTION",
-} as const;
-
-/**
- * @public
- */
-export type ErrorType = (typeof ErrorType)[keyof typeof ErrorType];
-
-/**
  * <p>Error generated from a failed <code>BatchGetTokenBalance</code> request.</p>
  * @public
  */
@@ -321,19 +270,6 @@ export interface BatchGetTokenBalanceOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceType = {
-  COLLECTION: "collection",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
  * <p>The resource passed is invalid.</p>
  * @public
  */
@@ -350,36 +286,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const ConfirmationStatus = {
-  FINAL: "FINAL",
-  NONFINAL: "NONFINAL",
-} as const;
-
-/**
- * @public
- */
-export type ConfirmationStatus = (typeof ConfirmationStatus)[keyof typeof ConfirmationStatus];
 
 /**
  * <p>The container for the <code>ConfirmationStatusFilter</code> that filters for the <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">
@@ -445,20 +351,6 @@ export interface ContractMetadata {
    */
   decimals?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public
@@ -796,43 +688,6 @@ export interface ListAssetContractsOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ListFilteredTransactionEventsSortBy = {
-  /**
-   * Timestamp of a transaction
-   */
-  blockchainInstant: "blockchainInstant",
-} as const;
-
-/**
- * @public
- */
-export type ListFilteredTransactionEventsSortBy =
-  (typeof ListFilteredTransactionEventsSortBy)[keyof typeof ListFilteredTransactionEventsSortBy];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  /**
-   * Result sorted in ascending order
-   */
-  ASCENDING: "ASCENDING",
-  /**
-   * Result sorted in descending order
-   */
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
  * <p>Lists all the transaction events for an address on the blockchain.</p>
  *          <note>
  *             <p>This operation is only supported on the Bitcoin blockchain networks.</p>
@@ -951,62 +806,6 @@ export interface ListFilteredTransactionEventsInput {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryTransactionEventType = {
-  /**
-   * A Bitcoin Vin transfer type
-   */
-  BITCOIN_VIN: "BITCOIN_VIN",
-  /**
-   * A Bitcoin Vout transfer type
-   */
-  BITCOIN_VOUT: "BITCOIN_VOUT",
-  /**
-   * An ERC1155 transfer type
-   */
-  ERC1155_TRANSFER: "ERC1155_TRANSFER",
-  /**
-   * An ERC20_BURN transfer type
-   */
-  ERC20_BURN: "ERC20_BURN",
-  /**
-   * An ERC20_DEPOSIT transfer type
-   */
-  ERC20_DEPOSIT: "ERC20_DEPOSIT",
-  /**
-   * An ERC20_MINT transfer type
-   */
-  ERC20_MINT: "ERC20_MINT",
-  /**
-   * An ERC20 transfer type
-   */
-  ERC20_TRANSFER: "ERC20_TRANSFER",
-  /**
-   * An ERC20_WITHDRAWAL transfer type
-   */
-  ERC20_WITHDRAWAL: "ERC20_WITHDRAWAL",
-  /**
-   * An ERC721 transfer type
-   */
-  ERC721_TRANSFER: "ERC721_TRANSFER",
-  /**
-   * An ETH transfer type
-   */
-  ETH_TRANSFER: "ETH_TRANSFER",
-  /**
-   * An internal ETH transfer type
-   */
-  INTERNAL_ETH_TRANSFER: "INTERNAL_ETH_TRANSFER",
-} as const;
-
-/**
- * @public
- */
-export type QueryTransactionEventType = (typeof QueryTransactionEventType)[keyof typeof QueryTransactionEventType];
 
 /**
  * <p>The container for the properties of a transaction event.</p>
@@ -1350,22 +1149,6 @@ export interface ListTransactionEventsOutput {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListTransactionsSortBy = {
-  /**
-   * Timestamp of a transaction
-   */
-  TRANSACTION_TIMESTAMP: "TRANSACTION_TIMESTAMP",
-} as const;
-
-/**
- * @public
- */
-export type ListTransactionsSortBy = (typeof ListTransactionsSortBy)[keyof typeof ListTransactionsSortBy];
 
 /**
  * <p>The container for determining how the list transaction result will

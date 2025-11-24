@@ -1,4 +1,20 @@
 // smithy-typescript generated code
+import {
+  BatchItemErrorCode,
+  DimensionUnit,
+  DistanceUnit,
+  ForecastedGeofenceEventType,
+  IntendedUse,
+  OptimizationMode,
+  PositionFiltering,
+  PricingPlan,
+  RouteMatrixErrorCode,
+  SpeedUnit,
+  Status,
+  TravelMode,
+  VehicleWeightUnit,
+} from "./enums";
+
 /**
  * <p>Unique identifying information for an Android app. Consists of a package name and a 20 byte SHA-1 certificate fingerprint.</p>
  * @public
@@ -16,11 +32,6 @@ export interface AndroidApp {
    */
   CertificateFingerprint: string | undefined;
 }
-
-/**
- * @public
- */
-export type Status = "Active" | "Expired";
 
 /**
  * <p>Options for filtering API keys.</p>
@@ -169,17 +180,6 @@ export interface ValidationExceptionField {
    */
   Message: string | undefined;
 }
-
-/**
- * @public
- */
-export type ValidationExceptionReason =
-  | "CannotParse"
-  | "FieldValidationFailed"
-  | "Missing"
-  | "Other"
-  | "UnknownField"
-  | "UnknownOperation";
 
 /**
  * @public
@@ -457,17 +457,6 @@ export interface BatchDeleteDevicePositionHistoryRequest {
    */
   DeviceIds: string[] | undefined;
 }
-
-/**
- * @public
- */
-export type BatchItemErrorCode =
-  | "AccessDeniedError"
-  | "ConflictError"
-  | "InternalServerError"
-  | "ResourceNotFoundError"
-  | "ThrottlingError"
-  | "ValidationError";
 
 /**
  * <p>Contains the batch request error details associated with the request.</p>
@@ -975,26 +964,6 @@ export interface CalculateRouteCarModeOptions {
 }
 
 /**
- * @public
- */
-export type DistanceUnit = "Kilometers" | "Miles";
-
-/**
- * @public
- */
-export type OptimizationMode = "FastestRoute" | "ShortestRoute";
-
-/**
- * @public
- */
-export type TravelMode = "Bicycle" | "Car" | "Motorcycle" | "Truck" | "Walking";
-
-/**
- * @public
- */
-export type DimensionUnit = "Feet" | "Meters";
-
-/**
  * <p>Contains details about the truck dimensions in the unit of measurement that you specify. Used to filter out roads that can't support or allow the specified dimensions for requests that specify <code>TravelMode</code> as <code>Truck</code>.</p>
  * @public
  */
@@ -1023,11 +992,6 @@ export interface TruckDimensions {
    */
   Unit?: DimensionUnit | undefined;
 }
-
-/**
- * @public
- */
-export type VehicleWeightUnit = "Kilograms" | "Pounds";
 
 /**
  * <p>Contains details about the truck's weight specifications. Used to avoid roads that can't support or allow the total weight for requests that specify <code>TravelMode</code> as <code>Truck</code>.</p>
@@ -1376,17 +1340,6 @@ export interface CalculateRouteMatrixRequest {
 }
 
 /**
- * @public
- */
-export type RouteMatrixErrorCode =
-  | "DeparturePositionNotFound"
-  | "DestinationPositionNotFound"
-  | "OtherValidationError"
-  | "PositionsNotFound"
-  | "RouteNotFound"
-  | "RouteTooLong";
-
-/**
  * <p>An error corresponding to the calculation of a route between the <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p> <p>The error code can be one of the following:</p> <ul> <li> <p> <code>RouteNotFound</code> - Unable to find a valid route with the given parameters.</p> </li> </ul> <ul> <li> <p> <code>RouteTooLong</code> - Route calculation went beyond the maximum size of a route and was terminated before completion.</p> </li> </ul> <ul> <li> <p> <code>PositionsNotFound</code> - One or more of the input positions were not found on the route network.</p> </li> </ul> <ul> <li> <p> <code>DestinationPositionNotFound</code> - The destination position was not found on the route network.</p> </li> </ul> <ul> <li> <p> <code>DeparturePositionNotFound</code> - The departure position was not found on the route network.</p> </li> </ul> <ul> <li> <p> <code>OtherValidationError</code> - The given inputs were not valid or a route was not found. More information is given in the error <code>Message</code> </p> </li> </ul>
  * @public
  */
@@ -1623,11 +1576,6 @@ export interface CellSignals {
 /**
  * @public
  */
-export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "RequestBasedUsage";
-
-/**
- * @public
- */
 export interface CreateGeofenceCollectionRequest {
   /**
    * <p>A custom name for the geofence collection.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> <li> <p>Must be a unique geofence collection name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</p> </li> </ul>
@@ -1778,11 +1726,6 @@ export interface CreateMapResponse {
 }
 
 /**
- * @public
- */
-export type IntendedUse = "SingleUse" | "Storage";
-
-/**
  * <p>Specifies the data storage option chosen for requesting Places.</p> <important> <p>When using Amazon Location Places:</p> <ul> <li> <p>If using HERE Technologies as a data provider, you can't store results for locations in Japan by setting <code>IntendedUse</code> to <code>Storage</code>. parameter.</p> </li> <li> <p>Under the <code>MobileAssetTracking</code> or <code>MobilAssetManagement</code> pricing plan, you can't store results from your place index resources by setting <code>IntendedUse</code> to <code>Storage</code>. This returns a validation exception error.</p> </li> </ul> <p>For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p> </important>
  * @public
  */
@@ -1919,11 +1862,6 @@ export interface CreateRouteCalculatorResponse {
    */
   CreateTime: Date | undefined;
 }
-
-/**
- * @public
- */
-export type PositionFiltering = "AccuracyBased" | "DistanceBased" | "TimeBased";
 
 /**
  * @public
@@ -2562,11 +2500,6 @@ export interface DisassociateTrackerConsumerRequest {
 export interface DisassociateTrackerConsumerResponse {}
 
 /**
- * @public
- */
-export type ForecastedGeofenceEventType = "ENTER" | "EXIT" | "IDLE";
-
-/**
  * <p>A forecasted event represents a geofence event in relation to the requested device state, that may occur given the provided device state and time horizon.</p>
  * @public
  */
@@ -2631,11 +2564,6 @@ export interface ForecastGeofenceEventsDeviceState {
    */
   Speed?: number | undefined;
 }
-
-/**
- * @public
- */
-export type SpeedUnit = "KilometersPerHour" | "MilesPerHour";
 
 /**
  * @public

@@ -127,6 +127,21 @@ export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
  * @public
  * @enum
  */
+export const TokenProviders = {
+  /**
+   * The figma token provider.
+   */
+  FIGMA: "figma",
+} as const;
+/**
+ * @public
+ */
+export type TokenProviders = (typeof TokenProviders)[keyof typeof TokenProviders];
+
+/**
+ * @public
+ * @enum
+ */
 export const FixedPosition = {
   FIRST: "first",
 } as const;
@@ -148,6 +163,25 @@ export const FormButtonsPosition = {
  * @public
  */
 export type FormButtonsPosition = (typeof FormButtonsPosition)[keyof typeof FormButtonsPosition];
+
+/**
+ * @public
+ * @enum
+ */
+export const FormDataSourceType = {
+  /**
+   * Will use passed in hooks to use when creating a form from scratch
+   */
+  CUSTOM: "Custom",
+  /**
+   * Will use a provided Amplify DataStore enabled API
+   */
+  DATASTORE: "DataStore",
+} as const;
+/**
+ * @public
+ */
+export type FormDataSourceType = (typeof FormDataSourceType)[keyof typeof FormDataSourceType];
 
 /**
  * @public
@@ -175,3 +209,17 @@ export const FormActionType = {
  * @public
  */
 export type FormActionType = (typeof FormActionType)[keyof typeof FormActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LabelDecorator = {
+  NONE: "none",
+  OPTIONAL: "optional",
+  REQUIRED: "required",
+} as const;
+/**
+ * @public
+ */
+export type LabelDecorator = (typeof LabelDecorator)[keyof typeof LabelDecorator];

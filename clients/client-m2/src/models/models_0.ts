@@ -1,4 +1,17 @@
 // smithy-typescript generated code
+import {
+  ApplicationDeploymentLifecycle,
+  ApplicationLifecycle,
+  ApplicationVersionLifecycle,
+  BatchJobExecutionStatus,
+  BatchJobType,
+  DataSetTaskLifecycle,
+  DeploymentLifecycle,
+  EngineType,
+  EnvironmentLifecycle,
+  NetworkType,
+} from "./enums";
+
 /**
  * <p>Defines an alternate key. This value is optional. A legacy data set might not have any
  *          alternate key defined but if those alternate keys definitions exist, provide them, as some
@@ -80,24 +93,6 @@ export interface ValidationExceptionField {
 }
 
 /**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FEATURE_NOT_AVAILABLE: "featureNotAvailable",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-  UNSUPPORTED_ENGINE_VERSION: "unsupportedEngineVersion",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
  * <p>The application definition for a particular application. </p>
  * @public
  */
@@ -147,20 +142,6 @@ export namespace Definition {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const EngineType = {
-  BLUAGE: "bluage",
-  MICROFOCUS: "microfocus",
-} as const;
-
-/**
- * @public
- */
-export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * @public
@@ -869,22 +850,6 @@ export interface GetApplicationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentLifecycle = {
-  DEPLOYING: "Deploying",
-  DEPLOY_UPDATE: "Updating Deployment",
-  FAILED: "Failed",
-  SUCCEEDED: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentLifecycle = (typeof DeploymentLifecycle)[keyof typeof DeploymentLifecycle];
-
-/**
  * <p>Contains a summary of a deployed application.</p>
  * @public
  */
@@ -907,22 +872,6 @@ export interface DeployedVersionSummary {
    */
   statusReason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationVersionLifecycle = {
-  AVAILABLE: "Available",
-  CREATING: "Creating",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationVersionLifecycle =
-  (typeof ApplicationVersionLifecycle)[keyof typeof ApplicationVersionLifecycle];
 
 /**
  * <p>Defines an application version summary.</p>
@@ -972,29 +921,6 @@ export interface LogGroupSummary {
    */
   logGroupName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationLifecycle = {
-  AVAILABLE: "Available",
-  CREATED: "Created",
-  CREATING: "Creating",
-  DELETING: "Deleting",
-  DELETING_FROM_ENVIRONMENT: "Deleting From Environment",
-  FAILED: "Failed",
-  READY: "Ready",
-  RUNNING: "Running",
-  STARTING: "Starting",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationLifecycle = (typeof ApplicationLifecycle)[keyof typeof ApplicationLifecycle];
 
 /**
  * @public
@@ -1470,43 +1396,6 @@ export namespace BatchJobIdentifier {
 
 /**
  * @public
- * @enum
- */
-export const BatchJobType = {
-  JES2: "JES2",
-  JES3: "JES3",
-  VSE: "VSE",
-} as const;
-
-/**
- * @public
- */
-export type BatchJobType = (typeof BatchJobType)[keyof typeof BatchJobType];
-
-/**
- * @public
- * @enum
- */
-export const BatchJobExecutionStatus = {
-  CANCELLED: "Cancelled",
-  CANCELLING: "Cancelling",
-  DISPATCH: "Dispatching",
-  FAILED: "Failed",
-  HOLDING: "Holding",
-  PURGED: "Purged",
-  RUNNING: "Running",
-  SUBMITTING: "Submitting",
-  SUCCEEDED: "Succeeded",
-  SUCCEEDED_WITH_WARNING: "Succeeded With Warning",
-} as const;
-
-/**
- * @public
- */
-export type BatchJobExecutionStatus = (typeof BatchJobExecutionStatus)[keyof typeof BatchJobExecutionStatus];
-
-/**
- * @public
  */
 export interface GetBatchJobExecutionResponse {
   /**
@@ -1878,22 +1767,6 @@ export interface GetDataSetExportTaskRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataSetTaskLifecycle = {
-  COMPLETED: "Completed",
-  CREATING: "Creating",
-  FAILED: "Failed",
-  RUNNING: "Running",
-} as const;
-
-/**
- * @public
- */
-export type DataSetTaskLifecycle = (typeof DataSetTaskLifecycle)[keyof typeof DataSetTaskLifecycle];
-
-/**
  * <p>Represents a summary of data set exports.</p>
  * @public
  */
@@ -2134,21 +2007,6 @@ export interface ListApplicationsRequest {
    */
   environmentId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationDeploymentLifecycle = {
-  DEPLOYED: "Deployed",
-  DEPLOYING: "Deploying",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationDeploymentLifecycle =
-  (typeof ApplicationDeploymentLifecycle)[keyof typeof ApplicationDeploymentLifecycle];
 
 /**
  * <p>A subset of the possible application attributes. Used in the application list.</p>
@@ -3139,20 +2997,6 @@ export interface HighAvailabilityConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkType = {
-  DUAL: "dual",
-  IPV4: "ipv4",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
-
-/**
  * <p>Defines the storage configuration for an Amazon EFS file system.</p>
  * @public
  */
@@ -3414,24 +3258,6 @@ export interface PendingMaintenance {
    */
   engineVersion?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentLifecycle = {
-  AVAILABLE: "Available",
-  CREATING: "Creating",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  UNHEALTHY: "UnHealthy",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentLifecycle = (typeof EnvironmentLifecycle)[keyof typeof EnvironmentLifecycle];
 
 /**
  * @public

@@ -23,6 +23,7 @@ export type { SimSpaceWeaverExtensionConfiguration } from "./extensionConfigurat
 export * from "./commands";
 export * from "./pagination";
 
+export * from "./models/enums";
 export * from "./models/errors";
 export type * from "./models/models_0";
 

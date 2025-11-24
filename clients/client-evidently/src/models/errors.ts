@@ -1,8 +1,9 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { ValidationExceptionReason } from "./enums";
 import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
-import { ValidationExceptionField, ValidationExceptionReason } from "./models_0";
+import { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You do not have sufficient permissions to perform this action. </p>

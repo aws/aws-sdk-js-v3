@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { AlternateContactType, PrimaryEmailUpdateStatus, RegionOptStatus } from "./enums";
+
 /**
  * @public
  */
@@ -21,20 +23,6 @@ export interface AcceptPrimaryEmailUpdateRequest {
    */
   Otp: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PrimaryEmailUpdateStatus = {
-  ACCEPTED: "ACCEPTED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type PrimaryEmailUpdateStatus = (typeof PrimaryEmailUpdateStatus)[keyof typeof PrimaryEmailUpdateStatus];
 
 /**
  * @public
@@ -64,20 +52,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  INVALID_REGION_OPT_TARGET: "invalidRegionOptTarget",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -129,21 +103,6 @@ export interface PutAccountNameRequest {
    */
   AccountId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AlternateContactType = {
-  BILLING: "BILLING",
-  OPERATIONS: "OPERATIONS",
-  SECURITY: "SECURITY",
-} as const;
-
-/**
- * @public
- */
-export type AlternateContactType = (typeof AlternateContactType)[keyof typeof AlternateContactType];
 
 /**
  * @public
@@ -484,23 +443,6 @@ export interface GetRegionOptStatusRequest {
    */
   RegionName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RegionOptStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLED_BY_DEFAULT: "ENABLED_BY_DEFAULT",
-  ENABLING: "ENABLING",
-} as const;
-
-/**
- * @public
- */
-export type RegionOptStatus = (typeof RegionOptStatus)[keyof typeof RegionOptStatus];
 
 /**
  * @public

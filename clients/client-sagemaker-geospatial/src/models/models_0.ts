@@ -1,157 +1,32 @@
 // smithy-typescript generated code
 import { StreamingBlobTypes } from "@smithy/types";
 
-/**
- * @public
- * @enum
- */
-export const AlgorithmNameCloudRemoval = {
-  /**
-   * INTERPOLATION
-   */
-  INTERPOLATION: "INTERPOLATION",
-} as const;
-
-/**
- * @public
- */
-export type AlgorithmNameCloudRemoval = (typeof AlgorithmNameCloudRemoval)[keyof typeof AlgorithmNameCloudRemoval];
-
-/**
- * @public
- * @enum
- */
-export const AlgorithmNameGeoMosaic = {
-  /**
-   * AVERAGE
-   */
-  AVERAGE: "AVERAGE",
-  /**
-   * BILINEAR
-   */
-  BILINEAR: "BILINEAR",
-  /**
-   * CUBIC
-   */
-  CUBIC: "CUBIC",
-  /**
-   * CUBICSPLINE
-   */
-  CUBICSPLINE: "CUBICSPLINE",
-  /**
-   * LANCZOS
-   */
-  LANCZOS: "LANCZOS",
-  /**
-   * MAX
-   */
-  MAX: "MAX",
-  /**
-   * MED
-   */
-  MED: "MED",
-  /**
-   * MIN
-   */
-  MIN: "MIN",
-  /**
-   * MODE
-   */
-  MODE: "MODE",
-  /**
-   * NEAR
-   */
-  NEAR: "NEAR",
-  /**
-   * Q1
-   */
-  Q1: "Q1",
-  /**
-   * Q3
-   */
-  Q3: "Q3",
-  /**
-   * RMS
-   */
-  RMS: "RMS",
-  /**
-   * SUM
-   */
-  SUM: "SUM",
-} as const;
-
-/**
- * @public
- */
-export type AlgorithmNameGeoMosaic = (typeof AlgorithmNameGeoMosaic)[keyof typeof AlgorithmNameGeoMosaic];
-
-/**
- * @public
- * @enum
- */
-export const AlgorithmNameResampling = {
-  /**
-   * AVERAGE
-   */
-  AVERAGE: "AVERAGE",
-  /**
-   * BILINEAR
-   */
-  BILINEAR: "BILINEAR",
-  /**
-   * CUBIC
-   */
-  CUBIC: "CUBIC",
-  /**
-   * CUBICSPLINE
-   */
-  CUBICSPLINE: "CUBICSPLINE",
-  /**
-   * LANCZOS
-   */
-  LANCZOS: "LANCZOS",
-  /**
-   * MAX
-   */
-  MAX: "MAX",
-  /**
-   * MED
-   */
-  MED: "MED",
-  /**
-   * MIN
-   */
-  MIN: "MIN",
-  /**
-   * MODE
-   */
-  MODE: "MODE",
-  /**
-   * NEAR
-   */
-  NEAR: "NEAR",
-  /**
-   * Q1
-   */
-  Q1: "Q1",
-  /**
-   * Q3
-   */
-  Q3: "Q3",
-  /**
-   * RMS
-   */
-  RMS: "RMS",
-  /**
-   * SUM
-   */
-  SUM: "SUM",
-} as const;
-
-/**
- * @public
- */
-export type AlgorithmNameResampling = (typeof AlgorithmNameResampling)[keyof typeof AlgorithmNameResampling];
+import {
+  AlgorithmNameCloudRemoval,
+  AlgorithmNameGeoMosaic,
+  AlgorithmNameResampling,
+  ComparisonOperator,
+  DataCollectionType,
+  EarthObservationJobErrorType,
+  EarthObservationJobExportStatus,
+  EarthObservationJobStatus,
+  ExportErrorType,
+  GroupBy,
+  LogicalOperator,
+  OutputType,
+  PredefinedResolution,
+  SortOrder,
+  TargetOptions,
+  TemporalStatistics,
+  Unit,
+  VectorEnrichmentJobDocumentType,
+  VectorEnrichmentJobErrorType,
+  VectorEnrichmentJobExportErrorType,
+  VectorEnrichmentJobExportStatus,
+  VectorEnrichmentJobStatus,
+  VectorEnrichmentJobType,
+  ZonalStatistics,
+} from "./enums";
 
 /**
  * <p>The structure representing Polygon Geometry based on the <a href="https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6">GeoJson spec</a>.</p>
@@ -280,38 +155,6 @@ export interface AssetValue {
 }
 
 /**
- * @public
- * @enum
- */
-export const OutputType = {
-  /**
-   * FLOAT32
-   */
-  FLOAT32: "FLOAT32",
-  /**
-   * FLOAT64
-   */
-  FLOAT64: "FLOAT64",
-  /**
-   * INT16
-   */
-  INT16: "INT16",
-  /**
-   * INT32
-   */
-  INT32: "INT32",
-  /**
-   * UINT16
-   */
-  UINT16: "UINT16",
-} as const;
-
-/**
- * @public
- */
-export type OutputType = (typeof OutputType)[keyof typeof OutputType];
-
-/**
  * <p>Represents an arithmetic operation to compute spectral index.</p>
  * @public
  */
@@ -399,30 +242,6 @@ export interface CloudRemovalConfigInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  /**
-   * EQUALS
-   */
-  EQUALS: "EQUALS",
-  /**
-   * NOT_EQUALS
-   */
-  NOT_EQUALS: "NOT_EQUALS",
-  /**
-   * STARTS_WITH
-   */
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
  * <p>The structure representing the filters supported by a RasterDataCollection.</p>
  * @public
  */
@@ -451,30 +270,6 @@ export interface Filter {
    */
   Maximum?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataCollectionType = {
-  /**
-   * PREMIUM
-   */
-  PREMIUM: "PREMIUM",
-  /**
-   * PUBLIC
-   */
-  PUBLIC: "PUBLIC",
-  /**
-   * USER
-   */
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type DataCollectionType = (typeof DataCollectionType)[keyof typeof DataCollectionType];
 
 /**
  * <p>Response object containing details for a specific RasterDataCollection.</p>
@@ -623,31 +418,6 @@ export interface ExportEarthObservationJobInput {
 
 /**
  * @public
- * @enum
- */
-export const EarthObservationJobExportStatus = {
-  /**
-   * FAILED
-   */
-  FAILED: "FAILED",
-  /**
-   * IN_PROGRESS
-   */
-  IN_PROGRESS: "IN_PROGRESS",
-  /**
-   * SUCCEEDED
-   */
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type EarthObservationJobExportStatus =
-  (typeof EarthObservationJobExportStatus)[keyof typeof EarthObservationJobExportStatus];
-
-/**
- * @public
  */
 export interface ExportEarthObservationJobOutput {
   /**
@@ -699,27 +469,6 @@ export interface GetEarthObservationJobInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const EarthObservationJobErrorType = {
-  /**
-   * CLIENT_ERROR
-   */
-  CLIENT_ERROR: "CLIENT_ERROR",
-  /**
-   * SERVER_ERROR
-   */
-  SERVER_ERROR: "SERVER_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type EarthObservationJobErrorType =
-  (typeof EarthObservationJobErrorType)[keyof typeof EarthObservationJobErrorType];
-
-/**
  * <p>The structure representing the errors in an EarthObservationJob.</p>
  * @public
  */
@@ -736,26 +485,6 @@ export interface EarthObservationJobErrorDetails {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportErrorType = {
-  /**
-   * CLIENT_ERROR
-   */
-  CLIENT_ERROR: "CLIENT_ERROR",
-  /**
-   * SERVER_ERROR
-   */
-  SERVER_ERROR: "SERVER_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ExportErrorType = (typeof ExportErrorType)[keyof typeof ExportErrorType];
 
 /**
  * <p>The structure representing the errors in an export EarthObservationJob operation.</p>
@@ -793,22 +522,6 @@ export interface ExportErrorDetails {
    */
   ExportSourceImages?: ExportErrorDetailsOutput | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogicalOperator = {
-  /**
-   * AND
-   */
-  AND: "AND",
-} as const;
-
-/**
- * @public
- */
-export type LogicalOperator = (typeof LogicalOperator)[keyof typeof LogicalOperator];
 
 /**
  * <p>The structure representing the EoCloudCover filter.</p>
@@ -1191,22 +904,6 @@ export interface GeoMosaicConfigInput {
 export interface LandCoverSegmentationConfigInput {}
 
 /**
- * @public
- * @enum
- */
-export const Unit = {
-  /**
-   * METERS
-   */
-  METERS: "METERS",
-} as const;
-
-/**
- * @public
- */
-export type Unit = (typeof Unit)[keyof typeof Unit];
-
-/**
  * <p>The output resolution (in target georeferenced units)
  *       of the result of the operation</p>
  * @public
@@ -1265,30 +962,6 @@ export interface ResamplingConfigInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const PredefinedResolution = {
-  /**
-   * AVERAGE
-   */
-  AVERAGE: "AVERAGE",
-  /**
-   * HIGHEST
-   */
-  HIGHEST: "HIGHEST",
-  /**
-   * LOWEST
-   */
-  LOWEST: "LOWEST",
-} as const;
-
-/**
- * @public
- */
-export type PredefinedResolution = (typeof PredefinedResolution)[keyof typeof PredefinedResolution];
-
-/**
  * <p>The input structure representing Output Resolution for Stacking Operation.</p>
  * @public
  */
@@ -1327,50 +1000,6 @@ export interface StackConfigInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const GroupBy = {
-  /**
-   * ALL
-   */
-  ALL: "ALL",
-  /**
-   * YEARLY
-   */
-  YEARLY: "YEARLY",
-} as const;
-
-/**
- * @public
- */
-export type GroupBy = (typeof GroupBy)[keyof typeof GroupBy];
-
-/**
- * @public
- * @enum
- */
-export const TemporalStatistics = {
-  /**
-   * MEAN
-   */
-  MEAN: "MEAN",
-  /**
-   * MEDIAN
-   */
-  MEDIAN: "MEDIAN",
-  /**
-   * STANDARD_DEVIATION
-   */
-  STANDARD_DEVIATION: "STANDARD_DEVIATION",
-} as const;
-
-/**
- * @public
- */
-export type TemporalStatistics = (typeof TemporalStatistics)[keyof typeof TemporalStatistics];
-
-/**
  * <p>The structure representing the configuration for Temporal Statistics operation.</p>
  * @public
  */
@@ -1393,42 +1022,6 @@ export interface TemporalStatisticsConfigInput {
    */
   TargetBands?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ZonalStatistics = {
-  /**
-   * MAX
-   */
-  MAX: "MAX",
-  /**
-   * MEAN
-   */
-  MEAN: "MEAN",
-  /**
-   * MEDIAN
-   */
-  MEDIAN: "MEDIAN",
-  /**
-   * MIN
-   */
-  MIN: "MIN",
-  /**
-   * STANDARD_DEVIATION
-   */
-  STANDARD_DEVIATION: "STANDARD_DEVIATION",
-  /**
-   * SUM
-   */
-  SUM: "SUM",
-} as const;
-
-/**
- * @public
- */
-export type ZonalStatistics = (typeof ZonalStatistics)[keyof typeof ZonalStatistics];
 
 /**
  * <p>The structure representing input configuration of ZonalStatistics operation.</p>
@@ -1707,50 +1300,6 @@ export interface OutputBand {
 
 /**
  * @public
- * @enum
- */
-export const EarthObservationJobStatus = {
-  /**
-   * COMPLETED
-   */
-  COMPLETED: "COMPLETED",
-  /**
-   * DELETED
-   */
-  DELETED: "DELETED",
-  /**
-   * DELETING
-   */
-  DELETING: "DELETING",
-  /**
-   * FAILED
-   */
-  FAILED: "FAILED",
-  /**
-   * INITIALIZING
-   */
-  INITIALIZING: "INITIALIZING",
-  /**
-   * IN_PROGRESS
-   */
-  IN_PROGRESS: "IN_PROGRESS",
-  /**
-   * STOPPED
-   */
-  STOPPED: "STOPPED",
-  /**
-   * STOPPING
-   */
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type EarthObservationJobStatus = (typeof EarthObservationJobStatus)[keyof typeof EarthObservationJobStatus];
-
-/**
- * @public
  */
 export interface GetEarthObservationJobOutput {
   /**
@@ -1840,26 +1389,6 @@ export interface GetEarthObservationJobOutput {
 
 /**
  * @public
- * @enum
- */
-export const TargetOptions = {
-  /**
-   * INPUT
-   */
-  INPUT: "INPUT",
-  /**
-   * OUTPUT
-   */
-  OUTPUT: "OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type TargetOptions = (typeof TargetOptions)[keyof typeof TargetOptions];
-
-/**
- * @public
  */
 export interface GetTileInput {
   /**
@@ -1945,26 +1474,6 @@ export interface GetTileOutput {
    */
   BinaryFile?: StreamingBlobTypes | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  /**
-   * ASCENDING
-   */
-  ASCENDING: "ASCENDING",
-  /**
-   * DESCENDING
-   */
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -2325,22 +1834,6 @@ export interface ExportVectorEnrichmentJobInput {
 
 /**
  * @public
- * @enum
- */
-export const VectorEnrichmentJobExportStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type VectorEnrichmentJobExportStatus =
-  (typeof VectorEnrichmentJobExportStatus)[keyof typeof VectorEnrichmentJobExportStatus];
-
-/**
- * @public
  */
 export interface ExportVectorEnrichmentJobOutput {
   /**
@@ -2470,27 +1963,6 @@ export interface GetVectorEnrichmentJobInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const VectorEnrichmentJobErrorType = {
-  /**
-   * CLIENT_ERROR
-   */
-  CLIENT_ERROR: "CLIENT_ERROR",
-  /**
-   * SERVER_ERROR
-   */
-  SERVER_ERROR: "SERVER_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type VectorEnrichmentJobErrorType =
-  (typeof VectorEnrichmentJobErrorType)[keyof typeof VectorEnrichmentJobErrorType];
-
-/**
  * <p>VectorEnrichmentJob error details in response from GetVectorEnrichmentJob.</p>
  * @public
  */
@@ -2508,21 +1980,6 @@ export interface VectorEnrichmentJobErrorDetails {
    */
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VectorEnrichmentJobExportErrorType = {
-  CLIENT_ERROR: "CLIENT_ERROR",
-  SERVER_ERROR: "SERVER_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type VectorEnrichmentJobExportErrorType =
-  (typeof VectorEnrichmentJobExportErrorType)[keyof typeof VectorEnrichmentJobExportErrorType];
 
 /**
  * <p>VectorEnrichmentJob export error details in response from GetVectorEnrichmentJob.</p>
@@ -2580,20 +2037,6 @@ export namespace VectorEnrichmentJobDataSourceConfigInput {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const VectorEnrichmentJobDocumentType = {
-  CSV: "CSV",
-} as const;
-
-/**
- * @public
- */
-export type VectorEnrichmentJobDocumentType =
-  (typeof VectorEnrichmentJobDocumentType)[keyof typeof VectorEnrichmentJobDocumentType];
 
 /**
  * <p>The input structure for the InputConfig in a VectorEnrichmentJob.</p>
@@ -2713,40 +2156,6 @@ export namespace VectorEnrichmentJobConfig {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const VectorEnrichmentJobStatus = {
-  COMPLETED: "COMPLETED",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  INITIALIZING: "INITIALIZING",
-  IN_PROGRESS: "IN_PROGRESS",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type VectorEnrichmentJobStatus = (typeof VectorEnrichmentJobStatus)[keyof typeof VectorEnrichmentJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const VectorEnrichmentJobType = {
-  MAP_MATCHING: "MAP_MATCHING",
-  REVERSE_GEOCODING: "REVERSE_GEOCODING",
-} as const;
-
-/**
- * @public
- */
-export type VectorEnrichmentJobType = (typeof VectorEnrichmentJobType)[keyof typeof VectorEnrichmentJobType];
 
 /**
  * @public

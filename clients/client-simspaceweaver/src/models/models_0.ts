@@ -1,4 +1,14 @@
 // smithy-typescript generated code
+import {
+  ClockStatus,
+  ClockTargetStatus,
+  LifecycleManagementStrategy,
+  SimulationAppStatus,
+  SimulationAppTargetStatus,
+  SimulationStatus,
+  SimulationTargetStatus,
+} from "./enums";
+
 /**
  * <p>A collection of TCP/UDP ports for a custom or service app.</p>
  * @public
@@ -21,38 +31,6 @@ export interface SimulationAppPortMapping {
    */
   Actual?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClockStatus = {
-  STARTED: "STARTED",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type ClockStatus = (typeof ClockStatus)[keyof typeof ClockStatus];
-
-/**
- * @public
- * @enum
- */
-export const ClockTargetStatus = {
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type ClockTargetStatus = (typeof ClockTargetStatus)[keyof typeof ClockTargetStatus];
 
 /**
  * <p>The Amazon CloudWatch Logs log group for the simulation. For more information about log groups, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working with log
@@ -219,39 +197,6 @@ export interface LaunchOverrides {
 
 /**
  * @public
- * @enum
- */
-export const SimulationAppStatus = {
-  ERROR: "ERROR",
-  STARTED: "STARTED",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type SimulationAppStatus = (typeof SimulationAppStatus)[keyof typeof SimulationAppStatus];
-
-/**
- * @public
- * @enum
- */
-export const SimulationAppTargetStatus = {
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type SimulationAppTargetStatus = (typeof SimulationAppTargetStatus)[keyof typeof SimulationAppTargetStatus];
-
-/**
- * @public
  */
 export interface DescribeAppOutput {
   /**
@@ -331,23 +276,6 @@ export interface SimulationClock {
    */
   TargetStatus?: ClockTargetStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LifecycleManagementStrategy = {
-  ByRequest: "ByRequest",
-  BySpatialSubdivision: "BySpatialSubdivision",
-  PerWorker: "PerWorker",
-  Unknown: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleManagementStrategy =
-  (typeof LifecycleManagementStrategy)[keyof typeof LifecycleManagementStrategy];
 
 /**
  * <p>A collection of app instances that run the same executable app code and have the same
@@ -465,43 +393,6 @@ export interface S3Location {
    */
   ObjectKey: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SimulationStatus = {
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  SNAPSHOT_IN_PROGRESS: "SNAPSHOT_IN_PROGRESS",
-  STARTED: "STARTED",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type SimulationStatus = (typeof SimulationStatus)[keyof typeof SimulationStatus];
-
-/**
- * @public
- * @enum
- */
-export const SimulationTargetStatus = {
-  DELETED: "DELETED",
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type SimulationTargetStatus = (typeof SimulationTargetStatus)[keyof typeof SimulationTargetStatus];
 
 /**
  * @public

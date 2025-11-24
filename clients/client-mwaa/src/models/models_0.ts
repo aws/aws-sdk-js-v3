@@ -1,6 +1,17 @@
 // smithy-typescript generated code
 import { DocumentType as __DocumentType } from "@smithy/types";
 
+import {
+  EndpointManagement,
+  EnvironmentStatus,
+  LoggingLevel,
+  RestApiMethod,
+  Unit,
+  UpdateStatus,
+  WebserverAccessMode,
+  WorkerReplacementStrategy,
+} from "./enums";
+
 /**
  * @public
  */
@@ -28,37 +39,6 @@ export interface CreateCliTokenResponse {
    */
   WebServerHostname?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EndpointManagement = {
-  CUSTOMER: "CUSTOMER",
-  SERVICE: "SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type EndpointManagement = (typeof EndpointManagement)[keyof typeof EndpointManagement];
-
-/**
- * @public
- * @enum
- */
-export const LoggingLevel = {
-  CRITICAL: "CRITICAL",
-  DEBUG: "DEBUG",
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
 
 /**
  * <p>Enables the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>) and defines the log level to send to CloudWatch Logs (e.g. <code>INFO</code>).</p>
@@ -131,20 +111,6 @@ export interface NetworkConfiguration {
    */
   SecurityGroupIds?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebserverAccessMode = {
-  PRIVATE_ONLY: "PRIVATE_ONLY",
-  PUBLIC_ONLY: "PUBLIC_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type WebserverAccessMode = (typeof WebserverAccessMode)[keyof typeof WebserverAccessMode];
 
 /**
  * <p>This section contains the Amazon Managed Workflows for Apache Airflow (Amazon MWAA) API reference documentation to create an environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/get-started.html">Get started with Amazon Managed Workflows for Apache Airflow</a>.</p>
@@ -451,35 +417,6 @@ export interface UpdateError {
 }
 
 /**
- * @public
- * @enum
- */
-export const UpdateStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
-
-/**
- * @public
- * @enum
- */
-export const WorkerReplacementStrategy = {
-  FORCED: "FORCED",
-  GRACEFUL: "GRACEFUL",
-} as const;
-
-/**
- * @public
- */
-export type WorkerReplacementStrategy = (typeof WorkerReplacementStrategy)[keyof typeof WorkerReplacementStrategy];
-
-/**
  * <p>Describes the status of the last update on the environment, and any errors that were encountered.</p>
  * @public
  */
@@ -574,30 +511,6 @@ export interface LoggingConfiguration {
    */
   TaskLogs?: ModuleLoggingConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  MAINTENANCE: "MAINTENANCE",
-  PENDING: "PENDING",
-  ROLLING_BACK: "ROLLING_BACK",
-  UNAVAILABLE: "UNAVAILABLE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
 
 /**
  * <p>Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
@@ -934,23 +847,6 @@ export interface GetEnvironmentOutput {
 
 /**
  * @public
- * @enum
- */
-export const RestApiMethod = {
-  DELETE: "DELETE",
-  GET: "GET",
-  PATCH: "PATCH",
-  POST: "POST",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type RestApiMethod = (typeof RestApiMethod)[keyof typeof RestApiMethod];
-
-/**
- * @public
  */
 export interface InvokeRestApiRequest {
   /**
@@ -1122,45 +1018,6 @@ export interface StatisticSet {
    */
   Maximum?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Unit = {
-  BITS: "Bits",
-  BITS_PER_SECOND: "Bits/Second",
-  BYTES: "Bytes",
-  BYTES_PER_SECOND: "Bytes/Second",
-  COUNT: "Count",
-  COUNT_PER_SECOND: "Count/Second",
-  GIGABITS: "Gigabits",
-  GIGABITS_PER_SECOND: "Gigabits/Second",
-  GIGABYTES: "Gigabytes",
-  GIGABYTES_PER_SECOND: "Gigabytes/Second",
-  KILOBITS: "Kilobits",
-  KILOBITS_PER_SECOND: "Kilobits/Second",
-  KILOBYTES: "Kilobytes",
-  KILOBYTES_PER_SECOND: "Kilobytes/Second",
-  MEGABITS: "Megabits",
-  MEGABITS_PER_SECOND: "Megabits/Second",
-  MEGABYTES: "Megabytes",
-  MEGABYTES_PER_SECOND: "Megabytes/Second",
-  MICROSECONDS: "Microseconds",
-  MILLISECONDS: "Milliseconds",
-  NONE: "None",
-  PERCENT: "Percent",
-  SECONDS: "Seconds",
-  TERABITS: "Terabits",
-  TERABITS_PER_SECOND: "Terabits/Second",
-  TERABYTES: "Terabytes",
-  TERABYTES_PER_SECOND: "Terabytes/Second",
-} as const;
-
-/**
- * @public
- */
-export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * <p>

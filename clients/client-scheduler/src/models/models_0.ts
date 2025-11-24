@@ -1,31 +1,15 @@
 // smithy-typescript generated code
-/**
- * @public
- * @enum
- */
-export const ActionAfterCompletion = {
-  DELETE: "DELETE",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ActionAfterCompletion = (typeof ActionAfterCompletion)[keyof typeof ActionAfterCompletion];
-
-/**
- * @public
- * @enum
- */
-export const AssignPublicIp = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
+import {
+  ActionAfterCompletion,
+  AssignPublicIp,
+  FlexibleTimeWindowMode,
+  LaunchType,
+  PlacementConstraintType,
+  PlacementStrategyType,
+  PropagateTags,
+  ScheduleGroupState,
+  ScheduleState,
+} from "./enums";
 
 /**
  * @public
@@ -68,20 +52,6 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const FlexibleTimeWindowMode = {
-  FLEXIBLE: "FLEXIBLE",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type FlexibleTimeWindowMode = (typeof FlexibleTimeWindowMode)[keyof typeof FlexibleTimeWindowMode];
-
-/**
  * <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
  * @public
  */
@@ -98,20 +68,6 @@ export interface FlexibleTimeWindow {
    */
   MaximumWindowInMinutes?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScheduleState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
 
 /**
  * <p>An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.</p>
@@ -152,21 +108,6 @@ export interface CapacityProviderStrategyItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const LaunchType = {
-  EC2: "EC2",
-  EXTERNAL: "EXTERNAL",
-  FARGATE: "FARGATE",
-} as const;
-
-/**
- * @public
- */
-export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
-
-/**
  * <p>This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.</p>
  * @public
  */
@@ -204,20 +145,6 @@ export interface NetworkConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PlacementConstraintType = {
-  DISTINCT_INSTANCE: "distinctInstance",
-  MEMBER_OF: "memberOf",
-} as const;
-
-/**
- * @public
- */
-export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
-
-/**
  * <p>An object representing a constraint on task placement.</p>
  * @public
  */
@@ -235,21 +162,6 @@ export interface PlacementConstraint {
    */
   expression?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PlacementStrategyType = {
-  BINPACK: "binpack",
-  RANDOM: "random",
-  SPREAD: "spread",
-} as const;
-
-/**
- * @public
- */
-export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
 
 /**
  * <p>The task placement strategy for a task or service.</p>
@@ -272,19 +184,6 @@ export interface PlacementStrategy {
    */
   field?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PropagateTags = {
-  TASK_DEFINITION: "TASK_DEFINITION",
-} as const;
-
-/**
- * @public
- */
-export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
 
 /**
  * <p>The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">
@@ -1208,20 +1107,6 @@ export interface GetScheduleGroupInput {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScheduleGroupState = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleGroupState = (typeof ScheduleGroupState)[keyof typeof ScheduleGroupState];
 
 /**
  * @public

@@ -6,6 +6,7 @@ import {
   EmvEncryptionMode,
   EmvMajorKeyDerivationMode,
   EncryptionMode,
+  KeyCheckValueAlgorithm,
   KeyDerivationFunction,
   KeyDerivationHashAlgorithm,
   MacAlgorithm,
@@ -17,6 +18,7 @@ import {
   PinBlockPaddingType,
   SessionKeyDerivationMode,
   SymmetricKeyAlgorithm,
+  WrappedKeyMaterialFormat,
 } from "./enums";
 
 /**
@@ -862,22 +864,6 @@ export namespace EncryptionDecryptionAttributes {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const KeyCheckValueAlgorithm = {
-  ANSI_X9_24: "ANSI_X9_24",
-  CMAC: "CMAC",
-  HMAC: "HMAC",
-  SHA_1: "SHA_1",
-} as const;
-
-/**
- * @public
- */
-export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeof KeyCheckValueAlgorithm];
 
 /**
  * <p>Parameters required to establish ECDH based key exchange.</p>
@@ -2636,21 +2622,6 @@ export interface TranslateKeyMaterialInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const WrappedKeyMaterialFormat = {
-  KEY_CRYPTOGRAM: "KEY_CRYPTOGRAM",
-  TR31_KEY_BLOCK: "TR31_KEY_BLOCK",
-  TR34_KEY_BLOCK: "TR34_KEY_BLOCK",
-} as const;
-
-/**
- * @public
- */
-export type WrappedKeyMaterialFormat = (typeof WrappedKeyMaterialFormat)[keyof typeof WrappedKeyMaterialFormat];
-
-/**
  * <p>The parameter information of the outgoing wrapped key block.</p>
  * @public
  */
@@ -2871,22 +2842,6 @@ export interface TranslatePinDataOutput {
    */
   KeyCheckValue: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerificationFailedReason = {
-  INVALID_AUTH_REQUEST_CRYPTOGRAM: "INVALID_AUTH_REQUEST_CRYPTOGRAM",
-  INVALID_MAC: "INVALID_MAC",
-  INVALID_PIN: "INVALID_PIN",
-  INVALID_VALIDATION_DATA: "INVALID_VALIDATION_DATA",
-} as const;
-
-/**
- * @public
- */
-export type VerificationFailedReason = (typeof VerificationFailedReason)[keyof typeof VerificationFailedReason];
 
 /**
  * <p>Parameters to derive session key for an Amex payment card.</p>

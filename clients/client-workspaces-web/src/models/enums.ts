@@ -3,6 +3,34 @@
  * @public
  * @enum
  */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  IAM_IDENTITY_CENTER: "IAM_Identity_Center",
+  STANDARD: "Standard",
+} as const;
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Category = {
   CHAT: "Chat",
   CRIMINAL_ACTIVITY: "CriminalActivity",
@@ -41,6 +69,18 @@ export type Category = (typeof Category)[keyof typeof Category];
  * @public
  * @enum
  */
+export const RedactionPlaceHolderType = {
+  CUSTOM_TEXT: "CustomText",
+} as const;
+/**
+ * @public
+ */
+export type RedactionPlaceHolderType = (typeof RedactionPlaceHolderType)[keyof typeof RedactionPlaceHolderType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SessionStatus = {
   ACTIVE: "Active",
   TERMINATED: "Terminated",
@@ -54,6 +94,23 @@ export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
  * @public
  * @enum
  */
+export const IdentityProviderType = {
+  Facebook: "Facebook",
+  Google: "Google",
+  LoginWithAmazon: "LoginWithAmazon",
+  OIDC: "OIDC",
+  SAML: "SAML",
+  SignInWithApple: "SignInWithApple",
+} as const;
+/**
+ * @public
+ */
+export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SessionSortBy = {
   START_TIME_ASCENDING: "StartTimeAscending",
   START_TIME_DESCENDING: "StartTimeDescending",
@@ -62,6 +119,58 @@ export const SessionSortBy = {
  * @public
  */
 export type SessionSortBy = (typeof SessionSortBy)[keyof typeof SessionSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const BrowserType = {
+  CHROME: "Chrome",
+} as const;
+/**
+ * @public
+ */
+export type BrowserType = (typeof BrowserType)[keyof typeof BrowserType];
+
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  STANDARD_LARGE: "standard.large",
+  STANDARD_REGULAR: "standard.regular",
+  STANDARD_XLARGE: "standard.xlarge",
+} as const;
+/**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PortalStatus = {
+  ACTIVE: "Active",
+  INCOMPLETE: "Incomplete",
+  PENDING: "Pending",
+} as const;
+/**
+ * @public
+ */
+export type PortalStatus = (typeof PortalStatus)[keyof typeof PortalStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RendererType = {
+  APPSTREAM: "AppStream",
+} as const;
+/**
+ * @public
+ */
+export type RendererType = (typeof RendererType)[keyof typeof RendererType];
 
 /**
  * @public
@@ -116,3 +225,77 @@ export const LogFileFormat = {
  * @public
  */
 export type LogFileFormat = (typeof LogFileFormat)[keyof typeof LogFileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnabledType = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type EnabledType = (typeof EnabledType)[keyof typeof EnabledType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ToolbarItem = {
+  DUAL_MONITOR: "DualMonitor",
+  FULL_SCREEN: "FullScreen",
+  MICROPHONE: "Microphone",
+  WEBCAM: "Webcam",
+  WINDOWS: "Windows",
+} as const;
+/**
+ * @public
+ */
+export type ToolbarItem = (typeof ToolbarItem)[keyof typeof ToolbarItem];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaxDisplayResolution = {
+  RESOLUTION_1080P: "size1920X1080",
+  RESOLUTION_1440P: "size2560X1440",
+  RESOLUTION_1440P_ULTRA_WIDE: "size3440X1440",
+  RESOLUTION_600P: "size800X600",
+  RESOLUTION_720P: "size1280X720",
+  RESOLUTION_768P: "size1024X768",
+  RESOLUTION_DCI_4K: "size4096X2160",
+  RESOLUTION_UHD_4K: "size3840X2160",
+} as const;
+/**
+ * @public
+ */
+export type MaxDisplayResolution = (typeof MaxDisplayResolution)[keyof typeof MaxDisplayResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const ToolbarType = {
+  DOCKED: "Docked",
+  FLOATING: "Floating",
+} as const;
+/**
+ * @public
+ */
+export type ToolbarType = (typeof ToolbarType)[keyof typeof ToolbarType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VisualMode = {
+  DARK: "Dark",
+  LIGHT: "Light",
+} as const;
+/**
+ * @public
+ */
+export type VisualMode = (typeof VisualMode)[keyof typeof VisualMode];

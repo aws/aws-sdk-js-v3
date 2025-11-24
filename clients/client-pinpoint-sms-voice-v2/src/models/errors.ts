@@ -6,9 +6,9 @@ import {
   ConflictExceptionReason,
   ResourceType,
   ServiceQuotaExceededExceptionReason,
-  ValidationExceptionField,
   ValidationExceptionReason,
-} from "./models_0";
+} from "./enums";
+import { ValidationExceptionField } from "./models_0";
 import { PinpointSMSVoiceV2ServiceException as __BaseException } from "./PinpointSMSVoiceV2ServiceException";
 
 /**

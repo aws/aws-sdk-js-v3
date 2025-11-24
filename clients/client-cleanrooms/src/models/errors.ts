@@ -2,13 +2,8 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServiceException";
-import {
-  AccessDeniedExceptionReason,
-  ConflictExceptionReason,
-  ResourceType,
-  ValidationExceptionField,
-  ValidationExceptionReason,
-} from "./models_0";
+import { AccessDeniedExceptionReason, ConflictExceptionReason, ResourceType, ValidationExceptionReason } from "./enums";
+import { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>Caller does not have sufficient access to perform this action.</p>

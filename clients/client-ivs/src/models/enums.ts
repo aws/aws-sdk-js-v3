@@ -3,6 +3,32 @@
  * @public
  * @enum
  */
+export const ContainerFormat = {
+  FragmentedMP4: "FRAGMENTED_MP4",
+  TS: "TS",
+} as const;
+/**
+ * @public
+ */
+export type ContainerFormat = (typeof ContainerFormat)[keyof typeof ContainerFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelLatencyMode = {
+  LowLatency: "LOW",
+  NormalLatency: "NORMAL",
+} as const;
+/**
+ * @public
+ */
+export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const MultitrackMaximumResolution = {
   FULL_HD: "FULL_HD",
   HD: "HD",
@@ -75,6 +101,34 @@ export type RenditionConfigurationRendition =
  * @public
  * @enum
  */
+export const RenditionConfigurationRenditionSelection = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type RenditionConfigurationRenditionSelection =
+  (typeof RenditionConfigurationRenditionSelection)[keyof typeof RenditionConfigurationRenditionSelection];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecordingMode = {
+  Disabled: "DISABLED",
+  Interval: "INTERVAL",
+} as const;
+/**
+ * @public
+ */
+export type RecordingMode = (typeof RecordingMode)[keyof typeof RecordingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ThumbnailConfigurationResolution = {
   FULL_HD: "FULL_HD",
   HD: "HD",
@@ -86,3 +140,59 @@ export const ThumbnailConfigurationResolution = {
  */
 export type ThumbnailConfigurationResolution =
   (typeof ThumbnailConfigurationResolution)[keyof typeof ThumbnailConfigurationResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThumbnailConfigurationStorage = {
+  LATEST: "LATEST",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
+/**
+ * @public
+ */
+export type ThumbnailConfigurationStorage =
+  (typeof ThumbnailConfigurationStorage)[keyof typeof ThumbnailConfigurationStorage];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecordingConfigurationState = {
+  Active: "ACTIVE",
+  CreateFailed: "CREATE_FAILED",
+  Creating: "CREATING",
+} as const;
+/**
+ * @public
+ */
+export type RecordingConfigurationState =
+  (typeof RecordingConfigurationState)[keyof typeof RecordingConfigurationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamHealth = {
+  Starving: "STARVING",
+  StreamHealthy: "HEALTHY",
+  Unknown: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type StreamHealth = (typeof StreamHealth)[keyof typeof StreamHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamState = {
+  StreamLive: "LIVE",
+  StreamOffline: "OFFLINE",
+} as const;
+/**
+ * @public
+ */
+export type StreamState = (typeof StreamState)[keyof typeof StreamState];

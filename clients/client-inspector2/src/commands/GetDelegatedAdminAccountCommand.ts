@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { GetDelegatedAdminAccountRequest, GetDelegatedAdminAccountResponse } from "../models/models_1";
+import { GetDelegatedAdminAccountRequest, GetDelegatedAdminAccountResponse } from "../models/models_0";
 import { GetDelegatedAdminAccount } from "../schemas/schemas_0";
 
 /**

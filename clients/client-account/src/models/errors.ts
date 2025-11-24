@@ -2,7 +2,8 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AccountServiceException as __BaseException } from "./AccountServiceException";
-import { ValidationExceptionField, ValidationExceptionReason } from "./models_0";
+import { ValidationExceptionReason } from "./enums";
+import { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>

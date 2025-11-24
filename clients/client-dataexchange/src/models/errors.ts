@@ -2,7 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DataExchangeServiceException as __BaseException } from "./DataExchangeServiceException";
-import { ExceptionCause, LimitName, ResourceType } from "./models_0";
+import { ExceptionCause, LimitName, ResourceType } from "./enums";
 
 /**
  * <p>Access to the resource is denied.</p>

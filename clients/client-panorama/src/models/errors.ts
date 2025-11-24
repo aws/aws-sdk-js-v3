@@ -1,12 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import {
-  ConflictExceptionErrorArgument,
-  ValidationExceptionErrorArgument,
-  ValidationExceptionField,
-  ValidationExceptionReason,
-} from "./models_0";
+import { ValidationExceptionReason } from "./enums";
+import { ConflictExceptionErrorArgument, ValidationExceptionErrorArgument, ValidationExceptionField } from "./models_0";
 import { PanoramaServiceException as __BaseException } from "./PanoramaServiceException";
 
 /**

@@ -1,17 +1,5 @@
 // smithy-typescript generated code
-/**
- * @public
- * @enum
- */
-export const Architecture = {
-  ARM64: "ARM64",
-  X86_64: "X86_64",
-} as const;
-
-/**
- * @public
- */
-export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+import { ApplicationState, Architecture, JobRunMode, JobRunState } from "./enums";
 
 /**
  * <p>The configuration for an application to automatically start on job submission.</p>
@@ -324,25 +312,6 @@ export interface SchedulerConfiguration {
    */
   maxConcurrentRuns?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationState = {
-  CREATED: "CREATED",
-  CREATING: "CREATING",
-  STARTED: "STARTED",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  TERMINATED: "TERMINATED",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationState = (typeof ApplicationState)[keyof typeof ApplicationState];
 
 /**
  * <p>The specifications for a worker type.</p>
@@ -830,20 +799,6 @@ export namespace JobDriver {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobRunMode = {
-  BATCH: "BATCH",
-  STREAMING: "STREAMING",
-} as const;
-
-/**
- * @public
- */
-export type JobRunMode = (typeof JobRunMode)[keyof typeof JobRunMode];
-
-/**
  * <p>The retry policy to use for a job run.</p>
  * @public
  */
@@ -860,27 +815,6 @@ export interface RetryPolicy {
    */
   maxFailedAttemptsPerHour?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobRunState = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  SUBMITTED: "SUBMITTED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
 
 /**
  * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing till the time job is terminated, rounded up to the nearest second.</p>

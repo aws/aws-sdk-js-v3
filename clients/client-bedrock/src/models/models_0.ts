@@ -15,6 +15,7 @@ import {
   AutomatedReasoningPolicyBuildWorkflowType,
   AutomatedReasoningPolicyTestRunResult,
   AutomatedReasoningPolicyTestRunStatus,
+  ConfigurationOwner,
   CustomizationType,
   CustomModelDeploymentStatus,
   EvaluationJobStatus,
@@ -73,22 +74,6 @@ export interface AccountEnforcedGuardrailInferenceInputConfiguration {
    */
   inputTags: InputTags | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationOwner = {
-  /**
-   * Configuration owned by the account
-   */
-  ACCOUNT: "ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationOwner = (typeof ConfigurationOwner)[keyof typeof ConfigurationOwner];
 
 /**
  * <p>Account enforced guardrail output configuration.</p>
@@ -8191,4 +8176,21 @@ export interface InferenceProfileSummary {
    * @public
    */
   type: InferenceProfileType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesResponse {
+  /**
+   * <p>A list of information about each inference profile that you can use.</p>
+   * @public
+   */
+  inferenceProfileSummaries?: InferenceProfileSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }

@@ -89,6 +89,21 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  * @public
  * @enum
  */
+export const AutomationEventFilterName = {
+  ACCOUNT_ID: "AccountId",
+  EVENT_STATUS: "EventStatus",
+  EVENT_TYPE: "EventType",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+/**
+ * @public
+ */
+export type AutomationEventFilterName = (typeof AutomationEventFilterName)[keyof typeof AutomationEventFilterName];
+
+/**
+ * @public
+ * @enum
+ */
 export const StepStatus = {
   COMPLETE: "Complete",
   FAILED: "Failed",
@@ -114,6 +129,18 @@ export const StepType = {
  * @public
  */
 export type StepType = (typeof StepType)[keyof typeof StepType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SummaryDimensionKey = {
+  EVENT_STATUS: "EventStatus",
+} as const;
+/**
+ * @public
+ */
+export type SummaryDimensionKey = (typeof SummaryDimensionKey)[keyof typeof SummaryDimensionKey];
 
 /**
  * @public
@@ -171,6 +198,23 @@ export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
  * @public
  * @enum
  */
+export const AutomationRuleFilterName = {
+  ACCOUNT_ID: "AccountId",
+  NAME: "Name",
+  ORGANIZATION_CONFIGURATION_RULE_APPLY_ORDER: "OrganizationConfigurationRuleApplyOrder",
+  RECOMMENDED_ACTION_TYPE: "RecommendedActionType",
+  RULE_TYPE: "RuleType",
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type AutomationRuleFilterName = (typeof AutomationRuleFilterName)[keyof typeof AutomationRuleFilterName];
+
+/**
+ * @public
+ * @enum
+ */
 export const ComparisonOperator = {
   NUMERIC_EQUALS: "NumericEquals",
   NUMERIC_GREATER_THAN: "NumericGreaterThan",
@@ -189,3 +233,24 @@ export const ComparisonOperator = {
  * @public
  */
 export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendedActionFilterName = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_RESOURCE_DETAILS_EBS_VOLUME_TYPE: "CurrentResourceDetailsEbsVolumeType",
+  LOOK_BACK_PERIOD_IN_DAYS: "LookBackPeriodInDays",
+  RECOMMENDED_ACTION_TYPE: "RecommendedActionType",
+  RESOURCE_ID: "ResourceId",
+  RESOURCE_TAGS_KEY: "ResourceTagsKey",
+  RESOURCE_TAGS_VALUE: "ResourceTagsValue",
+  RESOURCE_TYPE: "ResourceType",
+  RESTART_NEEDED: "RestartNeeded",
+} as const;
+/**
+ * @public
+ */
+export type RecommendedActionFilterName =
+  (typeof RecommendedActionFilterName)[keyof typeof RecommendedActionFilterName];

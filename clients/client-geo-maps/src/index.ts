@@ -12,6 +12,7 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { GeoMapsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 
+export * from "./models/enums";
 export * from "./models/errors";
 export type * from "./models/models_0";
 

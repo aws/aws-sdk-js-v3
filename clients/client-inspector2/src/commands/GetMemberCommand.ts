@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { GetMemberRequest, GetMemberResponse } from "../models/models_1";
+import { GetMemberRequest, GetMemberResponse } from "../models/models_0";
 import { GetMember } from "../schemas/schemas_0";
 
 /**

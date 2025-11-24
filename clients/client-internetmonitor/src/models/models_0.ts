@@ -1,4 +1,19 @@
 // smithy-typescript generated code
+import {
+  HealthEventImpactType,
+  HealthEventStatus,
+  InternetEventStatus,
+  InternetEventType,
+  LocalHealthEventsConfigStatus,
+  LogDeliveryStatus,
+  MonitorConfigState,
+  MonitorProcessingStatusCode,
+  Operator,
+  QueryStatus,
+  QueryType,
+  TriangulationEventType,
+} from "./enums";
+
 /**
  * <p>Amazon CloudWatch Internet Monitor calculates measurements about the availability for your application's internet traffic between client locations and Amazon Web Services.
  * 			Amazon Web Services has substantial historical data about internet
@@ -101,21 +116,6 @@ export interface ClientLocation {
 }
 
 /**
- * @public
- * @enum
- */
-export const LocalHealthEventsConfigStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type LocalHealthEventsConfigStatus =
-  (typeof LocalHealthEventsConfigStatus)[keyof typeof LocalHealthEventsConfigStatus];
-
-/**
  * <p>A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event
  * 			for a local performance or availability issue, when scores cross a threshold for one or more city-networks.</p>
  *          <p>Defines the percentages, for performance scores or availability scores, that are the local thresholds
@@ -189,20 +189,6 @@ export interface HealthEventsConfig {
    */
   PerformanceLocalHealthEventsConfig?: LocalHealthEventsConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogDeliveryStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type LogDeliveryStatus = (typeof LogDeliveryStatus)[keyof typeof LogDeliveryStatus];
 
 /**
  * <p>The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3. The configuration includes the bucket name and (optionally) prefix
@@ -319,22 +305,6 @@ export interface CreateMonitorInput {
 
 /**
  * @public
- * @enum
- */
-export const MonitorConfigState = {
-  ACTIVE: "ACTIVE",
-  ERROR: "ERROR",
-  INACTIVE: "INACTIVE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type MonitorConfigState = (typeof MonitorConfigState)[keyof typeof MonitorConfigState];
-
-/**
- * @public
  */
 export interface CreateMonitorOutput {
   /**
@@ -365,20 +335,6 @@ export interface DeleteMonitorInput {
  * @public
  */
 export interface DeleteMonitorOutput {}
-
-/**
- * @public
- * @enum
- */
-export const Operator = {
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * <p>A filter that you use with the results of a Amazon CloudWatch Internet Monitor query that you created and ran. The query sets up a
@@ -462,20 +418,6 @@ export interface Network {
    */
   ASNumber: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TriangulationEventType = {
-  AWS: "AWS",
-  INTERNET: "Internet",
-} as const;
-
-/**
- * @public
- */
-export type TriangulationEventType = (typeof TriangulationEventType)[keyof typeof TriangulationEventType];
 
 /**
  * <p>Information about the network impairment for a specific network measured by Amazon CloudWatch Internet Monitor.</p>
@@ -607,20 +549,6 @@ export interface InternetHealth {
 }
 
 /**
- * @public
- * @enum
- */
-export const HealthEventStatus = {
-  ACTIVE: "ACTIVE",
-  RESOLVED: "RESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type HealthEventStatus = (typeof HealthEventStatus)[keyof typeof HealthEventStatus];
-
-/**
  * <p>Information about a location impacted by a health event in Amazon CloudWatch Internet Monitor.</p>
  *          <p>Geographic regions are hierarchically categorized into country, subdivision,
  *    		metro and city geographic granularities. The geographic region is identified based
@@ -729,22 +657,6 @@ export interface ImpactedLocation {
 
 /**
  * @public
- * @enum
- */
-export const HealthEventImpactType = {
-  AVAILABILITY: "AVAILABILITY",
-  LOCAL_AVAILABILITY: "LOCAL_AVAILABILITY",
-  LOCAL_PERFORMANCE: "LOCAL_PERFORMANCE",
-  PERFORMANCE: "PERFORMANCE",
-} as const;
-
-/**
- * @public
- */
-export type HealthEventImpactType = (typeof HealthEventImpactType)[keyof typeof HealthEventImpactType];
-
-/**
- * @public
  */
 export interface GetHealthEventOutput {
   /**
@@ -830,34 +742,6 @@ export interface GetInternetEventInput {
 
 /**
  * @public
- * @enum
- */
-export const InternetEventStatus = {
-  ACTIVE: "ACTIVE",
-  RESOLVED: "RESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type InternetEventStatus = (typeof InternetEventStatus)[keyof typeof InternetEventStatus];
-
-/**
- * @public
- * @enum
- */
-export const InternetEventType = {
-  AVAILABILITY: "AVAILABILITY",
-  PERFORMANCE: "PERFORMANCE",
-} as const;
-
-/**
- * @public
- */
-export type InternetEventType = (typeof InternetEventType)[keyof typeof InternetEventType];
-
-/**
- * @public
  */
 export interface GetInternetEventOutput {
   /**
@@ -922,25 +806,6 @@ export interface GetMonitorInput {
    */
   LinkedAccountId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MonitorProcessingStatusCode = {
-  COLLECTING_DATA: "COLLECTING_DATA",
-  FAULT_ACCESS_CLOUDWATCH: "FAULT_ACCESS_CLOUDWATCH",
-  FAULT_SERVICE: "FAULT_SERVICE",
-  INACTIVE: "INACTIVE",
-  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
-  OK: "OK",
-} as const;
-
-/**
- * @public
- */
-export type MonitorProcessingStatusCode =
-  (typeof MonitorProcessingStatusCode)[keyof typeof MonitorProcessingStatusCode];
 
 /**
  * @public
@@ -1128,23 +993,6 @@ export interface GetQueryStatusInput {
    */
   QueryId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
 
 /**
  * @public
@@ -1511,24 +1359,6 @@ export interface ListMonitorsOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryType = {
-  MEASUREMENTS: "MEASUREMENTS",
-  OVERALL_TRAFFIC_SUGGESTIONS: "OVERALL_TRAFFIC_SUGGESTIONS",
-  OVERALL_TRAFFIC_SUGGESTIONS_DETAILS: "OVERALL_TRAFFIC_SUGGESTIONS_DETAILS",
-  ROUTING_SUGGESTIONS: "ROUTING_SUGGESTIONS",
-  TOP_LOCATIONS: "TOP_LOCATIONS",
-  TOP_LOCATION_DETAILS: "TOP_LOCATION_DETAILS",
-} as const;
-
-/**
- * @public
- */
-export type QueryType = (typeof QueryType)[keyof typeof QueryType];
 
 /**
  * @public

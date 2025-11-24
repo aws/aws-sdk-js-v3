@@ -1,5 +1,19 @@
 // smithy-typescript generated code
-import { ManagedWorkgroupStatus } from "./enums";
+import {
+  LakehouseIdcRegistration,
+  LakehouseRegistration,
+  LogExport,
+  ManagedWorkgroupStatus,
+  NamespaceStatus,
+  OfferingType,
+  PerformanceTargetStatus,
+  SnapshotStatus,
+  State,
+  UsageLimitBreachAction,
+  UsageLimitPeriod,
+  UsageLimitUsageType,
+  WorkgroupStatus,
+} from "./enums";
 
 /**
  * <p>An object that represents the custom domain name association.</p>
@@ -95,24 +109,6 @@ export interface ConvertRecoveryPointToSnapshotRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SnapshotStatus = {
-  AVAILABLE: "AVAILABLE",
-  CANCELLED: "CANCELLED",
-  COPYING: "COPYING",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
 
 /**
  * <p>A snapshot object that contains databases.</p>
@@ -507,21 +503,6 @@ export interface CreateEndpointAccessResponse {
 
 /**
  * @public
- * @enum
- */
-export const LogExport = {
-  CONNECTION_LOG: "connectionlog",
-  USER_ACTIVITY_LOG: "useractivitylog",
-  USER_LOG: "userlog",
-} as const;
-
-/**
- * @public
- */
-export type LogExport = (typeof LogExport)[keyof typeof LogExport];
-
-/**
- * @public
  */
 export interface CreateNamespaceRequest {
   /**
@@ -596,21 +577,6 @@ export interface CreateNamespaceRequest {
    */
   redshiftIdcApplicationArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NamespaceStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETING: "DELETING",
-  MODIFYING: "MODIFYING",
-} as const;
-
-/**
- * @public
- */
-export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
 
 /**
  * <p>A collection of database objects and users.</p>
@@ -741,20 +707,6 @@ export interface CreateReservationRequest {
    */
   clientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OfferingType = {
-  ALL_UPFRONT: "ALL_UPFRONT",
-  NO_UPFRONT: "NO_UPFRONT",
-} as const;
-
-/**
- * @public
- */
-export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
 
 /**
  * <p>The class of offering for the reservation. The offering class determines the payment schedule for the reservation.</p>
@@ -1034,20 +986,6 @@ export interface CreateScheduledActionRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const State = {
-  ACTIVE: "ACTIVE",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
-
-/**
  * <p>The returned scheduled action object.</p>
  * @public
  */
@@ -1254,50 +1192,6 @@ export interface CreateSnapshotCopyConfigurationResponse {
 
 /**
  * @public
- * @enum
- */
-export const UsageLimitBreachAction = {
-  DEACTIVATE: "deactivate",
-  EMIT_METRIC: "emit-metric",
-  LOG: "log",
-} as const;
-
-/**
- * @public
- */
-export type UsageLimitBreachAction = (typeof UsageLimitBreachAction)[keyof typeof UsageLimitBreachAction];
-
-/**
- * @public
- * @enum
- */
-export const UsageLimitPeriod = {
-  DAILY: "daily",
-  MONTHLY: "monthly",
-  WEEKLY: "weekly",
-} as const;
-
-/**
- * @public
- */
-export type UsageLimitPeriod = (typeof UsageLimitPeriod)[keyof typeof UsageLimitPeriod];
-
-/**
- * @public
- * @enum
- */
-export const UsageLimitUsageType = {
-  CROSS_REGION_DATASHARING: "cross-region-datasharing",
-  SERVERLESS_COMPUTE: "serverless-compute",
-} as const;
-
-/**
- * @public
- */
-export type UsageLimitUsageType = (typeof UsageLimitUsageType)[keyof typeof UsageLimitUsageType];
-
-/**
- * @public
  */
 export interface CreateUsageLimitRequest {
   /**
@@ -1389,20 +1283,6 @@ export interface CreateUsageLimitResponse {
    */
   usageLimit?: UsageLimit | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PerformanceTargetStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PerformanceTargetStatus = (typeof PerformanceTargetStatus)[keyof typeof PerformanceTargetStatus];
 
 /**
  * <p>An object that represents the price performance target settings for the workgroup.</p>
@@ -1534,22 +1414,6 @@ export interface Endpoint {
    */
   vpcEndpoints?: VpcEndpoint[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkgroupStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  MODIFYING: "MODIFYING",
-} as const;
-
-/**
- * @public
- */
-export type WorkgroupStatus = (typeof WorkgroupStatus)[keyof typeof WorkgroupStatus];
 
 /**
  * <p>The collection of computing resources from which an endpoint is created.</p>
@@ -2585,34 +2449,6 @@ export interface GetWorkgroupResponse {
    */
   workgroup: Workgroup | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LakehouseIdcRegistration = {
-  ASSOCIATE: "Associate",
-  DISASSOCIATE: "Disassociate",
-} as const;
-
-/**
- * @public
- */
-export type LakehouseIdcRegistration = (typeof LakehouseIdcRegistration)[keyof typeof LakehouseIdcRegistration];
-
-/**
- * @public
- * @enum
- */
-export const LakehouseRegistration = {
-  DEREGISTER: "Deregister",
-  REGISTER: "Register",
-} as const;
-
-/**
- * @public
- */
-export type LakehouseRegistration = (typeof LakehouseRegistration)[keyof typeof LakehouseRegistration];
 
 /**
  * @public

@@ -1,11 +1,22 @@
 // smithy-typescript generated code
 import {
+  CompositionState,
+  DestinationState,
   EventErrorCode,
+  EventName,
+  IngestConfigurationState,
   IngestProtocol,
   ParticipantProtocol,
+  ParticipantRecordingFilterByRecordingState,
   ParticipantRecordingMediaType,
+  ParticipantRecordingState,
+  ParticipantState,
+  ParticipantTokenCapability,
   PipBehavior,
   PipPosition,
+  RecordingConfigurationFormat,
+  ReplicationState,
+  ReplicationType,
   ThumbnailRecordingMode,
   ThumbnailStorageType,
   VideoAspectRatio,
@@ -176,20 +187,6 @@ export interface CreateIngestConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const IngestConfigurationState = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type IngestConfigurationState = (typeof IngestConfigurationState)[keyof typeof IngestConfigurationState];
-
-/**
  * <p>Object specifying an ingest configuration.</p>
  * @public
  */
@@ -280,20 +277,6 @@ export interface CreateIngestConfigurationResponse {
    */
   ingestConfiguration?: IngestConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParticipantTokenCapability = {
-  PUBLISH: "PUBLISH",
-  SUBSCRIBE: "SUBSCRIBE",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantTokenCapability = (typeof ParticipantTokenCapability)[keyof typeof ParticipantTokenCapability];
 
 /**
  * @public
@@ -908,20 +891,6 @@ export interface ChannelDestinationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecordingConfigurationFormat = {
-  HLS: "HLS",
-} as const;
-
-/**
- * @public
- */
-export type RecordingConfigurationFormat =
-  (typeof RecordingConfigurationFormat)[keyof typeof RecordingConfigurationFormat];
-
-/**
  * <p>An object representing a configuration of HLS recordings for server-side composition.</p>
  * @public
  */
@@ -1061,24 +1030,6 @@ export interface DestinationDetail {
    */
   s3?: S3Detail | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DestinationState = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  RECONNECTING: "RECONNECTING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type DestinationState = (typeof DestinationState)[keyof typeof DestinationState];
 
 /**
  * <p>Object specifying the status of a Destination.</p>
@@ -1287,23 +1238,6 @@ export interface LayoutConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const CompositionState = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type CompositionState = (typeof CompositionState)[keyof typeof CompositionState];
-
-/**
  * <p>Object specifying a Composition resource.</p>
  * @public
  */
@@ -1442,67 +1376,6 @@ export interface GetParticipantRequest {
    */
   participantId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParticipantRecordingState = {
-  ACTIVE: "ACTIVE",
-  DISABLED: "DISABLED",
-  FAILED: "FAILED",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantRecordingState = (typeof ParticipantRecordingState)[keyof typeof ParticipantRecordingState];
-
-/**
- * @public
- * @enum
- */
-export const ReplicationState = {
-  ACTIVE: "ACTIVE",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationState = (typeof ReplicationState)[keyof typeof ReplicationState];
-
-/**
- * @public
- * @enum
- */
-export const ReplicationType = {
-  NONE: "NONE",
-  REPLICA: "REPLICA",
-  SOURCE: "SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationType = (typeof ReplicationType)[keyof typeof ReplicationType];
-
-/**
- * @public
- * @enum
- */
-export const ParticipantState = {
-  CONNECTED: "CONNECTED",
-  DISCONNECTED: "DISCONNECTED",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantState = (typeof ParticipantState)[keyof typeof ParticipantState];
 
 /**
  * <p>Object describing a participant that has joined a stage.</p>
@@ -2194,29 +2067,6 @@ export interface ListParticipantEventsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventName = {
-  JOINED: "JOINED",
-  JOIN_ERROR: "JOIN_ERROR",
-  LEFT: "LEFT",
-  PUBLISH_ERROR: "PUBLISH_ERROR",
-  PUBLISH_STARTED: "PUBLISH_STARTED",
-  PUBLISH_STOPPED: "PUBLISH_STOPPED",
-  REPLICATION_STARTED: "REPLICATION_STARTED",
-  REPLICATION_STOPPED: "REPLICATION_STOPPED",
-  SUBSCRIBE_ERROR: "SUBSCRIBE_ERROR",
-  SUBSCRIBE_STARTED: "SUBSCRIBE_STARTED",
-  SUBSCRIBE_STOPPED: "SUBSCRIBE_STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type EventName = (typeof EventName)[keyof typeof EventName];
-
-/**
  * <p>An occurrence during a stage session.</p>
  * @public
  */
@@ -2470,24 +2320,6 @@ export interface ListParticipantReplicasResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParticipantRecordingFilterByRecordingState = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantRecordingFilterByRecordingState =
-  (typeof ParticipantRecordingFilterByRecordingState)[keyof typeof ParticipantRecordingFilterByRecordingState];
 
 /**
  * @public

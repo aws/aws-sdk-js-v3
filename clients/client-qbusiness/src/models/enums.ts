@@ -509,6 +509,19 @@ export type RetrieverStatus = (typeof RetrieverStatus)[keyof typeof RetrieverSta
  * @public
  * @enum
  */
+export const BrowserExtension = {
+  CHROME: "CHROME",
+  FIREFOX: "FIREFOX",
+} as const;
+/**
+ * @public
+ */
+export type BrowserExtension = (typeof BrowserExtension)[keyof typeof BrowserExtension];
+
+/**
+ * @public
+ * @enum
+ */
 export const WebExperienceSamplePromptsControlMode = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

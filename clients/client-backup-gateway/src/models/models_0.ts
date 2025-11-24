@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { GatewayType, HypervisorState, SyncMetadataStatus } from "./enums";
+
 /**
  * @public
  */
@@ -160,19 +162,6 @@ export interface PutBandwidthRateLimitScheduleOutput {
    */
   GatewayArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GatewayType = {
-  BACKUP_VM: "BACKUP_VM",
-} as const;
-
-/**
- * @public
- */
-export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
 
 /**
  * <p>A key-value pair you can use to manage, filter, and search for your resources. Allowed
@@ -644,39 +633,6 @@ export interface GetHypervisorInput {
    */
   HypervisorArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SyncMetadataStatus = {
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  PARTIALLY_FAILED: "PARTIALLY_FAILED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type SyncMetadataStatus = (typeof SyncMetadataStatus)[keyof typeof SyncMetadataStatus];
-
-/**
- * @public
- * @enum
- */
-export const HypervisorState = {
-  ERROR: "ERROR",
-  OFFLINE: "OFFLINE",
-  ONLINE: "ONLINE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type HypervisorState = (typeof HypervisorState)[keyof typeof HypervisorState];
 
 /**
  * <p>These are the details of the specified hypervisor. A hypervisor is hardware,
