@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.939.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.938.0...v3.939.0) (2025-11-24)
+
+
+### Features
+
+* **client-cloudfront:** Add TrustStore, ConnectionFunction APIs to CloudFront SDK ([168505e](https://github.com/aws/aws-sdk-js-v3/commit/168505ee3412bd533b0a2d891fb2d9eedeef66a9))
+
+
+
+
+
 # [3.937.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.936.0...v3.937.0) (2025-11-20)
 
 

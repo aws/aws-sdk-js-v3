@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.939.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.938.0...v3.939.0) (2025-11-24)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** skip extended encoding for query parameters in the base url ([#7515](https://github.com/aws/aws-sdk-js-v3/issues/7515)) ([954d411](https://github.com/aws/aws-sdk-js-v3/commit/954d411e083c384ecc959d86f9359ea8796990ff))
+
+
+
+
+
 # [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer
