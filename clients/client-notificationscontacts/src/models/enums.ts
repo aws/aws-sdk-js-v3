@@ -11,3 +11,16 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmailContactStatus = {
+  ACTIVE: "active",
+  INACTIVE: "inactive",
+} as const;
+/**
+ * @public
+ */
+export type EmailContactStatus = (typeof EmailContactStatus)[keyof typeof EmailContactStatus];

@@ -1,17 +1,31 @@
 // smithy-typescript generated code
-/**
- * @public
- * @enum
- */
-export const AssignPublicIp = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
+import {
+  AssignPublicIp,
+  BatchJobDependencyType,
+  BatchResourceRequirementType,
+  DimensionValueType,
+  DynamoDBStreamStartPosition,
+  EcsEnvironmentFileType,
+  EcsResourceRequirementType,
+  EpochTimeUnit,
+  IncludeExecutionDataOption,
+  KinesisStreamStartPosition,
+  LaunchType,
+  LogLevel,
+  MeasureValueType,
+  MSKStartPosition,
+  OnPartialBatchItemFailureStreams,
+  PipeState,
+  PipeTargetInvocationType,
+  PlacementConstraintType,
+  PlacementStrategyType,
+  PropagateTags,
+  RequestedPipeState,
+  RequestedPipeStateDescribeResponse,
+  S3OutputFormat,
+  SelfManagedKafkaStartPosition,
+  TimeFieldType,
+} from "./enums";
 
 /**
  * <p>This structure specifies the VPC subnets and security groups for the task, and whether a
@@ -82,22 +96,6 @@ export interface BatchEnvironmentVariable {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchResourceRequirementType = {
-  GPU: "GPU",
-  MEMORY: "MEMORY",
-  VCPU: "VCPU",
-} as const;
-
-/**
- * @public
- */
-export type BatchResourceRequirementType =
-  (typeof BatchResourceRequirementType)[keyof typeof BatchResourceRequirementType];
 
 /**
  * <p>The type and amount of a resource to assign to a container. The supported resources
@@ -335,20 +333,6 @@ export interface BatchContainerOverrides {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchJobDependencyType = {
-  N_TO_N: "N_TO_N",
-  SEQUENTIAL: "SEQUENTIAL",
-} as const;
-
-/**
- * @public
- */
-export type BatchJobDependencyType = (typeof BatchJobDependencyType)[keyof typeof BatchJobDependencyType];
-
-/**
  * <p>An object that represents an Batch job dependency.</p>
  * @public
  */
@@ -435,20 +419,6 @@ export interface CloudwatchLogsLogDestinationParameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const RequestedPipeState = {
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type RequestedPipeState = (typeof RequestedPipeState)[keyof typeof RequestedPipeState];
-
-/**
  * <p>These are custom parameter to be used when the target is an API Gateway REST APIs
  *          or EventBridge ApiDestinations. In the latter case, these are merged with any
  *          InvocationParameters specified on the Connection, with any values from the Connection
@@ -516,50 +486,6 @@ export interface FirehoseLogDestinationParameters {
    */
   DeliveryStreamArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IncludeExecutionDataOption = {
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type IncludeExecutionDataOption = (typeof IncludeExecutionDataOption)[keyof typeof IncludeExecutionDataOption];
-
-/**
- * @public
- * @enum
- */
-export const LogLevel = {
-  ERROR: "ERROR",
-  INFO: "INFO",
-  OFF: "OFF",
-  TRACE: "TRACE",
-} as const;
-
-/**
- * @public
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
-
-/**
- * @public
- * @enum
- */
-export const S3OutputFormat = {
-  JSON: "json",
-  PLAIN: "plain",
-  W3C: "w3c",
-} as const;
-
-/**
- * @public
- */
-export type S3OutputFormat = (typeof S3OutputFormat)[keyof typeof S3OutputFormat];
 
 /**
  * <p>The Amazon S3 logging configuration settings for the pipe.</p>
@@ -744,35 +670,6 @@ export interface DeadLetterConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const OnPartialBatchItemFailureStreams = {
-  AUTOMATIC_BISECT: "AUTOMATIC_BISECT",
-} as const;
-
-/**
- * @public
- */
-export type OnPartialBatchItemFailureStreams =
-  (typeof OnPartialBatchItemFailureStreams)[keyof typeof OnPartialBatchItemFailureStreams];
-
-/**
- * @public
- * @enum
- */
-export const DynamoDBStreamStartPosition = {
-  LATEST: "LATEST",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type DynamoDBStreamStartPosition =
-  (typeof DynamoDBStreamStartPosition)[keyof typeof DynamoDBStreamStartPosition];
-
-/**
  * <p>The parameters for using a DynamoDB stream as a source.</p>
  * @public
  */
@@ -856,21 +753,6 @@ export interface FilterCriteria {
    */
   Filters?: Filter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KinesisStreamStartPosition = {
-  AT_TIMESTAMP: "AT_TIMESTAMP",
-  LATEST: "LATEST",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type KinesisStreamStartPosition = (typeof KinesisStreamStartPosition)[keyof typeof KinesisStreamStartPosition];
 
 /**
  * <p>The parameters for using a Kinesis stream as a source.</p>
@@ -988,20 +870,6 @@ export namespace MSKAccessCredentials {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const MSKStartPosition = {
-  LATEST: "LATEST",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type MSKStartPosition = (typeof MSKStartPosition)[keyof typeof MSKStartPosition];
 
 /**
  * <p>The parameters for using an MSK stream as a source.</p>
@@ -1167,21 +1035,6 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const SelfManagedKafkaStartPosition = {
-  LATEST: "LATEST",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type SelfManagedKafkaStartPosition =
-  (typeof SelfManagedKafkaStartPosition)[keyof typeof SelfManagedKafkaStartPosition];
 
 /**
  * <p>This structure specifies the VPC subnets and security groups for the stream, and whether
@@ -1429,21 +1282,6 @@ export interface PipeTargetCloudWatchLogsParameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const LaunchType = {
-  EC2: "EC2",
-  EXTERNAL: "EXTERNAL",
-  FARGATE: "FARGATE",
-} as const;
-
-/**
- * @public
- */
-export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
-
-/**
  * <p>This structure specifies the network configuration for an Amazon ECS
  *          task.</p>
  * @public
@@ -1480,19 +1318,6 @@ export interface EcsEnvironmentVariable {
    */
   value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EcsEnvironmentFileType = {
-  s3: "s3",
-} as const;
-
-/**
- * @public
- */
-export type EcsEnvironmentFileType = (typeof EcsEnvironmentFileType)[keyof typeof EcsEnvironmentFileType];
 
 /**
  * <p>A list of files containing the environment variables to pass to a container. You can
@@ -1535,20 +1360,6 @@ export interface EcsEnvironmentFile {
    */
   value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EcsResourceRequirementType = {
-  GPU: "GPU",
-  InferenceAccelerator: "InferenceAccelerator",
-} as const;
-
-/**
- * @public
- */
-export type EcsResourceRequirementType = (typeof EcsResourceRequirementType)[keyof typeof EcsResourceRequirementType];
 
 /**
  * <p>The type and amount of a resource to assign to a container. The supported resource types
@@ -1761,20 +1572,6 @@ export interface EcsTaskOverride {
 }
 
 /**
- * @public
- * @enum
- */
-export const PlacementConstraintType = {
-  DISTINCT_INSTANCE: "distinctInstance",
-  MEMBER_OF: "memberOf",
-} as const;
-
-/**
- * @public
- */
-export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
-
-/**
  * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement
  *             Constraints</a> in the Amazon Elastic Container Service Developer Guide.</p>
  * @public
@@ -1797,21 +1594,6 @@ export interface PlacementConstraint {
    */
   expression?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PlacementStrategyType = {
-  BINPACK: "binpack",
-  RANDOM: "random",
-  SPREAD: "spread",
-} as const;
-
-/**
- * @public
- */
-export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
 
 /**
  * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement
@@ -1841,19 +1623,6 @@ export interface PlacementStrategy {
    */
   field?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PropagateTags = {
-  TASK_DEFINITION: "TASK_DEFINITION",
-} as const;
-
-/**
- * @public
- */
-export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
 
 /**
  * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge,
@@ -2088,20 +1857,6 @@ export interface PipeTargetKinesisStreamParameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const PipeTargetInvocationType = {
-  FIRE_AND_FORGET: "FIRE_AND_FORGET",
-  REQUEST_RESPONSE: "REQUEST_RESPONSE",
-} as const;
-
-/**
- * @public
- */
-export type PipeTargetInvocationType = (typeof PipeTargetInvocationType)[keyof typeof PipeTargetInvocationType];
-
-/**
  * <p>The parameters for using a Lambda function as a target.</p>
  * @public
  */
@@ -2268,19 +2023,6 @@ export interface PipeTargetStateMachineParameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const DimensionValueType = {
-  VARCHAR: "VARCHAR",
-} as const;
-
-/**
- * @public
- */
-export type DimensionValueType = (typeof DimensionValueType)[keyof typeof DimensionValueType];
-
-/**
  * <p>Maps source data to a dimension in the target Timestream for LiveAnalytics
  *          table.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html">Amazon Timestream for LiveAnalytics concepts</a>
@@ -2308,39 +2050,6 @@ export interface DimensionMapping {
    */
   DimensionName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EpochTimeUnit = {
-  MICROSECONDS: "MICROSECONDS",
-  MILLISECONDS: "MILLISECONDS",
-  NANOSECONDS: "NANOSECONDS",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type EpochTimeUnit = (typeof EpochTimeUnit)[keyof typeof EpochTimeUnit];
-
-/**
- * @public
- * @enum
- */
-export const MeasureValueType = {
-  BIGINT: "BIGINT",
-  BOOLEAN: "BOOLEAN",
-  DOUBLE: "DOUBLE",
-  TIMESTAMP: "TIMESTAMP",
-  VARCHAR: "VARCHAR",
-} as const;
-
-/**
- * @public
- */
-export type MeasureValueType = (typeof MeasureValueType)[keyof typeof MeasureValueType];
 
 /**
  * <p>A mapping of a source event data field to a measure in a Timestream for
@@ -2415,20 +2124,6 @@ export interface SingleMeasureMapping {
    */
   MeasureName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimeFieldType = {
-  EPOCH: "EPOCH",
-  TIMESTAMP_FORMAT: "TIMESTAMP_FORMAT",
-} as const;
-
-/**
- * @public
- */
-export type TimeFieldType = (typeof TimeFieldType)[keyof typeof TimeFieldType];
 
 /**
  * <p>The parameters for using a Timestream for LiveAnalytics table as a
@@ -2689,33 +2384,6 @@ export interface CreatePipeRequest {
 
 /**
  * @public
- * @enum
- */
-export const PipeState = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_ROLLBACK_FAILED: "CREATE_ROLLBACK_FAILED",
-  CREATING: "CREATING",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_ROLLBACK_FAILED: "DELETE_ROLLBACK_FAILED",
-  DELETING: "DELETING",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  START_FAILED: "START_FAILED",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  STOP_FAILED: "STOP_FAILED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type PipeState = (typeof PipeState)[keyof typeof PipeState];
-
-/**
- * @public
  */
 export interface CreatePipeResponse {
   /**
@@ -2783,22 +2451,6 @@ export interface DeletePipeRequest {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RequestedPipeStateDescribeResponse = {
-  DELETED: "DELETED",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type RequestedPipeStateDescribeResponse =
-  (typeof RequestedPipeStateDescribeResponse)[keyof typeof RequestedPipeStateDescribeResponse];
 
 /**
  * @public

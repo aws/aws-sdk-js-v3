@@ -6,12 +6,15 @@ import {
   FixedPosition,
   FormActionType,
   FormButtonsPosition,
+  FormDataSourceType,
   GenericDataRelationshipType,
   JSModule,
   JSScript,
   JSTarget,
+  LabelDecorator,
   SortDirection,
   StorageAccessLevel,
+  TokenProviders,
 } from "./enums";
 
 /**
@@ -972,22 +975,6 @@ export interface ListComponentsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const TokenProviders = {
-  /**
-   * The figma token provider.
-   */
-  FIGMA: "figma",
-} as const;
-
-/**
- * @public
- */
-export type TokenProviders = (typeof TokenProviders)[keyof typeof TokenProviders];
-
-/**
  * <p>Describes the configuration of a request to exchange an access code for a token.</p>
  * @public
  */
@@ -1176,26 +1163,6 @@ export interface FormCTA {
 }
 
 /**
- * @public
- * @enum
- */
-export const FormDataSourceType = {
-  /**
-   * Will use passed in hooks to use when creating a form from scratch
-   */
-  CUSTOM: "Custom",
-  /**
-   * Will use a provided Amplify DataStore enabled API
-   */
-  DATASTORE: "DataStore",
-} as const;
-
-/**
- * @public
- */
-export type FormDataSourceType = (typeof FormDataSourceType)[keyof typeof FormDataSourceType];
-
-/**
  * <p>Describes the data type configuration for the data source associated with a form.</p>
  * @public
  */
@@ -1350,21 +1317,6 @@ export interface FieldValidationConfiguration {
    */
   validationMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LabelDecorator = {
-  NONE: "none",
-  OPTIONAL: "optional",
-  REQUIRED: "required",
-} as const;
-
-/**
- * @public
- */
-export type LabelDecorator = (typeof LabelDecorator)[keyof typeof LabelDecorator];
 
 /**
  * <p>Stores the configuration information for a visual helper element for a form. A sectional

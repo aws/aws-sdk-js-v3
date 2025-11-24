@@ -3,7 +3,53 @@ import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from
 
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
-import { StoreType } from "./enums";
+import {
+  Accelerators,
+  AnnotationType,
+  CacheBehavior,
+  CreationType,
+  EncryptionType,
+  ETagAlgorithm,
+  ETagAlgorithmFamily,
+  FileType,
+  FormatToHeaderKey,
+  JobStatus,
+  ReadSetActivationJobItemStatus,
+  ReadSetActivationJobStatus,
+  ReadSetExportJobItemStatus,
+  ReadSetExportJobStatus,
+  ReadSetFile,
+  ReadSetImportJobItemStatus,
+  ReadSetImportJobStatus,
+  ReadSetPartSource,
+  ReadSetStatus,
+  ReferenceCreationType,
+  ReferenceFile,
+  ReferenceImportJobItemStatus,
+  ReferenceImportJobStatus,
+  ReferenceStatus,
+  ResourceOwner,
+  RunCacheStatus,
+  RunExport,
+  RunLogLevel,
+  RunRetentionMode,
+  RunStatus,
+  SchemaValueType,
+  SequenceStoreStatus,
+  ShareResourceType,
+  ShareStatus,
+  SourceReferenceType,
+  StorageType,
+  StoreFormat,
+  StoreStatus,
+  StoreType,
+  TaskStatus,
+  VersionStatus,
+  WorkflowEngine,
+  WorkflowExport,
+  WorkflowStatus,
+  WorkflowType,
+} from "./enums";
 
 /**
  * @public
@@ -29,19 +75,6 @@ export interface AbortMultipartReadSetUploadResponse {}
 
 /**
  * @public
- * @enum
- */
-export const Accelerators = {
-  GPU: "GPU",
-} as const;
-
-/**
- * @public
- */
-export type Accelerators = (typeof Accelerators)[keyof typeof Accelerators];
-
-/**
- * @public
  */
 export interface AcceptShareRequest {
   /**
@@ -53,42 +86,6 @@ export interface AcceptShareRequest {
 
 /**
  * @public
- * @enum
- */
-export const ShareStatus = {
-  /**
-   * The share is activated
-   */
-  ACTIVATING: "ACTIVATING",
-  /**
-   * The share is active and can be used
-   */
-  ACTIVE: "ACTIVE",
-  /**
-   * The share has been deleted
-   */
-  DELETED: "DELETED",
-  /**
-   * The share is being deleted
-   */
-  DELETING: "DELETING",
-  /**
-   * The share has failed to activate or delete
-   */
-  FAILED: "FAILED",
-  /**
-   * The share has been created but is not yet active
-   */
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
-
-/**
- * @public
  */
 export interface AcceptShareResponse {
   /**
@@ -97,25 +94,6 @@ export interface AcceptShareResponse {
    */
   status?: ShareStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReadSetActivationJobStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetActivationJobStatus = (typeof ReadSetActivationJobStatus)[keyof typeof ReadSetActivationJobStatus];
 
 /**
  * <p>A read set activation job filter.</p>
@@ -178,23 +156,6 @@ export interface ActivateReadSetJobItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReadSetActivationJobItemStatus = {
-  FAILED: "FAILED",
-  FINISHED: "FINISHED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetActivationJobItemStatus =
-  (typeof ReadSetActivationJobItemStatus)[keyof typeof ReadSetActivationJobItemStatus];
-
-/**
  * <p>A source for a read set activation job.</p>
  * @public
  */
@@ -217,42 +178,6 @@ export interface ActivateReadSetSourceItem {
    */
   statusMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  /**
-   * The Job was cancelled
-   */
-  CANCELLED: "CANCELLED",
-  /**
-   * The Job has completed
-   */
-  COMPLETED: "COMPLETED",
-  /**
-   * The Job completed with failed runs
-   */
-  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
-  /**
-   * The Job failed
-   */
-  FAILED: "FAILED",
-  /**
-   * The Job is executing
-   */
-  IN_PROGRESS: "IN_PROGRESS",
-  /**
-   * The Job has been submitted to run
-   */
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * <p>Details about an imported annotation item.</p>
@@ -763,22 +688,6 @@ export namespace ReferenceItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  /**
-   * KMS
-   */
-  KMS: "KMS",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>Server-side encryption (SSE) settings for a store.</p>
  * @public
  */
@@ -795,124 +704,6 @@ export interface SseConfig {
    */
   keyArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StoreFormat = {
-  /**
-   * GFF3 Format
-   */
-  GFF: "GFF",
-  /**
-   * TSV Format
-   */
-  TSV: "TSV",
-  /**
-   * VCF Format
-   */
-  VCF: "VCF",
-} as const;
-
-/**
- * @public
- */
-export type StoreFormat = (typeof StoreFormat)[keyof typeof StoreFormat];
-
-/**
- * @public
- * @enum
- */
-export const AnnotationType = {
-  /**
-   * Contains contig and 1-base position
-   */
-  CHR_POS: "CHR_POS",
-  /**
-   * Contains contig, 1-base position, ref and alt allele information
-   */
-  CHR_POS_REF_ALT: "CHR_POS_REF_ALT",
-  /**
-   * Contains contig, start, and end positions. Coordinates are 1-based
-   */
-  CHR_START_END_ONE_BASE: "CHR_START_END_ONE_BASE",
-  /**
-   * Contains contig, start, end, ref and alt allele information. Coordinates are 1-based
-   */
-  CHR_START_END_REF_ALT_ONE_BASE: "CHR_START_END_REF_ALT_ONE_BASE",
-  /**
-   * Contains contig, start, end, ref and alt allele information. Coordinates are 0-based
-   */
-  CHR_START_END_REF_ALT_ZERO_BASE: "CHR_START_END_REF_ALT_ZERO_BASE",
-  /**
-   * Contains contig, start, and end positions. Coordinates are 0-based
-   */
-  CHR_START_END_ZERO_BASE: "CHR_START_END_ZERO_BASE",
-  /**
-   * Generic text file. No genomic information
-   */
-  GENERIC: "GENERIC",
-} as const;
-
-/**
- * @public
- */
-export type AnnotationType = (typeof AnnotationType)[keyof typeof AnnotationType];
-
-/**
- * @public
- * @enum
- */
-export const FormatToHeaderKey = {
-  ALT: "ALT",
-  CHR: "CHR",
-  END: "END",
-  POS: "POS",
-  REF: "REF",
-  START: "START",
-} as const;
-
-/**
- * @public
- */
-export type FormatToHeaderKey = (typeof FormatToHeaderKey)[keyof typeof FormatToHeaderKey];
-
-/**
- * @public
- * @enum
- */
-export const SchemaValueType = {
-  /**
-   * BOOLEAN type
-   */
-  BOOLEAN: "BOOLEAN",
-  /**
-   * DOUBLE type
-   */
-  DOUBLE: "DOUBLE",
-  /**
-   * FLOAT type
-   */
-  FLOAT: "FLOAT",
-  /**
-   * INT type
-   */
-  INT: "INT",
-  /**
-   * LONG type
-   */
-  LONG: "LONG",
-  /**
-   * STRING type
-   */
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type SchemaValueType = (typeof SchemaValueType)[keyof typeof SchemaValueType];
 
 /**
  * <p>File settings for a TSV store.</p>
@@ -1027,38 +818,6 @@ export interface CreateAnnotationStoreRequest {
    */
   storeOptions?: StoreOptions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StoreStatus = {
-  /**
-   * The Store is active
-   */
-  ACTIVE: "ACTIVE",
-  /**
-   * The Store is being created
-   */
-  CREATING: "CREATING",
-  /**
-   * The Store is deleting
-   */
-  DELETING: "DELETING",
-  /**
-   * The Store creation failed
-   */
-  FAILED: "FAILED",
-  /**
-   * The Store is updating
-   */
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type StoreStatus = (typeof StoreStatus)[keyof typeof StoreStatus];
 
 /**
  * @public
@@ -1557,38 +1316,6 @@ export interface CreateAnnotationStoreVersionRequest {
 
 /**
  * @public
- * @enum
- */
-export const VersionStatus = {
-  /**
-   * The Version is active
-   */
-  ACTIVE: "ACTIVE",
-  /**
-   * The Version is being created
-   */
-  CREATING: "CREATING",
-  /**
-   * The Version is deleting
-   */
-  DELETING: "DELETING",
-  /**
-   * The Version creation failed
-   */
-  FAILED: "FAILED",
-  /**
-   * The Version is updating
-   */
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
-
-/**
- * @public
  */
 export interface CreateAnnotationStoreVersionResponse {
   /**
@@ -2046,20 +1773,6 @@ export interface BatchDeleteReadSetResponse {
 
 /**
  * @public
- * @enum
- */
-export const CacheBehavior = {
-  CACHE_ALWAYS: "CACHE_ALWAYS",
-  CACHE_ON_FAILURE: "CACHE_ON_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type CacheBehavior = (typeof CacheBehavior)[keyof typeof CacheBehavior];
-
-/**
- * @public
  */
 export interface CancelRunRequest {
   /**
@@ -2084,20 +1797,6 @@ export interface CancelVariantImportRequest {
  * @public
  */
 export interface CancelVariantImportResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ReadSetPartSource = {
-  SOURCE1: "SOURCE1",
-  SOURCE2: "SOURCE2",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetPartSource = (typeof ReadSetPartSource)[keyof typeof ReadSetPartSource];
 
 /**
  * <p> Part of the response to the CompleteReadSetUpload API, including metadata. </p>
@@ -2222,22 +1921,6 @@ export interface ContainerRegistryMap {
    */
   imageMappings?: ImageMapping[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileType = {
-  BAM: "BAM",
-  CRAM: "CRAM",
-  FASTQ: "FASTQ",
-  UBAM: "UBAM",
-} as const;
-
-/**
- * @public
- */
-export type FileType = (typeof FileType)[keyof typeof FileType];
 
 /**
  * @public
@@ -2500,21 +2183,6 @@ export interface CreateRunCacheRequest {
 
 /**
  * @public
- * @enum
- */
-export const RunCacheStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type RunCacheStatus = (typeof RunCacheStatus)[keyof typeof RunCacheStatus];
-
-/**
- * @public
  */
 export interface CreateRunCacheResponse {
   /**
@@ -2613,21 +2281,6 @@ export interface CreateRunGroupResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ETagAlgorithmFamily = {
-  MD5UP: "MD5up",
-  SHA256UP: "SHA256up",
-  SHA512UP: "SHA512up",
-} as const;
-
-/**
- * @public
- */
-export type ETagAlgorithmFamily = (typeof ETagAlgorithmFamily)[keyof typeof ETagAlgorithmFamily];
-
-/**
  * <p>S3 access configuration parameters.</p>
  * @public
  */
@@ -2721,23 +2374,6 @@ export interface SequenceStoreS3Access {
    */
   accessLogLocation?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SequenceStoreStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type SequenceStoreStatus = (typeof SequenceStoreStatus)[keyof typeof SequenceStoreStatus];
 
 /**
  * @public
@@ -2933,21 +2569,6 @@ export interface CreateVariantStoreResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SourceReferenceType = {
-  BRANCH: "BRANCH",
-  COMMIT: "COMMIT",
-  TAG: "TAG",
-} as const;
-
-/**
- * @public
- */
-export type SourceReferenceType = (typeof SourceReferenceType)[keyof typeof SourceReferenceType];
-
-/**
  * <p>Contains information about the source reference in a code repository, such as a branch, tag, or commit.</p>
  * @public
  */
@@ -2996,22 +2617,6 @@ export interface DefinitionRepository {
 }
 
 /**
- * @public
- * @enum
- */
-export const WorkflowEngine = {
-  CWL: "CWL",
-  NEXTFLOW: "NEXTFLOW",
-  WDL: "WDL",
-  WDL_LENIENT: "WDL_LENIENT",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowEngine = (typeof WorkflowEngine)[keyof typeof WorkflowEngine];
-
-/**
  * <p>A workflow parameter.</p>
  * @public
  */
@@ -3028,20 +2633,6 @@ export interface WorkflowParameter {
    */
   optional?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageType = {
-  DYNAMIC: "DYNAMIC",
-  STATIC: "STATIC",
-} as const;
-
-/**
- * @public
- */
-export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 /**
  * @public
@@ -3167,24 +2758,6 @@ export interface CreateWorkflowRequest {
    */
   readmeUri?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
 
 /**
  * @public
@@ -3392,20 +2965,6 @@ export interface CreateWorkflowVersionResponse {
    */
   uuid?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CreationType = {
-  IMPORT: "IMPORT",
-  UPLOAD: "UPLOAD",
-} as const;
-
-/**
- * @public
- */
-export type CreationType = (typeof CreationType)[keyof typeof CreationType];
 
 /**
  * <p>Contains detailed information about the source code repository that hosts the workflow definition files.</p>
@@ -3625,27 +3184,6 @@ export interface DeleteWorkflowVersionRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ETagAlgorithm = {
-  BAM_MD5UP: "BAM_MD5up",
-  BAM_SHA256UP: "BAM_SHA256up",
-  BAM_SHA512UP: "BAM_SHA512up",
-  CRAM_MD5UP: "CRAM_MD5up",
-  CRAM_SHA256UP: "CRAM_SHA256up",
-  CRAM_SHA512UP: "CRAM_SHA512up",
-  FASTQ_MD5UP: "FASTQ_MD5up",
-  FASTQ_SHA256UP: "FASTQ_SHA256up",
-  FASTQ_SHA512UP: "FASTQ_SHA512up",
-} as const;
-
-/**
- * @public
- */
-export type ETagAlgorithm = (typeof ETagAlgorithm)[keyof typeof ETagAlgorithm];
-
-/**
  * <p>The entity tag (ETag) is a hash of the object representing its semantic content.</p>
  * @public
  */
@@ -3682,22 +3220,6 @@ export interface ExportReadSet {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReadSetExportJobItemStatus = {
-  FAILED: "FAILED",
-  FINISHED: "FINISHED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetExportJobItemStatus = (typeof ReadSetExportJobItemStatus)[keyof typeof ReadSetExportJobItemStatus];
-
-/**
  * <p>Details about a read set.</p>
  * @public
  */
@@ -3720,25 +3242,6 @@ export interface ExportReadSetDetail {
    */
   statusMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReadSetExportJobStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetExportJobStatus = (typeof ReadSetExportJobStatus)[keyof typeof ReadSetExportJobStatus];
 
 /**
  * <p>An read set export job filter.</p>
@@ -3849,30 +3352,6 @@ export interface FileInformation {
 }
 
 /**
- * @public
- * @enum
- */
-export const ShareResourceType = {
-  /**
-   * The share is on an annotation store
-   */
-  ANNOTATION_STORE: "ANNOTATION_STORE",
-  /**
-   * The share is on a variant store
-   */
-  VARIANT_STORE: "VARIANT_STORE",
-  /**
-   * The share is on a workflow
-   */
-  WORKFLOW: "WORKFLOW",
-} as const;
-
-/**
- * @public
- */
-export type ShareResourceType = (typeof ShareResourceType)[keyof typeof ShareResourceType];
-
-/**
  * <p>Use filters to return a subset of resources. You can define filters for specific parameters, such as the resource status.</p>
  * @public
  */
@@ -3895,21 +3374,6 @@ export interface Filter {
    */
   type?: ShareResourceType[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReadSetFile = {
-  INDEX: "INDEX",
-  SOURCE1: "SOURCE1",
-  SOURCE2: "SOURCE2",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetFile = (typeof ReadSetFile)[keyof typeof ReadSetFile];
 
 /**
  * @public
@@ -4121,22 +3585,6 @@ export interface SourceFiles {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReadSetImportJobItemStatus = {
-  FAILED: "FAILED",
-  FINISHED: "FINISHED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetImportJobItemStatus = (typeof ReadSetImportJobItemStatus)[keyof typeof ReadSetImportJobItemStatus];
-
-/**
  * <p>A source for an import read set job.</p>
  * @public
  */
@@ -4213,25 +3661,6 @@ export interface ImportReadSetSourceItem {
    */
   readSetId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReadSetImportJobStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetImportJobStatus = (typeof ReadSetImportJobStatus)[keyof typeof ReadSetImportJobStatus];
 
 /**
  * @public
@@ -4359,25 +3788,6 @@ export interface SequenceInformation {
 
 /**
  * @public
- * @enum
- */
-export const ReadSetStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  PROCESSING_UPLOAD: "PROCESSING_UPLOAD",
-  UPLOAD_FAILED: "UPLOAD_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ReadSetStatus = (typeof ReadSetStatus)[keyof typeof ReadSetStatus];
-
-/**
- * @public
  */
 export interface GetReadSetMetadataResponse {
   /**
@@ -4485,20 +3895,6 @@ export interface GetReadSetMetadataResponse {
 
 /**
  * @public
- * @enum
- */
-export const ReferenceFile = {
-  INDEX: "INDEX",
-  SOURCE: "SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceFile = (typeof ReferenceFile)[keyof typeof ReferenceFile];
-
-/**
- * @public
  */
 export interface GetReferenceRequest {
   /**
@@ -4561,23 +3957,6 @@ export interface GetReferenceImportJobRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReferenceImportJobItemStatus = {
-  FAILED: "FAILED",
-  FINISHED: "FINISHED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceImportJobItemStatus =
-  (typeof ReferenceImportJobItemStatus)[keyof typeof ReferenceImportJobItemStatus];
-
-/**
  * <p>An genome reference source.</p>
  * @public
  */
@@ -4624,25 +4003,6 @@ export interface ImportReferenceSourceItem {
    */
   referenceId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReferenceImportJobStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceImportJobStatus = (typeof ReferenceImportJobStatus)[keyof typeof ReferenceImportJobStatus];
 
 /**
  * @public
@@ -4715,19 +4075,6 @@ export interface GetReferenceMetadataRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReferenceCreationType = {
-  IMPORT: "IMPORT",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceCreationType = (typeof ReferenceCreationType)[keyof typeof ReferenceCreationType];
-
-/**
  * <p>A set of genome reference files.</p>
  * @public
  */
@@ -4744,21 +4091,6 @@ export interface ReferenceFiles {
    */
   index?: FileInformation | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReferenceStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceStatus = (typeof ReferenceStatus)[keyof typeof ReferenceStatus];
 
 /**
  * @public
@@ -4891,19 +4223,6 @@ export interface GetReferenceStoreResponse {
 
 /**
  * @public
- * @enum
- */
-export const RunExport = {
-  DEFINITION: "DEFINITION",
-} as const;
-
-/**
- * @public
- */
-export type RunExport = (typeof RunExport)[keyof typeof RunExport];
-
-/**
- * @public
  */
 export interface GetRunRequest {
   /**
@@ -4918,22 +4237,6 @@ export interface GetRunRequest {
    */
   export?: RunExport[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RunLogLevel = {
-  ALL: "ALL",
-  ERROR: "ERROR",
-  FATAL: "FATAL",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
 
 /**
  * <p>The URI for the run log.</p>
@@ -4952,54 +4255,6 @@ export interface RunLogLocation {
    */
   runLogStream?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RunRetentionMode = {
-  REMOVE: "REMOVE",
-  RETAIN: "RETAIN",
-} as const;
-
-/**
- * @public
- */
-export type RunRetentionMode = (typeof RunRetentionMode)[keyof typeof RunRetentionMode];
-
-/**
- * @public
- * @enum
- */
-export const RunStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type RunStatus = (typeof RunStatus)[keyof typeof RunStatus];
-
-/**
- * @public
- * @enum
- */
-export const WorkflowType = {
-  PRIVATE: "PRIVATE",
-  READY2RUN: "READY2RUN",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -5408,25 +4663,6 @@ export interface ImageDetails {
    */
   sourceImage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 /**
  * @public
@@ -5950,20 +5186,6 @@ export interface GetVariantStoreResponse {
    */
   storeSizeBytes: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowExport = {
-  DEFINITION: "DEFINITION",
-  README: "README",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowExport = (typeof WorkflowExport)[keyof typeof WorkflowExport];
 
 /**
  * @public
@@ -7897,26 +7119,6 @@ export interface ListSequenceStoresResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceOwner = {
-  /**
-   * The resource owner is an account other than the caller
-   */
-  OTHER: "OTHER",
-  /**
-   * The resource owner is the calling account
-   */
-  SELF: "SELF",
-} as const;
-
-/**
- * @public
- */
-export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
-
-/**
- * @public
  */
 export interface ListSharesRequest {
   /**
@@ -9301,4 +8503,196 @@ export interface VariantImportItemSource {
    * @public
    */
   source: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartVariantImportRequest {
+  /**
+   * <p>The destination variant store for the job.</p>
+   * @public
+   */
+  destinationName: string | undefined;
+
+  /**
+   * <p>A service role for the job.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Items to import.</p>
+   * @public
+   */
+  items: VariantImportItemSource[] | undefined;
+
+  /**
+   * <p>The job's left normalization setting.</p>
+   * @public
+   */
+  runLeftNormalization?: boolean | undefined;
+
+  /**
+   * <p>The annotation schema generated by the parsed annotation data.</p>
+   * @public
+   */
+  annotationFields?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartVariantImportResponse {
+  /**
+   * <p>The job's ID.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVariantStoreRequest {
+  /**
+   * <p>A name for the store.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description for the store.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVariantStoreResponse {
+  /**
+   * <p>The store's ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The store's genome reference.</p>
+   * @public
+   */
+  reference: ReferenceItem | undefined;
+
+  /**
+   * <p>The store's status.</p>
+   * @public
+   */
+  status: StoreStatus | undefined;
+
+  /**
+   * <p>The store's name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The store's description.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>When the store was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>When the store was updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkflowRequest {
+  /**
+   * <p>The workflow's ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A name for the workflow.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description for the workflow.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The default storage type for runs that use this workflow. STATIC storage allocates a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down, based on file system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+   * @public
+   */
+  storageType?: StorageType | undefined;
+
+  /**
+   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. </p>
+   * @public
+   */
+  storageCapacity?: number | undefined;
+
+  /**
+   * <p>The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.</p>
+   * @public
+   */
+  readmeMarkdown?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkflowVersionRequest {
+  /**
+   * <p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>
+   * @public
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The name of the workflow version.</p>
+   * @public
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>Description of the workflow version.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The default storage type for runs that use this workflow version. The <code>storageType</code> can be overridden at run time. <code>DYNAMIC</code> storage dynamically scales the storage up or down, based on file system utilization. STATIC storage allocates a fixed amount of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run storage types</a> in the <i>in the <i>Amazon Web Services HealthOmics User Guide</i> </i>.</p>
+   * @public
+   */
+  storageType?: StorageType | undefined;
+
+  /**
+   * <p>The default static storage capacity (in gibibytes) for runs that use this workflow version. The <code>storageCapacity</code> can be overwritten at run time. The storage capacity is not required for runs with a <code>DYNAMIC</code> storage type.</p>
+   * @public
+   */
+  storageCapacity?: number | undefined;
+
+  /**
+   * <p>The markdown content for the workflow version's README file. This provides documentation and usage information for users of this specific workflow version.</p>
+   * @public
+   */
+  readmeMarkdown?: string | undefined;
 }

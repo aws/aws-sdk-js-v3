@@ -16,6 +16,21 @@ export type InputTags = (typeof InputTags)[keyof typeof InputTags];
  * @public
  * @enum
  */
+export const ConfigurationOwner = {
+  /**
+   * Configuration owned by the account
+   */
+  ACCOUNT: "ACCOUNT",
+} as const;
+/**
+ * @public
+ */
+export type ConfigurationOwner = (typeof ConfigurationOwner)[keyof typeof ConfigurationOwner];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgreementStatus = {
   AVAILABLE: "AVAILABLE",
   ERROR: "ERROR",

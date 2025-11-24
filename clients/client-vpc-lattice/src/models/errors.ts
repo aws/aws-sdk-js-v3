@@ -1,7 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionField, ValidationExceptionReason } from "./models_0";
+import { ValidationExceptionReason } from "./enums";
+import { ValidationExceptionField } from "./models_0";
 import { VPCLatticeServiceException as __BaseException } from "./VPCLatticeServiceException";
 
 /**

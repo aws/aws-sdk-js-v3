@@ -8,7 +8,7 @@ import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   GetEc2DeepInspectionConfigurationRequest,
   GetEc2DeepInspectionConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetEc2DeepInspectionConfiguration } from "../schemas/schemas_0";
 
 /**

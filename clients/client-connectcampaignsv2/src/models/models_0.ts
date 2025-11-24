@@ -1,16 +1,24 @@
 // smithy-typescript generated code
-/**
- * @public
- * @enum
- */
-export const AgentAction = {
-  DISCARD: "DISCARD",
-} as const;
-
-/**
- * @public
- */
-export type AgentAction = (typeof AgentAction)[keyof typeof AgentAction];
+import {
+  AgentAction,
+  CampaignDeletionPolicy,
+  CampaignState,
+  ChannelSubtype,
+  CommunicationLimitsConfigType,
+  CommunicationLimitTimeUnit,
+  CommunicationTimeConfigType,
+  DayOfWeek,
+  EncryptionType,
+  EventType,
+  FailureCode,
+  GetCampaignStateBatchFailureCode,
+  InstanceIdFilterOperator,
+  InstanceLimitsHandling,
+  InstanceOnboardingJobFailureCode,
+  InstanceOnboardingJobStatusCode,
+  LocalTimeZoneDetectionType,
+  ProfileOutboundRequestFailureCode,
+} from "./enums";
 
 /**
  * Agentless config
@@ -432,19 +440,6 @@ export interface ChannelSubtypeConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const CommunicationLimitTimeUnit = {
-  DAY: "DAY",
-} as const;
-
-/**
- * @public
- */
-export type CommunicationLimitTimeUnit = (typeof CommunicationLimitTimeUnit)[keyof typeof CommunicationLimitTimeUnit];
-
-/**
  * Communication Limit
  * @public
  */
@@ -508,20 +503,6 @@ export namespace CommunicationLimits {
 }
 
 /**
- * @public
- * @enum
- */
-export const InstanceLimitsHandling = {
-  OPT_IN: "OPT_IN",
-  OPT_OUT: "OPT_OUT",
-} as const;
-
-/**
- * @public
- */
-export type InstanceLimitsHandling = (typeof InstanceLimitsHandling)[keyof typeof InstanceLimitsHandling];
-
-/**
  * Communication limits config
  * @public
  */
@@ -538,25 +519,6 @@ export interface CommunicationLimitsConfig {
    */
   instanceLimitsHandling?: InstanceLimitsHandling | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * Time range in 24 hour format
@@ -691,20 +653,6 @@ export interface TimeWindow {
    */
   restrictedPeriods?: RestrictedPeriods | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LocalTimeZoneDetectionType = {
-  AREA_CODE: "AREA_CODE",
-  ZIP_CODE: "ZIP_CODE",
-} as const;
-
-/**
- * @public
- */
-export type LocalTimeZoneDetectionType = (typeof LocalTimeZoneDetectionType)[keyof typeof LocalTimeZoneDetectionType];
 
 /**
  * Local time zone config
@@ -937,21 +885,6 @@ export interface DeleteCampaignRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChannelSubtype = {
-  EMAIL: "EMAIL",
-  SMS: "SMS",
-  TELEPHONY: "TELEPHONY",
-} as const;
-
-/**
- * @public
- */
-export type ChannelSubtype = (typeof ChannelSubtype)[keyof typeof ChannelSubtype];
-
-/**
  * The request for DeleteCampaignChannelSubtypeConfig API.
  * @public
  */
@@ -968,20 +901,6 @@ export interface DeleteCampaignChannelSubtypeConfigRequest {
    */
   channelSubtype: ChannelSubtype | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CommunicationLimitsConfigType = {
-  ALL_CHANNEL_SUBTYPES: "ALL_CHANNEL_SUBTYPES",
-} as const;
-
-/**
- * @public
- */
-export type CommunicationLimitsConfigType =
-  (typeof CommunicationLimitsConfigType)[keyof typeof CommunicationLimitsConfigType];
 
 /**
  * The request for DeleteCampaignCommunicationLimits API.
@@ -1002,58 +921,6 @@ export interface DeleteCampaignCommunicationLimitsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CampaignState = {
-  /**
-   * Campaign is in completed state
-   */
-  COMPLETED: "Completed",
-  /**
-   * Campaign is in failed state
-   */
-  FAILED: "Failed",
-  /**
-   * Campaign is in initialized state
-   */
-  INITIALIZED: "Initialized",
-  /**
-   * Campaign is in paused state
-   */
-  PAUSED: "Paused",
-  /**
-   * Campaign is in running state
-   */
-  RUNNING: "Running",
-  /**
-   * Campaign is in stopped state
-   */
-  STOPPED: "Stopped",
-} as const;
-
-/**
- * @public
- */
-export type CampaignState = (typeof CampaignState)[keyof typeof CampaignState];
-
-/**
- * @public
- * @enum
- */
-export const CommunicationTimeConfigType = {
-  EMAIL: "EMAIL",
-  SMS: "SMS",
-  TELEPHONY: "TELEPHONY",
-} as const;
-
-/**
- * @public
- */
-export type CommunicationTimeConfigType =
-  (typeof CommunicationTimeConfigType)[keyof typeof CommunicationTimeConfigType];
-
-/**
  * The request for DeleteCampaignCommunicationTime API.
  * @public
  */
@@ -1070,20 +937,6 @@ export interface DeleteCampaignCommunicationTimeRequest {
    */
   config: CommunicationTimeConfigType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CampaignDeletionPolicy = {
-  DELETE_ALL: "DELETE_ALL",
-  RETAIN_ALL: "RETAIN_ALL",
-} as const;
-
-/**
- * @public
- */
-export type CampaignDeletionPolicy = (typeof CampaignDeletionPolicy)[keyof typeof CampaignDeletionPolicy];
 
 /**
  * The request for DeleteConnectInstanceConfig API.
@@ -1343,27 +1196,6 @@ export interface GetCampaignStateBatchRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const GetCampaignStateBatchFailureCode = {
-  /**
-   * The specified resource was not found
-   */
-  RESOURCE_NOT_FOUND: "ResourceNotFound",
-  /**
-   * Unexpected error during processing of request
-   */
-  UNKNOWN_ERROR: "UnknownError",
-} as const;
-
-/**
- * @public
- */
-export type GetCampaignStateBatchFailureCode =
-  (typeof GetCampaignStateBatchFailureCode)[keyof typeof GetCampaignStateBatchFailureCode];
-
-/**
  * Failed response of campaign state
  * @public
  */
@@ -1428,19 +1260,6 @@ export interface GetConnectInstanceConfigRequest {
    */
   connectInstanceId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  KMS: "KMS",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * Encryption config for Connect Instance. Note that sensitive data will always be encrypted.
@@ -1557,41 +1376,6 @@ export interface GetInstanceOnboardingJobStatusRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const InstanceOnboardingJobFailureCode = {
-  EVENT_BRIDGE_ACCESS_DENIED: "EVENT_BRIDGE_ACCESS_DENIED",
-  EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED: "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
-  IAM_ACCESS_DENIED: "IAM_ACCESS_DENIED",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  KMS_ACCESS_DENIED: "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type InstanceOnboardingJobFailureCode =
-  (typeof InstanceOnboardingJobFailureCode)[keyof typeof InstanceOnboardingJobFailureCode];
-
-/**
- * @public
- * @enum
- */
-export const InstanceOnboardingJobStatusCode = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type InstanceOnboardingJobStatusCode =
-  (typeof InstanceOnboardingJobStatusCode)[keyof typeof InstanceOnboardingJobStatusCode];
-
-/**
  * Instance onboarding job status object
  * @public
  */
@@ -1626,22 +1410,6 @@ export interface GetInstanceOnboardingJobStatusResponse {
    */
   connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceIdFilterOperator = {
-  /**
-   * Equals operator
-   */
-  EQ: "Eq",
-} as const;
-
-/**
- * @public
- */
-export type InstanceIdFilterOperator = (typeof InstanceIdFilterOperator)[keyof typeof InstanceIdFilterOperator];
 
 /**
  * Connect instance identifier filter
@@ -1786,22 +1554,6 @@ export interface ListConnectInstanceIntegrationsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  CAMPAIGN_EMAIL: "Campaign-Email",
-  CAMPAIGN_ORCHESTRATION: "Campaign-Orchestration",
-  CAMPAIGN_SMS: "Campaign-SMS",
-  CAMPAIGN_TELEPHONY: "Campaign-Telephony",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * Customer Profiles integration summary
@@ -2267,34 +2019,6 @@ export interface PutOutboundRequestBatchRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const FailureCode = {
-  /**
-   * Request throttled due to large number of pending dial requests
-   */
-  BUFFER_LIMIT_EXCEEDED: "BufferLimitExceeded",
-  /**
-   * The request failed to satisfy the constraints specified by the service
-   */
-  INVALID_INPUT: "InvalidInput",
-  /**
-   * The request was throttled due to excessive usage
-   */
-  REQUEST_THROTTLED: "RequestThrottled",
-  /**
-   * Unexpected error during processing of request
-   */
-  UNKNOWN_ERROR: "UnknownError",
-} as const;
-
-/**
- * @public
- */
-export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
-
-/**
  * A failed request identified by the unique client token.
  * @public
  */
@@ -2395,39 +2119,6 @@ export interface PutProfileOutboundRequestBatchRequest {
    */
   profileOutboundRequests: ProfileOutboundRequest[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProfileOutboundRequestFailureCode = {
-  /**
-   * The specified resource conflicts with another resource
-   */
-  CONFLICT: "Conflict",
-  /**
-   * The request failed to satisfy the constraints specified by the service
-   */
-  INVALID_INPUT: "InvalidInput",
-  /**
-   * Request throttled due to large number of requests
-   */
-  REQUEST_THROTTLED: "RequestThrottled",
-  /**
-   * The specified resource was not found
-   */
-  RESOURCE_NOT_FOUND: "ResourceNotFound",
-  /**
-   * Unexpected error during processing of request
-   */
-  UNKNOWN_ERROR: "UnknownError",
-} as const;
-
-/**
- * @public
- */
-export type ProfileOutboundRequestFailureCode =
-  (typeof ProfileOutboundRequestFailureCode)[keyof typeof ProfileOutboundRequestFailureCode];
 
 /**
  * Failure details for a profile outbound request

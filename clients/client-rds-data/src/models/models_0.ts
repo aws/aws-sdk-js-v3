@@ -1,21 +1,5 @@
 // smithy-typescript generated code
-/**
- * @public
- * @enum
- */
-export const TypeHint = {
-  DATE: "DATE",
-  DECIMAL: "DECIMAL",
-  JSON: "JSON",
-  TIME: "TIME",
-  TIMESTAMP: "TIMESTAMP",
-  UUID: "UUID",
-} as const;
-
-/**
- * @public
- */
-export type TypeHint = (typeof TypeHint)[keyof typeof TypeHint];
+import { DecimalReturnType, LongReturnType, RecordsFormatType, TypeHint } from "./enums";
 
 /**
  * <p>The request parameters represent the input of a request to start a SQL
@@ -188,20 +172,6 @@ export interface CommitTransactionResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const DecimalReturnType = {
-  DOUBLE_OR_LONG: "DOUBLE_OR_LONG",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type DecimalReturnType = (typeof DecimalReturnType)[keyof typeof DecimalReturnType];
-
-/**
  * <p>The request parameters represent the input of a request to run one or more SQL
  *             statements.</p>
  * @public
@@ -260,34 +230,6 @@ export interface ResultSetMetadata {
    */
   columnMetadata?: ColumnMetadata[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordsFormatType = {
-  JSON: "JSON",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type RecordsFormatType = (typeof RecordsFormatType)[keyof typeof RecordsFormatType];
-
-/**
- * @public
- * @enum
- */
-export const LongReturnType = {
-  LONG: "LONG",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type LongReturnType = (typeof LongReturnType)[keyof typeof LongReturnType];
 
 /**
  * <p>Options that control how the result set is returned.</p>

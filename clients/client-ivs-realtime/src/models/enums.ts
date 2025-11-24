@@ -16,6 +16,32 @@ export type IngestProtocol = (typeof IngestProtocol)[keyof typeof IngestProtocol
  * @public
  * @enum
  */
+export const IngestConfigurationState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type IngestConfigurationState = (typeof IngestConfigurationState)[keyof typeof IngestConfigurationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantTokenCapability = {
+  PUBLISH: "PUBLISH",
+  SUBSCRIBE: "SUBSCRIBE",
+} as const;
+/**
+ * @public
+ */
+export type ParticipantTokenCapability = (typeof ParticipantTokenCapability)[keyof typeof ParticipantTokenCapability];
+
+/**
+ * @public
+ * @enum
+ */
 export const ParticipantRecordingMediaType = {
   AUDIO_ONLY: "AUDIO_ONLY",
   AUDIO_VIDEO: "AUDIO_VIDEO",
@@ -52,6 +78,36 @@ export const ThumbnailStorageType = {
  * @public
  */
 export type ThumbnailStorageType = (typeof ThumbnailStorageType)[keyof typeof ThumbnailStorageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecordingConfigurationFormat = {
+  HLS: "HLS",
+} as const;
+/**
+ * @public
+ */
+export type RecordingConfigurationFormat =
+  (typeof RecordingConfigurationFormat)[keyof typeof RecordingConfigurationFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const DestinationState = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  RECONNECTING: "RECONNECTING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type DestinationState = (typeof DestinationState)[keyof typeof DestinationState];
 
 /**
  * @public
@@ -114,6 +170,22 @@ export type PipPosition = (typeof PipPosition)[keyof typeof PipPosition];
  * @public
  * @enum
  */
+export const CompositionState = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type CompositionState = (typeof CompositionState)[keyof typeof CompositionState];
+
+/**
+ * @public
+ * @enum
+ */
 export const ParticipantProtocol = {
   RTMP: "RTMP",
   RTMPS: "RTMPS",
@@ -124,6 +196,63 @@ export const ParticipantProtocol = {
  * @public
  */
 export type ParticipantProtocol = (typeof ParticipantProtocol)[keyof typeof ParticipantProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantRecordingState = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  FAILED: "FAILED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type ParticipantRecordingState = (typeof ParticipantRecordingState)[keyof typeof ParticipantRecordingState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationState = {
+  ACTIVE: "ACTIVE",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationState = (typeof ReplicationState)[keyof typeof ReplicationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationType = {
+  NONE: "NONE",
+  REPLICA: "REPLICA",
+  SOURCE: "SOURCE",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationType = (typeof ReplicationType)[keyof typeof ReplicationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
+/**
+ * @public
+ */
+export type ParticipantState = (typeof ParticipantState)[keyof typeof ParticipantState];
 
 /**
  * @public
@@ -149,3 +278,42 @@ export const EventErrorCode = {
  * @public
  */
 export type EventErrorCode = (typeof EventErrorCode)[keyof typeof EventErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventName = {
+  JOINED: "JOINED",
+  JOIN_ERROR: "JOIN_ERROR",
+  LEFT: "LEFT",
+  PUBLISH_ERROR: "PUBLISH_ERROR",
+  PUBLISH_STARTED: "PUBLISH_STARTED",
+  PUBLISH_STOPPED: "PUBLISH_STOPPED",
+  REPLICATION_STARTED: "REPLICATION_STARTED",
+  REPLICATION_STOPPED: "REPLICATION_STOPPED",
+  SUBSCRIBE_ERROR: "SUBSCRIBE_ERROR",
+  SUBSCRIBE_STARTED: "SUBSCRIBE_STARTED",
+  SUBSCRIBE_STOPPED: "SUBSCRIBE_STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type EventName = (typeof EventName)[keyof typeof EventName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantRecordingFilterByRecordingState = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type ParticipantRecordingFilterByRecordingState =
+  (typeof ParticipantRecordingFilterByRecordingState)[keyof typeof ParticipantRecordingFilterByRecordingState];

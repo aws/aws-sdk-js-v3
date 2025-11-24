@@ -40,6 +40,20 @@ export type EnumString = (typeof EnumString)[keyof typeof EnumString];
  * @public
  * @enum
  */
+export const EnumTraitString = {
+  ABC: "abc",
+  DEF: "def",
+  GHI: "ghi",
+} as const;
+/**
+ * @public
+ */
+export type EnumTraitString = (typeof EnumTraitString)[keyof typeof EnumTraitString];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecursiveEnumString = {
   ABC: "abc",
   DEF: "def",

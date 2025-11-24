@@ -1,4 +1,60 @@
 // smithy-typescript generated code
+import {
+  AIAgentAssociationConfigurationType,
+  AIAgentType,
+  AIPromptAPIFormat,
+  AIPromptTemplateType,
+  AIPromptType,
+  AssistantCapabilityType,
+  AssistantStatus,
+  AssistantType,
+  AssociationType,
+  ChannelSubtype,
+  ChunkingStrategy,
+  ContentAssociationType,
+  ContentDisposition,
+  ContentStatus,
+  ConversationStatus,
+  ConversationStatusReason,
+  ExternalSource,
+  FilterField,
+  FilterOperator,
+  GuardrailContentFilterType,
+  GuardrailContextualGroundingFilterType,
+  GuardrailFilterStrength,
+  GuardrailManagedWordsType,
+  GuardrailPiiEntityType,
+  GuardrailSensitiveInformationAction,
+  GuardrailTopicType,
+  ImportJobStatus,
+  ImportJobType,
+  KnowledgeBaseSearchType,
+  KnowledgeBaseStatus,
+  KnowledgeBaseType,
+  MessageTemplateAttributeType,
+  MessageType,
+  Origin,
+  ParsingStrategy,
+  Participant,
+  PushMessageAction,
+  QueryConditionComparisonOperator,
+  QueryConditionFieldName,
+  QuickResponseStatus,
+  RecommendationSourceType,
+  RecommendationTriggerType,
+  ReferenceType,
+  Relevance,
+  RelevanceLevel,
+  SessionDataNamespace,
+  SourceContentType,
+  Status,
+  SyncStatus,
+  TargetType,
+  VisibilityStatus,
+  WebScopeType,
+  WhatsAppSourceConfigurationStatus,
+} from "./enums";
+
 /**
  * @public
  */
@@ -201,20 +257,6 @@ export namespace TagFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const KnowledgeBaseSearchType = {
-  HYBRID: "HYBRID",
-  SEMANTIC: "SEMANTIC",
-} as const;
-
-/**
- * @public
- */
-export type KnowledgeBaseSearchType = (typeof KnowledgeBaseSearchType)[keyof typeof KnowledgeBaseSearchType];
-
-/**
  * <p>The data of the configuration for a <code>KNOWLEDGE_BASE</code> type Amazon Q in Connect Assistant Association.</p>
  * @public
  */
@@ -276,20 +318,6 @@ export namespace AssociationConfigurationData {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const AIAgentAssociationConfigurationType = {
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
-
-/**
- * @public
- */
-export type AIAgentAssociationConfigurationType =
-  (typeof AIAgentAssociationConfigurationType)[keyof typeof AIAgentAssociationConfigurationType];
 
 /**
  * <p>The configuration for an Amazon Q in Connect Assistant Association.</p>
@@ -626,38 +654,6 @@ export namespace AIAgentConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const AIAgentType = {
-  ANSWER_RECOMMENDATION: "ANSWER_RECOMMENDATION",
-  EMAIL_GENERATIVE_ANSWER: "EMAIL_GENERATIVE_ANSWER",
-  EMAIL_OVERVIEW: "EMAIL_OVERVIEW",
-  EMAIL_RESPONSE: "EMAIL_RESPONSE",
-  MANUAL_SEARCH: "MANUAL_SEARCH",
-  SELF_SERVICE: "SELF_SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type AIAgentType = (typeof AIAgentType)[keyof typeof AIAgentType];
-
-/**
- * @public
- * @enum
- */
-export const VisibilityStatus = {
-  PUBLISHED: "PUBLISHED",
-  SAVED: "SAVED",
-} as const;
-
-/**
- * @public
- */
-export type VisibilityStatus = (typeof VisibilityStatus)[keyof typeof VisibilityStatus];
-
-/**
- * @public
  */
 export interface CreateAIAgentRequest {
   /**
@@ -708,38 +704,6 @@ export interface CreateAIAgentRequest {
    */
   description?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Origin = {
-  CUSTOMER: "CUSTOMER",
-  SYSTEM: "SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type Origin = (typeof Origin)[keyof typeof Origin];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * <p>The data for the AI Agent.</p>
@@ -1231,40 +1195,6 @@ export interface AIAgentConfigurationData {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailFilterStrength = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailFilterStrength = (typeof GuardrailFilterStrength)[keyof typeof GuardrailFilterStrength];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterType = {
-  HATE: "HATE",
-  INSULTS: "INSULTS",
-  MISCONDUCT: "MISCONDUCT",
-  PROMPT_ATTACK: "PROMPT_ATTACK",
-  SEXUAL: "SEXUAL",
-  VIOLENCE: "VIOLENCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
-
-/**
  * <p>Contains filter strengths for harmful content. AI Guardrail's support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b>: Describes input prompts and model responses that discriminate, criticize, insult, denounce, or dehumanize a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b>: Describes input prompts and model responses that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b>: Describes input prompts and model responses that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b>: Describes input prompts and model responses that includes glorification of, or threats to inflict physical pain, hurt, or injury toward a person, group, or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i> Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p>
  * @public
  */
@@ -1301,21 +1231,6 @@ export interface AIGuardrailContentPolicyConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailContextualGroundingFilterType = {
-  GROUNDING: "GROUNDING",
-  RELEVANCE: "RELEVANCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContextualGroundingFilterType =
-  (typeof GuardrailContextualGroundingFilterType)[keyof typeof GuardrailContextualGroundingFilterType];
-
-/**
  * <p>The filter configuration details for the AI Guardrail's contextual grounding filter.</p>
  * @public
  */
@@ -1344,64 +1259,6 @@ export interface AIGuardrailContextualGroundingPolicyConfig {
    */
   filtersConfig: GuardrailContextualGroundingFilterConfig[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailSensitiveInformationAction = {
-  ANONYMIZE: "ANONYMIZE",
-  BLOCK: "BLOCK",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailSensitiveInformationAction =
-  (typeof GuardrailSensitiveInformationAction)[keyof typeof GuardrailSensitiveInformationAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailPiiEntityType = {
-  ADDRESS: "ADDRESS",
-  AGE: "AGE",
-  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY: "AWS_SECRET_KEY",
-  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
-  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
-  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
-  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
-  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
-  DRIVER_ID: "DRIVER_ID",
-  EMAIL: "EMAIL",
-  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
-  IP_ADDRESS: "IP_ADDRESS",
-  LICENSE_PLATE: "LICENSE_PLATE",
-  MAC_ADDRESS: "MAC_ADDRESS",
-  NAME: "NAME",
-  PASSWORD: "PASSWORD",
-  PHONE: "PHONE",
-  PIN: "PIN",
-  SWIFT_CODE: "SWIFT_CODE",
-  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
-  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
-  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
-  URL: "URL",
-  USERNAME: "USERNAME",
-  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
-  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
-  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
-  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
-  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
-  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
 
 /**
  * <p>The PII entity to configure for the AI Guardrail.</p>
@@ -1470,19 +1327,6 @@ export interface AIGuardrailSensitiveInformationPolicyConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailTopicType = {
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
-
-/**
  * <p>Details about topics for the AI Guardrail to identify and deny.</p>
  * @public
  */
@@ -1523,19 +1367,6 @@ export interface AIGuardrailTopicPolicyConfig {
    */
   topicsConfig: GuardrailTopicConfig[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailManagedWordsType = {
-  PROFANITY: "PROFANITY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailManagedWordsType = (typeof GuardrailManagedWordsType)[keyof typeof GuardrailManagedWordsType];
 
 /**
  * <p>The managed word list to configure for the AI Guardrail.</p>
@@ -2170,22 +2001,6 @@ export interface UpdateAIGuardrailResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AIPromptAPIFormat = {
-  ANTHROPIC_CLAUDE_MESSAGES: "ANTHROPIC_CLAUDE_MESSAGES",
-  ANTHROPIC_CLAUDE_TEXT_COMPLETIONS: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
-  MESSAGES: "MESSAGES",
-  TEXT_COMPLETIONS: "TEXT_COMPLETIONS",
-} as const;
-
-/**
- * @public
- */
-export type AIPromptAPIFormat = (typeof AIPromptAPIFormat)[keyof typeof AIPromptAPIFormat];
-
-/**
  * <p>The configuration for a prompt template that supports full textual prompt configuration using a YAML prompt.</p>
  * @public
  */
@@ -2235,40 +2050,6 @@ export namespace AIPromptTemplateConfiguration {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const AIPromptTemplateType = {
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type AIPromptTemplateType = (typeof AIPromptTemplateType)[keyof typeof AIPromptTemplateType];
-
-/**
- * @public
- * @enum
- */
-export const AIPromptType = {
-  ANSWER_GENERATION: "ANSWER_GENERATION",
-  EMAIL_GENERATIVE_ANSWER: "EMAIL_GENERATIVE_ANSWER",
-  EMAIL_OVERVIEW: "EMAIL_OVERVIEW",
-  EMAIL_QUERY_REFORMULATION: "EMAIL_QUERY_REFORMULATION",
-  EMAIL_RESPONSE: "EMAIL_RESPONSE",
-  INTENT_LABELING_GENERATION: "INTENT_LABELING_GENERATION",
-  QUERY_REFORMULATION: "QUERY_REFORMULATION",
-  SELF_SERVICE_ANSWER_GENERATION: "SELF_SERVICE_ANSWER_GENERATION",
-  SELF_SERVICE_PRE_PROCESSING: "SELF_SERVICE_PRE_PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type AIPromptType = (typeof AIPromptType)[keyof typeof AIPromptType];
 
 /**
  * @public
@@ -2925,19 +2706,6 @@ export namespace AssistantAssociationInputData {
 
 /**
  * @public
- * @enum
- */
-export const AssociationType = {
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
-
-/**
- * @public
- */
-export type AssociationType = (typeof AssociationType)[keyof typeof AssociationType];
-
-/**
- * @public
  */
 export interface CreateAssistantAssociationRequest {
   /**
@@ -3239,19 +3007,6 @@ export interface ServerSideEncryptionConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const AssistantType = {
-  AGENT: "AGENT",
-} as const;
-
-/**
- * @public
- */
-export type AssistantType = (typeof AssistantType)[keyof typeof AssistantType];
-
-/**
- * @public
  */
 export interface CreateAssistantRequest {
   /**
@@ -3292,20 +3047,6 @@ export interface CreateAssistantRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const AssistantCapabilityType = {
-  V1: "V1",
-  V2: "V2",
-} as const;
-
-/**
- * @public
- */
-export type AssistantCapabilityType = (typeof AssistantCapabilityType)[keyof typeof AssistantCapabilityType];
-
-/**
  * <p>The capability configuration for an Amazon Q in Connect assistant. </p>
  * @public
  */
@@ -3328,24 +3069,6 @@ export interface AssistantIntegrationConfiguration {
    */
   topicIntegrationArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AssistantStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type AssistantStatus = (typeof AssistantStatus)[keyof typeof AssistantStatus];
 
 /**
  * <p>The assistant data.</p>
@@ -3502,21 +3225,6 @@ export interface GetRecommendationsRequest {
    */
   nextChunkToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RelevanceLevel = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type RelevanceLevel = (typeof RelevanceLevel)[keyof typeof RelevanceLevel];
 
 /**
  * <p>Details about the source content ranking data.</p>
@@ -3681,19 +3389,6 @@ export interface CitationSpan {
 }
 
 /**
- * @public
- * @enum
- */
-export const SourceContentType = {
-  KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
-} as const;
-
-/**
- * @public
- */
-export type SourceContentType = (typeof SourceContentType)[keyof typeof SourceContentType];
-
-/**
  * <p>Details about the source content data.</p>
  * @public
  */
@@ -3728,20 +3423,6 @@ export interface SourceContentDataDetails {
    */
   citationSpan?: CitationSpan | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReferenceType = {
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-  WEB_CRAWLER: "WEB_CRAWLER",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
 
 /**
  * <p>Reference information about the content.</p>
@@ -3881,29 +3562,6 @@ export interface Document {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecommendationType = {
-  BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
-  BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
-  DETECTED_INTENT: "DETECTED_INTENT",
-  EMAIL_GENERATIVE_ANSWER_CHUNK: "EMAIL_GENERATIVE_ANSWER_CHUNK",
-  EMAIL_OVERVIEW_CHUNK: "EMAIL_OVERVIEW_CHUNK",
-  EMAIL_RESPONSE_CHUNK: "EMAIL_RESPONSE_CHUNK",
-  GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
-  GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
-  GENERATIVE_RESPONSE: "GENERATIVE_RESPONSE",
-  INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
-  KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
-
-/**
  * <p>Data associated with the QUERY RecommendationTriggerType.</p>
  * @public
  */
@@ -3953,35 +3611,6 @@ export namespace RecommendationTriggerData {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendationSourceType = {
-  ISSUE_DETECTION: "ISSUE_DETECTION",
-  OTHER: "OTHER",
-  RULE_EVALUATION: "RULE_EVALUATION",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationSourceType = (typeof RecommendationSourceType)[keyof typeof RecommendationSourceType];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationTriggerType = {
-  GENERATIVE: "GENERATIVE",
-  QUERY: "QUERY",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationTriggerType = (typeof RecommendationTriggerType)[keyof typeof RecommendationTriggerType];
 
 /**
  * <p>A recommendation trigger provides context on the event that produced the referenced recommendations. Recommendations are only referenced in <code>recommendationIds</code> by a single RecommendationTrigger.</p>
@@ -4184,20 +3813,6 @@ export interface NotifyRecommendationsReceivedResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const Relevance = {
-  HELPFUL: "HELPFUL",
-  NOT_HELPFUL: "NOT_HELPFUL",
-} as const;
-
-/**
- * @public
- */
-export type Relevance = (typeof Relevance)[keyof typeof Relevance];
-
-/**
  * <p>The feedback information for a generative target type.</p>
  * @public
  */
@@ -4247,20 +3862,6 @@ export namespace ContentFeedbackData {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetType = {
-  RECOMMENDATION: "RECOMMENDATION",
-  RESULT: "RESULT",
-} as const;
-
-/**
- * @public
- */
-export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public
@@ -4325,33 +3926,6 @@ export interface PutFeedbackResponse {
    */
   contentFeedback: ContentFeedbackData | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryConditionComparisonOperator = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type QueryConditionComparisonOperator =
-  (typeof QueryConditionComparisonOperator)[keyof typeof QueryConditionComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const QueryConditionFieldName = {
-  RESULT_TYPE: "RESULT_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type QueryConditionFieldName = (typeof QueryConditionFieldName)[keyof typeof QueryConditionFieldName];
 
 /**
  * <p>The condition for the query.</p>
@@ -4546,28 +4120,6 @@ export interface QueryAssistantRequest {
 
 /**
  * @public
- * @enum
- */
-export const QueryResultType = {
-  BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
-  BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
-  EMAIL_GENERATIVE_ANSWER_CHUNK: "EMAIL_GENERATIVE_ANSWER_CHUNK",
-  EMAIL_OVERVIEW_CHUNK: "EMAIL_OVERVIEW_CHUNK",
-  EMAIL_RESPONSE_CHUNK: "EMAIL_RESPONSE_CHUNK",
-  GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
-  GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
-  INTENT_ANSWER: "INTENT_ANSWER",
-  INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
-  KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
-} as const;
-
-/**
- * @public
- */
-export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
-
-/**
- * @public
  */
 export interface RemoveAssistantAIAgentRequest {
   /**
@@ -4587,32 +4139,6 @@ export interface RemoveAssistantAIAgentRequest {
  * @public
  */
 export interface RemoveAssistantAIAgentResponse {}
-
-/**
- * @public
- * @enum
- */
-export const FilterField = {
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type FilterField = (typeof FilterField)[keyof typeof FilterField];
-
-/**
- * @public
- * @enum
- */
-export const FilterOperator = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * <p>A search filter.</p>
@@ -4943,36 +4469,6 @@ export interface RuntimeSessionData {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConversationStatusReason = {
-  FAILED: "FAILED",
-  REJECTED: "REJECTED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ConversationStatusReason = (typeof ConversationStatusReason)[keyof typeof ConversationStatusReason];
-
-/**
- * @public
- * @enum
- */
-export const ConversationStatus = {
-  CLOSED: "CLOSED",
-  PROCESSING: "PROCESSING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type ConversationStatus = (typeof ConversationStatus)[keyof typeof ConversationStatus];
-
-/**
  * <p>The conversation state associated to a message.</p>
  * @public
  */
@@ -4989,21 +4485,6 @@ export interface ConversationState {
    */
   reason?: ConversationStatusReason | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Participant = {
-  AGENT: "AGENT",
-  BOT: "BOT",
-  CUSTOMER: "CUSTOMER",
-} as const;
-
-/**
- * @public
- */
-export type Participant = (typeof Participant)[keyof typeof Participant];
 
 /**
  * <p>The message data in text type.</p>
@@ -5083,19 +4564,6 @@ export interface MessageOutput {
    */
   timestamp: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MessageType = {
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * @public
@@ -5390,19 +4858,6 @@ export interface UpdateSessionResponse {
 
 /**
  * @public
- * @enum
- */
-export const SessionDataNamespace = {
-  Custom: "Custom",
-} as const;
-
-/**
- * @public
- */
-export type SessionDataNamespace = (typeof SessionDataNamespace)[keyof typeof SessionDataNamespace];
-
-/**
- * @public
  */
 export interface UpdateSessionDataRequest {
   /**
@@ -5522,38 +4977,6 @@ export interface BedrockFoundationModelConfigurationForParsing {
    */
   parsingPrompt?: ParsingPrompt | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelSubtype = {
-  EMAIL: "EMAIL",
-  PUSH: "PUSH",
-  SMS: "SMS",
-  WHATSAPP: "WHATSAPP",
-} as const;
-
-/**
- * @public
- */
-export type ChannelSubtype = (typeof ChannelSubtype)[keyof typeof ChannelSubtype];
-
-/**
- * @public
- * @enum
- */
-export const ChunkingStrategy = {
-  FIXED_SIZE: "FIXED_SIZE",
-  HIERARCHICAL: "HIERARCHICAL",
-  NONE: "NONE",
-  SEMANTIC: "SEMANTIC",
-} as const;
-
-/**
- * @public
- */
-export type ChunkingStrategy = (typeof ChunkingStrategy)[keyof typeof ChunkingStrategy];
 
 /**
  * <p>Configurations for when you choose fixed-size chunking. If you set the <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
@@ -5744,19 +5167,6 @@ export namespace ContentAssociationContents {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentAssociationType = {
-  AMAZON_CONNECT_GUIDE: "AMAZON_CONNECT_GUIDE",
-} as const;
-
-/**
- * @public
- */
-export type ContentAssociationType = (typeof ContentAssociationType)[keyof typeof ContentAssociationType];
 
 /**
  * @public
@@ -6090,25 +5500,6 @@ export interface CreateContentRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  UPDATE_FAILED: "UPDATE_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ContentStatus = (typeof ContentStatus)[keyof typeof ContentStatus];
 
 /**
  * <p>Information about the content.</p>
@@ -6466,36 +5857,6 @@ export interface UpdateContentResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContentDisposition = {
-  ATTACHMENT: "ATTACHMENT",
-} as const;
-
-/**
- * @public
- */
-export type ContentDisposition = (typeof ContentDisposition)[keyof typeof ContentDisposition];
-
-/**
- * @public
- * @enum
- */
-export const KnowledgeBaseType = {
-  CUSTOM: "CUSTOM",
-  EXTERNAL: "EXTERNAL",
-  MANAGED: "MANAGED",
-  MESSAGE_TEMPLATES: "MESSAGE_TEMPLATES",
-  QUICK_RESPONSES: "QUICK_RESPONSES",
-} as const;
-
-/**
- * @public
- */
-export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
-
-/**
  * <p>Information about how to render the content.</p>
  * @public
  */
@@ -6518,20 +5879,6 @@ export interface WebCrawlerLimits {
    */
   rateLimit?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebScopeType = {
-  HOST_ONLY: "HOST_ONLY",
-  SUBDOMAINS: "SUBDOMAINS",
-} as const;
-
-/**
- * @public
- */
-export type WebScopeType = (typeof WebScopeType)[keyof typeof WebScopeType];
 
 /**
  * <p>A URL for crawling.</p>
@@ -6686,19 +6033,6 @@ export namespace SourceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ParsingStrategy = {
-  BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type ParsingStrategy = (typeof ParsingStrategy)[keyof typeof ParsingStrategy];
-
-/**
  * <p>Settings for parsing document contents. By default, the service converts the contents of each document into text before splitting it into chunks. To improve processing of PDF files with tables and images, you can configure the data source to convert the pages of text into images and use a model to describe the contents of each page.</p>
  * @public
  */
@@ -6792,40 +6126,6 @@ export interface CreateKnowledgeBaseRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SyncStatus = {
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  SYNCING_IN_PROGRESS: "SYNCING_IN_PROGRESS",
-  SYNC_FAILED: "SYNC_FAILED",
-  SYNC_SUCCESS: "SYNC_SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type SyncStatus = (typeof SyncStatus)[keyof typeof SyncStatus];
-
-/**
- * @public
- * @enum
- */
-export const KnowledgeBaseStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof KnowledgeBaseStatus];
 
 /**
  * <p>Information about the knowledge base.</p>
@@ -7026,21 +6326,6 @@ export interface EmailMessageTemplateContent {
    */
   headers?: EmailHeader[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PushMessageAction = {
-  DEEP_LINK: "DEEP_LINK",
-  OPEN_APP: "OPEN_APP",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type PushMessageAction = (typeof PushMessageAction)[keyof typeof PushMessageAction];
 
 /**
  * <p>The content of the push message template that applies to ADM (Amazon Device Messaging) notification service.</p>
@@ -7996,34 +7281,1618 @@ export interface CreateMessageTemplateRequest {
 }
 
 /**
+ * <p>Configuration information about the external data source.</p>
  * @public
- * @enum
  */
-export const MessageTemplateAttributeType = {
-  AGENT: "AGENT",
-  CUSTOM: "CUSTOM",
-  CUSTOMER_PROFILE: "CUSTOMER_PROFILE",
-  SYSTEM: "SYSTEM",
-} as const;
+export interface WhatsAppMessageTemplateSourceConfigurationSummary {
+  /**
+   * <p>The ID of the End User Messaging WhatsApp Business Account to associate with this template.</p>
+   * @public
+   */
+  businessAccountId: string | undefined;
+
+  /**
+   * <p>The ID of WhatsApp template.</p>
+   * @public
+   */
+  templateId: string | undefined;
+
+  /**
+   * <p>The name of the WhatsApp template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The language of the WhatsApp template.</p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The list of component mapping from WhatsApp template parameters to Message Template attributes.</p>
+   * @public
+   */
+  components?: string[] | undefined;
+
+  /**
+   * <p>The status of the message template.</p>
+   * @public
+   */
+  status?: WhatsAppSourceConfigurationStatus | undefined;
+
+  /**
+   * <p>The status reason of the message template.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>The container of message template source configuration summary.</p>
+ * @public
+ */
+export type MessageTemplateSourceConfigurationSummary =
+  | MessageTemplateSourceConfigurationSummary.WhatsAppMember
+  | MessageTemplateSourceConfigurationSummary.$UnknownMember;
 
 /**
  * @public
  */
-export type MessageTemplateAttributeType =
-  (typeof MessageTemplateAttributeType)[keyof typeof MessageTemplateAttributeType];
+export namespace MessageTemplateSourceConfigurationSummary {
+  /**
+   * <p>The sourceConfiguration summary of the message template that applies to the WHATSAPP channel subtype.</p>
+   * @public
+   */
+  export interface WhatsAppMember {
+    whatsApp: WhatsAppMessageTemplateSourceConfigurationSummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    whatsApp?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    whatsApp: (value: WhatsAppMessageTemplateSourceConfigurationSummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The data of a message template.</p>
+ * @public
+ */
+export interface MessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The source configuration summary of the message template.</p>
+   * @public
+   */
+  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes that the message template contains.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public
- * @enum
  */
-export const WhatsAppSourceConfigurationStatus = {
-  INVALID: "INVALID",
-  REJECTED: "REJECTED",
-  VALID: "VALID",
-} as const;
+export interface CreateMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
 
 /**
  * @public
  */
-export type WhatsAppSourceConfigurationStatus =
-  (typeof WhatsAppSourceConfigurationStatus)[keyof typeof WhatsAppSourceConfigurationStatus];
+export interface CreateMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
+   * @public
+   */
+  body: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Information about the message template attachment.</p>
+ * @public
+ */
+export interface MessageTemplateAttachment {
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the attachment file was uploaded.</p>
+   * @public
+   */
+  uploadedTime: Date | undefined;
+
+  /**
+   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentResponse {
+  /**
+   * <p>The message template attachment.</p>
+   * @public
+   */
+  attachment?: MessageTemplateAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
+   * @public
+   */
+  messageTemplateContentSha256?: string | undefined;
+}
+
+/**
+ * <p>The extended data of a message template.</p>
+ * @public
+ */
+export interface ExtendedMessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The source configuration summary of the message template.</p>
+   * @public
+   */
+  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes contain the message template.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The message template attachments.</p>
+   * @public
+   */
+  attachments?: MessageTemplateAttachment[] | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
+ * <p>The container of quick response data.</p>
+ * @public
+ */
+export type QuickResponseDataProvider =
+  | QuickResponseDataProvider.ContentMember
+  | QuickResponseDataProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickResponseDataProvider {
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateQuickResponseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  content: QuickResponseDataProvider | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p> </li> </ul>
+   * @public
+   */
+  contentType?: string | undefined;
+
+  /**
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base. </p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect channels this quick response applies to.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The container quick response content.</p>
+ * @public
+ */
+export type QuickResponseContentProvider =
+  | QuickResponseContentProvider.ContentMember
+  | QuickResponseContentProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickResponseContentProvider {
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The content of the quick response stored in different media types.</p>
+ * @public
+ */
+export interface QuickResponseContents {
+  /**
+   * <p>The container quick response content.</p>
+   * @public
+   */
+  plainText?: QuickResponseContentProvider | undefined;
+
+  /**
+   * <p>The container quick response content.</p>
+   * @public
+   */
+  markdown?: QuickResponseContentProvider | undefined;
+}
+
+/**
+ * <p>Information about the quick response.</p>
+ * @public
+ */
+export interface QuickResponseData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * @public
+   */
+  quickResponseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>The status of the quick response data.</p>
+   * @public
+   */
+  status: QuickResponseStatus | undefined;
+
+  /**
+   * <p>The timestamp when the quick response was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the quick response data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The contents of the quick response.</p>
+   * @public
+   */
+  contents?: QuickResponseContents | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * @public
+   */
+  lastModifiedBy?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuickResponseResponse {
+  /**
+   * <p>The quick response.</p>
+   * @public
+   */
+  quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version to deactivate.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version that has been deactivated.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteImportJobRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the import job to be deleted.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteImportJobResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseRequest {
+  /**
+   * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQuickResponseRequest {
+  /**
+   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response to delete.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuickResponseResponse {}
+
+/**
+ * <p>The configuration information of the external data source.</p>
+ * @public
+ */
+export interface ExternalSourceConfiguration {
+  /**
+   * <p>The type of the external data source.</p>
+   * @public
+   */
+  source: ExternalSource | undefined;
+
+  /**
+   * <p>The configuration information of the external data source.</p>
+   * @public
+   */
+  configuration: Configuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobRequest {
+  /**
+   * <p>The identifier of the import job to retrieve.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base that the import job belongs to.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * <p>Summary information about the import job.</p>
+ * @public
+ */
+export interface ImportJobData {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The type of the import job.</p>
+   * @public
+   */
+  importJobType: ImportJobType | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The download link to the resource file that is uploaded to the import job.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The link to download the information of resource data that failed to be imported.</p>
+   * @public
+   */
+  failedRecordReport?: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration information of the external data source.</p>
+   * @public
+   */
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobResponse {
+  /**
+   * <p>The import job.</p>
+   * @public
+   */
+  importJob?: ImportJobData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseResponse {
+  /**
+   * <p>The knowledge base.</p>
+   * @public
+   */
+  knowledgeBase?: KnowledgeBaseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateRequest {
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuickResponseRequest {
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuickResponseResponse {
+  /**
+   * <p>The quick response.</p>
+   * @public
+   */
+  quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * <p>Summary information about the import job.</p>
+ * @public
+ */
+export interface ImportJobSummary {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The type of import job.</p>
+   * @public
+   */
+  importJobType: ImportJobType | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The timestamp when the import job was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * @public
+   */
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportJobsRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportJobsResponse {
+  /**
+   * <p>Summary information about the import jobs.</p>
+   * @public
+   */
+  importJobSummaries: ImportJobSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBasesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about the knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseSummary {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The name of the knowledge base.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseType: KnowledgeBaseType | undefined;
+
+  /**
+   * <p>The status of the knowledge base summary.</p>
+   * @public
+   */
+  status: KnowledgeBaseStatus | undefined;
+
+  /**
+   * <p>Configuration information about the external data source.</p>
+   * @public
+   */
+  sourceConfiguration?: SourceConfiguration | undefined;
+
+  /**
+   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * @public
+   */
+  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
+
+  /**
+   * <p>Information about how to render the content.</p>
+   * @public
+   */
+  renderingConfiguration?: RenderingConfiguration | undefined;
+
+  /**
+   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * @public
+   */
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The description of the knowledge base.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBasesResponse {
+  /**
+   * <p>Information about the knowledge bases.</p>
+   * @public
+   */
+  knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * <p>The summary of the message template.</p>
+ * @public
+ */
+export interface MessageTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel this message template applies to.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The container of message template source configuration.</p>
+   * @public
+   */
+  sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
+
+  /**
+   * <p>The version number of the message template version that is activated.</p>
+   * @public
+   */
+  activeVersionNumber?: number | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesResponse {
+  /**
+   * <p>Summary information about the message template.</p>
+   * @public
+   */
+  messageTemplateSummaries: MessageTemplateSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the message template version.</p>
+ * @public
+ */
+export interface MessageTemplateVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsResponse {
+  /**
+   * <p>Summary information about the versions of a message template.</p>
+   * @public
+   */
+  messageTemplateVersionSummaries: MessageTemplateVersionSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable.</p>
+   * @public
+   */
+  attributes: MessageTemplateAttributes | undefined;
+}

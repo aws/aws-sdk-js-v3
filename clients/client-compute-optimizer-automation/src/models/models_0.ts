@@ -1,10 +1,13 @@
 // smithy-typescript generated code
 import {
+  AutomationEventFilterName,
+  AutomationRuleFilterName,
   ComparisonOperator,
   EnrollmentStatus,
   EventStatus,
   EventType,
   OrganizationRuleMode,
+  RecommendedActionFilterName,
   RecommendedActionType,
   ResourceType,
   RuleApplyOrder,
@@ -13,6 +16,7 @@ import {
   SavingsEstimationMode,
   StepStatus,
   StepType,
+  SummaryDimensionKey,
 } from "./enums";
 
 /**
@@ -212,22 +216,6 @@ export interface AutomationEvent {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomationEventFilterName = {
-  ACCOUNT_ID: "AccountId",
-  EVENT_STATUS: "EventStatus",
-  EVENT_TYPE: "EventType",
-  RESOURCE_TYPE: "ResourceType",
-} as const;
-
-/**
- * @public
- */
-export type AutomationEventFilterName = (typeof AutomationEventFilterName)[keyof typeof AutomationEventFilterName];
-
-/**
  * <p> A filter to apply when listing automation events. </p>
  * @public
  */
@@ -298,19 +286,6 @@ export interface AutomationEventStep {
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SummaryDimensionKey = {
-  EVENT_STATUS: "EventStatus",
-} as const;
-
-/**
- * @public
- */
-export type SummaryDimensionKey = (typeof SummaryDimensionKey)[keyof typeof SummaryDimensionKey];
 
 /**
  * <p>A key-value pair used to categorize and group summary data for analysis and reporting.</p>
@@ -527,24 +502,6 @@ export interface AutomationRule {
    */
   lastUpdatedTimestamp?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutomationRuleFilterName = {
-  ACCOUNT_ID: "AccountId",
-  NAME: "Name",
-  ORGANIZATION_CONFIGURATION_RULE_APPLY_ORDER: "OrganizationConfigurationRuleApplyOrder",
-  RECOMMENDED_ACTION_TYPE: "RecommendedActionType",
-  RULE_TYPE: "RuleType",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type AutomationRuleFilterName = (typeof AutomationRuleFilterName)[keyof typeof AutomationRuleFilterName];
 
 /**
  * <p>Defines a condition for filtering based on integer values with comparison operators.</p>
@@ -1744,28 +1701,6 @@ export interface ListAutomationRulesResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendedActionFilterName = {
-  ACCOUNT_ID: "AccountId",
-  CURRENT_RESOURCE_DETAILS_EBS_VOLUME_TYPE: "CurrentResourceDetailsEbsVolumeType",
-  LOOK_BACK_PERIOD_IN_DAYS: "LookBackPeriodInDays",
-  RECOMMENDED_ACTION_TYPE: "RecommendedActionType",
-  RESOURCE_ID: "ResourceId",
-  RESOURCE_TAGS_KEY: "ResourceTagsKey",
-  RESOURCE_TAGS_VALUE: "ResourceTagsValue",
-  RESOURCE_TYPE: "ResourceType",
-  RESTART_NEEDED: "RestartNeeded",
-} as const;
-
-/**
- * @public
- */
-export type RecommendedActionFilterName =
-  (typeof RecommendedActionFilterName)[keyof typeof RecommendedActionFilterName];
 
 /**
  * <p>A filter used to narrow down recommended action results based on specific criteria.</p>

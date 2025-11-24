@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { StartCisSessionRequest, StartCisSessionResponse } from "../models/models_1";
+import { StartCisSessionRequest } from "../models/models_0";
+import { StartCisSessionResponse } from "../models/models_1";
 import { StartCisSession } from "../schemas/schemas_0";
 
 /**

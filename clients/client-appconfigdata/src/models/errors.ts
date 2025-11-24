@@ -2,7 +2,8 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
-import { BadRequestDetails, BadRequestReason, ResourceType } from "./models_0";
+import { BadRequestReason, ResourceType } from "./enums";
+import { BadRequestDetails } from "./models_0";
 
 /**
  * <p>The input fails to satisfy the constraints specified by the service.</p>

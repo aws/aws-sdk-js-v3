@@ -18,7 +18,7 @@ import {
 } from "@aws-smithy/server-common";
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
-import { EnumString, FooEnum, IntegerEnum, RecursiveEnumString } from "./enums";
+import { EnumString, EnumTraitString, FooEnum, IntegerEnum, RecursiveEnumString } from "./enums";
 
 /**
  * @public
@@ -51,20 +51,6 @@ export namespace GreetingStruct {
     return [...getMemberValidator("hi").validate(obj.hi, `${path}/hi`)];
   };
 }
-
-/**
- * @public
- * @enum
- */
-export const EnumTraitString = {
-  ABC: "abc",
-  DEF: "def",
-  GHI: "ghi",
-} as const;
-/**
- * @public
- */
-export type EnumTraitString = (typeof EnumTraitString)[keyof typeof EnumTraitString];
 
 /**
  * @public

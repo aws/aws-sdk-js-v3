@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { EmailContactStatus } from "./enums";
+
 /**
  * @public
  */
@@ -92,20 +94,6 @@ export interface DeleteEmailContactRequest {
  * @public
  */
 export interface DeleteEmailContactResponse {}
-
-/**
- * @public
- * @enum
- */
-export const EmailContactStatus = {
-  ACTIVE: "active",
-  INACTIVE: "inactive",
-} as const;
-
-/**
- * @public
- */
-export type EmailContactStatus = (typeof EmailContactStatus)[keyof typeof EmailContactStatus];
 
 /**
  * <p>An email contact.</p>

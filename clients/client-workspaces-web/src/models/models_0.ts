@@ -1,5 +1,24 @@
 // smithy-typescript generated code
-import { Category, Event, FolderStructure, LogFileFormat, SessionSortBy, SessionStatus } from "./enums";
+import {
+  _InstanceType,
+  AuthenticationType,
+  BrowserType,
+  Category,
+  EnabledType,
+  Event,
+  FolderStructure,
+  IdentityProviderType,
+  LogFileFormat,
+  MaxDisplayResolution,
+  PortalStatus,
+  RedactionPlaceHolderType,
+  RendererType,
+  SessionSortBy,
+  SessionStatus,
+  ToolbarItem,
+  ToolbarType,
+  VisualMode,
+} from "./enums";
 
 /**
  * @public
@@ -52,22 +71,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -306,20 +309,6 @@ export interface AssociateUserSettingsResponse {
    */
   userSettingsArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthenticationType = {
-  IAM_IDENTITY_CENTER: "IAM_Identity_Center",
-  STANDARD: "Standard",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * <p>The tag.</p>
@@ -628,19 +617,6 @@ export interface CustomPattern {
    */
   keywordRegex?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RedactionPlaceHolderType = {
-  CUSTOM_TEXT: "CustomText",
-} as const;
-
-/**
- * @public
- */
-export type RedactionPlaceHolderType = (typeof RedactionPlaceHolderType)[keyof typeof RedactionPlaceHolderType];
 
 /**
  * <p>The redaction placeholder that will replace the redacted text in session.</p>
@@ -1116,24 +1092,6 @@ export interface GetSessionResponse {
    */
   session?: Session | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdentityProviderType = {
-  Facebook: "Facebook",
-  Google: "Google",
-  LoginWithAmazon: "LoginWithAmazon",
-  OIDC: "OIDC",
-  SAML: "SAML",
-  SignInWithApple: "SignInWithApple",
-} as const;
-
-/**
- * @public
- */
-export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
 
 /**
  * @public
@@ -2540,34 +2498,6 @@ export interface UpdateNetworkSettingsResponse {
 
 /**
  * @public
- * @enum
- */
-export const BrowserType = {
-  CHROME: "Chrome",
-} as const;
-
-/**
- * @public
- */
-export type BrowserType = (typeof BrowserType)[keyof typeof BrowserType];
-
-/**
- * @public
- * @enum
- */
-export const _InstanceType = {
-  STANDARD_LARGE: "standard.large",
-  STANDARD_REGULAR: "standard.regular",
-  STANDARD_XLARGE: "standard.xlarge",
-} as const;
-
-/**
- * @public
- */
-export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
-
-/**
- * @public
  */
 export interface CreatePortalRequest {
   /**
@@ -2807,34 +2737,6 @@ export interface GetPortalRequest {
    */
   portalArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PortalStatus = {
-  ACTIVE: "Active",
-  INCOMPLETE: "Incomplete",
-  PENDING: "Pending",
-} as const;
-
-/**
- * @public
- */
-export type PortalStatus = (typeof PortalStatus)[keyof typeof PortalStatus];
-
-/**
- * @public
- * @enum
- */
-export const RendererType = {
-  APPSTREAM: "AppStream",
-} as const;
-
-/**
- * @public
- */
-export type RendererType = (typeof RendererType)[keyof typeof RendererType];
 
 /**
  * <p>The web portal.</p>
@@ -4241,85 +4143,6 @@ export interface CookieSynchronizationConfiguration {
    */
   blocklist?: CookieSpecification[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnabledType = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type EnabledType = (typeof EnabledType)[keyof typeof EnabledType];
-
-/**
- * @public
- * @enum
- */
-export const ToolbarItem = {
-  DUAL_MONITOR: "DualMonitor",
-  FULL_SCREEN: "FullScreen",
-  MICROPHONE: "Microphone",
-  WEBCAM: "Webcam",
-  WINDOWS: "Windows",
-} as const;
-
-/**
- * @public
- */
-export type ToolbarItem = (typeof ToolbarItem)[keyof typeof ToolbarItem];
-
-/**
- * @public
- * @enum
- */
-export const MaxDisplayResolution = {
-  RESOLUTION_1080P: "size1920X1080",
-  RESOLUTION_1440P: "size2560X1440",
-  RESOLUTION_1440P_ULTRA_WIDE: "size3440X1440",
-  RESOLUTION_600P: "size800X600",
-  RESOLUTION_720P: "size1280X720",
-  RESOLUTION_768P: "size1024X768",
-  RESOLUTION_DCI_4K: "size4096X2160",
-  RESOLUTION_UHD_4K: "size3840X2160",
-} as const;
-
-/**
- * @public
- */
-export type MaxDisplayResolution = (typeof MaxDisplayResolution)[keyof typeof MaxDisplayResolution];
-
-/**
- * @public
- * @enum
- */
-export const ToolbarType = {
-  DOCKED: "Docked",
-  FLOATING: "Floating",
-} as const;
-
-/**
- * @public
- */
-export type ToolbarType = (typeof ToolbarType)[keyof typeof ToolbarType];
-
-/**
- * @public
- * @enum
- */
-export const VisualMode = {
-  DARK: "Dark",
-  LIGHT: "Light",
-} as const;
-
-/**
- * @public
- */
-export type VisualMode = (typeof VisualMode)[keyof typeof VisualMode];
 
 /**
  * <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>

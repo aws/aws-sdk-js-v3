@@ -23,11 +23,6 @@ import {
 /**
  * @public
  */
-export interface UpdateChatControlsConfigurationResponse {}
-
-/**
- * @public
- */
 export interface UpdateChatResponseConfigurationRequest {
   /**
    * <p>The unique identifier of the Amazon Q Business application containing the chat response configuration to update.</p>

@@ -1,6 +1,26 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
+import {
+  ChangeDirectionEnum,
+  EventType,
+  ExperimentBaseStat,
+  ExperimentReportName,
+  ExperimentResultRequestType,
+  ExperimentResultResponseType,
+  ExperimentStatus,
+  ExperimentStopDesiredState,
+  ExperimentType,
+  FeatureEvaluationStrategy,
+  FeatureStatus,
+  LaunchStatus,
+  LaunchStopDesiredState,
+  LaunchType,
+  ProjectStatus,
+  SegmentReferenceResourceType,
+  VariationValueType,
+} from "./enums";
+
 /**
  * <p>This structure assigns a feature variation to one user session.</p>
  * @public
@@ -220,36 +240,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const ChangeDirectionEnum = {
-  DECREASE: "DECREASE",
-  INCREASE: "INCREASE",
-} as const;
-
-/**
- * @public
- */
-export type ChangeDirectionEnum = (typeof ChangeDirectionEnum)[keyof typeof ChangeDirectionEnum];
 
 /**
  * <p>A structure containing the CloudWatch Logs log group where the project stores evaluation
@@ -596,23 +586,6 @@ export interface ExperimentSchedule {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExperimentStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  RUNNING: "RUNNING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentStatus = (typeof ExperimentStatus)[keyof typeof ExperimentStatus];
-
-/**
  * <p>A structure that defines one treatment in an experiment. A treatment is a variation of the feature
  *        that you are including in the experiment.</p>
  * @public
@@ -637,19 +610,6 @@ export interface Treatment {
    */
   featureVariations?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperimentType = {
-  ONLINE_AB_EXPERIMENT: "aws.evidently.onlineab",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentType = (typeof ExperimentType)[keyof typeof ExperimentType];
 
 /**
  * <p>A structure containing the configuration details of an experiment.</p>
@@ -788,20 +748,6 @@ export interface CreateExperimentResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const FeatureEvaluationStrategy = {
-  ALL_RULES: "ALL_RULES",
-  DEFAULT_VARIATION: "DEFAULT_VARIATION",
-} as const;
-
-/**
- * @public
- */
-export type FeatureEvaluationStrategy = (typeof FeatureEvaluationStrategy)[keyof typeof FeatureEvaluationStrategy];
-
-/**
  * <p>This structure contains the name and variation value of one variation of a feature.</p>
  * @public
  */
@@ -909,36 +855,6 @@ export interface EvaluationRule {
    */
   type: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeatureStatus = {
-  AVAILABLE: "AVAILABLE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
-
-/**
- * @public
- * @enum
- */
-export const VariationValueType = {
-  BOOLEAN: "BOOLEAN",
-  DOUBLE: "DOUBLE",
-  LONG: "LONG",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type VariationValueType = (typeof VariationValueType)[keyof typeof VariationValueType];
 
 /**
  * <p>This structure contains the name and variation value of one variation of a feature.</p>
@@ -1371,36 +1287,6 @@ export interface ScheduledSplitsLaunchDefinition {
 }
 
 /**
- * @public
- * @enum
- */
-export const LaunchStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  RUNNING: "RUNNING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
-
-/**
- * @public
- * @enum
- */
-export const LaunchType = {
-  SCHEDULED_SPLITS_LAUNCH: "aws.evidently.splits",
-} as const;
-
-/**
- * @public
- */
-export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
-
-/**
  * <p>This structure contains the configuration details of one Evidently launch.</p>
  * @public
  */
@@ -1695,20 +1581,6 @@ export interface ProjectDataDelivery {
    */
   cloudWatchLogs?: CloudWatchLogsDestination | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProjectStatus = {
-  AVAILABLE: "AVAILABLE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 /**
  * <p>This structure defines a project, which is the logical object in Evidently that can contain features, launches, and
@@ -2099,20 +1971,6 @@ export interface EvaluateFeatureResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventType = {
-  CUSTOM: "aws.evidently.custom",
-  EVALUATION: "aws.evidently.evaluation",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
-
-/**
  * <p>A structure that contains the information about one evaluation event or custom event sent to Evidently.
  *         This is a JSON payload. If this event specifies a pre-defined event type, the payload must follow the
  *         defined event schema.</p>
@@ -2190,49 +2048,6 @@ export interface GetExperimentResponse {
    */
   experiment?: Experiment | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperimentBaseStat = {
-  MEAN: "Mean",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentBaseStat = (typeof ExperimentBaseStat)[keyof typeof ExperimentBaseStat];
-
-/**
- * @public
- * @enum
- */
-export const ExperimentReportName = {
-  BAYESIAN_INFERENCE: "BayesianInference",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentReportName = (typeof ExperimentReportName)[keyof typeof ExperimentReportName];
-
-/**
- * @public
- * @enum
- */
-export const ExperimentResultRequestType = {
-  BASE_STAT: "BaseStat",
-  CONFIDENCE_INTERVAL: "ConfidenceInterval",
-  P_VALUE: "PValue",
-  TREATMENT_EFFECT: "TreatmentEffect",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentResultRequestType =
-  (typeof ExperimentResultRequestType)[keyof typeof ExperimentResultRequestType];
 
 /**
  * @public
@@ -2359,24 +2174,6 @@ export interface ExperimentReport {
    */
   content?: __AutomaticJsonStringConversion | string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperimentResultResponseType = {
-  CONFIDENCE_INTERVAL_LOWERBOUND: "ConfidenceIntervalLowerBound",
-  CONFIDENCE_INTERVAL_UPPERBOUND: "ConfidenceIntervalUpperBound",
-  MEAN: "Mean",
-  P_VALUE: "PValue",
-  TREATMENT_EFFECT: "TreatmentEffect",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentResultResponseType =
-  (typeof ExperimentResultResponseType)[keyof typeof ExperimentResultResponseType];
 
 /**
  * <p>A structure that contains experiment results for one metric that is monitored in
@@ -2523,20 +2320,6 @@ export interface StartExperimentResponse {
    */
   startedTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperimentStopDesiredState = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentStopDesiredState = (typeof ExperimentStopDesiredState)[keyof typeof ExperimentStopDesiredState];
 
 /**
  * @public
@@ -3018,20 +2801,6 @@ export interface StartLaunchResponse {
 
 /**
  * @public
- * @enum
- */
-export const LaunchStopDesiredState = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-} as const;
-
-/**
- * @public
- */
-export type LaunchStopDesiredState = (typeof LaunchStopDesiredState)[keyof typeof LaunchStopDesiredState];
-
-/**
- * @public
  */
 export interface StopLaunchRequest {
   /**
@@ -3407,21 +3176,6 @@ export interface GetSegmentResponse {
    */
   segment: Segment | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SegmentReferenceResourceType = {
-  EXPERIMENT: "EXPERIMENT",
-  LAUNCH: "LAUNCH",
-} as const;
-
-/**
- * @public
- */
-export type SegmentReferenceResourceType =
-  (typeof SegmentReferenceResourceType)[keyof typeof SegmentReferenceResourceType];
 
 /**
  * @public

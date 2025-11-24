@@ -8,7 +8,7 @@ import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   ListCisScanResultsAggregatedByTargetResourceRequest,
   ListCisScanResultsAggregatedByTargetResourceResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListCisScanResultsAggregatedByTargetResource } from "../schemas/schemas_0";
 
 /**

@@ -119,6 +119,21 @@ export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode
  * @public
  * @enum
  */
+export const KeyCheckValueAlgorithm = {
+  ANSI_X9_24: "ANSI_X9_24",
+  CMAC: "CMAC",
+  HMAC: "HMAC",
+  SHA_1: "SHA_1",
+} as const;
+/**
+ * @public
+ */
+export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeof KeyCheckValueAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
 export const SymmetricKeyAlgorithm = {
   AES_128: "AES_128",
   AES_192: "AES_192",
@@ -252,3 +267,32 @@ export const PinBlockFormatForPinData = {
  * @public
  */
 export type PinBlockFormatForPinData = (typeof PinBlockFormatForPinData)[keyof typeof PinBlockFormatForPinData];
+
+/**
+ * @public
+ * @enum
+ */
+export const WrappedKeyMaterialFormat = {
+  KEY_CRYPTOGRAM: "KEY_CRYPTOGRAM",
+  TR31_KEY_BLOCK: "TR31_KEY_BLOCK",
+  TR34_KEY_BLOCK: "TR34_KEY_BLOCK",
+} as const;
+/**
+ * @public
+ */
+export type WrappedKeyMaterialFormat = (typeof WrappedKeyMaterialFormat)[keyof typeof WrappedKeyMaterialFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationFailedReason = {
+  INVALID_AUTH_REQUEST_CRYPTOGRAM: "INVALID_AUTH_REQUEST_CRYPTOGRAM",
+  INVALID_MAC: "INVALID_MAC",
+  INVALID_PIN: "INVALID_PIN",
+  INVALID_VALIDATION_DATA: "INVALID_VALIDATION_DATA",
+} as const;
+/**
+ * @public
+ */
+export type VerificationFailedReason = (typeof VerificationFailedReason)[keyof typeof VerificationFailedReason];

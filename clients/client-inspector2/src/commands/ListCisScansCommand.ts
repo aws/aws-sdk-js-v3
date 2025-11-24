@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { ListCisScansRequest, ListCisScansResponse } from "../models/models_1";
+import { ListCisScansRequest, ListCisScansResponse } from "../models/models_0";
 import { ListCisScans } from "../schemas/schemas_0";
 
 /**

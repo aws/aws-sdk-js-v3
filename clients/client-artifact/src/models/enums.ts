@@ -38,6 +38,22 @@ export type NotificationSubscriptionStatus =
  * @public
  * @enum
  */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  INVALID_TOKEN: "invalidToken",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgreementType = {
   CUSTOM: "CUSTOM",
   DEFAULT: "DEFAULT",

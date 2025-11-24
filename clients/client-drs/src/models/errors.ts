@@ -2,7 +2,8 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DrsServiceException as __BaseException } from "./DrsServiceException";
-import { ValidationExceptionField, ValidationExceptionReason } from "./models_0";
+import { ValidationExceptionReason } from "./enums";
+import { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>

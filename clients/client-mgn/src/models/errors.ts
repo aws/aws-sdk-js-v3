@@ -1,8 +1,9 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { ValidationExceptionReason } from "./enums";
 import { MgnServiceException as __BaseException } from "./MgnServiceException";
-import { ErrorDetails, ValidationExceptionField, ValidationExceptionReason } from "./models_0";
+import { ErrorDetails, ValidationExceptionField } from "./models_0";
 
 /**
  * <p>Operating denied due to a file permission or access check error.</p>

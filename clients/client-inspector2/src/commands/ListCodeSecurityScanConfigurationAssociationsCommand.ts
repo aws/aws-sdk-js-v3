@@ -8,7 +8,7 @@ import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   ListCodeSecurityScanConfigurationAssociationsRequest,
   ListCodeSecurityScanConfigurationAssociationsResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListCodeSecurityScanConfigurationAssociations } from "../schemas/schemas_0";
 
 /**

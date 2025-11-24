@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ResourceType, ServiceCode } from "./models_0";
+import { ResourceType, ServiceCode } from "./enums";
 import { SSMIncidentsServiceException as __BaseException } from "./SSMIncidentsServiceException";
 
 /**

@@ -1,8 +1,9 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { ValidationExceptionReason } from "./enums";
 import { GeoPlacesServiceException as __BaseException } from "./GeoPlacesServiceException";
-import { ValidationExceptionField, ValidationExceptionReason } from "./models_0";
+import { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>You don't have sufficient access to perform this action.</p>
