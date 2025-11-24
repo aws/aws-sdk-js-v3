@@ -81,6 +81,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * //       ],
  * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
  * //       logGroupArn: "STRING_VALUE",
+ * //       deletionProtectionEnabled: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

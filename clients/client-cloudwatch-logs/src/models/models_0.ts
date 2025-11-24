@@ -988,6 +988,13 @@ export interface CreateLogGroupRequest {
    * @public
    */
   logGroupClass?: LogGroupClass | undefined;
+
+  /**
+   * <p>Use this parameter to enable deletion protection for the new log group. When enabled on a log group, deletion protection blocks all
+   *       deletion operations until it is explicitly disabled. By default log groups are created without deletion protection enabled.</p>
+   * @public
+   */
+  deletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -2545,6 +2552,13 @@ export interface LogGroup {
    * @public
    */
   logGroupArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all
+   *       deletion operations until it is explicitly disabled.</p>
+   * @public
+   */
+  deletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -7140,6 +7154,30 @@ export interface PutLogEventsResponse {
    * @public
    */
   rejectedEntityInfo?: RejectedEntityInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutLogGroupDeletionProtectionRequest {
+  /**
+   * <p>The name or ARN of the log group.</p>
+   *          <p>Type: String</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
+   *          <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code>
+   *          </p>
+   *          <p>Required: Yes</p>
+   * @public
+   */
+  logGroupIdentifier: string | undefined;
+
+  /**
+   * <p>Whether to enable deletion protection.</p>
+   *          <p>Type: Boolean</p>
+   *          <p>Required: Yes</p>
+   * @public
+   */
+  deletionProtectionEnabled: boolean | undefined;
 }
 
 /**

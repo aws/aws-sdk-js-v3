@@ -65,6 +65,9 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters for the request is not valid.</p>
+ *
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *

@@ -77,6 +77,7 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *     "<keys>": "STRING_VALUE",
  *   },
  *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ *   deletionProtectionEnabled: true || false,
  * };
  * const command = new CreateLogGroupCommand(input);
  * const response = await client.send(command);

@@ -314,6 +314,8 @@ const _PKV = "ParseKeyValue";
 const _PLE = "PutLogEvents";
 const _PLER = "PutLogEventsRequest";
 const _PLERu = "PutLogEventsResponse";
+const _PLGDP = "PutLogGroupDeletionProtection";
+const _PLGDPR = "PutLogGroupDeletionProtectionRequest";
 const _PMF = "PutMetricFilter";
 const _PMFR = "PutMetricFilterRequest";
 const _PP = "ParsePostgres";
@@ -484,6 +486,7 @@ const _dK = "deleteKeys";
 const _dN = "detectorName";
 const _dNe = "destinationName";
 const _dP = "destinationPrefix";
+const _dPE = "deletionProtectionEnabled";
 const _dPS = "dataProtectionStatus";
 const _dRA = "destinationResourceArn";
 const _dS = "deliverySources";
@@ -925,8 +928,8 @@ export var CreateLogGroupRequest: StaticStructureSchema = [
   n0,
   _CLGR,
   0,
-  [_lGN, _kKI, _ta, _lGC],
-  [0, 0, 128 | 0, 0],
+  [_lGN, _kKI, _ta, _lGC, _dPE],
+  [0, 0, 128 | 0, 0, 2],
 ];
 export var CreateLogStreamRequest: StaticStructureSchema = [3, n0, _CLSR, 0, [_lGN, _lSN], [0, 0]];
 export var CreateScheduledQueryRequest: StaticStructureSchema = [
@@ -1466,8 +1469,8 @@ export var LogGroup: StaticStructureSchema = [
   n0,
   _LG,
   0,
-  [_lGN, _cTr, _rID, _mFC, _ar, _sB, _kKI, _dPS, _iPn, _lGC, _lGA],
-  [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0],
+  [_lGN, _cTr, _rID, _mFC, _ar, _sB, _kKI, _dPS, _iPn, _lGC, _lGA, _dPE],
+  [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0, 2],
 ];
 export var LogGroupField: StaticStructureSchema = [3, n0, _LGF, 0, [_n, _pe], [0, 1]];
 export var LogGroupSummary: StaticStructureSchema = [3, n0, _LGS, 0, [_lGN, _lGA, _lGC], [0, 0, 0]];
@@ -1748,6 +1751,7 @@ export var PutLogEventsResponse: StaticStructureSchema = [
   [_nST, _rLEI, _rEI],
   [0, () => RejectedLogEventsInfo, () => RejectedEntityInfo],
 ];
+export var PutLogGroupDeletionProtectionRequest: StaticStructureSchema = [3, n0, _PLGDPR, 0, [_lGIo, _dPE], [0, 2]];
 export var PutMetricFilterRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2753,6 +2757,14 @@ export var PutLogEvents: StaticOperationSchema = [
   0,
   () => PutLogEventsRequest,
   () => PutLogEventsResponse,
+];
+export var PutLogGroupDeletionProtection: StaticOperationSchema = [
+  9,
+  n0,
+  _PLGDP,
+  0,
+  () => PutLogGroupDeletionProtectionRequest,
+  () => __Unit,
 ];
 export var PutMetricFilter: StaticOperationSchema = [9, n0, _PMF, 0, () => PutMetricFilterRequest, () => __Unit];
 export var PutQueryDefinition: StaticOperationSchema = [

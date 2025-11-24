@@ -863,6 +863,14 @@ PutLogEvents
 </details>
 <details>
 <summary>
+PutLogGroupDeletionProtection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutLogGroupDeletionProtectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutLogGroupDeletionProtectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutLogGroupDeletionProtectionCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutMetricFilter
 </summary>
 

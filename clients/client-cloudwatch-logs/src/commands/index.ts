@@ -77,6 +77,7 @@ export * from "./PutDestinationPolicyCommand";
 export * from "./PutIndexPolicyCommand";
 export * from "./PutIntegrationCommand";
 export * from "./PutLogEventsCommand";
+export * from "./PutLogGroupDeletionProtectionCommand";
 export * from "./PutMetricFilterCommand";
 export * from "./PutQueryDefinitionCommand";
 export * from "./PutResourcePolicyCommand";

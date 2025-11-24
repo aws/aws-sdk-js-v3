@@ -390,6 +390,11 @@ import {
   PutLogEventsCommandOutput,
 } from "./commands/PutLogEventsCommand";
 import {
+  PutLogGroupDeletionProtectionCommand,
+  PutLogGroupDeletionProtectionCommandInput,
+  PutLogGroupDeletionProtectionCommandOutput,
+} from "./commands/PutLogGroupDeletionProtectionCommand";
+import {
   PutMetricFilterCommand,
   PutMetricFilterCommandInput,
   PutMetricFilterCommandOutput,
@@ -548,6 +553,7 @@ const commands = {
   PutIndexPolicyCommand,
   PutIntegrationCommand,
   PutLogEventsCommand,
+  PutLogGroupDeletionProtectionCommand,
   PutMetricFilterCommand,
   PutQueryDefinitionCommand,
   PutResourcePolicyCommand,
@@ -1828,6 +1834,23 @@ export interface CloudWatchLogs {
     args: PutLogEventsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutLogEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutLogGroupDeletionProtectionCommand}
+   */
+  putLogGroupDeletionProtection(
+    args: PutLogGroupDeletionProtectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLogGroupDeletionProtectionCommandOutput>;
+  putLogGroupDeletionProtection(
+    args: PutLogGroupDeletionProtectionCommandInput,
+    cb: (err: any, data?: PutLogGroupDeletionProtectionCommandOutput) => void
+  ): void;
+  putLogGroupDeletionProtection(
+    args: PutLogGroupDeletionProtectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutLogGroupDeletionProtectionCommandOutput) => void
   ): void;
 
   /**

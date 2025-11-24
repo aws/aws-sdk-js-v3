@@ -255,6 +255,10 @@ import {
 import { PutIndexPolicyCommandInput, PutIndexPolicyCommandOutput } from "./commands/PutIndexPolicyCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
 import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "./commands/PutLogEventsCommand";
+import {
+  PutLogGroupDeletionProtectionCommandInput,
+  PutLogGroupDeletionProtectionCommandOutput,
+} from "./commands/PutLogGroupDeletionProtectionCommand";
 import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "./commands/PutMetricFilterCommand";
 import { PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput } from "./commands/PutQueryDefinitionCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
@@ -379,6 +383,7 @@ export type ServiceInputTypes =
   | PutIndexPolicyCommandInput
   | PutIntegrationCommandInput
   | PutLogEventsCommandInput
+  | PutLogGroupDeletionProtectionCommandInput
   | PutMetricFilterCommandInput
   | PutQueryDefinitionCommandInput
   | PutResourcePolicyCommandInput
@@ -481,6 +486,7 @@ export type ServiceOutputTypes =
   | PutIndexPolicyCommandOutput
   | PutIntegrationCommandOutput
   | PutLogEventsCommandOutput
+  | PutLogGroupDeletionProtectionCommandOutput
   | PutMetricFilterCommandOutput
   | PutQueryDefinitionCommandOutput
   | PutResourcePolicyCommandOutput
