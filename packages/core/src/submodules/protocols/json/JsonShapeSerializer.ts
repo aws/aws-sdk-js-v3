@@ -11,6 +11,7 @@ import type {
 import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
+import { serializingStructIterator } from "../structIterator";
 import type { JsonSettings } from "./JsonCodec";
 import { JsonReplacer } from "./jsonReplacer";
 
@@ -80,10 +81,10 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
       return out;
     } else if (ns.isStructSchema() && isObject) {
       const out = {} as any;
-      for (const [memberName, memberSchema] of ns.structIterator()) {
-        const targetKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+      for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
         const serializableValue = this._write(memberSchema, (value as any)[memberName], ns);
         if (serializableValue !== undefined) {
+          const targetKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
           out[targetKey] = serializableValue;
         }
       }

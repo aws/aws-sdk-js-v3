@@ -13,6 +13,7 @@ import type {
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
+import { serializingStructIterator } from "../structIterator";
 import { XmlSettings } from "./XmlCodec";
 
 type XmlNamespaceAttributeValuePair = [string, string] | [undefined, undefined];
@@ -86,7 +87,7 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
 
     const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(ns, parentXmlns);
 
-    for (const [memberName, memberSchema] of ns.structIterator()) {
+    for (const [memberName, memberSchema] of serializingStructIterator(ns, value as any)) {
       const val = (value as any)[memberName];
 
       if (val != null || memberSchema.isIdempotencyToken()) {
