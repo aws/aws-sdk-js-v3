@@ -70,11 +70,25 @@ import {
   AssociateFirewallPolicyCommandOutput,
 } from "./commands/AssociateFirewallPolicyCommand";
 import { AssociateSubnetsCommandInput, AssociateSubnetsCommandOutput } from "./commands/AssociateSubnetsCommand";
+import {
+  AttachRuleGroupsToProxyConfigurationCommandInput,
+  AttachRuleGroupsToProxyConfigurationCommandOutput,
+} from "./commands/AttachRuleGroupsToProxyConfigurationCommand";
 import { CreateFirewallCommandInput, CreateFirewallCommandOutput } from "./commands/CreateFirewallCommand";
 import {
   CreateFirewallPolicyCommandInput,
   CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
+import { CreateProxyCommandInput, CreateProxyCommandOutput } from "./commands/CreateProxyCommand";
+import {
+  CreateProxyConfigurationCommandInput,
+  CreateProxyConfigurationCommandOutput,
+} from "./commands/CreateProxyConfigurationCommand";
+import {
+  CreateProxyRuleGroupCommandInput,
+  CreateProxyRuleGroupCommandOutput,
+} from "./commands/CreateProxyRuleGroupCommand";
+import { CreateProxyRulesCommandInput, CreateProxyRulesCommandOutput } from "./commands/CreateProxyRulesCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
 import {
   CreateTLSInspectionConfigurationCommandInput,
@@ -93,6 +107,16 @@ import {
   DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
   DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
+import { DeleteProxyCommandInput, DeleteProxyCommandOutput } from "./commands/DeleteProxyCommand";
+import {
+  DeleteProxyConfigurationCommandInput,
+  DeleteProxyConfigurationCommandOutput,
+} from "./commands/DeleteProxyConfigurationCommand";
+import {
+  DeleteProxyRuleGroupCommandInput,
+  DeleteProxyRuleGroupCommandOutput,
+} from "./commands/DeleteProxyRuleGroupCommand";
+import { DeleteProxyRulesCommandInput, DeleteProxyRulesCommandOutput } from "./commands/DeleteProxyRulesCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -123,6 +147,16 @@ import {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
+import { DescribeProxyCommandInput, DescribeProxyCommandOutput } from "./commands/DescribeProxyCommand";
+import {
+  DescribeProxyConfigurationCommandInput,
+  DescribeProxyConfigurationCommandOutput,
+} from "./commands/DescribeProxyConfigurationCommand";
+import { DescribeProxyRuleCommandInput, DescribeProxyRuleCommandOutput } from "./commands/DescribeProxyRuleCommand";
+import {
+  DescribeProxyRuleGroupCommandInput,
+  DescribeProxyRuleGroupCommandOutput,
+} from "./commands/DescribeProxyRuleGroupCommand";
 import {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
@@ -144,6 +178,10 @@ import {
   DescribeVpcEndpointAssociationCommandInput,
   DescribeVpcEndpointAssociationCommandOutput,
 } from "./commands/DescribeVpcEndpointAssociationCommand";
+import {
+  DetachRuleGroupsFromProxyConfigurationCommandInput,
+  DetachRuleGroupsFromProxyConfigurationCommandOutput,
+} from "./commands/DetachRuleGroupsFromProxyConfigurationCommand";
 import {
   DisassociateAvailabilityZonesCommandInput,
   DisassociateAvailabilityZonesCommandOutput,
@@ -170,6 +208,15 @@ import {
   ListFlowOperationResultsCommandOutput,
 } from "./commands/ListFlowOperationResultsCommand";
 import { ListFlowOperationsCommandInput, ListFlowOperationsCommandOutput } from "./commands/ListFlowOperationsCommand";
+import { ListProxiesCommandInput, ListProxiesCommandOutput } from "./commands/ListProxiesCommand";
+import {
+  ListProxyConfigurationsCommandInput,
+  ListProxyConfigurationsCommandOutput,
+} from "./commands/ListProxyConfigurationsCommand";
+import {
+  ListProxyRuleGroupsCommandInput,
+  ListProxyRuleGroupsCommandOutput,
+} from "./commands/ListProxyRuleGroupsCommand";
 import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -228,6 +275,20 @@ import {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
+import { UpdateProxyCommandInput, UpdateProxyCommandOutput } from "./commands/UpdateProxyCommand";
+import {
+  UpdateProxyConfigurationCommandInput,
+  UpdateProxyConfigurationCommandOutput,
+} from "./commands/UpdateProxyConfigurationCommand";
+import { UpdateProxyRuleCommandInput, UpdateProxyRuleCommandOutput } from "./commands/UpdateProxyRuleCommand";
+import {
+  UpdateProxyRuleGroupPrioritiesCommandInput,
+  UpdateProxyRuleGroupPrioritiesCommandOutput,
+} from "./commands/UpdateProxyRuleGroupPrioritiesCommand";
+import {
+  UpdateProxyRulePrioritiesCommandInput,
+  UpdateProxyRulePrioritiesCommandOutput,
+} from "./commands/UpdateProxyRulePrioritiesCommand";
 import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand";
 import {
   UpdateSubnetChangeProtectionCommandInput,
@@ -256,14 +317,23 @@ export type ServiceInputTypes =
   | AssociateAvailabilityZonesCommandInput
   | AssociateFirewallPolicyCommandInput
   | AssociateSubnetsCommandInput
+  | AttachRuleGroupsToProxyConfigurationCommandInput
   | CreateFirewallCommandInput
   | CreateFirewallPolicyCommandInput
+  | CreateProxyCommandInput
+  | CreateProxyConfigurationCommandInput
+  | CreateProxyRuleGroupCommandInput
+  | CreateProxyRulesCommandInput
   | CreateRuleGroupCommandInput
   | CreateTLSInspectionConfigurationCommandInput
   | CreateVpcEndpointAssociationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
   | DeleteNetworkFirewallTransitGatewayAttachmentCommandInput
+  | DeleteProxyCommandInput
+  | DeleteProxyConfigurationCommandInput
+  | DeleteProxyRuleGroupCommandInput
+  | DeleteProxyRulesCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupCommandInput
   | DeleteTLSInspectionConfigurationCommandInput
@@ -273,12 +343,17 @@ export type ServiceInputTypes =
   | DescribeFirewallPolicyCommandInput
   | DescribeFlowOperationCommandInput
   | DescribeLoggingConfigurationCommandInput
+  | DescribeProxyCommandInput
+  | DescribeProxyConfigurationCommandInput
+  | DescribeProxyRuleCommandInput
+  | DescribeProxyRuleGroupCommandInput
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
   | DescribeRuleGroupMetadataCommandInput
   | DescribeRuleGroupSummaryCommandInput
   | DescribeTLSInspectionConfigurationCommandInput
   | DescribeVpcEndpointAssociationCommandInput
+  | DetachRuleGroupsFromProxyConfigurationCommandInput
   | DisassociateAvailabilityZonesCommandInput
   | DisassociateSubnetsCommandInput
   | GetAnalysisReportResultsCommandInput
@@ -287,6 +362,9 @@ export type ServiceInputTypes =
   | ListFirewallsCommandInput
   | ListFlowOperationResultsCommandInput
   | ListFlowOperationsCommandInput
+  | ListProxiesCommandInput
+  | ListProxyConfigurationsCommandInput
+  | ListProxyRuleGroupsCommandInput
   | ListRuleGroupsCommandInput
   | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
@@ -306,6 +384,11 @@ export type ServiceInputTypes =
   | UpdateFirewallPolicyChangeProtectionCommandInput
   | UpdateFirewallPolicyCommandInput
   | UpdateLoggingConfigurationCommandInput
+  | UpdateProxyCommandInput
+  | UpdateProxyConfigurationCommandInput
+  | UpdateProxyRuleCommandInput
+  | UpdateProxyRuleGroupPrioritiesCommandInput
+  | UpdateProxyRulePrioritiesCommandInput
   | UpdateRuleGroupCommandInput
   | UpdateSubnetChangeProtectionCommandInput
   | UpdateTLSInspectionConfigurationCommandInput;
@@ -318,14 +401,23 @@ export type ServiceOutputTypes =
   | AssociateAvailabilityZonesCommandOutput
   | AssociateFirewallPolicyCommandOutput
   | AssociateSubnetsCommandOutput
+  | AttachRuleGroupsToProxyConfigurationCommandOutput
   | CreateFirewallCommandOutput
   | CreateFirewallPolicyCommandOutput
+  | CreateProxyCommandOutput
+  | CreateProxyConfigurationCommandOutput
+  | CreateProxyRuleGroupCommandOutput
+  | CreateProxyRulesCommandOutput
   | CreateRuleGroupCommandOutput
   | CreateTLSInspectionConfigurationCommandOutput
   | CreateVpcEndpointAssociationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
   | DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
+  | DeleteProxyCommandOutput
+  | DeleteProxyConfigurationCommandOutput
+  | DeleteProxyRuleGroupCommandOutput
+  | DeleteProxyRulesCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupCommandOutput
   | DeleteTLSInspectionConfigurationCommandOutput
@@ -335,12 +427,17 @@ export type ServiceOutputTypes =
   | DescribeFirewallPolicyCommandOutput
   | DescribeFlowOperationCommandOutput
   | DescribeLoggingConfigurationCommandOutput
+  | DescribeProxyCommandOutput
+  | DescribeProxyConfigurationCommandOutput
+  | DescribeProxyRuleCommandOutput
+  | DescribeProxyRuleGroupCommandOutput
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
   | DescribeRuleGroupMetadataCommandOutput
   | DescribeRuleGroupSummaryCommandOutput
   | DescribeTLSInspectionConfigurationCommandOutput
   | DescribeVpcEndpointAssociationCommandOutput
+  | DetachRuleGroupsFromProxyConfigurationCommandOutput
   | DisassociateAvailabilityZonesCommandOutput
   | DisassociateSubnetsCommandOutput
   | GetAnalysisReportResultsCommandOutput
@@ -349,6 +446,9 @@ export type ServiceOutputTypes =
   | ListFirewallsCommandOutput
   | ListFlowOperationResultsCommandOutput
   | ListFlowOperationsCommandOutput
+  | ListProxiesCommandOutput
+  | ListProxyConfigurationsCommandOutput
+  | ListProxyRuleGroupsCommandOutput
   | ListRuleGroupsCommandOutput
   | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -368,6 +468,11 @@ export type ServiceOutputTypes =
   | UpdateFirewallPolicyChangeProtectionCommandOutput
   | UpdateFirewallPolicyCommandOutput
   | UpdateLoggingConfigurationCommandOutput
+  | UpdateProxyCommandOutput
+  | UpdateProxyConfigurationCommandOutput
+  | UpdateProxyRuleCommandOutput
+  | UpdateProxyRuleGroupPrioritiesCommandOutput
+  | UpdateProxyRulePrioritiesCommandOutput
   | UpdateRuleGroupCommandOutput
   | UpdateSubnetChangeProtectionCommandOutput
   | UpdateTLSInspectionConfigurationCommandOutput;

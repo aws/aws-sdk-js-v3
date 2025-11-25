@@ -81,6 +81,20 @@ export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof Attachment
  * @public
  * @enum
  */
+export const ProxyRulePhaseAction = {
+  ALERT: "ALERT",
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+/**
+ * @public
+ */
+export type ProxyRulePhaseAction = (typeof ProxyRulePhaseAction)[keyof typeof ProxyRulePhaseAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const RevocationCheckAction = {
   DROP: "DROP",
   PASS: "PASS",
@@ -200,6 +214,63 @@ export const ResourceStatus = {
  * @public
  */
 export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListenerPropertyType = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+} as const;
+/**
+ * @public
+ */
+export type ListenerPropertyType = (typeof ListenerPropertyType)[keyof typeof ListenerPropertyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlsInterceptMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type TlsInterceptMode = (typeof TlsInterceptMode)[keyof typeof TlsInterceptMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProxyModifyState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+} as const;
+/**
+ * @public
+ */
+export type ProxyModifyState = (typeof ProxyModifyState)[keyof typeof ProxyModifyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProxyState = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  ATTACH_FAILED: "ATTACH_FAILED",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+  DETACH_FAILED: "DETACH_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ProxyState = (typeof ProxyState)[keyof typeof ProxyState];
 
 /**
  * @public
@@ -431,3 +502,17 @@ export const SubscriptionStatus = {
  * @public
  */
 export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleGroupRequestPhase = {
+  POST_RES: "POST_RES",
+  PRE_DNS: "PRE_DNS",
+  PRE_REQ: "PRE_REQ",
+} as const;
+/**
+ * @public
+ */
+export type RuleGroupRequestPhase = (typeof RuleGroupRequestPhase)[keyof typeof RuleGroupRequestPhase];

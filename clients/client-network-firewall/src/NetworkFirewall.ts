@@ -23,6 +23,11 @@ import {
   AssociateSubnetsCommandOutput,
 } from "./commands/AssociateSubnetsCommand";
 import {
+  AttachRuleGroupsToProxyConfigurationCommand,
+  AttachRuleGroupsToProxyConfigurationCommandInput,
+  AttachRuleGroupsToProxyConfigurationCommandOutput,
+} from "./commands/AttachRuleGroupsToProxyConfigurationCommand";
+import {
   CreateFirewallCommand,
   CreateFirewallCommandInput,
   CreateFirewallCommandOutput,
@@ -32,6 +37,22 @@ import {
   CreateFirewallPolicyCommandInput,
   CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
+import { CreateProxyCommand, CreateProxyCommandInput, CreateProxyCommandOutput } from "./commands/CreateProxyCommand";
+import {
+  CreateProxyConfigurationCommand,
+  CreateProxyConfigurationCommandInput,
+  CreateProxyConfigurationCommandOutput,
+} from "./commands/CreateProxyConfigurationCommand";
+import {
+  CreateProxyRuleGroupCommand,
+  CreateProxyRuleGroupCommandInput,
+  CreateProxyRuleGroupCommandOutput,
+} from "./commands/CreateProxyRuleGroupCommand";
+import {
+  CreateProxyRulesCommand,
+  CreateProxyRulesCommandInput,
+  CreateProxyRulesCommandOutput,
+} from "./commands/CreateProxyRulesCommand";
 import {
   CreateRuleGroupCommand,
   CreateRuleGroupCommandInput,
@@ -62,6 +83,22 @@ import {
   DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
   DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
 } from "./commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
+import { DeleteProxyCommand, DeleteProxyCommandInput, DeleteProxyCommandOutput } from "./commands/DeleteProxyCommand";
+import {
+  DeleteProxyConfigurationCommand,
+  DeleteProxyConfigurationCommandInput,
+  DeleteProxyConfigurationCommandOutput,
+} from "./commands/DeleteProxyConfigurationCommand";
+import {
+  DeleteProxyRuleGroupCommand,
+  DeleteProxyRuleGroupCommandInput,
+  DeleteProxyRuleGroupCommandOutput,
+} from "./commands/DeleteProxyRuleGroupCommand";
+import {
+  DeleteProxyRulesCommand,
+  DeleteProxyRulesCommandInput,
+  DeleteProxyRulesCommandOutput,
+} from "./commands/DeleteProxyRulesCommand";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
@@ -108,6 +145,26 @@ import {
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
 import {
+  DescribeProxyCommand,
+  DescribeProxyCommandInput,
+  DescribeProxyCommandOutput,
+} from "./commands/DescribeProxyCommand";
+import {
+  DescribeProxyConfigurationCommand,
+  DescribeProxyConfigurationCommandInput,
+  DescribeProxyConfigurationCommandOutput,
+} from "./commands/DescribeProxyConfigurationCommand";
+import {
+  DescribeProxyRuleCommand,
+  DescribeProxyRuleCommandInput,
+  DescribeProxyRuleCommandOutput,
+} from "./commands/DescribeProxyRuleCommand";
+import {
+  DescribeProxyRuleGroupCommand,
+  DescribeProxyRuleGroupCommandInput,
+  DescribeProxyRuleGroupCommandOutput,
+} from "./commands/DescribeProxyRuleGroupCommand";
+import {
   DescribeResourcePolicyCommand,
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
@@ -137,6 +194,11 @@ import {
   DescribeVpcEndpointAssociationCommandInput,
   DescribeVpcEndpointAssociationCommandOutput,
 } from "./commands/DescribeVpcEndpointAssociationCommand";
+import {
+  DetachRuleGroupsFromProxyConfigurationCommand,
+  DetachRuleGroupsFromProxyConfigurationCommandInput,
+  DetachRuleGroupsFromProxyConfigurationCommandOutput,
+} from "./commands/DetachRuleGroupsFromProxyConfigurationCommand";
 import {
   DisassociateAvailabilityZonesCommand,
   DisassociateAvailabilityZonesCommandInput,
@@ -177,6 +239,17 @@ import {
   ListFlowOperationsCommandInput,
   ListFlowOperationsCommandOutput,
 } from "./commands/ListFlowOperationsCommand";
+import { ListProxiesCommand, ListProxiesCommandInput, ListProxiesCommandOutput } from "./commands/ListProxiesCommand";
+import {
+  ListProxyConfigurationsCommand,
+  ListProxyConfigurationsCommandInput,
+  ListProxyConfigurationsCommandOutput,
+} from "./commands/ListProxyConfigurationsCommand";
+import {
+  ListProxyRuleGroupsCommand,
+  ListProxyRuleGroupsCommandInput,
+  ListProxyRuleGroupsCommandOutput,
+} from "./commands/ListProxyRuleGroupsCommand";
 import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
@@ -268,6 +341,27 @@ import {
   UpdateLoggingConfigurationCommandInput,
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
+import { UpdateProxyCommand, UpdateProxyCommandInput, UpdateProxyCommandOutput } from "./commands/UpdateProxyCommand";
+import {
+  UpdateProxyConfigurationCommand,
+  UpdateProxyConfigurationCommandInput,
+  UpdateProxyConfigurationCommandOutput,
+} from "./commands/UpdateProxyConfigurationCommand";
+import {
+  UpdateProxyRuleCommand,
+  UpdateProxyRuleCommandInput,
+  UpdateProxyRuleCommandOutput,
+} from "./commands/UpdateProxyRuleCommand";
+import {
+  UpdateProxyRuleGroupPrioritiesCommand,
+  UpdateProxyRuleGroupPrioritiesCommandInput,
+  UpdateProxyRuleGroupPrioritiesCommandOutput,
+} from "./commands/UpdateProxyRuleGroupPrioritiesCommand";
+import {
+  UpdateProxyRulePrioritiesCommand,
+  UpdateProxyRulePrioritiesCommandInput,
+  UpdateProxyRulePrioritiesCommandOutput,
+} from "./commands/UpdateProxyRulePrioritiesCommand";
 import {
   UpdateRuleGroupCommand,
   UpdateRuleGroupCommandInput,
@@ -290,14 +384,23 @@ const commands = {
   AssociateAvailabilityZonesCommand,
   AssociateFirewallPolicyCommand,
   AssociateSubnetsCommand,
+  AttachRuleGroupsToProxyConfigurationCommand,
   CreateFirewallCommand,
   CreateFirewallPolicyCommand,
+  CreateProxyCommand,
+  CreateProxyConfigurationCommand,
+  CreateProxyRuleGroupCommand,
+  CreateProxyRulesCommand,
   CreateRuleGroupCommand,
   CreateTLSInspectionConfigurationCommand,
   CreateVpcEndpointAssociationCommand,
   DeleteFirewallCommand,
   DeleteFirewallPolicyCommand,
   DeleteNetworkFirewallTransitGatewayAttachmentCommand,
+  DeleteProxyCommand,
+  DeleteProxyConfigurationCommand,
+  DeleteProxyRuleGroupCommand,
+  DeleteProxyRulesCommand,
   DeleteResourcePolicyCommand,
   DeleteRuleGroupCommand,
   DeleteTLSInspectionConfigurationCommand,
@@ -307,12 +410,17 @@ const commands = {
   DescribeFirewallPolicyCommand,
   DescribeFlowOperationCommand,
   DescribeLoggingConfigurationCommand,
+  DescribeProxyCommand,
+  DescribeProxyConfigurationCommand,
+  DescribeProxyRuleCommand,
+  DescribeProxyRuleGroupCommand,
   DescribeResourcePolicyCommand,
   DescribeRuleGroupCommand,
   DescribeRuleGroupMetadataCommand,
   DescribeRuleGroupSummaryCommand,
   DescribeTLSInspectionConfigurationCommand,
   DescribeVpcEndpointAssociationCommand,
+  DetachRuleGroupsFromProxyConfigurationCommand,
   DisassociateAvailabilityZonesCommand,
   DisassociateSubnetsCommand,
   GetAnalysisReportResultsCommand,
@@ -321,6 +429,9 @@ const commands = {
   ListFirewallsCommand,
   ListFlowOperationResultsCommand,
   ListFlowOperationsCommand,
+  ListProxiesCommand,
+  ListProxyConfigurationsCommand,
+  ListProxyRuleGroupsCommand,
   ListRuleGroupsCommand,
   ListTagsForResourceCommand,
   ListTLSInspectionConfigurationsCommand,
@@ -340,6 +451,11 @@ const commands = {
   UpdateFirewallPolicyCommand,
   UpdateFirewallPolicyChangeProtectionCommand,
   UpdateLoggingConfigurationCommand,
+  UpdateProxyCommand,
+  UpdateProxyConfigurationCommand,
+  UpdateProxyRuleCommand,
+  UpdateProxyRuleGroupPrioritiesCommand,
+  UpdateProxyRulePrioritiesCommand,
   UpdateRuleGroupCommand,
   UpdateSubnetChangeProtectionCommand,
   UpdateTLSInspectionConfigurationCommand,
@@ -415,6 +531,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link AttachRuleGroupsToProxyConfigurationCommand}
+   */
+  attachRuleGroupsToProxyConfiguration(
+    args: AttachRuleGroupsToProxyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachRuleGroupsToProxyConfigurationCommandOutput>;
+  attachRuleGroupsToProxyConfiguration(
+    args: AttachRuleGroupsToProxyConfigurationCommandInput,
+    cb: (err: any, data?: AttachRuleGroupsToProxyConfigurationCommandOutput) => void
+  ): void;
+  attachRuleGroupsToProxyConfiguration(
+    args: AttachRuleGroupsToProxyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachRuleGroupsToProxyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFirewallCommand}
    */
   createFirewall(
@@ -443,6 +576,68 @@ export interface NetworkFirewall {
     args: CreateFirewallPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateFirewallPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProxyCommand}
+   */
+  createProxy(args: CreateProxyCommandInput, options?: __HttpHandlerOptions): Promise<CreateProxyCommandOutput>;
+  createProxy(args: CreateProxyCommandInput, cb: (err: any, data?: CreateProxyCommandOutput) => void): void;
+  createProxy(
+    args: CreateProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProxyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProxyConfigurationCommand}
+   */
+  createProxyConfiguration(
+    args: CreateProxyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProxyConfigurationCommandOutput>;
+  createProxyConfiguration(
+    args: CreateProxyConfigurationCommandInput,
+    cb: (err: any, data?: CreateProxyConfigurationCommandOutput) => void
+  ): void;
+  createProxyConfiguration(
+    args: CreateProxyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProxyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProxyRuleGroupCommand}
+   */
+  createProxyRuleGroup(
+    args: CreateProxyRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProxyRuleGroupCommandOutput>;
+  createProxyRuleGroup(
+    args: CreateProxyRuleGroupCommandInput,
+    cb: (err: any, data?: CreateProxyRuleGroupCommandOutput) => void
+  ): void;
+  createProxyRuleGroup(
+    args: CreateProxyRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProxyRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProxyRulesCommand}
+   */
+  createProxyRules(
+    args: CreateProxyRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProxyRulesCommandOutput>;
+  createProxyRules(
+    args: CreateProxyRulesCommandInput,
+    cb: (err: any, data?: CreateProxyRulesCommandOutput) => void
+  ): void;
+  createProxyRules(
+    args: CreateProxyRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProxyRulesCommandOutput) => void
   ): void;
 
   /**
@@ -541,6 +736,70 @@ export interface NetworkFirewall {
     args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProxyCommand}
+   */
+  deleteProxy(args: DeleteProxyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProxyCommandOutput>;
+  deleteProxy(args: DeleteProxyCommandInput, cb: (err: any, data?: DeleteProxyCommandOutput) => void): void;
+  deleteProxy(
+    args: DeleteProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProxyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProxyConfigurationCommand}
+   */
+  deleteProxyConfiguration(): Promise<DeleteProxyConfigurationCommandOutput>;
+  deleteProxyConfiguration(
+    args: DeleteProxyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProxyConfigurationCommandOutput>;
+  deleteProxyConfiguration(
+    args: DeleteProxyConfigurationCommandInput,
+    cb: (err: any, data?: DeleteProxyConfigurationCommandOutput) => void
+  ): void;
+  deleteProxyConfiguration(
+    args: DeleteProxyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProxyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProxyRuleGroupCommand}
+   */
+  deleteProxyRuleGroup(): Promise<DeleteProxyRuleGroupCommandOutput>;
+  deleteProxyRuleGroup(
+    args: DeleteProxyRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProxyRuleGroupCommandOutput>;
+  deleteProxyRuleGroup(
+    args: DeleteProxyRuleGroupCommandInput,
+    cb: (err: any, data?: DeleteProxyRuleGroupCommandOutput) => void
+  ): void;
+  deleteProxyRuleGroup(
+    args: DeleteProxyRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProxyRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProxyRulesCommand}
+   */
+  deleteProxyRules(
+    args: DeleteProxyRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProxyRulesCommandOutput>;
+  deleteProxyRules(
+    args: DeleteProxyRulesCommandInput,
+    cb: (err: any, data?: DeleteProxyRulesCommandOutput) => void
+  ): void;
+  deleteProxyRules(
+    args: DeleteProxyRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProxyRulesCommandOutput) => void
   ): void;
 
   /**
@@ -700,6 +959,71 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DescribeProxyCommand}
+   */
+  describeProxy(): Promise<DescribeProxyCommandOutput>;
+  describeProxy(args: DescribeProxyCommandInput, options?: __HttpHandlerOptions): Promise<DescribeProxyCommandOutput>;
+  describeProxy(args: DescribeProxyCommandInput, cb: (err: any, data?: DescribeProxyCommandOutput) => void): void;
+  describeProxy(
+    args: DescribeProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProxyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeProxyConfigurationCommand}
+   */
+  describeProxyConfiguration(): Promise<DescribeProxyConfigurationCommandOutput>;
+  describeProxyConfiguration(
+    args: DescribeProxyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProxyConfigurationCommandOutput>;
+  describeProxyConfiguration(
+    args: DescribeProxyConfigurationCommandInput,
+    cb: (err: any, data?: DescribeProxyConfigurationCommandOutput) => void
+  ): void;
+  describeProxyConfiguration(
+    args: DescribeProxyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProxyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeProxyRuleCommand}
+   */
+  describeProxyRule(
+    args: DescribeProxyRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProxyRuleCommandOutput>;
+  describeProxyRule(
+    args: DescribeProxyRuleCommandInput,
+    cb: (err: any, data?: DescribeProxyRuleCommandOutput) => void
+  ): void;
+  describeProxyRule(
+    args: DescribeProxyRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProxyRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeProxyRuleGroupCommand}
+   */
+  describeProxyRuleGroup(): Promise<DescribeProxyRuleGroupCommandOutput>;
+  describeProxyRuleGroup(
+    args: DescribeProxyRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProxyRuleGroupCommandOutput>;
+  describeProxyRuleGroup(
+    args: DescribeProxyRuleGroupCommandInput,
+    cb: (err: any, data?: DescribeProxyRuleGroupCommandOutput) => void
+  ): void;
+  describeProxyRuleGroup(
+    args: DescribeProxyRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProxyRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeResourcePolicyCommand}
    */
   describeResourcePolicy(
@@ -803,6 +1127,23 @@ export interface NetworkFirewall {
     args: DescribeVpcEndpointAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeVpcEndpointAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetachRuleGroupsFromProxyConfigurationCommand}
+   */
+  detachRuleGroupsFromProxyConfiguration(
+    args: DetachRuleGroupsFromProxyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachRuleGroupsFromProxyConfigurationCommandOutput>;
+  detachRuleGroupsFromProxyConfiguration(
+    args: DetachRuleGroupsFromProxyConfigurationCommandInput,
+    cb: (err: any, data?: DetachRuleGroupsFromProxyConfigurationCommandOutput) => void
+  ): void;
+  detachRuleGroupsFromProxyConfiguration(
+    args: DetachRuleGroupsFromProxyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachRuleGroupsFromProxyConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -936,6 +1277,54 @@ export interface NetworkFirewall {
     args: ListFlowOperationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProxiesCommand}
+   */
+  listProxies(): Promise<ListProxiesCommandOutput>;
+  listProxies(args: ListProxiesCommandInput, options?: __HttpHandlerOptions): Promise<ListProxiesCommandOutput>;
+  listProxies(args: ListProxiesCommandInput, cb: (err: any, data?: ListProxiesCommandOutput) => void): void;
+  listProxies(
+    args: ListProxiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProxiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProxyConfigurationsCommand}
+   */
+  listProxyConfigurations(): Promise<ListProxyConfigurationsCommandOutput>;
+  listProxyConfigurations(
+    args: ListProxyConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProxyConfigurationsCommandOutput>;
+  listProxyConfigurations(
+    args: ListProxyConfigurationsCommandInput,
+    cb: (err: any, data?: ListProxyConfigurationsCommandOutput) => void
+  ): void;
+  listProxyConfigurations(
+    args: ListProxyConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProxyConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProxyRuleGroupsCommand}
+   */
+  listProxyRuleGroups(): Promise<ListProxyRuleGroupsCommandOutput>;
+  listProxyRuleGroups(
+    args: ListProxyRuleGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProxyRuleGroupsCommandOutput>;
+  listProxyRuleGroups(
+    args: ListProxyRuleGroupsCommandInput,
+    cb: (err: any, data?: ListProxyRuleGroupsCommandOutput) => void
+  ): void;
+  listProxyRuleGroups(
+    args: ListProxyRuleGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProxyRuleGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -1248,6 +1637,82 @@ export interface NetworkFirewall {
     args: UpdateLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProxyCommand}
+   */
+  updateProxy(args: UpdateProxyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProxyCommandOutput>;
+  updateProxy(args: UpdateProxyCommandInput, cb: (err: any, data?: UpdateProxyCommandOutput) => void): void;
+  updateProxy(
+    args: UpdateProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProxyConfigurationCommand}
+   */
+  updateProxyConfiguration(
+    args: UpdateProxyConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxyConfigurationCommandOutput>;
+  updateProxyConfiguration(
+    args: UpdateProxyConfigurationCommandInput,
+    cb: (err: any, data?: UpdateProxyConfigurationCommandOutput) => void
+  ): void;
+  updateProxyConfiguration(
+    args: UpdateProxyConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxyConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProxyRuleCommand}
+   */
+  updateProxyRule(
+    args: UpdateProxyRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxyRuleCommandOutput>;
+  updateProxyRule(args: UpdateProxyRuleCommandInput, cb: (err: any, data?: UpdateProxyRuleCommandOutput) => void): void;
+  updateProxyRule(
+    args: UpdateProxyRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxyRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProxyRuleGroupPrioritiesCommand}
+   */
+  updateProxyRuleGroupPriorities(
+    args: UpdateProxyRuleGroupPrioritiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxyRuleGroupPrioritiesCommandOutput>;
+  updateProxyRuleGroupPriorities(
+    args: UpdateProxyRuleGroupPrioritiesCommandInput,
+    cb: (err: any, data?: UpdateProxyRuleGroupPrioritiesCommandOutput) => void
+  ): void;
+  updateProxyRuleGroupPriorities(
+    args: UpdateProxyRuleGroupPrioritiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxyRuleGroupPrioritiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProxyRulePrioritiesCommand}
+   */
+  updateProxyRulePriorities(
+    args: UpdateProxyRulePrioritiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxyRulePrioritiesCommandOutput>;
+  updateProxyRulePriorities(
+    args: UpdateProxyRulePrioritiesCommandInput,
+    cb: (err: any, data?: UpdateProxyRulePrioritiesCommandOutput) => void
+  ): void;
+  updateProxyRulePriorities(
+    args: UpdateProxyRulePrioritiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxyRulePrioritiesCommandOutput) => void
   ): void;
 
   /**
