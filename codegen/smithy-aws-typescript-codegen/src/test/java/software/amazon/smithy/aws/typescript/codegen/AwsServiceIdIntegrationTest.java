@@ -46,6 +46,7 @@ public class AwsServiceIdIntegrationTest {
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
+        settings.setService(ShapeId.from("smithy#Placeholder"));
         SymbolProvider provider = TypeScriptSettings.ArtifactType.CLIENT.createSymbolProvider(model, settings);
         SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
@@ -66,6 +67,7 @@ public class AwsServiceIdIntegrationTest {
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
+        settings.setService(ShapeId.from("smithy#Placeholder"));
         SymbolProvider provider = TypeScriptSettings.ArtifactType.CLIENT.createSymbolProvider(model, settings);
         SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
