@@ -140,6 +140,7 @@ import {
 } from "./models_1";
 
 import {
+  TransitGatewayPolicyTable,
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteTable,
@@ -148,6 +149,17 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayPolicyTableResult {
+  /**
+   * <p>Provides details about the deleted transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTable?: TransitGatewayPolicyTable | undefined;
+}
 
 /**
  * @public
@@ -12393,16 +12405,4 @@ export interface InstanceIpv4Prefix {
    * @public
    */
   Ipv4Prefix?: string | undefined;
-}
-
-/**
- * <p>Information about an IPv6 prefix.</p>
- * @public
- */
-export interface InstanceIpv6Prefix {
-  /**
-   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
-   * @public
-   */
-  Ipv6Prefix?: string | undefined;
 }

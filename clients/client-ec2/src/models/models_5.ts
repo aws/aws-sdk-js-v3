@@ -117,8 +117,31 @@ import {
   RegisteredInstance,
   VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
-  VerifiedAccessLogKinesisDataFirehoseDestination,
 } from "./models_4";
+
+/**
+ * <p>Options for Kinesis as a logging destination.</p>
+ * @public
+ */
+export interface VerifiedAccessLogKinesisDataFirehoseDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The delivery status.</p>
+   * @public
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
+
+  /**
+   * <p>The ID of the delivery stream.</p>
+   * @public
+   */
+  DeliveryStream?: string | undefined;
+}
 
 /**
  * <p>Options for Amazon S3 as a logging destination.</p>
@@ -8693,60 +8716,4 @@ export interface GetInstanceUefiDataResult {
    * @public
    */
   UefiData?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamAddressHistoryRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP address range.
-   *          If you enter a /16 IPv4 CIDR, you will get records that match it exactly. You will not get records for any subnets within the /16 CIDR.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM scope that the CIDR is in.</p>
-   * @public
-   */
-  IpamScopeId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC you want your history records filtered by.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The start of the time period for which you are looking for history. If you omit this option, it will default to the value of EndTime.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The end of the time period for which you are looking for history. If you omit this option, it will default to the current time.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The maximum number of historical results you would like returned per page. Defaults to 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

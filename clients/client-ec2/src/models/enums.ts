@@ -3864,6 +3864,50 @@ export type ConnectivityType = (typeof ConnectivityType)[keyof typeof Connectivi
  * @public
  * @enum
  */
+export const NatGatewayApplianceState = {
+  ATTACHED: "attached",
+  ATTACHING: "attaching",
+  ATTACH_FAILED: "attach-failed",
+  DETACHED: "detached",
+  DETACHING: "detaching",
+  DETACH_FAILED: "detach-failed",
+} as const;
+/**
+ * @public
+ */
+export type NatGatewayApplianceState = (typeof NatGatewayApplianceState)[keyof typeof NatGatewayApplianceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const NatGatewayApplianceModifyState = {
+  COMPLETED: "completed",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+} as const;
+/**
+ * @public
+ */
+export type NatGatewayApplianceModifyState =
+  (typeof NatGatewayApplianceModifyState)[keyof typeof NatGatewayApplianceModifyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const NatGatewayApplianceType = {
+  NETWORK_FIREWALL_PROXY: "network-firewall-proxy",
+} as const;
+/**
+ * @public
+ */
+export type NatGatewayApplianceType = (typeof NatGatewayApplianceType)[keyof typeof NatGatewayApplianceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutoProvisionZonesState = {
   DISABLED: "disabled",
   ENABLED: "enabled",

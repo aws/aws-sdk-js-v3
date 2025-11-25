@@ -98,6 +98,17 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * //       AvailabilityMode: "zonal" || "regional",
  * //       AutoScalingIps: "enabled" || "disabled",
  * //       AutoProvisionZones: "enabled" || "disabled",
+ * //       AttachedAppliances: [ // NatGatewayAttachedApplianceList
+ * //         { // NatGatewayAttachedAppliance
+ * //           Type: "network-firewall-proxy",
+ * //           ApplianceArn: "STRING_VALUE",
+ * //           VpcEndpointId: "STRING_VALUE",
+ * //           AttachmentState: "attaching" || "attached" || "detaching" || "detached" || "attach-failed" || "detach-failed",
+ * //           ModificationState: "modifying" || "completed" || "failed",
+ * //           FailureCode: "STRING_VALUE",
+ * //           FailureMessage: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       RouteTableId: "STRING_VALUE",
  * //     },
  * //   ],

@@ -183,6 +183,62 @@ import {
 } from "./models_5";
 
 /**
+ * @public
+ */
+export interface GetIpamAddressHistoryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP address range.
+   *          If you enter a /16 IPv4 CIDR, you will get records that match it exactly. You will not get records for any subnets within the /16 CIDR.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM scope that the CIDR is in.</p>
+   * @public
+   */
+  IpamScopeId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC you want your history records filtered by.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The start of the time period for which you are looking for history. If you omit this option, it will default to the value of EndTime.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end of the time period for which you are looking for history. If you omit this option, it will default to the current time.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The maximum number of historical results you would like returned per page. Defaults to 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @public
@@ -10133,61 +10189,4 @@ export interface ModifyVerifiedAccessTrustProviderOidcOptions {
    * @public
    */
   Scope?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessTrustProviderRequest {
-  /**
-   * <p>The ID of the Verified Access trust provider.</p>
-   * @public
-   */
-  VerifiedAccessTrustProviderId: string | undefined;
-
-  /**
-   * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
-   * @public
-   */
-  OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions | undefined;
-
-  /**
-   * <p>The options for a device-based trust provider. This parameter is required when the
-   *          provider type is <code>device</code>.</p>
-   * @public
-   */
-  DeviceOptions?: ModifyVerifiedAccessTrustProviderDeviceOptions | undefined;
-
-  /**
-   * <p>A description for the Verified Access trust provider.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The options for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
-
-  /**
-   * <p>The OpenID Connect (OIDC) options.</p>
-   * @public
-   */
-  NativeApplicationOidcOptions?: ModifyVerifiedAccessNativeApplicationOidcOptions | undefined;
 }

@@ -30,9 +30,11 @@ const _AAd = "AddressAttribute";
 const _AAdd = "AdditionalAccounts";
 const _AAddi = "AdditionalAccount";
 const _AAl = "AllocateAddress";
+const _AAp = "ApplianceArn";
 const _AAs = "AsnAssociation";
 const _AAsn = "AsnAssociations";
 const _AAss = "AssociateAddress";
+const _AAt = "AttachedAppliances";
 const _ABC = "AdvertiseByoipCidr";
 const _ABCR = "AdvertiseByoipCidrRequest";
 const _ABCRd = "AdvertiseByoipCidrResult";
@@ -309,7 +311,8 @@ const _ASs = "AssociationStatus";
 const _ASss = "AssociatedSubnets";
 const _ASt = "AttributeSummary";
 const _AStt = "AttributeSummaries";
-const _AStta = "AttachmentStatuses";
+const _AStta = "AttachmentState";
+const _ASttac = "AttachmentStatuses";
 const _ASw = "AwsService";
 const _AT = "AddressTransfer";
 const _ATGAI = "AccepterTransitGatewayAttachmentId";
@@ -4073,6 +4076,8 @@ const _NDe = "NeuronDevices";
 const _NES = "NitroEnclavesSupport";
 const _NG = "NatGateway";
 const _NGA = "NatGatewayAddresses";
+const _NGAA = "NatGatewayAttachedAppliance";
+const _NGAAL = "NatGatewayAttachedApplianceList";
 const _NGAL = "NatGatewayAddressList";
 const _NGAa = "NatGatewayAddress";
 const _NGE = "NatGatewayExclusion";
@@ -5930,7 +5935,9 @@ const _aASA = "autoAcceptSharedAssociations";
 const _aASAu = "autoAcceptSharedAttachments";
 const _aASc = "accountAttributeSet";
 const _aASd = "additionalAccountSet";
+const _aASt = "attachedApplianceSet";
 const _aAc = "accessAll";
+const _aAp = "applianceArn";
 const _aBHP = "actualBlockHourlyPrice";
 const _aC = "availableCapacity";
 const _aCIA = "associateCarrierIpAddress";
@@ -6031,7 +6038,8 @@ const _aSn = "analysisStatus";
 const _aSs = "associationStatus";
 const _aSss = "associationSet";
 const _aSt = "attachmentSet";
-const _aStt = "attachmentStatuses";
+const _aStt = "attachmentState";
+const _aStta = "attachmentStatuses";
 const _aSw = "awsService";
 const _aT = "addressTransfer";
 const _aTGAI = "accepterTransitGatewayAttachmentId";
@@ -52499,7 +52507,7 @@ export var NatGateway: StaticStructureSchema = [
   n0,
   _NG,
   0,
-  [_CTr, _DTel, _FCa, _FM, _NGA, _NGI, _PB, _St, _SIu, _VI, _T, _CTon, _AM, _ASIu, _APZ, _RTI],
+  [_CTr, _DTel, _FCa, _FM, _NGA, _NGI, _PB, _St, _SIu, _VI, _T, _CTon, _AM, _ASIu, _APZ, _AAt, _RTI],
   [
     [
       4,
@@ -52607,6 +52615,13 @@ export var NatGateway: StaticStructureSchema = [
       },
     ],
     [
+      () => NatGatewayAttachedApplianceList,
+      {
+        [_eQN]: `AttachedApplianceSet`,
+        [_xN]: _aASt,
+      },
+    ],
+    [
       0,
       {
         [_eQN]: `RouteTableId`,
@@ -52690,6 +52705,64 @@ export var NatGatewayAddress: StaticStructureSchema = [
       {
         [_eQN]: `AvailabilityZoneId`,
         [_xN]: _aZI,
+      },
+    ],
+  ],
+];
+export var NatGatewayAttachedAppliance: StaticStructureSchema = [
+  3,
+  n0,
+  _NGAA,
+  0,
+  [_Ty, _AAp, _VEIp, _AStta, _MSod, _FCa, _FM],
+  [
+    [
+      0,
+      {
+        [_eQN]: `Type`,
+        [_xN]: _ty,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `ApplianceArn`,
+        [_xN]: _aAp,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `VpcEndpointId`,
+        [_xN]: _vEI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AttachmentState`,
+        [_xN]: _aStt,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `ModificationState`,
+        [_xN]: _mSod,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `FailureCode`,
+        [_xN]: _fCa,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `FailureMessage`,
+        [_xN]: _fM,
       },
     ],
   ],
@@ -69609,7 +69682,7 @@ export var VolumeStatusItem: StaticStructureSchema = [
   n0,
   _VSIo,
   0,
-  [_Acti, _AZ, _OA, _Ev, _VIo, _VSol, _AStta, _ISD, _AZI],
+  [_Acti, _AZ, _OA, _Ev, _VIo, _VSol, _ASttac, _ISD, _AZI],
   [
     [
       () => VolumeStatusActionsList,
@@ -69657,7 +69730,7 @@ export var VolumeStatusItem: StaticStructureSchema = [
       () => VolumeStatusAttachmentStatusList,
       {
         [_eQN]: `AttachmentStatuses`,
-        [_xN]: _aStt,
+        [_xN]: _aStta,
       },
     ],
     [
@@ -75705,6 +75778,18 @@ export var NatGatewayAddressList: StaticListSchema = [
   0,
   [
     () => NatGatewayAddress,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var NatGatewayAttachedApplianceList: StaticListSchema = [
+  1,
+  n0,
+  _NGAAL,
+  0,
+  [
+    () => NatGatewayAttachedAppliance,
     {
       [_xN]: _it,
     },

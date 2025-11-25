@@ -146,12 +146,12 @@ import {
   RouteServerPeer,
   RouteTable,
   Snapshot,
-  SpotDatafeedSubscription,
   SpotInstanceStateFault,
   StateReason,
 } from "./models_1";
 
 import {
+  SpotDatafeedSubscription,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorSession,
@@ -183,7 +183,6 @@ import {
   IdFormat,
   InstanceBlockDeviceMapping,
   InstanceIpv4Prefix,
-  InstanceIpv6Prefix,
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
   InstanceNetworkInterfaceAssociation,
@@ -193,6 +192,18 @@ import {
   Monitoring,
   ProductCode,
 } from "./models_3";
+
+/**
+ * <p>Information about an IPv6 prefix.</p>
+ * @public
+ */
+export interface InstanceIpv6Prefix {
+  /**
+   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
+   * @public
+   */
+  Ipv6Prefix?: string | undefined;
+}
 
 /**
  * <p>Describes a private IPv4 address.</p>
@@ -13869,28 +13880,4 @@ export interface VerifiedAccessLogCloudWatchLogsDestination {
    * @public
    */
   LogGroup?: string | undefined;
-}
-
-/**
- * <p>Options for Kinesis as a logging destination.</p>
- * @public
- */
-export interface VerifiedAccessLogKinesisDataFirehoseDestination {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The delivery status.</p>
-   * @public
-   */
-  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
-
-  /**
-   * <p>The ID of the delivery stream.</p>
-   * @public
-   */
-  DeliveryStream?: string | undefined;
 }

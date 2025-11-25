@@ -90,6 +90,7 @@ import {
   Phase2IntegrityAlgorithmsRequestListValue,
   SubnetConfiguration,
   TransitGatewayRoute,
+  VerifiedAccessSseSpecificationRequest,
   VpcBlockPublicAccessExclusion,
   VpnConnection,
   VpnTunnelLogOptionsSpecification,
@@ -122,7 +123,69 @@ import {
 
 import { Purchase, VolumeModification, VpcBlockPublicAccessOptions } from "./models_5";
 
-import { CapacityReservationSpecification } from "./models_6";
+import {
+  CapacityReservationSpecification,
+  ModifyVerifiedAccessNativeApplicationOidcOptions,
+  ModifyVerifiedAccessTrustProviderDeviceOptions,
+  ModifyVerifiedAccessTrustProviderOidcOptions,
+} from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Verified Access trust provider.</p>
+   * @public
+   */
+  VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
+   * @public
+   */
+  OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions | undefined;
+
+  /**
+   * <p>The options for a device-based trust provider. This parameter is required when the
+   *          provider type is <code>device</code>.</p>
+   * @public
+   */
+  DeviceOptions?: ModifyVerifiedAccessTrustProviderDeviceOptions | undefined;
+
+  /**
+   * <p>A description for the Verified Access trust provider.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The options for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+
+  /**
+   * <p>The OpenID Connect (OIDC) options.</p>
+   * @public
+   */
+  NativeApplicationOidcOptions?: ModifyVerifiedAccessNativeApplicationOidcOptions | undefined;
+}
 
 /**
  * @public

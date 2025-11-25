@@ -6,6 +6,7 @@ import {
   BgpStatus,
   ConnectionNotificationState,
   ConnectionNotificationType,
+  DatafeedSubscriptionState,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
   DeleteFleetErrorCode,
@@ -118,8 +119,44 @@ import {
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
-  SpotDatafeedSubscription,
+  SpotInstanceStateFault,
 } from "./models_1";
+
+/**
+ * <p>Describes the data feed for a Spot Instance.</p>
+ * @public
+ */
+export interface SpotDatafeedSubscription {
+  /**
+   * <p>The name of the Amazon S3 bucket where the Spot Instance data feed is located.</p>
+   * @public
+   */
+  Bucket?: string | undefined;
+
+  /**
+   * <p>The fault codes for the Spot Instance request, if any.</p>
+   * @public
+   */
+  Fault?: SpotInstanceStateFault | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The prefix for the data feed files.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The state of the Spot Instance data feed subscription.</p>
+   * @public
+   */
+  State?: DatafeedSubscriptionState | undefined;
+}
 
 /**
  * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
@@ -8942,15 +8979,4 @@ export interface DeleteTransitGatewayPolicyTableRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTransitGatewayPolicyTableResult {
-  /**
-   * <p>Provides details about the deleted transit gateway policy table.</p>
-   * @public
-   */
-  TransitGatewayPolicyTable?: TransitGatewayPolicyTable | undefined;
 }

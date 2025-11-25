@@ -18,7 +18,6 @@ import {
   CopyTagsFromSource,
   CpuManufacturer,
   CurrencyCodeValues,
-  DatafeedSubscriptionState,
   DefaultTargetCapacityType,
   DestinationFileFormat,
   DiskImageFormat,
@@ -77,6 +76,9 @@ import {
   LogDestinationType,
   MacSystemIntegrityProtectionSettingStatus,
   MarketType,
+  NatGatewayApplianceModifyState,
+  NatGatewayApplianceState,
+  NatGatewayApplianceType,
   NatGatewayState,
   NetworkInterfaceCreationType,
   NetworkInterfacePermissionStateCode,
@@ -10632,6 +10634,54 @@ export interface CreateNatGatewayRequest {
 }
 
 /**
+ * <p>Information about an appliance attached to a NAT Gateway, providing managed security solutions for traffic filtering and inspection.</p>
+ * @public
+ */
+export interface NatGatewayAttachedAppliance {
+  /**
+   * <p>The type of appliance attached to the NAT Gateway. For network firewall proxy functionality, this will be "network-firewall-proxy".</p>
+   * @public
+   */
+  Type?: NatGatewayApplianceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the attached appliance, identifying the specific proxy or security appliance resource.</p>
+   * @public
+   */
+  ApplianceArn?: string | undefined;
+
+  /**
+   * <p>The VPC endpoint ID used to route traffic from application VPCs to the proxy for inspection and filtering.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The current attachment state of the appliance.</p>
+   * @public
+   */
+  AttachmentState?: NatGatewayApplianceState | undefined;
+
+  /**
+   * <p>The current modification state of the appliance.</p>
+   * @public
+   */
+  ModificationState?: NatGatewayApplianceModifyState | undefined;
+
+  /**
+   * <p>The failure code if the appliance attachment or modification operation failed.</p>
+   * @public
+   */
+  FailureCode?: string | undefined;
+
+  /**
+   * <p>A descriptive message explaining the failure if the appliance attachment or modification operation failed.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+}
+
+/**
  * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-gateways">documented limits</a>,
  *           contact Amazon Web Services Support.</p>
  * @public
@@ -10818,6 +10868,12 @@ export interface NatGateway {
    * @public
    */
   AutoProvisionZones?: AutoProvisionZonesState | undefined;
+
+  /**
+   * <p>The proxy appliances attached to the NAT Gateway for filtering and inspecting traffic to prevent data exfiltration.</p>
+   * @public
+   */
+  AttachedAppliances?: NatGatewayAttachedAppliance[] | undefined;
 
   /**
    * <p>For regional NAT gateways only, this is the ID of the NAT gateway.</p>
@@ -14273,40 +14329,4 @@ export interface SpotInstanceStateFault {
    * @public
    */
   Message?: string | undefined;
-}
-
-/**
- * <p>Describes the data feed for a Spot Instance.</p>
- * @public
- */
-export interface SpotDatafeedSubscription {
-  /**
-   * <p>The name of the Amazon S3 bucket where the Spot Instance data feed is located.</p>
-   * @public
-   */
-  Bucket?: string | undefined;
-
-  /**
-   * <p>The fault codes for the Spot Instance request, if any.</p>
-   * @public
-   */
-  Fault?: SpotInstanceStateFault | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The prefix for the data feed files.</p>
-   * @public
-   */
-  Prefix?: string | undefined;
-
-  /**
-   * <p>The state of the Spot Instance data feed subscription.</p>
-   * @public
-   */
-  State?: DatafeedSubscriptionState | undefined;
 }
