@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
+
+
+### Features
+
+* **client-route-53:** Adds support for new route53 feature: accelerated recovery. ([dbe0a58](https://github.com/aws/aws-sdk-js-v3/commit/dbe0a58f8de1c9919049dd9f9ea7443f4feb46c5))
+
+
+
+
+
 # [3.939.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.938.0...v3.939.0) (2025-11-24)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
+
+
+### Features
+
+* **client-organizations:** Add support for policy operations on the S3_POLICY and BEDROCK_POLICY policy type. ([75e196e](https://github.com/aws/aws-sdk-js-v3/commit/75e196ee52c6ec3e1fee97d715e92d9d38ad3f0d))
+
+
+
+
+
 # [3.939.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.938.0...v3.939.0) (2025-11-24)
 
 **Note:** Version bump only for package @aws-sdk/client-organizations

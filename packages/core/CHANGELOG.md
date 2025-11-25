@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
+
+
+### Bug Fixes
+
+* **core/protocols:** performance improvements for shape serde traversal ([#7523](https://github.com/aws/aws-sdk-js-v3/issues/7523)) ([b20a25e](https://github.com/aws/aws-sdk-js-v3/commit/b20a25eab019b6795afc2db74f87be12e1c22bf9))
+
+
+
+
+
 # [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/core

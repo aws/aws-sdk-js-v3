@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
+
+
+### Features
+
+* **client-network-firewall:** Network Firewall release of the Proxy feature. ([0eb20e8](https://github.com/aws/aws-sdk-js-v3/commit/0eb20e887961327021849393df0ac5f30497ab8b))
+
+
+
+
+
 # [3.939.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.938.0...v3.939.0) (2025-11-24)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

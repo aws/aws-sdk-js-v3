@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
+
+
+### Bug Fixes
+
+* **core/protocols:** performance improvements for shape serde traversal ([#7523](https://github.com/aws/aws-sdk-js-v3/issues/7523)) ([b20a25e](https://github.com/aws/aws-sdk-js-v3/commit/b20a25eab019b6795afc2db74f87be12e1c22bf9))
+
+
+### Features
+
+* **client-ec2:** This release adds support to view Network firewall proxy appliances attached to an existing NAT Gateway via DescribeNatGateways API NatGatewayAttachedAppliance structure. ([7d70b06](https://github.com/aws/aws-sdk-js-v3/commit/7d70b063103b71d5ae67bd2bf31ba423382e6352))
+* **client-network-firewall:** Network Firewall release of the Proxy feature. ([0eb20e8](https://github.com/aws/aws-sdk-js-v3/commit/0eb20e887961327021849393df0ac5f30497ab8b))
+* **client-organizations:** Add support for policy operations on the S3_POLICY and BEDROCK_POLICY policy type. ([75e196e](https://github.com/aws/aws-sdk-js-v3/commit/75e196ee52c6ec3e1fee97d715e92d9d38ad3f0d))
+* **client-route-53:** Adds support for new route53 feature: accelerated recovery. ([dbe0a58](https://github.com/aws/aws-sdk-js-v3/commit/dbe0a58f8de1c9919049dd9f9ea7443f4feb46c5))
+* **clients:** update client endpoints as of 2025-11-25 ([e277090](https://github.com/aws/aws-sdk-js-v3/commit/e27709045616337e38c5118cfb895908792b404f))
+
+
+
+
+
 # [3.939.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.938.0...v3.939.0) (2025-11-24)
 
 
