@@ -267,6 +267,10 @@ import {
   UpdateHostedZoneCommentCommandOutput,
 } from "./commands/UpdateHostedZoneCommentCommand";
 import {
+  UpdateHostedZoneFeaturesCommandInput,
+  UpdateHostedZoneFeaturesCommandOutput,
+} from "./commands/UpdateHostedZoneFeaturesCommand";
+import {
   UpdateTrafficPolicyCommentCommandInput,
   UpdateTrafficPolicyCommentCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommentCommand";
@@ -357,6 +361,7 @@ export type ServiceInputTypes =
   | TestDNSAnswerCommandInput
   | UpdateHealthCheckCommandInput
   | UpdateHostedZoneCommentCommandInput
+  | UpdateHostedZoneFeaturesCommandInput
   | UpdateTrafficPolicyCommentCommandInput
   | UpdateTrafficPolicyInstanceCommandInput;
 
@@ -432,6 +437,7 @@ export type ServiceOutputTypes =
   | TestDNSAnswerCommandOutput
   | UpdateHealthCheckCommandOutput
   | UpdateHostedZoneCommentCommandOutput
+  | UpdateHostedZoneFeaturesCommandOutput
   | UpdateTrafficPolicyCommentCommandOutput
   | UpdateTrafficPolicyInstanceCommandOutput;
 

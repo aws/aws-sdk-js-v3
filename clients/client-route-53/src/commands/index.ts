@@ -67,5 +67,6 @@ export * from "./ListVPCAssociationAuthorizationsCommand";
 export * from "./TestDNSAnswerCommand";
 export * from "./UpdateHealthCheckCommand";
 export * from "./UpdateHostedZoneCommentCommand";
+export * from "./UpdateHostedZoneFeaturesCommand";
 export * from "./UpdateTrafficPolicyCommentCommand";
 export * from "./UpdateTrafficPolicyInstanceCommand";

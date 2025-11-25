@@ -3,6 +3,25 @@
  * @public
  * @enum
  */
+export const AcceleratedRecoveryStatus = {
+  DISABLED: "DISABLED",
+  DISABLE_FAILED: "DISABLE_FAILED",
+  DISABLING: "DISABLING",
+  DISABLING_HOSTED_ZONE_LOCKED: "DISABLING_HOSTED_ZONE_LOCKED",
+  ENABLED: "ENABLED",
+  ENABLE_FAILED: "ENABLE_FAILED",
+  ENABLING: "ENABLING",
+  ENABLING_HOSTED_ZONE_LOCKED: "ENABLING_HOSTED_ZONE_LOCKED",
+} as const;
+/**
+ * @public
+ */
+export type AcceleratedRecoveryStatus = (typeof AcceleratedRecoveryStatus)[keyof typeof AcceleratedRecoveryStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AccountLimitType = {
   MAX_HEALTH_CHECKS_BY_OWNER: "MAX_HEALTH_CHECKS_BY_OWNER",
   MAX_HOSTED_ZONES_BY_OWNER: "MAX_HOSTED_ZONES_BY_OWNER",

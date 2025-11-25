@@ -4,6 +4,8 @@ const _AKSK = "ActivateKeySigningKey";
 const _AKSKR = "ActivateKeySigningKeyRequest";
 const _AKSKRc = "ActivateKeySigningKeyResponse";
 const _AL = "AccountLimit";
+const _AR = "AcceleratedRecovery";
+const _ARS = "AcceleratedRecoveryStatus";
 const _AT = "AliasTarget";
 const _ATd = "AddTags";
 const _AVPCWHZ = "AssociateVPCWithHostedZone";
@@ -156,6 +158,7 @@ const _De = "Description";
 const _Di = "Dimension";
 const _Dis = "Disabled";
 const _Do = "Document";
+const _EAR = "EnableAcceleratedRecovery";
 const _EDNSCSIP = "EDNS0ClientSubnetIP";
 const _EDNSCSM = "EDNS0ClientSubnetMask";
 const _EHZDNSSEC = "EnableHostedZoneDNSSEC";
@@ -165,10 +168,12 @@ const _EM = "ErrorMessages";
 const _EP = "EvaluationPeriods";
 const _ESNI = "EnableSNI";
 const _ETH = "EvaluateTargetHealth";
-const _F = "Flag";
+const _F = "Features";
 const _FQDN = "FullyQualifiedDomainName";
+const _FR = "FailureReasons";
 const _FT = "FailureThreshold";
 const _Fa = "Failover";
+const _Fl = "Flag";
 const _GAL = "GetAccountLimit";
 const _GALR = "GetAccountLimitRequest";
 const _GALRe = "GetAccountLimitResponse";
@@ -244,6 +249,8 @@ const _HZ = "HostedZone";
 const _HZAE = "HostedZoneAlreadyExists";
 const _HZC = "HostedZoneConfig";
 const _HZCo = "HostedZoneCount";
+const _HZF = "HostedZoneFeatures";
+const _HZFR = "HostedZoneFailureReasons";
 const _HZI = "HostedZoneId";
 const _HZIM = "HostedZoneIdMarker";
 const _HZL = "HostedZoneLimit";
@@ -493,6 +500,9 @@ const _UHCRp = "UpdateHealthCheckResponse";
 const _UHZC = "UpdateHostedZoneComment";
 const _UHZCR = "UpdateHostedZoneCommentRequest";
 const _UHZCRp = "UpdateHostedZoneCommentResponse";
+const _UHZF = "UpdateHostedZoneFeatures";
+const _UHZFR = "UpdateHostedZoneFeaturesRequest";
+const _UHZFRp = "UpdateHostedZoneFeaturesResponse";
 const _UTPC = "UpdateTrafficPolicyComment";
 const _UTPCR = "UpdateTrafficPolicyCommentRequest";
 const _UTPCRp = "UpdateTrafficPolicyCommentResponse";
@@ -1422,8 +1432,8 @@ export var HostedZone: StaticStructureSchema = [
   n0,
   _HZ,
   0,
-  [_I, _N, _CR, _Con, _RRSC, _LS],
-  [0, 0, 0, () => HostedZoneConfig, 1, () => LinkedService],
+  [_I, _N, _CR, _Con, _RRSC, _LS, _F],
+  [0, 0, 0, () => HostedZoneConfig, 1, () => LinkedService, () => HostedZoneFeatures],
 ];
 export var HostedZoneAlreadyExists: StaticErrorSchema = [
   -3,
@@ -1439,6 +1449,15 @@ export var HostedZoneAlreadyExists: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(HostedZoneAlreadyExists, __HostedZoneAlreadyExists);
 
 export var HostedZoneConfig: StaticStructureSchema = [3, n0, _HZC, 0, [_C, _PZ], [0, 2]];
+export var HostedZoneFailureReasons: StaticStructureSchema = [3, n0, _HZFR, 0, [_AR], [0]];
+export var HostedZoneFeatures: StaticStructureSchema = [
+  3,
+  n0,
+  _HZF,
+  0,
+  [_ARS, _FR],
+  [0, () => HostedZoneFailureReasons],
+];
 export var HostedZoneLimit: StaticStructureSchema = [3, n0, _HZL, 0, [_T, _V], [0, 1]];
 export var HostedZoneNotEmpty: StaticErrorSchema = [
   -3,
@@ -1664,7 +1683,7 @@ export var KeySigningKey: StaticStructureSchema = [
   n0,
   _KSK,
   0,
-  [_N, _KA, _F, _SAM, _SAT, _DAM, _DAT, _KT, _DV, _PK, _DSR, _DNSKEYR, _S, _SM, _CD, _LMD],
+  [_N, _KA, _Fl, _SAM, _SAT, _DAM, _DAT, _KT, _DV, _PK, _DSR, _DNSKEYR, _S, _SM, _CD, _LMD],
   [0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4],
 ];
 export var KeySigningKeyAlreadyExists: StaticErrorSchema = [
@@ -2867,6 +2886,8 @@ export var UpdateHealthCheckRequest: StaticStructureSchema = [
 export var UpdateHealthCheckResponse: StaticStructureSchema = [3, n0, _UHCRp, 0, [_HC], [[() => HealthCheck, 0]]];
 export var UpdateHostedZoneCommentRequest: StaticStructureSchema = [3, n0, _UHZCR, 0, [_I, _C], [[0, 1], 0]];
 export var UpdateHostedZoneCommentResponse: StaticStructureSchema = [3, n0, _UHZCRp, 0, [_HZ], [() => HostedZone]];
+export var UpdateHostedZoneFeaturesRequest: StaticStructureSchema = [3, n0, _UHZFR, 0, [_HZI, _EAR], [[0, 1], 2]];
+export var UpdateHostedZoneFeaturesResponse: StaticStructureSchema = [3, n0, _UHZFRp, 0, [], []];
 export var UpdateTrafficPolicyCommentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3929,6 +3950,16 @@ export var UpdateHostedZoneComment: StaticOperationSchema = [
   },
   () => UpdateHostedZoneCommentRequest,
   () => UpdateHostedZoneCommentResponse,
+];
+export var UpdateHostedZoneFeatures: StaticOperationSchema = [
+  9,
+  n0,
+  _UHZF,
+  {
+    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/features", 200],
+  },
+  () => UpdateHostedZoneFeaturesRequest,
+  () => UpdateHostedZoneFeaturesResponse,
 ];
 export var UpdateTrafficPolicyComment: StaticOperationSchema = [
   9,

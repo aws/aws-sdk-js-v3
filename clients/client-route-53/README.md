@@ -765,6 +765,14 @@ UpdateHostedZoneComment
 </details>
 <details>
 <summary>
+UpdateHostedZoneFeatures
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53/command/UpdateHostedZoneFeaturesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/UpdateHostedZoneFeaturesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53/Interface/UpdateHostedZoneFeaturesCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateTrafficPolicyComment
 </summary>
 

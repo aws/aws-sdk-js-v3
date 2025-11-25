@@ -114,6 +114,12 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * //         ServicePrincipal: "STRING_VALUE",
  * //         Description: "STRING_VALUE",
  * //       },
+ * //       Features: { // HostedZoneFeatures
+ * //         AcceleratedRecoveryStatus: "ENABLING" || "ENABLE_FAILED" || "ENABLING_HOSTED_ZONE_LOCKED" || "ENABLED" || "DISABLING" || "DISABLE_FAILED" || "DISABLED" || "DISABLING_HOSTED_ZONE_LOCKED",
+ * //         FailureReasons: { // HostedZoneFailureReasons
+ * //           AcceleratedRecovery: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   DNSName: "STRING_VALUE",

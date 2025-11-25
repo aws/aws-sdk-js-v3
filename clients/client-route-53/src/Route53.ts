@@ -335,6 +335,11 @@ import {
   UpdateHostedZoneCommentCommandOutput,
 } from "./commands/UpdateHostedZoneCommentCommand";
 import {
+  UpdateHostedZoneFeaturesCommand,
+  UpdateHostedZoneFeaturesCommandInput,
+  UpdateHostedZoneFeaturesCommandOutput,
+} from "./commands/UpdateHostedZoneFeaturesCommand";
+import {
   UpdateTrafficPolicyCommentCommand,
   UpdateTrafficPolicyCommentCommandInput,
   UpdateTrafficPolicyCommentCommandOutput,
@@ -415,6 +420,7 @@ const commands = {
   TestDNSAnswerCommand,
   UpdateHealthCheckCommand,
   UpdateHostedZoneCommentCommand,
+  UpdateHostedZoneFeaturesCommand,
   UpdateTrafficPolicyCommentCommand,
   UpdateTrafficPolicyInstanceCommand,
 };
@@ -1549,6 +1555,23 @@ export interface Route53 {
     args: UpdateHostedZoneCommentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateHostedZoneCommentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateHostedZoneFeaturesCommand}
+   */
+  updateHostedZoneFeatures(
+    args: UpdateHostedZoneFeaturesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHostedZoneFeaturesCommandOutput>;
+  updateHostedZoneFeatures(
+    args: UpdateHostedZoneFeaturesCommandInput,
+    cb: (err: any, data?: UpdateHostedZoneFeaturesCommandOutput) => void
+  ): void;
+  updateHostedZoneFeatures(
+    args: UpdateHostedZoneFeaturesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHostedZoneFeaturesCommandOutput) => void
   ): void;
 
   /**

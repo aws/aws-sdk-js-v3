@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  AcceleratedRecoveryStatus,
   AccountLimitType,
   ChangeAction,
   ChangeStatus,
@@ -2115,6 +2116,9 @@ export interface HealthCheckConfig {
    * <p>The number of seconds between the time that Amazon Route 53 gets a response from your
    * 			endpoint and the time that it sends the next health check request. Each Route 53 health
    * 			checker makes requests at this interval.</p>
+   *          <p>
+   *             <code>RequestInterval</code> is not supported when you specify a value for
+   * 			<code>Type</code> of <code>RECOVERY_CONTROL</code>.</p>
    *          <important>
    *             <p>You can't change the value of <code>RequestInterval</code> after you create a
    * 				health check.</p>
@@ -2130,7 +2134,10 @@ export interface HealthCheckConfig {
    * 			Route 53 to change the current status of the endpoint from unhealthy to healthy or vice
    * 			versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the
    * 				<i>Amazon Route 53 Developer Guide</i>.</p>
-   *          <p>If you don't specify a value for <code>FailureThreshold</code>, the default value is
+   *          <p>
+   *             <code>FailureThreshold</code> is not supported when you specify a value for
+   * 			<code>Type</code> of <code>RECOVERY_CONTROL</code>.</p>
+   *          <p>Otherwise, if you don't specify a value for <code>FailureThreshold</code>, the default value is
    * 			three health checks.</p>
    * @public
    */
@@ -2141,6 +2148,9 @@ export interface HealthCheckConfig {
    * 			checkers in multiple Amazon Web Services regions and your endpoint, and to display
    * 			CloudWatch latency graphs on the <b>Health Checks</b> page in
    * 			the Route 53 console.</p>
+   *          <p>
+   *             <code>MeasureLatency</code> is not supported when you specify a value for
+   * 			<code>Type</code> of <code>RECOVERY_CONTROL</code>.</p>
    *          <important>
    *             <p>You can't change the value of <code>MeasureLatency</code> after you create a
    * 				health check.</p>
@@ -2644,6 +2654,36 @@ export interface DelegationSet {
 }
 
 /**
+ * <p>Contains information about why certain features failed to be enabled or configured for the hosted zone.</p>
+ * @public
+ */
+export interface HostedZoneFailureReasons {
+  /**
+   * <p>The reason why accelerated recovery failed to be enabled or disabled for the hosted zone, if applicable.</p>
+   * @public
+   */
+  AcceleratedRecovery?: string | undefined;
+}
+
+/**
+ * <p>Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.</p>
+ * @public
+ */
+export interface HostedZoneFeatures {
+  /**
+   * <p>The current status of accelerated recovery for the hosted zone.</p>
+   * @public
+   */
+  AcceleratedRecoveryStatus?: AcceleratedRecoveryStatus | undefined;
+
+  /**
+   * <p>Information about any failures that occurred when attempting to enable or configure features for the hosted zone.</p>
+   * @public
+   */
+  FailureReasons?: HostedZoneFailureReasons | undefined;
+}
+
+/**
  * <p>A complex type that contains general information about the hosted zone.</p>
  * @public
  */
@@ -2693,6 +2733,12 @@ export interface HostedZone {
    * @public
    */
   LinkedService?: LinkedService | undefined;
+
+  /**
+   * <p>The features configuration for the hosted zone, including accelerated recovery settings and status information.</p>
+   * @public
+   */
+  Features?: HostedZoneFeatures | undefined;
 }
 
 /**
@@ -6661,7 +6707,7 @@ export interface UpdateHealthCheckRequest {
    * 			Route 53 to change the current status of the endpoint from unhealthy to healthy or vice
    * 			versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the
    * 				<i>Amazon Route 53 Developer Guide</i>.</p>
-   *          <p>If you don't specify a value for <code>FailureThreshold</code>, the default value is
+   *          <p>Otherwise, if you don't specify a value for <code>FailureThreshold</code>, the default value is
    * 			three health checks.</p>
    * @public
    */
@@ -6876,6 +6922,28 @@ export interface UpdateHostedZoneCommentResponse {
    */
   HostedZone: HostedZone | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateHostedZoneFeaturesRequest {
+  /**
+   * <p>The ID of the hosted zone for which you want to update features. This is the unique identifier for your hosted zone.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable accelerated recovery for the hosted zone. Set to <code>true</code> to enable accelerated recovery, or <code>false</code> to disable it.</p>
+   * @public
+   */
+  EnableAcceleratedRecovery?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHostedZoneFeaturesResponse {}
 
 /**
  * <p>A complex type that contains information about the traffic policy that you want to

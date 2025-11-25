@@ -60,6 +60,12 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * //       ServicePrincipal: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //     },
+ * //     Features: { // HostedZoneFeatures
+ * //       AcceleratedRecoveryStatus: "ENABLING" || "ENABLE_FAILED" || "ENABLING_HOSTED_ZONE_LOCKED" || "ENABLED" || "DISABLING" || "DISABLE_FAILED" || "DISABLED" || "DISABLING_HOSTED_ZONE_LOCKED",
+ * //       FailureReasons: { // HostedZoneFailureReasons
+ * //         AcceleratedRecovery: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   DelegationSet: { // DelegationSet
  * //     Id: "STRING_VALUE",
