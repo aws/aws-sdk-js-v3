@@ -12,6 +12,7 @@ import type {
 import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
+import { serializingStructIterator } from "../structIterator";
 import type { QuerySerializerSettings } from "./QuerySerializerSettings";
 
 /**
@@ -119,7 +120,7 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
       }
     } else if (ns.isStructSchema()) {
       if (value && typeof value === "object") {
-        for (const [memberName, member] of ns.structIterator()) {
+        for (const [memberName, member] of serializingStructIterator(ns, value)) {
           if ((value as any)[memberName] == null && !member.isIdempotencyToken()) {
             continue;
           }

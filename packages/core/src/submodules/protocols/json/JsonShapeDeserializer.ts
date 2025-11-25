@@ -18,6 +18,7 @@ import type {
 import { fromBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
+import { deserializingStructIterator } from "../structIterator";
 import { JsonSettings } from "./JsonCodec";
 import { jsonReviver } from "./jsonReviver";
 import { parseJsonBody } from "./parseJsonBody";
@@ -69,7 +70,11 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       return out;
     } else if (ns.isStructSchema() && isObject) {
       const out = {} as any;
-      for (const [memberName, memberSchema] of ns.structIterator()) {
+      for (const [memberName, memberSchema] of deserializingStructIterator(
+        ns,
+        value,
+        this.settings.jsonName ? "jsonName" : false
+      )) {
         const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
         const deserializedValue = this._read(memberSchema, (value as any)[fromKey]);
         if (deserializedValue != null) {
