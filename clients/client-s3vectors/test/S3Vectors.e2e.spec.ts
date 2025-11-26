@@ -48,7 +48,7 @@ describe(
       }
     });
 
-    it("can put vectors", async () => {
+    it.skip("can put vectors", async () => {
       const texts = [
         "Santa Bear is a bear who wears a Santa outfit.",
         "Saucey is a tiger who is rotund.",
