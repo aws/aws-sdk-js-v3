@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
+import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateServiceEnvironmentRequest, UpdateServiceEnvironmentResponse } from "../models/models_0";
+import type { UpdateServiceEnvironmentRequest, UpdateServiceEnvironmentResponse } from "../models/models_0";
 import { UpdateServiceEnvironment } from "../schemas/schemas_0";
 
 /**

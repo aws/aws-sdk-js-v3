@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchDetectDominantLanguageCommand,
@@ -419,7 +419,7 @@ import {
   UpdateFlywheelCommandInput,
   UpdateFlywheelCommandOutput,
 } from "./commands/UpdateFlywheelCommand";
-import { ComprehendClient, ComprehendClientConfig } from "./ComprehendClient";
+import { ComprehendClient } from "./ComprehendClient";
 
 const commands = {
   BatchDetectDominantLanguageCommand,

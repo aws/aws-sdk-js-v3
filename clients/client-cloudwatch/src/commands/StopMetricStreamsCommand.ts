@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
+import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopMetricStreamsInput, StopMetricStreamsOutput } from "../models/models_0";
+import type { StopMetricStreamsInput, StopMetricStreamsOutput } from "../models/models_0";
 import { StopMetricStreams } from "../schemas/schemas_0";
 
 /**

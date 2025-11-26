@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { DirectConnectClientConfig } from "./DirectConnectClient";
+import type { DirectConnectClientConfig } from "./DirectConnectClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

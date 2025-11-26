@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { PaginationConfiguration } from "@smithy/types";
+import type { PaginationConfiguration } from "@smithy/types";
 
 import { GreengrassV2Client } from "../GreengrassV2Client";
 

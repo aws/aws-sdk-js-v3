@@ -2,8 +2,8 @@
 import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import {
+  type DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommand,
-  DescribeBatchPredictionsCommandInput,
 } from "../commands/DescribeBatchPredictionsCommand";
 import { MachineLearningClient } from "../MachineLearningClient";
 

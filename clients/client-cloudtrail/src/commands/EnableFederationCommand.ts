@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
+import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableFederationRequest, EnableFederationResponse } from "../models/models_0";
+import type { EnableFederationRequest, EnableFederationResponse } from "../models/models_0";
 import { EnableFederation } from "../schemas/schemas_0";
 
 /**

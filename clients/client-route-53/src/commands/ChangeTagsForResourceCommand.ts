@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/models_0";
-import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import type { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/models_0";
+import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ChangeTagsForResource } from "../schemas/schemas_0";
 
 /**

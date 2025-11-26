@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAlarmModelCommand,
@@ -112,7 +112,7 @@ import {
   UpdateDetectorModelCommandOutput,
 } from "./commands/UpdateDetectorModelCommand";
 import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
-import { IoTEventsClient, IoTEventsClientConfig } from "./IoTEventsClient";
+import { IoTEventsClient } from "./IoTEventsClient";
 
 const commands = {
   CreateAlarmModelCommand,

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import type {
+  CloudDirectoryClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchWriteRequest, BatchWriteResponse } from "../models/models_0";
+import type { BatchWriteRequest, BatchWriteResponse } from "../models/models_0";
 import { BatchWrite } from "../schemas/schemas_0";
 
 /**

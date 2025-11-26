@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   InvokeEndpointAsyncCommand,
@@ -17,7 +17,7 @@ import {
   InvokeEndpointWithResponseStreamCommandInput,
   InvokeEndpointWithResponseStreamCommandOutput,
 } from "./commands/InvokeEndpointWithResponseStreamCommand";
-import { SageMakerRuntimeClient, SageMakerRuntimeClientConfig } from "./SageMakerRuntimeClient";
+import { SageMakerRuntimeClient } from "./SageMakerRuntimeClient";
 
 const commands = {
   InvokeEndpointCommand,

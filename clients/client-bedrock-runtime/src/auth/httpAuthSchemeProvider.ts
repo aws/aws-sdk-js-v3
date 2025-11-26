@@ -8,19 +8,19 @@ import {
 import { FromSsoInit } from "@aws-sdk/token-providers";
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {
+  type HttpAuthOption,
+  type HttpAuthScheme,
+  type HttpAuthSchemeParameters,
+  type HttpAuthSchemeParametersProvider,
+  type HttpAuthSchemeProvider,
+  type Provider,
   HandlerExecutionContext,
-  HttpAuthOption,
-  HttpAuthScheme,
-  HttpAuthSchemeParameters,
-  HttpAuthSchemeParametersProvider,
-  HttpAuthSchemeProvider,
-  Provider,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { BedrockRuntimeClientConfig, BedrockRuntimeClientResolvedConfig } from "../BedrockRuntimeClient";
+import { type BedrockRuntimeClientResolvedConfig, BedrockRuntimeClientConfig } from "../BedrockRuntimeClient";
 
 /**
  * @internal

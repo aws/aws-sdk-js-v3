@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
@@ -21,103 +21,115 @@ import {
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
+  type EndpointInputConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type ClientProtocol,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type HttpRequest,
+  type HttpResponse,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  ClientProtocol,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  HttpRequest,
-  HttpResponse,
-  Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultMachineLearningHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
-import {
+import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import type {
   CreateBatchPredictionCommandInput,
   CreateBatchPredictionCommandOutput,
 } from "./commands/CreateBatchPredictionCommand";
-import {
+import type {
   CreateDataSourceFromRDSCommandInput,
   CreateDataSourceFromRDSCommandOutput,
 } from "./commands/CreateDataSourceFromRDSCommand";
-import {
+import type {
   CreateDataSourceFromRedshiftCommandInput,
   CreateDataSourceFromRedshiftCommandOutput,
 } from "./commands/CreateDataSourceFromRedshiftCommand";
-import {
+import type {
   CreateDataSourceFromS3CommandInput,
   CreateDataSourceFromS3CommandOutput,
 } from "./commands/CreateDataSourceFromS3Command";
-import { CreateEvaluationCommandInput, CreateEvaluationCommandOutput } from "./commands/CreateEvaluationCommand";
-import { CreateMLModelCommandInput, CreateMLModelCommandOutput } from "./commands/CreateMLModelCommand";
-import {
+import type { CreateEvaluationCommandInput, CreateEvaluationCommandOutput } from "./commands/CreateEvaluationCommand";
+import type { CreateMLModelCommandInput, CreateMLModelCommandOutput } from "./commands/CreateMLModelCommand";
+import type {
   CreateRealtimeEndpointCommandInput,
   CreateRealtimeEndpointCommandOutput,
 } from "./commands/CreateRealtimeEndpointCommand";
-import {
+import type {
   DeleteBatchPredictionCommandInput,
   DeleteBatchPredictionCommandOutput,
 } from "./commands/DeleteBatchPredictionCommand";
-import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
-import { DeleteEvaluationCommandInput, DeleteEvaluationCommandOutput } from "./commands/DeleteEvaluationCommand";
-import { DeleteMLModelCommandInput, DeleteMLModelCommandOutput } from "./commands/DeleteMLModelCommand";
-import {
+import type { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import type { DeleteEvaluationCommandInput, DeleteEvaluationCommandOutput } from "./commands/DeleteEvaluationCommand";
+import type { DeleteMLModelCommandInput, DeleteMLModelCommandOutput } from "./commands/DeleteMLModelCommand";
+import type {
   DeleteRealtimeEndpointCommandInput,
   DeleteRealtimeEndpointCommandOutput,
 } from "./commands/DeleteRealtimeEndpointCommand";
-import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
-import {
+import type { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import type {
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput,
 } from "./commands/DescribeBatchPredictionsCommand";
-import {
+import type {
   DescribeDataSourcesCommandInput,
   DescribeDataSourcesCommandOutput,
 } from "./commands/DescribeDataSourcesCommand";
-import {
+import type {
   DescribeEvaluationsCommandInput,
   DescribeEvaluationsCommandOutput,
 } from "./commands/DescribeEvaluationsCommand";
-import { DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput } from "./commands/DescribeMLModelsCommand";
-import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
-import { GetBatchPredictionCommandInput, GetBatchPredictionCommandOutput } from "./commands/GetBatchPredictionCommand";
-import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
-import { GetEvaluationCommandInput, GetEvaluationCommandOutput } from "./commands/GetEvaluationCommand";
-import { GetMLModelCommandInput, GetMLModelCommandOutput } from "./commands/GetMLModelCommand";
-import { PredictCommandInput, PredictCommandOutput } from "./commands/PredictCommand";
-import {
+import type { DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput } from "./commands/DescribeMLModelsCommand";
+import type { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import type {
+  GetBatchPredictionCommandInput,
+  GetBatchPredictionCommandOutput,
+} from "./commands/GetBatchPredictionCommand";
+import type { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import type { GetEvaluationCommandInput, GetEvaluationCommandOutput } from "./commands/GetEvaluationCommand";
+import type { GetMLModelCommandInput, GetMLModelCommandOutput } from "./commands/GetMLModelCommand";
+import type { PredictCommandInput, PredictCommandOutput } from "./commands/PredictCommand";
+import type {
   UpdateBatchPredictionCommandInput,
   UpdateBatchPredictionCommandOutput,
 } from "./commands/UpdateBatchPredictionCommand";
-import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
-import { UpdateEvaluationCommandInput, UpdateEvaluationCommandOutput } from "./commands/UpdateEvaluationCommand";
-import { UpdateMLModelCommandInput, UpdateMLModelCommandOutput } from "./commands/UpdateMLModelCommand";
+import type { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import type { UpdateEvaluationCommandInput, UpdateEvaluationCommandOutput } from "./commands/UpdateEvaluationCommand";
+import type { UpdateMLModelCommandInput, UpdateMLModelCommandOutput } from "./commands/UpdateMLModelCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -125,7 +137,7 @@ import {
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 

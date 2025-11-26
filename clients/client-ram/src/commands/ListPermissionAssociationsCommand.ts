@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPermissionAssociationsRequest, ListPermissionAssociationsResponse } from "../models/models_0";
-import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import type { ListPermissionAssociationsRequest, ListPermissionAssociationsResponse } from "../models/models_0";
+import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { ListPermissionAssociations } from "../schemas/schemas_0";
 
 /**

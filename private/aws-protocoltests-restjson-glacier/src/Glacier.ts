@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   UploadArchiveCommand,
@@ -12,7 +12,7 @@ import {
   UploadMultipartPartCommandInput,
   UploadMultipartPartCommandOutput,
 } from "./commands/UploadMultipartPartCommand";
-import { GlacierClient, GlacierClientConfig } from "./GlacierClient";
+import { GlacierClient } from "./GlacierClient";
 
 const commands = {
   UploadArchiveCommand,

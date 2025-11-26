@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ContentTypeParametersCommand,
@@ -78,7 +78,7 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
-import { JSONRPC10Client, JSONRPC10ClientConfig } from "./JSONRPC10Client";
+import { JSONRPC10Client } from "./JSONRPC10Client";
 
 const commands = {
   ContentTypeParametersCommand,

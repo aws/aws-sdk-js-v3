@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/models_0";
+import type {
+  MachineLearningClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../MachineLearningClient";
+import type { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/models_0";
 import { CreateDataSourceFromS3 } from "../schemas/schemas_0";
 
 /**

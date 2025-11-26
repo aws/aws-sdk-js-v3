@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { AutoScalingPlansClientConfig } from "./AutoScalingPlansClient";
+import type { AutoScalingPlansClientConfig } from "./AutoScalingPlansClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

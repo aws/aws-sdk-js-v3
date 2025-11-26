@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
+import type {
+  AutoScalingPlansClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AutoScalingPlansClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateScalingPlanRequest, CreateScalingPlanResponse } from "../models/models_0";
+import type { CreateScalingPlanRequest, CreateScalingPlanResponse } from "../models/models_0";
 import { CreateScalingPlan } from "../schemas/schemas_0";
 
 /**

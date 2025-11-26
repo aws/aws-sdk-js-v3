@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { GetMapTileRequest, GetMapTileResponse } from "../models/models_0";
+import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { type GetMapTileRequest, GetMapTileResponse } from "../models/models_0";
 import { GetMapTile } from "../schemas/schemas_0";
 
 /**

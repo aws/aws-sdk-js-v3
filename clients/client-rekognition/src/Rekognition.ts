@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateFacesCommand,
@@ -333,7 +333,7 @@ import {
   UpdateStreamProcessorCommandInput,
   UpdateStreamProcessorCommandOutput,
 } from "./commands/UpdateStreamProcessorCommand";
-import { RekognitionClient, RekognitionClientConfig } from "./RekognitionClient";
+import { RekognitionClient } from "./RekognitionClient";
 
 const commands = {
   AssociateFacesCommand,

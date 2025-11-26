@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { EntityResolutionClientConfig } from "./EntityResolutionClient";
+import type { EntityResolutionClientConfig } from "./EntityResolutionClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetMetricsCommand,
@@ -12,7 +12,7 @@ import {
   BatchPutMetricsCommandInput,
   BatchPutMetricsCommandOutput,
 } from "./commands/BatchPutMetricsCommand";
-import { SageMakerMetricsClient, SageMakerMetricsClientConfig } from "./SageMakerMetricsClient";
+import { SageMakerMetricsClient } from "./SageMakerMetricsClient";
 
 const commands = {
   BatchGetMetricsCommand,

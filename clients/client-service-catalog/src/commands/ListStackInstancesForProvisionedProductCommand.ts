@@ -1,15 +1,19 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ListStackInstancesForProvisionedProductInput,
   ListStackInstancesForProvisionedProductOutput,
 } from "../models/models_0";
 import { ListStackInstancesForProvisionedProduct } from "../schemas/schemas_0";
-import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
+import type {
+  ServiceCatalogClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ServiceCatalogClient";
 
 /**
  * @public

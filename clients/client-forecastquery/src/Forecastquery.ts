@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   QueryForecastCommand,
@@ -12,7 +12,7 @@ import {
   QueryWhatIfForecastCommandInput,
   QueryWhatIfForecastCommandOutput,
 } from "./commands/QueryWhatIfForecastCommand";
-import { ForecastqueryClient, ForecastqueryClientConfig } from "./ForecastqueryClient";
+import { ForecastqueryClient } from "./ForecastqueryClient";
 
 const commands = {
   QueryForecastCommand,

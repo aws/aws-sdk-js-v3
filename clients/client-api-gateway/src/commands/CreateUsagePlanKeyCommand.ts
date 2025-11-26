@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
+import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateUsagePlanKeyRequest, UsagePlanKey } from "../models/models_0";
+import type { CreateUsagePlanKeyRequest, UsagePlanKey } from "../models/models_0";
 import { CreateUsagePlanKey } from "../schemas/schemas_0";
 
 /**

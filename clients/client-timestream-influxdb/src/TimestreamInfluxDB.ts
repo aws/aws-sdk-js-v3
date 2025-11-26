@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateDbClusterCommand,
@@ -83,7 +83,7 @@ import {
   UpdateDbInstanceCommandInput,
   UpdateDbInstanceCommandOutput,
 } from "./commands/UpdateDbInstanceCommand";
-import { TimestreamInfluxDBClient, TimestreamInfluxDBClientConfig } from "./TimestreamInfluxDBClient";
+import { TimestreamInfluxDBClient } from "./TimestreamInfluxDBClient";
 
 const commands = {
   CreateDbClusterCommand,

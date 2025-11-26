@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { LookoutEquipmentClientConfig } from "./LookoutEquipmentClient";
+import type { LookoutEquipmentClientConfig } from "./LookoutEquipmentClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

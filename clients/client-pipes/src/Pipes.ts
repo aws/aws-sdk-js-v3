@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CreatePipeCommand, CreatePipeCommandInput, CreatePipeCommandOutput } from "./commands/CreatePipeCommand";
 import { DeletePipeCommand, DeletePipeCommandInput, DeletePipeCommandOutput } from "./commands/DeletePipeCommand";
@@ -24,7 +24,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdatePipeCommand, UpdatePipeCommandInput, UpdatePipeCommandOutput } from "./commands/UpdatePipeCommand";
-import { PipesClient, PipesClientConfig } from "./PipesClient";
+import { PipesClient } from "./PipesClient";
 
 const commands = {
   CreatePipeCommand,

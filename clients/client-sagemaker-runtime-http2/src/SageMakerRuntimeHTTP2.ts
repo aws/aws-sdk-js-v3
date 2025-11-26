@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   InvokeEndpointWithBidirectionalStreamCommand,
   InvokeEndpointWithBidirectionalStreamCommandInput,
   InvokeEndpointWithBidirectionalStreamCommandOutput,
 } from "./commands/InvokeEndpointWithBidirectionalStreamCommand";
-import { SageMakerRuntimeHTTP2Client, SageMakerRuntimeHTTP2ClientConfig } from "./SageMakerRuntimeHTTP2Client";
+import { SageMakerRuntimeHTTP2Client } from "./SageMakerRuntimeHTTP2Client";
 
 const commands = {
   InvokeEndpointWithBidirectionalStreamCommand,

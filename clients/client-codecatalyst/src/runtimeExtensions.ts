@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { CodeCatalystExtensionConfiguration } from "./extensionConfiguration";
+import type { CodeCatalystExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

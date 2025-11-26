@@ -1,549 +1,557 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AllQueryStringTypesCommandInput,
+  type AllQueryStringTypesCommandOutput,
   AllQueryStringTypesCommand,
-  AllQueryStringTypesCommandInput,
-  AllQueryStringTypesCommandOutput,
 } from "./commands/AllQueryStringTypesCommand";
 import {
+  type ConstantAndVariableQueryStringCommandInput,
+  type ConstantAndVariableQueryStringCommandOutput,
   ConstantAndVariableQueryStringCommand,
-  ConstantAndVariableQueryStringCommandInput,
-  ConstantAndVariableQueryStringCommandOutput,
 } from "./commands/ConstantAndVariableQueryStringCommand";
 import {
+  type ConstantQueryStringCommandInput,
+  type ConstantQueryStringCommandOutput,
   ConstantQueryStringCommand,
-  ConstantQueryStringCommandInput,
-  ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
+  type ContentTypeParametersCommandInput,
+  type ContentTypeParametersCommandOutput,
   ContentTypeParametersCommand,
-  ContentTypeParametersCommandInput,
-  ContentTypeParametersCommandOutput,
 } from "./commands/ContentTypeParametersCommand";
 import {
+  type DatetimeOffsetsCommandInput,
+  type DatetimeOffsetsCommandOutput,
   DatetimeOffsetsCommand,
-  DatetimeOffsetsCommandInput,
-  DatetimeOffsetsCommandOutput,
 } from "./commands/DatetimeOffsetsCommand";
 import {
+  type DocumentTypeAsMapValueCommandInput,
+  type DocumentTypeAsMapValueCommandOutput,
   DocumentTypeAsMapValueCommand,
-  DocumentTypeAsMapValueCommandInput,
-  DocumentTypeAsMapValueCommandOutput,
 } from "./commands/DocumentTypeAsMapValueCommand";
 import {
+  type DocumentTypeAsPayloadCommandInput,
+  type DocumentTypeAsPayloadCommandOutput,
   DocumentTypeAsPayloadCommand,
-  DocumentTypeAsPayloadCommandInput,
-  DocumentTypeAsPayloadCommandOutput,
 } from "./commands/DocumentTypeAsPayloadCommand";
 import {
+  type DocumentTypeCommandInput,
+  type DocumentTypeCommandOutput,
   DocumentTypeCommand,
-  DocumentTypeCommandInput,
-  DocumentTypeCommandOutput,
 } from "./commands/DocumentTypeCommand";
 import {
+  type DuplexStreamCommandInput,
+  type DuplexStreamCommandOutput,
   DuplexStreamCommand,
-  DuplexStreamCommandInput,
-  DuplexStreamCommandOutput,
 } from "./commands/DuplexStreamCommand";
 import {
+  type DuplexStreamWithDistinctStreamsCommandInput,
+  type DuplexStreamWithDistinctStreamsCommandOutput,
   DuplexStreamWithDistinctStreamsCommand,
-  DuplexStreamWithDistinctStreamsCommandInput,
-  DuplexStreamWithDistinctStreamsCommandOutput,
 } from "./commands/DuplexStreamWithDistinctStreamsCommand";
 import {
+  type DuplexStreamWithInitialMessagesCommandInput,
+  type DuplexStreamWithInitialMessagesCommandOutput,
   DuplexStreamWithInitialMessagesCommand,
-  DuplexStreamWithInitialMessagesCommandInput,
-  DuplexStreamWithInitialMessagesCommandOutput,
 } from "./commands/DuplexStreamWithInitialMessagesCommand";
 import {
+  type EmptyInputAndEmptyOutputCommandInput,
+  type EmptyInputAndEmptyOutputCommandOutput,
   EmptyInputAndEmptyOutputCommand,
-  EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
 import {
+  type EndpointOperationCommandInput,
+  type EndpointOperationCommandOutput,
   EndpointOperationCommand,
-  EndpointOperationCommandInput,
-  EndpointOperationCommandOutput,
 } from "./commands/EndpointOperationCommand";
 import {
+  type EndpointWithHostLabelOperationCommandInput,
+  type EndpointWithHostLabelOperationCommandOutput,
   EndpointWithHostLabelOperationCommand,
-  EndpointWithHostLabelOperationCommandInput,
-  EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import {
+  type FractionalSecondsCommandInput,
+  type FractionalSecondsCommandOutput,
   FractionalSecondsCommand,
-  FractionalSecondsCommandInput,
-  FractionalSecondsCommandOutput,
 } from "./commands/FractionalSecondsCommand";
 import {
+  type GreetingWithErrorsCommandInput,
+  type GreetingWithErrorsCommandOutput,
   GreetingWithErrorsCommand,
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  type HostWithPathOperationCommandInput,
+  type HostWithPathOperationCommandOutput,
   HostWithPathOperationCommand,
-  HostWithPathOperationCommandInput,
-  HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
 import {
+  type HttpChecksumRequiredCommandInput,
+  type HttpChecksumRequiredCommandOutput,
   HttpChecksumRequiredCommand,
-  HttpChecksumRequiredCommandInput,
-  HttpChecksumRequiredCommandOutput,
 } from "./commands/HttpChecksumRequiredCommand";
 import {
+  type HttpEmptyPrefixHeadersCommandInput,
+  type HttpEmptyPrefixHeadersCommandOutput,
   HttpEmptyPrefixHeadersCommand,
-  HttpEmptyPrefixHeadersCommandInput,
-  HttpEmptyPrefixHeadersCommandOutput,
 } from "./commands/HttpEmptyPrefixHeadersCommand";
 import {
+  type HttpEnumPayloadCommandInput,
+  type HttpEnumPayloadCommandOutput,
   HttpEnumPayloadCommand,
-  HttpEnumPayloadCommandInput,
-  HttpEnumPayloadCommandOutput,
 } from "./commands/HttpEnumPayloadCommand";
 import {
+  type HttpPayloadTraitsCommandInput,
+  type HttpPayloadTraitsCommandOutput,
   HttpPayloadTraitsCommand,
-  HttpPayloadTraitsCommandInput,
-  HttpPayloadTraitsCommandOutput,
 } from "./commands/HttpPayloadTraitsCommand";
 import {
+  type HttpPayloadTraitsWithMediaTypeCommandInput,
+  type HttpPayloadTraitsWithMediaTypeCommandOutput,
   HttpPayloadTraitsWithMediaTypeCommand,
-  HttpPayloadTraitsWithMediaTypeCommandInput,
-  HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
+  type HttpPayloadWithStructureCommandInput,
+  type HttpPayloadWithStructureCommandOutput,
   HttpPayloadWithStructureCommand,
-  HttpPayloadWithStructureCommandInput,
-  HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
 import {
+  type HttpPayloadWithUnionCommandInput,
+  type HttpPayloadWithUnionCommandOutput,
   HttpPayloadWithUnionCommand,
-  HttpPayloadWithUnionCommandInput,
-  HttpPayloadWithUnionCommandOutput,
 } from "./commands/HttpPayloadWithUnionCommand";
 import {
+  type HttpPrefixHeadersCommandInput,
+  type HttpPrefixHeadersCommandOutput,
   HttpPrefixHeadersCommand,
-  HttpPrefixHeadersCommandInput,
-  HttpPrefixHeadersCommandOutput,
 } from "./commands/HttpPrefixHeadersCommand";
 import {
+  type HttpPrefixHeadersInResponseCommandInput,
+  type HttpPrefixHeadersInResponseCommandOutput,
   HttpPrefixHeadersInResponseCommand,
-  HttpPrefixHeadersInResponseCommandInput,
-  HttpPrefixHeadersInResponseCommandOutput,
 } from "./commands/HttpPrefixHeadersInResponseCommand";
 import {
+  type HttpQueryParamsOnlyOperationCommandInput,
+  type HttpQueryParamsOnlyOperationCommandOutput,
   HttpQueryParamsOnlyOperationCommand,
-  HttpQueryParamsOnlyOperationCommandInput,
-  HttpQueryParamsOnlyOperationCommandOutput,
 } from "./commands/HttpQueryParamsOnlyOperationCommand";
 import {
+  type HttpRequestWithFloatLabelsCommandInput,
+  type HttpRequestWithFloatLabelsCommandOutput,
   HttpRequestWithFloatLabelsCommand,
-  HttpRequestWithFloatLabelsCommandInput,
-  HttpRequestWithFloatLabelsCommandOutput,
 } from "./commands/HttpRequestWithFloatLabelsCommand";
 import {
+  type HttpRequestWithGreedyLabelInPathCommandInput,
+  type HttpRequestWithGreedyLabelInPathCommandOutput,
   HttpRequestWithGreedyLabelInPathCommand,
-  HttpRequestWithGreedyLabelInPathCommandInput,
-  HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "./commands/HttpRequestWithGreedyLabelInPathCommand";
 import {
+  type HttpRequestWithLabelsAndTimestampFormatCommandInput,
+  type HttpRequestWithLabelsAndTimestampFormatCommandOutput,
   HttpRequestWithLabelsAndTimestampFormatCommand,
-  HttpRequestWithLabelsAndTimestampFormatCommandInput,
-  HttpRequestWithLabelsAndTimestampFormatCommandOutput,
 } from "./commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import {
+  type HttpRequestWithLabelsCommandInput,
+  type HttpRequestWithLabelsCommandOutput,
   HttpRequestWithLabelsCommand,
-  HttpRequestWithLabelsCommandInput,
-  HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
 import {
+  type HttpRequestWithRegexLiteralCommandInput,
+  type HttpRequestWithRegexLiteralCommandOutput,
   HttpRequestWithRegexLiteralCommand,
-  HttpRequestWithRegexLiteralCommandInput,
-  HttpRequestWithRegexLiteralCommandOutput,
 } from "./commands/HttpRequestWithRegexLiteralCommand";
 import {
+  type HttpResponseCodeCommandInput,
+  type HttpResponseCodeCommandOutput,
   HttpResponseCodeCommand,
-  HttpResponseCodeCommandInput,
-  HttpResponseCodeCommandOutput,
 } from "./commands/HttpResponseCodeCommand";
 import {
+  type HttpStringPayloadCommandInput,
+  type HttpStringPayloadCommandOutput,
   HttpStringPayloadCommand,
-  HttpStringPayloadCommandInput,
-  HttpStringPayloadCommandOutput,
 } from "./commands/HttpStringPayloadCommand";
 import {
+  type IgnoreQueryParamsInResponseCommandInput,
+  type IgnoreQueryParamsInResponseCommandOutput,
   IgnoreQueryParamsInResponseCommand,
-  IgnoreQueryParamsInResponseCommandInput,
-  IgnoreQueryParamsInResponseCommandOutput,
 } from "./commands/IgnoreQueryParamsInResponseCommand";
 import {
+  type InputAndOutputWithHeadersCommandInput,
+  type InputAndOutputWithHeadersCommandOutput,
   InputAndOutputWithHeadersCommand,
-  InputAndOutputWithHeadersCommandInput,
-  InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
-import { InputStreamCommand, InputStreamCommandInput, InputStreamCommandOutput } from "./commands/InputStreamCommand";
 import {
+  type InputStreamCommandInput,
+  type InputStreamCommandOutput,
+  InputStreamCommand,
+} from "./commands/InputStreamCommand";
+import {
+  type InputStreamWithInitialRequestCommandInput,
+  type InputStreamWithInitialRequestCommandOutput,
   InputStreamWithInitialRequestCommand,
-  InputStreamWithInitialRequestCommandInput,
-  InputStreamWithInitialRequestCommandOutput,
 } from "./commands/InputStreamWithInitialRequestCommand";
-import { JsonBlobsCommand, JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
-import { JsonEnumsCommand, JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { type JsonBlobsCommandInput, type JsonBlobsCommandOutput, JsonBlobsCommand } from "./commands/JsonBlobsCommand";
+import { type JsonEnumsCommandInput, type JsonEnumsCommandOutput, JsonEnumsCommand } from "./commands/JsonEnumsCommand";
 import {
+  type JsonIntEnumsCommandInput,
+  type JsonIntEnumsCommandOutput,
   JsonIntEnumsCommand,
-  JsonIntEnumsCommandInput,
-  JsonIntEnumsCommandOutput,
 } from "./commands/JsonIntEnumsCommand";
-import { JsonListsCommand, JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
-import { JsonMapsCommand, JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
+import { type JsonListsCommandInput, type JsonListsCommandOutput, JsonListsCommand } from "./commands/JsonListsCommand";
+import { type JsonMapsCommandInput, type JsonMapsCommandOutput, JsonMapsCommand } from "./commands/JsonMapsCommand";
 import {
+  type JsonTimestampsCommandInput,
+  type JsonTimestampsCommandOutput,
   JsonTimestampsCommand,
-  JsonTimestampsCommandInput,
-  JsonTimestampsCommandOutput,
 } from "./commands/JsonTimestampsCommand";
-import { JsonUnionsCommand, JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
+  type JsonUnionsCommandInput,
+  type JsonUnionsCommandOutput,
+  JsonUnionsCommand,
+} from "./commands/JsonUnionsCommand";
+import {
+  type MalformedAcceptWithBodyCommandInput,
+  type MalformedAcceptWithBodyCommandOutput,
   MalformedAcceptWithBodyCommand,
-  MalformedAcceptWithBodyCommandInput,
-  MalformedAcceptWithBodyCommandOutput,
 } from "./commands/MalformedAcceptWithBodyCommand";
 import {
+  type MalformedAcceptWithGenericStringCommandInput,
+  type MalformedAcceptWithGenericStringCommandOutput,
   MalformedAcceptWithGenericStringCommand,
-  MalformedAcceptWithGenericStringCommandInput,
-  MalformedAcceptWithGenericStringCommandOutput,
 } from "./commands/MalformedAcceptWithGenericStringCommand";
 import {
+  type MalformedAcceptWithPayloadCommandInput,
+  type MalformedAcceptWithPayloadCommandOutput,
   MalformedAcceptWithPayloadCommand,
-  MalformedAcceptWithPayloadCommandInput,
-  MalformedAcceptWithPayloadCommandOutput,
 } from "./commands/MalformedAcceptWithPayloadCommand";
 import {
+  type MalformedBlobCommandInput,
+  type MalformedBlobCommandOutput,
   MalformedBlobCommand,
-  MalformedBlobCommandInput,
-  MalformedBlobCommandOutput,
 } from "./commands/MalformedBlobCommand";
 import {
+  type MalformedBooleanCommandInput,
+  type MalformedBooleanCommandOutput,
   MalformedBooleanCommand,
-  MalformedBooleanCommandInput,
-  MalformedBooleanCommandOutput,
 } from "./commands/MalformedBooleanCommand";
 import {
+  type MalformedByteCommandInput,
+  type MalformedByteCommandOutput,
   MalformedByteCommand,
-  MalformedByteCommandInput,
-  MalformedByteCommandOutput,
 } from "./commands/MalformedByteCommand";
 import {
+  type MalformedContentTypeWithBodyCommandInput,
+  type MalformedContentTypeWithBodyCommandOutput,
   MalformedContentTypeWithBodyCommand,
-  MalformedContentTypeWithBodyCommandInput,
-  MalformedContentTypeWithBodyCommandOutput,
 } from "./commands/MalformedContentTypeWithBodyCommand";
 import {
+  type MalformedContentTypeWithGenericStringCommandInput,
+  type MalformedContentTypeWithGenericStringCommandOutput,
   MalformedContentTypeWithGenericStringCommand,
-  MalformedContentTypeWithGenericStringCommandInput,
-  MalformedContentTypeWithGenericStringCommandOutput,
 } from "./commands/MalformedContentTypeWithGenericStringCommand";
 import {
+  type MalformedContentTypeWithoutBodyCommandInput,
+  type MalformedContentTypeWithoutBodyCommandOutput,
   MalformedContentTypeWithoutBodyCommand,
-  MalformedContentTypeWithoutBodyCommandInput,
-  MalformedContentTypeWithoutBodyCommandOutput,
 } from "./commands/MalformedContentTypeWithoutBodyCommand";
 import {
+  type MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  type MalformedContentTypeWithoutBodyEmptyInputCommandOutput,
   MalformedContentTypeWithoutBodyEmptyInputCommand,
-  MalformedContentTypeWithoutBodyEmptyInputCommandInput,
-  MalformedContentTypeWithoutBodyEmptyInputCommandOutput,
 } from "./commands/MalformedContentTypeWithoutBodyEmptyInputCommand";
 import {
+  type MalformedContentTypeWithPayloadCommandInput,
+  type MalformedContentTypeWithPayloadCommandOutput,
   MalformedContentTypeWithPayloadCommand,
-  MalformedContentTypeWithPayloadCommandInput,
-  MalformedContentTypeWithPayloadCommandOutput,
 } from "./commands/MalformedContentTypeWithPayloadCommand";
 import {
+  type MalformedDoubleCommandInput,
+  type MalformedDoubleCommandOutput,
   MalformedDoubleCommand,
-  MalformedDoubleCommandInput,
-  MalformedDoubleCommandOutput,
 } from "./commands/MalformedDoubleCommand";
 import {
+  type MalformedFloatCommandInput,
+  type MalformedFloatCommandOutput,
   MalformedFloatCommand,
-  MalformedFloatCommandInput,
-  MalformedFloatCommandOutput,
 } from "./commands/MalformedFloatCommand";
 import {
+  type MalformedIntegerCommandInput,
+  type MalformedIntegerCommandOutput,
   MalformedIntegerCommand,
-  MalformedIntegerCommandInput,
-  MalformedIntegerCommandOutput,
 } from "./commands/MalformedIntegerCommand";
 import {
+  type MalformedListCommandInput,
+  type MalformedListCommandOutput,
   MalformedListCommand,
-  MalformedListCommandInput,
-  MalformedListCommandOutput,
 } from "./commands/MalformedListCommand";
 import {
+  type MalformedLongCommandInput,
+  type MalformedLongCommandOutput,
   MalformedLongCommand,
-  MalformedLongCommandInput,
-  MalformedLongCommandOutput,
 } from "./commands/MalformedLongCommand";
 import {
+  type MalformedMapCommandInput,
+  type MalformedMapCommandOutput,
   MalformedMapCommand,
-  MalformedMapCommandInput,
-  MalformedMapCommandOutput,
 } from "./commands/MalformedMapCommand";
 import {
+  type MalformedRequestBodyCommandInput,
+  type MalformedRequestBodyCommandOutput,
   MalformedRequestBodyCommand,
-  MalformedRequestBodyCommandInput,
-  MalformedRequestBodyCommandOutput,
 } from "./commands/MalformedRequestBodyCommand";
 import {
+  type MalformedShortCommandInput,
+  type MalformedShortCommandOutput,
   MalformedShortCommand,
-  MalformedShortCommandInput,
-  MalformedShortCommandOutput,
 } from "./commands/MalformedShortCommand";
 import {
+  type MalformedStringCommandInput,
+  type MalformedStringCommandOutput,
   MalformedStringCommand,
-  MalformedStringCommandInput,
-  MalformedStringCommandOutput,
 } from "./commands/MalformedStringCommand";
 import {
+  type MalformedTimestampBodyDateTimeCommandInput,
+  type MalformedTimestampBodyDateTimeCommandOutput,
   MalformedTimestampBodyDateTimeCommand,
-  MalformedTimestampBodyDateTimeCommandInput,
-  MalformedTimestampBodyDateTimeCommandOutput,
 } from "./commands/MalformedTimestampBodyDateTimeCommand";
 import {
+  type MalformedTimestampBodyDefaultCommandInput,
+  type MalformedTimestampBodyDefaultCommandOutput,
   MalformedTimestampBodyDefaultCommand,
-  MalformedTimestampBodyDefaultCommandInput,
-  MalformedTimestampBodyDefaultCommandOutput,
 } from "./commands/MalformedTimestampBodyDefaultCommand";
 import {
+  type MalformedTimestampBodyHttpDateCommandInput,
+  type MalformedTimestampBodyHttpDateCommandOutput,
   MalformedTimestampBodyHttpDateCommand,
-  MalformedTimestampBodyHttpDateCommandInput,
-  MalformedTimestampBodyHttpDateCommandOutput,
 } from "./commands/MalformedTimestampBodyHttpDateCommand";
 import {
+  type MalformedTimestampHeaderDateTimeCommandInput,
+  type MalformedTimestampHeaderDateTimeCommandOutput,
   MalformedTimestampHeaderDateTimeCommand,
-  MalformedTimestampHeaderDateTimeCommandInput,
-  MalformedTimestampHeaderDateTimeCommandOutput,
 } from "./commands/MalformedTimestampHeaderDateTimeCommand";
 import {
+  type MalformedTimestampHeaderDefaultCommandInput,
+  type MalformedTimestampHeaderDefaultCommandOutput,
   MalformedTimestampHeaderDefaultCommand,
-  MalformedTimestampHeaderDefaultCommandInput,
-  MalformedTimestampHeaderDefaultCommandOutput,
 } from "./commands/MalformedTimestampHeaderDefaultCommand";
 import {
+  type MalformedTimestampHeaderEpochCommandInput,
+  type MalformedTimestampHeaderEpochCommandOutput,
   MalformedTimestampHeaderEpochCommand,
-  MalformedTimestampHeaderEpochCommandInput,
-  MalformedTimestampHeaderEpochCommandOutput,
 } from "./commands/MalformedTimestampHeaderEpochCommand";
 import {
+  type MalformedTimestampPathDefaultCommandInput,
+  type MalformedTimestampPathDefaultCommandOutput,
   MalformedTimestampPathDefaultCommand,
-  MalformedTimestampPathDefaultCommandInput,
-  MalformedTimestampPathDefaultCommandOutput,
 } from "./commands/MalformedTimestampPathDefaultCommand";
 import {
+  type MalformedTimestampPathEpochCommandInput,
+  type MalformedTimestampPathEpochCommandOutput,
   MalformedTimestampPathEpochCommand,
-  MalformedTimestampPathEpochCommandInput,
-  MalformedTimestampPathEpochCommandOutput,
 } from "./commands/MalformedTimestampPathEpochCommand";
 import {
+  type MalformedTimestampPathHttpDateCommandInput,
+  type MalformedTimestampPathHttpDateCommandOutput,
   MalformedTimestampPathHttpDateCommand,
-  MalformedTimestampPathHttpDateCommandInput,
-  MalformedTimestampPathHttpDateCommandOutput,
 } from "./commands/MalformedTimestampPathHttpDateCommand";
 import {
+  type MalformedTimestampQueryDefaultCommandInput,
+  type MalformedTimestampQueryDefaultCommandOutput,
   MalformedTimestampQueryDefaultCommand,
-  MalformedTimestampQueryDefaultCommandInput,
-  MalformedTimestampQueryDefaultCommandOutput,
 } from "./commands/MalformedTimestampQueryDefaultCommand";
 import {
+  type MalformedTimestampQueryEpochCommandInput,
+  type MalformedTimestampQueryEpochCommandOutput,
   MalformedTimestampQueryEpochCommand,
-  MalformedTimestampQueryEpochCommandInput,
-  MalformedTimestampQueryEpochCommandOutput,
 } from "./commands/MalformedTimestampQueryEpochCommand";
 import {
+  type MalformedTimestampQueryHttpDateCommandInput,
+  type MalformedTimestampQueryHttpDateCommandOutput,
   MalformedTimestampQueryHttpDateCommand,
-  MalformedTimestampQueryHttpDateCommandInput,
-  MalformedTimestampQueryHttpDateCommandOutput,
 } from "./commands/MalformedTimestampQueryHttpDateCommand";
 import {
+  type MalformedUnionCommandInput,
+  type MalformedUnionCommandOutput,
   MalformedUnionCommand,
-  MalformedUnionCommandInput,
-  MalformedUnionCommandOutput,
 } from "./commands/MalformedUnionCommand";
 import {
+  type MediaTypeHeaderCommandInput,
+  type MediaTypeHeaderCommandOutput,
   MediaTypeHeaderCommand,
-  MediaTypeHeaderCommandInput,
-  MediaTypeHeaderCommandOutput,
 } from "./commands/MediaTypeHeaderCommand";
 import {
+  type NoInputAndNoOutputCommandInput,
+  type NoInputAndNoOutputCommandOutput,
   NoInputAndNoOutputCommand,
-  NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput,
 } from "./commands/NoInputAndNoOutputCommand";
 import {
+  type NoInputAndOutputCommandInput,
+  type NoInputAndOutputCommandOutput,
   NoInputAndOutputCommand,
-  NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput,
 } from "./commands/NoInputAndOutputCommand";
 import {
+  type NullAndEmptyHeadersClientCommandInput,
+  type NullAndEmptyHeadersClientCommandOutput,
   NullAndEmptyHeadersClientCommand,
-  NullAndEmptyHeadersClientCommandInput,
-  NullAndEmptyHeadersClientCommandOutput,
 } from "./commands/NullAndEmptyHeadersClientCommand";
 import {
+  type NullAndEmptyHeadersServerCommandInput,
+  type NullAndEmptyHeadersServerCommandOutput,
   NullAndEmptyHeadersServerCommand,
-  NullAndEmptyHeadersServerCommandInput,
-  NullAndEmptyHeadersServerCommandOutput,
 } from "./commands/NullAndEmptyHeadersServerCommand";
 import {
+  type OmitsNullSerializesEmptyStringCommandInput,
+  type OmitsNullSerializesEmptyStringCommandOutput,
   OmitsNullSerializesEmptyStringCommand,
-  OmitsNullSerializesEmptyStringCommandInput,
-  OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import {
+  type OmitsSerializingEmptyListsCommandInput,
+  type OmitsSerializingEmptyListsCommandOutput,
   OmitsSerializingEmptyListsCommand,
-  OmitsSerializingEmptyListsCommandInput,
-  OmitsSerializingEmptyListsCommandOutput,
 } from "./commands/OmitsSerializingEmptyListsCommand";
 import {
+  type OperationWithDefaultsCommandInput,
+  type OperationWithDefaultsCommandOutput,
   OperationWithDefaultsCommand,
-  OperationWithDefaultsCommandInput,
-  OperationWithDefaultsCommandOutput,
 } from "./commands/OperationWithDefaultsCommand";
 import {
+  type OperationWithNestedStructureCommandInput,
+  type OperationWithNestedStructureCommandOutput,
   OperationWithNestedStructureCommand,
-  OperationWithNestedStructureCommandInput,
-  OperationWithNestedStructureCommandOutput,
 } from "./commands/OperationWithNestedStructureCommand";
 import {
+  type OutputStreamCommandInput,
+  type OutputStreamCommandOutput,
   OutputStreamCommand,
-  OutputStreamCommandInput,
-  OutputStreamCommandOutput,
 } from "./commands/OutputStreamCommand";
 import {
+  type OutputStreamWithInitialResponseCommandInput,
+  type OutputStreamWithInitialResponseCommandOutput,
   OutputStreamWithInitialResponseCommand,
-  OutputStreamWithInitialResponseCommandInput,
-  OutputStreamWithInitialResponseCommandOutput,
 } from "./commands/OutputStreamWithInitialResponseCommand";
 import {
+  type PostPlayerActionCommandInput,
+  type PostPlayerActionCommandOutput,
   PostPlayerActionCommand,
-  PostPlayerActionCommandInput,
-  PostPlayerActionCommandOutput,
 } from "./commands/PostPlayerActionCommand";
 import {
+  type PostUnionWithJsonNameCommandInput,
+  type PostUnionWithJsonNameCommandOutput,
   PostUnionWithJsonNameCommand,
-  PostUnionWithJsonNameCommandInput,
-  PostUnionWithJsonNameCommandOutput,
 } from "./commands/PostUnionWithJsonNameCommand";
 import {
+  type PutWithContentEncodingCommandInput,
+  type PutWithContentEncodingCommandOutput,
   PutWithContentEncodingCommand,
-  PutWithContentEncodingCommandInput,
-  PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
 import {
+  type QueryIdempotencyTokenAutoFillCommandInput,
+  type QueryIdempotencyTokenAutoFillCommandOutput,
   QueryIdempotencyTokenAutoFillCommand,
-  QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
 import {
+  type QueryParamsAsStringListMapCommandInput,
+  type QueryParamsAsStringListMapCommandOutput,
   QueryParamsAsStringListMapCommand,
-  QueryParamsAsStringListMapCommandInput,
-  QueryParamsAsStringListMapCommandOutput,
 } from "./commands/QueryParamsAsStringListMapCommand";
 import {
+  type QueryPrecedenceCommandInput,
+  type QueryPrecedenceCommandOutput,
   QueryPrecedenceCommand,
-  QueryPrecedenceCommandInput,
-  QueryPrecedenceCommandOutput,
 } from "./commands/QueryPrecedenceCommand";
 import {
+  type RecursiveShapesCommandInput,
+  type RecursiveShapesCommandOutput,
   RecursiveShapesCommand,
-  RecursiveShapesCommandInput,
-  RecursiveShapesCommandOutput,
 } from "./commands/RecursiveShapesCommand";
 import {
+  type ResponseCodeHttpFallbackCommandInput,
+  type ResponseCodeHttpFallbackCommandOutput,
   ResponseCodeHttpFallbackCommand,
-  ResponseCodeHttpFallbackCommandInput,
-  ResponseCodeHttpFallbackCommandOutput,
 } from "./commands/ResponseCodeHttpFallbackCommand";
 import {
+  type ResponseCodeRequiredCommandInput,
+  type ResponseCodeRequiredCommandOutput,
   ResponseCodeRequiredCommand,
-  ResponseCodeRequiredCommandInput,
-  ResponseCodeRequiredCommandOutput,
 } from "./commands/ResponseCodeRequiredCommand";
 import {
+  type SimpleScalarPropertiesCommandInput,
+  type SimpleScalarPropertiesCommandOutput,
   SimpleScalarPropertiesCommand,
-  SimpleScalarPropertiesCommandInput,
-  SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
 import {
+  type SparseJsonListsCommandInput,
+  type SparseJsonListsCommandOutput,
   SparseJsonListsCommand,
-  SparseJsonListsCommandInput,
-  SparseJsonListsCommandOutput,
 } from "./commands/SparseJsonListsCommand";
 import {
+  type SparseJsonMapsCommandInput,
+  type SparseJsonMapsCommandOutput,
   SparseJsonMapsCommand,
-  SparseJsonMapsCommandInput,
-  SparseJsonMapsCommandOutput,
 } from "./commands/SparseJsonMapsCommand";
 import {
+  type StreamingTraitsCommandInput,
+  type StreamingTraitsCommandOutput,
   StreamingTraitsCommand,
-  StreamingTraitsCommandInput,
-  StreamingTraitsCommandOutput,
 } from "./commands/StreamingTraitsCommand";
 import {
+  type StreamingTraitsRequireLengthCommandInput,
+  type StreamingTraitsRequireLengthCommandOutput,
   StreamingTraitsRequireLengthCommand,
-  StreamingTraitsRequireLengthCommandInput,
-  StreamingTraitsRequireLengthCommandOutput,
 } from "./commands/StreamingTraitsRequireLengthCommand";
 import {
+  type StreamingTraitsWithMediaTypeCommandInput,
+  type StreamingTraitsWithMediaTypeCommandOutput,
   StreamingTraitsWithMediaTypeCommand,
-  StreamingTraitsWithMediaTypeCommandInput,
-  StreamingTraitsWithMediaTypeCommandOutput,
 } from "./commands/StreamingTraitsWithMediaTypeCommand";
 import {
+  type TestBodyStructureCommandInput,
+  type TestBodyStructureCommandOutput,
   TestBodyStructureCommand,
-  TestBodyStructureCommandInput,
-  TestBodyStructureCommandOutput,
 } from "./commands/TestBodyStructureCommand";
 import {
+  type TestGetNoInputNoPayloadCommandInput,
+  type TestGetNoInputNoPayloadCommandOutput,
   TestGetNoInputNoPayloadCommand,
-  TestGetNoInputNoPayloadCommandInput,
-  TestGetNoInputNoPayloadCommandOutput,
 } from "./commands/TestGetNoInputNoPayloadCommand";
 import {
+  type TestGetNoPayloadCommandInput,
+  type TestGetNoPayloadCommandOutput,
   TestGetNoPayloadCommand,
-  TestGetNoPayloadCommandInput,
-  TestGetNoPayloadCommandOutput,
 } from "./commands/TestGetNoPayloadCommand";
 import {
+  type TestPayloadBlobCommandInput,
+  type TestPayloadBlobCommandOutput,
   TestPayloadBlobCommand,
-  TestPayloadBlobCommandInput,
-  TestPayloadBlobCommandOutput,
 } from "./commands/TestPayloadBlobCommand";
 import {
+  type TestPayloadStructureCommandInput,
+  type TestPayloadStructureCommandOutput,
   TestPayloadStructureCommand,
-  TestPayloadStructureCommandInput,
-  TestPayloadStructureCommandOutput,
 } from "./commands/TestPayloadStructureCommand";
 import {
+  type TestPostNoInputNoPayloadCommandInput,
+  type TestPostNoInputNoPayloadCommandOutput,
   TestPostNoInputNoPayloadCommand,
-  TestPostNoInputNoPayloadCommandInput,
-  TestPostNoInputNoPayloadCommandOutput,
 } from "./commands/TestPostNoInputNoPayloadCommand";
 import {
+  type TestPostNoPayloadCommandInput,
+  type TestPostNoPayloadCommandOutput,
   TestPostNoPayloadCommand,
-  TestPostNoPayloadCommandInput,
-  TestPostNoPayloadCommandOutput,
 } from "./commands/TestPostNoPayloadCommand";
 import {
+  type TimestampFormatHeadersCommandInput,
+  type TimestampFormatHeadersCommandOutput,
   TimestampFormatHeadersCommand,
-  TimestampFormatHeadersCommandInput,
-  TimestampFormatHeadersCommandOutput,
 } from "./commands/TimestampFormatHeadersCommand";
 import {
+  type UnitInputAndOutputCommandInput,
+  type UnitInputAndOutputCommandOutput,
   UnitInputAndOutputCommand,
-  UnitInputAndOutputCommandInput,
-  UnitInputAndOutputCommandOutput,
 } from "./commands/UnitInputAndOutputCommand";
-import { RestJsonProtocolClient, RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
+import { RestJsonProtocolClient } from "./RestJsonProtocolClient";
 
 const commands = {
   AllQueryStringTypesCommand,

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import type {
+  CloudFormationClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetHookResultInput, GetHookResultOutput } from "../models/models_0";
+import type { GetHookResultInput, GetHookResultOutput } from "../models/models_0";
 import { GetHookResult } from "../schemas/schemas_0";
 
 /**

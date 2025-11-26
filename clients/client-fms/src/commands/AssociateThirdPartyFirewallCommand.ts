@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse } from "../models/models_0";
+import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import type { AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse } from "../models/models_0";
 import { AssociateThirdPartyFirewall } from "../schemas/schemas_0";
 
 /**

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteRetentionPolicyRequest } from "../models/models_0";
+import type { DeleteRetentionPolicyRequest } from "../models/models_0";
 import { DeleteRetentionPolicy } from "../schemas/schemas_0";
 
 /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
+import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCollaborationMLInputChannelRequest, GetCollaborationMLInputChannelResponse } from "../models/models_0";
+import type { GetCollaborationMLInputChannelRequest, GetCollaborationMLInputChannelResponse } from "../models/models_0";
 import { GetCollaborationMLInputChannel } from "../schemas/schemas_0";
 
 /**

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { DetailsAttributes } from "./enums";
+import type { DetailsAttributes } from "./enums";
 
 /**
  * @public

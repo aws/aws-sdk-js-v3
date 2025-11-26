@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateClusterCommand,
@@ -54,7 +54,7 @@ import {
   UpdateClusterCommandInput,
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
-import { DSQLClient, DSQLClientConfig } from "./DSQLClient";
+import { DSQLClient } from "./DSQLClient";
 
 const commands = {
   CreateClusterCommand,

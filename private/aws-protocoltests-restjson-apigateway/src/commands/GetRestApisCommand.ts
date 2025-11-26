@@ -2,11 +2,11 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
+import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetRestApisRequest, RestApis } from "../models/models_0";
+import type { GetRestApisRequest, RestApis } from "../models/models_0";
 import { de_GetRestApisCommand, se_GetRestApisCommand } from "../protocols/Aws_restJson1";
 
 /**

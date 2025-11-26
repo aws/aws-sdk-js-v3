@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Encoder as __Encoder } from "@smithy/types";
-import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "stream";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { Encoder as __Encoder } from "@smithy/types";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";

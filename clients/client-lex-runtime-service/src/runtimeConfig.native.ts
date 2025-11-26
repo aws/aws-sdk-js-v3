@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { LexRuntimeServiceClientConfig } from "./LexRuntimeServiceClient";
+import type { LexRuntimeServiceClientConfig } from "./LexRuntimeServiceClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

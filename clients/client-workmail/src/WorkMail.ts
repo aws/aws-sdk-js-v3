@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateDelegateToResourceCommand,
@@ -414,7 +414,7 @@ import {
   UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { WorkMailClient, WorkMailClientConfig } from "./WorkMailClient";
+import { WorkMailClient } from "./WorkMailClient";
 
 const commands = {
   AssociateDelegateToResourceCommand,

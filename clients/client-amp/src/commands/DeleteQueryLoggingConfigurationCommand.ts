@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
+import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteQueryLoggingConfigurationRequest } from "../models/models_0";
+import type { DeleteQueryLoggingConfigurationRequest } from "../models/models_0";
 import { DeleteQueryLoggingConfiguration } from "../schemas/schemas_0";
 
 /**

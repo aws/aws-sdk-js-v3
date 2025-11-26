@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateEvaluationFormCommand,
@@ -1603,6 +1603,7 @@ import {
   UpdateViewMetadataCommandInput,
   UpdateViewMetadataCommandOutput,
 } from "./commands/UpdateViewMetadataCommand";
+<<<<<<< HEAD
 import {
   UpdateWorkspaceMetadataCommand,
   UpdateWorkspaceMetadataCommandInput,
@@ -1624,6 +1625,9 @@ import {
   UpdateWorkspaceVisibilityCommandOutput,
 } from "./commands/UpdateWorkspaceVisibilityCommand";
 import { ConnectClient, ConnectClientConfig } from "./ConnectClient";
+=======
+import { ConnectClient } from "./ConnectClient";
+>>>>>>> 60efd81940b (chore: codegen)
 
 const commands = {
   ActivateEvaluationFormCommand,

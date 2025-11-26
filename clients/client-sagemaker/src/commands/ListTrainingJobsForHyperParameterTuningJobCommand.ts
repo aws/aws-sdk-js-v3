@@ -1,14 +1,19 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
+<<<<<<< HEAD
 } from "../models/models_4";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+=======
+} from "../models/models_3";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+>>>>>>> 60efd81940b (chore: codegen)
 import { ListTrainingJobsForHyperParameterTuningJob } from "../schemas/schemas_0";
 
 /**

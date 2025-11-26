@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { Route53RecoveryControlConfigClientConfig } from "./Route53RecoveryControlConfigClient";
+import type { Route53RecoveryControlConfigClientConfig } from "./Route53RecoveryControlConfigClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

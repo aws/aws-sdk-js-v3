@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { DeletePackagingGroupRequest, DeletePackagingGroupResponse } from "../models/models_0";
+import type {
+  MediaPackageVodClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../MediaPackageVodClient";
+import type { DeletePackagingGroupRequest, DeletePackagingGroupResponse } from "../models/models_0";
 import { DeletePackagingGroup } from "../schemas/schemas_0";
 
 /**

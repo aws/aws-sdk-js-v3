@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { BackupSearchClientConfig } from "./BackupSearchClient";
+import type { BackupSearchClientConfig } from "./BackupSearchClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateMemberToFarmCommand,
@@ -407,7 +407,7 @@ import {
   UpdateWorkerScheduleCommandInput,
   UpdateWorkerScheduleCommandOutput,
 } from "./commands/UpdateWorkerScheduleCommand";
-import { DeadlineClient, DeadlineClientConfig } from "./DeadlineClient";
+import { DeadlineClient } from "./DeadlineClient";
 
 const commands = {
   AssociateMemberToFarmCommand,

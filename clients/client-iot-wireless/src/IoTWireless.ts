@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateAwsAccountWithPartnerAccountCommand,
@@ -550,7 +550,7 @@ import {
   UpdateWirelessGatewayCommandInput,
   UpdateWirelessGatewayCommandOutput,
 } from "./commands/UpdateWirelessGatewayCommand";
-import { IoTWirelessClient, IoTWirelessClientConfig } from "./IoTWirelessClient";
+import { IoTWirelessClient } from "./IoTWirelessClient";
 
 const commands = {
   AssociateAwsAccountWithPartnerAccountCommand,

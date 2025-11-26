@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAssociatedAccessPoliciesRequest, ListAssociatedAccessPoliciesResponse } from "../models/models_0";
+import type { ListAssociatedAccessPoliciesRequest, ListAssociatedAccessPoliciesResponse } from "../models/models_0";
 import { ListAssociatedAccessPolicies } from "../schemas/schemas_0";
 
 /**

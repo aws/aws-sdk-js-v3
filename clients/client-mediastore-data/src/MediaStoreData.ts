@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteObjectCommand,
@@ -15,7 +15,7 @@ import {
 import { GetObjectCommand, GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
 import { ListItemsCommand, ListItemsCommandInput, ListItemsCommandOutput } from "./commands/ListItemsCommand";
 import { PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
-import { MediaStoreDataClient, MediaStoreDataClientConfig } from "./MediaStoreDataClient";
+import { MediaStoreDataClient } from "./MediaStoreDataClient";
 
 const commands = {
   DeleteObjectCommand,

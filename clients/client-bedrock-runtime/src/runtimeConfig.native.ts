@@ -2,7 +2,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@smithy/invalid-dependency";
 
-import { BedrockRuntimeClientConfig } from "./BedrockRuntimeClient";
+import type { BedrockRuntimeClientConfig } from "./BedrockRuntimeClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

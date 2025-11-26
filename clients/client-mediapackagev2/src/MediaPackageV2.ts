@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelHarvestJobCommand,
@@ -144,7 +144,7 @@ import {
   UpdateOriginEndpointCommandInput,
   UpdateOriginEndpointCommandOutput,
 } from "./commands/UpdateOriginEndpointCommand";
-import { MediaPackageV2Client, MediaPackageV2ClientConfig } from "./MediaPackageV2Client";
+import { MediaPackageV2Client } from "./MediaPackageV2Client";
 
 const commands = {
   CancelHarvestJobCommand,

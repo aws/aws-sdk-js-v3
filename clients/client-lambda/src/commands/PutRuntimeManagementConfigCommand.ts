@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
+import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import type { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
 import { PutRuntimeManagementConfig } from "../schemas/schemas_0";
 
 /**

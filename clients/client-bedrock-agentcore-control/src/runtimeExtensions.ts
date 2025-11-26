@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { BedrockAgentCoreControlExtensionConfiguration } from "./extensionConfiguration";
+import type { BedrockAgentCoreControlExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

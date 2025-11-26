@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateClusterCommand,
@@ -95,7 +95,7 @@ import {
   UpdateSubnetGroupCommandInput,
   UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
-import { DAXClient, DAXClientConfig } from "./DAXClient";
+import { DAXClient } from "./DAXClient";
 
 const commands = {
   CreateClusterCommand,

@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { ApplicationAutoScalingClient, ApplicationAutoScalingClientConfig } from "./ApplicationAutoScalingClient";
+import { ApplicationAutoScalingClient } from "./ApplicationAutoScalingClient";
 import {
   DeleteScalingPolicyCommand,
   DeleteScalingPolicyCommandInput,

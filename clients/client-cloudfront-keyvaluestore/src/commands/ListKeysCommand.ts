@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   CloudFrontKeyValueStoreClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListKeysRequest, ListKeysResponse } from "../models/models_0";
+import type { ListKeysRequest, ListKeysResponse } from "../models/models_0";
 import { ListKeys } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetSecretValueCommand,
@@ -109,7 +109,7 @@ import {
   ValidateResourcePolicyCommandInput,
   ValidateResourcePolicyCommandOutput,
 } from "./commands/ValidateResourcePolicyCommand";
-import { SecretsManagerClient, SecretsManagerClientConfig } from "./SecretsManagerClient";
+import { SecretsManagerClient } from "./SecretsManagerClient";
 
 const commands = {
   BatchGetSecretValueCommand,

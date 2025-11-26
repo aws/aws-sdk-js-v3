@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateAttributeGroupCommand,
@@ -118,10 +118,7 @@ import {
   UpdateAttributeGroupCommandInput,
   UpdateAttributeGroupCommandOutput,
 } from "./commands/UpdateAttributeGroupCommand";
-import {
-  ServiceCatalogAppRegistryClient,
-  ServiceCatalogAppRegistryClientConfig,
-} from "./ServiceCatalogAppRegistryClient";
+import { ServiceCatalogAppRegistryClient } from "./ServiceCatalogAppRegistryClient";
 
 const commands = {
   AssociateAttributeGroupCommand,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { UpdateWirelessDeviceImportTaskRequest, UpdateWirelessDeviceImportTaskResponse } from "../models/models_1";
+import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import type { UpdateWirelessDeviceImportTaskRequest, UpdateWirelessDeviceImportTaskResponse } from "../models/models_1";
 import { UpdateWirelessDeviceImportTask } from "../schemas/schemas_0";
 
 /**

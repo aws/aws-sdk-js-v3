@@ -4,12 +4,15 @@ import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartMedicalStreamTranscriptionRequest, StartMedicalStreamTranscriptionResponse } from "../models/models_0";
+import type {
+  StartMedicalStreamTranscriptionRequest,
+  StartMedicalStreamTranscriptionResponse,
+} from "../models/models_0";
 import { StartMedicalStreamTranscription } from "../schemas/schemas_0";
-import {
+import type {
   ServiceInputTypes,
   ServiceOutputTypes,
   TranscribeStreamingClientResolvedConfig,

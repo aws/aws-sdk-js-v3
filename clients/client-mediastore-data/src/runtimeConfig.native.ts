@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { MediaStoreDataClientConfig } from "./MediaStoreDataClient";
+import type { MediaStoreDataClientConfig } from "./MediaStoreDataClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_5";
+import type { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_5";
 import { DisassociateInstanceEventWindow } from "../schemas/schemas_0";
 
 /**

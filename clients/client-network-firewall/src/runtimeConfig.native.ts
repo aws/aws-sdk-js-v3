@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { NetworkFirewallClientConfig } from "./NetworkFirewallClient";
+import type { NetworkFirewallClientConfig } from "./NetworkFirewallClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

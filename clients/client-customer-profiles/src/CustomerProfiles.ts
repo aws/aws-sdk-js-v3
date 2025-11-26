@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddProfileKeyCommand,
@@ -467,12 +467,16 @@ import {
   UpdateProfileCommandInput,
   UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
+<<<<<<< HEAD
 import {
   UpdateRecommenderCommand,
   UpdateRecommenderCommandInput,
   UpdateRecommenderCommandOutput,
 } from "./commands/UpdateRecommenderCommand";
 import { CustomerProfilesClient, CustomerProfilesClientConfig } from "./CustomerProfilesClient";
+=======
+import { CustomerProfilesClient } from "./CustomerProfilesClient";
+>>>>>>> 60efd81940b (chore: codegen)
 
 const commands = {
   AddProfileKeyCommand,

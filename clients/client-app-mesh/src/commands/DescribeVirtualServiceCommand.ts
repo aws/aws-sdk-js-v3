@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeVirtualServiceInput, DescribeVirtualServiceOutput } from "../models/models_0";
+import type { DescribeVirtualServiceInput, DescribeVirtualServiceOutput } from "../models/models_0";
 import { DescribeVirtualService } from "../schemas/schemas_0";
 
 /**

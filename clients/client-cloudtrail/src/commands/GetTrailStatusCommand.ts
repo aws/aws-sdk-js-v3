@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
+import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTrailStatusRequest, GetTrailStatusResponse } from "../models/models_0";
+import type { GetTrailStatusRequest, GetTrailStatusResponse } from "../models/models_0";
 import { GetTrailStatus } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateByteMatchSetCommand,
@@ -335,7 +335,7 @@ import {
   UpdateXssMatchSetCommandInput,
   UpdateXssMatchSetCommandOutput,
 } from "./commands/UpdateXssMatchSetCommand";
-import { WAFClient, WAFClientConfig } from "./WAFClient";
+import { WAFClient } from "./WAFClient";
 
 const commands = {
   CreateByteMatchSetCommand,

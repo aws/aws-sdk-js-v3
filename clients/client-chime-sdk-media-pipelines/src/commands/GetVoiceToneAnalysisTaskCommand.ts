@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ChimeSDKMediaPipelinesClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetVoiceToneAnalysisTaskRequest, GetVoiceToneAnalysisTaskResponse } from "../models/models_0";
+import type { GetVoiceToneAnalysisTaskRequest, GetVoiceToneAnalysisTaskResponse } from "../models/models_0";
 import { GetVoiceToneAnalysisTask } from "../schemas/schemas_0";
 
 /**

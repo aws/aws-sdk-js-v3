@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { KinesisAnalyticsV2ExtensionConfiguration } from "./extensionConfiguration";
+import type { KinesisAnalyticsV2ExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

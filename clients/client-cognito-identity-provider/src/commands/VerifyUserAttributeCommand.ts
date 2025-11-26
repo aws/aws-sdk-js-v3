@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { VerifyUserAttributeRequest, VerifyUserAttributeResponse } from "../models/models_1";
+import type { VerifyUserAttributeRequest, VerifyUserAttributeResponse } from "../models/models_1";
 import { VerifyUserAttribute } from "../schemas/schemas_0";
 
 /**

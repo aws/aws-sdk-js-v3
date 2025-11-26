@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { CodestarNotificationsClient, CodestarNotificationsClientConfig } from "./CodestarNotificationsClient";
+import { CodestarNotificationsClient } from "./CodestarNotificationsClient";
 import {
   CreateNotificationRuleCommand,
   CreateNotificationRuleCommandInput,

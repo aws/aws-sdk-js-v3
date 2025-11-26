@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateBatchInferenceJobCommand,
@@ -341,7 +341,7 @@ import {
   UpdateSolutionCommandInput,
   UpdateSolutionCommandOutput,
 } from "./commands/UpdateSolutionCommand";
-import { PersonalizeClient, PersonalizeClientConfig } from "./PersonalizeClient";
+import { PersonalizeClient } from "./PersonalizeClient";
 
 const commands = {
   CreateBatchInferenceJobCommand,

@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetSubnetsInput, SetSubnetsOutput } from "../models/models_0";
+import type { SetSubnetsInput, SetSubnetsOutput } from "../models/models_0";
 import { SetSubnets } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateDatasetCommand,
@@ -215,7 +215,7 @@ import {
   UpdateRetrainingSchedulerCommandInput,
   UpdateRetrainingSchedulerCommandOutput,
 } from "./commands/UpdateRetrainingSchedulerCommand";
-import { LookoutEquipmentClient, LookoutEquipmentClientConfig } from "./LookoutEquipmentClient";
+import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
 
 const commands = {
   CreateDatasetCommand,

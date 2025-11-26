@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { GetRecordsCommand, GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
@@ -10,7 +10,7 @@ import {
 } from "./commands/GetShardIteratorCommand";
 import { GetStreamCommand, GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
-import { KeyspacesStreamsClient, KeyspacesStreamsClientConfig } from "./KeyspacesStreamsClient";
+import { KeyspacesStreamsClient } from "./KeyspacesStreamsClient";
 
 const commands = {
   GetRecordsCommand,

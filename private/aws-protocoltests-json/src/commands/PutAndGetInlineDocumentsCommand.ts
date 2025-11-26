@@ -2,11 +2,11 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
+import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import type { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
 import { de_PutAndGetInlineDocumentsCommand, se_PutAndGetInlineDocumentsCommand } from "../protocols/Aws_json1_1";
 
 /**

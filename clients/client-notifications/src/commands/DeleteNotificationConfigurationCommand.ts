@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteNotificationConfigurationRequest, DeleteNotificationConfigurationResponse } from "../models/models_0";
-import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
+import type {
+  DeleteNotificationConfigurationRequest,
+  DeleteNotificationConfigurationResponse,
+} from "../models/models_0";
+import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { DeleteNotificationConfiguration } from "../schemas/schemas_0";
 
 /**

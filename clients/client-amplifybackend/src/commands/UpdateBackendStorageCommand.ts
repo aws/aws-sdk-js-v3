@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
+import type {
+  AmplifyBackendClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateBackendStorageRequest, UpdateBackendStorageResponse } from "../models/models_0";
+import type { UpdateBackendStorageRequest, UpdateBackendStorageResponse } from "../models/models_0";
 import { UpdateBackendStorage } from "../schemas/schemas_0";
 
 /**

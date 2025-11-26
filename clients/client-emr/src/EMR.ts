@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddInstanceFleetCommand,
@@ -278,7 +278,7 @@ import {
   UpdateStudioSessionMappingCommandInput,
   UpdateStudioSessionMappingCommandOutput,
 } from "./commands/UpdateStudioSessionMappingCommand";
-import { EMRClient, EMRClientConfig } from "./EMRClient";
+import { EMRClient } from "./EMRClient";
 
 const commands = {
   AddInstanceFleetCommand,

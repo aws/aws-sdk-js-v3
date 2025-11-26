@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { BatchGetStreamKeyRequest, BatchGetStreamKeyResponse } from "../models/models_0";
+import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import type { BatchGetStreamKeyRequest, BatchGetStreamKeyResponse } from "../models/models_0";
 import { BatchGetStreamKey } from "../schemas/schemas_0";
 
 /**

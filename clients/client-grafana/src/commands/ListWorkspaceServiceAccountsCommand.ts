@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { ListWorkspaceServiceAccountsRequest, ListWorkspaceServiceAccountsResponse } from "../models/models_0";
+import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import type { ListWorkspaceServiceAccountsRequest, ListWorkspaceServiceAccountsResponse } from "../models/models_0";
 import { ListWorkspaceServiceAccounts } from "../schemas/schemas_0";
 
 /**

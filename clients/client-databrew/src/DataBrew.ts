@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchDeleteRecipeVersionCommand,
@@ -190,7 +190,7 @@ import {
   UpdateScheduleCommandInput,
   UpdateScheduleCommandOutput,
 } from "./commands/UpdateScheduleCommand";
-import { DataBrewClient, DataBrewClientConfig } from "./DataBrewClient";
+import { DataBrewClient } from "./DataBrewClient";
 
 const commands = {
   BatchDeleteRecipeVersionCommand,

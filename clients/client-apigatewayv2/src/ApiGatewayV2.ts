@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { ApiGatewayV2Client, ApiGatewayV2ClientConfig } from "./ApiGatewayV2Client";
+import { ApiGatewayV2Client } from "./ApiGatewayV2Client";
 import { CreateApiCommand, CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
 import {
   CreateApiMappingCommand,

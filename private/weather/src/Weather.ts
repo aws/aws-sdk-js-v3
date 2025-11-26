@@ -1,5 +1,7 @@
 // smithy-typescript generated code
-import { WeatherClient, WeatherClientConfig } from "./WeatherClient";
+import { createAggregatedClient } from "@smithy/smithy-client";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+
 import {
   OnlyCustomAuthCommand,
   OnlyCustomAuthCommandInput,
@@ -55,8 +57,7 @@ import {
   SameAsServiceCommandInput,
   SameAsServiceCommandOutput,
 } from "./commands/SameAsServiceCommand";
-import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import { WeatherClient } from "./WeatherClient";
 
 const commands = {
   OnlyCustomAuthCommand,

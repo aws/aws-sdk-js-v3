@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteHumanLoopCommand,
@@ -27,7 +27,7 @@ import {
   StopHumanLoopCommandInput,
   StopHumanLoopCommandOutput,
 } from "./commands/StopHumanLoopCommand";
-import { SageMakerA2IRuntimeClient, SageMakerA2IRuntimeClientConfig } from "./SageMakerA2IRuntimeClient";
+import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
 
 const commands = {
   DeleteHumanLoopCommand,

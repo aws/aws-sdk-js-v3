@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateMessageTemplateCommand,
@@ -431,7 +431,7 @@ import {
   UpdateSessionDataCommandInput,
   UpdateSessionDataCommandOutput,
 } from "./commands/UpdateSessionDataCommand";
-import { QConnectClient, QConnectClientConfig } from "./QConnectClient";
+import { QConnectClient } from "./QConnectClient";
 
 const commands = {
   ActivateMessageTemplateCommand,

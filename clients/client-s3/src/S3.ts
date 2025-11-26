@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AbortMultipartUploadCommand,
@@ -496,7 +496,7 @@ import {
   WriteGetObjectResponseCommandInput,
   WriteGetObjectResponseCommandOutput,
 } from "./commands/WriteGetObjectResponseCommand";
-import { S3Client, S3ClientConfig } from "./S3Client";
+import { S3Client } from "./S3Client";
 
 const commands = {
   AbortMultipartUploadCommand,

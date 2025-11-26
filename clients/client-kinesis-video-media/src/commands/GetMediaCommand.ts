@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   KinesisVideoMediaClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoMediaClient";
-import { GetMediaInput, GetMediaOutput } from "../models/models_0";
+import { type GetMediaInput, GetMediaOutput } from "../models/models_0";
 import { GetMedia } from "../schemas/schemas_0";
 
 /**

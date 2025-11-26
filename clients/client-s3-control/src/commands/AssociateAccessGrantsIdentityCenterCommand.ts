@@ -3,11 +3,11 @@ import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateAccessGrantsIdentityCenterRequest } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { AssociateAccessGrantsIdentityCenterRequest } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { AssociateAccessGrantsIdentityCenter } from "../schemas/schemas_0";
 
 /**

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { RolesAnywhereClientConfig } from "./RolesAnywhereClient";
+import type { RolesAnywhereClientConfig } from "./RolesAnywhereClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

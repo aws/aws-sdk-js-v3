@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateMonitorCommand,
@@ -66,7 +66,7 @@ import {
   UpdateMonitorCommandInput,
   UpdateMonitorCommandOutput,
 } from "./commands/UpdateMonitorCommand";
-import { InternetMonitorClient, InternetMonitorClientConfig } from "./InternetMonitorClient";
+import { InternetMonitorClient } from "./InternetMonitorClient";
 
 const commands = {
   CreateMonitorCommand,

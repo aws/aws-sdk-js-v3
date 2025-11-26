@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
-import { DescribeVaultCommand, DescribeVaultCommandInput } from "../commands/DescribeVaultCommand";
+import { type DescribeVaultCommandInput, DescribeVaultCommand } from "../commands/DescribeVaultCommand";
 import { GlacierClient } from "../GlacierClient";
 
 const checkState = async (client: GlacierClient, input: DescribeVaultCommandInput): Promise<WaiterResult> => {

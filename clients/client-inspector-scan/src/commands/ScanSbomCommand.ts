@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InspectorScanClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorScanClient";
-import { ScanSbomRequest, ScanSbomResponse } from "../models/models_0";
+import type { InspectorScanClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorScanClient";
+import type { ScanSbomRequest, ScanSbomResponse } from "../models/models_0";
 import { ScanSbom } from "../schemas/schemas_0";
 
 /**

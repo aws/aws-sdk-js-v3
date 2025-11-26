@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptMarketplaceRegistrationCommand,
@@ -193,7 +193,7 @@ import {
   UpdateOdbPeeringConnectionCommandInput,
   UpdateOdbPeeringConnectionCommandOutput,
 } from "./commands/UpdateOdbPeeringConnectionCommand";
-import { OdbClient, OdbClientConfig } from "./OdbClient";
+import { OdbClient } from "./OdbClient";
 
 const commands = {
   AcceptMarketplaceRegistrationCommand,

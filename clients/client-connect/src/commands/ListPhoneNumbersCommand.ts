@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
+<<<<<<< HEAD
 import { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/models_2";
+=======
+import type { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/models_1";
+>>>>>>> 60efd81940b (chore: codegen)
 import { ListPhoneNumbers } from "../schemas/schemas_0";
 
 /**

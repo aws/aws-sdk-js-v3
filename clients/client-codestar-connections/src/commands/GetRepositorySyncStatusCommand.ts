@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   CodeStarConnectionsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput } from "../models/models_0";
+import type { GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput } from "../models/models_0";
 import { GetRepositorySyncStatus } from "../schemas/schemas_0";
 
 /**

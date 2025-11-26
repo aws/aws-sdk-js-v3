@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import { PutObjectRequest, PutObjectResponse } from "../models/models_0";
+import type {
+  MediaStoreDataClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../MediaStoreDataClient";
+import { type PutObjectResponse, PutObjectRequest } from "../models/models_0";
 import { PutObject } from "../schemas/schemas_0";
 
 /**

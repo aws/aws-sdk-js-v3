@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetDeploymentsCommand,
@@ -17,7 +17,7 @@ import {
   SendHeartbeatCommandInput,
   SendHeartbeatCommandOutput,
 } from "./commands/SendHeartbeatCommand";
-import { SagemakerEdgeClient, SagemakerEdgeClientConfig } from "./SagemakerEdgeClient";
+import { SagemakerEdgeClient } from "./SagemakerEdgeClient";
 
 const commands = {
   GetDeploymentsCommand,

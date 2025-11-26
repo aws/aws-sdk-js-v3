@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { IotDeviceAdvisorClientConfig } from "./IotDeviceAdvisorClient";
+import type { IotDeviceAdvisorClientConfig } from "./IotDeviceAdvisorClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

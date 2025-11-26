@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { GetRouterInputSourceMetadataRequest, GetRouterInputSourceMetadataResponse } from "../models/models_0";
+import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import type { GetRouterInputSourceMetadataRequest, GetRouterInputSourceMetadataResponse } from "../models/models_0";
 import { GetRouterInputSourceMetadata } from "../schemas/schemas_0";
 
 /**

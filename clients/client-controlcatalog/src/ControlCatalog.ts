@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { GetControlCommand, GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
 import {
@@ -24,7 +24,7 @@ import {
   ListObjectivesCommandInput,
   ListObjectivesCommandOutput,
 } from "./commands/ListObjectivesCommand";
-import { ControlCatalogClient, ControlCatalogClientConfig } from "./ControlCatalogClient";
+import { ControlCatalogClient } from "./ControlCatalogClient";
 
 const commands = {
   GetControlCommand,

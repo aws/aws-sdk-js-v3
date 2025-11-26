@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
+import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateWebhookRequest, CreateWebhookResult } from "../models/models_0";
+import type { CreateWebhookRequest, CreateWebhookResult } from "../models/models_0";
 import { CreateWebhook } from "../schemas/schemas_0";
 
 /**

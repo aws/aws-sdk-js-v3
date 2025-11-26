@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
+import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteQueueEnvironmentRequest, DeleteQueueEnvironmentResponse } from "../models/models_0";
+import type { DeleteQueueEnvironmentRequest, DeleteQueueEnvironmentResponse } from "../models/models_0";
 import { DeleteQueueEnvironment } from "../schemas/schemas_0";
 
 /**

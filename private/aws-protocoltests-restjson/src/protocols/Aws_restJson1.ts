@@ -53,14 +53,14 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  type Endpoint as __Endpoint,
+  type EventStreamSerdeContext as __EventStreamSerdeContext,
+  type Message as __Message,
+  type MessageHeaders as __MessageHeaders,
+  type ResponseMetadata as __ResponseMetadata,
+  type SdkStreamSerdeContext as __SdkStreamSerdeContext,
+  type SerdeContext as __SerdeContext,
   DocumentType as __DocumentType,
-  Endpoint as __Endpoint,
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  Message as __Message,
-  MessageHeaders as __MessageHeaders,
-  ResponseMetadata as __ResponseMetadata,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 

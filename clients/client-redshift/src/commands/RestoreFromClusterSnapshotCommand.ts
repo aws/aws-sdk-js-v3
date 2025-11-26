@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/models_1";
-import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import type { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/models_1";
+import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { RestoreFromClusterSnapshot } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptReservedNodeExchangeCommand,
@@ -695,7 +695,7 @@ import {
   UpdatePartnerStatusCommandInput,
   UpdatePartnerStatusCommandOutput,
 } from "./commands/UpdatePartnerStatusCommand";
-import { RedshiftClient, RedshiftClientConfig } from "./RedshiftClient";
+import { RedshiftClient } from "./RedshiftClient";
 
 const commands = {
   AcceptReservedNodeExchangeCommand,

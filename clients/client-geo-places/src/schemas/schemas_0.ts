@@ -257,7 +257,7 @@ const n0 = "com.amazonaws.geoplaces";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,

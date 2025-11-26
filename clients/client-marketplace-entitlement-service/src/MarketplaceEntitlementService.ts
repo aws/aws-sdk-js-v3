@@ -1,16 +1,13 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetEntitlementsCommand,
   GetEntitlementsCommandInput,
   GetEntitlementsCommandOutput,
 } from "./commands/GetEntitlementsCommand";
-import {
-  MarketplaceEntitlementServiceClient,
-  MarketplaceEntitlementServiceClientConfig,
-} from "./MarketplaceEntitlementServiceClient";
+import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient";
 
 const commands = {
   GetEntitlementsCommand,

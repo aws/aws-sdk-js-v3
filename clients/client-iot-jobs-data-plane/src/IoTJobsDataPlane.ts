@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DescribeJobExecutionCommand,
@@ -27,7 +27,7 @@ import {
   UpdateJobExecutionCommandInput,
   UpdateJobExecutionCommandOutput,
 } from "./commands/UpdateJobExecutionCommand";
-import { IoTJobsDataPlaneClient, IoTJobsDataPlaneClientConfig } from "./IoTJobsDataPlaneClient";
+import { IoTJobsDataPlaneClient } from "./IoTJobsDataPlaneClient";
 
 const commands = {
   DescribeJobExecutionCommand,

@@ -5,12 +5,13 @@ import packageInfo from "../package.json"; // eslint-disable-line
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-browser";
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
-import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
+
+import type { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 
 /**
  * @internal

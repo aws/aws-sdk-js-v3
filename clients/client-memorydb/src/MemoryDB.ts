@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchUpdateClusterCommand,
@@ -195,7 +195,7 @@ import {
   UpdateSubnetGroupCommandOutput,
 } from "./commands/UpdateSubnetGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { MemoryDBClient, MemoryDBClientConfig } from "./MemoryDBClient";
+import { MemoryDBClient } from "./MemoryDBClient";
 
 const commands = {
   BatchUpdateClusterCommand,

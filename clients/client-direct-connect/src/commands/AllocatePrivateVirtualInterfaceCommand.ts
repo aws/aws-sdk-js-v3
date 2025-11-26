@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AllocatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
+import type { AllocatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import { AllocatePrivateVirtualInterface } from "../schemas/schemas_0";
 
 /**

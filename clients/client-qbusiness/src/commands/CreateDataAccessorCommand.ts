@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDataAccessorResponse } from "../models/models_0";
-import { CreateDataAccessorRequest } from "../models/models_1";
-import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import type { CreateDataAccessorResponse } from "../models/models_0";
+import type { CreateDataAccessorRequest } from "../models/models_1";
+import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { CreateDataAccessor } from "../schemas/schemas_0";
 
 /**

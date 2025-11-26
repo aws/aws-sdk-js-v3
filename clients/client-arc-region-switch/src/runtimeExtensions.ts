@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { ARCRegionSwitchExtensionConfiguration } from "./extensionConfiguration";
+import type { ARCRegionSwitchExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

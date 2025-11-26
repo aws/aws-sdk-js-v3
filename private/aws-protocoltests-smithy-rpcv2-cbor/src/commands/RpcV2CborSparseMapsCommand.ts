@@ -2,12 +2,12 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RpcV2CborSparseMapsInputOutput } from "../models/models_0";
+import type { RpcV2CborSparseMapsInputOutput } from "../models/models_0";
 import { de_RpcV2CborSparseMapsCommand, se_RpcV2CborSparseMapsCommand } from "../protocols/Rpcv2cbor";
-import { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
+import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
 
 /**
  * @public

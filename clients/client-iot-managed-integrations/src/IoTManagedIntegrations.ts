@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAccountAssociationCommand,
@@ -409,7 +409,7 @@ import {
   UpdateOtaTaskCommandInput,
   UpdateOtaTaskCommandOutput,
 } from "./commands/UpdateOtaTaskCommand";
-import { IoTManagedIntegrationsClient, IoTManagedIntegrationsClientConfig } from "./IoTManagedIntegrationsClient";
+import { IoTManagedIntegrationsClient } from "./IoTManagedIntegrationsClient";
 
 const commands = {
   CreateAccountAssociationCommand,

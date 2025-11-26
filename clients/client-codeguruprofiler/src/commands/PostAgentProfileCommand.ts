@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
+import type {
+  CodeGuruProfilerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PostAgentProfileRequest, PostAgentProfileResponse } from "../models/models_0";
+import { type PostAgentProfileResponse, PostAgentProfileRequest } from "../models/models_0";
 import { PostAgentProfile } from "../schemas/schemas_0";
 
 /**

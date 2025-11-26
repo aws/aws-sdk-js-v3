@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartContinuousExportRequest, StartContinuousExportResponse } from "../models/models_0";
+import type { StartContinuousExportRequest, StartContinuousExportResponse } from "../models/models_0";
 import { StartContinuousExport } from "../schemas/schemas_0";
 
 /**

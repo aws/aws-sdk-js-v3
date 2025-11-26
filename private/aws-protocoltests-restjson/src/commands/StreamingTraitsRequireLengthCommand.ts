@@ -2,7 +2,7 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
@@ -13,7 +13,11 @@ import {
   de_StreamingTraitsRequireLengthCommand,
   se_StreamingTraitsRequireLengthCommand,
 } from "../protocols/Aws_restJson1";
-import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import type {
+  RestJsonProtocolClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../RestJsonProtocolClient";
 
 /**
  * @public

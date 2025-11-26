@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
+import type {
+  BedrockRuntimeClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeModelWithResponseStreamRequest, InvokeModelWithResponseStreamResponse } from "../models/models_0";
+import { type InvokeModelWithResponseStreamResponse, InvokeModelWithResponseStreamRequest } from "../models/models_0";
 import { InvokeModelWithResponseStream } from "../schemas/schemas_0";
 
 /**

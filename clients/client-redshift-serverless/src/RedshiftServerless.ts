@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ConvertRecoveryPointToSnapshotCommand,
@@ -306,7 +306,7 @@ import {
   UpdateWorkgroupCommandInput,
   UpdateWorkgroupCommandOutput,
 } from "./commands/UpdateWorkgroupCommand";
-import { RedshiftServerlessClient, RedshiftServerlessClientConfig } from "./RedshiftServerlessClient";
+import { RedshiftServerlessClient } from "./RedshiftServerlessClient";
 
 const commands = {
   ConvertRecoveryPointToSnapshotCommand,

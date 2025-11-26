@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
+import type {
+  LicenseManagerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../LicenseManagerClient";
+import type { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
 import { CreateToken } from "../schemas/schemas_0";
 
 /**

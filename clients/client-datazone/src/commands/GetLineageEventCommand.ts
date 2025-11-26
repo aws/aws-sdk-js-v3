@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
-import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetLineageEventInput, GetLineageEventOutput } from "../models/models_1";
+import { type GetLineageEventInput, GetLineageEventOutput } from "../models/models_1";
 import { GetLineageEvent } from "../schemas/schemas_0";
 
 /**

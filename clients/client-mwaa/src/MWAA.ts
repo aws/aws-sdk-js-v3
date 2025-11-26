@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateCliTokenCommand,
@@ -58,7 +58,7 @@ import {
   UpdateEnvironmentCommandInput,
   UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
-import { MWAAClient, MWAAClientConfig } from "./MWAAClient";
+import { MWAAClient } from "./MWAAClient";
 
 const commands = {
   CreateCliTokenCommand,

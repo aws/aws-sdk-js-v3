@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetVisibleToAllUsersInput } from "../models/models_0";
+import type { SetVisibleToAllUsersInput } from "../models/models_0";
 import { SetVisibleToAllUsers } from "../schemas/schemas_0";
 
 /**

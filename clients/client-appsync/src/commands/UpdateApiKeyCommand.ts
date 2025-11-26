@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
+import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateApiKeyRequest, UpdateApiKeyResponse } from "../models/models_0";
+import type { UpdateApiKeyRequest, UpdateApiKeyResponse } from "../models/models_0";
 import { UpdateApiKey } from "../schemas/schemas_0";
 
 /**

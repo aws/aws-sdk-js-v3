@@ -2,11 +2,11 @@
 import { getCompressionPlugin } from "@smithy/middleware-compression";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
+import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutMetricDataInput } from "../models/models_0";
+import type { PutMetricDataInput } from "../models/models_0";
 import { PutMetricData } from "../schemas/schemas_0";
 
 /**

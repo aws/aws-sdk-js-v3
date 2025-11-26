@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GenerateDataSetCommand,
@@ -12,10 +12,7 @@ import {
   StartSupportDataExportCommandInput,
   StartSupportDataExportCommandOutput,
 } from "./commands/StartSupportDataExportCommand";
-import {
-  MarketplaceCommerceAnalyticsClient,
-  MarketplaceCommerceAnalyticsClientConfig,
-} from "./MarketplaceCommerceAnalyticsClient";
+import { MarketplaceCommerceAnalyticsClient } from "./MarketplaceCommerceAnalyticsClient";
 
 const commands = {
   GenerateDataSetCommand,

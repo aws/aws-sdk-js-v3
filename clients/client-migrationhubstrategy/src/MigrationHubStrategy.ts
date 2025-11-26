@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetApplicationComponentDetailsCommand,
@@ -108,7 +108,7 @@ import {
   UpdateServerConfigCommandInput,
   UpdateServerConfigCommandOutput,
 } from "./commands/UpdateServerConfigCommand";
-import { MigrationHubStrategyClient, MigrationHubStrategyClientConfig } from "./MigrationHubStrategyClient";
+import { MigrationHubStrategyClient } from "./MigrationHubStrategyClient";
 
 const commands = {
   GetApplicationComponentDetailsCommand,

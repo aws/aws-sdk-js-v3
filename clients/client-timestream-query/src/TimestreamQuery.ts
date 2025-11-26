@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import {
@@ -65,7 +65,7 @@ import {
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
-import { TimestreamQueryClient, TimestreamQueryClientConfig } from "./TimestreamQueryClient";
+import { TimestreamQueryClient } from "./TimestreamQueryClient";
 
 const commands = {
   CancelQueryCommand,

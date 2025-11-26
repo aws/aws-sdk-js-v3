@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAddonInstanceCommand,
@@ -270,7 +270,7 @@ import {
   UpdateTrafficPolicyCommandInput,
   UpdateTrafficPolicyCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommand";
-import { MailManagerClient, MailManagerClientConfig } from "./MailManagerClient";
+import { MailManagerClient } from "./MailManagerClient";
 
 const commands = {
   CreateAddonInstanceCommand,

@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { ChimeSDKMeetingsExtensionConfiguration } from "./extensionConfiguration";
+import type { ChimeSDKMeetingsExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

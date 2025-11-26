@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput } from "../commands/ViewBillingCommand";
 import { Route53DomainsClient } from "../Route53DomainsClient";

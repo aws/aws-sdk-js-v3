@@ -39,7 +39,12 @@ const n0 = "com.amazonaws.glacier";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticOperationSchema, StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticOperationSchema,
+  StaticSimpleSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
 
 import {
   InvalidParameterValueException as __InvalidParameterValueException,

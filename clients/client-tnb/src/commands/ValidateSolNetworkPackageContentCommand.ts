@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
+import { type ValidateSolNetworkPackageContentOutput, ValidateSolNetworkPackageContentInput } from "../models/models_0";
 import { ValidateSolNetworkPackageContent } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
+import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
  * @public

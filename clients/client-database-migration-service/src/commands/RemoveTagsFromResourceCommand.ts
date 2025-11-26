@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_1";
+import type { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_1";
 import { RemoveTagsFromResource } from "../schemas/schemas_0";
 
 /**

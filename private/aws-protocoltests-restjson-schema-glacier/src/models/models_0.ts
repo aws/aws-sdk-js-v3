@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { StreamingBlobTypes } from "@smithy/types";
+import type { StreamingBlobTypes } from "@smithy/types";
 
 /**
  * @public

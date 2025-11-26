@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { GreengrassV2ClientConfig, GreengrassV2ClientResolvedConfig } from "../GreengrassV2Client";
+import { type GreengrassV2ClientResolvedConfig, GreengrassV2ClientConfig } from "../GreengrassV2Client";
 
 /**
  * @internal

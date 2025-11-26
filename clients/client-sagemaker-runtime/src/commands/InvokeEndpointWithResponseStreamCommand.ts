@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeEndpointWithResponseStreamInput, InvokeEndpointWithResponseStreamOutput } from "../models/models_0";
-import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
+import { type InvokeEndpointWithResponseStreamOutput, InvokeEndpointWithResponseStreamInput } from "../models/models_0";
+import type {
+  SageMakerRuntimeClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../SageMakerRuntimeClient";
 import { InvokeEndpointWithResponseStream } from "../schemas/schemas_0";
 
 /**

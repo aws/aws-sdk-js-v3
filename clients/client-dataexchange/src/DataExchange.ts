@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptDataGrantCommand,
@@ -143,7 +143,7 @@ import {
   UpdateRevisionCommandInput,
   UpdateRevisionCommandOutput,
 } from "./commands/UpdateRevisionCommand";
-import { DataExchangeClient, DataExchangeClientConfig } from "./DataExchangeClient";
+import { DataExchangeClient } from "./DataExchangeClient";
 
 const commands = {
   AcceptDataGrantCommand,

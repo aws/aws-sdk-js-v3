@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateHITWithHITTypeRequest, CreateHITWithHITTypeResponse } from "../models/models_0";
-import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import type { CreateHITWithHITTypeRequest, CreateHITWithHITTypeResponse } from "../models/models_0";
+import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { CreateHITWithHITType } from "../schemas/schemas_0";
 
 /**

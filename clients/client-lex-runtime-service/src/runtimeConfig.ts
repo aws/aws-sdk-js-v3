@@ -15,13 +15,13 @@ import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/smithy-client";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
-import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { LexRuntimeServiceClientConfig } from "./LexRuntimeServiceClient";
-import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
-import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
-import { emitWarningIfUnsupportedVersion } from "@smithy/smithy-client";
+import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
+
+import type { LexRuntimeServiceClientConfig } from "./LexRuntimeServiceClient";
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 
 /**
  * @internal

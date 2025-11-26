@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetReferenceRequest, GetReferenceResponse } from "../models/models_0";
-import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
+import { type GetReferenceRequest, GetReferenceResponse } from "../models/models_0";
+import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { GetReference } from "../schemas/schemas_0";
 
 /**

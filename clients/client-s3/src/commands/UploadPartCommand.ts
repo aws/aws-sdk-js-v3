@@ -4,11 +4,11 @@ import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UploadPartOutput, UploadPartRequest } from "../models/models_1";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { type UploadPartOutput, UploadPartRequest } from "../models/models_1";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { UploadPart } from "../schemas/schemas_0";
 
 /**

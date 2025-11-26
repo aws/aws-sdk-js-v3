@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   JoinStorageSessionAsViewerCommand,
@@ -12,10 +12,7 @@ import {
   JoinStorageSessionCommandInput,
   JoinStorageSessionCommandOutput,
 } from "./commands/JoinStorageSessionCommand";
-import {
-  KinesisVideoWebRTCStorageClient,
-  KinesisVideoWebRTCStorageClientConfig,
-} from "./KinesisVideoWebRTCStorageClient";
+import { KinesisVideoWebRTCStorageClient } from "./KinesisVideoWebRTCStorageClient";
 
 const commands = {
   JoinStorageSessionCommand,
