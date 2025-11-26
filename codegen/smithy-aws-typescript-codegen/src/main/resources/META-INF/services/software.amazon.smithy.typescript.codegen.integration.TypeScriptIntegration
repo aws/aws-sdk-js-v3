@@ -22,7 +22,6 @@ software.amazon.smithy.aws.typescript.codegen.AddWebsocketPlugin
 software.amazon.smithy.aws.typescript.codegen.AddTranscribeStreamingDependency
 software.amazon.smithy.aws.typescript.codegen.AddUserAgentDependency
 software.amazon.smithy.aws.typescript.codegen.AddOmitRetryHeadersDependency
-software.amazon.smithy.aws.typescript.codegen.StripNewEnumNames
 software.amazon.smithy.aws.typescript.codegen.AddCrossRegionCopyingPlugin
 software.amazon.smithy.aws.typescript.codegen.AddDocumentClientPlugin
 software.amazon.smithy.aws.typescript.codegen.AddEndpointDiscoveryPlugin
