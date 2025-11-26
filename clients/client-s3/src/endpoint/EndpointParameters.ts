@@ -5,6 +5,9 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
+  clientContextParams?: {
+    disableS3ExpressSessionAuth?: boolean | undefined | Provider<boolean | undefined>;
+  };
   region?: string | undefined | Provider<string | undefined>;
   useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
@@ -17,8 +20,14 @@ export interface ClientInputEndpointParameters {
   disableS3ExpressSessionAuth?: boolean | undefined | Provider<boolean | undefined>;
 }
 
-export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
+export type ClientResolvedEndpointParameters = Omit<
+  ClientInputEndpointParameters,
+  "endpoint" | "clientContextParams"
+> & {
   defaultSigningName: string;
+  clientContextParams: {
+    disableS3ExpressSessionAuth?: boolean | undefined | Provider<boolean | undefined>;
+  };
 };
 
 export const resolveClientEndpointParameters = <T>(
@@ -32,6 +41,7 @@ export const resolveClientEndpointParameters = <T>(
     useGlobalEndpoint: options.useGlobalEndpoint ?? false,
     disableMultiregionAccessPoints: options.disableMultiregionAccessPoints ?? false,
     defaultSigningName: "s3",
+    clientContextParams: options.clientContextParams ?? {},
   });
 };
 
