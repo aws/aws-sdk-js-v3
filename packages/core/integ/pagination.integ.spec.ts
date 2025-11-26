@@ -96,6 +96,19 @@ describe("pagination", () => {
     expect.assertions(7);
   });
 
+  /**
+   * This test makes a DynamoDB paginated batch get request for 5 items, with keys 1-2-3-4-5, in this exact order.
+   *
+   * The first returned page contains items 2 and 1 (order switched to simulate the unpredictability of the order of the
+   * items returned by the DDB API BatchGetItem command), plus unprocessed keys 3 and 4. The second page contains the
+   * items 3 and 4, and no further unprocessed keys.
+   *
+   * Item 5 is asked for, but we consider that the table does not contain it, so it's not returned at all. That's a
+   * valid use case and does not generate an error.
+   *
+   * In the second part of the test, another paginated request is done for 2 items, with keys 1 and 1. So the same
+   * item is requested twice. As the API will return an error, we want to catch the generated SDK exception.
+   */
   it("processes batch items until all items are processed or an error is received", async () => {
     const ddb = new DynamoDB({
       credentials: {
