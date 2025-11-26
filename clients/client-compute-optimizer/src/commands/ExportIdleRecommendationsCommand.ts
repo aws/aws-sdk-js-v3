@@ -56,7 +56,7 @@ export interface ExportIdleRecommendationsCommandOutput extends ExportIdleRecomm
  *     },
  *   ],
  *   fieldsToExport: [ // ExportableIdleFields
- *     "AccountId" || "ResourceArn" || "ResourceId" || "ResourceType" || "LastRefreshTimestamp" || "LookbackPeriodInDays" || "SavingsOpportunity" || "SavingsOpportunityAfterDiscount" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsNetworkOutBytesPerSecondMaximum" || "UtilizationMetricsNetworkInBytesPerSecondMaximum" || "UtilizationMetricsDatabaseConnectionsMaximum" || "UtilizationMetricsEBSVolumeReadIOPSMaximum" || "UtilizationMetricsEBSVolumeWriteIOPSMaximum" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "Finding" || "FindingDescription" || "Tags",
+ *     "AccountId" || "ResourceArn" || "ResourceId" || "ResourceType" || "LastRefreshTimestamp" || "LookbackPeriodInDays" || "SavingsOpportunity" || "SavingsOpportunityAfterDiscount" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsNetworkOutBytesPerSecondMaximum" || "UtilizationMetricsNetworkInBytesPerSecondMaximum" || "UtilizationMetricsDatabaseConnectionsMaximum" || "UtilizationMetricsEBSVolumeReadIOPSMaximum" || "UtilizationMetricsEBSVolumeWriteIOPSMaximum" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "UtilizationMetricsActiveConnectionCountMaximum" || "UtilizationMetricsPacketsInFromSourceMaximum" || "UtilizationMetricsPacketsInFromDestinationMaximum" || "Finding" || "FindingDescription" || "Tags",
  *   ],
  *   s3DestinationConfig: { // S3DestinationConfig
  *     bucket: "STRING_VALUE",

@@ -70,9 +70,9 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * //     { // IdleRecommendation
  * //       resourceArn: "STRING_VALUE",
  * //       resourceId: "STRING_VALUE",
- * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance",
+ * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance" || "NatGateway",
  * //       accountId: "STRING_VALUE",
- * //       finding: "Idle" || "Unattached",
+ * //       finding: "Idle" || "Unattached" || "Unused",
  * //       findingDescription: "STRING_VALUE",
  * //       savingsOpportunity: { // IdleSavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),
@@ -90,7 +90,7 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * //       },
  * //       utilizationMetrics: [ // IdleUtilizationMetrics
  * //         { // IdleUtilizationMetric
- * //           name: "CPU" || "Memory" || "NetworkOutBytesPerSecond" || "NetworkInBytesPerSecond" || "DatabaseConnections" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "VolumeReadOpsPerSecond" || "VolumeWriteOpsPerSecond",
+ * //           name: "CPU" || "Memory" || "NetworkOutBytesPerSecond" || "NetworkInBytesPerSecond" || "DatabaseConnections" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "VolumeReadOpsPerSecond" || "VolumeWriteOpsPerSecond" || "ActiveConnectionCount" || "PacketsInFromSource" || "PacketsInFromDestination",
  * //           statistic: "Maximum" || "Average",
  * //           value: Number("double"),
  * //         },
@@ -110,7 +110,7 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * //       identifier: "STRING_VALUE",
  * //       code: "STRING_VALUE",
  * //       message: "STRING_VALUE",
- * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance",
+ * //       resourceType: "EC2Instance" || "AutoScalingGroup" || "EBSVolume" || "ECSService" || "RDSDBInstance" || "NatGateway",
  * //     },
  * //   ],
  * // };

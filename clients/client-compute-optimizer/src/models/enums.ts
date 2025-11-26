@@ -754,6 +754,7 @@ export const ExportableIdleField = {
   SAVINGS_OPPORTUNITY: "SavingsOpportunity",
   SAVINGS_OPPORTUNITY_AFTER_DISCOUNT: "SavingsOpportunityAfterDiscount",
   TAGS: "Tags",
+  UTILIZATION_METRICS_ACTIVE_CONNECTION_COUNT_MAXIMUM: "UtilizationMetricsActiveConnectionCountMaximum",
   UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
   UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM: "UtilizationMetricsDatabaseConnectionsMaximum",
   UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeReadIOPSMaximum",
@@ -761,6 +762,8 @@ export const ExportableIdleField = {
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
   UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
   UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+  UTILIZATION_METRICS_PACKETS_IN_FROM_DESTINATION_MAXIMUM: "UtilizationMetricsPacketsInFromDestinationMaximum",
+  UTILIZATION_METRICS_PACKETS_IN_FROM_SOURCE_MAXIMUM: "UtilizationMetricsPacketsInFromSourceMaximum",
   UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
   UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
 } as const;
@@ -1189,6 +1192,7 @@ export const RecommendationSourceType = {
   ECS_SERVICE: "EcsService",
   LAMBDA_FUNCTION: "LambdaFunction",
   LICENSE: "License",
+  NAT_GATEWAY: "NatGateway",
   RDS_DB_INSTANCE: "RdsDBInstance",
   RDS_DB_INSTANCE_STORAGE: "RdsDBInstanceStorage",
 } as const;
@@ -1329,6 +1333,7 @@ export const IdleRecommendationResourceType = {
   EBS_VOLUME: "EBSVolume",
   EC2_INSTANCE: "EC2Instance",
   ECS_SERVICE: "ECSService",
+  NAT_GATEWAY: "NatGateway",
   RDS_DB_INSTANCE: "RDSDBInstance",
 } as const;
 /**
@@ -1344,6 +1349,7 @@ export type IdleRecommendationResourceType =
 export const IdleFinding = {
   IDLE: "Idle",
   UNATTACHED: "Unattached",
+  UNUSED: "Unused",
 } as const;
 /**
  * @public
@@ -1355,6 +1361,7 @@ export type IdleFinding = (typeof IdleFinding)[keyof typeof IdleFinding];
  * @enum
  */
 export const IdleMetricName = {
+  ACTIVE_CONNECTION_COUNT: "ActiveConnectionCount",
   CPU: "CPU",
   DATABASE_CONNECTIONS: "DatabaseConnections",
   EBS_VOLUME_READ_IOPS: "EBSVolumeReadIOPS",
@@ -1362,6 +1369,8 @@ export const IdleMetricName = {
   MEMORY: "Memory",
   NETWORK_IN_BYTES_PER_SECOND: "NetworkInBytesPerSecond",
   NETWORK_OUT_BYTES_PER_SECOND: "NetworkOutBytesPerSecond",
+  PACKETS_IN_FROM_DESTINATION: "PacketsInFromDestination",
+  PACKETS_IN_FROM_SOURCE: "PacketsInFromSource",
   VOLUME_READ_OPS_PER_SECOND: "VolumeReadOpsPerSecond",
   VOLUME_WRITE_OPS_PER_SECOND: "VolumeWriteOpsPerSecond",
 } as const;

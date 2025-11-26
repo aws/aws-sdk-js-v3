@@ -130,7 +130,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //       recommendationSources: [ // RecommendationSources
  * //         { // RecommendationSource
  * //           recommendationSourceArn: "STRING_VALUE",
- * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage",
+ * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage" || "NatGateway",
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),

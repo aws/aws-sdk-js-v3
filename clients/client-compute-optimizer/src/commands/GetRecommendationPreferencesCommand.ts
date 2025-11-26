@@ -33,7 +33,7 @@ export interface GetRecommendationPreferencesCommandOutput
  *             metrics.</p>
  *          <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
  *             specify to return preferences for an organization, a specific account ID, or a specific
- *             EC2 instance or Auto Scaling group Amazon Resource Name (ARN).</p>
+ *             EC2 instance or Amazon EC2 Auto Scaling group Amazon Resource Name (ARN).</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
  *                 Guide</i>.</p>
