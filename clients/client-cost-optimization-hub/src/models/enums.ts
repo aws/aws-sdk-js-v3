@@ -141,6 +141,7 @@ export const ResourceType = {
   ELASTI_CACHE_RESERVED_INSTANCES: "ElastiCacheReservedInstances",
   LAMBDA_FUNCTION: "LambdaFunction",
   MEMORY_DB_RESERVED_INSTANCES: "MemoryDbReservedInstances",
+  NAT_GATEWAY: "NatGateway",
   OPEN_SEARCH_RESERVED_INSTANCES: "OpenSearchReservedInstances",
   RDS_DB_INSTANCE: "RdsDbInstance",
   RDS_DB_INSTANCE_STORAGE: "RdsDbInstanceStorage",

@@ -56,6 +56,8 @@ const _MDRI = "MemoryDbReservedInstances";
 const _MDRIC = "MemoryDbReservedInstancesConfiguration";
 const _MIC = "MixedInstanceConfiguration";
 const _MICL = "MixedInstanceConfigurationList";
+const _NG = "NatGateway";
+const _NGC = "NatGatewayConfiguration";
 const _OB = "OrderBy";
 const _OSRI = "OpenSearchReservedInstances";
 const _OSRIC = "OpenSearchReservedInstancesConfiguration";
@@ -100,6 +102,7 @@ const _VE = "ValidationException";
 const _VED = "ValidationExceptionDetail";
 const _VEDa = "ValidationExceptionDetails";
 const _a = "architecture";
+const _aCC = "activeConnectionCount";
 const _aDCS = "auroraDbClusterStorage";
 const _aI = "accountId";
 const _aIc = "accountIds";
@@ -184,6 +187,7 @@ const _mREC = "monthlyReservationEligibleCost";
 const _mSIMB = "memorySizeInMB";
 const _mSPEC = "monthlySavingsPlansEligibleCost";
 const _me = "metrics";
+const _nG = "natGateway";
 const _nOCUTP = "numberOfCapacityUnitsToPurchase";
 const _nOITP = "numberOfInstancesToPurchase";
 const _nT = "nextToken";
@@ -197,6 +201,8 @@ const _op = "operation";
 const _p = "platform";
 const _pC = "preferredCommitment";
 const _pCr = "productCode";
+const _pIFD = "packetsInFromDestination";
+const _pIFS = "packetsInFromSource";
 const _pO = "paymentOption";
 const _pe = "performance";
 const _pr = "pricing";
@@ -617,6 +623,15 @@ export var MemoryDbReservedInstancesConfiguration: StaticStructureSchema = [
 ];
 export var MetricsByTime: StaticStructureSchema = [3, n0, _MBT, 0, [_sc, _sa, _sp, _ti], [1, 1, 1, 0]];
 export var MixedInstanceConfiguration: StaticStructureSchema = [3, n0, _MIC, 0, [_ty], [0]];
+export var NatGateway: StaticStructureSchema = [
+  3,
+  n0,
+  _NG,
+  0,
+  [_co, _cC],
+  [() => NatGatewayConfiguration, () => ResourceCostCalculation],
+];
+export var NatGatewayConfiguration: StaticStructureSchema = [3, n0, _NGC, 0, [_aCC, _pIFS, _pIFD], [1, 1, 1]];
 export var OpenSearchReservedInstances: StaticStructureSchema = [
   3,
   n0,
@@ -887,7 +902,27 @@ export var ResourceDetails: StaticStructureSchema = [
   n0,
   _RD,
   0,
-  [_lF, _eS, _eI, _eV, _eASG, _eRI, _rRI, _eCRI, _oSRI, _rRIe, _eISP, _cSP, _sMSP, _rDI, _rDIS, _aDCS, _dDRC, _mDRI],
+  [
+    _lF,
+    _eS,
+    _eI,
+    _eV,
+    _eASG,
+    _eRI,
+    _rRI,
+    _eCRI,
+    _oSRI,
+    _rRIe,
+    _eISP,
+    _cSP,
+    _sMSP,
+    _rDI,
+    _rDIS,
+    _aDCS,
+    _dDRC,
+    _mDRI,
+    _nG,
+  ],
   [
     () => LambdaFunction,
     () => EcsService,
@@ -907,6 +942,7 @@ export var ResourceDetails: StaticStructureSchema = [
     () => AuroraDbClusterStorage,
     () => DynamoDbReservedCapacity,
     () => MemoryDbReservedInstances,
+    () => NatGateway,
   ],
 ];
 export var GetPreferences: StaticOperationSchema = [

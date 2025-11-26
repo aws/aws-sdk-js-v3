@@ -55,8 +55,8 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //   costCalculationLookbackPeriodInDays: Number("int"),
  * //   estimatedSavingsPercentage: Number("double"),
  * //   estimatedSavingsOverCostCalculationLookbackPeriod: Number("double"),
- * //   currentResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
- * //   recommendedResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
+ * //   currentResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances" || "NatGateway",
+ * //   recommendedResourceType: "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances" || "NatGateway",
  * //   region: "STRING_VALUE",
  * //   source: "ComputeOptimizer" || "CostExplorer",
  * //   lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -462,6 +462,14 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //       },
  * //       costCalculation: "<ReservedInstancesCostCalculation>",
  * //     },
+ * //     natGateway: { // NatGateway
+ * //       configuration: { // NatGatewayConfiguration
+ * //         activeConnectionCount: Number("long"),
+ * //         packetsInFromSource: Number("long"),
+ * //         packetsInFromDestination: Number("long"),
+ * //       },
+ * //       costCalculation: "<ResourceCostCalculation>",
+ * //     },
  * //   },
  * //   recommendedResourceDetails: {//  Union: only one key present
  * //     lambdaFunction: {
@@ -716,6 +724,14 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         currentGeneration: "STRING_VALUE",
  * //       },
  * //       costCalculation: "<ReservedInstancesCostCalculation>",
+ * //     },
+ * //     natGateway: {
+ * //       configuration: {
+ * //         activeConnectionCount: Number("long"),
+ * //         packetsInFromSource: Number("long"),
+ * //         packetsInFromDestination: Number("long"),
+ * //       },
+ * //       costCalculation: "<ResourceCostCalculation>",
  * //     },
  * //   },
  * //   tags: [ // TagList
