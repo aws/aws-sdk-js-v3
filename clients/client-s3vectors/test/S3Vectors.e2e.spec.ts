@@ -48,6 +48,7 @@ describe(
       }
     });
 
+    // todo(s3): this is a temporary issue (D349093610), re-enable this test later.
     it.skip("can put vectors", async () => {
       const texts = [
         "Santa Bear is a bear who wears a Santa outfit.",
