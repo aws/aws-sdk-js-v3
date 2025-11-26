@@ -2,15 +2,15 @@ import { BatchGetItemCommand, BatchGetItemCommandInput, DynamoDBClient } from "@
 import { type DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 
 /**
- * @public
- *
  * Async generator that issues {@link BatchGetItemCommand}s repeatedly until all keys are processed or an error response is received.
+ *
+ * @public
  *
  * @see {@link paginateBatchGetItem} for a variant that uses the {@link DynamoDBDocumentClient | DynamoDB document client}.
  *
  * @example
  *
- * ```
+ * ```typescript
  * const client = new DynamoDBClient();
  * const input: BatchGetCommandInput = {
  *   RequestItems: {

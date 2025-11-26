@@ -4,15 +4,15 @@ import { BatchGetCommand, BatchGetCommandInput, BatchGetCommandOutput } from "..
 import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
 
 /**
- * @public
- *
  * Async generator that issues {@link BatchGetCommand}s repeatedly until all keys are processed or an error response is received.
+ *
+ * @public
  *
  * @see {@link paginateBatchGetItem} for a variant that uses the {@link DynamoDBClient | low level DynamoDB client}.
  *
  * @example
  *
- * ```
+ * ```typescript
  * const client = new DynamoDBClient();
  * const docClient = DynamoDBDocumentClient.from(client);
  * const input: BatchGetCommandInput = {
