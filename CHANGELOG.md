@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.941.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.940.0...v3.941.0) (2025-11-26)
+
+
+### Features
+
+* **client-bedrock-runtime:** Bedrock Runtime Reserved Service Support ([18c4e92](https://github.com/aws/aws-sdk-js-v3/commit/18c4e92fa87b0be9150ff0d5671de29fe1ce5ca7))
+* **client-compute-optimizer:** Compute Optimizer now identifies idle NAT Gateway resources for cost optimization based on traffic patterns and backup configuration analysis. Access recommendations via the GetIdleRecommendations API. ([550987c](https://github.com/aws/aws-sdk-js-v3/commit/550987cbdda51b2df26c1a10fc34421f7e175609))
+* **client-cost-optimization-hub:** This release enables AWS Cost Optimization Hub to show cost optimization recommendations for NAT Gateway. ([08e6500](https://github.com/aws/aws-sdk-js-v3/commit/08e6500357cfdfb657deaeca5276e88753e0f6ec))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 

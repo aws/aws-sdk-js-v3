@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.941.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.940.0...v3.941.0) (2025-11-26)
+
+
+### Features
+
+* **client-bedrock-runtime:** Bedrock Runtime Reserved Service Support ([18c4e92](https://github.com/aws/aws-sdk-js-v3/commit/18c4e92fa87b0be9150ff0d5671de29fe1ce5ca7))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime
