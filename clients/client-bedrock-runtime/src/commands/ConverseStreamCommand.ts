@@ -312,7 +312,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *     latency: "standard" || "optimized",
  *   },
  *   serviceTier: { // ServiceTier
- *     type: "priority" || "default" || "flex", // required
+ *     type: "priority" || "default" || "flex" || "reserved", // required
  *   },
  * };
  * const command = new ConverseStreamCommand(input);
@@ -850,7 +850,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         latency: "standard" || "optimized",
  * //       },
  * //       serviceTier: { // ServiceTier
- * //         type: "priority" || "default" || "flex", // required
+ * //         type: "priority" || "default" || "flex" || "reserved", // required
  * //       },
  * //     },
  * //     internalServerException: { // InternalServerException

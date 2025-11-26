@@ -512,6 +512,7 @@ export const ServiceTierType = {
   DEFAULT: "default",
   FLEX: "flex",
   PRIORITY: "priority",
+  RESERVED: "reserved",
 } as const;
 /**
  * @public

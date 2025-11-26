@@ -60,7 +60,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  *   guardrailIdentifier: "STRING_VALUE",
  *   guardrailVersion: "STRING_VALUE",
  *   performanceConfigLatency: "standard" || "optimized",
- *   serviceTier: "priority" || "default" || "flex",
+ *   serviceTier: "priority" || "default" || "flex" || "reserved",
  * };
  * const command = new InvokeModelCommand(input);
  * const response = await client.send(command);
@@ -68,7 +68,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  * //   body: new Uint8Array(), // required
  * //   contentType: "STRING_VALUE", // required
  * //   performanceConfigLatency: "standard" || "optimized",
- * //   serviceTier: "priority" || "default" || "flex",
+ * //   serviceTier: "priority" || "default" || "flex" || "reserved",
  * // };
  *
  * ```

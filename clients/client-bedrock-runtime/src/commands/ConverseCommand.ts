@@ -311,7 +311,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *     latency: "standard" || "optimized",
  *   },
  *   serviceTier: { // ServiceTier
- *     type: "priority" || "default" || "flex", // required
+ *     type: "priority" || "default" || "flex" || "reserved", // required
  *   },
  * };
  * const command = new ConverseCommand(input);
@@ -968,7 +968,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //     latency: "standard" || "optimized",
  * //   },
  * //   serviceTier: { // ServiceTier
- * //     type: "priority" || "default" || "flex", // required
+ * //     type: "priority" || "default" || "flex" || "reserved", // required
  * //   },
  * // };
  *
