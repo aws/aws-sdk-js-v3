@@ -6,7 +6,7 @@ import { type DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
  *
  * @public
  *
- * @see {@link paginateBatchGetItem} for a variant that uses the {@link DynamoDBDocumentClient | DynamoDB document client}.
+ * @see {@link paginatedBatchGetItem} for a variant that uses the {@link DynamoDBDocumentClient | DynamoDB document client}.
  *
  * @example
  *
@@ -27,12 +27,12 @@ import { type DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
  * }
  * ```
  */
-export async function* paginateBatchGetItem(client: DynamoDBClient, input: BatchGetItemCommandInput) {
+export async function* paginatedBatchGetItem(config: { client: DynamoDBClient }, input: BatchGetItemCommandInput) {
   let RequestItems = input.RequestItems;
 
   while (RequestItems && Object.keys(RequestItems).length > 0) {
     const cmd = new BatchGetItemCommand({ ...input, RequestItems });
-    const response = await client.send(cmd);
+    const response = await config.client.send(cmd);
     RequestItems = { ...response.UnprocessedKeys };
 
     yield response;

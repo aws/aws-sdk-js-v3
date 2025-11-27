@@ -8,7 +8,7 @@ import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
  *
  * @public
  *
- * @see {@link paginateBatchGetItem} for a variant that uses the {@link DynamoDBClient | low level DynamoDB client}.
+ * @see {@link paginatedBatchGet} for a variant that uses the {@link DynamoDBClient | low level DynamoDB client}.
  *
  * @example
  *
@@ -30,7 +30,7 @@ import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
  * }
  * ```
  */
-export async function* paginateBatchGet(
+export async function* paginatedBatchGet(
   config: {
     client: DynamoDBDocumentClient;
   },

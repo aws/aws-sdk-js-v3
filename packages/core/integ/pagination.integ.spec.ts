@@ -1,6 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB, paginateScan, ScanCommandInput } from "@aws-sdk/client-dynamodb";
-import { BatchGetCommandInput, paginateBatchGet } from "@aws-sdk/lib-dynamodb";
+import { BatchGetCommandInput, paginatedBatchGet } from "@aws-sdk/lib-dynamodb";
 import { HttpResponse } from "@smithy/protocol-http";
 import { describe, expect, test as it } from "vitest";
 
@@ -200,7 +200,7 @@ describe("pagination", () => {
     };
 
     let pages = 0;
-    for await (const page of paginateBatchGet({ client: ddb }, requestParams)) {
+    for await (const page of paginatedBatchGet({ client: ddb }, requestParams)) {
       pages += 1;
       if (pages === 1) {
         expect(page.Responses?.test).toEqual([
@@ -220,7 +220,7 @@ describe("pagination", () => {
     let thrownError;
 
     try {
-      for await (const page of paginateBatchGet(
+      for await (const page of paginatedBatchGet(
         { client: ddb },
         {
           RequestItems: {
