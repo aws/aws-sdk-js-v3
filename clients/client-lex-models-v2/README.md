@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript LexModelsV2 Client for Node.js, Browser and React Native.
 
-<p></p>
+<p>Amazon Lex Model Building Service provides APIs for creating, managing, and deploying conversational bots and their components.</p>
 
 ## Installing
 

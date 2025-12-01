@@ -699,7 +699,7 @@ export type LexModelsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface LexModelsV2ClientResolvedConfig extends LexModelsV2ClientResolvedConfigType {}
 
 /**
- * <p></p>
+ * <p>Amazon Lex Model Building Service provides APIs for creating, managing, and deploying conversational bots and their components.</p>
  * @public
  */
 export class LexModelsV2Client extends __Client<

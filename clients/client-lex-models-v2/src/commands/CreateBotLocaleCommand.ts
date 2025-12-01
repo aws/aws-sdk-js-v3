@@ -46,8 +46,23 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *   description: "STRING_VALUE",
  *   nluIntentConfidenceThreshold: Number("double"), // required
  *   voiceSettings: { // VoiceSettings
- *     voiceId: "STRING_VALUE", // required
  *     engine: "standard" || "neural" || "long-form" || "generative",
+ *     voiceId: "STRING_VALUE", // required
+ *   },
+ *   unifiedSpeechSettings: { // UnifiedSpeechSettings
+ *     speechFoundationModel: { // SpeechFoundationModel
+ *       modelArn: "STRING_VALUE", // required
+ *       voiceId: "STRING_VALUE",
+ *     },
+ *   },
+ *   speechRecognitionSettings: { // SpeechRecognitionSettings
+ *     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ *     speechModelConfig: { // SpeechModelConfig
+ *       deepgramConfig: { // DeepgramSpeechModelConfig
+ *         apiTokenSecretArn: "STRING_VALUE", // required
+ *         modelId: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   generativeAISettings: { // GenerativeAISettings
  *     runtimeSettings: { // RuntimeSettings
@@ -112,8 +127,23 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //   description: "STRING_VALUE",
  * //   nluIntentConfidenceThreshold: Number("double"),
  * //   voiceSettings: { // VoiceSettings
- * //     voiceId: "STRING_VALUE", // required
  * //     engine: "standard" || "neural" || "long-form" || "generative",
+ * //     voiceId: "STRING_VALUE", // required
+ * //   },
+ * //   unifiedSpeechSettings: { // UnifiedSpeechSettings
+ * //     speechFoundationModel: { // SpeechFoundationModel
+ * //       modelArn: "STRING_VALUE", // required
+ * //       voiceId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   speechRecognitionSettings: { // SpeechRecognitionSettings
+ * //     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //     speechModelConfig: { // SpeechModelConfig
+ * //       deepgramConfig: { // DeepgramSpeechModelConfig
+ * //         apiTokenSecretArn: "STRING_VALUE", // required
+ * //         modelId: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
  * //   creationDateTime: new Date("TIMESTAMP"),

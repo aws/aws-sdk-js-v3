@@ -2084,7 +2084,7 @@ export interface LexModelsV2 {
 }
 
 /**
- * <p></p>
+ * <p>Amazon Lex Model Building Service provides APIs for creating, managing, and deploying conversational bots and their components.</p>
  * @public
  */
 export class LexModelsV2 extends LexModelsV2Client implements LexModelsV2 {}

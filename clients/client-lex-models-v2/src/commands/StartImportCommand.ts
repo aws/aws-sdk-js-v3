@@ -63,10 +63,25 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *       localeId: "STRING_VALUE", // required
  *       nluIntentConfidenceThreshold: Number("double"),
  *       voiceSettings: { // VoiceSettings
- *         voiceId: "STRING_VALUE", // required
  *         engine: "standard" || "neural" || "long-form" || "generative",
+ *         voiceId: "STRING_VALUE", // required
+ *       },
+ *       speechRecognitionSettings: { // SpeechRecognitionSettings
+ *         speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ *         speechModelConfig: { // SpeechModelConfig
+ *           deepgramConfig: { // DeepgramSpeechModelConfig
+ *             apiTokenSecretArn: "STRING_VALUE", // required
+ *             modelId: "STRING_VALUE",
+ *           },
+ *         },
  *       },
  *       speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
+ *       unifiedSpeechSettings: { // UnifiedSpeechSettings
+ *         speechFoundationModel: { // SpeechFoundationModel
+ *           modelArn: "STRING_VALUE", // required
+ *           voiceId: "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
  *       botId: "STRING_VALUE", // required
@@ -123,10 +138,25 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //       localeId: "STRING_VALUE", // required
  * //       nluIntentConfidenceThreshold: Number("double"),
  * //       voiceSettings: { // VoiceSettings
- * //         voiceId: "STRING_VALUE", // required
  * //         engine: "standard" || "neural" || "long-form" || "generative",
+ * //         voiceId: "STRING_VALUE", // required
+ * //       },
+ * //       speechRecognitionSettings: { // SpeechRecognitionSettings
+ * //         speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //         speechModelConfig: { // SpeechModelConfig
+ * //           deepgramConfig: { // DeepgramSpeechModelConfig
+ * //             apiTokenSecretArn: "STRING_VALUE", // required
+ * //             modelId: "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //       speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
+ * //       unifiedSpeechSettings: { // UnifiedSpeechSettings
+ * //         speechFoundationModel: { // SpeechFoundationModel
+ * //           modelArn: "STRING_VALUE", // required
+ * //           voiceId: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
  * //       botId: "STRING_VALUE", // required

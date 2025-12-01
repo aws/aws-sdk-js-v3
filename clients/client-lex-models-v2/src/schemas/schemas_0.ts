@@ -289,6 +289,7 @@ const _DRPSRe = "DeleteResourcePolicyStatementResponse";
 const _DRPe = "DescribeResourcePolicy";
 const _DS = "DialogState";
 const _DSC = "DataSourceConfiguration";
+const _DSMC = "DeepgramSpeechModelConfig";
 const _DSR = "DeleteSlotRequest";
 const _DSRe = "DescribeSlotRequest";
 const _DSRes = "DescribeSlotResponse";
@@ -539,6 +540,7 @@ const _SDV = "SlotDefaultValue";
 const _SDVL = "SlotDefaultValueList";
 const _SDVS = "SlotDefaultValueSpecification";
 const _SF = "SlotFilter";
+const _SFM = "SpeechFoundationModel";
 const _SFl = "SlotFilters";
 const _SHIM = "SlotHintsIntentMap";
 const _SHSM = "SlotHintsSlotMap";
@@ -546,11 +548,13 @@ const _SI = "StartImport";
 const _SIR = "StartImportRequest";
 const _SIRt = "StartImportResponse";
 const _SL = "SynonymList";
+const _SMC = "SpeechModelConfig";
 const _SP = "SlotPriority";
 const _SPL = "SlotPrioritiesList";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRIS = "SlotResolutionImprovementSpecification";
 const _SRS = "SlotResolutionSetting";
+const _SRSp = "SpeechRecognitionSettings";
 const _SRTRI = "SlotResolutionTestResultItem";
 const _SRTRIC = "SlotResolutionTestResultItemCounts";
 const _SRTRIl = "SlotResolutionTestResultItems";
@@ -663,6 +667,7 @@ const _URRn = "UntagResourceResponse";
 const _US = "UtteranceSpecification";
 const _USR = "UpdateSlotRequest";
 const _USRp = "UpdateSlotResponse";
+const _USS = "UnifiedSpeechSettings";
 const _UST = "UpdateSlotType";
 const _USTR = "UpdateSlotTypeRequest";
 const _USTRp = "UpdateSlotTypeResponse";
@@ -712,6 +717,7 @@ const _aS = "audioSpecification";
 const _aSN = "associatedSlotName";
 const _aT = "associatedTranscripts";
 const _aTP = "associatedTranscriptsPassword";
+const _aTSA = "apiTokenSecretArn";
 const _aTU = "associatedTranscriptsUrl";
 const _aTg = "agentTurn";
 const _aUS = "aggregatedUtterancesSummaries";
@@ -828,6 +834,7 @@ const _dBB = "descriptiveBotBuilder";
 const _dC = "deletionCharacter";
 const _dCH = "dialogCodeHook";
 const _dCe = "declinationConditional";
+const _dCee = "deepgramConfig";
 const _dE = "domainEndpoint";
 const _dIC = "discoveredIntentCount";
 const _dIS = "delayInSeconds";
@@ -969,6 +976,7 @@ const _mA = "modelArn";
 const _mC = "missedCount";
 const _mDI = "maxDisambiguationIntents";
 const _mG = "messageGroups";
+const _mI = "modelId";
 const _mL = "maxLength";
 const _mLM = "maxLengthMs";
 const _mR = "metricsResults";
@@ -1061,6 +1069,7 @@ const _sDS = "speechDetectionSensitivity";
 const _sDT = "startDateTime";
 const _sDl = "slotDiscrepancies";
 const _sFIS = "slotsFilledInSession";
+const _sFM = "speechFoundationModel";
 const _sH = "slotHints";
 const _sI = "statementId";
 const _sIe = "sessionId";
@@ -1069,6 +1078,8 @@ const _sL = "storageLocation";
 const _sLE = "selectiveLoggingEnabled";
 const _sLu = "summaryList";
 const _sM = "ssmlMessage";
+const _sMC = "speechModelConfig";
+const _sMP = "speechModelPreference";
 const _sMR = "slotMatchResult";
 const _sMRC = "slotMatchResultCounts";
 const _sN = "slotName";
@@ -1082,8 +1093,9 @@ const _sR = "sourceRegion";
 const _sRI = "slotResolutionImprovement";
 const _sRIUC = "skipResourceInUseCheck";
 const _sRR = "slotResolutionResults";
-const _sRS = "slotResolutionStrategy";
-const _sRSl = "slotResolutionSetting";
+const _sRS = "speechRecognitionSettings";
+const _sRSl = "slotResolutionStrategy";
+const _sRSlo = "slotResolutionSetting";
 const _sRt = "startResponse";
 const _sRu = "successResponse";
 const _sS = "subSlots";
@@ -1174,6 +1186,7 @@ const _uLRIAD = "utteranceLastRecordedInAggregationDuration";
 const _uLTR = "utteranceLevelTestResults";
 const _uR = "updateResponse";
 const _uRI = "utteranceRequestId";
+const _uSS = "unifiedSpeechSettings";
 const _uT = "userTurn";
 const _uTt = "utteranceTimestamp";
 const _uU = "uploadUrl";
@@ -1435,8 +1448,8 @@ export var BotLocaleImportSpecification: StaticStructureSchema = [
   n0,
   _BLIS,
   0,
-  [_bI, _bV, _lI, _nICT, _vS, _sDS],
-  [0, 0, 0, 1, () => VoiceSettings, 0],
+  [_bI, _bV, _lI, _nICT, _vS, _sRS, _sDS, _uSS],
+  [0, 0, 0, 1, () => VoiceSettings, () => SpeechRecognitionSettings, 0, () => UnifiedSpeechSettings],
 ];
 export var BotLocaleSortBy: StaticStructureSchema = [3, n0, _BLSB, 0, [_a, _or], [0, 0]];
 export var BotLocaleSummary: StaticStructureSchema = [
@@ -1646,16 +1659,41 @@ export var CreateBotLocaleRequest: StaticStructureSchema = [
   n0,
   _CBLR,
   0,
-  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS, _sDS],
-  [[0, 1], [0, 1], 0, 0, 1, () => VoiceSettings, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lI, _de, _nICT, _vS, _uSS, _sRS, _gAIS, _sDS],
+  [
+    [0, 1],
+    [0, 1],
+    0,
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var CreateBotLocaleResponse: StaticStructureSchema = [
   3,
   n0,
   _CBLRr,
   0,
-  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _bLS, _cDT, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 4, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _uSS, _sRS, _bLS, _cDT, _gAIS, _sDS],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    0,
+    4,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var CreateBotReplicaRequest: StaticStructureSchema = [3, n0, _CBRR, 0, [_bI, _rR], [[0, 1], 0]];
 export var CreateBotReplicaResponse: StaticStructureSchema = [
@@ -1909,6 +1947,7 @@ export var DataSourceConfiguration: StaticStructureSchema = [
   [() => OpensearchConfiguration, () => QnAKendraConfiguration, () => BedrockKnowledgeStoreConfiguration],
 ];
 export var DateRangeFilter: StaticStructureSchema = [3, n0, _DRF, 0, [_sDT, _eDT], [4, 4]];
+export var DeepgramSpeechModelConfig: StaticStructureSchema = [3, n0, _DSMC, 0, [_aTSA, _mI], [0, 0]];
 export var DefaultConditionalBranch: StaticStructureSchema = [
   3,
   n0,
@@ -2174,7 +2213,28 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
   n0,
   _DBLResc,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS, _sDS],
+  [
+    _bI,
+    _bV,
+    _lI,
+    _lN,
+    _de,
+    _nICT,
+    _vS,
+    _uSS,
+    _sRS,
+    _iCnt,
+    _sTC,
+    _bLS,
+    _fR,
+    _cDT,
+    _lUDT,
+    _lBSDT,
+    _bLHE,
+    _rAec,
+    _gAIS,
+    _sDS,
+  ],
   [
     0,
     0,
@@ -2183,6 +2243,8 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
     0,
     1,
     () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
     1,
     1,
     0,
@@ -3556,7 +3618,7 @@ export var SlotResolutionImprovementSpecification: StaticStructureSchema = [
   [_e, _bMS],
   [2, () => BedrockModelSpecification],
 ];
-export var SlotResolutionSetting: StaticStructureSchema = [3, n0, _SRS, 0, [_sRS], [0]];
+export var SlotResolutionSetting: StaticStructureSchema = [3, n0, _SRS, 0, [_sRSl], [0]];
 export var SlotResolutionTestResultItem: StaticStructureSchema = [
   3,
   n0,
@@ -3600,7 +3662,7 @@ export var SlotValueElicitationSetting: StaticStructureSchema = [
   n0,
   _SVES,
   0,
-  [_dVS, _sCl, _pS, _sU, _wACS, _sCS, _sRSl],
+  [_dVS, _sCl, _pS, _sU, _wACS, _sCS, _sRSlo],
   [
     () => SlotDefaultValueSpecification,
     0,
@@ -3635,6 +3697,16 @@ export var Specifications: StaticStructureSchema = [
   0,
   [_sTI, _vES],
   [0, () => SubSlotValueElicitationSetting],
+];
+export var SpeechFoundationModel: StaticStructureSchema = [3, n0, _SFM, 0, [_mA, _vI], [0, 0]];
+export var SpeechModelConfig: StaticStructureSchema = [3, n0, _SMC, 0, [_dCee], [() => DeepgramSpeechModelConfig]];
+export var SpeechRecognitionSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _SRSp,
+  0,
+  [_sMP, _sMC],
+  [0, () => SpeechModelConfig],
 ];
 export var SSMLMessage: StaticStructureSchema = [3, n0, _SSMLM, 0, [_va], [0]];
 export var StartBotRecommendationRequest: StaticStructureSchema = [
@@ -3913,6 +3985,7 @@ export var TurnSpecification: StaticStructureSchema = [
   [_aTg, _uT],
   [() => AgentTurnSpecification, () => UserTurnSpecification],
 ];
+export var UnifiedSpeechSettings: StaticStructureSchema = [3, n0, _USS, 0, [_sFM], [() => SpeechFoundationModel]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3972,16 +4045,44 @@ export var UpdateBotLocaleRequest: StaticStructureSchema = [
   n0,
   _UBLR,
   0,
-  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS, _sDS],
-  [[0, 1], [0, 1], [0, 1], 0, 1, () => VoiceSettings, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lI, _de, _nICT, _vS, _uSS, _sRS, _gAIS, _sDS],
+  [
+    [0, 1],
+    [0, 1],
+    [0, 1],
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var UpdateBotLocaleResponse: StaticStructureSchema = [
   3,
   n0,
   _UBLRp,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _sRS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    0,
+    64 | 0,
+    4,
+    4,
+    64 | 0,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var UpdateBotRecommendationRequest: StaticStructureSchema = [
   3,
@@ -4373,7 +4474,7 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 
-export var VoiceSettings: StaticStructureSchema = [3, n0, _VS, 0, [_vI, _en], [0, 0]];
+export var VoiceSettings: StaticStructureSchema = [3, n0, _VS, 0, [_en, _vI], [0, 0]];
 export var WaitAndContinueSpecification: StaticStructureSchema = [
   3,
   n0,

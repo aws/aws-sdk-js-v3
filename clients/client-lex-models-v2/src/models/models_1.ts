@@ -14,6 +14,7 @@ import {
   GenerationStatus,
   ImportExportFileFormat,
   ImportStatus,
+  IntentSortAttribute,
   IntentState,
   MergeStrategy,
   SearchOrder,
@@ -122,9 +123,6 @@ import {
   InputContext,
   IntentClassificationTestResults,
   IntentFilter,
-  IntentLevelSlotResolutionTestResults,
-  IntentSortBy,
-  IntentSummary,
   KendraConfiguration,
   MultipleValuesSetting,
   ObfuscationSetting,
@@ -139,17 +137,155 @@ import {
   SlotDefaultValueSpecification,
   SlotPriority,
   SlotResolutionSetting,
+  SlotResolutionTestResultItemCounts,
   SlotTypeValue,
   SlotValue,
   SlotValueSelectionSetting,
+  SpeechRecognitionSettings,
   SubSlotSetting,
   TestExecutionTarget,
   TestSetGenerationDataSource,
   TestSetStorageLocation,
   TranscriptSourceSetting,
+  UnifiedSpeechSettings,
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * <p>Information about the success and failure rate of slot resolution
+ *  in the results of a test execution.</p>
+ * @public
+ */
+export interface SlotResolutionTestResultItem {
+  /**
+   * <p>The name of the slot.</p>
+   * @public
+   */
+  slotName: string | undefined;
+
+  /**
+   * <p>A result for slot resolution in the results of a test execution.</p>
+   * @public
+   */
+  resultCounts: SlotResolutionTestResultItemCounts | undefined;
+}
+
+/**
+ * <p>Information about intent-level slot resolution in a test result.</p>
+ * @public
+ */
+export interface IntentLevelSlotResolutionTestResultItem {
+  /**
+   * <p>The name of the intent that was recognized.</p>
+   * @public
+   */
+  intentName: string | undefined;
+
+  /**
+   * <p>Indicates whether the conversation involves multiple turns or not.</p>
+   * @public
+   */
+  multiTurnConversation: boolean | undefined;
+
+  /**
+   * <p>The results for the slot resolution in the test execution result.</p>
+   * @public
+   */
+  slotResolutionResults: SlotResolutionTestResultItem[] | undefined;
+}
+
+/**
+ * <p>Indicates the success or failure of slots at the intent level.</p>
+ * @public
+ */
+export interface IntentLevelSlotResolutionTestResults {
+  /**
+   * <p>Indicates the items for the slot level resolution for the intents.</p>
+   * @public
+   */
+  items: IntentLevelSlotResolutionTestResultItem[] | undefined;
+}
+
+/**
+ * <p>Specifies attributes for sorting a list of intents.</p>
+ * @public
+ */
+export interface IntentSortBy {
+  /**
+   * <p>The attribute to use to sort the list of intents.</p>
+   * @public
+   */
+  attribute: IntentSortAttribute | undefined;
+
+  /**
+   * <p>The order to sort the list. You can choose ascending or
+   *          descending.</p>
+   * @public
+   */
+  order: SortOrder | undefined;
+}
+
+/**
+ * <p>Summary information about an intent returned by the
+ *          <code>ListIntents</code> operation.</p>
+ * @public
+ */
+export interface IntentSummary {
+  /**
+   * <p>The unique identifier assigned to the intent. Use this ID to get
+   *          detailed information about the intent with the
+   *          <code>DescribeIntent</code> operation.</p>
+   * @public
+   */
+  intentId?: string | undefined;
+
+  /**
+   * <p>The name of the intent.</p>
+   * @public
+   */
+  intentName?: string | undefined;
+
+  /**
+   * <p>The display name of the intent.</p>
+   * @public
+   */
+  intentDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the intent.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>If this intent is derived from a built-in intent, the name of the
+   *          parent intent.</p>
+   * @public
+   */
+  parentIntentSignature?: string | undefined;
+
+  /**
+   * <p>The input contexts that must be active for this intent to be
+   *          considered for recognition.</p>
+   * @public
+   */
+  inputContexts?: InputContext[] | undefined;
+
+  /**
+   * <p>The output contexts that are activated when this intent is
+   *          fulfilled.</p>
+   * @public
+   */
+  outputContexts?: OutputContext[] | undefined;
+
+  /**
+   * <p>The timestamp of the date and time that the intent was last
+   *          updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date | undefined;
+}
 
 /**
  * <p>An object containing the name of an intent that was invoked.</p>
@@ -4608,6 +4744,18 @@ export interface UpdateBotLocaleRequest {
   voiceSettings?: VoiceSettings | undefined;
 
   /**
+   * <p>Updated unified speech settings to apply to the bot locale.</p>
+   * @public
+   */
+  unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>Updated speech-to-text settings to apply to the bot locale.</p>
+   * @public
+   */
+  speechRecognitionSettings?: SpeechRecognitionSettings | undefined;
+
+  /**
    * <p>Contains settings for generative AI features powered by Amazon Bedrock for your bot locale. Use this object to turn generative AI features on and off. Pricing
    *       may differ if you turn a feature on. For more information, see LINK.</p>
    * @public
@@ -4670,6 +4818,18 @@ export interface UpdateBotLocaleResponse {
    * @public
    */
   voiceSettings?: VoiceSettings | undefined;
+
+  /**
+   * <p>The updated unified speech settings for the bot locale.</p>
+   * @public
+   */
+  unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>The updated speech-to-text settings for the bot locale.</p>
+   * @public
+   */
+  speechRecognitionSettings?: SpeechRecognitionSettings | undefined;
 
   /**
    * <p>The current status of the locale. When the bot status is

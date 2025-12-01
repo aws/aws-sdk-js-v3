@@ -575,6 +575,20 @@ export type SpeechDetectionSensitivity = (typeof SpeechDetectionSensitivity)[key
  * @public
  * @enum
  */
+export const SpeechModelPreference = {
+  Deepgram: "Deepgram",
+  Neural: "Neural",
+  Standard: "Standard",
+} as const;
+/**
+ * @public
+ */
+export type SpeechModelPreference = (typeof SpeechModelPreference)[keyof typeof SpeechModelPreference];
+
+/**
+ * @public
+ * @enum
+ */
 export const VoiceEngine = {
   Generative: "generative",
   LongForm: "long-form",
