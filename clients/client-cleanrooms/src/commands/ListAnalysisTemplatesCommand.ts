@@ -57,6 +57,7 @@ export interface ListAnalysisTemplatesCommandOutput extends ListAnalysisTemplate
  * //       collaborationArn: "STRING_VALUE", // required
  * //       collaborationId: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
+ * //       isSyntheticData: true || false,
  * //     },
  * //   ],
  * // };

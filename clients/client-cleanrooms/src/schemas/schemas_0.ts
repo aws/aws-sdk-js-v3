@@ -74,6 +74,7 @@ const _CCAMAr = "CreateConfiguredAudienceModelAssociation";
 const _CCCR = "CreateCollaborationChangeRequest";
 const _CCCRI = "CreateCollaborationChangeRequestInput";
 const _CCCRO = "CreateCollaborationChangeRequestOutput";
+const _CCD = "ColumnClassificationDetails";
 const _CCI = "CreateCollaborationInput";
 const _CCO = "CreateCollaborationOutput";
 const _CCR = "CollaborationChangeRequest";
@@ -109,6 +110,7 @@ const _CL = "ChangeList";
 const _CLo = "ColumnList";
 const _CM = "CreateMembership";
 const _CMI = "CreateMembershipInput";
+const _CML = "ColumnMappingList";
 const _CMO = "CreateMembershipOutput";
 const _CP = "ConsolidatedPolicy";
 const _CPA = "ConsolidatedPolicyAggregation";
@@ -348,6 +350,7 @@ const _MJCPC = "MembershipJobComputePaymentConfig";
 const _ML = "MemberList";
 const _MLMA = "MLMemberAbilities";
 const _MLPC = "MLPaymentConfig";
+const _MLSDP = "MLSyntheticDataParameters";
 const _MMIPC = "MembershipModelInferencePaymentConfig";
 const _MMLPC = "MembershipMLPaymentConfig";
 const _MMTPC = "MembershipModelTrainingPaymentConfig";
@@ -358,6 +361,7 @@ const _MPQOC = "MembershipProtectedQueryOutputConfiguration";
 const _MPQRC = "MembershipProtectedQueryResultConfiguration";
 const _MQCPC = "MembershipQueryComputePaymentConfig";
 const _MS = "MembershipSummary";
+const _MSDGPC = "MembershipSyntheticDataGenerationPaymentConfig";
 const _MSL = "MembershipSummaryList";
 const _MSLe = "MemberSummaryList";
 const _MSe = "MemberSpecification";
@@ -436,6 +440,9 @@ const _S = "Schema";
 const _SARL = "SchemaAnalysisRuleList";
 const _SARR = "SchemaAnalysisRuleRequest";
 const _SARRL = "SchemaAnalysisRuleRequestList";
+const _SDCP = "SyntheticDataColumnProperties";
+const _SDGPC = "SyntheticDataGenerationPaymentConfig";
+const _SDP = "SyntheticDataParameters";
 const _SL = "S3Location";
 const _SLc = "SchemaList";
 const _SPJ = "StartProtectedJob";
@@ -569,13 +576,14 @@ const _cAMAo = "configuredAudienceModelAssociation";
 const _cAT = "collaborationAnalysisTemplates";
 const _cATS = "collaborationAnalysisTemplateSummaries";
 const _cATo = "collaborationAnalysisTemplate";
-const _cC = "computeConfiguration";
+const _cC = "columnClassification";
 const _cCAI = "collaborationCreatorAccountId";
 const _cCAMA = "collaborationConfiguredAudienceModelAssociation";
 const _cCAMAS = "collaborationConfiguredAudienceModelAssociationSummaries";
 const _cCDN = "collaborationCreatorDisplayName";
 const _cCR = "collaborationChangeRequest";
 const _cCRS = "collaborationChangeRequestSummaries";
+const _cCo = "computeConfiguration";
 const _cD = "configurationDetails";
 const _cDN = "creatorDisplayName";
 const _cI = "collaborationId";
@@ -583,6 +591,7 @@ const _cINA = "collaborationIdNamespaceAssociation";
 const _cINAS = "collaborationIdNamespaceAssociationSummaries";
 const _cIo = "collaborationIdentifier";
 const _cL = "collaborationList";
+const _cM = "columnMapping";
 const _cMA = "creatorMemberAbilities";
 const _cMLMA = "creatorMLMemberAbilities";
 const _cMLMAu = "customMLMemberAbilities";
@@ -655,10 +664,12 @@ const _iNAI = "idNamespaceAssociationIdentifier";
 const _iNAId = "idNamespaceAssociationId";
 const _iNAS = "idNamespaceAssociationSummaries";
 const _iNT = "idNamespaceType";
+const _iPV = "isPredictiveValue";
 const _iR = "isResponsible";
 const _iRA = "inputReferenceArn";
 const _iRC = "inputReferenceConfig";
 const _iRP = "inputReferenceProperties";
+const _iSD = "isSyntheticData";
 const _jC = "joinColumns";
 const _jCo = "jobCompute";
 const _jLS = "jobLogStatus";
@@ -685,9 +696,11 @@ const _mIo = "modelInference";
 const _mL = "machineLearning";
 const _mLe = "memberList";
 const _mMA = "mlMemberAbilities";
+const _mMIAS = "maxMembershipInferenceAttackScore";
 const _mR = "maxResults";
 const _mRP = "manageResourcePolicies";
 const _mS = "memberStatus";
+const _mSDP = "mlSyntheticDataParameters";
 const _mSe = "membershipSummaries";
 const _mSem = "memberSummaries";
 const _mT = "modelTraining";
@@ -749,6 +762,8 @@ const _s = "schema";
 const _sA = "secretArn";
 const _sAM = "selectedAnalysisMethods";
 const _sARR = "schemaAnalysisRuleRequests";
+const _sDG = "syntheticDataGeneration";
+const _sDP = "syntheticDataParameters";
 const _sF = "scalarFunctions";
 const _sFO = "singleFileOutput";
 const _sM = "sourceMetadata";
@@ -928,7 +943,7 @@ export var AnalysisTemplate: StaticStructureSchema = [
   n0,
   _AT,
   0,
-  [_i, _a, _cI, _cA, _mI, _mA, _de, _n, _cT, _uT, _s, _fo, _so, _sM, _aP, _v, _eMC],
+  [_i, _a, _cI, _cA, _mI, _mA, _de, _n, _cT, _uT, _s, _fo, _so, _sM, _aP, _v, _eMC, _sDP],
   [
     0,
     0,
@@ -947,6 +962,7 @@ export var AnalysisTemplate: StaticStructureSchema = [
     [() => AnalysisParameterList, 0],
     () => AnalysisTemplateValidationStatusDetailList,
     () => ErrorMessageConfiguration,
+    () => SyntheticDataParameters,
   ],
 ];
 export var AnalysisTemplateArtifact: StaticStructureSchema = [3, n0, _ATA, 0, [_l], [() => S3Location]];
@@ -971,8 +987,8 @@ export var AnalysisTemplateSummary: StaticStructureSchema = [
   n0,
   _ATS,
   0,
-  [_a, _cT, _i, _n, _uT, _mA, _mI, _cA, _cI, _de],
-  [0, 4, 0, 0, 4, 0, 0, 0, 0, 0],
+  [_a, _cT, _i, _n, _uT, _mA, _mI, _cA, _cI, _de, _iSD],
+  [0, 4, 0, 0, 4, 0, 0, 0, 0, 0, 2],
 ];
 export var AnalysisTemplateValidationStatusDetail: StaticStructureSchema = [
   3,
@@ -1060,7 +1076,7 @@ export var CollaborationAnalysisTemplate: StaticStructureSchema = [
   n0,
   _CAT,
   0,
-  [_i, _a, _cI, _cA, _de, _cAI, _n, _cT, _uT, _s, _fo, _so, _sM, _aP, _v, _eMC],
+  [_i, _a, _cI, _cA, _de, _cAI, _n, _cT, _uT, _s, _fo, _so, _sM, _aP, _v, _eMC, _sDP],
   [
     0,
     0,
@@ -1078,6 +1094,7 @@ export var CollaborationAnalysisTemplate: StaticStructureSchema = [
     [() => AnalysisParameterList, 0],
     () => AnalysisTemplateValidationStatusDetailList,
     () => ErrorMessageConfiguration,
+    () => SyntheticDataParameters,
   ],
 ];
 export var CollaborationAnalysisTemplateSummary: StaticStructureSchema = [
@@ -1085,8 +1102,8 @@ export var CollaborationAnalysisTemplateSummary: StaticStructureSchema = [
   n0,
   _CATS,
   0,
-  [_a, _cT, _i, _n, _uT, _cA, _cI, _cAI, _de],
-  [0, 4, 0, 0, 4, 0, 0, 0, 0],
+  [_a, _cT, _i, _n, _uT, _cA, _cI, _cAI, _de, _iSD],
+  [0, 4, 0, 0, 4, 0, 0, 0, 0, 2],
 ];
 export var CollaborationChangeRequest: StaticStructureSchema = [
   3,
@@ -1194,6 +1211,7 @@ export var CollaborationSummary: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0],
 ];
 export var Column: StaticStructureSchema = [3, n0, _Col, 0, [_n, _t], [0, 0]];
+export var ColumnClassificationDetails: StaticStructureSchema = [3, n0, _CCD, 0, [_cM], [() => ColumnMappingList]];
 export var ConfiguredAudienceModelAssociation: StaticStructureSchema = [
   3,
   n0,
@@ -1324,7 +1342,7 @@ export var CreateAnalysisTemplateInput: StaticStructureSchema = [
   n0,
   _CATI,
   0,
-  [_de, _mIe, _n, _fo, _so, _ta, _aP, _s, _eMC],
+  [_de, _mIe, _n, _fo, _so, _ta, _aP, _s, _eMC, _sDP],
   [
     0,
     [0, 1],
@@ -1335,6 +1353,7 @@ export var CreateAnalysisTemplateInput: StaticStructureSchema = [
     [() => AnalysisParameterList, 0],
     () => AnalysisSchema,
     () => ErrorMessageConfiguration,
+    () => SyntheticDataParameters,
   ],
 ];
 export var CreateAnalysisTemplateOutput: StaticStructureSchema = [
@@ -2801,8 +2820,12 @@ export var MembershipMLPaymentConfig: StaticStructureSchema = [
   n0,
   _MMLPC,
   0,
-  [_mT, _mIo],
-  [() => MembershipModelTrainingPaymentConfig, () => MembershipModelInferencePaymentConfig],
+  [_mT, _mIo, _sDG],
+  [
+    () => MembershipModelTrainingPaymentConfig,
+    () => MembershipModelInferencePaymentConfig,
+    () => MembershipSyntheticDataGenerationPaymentConfig,
+  ],
 ];
 export var MembershipModelInferencePaymentConfig: StaticStructureSchema = [3, n0, _MMIPC, 0, [_iR], [2]];
 export var MembershipModelTrainingPaymentConfig: StaticStructureSchema = [3, n0, _MMTPC, 0, [_iR], [2]];
@@ -2839,6 +2862,7 @@ export var MembershipSummary: StaticStructureSchema = [
   [_i, _a, _cA, _cI, _cCAI, _cCDN, _cNol, _cT, _uT, _st, _mAe, _mMA, _pC],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 64 | 0, () => MLMemberAbilities, () => MembershipPaymentConfiguration],
 ];
+export var MembershipSyntheticDataGenerationPaymentConfig: StaticStructureSchema = [3, n0, _MSDGPC, 0, [_iR], [2]];
 export var MemberSpecification: StaticStructureSchema = [
   3,
   n0,
@@ -2861,8 +2885,16 @@ export var MLPaymentConfig: StaticStructureSchema = [
   n0,
   _MLPC,
   0,
-  [_mT, _mIo],
-  [() => ModelTrainingPaymentConfig, () => ModelInferencePaymentConfig],
+  [_mT, _mIo, _sDG],
+  [() => ModelTrainingPaymentConfig, () => ModelInferencePaymentConfig, () => SyntheticDataGenerationPaymentConfig],
+];
+export var MLSyntheticDataParameters: StaticStructureSchema = [
+  3,
+  n0,
+  _MLSDP,
+  0,
+  [_ep, _mMIAS, _cC],
+  [1, 1, () => ColumnClassificationDetails],
 ];
 export var ModelInferencePaymentConfig: StaticStructureSchema = [3, n0, _MIPC, 0, [_iR], [2]];
 export var ModelTrainingPaymentConfig: StaticStructureSchema = [3, n0, _MTPC, 0, [_iR], [2]];
@@ -2921,7 +2953,7 @@ export var ProtectedJob: StaticStructureSchema = [
   n0,
   _PJ,
   0,
-  [_i, _mI, _mA, _cT, _jP, _st, _rCe, _sta, _res, _e, _cC],
+  [_i, _mI, _mA, _cT, _jP, _st, _rCe, _sta, _res, _e, _cCo],
   [
     0,
     0,
@@ -2999,7 +3031,7 @@ export var ProtectedQuery: StaticStructureSchema = [
   n0,
   _PQ,
   0,
-  [_i, _mI, _mA, _cT, _sPq, _st, _rCe, _sta, _res, _e, _dP, _cC],
+  [_i, _mI, _mA, _cT, _sPq, _st, _rCe, _sta, _res, _e, _dP, _cCo],
   [
     0,
     0,
@@ -3156,7 +3188,7 @@ export var StartProtectedJobInput: StaticStructureSchema = [
   n0,
   _SPJI,
   0,
-  [_t, _mIe, _jP, _rCe, _cC],
+  [_t, _mIe, _jP, _rCe, _cCo],
   [
     0,
     [0, 1],
@@ -3171,7 +3203,7 @@ export var StartProtectedQueryInput: StaticStructureSchema = [
   n0,
   _SPQI,
   0,
-  [_t, _mIe, _sPq, _rCe, _cC],
+  [_t, _mIe, _sPq, _rCe, _cCo],
   [
     0,
     [0, 1],
@@ -3181,6 +3213,8 @@ export var StartProtectedQueryInput: StaticStructureSchema = [
   ],
 ];
 export var StartProtectedQueryOutput: StaticStructureSchema = [3, n0, _SPQO, 0, [_pQ], [[() => ProtectedQuery, 0]]];
+export var SyntheticDataColumnProperties: StaticStructureSchema = [3, n0, _SDCP, 0, [_cNo, _cTol, _iPV], [0, 0, 2]];
+export var SyntheticDataGenerationPaymentConfig: StaticStructureSchema = [3, n0, _SDGPC, 0, [_iR], [2]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
@@ -3505,6 +3539,7 @@ export var CollaborationPrivacyBudgetTemplateSummaryList: StaticListSchema = [
 ];
 export var CollaborationSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CollaborationSummary];
 export var ColumnList: StaticListSchema = [1, n0, _CLo, 0, () => Column];
+export var ColumnMappingList: StaticListSchema = [1, n0, _CML, 0, () => SyntheticDataColumnProperties];
 export var ConfiguredAudienceModelAssociationSummaryList: StaticListSchema = [
   1,
   n0,
@@ -3840,6 +3875,14 @@ export var SchemaTypeProperties: StaticStructureSchema = [
   [() => IdMappingTableSchemaTypeProperties],
 ];
 export var SnowflakeTableSchema: StaticStructureSchema = [3, n0, _STS, 0, [_v_], [() => SnowflakeTableSchemaList]];
+export var SyntheticDataParameters: StaticStructureSchema = [
+  3,
+  n0,
+  _SDP,
+  0,
+  [_mSDP],
+  [() => MLSyntheticDataParameters],
+];
 export var TableReference: StaticStructureSchema = [
   3,
   n0,

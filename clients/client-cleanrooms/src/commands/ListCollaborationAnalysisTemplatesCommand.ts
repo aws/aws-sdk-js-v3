@@ -58,6 +58,7 @@ export interface ListCollaborationAnalysisTemplatesCommandOutput
  * //       collaborationId: "STRING_VALUE", // required
  * //       creatorAccountId: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
+ * //       isSyntheticData: true || false,
  * //     },
  * //   ],
  * // };

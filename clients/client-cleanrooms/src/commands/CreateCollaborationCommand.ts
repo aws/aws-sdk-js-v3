@@ -60,6 +60,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *           modelInference: { // ModelInferencePaymentConfig
  *             isResponsible: true || false, // required
  *           },
+ *           syntheticDataGeneration: { // SyntheticDataGenerationPaymentConfig
+ *             isResponsible: true || false, // required
+ *           },
  *         },
  *         jobCompute: { // JobComputePaymentConfig
  *           isResponsible: true || false, // required
@@ -98,6 +101,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *         isResponsible: true || false, // required
  *       },
  *       modelInference: {
+ *         isResponsible: true || false, // required
+ *       },
+ *       syntheticDataGeneration: {
  *         isResponsible: true || false, // required
  *       },
  *     },

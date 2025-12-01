@@ -32,12 +32,159 @@ import {
   ProtectedJob,
   ProtectedJobComputeConfiguration,
   ProtectedJobParameters,
+  ProtectedQueryDistributeOutputConfigurationLocation,
   ProtectedQueryError,
+  ProtectedQueryMemberOutputConfiguration,
   ProtectedQueryResult,
-  ProtectedQueryResultConfiguration,
-  ProtectedQuerySQLParameters,
-  ProtectedQueryStatistics,
+  ProtectedQueryS3OutputConfiguration,
 } from "./models_0";
+
+/**
+ * <p> Specifies the configuration for distributing protected query results to multiple receivers, including S3 and collaboration members.</p>
+ * @public
+ */
+export interface ProtectedQueryDistributeOutputConfiguration {
+  /**
+   * <p> A list of locations where you want to distribute the protected query results. Each location must specify either an S3 destination or a collaboration member destination.</p> <important> <p>You can't specify more than one S3 location.</p> <p>You can't specify the query runner's account as a member location.</p> <p>You must include either an S3 or member output configuration for each location, but not both.</p> </important>
+   * @public
+   */
+  locations: ProtectedQueryDistributeOutputConfigurationLocation[] | undefined;
+}
+
+/**
+ * <p>Contains configuration details for protected query output.</p>
+ * @public
+ */
+export type ProtectedQueryOutputConfiguration =
+  | ProtectedQueryOutputConfiguration.DistributeMember
+  | ProtectedQueryOutputConfiguration.MemberMember
+  | ProtectedQueryOutputConfiguration.S3Member
+  | ProtectedQueryOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryOutputConfiguration {
+  /**
+   * <p>Required configuration for a protected query with an <code>s3</code> output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    member?: never;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Required configuration for a protected query with a <code>member</code> output type.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedQueryMemberOutputConfiguration;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Required configuration for a protected query with a <code>distribute</code> output type.</p>
+   * @public
+   */
+  export interface DistributeMember {
+    s3?: never;
+    member?: never;
+    distribute: ProtectedQueryDistributeOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    distribute?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
+    distribute: (value: ProtectedQueryDistributeOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export interface ProtectedQueryResultConfiguration {
+  /**
+   * <p>Configuration for protected query results.</p>
+   * @public
+   */
+  outputConfiguration: ProtectedQueryOutputConfiguration | undefined;
+}
+
+/**
+ * <p>The parameters for the SQL type Protected Query.</p>
+ * @public
+ */
+export interface ProtectedQuerySQLParameters {
+  /**
+   * <p>The query string to be submitted.</p>
+   * @public
+   */
+  queryString?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   * @public
+   */
+  analysisTemplateArn?: string | undefined;
+
+  /**
+   * <p>The protected query SQL parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected query.</p>
+ * @public
+ */
+export interface BilledResourceUtilization {
+  /**
+   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
+   * @public
+   */
+  units: number | undefined;
+}
+
+/**
+ * <p>Contains statistics about the execution of the protected query.</p>
+ * @public
+ */
+export interface ProtectedQueryStatistics {
+  /**
+   * <p>The duration of the protected query, from creation until query completion, in milliseconds.</p>
+   * @public
+   */
+  totalDurationInMillis?: number | undefined;
+
+  /**
+   * <p> The billed resource utilization.</p>
+   * @public
+   */
+  billedResourceUtilization?: BilledResourceUtilization | undefined;
+}
 
 /**
  * <p>The parameters for an Clean Rooms protected query.</p>

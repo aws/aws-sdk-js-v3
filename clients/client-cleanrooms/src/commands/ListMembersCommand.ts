@@ -73,6 +73,9 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //           modelInference: { // ModelInferencePaymentConfig
  * //             isResponsible: true || false, // required
  * //           },
+ * //           syntheticDataGeneration: { // SyntheticDataGenerationPaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
  * //         },
  * //         jobCompute: { // JobComputePaymentConfig
  * //           isResponsible: true || false, // required

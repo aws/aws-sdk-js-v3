@@ -40,7 +40,7 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  *   type: "PYSPARK", // required
  *   membershipIdentifier: "STRING_VALUE", // required
  *   jobParameters: { // ProtectedJobParameters
- *     analysisTemplateArn: "STRING_VALUE",
+ *     analysisTemplateArn: "STRING_VALUE", // required
  *   },
  *   resultConfiguration: { // ProtectedJobResultConfigurationInput
  *     outputConfiguration: { // ProtectedJobOutputConfigurationInput Union: only one key present
@@ -65,7 +65,7 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  * //     membershipArn: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     jobParameters: { // ProtectedJobParameters
- * //       analysisTemplateArn: "STRING_VALUE",
+ * //       analysisTemplateArn: "STRING_VALUE", // required
  * //     },
  * //     status: "SUBMITTED" || "STARTED" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS", // required
  * //     resultConfiguration: { // ProtectedJobResultConfigurationOutput

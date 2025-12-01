@@ -74,6 +74,9 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *       modelInference: { // MembershipModelInferencePaymentConfig
  *         isResponsible: true || false, // required
  *       },
+ *       syntheticDataGeneration: { // MembershipSyntheticDataGenerationPaymentConfig
+ *         isResponsible: true || false, // required
+ *       },
  *     },
  *     jobCompute: { // MembershipJobComputePaymentConfig
  *       isResponsible: true || false, // required
@@ -133,6 +136,9 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //           isResponsible: true || false, // required
  * //         },
  * //         modelInference: { // MembershipModelInferencePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //         syntheticDataGeneration: { // MembershipSyntheticDataGenerationPaymentConfig
  * //           isResponsible: true || false, // required
  * //         },
  * //       },

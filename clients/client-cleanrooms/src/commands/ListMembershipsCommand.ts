@@ -76,6 +76,9 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * //           modelInference: { // MembershipModelInferencePaymentConfig
  * //             isResponsible: true || false, // required
  * //           },
+ * //           syntheticDataGeneration: { // MembershipSyntheticDataGenerationPaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
  * //         },
  * //         jobCompute: { // MembershipJobComputePaymentConfig
  * //           isResponsible: true || false, // required

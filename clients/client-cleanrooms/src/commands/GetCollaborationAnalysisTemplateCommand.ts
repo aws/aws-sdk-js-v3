@@ -114,6 +114,21 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * //     errorMessageConfiguration: { // ErrorMessageConfiguration
  * //       type: "DETAILED", // required
  * //     },
+ * //     syntheticDataParameters: { // SyntheticDataParameters Union: only one key present
+ * //       mlSyntheticDataParameters: { // MLSyntheticDataParameters
+ * //         epsilon: Number("double"), // required
+ * //         maxMembershipInferenceAttackScore: Number("double"), // required
+ * //         columnClassification: { // ColumnClassificationDetails
+ * //           columnMapping: [ // ColumnMappingList // required
+ * //             { // SyntheticDataColumnProperties
+ * //               columnName: "STRING_VALUE", // required
+ * //               columnType: "CATEGORICAL" || "NUMERICAL", // required
+ * //               isPredictiveValue: true || false, // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

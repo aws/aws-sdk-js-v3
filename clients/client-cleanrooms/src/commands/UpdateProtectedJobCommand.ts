@@ -50,7 +50,7 @@ export interface UpdateProtectedJobCommandOutput extends UpdateProtectedJobOutpu
  * //     membershipArn: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     jobParameters: { // ProtectedJobParameters
- * //       analysisTemplateArn: "STRING_VALUE",
+ * //       analysisTemplateArn: "STRING_VALUE", // required
  * //     },
  * //     status: "SUBMITTED" || "STARTED" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS", // required
  * //     resultConfiguration: { // ProtectedJobResultConfigurationOutput

@@ -116,6 +116,9 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * //         modelInference: { // MembershipModelInferencePaymentConfig
  * //           isResponsible: true || false, // required
  * //         },
+ * //         syntheticDataGeneration: { // MembershipSyntheticDataGenerationPaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
  * //       },
  * //       jobCompute: { // MembershipJobComputePaymentConfig
  * //         isResponsible: true || false, // required
