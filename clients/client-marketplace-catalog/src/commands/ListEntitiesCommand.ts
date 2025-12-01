@@ -184,6 +184,11 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *           BeforeValue: "STRING_VALUE",
  *         },
  *       },
+ *       OfferSetId: { // OfferSetIdFilter
+ *         ValueList: [ // OfferSetIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *     ContainerProductFilters: { // ContainerProductFilters
  *       EntityId: { // ContainerProductEntityIdFilter
@@ -316,6 +321,45 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *         ],
  *       },
  *     },
+ *     OfferSetFilters: { // OfferSetFilters
+ *       EntityId: { // OfferSetEntityIdFilter
+ *         ValueList: [ // OfferSetEntityIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Name: { // OfferSetNameFilter
+ *         ValueList: [ // OfferSetNameFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       State: { // OfferSetStateFilter
+ *         ValueList: [ // OfferSetStateFilterValueList
+ *           "Draft" || "Released",
+ *         ],
+ *       },
+ *       ReleaseDate: { // OfferSetReleaseDateFilter
+ *         DateRange: { // OfferSetReleaseDateFilterDateRange
+ *           AfterValue: "STRING_VALUE",
+ *           BeforeValue: "STRING_VALUE",
+ *         },
+ *       },
+ *       AssociatedOfferIds: { // OfferSetAssociatedOfferIdsFilter
+ *         ValueList: [ // OfferSetAssociatedOfferIdsFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SolutionId: { // OfferSetSolutionIdFilter
+ *         ValueList: [ // OfferSetSolutionIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       LastModifiedDate: { // OfferSetLastModifiedDateFilter
+ *         DateRange: { // OfferSetLastModifiedDateFilterDateRange
+ *           AfterValue: "STRING_VALUE",
+ *           BeforeValue: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
  *   },
  *   EntityTypeSort: { // EntityTypeSort Union: only one key present
  *     DataProductSort: { // DataProductSort
@@ -331,7 +375,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     OfferSort: { // OfferSort
- *       SortBy: "EntityId" || "Name" || "ProductId" || "ResaleAuthorizationId" || "ReleaseDate" || "AvailabilityEndDate" || "BuyerAccounts" || "State" || "Targeting" || "LastModifiedDate",
+ *       SortBy: "EntityId" || "Name" || "ProductId" || "ResaleAuthorizationId" || "ReleaseDate" || "AvailabilityEndDate" || "BuyerAccounts" || "State" || "Targeting" || "LastModifiedDate" || "OfferSetId",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     ContainerProductSort: { // ContainerProductSort
@@ -344,6 +388,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *     },
  *     MachineLearningProductSort: { // MachineLearningProductSort
  *       SortBy: "EntityId" || "LastModifiedDate" || "ProductTitle" || "Visibility",
+ *       SortOrder: "ASCENDING" || "DESCENDING",
+ *     },
+ *     OfferSetSort: { // OfferSetSort
+ *       SortBy: "Name" || "State" || "ReleaseDate" || "SolutionId" || "EntityId" || "LastModifiedDate",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   },
@@ -388,6 +436,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //         Targeting: [ // OfferTargetingList
  * //           "BuyerAccounts" || "ParticipatingPrograms" || "CountryCodes" || "None",
  * //         ],
+ * //         OfferSetId: "STRING_VALUE",
  * //       },
  * //       ResaleAuthorizationSummary: { // ResaleAuthorizationSummary
  * //         Name: "STRING_VALUE",
@@ -405,6 +454,15 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //       MachineLearningProductSummary: { // MachineLearningProductSummary
  * //         ProductTitle: "STRING_VALUE",
  * //         Visibility: "Limited" || "Public" || "Restricted" || "Draft",
+ * //       },
+ * //       OfferSetSummary: { // OfferSetSummary
+ * //         Name: "STRING_VALUE",
+ * //         State: "Draft" || "Released",
+ * //         ReleaseDate: "STRING_VALUE",
+ * //         AssociatedOfferIds: [ // OfferSetAssociatedOfferIdsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SolutionId: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

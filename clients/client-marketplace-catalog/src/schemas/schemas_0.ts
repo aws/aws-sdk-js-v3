@@ -1,5 +1,6 @@
 const _ADE = "AccessDeniedException";
 const _AED = "AvailabilityEndDate";
+const _AOI = "AssociatedOfferIds";
 const _APEIF = "AmiProductEntityIdFilter";
 const _APF = "AmiProductFilters";
 const _APLMDF = "AmiProductLastModifiedDateFilter";
@@ -131,7 +132,21 @@ const _ORAIF = "OfferResaleAuthorizationIdFilter";
 const _ORDF = "OfferReleaseDateFilter";
 const _ORDFDR = "OfferReleaseDateFilterDateRange";
 const _OS = "OfferSummary";
-const _OSF = "OfferStateFilter";
+const _OSAOIF = "OfferSetAssociatedOfferIdsFilter";
+const _OSEIF = "OfferSetEntityIdFilter";
+const _OSF = "OfferSetFilters";
+const _OSFf = "OfferStateFilter";
+const _OSI = "OfferSetId";
+const _OSIF = "OfferSetIdFilter";
+const _OSLMDF = "OfferSetLastModifiedDateFilter";
+const _OSLMDFDR = "OfferSetLastModifiedDateFilterDateRange";
+const _OSNF = "OfferSetNameFilter";
+const _OSRDF = "OfferSetReleaseDateFilter";
+const _OSRDFDR = "OfferSetReleaseDateFilterDateRange";
+const _OSS = "OfferSetSummary";
+const _OSSF = "OfferSetStateFilter";
+const _OSSIF = "OfferSetSolutionIdFilter";
+const _OSSf = "OfferSetSort";
 const _OSf = "OfferSort";
 const _OT = "OwnershipType";
 const _OTF = "OfferTargetingFilter";
@@ -175,6 +190,7 @@ const _SB = "SortBy";
 const _SCS = "StartChangeSet";
 const _SCSR = "StartChangeSetRequest";
 const _SCSRt = "StartChangeSetResponse";
+const _SI = "SolutionId";
 const _SO = "SortOrder";
 const _SQEE = "ServiceQuotaExceededException";
 const _SSPEIF = "SaaSProductEntityIdFilter";
@@ -489,7 +505,7 @@ export var EntitySummary: StaticStructureSchema = [
   n0,
   _ES,
   0,
-  [_N, _ETnt, _EI, _EA, _LMD, _V, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS],
+  [_N, _ETnt, _EI, _EA, _LMD, _V, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS, _OSS],
   [
     0,
     0,
@@ -504,6 +520,7 @@ export var EntitySummary: StaticStructureSchema = [
     () => OfferSummary,
     () => ResaleAuthorizationSummary,
     () => MachineLearningProductSummary,
+    () => OfferSetSummary,
   ],
 ];
 export var ErrorDetail: StaticStructureSchema = [3, n0, _EDr, 0, [_EC, _EM], [0, 0]];
@@ -614,7 +631,7 @@ export var OfferFilters: StaticStructureSchema = [
   n0,
   _OF,
   0,
-  [_EI, _N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _LMD],
+  [_EI, _N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _LMD, _OSI],
   [
     () => OfferEntityIdFilter,
     () => OfferNameFilter,
@@ -626,6 +643,7 @@ export var OfferFilters: StaticStructureSchema = [
     () => OfferStateFilter,
     () => OfferTargetingFilter,
     () => OfferLastModifiedDateFilter,
+    () => OfferSetIdFilter,
   ],
 ];
 export var OfferLastModifiedDateFilter: StaticStructureSchema = [
@@ -649,15 +667,57 @@ export var OfferReleaseDateFilter: StaticStructureSchema = [
 ];
 export var OfferReleaseDateFilterDateRange: StaticStructureSchema = [3, n0, _ORDFDR, 0, [_AV, _BV], [0, 0]];
 export var OfferResaleAuthorizationIdFilter: StaticStructureSchema = [3, n0, _ORAIF, 0, [_VL], [64 | 0]];
+export var OfferSetAssociatedOfferIdsFilter: StaticStructureSchema = [3, n0, _OSAOIF, 0, [_VL], [64 | 0]];
+export var OfferSetEntityIdFilter: StaticStructureSchema = [3, n0, _OSEIF, 0, [_VL], [64 | 0]];
+export var OfferSetFilters: StaticStructureSchema = [
+  3,
+  n0,
+  _OSF,
+  0,
+  [_EI, _N, _St, _RD, _AOI, _SI, _LMD],
+  [
+    () => OfferSetEntityIdFilter,
+    () => OfferSetNameFilter,
+    () => OfferSetStateFilter,
+    () => OfferSetReleaseDateFilter,
+    () => OfferSetAssociatedOfferIdsFilter,
+    () => OfferSetSolutionIdFilter,
+    () => OfferSetLastModifiedDateFilter,
+  ],
+];
+export var OfferSetIdFilter: StaticStructureSchema = [3, n0, _OSIF, 0, [_VL], [64 | 0]];
+export var OfferSetLastModifiedDateFilter: StaticStructureSchema = [
+  3,
+  n0,
+  _OSLMDF,
+  0,
+  [_DR],
+  [() => OfferSetLastModifiedDateFilterDateRange],
+];
+export var OfferSetLastModifiedDateFilterDateRange: StaticStructureSchema = [3, n0, _OSLMDFDR, 0, [_AV, _BV], [0, 0]];
+export var OfferSetNameFilter: StaticStructureSchema = [3, n0, _OSNF, 0, [_VL], [64 | 0]];
+export var OfferSetReleaseDateFilter: StaticStructureSchema = [
+  3,
+  n0,
+  _OSRDF,
+  0,
+  [_DR],
+  [() => OfferSetReleaseDateFilterDateRange],
+];
+export var OfferSetReleaseDateFilterDateRange: StaticStructureSchema = [3, n0, _OSRDFDR, 0, [_AV, _BV], [0, 0]];
+export var OfferSetSolutionIdFilter: StaticStructureSchema = [3, n0, _OSSIF, 0, [_VL], [64 | 0]];
+export var OfferSetSort: StaticStructureSchema = [3, n0, _OSSf, 0, [_SB, _SO], [0, 0]];
+export var OfferSetStateFilter: StaticStructureSchema = [3, n0, _OSSF, 0, [_VL], [64 | 0]];
+export var OfferSetSummary: StaticStructureSchema = [3, n0, _OSS, 0, [_N, _St, _RD, _AOI, _SI], [0, 0, 0, 64 | 0, 0]];
 export var OfferSort: StaticStructureSchema = [3, n0, _OSf, 0, [_SB, _SO], [0, 0]];
-export var OfferStateFilter: StaticStructureSchema = [3, n0, _OSF, 0, [_VL], [64 | 0]];
+export var OfferStateFilter: StaticStructureSchema = [3, n0, _OSFf, 0, [_VL], [64 | 0]];
 export var OfferSummary: StaticStructureSchema = [
   3,
   n0,
   _OS,
   0,
-  [_N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0],
+  [_N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _OSI],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0],
 ];
 export var OfferTargetingFilter: StaticStructureSchema = [3, n0, _OTF, 0, [_VL], [64 | 0]];
 export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_RA, _P], [0, 0]];
@@ -958,6 +1018,20 @@ export var OfferProductIdFilterValueList = 64 | 0;
 
 export var OfferResaleAuthorizationIdFilterValueList = 64 | 0;
 
+export var OfferSetAssociatedOfferIdsFilterValueList = 64 | 0;
+
+export var OfferSetAssociatedOfferIdsList = 64 | 0;
+
+export var OfferSetEntityIdFilterValueList = 64 | 0;
+
+export var OfferSetIdFilterValueList = 64 | 0;
+
+export var OfferSetNameFilterValueList = 64 | 0;
+
+export var OfferSetSolutionIdFilterValueList = 64 | 0;
+
+export var OfferSetStateFilterValueList = 64 | 0;
+
 export var OfferStateFilterValueList = 64 | 0;
 
 export var OfferTargetingFilterValueList = 64 | 0;
@@ -1009,7 +1083,7 @@ export var EntityTypeFilters: StaticStructureSchema = [
   n0,
   _ETF,
   0,
-  [_DPF, _SSPF, _APF, _OF, _CPF, _RAF, _MLPF],
+  [_DPF, _SSPF, _APF, _OF, _CPF, _RAF, _MLPF, _OSF],
   [
     () => DataProductFilters,
     () => SaaSProductFilters,
@@ -1018,6 +1092,7 @@ export var EntityTypeFilters: StaticStructureSchema = [
     () => ContainerProductFilters,
     () => ResaleAuthorizationFilters,
     () => MachineLearningProductFilters,
+    () => OfferSetFilters,
   ],
 ];
 export var EntityTypeSort: StaticStructureSchema = [
@@ -1025,7 +1100,7 @@ export var EntityTypeSort: StaticStructureSchema = [
   n0,
   _ETS,
   0,
-  [_DPS, _SSPSa, _APS, _OSf, _CPS, _RASe, _MLPSa],
+  [_DPS, _SSPSa, _APS, _OSf, _CPS, _RASe, _MLPSa, _OSSf],
   [
     () => DataProductSort,
     () => SaaSProductSort,
@@ -1034,6 +1109,7 @@ export var EntityTypeSort: StaticStructureSchema = [
     () => ContainerProductSort,
     () => ResaleAuthorizationSort,
     () => MachineLearningProductSort,
+    () => OfferSetSort,
   ],
 ];
 export var BatchDescribeEntities: StaticOperationSchema = [

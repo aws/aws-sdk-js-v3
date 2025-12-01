@@ -165,6 +165,19 @@ export type OfferTargetingString = (typeof OfferTargetingString)[keyof typeof Of
  * @public
  * @enum
  */
+export const OfferSetStateString = {
+  Draft: "Draft",
+  Released: "Released",
+} as const;
+/**
+ * @public
+ */
+export type OfferSetStateString = (typeof OfferSetStateString)[keyof typeof OfferSetStateString];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResaleAuthorizationStatusString = {
   Active: "Active",
   Draft: "Draft",
@@ -243,12 +256,30 @@ export type MachineLearningProductSortBy =
  * @public
  * @enum
  */
+export const OfferSetSortBy = {
+  EntityId: "EntityId",
+  LastModifiedDate: "LastModifiedDate",
+  Name: "Name",
+  ReleaseDate: "ReleaseDate",
+  SolutionId: "SolutionId",
+  State: "State",
+} as const;
+/**
+ * @public
+ */
+export type OfferSetSortBy = (typeof OfferSetSortBy)[keyof typeof OfferSetSortBy];
+
+/**
+ * @public
+ * @enum
+ */
 export const OfferSortBy = {
   AvailabilityEndDate: "AvailabilityEndDate",
   BuyerAccounts: "BuyerAccounts",
   EntityId: "EntityId",
   LastModifiedDate: "LastModifiedDate",
   Name: "Name",
+  OfferSetId: "OfferSetId",
   ProductId: "ProductId",
   ReleaseDate: "ReleaseDate",
   ResaleAuthorizationId: "ResaleAuthorizationId",
