@@ -69,6 +69,7 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementOutput,
  * //       },
  * //     ],
  * //     offerId: "STRING_VALUE",
+ * //     offerSetId: "STRING_VALUE",
  * //   },
  * //   status: "ACTIVE" || "ARCHIVED" || "CANCELLED" || "EXPIRED" || "RENEWED" || "REPLACED" || "ROLLED_BACK" || "SUPERSEDED" || "TERMINATED",
  * // };

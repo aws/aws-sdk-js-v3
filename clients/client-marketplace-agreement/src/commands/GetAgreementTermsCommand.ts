@@ -31,36 +31,7 @@ export interface GetAgreementTermsCommandInput extends GetAgreementTermsInput {}
 export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput, __MetadataBearer {}
 
 /**
- * <p>Obtains details about the terms in an agreement that you participated in as proposer or
- *          acceptor.</p>
- *          <p>The details include:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>TermType</code> – The type of term, such as <code>LegalTerm</code>,
- *                   <code>RenewalTerm</code>, or <code>ConfigurableUpfrontPricingTerm</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TermID</code> – The ID of the particular term, which is common between offer
- *                and agreement.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TermPayload</code> – The key information contained in the term, such as the
- *                EULA for <code>LegalTerm</code> or pricing and dimensions for various pricing terms,
- *                such as <code>ConfigurableUpfrontPricingTerm</code> or
- *                   <code>UsageBasedPricingTerm</code>.</p>
- *             </li>
- *          </ul>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Configuration</code> – The buyer/acceptor's selection at the time of
- *                agreement creation, such as the number of units purchased for a dimension or setting
- *                the <code>EnableAutoRenew</code> flag.</p>
- *             </li>
- *          </ul>
+ * <p>Obtains details about the terms in an agreement that you participated in as proposer or acceptor.</p> <p>The details include:</p> <ul> <li> <p> <code>TermType</code> – The type of term, such as <code>LegalTerm</code>, <code>RenewalTerm</code>, or <code>ConfigurableUpfrontPricingTerm</code>.</p> </li> <li> <p> <code>TermID</code> – The ID of the particular term, which is common between offer and agreement.</p> </li> <li> <p> <code>TermPayload</code> – The key information contained in the term, such as the EULA for <code>LegalTerm</code> or pricing and dimensions for various pricing terms, such as <code>ConfigurableUpfrontPricingTerm</code> or <code>UsageBasedPricingTerm</code>.</p> </li> </ul> <ul> <li> <p> <code>Configuration</code> – The buyer/acceptor's selection at the time of agreement creation, such as the number of units purchased for a dimension or setting the <code>EnableAutoRenew</code> flag.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -190,6 +161,15 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //             maxQuantity: Number("int"),
  * //           },
  * //         ],
+ * //       },
+ * //       variablePaymentTerm: { // VariablePaymentTerm
+ * //         type: "STRING_VALUE",
+ * //         currencyCode: "STRING_VALUE",
+ * //         maxTotalChargeAmount: "STRING_VALUE",
+ * //         configuration: { // VariablePaymentTermConfiguration
+ * //           paymentRequestApprovalStrategy: "AUTO_APPROVE_ON_EXPIRATION" || "WAIT_FOR_APPROVAL", // required
+ * //           expirationDuration: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],

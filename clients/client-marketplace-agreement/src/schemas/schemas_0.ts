@@ -55,6 +55,8 @@ const _UBRCL = "UsageBasedRateCardList";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _VPT = "VariablePaymentTerm";
+const _VPTC = "VariablePaymentTermConfiguration";
 const _VT = "ValidityTerm";
 const _a = "acceptor";
 const _aD = "agreementDuration";
@@ -85,6 +87,7 @@ const _du = "duration";
 const _e = "error";
 const _eAR = "enableAutoRenew";
 const _eC = "estimatedCharges";
+const _eD = "expirationDuration";
 const _eT = "endTime";
 const _f = "filters";
 const _fTPT = "freeTrialPricingTerm";
@@ -98,10 +101,13 @@ const _m = "message";
 const _mDS = "multipleDimensionSelection";
 const _mQ = "maxQuantity";
 const _mR = "maxResults";
+const _mTCA = "maxTotalChargeAmount";
 const _n = "name";
 const _nT = "nextToken";
 const _oI = "offerId";
+const _oSI = "offerSetId";
 const _p = "proposer";
+const _pRAS = "paymentRequestApprovalStrategy";
 const _pS = "proposalSummary";
 const _pST = "paymentScheduleTerm";
 const _pr = "price";
@@ -131,6 +137,7 @@ const _t = "type";
 const _u = "url";
 const _uBPT = "usageBasedPricingTerm";
 const _v = "version";
+const _vPT = "variablePaymentTerm";
 const _vT = "validityTerm";
 const _va = "values";
 const _val = "value";
@@ -239,7 +246,7 @@ TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerExce
 
 export var LegalTerm: StaticStructureSchema = [3, n0, _LT, 0, [_t, _do], [0, () => DocumentList]];
 export var PaymentScheduleTerm: StaticStructureSchema = [3, n0, _PST, 0, [_t, _cC, _sc], [0, 0, () => ScheduleList]];
-export var ProposalSummary: StaticStructureSchema = [3, n0, _PS, 0, [_r, _oI], [() => Resources, 0]];
+export var ProposalSummary: StaticStructureSchema = [3, n0, _PS, 0, [_r, _oI, _oSI], [() => Resources, 0, 0]];
 export var Proposer: StaticStructureSchema = [3, n0, _P, 0, [_aI], [0]];
 export var RateCardItem: StaticStructureSchema = [3, n0, _RCI, 0, [_dK, _pr], [0, 0]];
 export var RecurringPaymentTerm: StaticStructureSchema = [3, n0, _RPT, 0, [_t, _cC, _bP, _pr], [0, 0, 0, 0]];
@@ -316,6 +323,15 @@ TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var ValidityTerm: StaticStructureSchema = [3, n0, _VT, 0, [_t, _aD, _aSD, _aED], [0, 0, 4, 4]];
+export var VariablePaymentTerm: StaticStructureSchema = [
+  3,
+  n0,
+  _VPT,
+  0,
+  [_t, _cC, _mTCA, _co],
+  [0, 0, 0, () => VariablePaymentTermConfiguration],
+];
+export var VariablePaymentTermConfiguration: StaticStructureSchema = [3, n0, _VPTC, 0, [_pRAS, _eD], [0, 0]];
 export var __Unit = "unit" as const;
 
 export var MarketplaceAgreementServiceException: StaticErrorSchema = [
@@ -353,7 +369,7 @@ export var AcceptedTerm: StaticStructureSchema = [
   n0,
   _AT,
   0,
-  [_lT, _sTu, _rTe, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT],
+  [_lT, _sTu, _rTe, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT, _vPT],
   [
     () => LegalTerm,
     () => SupportTerm,
@@ -366,6 +382,7 @@ export var AcceptedTerm: StaticStructureSchema = [
     () => PaymentScheduleTerm,
     () => FreeTrialPricingTerm,
     () => FixedUpfrontPricingTerm,
+    () => VariablePaymentTerm,
   ],
 ];
 export var DescribeAgreement: StaticOperationSchema = [
