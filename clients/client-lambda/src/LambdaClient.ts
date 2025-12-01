@@ -70,6 +70,10 @@ import {
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
+  CreateCapacityProviderCommandInput,
+  CreateCapacityProviderCommandOutput,
+} from "./commands/CreateCapacityProviderCommand";
+import {
   CreateCodeSigningConfigCommandInput,
   CreateCodeSigningConfigCommandOutput,
 } from "./commands/CreateCodeSigningConfigCommand";
@@ -83,6 +87,10 @@ import {
   CreateFunctionUrlConfigCommandOutput,
 } from "./commands/CreateFunctionUrlConfigCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import {
+  DeleteCapacityProviderCommandInput,
+  DeleteCapacityProviderCommandOutput,
+} from "./commands/DeleteCapacityProviderCommand";
 import {
   DeleteCodeSigningConfigCommandInput,
   DeleteCodeSigningConfigCommandOutput,
@@ -116,6 +124,10 @@ import {
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
+  GetCapacityProviderCommandInput,
+  GetCapacityProviderCommandOutput,
+} from "./commands/GetCapacityProviderCommand";
+import {
   GetCodeSigningConfigCommandInput,
   GetCodeSigningConfigCommandOutput,
 } from "./commands/GetCodeSigningConfigCommand";
@@ -144,6 +156,10 @@ import {
   GetFunctionRecursionConfigCommandInput,
   GetFunctionRecursionConfigCommandOutput,
 } from "./commands/GetFunctionRecursionConfigCommand";
+import {
+  GetFunctionScalingConfigCommandInput,
+  GetFunctionScalingConfigCommandOutput,
+} from "./commands/GetFunctionScalingConfigCommand";
 import {
   GetFunctionUrlConfigCommandInput,
   GetFunctionUrlConfigCommandOutput,
@@ -174,6 +190,10 @@ import {
 } from "./commands/InvokeWithResponseStreamCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
+  ListCapacityProvidersCommandInput,
+  ListCapacityProvidersCommandOutput,
+} from "./commands/ListCapacityProvidersCommand";
+import {
   ListCodeSigningConfigsCommandInput,
   ListCodeSigningConfigsCommandOutput,
 } from "./commands/ListCodeSigningConfigsCommand";
@@ -194,6 +214,10 @@ import {
   ListFunctionUrlConfigsCommandInput,
   ListFunctionUrlConfigsCommandOutput,
 } from "./commands/ListFunctionUrlConfigsCommand";
+import {
+  ListFunctionVersionsByCapacityProviderCommandInput,
+  ListFunctionVersionsByCapacityProviderCommandOutput,
+} from "./commands/ListFunctionVersionsByCapacityProviderCommand";
 import { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "./commands/ListLayerVersionsCommand";
 import {
@@ -227,6 +251,10 @@ import {
   PutFunctionRecursionConfigCommandOutput,
 } from "./commands/PutFunctionRecursionConfigCommand";
 import {
+  PutFunctionScalingConfigCommandInput,
+  PutFunctionScalingConfigCommandOutput,
+} from "./commands/PutFunctionScalingConfigCommand";
+import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
@@ -242,6 +270,10 @@ import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./c
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import {
+  UpdateCapacityProviderCommandInput,
+  UpdateCapacityProviderCommandOutput,
+} from "./commands/UpdateCapacityProviderCommand";
 import {
   UpdateCodeSigningConfigCommandInput,
   UpdateCodeSigningConfigCommandOutput,
@@ -281,11 +313,13 @@ export type ServiceInputTypes =
   | AddLayerVersionPermissionCommandInput
   | AddPermissionCommandInput
   | CreateAliasCommandInput
+  | CreateCapacityProviderCommandInput
   | CreateCodeSigningConfigCommandInput
   | CreateEventSourceMappingCommandInput
   | CreateFunctionCommandInput
   | CreateFunctionUrlConfigCommandInput
   | DeleteAliasCommandInput
+  | DeleteCapacityProviderCommandInput
   | DeleteCodeSigningConfigCommandInput
   | DeleteEventSourceMappingCommandInput
   | DeleteFunctionCodeSigningConfigCommandInput
@@ -297,6 +331,7 @@ export type ServiceInputTypes =
   | DeleteProvisionedConcurrencyConfigCommandInput
   | GetAccountSettingsCommandInput
   | GetAliasCommandInput
+  | GetCapacityProviderCommandInput
   | GetCodeSigningConfigCommandInput
   | GetEventSourceMappingCommandInput
   | GetFunctionCodeSigningConfigCommandInput
@@ -305,6 +340,7 @@ export type ServiceInputTypes =
   | GetFunctionConfigurationCommandInput
   | GetFunctionEventInvokeConfigCommandInput
   | GetFunctionRecursionConfigCommandInput
+  | GetFunctionScalingConfigCommandInput
   | GetFunctionUrlConfigCommandInput
   | GetLayerVersionByArnCommandInput
   | GetLayerVersionCommandInput
@@ -316,10 +352,12 @@ export type ServiceInputTypes =
   | InvokeCommandInput
   | InvokeWithResponseStreamCommandInput
   | ListAliasesCommandInput
+  | ListCapacityProvidersCommandInput
   | ListCodeSigningConfigsCommandInput
   | ListEventSourceMappingsCommandInput
   | ListFunctionEventInvokeConfigsCommandInput
   | ListFunctionUrlConfigsCommandInput
+  | ListFunctionVersionsByCapacityProviderCommandInput
   | ListFunctionsByCodeSigningConfigCommandInput
   | ListFunctionsCommandInput
   | ListLayerVersionsCommandInput
@@ -333,6 +371,7 @@ export type ServiceInputTypes =
   | PutFunctionConcurrencyCommandInput
   | PutFunctionEventInvokeConfigCommandInput
   | PutFunctionRecursionConfigCommandInput
+  | PutFunctionScalingConfigCommandInput
   | PutProvisionedConcurrencyConfigCommandInput
   | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
@@ -340,6 +379,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
+  | UpdateCapacityProviderCommandInput
   | UpdateCodeSigningConfigCommandInput
   | UpdateEventSourceMappingCommandInput
   | UpdateFunctionCodeCommandInput
@@ -354,11 +394,13 @@ export type ServiceOutputTypes =
   | AddLayerVersionPermissionCommandOutput
   | AddPermissionCommandOutput
   | CreateAliasCommandOutput
+  | CreateCapacityProviderCommandOutput
   | CreateCodeSigningConfigCommandOutput
   | CreateEventSourceMappingCommandOutput
   | CreateFunctionCommandOutput
   | CreateFunctionUrlConfigCommandOutput
   | DeleteAliasCommandOutput
+  | DeleteCapacityProviderCommandOutput
   | DeleteCodeSigningConfigCommandOutput
   | DeleteEventSourceMappingCommandOutput
   | DeleteFunctionCodeSigningConfigCommandOutput
@@ -370,6 +412,7 @@ export type ServiceOutputTypes =
   | DeleteProvisionedConcurrencyConfigCommandOutput
   | GetAccountSettingsCommandOutput
   | GetAliasCommandOutput
+  | GetCapacityProviderCommandOutput
   | GetCodeSigningConfigCommandOutput
   | GetEventSourceMappingCommandOutput
   | GetFunctionCodeSigningConfigCommandOutput
@@ -378,6 +421,7 @@ export type ServiceOutputTypes =
   | GetFunctionConfigurationCommandOutput
   | GetFunctionEventInvokeConfigCommandOutput
   | GetFunctionRecursionConfigCommandOutput
+  | GetFunctionScalingConfigCommandOutput
   | GetFunctionUrlConfigCommandOutput
   | GetLayerVersionByArnCommandOutput
   | GetLayerVersionCommandOutput
@@ -389,10 +433,12 @@ export type ServiceOutputTypes =
   | InvokeCommandOutput
   | InvokeWithResponseStreamCommandOutput
   | ListAliasesCommandOutput
+  | ListCapacityProvidersCommandOutput
   | ListCodeSigningConfigsCommandOutput
   | ListEventSourceMappingsCommandOutput
   | ListFunctionEventInvokeConfigsCommandOutput
   | ListFunctionUrlConfigsCommandOutput
+  | ListFunctionVersionsByCapacityProviderCommandOutput
   | ListFunctionsByCodeSigningConfigCommandOutput
   | ListFunctionsCommandOutput
   | ListLayerVersionsCommandOutput
@@ -406,6 +452,7 @@ export type ServiceOutputTypes =
   | PutFunctionConcurrencyCommandOutput
   | PutFunctionEventInvokeConfigCommandOutput
   | PutFunctionRecursionConfigCommandOutput
+  | PutFunctionScalingConfigCommandOutput
   | PutProvisionedConcurrencyConfigCommandOutput
   | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
@@ -413,6 +460,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
+  | UpdateCapacityProviderCommandOutput
   | UpdateCodeSigningConfigCommandOutput
   | UpdateEventSourceMappingCommandOutput
   | UpdateFunctionCodeCommandOutput

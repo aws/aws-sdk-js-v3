@@ -132,6 +132,9 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link KMSNotFoundException} (server fault)
  *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
  *
+ * @throws {@link NoPublishedVersionException} (client fault)
+ *  <p>The function has no published versions available.</p>
+ *
  * @throws {@link RecursiveInvocationException} (client fault)
  *  <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
  *
@@ -148,7 +151,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *  <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
  *
  * @throws {@link SerializedRequestEntityTooLargeException} (client fault)
- *  <p>The processed request payload exceeded the <code>Invoke</code> request body size limit for asynchronous invocations. While the event payload may be under 1 MB, the size after internal serialization exceeds the maximum allowed size for asynchronous invocations.</p>
+ *  <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>

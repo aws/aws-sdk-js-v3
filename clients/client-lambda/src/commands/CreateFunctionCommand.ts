@@ -112,6 +112,14 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  *     LogGroup: "STRING_VALUE",
  *   },
+ *   CapacityProviderConfig: { // CapacityProviderConfig
+ *     LambdaManagedInstancesCapacityProviderConfig: { // LambdaManagedInstancesCapacityProviderConfig
+ *       CapacityProviderArn: "STRING_VALUE", // required
+ *       PerExecutionEnvironmentMaxConcurrency: Number("int"),
+ *       ExecutionEnvironmentMemoryGiBPerVCpu: Number("double"),
+ *     },
+ *   },
+ *   PublishTo: "LATEST_PUBLISHED",
  *   TenancyConfig: { // TenancyConfig
  *     TenantIsolationMode: "PER_TENANT", // required
  *   },
@@ -167,12 +175,12 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //       SigningJobArn: "STRING_VALUE",
  * //     },
  * //   ],
- * //   State: "Pending" || "Active" || "Inactive" || "Failed",
+ * //   State: "Pending" || "Active" || "Inactive" || "Failed" || "Deactivating" || "Deactivated" || "ActiveNonInvocable" || "Deleting",
  * //   StateReason: "STRING_VALUE",
- * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError",
+ * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted",
  * //   LastUpdateStatus: "Successful" || "Failed" || "InProgress",
  * //   LastUpdateStatusReason: "STRING_VALUE",
- * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError",
+ * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted",
  * //   FileSystemConfigs: [ // FileSystemConfigList
  * //     { // FileSystemConfig
  * //       Arn: "STRING_VALUE", // required
@@ -220,6 +228,14 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  * //     LogGroup: "STRING_VALUE",
  * //   },
+ * //   CapacityProviderConfig: { // CapacityProviderConfig
+ * //     LambdaManagedInstancesCapacityProviderConfig: { // LambdaManagedInstancesCapacityProviderConfig
+ * //       CapacityProviderArn: "STRING_VALUE", // required
+ * //       PerExecutionEnvironmentMaxConcurrency: Number("int"),
+ * //       ExecutionEnvironmentMemoryGiBPerVCpu: Number("double"),
+ * //     },
+ * //   },
+ * //   ConfigSha256: "STRING_VALUE",
  * //   TenancyConfig: { // TenancyConfig
  * //     TenantIsolationMode: "PER_TENANT", // required
  * //   },
@@ -241,6 +257,9 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *
  * @throws {@link CodeVerificationFailedException} (client fault)
  *  <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+ *
+ * @throws {@link FunctionVersionsPerCapacityProviderLimitExceededException} (client fault)
+ *  <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  *
  * @throws {@link InvalidCodeSignatureException} (client fault)
  *  <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>

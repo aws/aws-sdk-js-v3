@@ -187,6 +187,33 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a> </p>
+ * @public
+ */
+export class CapacityProviderLimitExceededException extends __BaseException {
+  readonly name = "CapacityProviderLimitExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CapacityProviderLimitExceededException, __BaseException>) {
+    super({
+      name: "CapacityProviderLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CapacityProviderLimitExceededException.prototype);
+    this.Type = opts.Type;
+  }
+}
+
+/**
  * <p>The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
  * @public
  */
@@ -282,6 +309,33 @@ export class CodeVerificationFailedException extends __BaseException {
     Object.setPrototypeOf(this, CodeVerificationFailedException.prototype);
     this.Type = opts.Type;
     this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * @public
+ */
+export class FunctionVersionsPerCapacityProviderLimitExceededException extends __BaseException {
+  readonly name = "FunctionVersionsPerCapacityProviderLimitExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FunctionVersionsPerCapacityProviderLimitExceededException, __BaseException>) {
+    super({
+      name: "FunctionVersionsPerCapacityProviderLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FunctionVersionsPerCapacityProviderLimitExceededException.prototype);
+    this.Type = opts.Type;
   }
 }
 
@@ -723,6 +777,35 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The function has no published versions available.</p>
+ * @public
+ */
+export class NoPublishedVersionException extends __BaseException {
+  readonly name = "NoPublishedVersionException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoPublishedVersionException, __BaseException>) {
+    super({
+      name: "NoPublishedVersionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoPublishedVersionException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
  * @public
  */
@@ -805,7 +888,7 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The processed request payload exceeded the <code>Invoke</code> request body size limit for asynchronous invocations. While the event payload may be under 1 MB, the size after internal serialization exceeds the maximum allowed size for asynchronous invocations.</p>
+ * <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
  * @public
  */
 export class SerializedRequestEntityTooLargeException extends __BaseException {

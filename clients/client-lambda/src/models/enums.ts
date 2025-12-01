@@ -106,6 +106,67 @@ export type Architecture = (typeof Architecture)[keyof typeof Architecture];
  * @public
  * @enum
  */
+export const CapacityProviderScalingMode = {
+  Auto: "Auto",
+  Manual: "Manual",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderScalingMode =
+  (typeof CapacityProviderScalingMode)[keyof typeof CapacityProviderScalingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderPredefinedMetricType = {
+  LambdaCapacityProviderAverageCPUUtilization: "LambdaCapacityProviderAverageCPUUtilization",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderPredefinedMetricType =
+  (typeof CapacityProviderPredefinedMetricType)[keyof typeof CapacityProviderPredefinedMetricType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderState = {
+  Active: "Active",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Pending: "Pending",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderState = (typeof CapacityProviderState)[keyof typeof CapacityProviderState];
+
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  Active: "Active",
+  ActiveNonInvocable: "ActiveNonInvocable",
+  Deactivated: "Deactivated",
+  Deactivating: "Deactivating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Inactive: "Inactive",
+  Pending: "Pending",
+} as const;
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeSigningPolicy = {
   Enforce: "Enforce",
   Warn: "Warn",
@@ -241,6 +302,19 @@ export type PackageType = (typeof PackageType)[keyof typeof PackageType];
  * @public
  * @enum
  */
+export const FunctionVersionLatestPublished = {
+  LATEST_PUBLISHED: "LATEST_PUBLISHED",
+} as const;
+/**
+ * @public
+ */
+export type FunctionVersionLatestPublished =
+  (typeof FunctionVersionLatestPublished)[keyof typeof FunctionVersionLatestPublished];
+
+/**
+ * @public
+ * @enum
+ */
 export const Runtime = {
   dotnet6: "dotnet6",
   dotnet8: "dotnet8",
@@ -349,15 +423,26 @@ export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdate
  * @enum
  */
 export const LastUpdateStatusReasonCode = {
+  CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   DisabledKMSKey: "DisabledKMSKey",
+  EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
   EFSIOError: "EFSIOError",
   EFSMountConnectivityError: "EFSMountConnectivityError",
   EFSMountFailure: "EFSMountFailure",
   EFSMountTimeout: "EFSMountTimeout",
   EniLimitExceeded: "EniLimitExceeded",
   FunctionError: "FunctionError",
+  FunctionErrorExtensionInitError: "FunctionError.ExtensionInitError",
+  FunctionErrorInitResourceExhausted: "FunctionError.InitResourceExhausted",
+  FunctionErrorInitTimeout: "FunctionError.InitTimeout",
+  FunctionErrorInvalidEntryPoint: "FunctionError.InvalidEntryPoint",
+  FunctionErrorInvalidWorkingDirectory: "FunctionError.InvalidWorkingDirectory",
+  FunctionErrorPermissionDenied: "FunctionError.PermissionDenied",
+  FunctionErrorRuntimeInitError: "FunctionError.RuntimeInitError",
+  FunctionErrorTooManyExtensions: "FunctionError.TooManyExtensions",
   ImageAccessDenied: "ImageAccessDenied",
   ImageDeleted: "ImageDeleted",
+  InsufficientCapacity: "InsufficientCapacity",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",
   InvalidConfiguration: "InvalidConfiguration",
@@ -370,6 +455,7 @@ export const LastUpdateStatusReasonCode = {
   KMSKeyAccessDenied: "KMSKeyAccessDenied",
   KMSKeyNotFound: "KMSKeyNotFound",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+  VcpuLimitExceeded: "VcpuLimitExceeded",
 } as const;
 /**
  * @public
@@ -394,33 +480,29 @@ export type SnapStartOptimizationStatus =
  * @public
  * @enum
  */
-export const State = {
-  Active: "Active",
-  Failed: "Failed",
-  Inactive: "Inactive",
-  Pending: "Pending",
-} as const;
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
-
-/**
- * @public
- * @enum
- */
 export const StateReasonCode = {
+  CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   Creating: "Creating",
   DisabledKMSKey: "DisabledKMSKey",
+  EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
   EFSIOError: "EFSIOError",
   EFSMountConnectivityError: "EFSMountConnectivityError",
   EFSMountFailure: "EFSMountFailure",
   EFSMountTimeout: "EFSMountTimeout",
   EniLimitExceeded: "EniLimitExceeded",
   FunctionError: "FunctionError",
+  FunctionErrorExtensionInitError: "FunctionError.ExtensionInitError",
+  FunctionErrorInitResourceExhausted: "FunctionError.InitResourceExhausted",
+  FunctionErrorInitTimeout: "FunctionError.InitTimeout",
+  FunctionErrorInvalidEntryPoint: "FunctionError.InvalidEntryPoint",
+  FunctionErrorInvalidWorkingDirectory: "FunctionError.InvalidWorkingDirectory",
+  FunctionErrorPermissionDenied: "FunctionError.PermissionDenied",
+  FunctionErrorRuntimeInitError: "FunctionError.RuntimeInitError",
+  FunctionErrorTooManyExtensions: "FunctionError.TooManyExtensions",
   Idle: "Idle",
   ImageAccessDenied: "ImageAccessDenied",
   ImageDeleted: "ImageDeleted",
+  InsufficientCapacity: "InsufficientCapacity",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",
   InvalidConfiguration: "InvalidConfiguration",
@@ -434,6 +516,7 @@ export const StateReasonCode = {
   KMSKeyNotFound: "KMSKeyNotFound",
   Restoring: "Restoring",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+  VcpuLimitExceeded: "VcpuLimitExceeded",
 } as const;
 /**
  * @public

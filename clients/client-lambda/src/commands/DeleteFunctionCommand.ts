@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionRequest } from "../models/models_0";
+import { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/models_0";
 import { DeleteFunction } from "../schemas/schemas_0";
 
 /**
@@ -24,7 +24,7 @@ export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
  *
  * The output of {@link DeleteFunctionCommand}.
  */
-export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
+export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter. Otherwise, all versions and aliases are deleted. This doesn't require the user to have explicit permissions for <a>DeleteAlias</a>.</p> <note> <p>A deleted Lambda function cannot be recovered. Ensure that you specify the correct function name and version before deleting.</p> </note> <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.</p>
@@ -42,7 +42,9 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteFunctionResponse
+ * //   StatusCode: Number("int"),
+ * // };
  *
  * ```
  *
@@ -107,7 +109,7 @@ export class DeleteFunctionCommand extends $Command
   protected declare static __types: {
     api: {
       input: DeleteFunctionRequest;
-      output: {};
+      output: DeleteFunctionResponse;
     };
     sdk: {
       input: DeleteFunctionCommandInput;

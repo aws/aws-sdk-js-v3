@@ -3,7 +3,9 @@ const _AA = "AliasArn";
 const _AC = "AliasConfiguration";
 const _ACc = "AccessConfigs";
 const _ACl = "AllowCredentials";
+const _AFSC = "AppliedFunctionScalingConfig";
 const _AH = "AllowHeaders";
+const _AIT = "AllowedInstanceTypes";
 const _AL = "AccountLimit";
 const _ALL = "ApplicationLogLevel";
 const _ALVP = "AddLayerVersionPermission";
@@ -38,6 +40,9 @@ const _CAR = "CreateAliasRequest";
 const _CAo = "CompatibleArchitecture";
 const _CAr = "CreateAlias";
 const _CC = "ClientContext";
+const _CCP = "CreateCapacityProvider";
+const _CCPR = "CreateCapacityProviderRequest";
+const _CCPRr = "CreateCapacityProviderResponse";
 const _CCSC = "CreateCodeSigningConfig";
 const _CCSCR = "CreateCodeSigningConfigRequest";
 const _CCSCRr = "CreateCodeSigningConfigResponse";
@@ -52,6 +57,18 @@ const _CFUCR = "CreateFunctionUrlConfigRequest";
 const _CFUCRr = "CreateFunctionUrlConfigResponse";
 const _CGI = "ConsumerGroupId";
 const _CN = "CollectionName";
+const _CP = "CapacityProvider";
+const _CPA = "CapacityProviderArn";
+const _CPC = "CapacityProviderConfig";
+const _CPL = "CapacityProvidersList";
+const _CPLEE = "CapacityProviderLimitExceededException";
+const _CPN = "CapacityProviderName";
+const _CPORA = "CapacityProviderOperatorRoleArn";
+const _CPPC = "CapacityProviderPermissionsConfig";
+const _CPSC = "CapacityProviderScalingConfig";
+const _CPSPL = "CapacityProviderScalingPoliciesList";
+const _CPVC = "CapacityProviderVpcConfig";
+const _CPa = "CapacityProviders";
 const _CR = "CompatibleRuntimes";
 const _CRo = "CompatibleRuntime";
 const _CS = "CodeSize";
@@ -66,6 +83,7 @@ const _CSP = "CodeSigningPolicies";
 const _CSU = "CodeSizeUnzipped";
 const _CSZ = "CodeSizeZipped";
 const _CSo = "CodeSha256";
+const _CSon = "ConfigSha256";
 const _CT = "CreationTime";
 const _CT_ = "Content-Type";
 const _CVFE = "CodeVerificationFailedException";
@@ -78,6 +96,9 @@ const _D = "Description";
 const _DA = "DeleteAlias";
 const _DAR = "DeleteAliasRequest";
 const _DC = "DestinationConfig";
+const _DCP = "DeleteCapacityProvider";
+const _DCPR = "DeleteCapacityProviderRequest";
+const _DCPRe = "DeleteCapacityProviderResponse";
 const _DCSC = "DeleteCodeSigningConfig";
 const _DCSCR = "DeleteCodeSigningConfigRequest";
 const _DCSCRe = "DeleteCodeSigningConfigResponse";
@@ -92,6 +113,7 @@ const _DFCSCR = "DeleteFunctionCodeSigningConfigRequest";
 const _DFEIC = "DeleteFunctionEventInvokeConfig";
 const _DFEICR = "DeleteFunctionEventInvokeConfigRequest";
 const _DFR = "DeleteFunctionRequest";
+const _DFRe = "DeleteFunctionResponse";
 const _DFUC = "DeleteFunctionUrlConfig";
 const _DFUCR = "DeleteFunctionUrlConfigRequest";
 const _DLC = "DeadLetterConfig";
@@ -110,11 +132,13 @@ const _ECTE = "EC2ThrottledException";
 const _ECUE = "EC2UnexpectedException";
 const _ED = "ErrorDetails";
 const _EE = "EnvironmentError";
+const _EEMGBPVC = "ExecutionEnvironmentMemoryGiBPerVCpu";
 const _EFSIOE = "EFSIOException";
 const _EFSMCE = "EFSMountConnectivityException";
 const _EFSMFE = "EFSMountFailureException";
 const _EFSMTE = "EFSMountTimeoutException";
 const _EH = "ExposeHeaders";
+const _EIT = "ExcludedInstanceTypes";
 const _ENILRE = "ENILimitReachedException";
 const _EP = "EntryPoint";
 const _ER = "EnvironmentResponse";
@@ -153,15 +177,21 @@ const _FL = "FilterList";
 const _FLu = "FunctionList";
 const _FN = "FunctionName";
 const _FRT = "FunctionResponseTypes";
+const _FS = "FunctionState";
 const _FSC = "FileSystemConfigs";
 const _FSCL = "FileSystemConfigList";
 const _FSCi = "FileSystemConfig";
+const _FSCu = "FunctionScalingConfig";
 const _FU = "FunctionUrl";
 const _FUAT = "FunctionUrlAuthType";
 const _FUC = "FunctionUrlConfig";
 const _FUCL = "FunctionUrlConfigList";
 const _FUCu = "FunctionUrlConfigs";
 const _FV = "FunctionVersion";
+const _FVBCPL = "FunctionVersionsByCapacityProviderList";
+const _FVBCPLI = "FunctionVersionsByCapacityProviderListItem";
+const _FVPCPLEE = "FunctionVersionsPerCapacityProviderLimitExceededException";
+const _FVu = "FunctionVersions";
 const _Fi = "Filters";
 const _Fu = "Functions";
 const _GA = "GetAlias";
@@ -169,6 +199,9 @@ const _GAR = "GetAliasRequest";
 const _GAS = "GetAccountSettings";
 const _GASR = "GetAccountSettingsRequest";
 const _GASRe = "GetAccountSettingsResponse";
+const _GCP = "GetCapacityProvider";
+const _GCPR = "GetCapacityProviderRequest";
+const _GCPRe = "GetCapacityProviderResponse";
 const _GCSC = "GetCodeSigningConfig";
 const _GCSCR = "GetCodeSigningConfigRequest";
 const _GCSCRe = "GetCodeSigningConfigResponse";
@@ -190,6 +223,9 @@ const _GFRC = "GetFunctionRecursionConfig";
 const _GFRCR = "GetFunctionRecursionConfigRequest";
 const _GFRCRe = "GetFunctionRecursionConfigResponse";
 const _GFRe = "GetFunctionResponse";
+const _GFSC = "GetFunctionScalingConfig";
+const _GFSCR = "GetFunctionScalingConfigRequest";
+const _GFSCRe = "GetFunctionScalingConfigResponse";
 const _GFUC = "GetFunctionUrlConfig";
 const _GFUCR = "GetFunctionUrlConfigRequest";
 const _GFUCRe = "GetFunctionUrlConfigResponse";
@@ -224,11 +260,12 @@ const _ICSE = "InvalidCodeSignatureException";
 const _ICn = "InvokeComplete";
 const _IM = "InvokeMode";
 const _IPVE = "InvalidParameterValueException";
-const _IR = "InvocationRequest";
+const _IR = "InstanceRequirements";
 const _IRCE = "InvalidRequestContentException";
 const _IRE = "InvalidRuntimeException";
 const _IRSU = "InvokeResponseStreamUpdate";
-const _IRn = "InvocationResponse";
+const _IRn = "InvocationRequest";
+const _IRnv = "InvocationResponse";
 const _ISGIDE = "InvalidSecurityGroupIDException";
 const _ISIDE = "InvalidSubnetIDException";
 const _IT = "InvocationType";
@@ -240,6 +277,7 @@ const _IWRSR = "InvokeWithResponseStreamRequest";
 const _IWRSRE = "InvokeWithResponseStreamResponseEvent";
 const _IWRSRn = "InvokeWithResponseStreamResponse";
 const _IZFE = "InvalidZipFileException";
+const _KKA = "KmsKeyArn";
 const _KMSADE = "KMSAccessDeniedException";
 const _KMSDE = "KMSDisabledException";
 const _KMSISE = "KMSInvalidStateException";
@@ -256,6 +294,9 @@ const _LAR = "ListAliasesRequest";
 const _LARi = "ListAliasesResponse";
 const _LAi = "ListAliases";
 const _LC = "LoggingConfig";
+const _LCP = "ListCapacityProviders";
+const _LCPR = "ListCapacityProvidersRequest";
+const _LCPRi = "ListCapacityProvidersResponse";
 const _LCSC = "ListCodeSigningConfigs";
 const _LCSCR = "ListCodeSigningConfigsRequest";
 const _LCSCRi = "ListCodeSigningConfigsResponse";
@@ -274,6 +315,9 @@ const _LFRi = "ListFunctionsResponse";
 const _LFUC = "ListFunctionUrlConfigs";
 const _LFUCR = "ListFunctionUrlConfigsRequest";
 const _LFUCRi = "ListFunctionUrlConfigsResponse";
+const _LFVBCP = "ListFunctionVersionsByCapacityProvider";
+const _LFVBCPR = "ListFunctionVersionsByCapacityProviderRequest";
+const _LFVBCPRi = "ListFunctionVersionsByCapacityProviderResponse";
 const _LFi = "ListFunctions";
 const _LG = "LogGroup";
 const _LI = "LicenseInfo";
@@ -286,6 +330,7 @@ const _LLVR = "ListLayerVersionsRequest";
 const _LLVRi = "ListLayerVersionsResponse";
 const _LLi = "ListLayers";
 const _LM = "LastModified";
+const _LMICPC = "LambdaManagedInstancesCapacityProviderConfig";
 const _LMP = "LocalMountPath";
 const _LMT = "LastModifiedTime";
 const _LMV = "LatestMatchingVersion";
@@ -321,6 +366,8 @@ const _MBWIS = "MaximumBatchingWindowInSeconds";
 const _MC = "MetricsConfig";
 const _MCa = "MaximumConcurrency";
 const _MEAIS = "MaximumEventAgeInSeconds";
+const _MEE = "MinExecutionEnvironments";
+const _MEEa = "MaxExecutionEnvironments";
 const _MI = "MaxItems";
 const _MP = "MinimumPollers";
 const _MPa = "MaximumPollers";
@@ -328,22 +375,26 @@ const _MR = "MasterRegion";
 const _MRA = "MaximumRetryAttempts";
 const _MRAIS = "MaximumRecordAgeInSeconds";
 const _MS = "MemorySize";
+const _MVCC = "MaxVCpuCount";
 const _Ma = "Marker";
 const _Me = "Metrics";
 const _Mo = "Mode";
 const _N = "Name";
 const _NM = "NextMarker";
+const _NPVE = "NoPublishedVersionException";
 const _OF = "OnFailure";
 const _OI = "OrganizationId";
 const _OS = "OnSuccess";
 const _OSp = "OptimizationStatus";
 const _P = "Principal";
-const _PC = "PayloadChunk";
+const _PC = "PermissionsConfig";
 const _PCC = "ProvisionedConcurrencyConfigs";
 const _PCCL = "ProvisionedConcurrencyConfigList";
 const _PCCLI = "ProvisionedConcurrencyConfigListItem";
 const _PCCNFE = "ProvisionedConcurrencyConfigNotFoundException";
 const _PCE = "ProvisionedConcurrentExecutions";
+const _PCa = "PayloadChunk";
+const _PEEMC = "PerExecutionEnvironmentMaxConcurrency";
 const _PF = "ParallelizationFactor";
 const _PFC = "PutFunctionConcurrency";
 const _PFCR = "PutFunctionConcurrencyRequest";
@@ -356,11 +407,15 @@ const _PFEICR = "PutFunctionEventInvokeConfigRequest";
 const _PFRC = "PutFunctionRecursionConfig";
 const _PFRCR = "PutFunctionRecursionConfigRequest";
 const _PFRCRu = "PutFunctionRecursionConfigResponse";
+const _PFSC = "PutFunctionScalingConfig";
+const _PFSCR = "PutFunctionScalingConfigRequest";
+const _PFSCRu = "PutFunctionScalingConfigResponse";
 const _PGN = "PollerGroupName";
 const _PLEE = "PolicyLengthExceededException";
 const _PLV = "PublishLayerVersion";
 const _PLVR = "PublishLayerVersionRequest";
 const _PLVRu = "PublishLayerVersionResponse";
+const _PMT = "PredefinedMetricType";
 const _POID = "PrincipalOrgID";
 const _PPC = "ProvisionedPollerConfig";
 const _PPCC = "PutProvisionedConcurrencyConfig";
@@ -370,6 +425,7 @@ const _PRMC = "PutRuntimeManagementConfig";
 const _PRMCR = "PutRuntimeManagementConfigRequest";
 const _PRMCRu = "PutRuntimeManagementConfigResponse";
 const _PT = "PackageType";
+const _PTu = "PublishTo";
 const _PV = "PublishVersion";
 const _PVR = "PublishVersionRequest";
 const _Pa = "Pattern";
@@ -383,6 +439,7 @@ const _RA = "Retry-After";
 const _RC = "RoutingConfig";
 const _RCE = "ReservedConcurrentExecutions";
 const _RCEe = "ResourceConflictException";
+const _RFSC = "RequestedFunctionScalingConfig";
 const _RI = "RevisionId";
 const _RIE = "RecursiveInvocationException";
 const _RIU = "ResolvedImageUri";
@@ -421,13 +478,15 @@ const _SJA = "SigningJobArn";
 const _SK = "S3Key";
 const _SKMSKA = "SourceKMSKeyArn";
 const _SLL = "SystemLogLevel";
+const _SM = "ScalingMode";
 const _SMES = "SelfManagedEventSource";
 const _SMKESC = "SelfManagedKafkaEventSourceConfig";
 const _SOV = "S3ObjectVersion";
-const _SP = "StartingPosition";
+const _SP = "ScalingPolicies";
 const _SPT = "StartingPositionTimestamp";
 const _SPVA = "SigningProfileVersionArns";
 const _SPVAi = "SigningProfileVersionArn";
+const _SPt = "StartingPosition";
 const _SR = "StateReason";
 const _SRC = "SchemaRegistryConfig";
 const _SRCt = "StateReasonCode";
@@ -458,6 +517,8 @@ const _TK = "TagKeys";
 const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
+const _TTSP = "TargetTrackingScalingPolicy";
+const _TV = "TargetValue";
 const _TWIS = "TumblingWindowInSeconds";
 const _Ta = "Tags";
 const _Ti = "Timeout";
@@ -466,6 +527,9 @@ const _UA = "UpdateAlias";
 const _UAOD = "UntrustedArtifactOnDeployment";
 const _UAR = "UpdateAliasRequest";
 const _UCE = "UnreservedConcurrentExecutions";
+const _UCP = "UpdateCapacityProvider";
+const _UCPR = "UpdateCapacityProviderRequest";
+const _UCPRp = "UpdateCapacityProviderResponse";
 const _UCSC = "UpdateCodeSigningConfig";
 const _UCSCR = "UpdateCodeSigningConfigRequest";
 const _UCSCRp = "UpdateCodeSigningConfigResponse";
@@ -529,6 +593,7 @@ import {
 } from "@smithy/types";
 
 import {
+  CapacityProviderLimitExceededException as __CapacityProviderLimitExceededException,
   CodeSigningConfigNotFoundException as __CodeSigningConfigNotFoundException,
   CodeStorageExceededException as __CodeStorageExceededException,
   CodeVerificationFailedException as __CodeVerificationFailedException,
@@ -540,6 +605,7 @@ import {
   EFSMountFailureException as __EFSMountFailureException,
   EFSMountTimeoutException as __EFSMountTimeoutException,
   ENILimitReachedException as __ENILimitReachedException,
+  FunctionVersionsPerCapacityProviderLimitExceededException as __FunctionVersionsPerCapacityProviderLimitExceededException,
   InvalidCodeSignatureException as __InvalidCodeSignatureException,
   InvalidParameterValueException as __InvalidParameterValueException,
   InvalidRequestContentException as __InvalidRequestContentException,
@@ -551,6 +617,7 @@ import {
   KMSDisabledException as __KMSDisabledException,
   KMSInvalidStateException as __KMSInvalidStateException,
   KMSNotFoundException as __KMSNotFoundException,
+  NoPublishedVersionException as __NoPublishedVersionException,
   PolicyLengthExceededException as __PolicyLengthExceededException,
   PreconditionFailedException as __PreconditionFailedException,
   ProvisionedConcurrencyConfigNotFoundException as __ProvisionedConcurrencyConfigNotFoundException,
@@ -655,6 +722,54 @@ export var AmazonManagedKafkaEventSourceConfig: StaticStructureSchema = [
   [_CGI, _SRC],
   [0, () => KafkaSchemaRegistryConfig],
 ];
+export var CapacityProvider: StaticStructureSchema = [
+  3,
+  n0,
+  _CP,
+  0,
+  [_CPA, _St, _VC, _PC, _IR, _CPSC, _KKA, _LM],
+  [
+    0,
+    0,
+    () => CapacityProviderVpcConfig,
+    () => CapacityProviderPermissionsConfig,
+    () => InstanceRequirements,
+    () => CapacityProviderScalingConfig,
+    0,
+    0,
+  ],
+];
+export var CapacityProviderConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _CPC,
+  0,
+  [_LMICPC],
+  [() => LambdaManagedInstancesCapacityProviderConfig],
+];
+export var CapacityProviderLimitExceededException: StaticErrorSchema = [
+  -3,
+  n0,
+  _CPLEE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_T, _m],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(CapacityProviderLimitExceededException, __CapacityProviderLimitExceededException);
+
+export var CapacityProviderPermissionsConfig: StaticStructureSchema = [3, n0, _CPPC, 0, [_CPORA], [0]];
+export var CapacityProviderScalingConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _CPSC,
+  0,
+  [_MVCC, _SM, _SP],
+  [1, 0, () => CapacityProviderScalingPoliciesList],
+];
+export var CapacityProviderVpcConfig: StaticStructureSchema = [3, n0, _CPVC, 0, [_SIu, _SGI], [64 | 0, 64 | 0]];
 export var CodeSigningConfig: StaticStructureSchema = [
   3,
   n0,
@@ -720,6 +835,23 @@ export var CreateAliasRequest: StaticStructureSchema = [
   [_FN, _N, _FV, _D, _RC],
   [[0, 1], 0, 0, 0, () => AliasRoutingConfiguration],
 ];
+export var CreateCapacityProviderRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CCPR,
+  0,
+  [_CPN, _VC, _PC, _IR, _CPSC, _KKA, _Ta],
+  [
+    0,
+    () => CapacityProviderVpcConfig,
+    () => CapacityProviderPermissionsConfig,
+    () => InstanceRequirements,
+    () => CapacityProviderScalingConfig,
+    0,
+    128 | 0,
+  ],
+];
+export var CreateCapacityProviderResponse: StaticStructureSchema = [3, n0, _CCPRr, 0, [_CP], [() => CapacityProvider]];
 export var CreateCodeSigningConfigRequest: StaticStructureSchema = [
   3,
   n0,
@@ -749,7 +881,7 @@ export var CreateEventSourceMappingRequest: StaticStructureSchema = [
     _FCi,
     _MBWIS,
     _PF,
-    _SP,
+    _SPt,
     _SPT,
     _DC,
     _MRAIS,
@@ -830,6 +962,8 @@ export var CreateFunctionRequest: StaticStructureSchema = [
     _ES,
     _SSn,
     _LC,
+    _CPC,
+    _PTu,
     _TCe,
   ],
   [
@@ -857,6 +991,8 @@ export var CreateFunctionRequest: StaticStructureSchema = [
     () => EphemeralStorage,
     () => SnapStart,
     () => LoggingConfig,
+    () => CapacityProviderConfig,
+    0,
     () => TenancyConfig,
   ],
 ];
@@ -899,6 +1035,8 @@ export var DeleteAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
+export var DeleteCapacityProviderRequest: StaticStructureSchema = [3, n0, _DCPR, 0, [_CPN], [[0, 1]]];
+export var DeleteCapacityProviderResponse: StaticStructureSchema = [3, n0, _DCPRe, 0, [_CP], [() => CapacityProvider]];
 export var DeleteCodeSigningConfigRequest: StaticStructureSchema = [3, n0, _DCSCR, 0, [_CSCA], [[0, 1]]];
 export var DeleteCodeSigningConfigResponse: StaticStructureSchema = [3, n0, _DCSCRe, 0, [], []];
 export var DeleteEventSourceMappingRequest: StaticStructureSchema = [3, n0, _DESMR, 0, [_UUID], [[0, 1]]];
@@ -936,6 +1074,7 @@ export var DeleteFunctionRequest: StaticStructureSchema = [
     ],
   ],
 ];
+export var DeleteFunctionResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [_SCt], [[1, 32]]];
 export var DeleteFunctionUrlConfigRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1106,7 +1245,7 @@ export var EventSourceMappingConfiguration: StaticStructureSchema = [
   0,
   [
     _UUID,
-    _SP,
+    _SPt,
     _SPT,
     _BSa,
     _MBWIS,
@@ -1236,6 +1375,8 @@ export var FunctionConfiguration: StaticStructureSchema = [
     _SSn,
     _RVC,
     _LC,
+    _CPC,
+    _CSon,
     _TCe,
   ],
   [
@@ -1275,6 +1416,8 @@ export var FunctionConfiguration: StaticStructureSchema = [
     () => SnapStartResponse,
     [() => RuntimeVersionConfig, 0],
     () => LoggingConfig,
+    () => CapacityProviderConfig,
+    0,
     () => TenancyConfig,
   ],
 ];
@@ -1286,6 +1429,7 @@ export var FunctionEventInvokeConfig: StaticStructureSchema = [
   [_LM, _FA, _MRA, _MEAIS, _DC],
   [4, 0, 1, 1, () => DestinationConfig],
 ];
+export var FunctionScalingConfig: StaticStructureSchema = [3, n0, _FSCu, 0, [_MEE, _MEEa], [1, 1]];
 export var FunctionUrlConfig: StaticStructureSchema = [
   3,
   n0,
@@ -1294,6 +1438,23 @@ export var FunctionUrlConfig: StaticStructureSchema = [
   [_FU, _FA, _CT, _LMT, _Co, _AT, _IM],
   [0, 0, 0, 0, () => Cors, 0, 0],
 ];
+export var FunctionVersionsByCapacityProviderListItem: StaticStructureSchema = [3, n0, _FVBCPLI, 0, [_FA, _St], [0, 0]];
+export var FunctionVersionsPerCapacityProviderLimitExceededException: StaticErrorSchema = [
+  -3,
+  n0,
+  _FVPCPLEE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_T, _m],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(
+  FunctionVersionsPerCapacityProviderLimitExceededException,
+  __FunctionVersionsPerCapacityProviderLimitExceededException
+);
+
 export var GetAccountSettingsRequest: StaticStructureSchema = [3, n0, _GASR, 0, [], []];
 export var GetAccountSettingsResponse: StaticStructureSchema = [
   3,
@@ -1314,6 +1475,8 @@ export var GetAliasRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
+export var GetCapacityProviderRequest: StaticStructureSchema = [3, n0, _GCPR, 0, [_CPN], [[0, 1]]];
+export var GetCapacityProviderResponse: StaticStructureSchema = [3, n0, _GCPRe, 0, [_CP], [() => CapacityProvider]];
 export var GetCodeSigningConfigRequest: StaticStructureSchema = [3, n0, _GCSCR, 0, [_CSCA], [[0, 1]]];
 export var GetCodeSigningConfigResponse: StaticStructureSchema = [3, n0, _GCSCRe, 0, [_CSC], [() => CodeSigningConfig]];
 export var GetEventSourceMappingRequest: StaticStructureSchema = [3, n0, _GESMR, 0, [_UUID], [[0, 1]]];
@@ -1378,6 +1541,30 @@ export var GetFunctionResponse: StaticStructureSchema = [
   0,
   [_Con, _Cod, _Ta, _TE, _C],
   [[() => FunctionConfiguration, 0], () => FunctionCodeLocation, 128 | 0, () => TagsError, () => Concurrency],
+];
+export var GetFunctionScalingConfigRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GFSCR,
+  0,
+  [_FN, _Q],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _Q,
+      },
+    ],
+  ],
+];
+export var GetFunctionScalingConfigResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GFSCRe,
+  0,
+  [_FA, _AFSC, _RFSC],
+  [0, () => FunctionScalingConfig, () => FunctionScalingConfig],
 ];
 export var GetFunctionUrlConfigRequest: StaticStructureSchema = [
   3,
@@ -1524,6 +1711,7 @@ export var ImageConfigResponse: StaticStructureSchema = [
   [_IC, _Er],
   [() => ImageConfig, [() => ImageConfigError, 0]],
 ];
+export var InstanceRequirements: StaticStructureSchema = [3, n0, _IR, 0, [_Ar, _AIT, _EIT], [64 | 0, 64 | 0, 64 | 0]];
 export var InvalidCodeSignatureException: StaticErrorSchema = [
   -3,
   n0,
@@ -1618,7 +1806,7 @@ TypeRegistry.for(n0).registerError(InvalidZipFileException, __InvalidZipFileExce
 export var InvocationRequest: StaticStructureSchema = [
   3,
   n0,
-  _IR,
+  _IRn,
   0,
   [_FN, _IT, _LT, _CC, _Pay, _Q, _TI],
   [
@@ -1659,7 +1847,7 @@ export var InvocationRequest: StaticStructureSchema = [
 export var InvocationResponse: StaticStructureSchema = [
   3,
   n0,
-  _IRn,
+  _IRnv,
   0,
   [_SCt, _FE, _LR, _Pay, _EV],
   [
@@ -1846,6 +2034,14 @@ export var KMSNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(KMSNotFoundException, __KMSNotFoundException);
 
+export var LambdaManagedInstancesCapacityProviderConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _LMICPC,
+  0,
+  [_CPA, _PEEMC, _EEMGBPVC],
+  [0, 1, 1],
+];
 export var Layer: StaticStructureSchema = [3, n0, _La, 0, [_Arn, _CS, _SPVAi, _SJA], [0, 1, 0, 0]];
 export var LayersListItem: StaticStructureSchema = [
   3,
@@ -1908,6 +2104,41 @@ export var ListAliasesRequest: StaticStructureSchema = [
   ],
 ];
 export var ListAliasesResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_NM, _Al], [0, () => AliasList]];
+export var ListCapacityProvidersRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCPR,
+  0,
+  [_St, _Ma, _MI],
+  [
+    [
+      0,
+      {
+        [_hQ]: _St,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _Ma,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MI,
+      },
+    ],
+  ],
+];
+export var ListCapacityProvidersResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCPRi,
+  0,
+  [_CPa, _NM],
+  [() => CapacityProvidersList, 0],
+];
 export var ListCodeSigningConfigsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2102,6 +2333,36 @@ export var ListFunctionUrlConfigsResponse: StaticStructureSchema = [
   [_FUCu, _NM],
   [() => FunctionUrlConfigList, 0],
 ];
+export var ListFunctionVersionsByCapacityProviderRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LFVBCPR,
+  0,
+  [_CPN, _Ma, _MI],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _Ma,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MI,
+      },
+    ],
+  ],
+];
+export var ListFunctionVersionsByCapacityProviderResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LFVBCPRi,
+  0,
+  [_CPA, _FVu, _NM],
+  [0, () => FunctionVersionsByCapacityProviderList, 0],
+];
 export var ListLayersRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2241,6 +2502,19 @@ export var ListVersionsByFunctionResponse: StaticStructureSchema = [
   [0, [() => FunctionList, 0]],
 ];
 export var LoggingConfig: StaticStructureSchema = [3, n0, _LC, 0, [_LF, _ALL, _SLL, _LG], [0, 0, 0, 0]];
+export var NoPublishedVersionException: StaticErrorSchema = [
+  -3,
+  n0,
+  _NPVE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_T, _M],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(NoPublishedVersionException, __NoPublishedVersionException);
+
 export var OnFailure: StaticStructureSchema = [3, n0, _OF, 0, [_De], [0]];
 export var OnSuccess: StaticStructureSchema = [3, n0, _OS, 0, [_De], [0]];
 export var PolicyLengthExceededException: StaticErrorSchema = [
@@ -2310,7 +2584,14 @@ export var PublishLayerVersionResponse: StaticStructureSchema = [
   [_Cont, _LA, _LVA, _D, _CD, _Ve, _CR, _LI, _CA],
   [() => LayerVersionContentOutput, 0, 0, 0, 0, 1, 64 | 0, 0, 64 | 0],
 ];
-export var PublishVersionRequest: StaticStructureSchema = [3, n0, _PVR, 0, [_FN, _CSo, _D, _RI], [[0, 1], 0, 0, 0]];
+export var PublishVersionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PVR,
+  0,
+  [_FN, _CSo, _D, _RI, _PTu],
+  [[0, 1], 0, 0, 0, 0],
+];
 export var PutFunctionCodeSigningConfigRequest: StaticStructureSchema = [3, n0, _PFCSCR, 0, [_CSCA, _FN], [0, [0, 1]]];
 export var PutFunctionCodeSigningConfigResponse: StaticStructureSchema = [3, n0, _PFCSCRu, 0, [_CSCA, _FN], [0, 0]];
 export var PutFunctionConcurrencyRequest: StaticStructureSchema = [3, n0, _PFCR, 0, [_FN, _RCE], [[0, 1], 1]];
@@ -2335,6 +2616,24 @@ export var PutFunctionEventInvokeConfigRequest: StaticStructureSchema = [
 ];
 export var PutFunctionRecursionConfigRequest: StaticStructureSchema = [3, n0, _PFRCR, 0, [_FN, _RL], [[0, 1], 0]];
 export var PutFunctionRecursionConfigResponse: StaticStructureSchema = [3, n0, _PFRCRu, 0, [_RL], [0]];
+export var PutFunctionScalingConfigRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PFSCR,
+  0,
+  [_FN, _Q, _FSCu],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _Q,
+      },
+    ],
+    () => FunctionScalingConfig,
+  ],
+];
+export var PutFunctionScalingConfigResponse: StaticStructureSchema = [3, n0, _PFSCRu, 0, [_FS], [0]];
 export var PutProvisionedConcurrencyConfigRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2610,6 +2909,7 @@ TypeRegistry.for(n0).registerError(SubnetIPAddressLimitReachedException, __Subne
 
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_Re, _Ta], [[0, 1], 128 | 0]];
 export var TagsError: StaticStructureSchema = [3, n0, _TE, 0, [_EC, _M], [0, 0]];
+export var TargetTrackingScalingPolicy: StaticStructureSchema = [3, n0, _TTSP, 0, [_PMT, _TV], [0, 1]];
 export var TenancyConfig: StaticStructureSchema = [3, n0, _TCe, 0, [_TIM], [0]];
 export var TooManyRequestsException: StaticErrorSchema = [
   -3,
@@ -2673,6 +2973,15 @@ export var UpdateAliasRequest: StaticStructureSchema = [
   [_FN, _N, _FV, _D, _RC, _RI],
   [[0, 1], [0, 1], 0, 0, () => AliasRoutingConfiguration, 0],
 ];
+export var UpdateCapacityProviderRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UCPR,
+  0,
+  [_CPN, _CPSC],
+  [[0, 1], () => CapacityProviderScalingConfig],
+];
+export var UpdateCapacityProviderResponse: StaticStructureSchema = [3, n0, _UCPRp, 0, [_CP], [() => CapacityProvider]];
 export var UpdateCodeSigningConfigRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2746,15 +3055,15 @@ export var UpdateFunctionCodeRequest: StaticStructureSchema = [
   n0,
   _UFCR,
   0,
-  [_FN, _ZF, _SB, _SK, _SOV, _IU, _Pu, _DR, _RI, _Ar, _SKMSKA],
-  [[0, 1], [() => _Blob, 0], 0, 0, 0, 0, 2, 2, 0, 64 | 0, 0],
+  [_FN, _ZF, _SB, _SK, _SOV, _IU, _Pu, _DR, _RI, _Ar, _SKMSKA, _PTu],
+  [[0, 1], [() => _Blob, 0], 0, 0, 0, 0, 2, 2, 0, 64 | 0, 0, 0],
 ];
 export var UpdateFunctionConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
   _UFCRp,
   0,
-  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _En, _R, _DLC, _KMSKA, _TC, _RI, _L, _FSC, _IC, _ES, _SSn, _LC],
+  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _En, _R, _DLC, _KMSKA, _TC, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC],
   [
     [0, 1],
     0,
@@ -2775,6 +3084,7 @@ export var UpdateFunctionConfigurationRequest: StaticStructureSchema = [
     () => EphemeralStorage,
     () => SnapStart,
     () => LoggingConfig,
+    () => CapacityProviderConfig,
   ],
 ];
 export var UpdateFunctionEventInvokeConfigRequest: StaticStructureSchema = [
@@ -2844,6 +3154,18 @@ export var AllowOriginsList = 64 | 0;
 
 export var ArchitecturesList = 64 | 0;
 
+export var CapacityProviderScalingPoliciesList: StaticListSchema = [
+  1,
+  n0,
+  _CPSPL,
+  0,
+  () => TargetTrackingScalingPolicy,
+];
+export var CapacityProviderSecurityGroupIds = 64 | 0;
+
+export var CapacityProvidersList: StaticListSchema = [1, n0, _CPL, 0, () => CapacityProvider];
+export var CapacityProviderSubnetIds = 64 | 0;
+
 export var CodeSigningConfigList: StaticListSchema = [1, n0, _CSCL, 0, () => CodeSigningConfig];
 export var CompatibleArchitectures = 64 | 0;
 
@@ -2863,7 +3185,16 @@ export var FunctionList: StaticListSchema = [1, n0, _FLu, 0, [() => FunctionConf
 export var FunctionResponseTypeList = 64 | 0;
 
 export var FunctionUrlConfigList: StaticListSchema = [1, n0, _FUCL, 0, () => FunctionUrlConfig];
+export var FunctionVersionsByCapacityProviderList: StaticListSchema = [
+  1,
+  n0,
+  _FVBCPL,
+  0,
+  () => FunctionVersionsByCapacityProviderListItem,
+];
 export var HeadersList = 64 | 0;
+
+export var InstanceTypeSet = 64 | 0;
 
 export var KafkaSchemaRegistryAccessConfigList: StaticListSchema = [
   1,
@@ -2920,7 +3251,7 @@ export var InvokeWithResponseStreamResponseEvent: StaticStructureSchema = [
   {
     [_s]: 1,
   },
-  [_PC, _ICn],
+  [_PCa, _ICn],
   [[() => InvokeResponseStreamUpdate, 0], () => InvokeWithResponseStreamCompleteEvent],
 ];
 export var AddLayerVersionPermission: StaticOperationSchema = [
@@ -2952,6 +3283,16 @@ export var CreateAlias: StaticOperationSchema = [
   },
   () => CreateAliasRequest,
   () => AliasConfiguration,
+];
+export var CreateCapacityProvider: StaticOperationSchema = [
+  9,
+  n0,
+  _CCP,
+  {
+    [_h]: ["POST", "/2025-11-30/capacity-providers", 202],
+  },
+  () => CreateCapacityProviderRequest,
+  () => CreateCapacityProviderResponse,
 ];
 export var CreateCodeSigningConfig: StaticOperationSchema = [
   9,
@@ -3003,6 +3344,16 @@ export var DeleteAlias: StaticOperationSchema = [
   () => DeleteAliasRequest,
   () => __Unit,
 ];
+export var DeleteCapacityProvider: StaticOperationSchema = [
+  9,
+  n0,
+  _DCP,
+  {
+    [_h]: ["DELETE", "/2025-11-30/capacity-providers/{CapacityProviderName}", 202],
+  },
+  () => DeleteCapacityProviderRequest,
+  () => DeleteCapacityProviderResponse,
+];
 export var DeleteCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
@@ -3028,10 +3379,10 @@ export var DeleteFunction: StaticOperationSchema = [
   n0,
   _DF,
   {
-    [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}", 204],
+    [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}", 200],
   },
   () => DeleteFunctionRequest,
-  () => __Unit,
+  () => DeleteFunctionResponse,
 ];
 export var DeleteFunctionCodeSigningConfig: StaticOperationSchema = [
   9,
@@ -3113,6 +3464,16 @@ export var GetAlias: StaticOperationSchema = [
   () => GetAliasRequest,
   () => AliasConfiguration,
 ];
+export var GetCapacityProvider: StaticOperationSchema = [
+  9,
+  n0,
+  _GCP,
+  {
+    [_h]: ["GET", "/2025-11-30/capacity-providers/{CapacityProviderName}", 200],
+  },
+  () => GetCapacityProviderRequest,
+  () => GetCapacityProviderResponse,
+];
 export var GetCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
@@ -3192,6 +3553,16 @@ export var GetFunctionRecursionConfig: StaticOperationSchema = [
   },
   () => GetFunctionRecursionConfigRequest,
   () => GetFunctionRecursionConfigResponse,
+];
+export var GetFunctionScalingConfig: StaticOperationSchema = [
+  9,
+  n0,
+  _GFSC,
+  {
+    [_h]: ["GET", "/2025-11-30/functions/{FunctionName}/function-scaling-config", 200],
+  },
+  () => GetFunctionScalingConfigRequest,
+  () => GetFunctionScalingConfigResponse,
 ];
 export var GetFunctionUrlConfig: StaticOperationSchema = [
   9,
@@ -3303,6 +3674,16 @@ export var ListAliases: StaticOperationSchema = [
   () => ListAliasesRequest,
   () => ListAliasesResponse,
 ];
+export var ListCapacityProviders: StaticOperationSchema = [
+  9,
+  n0,
+  _LCP,
+  {
+    [_h]: ["GET", "/2025-11-30/capacity-providers", 200],
+  },
+  () => ListCapacityProvidersRequest,
+  () => ListCapacityProvidersResponse,
+];
 export var ListCodeSigningConfigs: StaticOperationSchema = [
   9,
   n0,
@@ -3362,6 +3743,16 @@ export var ListFunctionUrlConfigs: StaticOperationSchema = [
   },
   () => ListFunctionUrlConfigsRequest,
   () => ListFunctionUrlConfigsResponse,
+];
+export var ListFunctionVersionsByCapacityProvider: StaticOperationSchema = [
+  9,
+  n0,
+  _LFVBCP,
+  {
+    [_h]: ["GET", "/2025-11-30/capacity-providers/{CapacityProviderName}/function-versions", 200],
+  },
+  () => ListFunctionVersionsByCapacityProviderRequest,
+  () => ListFunctionVersionsByCapacityProviderResponse,
 ];
 export var ListLayers: StaticOperationSchema = [
   9,
@@ -3473,6 +3864,16 @@ export var PutFunctionRecursionConfig: StaticOperationSchema = [
   () => PutFunctionRecursionConfigRequest,
   () => PutFunctionRecursionConfigResponse,
 ];
+export var PutFunctionScalingConfig: StaticOperationSchema = [
+  9,
+  n0,
+  _PFSC,
+  {
+    [_h]: ["PUT", "/2025-11-30/functions/{FunctionName}/function-scaling-config", 202],
+  },
+  () => PutFunctionScalingConfigRequest,
+  () => PutFunctionScalingConfigResponse,
+];
 export var PutProvisionedConcurrencyConfig: StaticOperationSchema = [
   9,
   n0,
@@ -3542,6 +3943,16 @@ export var UpdateAlias: StaticOperationSchema = [
   },
   () => UpdateAliasRequest,
   () => AliasConfiguration,
+];
+export var UpdateCapacityProvider: StaticOperationSchema = [
+  9,
+  n0,
+  _UCP,
+  {
+    [_h]: ["PUT", "/2025-11-30/capacity-providers/{CapacityProviderName}", 202],
+  },
+  () => UpdateCapacityProviderRequest,
+  () => UpdateCapacityProviderResponse,
 ];
 export var UpdateCodeSigningConfig: StaticOperationSchema = [
   9,

@@ -4,6 +4,9 @@ import { StreamingBlobTypes } from "@smithy/types";
 import {
   ApplicationLogLevel,
   Architecture,
+  CapacityProviderPredefinedMetricType,
+  CapacityProviderScalingMode,
+  CapacityProviderState,
   CodeSigningPolicy,
   EndPointType,
   EventSourceMappingMetric,
@@ -12,6 +15,7 @@ import {
   FunctionResponseType,
   FunctionUrlAuthType,
   FunctionVersion,
+  FunctionVersionLatestPublished,
   InvocationType,
   InvokeMode,
   KafkaSchemaRegistryAuthType,
@@ -226,7 +230,7 @@ export interface AddPermissionRequest {
   FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>Restricts the <code>lambda:InvokeFunction</code> action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
    * @public
    */
   InvokedViaFunctionUrl?: boolean | undefined;
@@ -385,6 +389,390 @@ export interface AmazonManagedKafkaEventSourceConfig {
    * @public
    */
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
+}
+
+/**
+ * <p>A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.</p>
+ * @public
+ */
+export interface TargetTrackingScalingPolicy {
+  /**
+   * <p>The predefined metric type to track for scaling decisions.</p>
+   * @public
+   */
+  PredefinedMetricType: CapacityProviderPredefinedMetricType | undefined;
+
+  /**
+   * <p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>
+   * @public
+   */
+  TargetValue: number | undefined;
+}
+
+/**
+ * <p>Configuration that defines how the capacity provider scales compute instances based on demand and policies.</p>
+ * @public
+ */
+export interface CapacityProviderScalingConfig {
+  /**
+   * <p>The maximum number of vCPUs that the capacity provider can provision across all compute instances.</p>
+   * @public
+   */
+  MaxVCpuCount?: number | undefined;
+
+  /**
+   * <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
+   * @public
+   */
+  ScalingMode?: CapacityProviderScalingMode | undefined;
+
+  /**
+   * <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
+   * @public
+   */
+  ScalingPolicies?: TargetTrackingScalingPolicy[] | undefined;
+}
+
+/**
+ * <p>Specifications that define the characteristics and constraints for compute instances used by the capacity provider.</p>
+ * @public
+ */
+export interface InstanceRequirements {
+  /**
+   * <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
+   * @public
+   */
+  Architectures?: Architecture[] | undefined;
+
+  /**
+   * <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
+   * @public
+   */
+  AllowedInstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
+   * @public
+   */
+  ExcludedInstanceTypes?: string[] | undefined;
+}
+
+/**
+ * <p>Configuration that specifies the permissions required for the capacity provider to manage compute resources.</p>
+ * @public
+ */
+export interface CapacityProviderPermissionsConfig {
+  /**
+   * <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
+   * @public
+   */
+  CapacityProviderOperatorRoleArn: string | undefined;
+}
+
+/**
+ * <p>VPC configuration that specifies the network settings for compute instances managed by the capacity provider.</p>
+ * @public
+ */
+export interface CapacityProviderVpcConfig {
+  /**
+   * <p>A list of subnet IDs where the capacity provider launches compute instances.</p>
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityProviderRequest {
+  /**
+   * <p>The name of the capacity provider. </p>
+   * @public
+   */
+  CapacityProviderName: string | undefined;
+
+  /**
+   * <p>The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.</p>
+   * @public
+   */
+  VpcConfig: CapacityProviderVpcConfig | undefined;
+
+  /**
+   * <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
+   * @public
+   */
+  PermissionsConfig: CapacityProviderPermissionsConfig | undefined;
+
+  /**
+   * <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirements | undefined;
+
+  /**
+   * <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
+   * @public
+   */
+  CapacityProviderScalingConfig?: CapacityProviderScalingConfig | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt data associated with the capacity provider.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>A list of tags to associate with the capacity provider.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A capacity provider manages compute resources for Lambda functions.</p>
+ * @public
+ */
+export interface CapacityProvider {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * @public
+   */
+  CapacityProviderArn: string | undefined;
+
+  /**
+   * <p>The current state of the capacity provider.</p>
+   * @public
+   */
+  State: CapacityProviderState | undefined;
+
+  /**
+   * <p>The VPC configuration for the capacity provider.</p>
+   * @public
+   */
+  VpcConfig: CapacityProviderVpcConfig | undefined;
+
+  /**
+   * <p>The permissions configuration for the capacity provider.</p>
+   * @public
+   */
+  PermissionsConfig: CapacityProviderPermissionsConfig | undefined;
+
+  /**
+   * <p>The instance requirements for compute resources managed by the capacity provider.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirements | undefined;
+
+  /**
+   * <p>The scaling configuration for the capacity provider.</p>
+   * @public
+   */
+  CapacityProviderScalingConfig?: CapacityProviderScalingConfig | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt the capacity provider's resources.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The date and time when the capacity provider was last modified.</p>
+   * @public
+   */
+  LastModified?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityProviderResponse {
+  /**
+   * <p>Information about the capacity provider that was created.</p>
+   * @public
+   */
+  CapacityProvider: CapacityProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityProviderRequest {
+  /**
+   * <p>The name of the capacity provider to delete.</p>
+   * @public
+   */
+  CapacityProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityProviderResponse {
+  /**
+   * <p>Information about the deleted capacity provider.</p>
+   * @public
+   */
+  CapacityProvider: CapacityProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityProviderRequest {
+  /**
+   * <p>The name of the capacity provider to retrieve.</p>
+   * @public
+   */
+  CapacityProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityProviderResponse {
+  /**
+   * <p>Information about the capacity provider, including its configuration and current state.</p>
+   * @public
+   */
+  CapacityProvider: CapacityProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityProvidersRequest {
+  /**
+   * <p>Filter capacity providers by their current state.</p>
+   * @public
+   */
+  State?: CapacityProviderState | undefined;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of capacity providers to return.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityProvidersResponse {
+  /**
+   * <p>A list of capacity providers in your account.</p>
+   * @public
+   */
+  CapacityProviders: CapacityProvider[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionVersionsByCapacityProviderRequest {
+  /**
+   * <p>The name of the capacity provider to list function versions for.</p>
+   * @public
+   */
+  CapacityProviderName: string | undefined;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of function versions to return in the response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>Information about a function version that uses a specific capacity provider, including its ARN and current state.</p>
+ * @public
+ */
+export interface FunctionVersionsByCapacityProviderListItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function version.</p>
+   * @public
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The current state of the function version.</p>
+   * @public
+   */
+  State: State | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionVersionsByCapacityProviderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * @public
+   */
+  CapacityProviderArn: string | undefined;
+
+  /**
+   * <p>A list of function versions that use the specified capacity provider.</p>
+   * @public
+   */
+  FunctionVersions: FunctionVersionsByCapacityProviderListItem[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityProviderRequest {
+  /**
+   * <p>The name of the capacity provider to update.</p>
+   * @public
+   */
+  CapacityProviderName: string | undefined;
+
+  /**
+   * <p>The updated scaling configuration for the capacity provider.</p>
+   * @public
+   */
+  CapacityProviderScalingConfig?: CapacityProviderScalingConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityProviderResponse {
+  /**
+   * <p>Information about the updated capacity provider.</p>
+   * @public
+   */
+  CapacityProvider: CapacityProvider | undefined;
 }
 
 /**
@@ -634,6 +1022,51 @@ export interface UpdateCodeSigningConfigResponse {
 }
 
 /**
+ * @public
+ */
+export interface DeleteFunctionRequest {
+  /**
+   * <p>The name or ARN of the Lambda function or version.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version to delete. You can't delete a version that an alias references.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFunctionResponse {
+  /**
+   * <p>The HTTP status code returned by the operation.</p>
+   * @public
+   */
+  StatusCode?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFunctionEventInvokeConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A version number or alias name.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
+}
+
+/**
  * <p>A destination for events that failed processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
  * @public
  */
@@ -753,7 +1186,7 @@ export interface ProvisionedPollerConfig {
   MaximumPollers?: number | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the VPC to share Event Poller Unit (EPU) capacity. This option is used to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.</p>
+   * <p>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.</p>
    * @public
    */
   PollerGroupName?: string | undefined;
@@ -1402,6 +1835,42 @@ export interface UpdateEventSourceMappingRequest {
 }
 
 /**
+ * <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
+ * @public
+ */
+export interface LambdaManagedInstancesCapacityProviderConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * @public
+   */
+  CapacityProviderArn: string | undefined;
+
+  /**
+   * <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
+   * @public
+   */
+  PerExecutionEnvironmentMaxConcurrency?: number | undefined;
+
+  /**
+   * <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
+   * @public
+   */
+  ExecutionEnvironmentMemoryGiBPerVCpu?: number | undefined;
+}
+
+/**
+ * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+ * @public
+ */
+export interface CapacityProviderConfig {
+  /**
+   * <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
+   * @public
+   */
+  LambdaManagedInstancesCapacityProviderConfig: LambdaManagedInstancesCapacityProviderConfig | undefined;
+}
+
+/**
  * <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
  * @public
  */
@@ -1758,6 +2227,18 @@ export interface CreateFunctionRequest {
    * @public
    */
   LoggingConfig?: LoggingConfig | undefined;
+
+  /**
+   * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+   * @public
+   */
+  CapacityProviderConfig?: CapacityProviderConfig | undefined;
+
+  /**
+   * <p>Specifies where to publish the function version or configuration.</p>
+   * @public
+   */
+  PublishTo?: FunctionVersionLatestPublished | undefined;
 
   /**
    * <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
@@ -2186,6 +2667,18 @@ export interface FunctionConfiguration {
   LoggingConfig?: LoggingConfig | undefined;
 
   /**
+   * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+   * @public
+   */
+  CapacityProviderConfig?: CapacityProviderConfig | undefined;
+
+  /**
+   * <p>The SHA256 hash of the function configuration.</p>
+   * @public
+   */
+  ConfigSha256?: string | undefined;
+
+  /**
    * <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
    * @public
    */
@@ -2313,23 +2806,6 @@ export interface CreateFunctionUrlConfigResponse {
 /**
  * @public
  */
-export interface DeleteFunctionRequest {
-  /**
-   * <p>The name or ARN of the Lambda function or version.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>Specify a version to delete. You can't delete a version that an alias references.</p>
-   * @public
-   */
-  Qualifier?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface DeleteFunctionCodeSigningConfigRequest {
   /**
    * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -2347,23 +2823,6 @@ export interface DeleteFunctionConcurrencyRequest {
    * @public
    */
   FunctionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFunctionEventInvokeConfigRequest {
-  /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A version number or alias name.</p>
-   * @public
-   */
-  Qualifier?: string | undefined;
 }
 
 /**
@@ -2570,61 +3029,9 @@ export interface GetFunctionConfigurationRequest {
 /**
  * @public
  */
-export interface FunctionEventInvokeConfig {
-  /**
-   * <p>The date and time that the configuration was last updated.</p>
-   * @public
-   */
-  LastModified?: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the function.</p>
-   * @public
-   */
-  FunctionArn?: string | undefined;
-
-  /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
-   * @public
-   */
-  MaximumRetryAttempts?: number | undefined;
-
-  /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-   * @public
-   */
-  MaximumEventAgeInSeconds?: number | undefined;
-
-  /**
-   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
-   * @public
-   */
-  DestinationConfig?: DestinationConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFunctionEventInvokeConfigRequest {
-  /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A version number or alias name.</p>
-   * @public
-   */
-  Qualifier?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface GetFunctionRecursionConfigRequest {
   /**
-   * <p/>
+   * <p>The name of the function.</p>
    * @public
    */
   FunctionName: string | undefined;
@@ -2639,6 +3046,64 @@ export interface GetFunctionRecursionConfigResponse {
    * @public
    */
   RecursiveLoop?: RecursiveLoop | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFunctionScalingConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version or alias to get the scaling configuration for a published version of the function.</p>
+   * @public
+   */
+  Qualifier: string | undefined;
+}
+
+/**
+ * <p>Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.</p>
+ * @public
+ */
+export interface FunctionScalingConfig {
+  /**
+   * <p>The minimum number of execution environments to maintain for the function.</p>
+   * @public
+   */
+  MinExecutionEnvironments?: number | undefined;
+
+  /**
+   * <p>The maximum number of execution environments that can be provisioned for the function.</p>
+   * @public
+   */
+  MaxExecutionEnvironments?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFunctionScalingConfigResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * @public
+   */
+  FunctionArn?: string | undefined;
+
+  /**
+   * <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
+   * @public
+   */
+  AppliedFunctionScalingConfig?: FunctionScalingConfig | undefined;
+
+  /**
+   * <p>The scaling configuration that was requested for the function.</p>
+   * @public
+   */
+  RequestedFunctionScalingConfig?: FunctionScalingConfig | undefined;
 }
 
 /**
@@ -3060,46 +3525,6 @@ export interface InvokeWithResponseStreamResponse {
 /**
  * @public
  */
-export interface ListFunctionEventInvokeConfigsRequest {
-  /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>The maximum number of configurations to return.</p>
-   * @public
-   */
-  MaxItems?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFunctionEventInvokeConfigsResponse {
-  /**
-   * <p>A list of configurations.</p>
-   * @public
-   */
-  FunctionEventInvokeConfigs?: FunctionEventInvokeConfig[] | undefined;
-
-  /**
-   * <p>The pagination token that's included if more results are available.</p>
-   * @public
-   */
-  NextMarker?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface ListFunctionsRequest {
   /**
    * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
@@ -3374,41 +3799,6 @@ export interface PutFunctionConcurrencyRequest {
 /**
  * @public
  */
-export interface PutFunctionEventInvokeConfigRequest {
-  /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A version number or alias name.</p>
-   * @public
-   */
-  Qualifier?: string | undefined;
-
-  /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
-   * @public
-   */
-  MaximumRetryAttempts?: number | undefined;
-
-  /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-   * @public
-   */
-  MaximumEventAgeInSeconds?: number | undefined;
-
-  /**
-   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
-   * @public
-   */
-  DestinationConfig?: DestinationConfig | undefined;
-}
-
-/**
- * @public
- */
 export interface PutFunctionRecursionConfigRequest {
   /**
    * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -3432,6 +3822,40 @@ export interface PutFunctionRecursionConfigResponse {
    * @public
    */
   RecursiveLoop?: RecursiveLoop | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFunctionScalingConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
+   * @public
+   */
+  Qualifier: string | undefined;
+
+  /**
+   * <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
+   * @public
+   */
+  FunctionScalingConfig?: FunctionScalingConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFunctionScalingConfigResponse {
+  /**
+   * <p>The current state of the function after applying the scaling configuration.</p>
+   * @public
+   */
+  FunctionState?: State | undefined;
 }
 
 /**
@@ -3555,6 +3979,12 @@ export interface UpdateFunctionCodeRequest {
    * @public
    */
   SourceKMSKeyArn?: string | undefined;
+
+  /**
+   * <p>Specifies where to publish the function version or configuration.</p>
+   * @public
+   */
+  PublishTo?: FunctionVersionLatestPublished | undefined;
 }
 
 /**
@@ -3674,41 +4104,12 @@ export interface UpdateFunctionConfigurationRequest {
    * @public
    */
   LoggingConfig?: LoggingConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFunctionEventInvokeConfigRequest {
-  /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
 
   /**
-   * <p>A version number or alias name.</p>
+   * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
    * @public
    */
-  Qualifier?: string | undefined;
-
-  /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
-   * @public
-   */
-  MaximumRetryAttempts?: number | undefined;
-
-  /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-   * @public
-   */
-  MaximumEventAgeInSeconds?: number | undefined;
-
-  /**
-   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
-   * @public
-   */
-  DestinationConfig?: DestinationConfig | undefined;
+  CapacityProviderConfig?: CapacityProviderConfig | undefined;
 }
 
 /**
@@ -4016,6 +4417,12 @@ export interface PublishVersionRequest {
    * @public
    */
   RevisionId?: string | undefined;
+
+  /**
+   * <p>Specifies where to publish the function version or configuration.</p>
+   * @public
+   */
+  PublishTo?: FunctionVersionLatestPublished | undefined;
 }
 
 /**
@@ -4038,6 +4445,58 @@ export interface GetAccountSettingsResponse {
    * @public
    */
   AccountUsage?: AccountUsage | undefined;
+}
+
+/**
+ * @public
+ */
+export interface FunctionEventInvokeConfig {
+  /**
+   * <p>The date and time that the configuration was last updated.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * @public
+   */
+  FunctionArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of times to retry when the function returns an error.</p>
+   * @public
+   */
+  MaximumRetryAttempts?: number | undefined;
+
+  /**
+   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   * @public
+   */
+  MaximumEventAgeInSeconds?: number | undefined;
+
+  /**
+   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
+   * @public
+   */
+  DestinationConfig?: DestinationConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFunctionEventInvokeConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A version number or alias name.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
 }
 
 /**
@@ -4546,6 +5005,46 @@ export interface RemoveLayerVersionPermissionRequest {
 /**
  * @public
  */
+export interface ListFunctionEventInvokeConfigsRequest {
+  /**
+   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of configurations to return.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionEventInvokeConfigsResponse {
+  /**
+   * <p>A list of configurations.</p>
+   * @public
+   */
+  FunctionEventInvokeConfigs?: FunctionEventInvokeConfig[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.</p>
@@ -4736,6 +5235,41 @@ export interface PutProvisionedConcurrencyConfigResponse {
 /**
  * @public
  */
+export interface PutFunctionEventInvokeConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A version number or alias name.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of times to retry when the function returns an error.</p>
+   * @public
+   */
+  MaximumRetryAttempts?: number | undefined;
+
+  /**
+   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   * @public
+   */
+  MaximumEventAgeInSeconds?: number | undefined;
+
+  /**
+   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
+   * @public
+   */
+  DestinationConfig?: DestinationConfig | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -4765,4 +5299,39 @@ export interface UntagResourceRequest {
    * @public
    */
   TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFunctionEventInvokeConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A version number or alias name.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of times to retry when the function returns an error.</p>
+   * @public
+   */
+  MaximumRetryAttempts?: number | undefined;
+
+  /**
+   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   * @public
+   */
+  MaximumEventAgeInSeconds?: number | undefined;
+
+  /**
+   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
+   * @public
+   */
+  DestinationConfig?: DestinationConfig | undefined;
 }
