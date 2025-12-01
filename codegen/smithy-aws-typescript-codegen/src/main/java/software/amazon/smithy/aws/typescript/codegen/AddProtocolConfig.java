@@ -36,10 +36,17 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AddProtocolConfig implements TypeScriptIntegration {
-
     static {
         init();
     }
+
+    public static final Map<ShapeId, Consumer<TypeScriptWriter>> CUSTOMIZATIONS = MapUtils.of(
+        ShapeId.from("com.amazonaws.dynamodb#DynamoDB_20120810"),
+        writer -> {
+            writer.addImport("DynamoDBJsonCodec", null, AwsDependency.DYNAMODB_CODEC);
+            writer.write("jsonCodec: new DynamoDBJsonCodec(),");
+        }
+    );
 
     static void init() {
         List<ShapeId> allowed = List.of(
@@ -114,7 +121,8 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 AwsDependency.AWS_SDK_CORE, "/protocols");
                             writer.write("""
                                 new AwsRestXmlProtocol({
-                                  defaultNamespace: $S, xmlNamespace: $S,
+                                  defaultNamespace: $S,
+                                  xmlNamespace: $S,
                                 })""",
                                 namespace,
                                 xmlns
@@ -132,7 +140,7 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 new AwsQueryProtocol({
                                   defaultNamespace: $S,
                                   xmlNamespace: $S,
-                                  version: $S
+                                  version: $S,
                                 })""",
                                 namespace,
                                 xmlns,
@@ -151,7 +159,7 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 new AwsEc2QueryProtocol({
                                   defaultNamespace: $S,
                                   xmlNamespace: $S,
-                                  version: $S
+                                  version: $S,
                                 })""",
                                 namespace,
                                 xmlns,
@@ -174,16 +182,22 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                             writer.addImportSubmodule(
                                 "AwsJson1_0Protocol", null,
                                 AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write(
+                            writer.openBlock(
                                 """
                                     new AwsJson1_0Protocol({
-                                        defaultNamespace: $S,
-                                        serviceTarget: $S,
-                                        awsQueryCompatible: $L
+                                      defaultNamespace: $S,
+                                      serviceTarget: $S,
+                                      awsQueryCompatible: $L,""",
+                                """
                                     })""",
                                 namespace,
                                 rpcTarget,
-                                awsQueryCompat
+                                awsQueryCompat,
+                                () -> {
+                                    if (CUSTOMIZATIONS.containsKey(settings.getService())) {
+                                        CUSTOMIZATIONS.get(settings.getService()).accept(writer);
+                                    }
+                                }
                             );
                         }
                     );
@@ -193,16 +207,22 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                             writer.addImportSubmodule(
                                 "AwsJson1_1Protocol", null,
                                 AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write(
+                            writer.openBlock(
                                 """
                                     new AwsJson1_1Protocol({
-                                        defaultNamespace: $S,
-                                        serviceTarget: $S,
-                                        awsQueryCompatible: $L
+                                      defaultNamespace: $S,
+                                      serviceTarget: $S,
+                                      awsQueryCompatible: $L,""",
+                                """
                                     })""",
                                 namespace,
                                 rpcTarget,
-                                awsQueryCompat
+                                awsQueryCompat,
+                                () -> {
+                                    if (CUSTOMIZATIONS.containsKey(settings.getService())) {
+                                        CUSTOMIZATIONS.get(settings.getService()).accept(writer);
+                                    }
+                                }
                             );
                         }
                     );
@@ -215,8 +235,8 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                             writer.write(
                                 """
                                    new AwsSmithyRpcV2CborProtocol({
-                                       defaultNamespace: $S,
-                                       awsQueryCompatible: $L
+                                     defaultNamespace: $S,
+                                     awsQueryCompatible: $L,
                                    })""",
                                 namespace,
                                 awsQueryCompat

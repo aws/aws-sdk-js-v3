@@ -101,8 +101,8 @@ public enum AwsDependency implements Dependency {
     REGION_CONFIG_RESOLVER(NORMAL_DEPENDENCY, "@aws-sdk/region-config-resolver"),
 
     CLIENT_DYNAMODB_PEER(PEER_DEPENDENCY, "@aws-sdk/client-dynamodb", "^3.0.0"),
-    UTIL_DYNAMODB(NORMAL_DEPENDENCY, "@aws-sdk/util-dynamodb", "*");
-
+    UTIL_DYNAMODB(NORMAL_DEPENDENCY, "@aws-sdk/util-dynamodb", "*"),
+    DYNAMODB_CODEC(NORMAL_DEPENDENCY, "@aws-sdk/dynamodb-codec");
 
     public final String packageName;
     public final String version;

@@ -586,5 +586,8 @@
   },
   "@aws-sdk/credential-provider-login": {
     "fromLoginCredentials": "function, since <=3.936.0"
+  },
+  "@aws-sdk/dynamodb-codec": {
+    "DynamoDBJsonCodec": "function, since <=3.0.0"
   }
 }
