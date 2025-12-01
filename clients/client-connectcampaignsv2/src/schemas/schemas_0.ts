@@ -85,6 +85,9 @@ const _LCIIR = "ListConnectInstanceIntegrationsRequest";
 const _LCIIRi = "ListConnectInstanceIntegrationsResponse";
 const _LCR = "ListCampaignsRequest";
 const _LCRi = "ListCampaignsResponse";
+const _LIC = "LambdaIntegrationConfig";
+const _LII = "LambdaIntegrationIdentifier";
+const _LIS = "LambdaIntegrationSummary";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -166,6 +169,10 @@ const _UCSp = "UpdateCampaignSource";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _VE = "ValidationException";
+const _WACSC = "WhatsAppChannelSubtypeConfig";
+const _WACSP = "WhatsAppChannelSubtypeParameters";
+const _WAOC = "WhatsAppOutboundConfig";
+const _WAOM = "WhatsAppOutboundMode";
 const _a = "arn";
 const _aA = "agentActions";
 const _aAMP = "awaitAnswerMachinePrompt";
@@ -221,6 +228,7 @@ const _eTx = "expirationTime";
 const _em = "email";
 const _en = "enabled";
 const _f = "frequency";
+const _fA = "functionArn";
 const _fC = "failureCode";
 const _fR = "failedRequests";
 const _fi = "filters";
@@ -236,6 +244,7 @@ const _iLH = "instanceLimitsHandling";
 const _iSL = "integrationSummaryList";
 const _kA = "keyArn";
 const _kBA = "knowledgeBaseArn";
+const _l = "lambda";
 const _lTZC = "localTimeZoneConfig";
 const _lTZD = "localTimeZoneDetection";
 const _m = "message";
@@ -270,14 +279,16 @@ const _sm = "sms";
 const _smi = "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaignsv2";
 const _st = "state";
 const _sta = "status";
-const _t = "tags";
+const _t = "type";
 const _tA = "templateArn";
 const _tC = "timeoutConfig";
 const _tK = "tagKeys";
 const _tP = "templateParameters";
+const _ta = "tags";
 const _te = "telephony";
 const _u = "unit";
 const _v = "value";
+const _wA = "whatsApp";
 const _wTA = "wisdomTemplateArn";
 const _xAET = "xAmzErrorType";
 const _xaE = "x-amzn-ErrorType";
@@ -340,13 +351,14 @@ export var Campaign: StaticStructureSchema = [
   n0,
   _C,
   0,
-  [_i, _a, _n, _cII, _cSC, _s, _cCFA, _sc, _cTC, _cLO, _t],
+  [_i, _a, _n, _cII, _cSC, _t, _s, _cCFA, _sc, _cTC, _cLO, _ta],
   [
     0,
     0,
     0,
     0,
     [() => ChannelSubtypeConfig, 0],
+    0,
     () => Source,
     0,
     () => Schedule,
@@ -361,16 +373,21 @@ export var CampaignSummary: StaticStructureSchema = [
   n0,
   _CS,
   0,
-  [_i, _a, _n, _cII, _cS, _sc, _cCFA],
-  [0, 0, 0, 0, 64 | 0, () => Schedule, 0],
+  [_i, _a, _n, _cII, _cS, _t, _sc, _cCFA],
+  [0, 0, 0, 0, 64 | 0, 0, () => Schedule, 0],
 ];
 export var ChannelSubtypeConfig: StaticStructureSchema = [
   3,
   n0,
   _CSC,
   0,
-  [_te, _sm, _em],
-  [() => TelephonyChannelSubtypeConfig, () => SmsChannelSubtypeConfig, [() => EmailChannelSubtypeConfig, 0]],
+  [_te, _sm, _em, _wA],
+  [
+    () => TelephonyChannelSubtypeConfig,
+    () => SmsChannelSubtypeConfig,
+    [() => EmailChannelSubtypeConfig, 0],
+    () => WhatsAppChannelSubtypeConfig,
+  ],
 ];
 export var CommunicationLimit: StaticStructureSchema = [3, n0, _CL, 0, [_mCPR, _f, _u], [1, 1, 0]];
 export var CommunicationLimitsConfig: StaticStructureSchema = [
@@ -386,8 +403,8 @@ export var CommunicationTimeConfig: StaticStructureSchema = [
   n0,
   _CTC,
   0,
-  [_lTZC, _te, _sm, _em],
-  [() => LocalTimeZoneConfig, () => TimeWindow, () => TimeWindow, () => TimeWindow],
+  [_lTZC, _te, _sm, _em, _wA],
+  [() => LocalTimeZoneConfig, () => TimeWindow, () => TimeWindow, () => TimeWindow, () => TimeWindow],
 ];
 export var ConflictException: StaticErrorSchema = [
   -3,
@@ -415,11 +432,12 @@ export var CreateCampaignRequest: StaticStructureSchema = [
   n0,
   _CCR,
   0,
-  [_n, _cII, _cSC, _s, _cCFA, _sc, _cTC, _cLO, _t],
+  [_n, _cII, _cSC, _t, _s, _cCFA, _sc, _cTC, _cLO, _ta],
   [
     0,
     0,
     [() => ChannelSubtypeConfig, 0],
+    0,
     () => Source,
     0,
     () => Schedule,
@@ -428,7 +446,7 @@ export var CreateCampaignRequest: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var CreateCampaignResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_i, _a, _t], [0, 0, 128 | 0]];
+export var CreateCampaignResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_i, _a, _ta], [0, 0, 128 | 0]];
 export var CustomerProfilesIntegrationConfig: StaticStructureSchema = [3, n0, _CPIC, 0, [_dA, _oTN], [0, 128 | 0]];
 export var CustomerProfilesIntegrationIdentifier: StaticStructureSchema = [3, n0, _CPII, 0, [_dA], [0]];
 export var CustomerProfilesIntegrationSummary: StaticStructureSchema = [3, n0, _CPIS, 0, [_dA, _oTN], [0, 128 | 0]];
@@ -650,6 +668,9 @@ export var InvalidStateException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
 
+export var LambdaIntegrationConfig: StaticStructureSchema = [3, n0, _LIC, 0, [_fA], [0]];
+export var LambdaIntegrationIdentifier: StaticStructureSchema = [3, n0, _LII, 0, [_fA], [0]];
+export var LambdaIntegrationSummary: StaticStructureSchema = [3, n0, _LIS, 0, [_fA], [0]];
 export var ListCampaignsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -697,7 +718,7 @@ export var ListConnectInstanceIntegrationsResponse: StaticStructureSchema = [
   [0, () => IntegrationSummaryList],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_a], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
 export var LocalTimeZoneConfig: StaticStructureSchema = [3, n0, _LTZC, 0, [_dTZ, _lTZD], [0, 64 | 0]];
 export var OutboundRequest: StaticStructureSchema = [
   3,
@@ -849,7 +870,7 @@ export var StopCampaignRequest: StaticStructureSchema = [3, n0, _SCRt, 0, [_i], 
 export var SuccessfulCampaignStateResponse: StaticStructureSchema = [3, n0, _SCSR, 0, [_cI, _st], [0, 0]];
 export var SuccessfulProfileOutboundRequest: StaticStructureSchema = [3, n0, _SPOR, 0, [_cT, _i], [0, 0]];
 export var SuccessfulRequest: StaticStructureSchema = [3, n0, _SR, 0, [_cT, _i], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_a, _t], [[0, 1], 128 | 0]];
+export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_a, _ta], [[0, 1], 128 | 0]];
 export var TelephonyChannelSubtypeConfig: StaticStructureSchema = [
   3,
   n0,
@@ -973,6 +994,23 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 
+export var WhatsAppChannelSubtypeConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _WACSC,
+  0,
+  [_cap, _oM, _dOC],
+  [1, () => WhatsAppOutboundMode, () => WhatsAppOutboundConfig],
+];
+export var WhatsAppChannelSubtypeParameters: StaticStructureSchema = [
+  3,
+  n0,
+  _WACSP,
+  0,
+  [_dPN, _cSPNA, _tA, _tP],
+  [[() => DestinationPhoneNumber, 0], 0, 0, [() => Attributes, 0]],
+];
+export var WhatsAppOutboundConfig: StaticStructureSchema = [3, n0, _WAOC, 0, [_cSPNA, _wTA], [0, 0]];
 export var __Unit = "unit" as const;
 
 export var ConnectCampaignsV2ServiceException: StaticErrorSchema = [
@@ -1031,11 +1069,12 @@ export var ChannelSubtypeParameters: StaticStructureSchema = [
   n0,
   _CSP,
   0,
-  [_te, _sm, _em],
+  [_te, _sm, _em, _wA],
   [
     [() => TelephonyChannelSubtypeParameters, 0],
     [() => SmsChannelSubtypeParameters, 0],
     [() => EmailChannelSubtypeParameters, 0],
+    [() => WhatsAppChannelSubtypeParameters, 0],
   ],
 ];
 export var CommunicationLimits: StaticStructureSchema = [3, n0, _CLo, 0, [_cLL], [() => CommunicationLimitList]];
@@ -1045,24 +1084,24 @@ export var IntegrationConfig: StaticStructureSchema = [
   n0,
   _ICn,
   0,
-  [_cP, _qC],
-  [() => CustomerProfilesIntegrationConfig, () => QConnectIntegrationConfig],
+  [_cP, _qC, _l],
+  [() => CustomerProfilesIntegrationConfig, () => QConnectIntegrationConfig, () => LambdaIntegrationConfig],
 ];
 export var IntegrationIdentifier: StaticStructureSchema = [
   3,
   n0,
   _II,
   0,
-  [_cP, _qC],
-  [() => CustomerProfilesIntegrationIdentifier, () => QConnectIntegrationIdentifier],
+  [_cP, _qC, _l],
+  [() => CustomerProfilesIntegrationIdentifier, () => QConnectIntegrationIdentifier, () => LambdaIntegrationIdentifier],
 ];
 export var IntegrationSummary: StaticStructureSchema = [
   3,
   n0,
   _IS,
   0,
-  [_cP, _qC],
-  [() => CustomerProfilesIntegrationSummary, () => QConnectIntegrationSummary],
+  [_cP, _qC, _l],
+  [() => CustomerProfilesIntegrationSummary, () => QConnectIntegrationSummary, () => LambdaIntegrationSummary],
 ];
 export var OpenHours: StaticStructureSchema = [3, n0, _OH, 0, [_dH], [() => DailyHours]];
 export var RestrictedPeriods: StaticStructureSchema = [3, n0, _RPe, 0, [_rPL], [() => RestrictedPeriodList]];
@@ -1076,6 +1115,7 @@ export var TelephonyOutboundMode: StaticStructureSchema = [
   [_p, _pr, _ag, _pre],
   [() => ProgressiveConfig, () => PredictiveConfig, () => AgentlessConfig, () => PreviewConfig],
 ];
+export var WhatsAppOutboundMode: StaticStructureSchema = [3, n0, _WAOM, 0, [_ag], [() => AgentlessConfig]];
 export var CreateCampaign: StaticOperationSchema = [
   9,
   n0,

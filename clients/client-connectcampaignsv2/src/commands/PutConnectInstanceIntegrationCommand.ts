@@ -52,6 +52,9 @@ export interface PutConnectInstanceIntegrationCommandOutput extends __MetadataBe
  *     qConnect: { // QConnectIntegrationConfig
  *       knowledgeBaseArn: "STRING_VALUE", // required
  *     },
+ *     lambda: { // LambdaIntegrationConfig
+ *       functionArn: "STRING_VALUE", // required
+ *     },
  *   },
  * };
  * const command = new PutConnectInstanceIntegrationCommand(input);

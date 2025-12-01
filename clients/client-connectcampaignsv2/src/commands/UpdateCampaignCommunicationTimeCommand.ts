@@ -112,6 +112,27 @@ export interface UpdateCampaignCommunicationTimeCommandOutput extends __Metadata
  *         ],
  *       },
  *     },
+ *     whatsApp: {
+ *       openHours: {//  Union: only one key present
+ *         dailyHours: {
+ *           "<keys>": [
+ *             {
+ *               startTime: "STRING_VALUE", // required
+ *               endTime: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       restrictedPeriods: {//  Union: only one key present
+ *         restrictedPeriodList: [
+ *           {
+ *             name: "STRING_VALUE",
+ *             startDate: "STRING_VALUE", // required
+ *             endDate: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  * };
  * const command = new UpdateCampaignCommunicationTimeCommand(input);

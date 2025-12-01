@@ -95,6 +95,16 @@ export interface UpdateCampaignChannelSubtypeConfigCommandOutput extends __Metad
  *         wisdomTemplateArn: "STRING_VALUE", // required
  *       },
  *     },
+ *     whatsApp: { // WhatsAppChannelSubtypeConfig
+ *       capacity: Number("double"),
+ *       outboundMode: { // WhatsAppOutboundMode Union: only one key present
+ *         agentless: {},
+ *       },
+ *       defaultOutboundConfig: { // WhatsAppOutboundConfig
+ *         connectSourcePhoneNumberArn: "STRING_VALUE", // required
+ *         wisdomTemplateArn: "STRING_VALUE", // required
+ *       },
+ *     },
  *   },
  * };
  * const command = new UpdateCampaignChannelSubtypeConfigCommand(input);

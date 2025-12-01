@@ -63,6 +63,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * //       channelSubtypes: [ // ChannelSubtypeList // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       type: "STRING_VALUE",
  * //       schedule: { // Schedule
  * //         startTime: new Date("TIMESTAMP"), // required
  * //         endTime: new Date("TIMESTAMP"), // required

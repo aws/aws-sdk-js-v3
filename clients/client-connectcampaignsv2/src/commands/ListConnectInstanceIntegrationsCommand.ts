@@ -62,6 +62,9 @@ export interface ListConnectInstanceIntegrationsCommandOutput
  * //       qConnect: { // QConnectIntegrationSummary
  * //         knowledgeBaseArn: "STRING_VALUE", // required
  * //       },
+ * //       lambda: { // LambdaIntegrationSummary
+ * //         functionArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * // };

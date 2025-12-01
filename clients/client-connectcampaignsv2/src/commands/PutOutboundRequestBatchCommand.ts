@@ -75,6 +75,14 @@ export interface PutOutboundRequestBatchCommandOutput extends PutOutboundRequest
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
+ *         whatsApp: { // WhatsAppChannelSubtypeParameters
+ *           destinationPhoneNumber: "STRING_VALUE", // required
+ *           connectSourcePhoneNumberArn: "STRING_VALUE",
+ *           templateArn: "STRING_VALUE",
+ *           templateParameters: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
  *       },
  *     },
  *   ],

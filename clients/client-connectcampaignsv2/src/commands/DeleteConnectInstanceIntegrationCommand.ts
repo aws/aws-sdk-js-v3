@@ -49,6 +49,9 @@ export interface DeleteConnectInstanceIntegrationCommandOutput extends __Metadat
  *     qConnect: { // QConnectIntegrationIdentifier
  *       knowledgeBaseArn: "STRING_VALUE", // required
  *     },
+ *     lambda: { // LambdaIntegrationIdentifier
+ *       functionArn: "STRING_VALUE", // required
+ *     },
  *   },
  * };
  * const command = new DeleteConnectInstanceIntegrationCommand(input);

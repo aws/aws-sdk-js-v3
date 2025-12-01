@@ -10,6 +10,7 @@ import {
   DayOfWeek,
   EncryptionType,
   EventType,
+  ExternalCampaignType,
   FailureCode,
   GetCampaignStateBatchFailureCode,
   InstanceIdFilterOperator,
@@ -416,6 +417,85 @@ export interface TelephonyChannelSubtypeConfig {
 }
 
 /**
+ * Default WhatsApp Outbound config
+ * @public
+ */
+export interface WhatsAppOutboundConfig {
+  /**
+   * Amazon Resource Names(ARN)
+   * @public
+   */
+  connectSourcePhoneNumberArn: string | undefined;
+
+  /**
+   * Amazon Resource Names(ARN)
+   * @public
+   */
+  wisdomTemplateArn: string | undefined;
+}
+
+/**
+ * WhatsApp Outbound Mode
+ * @public
+ */
+export type WhatsAppOutboundMode = WhatsAppOutboundMode.AgentlessMember | WhatsAppOutboundMode.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WhatsAppOutboundMode {
+  /**
+   * Agentless config
+   * @public
+   */
+  export interface AgentlessMember {
+    agentless: AgentlessConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentless?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentless: (value: AgentlessConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * WhatsApp Channel Subtype config
+ * @public
+ */
+export interface WhatsAppChannelSubtypeConfig {
+  /**
+   * Allocates outbound capacity for the specific channel subtype of this campaign between multiple active campaigns
+   * @public
+   */
+  capacity?: number | undefined;
+
+  /**
+   * WhatsApp Outbound Mode
+   * @public
+   */
+  outboundMode: WhatsAppOutboundMode | undefined;
+
+  /**
+   * Default WhatsApp Outbound config
+   * @public
+   */
+  defaultOutboundConfig: WhatsAppOutboundConfig | undefined;
+}
+
+/**
  * Campaign Channel Subtype config
  * @public
  */
@@ -437,6 +517,12 @@ export interface ChannelSubtypeConfig {
    * @public
    */
   email?: EmailChannelSubtypeConfig | undefined;
+
+  /**
+   * WhatsApp Channel Subtype config
+   * @public
+   */
+  whatsApp?: WhatsAppChannelSubtypeConfig | undefined;
 }
 
 /**
@@ -700,6 +786,12 @@ export interface CommunicationTimeConfig {
    * @public
    */
   email?: TimeWindow | undefined;
+
+  /**
+   * Time window config
+   * @public
+   */
+  whatsApp?: TimeWindow | undefined;
 }
 
 /**
@@ -809,7 +901,13 @@ export interface CreateCampaignRequest {
    * Campaign Channel Subtype config
    * @public
    */
-  channelSubtypeConfig: ChannelSubtypeConfig | undefined;
+  channelSubtypeConfig?: ChannelSubtypeConfig | undefined;
+
+  /**
+   * The type of campaign externally exposed in APIs.
+   * @public
+   */
+  type?: ExternalCampaignType | undefined;
 
   /**
    * Source of the campaign
@@ -969,6 +1067,18 @@ export interface CustomerProfilesIntegrationIdentifier {
 }
 
 /**
+ * Lambda integration identifier
+ * @public
+ */
+export interface LambdaIntegrationIdentifier {
+  /**
+   * Lambda ARN for integration with Connect instances
+   * @public
+   */
+  functionArn: string | undefined;
+}
+
+/**
  * Q Connect integration identifier
  * @public
  */
@@ -986,6 +1096,7 @@ export interface QConnectIntegrationIdentifier {
  */
 export type IntegrationIdentifier =
   | IntegrationIdentifier.CustomerProfilesMember
+  | IntegrationIdentifier.LambdaMember
   | IntegrationIdentifier.QConnectMember
   | IntegrationIdentifier.$UnknownMember;
 
@@ -1000,6 +1111,7 @@ export namespace IntegrationIdentifier {
   export interface CustomerProfilesMember {
     customerProfiles: CustomerProfilesIntegrationIdentifier;
     qConnect?: never;
+    lambda?: never;
     $unknown?: never;
   }
 
@@ -1010,6 +1122,18 @@ export namespace IntegrationIdentifier {
   export interface QConnectMember {
     customerProfiles?: never;
     qConnect: QConnectIntegrationIdentifier;
+    lambda?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Lambda integration identifier
+   * @public
+   */
+  export interface LambdaMember {
+    customerProfiles?: never;
+    qConnect?: never;
+    lambda: LambdaIntegrationIdentifier;
     $unknown?: never;
   }
 
@@ -1019,6 +1143,7 @@ export namespace IntegrationIdentifier {
   export interface $UnknownMember {
     customerProfiles?: never;
     qConnect?: never;
+    lambda?: never;
     $unknown: [string, any];
   }
 
@@ -1029,6 +1154,7 @@ export namespace IntegrationIdentifier {
   export interface Visitor<T> {
     customerProfiles: (value: CustomerProfilesIntegrationIdentifier) => T;
     qConnect: (value: QConnectIntegrationIdentifier) => T;
+    lambda: (value: LambdaIntegrationIdentifier) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1108,7 +1234,13 @@ export interface Campaign {
    * Campaign Channel Subtype config
    * @public
    */
-  channelSubtypeConfig: ChannelSubtypeConfig | undefined;
+  channelSubtypeConfig?: ChannelSubtypeConfig | undefined;
+
+  /**
+   * The type of campaign externally exposed in APIs.
+   * @public
+   */
+  type?: ExternalCampaignType | undefined;
 
   /**
    * Source of the campaign
@@ -1501,6 +1633,12 @@ export interface CampaignSummary {
   channelSubtypes: ChannelSubtype[] | undefined;
 
   /**
+   * The type of campaign externally exposed in APIs.
+   * @public
+   */
+  type?: ExternalCampaignType | undefined;
+
+  /**
    * Campaign schedule
    * @public
    */
@@ -1574,6 +1712,18 @@ export interface CustomerProfilesIntegrationSummary {
 }
 
 /**
+ * Lambda integration summary
+ * @public
+ */
+export interface LambdaIntegrationSummary {
+  /**
+   * Lambda ARN for integration with Connect instances
+   * @public
+   */
+  functionArn: string | undefined;
+}
+
+/**
  * Q Connect integration summary
  * @public
  */
@@ -1591,6 +1741,7 @@ export interface QConnectIntegrationSummary {
  */
 export type IntegrationSummary =
   | IntegrationSummary.CustomerProfilesMember
+  | IntegrationSummary.LambdaMember
   | IntegrationSummary.QConnectMember
   | IntegrationSummary.$UnknownMember;
 
@@ -1605,6 +1756,7 @@ export namespace IntegrationSummary {
   export interface CustomerProfilesMember {
     customerProfiles: CustomerProfilesIntegrationSummary;
     qConnect?: never;
+    lambda?: never;
     $unknown?: never;
   }
 
@@ -1615,6 +1767,18 @@ export namespace IntegrationSummary {
   export interface QConnectMember {
     customerProfiles?: never;
     qConnect: QConnectIntegrationSummary;
+    lambda?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Lambda integration summary
+   * @public
+   */
+  export interface LambdaMember {
+    customerProfiles?: never;
+    qConnect?: never;
+    lambda: LambdaIntegrationSummary;
     $unknown?: never;
   }
 
@@ -1624,6 +1788,7 @@ export namespace IntegrationSummary {
   export interface $UnknownMember {
     customerProfiles?: never;
     qConnect?: never;
+    lambda?: never;
     $unknown: [string, any];
   }
 
@@ -1634,6 +1799,7 @@ export namespace IntegrationSummary {
   export interface Visitor<T> {
     customerProfiles: (value: CustomerProfilesIntegrationSummary) => T;
     qConnect: (value: QConnectIntegrationSummary) => T;
+    lambda: (value: LambdaIntegrationSummary) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1711,6 +1877,18 @@ export interface CustomerProfilesIntegrationConfig {
 }
 
 /**
+ * Lambda integration config
+ * @public
+ */
+export interface LambdaIntegrationConfig {
+  /**
+   * Lambda ARN for integration with Connect instances
+   * @public
+   */
+  functionArn: string | undefined;
+}
+
+/**
  * Q Connect integration config
  * @public
  */
@@ -1728,6 +1906,7 @@ export interface QConnectIntegrationConfig {
  */
 export type IntegrationConfig =
   | IntegrationConfig.CustomerProfilesMember
+  | IntegrationConfig.LambdaMember
   | IntegrationConfig.QConnectMember
   | IntegrationConfig.$UnknownMember;
 
@@ -1742,6 +1921,7 @@ export namespace IntegrationConfig {
   export interface CustomerProfilesMember {
     customerProfiles: CustomerProfilesIntegrationConfig;
     qConnect?: never;
+    lambda?: never;
     $unknown?: never;
   }
 
@@ -1752,6 +1932,18 @@ export namespace IntegrationConfig {
   export interface QConnectMember {
     customerProfiles?: never;
     qConnect: QConnectIntegrationConfig;
+    lambda?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Lambda integration config
+   * @public
+   */
+  export interface LambdaMember {
+    customerProfiles?: never;
+    qConnect?: never;
+    lambda: LambdaIntegrationConfig;
     $unknown?: never;
   }
 
@@ -1761,6 +1953,7 @@ export namespace IntegrationConfig {
   export interface $UnknownMember {
     customerProfiles?: never;
     qConnect?: never;
+    lambda?: never;
     $unknown: [string, any];
   }
 
@@ -1771,6 +1964,7 @@ export namespace IntegrationConfig {
   export interface Visitor<T> {
     customerProfiles: (value: CustomerProfilesIntegrationConfig) => T;
     qConnect: (value: QConnectIntegrationConfig) => T;
+    lambda: (value: LambdaIntegrationConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1908,6 +2102,36 @@ export interface TelephonyChannelSubtypeParameters {
 }
 
 /**
+ * Parameters for the WhatsApp Channel Subtype
+ * @public
+ */
+export interface WhatsAppChannelSubtypeParameters {
+  /**
+   * The phone number of the customer, in E.164 format.
+   * @public
+   */
+  destinationPhoneNumber: string | undefined;
+
+  /**
+   * Amazon Resource Names(ARN)
+   * @public
+   */
+  connectSourcePhoneNumberArn?: string | undefined;
+
+  /**
+   * Amazon Resource Names(ARN)
+   * @public
+   */
+  templateArn?: string | undefined;
+
+  /**
+   * A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
+   * @public
+   */
+  templateParameters: Record<string, string> | undefined;
+}
+
+/**
  * ChannelSubtypeParameters for an outbound request
  * @public
  */
@@ -1915,6 +2139,7 @@ export type ChannelSubtypeParameters =
   | ChannelSubtypeParameters.EmailMember
   | ChannelSubtypeParameters.SmsMember
   | ChannelSubtypeParameters.TelephonyMember
+  | ChannelSubtypeParameters.WhatsAppMember
   | ChannelSubtypeParameters.$UnknownMember;
 
 /**
@@ -1929,6 +2154,7 @@ export namespace ChannelSubtypeParameters {
     telephony: TelephonyChannelSubtypeParameters;
     sms?: never;
     email?: never;
+    whatsApp?: never;
     $unknown?: never;
   }
 
@@ -1940,6 +2166,7 @@ export namespace ChannelSubtypeParameters {
     telephony?: never;
     sms: SmsChannelSubtypeParameters;
     email?: never;
+    whatsApp?: never;
     $unknown?: never;
   }
 
@@ -1951,6 +2178,19 @@ export namespace ChannelSubtypeParameters {
     telephony?: never;
     sms?: never;
     email: EmailChannelSubtypeParameters;
+    whatsApp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Parameters for the WhatsApp Channel Subtype
+   * @public
+   */
+  export interface WhatsAppMember {
+    telephony?: never;
+    sms?: never;
+    email?: never;
+    whatsApp: WhatsAppChannelSubtypeParameters;
     $unknown?: never;
   }
 
@@ -1961,6 +2201,7 @@ export namespace ChannelSubtypeParameters {
     telephony?: never;
     sms?: never;
     email?: never;
+    whatsApp?: never;
     $unknown: [string, any];
   }
 
@@ -1972,6 +2213,7 @@ export namespace ChannelSubtypeParameters {
     telephony: (value: TelephonyChannelSubtypeParameters) => T;
     sms: (value: SmsChannelSubtypeParameters) => T;
     email: (value: EmailChannelSubtypeParameters) => T;
+    whatsApp: (value: WhatsAppChannelSubtypeParameters) => T;
     _: (name: string, value: any) => T;
   }
 }
