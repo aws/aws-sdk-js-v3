@@ -5,8 +5,9 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIntegrationRequest, GetIntegrationResponse } from "../models/models_0";
-import { GetIntegration } from "../schemas/schemas_0";
+import { StopRecommenderRequest } from "../models/models_0";
+import { StopRecommenderResponse } from "../models/models_1";
+import { StopRecommender } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,59 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetIntegrationCommand}.
+ * The input for {@link StopRecommenderCommand}.
  */
-export interface GetIntegrationCommandInput extends GetIntegrationRequest {}
+export interface StopRecommenderCommandInput extends StopRecommenderRequest {}
 /**
  * @public
  *
- * The output of {@link GetIntegrationCommand}.
+ * The output of {@link StopRecommenderCommand}.
  */
-export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __MetadataBearer {}
+export interface StopRecommenderCommandOutput extends StopRecommenderResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an integration for a domain.</p>
+ * <p>Stops a recommender, suspending its ability to generate recommendations. The recommender can be restarted later using StartRecommender.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, StopRecommenderCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, StopRecommenderCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // GetIntegrationRequest
+ * const input = { // StopRecommenderRequest
  *   DomainName: "STRING_VALUE", // required
- *   Uri: "STRING_VALUE", // required
+ *   RecommenderName: "STRING_VALUE", // required
  * };
- * const command = new GetIntegrationCommand(input);
+ * const command = new StopRecommenderCommand(input);
  * const response = await client.send(command);
- * // { // GetIntegrationResponse
- * //   DomainName: "STRING_VALUE", // required
- * //   Uri: "STRING_VALUE", // required
- * //   ObjectTypeName: "STRING_VALUE",
- * //   CreatedAt: new Date("TIMESTAMP"), // required
- * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
- * //   Tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   ObjectTypeNames: { // ObjectTypeNames
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   WorkflowId: "STRING_VALUE",
- * //   IsUnstructured: true || false,
- * //   RoleArn: "STRING_VALUE",
- * //   EventTriggerNames: [ // EventTriggerNames
- * //     "STRING_VALUE",
- * //   ],
- * //   Scope: "PROFILE" || "DOMAIN",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
- * @returns {@link GetIntegrationCommandOutput}
- * @see {@link GetIntegrationCommandInput} for command's `input` shape.
- * @see {@link GetIntegrationCommandOutput} for command's `response` shape.
+ * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
+ * @returns {@link StopRecommenderCommandOutput}
+ * @see {@link StopRecommenderCommandInput} for command's `input` shape.
+ * @see {@link StopRecommenderCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,10 +74,10 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  *
  * @public
  */
-export class GetIntegrationCommand extends $Command
+export class StopRecommenderCommand extends $Command
   .classBuilder<
-    GetIntegrationCommandInput,
-    GetIntegrationCommandOutput,
+    StopRecommenderCommandInput,
+    StopRecommenderCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,19 +86,19 @@ export class GetIntegrationCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "GetIntegration", {})
-  .n("CustomerProfilesClient", "GetIntegrationCommand")
-  .sc(GetIntegration)
+  .s("CustomerProfiles_20200815", "StopRecommender", {})
+  .n("CustomerProfilesClient", "StopRecommenderCommand")
+  .sc(StopRecommender)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetIntegrationRequest;
-      output: GetIntegrationResponse;
+      input: StopRecommenderRequest;
+      output: {};
     };
     sdk: {
-      input: GetIntegrationCommandInput;
-      output: GetIntegrationCommandOutput;
+      input: StopRecommenderCommandInput;
+      output: StopRecommenderCommandOutput;
     };
   };
 }

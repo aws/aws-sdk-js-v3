@@ -2,9 +2,12 @@ export * from "./GetSimilarProfilesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListDomainLayoutsPaginator";
+export * from "./ListDomainObjectTypesPaginator";
 export * from "./ListEventStreamsPaginator";
 export * from "./ListEventTriggersPaginator";
 export * from "./ListObjectTypeAttributesPaginator";
+export * from "./ListRecommenderRecipesPaginator";
+export * from "./ListRecommendersPaginator";
 export * from "./ListRuleBasedMatchesPaginator";
 export * from "./ListSegmentDefinitionsPaginator";
 export * from "./ListUploadJobsPaginator";

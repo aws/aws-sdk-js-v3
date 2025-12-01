@@ -159,6 +159,7 @@ export interface GetSegmentMembershipCommandOutput extends GetSegmentMembershipR
  * //       Status: Number("int"),
  * //     },
  * //   ],
+ * //   LastComputedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

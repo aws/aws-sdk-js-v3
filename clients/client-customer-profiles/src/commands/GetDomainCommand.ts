@@ -115,6 +115,13 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * //       },
  * //     },
  * //   },
+ * //   DataStore: { // DataStoreResponse
+ * //     Enabled: true || false,
+ * //     Readiness: { // Readiness
+ * //       ProgressPercentage: Number("int"),
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   Tags: { // TagMap

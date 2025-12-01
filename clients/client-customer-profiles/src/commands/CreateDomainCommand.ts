@@ -119,6 +119,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       },
  *     },
  *   },
+ *   DataStore: { // DataStoreRequest
+ *     Enabled: true || false,
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -191,6 +194,13 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //         S3BucketName: "STRING_VALUE", // required
  * //         S3KeyName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //   },
+ * //   DataStore: { // DataStoreResponse
+ * //     Enabled: true || false,
+ * //     Readiness: { // Readiness
+ * //       ProgressPercentage: Number("int"),
+ * //       Message: "STRING_VALUE",
  * //     },
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required

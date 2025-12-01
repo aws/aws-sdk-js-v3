@@ -64,6 +64,7 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * //       EventTriggerNames: [ // EventTriggerNames
  * //         "STRING_VALUE",
  * //       ],
+ * //       Scope: "PROFILE" || "DOMAIN",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

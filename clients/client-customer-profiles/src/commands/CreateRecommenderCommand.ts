@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDomainLayoutRequest, UpdateDomainLayoutResponse } from "../models/models_1";
-import { UpdateDomainLayout } from "../schemas/schemas_0";
+import { CreateRecommenderRequest, CreateRecommenderResponse } from "../models/models_0";
+import { CreateRecommender } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,48 +16,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateDomainLayoutCommand}.
+ * The input for {@link CreateRecommenderCommand}.
  */
-export interface UpdateDomainLayoutCommandInput extends UpdateDomainLayoutRequest {}
+export interface CreateRecommenderCommandInput extends CreateRecommenderRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateDomainLayoutCommand}.
+ * The output of {@link CreateRecommenderCommand}.
  */
-export interface UpdateDomainLayoutCommandOutput extends UpdateDomainLayoutResponse, __MetadataBearer {}
+export interface CreateRecommenderCommandOutput extends CreateRecommenderResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the layout used to view data for a specific domain. This API can only be invoked
- *          from the Amazon Connect admin website.</p>
+ * <p>Creates a recommender</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, UpdateDomainLayoutCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, UpdateDomainLayoutCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, CreateRecommenderCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, CreateRecommenderCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // UpdateDomainLayoutRequest
+ * const input = { // CreateRecommenderRequest
  *   DomainName: "STRING_VALUE", // required
- *   LayoutDefinitionName: "STRING_VALUE", // required
+ *   RecommenderName: "STRING_VALUE", // required
+ *   RecommenderRecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now", // required
+ *   RecommenderConfig: { // RecommenderConfig
+ *     EventsConfig: { // EventsConfig
+ *       EventParametersList: [ // EventParametersList // required
+ *         { // EventParameters
+ *           EventType: "STRING_VALUE", // required
+ *           EventValueThreshold: Number("double"),
+ *         },
+ *       ],
+ *     },
+ *     TrainingFrequency: Number("int"),
+ *   },
  *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   IsDefault: true || false,
- *   LayoutType: "PROFILE_EXPLORER",
- *   Layout: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new UpdateDomainLayoutCommand(input);
+ * const command = new CreateRecommenderCommand(input);
  * const response = await client.send(command);
- * // { // UpdateDomainLayoutResponse
- * //   LayoutDefinitionName: "STRING_VALUE",
- * //   Description: "STRING_VALUE",
- * //   DisplayName: "STRING_VALUE",
- * //   IsDefault: true || false,
- * //   LayoutType: "PROFILE_EXPLORER",
- * //   Layout: "STRING_VALUE",
- * //   Version: "STRING_VALUE",
- * //   CreatedAt: new Date("TIMESTAMP"),
- * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * // { // CreateRecommenderResponse
+ * //   RecommenderArn: "STRING_VALUE", // required
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -65,10 +67,10 @@ export interface UpdateDomainLayoutCommandOutput extends UpdateDomainLayoutRespo
  *
  * ```
  *
- * @param UpdateDomainLayoutCommandInput - {@link UpdateDomainLayoutCommandInput}
- * @returns {@link UpdateDomainLayoutCommandOutput}
- * @see {@link UpdateDomainLayoutCommandInput} for command's `input` shape.
- * @see {@link UpdateDomainLayoutCommandOutput} for command's `response` shape.
+ * @param CreateRecommenderCommandInput - {@link CreateRecommenderCommandInput}
+ * @returns {@link CreateRecommenderCommandOutput}
+ * @see {@link CreateRecommenderCommandInput} for command's `input` shape.
+ * @see {@link CreateRecommenderCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,10 +94,10 @@ export interface UpdateDomainLayoutCommandOutput extends UpdateDomainLayoutRespo
  *
  * @public
  */
-export class UpdateDomainLayoutCommand extends $Command
+export class CreateRecommenderCommand extends $Command
   .classBuilder<
-    UpdateDomainLayoutCommandInput,
-    UpdateDomainLayoutCommandOutput,
+    CreateRecommenderCommandInput,
+    CreateRecommenderCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,19 +106,19 @@ export class UpdateDomainLayoutCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "UpdateDomainLayout", {})
-  .n("CustomerProfilesClient", "UpdateDomainLayoutCommand")
-  .sc(UpdateDomainLayout)
+  .s("CustomerProfiles_20200815", "CreateRecommender", {})
+  .n("CustomerProfilesClient", "CreateRecommenderCommand")
+  .sc(CreateRecommender)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateDomainLayoutRequest;
-      output: UpdateDomainLayoutResponse;
+      input: CreateRecommenderRequest;
+      output: CreateRecommenderResponse;
     };
     sdk: {
-      input: UpdateDomainLayoutCommandInput;
-      output: UpdateDomainLayoutCommandOutput;
+      input: CreateRecommenderCommandInput;
+      output: CreateRecommenderCommandOutput;
     };
   };
 }

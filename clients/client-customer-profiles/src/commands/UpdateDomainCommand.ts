@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
+import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_1";
 import { UpdateDomain } from "../schemas/schemas_0";
 
 /**
@@ -111,6 +111,9 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *       },
  *     },
  *   },
+ *   DataStore: { // DataStoreRequest
+ *     Enabled: true || false,
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -183,6 +186,13 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * //         S3BucketName: "STRING_VALUE", // required
  * //         S3KeyName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //   },
+ * //   DataStore: { // DataStoreResponse
+ * //     Enabled: true || false,
+ * //     Readiness: { // Readiness
+ * //       ProgressPercentage: Number("int"),
+ * //       Message: "STRING_VALUE",
  * //     },
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required

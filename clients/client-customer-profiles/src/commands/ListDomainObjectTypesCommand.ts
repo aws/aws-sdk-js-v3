@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSegmentDefinitionsRequest, ListSegmentDefinitionsResponse } from "../models/models_0";
-import { ListSegmentDefinitions } from "../schemas/schemas_0";
+import { ListDomainObjectTypesRequest, ListDomainObjectTypesResponse } from "../models/models_0";
+import { ListDomainObjectTypes } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,56 +16,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListSegmentDefinitionsCommand}.
+ * The input for {@link ListDomainObjectTypesCommand}.
  */
-export interface ListSegmentDefinitionsCommandInput extends ListSegmentDefinitionsRequest {}
+export interface ListDomainObjectTypesCommandInput extends ListDomainObjectTypesRequest {}
 /**
  * @public
  *
- * The output of {@link ListSegmentDefinitionsCommand}.
+ * The output of {@link ListDomainObjectTypesCommand}.
  */
-export interface ListSegmentDefinitionsCommandOutput extends ListSegmentDefinitionsResponse, __MetadataBearer {}
+export interface ListDomainObjectTypesCommandOutput extends ListDomainObjectTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all segment definitions under a domain.</p>
+ * <p>List all DomainObjectType(s) in a Customer Profiles domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListSegmentDefinitionsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListSegmentDefinitionsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListDomainObjectTypesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, ListDomainObjectTypesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // ListSegmentDefinitionsRequest
+ * const input = { // ListDomainObjectTypesRequest
  *   DomainName: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListSegmentDefinitionsCommand(input);
+ * const command = new ListDomainObjectTypesCommand(input);
  * const response = await client.send(command);
- * // { // ListSegmentDefinitionsResponse
- * //   NextToken: "STRING_VALUE",
- * //   Items: [ // SegmentDefinitionsList
- * //     { // SegmentDefinitionItem
- * //       SegmentDefinitionName: "STRING_VALUE",
- * //       DisplayName: "STRING_VALUE",
+ * // { // ListDomainObjectTypesResponse
+ * //   Items: [ // DomainObjectTypesList
+ * //     { // DomainObjectTypesListItem
+ * //       ObjectTypeName: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE",
- * //       SegmentDefinitionArn: "STRING_VALUE",
  * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       SegmentType: "CLASSIC" || "ENHANCED",
  * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListSegmentDefinitionsCommandInput - {@link ListSegmentDefinitionsCommandInput}
- * @returns {@link ListSegmentDefinitionsCommandOutput}
- * @see {@link ListSegmentDefinitionsCommandInput} for command's `input` shape.
- * @see {@link ListSegmentDefinitionsCommandOutput} for command's `response` shape.
+ * @param ListDomainObjectTypesCommandInput - {@link ListDomainObjectTypesCommandInput}
+ * @returns {@link ListDomainObjectTypesCommandOutput}
+ * @see {@link ListDomainObjectTypesCommandInput} for command's `input` shape.
+ * @see {@link ListDomainObjectTypesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -89,10 +87,10 @@ export interface ListSegmentDefinitionsCommandOutput extends ListSegmentDefiniti
  *
  * @public
  */
-export class ListSegmentDefinitionsCommand extends $Command
+export class ListDomainObjectTypesCommand extends $Command
   .classBuilder<
-    ListSegmentDefinitionsCommandInput,
-    ListSegmentDefinitionsCommandOutput,
+    ListDomainObjectTypesCommandInput,
+    ListDomainObjectTypesCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,19 +99,19 @@ export class ListSegmentDefinitionsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "ListSegmentDefinitions", {})
-  .n("CustomerProfilesClient", "ListSegmentDefinitionsCommand")
-  .sc(ListSegmentDefinitions)
+  .s("CustomerProfiles_20200815", "ListDomainObjectTypes", {})
+  .n("CustomerProfilesClient", "ListDomainObjectTypesCommand")
+  .sc(ListDomainObjectTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListSegmentDefinitionsRequest;
-      output: ListSegmentDefinitionsResponse;
+      input: ListDomainObjectTypesRequest;
+      output: ListDomainObjectTypesResponse;
     };
     sdk: {
-      input: ListSegmentDefinitionsCommandInput;
-      output: ListSegmentDefinitionsCommandOutput;
+      input: ListDomainObjectTypesCommandInput;
+      output: ListDomainObjectTypesCommandOutput;
     };
   };
 }

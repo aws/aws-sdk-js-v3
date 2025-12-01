@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDomainLayoutRequest, UpdateDomainLayoutResponse } from "../models/models_1";
-import { UpdateDomainLayout } from "../schemas/schemas_0";
+import { GetDomainObjectTypeRequest, GetDomainObjectTypeResponse } from "../models/models_0";
+import { GetDomainObjectType } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,46 +16,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateDomainLayoutCommand}.
+ * The input for {@link GetDomainObjectTypeCommand}.
  */
-export interface UpdateDomainLayoutCommandInput extends UpdateDomainLayoutRequest {}
+export interface GetDomainObjectTypeCommandInput extends GetDomainObjectTypeRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateDomainLayoutCommand}.
+ * The output of {@link GetDomainObjectTypeCommand}.
  */
-export interface UpdateDomainLayoutCommandOutput extends UpdateDomainLayoutResponse, __MetadataBearer {}
+export interface GetDomainObjectTypeCommandOutput extends GetDomainObjectTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the layout used to view data for a specific domain. This API can only be invoked
- *          from the Amazon Connect admin website.</p>
+ * <p>Return a DomainObjectType for the input Domain and ObjectType names. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, UpdateDomainLayoutCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, UpdateDomainLayoutCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetDomainObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, GetDomainObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // UpdateDomainLayoutRequest
+ * const input = { // GetDomainObjectTypeRequest
  *   DomainName: "STRING_VALUE", // required
- *   LayoutDefinitionName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   IsDefault: true || false,
- *   LayoutType: "PROFILE_EXPLORER",
- *   Layout: "STRING_VALUE",
+ *   ObjectTypeName: "STRING_VALUE", // required
  * };
- * const command = new UpdateDomainLayoutCommand(input);
+ * const command = new GetDomainObjectTypeCommand(input);
  * const response = await client.send(command);
- * // { // UpdateDomainLayoutResponse
- * //   LayoutDefinitionName: "STRING_VALUE",
+ * // { // GetDomainObjectTypeResponse
+ * //   ObjectTypeName: "STRING_VALUE", // required
  * //   Description: "STRING_VALUE",
- * //   DisplayName: "STRING_VALUE",
- * //   IsDefault: true || false,
- * //   LayoutType: "PROFILE_EXPLORER",
- * //   Layout: "STRING_VALUE",
- * //   Version: "STRING_VALUE",
+ * //   EncryptionKey: "STRING_VALUE",
+ * //   Fields: { // DomainObjectTypeFields
+ * //     "<keys>": { // DomainObjectTypeField
+ * //       Source: "STRING_VALUE", // required
+ * //       Target: "STRING_VALUE", // required
+ * //       ContentType: "STRING" || "NUMBER",
+ * //       FeatureType: "TEXTUAL" || "CATEGORICAL",
+ * //     },
+ * //   },
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
  * //   Tags: { // TagMap
@@ -65,10 +63,10 @@ export interface UpdateDomainLayoutCommandOutput extends UpdateDomainLayoutRespo
  *
  * ```
  *
- * @param UpdateDomainLayoutCommandInput - {@link UpdateDomainLayoutCommandInput}
- * @returns {@link UpdateDomainLayoutCommandOutput}
- * @see {@link UpdateDomainLayoutCommandInput} for command's `input` shape.
- * @see {@link UpdateDomainLayoutCommandOutput} for command's `response` shape.
+ * @param GetDomainObjectTypeCommandInput - {@link GetDomainObjectTypeCommandInput}
+ * @returns {@link GetDomainObjectTypeCommandOutput}
+ * @see {@link GetDomainObjectTypeCommandInput} for command's `input` shape.
+ * @see {@link GetDomainObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,10 +90,10 @@ export interface UpdateDomainLayoutCommandOutput extends UpdateDomainLayoutRespo
  *
  * @public
  */
-export class UpdateDomainLayoutCommand extends $Command
+export class GetDomainObjectTypeCommand extends $Command
   .classBuilder<
-    UpdateDomainLayoutCommandInput,
-    UpdateDomainLayoutCommandOutput,
+    GetDomainObjectTypeCommandInput,
+    GetDomainObjectTypeCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,19 +102,19 @@ export class UpdateDomainLayoutCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "UpdateDomainLayout", {})
-  .n("CustomerProfilesClient", "UpdateDomainLayoutCommand")
-  .sc(UpdateDomainLayout)
+  .s("CustomerProfiles_20200815", "GetDomainObjectType", {})
+  .n("CustomerProfilesClient", "GetDomainObjectTypeCommand")
+  .sc(GetDomainObjectType)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateDomainLayoutRequest;
-      output: UpdateDomainLayoutResponse;
+      input: GetDomainObjectTypeRequest;
+      output: GetDomainObjectTypeResponse;
     };
     sdk: {
-      input: UpdateDomainLayoutCommandInput;
-      output: UpdateDomainLayoutCommandOutput;
+      input: GetDomainObjectTypeCommandInput;
+      output: GetDomainObjectTypeCommandOutput;
     };
   };
 }

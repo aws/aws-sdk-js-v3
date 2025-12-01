@@ -64,6 +64,7 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  * //       EventTriggerNames: [ // EventTriggerNames
  * //         "STRING_VALUE",
  * //       ],
+ * //       Scope: "PROFILE" || "DOMAIN",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

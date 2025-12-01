@@ -53,6 +53,11 @@ import {
   CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  CreateRecommenderCommand,
+  CreateRecommenderCommandInput,
+  CreateRecommenderCommandOutput,
+} from "./commands/CreateRecommenderCommand";
+import {
   CreateSegmentDefinitionCommand,
   CreateSegmentDefinitionCommandInput,
   CreateSegmentDefinitionCommandOutput,
@@ -88,6 +93,11 @@ import {
   DeleteDomainLayoutCommandOutput,
 } from "./commands/DeleteDomainLayoutCommand";
 import {
+  DeleteDomainObjectTypeCommand,
+  DeleteDomainObjectTypeCommandInput,
+  DeleteDomainObjectTypeCommandOutput,
+} from "./commands/DeleteDomainObjectTypeCommand";
+import {
   DeleteEventStreamCommand,
   DeleteEventStreamCommandInput,
   DeleteEventStreamCommandOutput,
@@ -122,6 +132,11 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import {
+  DeleteRecommenderCommand,
+  DeleteRecommenderCommandInput,
+  DeleteRecommenderCommandOutput,
+} from "./commands/DeleteRecommenderCommand";
 import {
   DeleteSegmentDefinitionCommand,
   DeleteSegmentDefinitionCommandInput,
@@ -159,6 +174,11 @@ import {
   GetDomainLayoutCommandOutput,
 } from "./commands/GetDomainLayoutCommand";
 import {
+  GetDomainObjectTypeCommand,
+  GetDomainObjectTypeCommandInput,
+  GetDomainObjectTypeCommandOutput,
+} from "./commands/GetDomainObjectTypeCommand";
+import {
   GetEventStreamCommand,
   GetEventStreamCommandInput,
   GetEventStreamCommandOutput,
@@ -180,6 +200,11 @@ import {
 } from "./commands/GetIntegrationCommand";
 import { GetMatchesCommand, GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
 import {
+  GetObjectTypeAttributeStatisticsCommand,
+  GetObjectTypeAttributeStatisticsCommandInput,
+  GetObjectTypeAttributeStatisticsCommandOutput,
+} from "./commands/GetObjectTypeAttributeStatisticsCommand";
+import {
   GetProfileHistoryRecordCommand,
   GetProfileHistoryRecordCommandInput,
   GetProfileHistoryRecordCommandOutput,
@@ -194,6 +219,16 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import {
+  GetProfileRecommendationsCommand,
+  GetProfileRecommendationsCommandInput,
+  GetProfileRecommendationsCommandOutput,
+} from "./commands/GetProfileRecommendationsCommand";
+import {
+  GetRecommenderCommand,
+  GetRecommenderCommandInput,
+  GetRecommenderCommandOutput,
+} from "./commands/GetRecommenderCommand";
 import {
   GetSegmentDefinitionCommand,
   GetSegmentDefinitionCommandInput,
@@ -255,6 +290,11 @@ import {
   ListDomainLayoutsCommandInput,
   ListDomainLayoutsCommandOutput,
 } from "./commands/ListDomainLayoutsCommand";
+import {
+  ListDomainObjectTypesCommand,
+  ListDomainObjectTypesCommandInput,
+  ListDomainObjectTypesCommandOutput,
+} from "./commands/ListDomainObjectTypesCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListEventStreamsCommand,
@@ -282,6 +322,11 @@ import {
   ListObjectTypeAttributesCommandOutput,
 } from "./commands/ListObjectTypeAttributesCommand";
 import {
+  ListObjectTypeAttributeValuesCommand,
+  ListObjectTypeAttributeValuesCommandInput,
+  ListObjectTypeAttributeValuesCommandOutput,
+} from "./commands/ListObjectTypeAttributeValuesCommand";
+import {
   ListProfileAttributeValuesCommand,
   ListProfileAttributeValuesCommandInput,
   ListProfileAttributeValuesCommandOutput,
@@ -306,6 +351,16 @@ import {
   ListProfileObjectTypeTemplatesCommandInput,
   ListProfileObjectTypeTemplatesCommandOutput,
 } from "./commands/ListProfileObjectTypeTemplatesCommand";
+import {
+  ListRecommenderRecipesCommand,
+  ListRecommenderRecipesCommandInput,
+  ListRecommenderRecipesCommandOutput,
+} from "./commands/ListRecommenderRecipesCommand";
+import {
+  ListRecommendersCommand,
+  ListRecommendersCommandInput,
+  ListRecommendersCommandOutput,
+} from "./commands/ListRecommendersCommand";
 import {
   ListRuleBasedMatchesCommand,
   ListRuleBasedMatchesCommandInput,
@@ -337,6 +392,11 @@ import {
   MergeProfilesCommandOutput,
 } from "./commands/MergeProfilesCommand";
 import {
+  PutDomainObjectTypeCommand,
+  PutDomainObjectTypeCommandInput,
+  PutDomainObjectTypeCommandOutput,
+} from "./commands/PutDomainObjectTypeCommand";
+import {
   PutIntegrationCommand,
   PutIntegrationCommandInput,
   PutIntegrationCommandOutput,
@@ -357,10 +417,20 @@ import {
   SearchProfilesCommandOutput,
 } from "./commands/SearchProfilesCommand";
 import {
+  StartRecommenderCommand,
+  StartRecommenderCommandInput,
+  StartRecommenderCommandOutput,
+} from "./commands/StartRecommenderCommand";
+import {
   StartUploadJobCommand,
   StartUploadJobCommandInput,
   StartUploadJobCommandOutput,
 } from "./commands/StartUploadJobCommand";
+import {
+  StopRecommenderCommand,
+  StopRecommenderCommandInput,
+  StopRecommenderCommandOutput,
+} from "./commands/StopRecommenderCommand";
 import {
   StopUploadJobCommand,
   StopUploadJobCommandInput,
@@ -397,6 +467,11 @@ import {
   UpdateProfileCommandInput,
   UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
+import {
+  UpdateRecommenderCommand,
+  UpdateRecommenderCommandInput,
+  UpdateRecommenderCommandOutput,
+} from "./commands/UpdateRecommenderCommand";
 import { CustomerProfilesClient, CustomerProfilesClientConfig } from "./CustomerProfilesClient";
 
 const commands = {
@@ -410,6 +485,7 @@ const commands = {
   CreateEventTriggerCommand,
   CreateIntegrationWorkflowCommand,
   CreateProfileCommand,
+  CreateRecommenderCommand,
   CreateSegmentDefinitionCommand,
   CreateSegmentEstimateCommand,
   CreateSegmentSnapshotCommand,
@@ -417,6 +493,7 @@ const commands = {
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
   DeleteDomainLayoutCommand,
+  DeleteDomainObjectTypeCommand,
   DeleteEventStreamCommand,
   DeleteEventTriggerCommand,
   DeleteIntegrationCommand,
@@ -424,6 +501,7 @@ const commands = {
   DeleteProfileKeyCommand,
   DeleteProfileObjectCommand,
   DeleteProfileObjectTypeCommand,
+  DeleteRecommenderCommand,
   DeleteSegmentDefinitionCommand,
   DeleteWorkflowCommand,
   DetectProfileObjectTypeCommand,
@@ -432,14 +510,18 @@ const commands = {
   GetCalculatedAttributeForProfileCommand,
   GetDomainCommand,
   GetDomainLayoutCommand,
+  GetDomainObjectTypeCommand,
   GetEventStreamCommand,
   GetEventTriggerCommand,
   GetIdentityResolutionJobCommand,
   GetIntegrationCommand,
   GetMatchesCommand,
+  GetObjectTypeAttributeStatisticsCommand,
   GetProfileHistoryRecordCommand,
   GetProfileObjectTypeCommand,
   GetProfileObjectTypeTemplateCommand,
+  GetProfileRecommendationsCommand,
+  GetRecommenderCommand,
   GetSegmentDefinitionCommand,
   GetSegmentEstimateCommand,
   GetSegmentMembershipCommand,
@@ -453,28 +535,35 @@ const commands = {
   ListCalculatedAttributeDefinitionsCommand,
   ListCalculatedAttributesForProfileCommand,
   ListDomainLayoutsCommand,
+  ListDomainObjectTypesCommand,
   ListDomainsCommand,
   ListEventStreamsCommand,
   ListEventTriggersCommand,
   ListIdentityResolutionJobsCommand,
   ListIntegrationsCommand,
   ListObjectTypeAttributesCommand,
+  ListObjectTypeAttributeValuesCommand,
   ListProfileAttributeValuesCommand,
   ListProfileHistoryRecordsCommand,
   ListProfileObjectsCommand,
   ListProfileObjectTypesCommand,
   ListProfileObjectTypeTemplatesCommand,
+  ListRecommenderRecipesCommand,
+  ListRecommendersCommand,
   ListRuleBasedMatchesCommand,
   ListSegmentDefinitionsCommand,
   ListTagsForResourceCommand,
   ListUploadJobsCommand,
   ListWorkflowsCommand,
   MergeProfilesCommand,
+  PutDomainObjectTypeCommand,
   PutIntegrationCommand,
   PutProfileObjectCommand,
   PutProfileObjectTypeCommand,
   SearchProfilesCommand,
+  StartRecommenderCommand,
   StartUploadJobCommand,
+  StopRecommenderCommand,
   StopUploadJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -483,6 +572,7 @@ const commands = {
   UpdateDomainLayoutCommand,
   UpdateEventTriggerCommand,
   UpdateProfileCommand,
+  UpdateRecommenderCommand,
 };
 
 export interface CustomerProfiles {
@@ -636,6 +726,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link CreateRecommenderCommand}
+   */
+  createRecommender(
+    args: CreateRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRecommenderCommandOutput>;
+  createRecommender(
+    args: CreateRecommenderCommandInput,
+    cb: (err: any, data?: CreateRecommenderCommandOutput) => void
+  ): void;
+  createRecommender(
+    args: CreateRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRecommenderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateSegmentDefinitionCommand}
    */
   createSegmentDefinition(
@@ -743,6 +850,23 @@ export interface CustomerProfiles {
     args: DeleteDomainLayoutCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainLayoutCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDomainObjectTypeCommand}
+   */
+  deleteDomainObjectType(
+    args: DeleteDomainObjectTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainObjectTypeCommandOutput>;
+  deleteDomainObjectType(
+    args: DeleteDomainObjectTypeCommandInput,
+    cb: (err: any, data?: DeleteDomainObjectTypeCommandOutput) => void
+  ): void;
+  deleteDomainObjectType(
+    args: DeleteDomainObjectTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainObjectTypeCommandOutput) => void
   ): void;
 
   /**
@@ -856,6 +980,23 @@ export interface CustomerProfiles {
     args: DeleteProfileObjectTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProfileObjectTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecommenderCommand}
+   */
+  deleteRecommender(
+    args: DeleteRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecommenderCommandOutput>;
+  deleteRecommender(
+    args: DeleteRecommenderCommandInput,
+    cb: (err: any, data?: DeleteRecommenderCommandOutput) => void
+  ): void;
+  deleteRecommender(
+    args: DeleteRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecommenderCommandOutput) => void
   ): void;
 
   /**
@@ -983,6 +1124,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetDomainObjectTypeCommand}
+   */
+  getDomainObjectType(
+    args: GetDomainObjectTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainObjectTypeCommandOutput>;
+  getDomainObjectType(
+    args: GetDomainObjectTypeCommandInput,
+    cb: (err: any, data?: GetDomainObjectTypeCommandOutput) => void
+  ): void;
+  getDomainObjectType(
+    args: GetDomainObjectTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainObjectTypeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEventStreamCommand}
    */
   getEventStream(
@@ -1053,6 +1211,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetObjectTypeAttributeStatisticsCommand}
+   */
+  getObjectTypeAttributeStatistics(
+    args: GetObjectTypeAttributeStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetObjectTypeAttributeStatisticsCommandOutput>;
+  getObjectTypeAttributeStatistics(
+    args: GetObjectTypeAttributeStatisticsCommandInput,
+    cb: (err: any, data?: GetObjectTypeAttributeStatisticsCommandOutput) => void
+  ): void;
+  getObjectTypeAttributeStatistics(
+    args: GetObjectTypeAttributeStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetObjectTypeAttributeStatisticsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetProfileHistoryRecordCommand}
    */
   getProfileHistoryRecord(
@@ -1101,6 +1276,37 @@ export interface CustomerProfiles {
     args: GetProfileObjectTypeTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetProfileObjectTypeTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProfileRecommendationsCommand}
+   */
+  getProfileRecommendations(
+    args: GetProfileRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProfileRecommendationsCommandOutput>;
+  getProfileRecommendations(
+    args: GetProfileRecommendationsCommandInput,
+    cb: (err: any, data?: GetProfileRecommendationsCommandOutput) => void
+  ): void;
+  getProfileRecommendations(
+    args: GetProfileRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProfileRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecommenderCommand}
+   */
+  getRecommender(
+    args: GetRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecommenderCommandOutput>;
+  getRecommender(args: GetRecommenderCommandInput, cb: (err: any, data?: GetRecommenderCommandOutput) => void): void;
+  getRecommender(
+    args: GetRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecommenderCommandOutput) => void
   ): void;
 
   /**
@@ -1313,6 +1519,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link ListDomainObjectTypesCommand}
+   */
+  listDomainObjectTypes(
+    args: ListDomainObjectTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainObjectTypesCommandOutput>;
+  listDomainObjectTypes(
+    args: ListDomainObjectTypesCommandInput,
+    cb: (err: any, data?: ListDomainObjectTypesCommandOutput) => void
+  ): void;
+  listDomainObjectTypes(
+    args: ListDomainObjectTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainObjectTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
@@ -1410,6 +1633,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link ListObjectTypeAttributeValuesCommand}
+   */
+  listObjectTypeAttributeValues(
+    args: ListObjectTypeAttributeValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObjectTypeAttributeValuesCommandOutput>;
+  listObjectTypeAttributeValues(
+    args: ListObjectTypeAttributeValuesCommandInput,
+    cb: (err: any, data?: ListObjectTypeAttributeValuesCommandOutput) => void
+  ): void;
+  listObjectTypeAttributeValues(
+    args: ListObjectTypeAttributeValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListObjectTypeAttributeValuesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProfileAttributeValuesCommand}
    */
   listProfileAttributeValues(
@@ -1493,6 +1733,41 @@ export interface CustomerProfiles {
     args: ListProfileObjectTypeTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProfileObjectTypeTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRecommenderRecipesCommand}
+   */
+  listRecommenderRecipes(): Promise<ListRecommenderRecipesCommandOutput>;
+  listRecommenderRecipes(
+    args: ListRecommenderRecipesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommenderRecipesCommandOutput>;
+  listRecommenderRecipes(
+    args: ListRecommenderRecipesCommandInput,
+    cb: (err: any, data?: ListRecommenderRecipesCommandOutput) => void
+  ): void;
+  listRecommenderRecipes(
+    args: ListRecommenderRecipesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommenderRecipesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRecommendersCommand}
+   */
+  listRecommenders(
+    args: ListRecommendersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendersCommandOutput>;
+  listRecommenders(
+    args: ListRecommendersCommandInput,
+    cb: (err: any, data?: ListRecommendersCommandOutput) => void
+  ): void;
+  listRecommenders(
+    args: ListRecommendersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendersCommandOutput) => void
   ): void;
 
   /**
@@ -1583,6 +1858,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link PutDomainObjectTypeCommand}
+   */
+  putDomainObjectType(
+    args: PutDomainObjectTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDomainObjectTypeCommandOutput>;
+  putDomainObjectType(
+    args: PutDomainObjectTypeCommandInput,
+    cb: (err: any, data?: PutDomainObjectTypeCommandOutput) => void
+  ): void;
+  putDomainObjectType(
+    args: PutDomainObjectTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDomainObjectTypeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutIntegrationCommand}
    */
   putIntegration(
@@ -1645,6 +1937,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link StartRecommenderCommand}
+   */
+  startRecommender(
+    args: StartRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRecommenderCommandOutput>;
+  startRecommender(
+    args: StartRecommenderCommandInput,
+    cb: (err: any, data?: StartRecommenderCommandOutput) => void
+  ): void;
+  startRecommender(
+    args: StartRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRecommenderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartUploadJobCommand}
    */
   startUploadJob(
@@ -1656,6 +1965,20 @@ export interface CustomerProfiles {
     args: StartUploadJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartUploadJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopRecommenderCommand}
+   */
+  stopRecommender(
+    args: StopRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopRecommenderCommandOutput>;
+  stopRecommender(args: StopRecommenderCommandInput, cb: (err: any, data?: StopRecommenderCommandOutput) => void): void;
+  stopRecommender(
+    args: StopRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopRecommenderCommandOutput) => void
   ): void;
 
   /**
@@ -1762,6 +2085,23 @@ export interface CustomerProfiles {
     args: UpdateProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRecommenderCommand}
+   */
+  updateRecommender(
+    args: UpdateRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecommenderCommandOutput>;
+  updateRecommender(
+    args: UpdateRecommenderCommandInput,
+    cb: (err: any, data?: UpdateRecommenderCommandOutput) => void
+  ): void;
+  updateRecommender(
+    args: UpdateRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecommenderCommandOutput) => void
   ): void;
 }
 

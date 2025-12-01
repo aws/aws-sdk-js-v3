@@ -509,6 +509,19 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
  * @public
  * @enum
  */
+export const ContentType = {
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+} as const;
+/**
+ * @public
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Type = {
   ALL: "ALL",
   ANY: "ANY",
@@ -642,6 +655,22 @@ export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
  * @public
  * @enum
  */
+export const RecommenderRecipeName = {
+  FREQUENTLY_PAIRED_ITEMS: "frequently-paired-items",
+  POPULAR_ITEMS: "popular-items",
+  RECOMMENDED_FOR_YOU: "recommended-for-you",
+  SIMILAR_ITEMS: "similar-items",
+  TRENDING_NOW: "trending-now",
+} as const;
+/**
+ * @public
+ */
+export type RecommenderRecipeName = (typeof RecommenderRecipeName)[keyof typeof RecommenderRecipeName];
+
+/**
+ * @public
+ * @enum
+ */
 export const DateDimensionType = {
   AFTER: "AFTER",
   BEFORE: "BEFORE",
@@ -744,6 +773,19 @@ export type StandardIdentifier = (typeof StandardIdentifier)[keyof typeof Standa
  * @public
  * @enum
  */
+export const FeatureType = {
+  CATEGORICAL: "CATEGORICAL",
+  TEXTUAL: "TEXTUAL",
+} as const;
+/**
+ * @public
+ */
+export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EventStreamDestinationStatus = {
   HEALTHY: "HEALTHY",
   UNHEALTHY: "UNHEALTHY",
@@ -785,6 +827,68 @@ export const IdentityResolutionJobStatus = {
  */
 export type IdentityResolutionJobStatus =
   (typeof IdentityResolutionJobStatus)[keyof typeof IdentityResolutionJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scope = {
+  DOMAIN: "DOMAIN",
+  PROFILE: "PROFILE",
+} as const;
+/**
+ * @public
+ */
+export type Scope = (typeof Scope)[keyof typeof Scope];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommenderStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type RecommenderStatus = (typeof RecommenderStatus)[keyof typeof RecommenderStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrainingMetricName = {
+  COVERAGE: "coverage",
+  FRESHNESS: "freshness",
+  HIT: "hit",
+  POPULARITY: "popularity",
+  RECALL: "recall",
+  SIMILARITY: "similarity",
+} as const;
+/**
+ * @public
+ */
+export type TrainingMetricName = (typeof TrainingMetricName)[keyof typeof TrainingMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SegmentType = {
+  CLASSIC: "CLASSIC",
+  ENHANCED: "ENHANCED",
+} as const;
+/**
+ * @public
+ */
+export type SegmentType = (typeof SegmentType)[keyof typeof SegmentType];
 
 /**
  * @public

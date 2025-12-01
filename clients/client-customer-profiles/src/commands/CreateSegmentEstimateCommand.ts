@@ -166,6 +166,7 @@ export interface CreateSegmentEstimateCommandOutput extends CreateSegmentEstimat
  *     ],
  *     Include: "ALL" || "ANY" || "NONE",
  *   },
+ *   SegmentSqlQuery: "STRING_VALUE",
  * };
  * const command = new CreateSegmentEstimateCommand(input);
  * const response = await client.send(command);

@@ -6,6 +6,7 @@ import {
   ComparisonOperator,
   ConflictResolvingModel,
   ContactType,
+  ContentType,
   DataFormat,
   DataPullMode,
   DateDimensionType,
@@ -13,6 +14,7 @@ import {
   EventStreamDestinationStatus,
   EventStreamState,
   EventTriggerLogicalOperator,
+  FeatureType,
   FieldContentType,
   FilterDimensionType,
   Gender,
@@ -33,10 +35,14 @@ import {
   QueryResult,
   RangeUnit,
   ReadinessStatus,
+  RecommenderRecipeName,
+  RecommenderStatus,
   RuleBasedMatchingStatus,
   S3ConnectorOperator,
   SalesforceConnectorOperator,
+  Scope,
   SegmentSnapshotStatus,
+  SegmentType,
   ServiceNowConnectorOperator,
   SourceConnectorType,
   StandardIdentifier,
@@ -45,6 +51,7 @@ import {
   StatusReason,
   StringDimensionType,
   TaskType,
+  TrainingMetricName,
   TriggerType,
   Type,
   Unit,
@@ -1638,6 +1645,90 @@ export interface ListCalculatedAttributeForProfileItem {
 }
 
 /**
+ * <p>Represents an item in the catalog with its complete set of attributes and metadata.</p>
+ * @public
+ */
+export interface CatalogItem {
+  /**
+   * <p>The unique identifier for the catalog item.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The display name of the catalog item.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The product code or SKU of the catalog item.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The type classification of the catalog item.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The category to which the catalog item belongs.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>A detailed description of the catalog item.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Supplementary information about the catalog item beyond the basic description.</p>
+   * @public
+   */
+  AdditionalInformation?: string | undefined;
+
+  /**
+   * <p>The URL link to the item's image.</p>
+   * @public
+   */
+  ImageLink?: string | undefined;
+
+  /**
+   * <p>The URL link to the item's detailed page or external resource.</p>
+   * @public
+   */
+  Link?: string | undefined;
+
+  /**
+   * <p>The timestamp when the catalog item was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the catalog item was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The price of the catalog item.</p>
+   * @public
+   */
+  Price?: string | undefined;
+
+  /**
+   * <p>Additional attributes or properties associated with the catalog item stored as key-value pairs.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+}
+
+/**
  * <p>A structure letting customers specify a relative time window over which over which data
  *          is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint
  *          is in the past, and negative numbers to indicate it is in the future. ValueRange overrides
@@ -1978,6 +2069,18 @@ export interface CreateCalculatedAttributeDefinitionResponse {
 }
 
 /**
+ * <p>The data store request.</p>
+ * @public
+ */
+export interface DataStoreRequest {
+  /**
+   * <p>Enabled: Set to true to enabled data store for this domain.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
  * <p>Configuration information about the S3 bucket where Identity Resolution Jobs write result files.</p>
  * @public
  */
@@ -2245,10 +2348,35 @@ export interface CreateDomainRequest {
   RuleBasedMatching?: RuleBasedMatchingRequest | undefined;
 
   /**
+   * <p>Set to true to enabled data store for this domain.</p>
+   * @public
+   */
+  DataStore?: DataStoreRequest | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The data store response.</p>
+ * @public
+ */
+export interface DataStoreResponse {
+  /**
+   * <p>True if data store is enabled for this domain</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
+   *          historical data has been processed and reflected.</p>
+   * @public
+   */
+  Readiness?: Readiness | undefined;
 }
 
 /**
@@ -2422,6 +2550,12 @@ export interface CreateDomainResponse {
    * @public
    */
   RuleBasedMatching?: RuleBasedMatchingResponse | undefined;
+
+  /**
+   * <p>The data store.</p>
+   * @public
+   */
+  DataStore?: DataStoreResponse | undefined;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -3090,6 +3224,112 @@ export interface CreateProfileResponse {
 }
 
 /**
+ * <p>Configuration parameters for events in the personalization system.</p>
+ * @public
+ */
+export interface EventParameters {
+  /**
+   * <p>The type of event being tracked (e.g., 'click', 'purchase', 'view').</p>
+   * @public
+   */
+  EventType: string | undefined;
+
+  /**
+   * <p>The minimum value threshold that an event must meet to be considered valid.</p>
+   * @public
+   */
+  EventValueThreshold?: number | undefined;
+}
+
+/**
+ * <p>Configuration settings that define how events are processed and tracked.</p>
+ * @public
+ */
+export interface EventsConfig {
+  /**
+   * <p>A list of event parameters configurations that specify how different event types should be handled.</p>
+   * @public
+   */
+  EventParametersList: EventParameters[] | undefined;
+}
+
+/**
+ * <p>Configuration settings that define the behavior and parameters of a recommender.</p>
+ * @public
+ */
+export interface RecommenderConfig {
+  /**
+   * <p>Configuration settings for how the recommender processes and uses events.</p>
+   * @public
+   */
+  EventsConfig: EventsConfig | undefined;
+
+  /**
+   * <p>How often the recommender should retrain its model with new data.</p>
+   * @public
+   */
+  TrainingFrequency?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRecommenderRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the recommender.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+
+  /**
+   * <p>The name of the recommeder recipe.</p>
+   * @public
+   */
+  RecommenderRecipeName: RecommenderRecipeName | undefined;
+
+  /**
+   * <p>The recommender configuration.</p>
+   * @public
+   */
+  RecommenderConfig?: RecommenderConfig | undefined;
+
+  /**
+   * <p>The description of the domain object type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRecommenderResponse {
+  /**
+   * <p>The ARN of the recommender</p>
+   * @public
+   */
+  RecommenderArn: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Object that segments on various Customer profile's fields that are larger than
  *          normal.</p>
  * @public
@@ -3428,7 +3668,13 @@ export interface CreateSegmentDefinitionRequest {
    *          respective relationship.</p>
    * @public
    */
-  SegmentGroups: SegmentGroup | undefined;
+  SegmentGroups?: SegmentGroup | undefined;
+
+  /**
+   * <p>The segment SQL query.</p>
+   * @public
+   */
+  SegmentSqlQuery?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -3510,7 +3756,13 @@ export interface CreateSegmentEstimateRequest {
    * <p>The segment query for calculating a segment estimate.</p>
    * @public
    */
-  SegmentQuery: SegmentGroupStructure | undefined;
+  SegmentQuery?: SegmentGroupStructure | undefined;
+
+  /**
+   * <p>The segment SQL query.</p>
+   * @public
+   */
+  SegmentSqlQuery?: string | undefined;
 }
 
 /**
@@ -3745,6 +3997,28 @@ export interface DeleteDomainLayoutResponse {
 /**
  * @public
  */
+export interface DeleteDomainObjectTypeRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainObjectTypeResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteEventStreamRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -3955,6 +4229,28 @@ export interface DeleteProfileObjectTypeResponse {
    */
   Message: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteRecommenderRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The recommender name.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecommenderResponse {}
 
 /**
  * @public
@@ -4418,6 +4714,12 @@ export interface GetDomainResponse {
   RuleBasedMatching?: RuleBasedMatchingResponse | undefined;
 
   /**
+   * <p> True if data store is enabled for this domain.</p>
+   * @public
+   */
+  DataStore?: DataStoreResponse | undefined;
+
+  /**
    * <p>The timestamp of when the domain was created.</p>
    * @public
    */
@@ -4512,6 +4814,100 @@ export interface GetDomainLayoutResponse {
    * @public
    */
   LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainObjectTypeRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+}
+
+/**
+ * <p>The standard domain object type.</p>
+ * @public
+ */
+export interface DomainObjectTypeField {
+  /**
+   * <p>The expression that defines how to extract the field value from the source object.></p>
+   * @public
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>The expression that defines where the field value should be placed in the standard domain object.</p>
+   * @public
+   */
+  Target: string | undefined;
+
+  /**
+   * <p>The content type of the field.</p>
+   * @public
+   */
+  ContentType?: ContentType | undefined;
+
+  /**
+   * <p>The semantic meaning of the field.</p>
+   * @public
+   */
+  FeatureType?: FeatureType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainObjectTypeResponse {
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>The description of the domain object type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>A map of field names to their corresponding domain object type field definitions.</p>
+   * @public
+   */
+  Fields?: Record<string, DomainObjectTypeField> | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -4963,6 +5359,12 @@ export interface GetIntegrationResponse {
    * @public
    */
   EventTriggerNames?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
 }
 
 /**
@@ -5046,6 +5448,118 @@ export interface GetMatchesResponse {
    * @public
    */
   Matches?: MatchItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetObjectTypeAttributeStatisticsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>The attribute name.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+}
+
+/**
+ * <p>Contains percentile statistics for object type attributes.</p>
+ * @public
+ */
+export interface GetObjectTypeAttributeStatisticsPercentiles {
+  /**
+   * <p>The 5th percentile value of the attribute.</p>
+   * @public
+   */
+  P5: number | undefined;
+
+  /**
+   * <p>The 25th percentile value of the attribute.</p>
+   * @public
+   */
+  P25: number | undefined;
+
+  /**
+   * <p>The 50th percentile (median) value of the attribute.</p>
+   * @public
+   */
+  P50: number | undefined;
+
+  /**
+   * <p>The 75th percentile value of the attribute.</p>
+   * @public
+   */
+  P75: number | undefined;
+
+  /**
+   * <p>The 95th percentile value of the attribute.</p>
+   * @public
+   */
+  P95: number | undefined;
+}
+
+/**
+ * <p>Statistical measurements for object type attributes including basic statistics and percentiles.</p>
+ * @public
+ */
+export interface GetObjectTypeAttributeStatisticsStats {
+  /**
+   * <p>The maximum value found in the attribute dataset.</p>
+   * @public
+   */
+  Maximum: number | undefined;
+
+  /**
+   * <p>The minimum value found in the attribute dataset.</p>
+   * @public
+   */
+  Minimum: number | undefined;
+
+  /**
+   * <p>The arithmetic mean of the attribute values.</p>
+   * @public
+   */
+  Average: number | undefined;
+
+  /**
+   * <p>The standard deviation of the attribute values, measuring their spread around the mean.</p>
+   * @public
+   */
+  StandardDeviation: number | undefined;
+
+  /**
+   * <p>Percentile distribution statistics for the attribute values.</p>
+   * @public
+   */
+  Percentiles: GetObjectTypeAttributeStatisticsPercentiles | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetObjectTypeAttributeStatisticsResponse {
+  /**
+   * <p>The statistics.</p>
+   * @public
+   */
+  Statistics: GetObjectTypeAttributeStatisticsStats | undefined;
+
+  /**
+   * <p>Time when this statistics was calculated.</p>
+   * @public
+   */
+  CalculatedAt: Date | undefined;
 }
 
 /**
@@ -5302,6 +5816,218 @@ export interface GetProfileObjectTypeTemplateResponse {
 /**
  * @public
  */
+export interface GetProfileRecommendationsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the profile for which to retrieve recommendations.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>The unique name of the recommender.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+
+  /**
+   * <p>The contextual metadata used to provide dynamic runtime information to tailor recommendations.</p>
+   * @public
+   */
+  Context?: Record<string, string> | undefined;
+
+  /**
+   * <p>The maximum number of recommendations to return. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Represents a single recommendation generated by the recommender system.</p>
+ * @public
+ */
+export interface Recommendation {
+  /**
+   * <p>The catalog item being recommended, including its complete details and attributes.</p>
+   * @public
+   */
+  CatalogItem?: CatalogItem | undefined;
+
+  /**
+   * <p>Recommendation Score between 0 and 1.</p>
+   * @public
+   */
+  Score?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProfileRecommendationsResponse {
+  /**
+   * <p>List of recommendations generated by the recommender.</p>
+   * @public
+   */
+  Recommendations?: Recommendation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecommenderRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the recommender.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+
+  /**
+   * <p>The number of training metrics to retrieve for the recommender.</p>
+   * @public
+   */
+  TrainingMetricsCount?: number | undefined;
+}
+
+/**
+ * <p>Contains information about an update operation performed on a recommender.</p>
+ * @public
+ */
+export interface RecommenderUpdate {
+  /**
+   * <p>The updated configuration settings applied to the recommender during this update.</p>
+   * @public
+   */
+  RecommenderConfig?: RecommenderConfig | undefined;
+
+  /**
+   * <p>The current status of the recommender update operation.</p>
+   * @public
+   */
+  Status?: RecommenderStatus | undefined;
+
+  /**
+   * <p>The timestamp when this recommender update was initiated.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the recommender was edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>If the update operation failed, provides the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * <p>Contains metrics and performance indicators from the training of a recommender model.</p>
+ * @public
+ */
+export interface TrainingMetrics {
+  /**
+   * <p>The timestamp when these training metrics were recorded.</p>
+   * @public
+   */
+  Time?: Date | undefined;
+
+  /**
+   * <p>A collection of performance metrics and statistics from the training process.</p>
+   * @public
+   */
+  Metrics?: Partial<Record<TrainingMetricName, number>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecommenderResponse {
+  /**
+   * <p>The name of the recommender.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+
+  /**
+   * <p>The name of the recipe used by the recommender to generate recommendations.</p>
+   * @public
+   */
+  RecommenderRecipeName: RecommenderRecipeName | undefined;
+
+  /**
+   * <p>The configuration settings for the recommender, including parameters and settings that define its behavior.</p>
+   * @public
+   */
+  RecommenderConfig?: RecommenderConfig | undefined;
+
+  /**
+   * <p>A detailed description of the recommender providing information about its purpose and functionality.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current status of the recommender, indicating whether it is active, creating, updating, or in another state.</p>
+   * @public
+   */
+  Status?: RecommenderStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the recommender was edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the recommender was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>If the recommender fails, provides the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Information about the most recent update performed on the recommender, including status and timestamp.</p>
+   * @public
+   */
+  LatestRecommenderUpdate?: RecommenderUpdate | undefined;
+
+  /**
+   * <p>A set of metrics that provide information about the recommender's training performance and accuracy.</p>
+   * @public
+   */
+  TrainingMetrics?: TrainingMetrics[] | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSegmentDefinitionRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -5361,6 +6087,21 @@ export interface GetSegmentDefinitionResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The segment SQL query.</p>
+   * @public
+   */
+  SegmentSqlQuery?: string | undefined;
+
+  /**
+   * <p>The segment type.</p>
+   *          <p> Classic : Segments created using traditional SegmentGroup structure</p>
+   *          <p> Enhanced : Segments created using SQL queries
+   *       </p>
+   * @public
+   */
+  SegmentType?: SegmentType | undefined;
 }
 
 /**
@@ -5515,6 +6256,12 @@ export interface GetSegmentMembershipResponse {
    * @public
    */
   Failures?: ProfileQueryFailures[] | undefined;
+
+  /**
+   * <p>The timestamp indicating when the segment membership was last computed or updated.</p>
+   * @public
+   */
+  LastComputedAt?: Date | undefined;
 }
 
 /**
@@ -6113,7 +6860,7 @@ export interface ListIntegrationItem {
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the domain was most recently edited.</p>
+   * <p>The timestamp of when the integration was most recently edited.</p>
    * @public
    */
   LastUpdatedAt: Date | undefined;
@@ -6158,6 +6905,12 @@ export interface ListIntegrationItem {
    * @public
    */
   EventTriggerNames?: string[] | undefined;
+
+  /**
+   * <p>The scope or boundary of the integration item's applicability.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
 }
 
 /**
@@ -6359,6 +7112,82 @@ export interface ListDomainLayoutsResponse {
 
   /**
    * <p>Identifies the next page of results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainObjectTypesRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of domain object types returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from the previous call to ListDomainObjectTypes.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents an item in the list of domain object types, containing basic information about a specific object type within a domain.</p>
+ * @public
+ */
+export interface DomainObjectTypesListItem {
+  /**
+   * <p>The name that identifies the object type within the domain.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>A description explaining the purpose and characteristics of this object type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainObjectTypesResponse {
+  /**
+   * <p>The list of domain object types.</p>
+   * @public
+   */
+  Items?: DomainObjectTypesListItem[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous call to ListDomainObjectTypes.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -6866,6 +7695,76 @@ export interface ListObjectTypeAttributesResponse {
 /**
  * @public
  */
+export interface ListObjectTypeAttributeValuesRequest {
+  /**
+   * <p>The pagination token from the previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page. Valid Range: Minimum value of 1. Maximum value of 100. If not provided default as 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>The attribute name.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+}
+
+/**
+ * <p>Represents an item in the list of object type attribute values with its associated metadata.</p>
+ * @public
+ */
+export interface ListObjectTypeAttributeValuesItem {
+  /**
+   * <p>The actual value of the object type attribute.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>The timestamp of when the object type attribute value was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListObjectTypeAttributeValuesResponse {
+  /**
+   * <p>A list of unique attribute values sorted on the basis of LastUpdatedAt. </p>
+   * @public
+   */
+  Items?: ListObjectTypeAttributeValuesItem[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous call to call ListObjectTypeAttributeValues. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ProfileAttributeValuesRequest {
   /**
    * <p>The unique identifier of the domain.</p>
@@ -7176,7 +8075,7 @@ export interface ListProfileObjectTypeItem {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the domain was most recently edited.</p>
+   * <p>The timestamp of when the profile object type was most recently edited.</p>
    * @public
    */
   LastUpdatedAt?: Date | undefined;
@@ -7273,6 +8172,164 @@ export interface ListProfileObjectTypeTemplatesResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderRecipesRequest {
+  /**
+   * <p>The maximum number of recommender recipes to return in the response. The default value is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token received from a previous ListRecommenderRecipes call to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Defines the algorithm and approach used to generate recommendations.</p>
+ * @public
+ */
+export interface RecommenderRecipe {
+  /**
+   * <p>The name of the recommender recipe.</p>
+   * @public
+   */
+  name?: RecommenderRecipeName | undefined;
+
+  /**
+   * <p>A description of the recommender recipe's purpose and functionality.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderRecipesResponse {
+  /**
+   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of available recommender recipes and their properties.</p>
+   * @public
+   */
+  RecommenderRecipes?: RecommenderRecipe[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendersRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of recommenders to return in the response. The default value is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token received from a previous ListRecommenders call to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Provides a summary of a recommender's configuration and current state.</p>
+ * @public
+ */
+export interface RecommenderSummary {
+  /**
+   * <p>The name of the recommender.</p>
+   * @public
+   */
+  RecommenderName?: string | undefined;
+
+  /**
+   * <p>The name of the recipe used by this recommender.</p>
+   * @public
+   */
+  RecipeName?: RecommenderRecipeName | undefined;
+
+  /**
+   * <p>The configuration settings applied to this recommender.</p>
+   * @public
+   */
+  RecommenderConfig?: RecommenderConfig | undefined;
+
+  /**
+   * <p>The timestamp when the recommender was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>A description of the recommender's purpose and characteristics.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current operational status of the recommender.</p>
+   * @public
+   */
+  Status?: RecommenderStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the recommender was edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>If the recommender is in a failed state, provides the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Information about the most recent update performed on the recommender, including its status and timing.</p>
+   * @public
+   */
+  LatestRecommenderUpdate?: RecommenderUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendersResponse {
+  /**
+   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of recommenders and their properties in the specified domain.</p>
+   * @public
+   */
+  Recommenders?: RecommenderSummary[] | undefined;
 }
 
 /**
@@ -7380,6 +8437,15 @@ export interface SegmentDefinitionItem {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The segment type.</p>
+   *          <p> Classic : Segments created using traditional SegmentGroup structure</p>
+   *          <p> Enhanced : Segments created using SQL queries
+   *       </p>
+   * @public
+   */
+  SegmentType?: SegmentType | undefined;
 }
 
 /**
@@ -7806,6 +8872,94 @@ export interface MergeProfilesResponse {
 /**
  * @public
  */
+export interface PutDomainObjectTypeRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>The description of the domain object type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>A map of field names to their corresponding domain object type field definitions.</p>
+   * @public
+   */
+  Fields: Record<string, DomainObjectTypeField> | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDomainObjectTypeResponse {
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the domain object type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>A map of field names to their corresponding domain object type field definitions.</p>
+   * @public
+   */
+  Fields?: Record<string, DomainObjectTypeField> | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutIntegrationRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -7826,6 +8980,14 @@ export interface PutIntegrationRequest {
   ObjectTypeName?: string | undefined;
 
   /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * @public
+   */
+  ObjectTypeNames?: Record<string, string> | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
@@ -7839,14 +9001,6 @@ export interface PutIntegrationRequest {
   FlowDefinition?: FlowDefinition | undefined;
 
   /**
-   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
-   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
-   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
-   * @public
-   */
-  ObjectTypeNames?: Record<string, string> | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
    *          Customer Profiles requests on your behalf.</p>
    * @public
@@ -7858,6 +9012,12 @@ export interface PutIntegrationRequest {
    * @public
    */
   EventTriggerNames?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
 }
 
 /**
@@ -7935,6 +9095,12 @@ export interface PutIntegrationResponse {
    * @public
    */
   EventTriggerNames?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
 }
 
 /**
@@ -8252,6 +9418,28 @@ export interface SearchProfilesResponse {
 /**
  * @public
  */
+export interface StartRecommenderRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the recommender to start.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRecommenderResponse {}
+
+/**
+ * @public
+ */
 export interface StartUploadJobRequest {
   /**
    * <p>The unique name of the domain containing the upload job to start. </p>
@@ -8274,73 +9462,7 @@ export interface StartUploadJobResponse {}
 /**
  * @public
  */
-export interface StopUploadJobRequest {
-  /**
-   * <p>The unique name of the domain containing the upload job to stop. </p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique identifier of the upload job to stop. </p>
-   * @public
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopUploadJobResponse {}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource that you're adding tags to.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the resource from which you are removing tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The list of tag keys to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateCalculatedAttributeDefinitionRequest {
+export interface StopRecommenderRequest {
   /**
    * <p>The unique name of the domain.</p>
    * @public
@@ -8348,727 +9470,8 @@ export interface UpdateCalculatedAttributeDefinitionRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The unique name of the calculated attribute.</p>
+   * <p>The name of the recommender to stop.</p>
    * @public
    */
-  CalculatedAttributeName: string | undefined;
-
-  /**
-   * <p>The display name of the calculated attribute.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the calculated attribute.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The conditions including range, object count, and threshold for the calculated
-   *          attribute.</p>
-   * @public
-   */
-  Conditions?: Conditions | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCalculatedAttributeDefinitionResponse {
-  /**
-   * <p>The unique name of the calculated attribute.</p>
-   * @public
-   */
-  CalculatedAttributeName?: string | undefined;
-
-  /**
-   * <p>The display name of the calculated attribute.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the calculated attribute.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the calculated attribute definition was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the calculated attribute definition was most recently
-   *          edited.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The aggregation operation to perform for the calculated attribute.</p>
-   * @public
-   */
-  Statistic?: Statistic | undefined;
-
-  /**
-   * <p>The conditions including range, object count, and threshold for the calculated
-   *          attribute.</p>
-   * @public
-   */
-  Conditions?: Conditions | undefined;
-
-  /**
-   * <p>The mathematical expression and a list of attribute items specified in that
-   *          expression.</p>
-   * @public
-   */
-  AttributeDetails?: AttributeDetails | undefined;
-
-  /**
-   * <p>Whether historical data ingested before the Calculated Attribute was created should be
-   *          included in calculations.</p>
-   * @public
-   */
-  UseHistoricalData?: boolean | undefined;
-
-  /**
-   * <p>Status of the Calculated Attribute creation (whether all historical data has been
-   *          indexed.)</p>
-   * @public
-   */
-  Status?: ReadinessStatus | undefined;
-
-  /**
-   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
-   *          historical data has been processed and reflected.</p>
-   * @public
-   */
-  Readiness?: Readiness | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The default number of days until the data within the domain expires.</p>
-   * @public
-   */
-  DefaultExpirationDays?: number | undefined;
-
-  /**
-   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
-   *          of encryption key is specified. It is used to encrypt all data before it is placed in
-   *          permanent or semi-permanent storage. If specified as an empty string, it will clear any
-   *          existing value.</p>
-   * @public
-   */
-  DefaultEncryptionKey?: string | undefined;
-
-  /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications. If specified as an empty string, it will
-   *          clear any existing value. You must set up a policy on the DeadLetterQueue for the
-   *          SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the
-   *          DeadLetterQueue.</p>
-   * @public
-   */
-  DeadLetterQueueUrl?: string | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
-   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
-   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
-   *          <p>After the Identity Resolution Job completes, use the
-   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
-   * S3.</p>
-   * @public
-   */
-  Matching?: MatchingRequest | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
-   *          to match and merge your profiles according to your configuration in the
-   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
-   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
-   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
-   *          can download the results from S3.</p>
-   * @public
-   */
-  RuleBasedMatching?: RuleBasedMatchingRequest | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainResponse {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The default number of days until the data within the domain expires.</p>
-   * @public
-   */
-  DefaultExpirationDays?: number | undefined;
-
-  /**
-   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
-   *          of encryption key is specified. It is used to encrypt all data before it is placed in
-   *          permanent or semi-permanent storage.</p>
-   * @public
-   */
-  DefaultEncryptionKey?: string | undefined;
-
-  /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications.</p>
-   * @public
-   */
-  DeadLetterQueueUrl?: string | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
-   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
-   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
-   *          <p>After the Identity Resolution Job completes, use the
-   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
-   * S3.</p>
-   * @public
-   */
-  Matching?: MatchingResponse | undefined;
-
-  /**
-   * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
-   *          to match and merge your profiles according to your configuration in the
-   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
-   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
-   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
-   *          can download the results from S3.</p>
-   * @public
-   */
-  RuleBasedMatching?: RuleBasedMatchingResponse | undefined;
-
-  /**
-   * <p>The timestamp of when the domain was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the domain was most recently edited.</p>
-   * @public
-   */
-  LastUpdatedAt: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainLayoutRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique name of the layout.</p>
-   * @public
-   */
-  LayoutDefinitionName: string | undefined;
-
-  /**
-   * <p>The description of the layout</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The display name of the layout</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
-   *          false, then the layout will not be used by default, but it can be used to view data by
-   *          explicitly selecting it in the console.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
-   * @public
-   */
-  LayoutType?: LayoutType | undefined;
-
-  /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
-   * @public
-   */
-  Layout?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainLayoutResponse {
-  /**
-   * <p>The unique name of the layout.</p>
-   * @public
-   */
-  LayoutDefinitionName?: string | undefined;
-
-  /**
-   * <p>The description of the layout</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The display name of the layout</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
-   *          false, then the layout will not be used by default, but it can be used to view data by
-   *          explicitly selecting it in the console.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
-   * @public
-   */
-  LayoutType?: LayoutType | undefined;
-
-  /**
-   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
-   * @public
-   */
-  Layout?: string | undefined;
-
-  /**
-   * <p>The version used to create layout.</p>
-   * @public
-   */
-  Version?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the layout was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the layout was most recently updated.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEventTriggerRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique name of the event trigger.</p>
-   * @public
-   */
-  EventTriggerName: string | undefined;
-
-  /**
-   * <p>The unique name of the object type.</p>
-   * @public
-   */
-  ObjectTypeName?: string | undefined;
-
-  /**
-   * <p>The description of the event trigger.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of conditions that determine when an event should trigger the destination.</p>
-   * @public
-   */
-  EventTriggerConditions?: EventTriggerCondition[] | undefined;
-
-  /**
-   * <p>The destination is triggered only for profiles that meet the criteria of a segment
-   *          definition.</p>
-   * @public
-   */
-  SegmentFilter?: string | undefined;
-
-  /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
-   *          latency and the number of invocations per profile over specific time periods.</p>
-   * @public
-   */
-  EventTriggerLimits?: EventTriggerLimits | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEventTriggerResponse {
-  /**
-   * <p>The unique name of the event trigger.</p>
-   * @public
-   */
-  EventTriggerName?: string | undefined;
-
-  /**
-   * <p>The unique name of the object type.</p>
-   * @public
-   */
-  ObjectTypeName?: string | undefined;
-
-  /**
-   * <p>The description of the event trigger.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of conditions that determine when an event should trigger the destination.</p>
-   * @public
-   */
-  EventTriggerConditions?: EventTriggerCondition[] | undefined;
-
-  /**
-   * <p>The destination is triggered only for profiles that meet the criteria of a segment
-   *          definition.</p>
-   * @public
-   */
-  SegmentFilter?: string | undefined;
-
-  /**
-   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
-   *          latency and the number of invocations per profile over specific time periods.</p>
-   * @public
-   */
-  EventTriggerLimits?: EventTriggerLimits | undefined;
-
-  /**
-   * <p>The timestamp of when the event trigger was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the event trigger was most recently updated.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>An array of key-value pairs to apply to this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Updates associated with the address properties of a customer profile.</p>
- * @public
- */
-export interface UpdateAddress {
-  /**
-   * <p>The first line of a customer address.</p>
-   * @public
-   */
-  Address1?: string | undefined;
-
-  /**
-   * <p>The second line of a customer address.</p>
-   * @public
-   */
-  Address2?: string | undefined;
-
-  /**
-   * <p>The third line of a customer address.</p>
-   * @public
-   */
-  Address3?: string | undefined;
-
-  /**
-   * <p>The fourth line of a customer address.</p>
-   * @public
-   */
-  Address4?: string | undefined;
-
-  /**
-   * <p>The city in which a customer lives.</p>
-   * @public
-   */
-  City?: string | undefined;
-
-  /**
-   * <p>The county in which a customer lives.</p>
-   * @public
-   */
-  County?: string | undefined;
-
-  /**
-   * <p>The state in which a customer lives.</p>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>The province in which a customer lives.</p>
-   * @public
-   */
-  Province?: string | undefined;
-
-  /**
-   * <p>The country in which a customer lives.</p>
-   * @public
-   */
-  Country?: string | undefined;
-
-  /**
-   * <p>The postal code of a customer address.</p>
-   * @public
-   */
-  PostalCode?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProfileRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique identifier of a customer profile.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-
-  /**
-   * <p>Any additional information relevant to the customer’s profile.</p>
-   * @public
-   */
-  AdditionalInformation?: string | undefined;
-
-  /**
-   * <p>An account number that you have assigned to the customer.</p>
-   * @public
-   */
-  AccountNumber?: string | undefined;
-
-  /**
-   * <p>The type of profile used to describe the customer.</p>
-   *
-   * @deprecated deprecated
-   * @public
-   */
-  PartyType?: PartyType | undefined;
-
-  /**
-   * <p>The name of the customer’s business.</p>
-   * @public
-   */
-  BusinessName?: string | undefined;
-
-  /**
-   * <p>The customer’s first name.</p>
-   * @public
-   */
-  FirstName?: string | undefined;
-
-  /**
-   * <p>The customer’s middle name.</p>
-   * @public
-   */
-  MiddleName?: string | undefined;
-
-  /**
-   * <p>The customer’s last name.</p>
-   * @public
-   */
-  LastName?: string | undefined;
-
-  /**
-   * <p>The customer’s birth date. </p>
-   * @public
-   */
-  BirthDate?: string | undefined;
-
-  /**
-   * <p>The gender with which the customer identifies. </p>
-   *
-   * @deprecated deprecated
-   * @public
-   */
-  Gender?: Gender | undefined;
-
-  /**
-   * <p>The customer’s phone number, which has not been specified as a mobile, home, or business
-   *          number. </p>
-   * @public
-   */
-  PhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s mobile phone number.</p>
-   * @public
-   */
-  MobilePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s home phone number.</p>
-   * @public
-   */
-  HomePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s business phone number.</p>
-   * @public
-   */
-  BusinessPhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s email address, which has not been specified as a personal or business
-   *          address. </p>
-   * @public
-   */
-  EmailAddress?: string | undefined;
-
-  /**
-   * <p>The customer’s personal email address.</p>
-   * @public
-   */
-  PersonalEmailAddress?: string | undefined;
-
-  /**
-   * <p>The customer’s business email address.</p>
-   * @public
-   */
-  BusinessEmailAddress?: string | undefined;
-
-  /**
-   * <p>A generic address associated with the customer that is not mailing, shipping, or
-   *          billing.</p>
-   * @public
-   */
-  Address?: UpdateAddress | undefined;
-
-  /**
-   * <p>The customer’s shipping address.</p>
-   * @public
-   */
-  ShippingAddress?: UpdateAddress | undefined;
-
-  /**
-   * <p>The customer’s mailing address.</p>
-   * @public
-   */
-  MailingAddress?: UpdateAddress | undefined;
-
-  /**
-   * <p>The customer’s billing address.</p>
-   * @public
-   */
-  BillingAddress?: UpdateAddress | undefined;
-
-  /**
-   * <p>A key value pair of attributes of a customer profile.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>An alternative to <code>PartyType</code> which accepts any string as input.</p>
-   * @public
-   */
-  PartyTypeString?: string | undefined;
-
-  /**
-   * <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
-   * @public
-   */
-  GenderString?: string | undefined;
-
-  /**
-   * <p>Determines the type of the profile.</p>
-   * @public
-   */
-  ProfileType?: ProfileType | undefined;
-
-  /**
-   * <p>Object that defines users preferred methods of engagement.</p>
-   * @public
-   */
-  EngagementPreferences?: EngagementPreferences | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProfileResponse {
-  /**
-   * <p>The unique identifier of a customer profile.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
+  RecommenderName: string | undefined;
 }

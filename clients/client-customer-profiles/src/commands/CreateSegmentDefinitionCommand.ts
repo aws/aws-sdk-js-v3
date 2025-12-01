@@ -169,6 +169,7 @@ export interface CreateSegmentDefinitionCommandOutput extends CreateSegmentDefin
  *     ],
  *     Include: "ALL" || "ANY" || "NONE",
  *   },
+ *   SegmentSqlQuery: "STRING_VALUE",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

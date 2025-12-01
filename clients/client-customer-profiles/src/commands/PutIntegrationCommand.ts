@@ -45,6 +45,9 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *   DomainName: "STRING_VALUE", // required
  *   Uri: "STRING_VALUE",
  *   ObjectTypeName: "STRING_VALUE",
+ *   ObjectTypeNames: { // ObjectTypeNames
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -113,13 +116,11 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *       },
  *     },
  *   },
- *   ObjectTypeNames: { // ObjectTypeNames
- *     "<keys>": "STRING_VALUE",
- *   },
  *   RoleArn: "STRING_VALUE",
  *   EventTriggerNames: [ // EventTriggerNames
  *     "STRING_VALUE",
  *   ],
+ *   Scope: "PROFILE" || "DOMAIN",
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
@@ -141,6 +142,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * //   EventTriggerNames: [ // EventTriggerNames
  * //     "STRING_VALUE",
  * //   ],
+ * //   Scope: "PROFILE" || "DOMAIN",
  * // };
  *
  * ```

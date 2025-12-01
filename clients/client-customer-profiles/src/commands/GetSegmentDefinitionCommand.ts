@@ -179,6 +179,8 @@ export interface GetSegmentDefinitionCommandOutput extends GetSegmentDefinitionR
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   SegmentSqlQuery: "STRING_VALUE",
+ * //   SegmentType: "CLASSIC" || "ENHANCED",
  * // };
  *
  * ```
