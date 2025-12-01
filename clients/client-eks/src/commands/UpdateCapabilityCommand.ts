@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/models_0";
-import { DescribeUpdate } from "../schemas/schemas_0";
+import { UpdateCapabilityRequest, UpdateCapabilityResponse } from "../models/models_0";
+import { UpdateCapability } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,39 +16,70 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeUpdateCommand}.
+ * The input for {@link UpdateCapabilityCommand}.
  */
-export interface DescribeUpdateCommandInput extends DescribeUpdateRequest {}
+export interface UpdateCapabilityCommandInput extends UpdateCapabilityRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUpdateCommand}.
+ * The output of {@link UpdateCapabilityCommand}.
  */
-export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __MetadataBearer {}
+export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an update to an Amazon EKS resource.</p>
- *          <p>When the status of the update is <code>Successful</code>, the update is complete. If
- *             an update fails, the status is <code>Failed</code>, and an error detail explains the
- *             reason for the failure.</p>
+ * <p>Updates the configuration of a managed capability in your Amazon EKS cluster. You can update the IAM role, configuration settings, and delete propagation policy for a capability.</p>
+ *          <p>When you update a capability, Amazon EKS applies the changes and may restart capability components as needed. The capability remains available during the update process, but some operations may be temporarily unavailable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DescribeUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DescribeUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, UpdateCapabilityCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, UpdateCapabilityCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
  * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
- * const input = { // DescribeUpdateRequest
- *   name: "STRING_VALUE", // required
- *   updateId: "STRING_VALUE", // required
- *   nodegroupName: "STRING_VALUE",
- *   addonName: "STRING_VALUE",
- *   capabilityName: "STRING_VALUE",
+ * const input = { // UpdateCapabilityRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   capabilityName: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   configuration: { // UpdateCapabilityConfiguration
+ *     argoCd: { // UpdateArgoCdConfig
+ *       rbacRoleMappings: { // UpdateRoleMappings
+ *         addOrUpdateRoleMappings: [ // ArgoCdRoleMappingList
+ *           { // ArgoCdRoleMapping
+ *             role: "ADMIN" || "EDITOR" || "VIEWER", // required
+ *             identities: [ // SsoIdentityList // required
+ *               { // SsoIdentity
+ *                 id: "STRING_VALUE", // required
+ *                 type: "SSO_USER" || "SSO_GROUP", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         removeRoleMappings: [
+ *           {
+ *             role: "ADMIN" || "EDITOR" || "VIEWER", // required
+ *             identities: [ // required
+ *               {
+ *                 id: "STRING_VALUE", // required
+ *                 type: "SSO_USER" || "SSO_GROUP", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       networkAccess: { // ArgoCdNetworkAccessConfigRequest
+ *         vpceIds: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   deletePropagationPolicy: "RETAIN",
  * };
- * const command = new DescribeUpdateCommand(input);
+ * const command = new UpdateCapabilityCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUpdateResponse
+ * // { // UpdateCapabilityResponse
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
@@ -74,20 +105,24 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *
  * ```
  *
- * @param DescribeUpdateCommandInput - {@link DescribeUpdateCommandInput}
- * @returns {@link DescribeUpdateCommandOutput}
- * @see {@link DescribeUpdateCommandInput} for command's `input` shape.
- * @see {@link DescribeUpdateCommandOutput} for command's `response` shape.
+ * @param UpdateCapabilityCommandInput - {@link UpdateCapabilityCommandInput}
+ * @returns {@link UpdateCapabilityCommandOutput}
+ * @see {@link UpdateCapabilityCommandInput} for command's `input` shape.
+ * @see {@link UpdateCapabilityCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
- * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
+ *             making the request must have at least one IAM permissions policy attached that grants
+ *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+ *                 management</a> in the <i>IAM User Guide</i>. </p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
@@ -104,10 +139,10 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *
  * @public
  */
-export class DescribeUpdateCommand extends $Command
+export class UpdateCapabilityCommand extends $Command
   .classBuilder<
-    DescribeUpdateCommandInput,
-    DescribeUpdateCommandOutput,
+    UpdateCapabilityCommandInput,
+    UpdateCapabilityCommandOutput,
     EKSClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -116,19 +151,19 @@ export class DescribeUpdateCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSWesleyFrontend", "DescribeUpdate", {})
-  .n("EKSClient", "DescribeUpdateCommand")
-  .sc(DescribeUpdate)
+  .s("AWSWesleyFrontend", "UpdateCapability", {})
+  .n("EKSClient", "UpdateCapabilityCommand")
+  .sc(UpdateCapability)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeUpdateRequest;
-      output: DescribeUpdateResponse;
+      input: UpdateCapabilityRequest;
+      output: UpdateCapabilityResponse;
     };
     sdk: {
-      input: DescribeUpdateCommandInput;
-      output: DescribeUpdateCommandOutput;
+      input: UpdateCapabilityCommandInput;
+      output: UpdateCapabilityCommandOutput;
     };
   };
 }

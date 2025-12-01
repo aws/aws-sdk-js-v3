@@ -71,6 +71,7 @@ import {
 } from "./commands/AssociateIdentityProviderConfigCommand";
 import { CreateAccessEntryCommandInput, CreateAccessEntryCommandOutput } from "./commands/CreateAccessEntryCommand";
 import { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
+import { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "./commands/CreateCapabilityCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateEksAnywhereSubscriptionCommandInput,
@@ -87,6 +88,7 @@ import {
 } from "./commands/CreatePodIdentityAssociationCommand";
 import { DeleteAccessEntryCommandInput, DeleteAccessEntryCommandOutput } from "./commands/DeleteAccessEntryCommand";
 import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
+import { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./commands/DeleteCapabilityCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteEksAnywhereSubscriptionCommandInput,
@@ -115,6 +117,7 @@ import {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "./commands/DescribeAddonVersionsCommand";
+import { DescribeCapabilityCommandInput, DescribeCapabilityCommandOutput } from "./commands/DescribeCapabilityCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
   DescribeClusterVersionsCommandInput,
@@ -158,6 +161,7 @@ import {
   ListAssociatedAccessPoliciesCommandInput,
   ListAssociatedAccessPoliciesCommandOutput,
 } from "./commands/ListAssociatedAccessPoliciesCommand";
+import { ListCapabilitiesCommandInput, ListCapabilitiesCommandOutput } from "./commands/ListCapabilitiesCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListEksAnywhereSubscriptionsCommandInput,
@@ -191,6 +195,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAccessEntryCommandInput, UpdateAccessEntryCommandOutput } from "./commands/UpdateAccessEntryCommand";
 import { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
+import { UpdateCapabilityCommandInput, UpdateCapabilityCommandOutput } from "./commands/UpdateCapabilityCommand";
 import {
   UpdateClusterConfigCommandInput,
   UpdateClusterConfigCommandOutput,
@@ -235,6 +240,7 @@ export type ServiceInputTypes =
   | AssociateIdentityProviderConfigCommandInput
   | CreateAccessEntryCommandInput
   | CreateAddonCommandInput
+  | CreateCapabilityCommandInput
   | CreateClusterCommandInput
   | CreateEksAnywhereSubscriptionCommandInput
   | CreateFargateProfileCommandInput
@@ -242,6 +248,7 @@ export type ServiceInputTypes =
   | CreatePodIdentityAssociationCommandInput
   | DeleteAccessEntryCommandInput
   | DeleteAddonCommandInput
+  | DeleteCapabilityCommandInput
   | DeleteClusterCommandInput
   | DeleteEksAnywhereSubscriptionCommandInput
   | DeleteFargateProfileCommandInput
@@ -252,6 +259,7 @@ export type ServiceInputTypes =
   | DescribeAddonCommandInput
   | DescribeAddonConfigurationCommandInput
   | DescribeAddonVersionsCommandInput
+  | DescribeCapabilityCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterVersionsCommandInput
   | DescribeEksAnywhereSubscriptionCommandInput
@@ -268,6 +276,7 @@ export type ServiceInputTypes =
   | ListAccessPoliciesCommandInput
   | ListAddonsCommandInput
   | ListAssociatedAccessPoliciesCommandInput
+  | ListCapabilitiesCommandInput
   | ListClustersCommandInput
   | ListEksAnywhereSubscriptionsCommandInput
   | ListFargateProfilesCommandInput
@@ -283,6 +292,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAccessEntryCommandInput
   | UpdateAddonCommandInput
+  | UpdateCapabilityCommandInput
   | UpdateClusterConfigCommandInput
   | UpdateClusterVersionCommandInput
   | UpdateEksAnywhereSubscriptionCommandInput
@@ -299,6 +309,7 @@ export type ServiceOutputTypes =
   | AssociateIdentityProviderConfigCommandOutput
   | CreateAccessEntryCommandOutput
   | CreateAddonCommandOutput
+  | CreateCapabilityCommandOutput
   | CreateClusterCommandOutput
   | CreateEksAnywhereSubscriptionCommandOutput
   | CreateFargateProfileCommandOutput
@@ -306,6 +317,7 @@ export type ServiceOutputTypes =
   | CreatePodIdentityAssociationCommandOutput
   | DeleteAccessEntryCommandOutput
   | DeleteAddonCommandOutput
+  | DeleteCapabilityCommandOutput
   | DeleteClusterCommandOutput
   | DeleteEksAnywhereSubscriptionCommandOutput
   | DeleteFargateProfileCommandOutput
@@ -316,6 +328,7 @@ export type ServiceOutputTypes =
   | DescribeAddonCommandOutput
   | DescribeAddonConfigurationCommandOutput
   | DescribeAddonVersionsCommandOutput
+  | DescribeCapabilityCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterVersionsCommandOutput
   | DescribeEksAnywhereSubscriptionCommandOutput
@@ -332,6 +345,7 @@ export type ServiceOutputTypes =
   | ListAccessPoliciesCommandOutput
   | ListAddonsCommandOutput
   | ListAssociatedAccessPoliciesCommandOutput
+  | ListCapabilitiesCommandOutput
   | ListClustersCommandOutput
   | ListEksAnywhereSubscriptionsCommandOutput
   | ListFargateProfilesCommandOutput
@@ -347,6 +361,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAccessEntryCommandOutput
   | UpdateAddonCommandOutput
+  | UpdateCapabilityCommandOutput
   | UpdateClusterConfigCommandOutput
   | UpdateClusterVersionCommandOutput
   | UpdateEksAnywhereSubscriptionCommandOutput

@@ -24,6 +24,11 @@ import {
 } from "./commands/CreateAccessEntryCommand";
 import { CreateAddonCommand, CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import {
+  CreateCapabilityCommand,
+  CreateCapabilityCommandInput,
+  CreateCapabilityCommandOutput,
+} from "./commands/CreateCapabilityCommand";
+import {
   CreateClusterCommand,
   CreateClusterCommandInput,
   CreateClusterCommandOutput,
@@ -54,6 +59,11 @@ import {
   DeleteAccessEntryCommandOutput,
 } from "./commands/DeleteAccessEntryCommand";
 import { DeleteAddonCommand, DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
+import {
+  DeleteCapabilityCommand,
+  DeleteCapabilityCommandInput,
+  DeleteCapabilityCommandOutput,
+} from "./commands/DeleteCapabilityCommand";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
@@ -104,6 +114,11 @@ import {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "./commands/DescribeAddonVersionsCommand";
+import {
+  DescribeCapabilityCommand,
+  DescribeCapabilityCommandInput,
+  DescribeCapabilityCommandOutput,
+} from "./commands/DescribeCapabilityCommand";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
@@ -181,6 +196,11 @@ import {
   ListAssociatedAccessPoliciesCommandOutput,
 } from "./commands/ListAssociatedAccessPoliciesCommand";
 import {
+  ListCapabilitiesCommand,
+  ListCapabilitiesCommandInput,
+  ListCapabilitiesCommandOutput,
+} from "./commands/ListCapabilitiesCommand";
+import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
@@ -244,6 +264,11 @@ import {
 } from "./commands/UpdateAccessEntryCommand";
 import { UpdateAddonCommand, UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
 import {
+  UpdateCapabilityCommand,
+  UpdateCapabilityCommandInput,
+  UpdateCapabilityCommandOutput,
+} from "./commands/UpdateCapabilityCommand";
+import {
   UpdateClusterConfigCommand,
   UpdateClusterConfigCommandInput,
   UpdateClusterConfigCommandOutput,
@@ -281,6 +306,7 @@ const commands = {
   AssociateIdentityProviderConfigCommand,
   CreateAccessEntryCommand,
   CreateAddonCommand,
+  CreateCapabilityCommand,
   CreateClusterCommand,
   CreateEksAnywhereSubscriptionCommand,
   CreateFargateProfileCommand,
@@ -288,6 +314,7 @@ const commands = {
   CreatePodIdentityAssociationCommand,
   DeleteAccessEntryCommand,
   DeleteAddonCommand,
+  DeleteCapabilityCommand,
   DeleteClusterCommand,
   DeleteEksAnywhereSubscriptionCommand,
   DeleteFargateProfileCommand,
@@ -298,6 +325,7 @@ const commands = {
   DescribeAddonCommand,
   DescribeAddonConfigurationCommand,
   DescribeAddonVersionsCommand,
+  DescribeCapabilityCommand,
   DescribeClusterCommand,
   DescribeClusterVersionsCommand,
   DescribeEksAnywhereSubscriptionCommand,
@@ -314,6 +342,7 @@ const commands = {
   ListAccessPoliciesCommand,
   ListAddonsCommand,
   ListAssociatedAccessPoliciesCommand,
+  ListCapabilitiesCommand,
   ListClustersCommand,
   ListEksAnywhereSubscriptionsCommand,
   ListFargateProfilesCommand,
@@ -329,6 +358,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAccessEntryCommand,
   UpdateAddonCommand,
+  UpdateCapabilityCommand,
   UpdateClusterConfigCommand,
   UpdateClusterVersionCommand,
   UpdateEksAnywhereSubscriptionCommand,
@@ -415,6 +445,23 @@ export interface EKS {
     args: CreateAddonCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAddonCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapabilityCommand}
+   */
+  createCapability(
+    args: CreateCapabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapabilityCommandOutput>;
+  createCapability(
+    args: CreateCapabilityCommandInput,
+    cb: (err: any, data?: CreateCapabilityCommandOutput) => void
+  ): void;
+  createCapability(
+    args: CreateCapabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapabilityCommandOutput) => void
   ): void;
 
   /**
@@ -519,6 +566,23 @@ export interface EKS {
     args: DeleteAddonCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAddonCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCapabilityCommand}
+   */
+  deleteCapability(
+    args: DeleteCapabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapabilityCommandOutput>;
+  deleteCapability(
+    args: DeleteCapabilityCommandInput,
+    cb: (err: any, data?: DeleteCapabilityCommandOutput) => void
+  ): void;
+  deleteCapability(
+    args: DeleteCapabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapabilityCommandOutput) => void
   ): void;
 
   /**
@@ -675,6 +739,23 @@ export interface EKS {
     args: DescribeAddonVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAddonVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapabilityCommand}
+   */
+  describeCapability(
+    args: DescribeCapabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapabilityCommandOutput>;
+  describeCapability(
+    args: DescribeCapabilityCommandInput,
+    cb: (err: any, data?: DescribeCapabilityCommandOutput) => void
+  ): void;
+  describeCapability(
+    args: DescribeCapabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapabilityCommandOutput) => void
   ): void;
 
   /**
@@ -937,6 +1018,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link ListCapabilitiesCommand}
+   */
+  listCapabilities(
+    args: ListCapabilitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCapabilitiesCommandOutput>;
+  listCapabilities(
+    args: ListCapabilitiesCommandInput,
+    cb: (err: any, data?: ListCapabilitiesCommandOutput) => void
+  ): void;
+  listCapabilities(
+    args: ListCapabilitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCapabilitiesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
@@ -1149,6 +1247,23 @@ export interface EKS {
     args: UpdateAddonCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAddonCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCapabilityCommand}
+   */
+  updateCapability(
+    args: UpdateCapabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapabilityCommandOutput>;
+  updateCapability(
+    args: UpdateCapabilityCommandInput,
+    cb: (err: any, data?: UpdateCapabilityCommandOutput) => void
+  ): void;
+  updateCapability(
+    args: UpdateCapabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapabilityCommandOutput) => void
   ): void;
 
   /**

@@ -41,6 +41,7 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  *   name: "STRING_VALUE", // required
  *   nodegroupName: "STRING_VALUE",
  *   addonName: "STRING_VALUE",
+ *   capabilityName: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
