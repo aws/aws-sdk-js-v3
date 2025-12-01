@@ -720,6 +720,7 @@ const _EAR = "EncryptionAtRest";
 const _EAr = "ErroredActions";
 const _EBA = "EventBusArn";
 const _EBC = "EventBatchingCondition";
+const _EBI = "EncryptedById";
 const _EBN = "ErrorByName";
 const _EC = "EvaluationContext";
 const _ECLM = "EmitConsumerLagMetrics";
@@ -734,6 +735,8 @@ const _EDQMF = "EvaluateDataQualityMultiFrame";
 const _EDr = "ErrorDetails";
 const _EH = "EnableHybrid";
 const _EJSP = "ExtraJarsS3Path";
+const _EK = "EncryptionKey";
+const _EKM = "EncryptedKeyMetadata";
 const _EL = "EvaluationLevel";
 const _ELTRP = "ExportLabelsTaskRunProperties";
 const _ELd = "EdgeList";
@@ -1100,8 +1103,10 @@ const _ICTGR = "ImportCatalogToGlueRequest";
 const _ICTGRm = "ImportCatalogToGlueResponse";
 const _ICn = "IntegrationConfig";
 const _ICs = "IsCreateable";
+const _ID = "InitialDefault";
 const _IDOC = "IsDefaultOnCreate";
 const _IE = "IsEnabled";
+const _IEK = "IcebergEncryptedKey";
 const _IEL = "IntegrationErrorList";
 const _IEn = "IntegrationError";
 const _IEs = "IsEmpty";
@@ -1123,6 +1128,7 @@ const _IL = "IntegrationsList";
 const _ILTRP = "ImportLabelsTaskRunProperties";
 const _IM = "IcebergMetrics";
 const _IMDV = "IsMultiDialectView";
+const _IMV = "IsMaterializedView";
 const _IN = "IntegrationName";
 const _INFF = "IntegrationNotFoundFault";
 const _INO = "IsNegOne";
@@ -1235,6 +1241,7 @@ const _Jo = "Join";
 const _Job = "Job";
 const _K = "Key";
 const _KA = "KmsArn";
+const _KI = "KeyId";
 const _KK = "KmsKey";
 const _KKA = "KmsKeyArn";
 const _KKI = "KmsKeyId";
@@ -1323,6 +1330,7 @@ const _LR = "LastRun";
 const _LRI = "ListRegistriesInput";
 const _LRR = "ListRegistriesResponse";
 const _LRS = "LastRuntimeSeconds";
+const _LRT = "LastRefreshType";
 const _LRi = "ListRegistries";
 const _LS = "LogStream";
 const _LSGTRP = "LabelingSetGenerationTaskRunProperties";
@@ -1699,6 +1707,7 @@ const _RSVR = "RegisterSchemaVersionResponse";
 const _RSe = "RegexString";
 const _RSec = "RecipeSteps";
 const _RSeci = "RecipeStep";
+const _RSef = "RefreshSeconds";
 const _RSu = "RunStatement";
 const _RT = "RefreshToken";
 const _RTD = "RedshiftTmpDir";
@@ -1899,6 +1908,7 @@ const _SNta = "StatisticName";
 const _SO = "StartedOn";
 const _SOC = "StartOnCreation";
 const _SOD = "StatementOutputData";
+const _SOVI = "SubObjectVersionIds";
 const _SOo = "SortOrder";
 const _SOt = "StreamingOptions";
 const _SOta = "StartingOffsets";
@@ -2257,8 +2267,10 @@ const _VRL = "ViewRepresentationList";
 const _VRi = "ViewRepresentation";
 const _VUA = "ViewUpdateAction";
 const _VV = "ViewValidations";
+const _VVI = "ViewVersionId";
 const _VVL = "ViewValidationList";
-const _VVT = "ViewValidationText";
+const _VVT = "ViewVersionToken";
+const _VVTi = "ViewValidationText";
 const _VVi = "ViewValidation";
 const _Va = "Valid";
 const _Val = "Values";
@@ -2267,6 +2279,7 @@ const _Ver = "Version";
 const _Vers = "Versions";
 const _W = "Workflows";
 const _WA = "WaitingActions";
+const _WD = "WriteDefault";
 const _WG = "WorkflowGraph";
 const _WH = "WithHeader";
 const _WHr = "WriteHeader";
@@ -5074,8 +5087,8 @@ export var GetUnfilteredTableMetadataResponse: StaticStructureSchema = [
   n0,
   _GUTMRe,
   0,
-  [_Ta, _ACutho, _IRWLF, _CFe, _QAI, _IMDV, _RAe, _IPs, _Pe, _RFo],
-  [() => Table, 64 | 0, 2, () => ColumnRowFilterList, 0, 2, 0, 2, 64 | 0, 0],
+  [_Ta, _ACutho, _IRWLF, _CFe, _QAI, _IMDV, _IMV, _RAe, _IPs, _Pe, _RFo],
+  [() => Table, 64 | 0, 2, () => ColumnRowFilterList, 0, 2, 2, 0, 2, 64 | 0, 0],
 ];
 export var GetUsageProfileRequest: StaticStructureSchema = [3, n0, _GUPR, 0, [_N], [0]];
 export var GetUsageProfileResponse: StaticStructureSchema = [
@@ -5177,6 +5190,7 @@ export var IcebergCompactionMetrics: StaticStructureSchema = [
   [_NOBC, _NOFC, _DH, _NOD, _JDIH],
   [1, 1, 1, 1, 1],
 ];
+export var IcebergEncryptedKey: StaticStructureSchema = [3, n0, _IEK, 0, [_KI, _EKM, _EBI, _Pr], [0, 0, 0, 128 | 0]];
 export var IcebergInput: StaticStructureSchema = [
   3,
   n0,
@@ -5259,14 +5273,30 @@ export var IcebergSortOrder: StaticStructureSchema = [
   [_OI, _Fie],
   [1, () => IcebergSortOrderFieldList],
 ];
-export var IcebergStructField: StaticStructureSchema = [3, n0, _ISFc, 0, [_Id, _N, _Ty, _Req, _Do], [1, 0, 15, 2, 0]];
+export var IcebergStructField: StaticStructureSchema = [
+  3,
+  n0,
+  _ISFc,
+  0,
+  [_Id, _N, _Ty, _Req, _Do, _ID, _WD],
+  [1, 0, 15, 2, 0, 15, 15],
+];
 export var IcebergTableUpdate: StaticStructureSchema = [
   3,
   n0,
   _ITU,
   0,
-  [_S, _PSa, _SOo, _L, _Pr],
-  [() => IcebergSchema, () => IcebergPartitionSpec, () => IcebergSortOrder, 0, 128 | 0],
+  [_S, _PSa, _SOo, _L, _Pr, _A, _EK, _KI],
+  [
+    () => IcebergSchema,
+    () => IcebergPartitionSpec,
+    () => IcebergSortOrder,
+    0,
+    128 | 0,
+    0,
+    () => IcebergEncryptedKey,
+    0,
+  ],
 ];
 export var IcebergTarget: StaticStructureSchema = [3, n0, _ITce, 0, [_Pat, _CNo, _Exc, _MTD], [64 | 0, 0, 64 | 0, 1]];
 export var IdempotentParameterMismatchException: StaticErrorSchema = [
@@ -7144,6 +7174,7 @@ export var Table: StaticStructureSchema = [
     _FT,
     _VD,
     _IMDV,
+    _IMV,
     _St,
   ],
   [
@@ -7169,6 +7200,7 @@ export var Table: StaticStructureSchema = [
     0,
     () => FederatedTable,
     () => ViewDefinition,
+    2,
     2,
     () => TableStatus,
   ],
@@ -7679,16 +7711,16 @@ export var ViewDefinition: StaticStructureSchema = [
   n0,
   _VD,
   0,
-  [_IPs, _Def, _SOu, _Repr],
-  [2, 0, 64 | 0, () => ViewRepresentationList],
+  [_IPs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _Repr],
+  [2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => ViewRepresentationList],
 ];
 export var ViewDefinitionInput: StaticStructureSchema = [
   3,
   n0,
   _VDI,
   0,
-  [_IPs, _Def, _Repr, _SOu],
-  [2, 0, () => ViewRepresentationInputList, 64 | 0],
+  [_IPs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI],
+  [2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1],
 ];
 export var ViewRepresentation: StaticStructureSchema = [
   3,
@@ -7711,7 +7743,7 @@ export var ViewValidation: StaticStructureSchema = [
   n0,
   _VVi,
   0,
-  [_Dia, _DVi, _VVT, _UT, _Sta, _Er],
+  [_Dia, _DVi, _VVTi, _UT, _Sta, _Er],
   [0, 0, 0, 4, 0, () => ErrorDetail],
 ];
 export var Workflow: StaticStructureSchema = [
@@ -8064,6 +8096,8 @@ export var ValueStringList = 64 | 0;
 export var ViewRepresentationInputList: StaticListSchema = [1, n0, _VRIL, 0, () => ViewRepresentationInput];
 export var ViewRepresentationList: StaticListSchema = [1, n0, _VRL, 0, () => ViewRepresentation];
 export var ViewSubObjectsList = 64 | 0;
+
+export var ViewSubObjectVersionIdsList = 64 | 1;
 
 export var ViewValidationList: StaticListSchema = [1, n0, _VVL, 0, () => ViewValidation];
 export var WorkflowNames = 64 | 0;

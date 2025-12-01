@@ -34,6 +34,7 @@ import {
   IntegrationStatus,
   JobBookmarksEncryptionMode,
   Language,
+  LastRefreshType,
   MetadataOperation,
   MLUserDataEncryptionModeString,
   PrincipalType,
@@ -2140,6 +2141,18 @@ export interface IcebergStructField {
    * @public
    */
   Doc?: string | undefined;
+
+  /**
+   * <p>Default value used to populate the field's value for all records that were written before the field was added to the schema. This enables backward compatibility when adding new fields to existing Iceberg tables.</p>
+   * @public
+   */
+  InitialDefault?: __DocumentType | undefined;
+
+  /**
+   * <p>Default value used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value. This can be changed through schema evolution.</p>
+   * @public
+   */
+  WriteDefault?: __DocumentType | undefined;
 }
 
 /**
@@ -2385,10 +2398,42 @@ export interface ViewDefinitionInput {
   Representations?: ViewRepresentationInput[] | undefined;
 
   /**
+   * <p>The ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID. </p>
+   * @public
+   */
+  ViewVersionId?: number | undefined;
+
+  /**
+   * <p>The version ID of the Apache Iceberg table.</p>
+   * @public
+   */
+  ViewVersionToken?: string | undefined;
+
+  /**
+   * <p>Auto refresh interval in seconds for the materialized view. If not specified, the view will
+   *       not automatically refresh.</p>
+   * @public
+   */
+  RefreshSeconds?: number | undefined;
+
+  /**
+   * <p>The type of the materialized view's last refresh. Valid values: <code>Full</code>,
+   *       <code>Incremental</code>.</p>
+   * @public
+   */
+  LastRefreshType?: LastRefreshType | undefined;
+
+  /**
    * <p>A list of base table ARNs that make up the view.</p>
    * @public
    */
   SubObjects?: string[] | undefined;
+
+  /**
+   * <p>List of the Apache Iceberg table versions referenced by the materialized view.</p>
+   * @public
+   */
+  SubObjectVersionIds?: number[] | undefined;
 }
 
 /**

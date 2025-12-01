@@ -135,8 +135,15 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *           ViewExpandedText: "STRING_VALUE",
  *         },
  *       ],
+ *       ViewVersionId: Number("long"),
+ *       ViewVersionToken: "STRING_VALUE",
+ *       RefreshSeconds: Number("long"),
+ *       LastRefreshType: "FULL" || "INCREMENTAL",
  *       SubObjects: [ // ViewSubObjectsList
  *         "STRING_VALUE",
+ *       ],
+ *       SubObjectVersionIds: [ // ViewSubObjectVersionIdsList
+ *         Number("long"),
  *       ],
  *     },
  *   },
@@ -163,6 +170,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *                   Type: "DOCUMENT_VALUE", // required
  *                   Required: true || false, // required
  *                   Doc: "STRING_VALUE",
+ *                   InitialDefault: "DOCUMENT_VALUE",
+ *                   WriteDefault: "DOCUMENT_VALUE",
  *                 },
  *               ],
  *             },
@@ -192,6 +201,16 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *             Properties: { // StringToStringMap
  *               "<keys>": "STRING_VALUE",
  *             },
+ *             Action: "add-schema" || "set-current-schema" || "add-spec" || "set-default-spec" || "add-sort-order" || "set-default-sort-order" || "set-location" || "set-properties" || "remove-properties" || "add-encryption-key" || "remove-encryption-key",
+ *             EncryptionKey: { // IcebergEncryptedKey
+ *               KeyId: "STRING_VALUE", // required
+ *               EncryptedKeyMetadata: "STRING_VALUE", // required
+ *               EncryptedById: "STRING_VALUE",
+ *               Properties: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *             KeyId: "STRING_VALUE",
  *           },
  *         ],
  *       },

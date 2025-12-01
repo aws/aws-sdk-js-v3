@@ -163,8 +163,15 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * //       ViewDefinition: { // ViewDefinition
  * //         IsProtected: true || false,
  * //         Definer: "STRING_VALUE",
+ * //         ViewVersionId: Number("long"),
+ * //         ViewVersionToken: "STRING_VALUE",
+ * //         RefreshSeconds: Number("long"),
+ * //         LastRefreshType: "FULL" || "INCREMENTAL",
  * //         SubObjects: [ // ViewSubObjectsList
  * //           "STRING_VALUE",
+ * //         ],
+ * //         SubObjectVersionIds: [ // ViewSubObjectVersionIdsList
+ * //           Number("long"),
  * //         ],
  * //         Representations: [ // ViewRepresentationList
  * //           { // ViewRepresentation
@@ -178,6 +185,7 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * //         ],
  * //       },
  * //       IsMultiDialectView: true || false,
+ * //       IsMaterializedView: true || false,
  * //       Status: { // TableStatus
  * //         RequestedBy: "STRING_VALUE",
  * //         UpdatedBy: "STRING_VALUE",
@@ -267,8 +275,15 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * //             ViewDefinition: {
  * //               IsProtected: true || false,
  * //               Definer: "STRING_VALUE",
+ * //               ViewVersionId: Number("long"),
+ * //               ViewVersionToken: "STRING_VALUE",
+ * //               RefreshSeconds: Number("long"),
+ * //               LastRefreshType: "FULL" || "INCREMENTAL",
  * //               SubObjects: [
  * //                 "STRING_VALUE",
+ * //               ],
+ * //               SubObjectVersionIds: [
+ * //                 Number("long"),
  * //               ],
  * //               Representations: [
  * //                 {
@@ -282,6 +297,7 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * //               ],
  * //             },
  * //             IsMultiDialectView: true || false,
+ * //             IsMaterializedView: true || false,
  * //             Status: {
  * //               RequestedBy: "STRING_VALUE",
  * //               UpdatedBy: "STRING_VALUE",

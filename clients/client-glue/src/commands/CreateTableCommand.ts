@@ -135,8 +135,15 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *           ViewExpandedText: "STRING_VALUE",
  *         },
  *       ],
+ *       ViewVersionId: Number("long"),
+ *       ViewVersionToken: "STRING_VALUE",
+ *       RefreshSeconds: Number("long"),
+ *       LastRefreshType: "FULL" || "INCREMENTAL",
  *       SubObjects: [ // ViewSubObjectsList
  *         "STRING_VALUE",
+ *       ],
+ *       SubObjectVersionIds: [ // ViewSubObjectVersionIdsList
+ *         Number("long"),
  *       ],
  *     },
  *   },
@@ -168,6 +175,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *               Type: "DOCUMENT_VALUE", // required
  *               Required: true || false, // required
  *               Doc: "STRING_VALUE",
+ *               InitialDefault: "DOCUMENT_VALUE",
+ *               WriteDefault: "DOCUMENT_VALUE",
  *             },
  *           ],
  *         },

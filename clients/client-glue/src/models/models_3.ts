@@ -87,12 +87,24 @@ import {
   Spigot,
   SplitFields,
   StorageDescriptor,
+  Trigger,
   Union,
 } from "./models_0";
 
 import { ProfileConfiguration, TableIdentifier, UserDefinedFunctionInput } from "./models_1";
 
 import { ColumnRowFilter, FederatedTable, ViewDefinition, ViewValidation } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateTriggerResponse {
+  /**
+   * <p>The resulting trigger definition.</p>
+   * @public
+   */
+  Trigger?: Trigger | undefined;
+}
 
 /**
  * @public
@@ -491,7 +503,13 @@ export interface Table {
   IsMultiDialectView?: boolean | undefined;
 
   /**
-   * <p>A structure containing information about the state of an asynchronous change to a table.</p>
+   * <p>Indicates a table is a <code>MaterializedView</code>.</p>
+   * @public
+   */
+  IsMaterializedView?: boolean | undefined;
+
+  /**
+   * <p>Indicates the the state of an asynchronous change to a table.</p>
    * @public
    */
   Status?: TableStatus | undefined;
@@ -1084,6 +1102,12 @@ export interface GetUnfilteredTableMetadataResponse {
    * @public
    */
   IsMultiDialectView?: boolean | undefined;
+
+  /**
+   * <p>Indicates if a table is a materialized view.</p>
+   * @public
+   */
+  IsMaterializedView?: boolean | undefined;
 
   /**
    * <p>The resource ARN of the parent resource extracted from the request.</p>
