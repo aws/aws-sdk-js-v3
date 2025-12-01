@@ -47,7 +47,6 @@ export interface GetAwsOpportunitySummaryCommandOutput extends GetAwsOpportunity
  * const command = new GetAwsOpportunitySummaryCommand(input);
  * const response = await client.send(command);
  * // { // GetAwsOpportunitySummaryResponse
- * //   Catalog: "STRING_VALUE", // required
  * //   RelatedOpportunityId: "STRING_VALUE",
  * //   Origin: "AWS Referral" || "Partner Referral",
  * //   InvolvementType: "For Visibility Only" || "Co-Sell",
@@ -107,6 +106,7 @@ export interface GetAwsOpportunitySummaryCommandOutput extends GetAwsOpportunity
  * //       },
  * //     ],
  * //   },
+ * //   Catalog: "STRING_VALUE", // required
  * // };
  *
  * ```

@@ -237,6 +237,14 @@ CreateEngagement
 </details>
 <details>
 <summary>
+CreateEngagementContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/CreateEngagementContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/CreateEngagementContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/CreateEngagementContextCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEngagementInvitation
 </summary>
 
@@ -397,6 +405,14 @@ ListOpportunities
 </details>
 <details>
 <summary>
+ListOpportunityFromEngagementTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/ListOpportunityFromEngagementTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunityFromEngagementTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/ListOpportunityFromEngagementTasksCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListResourceSnapshotJobs
 </summary>
 
@@ -461,6 +477,14 @@ StartEngagementFromOpportunityTask
 </details>
 <details>
 <summary>
+StartOpportunityFromEngagementTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/StartOpportunityFromEngagementTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartOpportunityFromEngagementTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/StartOpportunityFromEngagementTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartResourceSnapshotJob
 </summary>
 
@@ -497,6 +521,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateEngagementContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-selling/command/UpdateEngagementContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UpdateEngagementContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-selling/Interface/UpdateEngagementContextCommandOutput/)
 
 </details>
 <details>

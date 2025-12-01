@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const AccessDeniedExceptionErrorCode = {
+  INCOMPATIBLE_BENEFIT_AWS_PARTNER_STATE: "INCOMPATIBLE_BENEFIT_AWS_PARTNER_STATE",
+} as const;
+/**
+ * @public
+ */
+export type AccessDeniedExceptionErrorCode =
+  (typeof AccessDeniedExceptionErrorCode)[keyof typeof AccessDeniedExceptionErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationExceptionErrorCode = {
   ACTION_NOT_PERMITTED: "ACTION_NOT_PERMITTED",
   DUPLICATE_KEY_VALUE: "DUPLICATE_KEY_VALUE",
@@ -10,6 +23,7 @@ export const ValidationExceptionErrorCode = {
   INVALID_RESOURCE_STATE: "INVALID_RESOURCE_STATE",
   INVALID_STRING_FORMAT: "INVALID_STRING_FORMAT",
   INVALID_VALUE: "INVALID_VALUE",
+  NOT_ENOUGH_VALUES: "NOT_ENOUGH_VALUES",
   REQUIRED_FIELD_MISSING: "REQUIRED_FIELD_MISSING",
   TOO_MANY_VALUES: "TOO_MANY_VALUES",
   VALUE_OUT_OF_RANGE: "VALUE_OUT_OF_RANGE",
@@ -338,6 +352,7 @@ export type Industry = (typeof Industry)[keyof typeof Industry];
  */
 export const RelatedEntityType = {
   AWS_MARKETPLACE_OFFERS: "AwsMarketplaceOffers",
+  AWS_MARKETPLACE_OFFER_SETS: "AwsMarketplaceOfferSets",
   AWS_PRODUCTS: "AwsProducts",
   SOLUTIONS: "Solutions",
 } as const;
@@ -679,8 +694,25 @@ export type PaymentFrequency = (typeof PaymentFrequency)[keyof typeof PaymentFre
  * @public
  * @enum
  */
+export const MarketSegment = {
+  ENTERPRISE: "Enterprise",
+  LARGE: "Large",
+  MEDIUM: "Medium",
+  MICRO: "Micro",
+  SMALL: "Small",
+} as const;
+/**
+ * @public
+ */
+export type MarketSegment = (typeof MarketSegment)[keyof typeof MarketSegment];
+
+/**
+ * @public
+ * @enum
+ */
 export const EngagementContextType = {
   CUSTOMER_PROJECT: "CustomerProject",
+  LEAD: "Lead",
 } as const;
 /**
  * @public
@@ -743,6 +775,9 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  * @enum
  */
 export const ReasonCode = {
+  CONTEXT_NOT_FOUND: "ContextNotFound",
+  CUSTOMER_PROJECT_CONTEXT_NOT_PERMITTED: "CustomerProjectContextNotPermitted",
+  DISQUALIFIED_LEAD_NOT_PERMITTED: "DisqualifiedLeadNotPermitted",
   ENGAGEMENT_ACCESS_DENIED: "EngagementAccessDenied",
   ENGAGEMENT_CONFLICT: "EngagementConflict",
   ENGAGEMENT_INVITATION_CONFLICT: "EngagementInvitationConflict",
@@ -819,6 +854,7 @@ export type ReceiverResponsibility = (typeof ReceiverResponsibility)[keyof typeo
  * @enum
  */
 export const EngagementInvitationPayloadType = {
+  LEAD_INVITATION: "LeadInvitation",
   OPPORTUNITY_INVITATION: "OpportunityInvitation",
 } as const;
 /**

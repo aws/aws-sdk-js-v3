@@ -23,6 +23,11 @@ import {
   CreateEngagementCommandOutput,
 } from "./commands/CreateEngagementCommand";
 import {
+  CreateEngagementContextCommand,
+  CreateEngagementContextCommandInput,
+  CreateEngagementContextCommandOutput,
+} from "./commands/CreateEngagementContextCommand";
+import {
   CreateEngagementInvitationCommand,
   CreateEngagementInvitationCommandInput,
   CreateEngagementInvitationCommandOutput,
@@ -123,6 +128,11 @@ import {
   ListOpportunitiesCommandOutput,
 } from "./commands/ListOpportunitiesCommand";
 import {
+  ListOpportunityFromEngagementTasksCommand,
+  ListOpportunityFromEngagementTasksCommandInput,
+  ListOpportunityFromEngagementTasksCommandOutput,
+} from "./commands/ListOpportunityFromEngagementTasksCommand";
+import {
   ListResourceSnapshotJobsCommand,
   ListResourceSnapshotJobsCommandInput,
   ListResourceSnapshotJobsCommandOutput,
@@ -163,6 +173,11 @@ import {
   StartEngagementFromOpportunityTaskCommandOutput,
 } from "./commands/StartEngagementFromOpportunityTaskCommand";
 import {
+  StartOpportunityFromEngagementTaskCommand,
+  StartOpportunityFromEngagementTaskCommandInput,
+  StartOpportunityFromEngagementTaskCommandOutput,
+} from "./commands/StartOpportunityFromEngagementTaskCommand";
+import {
   StartResourceSnapshotJobCommand,
   StartResourceSnapshotJobCommandInput,
   StartResourceSnapshotJobCommandOutput,
@@ -184,6 +199,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateEngagementContextCommand,
+  UpdateEngagementContextCommandInput,
+  UpdateEngagementContextCommandOutput,
+} from "./commands/UpdateEngagementContextCommand";
+import {
   UpdateOpportunityCommand,
   UpdateOpportunityCommandInput,
   UpdateOpportunityCommandOutput,
@@ -195,6 +215,7 @@ const commands = {
   AssignOpportunityCommand,
   AssociateOpportunityCommand,
   CreateEngagementCommand,
+  CreateEngagementContextCommand,
   CreateEngagementInvitationCommand,
   CreateOpportunityCommand,
   CreateResourceSnapshotCommand,
@@ -215,6 +236,7 @@ const commands = {
   ListEngagementResourceAssociationsCommand,
   ListEngagementsCommand,
   ListOpportunitiesCommand,
+  ListOpportunityFromEngagementTasksCommand,
   ListResourceSnapshotJobsCommand,
   ListResourceSnapshotsCommand,
   ListSolutionsCommand,
@@ -223,11 +245,13 @@ const commands = {
   RejectEngagementInvitationCommand,
   StartEngagementByAcceptingInvitationTaskCommand,
   StartEngagementFromOpportunityTaskCommand,
+  StartOpportunityFromEngagementTaskCommand,
   StartResourceSnapshotJobCommand,
   StopResourceSnapshotJobCommand,
   SubmitOpportunityCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateEngagementContextCommand,
   UpdateOpportunityCommand,
 };
 
@@ -298,6 +322,23 @@ export interface PartnerCentralSelling {
     args: CreateEngagementCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEngagementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEngagementContextCommand}
+   */
+  createEngagementContext(
+    args: CreateEngagementContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEngagementContextCommandOutput>;
+  createEngagementContext(
+    args: CreateEngagementContextCommandInput,
+    cb: (err: any, data?: CreateEngagementContextCommandOutput) => void
+  ): void;
+  createEngagementContext(
+    args: CreateEngagementContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEngagementContextCommandOutput) => void
   ): void;
 
   /**
@@ -629,6 +670,23 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link ListOpportunityFromEngagementTasksCommand}
+   */
+  listOpportunityFromEngagementTasks(
+    args: ListOpportunityFromEngagementTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOpportunityFromEngagementTasksCommandOutput>;
+  listOpportunityFromEngagementTasks(
+    args: ListOpportunityFromEngagementTasksCommandInput,
+    cb: (err: any, data?: ListOpportunityFromEngagementTasksCommandOutput) => void
+  ): void;
+  listOpportunityFromEngagementTasks(
+    args: ListOpportunityFromEngagementTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOpportunityFromEngagementTasksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListResourceSnapshotJobsCommand}
    */
   listResourceSnapshotJobs(
@@ -759,6 +817,23 @@ export interface PartnerCentralSelling {
   ): void;
 
   /**
+   * @see {@link StartOpportunityFromEngagementTaskCommand}
+   */
+  startOpportunityFromEngagementTask(
+    args: StartOpportunityFromEngagementTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOpportunityFromEngagementTaskCommandOutput>;
+  startOpportunityFromEngagementTask(
+    args: StartOpportunityFromEngagementTaskCommandInput,
+    cb: (err: any, data?: StartOpportunityFromEngagementTaskCommandOutput) => void
+  ): void;
+  startOpportunityFromEngagementTask(
+    args: StartOpportunityFromEngagementTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOpportunityFromEngagementTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartResourceSnapshotJobCommand}
    */
   startResourceSnapshotJob(
@@ -829,6 +904,23 @@ export interface PartnerCentralSelling {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEngagementContextCommand}
+   */
+  updateEngagementContext(
+    args: UpdateEngagementContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEngagementContextCommandOutput>;
+  updateEngagementContext(
+    args: UpdateEngagementContextCommandInput,
+    cb: (err: any, data?: UpdateEngagementContextCommandOutput) => void
+  ): void;
+  updateEngagementContext(
+    args: UpdateEngagementContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEngagementContextCommandOutput) => void
   ): void;
 
   /**

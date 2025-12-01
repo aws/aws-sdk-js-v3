@@ -43,7 +43,7 @@ export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {
  * const input = { // DisassociateOpportunityRequest
  *   Catalog: "STRING_VALUE", // required
  *   OpportunityIdentifier: "STRING_VALUE", // required
- *   RelatedEntityType: "Solutions" || "AwsProducts" || "AwsMarketplaceOffers", // required
+ *   RelatedEntityType: "Solutions" || "AwsProducts" || "AwsMarketplaceOffers" || "AwsMarketplaceOfferSets", // required
  *   RelatedEntityIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DisassociateOpportunityCommand(input);

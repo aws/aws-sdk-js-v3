@@ -19,6 +19,7 @@ import {
   InvolvementTypeChangeReason,
   ListTasksSortName,
   MarketingSource,
+  MarketSegment,
   NationalSecurity,
   OpportunityEngagementInvitationSortName,
   OpportunityOrigin,
@@ -64,7 +65,7 @@ export interface AcceptEngagementInvitationRequest {
 }
 
 /**
- * <p>Indicates an invalid value for a field.</p> <ul> <li> <p> <i>REQUIRED_FIELD_MISSING:</i> The request is missing a required field.</p> <p>Fix: Verify your request payload includes all required fields.</p> </li> <li> <p> <i>INVALID_ENUM_VALUE:</i> The enum field value isn't an accepted values.</p> <p>Fix: Check the documentation for the list of valid enum values, and update your request with a valid value.</p> </li> <li> <p> <i>INVALID_STRING_FORMAT:</i> The string format is invalid.</p> <p>Fix: Confirm that the string is in the expected format (For example: email address, date).</p> </li> <li> <p> <i>INVALID_VALUE:</i> The value isn't valid.</p> <p>Fix: Confirm that the value meets the expected criteria and is within the allowable range or set.</p> </li> <li> <p> <i>TOO_MANY_VALUES:</i> There are too many values in a field that expects fewer entries.</p> <p>Fix: Reduce the number of values to match the expected limit.</p> </li> <li> <p> <i>ACTION_NOT_PERMITTED:</i> The action isn't permitted due to current state or permissions.</p> <p>Fix: Verify that the action is appropriate for the current state, and that you have the necessary permissions to perform it.</p> </li> <li> <p> <i>DUPLICATE_KEY_VALUE:</i> The value in a field duplicates a value that must be unique.</p> <p>Fix: Verify that the value is unique and doesn't duplicate an existing value in the system.</p> </li> </ul>
+ * <p>Indicates an invalid value for a field.</p> <ul> <li> <p> <i>REQUIRED_FIELD_MISSING:</i> The request is missing a required field.</p> <p>Fix: Verify your request payload includes all required fields.</p> </li> <li> <p> <i>INVALID_ENUM_VALUE:</i> The enum field value isn't an accepted values.</p> <p>Fix: Check the documentation for the list of valid enum values, and update your request with a valid value.</p> </li> <li> <p> <i>INVALID_STRING_FORMAT:</i> The string format is invalid.</p> <p>Fix: Confirm that the string is in the expected format (For example: email address, date).</p> </li> <li> <p> <i>INVALID_VALUE:</i> The value isn't valid.</p> <p>Fix: Confirm that the value meets the expected criteria and is within the allowable range or set.</p> </li> <li> <p> <i>TOO_MANY_VALUES:</i> There are too many values in a field that expects fewer entries.</p> <p>Fix: Reduce the number of values to match the expected limit.</p> </li> <li> <p> <i>NOT_ENOUGH_VALUES:</i> There are not enough values in a field that expects more entries.</p> <p>Fix: Increase the number of values to match the expected threshold.</p> </li> <li> <p> <i>ACTION_NOT_PERMITTED:</i> The action isn't permitted due to current state or permissions.</p> <p>Fix: Verify that the action is appropriate for the current state, and that you have the necessary permissions to perform it.</p> </li> <li> <p> <i>DUPLICATE_KEY_VALUE:</i> The value in a field duplicates a value that must be unique.</p> <p>Fix: Verify that the value is unique and doesn't duplicate an existing value in the system.</p> </li> </ul>
  * @public
  */
 export interface ValidationExceptionError {
@@ -277,6 +278,12 @@ export interface AssigneeContact {
    * @public
    */
   LastName: string | undefined;
+
+  /**
+   * <p>Specifies the contact phone number of the assignee responsible for the opportunity or engagement. This field enables direct communication for time-sensitive matters and facilitates coordination between AWS and partner teams.</p>
+   * @public
+   */
+  Phone?: string | undefined;
 
   /**
    * <p>Specifies the business title of the assignee managing the opportunity. This helps clarify the individual's role and responsibilities within the organization. Use the value <code>PartnerAccountManager</code> to update details of the opportunity owner.</p>
@@ -626,11 +633,168 @@ export interface CustomerProjectsContext {
 }
 
 /**
+ * <p>Contains detailed information about the customer associated with the lead, including company details, industry classification, and AWS maturity level. This information helps qualify and categorize the lead for appropriate engagement strategies.</p>
+ * @public
+ */
+export interface LeadCustomer {
+  /**
+   * <p>Specifies the industry sector to which the lead customer's company belongs. This categorization helps in understanding the customer's business context and tailoring appropriate solutions.</p>
+   * @public
+   */
+  Industry?: Industry | undefined;
+
+  /**
+   * <p>The name of the lead customer's company. This field is essential for identifying and tracking the customer organization associated with the lead.</p>
+   * @public
+   */
+  CompanyName: string | undefined;
+
+  /**
+   * <p>The website URL of the lead customer's company. This provides additional context about the customer organization and helps verify company legitimacy and size.</p>
+   * @public
+   */
+  WebsiteUrl?: string | undefined;
+
+  /**
+   * <p>An object that contains an <code>Address</code> object's subset of fields.</p>
+   * @public
+   */
+  Address: AddressSummary | undefined;
+
+  /**
+   * <p>Indicates the customer's level of experience and adoption with AWS services. This assessment helps determine the appropriate engagement approach and solution complexity.</p>
+   * @public
+   */
+  AwsMaturity?: string | undefined;
+
+  /**
+   * <p>Specifies the market segment classification of the lead customer, such as enterprise, mid-market, or small business. This segmentation helps in targeting appropriate solutions and engagement strategies.</p>
+   * @public
+   */
+  MarketSegment?: MarketSegment | undefined;
+}
+
+/**
+ * <p>An object that contains a lead contact's details associated with the engagement. This provides contact information for individuals involved in lead-related activities.</p>
+ * @public
+ */
+export interface LeadContact {
+  /**
+   * <p>The lead contact's business title or job role associated with the engagement.</p>
+   * @public
+   */
+  BusinessTitle: string | undefined;
+
+  /**
+   * <p>The lead contact's email address associated with the engagement.</p>
+   * @public
+   */
+  Email: string | undefined;
+
+  /**
+   * <p>The lead contact's first name associated with the engagement.</p>
+   * @public
+   */
+  FirstName: string | undefined;
+
+  /**
+   * <p>The lead contact's last name associated with the engagement.</p>
+   * @public
+   */
+  LastName: string | undefined;
+
+  /**
+   * <p>The lead contact's phone number associated with the engagement.</p>
+   * @public
+   */
+  Phone?: string | undefined;
+}
+
+/**
+ * <p>Represents a specific interaction or touchpoint with a lead customer. This structure captures details about communications, meetings, or other engagement activities that help track the lead's progression and engagement history.</p>
+ * @public
+ */
+export interface LeadInteraction {
+  /**
+   * <p>Specifies the type of source that generated the lead interaction, such as "Event", "Website", "Referral", or "Campaign". This categorization helps track lead generation effectiveness across different channels.</p>
+   * @public
+   */
+  SourceType: string | undefined;
+
+  /**
+   * <p>The unique identifier of the specific source that generated the lead interaction. This ID provides traceability back to the original lead generation activity.</p>
+   * @public
+   */
+  SourceId: string | undefined;
+
+  /**
+   * <p>The descriptive name of the source that generated the lead interaction, providing a human-readable identifier for the lead generation channel or activity.</p>
+   * @public
+   */
+  SourceName: string | undefined;
+
+  /**
+   * <p>Describes the specific use case or business scenario discussed during the lead interaction. This helps categorize the customer's interests and potential solutions.</p>
+   * @public
+   */
+  Usecase?: string | undefined;
+
+  /**
+   * <p>The date and time when the lead interaction occurred, in ISO 8601 format (UTC). This timestamp helps track the chronology of lead engagement activities.</p>
+   * @public
+   */
+  InteractionDate?: Date | undefined;
+
+  /**
+   * <p>Describes the action taken by the customer during or as a result of the interaction, such as requesting information, scheduling a meeting, or expressing interest in a solution.</p>
+   * @public
+   */
+  CustomerAction: string | undefined;
+
+  /**
+   * <p>Describes the business problem or challenge that the customer discussed during the interaction. This information helps qualify the lead and identify appropriate solutions.</p>
+   * @public
+   */
+  BusinessProblem?: string | undefined;
+
+  /**
+   * <p>Contains contact information for the customer representative involved in the lead interaction, including their name, title, and contact details.</p>
+   * @public
+   */
+  Contact: LeadContact | undefined;
+}
+
+/**
+ * <p>Provides comprehensive details about a lead associated with an engagement. This structure contains information about lead qualification status, customer details, and interaction history to facilitate lead management and tracking within the engagement.</p>
+ * @public
+ */
+export interface LeadContext {
+  /**
+   * <p>Indicates the current qualification status of the lead, such as whether it has been qualified, disqualified, or is still under evaluation. This helps track the lead's progression through the qualification process.</p>
+   * @public
+   */
+  QualificationStatus?: string | undefined;
+
+  /**
+   * <p>Contains detailed information about the customer associated with the lead, including company information, contact details, and other relevant customer data.</p>
+   * @public
+   */
+  Customer: LeadCustomer | undefined;
+
+  /**
+   * <p>An array of interactions that have occurred with the lead, providing a history of communications, meetings, and other engagement activities related to the lead.</p>
+   * @public
+   */
+  Interactions: LeadInteraction[] | undefined;
+}
+
+/**
  * <p>Represents the payload of an Engagement context. The structure of this payload varies based on the context type specified in the EngagementContextDetails. </p>
  * @public
  */
 export type EngagementContextPayload =
   | EngagementContextPayload.CustomerProjectMember
+  | EngagementContextPayload.LeadMember
   | EngagementContextPayload.$UnknownMember;
 
 /**
@@ -643,6 +807,17 @@ export namespace EngagementContextPayload {
    */
   export interface CustomerProjectMember {
     CustomerProject: CustomerProjectsContext;
+    Lead?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains detailed information about a lead when the context type is "Lead". This field is present only when the Type in EngagementContextDetails is set to "Lead".</p>
+   * @public
+   */
+  export interface LeadMember {
+    CustomerProject?: never;
+    Lead: LeadContext;
     $unknown?: never;
   }
 
@@ -651,6 +826,7 @@ export namespace EngagementContextPayload {
    */
   export interface $UnknownMember {
     CustomerProject?: never;
+    Lead?: never;
     $unknown: [string, any];
   }
 
@@ -660,8 +836,73 @@ export namespace EngagementContextPayload {
    */
   export interface Visitor<T> {
     CustomerProject: (value: CustomerProjectsContext) => T;
+    Lead: (value: LeadContext) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateEngagementContextRequest {
+  /**
+   * <p>Specifies the catalog associated with the engagement context request. This field takes a string value from a predefined list: <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the engagement context is created in. Use <code>AWS</code> to create contexts in the production environment, and <code>Sandbox</code> for testing in secure, isolated environments.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The unique identifier of the <code>Engagement</code> for which the context is being created. This parameter ensures the context is associated with the correct engagement and provides the necessary linkage between the engagement and its contextual information.</p>
+   * @public
+   */
+  EngagementIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier provided by the client to ensure that the request is handled exactly once. This token helps prevent duplicate context creations and must not exceed sixty-four alphanumeric characters. Use a UUID or other unique string to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Specifies the type of context being created for the engagement. This field determines the structure and content of the context payload. Valid values include <code>CustomerProject</code> for customer project-related contexts. The type field ensures that the context is properly categorized and processed according to its intended purpose.</p>
+   * @public
+   */
+  Type: EngagementContextType | undefined;
+
+  /**
+   * <p>Represents the payload of an Engagement context. The structure of this payload varies based on the context type specified in the EngagementContextDetails. </p>
+   * @public
+   */
+  Payload: EngagementContextPayload | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEngagementContextResponse {
+  /**
+   * <p>The unique identifier of the engagement to which the context was added. This ID confirms the successful association of the context with the specified engagement.</p>
+   * @public
+   */
+  EngagementId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the engagement to which the context was added. This globally unique identifier can be used for cross-service references and IAM policies.</p>
+   * @public
+   */
+  EngagementArn?: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the engagement was last modified as a result of adding the context, in ISO 8601 format (UTC). Example: "2023-05-01T20:37:46Z".</p>
+   * @public
+   */
+  EngagementLastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The unique identifier assigned to the newly created engagement context. This ID can be used to reference the specific context within the engagement for future operations.</p>
+   * @public
+   */
+  ContextId?: string | undefined;
 }
 
 /**
@@ -669,6 +910,12 @@ export namespace EngagementContextPayload {
  * @public
  */
 export interface EngagementContextDetails {
+  /**
+   * <p>The unique identifier of the engagement context. This ID is used to reference and manage the specific context within the engagement.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
   /**
    * <p>Specifies the type of Engagement context. Valid values are "CustomerProject" or "Document", indicating whether the context relates to a customer project or a document respectively. </p>
    * @public
@@ -732,6 +979,12 @@ export interface CreateEngagementResponse {
    * @public
    */
   Arn?: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the engagement was last modified, in ISO 8601 format (UTC). For newly created engagements, this value matches the creation timestamp. Example: "2023-05-01T20:37:46Z".</p>
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
 }
 
 /**
@@ -796,6 +1049,18 @@ export interface GetEngagementResponse {
    * @public
    */
   MemberCount?: number | undefined;
+
+  /**
+   * <p>The timestamp indicating when the engagement was last modified, in ISO 8601 format (UTC). Example: "2023-05-01T20:37:46Z". This helps track the most recent changes to the engagement.</p>
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The AWS account ID of the user who last modified the engagement. This field helps track who made the most recent changes to the engagement.</p>
+   * @public
+   */
+  ModifiedBy?: string | undefined;
 
   /**
    * <p>A list of context objects associated with the engagement. Each context provides additional information related to the Engagement, such as customer projects or documents.</p>
@@ -915,6 +1180,18 @@ export interface ListEngagementsRequest {
   ExcludeCreatedBy?: string[] | undefined;
 
   /**
+   * <p>Filters engagements to include only those containing the specified context types, such as "CustomerProject" or "Lead". Use this to find engagements that have specific types of contextual information associated with them.</p>
+   * @public
+   */
+  ContextTypes?: EngagementContextType[] | undefined;
+
+  /**
+   * <p>Filters engagements to exclude those containing the specified context types. Use this to find engagements that do not have certain types of contextual information, helping to narrow results based on context exclusion criteria.</p>
+   * @public
+   */
+  ExcludeContextTypes?: EngagementContextType[] | undefined;
+
+  /**
    * <p>Specifies the sorting parameters for listing Engagements.</p>
    * @public
    */
@@ -979,6 +1256,24 @@ export interface EngagementSummary {
    * @public
    */
   MemberCount?: number | undefined;
+
+  /**
+   * <p>The timestamp indicating when the engagement was last modified, in ISO 8601 format (UTC). Example: "2023-05-01T20:37:46Z".</p>
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The AWS account ID of the user who last modified the engagement. This field helps track who made the most recent changes to the engagement.</p>
+   * @public
+   */
+  ModifiedBy?: string | undefined;
+
+  /**
+   * <p>An array of context types associated with the engagement, such as "CustomerProject" or "Lead". This provides a quick overview of the types of contexts included in the engagement.</p>
+   * @public
+   */
+  ContextTypes?: EngagementContextType[] | undefined;
 }
 
 /**
@@ -1507,6 +1802,102 @@ export interface StartEngagementFromOpportunityTaskResponse {
 }
 
 /**
+ * <p>Contains customer information included in a lead invitation payload. This structure provides essential details about the customer to help partners evaluate the lead opportunity and determine their interest in engagement.</p>
+ * @public
+ */
+export interface LeadInvitationCustomer {
+  /**
+   * <p>Specifies the industry sector of the customer company associated with the lead invitation. This categorization helps partners understand the customer's business context and assess solution fit.</p>
+   * @public
+   */
+  Industry?: Industry | undefined;
+
+  /**
+   * <p>The name of the customer company associated with the lead invitation. This field identifies the target organization for the lead engagement opportunity.</p>
+   * @public
+   */
+  CompanyName: string | undefined;
+
+  /**
+   * <p>The website URL of the customer company. This provides additional context about the customer organization and helps partners verify company details and assess business size and legitimacy.</p>
+   * @public
+   */
+  WebsiteUrl?: string | undefined;
+
+  /**
+   * <p>The country code indicating the geographic location of the customer company. This information helps partners understand regional requirements and assess their ability to serve the customer effectively.</p>
+   * @public
+   */
+  CountryCode: CountryCode | undefined;
+
+  /**
+   * <p>Indicates the customer's level of experience and adoption with AWS services. This assessment helps partners understand the customer's cloud maturity and tailor their engagement approach accordingly.</p>
+   * @public
+   */
+  AwsMaturity?: string | undefined;
+
+  /**
+   * <p>Specifies the market segment classification of the customer, such as enterprise, mid-market, or small business. This segmentation helps partners determine the appropriate solution complexity and engagement strategy.</p>
+   * @public
+   */
+  MarketSegment?: MarketSegment | undefined;
+}
+
+/**
+ * <p>Represents interaction details included in a lead invitation payload. This structure provides context about how the lead was generated and the customer's engagement history to help partners assess the opportunity quality.</p>
+ * @public
+ */
+export interface LeadInvitationInteraction {
+  /**
+   * <p>Specifies the type of source that generated the lead interaction, such as "Event", "Website", or "Campaign". This helps partners understand the lead generation channel and assess lead quality based on the source type.</p>
+   * @public
+   */
+  SourceType: string | undefined;
+
+  /**
+   * <p>The unique identifier of the specific source that generated the lead interaction. This provides traceability to the original lead generation activity for reference and follow-up purposes.</p>
+   * @public
+   */
+  SourceId: string | undefined;
+
+  /**
+   * <p>The descriptive name of the source that generated the lead interaction. This human-readable identifier helps partners understand the specific lead generation channel or campaign that created the opportunity.</p>
+   * @public
+   */
+  SourceName: string | undefined;
+
+  /**
+   * <p>Describes the specific use case or business scenario associated with the lead interaction. This information helps partners understand the customer's interests and potential solution requirements.</p>
+   * @public
+   */
+  Usecase?: string | undefined;
+
+  /**
+   * <p>The business title or job role of the customer contact involved in the lead interaction. This helps partners identify the decision-making level and engagement approach for the lead.</p>
+   * @public
+   */
+  ContactBusinessTitle: string | undefined;
+}
+
+/**
+ * <p>Represents the data payload of an engagement invitation for a lead opportunity. This contains detailed information about the customer and interaction history that partners use to evaluate whether to accept the lead engagement invitation.</p>
+ * @public
+ */
+export interface LeadInvitationPayload {
+  /**
+   * <p>Contains information about the customer associated with the lead invitation. This data helps partners understand the customer's profile, industry, and business context to assess the lead opportunity.</p>
+   * @public
+   */
+  Customer: LeadInvitationCustomer | undefined;
+
+  /**
+   * <p>Describes the interaction details associated with the lead, including the source of the lead generation and customer engagement information. This context helps partners evaluate the lead quality and engagement approach.</p>
+   * @public
+   */
+  Interaction: LeadInvitationInteraction | undefined;
+}
+
+/**
  * <p>Contains details about the project associated with the Engagement Invitation, including the business problem and expected outcomes.</p>
  * @public
  */
@@ -1606,7 +1997,7 @@ export interface OpportunityInvitationPayload {
  * <p>Contains the data payload associated with the Engagement Invitation. This payload includes essential details related to the AWS opportunity and is used by partners to evaluate whether to accept or reject the engagement.</p>
  * @public
  */
-export type Payload = Payload.OpportunityInvitationMember | Payload.$UnknownMember;
+export type Payload = Payload.LeadInvitationMember | Payload.OpportunityInvitationMember | Payload.$UnknownMember;
 
 /**
  * @public
@@ -1618,6 +2009,17 @@ export namespace Payload {
    */
   export interface OpportunityInvitationMember {
     OpportunityInvitation: OpportunityInvitationPayload;
+    LeadInvitation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the details of the lead invitation within the Engagement Invitation payload. This data helps partners understand the lead context, customer information, and interaction history for the lead opportunity from AWS.</p>
+   * @public
+   */
+  export interface LeadInvitationMember {
+    OpportunityInvitation?: never;
+    LeadInvitation: LeadInvitationPayload;
     $unknown?: never;
   }
 
@@ -1626,6 +2028,7 @@ export namespace Payload {
    */
   export interface $UnknownMember {
     OpportunityInvitation?: never;
+    LeadInvitation?: never;
     $unknown: [string, any];
   }
 
@@ -1635,6 +2038,7 @@ export namespace Payload {
    */
   export interface Visitor<T> {
     OpportunityInvitation: (value: OpportunityInvitationPayload) => T;
+    LeadInvitation: (value: LeadInvitationPayload) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2554,12 +2958,6 @@ export interface GetAwsOpportunitySummaryRequest {
  */
 export interface GetAwsOpportunitySummaryResponse {
   /**
-   * <p>Specifies the catalog in which the AWS Opportunity exists. This is the environment (e.g., <code>AWS</code> or <code>Sandbox</code>) where the opportunity is being managed.</p>
-   * @public
-   */
-  Catalog: string | undefined;
-
-  /**
    * <p>Provides the unique identifier of the related partner opportunity, allowing partners to link the AWS Opportunity to their corresponding opportunity in their CRM system.</p>
    * @public
    */
@@ -2624,6 +3022,12 @@ export interface GetAwsOpportunitySummaryResponse {
    * @public
    */
   Project?: AwsOpportunityProject | undefined;
+
+  /**
+   * <p>Specifies the catalog in which the AWS Opportunity exists. This is the environment (e.g., <code>AWS</code> or <code>Sandbox</code>) where the opportunity is being managed.</p>
+   * @public
+   */
+  Catalog: string | undefined;
 }
 
 /**
@@ -2653,6 +3057,12 @@ export interface RelatedEntityIdentifiers {
    * @public
    */
   AwsMarketplaceOffers?: string[] | undefined;
+
+  /**
+   * <p>Enables the association of AWS Marketplace offer sets with the <code>Opportunity</code>. Offer sets allow grouping multiple related marketplace offers together for comprehensive solution packaging. Each value is an Amazon Resource Name (ARN) in this format: <code>arn:aws:aws-marketplace:us-east-1:999999999999:AWSMarketplace/OfferSet/offerset-sampleOfferSet32</code>.</p>
+   * @public
+   */
+  AwsMarketplaceOfferSets?: string[] | undefined;
 
   /**
    * <p>Enables partner solutions or offerings' association with an opportunity. To associate a solution, provide the solution's unique identifier, which you can obtain with the <code>ListSolutions</code> operation.</p> <p>If the specific solution identifier is not available, you can use the value <code>Other</code> and provide details about the solution in the <code>otherSolutionOffered</code> field. But when the opportunity reaches the <code>Committed</code> stage or beyond, the <code>Other</code> value cannot be used, and a valid solution identifier must be provided.</p> <p>By associating the relevant solutions with the opportunity, you can communicate the offerings that are being considered or implemented to address the customer's business problem.</p>
@@ -3145,6 +3555,248 @@ export interface UpdateOpportunityResponse {
    * @public
    */
   LastModifiedDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOpportunityFromEngagementTasksRequest {
+  /**
+   * <p>Specifies the maximum number of results to return in a single page of the response. Use this parameter to control the number of items returned in each request, which can be useful for performance tuning and managing large result sets.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for requesting the next page of results. This value is obtained from the NextToken field in the response of a previous call to this API. Use this parameter for pagination when the result set spans multiple pages.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> Defines the sorting parameters for listing tasks. This structure allows for specifying the field to sort by and the order of sorting. </p>
+   * @public
+   */
+  Sort?: ListTasksSortBase | undefined;
+
+  /**
+   * <p>Specifies the catalog related to the request. Valid values are <code>AWS</code> for production environments and <code>Sandbox</code> for testing or development purposes. The catalog determines which environment the task data is retrieved from.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>Filters the tasks based on their current status. This allows you to focus on tasks in specific states. Valid values are <code>COMPLETE</code> for tasks that have finished successfully, <code>INPROGRESS</code> for tasks that are currently running, and <code>FAILED</code> for tasks that have encountered an error and failed to complete.</p>
+   * @public
+   */
+  TaskStatus?: TaskStatus[] | undefined;
+
+  /**
+   * <p>Filters tasks by their unique identifiers. Use this when you want to retrieve information about specific tasks. Provide the task ID to get details about a particular opportunity creation task.</p>
+   * @public
+   */
+  TaskIdentifier?: string[] | undefined;
+
+  /**
+   * <p>Filters tasks by the identifiers of the opportunities they created or are associated with. Use this to find tasks related to specific opportunity creation processes.</p>
+   * @public
+   */
+  OpportunityIdentifier?: string[] | undefined;
+
+  /**
+   * <p>Filters tasks by the identifiers of the engagements from which opportunities are being created. Use this to find all opportunity creation tasks associated with a specific engagement.</p>
+   * @public
+   */
+  EngagementIdentifier?: string[] | undefined;
+
+  /**
+   * <p>Filters tasks by the identifiers of the engagement contexts associated with the opportunity creation. Use this to find tasks related to specific contextual information within engagements that are being converted to opportunities.</p>
+   * @public
+   */
+  ContextIdentifier?: string[] | undefined;
+}
+
+/**
+ * <p>Provides a summary of a task related to creating an opportunity from an engagement. This structure contains key information about the task's status, associated identifiers, and any failure details for opportunity creation processes.</p>
+ * @public
+ */
+export interface ListOpportunityFromEngagementTaskSummary {
+  /**
+   * <p>The unique identifier of the task for creating an opportunity from an engagement.</p>
+   * @public
+   */
+  TaskId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the task within AWS. This ARN can be used for referencing the task in other AWS services or APIs.</p>
+   * @public
+   */
+  TaskArn?: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the task was initiated, in RFC 3339 format.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the task. Valid values are COMPLETE, INPROGRESS, or FAILED.</p>
+   * @public
+   */
+  TaskStatus?: TaskStatus | undefined;
+
+  /**
+   * <p>A detailed message providing additional information about the task, especially useful in case of failures. This field may contain error details or other relevant information about the task's execution.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>A code indicating the specific reason for a task failure. This field is populated when the task status is FAILED and provides a categorized reason for the failure.</p>
+   * @public
+   */
+  ReasonCode?: ReasonCode | undefined;
+
+  /**
+   * <p>The unique identifier of the opportunity created as a result of the task. This field is populated when the task is completed successfully.</p>
+   * @public
+   */
+  OpportunityId?: string | undefined;
+
+  /**
+   * <p>The identifier of the resource snapshot job associated with this task, if a snapshot was created as part of the opportunity creation process.</p>
+   * @public
+   */
+  ResourceSnapshotJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the engagement from which the opportunity is being created. This field helps track the source of the opportunity creation task.</p>
+   * @public
+   */
+  EngagementId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the engagement context associated with the opportunity creation task. This links the task to specific contextual information within the engagement.</p>
+   * @public
+   */
+  ContextId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOpportunityFromEngagementTasksResponse {
+  /**
+   * <p>An array of <code>ListOpportunityFromEngagementTaskSummary</code> objects, each representing a task that matches the specified filters. The array may be empty if no tasks match the criteria.</p>
+   * @public
+   */
+  TaskSummaries?: ListOpportunityFromEngagementTaskSummary[] | undefined;
+
+  /**
+   * <p>A token used for pagination to retrieve the next page of results. If there are more results available, this field will contain a token that can be used in a subsequent API call to retrieve the next page. If there are no more results, this field will be null or an empty string.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartOpportunityFromEngagementTaskRequest {
+  /**
+   * <p>Specifies the catalog in which the opportunity creation task is executed. Acceptable values include <code>AWS</code> for production and <code>Sandbox</code> for testing environments.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>A unique token provided by the client to help ensure the idempotency of the request. It helps prevent the same task from being performed multiple times.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the engagement from which the opportunity creation task is to be initiated. This helps ensure that the task is applied to the correct engagement.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the engagement context from which to create the opportunity. This specifies the specific contextual information within the engagement that will be used for opportunity creation.</p>
+   * @public
+   */
+  ContextIdentifier: string | undefined;
+
+  /**
+   * <p>A map of the key-value pairs of the tag or tags to assign.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartOpportunityFromEngagementTaskResponse {
+  /**
+   * <p>The unique identifier of the task, used to track the task's progress.</p>
+   * @public
+   */
+  TaskId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task, used for tracking and managing the task within AWS.</p>
+   * @public
+   */
+  TaskArn?: string | undefined;
+
+  /**
+   * <p>The timestamp indicating when the task was initiated. The format follows RFC 3339 section 5.6.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>Indicates the current status of the task.</p>
+   * @public
+   */
+  TaskStatus?: TaskStatus | undefined;
+
+  /**
+   * <p>If the task fails, this field contains a detailed message describing the failure and possible recovery steps.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>Indicates the reason for task failure using an enumerated code.</p>
+   * @public
+   */
+  ReasonCode?: ReasonCode | undefined;
+
+  /**
+   * <p>The unique identifier of the opportunity created as a result of the task. This field is populated when the task is completed successfully.</p>
+   * @public
+   */
+  OpportunityId?: string | undefined;
+
+  /**
+   * <p>The identifier of the resource snapshot job created as part of the opportunity creation process.</p>
+   * @public
+   */
+  ResourceSnapshotJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the engagement from which the opportunity was created.</p>
+   * @public
+   */
+  EngagementId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the engagement context used to create the opportunity.</p>
+   * @public
+   */
+  ContextId?: string | undefined;
 }
 
 /**
@@ -4198,3 +4850,150 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * <p>Updates the context information for a lead with qualification status, customer details, and interaction data.</p>
+ * @public
+ */
+export interface UpdateLeadContext {
+  /**
+   * <p>The updated qualification status of the lead.</p>
+   * @public
+   */
+  QualificationStatus?: string | undefined;
+
+  /**
+   * <p>Updated customer information associated with the lead.</p>
+   * @public
+   */
+  Customer: LeadCustomer | undefined;
+
+  /**
+   * <p>Updated interaction details for the lead context.</p>
+   * @public
+   */
+  Interaction?: LeadInteraction | undefined;
+}
+
+/**
+ * <p>Represents the updated payload of an engagement context. The structure of this payload varies based on the context type being updated.</p>
+ * @public
+ */
+export type UpdateEngagementContextPayload =
+  | UpdateEngagementContextPayload.CustomerProjectMember
+  | UpdateEngagementContextPayload.LeadMember
+  | UpdateEngagementContextPayload.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateEngagementContextPayload {
+  /**
+   * <p>Contains updated information about a lead when the context type is "Lead". This field is present only when updating a lead context within the engagement.</p>
+   * @public
+   */
+  export interface LeadMember {
+    Lead: UpdateLeadContext;
+    CustomerProject?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The CustomerProjects structure in Engagements offers a flexible framework for managing customer-project relationships. It supports multiple customers per Engagement and multiple projects per customer, while also allowing for customers without projects and projects without specific customers. </p> <p>All Engagement members have full visibility of customers and their associated projects, enabling the capture of relevant context even when project details are not fully defined. This structure also facilitates targeted invitations, allowing partners to focus on specific customers and their business problems when sending Engagement invitations. </p>
+   * @public
+   */
+  export interface CustomerProjectMember {
+    Lead?: never;
+    CustomerProject: CustomerProjectsContext;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Lead?: never;
+    CustomerProject?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Lead: (value: UpdateLeadContext) => T;
+    CustomerProject: (value: CustomerProjectsContext) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateEngagementContextRequest {
+  /**
+   * <p>Specifies the catalog associated with the engagement context update request. This field takes a string value from a predefined list: <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the engagement context is updated in.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The unique identifier of the <code>Engagement</code> containing the context to be updated. This parameter ensures the context update is applied to the correct engagement.</p>
+   * @public
+   */
+  EngagementIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the specific engagement context to be updated. This ensures that the correct context within the engagement is modified.</p>
+   * @public
+   */
+  ContextIdentifier: string | undefined;
+
+  /**
+   * <p>The timestamp when the engagement was last modified, used for optimistic concurrency control. This helps prevent conflicts when multiple users attempt to update the same engagement simultaneously.</p>
+   * @public
+   */
+  EngagementLastModifiedAt: Date | undefined;
+
+  /**
+   * <p>Specifies the type of context being updated within the engagement. This field determines the structure and content of the context payload being modified.</p>
+   * @public
+   */
+  Type: EngagementContextType | undefined;
+
+  /**
+   * <p>Contains the updated contextual information for the engagement. The structure of this payload varies based on the context type specified in the Type field.</p>
+   * @public
+   */
+  Payload: UpdateEngagementContextPayload | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEngagementContextResponse {
+  /**
+   * <p>The unique identifier of the engagement that was updated.</p>
+   * @public
+   */
+  EngagementId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated engagement.</p>
+   * @public
+   */
+  EngagementArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the engagement context was last modified.</p>
+   * @public
+   */
+  EngagementLastModifiedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the engagement context that was updated.</p>
+   * @public
+   */
+  ContextId: string | undefined;
+}

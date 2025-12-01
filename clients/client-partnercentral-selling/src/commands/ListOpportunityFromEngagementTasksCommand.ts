@@ -4,13 +4,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListEngagementInvitationsRequest, ListEngagementInvitationsResponse } from "../models/models_0";
+import {
+  ListOpportunityFromEngagementTasksRequest,
+  ListOpportunityFromEngagementTasksResponse,
+} from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { ListEngagementInvitations } from "../schemas/schemas_0";
+import { ListOpportunityFromEngagementTasks } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,71 +23,67 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListEngagementInvitationsCommand}.
+ * The input for {@link ListOpportunityFromEngagementTasksCommand}.
  */
-export interface ListEngagementInvitationsCommandInput extends ListEngagementInvitationsRequest {}
+export interface ListOpportunityFromEngagementTasksCommandInput extends ListOpportunityFromEngagementTasksRequest {}
 /**
  * @public
  *
- * The output of {@link ListEngagementInvitationsCommand}.
+ * The output of {@link ListOpportunityFromEngagementTasksCommand}.
  */
-export interface ListEngagementInvitationsCommandOutput extends ListEngagementInvitationsResponse, __MetadataBearer {}
+export interface ListOpportunityFromEngagementTasksCommandOutput
+  extends ListOpportunityFromEngagementTasksResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of engagement invitations sent to the partner. This allows partners to view all pending or past engagement invitations, helping them track opportunities shared by AWS.</p>
+ * <p>Lists all in-progress, completed, or failed opportunity creation tasks from engagements that were initiated by the caller's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, ListEngagementInvitationsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, ListEngagementInvitationsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, ListOpportunityFromEngagementTasksCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, ListOpportunityFromEngagementTasksCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
  * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // ListEngagementInvitationsRequest
- *   Catalog: "STRING_VALUE", // required
+ * const input = { // ListOpportunityFromEngagementTasksRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Sort: { // OpportunityEngagementInvitationSort
+ *   Sort: { // ListTasksSortBase
  *     SortOrder: "ASCENDING" || "DESCENDING", // required
- *     SortBy: "InvitationDate", // required
+ *     SortBy: "StartTime", // required
  *   },
- *   PayloadType: [ // EngagementInvitationsPayloadType
- *     "OpportunityInvitation" || "LeadInvitation",
+ *   Catalog: "STRING_VALUE", // required
+ *   TaskStatus: [ // TaskStatuses
+ *     "IN_PROGRESS" || "COMPLETE" || "FAILED",
  *   ],
- *   ParticipantType: "SENDER" || "RECEIVER", // required
- *   Status: [ // InvitationStatusList
- *     "ACCEPTED" || "PENDING" || "REJECTED" || "EXPIRED",
+ *   TaskIdentifier: [ // TaskIdentifiers
+ *     "STRING_VALUE",
+ *   ],
+ *   OpportunityIdentifier: [ // OpportunityIdentifiers
+ *     "STRING_VALUE",
  *   ],
  *   EngagementIdentifier: [ // EngagementIdentifiers
  *     "STRING_VALUE",
  *   ],
- *   SenderAwsAccountId: [ // AwsAccountIdOrAliasList
+ *   ContextIdentifier: [ // ContextIdentifiers
  *     "STRING_VALUE",
  *   ],
  * };
- * const command = new ListEngagementInvitationsCommand(input);
+ * const command = new ListOpportunityFromEngagementTasksCommand(input);
  * const response = await client.send(command);
- * // { // ListEngagementInvitationsResponse
- * //   EngagementInvitationSummaries: [ // EngagementInvitationSummaries
- * //     { // EngagementInvitationSummary
- * //       Arn: "STRING_VALUE",
- * //       PayloadType: "OpportunityInvitation" || "LeadInvitation",
- * //       Id: "STRING_VALUE", // required
+ * // { // ListOpportunityFromEngagementTasksResponse
+ * //   TaskSummaries: [ // ListOpportunityFromEngagementTaskSummaries
+ * //     { // ListOpportunityFromEngagementTaskSummary
+ * //       TaskId: "STRING_VALUE",
+ * //       TaskArn: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       TaskStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
+ * //       Message: "STRING_VALUE",
+ * //       ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "InternalError" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "ServiceQuotaExceeded" || "RequestThrottled" || "ContextNotFound" || "CustomerProjectContextNotPermitted" || "DisqualifiedLeadNotPermitted",
+ * //       OpportunityId: "STRING_VALUE",
+ * //       ResourceSnapshotJobId: "STRING_VALUE",
  * //       EngagementId: "STRING_VALUE",
- * //       EngagementTitle: "STRING_VALUE",
- * //       Status: "ACCEPTED" || "PENDING" || "REJECTED" || "EXPIRED",
- * //       InvitationDate: new Date("TIMESTAMP"),
- * //       ExpirationDate: new Date("TIMESTAMP"),
- * //       SenderAwsAccountId: "STRING_VALUE",
- * //       SenderCompanyName: "STRING_VALUE",
- * //       Receiver: { // Receiver Union: only one key present
- * //         Account: { // AccountReceiver
- * //           Alias: "STRING_VALUE",
- * //           AwsAccountId: "STRING_VALUE", // required
- * //         },
- * //       },
- * //       Catalog: "STRING_VALUE", // required
- * //       ParticipantType: "SENDER" || "RECEIVER",
+ * //       ContextId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -92,10 +91,10 @@ export interface ListEngagementInvitationsCommandOutput extends ListEngagementIn
  *
  * ```
  *
- * @param ListEngagementInvitationsCommandInput - {@link ListEngagementInvitationsCommandInput}
- * @returns {@link ListEngagementInvitationsCommandOutput}
- * @see {@link ListEngagementInvitationsCommandInput} for command's `input` shape.
- * @see {@link ListEngagementInvitationsCommandOutput} for command's `response` shape.
+ * @param ListOpportunityFromEngagementTasksCommandInput - {@link ListOpportunityFromEngagementTasksCommandInput}
+ * @returns {@link ListOpportunityFromEngagementTasksCommandOutput}
+ * @see {@link ListOpportunityFromEngagementTasksCommandInput} for command's `input` shape.
+ * @see {@link ListOpportunityFromEngagementTasksCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -119,10 +118,10 @@ export interface ListEngagementInvitationsCommandOutput extends ListEngagementIn
  *
  * @public
  */
-export class ListEngagementInvitationsCommand extends $Command
+export class ListOpportunityFromEngagementTasksCommand extends $Command
   .classBuilder<
-    ListEngagementInvitationsCommandInput,
-    ListEngagementInvitationsCommandOutput,
+    ListOpportunityFromEngagementTasksCommandInput,
+    ListOpportunityFromEngagementTasksCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -131,19 +130,19 @@ export class ListEngagementInvitationsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSPartnerCentralSelling", "ListEngagementInvitations", {})
-  .n("PartnerCentralSellingClient", "ListEngagementInvitationsCommand")
-  .sc(ListEngagementInvitations)
+  .s("AWSPartnerCentralSelling", "ListOpportunityFromEngagementTasks", {})
+  .n("PartnerCentralSellingClient", "ListOpportunityFromEngagementTasksCommand")
+  .sc(ListOpportunityFromEngagementTasks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListEngagementInvitationsRequest;
-      output: ListEngagementInvitationsResponse;
+      input: ListOpportunityFromEngagementTasksRequest;
+      output: ListOpportunityFromEngagementTasksResponse;
     };
     sdk: {
-      input: ListEngagementInvitationsCommandInput;
-      output: ListEngagementInvitationsCommandOutput;
+      input: ListOpportunityFromEngagementTasksCommandInput;
+      output: ListOpportunityFromEngagementTasksCommandOutput;
     };
   };
 }

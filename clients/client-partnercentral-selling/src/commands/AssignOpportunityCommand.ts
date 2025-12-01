@@ -47,6 +47,7 @@ export interface AssignOpportunityCommandOutput extends __MetadataBearer {}
  *     Email: "STRING_VALUE", // required
  *     FirstName: "STRING_VALUE", // required
  *     LastName: "STRING_VALUE", // required
+ *     Phone: "STRING_VALUE",
  *     BusinessTitle: "STRING_VALUE", // required
  *   },
  * };

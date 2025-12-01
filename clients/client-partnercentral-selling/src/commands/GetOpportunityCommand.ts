@@ -136,6 +136,9 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * //     AwsMarketplaceOffers: [ // AwsMarketplaceOfferIdentifiers
  * //       "STRING_VALUE",
  * //     ],
+ * //     AwsMarketplaceOfferSets: [ // AwsMarketplaceOfferSetIdentifiers
+ * //       "STRING_VALUE",
+ * //     ],
  * //     Solutions: [ // SolutionIdentifiers
  * //       "STRING_VALUE",
  * //     ],

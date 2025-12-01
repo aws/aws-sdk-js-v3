@@ -68,6 +68,10 @@ import {
 } from "./commands/AssociateOpportunityCommand";
 import { CreateEngagementCommandInput, CreateEngagementCommandOutput } from "./commands/CreateEngagementCommand";
 import {
+  CreateEngagementContextCommandInput,
+  CreateEngagementContextCommandOutput,
+} from "./commands/CreateEngagementContextCommand";
+import {
   CreateEngagementInvitationCommandInput,
   CreateEngagementInvitationCommandOutput,
 } from "./commands/CreateEngagementInvitationCommand";
@@ -133,6 +137,10 @@ import {
 import { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "./commands/ListEngagementsCommand";
 import { ListOpportunitiesCommandInput, ListOpportunitiesCommandOutput } from "./commands/ListOpportunitiesCommand";
 import {
+  ListOpportunityFromEngagementTasksCommandInput,
+  ListOpportunityFromEngagementTasksCommandOutput,
+} from "./commands/ListOpportunityFromEngagementTasksCommand";
+import {
   ListResourceSnapshotJobsCommandInput,
   ListResourceSnapshotJobsCommandOutput,
 } from "./commands/ListResourceSnapshotJobsCommand";
@@ -162,6 +170,10 @@ import {
   StartEngagementFromOpportunityTaskCommandOutput,
 } from "./commands/StartEngagementFromOpportunityTaskCommand";
 import {
+  StartOpportunityFromEngagementTaskCommandInput,
+  StartOpportunityFromEngagementTaskCommandOutput,
+} from "./commands/StartOpportunityFromEngagementTaskCommand";
+import {
   StartResourceSnapshotJobCommandInput,
   StartResourceSnapshotJobCommandOutput,
 } from "./commands/StartResourceSnapshotJobCommand";
@@ -172,6 +184,10 @@ import {
 import { SubmitOpportunityCommandInput, SubmitOpportunityCommandOutput } from "./commands/SubmitOpportunityCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateEngagementContextCommandInput,
+  UpdateEngagementContextCommandOutput,
+} from "./commands/UpdateEngagementContextCommand";
 import { UpdateOpportunityCommandInput, UpdateOpportunityCommandOutput } from "./commands/UpdateOpportunityCommand";
 import {
   ClientInputEndpointParameters,
@@ -192,6 +208,7 @@ export type ServiceInputTypes =
   | AssignOpportunityCommandInput
   | AssociateOpportunityCommandInput
   | CreateEngagementCommandInput
+  | CreateEngagementContextCommandInput
   | CreateEngagementInvitationCommandInput
   | CreateOpportunityCommandInput
   | CreateResourceSnapshotCommandInput
@@ -212,6 +229,7 @@ export type ServiceInputTypes =
   | ListEngagementResourceAssociationsCommandInput
   | ListEngagementsCommandInput
   | ListOpportunitiesCommandInput
+  | ListOpportunityFromEngagementTasksCommandInput
   | ListResourceSnapshotJobsCommandInput
   | ListResourceSnapshotsCommandInput
   | ListSolutionsCommandInput
@@ -220,11 +238,13 @@ export type ServiceInputTypes =
   | RejectEngagementInvitationCommandInput
   | StartEngagementByAcceptingInvitationTaskCommandInput
   | StartEngagementFromOpportunityTaskCommandInput
+  | StartOpportunityFromEngagementTaskCommandInput
   | StartResourceSnapshotJobCommandInput
   | StopResourceSnapshotJobCommandInput
   | SubmitOpportunityCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateEngagementContextCommandInput
   | UpdateOpportunityCommandInput;
 
 /**
@@ -235,6 +255,7 @@ export type ServiceOutputTypes =
   | AssignOpportunityCommandOutput
   | AssociateOpportunityCommandOutput
   | CreateEngagementCommandOutput
+  | CreateEngagementContextCommandOutput
   | CreateEngagementInvitationCommandOutput
   | CreateOpportunityCommandOutput
   | CreateResourceSnapshotCommandOutput
@@ -255,6 +276,7 @@ export type ServiceOutputTypes =
   | ListEngagementResourceAssociationsCommandOutput
   | ListEngagementsCommandOutput
   | ListOpportunitiesCommandOutput
+  | ListOpportunityFromEngagementTasksCommandOutput
   | ListResourceSnapshotJobsCommandOutput
   | ListResourceSnapshotsCommandOutput
   | ListSolutionsCommandOutput
@@ -263,11 +285,13 @@ export type ServiceOutputTypes =
   | RejectEngagementInvitationCommandOutput
   | StartEngagementByAcceptingInvitationTaskCommandOutput
   | StartEngagementFromOpportunityTaskCommandOutput
+  | StartOpportunityFromEngagementTaskCommandOutput
   | StartResourceSnapshotJobCommandOutput
   | StopResourceSnapshotJobCommandOutput
   | SubmitOpportunityCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateEngagementContextCommandOutput
   | UpdateOpportunityCommandOutput;
 
 /**

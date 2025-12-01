@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ValidationExceptionReason } from "./enums";
+import { AccessDeniedExceptionErrorCode, ValidationExceptionReason } from "./enums";
 import { ValidationExceptionError } from "./models_0";
 import { PartnerCentralSellingServiceException as __BaseException } from "./PartnerCentralSellingServiceException";
 
@@ -14,6 +14,11 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
+   * <p>The reason why access was denied for the requested operation.</p>
+   * @public
+   */
+  Reason?: AccessDeniedExceptionErrorCode | undefined;
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
@@ -24,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
 
