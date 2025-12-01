@@ -371,6 +371,32 @@ export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
  * @public
  * @enum
  */
+export const MembershipInferenceAttackVersion = {
+  DISTANCE_TO_CLOSEST_RECORD_V1: "DISTANCE_TO_CLOSEST_RECORD_V1",
+} as const;
+/**
+ * @public
+ */
+export type MembershipInferenceAttackVersion =
+  (typeof MembershipInferenceAttackVersion)[keyof typeof MembershipInferenceAttackVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const SyntheticDataColumnType = {
+  CATEGORICAL: "CATEGORICAL",
+  NUMERICAL: "NUMERICAL",
+} as const;
+/**
+ * @public
+ */
+export type SyntheticDataColumnType = (typeof SyntheticDataColumnType)[keyof typeof SyntheticDataColumnType];
+
+/**
+ * @public
+ * @enum
+ */
 export const S3DataDistributionType = {
   FULLY_REPLICATED: "FullyReplicated",
   SHARDED_BY_S3_KEY: "ShardedByS3Key",

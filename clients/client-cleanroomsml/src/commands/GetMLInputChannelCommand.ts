@@ -76,6 +76,31 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * //     ],
  * //   },
  * //   description: "STRING_VALUE",
+ * //   syntheticDataConfiguration: { // SyntheticDataConfiguration
+ * //     syntheticDataParameters: { // MLSyntheticDataParameters
+ * //       epsilon: Number("double"), // required
+ * //       maxMembershipInferenceAttackScore: Number("double"), // required
+ * //       columnClassification: { // ColumnClassificationDetails
+ * //         columnMapping: [ // ColumnMappingList // required
+ * //           { // SyntheticDataColumnProperties
+ * //             columnName: "STRING_VALUE", // required
+ * //             columnType: "CATEGORICAL" || "NUMERICAL", // required
+ * //             isPredictiveValue: true || false, // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     syntheticDataEvaluationScores: { // SyntheticDataEvaluationScores
+ * //       dataPrivacyScores: { // DataPrivacyScores
+ * //         membershipInferenceAttackScores: [ // MembershipInferenceAttackScoreList // required
+ * //           { // MembershipInferenceAttackScore
+ * //             attackVersion: "DISTANCE_TO_CLOSEST_RECORD_V1", // required
+ * //             score: Number("double"), // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
  * //   createTime: new Date("TIMESTAMP"), // required
  * //   updateTime: new Date("TIMESTAMP"), // required
  * //   inputChannel: { // InputChannel

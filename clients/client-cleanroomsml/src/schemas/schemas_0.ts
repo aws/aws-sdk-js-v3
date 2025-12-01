@@ -24,6 +24,7 @@ const _CC = "ContainerConfig";
 const _CCAM = "CreateConfiguredAudienceModel";
 const _CCAMR = "CreateConfiguredAudienceModelRequest";
 const _CCAMRr = "CreateConfiguredAudienceModelResponse";
+const _CCD = "ColumnClassificationDetails";
 const _CCMA = "CreateConfiguredModelAlgorithm";
 const _CCMAA = "CreateConfiguredModelAlgorithmAssociation";
 const _CCMAAL = "CollaborationConfiguredModelAlgorithmAssociationList";
@@ -39,6 +40,7 @@ const _CMAAL = "ConfiguredModelAlgorithmAssociationList";
 const _CMAAS = "ConfiguredModelAlgorithmAssociationSummary";
 const _CMAL = "ConfiguredModelAlgorithmList";
 const _CMAS = "ConfiguredModelAlgorithmSummary";
+const _CML = "ColumnMappingList";
 const _CMLIC = "CreateMLInputChannel";
 const _CMLICL = "CollaborationMLInputChannelsList";
 const _CMLICR = "CreateMLInputChannelRequest";
@@ -80,6 +82,7 @@ const _DMLC = "DeleteMLConfiguration";
 const _DMLCR = "DeleteMLConfigurationRequest";
 const _DMLICD = "DeleteMLInputChannelData";
 const _DMLICDR = "DeleteMLInputChannelDataRequest";
+const _DPS = "DataPrivacyScores";
 const _DS = "DataSource";
 const _DSL = "DatasetSchemaList";
 const _DTD = "DeleteTrainingDataset";
@@ -200,10 +203,13 @@ const _LTMVRi = "ListTrainedModelVersionsResponse";
 const _MCP = "MetricsConfigurationPolicy";
 const _MD = "MetricDefinition";
 const _MDL = "MetricDefinitionList";
+const _MIAS = "MembershipInferenceAttackScore";
+const _MIASL = "MembershipInferenceAttackScoreList";
 const _MIDS = "ModelInferenceDataSource";
 const _MLICL = "MLInputChannelsList";
 const _MLICS = "MLInputChannelSummary";
 const _MLOC = "MLOutputConfiguration";
+const _MLSDP = "MLSyntheticDataParameters";
 const _MTDC = "ModelTrainingDataChannel";
 const _MTDCo = "ModelTrainingDataChannels";
 const _PB = "PrivacyBudgets";
@@ -228,6 +234,9 @@ const _SAGJRt = "StartAudienceGenerationJobResponse";
 const _SC = "StoppingCondition";
 const _SCM = "S3ConfigMap";
 const _SD = "StatusDetails";
+const _SDC = "SyntheticDataConfiguration";
+const _SDCP = "SyntheticDataColumnProperties";
+const _SDES = "SyntheticDataEvaluationScores";
 const _SQEE = "ServiceQuotaExceededException";
 const _STMEJ = "StartTrainedModelExportJob";
 const _STMEJR = "StartTrainedModelExportJobRequest";
@@ -277,6 +286,7 @@ const _aSB = "audienceSizeBins";
 const _aSC = "audienceSizeConfig";
 const _aST = "audienceSizeType";
 const _aTA = "analysisTemplateArn";
+const _aV = "attackVersion";
 const _ac = "accept";
 const _b = "budget";
 const _bT = "budgetType";
@@ -285,8 +295,9 @@ const _cAI = "creatorAccountId";
 const _cAM = "configuredAudienceModels";
 const _cAMA = "configuredAudienceModelArn";
 const _cAMP = "configuredAudienceModelPolicy";
-const _cC = "computeConfiguration";
+const _cC = "columnClassification";
 const _cCMAA = "collaborationConfiguredModelAlgorithmAssociations";
+const _cCo = "computeConfiguration";
 const _cDI = "customDataIdentifiers";
 const _cEC = "customEntityConfig";
 const _cEP = "containerExecutionParameters";
@@ -294,12 +305,13 @@ const _cI = "collaborationId";
 const _cIa = "catalogId";
 const _cIo = "collaborationIdentifier";
 const _cL = "containerLogs";
-const _cM = "containerMetrics";
+const _cM = "columnMapping";
 const _cMA = "configuredModelAlgorithms";
 const _cMAA = "configuredModelAlgorithmArn";
 const _cMAAA = "configuredModelAlgorithmAssociationArn";
 const _cMAAo = "configuredModelAlgorithmAssociations";
 const _cMLICL = "collaborationMLInputChannelsList";
+const _cMo = "containerMetrics";
 const _cN = "columnName";
 const _cNh = "channelName";
 const _cRTOCP = "childResourceTagOnCreatePolicy";
@@ -308,10 +320,12 @@ const _cTM = "collaborationTrainedModels";
 const _cTMEJ = "collaborationTrainedModelExportJobs";
 const _cTMIJ = "collaborationTrainedModelInferenceJobs";
 const _cTo = "columnTypes";
+const _cTol = "columnType";
 const _d = "details";
 const _dC = "dataChannels";
 const _dN = "databaseName";
 const _dOL = "defaultOutputLocation";
+const _dPS = "dataPrivacyScores";
 const _dS = "dataSource";
 const _de = "description";
 const _des = "destination";
@@ -320,6 +334,7 @@ const _eT = "endTime";
 const _eTR = "entitiesToRedact";
 const _en = "entrypoint";
 const _env = "environment";
+const _ep = "epsilon";
 const _fP = "filterPattern";
 const _fTE = "filesToExport";
 const _gDS = "glueDataSource";
@@ -332,6 +347,7 @@ const _iCC = "inferenceContainerConfig";
 const _iCID = "inferenceContainerImageDigest";
 const _iCn = "inputConfig";
 const _iCns = "instanceCount";
+const _iPV = "isPredictiveValue";
 const _iSIO = "includeSeedInOutput";
 const _iT = "instanceType";
 const _iTDC = "incrementalTrainingDataChannels";
@@ -345,8 +361,10 @@ const _m = "message";
 const _mAS = "maxArtifactSize";
 const _mD = "metricDefinitions";
 const _mI = "membershipIdentifier";
+const _mIAS = "membershipInferenceAttackScores";
 const _mICA = "mlInputChannelArn";
 const _mICL = "mlInputChannelsList";
+const _mMIAS = "maxMembershipInferenceAttackScore";
 const _mMSS = "minMatchingSeedSize";
 const _mN = "modelName";
 const _mOS = "maxOutputSize";
@@ -396,7 +414,10 @@ const _sC = "stoppingCondition";
 const _sCC = "sqlComputeConfiguration";
 const _sCt = "statusCode";
 const _sD = "s3Destination";
+const _sDC = "syntheticDataConfiguration";
 const _sDDT = "s3DataDistributionType";
+const _sDES = "syntheticDataEvaluationScores";
+const _sDP = "syntheticDataParameters";
 const _sDt = "statusDetails";
 const _sIG = "sizeInGb";
 const _sP = "sqlParameters";
@@ -588,6 +609,7 @@ export var CollaborationTrainedModelSummary: StaticStructureSchema = [
   [_cT, _uT, _tMA, _n, _vI, _iTDC, _de, _mI, _cIo, _s, _cMAAA, _cAI],
   [5, 5, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0, 0, 0, 0, 0, 0],
 ];
+export var ColumnClassificationDetails: StaticStructureSchema = [3, n0, _CCD, 0, [_cM], [() => ColumnMappingList]];
 export var ColumnSchema: StaticStructureSchema = [3, n0, _CS, 0, [_cN, _cTo], [0, 64 | 0]];
 export var ConfiguredAudienceModelOutputConfig: StaticStructureSchema = [
   3,
@@ -727,6 +749,14 @@ export var CreateTrainingDatasetRequest: StaticStructureSchema = [
 ];
 export var CreateTrainingDatasetResponse: StaticStructureSchema = [3, n0, _CTDRr, 0, [_tDA], [0]];
 export var CustomEntityConfig: StaticStructureSchema = [3, n0, _CEC, 0, [_cDI], [64 | 0]];
+export var DataPrivacyScores: StaticStructureSchema = [
+  3,
+  n0,
+  _DPS,
+  0,
+  [_mIAS],
+  [() => MembershipInferenceAttackScoreList],
+];
 export var Dataset: StaticStructureSchema = [3, n0, _D, 0, [_t, _iCn], [0, () => DatasetInputConfig]];
 export var DatasetInputConfig: StaticStructureSchema = [
   3,
@@ -853,8 +883,24 @@ export var GetCollaborationMLInputChannelResponse: StaticStructureSchema = [
   n0,
   _GCMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _cT, _uT, _cAI],
-  [0, 0, 0, 0, 64 | 0, 0, () => StatusDetails, 1, 1, () => PrivacyBudgets, 0, 5, 5, 0],
+  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _sDC, _cT, _uT, _cAI],
+  [
+    0,
+    0,
+    0,
+    0,
+    64 | 0,
+    0,
+    () => StatusDetails,
+    1,
+    1,
+    () => PrivacyBudgets,
+    0,
+    () => SyntheticDataConfiguration,
+    5,
+    5,
+    0,
+  ],
 ];
 export var GetCollaborationTrainedModelRequest: StaticStructureSchema = [
   3,
@@ -974,7 +1020,7 @@ export var GetMLInputChannelResponse: StaticStructureSchema = [
   n0,
   _GMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _cT, _uT, _iC, _pQI, _nOF, _sIG, _kKA, _ta],
+  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _sDC, _cT, _uT, _iC, _pQI, _nOF, _sIG, _kKA, _ta],
   [
     0,
     0,
@@ -987,6 +1033,7 @@ export var GetMLInputChannelResponse: StaticStructureSchema = [
     1,
     () => PrivacyBudgets,
     0,
+    () => SyntheticDataConfiguration,
     5,
     5,
     [() => InputChannel, 0],
@@ -1734,6 +1781,7 @@ export var LogsConfigurationPolicy: StaticStructureSchema = [
   [_aAI, _fP, _lT, _lRC],
   [64 | 0, 0, 0, () => LogRedactionConfiguration],
 ];
+export var MembershipInferenceAttackScore: StaticStructureSchema = [3, n0, _MIAS, 0, [_aV, _sco], [0, 1]];
 export var MetricDefinition: StaticStructureSchema = [3, n0, _MD, 0, [_n, _r], [0, 0]];
 export var MetricsConfigurationPolicy: StaticStructureSchema = [3, n0, _MCP, 0, [_nL], [0]];
 export var MLInputChannelSummary: StaticStructureSchema = [
@@ -1745,6 +1793,14 @@ export var MLInputChannelSummary: StaticStructureSchema = [
   [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0],
 ];
 export var MLOutputConfiguration: StaticStructureSchema = [3, n0, _MLOC, 0, [_des, _rAo], [() => Destination, 0]];
+export var MLSyntheticDataParameters: StaticStructureSchema = [
+  3,
+  n0,
+  _MLSDP,
+  0,
+  [_ep, _mMIAS, _cC],
+  [1, 1, () => ColumnClassificationDetails],
+];
 export var ModelInferenceDataSource: StaticStructureSchema = [3, n0, _MIDS, 0, [_mICA], [0]];
 export var ModelTrainingDataChannel: StaticStructureSchema = [3, n0, _MTDC, 0, [_mICA, _cNh, _sDDT], [0, 0, 0]];
 export var PrivacyConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_p], [() => PrivacyConfigurationPolicies]];
@@ -1765,7 +1821,7 @@ export var ProtectedQueryInputParameters: StaticStructureSchema = [
   n0,
   _PQIP,
   0,
-  [_sP, _cC, _rF],
+  [_sP, _cCo, _rF],
   [[() => ProtectedQuerySQLParameters, 0], () => ComputeConfiguration, 0],
 ];
 export var ProtectedQuerySQLParameters: StaticStructureSchema = [3, n0, _PQSQLP, 8, [_qS, _aTA, _pa], [0, 0, 128 | 0]];
@@ -1865,6 +1921,16 @@ export var StartTrainedModelInferenceJobRequest: StaticStructureSchema = [
 export var StartTrainedModelInferenceJobResponse: StaticStructureSchema = [3, n0, _STMIJRt, 0, [_tMIJA], [0]];
 export var StatusDetails: StaticStructureSchema = [3, n0, _SD, 0, [_sCt, _m], [0, 0]];
 export var StoppingCondition: StaticStructureSchema = [3, n0, _SC, 0, [_mRIS], [1]];
+export var SyntheticDataColumnProperties: StaticStructureSchema = [3, n0, _SDCP, 0, [_cN, _cTol, _iPV], [0, 0, 2]];
+export var SyntheticDataConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SDC,
+  0,
+  [_sDP, _sDES],
+  [() => MLSyntheticDataParameters, () => SyntheticDataEvaluationScores],
+];
+export var SyntheticDataEvaluationScores: StaticStructureSchema = [3, n0, _SDES, 0, [_dPS], [() => DataPrivacyScores]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
@@ -1921,7 +1987,7 @@ export var TrainedModelsConfigurationPolicy: StaticStructureSchema = [
   n0,
   _TMCP,
   0,
-  [_cL, _cM, _mAS],
+  [_cL, _cMo, _mAS],
   [() => LogsConfigurationPolicyList, () => MetricsConfigurationPolicy, () => TrainedModelArtifactMaxSize],
 ];
 export var TrainedModelSummary: StaticStructureSchema = [
@@ -2023,6 +2089,7 @@ export var CollaborationTrainedModelInferenceJobList: StaticListSchema = [
   () => CollaborationTrainedModelInferenceJobSummary,
 ];
 export var CollaborationTrainedModelList: StaticListSchema = [1, n0, _CTML, 0, () => CollaborationTrainedModelSummary];
+export var ColumnMappingList: StaticListSchema = [1, n0, _CML, 0, () => SyntheticDataColumnProperties];
 export var ColumnTypeList = 64 | 0;
 
 export var ConfiguredAudienceModelList: StaticListSchema = [1, n0, _CAML, 0, () => ConfiguredAudienceModelSummary];
@@ -2056,6 +2123,13 @@ export var IncrementalTrainingDataChannelsOutput: StaticListSchema = [
 ];
 export var InferenceReceiverMembers: StaticListSchema = [1, n0, _IRMn, 0, () => InferenceReceiverMember];
 export var LogsConfigurationPolicyList: StaticListSchema = [1, n0, _LCPL, 0, () => LogsConfigurationPolicy];
+export var MembershipInferenceAttackScoreList: StaticListSchema = [
+  1,
+  n0,
+  _MIASL,
+  0,
+  () => MembershipInferenceAttackScore,
+];
 export var MetricDefinitionList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDefinition];
 export var MetricsList = 64 | 0;
 
