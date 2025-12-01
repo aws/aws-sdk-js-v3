@@ -1,0 +1,100 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import {
+  Route53GlobalResolverClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../Route53GlobalResolverClient";
+import { UntagResource } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+export { $Command };
+/**
+ * @public
+ *
+ * The input for {@link UntagResourceCommand}.
+ */
+export interface UntagResourceCommandInput extends UntagResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UntagResourceCommand}.
+ */
+export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+
+/**
+ * <p>Removes tags from a Route 53 Global Resolver resource.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53GlobalResolverClient, UntagResourceCommand } from "@aws-sdk/client-route53globalresolver"; // ES Modules import
+ * // const { Route53GlobalResolverClient, UntagResourceCommand } = require("@aws-sdk/client-route53globalresolver"); // CommonJS import
+ * // import type { Route53GlobalResolverClientConfig } from "@aws-sdk/client-route53globalresolver";
+ * const config = {}; // type is Route53GlobalResolverClientConfig
+ * const client = new Route53GlobalResolverClient(config);
+ * const input = { // UntagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // TagKeys // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link Route53GlobalResolverClientResolvedConfig | config} for Route53GlobalResolverClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found. Verify the resource ID and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters are invalid. Check the parameter values and try again.</p>
+ *
+ * @throws {@link Route53GlobalResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53GlobalResolver service.</p>
+ *
+ *
+ * @public
+ */
+export class UntagResourceCommand extends $Command
+  .classBuilder<
+    UntagResourceCommandInput,
+    UntagResourceCommandOutput,
+    Route53GlobalResolverClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep(commonParams)
+  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+  })
+  .s("EC2DNSGlobalResolverCustomerAPI", "UntagResource", {})
+  .n("Route53GlobalResolverClient", "UntagResourceCommand")
+  .sc(UntagResource)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}
