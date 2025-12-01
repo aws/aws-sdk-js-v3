@@ -67,6 +67,8 @@ const _MI = "MessageId";
 const _MIe = "MeetingId";
 const _MM = "MessageMetadata";
 const _MP = "MediaPlacement";
+const _MPM = "MessageProcessingMetadata";
+const _MPS = "MessageProcessingStatus";
 const _MR = "MaxResults";
 const _MRo = "MostRecent";
 const _Me = "Meeting";
@@ -365,7 +367,8 @@ export var Item: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 0, () => Attachments, () => MessageMetadata, 0, 0],
 ];
 export var MeetingFeaturesConfiguration: StaticStructureSchema = [3, n0, _MFC, 0, [_Au], [() => AudioFeatures]];
-export var MessageMetadata: StaticStructureSchema = [3, n0, _MM, 0, [_MI, _R], [0, () => Receipts]];
+export var MessageMetadata: StaticStructureSchema = [3, n0, _MM, 0, [_MI, _R, _MPS], [0, () => Receipts, 0]];
+export var MessageProcessingMetadata: StaticStructureSchema = [3, n0, _MPM, 0, [_MPS], [0]];
 export var Receipt: StaticStructureSchema = [3, n0, _Re, 0, [_DT, _RT, _RPI], [0, 0, 0]];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
@@ -417,7 +420,14 @@ export var SendMessageRequest: StaticStructureSchema = [
     ],
   ],
 ];
-export var SendMessageResponse: StaticStructureSchema = [3, n0, _SMRe, 0, [_Id, _AT], [0, 0]];
+export var SendMessageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _SMRe,
+  0,
+  [_Id, _AT, _MM],
+  [0, 0, () => MessageProcessingMetadata],
+];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,

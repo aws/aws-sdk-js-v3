@@ -59,6 +59,9 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * // { // SendMessageResponse
  * //   Id: "STRING_VALUE",
  * //   AbsoluteTime: "STRING_VALUE",
+ * //   MessageMetadata: { // MessageProcessingMetadata
+ * //     MessageProcessingStatus: "PROCESSING" || "FAILED" || "REJECTED",
+ * //   },
  * // };
  *
  * ```

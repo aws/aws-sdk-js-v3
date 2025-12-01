@@ -129,6 +129,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * //             RecipientParticipantId: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         MessageProcessingStatus: "PROCESSING" || "FAILED" || "REJECTED",
  * //       },
  * //       RelatedContactId: "STRING_VALUE",
  * //       ContactId: "STRING_VALUE",

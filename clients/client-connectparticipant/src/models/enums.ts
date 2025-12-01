@@ -89,6 +89,20 @@ export type ArtifactStatus = (typeof ArtifactStatus)[keyof typeof ArtifactStatus
  * @public
  * @enum
  */
+export const MessageProcessingStatus = {
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type MessageProcessingStatus = (typeof MessageProcessingStatus)[keyof typeof MessageProcessingStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ParticipantRole = {
   AGENT: "AGENT",
   CUSTOMER: "CUSTOMER",
