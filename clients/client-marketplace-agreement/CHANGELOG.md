@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-marketplace-agreement:** This release supports 1/multi-product transactions via offer sets. DescribeAgreement and SearchAgreements APIs now return offer set IDs. SearchAgreements also supports filtering by offer set ID and 2/variable payment pricing terms will be returned through GetAgreementTerms. ([2e5ff88](https://github.com/aws/aws-sdk-js-v3/commit/2e5ff88fa423a4cfd10cc18ee77644c3d92058d5))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-agreement

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces, CRUD APIs for the DomainObjectType and Recommender resources, APIs to offer statistical insights on Object Type Attributes, Changes to SegmentDefinition APIs to support SQL queries to create Segments, and Changes to Domain APIs to support Data Store. ([18749b0](https://github.com/aws/aws-sdk-js-v3/commit/18749b062f3670b3bbb94d456577839979782c51))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

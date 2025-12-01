@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-personalize:** This release adds support for includedDatasetColumns and performIncrementalUpdate in solution APIs, and rankingInfluence in campaign and batch inference APIs. ([eaff351](https://github.com/aws/aws-sdk-js-v3/commit/eaff3517fe2f43aa826d25c9fd1238e541601876))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-personalize

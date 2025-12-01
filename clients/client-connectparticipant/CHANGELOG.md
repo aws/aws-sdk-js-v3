@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-connectparticipant:** Amazon Connect now supports message processing that intercepts and processes chat messages before they reach any participant. ([40ac3d8](https://github.com/aws/aws-sdk-js-v3/commit/40ac3d8e4e400d223b9817d1e3311da2f466a87b))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-connectparticipant

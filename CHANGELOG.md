@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-appintegrations:** This release adds support for MCP servers via the ApplicationType field, allowing customers to register their Bedrock AgentCore gateways as third party applications. ([e07d00c](https://github.com/aws/aws-sdk-js-v3/commit/e07d00cbffb31e34dda040cd889cdbe0878b858f))
+* **client-bedrock-agent-runtime:** Support audio and video content retrieval on Bedrock Knowledge Bases. ([5aefe34](https://github.com/aws/aws-sdk-js-v3/commit/5aefe349864c5bee80b43deba425c23696f6b84e))
+* **client-bedrock-agent:** Support audio and video ingestion on Bedrock Knowledge Bases. ([bab1420](https://github.com/aws/aws-sdk-js-v3/commit/bab1420548b3fe5d64dffd8f56e33a383df04b13))
+* **client-cleanrooms:** AWS Clean Rooms now supports privacy-enhancing synthetic dataset generation for custom ML training. ([179ce58](https://github.com/aws/aws-sdk-js-v3/commit/179ce58df731e7b9bc28af8765df964d1c271d1e))
+* **client-cleanroomsml:** AWS Clean Rooms ML now supports privacy-enhancing synthetic dataset generation for custom ML training. ([f9105f9](https://github.com/aws/aws-sdk-js-v3/commit/f9105f9a1ccb4688e938ce22e48dfa1cb06a2f30))
+* **client-connectcampaignsv2:** This release added support for new WhatsApp channel and Journey type outbound campaign ([743ec85](https://github.com/aws/aws-sdk-js-v3/commit/743ec851179da9aa08eb910be64a6a2986bb7e72))
+* **client-connectparticipant:** Amazon Connect now supports message processing that intercepts and processes chat messages before they reach any participant. ([40ac3d8](https://github.com/aws/aws-sdk-js-v3/commit/40ac3d8e4e400d223b9817d1e3311da2f466a87b))
+* **client-connect:** This is a combined re:Invent release for Amazon Connect. ([05dd45a](https://github.com/aws/aws-sdk-js-v3/commit/05dd45a723f6db53d8a15f2d689fc889f9bc59d3))
+* **client-customer-profiles:** This release introduces, CRUD APIs for the DomainObjectType and Recommender resources, APIs to offer statistical insights on Object Type Attributes, Changes to SegmentDefinition APIs to support SQL queries to create Segments, and Changes to Domain APIs to support Data Store. ([18749b0](https://github.com/aws/aws-sdk-js-v3/commit/18749b062f3670b3bbb94d456577839979782c51))
+* **client-eks:** This release adds support for EKS Capabilities ([1ccd14b](https://github.com/aws/aws-sdk-js-v3/commit/1ccd14bcc1de0efb46356a79a2fbfda30a9aead6))
+* **client-glue:** feature: Glue: Add support for Iceberg materialized view in Glue Data Catalog, including updated CreateTable API to support materialized views and new APIs for managing data refresh for materialized views. ([4a4d44f](https://github.com/aws/aws-sdk-js-v3/commit/4a4d44fe01471765d01aee57dc02481ad5d02330))
+* **client-lambda:** Launching Lambda Managed Instances - a new feature to run Lambda on EC2. ([ea7080c](https://github.com/aws/aws-sdk-js-v3/commit/ea7080ccd96319ae6e719dd46230ddb03b728fc0))
+* **client-lex-models-v2:** Adds support for speech-to-speech models for human-like, adaptive, and expressive voice interactions. Also adds support for speech model preference, allowing customers to select which speech model they want to use for speech-to-text requests. ([e285b31](https://github.com/aws/aws-sdk-js-v3/commit/e285b319ff9f9e69654e1e61779e62033ad2dbc8))
+* **client-marketplace-agreement:** This release supports 1/multi-product transactions via offer sets. DescribeAgreement and SearchAgreements APIs now return offer set IDs. SearchAgreements also supports filtering by offer set ID and 2/variable payment pricing terms will be returned through GetAgreementTerms. ([2e5ff88](https://github.com/aws/aws-sdk-js-v3/commit/2e5ff88fa423a4cfd10cc18ee77644c3d92058d5))
+* **client-marketplace-catalog:** This release introduces offer set entity in AWS Marketplace Catalog API to enable multi-product transaction. Offer set enables sellers to group multiple private offers into a single-click purchase experience, simplifying procurement for customers purchasing multi-product solutions. ([0bb0491](https://github.com/aws/aws-sdk-js-v3/commit/0bb0491d3894dcb594fddafb89eeece9934511ed))
+* **client-partnercentral-account:** Initial GA launch of Partner Central Account ([4e6ce03](https://github.com/aws/aws-sdk-js-v3/commit/4e6ce03175dfa3ea00dff3cd3d1b1c1da5703eac))
+* **client-partnercentral-benefits:** Initial GA launch of Partner Central Benefits ([e076225](https://github.com/aws/aws-sdk-js-v3/commit/e0762255f8ae2f485848ca67ae5261f186b75b7f))
+* **client-partnercentral-selling:** New Features: ([fbc7e4b](https://github.com/aws/aws-sdk-js-v3/commit/fbc7e4b8c2013a1cf4210d507d6890a5c638ca18))
+* **client-personalize:** This release adds support for includedDatasetColumns and performIncrementalUpdate in solution APIs, and rankingInfluence in campaign and batch inference APIs. ([eaff351](https://github.com/aws/aws-sdk-js-v3/commit/eaff3517fe2f43aa826d25c9fd1238e541601876))
+* **client-qconnect:** New AIAgent types: Orchestration for ModelContextProtocol tool integration, CaseSummary for Amazon Connect Case summaries, NoteTaker for Agent Assistance notes. Added ListSpans and Retrieve APIs. Enhanced Q in Connect AssistantAssociationType to support Bring Your Own Bedrock Knowledge Bases. ([923dca4](https://github.com/aws/aws-sdk-js-v3/commit/923dca49d044f2f7f57aa8b7318eef46f9fbce8d))
+* **client-route53globalresolver:** Add SDK for Amazon Route 53 Global Resolver, a fully managed DNS resolver service that offers broad DNS-filtering security controls. ([4ba44e4](https://github.com/aws/aws-sdk-js-v3/commit/4ba44e49fbfd5ad61d11e2af3d959b08aa79d7a8))
+* **clients:** update client endpoints as of 2025-12-01 ([d3bfe00](https://github.com/aws/aws-sdk-js-v3/commit/d3bfe00c8e5f70cd6abe3a2a62e08ee0112c8bf1))
+
+
+
+
+
 # [3.941.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.940.0...v3.941.0) (2025-11-26)
 
 
