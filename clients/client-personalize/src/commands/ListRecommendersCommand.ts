@@ -64,6 +64,11 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           includedDatasetColumns: { // IncludedDatasetColumns
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //         },
  * //         enableMetadataWithRecommendations: true || false,
  * //       },

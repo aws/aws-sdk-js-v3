@@ -75,6 +75,9 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  *     itemExplorationConfig: { // HyperParameters
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     rankingInfluence: { // RankingInfluence
+ *       "<keys>": Number("double"),
+ *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag

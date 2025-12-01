@@ -69,6 +69,9 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *     },
  *     enableMetadataWithRecommendations: true || false,
  *     syncWithLatestSolutionVersion: true || false,
+ *     rankingInfluence: { // RankingInfluence
+ *       "<keys>": Number("double"),
+ *     },
  *   },
  * };
  * const command = new UpdateCampaignCommand(input);

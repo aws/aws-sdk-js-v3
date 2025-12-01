@@ -75,6 +75,11 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         includedDatasetColumns: { // IncludedDatasetColumns
+ * //           "<keys>": [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       enableMetadataWithRecommendations: true || false,
  * //     },
@@ -90,6 +95,11 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * //         minRecommendationRequestsPerSecond: Number("int"),
  * //         trainingDataConfig: {
  * //           excludedDatasetColumns: {
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           includedDatasetColumns: {
  * //             "<keys>": [
  * //               "STRING_VALUE",
  * //             ],

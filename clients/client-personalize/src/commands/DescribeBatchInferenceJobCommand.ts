@@ -67,6 +67,9 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * //       itemExplorationConfig: { // HyperParameters
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       rankingInfluence: { // RankingInfluence
+ * //         "<keys>": Number("double"),
+ * //       },
  * //     },
  * //     roleArn: "STRING_VALUE",
  * //     batchInferenceJobMode: "BATCH_INFERENCE" || "THEME_GENERATION",

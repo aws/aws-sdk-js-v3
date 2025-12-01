@@ -128,6 +128,11 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       includedDatasetColumns: { // IncludedDatasetColumns
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *     enableMetadataWithRecommendations: true || false,
  *   },

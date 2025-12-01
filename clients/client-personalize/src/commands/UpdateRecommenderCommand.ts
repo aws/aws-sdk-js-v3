@@ -56,6 +56,11 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       includedDatasetColumns: { // IncludedDatasetColumns
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *     enableMetadataWithRecommendations: true || false,
  *   },

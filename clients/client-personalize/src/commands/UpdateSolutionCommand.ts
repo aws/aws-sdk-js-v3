@@ -48,6 +48,7 @@ export interface UpdateSolutionCommandOutput extends UpdateSolutionResponse, __M
  * const input = { // UpdateSolutionRequest
  *   solutionArn: "STRING_VALUE", // required
  *   performAutoTraining: true || false,
+ *   performIncrementalUpdate: true || false,
  *   solutionUpdateConfig: { // SolutionUpdateConfig
  *     autoTrainingConfig: { // AutoTrainingConfig
  *       schedulingExpression: "STRING_VALUE",

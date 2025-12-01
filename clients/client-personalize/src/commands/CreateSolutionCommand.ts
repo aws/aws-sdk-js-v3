@@ -128,6 +128,7 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *   performHPO: true || false,
  *   performAutoML: true || false,
  *   performAutoTraining: true || false,
+ *   performIncrementalUpdate: true || false,
  *   recipeArn: "STRING_VALUE",
  *   datasetGroupArn: "STRING_VALUE", // required
  *   eventType: "STRING_VALUE",
@@ -196,6 +197,11 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *     trainingDataConfig: { // TrainingDataConfig
  *       excludedDatasetColumns: { // ExcludedDatasetColumns
  *         "<keys>": [ // ColumnNamesList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       includedDatasetColumns: { // IncludedDatasetColumns
+ *         "<keys>": [
  *           "STRING_VALUE",
  *         ],
  *       },

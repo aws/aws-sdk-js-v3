@@ -91,7 +91,7 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *   dataSource: { // DataSource
  *     dataLocation: "STRING_VALUE",
  *   },
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
  *   tags: [ // Tags
  *     { // Tag
  *       tagKey: "STRING_VALUE", // required

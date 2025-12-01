@@ -49,6 +49,7 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //     solutionArn: "STRING_VALUE",
  * //     performHPO: true || false,
  * //     performAutoML: true || false,
+ * //     performIncrementalUpdate: true || false,
  * //     recipeArn: "STRING_VALUE",
  * //     eventType: "STRING_VALUE",
  * //     datasetGroupArn: "STRING_VALUE",
@@ -117,6 +118,11 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //       trainingDataConfig: { // TrainingDataConfig
  * //         excludedDatasetColumns: { // ExcludedDatasetColumns
  * //           "<keys>": [ // ColumnNamesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         includedDatasetColumns: { // IncludedDatasetColumns
+ * //           "<keys>": [
  * //             "STRING_VALUE",
  * //           ],
  * //         },

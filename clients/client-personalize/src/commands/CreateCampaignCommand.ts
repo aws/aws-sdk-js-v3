@@ -120,6 +120,9 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *     },
  *     enableMetadataWithRecommendations: true || false,
  *     syncWithLatestSolutionVersion: true || false,
+ *     rankingInfluence: { // RankingInfluence
+ *       "<keys>": Number("double"),
+ *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag
