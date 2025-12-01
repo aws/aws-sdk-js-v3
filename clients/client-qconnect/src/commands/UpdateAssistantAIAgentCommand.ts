@@ -42,6 +42,12 @@ export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAg
  *   configuration: { // AIAgentConfigurationData
  *     aiAgentId: "STRING_VALUE", // required
  *   },
+ *   orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ *     { // OrchestratorConfigurationEntry
+ *       aiAgentId: "STRING_VALUE",
+ *       orchestratorUseCase: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateAssistantAIAgentCommand(input);
  * const response = await client.send(command);
@@ -70,6 +76,12 @@ export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAg
  * //         aiAgentId: "STRING_VALUE", // required
  * //       },
  * //     },
+ * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //       { // OrchestratorConfigurationEntry
+ * //         aiAgentId: "STRING_VALUE",
+ * //         orchestratorUseCase: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

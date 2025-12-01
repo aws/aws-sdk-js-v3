@@ -54,6 +54,10 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * //         knowledgeBaseId: "STRING_VALUE",
  * //         knowledgeBaseArn: "STRING_VALUE",
  * //       },
+ * //       externalBedrockKnowledgeBaseConfig: { // ExternalBedrockKnowledgeBaseConfig
+ * //         bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ * //         accessRoleArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",

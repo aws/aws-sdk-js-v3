@@ -70,6 +70,13 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *     },
  *   },
  *   contactArn: "STRING_VALUE",
+ *   orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ *     { // OrchestratorConfigurationEntry
+ *       aiAgentId: "STRING_VALUE",
+ *       orchestratorUseCase: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   removeOrchestratorConfigurationList: true || false,
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
@@ -111,6 +118,12 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //       },
  * //     },
  * //     origin: "STRING_VALUE",
+ * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //       { // OrchestratorConfigurationEntry
+ * //         aiAgentId: "STRING_VALUE",
+ * //         orchestratorUseCase: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -129,7 +142,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p>An error occurred while calling a dependency. For example, calling <code>connect:DecribeContact</code> as part of <code>CreateSession</code> with a contactArn.</p>
+ *  <p>The request failed because it depends on another request that failed.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

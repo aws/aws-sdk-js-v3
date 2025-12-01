@@ -173,7 +173,7 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
- * <p>An error occurred while calling a dependency. For example, calling <code>connect:DecribeContact</code> as part of <code>CreateSession</code> with a contactArn.</p>
+ * <p>The request failed because it depends on another request that failed.</p>
  * @public
  */
 export class DependencyFailedException extends __BaseException {
@@ -189,6 +189,26 @@ export class DependencyFailedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DependencyFailedException.prototype);
+  }
+}
+
+/**
+ * <p>The server has a failure of processing the message</p>
+ * @public
+ */
+export class UnprocessableContentException extends __BaseException {
+  readonly name = "UnprocessableContentException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableContentException, __BaseException>) {
+    super({
+      name: "UnprocessableContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableContentException.prototype);
   }
 }
 

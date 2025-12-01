@@ -717,6 +717,14 @@ ListQuickResponses
 </details>
 <details>
 <summary>
+ListSpans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/ListSpansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListSpansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListSpansCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -769,6 +777,14 @@ RenderMessageTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/RenderMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RenderMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RenderMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+Retrieve
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/RetrieveCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RetrieveCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RetrieveCommandOutput/)
 
 </details>
 <details>

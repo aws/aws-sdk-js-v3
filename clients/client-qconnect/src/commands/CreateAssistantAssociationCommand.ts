@@ -41,6 +41,10 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  *   associationType: "STRING_VALUE", // required
  *   association: { // AssistantAssociationInputData Union: only one key present
  *     knowledgeBaseId: "STRING_VALUE",
+ *     externalBedrockKnowledgeBaseConfig: { // ExternalBedrockKnowledgeBaseConfig
+ *       bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ *       accessRoleArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // Tags
@@ -60,6 +64,10 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * //       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
  * //         knowledgeBaseId: "STRING_VALUE",
  * //         knowledgeBaseArn: "STRING_VALUE",
+ * //       },
+ * //       externalBedrockKnowledgeBaseConfig: { // ExternalBedrockKnowledgeBaseConfig
+ * //         bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ * //         accessRoleArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     tags: { // Tags

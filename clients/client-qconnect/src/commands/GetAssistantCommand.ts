@@ -66,6 +66,12 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * //         aiAgentId: "STRING_VALUE", // required
  * //       },
  * //     },
+ * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //       { // OrchestratorConfigurationEntry
+ * //         aiAgentId: "STRING_VALUE",
+ * //         orchestratorUseCase: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

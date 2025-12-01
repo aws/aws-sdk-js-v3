@@ -80,6 +80,12 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //       },
  * //     },
  * //     origin: "STRING_VALUE",
+ * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //       { // OrchestratorConfigurationEntry
+ * //         aiAgentId: "STRING_VALUE",
+ * //         orchestratorUseCase: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

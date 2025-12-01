@@ -45,6 +45,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *   maxResults: Number("int"),
  *   waitTimeSeconds: Number("int"),
  *   nextChunkToken: "STRING_VALUE",
+ *   recommendationType: "STRING_VALUE",
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
@@ -97,6 +98,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //             modelId: "STRING_VALUE",
  * //             generationId: "STRING_VALUE",
  * //           },
+ * //           suggestedMessageReference: { // SuggestedMessageReference
+ * //             aiAgentId: "STRING_VALUE", // required
+ * //             aiAgentArn: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         details: { // DataDetails Union: only one key present
  * //           contentData: { // ContentDataDetails
@@ -135,6 +140,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                     modelId: "STRING_VALUE",
  * //                     generationId: "STRING_VALUE",
  * //                   },
+ * //                   suggestedMessageReference: {
+ * //                     aiAgentId: "STRING_VALUE", // required
+ * //                     aiAgentArn: "STRING_VALUE", // required
+ * //                   },
  * //                 },
  * //                 details: {//  Union: only one key present
  * //                   contentData: {
@@ -160,6 +169,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                   intentDetectedData: { // IntentDetectedDataDetails
  * //                     intent: "STRING_VALUE", // required
  * //                     intentId: "STRING_VALUE", // required
+ * //                     relevanceLevel: "STRING_VALUE",
  * //                   },
  * //                   sourceContentData: { // SourceContentDataDetails
  * //                     id: "STRING_VALUE", // required
@@ -199,6 +209,20 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                     ],
  * //                     nextChunkToken: "STRING_VALUE",
  * //                   },
+ * //                   caseSummarizationChunkData: { // CaseSummarizationChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
+ * //                   suggestedMessageData: { // SuggestedMessageDataDetails
+ * //                     messageText: "STRING_VALUE", // required
+ * //                   },
+ * //                   notesData: { // NotesDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                   },
+ * //                   notesChunkData: { // NotesChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -210,6 +234,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //           intentDetectedData: {
  * //             intent: "STRING_VALUE", // required
  * //             intentId: "STRING_VALUE", // required
+ * //             relevanceLevel: "STRING_VALUE",
  * //           },
  * //           sourceContentData: {
  * //             id: "STRING_VALUE", // required
@@ -242,6 +267,20 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //           emailGenerativeAnswerChunkData: {
  * //             completion: "STRING_VALUE",
  * //             references: "<DataSummaryList>",
+ * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           caseSummarizationChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           suggestedMessageData: {
+ * //             messageText: "STRING_VALUE", // required
+ * //           },
+ * //           notesData: {
+ * //             completion: "STRING_VALUE",
+ * //           },
+ * //           notesChunkData: {
+ * //             completion: "STRING_VALUE",
  * //             nextChunkToken: "STRING_VALUE",
  * //           },
  * //         },

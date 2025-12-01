@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RenderMessageTemplateRequest } from "../models/models_0";
-import { RenderMessageTemplateResponse } from "../models/models_1";
+import { RenderMessageTemplateRequest, RenderMessageTemplateResponse } from "../models/models_1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { RenderMessageTemplate } from "../schemas/schemas_0";
 

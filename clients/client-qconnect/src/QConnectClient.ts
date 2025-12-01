@@ -211,6 +211,7 @@ import {
   ListMessageTemplateVersionsCommandOutput,
 } from "./commands/ListMessageTemplateVersionsCommand";
 import { ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput } from "./commands/ListQuickResponsesCommand";
+import { ListSpansCommandInput, ListSpansCommandOutput } from "./commands/ListSpansCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -233,6 +234,7 @@ import {
   RenderMessageTemplateCommandInput,
   RenderMessageTemplateCommandOutput,
 } from "./commands/RenderMessageTemplateCommand";
+import { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
 import { SearchContentCommandInput, SearchContentCommandOutput } from "./commands/SearchContentCommand";
 import {
   SearchMessageTemplatesCommandInput,
@@ -353,6 +355,7 @@ export type ServiceInputTypes =
   | ListMessageTemplatesCommandInput
   | ListMessagesCommandInput
   | ListQuickResponsesCommandInput
+  | ListSpansCommandInput
   | ListTagsForResourceCommandInput
   | NotifyRecommendationsReceivedCommandInput
   | PutFeedbackCommandInput
@@ -360,6 +363,7 @@ export type ServiceInputTypes =
   | RemoveAssistantAIAgentCommandInput
   | RemoveKnowledgeBaseTemplateUriCommandInput
   | RenderMessageTemplateCommandInput
+  | RetrieveCommandInput
   | SearchContentCommandInput
   | SearchMessageTemplatesCommandInput
   | SearchQuickResponsesCommandInput
@@ -449,6 +453,7 @@ export type ServiceOutputTypes =
   | ListMessageTemplatesCommandOutput
   | ListMessagesCommandOutput
   | ListQuickResponsesCommandOutput
+  | ListSpansCommandOutput
   | ListTagsForResourceCommandOutput
   | NotifyRecommendationsReceivedCommandOutput
   | PutFeedbackCommandOutput
@@ -456,6 +461,7 @@ export type ServiceOutputTypes =
   | RemoveAssistantAIAgentCommandOutput
   | RemoveKnowledgeBaseTemplateUriCommandOutput
   | RenderMessageTemplateCommandOutput
+  | RetrieveCommandOutput
   | SearchContentCommandOutput
   | SearchMessageTemplatesCommandOutput
   | SearchQuickResponsesCommandOutput

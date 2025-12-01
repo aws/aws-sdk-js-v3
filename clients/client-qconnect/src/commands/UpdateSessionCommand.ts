@@ -65,6 +65,13 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *       aiAgentId: "STRING_VALUE", // required
  *     },
  *   },
+ *   orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ *     { // OrchestratorConfigurationEntry
+ *       aiAgentId: "STRING_VALUE",
+ *       orchestratorUseCase: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   removeOrchestratorConfigurationList: true || false,
  * };
  * const command = new UpdateSessionCommand(input);
  * const response = await client.send(command);
@@ -106,6 +113,12 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * //       },
  * //     },
  * //     origin: "STRING_VALUE",
+ * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //       { // OrchestratorConfigurationEntry
+ * //         aiAgentId: "STRING_VALUE",
+ * //         orchestratorUseCase: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

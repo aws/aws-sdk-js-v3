@@ -1,10 +1,18 @@
 // smithy-typescript generated code
 import {
+  AIAgentType,
+  AIPromptType,
   ChannelSubtype,
+  ExternalSource,
+  ImportJobStatus,
   ImportJobType,
+  KnowledgeBaseSearchType,
+  KnowledgeBaseStatus,
+  KnowledgeBaseType,
   MessageTemplateFilterOperator,
   MessageTemplateQueryOperator,
   Order,
+  Participant,
   Priority,
   QueryResultType,
   QuickResponseFilterOperator,
@@ -12,34 +20,837 @@ import {
   QuickResponseStatus,
   RecommendationType,
   RelevanceLevel,
+  SpanStatus,
+  SpanType,
 } from "./enums";
 
 import {
+  CaseSummarizationChunkDataDetails,
+  Configuration,
   ContentDataDetails,
   ContentSummary,
   DataReference,
   Document,
   EmailOverviewChunkDataDetails,
   EmailResponseChunkDataDetails,
-  ExternalSourceConfiguration,
+  ExtendedMessageTemplateData,
+  FilterAttribute,
   GroupingConfiguration,
-  ImportJobData,
   IntentDetectedDataDetails,
   KnowledgeBaseData,
+  KnowledgeSource,
   MessageTemplateAttachment,
   MessageTemplateAttributes,
   MessageTemplateContentProvider,
   MessageTemplateData,
   MessageTemplateSourceConfiguration,
   MessageTemplateSourceConfigurationSummary,
+  NotesChunkDataDetails,
+  NotesDataDetails,
   QuickResponseContents,
   QuickResponseData,
   QuickResponseDataProvider,
   RankingData,
   RecommendationTrigger,
+  RenderingConfiguration,
   SearchExpression,
+  ServerSideEncryptionConfiguration,
+  SourceConfiguration,
   SourceContentDataDetails,
+  SpanTextValue,
+  SpanToolUseValue,
+  SuggestedMessageDataDetails,
+  VectorIngestionConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteImportJobRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the import job to be deleted.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteImportJobResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseRequest {
+  /**
+   * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQuickResponseRequest {
+  /**
+   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response to delete.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuickResponseResponse {}
+
+/**
+ * <p>The configuration information of the external data source.</p>
+ * @public
+ */
+export interface ExternalSourceConfiguration {
+  /**
+   * <p>The type of the external data source.</p>
+   * @public
+   */
+  source: ExternalSource | undefined;
+
+  /**
+   * <p>The configuration information of the external data source.</p>
+   * @public
+   */
+  configuration: Configuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobRequest {
+  /**
+   * <p>The identifier of the import job to retrieve.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base that the import job belongs to.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * <p>Summary information about the import job.</p>
+ * @public
+ */
+export interface ImportJobData {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The type of the import job.</p>
+   * @public
+   */
+  importJobType: ImportJobType | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The download link to the resource file that is uploaded to the import job.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The link to download the information of resource data that failed to be imported.</p>
+   * @public
+   */
+  failedRecordReport?: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration information of the external data source.</p>
+   * @public
+   */
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobResponse {
+  /**
+   * <p>The import job.</p>
+   * @public
+   */
+  importJob?: ImportJobData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseResponse {
+  /**
+   * <p>The knowledge base.</p>
+   * @public
+   */
+  knowledgeBase?: KnowledgeBaseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateRequest {
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuickResponseRequest {
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuickResponseResponse {
+  /**
+   * <p>The quick response.</p>
+   * @public
+   */
+  quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * <p>Summary information about the import job.</p>
+ * @public
+ */
+export interface ImportJobSummary {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The type of import job.</p>
+   * @public
+   */
+  importJobType: ImportJobType | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The timestamp when the import job was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * @public
+   */
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportJobsRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportJobsResponse {
+  /**
+   * <p>Summary information about the import jobs.</p>
+   * @public
+   */
+  importJobSummaries: ImportJobSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBasesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about the knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseSummary {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The name of the knowledge base.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseType: KnowledgeBaseType | undefined;
+
+  /**
+   * <p>The status of the knowledge base summary.</p>
+   * @public
+   */
+  status: KnowledgeBaseStatus | undefined;
+
+  /**
+   * <p>Configuration information about the external data source.</p>
+   * @public
+   */
+  sourceConfiguration?: SourceConfiguration | undefined;
+
+  /**
+   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * @public
+   */
+  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
+
+  /**
+   * <p>Information about how to render the content.</p>
+   * @public
+   */
+  renderingConfiguration?: RenderingConfiguration | undefined;
+
+  /**
+   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * @public
+   */
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The description of the knowledge base.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBasesResponse {
+  /**
+   * <p>Information about the knowledge bases.</p>
+   * @public
+   */
+  knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * <p>The summary of the message template.</p>
+ * @public
+ */
+export interface MessageTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel this message template applies to.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The container of message template source configuration.</p>
+   * @public
+   */
+  sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
+
+  /**
+   * <p>The version number of the message template version that is activated.</p>
+   * @public
+   */
+  activeVersionNumber?: number | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesResponse {
+  /**
+   * <p>Summary information about the message template.</p>
+   * @public
+   */
+  messageTemplateSummaries: MessageTemplateSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the message template version.</p>
+ * @public
+ */
+export interface MessageTemplateVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsResponse {
+  /**
+   * <p>Summary information about the versions of a message template.</p>
+   * @public
+   */
+  messageTemplateVersionSummaries: MessageTemplateVersionSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable.</p>
+   * @public
+   */
+  attributes: MessageTemplateAttributes | undefined;
+}
 
 /**
  * @public
@@ -1207,10 +2018,526 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>Message content value - can be text, tool invocation, or tool result</p>
+ * @public
+ */
+export type SpanMessageValue =
+  | SpanMessageValue.TextMember
+  | SpanMessageValue.ToolResultMember
+  | SpanMessageValue.ToolUseMember
+  | SpanMessageValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SpanMessageValue {
+  /**
+   * <p>Text message content</p>
+   * @public
+   */
+  export interface TextMember {
+    text: SpanTextValue;
+    toolUse?: never;
+    toolResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Tool invocation message content</p>
+   * @public
+   */
+  export interface ToolUseMember {
+    text?: never;
+    toolUse: SpanToolUseValue;
+    toolResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Tool result message content</p>
+   * @public
+   */
+  export interface ToolResultMember {
+    text?: never;
+    toolUse?: never;
+    toolResult: SpanToolResultValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    toolUse?: never;
+    toolResult?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: SpanTextValue) => T;
+    toolUse: (value: SpanToolUseValue) => T;
+    toolResult: (value: SpanToolResultValue) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Tool result message content</p>
+ * @public
+ */
+export interface SpanToolResultValue {
+  /**
+   * <p>Relates this result back to the tool invocation</p>
+   * @public
+   */
+  toolUseId: string | undefined;
+
+  /**
+   * <p>The tool results</p>
+   * @public
+   */
+  values: SpanMessageValue[] | undefined;
+
+  /**
+   * <p>The tool invocation error if failed</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>Configuration for filtering content during retrieval operations.</p>
+ * @public
+ */
+export type RetrievalFilterConfiguration =
+  | RetrievalFilterConfiguration.AndAllMember
+  | RetrievalFilterConfiguration.EqualsMember
+  | RetrievalFilterConfiguration.GreaterThanMember
+  | RetrievalFilterConfiguration.GreaterThanOrEqualsMember
+  | RetrievalFilterConfiguration.InMember
+  | RetrievalFilterConfiguration.LessThanMember
+  | RetrievalFilterConfiguration.LessThanOrEqualsMember
+  | RetrievalFilterConfiguration.ListContainsMember
+  | RetrievalFilterConfiguration.NotEqualsMember
+  | RetrievalFilterConfiguration.NotInMember
+  | RetrievalFilterConfiguration.OrAllMember
+  | RetrievalFilterConfiguration.StartsWithMember
+  | RetrievalFilterConfiguration.StringContainsMember
+  | RetrievalFilterConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetrievalFilterConfiguration {
+  /**
+   * <p>Filter configuration that requires all conditions to be met.</p>
+   * @public
+   */
+  export interface AndAllMember {
+    andAll: RetrievalFilterConfiguration[];
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for exact equality matching.</p>
+   * @public
+   */
+  export interface EqualsMember {
+    andAll?: never;
+    equals: FilterAttribute;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for greater than comparison.</p>
+   * @public
+   */
+  export interface GreaterThanMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan: FilterAttribute;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for greater than or equal comparison.</p>
+   * @public
+   */
+  export interface GreaterThanOrEqualsMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals: FilterAttribute;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for membership in a set of values.</p>
+   * @public
+   */
+  export interface InMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in: FilterAttribute;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for less than comparison.</p>
+   * @public
+   */
+  export interface LessThanMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan: FilterAttribute;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for less than or equal comparison.</p>
+   * @public
+   */
+  export interface LessThanOrEqualsMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals: FilterAttribute;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for checking if a list contains a value.</p>
+   * @public
+   */
+  export interface ListContainsMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains: FilterAttribute;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for inequality matching.</p>
+   * @public
+   */
+  export interface NotEqualsMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals: FilterAttribute;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for exclusion from a set of values.</p>
+   * @public
+   */
+  export interface NotInMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn: FilterAttribute;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration where any condition can be met.</p>
+   * @public
+   */
+  export interface OrAllMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll: RetrievalFilterConfiguration[];
+    startsWith?: never;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for prefix matching.</p>
+   * @public
+   */
+  export interface StartsWithMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith: FilterAttribute;
+    stringContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter configuration for substring matching.</p>
+   * @public
+   */
+  export interface StringContainsMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains: FilterAttribute;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    andAll?: never;
+    equals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    in?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    listContains?: never;
+    notEquals?: never;
+    notIn?: never;
+    orAll?: never;
+    startsWith?: never;
+    stringContains?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    andAll: (value: RetrievalFilterConfiguration[]) => T;
+    equals: (value: FilterAttribute) => T;
+    greaterThan: (value: FilterAttribute) => T;
+    greaterThanOrEquals: (value: FilterAttribute) => T;
+    in: (value: FilterAttribute) => T;
+    lessThan: (value: FilterAttribute) => T;
+    lessThanOrEquals: (value: FilterAttribute) => T;
+    listContains: (value: FilterAttribute) => T;
+    notEquals: (value: FilterAttribute) => T;
+    notIn: (value: FilterAttribute) => T;
+    orAll: (value: RetrievalFilterConfiguration[]) => T;
+    startsWith: (value: FilterAttribute) => T;
+    stringContains: (value: FilterAttribute) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A message in the conversation history with participant role and content values</p>
+ * @public
+ */
+export interface SpanMessage {
+  /**
+   * <p>Unique message identifier</p>
+   * @public
+   */
+  messageId: string | undefined;
+
+  /**
+   * <p>Message source role</p>
+   * @public
+   */
+  participant: Participant | undefined;
+
+  /**
+   * <p>Message timestamp</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>Message content values (text, tool use, tool result)</p>
+   * @public
+   */
+  values: SpanMessageValue[] | undefined;
+}
+
+/**
+ * <p>Configuration for content retrieval operations.</p>
+ * @public
+ */
+export interface RetrievalConfiguration {
+  /**
+   * <p>The knowledge source configuration for content retrieval.</p>
+   * @public
+   */
+  knowledgeSource: KnowledgeSource | undefined;
+
+  /**
+   * <p>The filter configuration for content retrieval.</p>
+   * @public
+   */
+  filter?: RetrievalFilterConfiguration | undefined;
+
+  /**
+   * <p>The number of results to retrieve.</p>
+   * @public
+   */
+  numberOfResults?: number | undefined;
+
+  /**
+   * <p>Override setting for the knowledge base search type during retrieval.</p>
+   * @public
+   */
+  overrideKnowledgeBaseSearchType?: KnowledgeBaseSearchType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant for content retrieval.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The configuration for the content retrieval operation.</p>
+   * @public
+   */
+  retrievalConfiguration: RetrievalConfiguration | undefined;
+
+  /**
+   * <p>The query for content retrieval.</p>
+   * @public
+   */
+  retrievalQuery: string | undefined;
+}
+
+/**
  * <p>Details about the data.</p>
  * @public
  */
 export type DataDetails =
+  | DataDetails.CaseSummarizationChunkDataMember
   | DataDetails.ContentDataMember
   | DataDetails.EmailGenerativeAnswerChunkDataMember
   | DataDetails.EmailOverviewChunkDataMember
@@ -1218,7 +2545,10 @@ export type DataDetails =
   | DataDetails.GenerativeChunkDataMember
   | DataDetails.GenerativeDataMember
   | DataDetails.IntentDetectedDataMember
+  | DataDetails.NotesChunkDataMember
+  | DataDetails.NotesDataMember
   | DataDetails.SourceContentDataMember
+  | DataDetails.SuggestedMessageDataMember
   | DataDetails.$UnknownMember;
 
 /**
@@ -1238,6 +2568,10 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown?: never;
   }
 
@@ -1254,6 +2588,10 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown?: never;
   }
 
@@ -1270,6 +2608,10 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown?: never;
   }
 
@@ -1286,6 +2628,10 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown?: never;
   }
 
@@ -1302,6 +2648,10 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown?: never;
   }
 
@@ -1318,6 +2668,10 @@ export namespace DataDetails {
     emailResponseChunkData: EmailResponseChunkDataDetails;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown?: never;
   }
 
@@ -1334,6 +2688,10 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData: EmailOverviewChunkDataDetails;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown?: never;
   }
 
@@ -1350,6 +2708,90 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData: EmailGenerativeAnswerChunkDataDetails;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about case summarization chunk data.</p>
+   * @public
+   */
+  export interface CaseSummarizationChunkDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData: CaseSummarizationChunkDataDetails;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about suggested message data.</p>
+   * @public
+   */
+  export interface SuggestedMessageDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData: SuggestedMessageDataDetails;
+    notesData?: never;
+    notesChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about notes data.</p>
+   * @public
+   */
+  export interface NotesDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData: NotesDataDetails;
+    notesChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about notes chunk data.</p>
+   * @public
+   */
+  export interface NotesChunkDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData: NotesChunkDataDetails;
     $unknown?: never;
   }
 
@@ -1365,6 +2807,10 @@ export namespace DataDetails {
     emailResponseChunkData?: never;
     emailOverviewChunkData?: never;
     emailGenerativeAnswerChunkData?: never;
+    caseSummarizationChunkData?: never;
+    suggestedMessageData?: never;
+    notesData?: never;
+    notesChunkData?: never;
     $unknown: [string, any];
   }
 
@@ -1381,6 +2827,10 @@ export namespace DataDetails {
     emailResponseChunkData: (value: EmailResponseChunkDataDetails) => T;
     emailOverviewChunkData: (value: EmailOverviewChunkDataDetails) => T;
     emailGenerativeAnswerChunkData: (value: EmailGenerativeAnswerChunkDataDetails) => T;
+    caseSummarizationChunkData: (value: CaseSummarizationChunkDataDetails) => T;
+    suggestedMessageData: (value: SuggestedMessageDataDetails) => T;
+    notesData: (value: NotesDataDetails) => T;
+    notesChunkData: (value: NotesChunkDataDetails) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1554,6 +3004,288 @@ export interface ResultData {
 }
 
 /**
+ * <p>Contextual attributes capturing operation details, LLM configuration, usage metrics, and conversation data</p>
+ * @public
+ */
+export interface SpanAttributes {
+  /**
+   * <p>Action being performed</p>
+   * @public
+   */
+  operationName?: string | undefined;
+
+  /**
+   * <p>Model provider identifier (e.g., aws.bedrock)</p>
+   * @public
+   */
+  providerName?: string | undefined;
+
+  /**
+   * <p>Error classification if span failed (e.g., throttle, timeout)</p>
+   * @public
+   */
+  errorType?: string | undefined;
+
+  /**
+   * <p>Amazon Connect agent ID</p>
+   * @public
+   */
+  agentId?: string | undefined;
+
+  /**
+   * <p>Amazon Connect instance ARN</p>
+   * @public
+   */
+  instanceArn?: string | undefined;
+
+  /**
+   * <p>Amazon Connect contact identifier</p>
+   * @public
+   */
+  contactId?: string | undefined;
+
+  /**
+   * <p>Amazon Connect contact identifier</p>
+   * @public
+   */
+  initialContactId?: string | undefined;
+
+  /**
+   * <p>Session name</p>
+   * @public
+   */
+  sessionName?: string | undefined;
+
+  /**
+   * <p>AI agent ARN</p>
+   * @public
+   */
+  aiAgentArn?: string | undefined;
+
+  /**
+   * <p>AI agent type</p>
+   * @public
+   */
+  aiAgentType?: AIAgentType | undefined;
+
+  /**
+   * <p>AI agent name</p>
+   * @public
+   */
+  aiAgentName?: string | undefined;
+
+  /**
+   * <p>AI agent identifier</p>
+   * @public
+   */
+  aiAgentId?: string | undefined;
+
+  /**
+   * <p>AI agent version number</p>
+   * @public
+   */
+  aiAgentVersion?: number | undefined;
+
+  /**
+   * <p>Entity that invoked the AI agent</p>
+   * @public
+   */
+  aiAgentInvoker?: string | undefined;
+
+  /**
+   * <p>AI agent orchestrator use case</p>
+   * @public
+   */
+  aiAgentOrchestratorUseCase?: string | undefined;
+
+  /**
+   * <p>LLM model ID for request (e.g., anthropic.claude-3-sonnet)</p>
+   * @public
+   */
+  requestModel?: string | undefined;
+
+  /**
+   * <p>Maximum tokens configured for generation</p>
+   * @public
+   */
+  requestMaxTokens?: number | undefined;
+
+  /**
+   * <p>Sampling temperature for generation</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>Top-p sampling parameter for generation</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>Actual model used for response (usually matches requestModel)</p>
+   * @public
+   */
+  responseModel?: string | undefined;
+
+  /**
+   * <p>Generation termination reasons (e.g., stop, max_tokens)</p>
+   * @public
+   */
+  responseFinishReasons?: string[] | undefined;
+
+  /**
+   * <p>Number of input tokens in prompt</p>
+   * @public
+   */
+  usageInputTokens?: number | undefined;
+
+  /**
+   * <p>Number of output tokens in response</p>
+   * @public
+   */
+  usageOutputTokens?: number | undefined;
+
+  /**
+   * <p>Total tokens consumed (input + output)</p>
+   * @public
+   */
+  usageTotalTokens?: number | undefined;
+
+  /**
+   * <p>Number of input tokens that were retrieved from cache</p>
+   * @public
+   */
+  cacheReadInputTokens?: number | undefined;
+
+  /**
+   * <p>Number of input tokens that were written to cache in this request</p>
+   * @public
+   */
+  cacheWriteInputTokens?: number | undefined;
+
+  /**
+   * <p>Input message collection sent to LLM</p>
+   * @public
+   */
+  inputMessages?: SpanMessage[] | undefined;
+
+  /**
+   * <p>Output message collection received from LLM</p>
+   * @public
+   */
+  outputMessages?: SpanMessage[] | undefined;
+
+  /**
+   * <p>System prompt instructions</p>
+   * @public
+   */
+  systemInstructions?: SpanMessageValue[] | undefined;
+
+  /**
+   * <p>AI prompt ARN</p>
+   * @public
+   */
+  promptArn?: string | undefined;
+
+  /**
+   * <p>AI prompt identifier</p>
+   * @public
+   */
+  promptId?: string | undefined;
+
+  /**
+   * <p>AI prompt type</p>
+   * @public
+   */
+  promptType?: AIPromptType | undefined;
+
+  /**
+   * <p>AI prompt name</p>
+   * @public
+   */
+  promptName?: string | undefined;
+
+  /**
+   * <p>AI prompt version number</p>
+   * @public
+   */
+  promptVersion?: number | undefined;
+}
+
+/**
+ * <p>A span represents a unit of work during AI agent execution, capturing timing, status, and contextual attributes.</p>
+ * @public
+ */
+export interface Span {
+  /**
+   * <p>Unique span identifier</p>
+   * @public
+   */
+  spanId: string | undefined;
+
+  /**
+   * <p>UUID of the Connect AI Assistant resource</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>UUID of the Connect AI Session resource</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Parent span identifier for hierarchy. Null for root spans.</p>
+   * @public
+   */
+  parentSpanId?: string | undefined;
+
+  /**
+   * <p>Service-defined operation name</p>
+   * @public
+   */
+  spanName: string | undefined;
+
+  /**
+   * <p>Operation relationship type</p>
+   * @public
+   */
+  spanType: SpanType | undefined;
+
+  /**
+   * <p>Operation start time in milliseconds since epoch</p>
+   * @public
+   */
+  startTimestamp: Date | undefined;
+
+  /**
+   * <p>Operation end time in milliseconds since epoch</p>
+   * @public
+   */
+  endTimestamp: Date | undefined;
+
+  /**
+   * <p>Span completion status</p>
+   * @public
+   */
+  status: SpanStatus | undefined;
+
+  /**
+   * <p>The service request ID that initiated the operation</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>Span-specific contextual attributes</p>
+   * @public
+   */
+  attributes: SpanAttributes | undefined;
+}
+
+/**
  * @public
  */
 export interface GetRecommendationsResponse {
@@ -1582,6 +3314,23 @@ export interface QueryAssistantResponse {
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSpansResponse {
+  /**
+   * <p>Array of span objects for the session</p>
+   * @public
+   */
+  spans: Span[] | undefined;
+
+  /**
+   * <p>Pagination token for retrieving additional results</p>
    * @public
    */
   nextToken?: string | undefined;

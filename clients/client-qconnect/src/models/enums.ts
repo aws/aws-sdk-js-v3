@@ -29,12 +29,43 @@ export type AIAgentAssociationConfigurationType =
  * @public
  * @enum
  */
+export const ToolOverrideInputValueType = {
+  JSON_STRING: "JSON_STRING",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+} as const;
+/**
+ * @public
+ */
+export type ToolOverrideInputValueType = (typeof ToolOverrideInputValueType)[keyof typeof ToolOverrideInputValueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ToolType = {
+  CONSTANT: "CONSTANT",
+  MODEL_CONTEXT_PROTOCOL: "MODEL_CONTEXT_PROTOCOL",
+  RETURN_TO_CONTROL: "RETURN_TO_CONTROL",
+} as const;
+/**
+ * @public
+ */
+export type ToolType = (typeof ToolType)[keyof typeof ToolType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AIAgentType = {
   ANSWER_RECOMMENDATION: "ANSWER_RECOMMENDATION",
+  CASE_SUMMARIZATION: "CASE_SUMMARIZATION",
   EMAIL_GENERATIVE_ANSWER: "EMAIL_GENERATIVE_ANSWER",
   EMAIL_OVERVIEW: "EMAIL_OVERVIEW",
   EMAIL_RESPONSE: "EMAIL_RESPONSE",
   MANUAL_SEARCH: "MANUAL_SEARCH",
+  NOTE_TAKING: "NOTE_TAKING",
+  ORCHESTRATION: "ORCHESTRATION",
   SELF_SERVICE: "SELF_SERVICE",
 } as const;
 /**
@@ -244,11 +275,14 @@ export type AIPromptTemplateType = (typeof AIPromptTemplateType)[keyof typeof AI
  */
 export const AIPromptType = {
   ANSWER_GENERATION: "ANSWER_GENERATION",
+  CASE_SUMMARIZATION: "CASE_SUMMARIZATION",
   EMAIL_GENERATIVE_ANSWER: "EMAIL_GENERATIVE_ANSWER",
   EMAIL_OVERVIEW: "EMAIL_OVERVIEW",
   EMAIL_QUERY_REFORMULATION: "EMAIL_QUERY_REFORMULATION",
   EMAIL_RESPONSE: "EMAIL_RESPONSE",
   INTENT_LABELING_GENERATION: "INTENT_LABELING_GENERATION",
+  NOTE_TAKING: "NOTE_TAKING",
+  ORCHESTRATION: "ORCHESTRATION",
   QUERY_REFORMULATION: "QUERY_REFORMULATION",
   SELF_SERVICE_ANSWER_GENERATION: "SELF_SERVICE_ANSWER_GENERATION",
   SELF_SERVICE_PRE_PROCESSING: "SELF_SERVICE_PRE_PROCESSING",
@@ -263,6 +297,7 @@ export type AIPromptType = (typeof AIPromptType)[keyof typeof AIPromptType];
  * @enum
  */
 export const AssociationType = {
+  EXTERNAL_BEDROCK_KNOWLEDGE_BASE: "EXTERNAL_BEDROCK_KNOWLEDGE_BASE",
   KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
 } as const;
 /**
@@ -316,6 +351,33 @@ export type AssistantStatus = (typeof AssistantStatus)[keyof typeof AssistantSta
  * @public
  * @enum
  */
+export const RecommendationType = {
+  BLOCKED_CASE_SUMMARIZATION_CHUNK: "BLOCKED_CASE_SUMMARIZATION_CHUNK",
+  BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
+  BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
+  BLOCKED_NOTES_CHUNK: "BLOCKED_NOTES_CHUNK",
+  CASE_SUMMARIZATION_CHUNK: "CASE_SUMMARIZATION_CHUNK",
+  DETECTED_INTENT: "DETECTED_INTENT",
+  EMAIL_GENERATIVE_ANSWER_CHUNK: "EMAIL_GENERATIVE_ANSWER_CHUNK",
+  EMAIL_OVERVIEW_CHUNK: "EMAIL_OVERVIEW_CHUNK",
+  EMAIL_RESPONSE_CHUNK: "EMAIL_RESPONSE_CHUNK",
+  GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
+  GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
+  GENERATIVE_RESPONSE: "GENERATIVE_RESPONSE",
+  INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
+  KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
+  NOTES_CHUNK: "NOTES_CHUNK",
+  SUGGESTED_MESSAGE: "SUGGESTED_MESSAGE",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RelevanceLevel = {
   HIGH: "HIGH",
   LOW: "LOW",
@@ -343,6 +405,14 @@ export type SourceContentType = (typeof SourceContentType)[keyof typeof SourceCo
  * @enum
  */
 export const ReferenceType = {
+  BEDROCK_KB_CONFLUENCE: "BEDROCK_KB_CONFLUENCE",
+  BEDROCK_KB_CUSTOM_DOCUMENT: "BEDROCK_KB_CUSTOM_DOCUMENT",
+  BEDROCK_KB_KENDRA: "BEDROCK_KB_KENDRA",
+  BEDROCK_KB_S3: "BEDROCK_KB_S3",
+  BEDROCK_KB_SALESFORCE: "BEDROCK_KB_SALESFORCE",
+  BEDROCK_KB_SHAREPOINT: "BEDROCK_KB_SHAREPOINT",
+  BEDROCK_KB_SQL: "BEDROCK_KB_SQL",
+  BEDROCK_KB_WEB: "BEDROCK_KB_WEB",
   KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
   WEB_CRAWLER: "WEB_CRAWLER",
 } as const;
@@ -350,28 +420,6 @@ export const ReferenceType = {
  * @public
  */
 export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationType = {
-  BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
-  BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
-  DETECTED_INTENT: "DETECTED_INTENT",
-  EMAIL_GENERATIVE_ANSWER_CHUNK: "EMAIL_GENERATIVE_ANSWER_CHUNK",
-  EMAIL_OVERVIEW_CHUNK: "EMAIL_OVERVIEW_CHUNK",
-  EMAIL_RESPONSE_CHUNK: "EMAIL_RESPONSE_CHUNK",
-  GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
-  GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
-  GENERATIVE_RESPONSE: "GENERATIVE_RESPONSE",
-  INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
-  KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
-} as const;
-/**
- * @public
- */
-export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 /**
  * @public
@@ -456,8 +504,11 @@ export type QueryConditionFieldName = (typeof QueryConditionFieldName)[keyof typ
  * @enum
  */
 export const QueryResultType = {
+  BLOCKED_CASE_SUMMARIZATION_CHUNK: "BLOCKED_CASE_SUMMARIZATION_CHUNK",
   BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
   BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
+  BLOCKED_NOTES_CHUNK: "BLOCKED_NOTES_CHUNK",
+  CASE_SUMMARIZATION_CHUNK: "CASE_SUMMARIZATION_CHUNK",
   EMAIL_GENERATIVE_ANSWER_CHUNK: "EMAIL_GENERATIVE_ANSWER_CHUNK",
   EMAIL_OVERVIEW_CHUNK: "EMAIL_OVERVIEW_CHUNK",
   EMAIL_RESPONSE_CHUNK: "EMAIL_RESPONSE_CHUNK",
@@ -466,6 +517,8 @@ export const QueryResultType = {
   INTENT_ANSWER: "INTENT_ANSWER",
   INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
   KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
+  NOTES: "NOTES",
+  NOTES_CHUNK: "NOTES_CHUNK",
 } as const;
 /**
  * @public
@@ -549,6 +602,47 @@ export const MessageType = {
  * @public
  */
 export type MessageType = (typeof MessageType)[keyof typeof MessageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageFilterType = {
+  ALL: "ALL",
+  TEXT_ONLY: "TEXT_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type MessageFilterType = (typeof MessageFilterType)[keyof typeof MessageFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpanType = {
+  CLIENT: "CLIENT",
+  INTERNAL: "INTERNAL",
+  SERVER: "SERVER",
+} as const;
+/**
+ * @public
+ */
+export type SpanType = (typeof SpanType)[keyof typeof SpanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpanStatus = {
+  ERROR: "ERROR",
+  OK: "OK",
+  TIMEOUT: "TIMEOUT",
+} as const;
+/**
+ * @public
+ */
+export type SpanStatus = (typeof SpanStatus)[keyof typeof SpanStatus];
 
 /**
  * @public

@@ -39,6 +39,7 @@ export interface RemoveAssistantAIAgentCommandOutput extends RemoveAssistantAIAg
  * const input = { // RemoveAssistantAIAgentRequest
  *   assistantId: "STRING_VALUE", // required
  *   aiAgentType: "STRING_VALUE", // required
+ *   orchestratorUseCase: "STRING_VALUE",
  * };
  * const command = new RemoveAssistantAIAgentCommand(input);
  * const response = await client.send(command);
