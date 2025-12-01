@@ -16,6 +16,8 @@ const _AASg = "AgentAliasSummaries";
 const _AC = "AgentCollaborator";
 const _ACS = "AgentCollaboratorSummary";
 const _ACSg = "AgentCollaboratorSummaries";
+const _ACu = "AudioConfiguration";
+const _ACud = "AudioConfigurations";
 const _AD = "AgentDescriptor";
 const _ADE = "AccessDeniedException";
 const _AFNC = "AgentFlowNodeConfiguration";
@@ -27,6 +29,7 @@ const _AKBS = "AgentKnowledgeBaseSummary";
 const _AKBSg = "AgentKnowledgeBaseSummaries";
 const _APIS = "APISchema";
 const _AS = "AgentSummary";
+const _ASC = "AudioSegmentationConfiguration";
 const _ASg = "AgentSummaries";
 const _ATC = "AnyToolChoice";
 const _ATCu = "AutoToolChoice";
@@ -519,6 +522,8 @@ const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _VBA = "VectorBucketArn";
+const _VC = "VideoConfiguration";
+const _VCi = "VideoConfigurations";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
@@ -529,12 +534,13 @@ const _VIC = "VectorIngestionConfiguration";
 const _VKBC = "VectorKnowledgeBaseConfiguration";
 const _VSBRC = "VectorSearchBedrockRerankingConfiguration";
 const _VSBRMC = "VectorSearchBedrockRerankingModelConfiguration";
+const _VSC = "VideoSegmentationConfiguration";
 const _VSRC = "VectorSearchRerankingConfiguration";
 const _WCC = "WebCrawlerConfiguration";
 const _WCL = "WebCrawlerLimits";
 const _WDSC = "WebDataSourceConfiguration";
 const _WSC = "WebSourceConfiguration";
-const _a = "agent";
+const _a = "audio";
 const _aA = "agentArn";
 const _aAA = "agentAliasArn";
 const _aAG = "agentActionGroup";
@@ -571,6 +577,7 @@ const _aSp = "apiSchema";
 const _aT = "authType";
 const _aV = "agentVersion";
 const _aVS = "agentVersionSummaries";
+const _ag = "agent";
 const _an = "any";
 const _ar = "arn";
 const _at = "attribute";
@@ -673,6 +680,7 @@ const _fC = "filterConfiguration";
 const _fI = "flowIdentifier";
 const _fIl = "flowId";
 const _fL = "fieldList";
+const _fLD = "fixedLengthDuration";
 const _fM = "foundationModel";
 const _fMi = "fieldMapping";
 const _fN = "fieldName";
@@ -865,12 +873,13 @@ const _s = "system";
 const _sA = "startedAt";
 const _sB = "sortBy";
 const _sBN = "s3BucketName";
-const _sC = "sourceConfiguration";
+const _sC = "segmentationConfiguration";
 const _sCC = "semanticChunkingConfiguration";
 const _sCa = "salesforceConfiguration";
 const _sCe = "serverlessConfiguration";
 const _sCer = "serviceConfiguration";
-const _sCo = "s3Configuration";
+const _sCo = "sourceConfiguration";
+const _sCon = "s3Configuration";
 const _sCt = "storageConfiguration";
 const _sCto = "storageConfigurations";
 const _sD = "startDate";
@@ -961,6 +970,7 @@ const _va = "variants";
 const _val = "validations";
 const _valu = "values";
 const _value = "value";
+const _vi = "video";
 const _wA = "workgroupArn";
 const _wC = "webConfiguration";
 const n0 = "com.amazonaws.bedrockagent";
@@ -1222,9 +1232,18 @@ export var AssociateAgentKnowledgeBaseResponse: StaticStructureSchema = [
   [_aKB],
   [() => AgentKnowledgeBase],
 ];
+export var AudioConfiguration: StaticStructureSchema = [3, n0, _ACu, 0, [_sC], [() => AudioSegmentationConfiguration]];
+export var AudioSegmentationConfiguration: StaticStructureSchema = [3, n0, _ASC, 0, [_fLD], [1]];
 export var AutoToolChoice: StaticStructureSchema = [3, n0, _ATCu, 0, [], []];
 export var BedrockDataAutomationConfiguration: StaticStructureSchema = [3, n0, _BDAC, 0, [_pM], [0]];
-export var BedrockEmbeddingModelConfiguration: StaticStructureSchema = [3, n0, _BEMC, 0, [_di, _eDT], [1, 0]];
+export var BedrockEmbeddingModelConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _BEMC,
+  0,
+  [_di, _eDT, _a, _vi],
+  [1, 0, () => AudioConfigurations, () => VideoConfigurations],
+];
 export var BedrockFoundationModelConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1304,7 +1323,7 @@ export var ConfluenceDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _CDSC,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => ConfluenceSourceConfiguration, [() => ConfluenceCrawlerConfiguration, 0]],
 ];
 export var ConfluenceSourceConfiguration: StaticStructureSchema = [3, n0, _CSC, 0, [_hU, _hT, _aT, _cSA], [0, 0, 0, 0]];
@@ -1373,7 +1392,7 @@ export var CreateAgentRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreateAgentResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_a], [[() => Agent, 0]]];
+export var CreateAgentResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_ag], [[() => Agent, 0]]];
 export var CreateDataSourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1521,7 +1540,7 @@ export var DataSourceConfiguration: StaticStructureSchema = [
   n0,
   _DSC,
   0,
-  [_t, _sCo, _wC, _cCon, _sCa, _sPC],
+  [_t, _sCon, _wC, _cCon, _sCa, _sPC],
   [
     0,
     [() => S3DataSourceConfiguration, 0],
@@ -1906,7 +1925,7 @@ export var GetAgentKnowledgeBaseResponse: StaticStructureSchema = [
   [() => AgentKnowledgeBase],
 ];
 export var GetAgentRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
-export var GetAgentResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_a], [[() => Agent, 0]]];
+export var GetAgentResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_ag], [[() => Agent, 0]]];
 export var GetAgentVersionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2672,7 +2691,7 @@ export var PromptFlowNodeConfiguration: StaticStructureSchema = [
   n0,
   _PFNC,
   0,
-  [_sC, _gC],
+  [_sCo, _gC],
   [[() => PromptFlowNodeSourceConfiguration, 0], () => GuardrailConfiguration],
 ];
 export var PromptFlowNodeInlineConfiguration: StaticStructureSchema = [
@@ -2897,7 +2916,7 @@ export var SalesforceDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _SDSCa,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => SalesforceSourceConfiguration, [() => SalesforceCrawlerConfiguration, 0]],
 ];
 export var SalesforceSourceConfiguration: StaticStructureSchema = [3, n0, _SSC, 0, [_hU, _aT, _cSA], [0, 0, 0]];
@@ -2931,7 +2950,7 @@ export var SharePointDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _SPDSC,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => SharePointSourceConfiguration, [() => SharePointCrawlerConfiguration, 0]],
 ];
 export var SharePointSourceConfiguration: StaticStructureSchema = [
@@ -3177,7 +3196,7 @@ export var UpdateAgentRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var UpdateAgentResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_a], [[() => Agent, 0]]];
+export var UpdateAgentResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_ag], [[() => Agent, 0]]];
 export var UpdateDataSourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3322,6 +3341,8 @@ export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
   [_t, _bRC],
   [0, [() => VectorSearchBedrockRerankingConfiguration, 0]],
 ];
+export var VideoConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_sC], [() => VideoSegmentationConfiguration]];
+export var VideoSegmentationConfiguration: StaticStructureSchema = [3, n0, _VSC, 0, [_fLD], [1]];
 export var WebCrawlerConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -3343,7 +3364,7 @@ export var WebDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _WDSC,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => WebSourceConfiguration, [() => WebCrawlerConfiguration, 0]],
 ];
 export var WebSourceConfiguration: StaticStructureSchema = [3, n0, _WSC, 0, [_uC], [() => UrlConfiguration]];
@@ -3366,6 +3387,7 @@ export var AgentCollaboratorSummaries: StaticListSchema = [1, n0, _ACSg, 0, [() 
 export var AgentKnowledgeBaseSummaries: StaticListSchema = [1, n0, _AKBSg, 0, () => AgentKnowledgeBaseSummary];
 export var AgentSummaries: StaticListSchema = [1, n0, _ASg, 0, () => AgentSummary];
 export var AgentVersionSummaries: StaticListSchema = [1, n0, _AVSg, 0, () => AgentVersionSummary];
+export var AudioConfigurations: StaticListSchema = [1, n0, _ACud, 0, () => AudioConfiguration];
 export var AwsDataCatalogTableNames = 64 | 0;
 
 export var ContentBlocks: StaticListSchema = [1, n0, _CB, 0, [() => ContentBlock, 0]];
@@ -3448,6 +3470,7 @@ export var TagKeyList = 64 | 0;
 export var Tools: StaticListSchema = [1, n0, _To, 8, () => Tool];
 export var Transformations: StaticListSchema = [1, n0, _Tr, 0, () => Transformation];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
+export var VideoConfigurations: StaticListSchema = [1, n0, _VCi, 0, () => VideoConfiguration];
 export var ActionGroupSignatureParams = 128 | 0;
 
 export var AdditionalModelRequestFields = 128 | 15;
@@ -3471,7 +3494,7 @@ export var FlowNodeConfiguration: StaticStructureSchema = [
   n0,
   _FNC,
   0,
-  [_inp, _ou, _kB, _cond, _le, _pr, _lF, _sto, _a, _ret, _it, _coll, _iCnl, _lo, _lIo, _lCo],
+  [_inp, _ou, _kB, _cond, _le, _pr, _lF, _sto, _ag, _ret, _it, _coll, _iCnl, _lo, _lIo, _lCo],
   [
     () => InputFlowNodeConfiguration,
     () => OutputFlowNodeConfiguration,
@@ -3577,7 +3600,7 @@ export var PromptFlowNodeSourceConfiguration: StaticStructureSchema = [
   [_res, _inl],
   [() => PromptFlowNodeResourceConfiguration, [() => PromptFlowNodeInlineConfiguration, 0]],
 ];
-export var PromptGenAiResource: StaticStructureSchema = [3, n0, _PGAR, 8, [_a], [[() => PromptAgentResource, 0]]];
+export var PromptGenAiResource: StaticStructureSchema = [3, n0, _PGAR, 8, [_ag], [[() => PromptAgentResource, 0]]];
 export var PromptInferenceConfiguration: StaticStructureSchema = [
   3,
   n0,

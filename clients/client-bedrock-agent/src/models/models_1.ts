@@ -3,6 +3,7 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 
 import {
   AgentStatus,
+  EmbeddingDataType,
   FlowNodeType,
   FlowStatus,
   KnowledgeBaseState,
@@ -10,6 +11,7 @@ import {
   KnowledgeBaseStorageType,
   KnowledgeBaseType,
   PromptTemplateType,
+  SupplementalDataStorageLocationType,
 } from "./enums";
 
 import {
@@ -18,9 +20,9 @@ import {
   AgentKnowledgeBaseSummary,
   AgentVersion,
   AgentVersionSummary,
+  AudioConfiguration,
   CollectorFlowNodeConfiguration,
   ConditionFlowNodeConfiguration,
-  EmbeddingModelConfiguration,
   FlowConnection,
   FlowNodeInput,
   FlowNodeOutput,
@@ -39,10 +41,83 @@ import {
   PromptInferenceConfiguration,
   PromptTemplateConfiguration,
   RetrievalFlowNodeConfiguration,
+  S3Location,
   SqlKnowledgeBaseConfiguration,
   StorageFlowNodeConfiguration,
-  SupplementalDataStorageConfiguration,
+  VideoConfiguration,
 } from "./models_0";
+
+/**
+ * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * @public
+ */
+export interface BedrockEmbeddingModelConfiguration {
+  /**
+   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * @public
+   */
+  dimensions?: number | undefined;
+
+  /**
+   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
+   * @public
+   */
+  embeddingDataType?: EmbeddingDataType | undefined;
+
+  /**
+   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+   * @public
+   */
+  audio?: AudioConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+   * @public
+   */
+  video?: VideoConfiguration[] | undefined;
+}
+
+/**
+ * <p>The configuration details for the embeddings model.</p>
+ * @public
+ */
+export interface EmbeddingModelConfiguration {
+  /**
+   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * @public
+   */
+  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
+}
+
+/**
+ * <p>Contains information about a storage location for images extracted from multimodal documents in your data source.</p>
+ * @public
+ */
+export interface SupplementalDataStorageLocation {
+  /**
+   * <p>Specifies the storage service used for this location.</p>
+   * @public
+   */
+  type: SupplementalDataStorageLocationType | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 location for the extracted images.</p>
+   * @public
+   */
+  s3Location?: S3Location | undefined;
+}
+
+/**
+ * <p>Specifies configurations for the storage location of the images extracted from multimodal documents in your data source. These images can be retrieved and returned to the end user.</p>
+ * @public
+ */
+export interface SupplementalDataStorageConfiguration {
+  /**
+   * <p>A list of objects specifying storage locations for images extracted from multimodal documents in your data source.</p>
+   * @public
+   */
+  storageLocations: SupplementalDataStorageLocation[] | undefined;
+}
 
 /**
  * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>

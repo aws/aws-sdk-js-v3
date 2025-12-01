@@ -24,7 +24,6 @@ import {
   DataSourceStatus,
   DataSourceType,
   DocumentStatus,
-  EmbeddingDataType,
   EnrichmentStrategyMethod,
   FlowConnectionType,
   FlowNodeInputCategory,
@@ -63,7 +62,6 @@ import {
   SharePointHostType,
   SortOrder,
   StepType,
-  SupplementalDataStorageLocationType,
   SupportedLanguages,
   Type,
   VectorSearchRerankingConfigurationType,
@@ -8128,7 +8126,7 @@ export interface KnowledgeBaseDocumentDetail {
   dataSourceId: string | undefined;
 
   /**
-   * <p>The ingestion status of the document. The following statuses are possible:</p> <ul> <li> <p>STARTED – You submitted the ingestion job containing the document.</p> </li> <li> <p>PENDING – The document is waiting to be ingested.</p> </li> <li> <p>IN_PROGRESS – The document is being ingested.</p> </li> <li> <p>INDEXED – The document was successfully indexed.</p> </li> <li> <p>PARTIALLY_INDEXED – The document was partially indexed.</p> </li> <li> <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p> </li> <li> <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p> </li> <li> <p>FAILED – The document failed to be ingested.</p> </li> <li> <p>NOT_FOUND – The document wasn't found.</p> </li> <li> <p>IGNORED – The document was ignored during ingestion.</p> </li> <li> <p>DELETING – You submitted the delete job containing the document.</p> </li> <li> <p>DELETE_IN_PROGRESS – The document is being deleted.</p> </li> </ul>
+   * <p>The ingestion status of the document. The following statuses are possible:</p> <ul> <li> <p>STARTING – You submitted the ingestion job containing the document.</p> </li> <li> <p>PENDING – The document is waiting to be ingested.</p> </li> <li> <p>IN_PROGRESS – The document is being ingested.</p> </li> <li> <p>INDEXED – The document was successfully indexed.</p> </li> <li> <p>PARTIALLY_INDEXED – The document was partially indexed.</p> </li> <li> <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p> </li> <li> <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p> </li> <li> <p>FAILED – The document failed to be ingested.</p> </li> <li> <p>NOT_FOUND – The document wasn't found.</p> </li> <li> <p>IGNORED – The document was ignored during ingestion.</p> </li> <li> <p>DELETING – You submitted the delete job containing the document.</p> </li> <li> <p>DELETE_IN_PROGRESS – The document is being deleted.</p> </li> </ul>
    * @public
    */
   status: DocumentStatus | undefined;
@@ -8876,61 +8874,49 @@ export interface SqlKnowledgeBaseConfiguration {
 }
 
 /**
- * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * <p>Configuration for segmenting audio content during multimodal knowledge base ingestion. Determines how audio files are divided into chunks for processing.</p>
  * @public
  */
-export interface BedrockEmbeddingModelConfiguration {
+export interface AudioSegmentationConfiguration {
   /**
-   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * <p>The duration in seconds for each audio segment. Audio files will be divided into chunks of this length for processing.</p>
    * @public
    */
-  dimensions?: number | undefined;
-
-  /**
-   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
-   * @public
-   */
-  embeddingDataType?: EmbeddingDataType | undefined;
+  fixedLengthDuration: number | undefined;
 }
 
 /**
- * <p>The configuration details for the embeddings model.</p>
+ * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
  * @public
  */
-export interface EmbeddingModelConfiguration {
+export interface AudioConfiguration {
   /**
-   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * <p>Configuration for segmenting audio content during processing.</p>
    * @public
    */
-  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
+  segmentationConfiguration: AudioSegmentationConfiguration | undefined;
 }
 
 /**
- * <p>Contains information about a storage location for images extracted from multimodal documents in your data source.</p>
+ * <p>Configuration for segmenting video content during multimodal knowledge base ingestion. Determines how video files are divided into chunks for processing.</p>
  * @public
  */
-export interface SupplementalDataStorageLocation {
+export interface VideoSegmentationConfiguration {
   /**
-   * <p>Specifies the storage service used for this location.</p>
+   * <p>The duration in seconds for each video segment. Video files will be divided into chunks of this length for processing.</p>
    * @public
    */
-  type: SupplementalDataStorageLocationType | undefined;
-
-  /**
-   * <p>Contains information about the Amazon S3 location for the extracted images.</p>
-   * @public
-   */
-  s3Location?: S3Location | undefined;
+  fixedLengthDuration: number | undefined;
 }
 
 /**
- * <p>Specifies configurations for the storage location of the images extracted from multimodal documents in your data source. These images can be retrieved and returned to the end user.</p>
+ * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
  * @public
  */
-export interface SupplementalDataStorageConfiguration {
+export interface VideoConfiguration {
   /**
-   * <p>A list of objects specifying storage locations for images extracted from multimodal documents in your data source.</p>
+   * <p>Configuration for segmenting video content during processing.</p>
    * @public
    */
-  storageLocations: SupplementalDataStorageLocation[] | undefined;
+  segmentationConfiguration: VideoSegmentationConfiguration | undefined;
 }

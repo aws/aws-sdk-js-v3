@@ -49,6 +49,20 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *         bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  *           dimensions: Number("int"),
  *           embeddingDataType: "FLOAT32" || "BINARY",
+ *           audio: [ // AudioConfigurations
+ *             { // AudioConfiguration
+ *               segmentationConfiguration: { // AudioSegmentationConfiguration
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
+ *           video: [ // VideoConfigurations
+ *             { // VideoConfiguration
+ *               segmentationConfiguration: { // VideoSegmentationConfiguration
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
  *         },
  *       },
  *       supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration
@@ -228,6 +242,20 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //           bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  * //             dimensions: Number("int"),
  * //             embeddingDataType: "FLOAT32" || "BINARY",
+ * //             audio: [ // AudioConfigurations
+ * //               { // AudioConfiguration
+ * //                 segmentationConfiguration: { // AudioSegmentationConfiguration
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //             video: [ // VideoConfigurations
+ * //               { // VideoConfiguration
+ * //                 segmentationConfiguration: { // VideoSegmentationConfiguration
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration
