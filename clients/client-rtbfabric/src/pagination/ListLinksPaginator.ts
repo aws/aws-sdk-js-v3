@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { ListLinksCommand, ListLinksCommandInput, ListLinksCommandOutput } from "../commands/ListLinksCommand";
 import { RTBFabricClient } from "../RTBFabricClient";

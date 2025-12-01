@@ -39,7 +39,7 @@ const n0 = "com.amazonaws.sagemakermetrics";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { SageMakerMetricsServiceException as __SageMakerMetricsServiceException } from "../models/SageMakerMetricsServiceException";
 

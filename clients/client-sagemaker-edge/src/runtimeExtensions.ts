@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { SagemakerEdgeExtensionConfiguration } from "./extensionConfiguration";
+import type { SagemakerEdgeExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

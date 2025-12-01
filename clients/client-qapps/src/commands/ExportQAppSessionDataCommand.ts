@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExportQAppSessionDataInput, ExportQAppSessionDataOutput } from "../models/models_0";
-import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+import type { ExportQAppSessionDataInput, ExportQAppSessionDataOutput } from "../models/models_0";
+import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { ExportQAppSessionData } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchExecuteStatementCommand,
@@ -227,7 +227,7 @@ import {
   UpdateTimeToLiveCommandInput,
   UpdateTimeToLiveCommandOutput,
 } from "./commands/UpdateTimeToLiveCommand";
-import { DynamoDBClient, DynamoDBClientConfig } from "./DynamoDBClient";
+import { DynamoDBClient } from "./DynamoDBClient";
 
 const commands = {
   BatchExecuteStatementCommand,

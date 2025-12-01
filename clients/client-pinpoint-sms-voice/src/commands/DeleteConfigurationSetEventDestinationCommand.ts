@@ -1,14 +1,18 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   DeleteConfigurationSetEventDestinationRequest,
   DeleteConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
-import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
+import type {
+  PinpointSMSVoiceClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../PinpointSMSVoiceClient";
 import { DeleteConfigurationSetEventDestination } from "../schemas/schemas_0";
 
 /**

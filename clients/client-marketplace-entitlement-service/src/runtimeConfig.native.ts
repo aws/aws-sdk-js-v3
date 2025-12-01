@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { MarketplaceEntitlementServiceClientConfig } from "./MarketplaceEntitlementServiceClient";
+import type { MarketplaceEntitlementServiceClientConfig } from "./MarketplaceEntitlementServiceClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

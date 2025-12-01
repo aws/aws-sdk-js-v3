@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/models_0";
+import type { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/models_0";
 import { SendTaskHeartbeat } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public

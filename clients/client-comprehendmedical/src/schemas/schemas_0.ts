@@ -176,7 +176,7 @@ const n0 = "com.amazonaws.comprehendmedical";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ComprehendMedicalServiceException as __ComprehendMedicalServiceException } from "../models/ComprehendMedicalServiceException";
 import {

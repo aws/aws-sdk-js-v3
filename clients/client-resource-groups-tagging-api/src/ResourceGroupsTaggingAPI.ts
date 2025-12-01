@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DescribeReportCreationCommand,
@@ -43,7 +43,7 @@ import {
   UntagResourcesCommandInput,
   UntagResourcesCommandOutput,
 } from "./commands/UntagResourcesCommand";
-import { ResourceGroupsTaggingAPIClient, ResourceGroupsTaggingAPIClientConfig } from "./ResourceGroupsTaggingAPIClient";
+import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient";
 
 const commands = {
   DescribeReportCreationCommand,

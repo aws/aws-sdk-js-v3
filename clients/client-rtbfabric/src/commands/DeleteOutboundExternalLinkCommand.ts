@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteOutboundExternalLinkRequest, DeleteOutboundExternalLinkResponse } from "../models/models_0";
-import { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
+import type { DeleteOutboundExternalLinkRequest, DeleteOutboundExternalLinkResponse } from "../models/models_0";
+import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { DeleteOutboundExternalLink } from "../schemas/schemas_0";
 
 /**

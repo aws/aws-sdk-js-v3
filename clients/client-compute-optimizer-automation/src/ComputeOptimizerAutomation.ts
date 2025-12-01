@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateAccountsCommand,
@@ -113,10 +113,7 @@ import {
   UpdateEnrollmentConfigurationCommandInput,
   UpdateEnrollmentConfigurationCommandOutput,
 } from "./commands/UpdateEnrollmentConfigurationCommand";
-import {
-  ComputeOptimizerAutomationClient,
-  ComputeOptimizerAutomationClientConfig,
-} from "./ComputeOptimizerAutomationClient";
+import { ComputeOptimizerAutomationClient } from "./ComputeOptimizerAutomationClient";
 
 const commands = {
   AssociateAccountsCommand,

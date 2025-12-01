@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
+import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetProfileRequest, GetProfileResponse } from "../models/models_0";
+import type { GetProfileRequest, GetProfileResponse } from "../models/models_0";
 import { GetProfile } from "../schemas/schemas_0";
 
 /**

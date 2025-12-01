@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { LicenseManagerLinuxSubscriptionsClientConfig } from "./LicenseManagerLinuxSubscriptionsClient";
+import type { LicenseManagerLinuxSubscriptionsClientConfig } from "./LicenseManagerLinuxSubscriptionsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

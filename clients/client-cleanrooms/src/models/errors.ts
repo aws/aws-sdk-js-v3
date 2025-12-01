@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServiceException";
 import { AccessDeniedExceptionReason, ConflictExceptionReason, ResourceType, ValidationExceptionReason } from "./enums";

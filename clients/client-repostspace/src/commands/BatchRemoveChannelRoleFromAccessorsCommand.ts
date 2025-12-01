@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   BatchRemoveChannelRoleFromAccessorsInput,
   BatchRemoveChannelRoleFromAccessorsOutput,
 } from "../models/models_0";
-import { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
+import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
 import { BatchRemoveChannelRoleFromAccessors } from "../schemas/schemas_0";
 
 /**

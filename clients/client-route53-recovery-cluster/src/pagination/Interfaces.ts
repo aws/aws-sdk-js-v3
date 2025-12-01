@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { PaginationConfiguration } from "@smithy/types";
+import type { PaginationConfiguration } from "@smithy/types";
 
 import { Route53RecoveryClusterClient } from "../Route53RecoveryClusterClient";
 

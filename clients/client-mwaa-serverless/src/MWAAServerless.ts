@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateWorkflowCommand,
@@ -69,7 +69,7 @@ import {
   UpdateWorkflowCommandInput,
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
-import { MWAAServerlessClient, MWAAServerlessClientConfig } from "./MWAAServerlessClient";
+import { MWAAServerlessClient } from "./MWAAServerlessClient";
 
 const commands = {
   CreateWorkflowCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddBridgeOutputsCommand,
@@ -380,7 +380,7 @@ import {
   UpdateRouterOutputCommandInput,
   UpdateRouterOutputCommandOutput,
 } from "./commands/UpdateRouterOutputCommand";
-import { MediaConnectClient, MediaConnectClientConfig } from "./MediaConnectClient";
+import { MediaConnectClient } from "./MediaConnectClient";
 
 const commands = {
   AddBridgeOutputsCommand,

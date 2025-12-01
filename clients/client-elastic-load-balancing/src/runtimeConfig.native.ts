@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ElasticLoadBalancingClientConfig } from "./ElasticLoadBalancingClient";
+import type { ElasticLoadBalancingClientConfig } from "./ElasticLoadBalancingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

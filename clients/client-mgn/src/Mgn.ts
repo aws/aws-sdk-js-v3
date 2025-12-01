@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ArchiveApplicationCommand,
@@ -304,7 +304,7 @@ import {
   UpdateSourceServerReplicationTypeCommandOutput,
 } from "./commands/UpdateSourceServerReplicationTypeCommand";
 import { UpdateWaveCommand, UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
-import { MgnClient, MgnClientConfig } from "./MgnClient";
+import { MgnClient } from "./MgnClient";
 
 const commands = {
   ArchiveApplicationCommand,

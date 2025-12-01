@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListNetworkProfilesRequest, ListNetworkProfilesResult } from "../models/models_0";
+import type { ListNetworkProfilesRequest, ListNetworkProfilesResult } from "../models/models_0";
 import { ListNetworkProfiles } from "../schemas/schemas_0";
 
 /**

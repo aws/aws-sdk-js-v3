@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
+import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateRecipeJobRequest, CreateRecipeJobResponse } from "../models/models_0";
+import type { CreateRecipeJobRequest, CreateRecipeJobResponse } from "../models/models_0";
 import { CreateRecipeJob } from "../schemas/schemas_0";
 
 /**

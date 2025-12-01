@@ -2,13 +2,17 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { TestPayloadBlobInputOutput } from "../models/models_0";
 import { de_TestPayloadBlobCommand, se_TestPayloadBlobCommand } from "../protocols/Aws_restJson1";
-import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import type {
+  RestJsonProtocolClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../RestJsonProtocolClient";
 
 /**
  * @public

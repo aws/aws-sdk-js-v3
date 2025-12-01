@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateSuiteDefinitionCommand,
@@ -60,7 +60,7 @@ import {
   UpdateSuiteDefinitionCommandInput,
   UpdateSuiteDefinitionCommandOutput,
 } from "./commands/UpdateSuiteDefinitionCommand";
-import { IotDeviceAdvisorClient, IotDeviceAdvisorClientConfig } from "./IotDeviceAdvisorClient";
+import { IotDeviceAdvisorClient } from "./IotDeviceAdvisorClient";
 
 const commands = {
   CreateSuiteDefinitionCommand,

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { StorageGatewayError } from "./models_0";
 import { StorageGatewayServiceException as __BaseException } from "./StorageGatewayServiceException";

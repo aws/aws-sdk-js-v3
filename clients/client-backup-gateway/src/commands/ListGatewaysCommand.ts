@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
+import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
+import type { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
 import { ListGateways } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateApplicationCommand,
@@ -72,10 +72,7 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import {
-  ServerlessApplicationRepositoryClient,
-  ServerlessApplicationRepositoryClientConfig,
-} from "./ServerlessApplicationRepositoryClient";
+import { ServerlessApplicationRepositoryClient } from "./ServerlessApplicationRepositoryClient";
 
 const commands = {
   CreateApplicationCommand,

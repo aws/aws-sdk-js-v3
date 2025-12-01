@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateConnectorCommand,
@@ -119,7 +119,7 @@ import {
   UpdateTemplateGroupAccessControlEntryCommandInput,
   UpdateTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/UpdateTemplateGroupAccessControlEntryCommand";
-import { PcaConnectorAdClient, PcaConnectorAdClientConfig } from "./PcaConnectorAdClient";
+import { PcaConnectorAdClient } from "./PcaConnectorAdClient";
 
 const commands = {
   CreateConnectorCommand,

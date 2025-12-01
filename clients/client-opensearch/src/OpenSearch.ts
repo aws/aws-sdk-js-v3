@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptInboundConnectionCommand,
@@ -384,7 +384,7 @@ import {
   UpgradeDomainCommandInput,
   UpgradeDomainCommandOutput,
 } from "./commands/UpgradeDomainCommand";
-import { OpenSearchClient, OpenSearchClientConfig } from "./OpenSearchClient";
+import { OpenSearchClient } from "./OpenSearchClient";
 
 const commands = {
   AcceptInboundConnectionCommand,

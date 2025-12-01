@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
+import type { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,29 +1,30 @@
 // smithy-typescript generated code
-import { EchoCommandInput, EchoCommandOutput } from "../commands/EchoCommand";
-import { LengthCommandInput, LengthCommandOutput } from "../commands/LengthCommand";
-import { EchoServiceServiceException as __BaseException } from "../models/EchoServiceServiceException";
-import { PalindromeException } from "../models/errors";
 import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  resolvedPath as __resolvedPath,
-  _json,
-  collectBody,
   map,
+  resolvedPath as __resolvedPath,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
-import {
+import type {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+
+import { EchoCommandInput, EchoCommandOutput } from "../commands/EchoCommand";
+import { LengthCommandInput, LengthCommandOutput } from "../commands/LengthCommand";
+import { EchoServiceServiceException as __BaseException } from "../models/EchoServiceServiceException";
+import { PalindromeException } from "../models/errors";
 
 /**
  * serializeAws_restJson1EchoCommand

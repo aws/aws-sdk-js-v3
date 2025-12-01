@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDataSetRefreshPropertiesRequest, DescribeDataSetRefreshPropertiesResponse } from "../models/models_3";
-import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import type {
+  DescribeDataSetRefreshPropertiesRequest,
+  DescribeDataSetRefreshPropertiesResponse,
+} from "../models/models_3";
+import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeDataSetRefreshProperties } from "../schemas/schemas_0";
 
 /**

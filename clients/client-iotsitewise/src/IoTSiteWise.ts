@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateAssetsCommand,
@@ -494,7 +494,7 @@ import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
-import { IoTSiteWiseClient, IoTSiteWiseClientConfig } from "./IoTSiteWiseClient";
+import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
 
 const commands = {
   AssociateAssetsCommand,

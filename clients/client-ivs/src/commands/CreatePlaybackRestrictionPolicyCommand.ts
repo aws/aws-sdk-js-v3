@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { CreatePlaybackRestrictionPolicyRequest, CreatePlaybackRestrictionPolicyResponse } from "../models/models_0";
+import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import type {
+  CreatePlaybackRestrictionPolicyRequest,
+  CreatePlaybackRestrictionPolicyResponse,
+} from "../models/models_0";
 import { CreatePlaybackRestrictionPolicy } from "../schemas/schemas_0";
 
 /**

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { DynamoDBStreamsClientConfig } from "./DynamoDBStreamsClient";
+import type { DynamoDBStreamsClientConfig } from "./DynamoDBStreamsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

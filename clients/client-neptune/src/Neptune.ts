@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddRoleToDBClusterCommand,
@@ -352,7 +352,7 @@ import {
   SwitchoverGlobalClusterCommandInput,
   SwitchoverGlobalClusterCommandOutput,
 } from "./commands/SwitchoverGlobalClusterCommand";
-import { NeptuneClient, NeptuneClientConfig } from "./NeptuneClient";
+import { NeptuneClient } from "./NeptuneClient";
 
 const commands = {
   AddRoleToDBClusterCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCheckLayerAvailabilityCommand,
@@ -280,7 +280,7 @@ import {
   ValidatePullThroughCacheRuleCommandInput,
   ValidatePullThroughCacheRuleCommandOutput,
 } from "./commands/ValidatePullThroughCacheRuleCommand";
-import { ECRClient, ECRClientConfig } from "./ECRClient";
+import { ECRClient } from "./ECRClient";
 
 const commands = {
   BatchCheckLayerAvailabilityCommand,

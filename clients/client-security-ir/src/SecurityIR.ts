@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetMemberAccountDetailsCommand,
@@ -98,7 +98,7 @@ import {
   UpdateResolverTypeCommandInput,
   UpdateResolverTypeCommandOutput,
 } from "./commands/UpdateResolverTypeCommand";
-import { SecurityIRClient, SecurityIRClientConfig } from "./SecurityIRClient";
+import { SecurityIRClient } from "./SecurityIRClient";
 
 const commands = {
   BatchGetMemberAccountDetailsCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateLandingZoneCommand,
@@ -134,7 +134,7 @@ import {
   UpdateLandingZoneCommandInput,
   UpdateLandingZoneCommandOutput,
 } from "./commands/UpdateLandingZoneCommand";
-import { ControlTowerClient, ControlTowerClientConfig } from "./ControlTowerClient";
+import { ControlTowerClient } from "./ControlTowerClient";
 
 const commands = {
   CreateLandingZoneCommand,

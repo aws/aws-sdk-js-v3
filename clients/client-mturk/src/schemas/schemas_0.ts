@@ -282,7 +282,7 @@ const n0 = "com.amazonaws.mturk";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { RequestError as __RequestError, ServiceFault as __ServiceFault } from "../models/errors";
 import { MTurkServiceException as __MTurkServiceException } from "../models/MTurkServiceException";

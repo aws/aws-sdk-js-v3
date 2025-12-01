@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateEnvironmentCommand,
@@ -70,7 +70,7 @@ import {
   UpdateSoftwareSetCommandInput,
   UpdateSoftwareSetCommandOutput,
 } from "./commands/UpdateSoftwareSetCommand";
-import { WorkSpacesThinClientClient, WorkSpacesThinClientClientConfig } from "./WorkSpacesThinClientClient";
+import { WorkSpacesThinClientClient } from "./WorkSpacesThinClientClient";
 
 const commands = {
   CreateEnvironmentCommand,

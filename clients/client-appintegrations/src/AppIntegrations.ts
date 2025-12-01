@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AppIntegrationsClient, AppIntegrationsClientConfig } from "./AppIntegrationsClient";
+import { AppIntegrationsClient } from "./AppIntegrationsClient";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,

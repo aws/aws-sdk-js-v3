@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BCMDataExportsServiceException as __BaseException } from "./BCMDataExportsServiceException";
 import { ValidationExceptionReason } from "./enums";

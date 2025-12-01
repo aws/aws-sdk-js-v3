@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCapacityReservationInput, CreateCapacityReservationOutput } from "../models/models_0";
+import type { CreateCapacityReservationInput, CreateCapacityReservationOutput } from "../models/models_0";
 import { CreateCapacityReservation } from "../schemas/schemas_0";
 
 /**

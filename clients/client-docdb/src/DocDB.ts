@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddSourceIdentifierToSubscriptionCommand,
@@ -277,7 +277,7 @@ import {
   SwitchoverGlobalClusterCommandInput,
   SwitchoverGlobalClusterCommandOutput,
 } from "./commands/SwitchoverGlobalClusterCommand";
-import { DocDBClient, DocDBClientConfig } from "./DocDBClient";
+import { DocDBClient } from "./DocDBClient";
 
 const commands = {
   AddSourceIdentifierToSubscriptionCommand,

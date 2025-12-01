@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptInvitationCommand,
@@ -387,7 +387,7 @@ import {
   UpdateSensitivityInspectionTemplateCommandInput,
   UpdateSensitivityInspectionTemplateCommandOutput,
 } from "./commands/UpdateSensitivityInspectionTemplateCommand";
-import { Macie2Client, Macie2ClientConfig } from "./Macie2Client";
+import { Macie2Client } from "./Macie2Client";
 
 const commands = {
   AcceptInvitationCommand,

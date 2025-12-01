@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteTransitGatewayPolicyTableRequest } from "../models/models_2";
-import { DeleteTransitGatewayPolicyTableResult } from "../models/models_3";
+import type { DeleteTransitGatewayPolicyTableRequest } from "../models/models_2";
+import type { DeleteTransitGatewayPolicyTableResult } from "../models/models_3";
 import { DeleteTransitGatewayPolicyTable } from "../schemas/schemas_0";
 
 /**

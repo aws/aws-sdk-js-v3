@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
+import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSpendingLimitRequest, UpdateSpendingLimitResponse } from "../models/models_0";
+import type { UpdateSpendingLimitRequest, UpdateSpendingLimitResponse } from "../models/models_0";
 import { UpdateSpendingLimit } from "../schemas/schemas_0";
 
 /**

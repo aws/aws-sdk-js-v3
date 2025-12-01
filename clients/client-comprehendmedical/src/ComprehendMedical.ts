@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DescribeEntitiesDetectionV2JobCommand,
@@ -124,7 +124,7 @@ import {
   StopSNOMEDCTInferenceJobCommandInput,
   StopSNOMEDCTInferenceJobCommandOutput,
 } from "./commands/StopSNOMEDCTInferenceJobCommand";
-import { ComprehendMedicalClient, ComprehendMedicalClientConfig } from "./ComprehendMedicalClient";
+import { ComprehendMedicalClient } from "./ComprehendMedicalClient";
 
 const commands = {
   DescribeEntitiesDetectionV2JobCommand,

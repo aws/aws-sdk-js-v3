@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { KeyspacesStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesStreamsClient";
-import { GetStreamInput, GetStreamOutput } from "../models/models_0";
+import type {
+  KeyspacesStreamsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../KeyspacesStreamsClient";
+import type { GetStreamInput, GetStreamOutput } from "../models/models_0";
 import { GetStream } from "../schemas/schemas_0";
 
 /**

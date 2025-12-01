@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetTokenBalanceCommand,
@@ -47,7 +47,7 @@ import {
   ListTransactionsCommandInput,
   ListTransactionsCommandOutput,
 } from "./commands/ListTransactionsCommand";
-import { ManagedBlockchainQueryClient, ManagedBlockchainQueryClientConfig } from "./ManagedBlockchainQueryClient";
+import { ManagedBlockchainQueryClient } from "./ManagedBlockchainQueryClient";
 
 const commands = {
   BatchGetTokenBalanceCommand,

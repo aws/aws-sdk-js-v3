@@ -2,11 +2,15 @@
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DuplexStreamWithDistinctStreamsInput, DuplexStreamWithDistinctStreamsOutput } from "../models/models_0";
-import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import type { DuplexStreamWithDistinctStreamsInput, DuplexStreamWithDistinctStreamsOutput } from "../models/models_0";
+import type {
+  RestJsonProtocolClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../RestJsonProtocolClient";
 import { DuplexStreamWithDistinctStreams } from "../schemas/schemas_0";
 
 /**

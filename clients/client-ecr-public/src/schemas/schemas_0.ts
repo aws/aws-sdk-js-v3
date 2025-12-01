@@ -196,7 +196,7 @@ const n0 = "com.amazonaws.ecrpublic";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ECRPUBLICServiceException as __ECRPUBLICServiceException } from "../models/ECRPUBLICServiceException";
 import {

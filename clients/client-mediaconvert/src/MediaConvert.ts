@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateCertificateCommand,
@@ -108,7 +108,7 @@ import {
   UpdatePresetCommandOutput,
 } from "./commands/UpdatePresetCommand";
 import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
-import { MediaConvertClient, MediaConvertClientConfig } from "./MediaConvertClient";
+import { MediaConvertClient } from "./MediaConvertClient";
 
 const commands = {
   AssociateCertificateCommand,

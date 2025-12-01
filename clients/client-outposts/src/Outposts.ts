@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelCapacityTaskCommand,
@@ -129,7 +129,7 @@ import {
   UpdateSiteRackPhysicalPropertiesCommandInput,
   UpdateSiteRackPhysicalPropertiesCommandOutput,
 } from "./commands/UpdateSiteRackPhysicalPropertiesCommand";
-import { OutpostsClient, OutpostsClientConfig } from "./OutpostsClient";
+import { OutpostsClient } from "./OutpostsClient";
 
 const commands = {
   CancelCapacityTaskCommand,

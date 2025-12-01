@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateSignalingChannelCommand,
@@ -146,7 +146,7 @@ import {
   UpdateStreamStorageConfigurationCommandInput,
   UpdateStreamStorageConfigurationCommandOutput,
 } from "./commands/UpdateStreamStorageConfigurationCommand";
-import { KinesisVideoClient, KinesisVideoClientConfig } from "./KinesisVideoClient";
+import { KinesisVideoClient } from "./KinesisVideoClient";
 
 const commands = {
   CreateSignalingChannelCommand,

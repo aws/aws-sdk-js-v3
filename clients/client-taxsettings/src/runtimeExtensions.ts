@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { TaxSettingsExtensionConfiguration } from "./extensionConfiguration";
+import type { TaxSettingsExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetEmailContactRequest, GetEmailContactResponse } from "../models/models_0";
-import {
+import type { GetEmailContactRequest, GetEmailContactResponse } from "../models/models_0";
+import type {
   NotificationsContactsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,

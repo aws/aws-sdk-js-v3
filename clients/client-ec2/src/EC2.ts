@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptAddressTransferCommand,
@@ -3675,7 +3675,7 @@ import {
   WithdrawByoipCidrCommandInput,
   WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
-import { EC2Client, EC2ClientConfig } from "./EC2Client";
+import { EC2Client } from "./EC2Client";
 
 const commands = {
   AcceptAddressTransferCommand,

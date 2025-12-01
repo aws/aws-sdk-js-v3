@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateChannelCommand,
@@ -193,7 +193,7 @@ import {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
-import { NotificationsClient, NotificationsClientConfig } from "./NotificationsClient";
+import { NotificationsClient } from "./NotificationsClient";
 
 const commands = {
   AssociateChannelCommand,

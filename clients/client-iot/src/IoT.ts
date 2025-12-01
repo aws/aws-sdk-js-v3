@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptCertificateTransferCommand,
@@ -1294,7 +1294,7 @@ import {
   ValidateSecurityProfileBehaviorsCommandInput,
   ValidateSecurityProfileBehaviorsCommandOutput,
 } from "./commands/ValidateSecurityProfileBehaviorsCommand";
-import { IoTClient, IoTClientConfig } from "./IoTClient";
+import { IoTClient } from "./IoTClient";
 
 const commands = {
   AcceptCertificateTransferCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AssumeRoleCommand, AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
 import {
@@ -8,7 +8,7 @@ import {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
-import { STSClient, STSClientConfig } from "./STSClient";
+import { STSClient } from "./STSClient";
 
 const commands = {
   AssumeRoleCommand,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteTimeSeriesDataPointsInput, DeleteTimeSeriesDataPointsOutput } from "../models/models_1";
+import type { DeleteTimeSeriesDataPointsInput, DeleteTimeSeriesDataPointsOutput } from "../models/models_1";
 import { DeleteTimeSeriesDataPoints } from "../schemas/schemas_0";
 
 /**

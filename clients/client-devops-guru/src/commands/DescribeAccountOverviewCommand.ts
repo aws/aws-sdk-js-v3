@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
+import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAccountOverviewRequest, DescribeAccountOverviewResponse } from "../models/models_0";
+import type { DescribeAccountOverviewRequest, DescribeAccountOverviewResponse } from "../models/models_0";
 import { DescribeAccountOverview } from "../schemas/schemas_0";
 
 /**

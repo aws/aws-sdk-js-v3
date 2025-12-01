@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateServiceRoleToAccountCommand,
@@ -143,7 +143,7 @@ import {
   UpdateConnectivityInfoCommandInput,
   UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand";
-import { GreengrassV2Client, GreengrassV2ClientConfig } from "./GreengrassV2Client";
+import { GreengrassV2Client } from "./GreengrassV2Client";
 
 const commands = {
   AssociateServiceRoleToAccountCommand,

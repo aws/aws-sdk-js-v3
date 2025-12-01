@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { FooEnum, IntegerEnum, TestEnum, TestIntEnum } from "./enums";
+import type { FooEnum, IntegerEnum, TestEnum, TestIntEnum } from "./enums";
 
 /**
  * Describes one specific validation failure for an input member.

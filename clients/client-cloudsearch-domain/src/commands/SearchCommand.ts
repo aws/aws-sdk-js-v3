@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   CloudSearchDomainClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRequest, SearchResponse } from "../models/models_0";
+import type { SearchRequest, SearchResponse } from "../models/models_0";
 import { Search } from "../schemas/schemas_0";
 
 /**

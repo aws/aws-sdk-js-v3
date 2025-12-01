@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptAccountLinkInvitationCommand,
@@ -449,7 +449,7 @@ import {
   UpdateWorkspacesPoolCommandInput,
   UpdateWorkspacesPoolCommandOutput,
 } from "./commands/UpdateWorkspacesPoolCommand";
-import { WorkSpacesClient, WorkSpacesClientConfig } from "./WorkSpacesClient";
+import { WorkSpacesClient } from "./WorkSpacesClient";
 
 const commands = {
   AcceptAccountLinkInvitationCommand,

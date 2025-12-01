@@ -2,11 +2,11 @@
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import { StartConversationRequest, StartConversationResponse } from "../models/models_0";
+import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
+import type { StartConversationRequest, StartConversationResponse } from "../models/models_0";
 import { StartConversation } from "../schemas/schemas_0";
 
 /**

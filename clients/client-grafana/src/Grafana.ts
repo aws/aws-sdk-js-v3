@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateLicenseCommand,
@@ -123,7 +123,7 @@ import {
   UpdateWorkspaceConfigurationCommandInput,
   UpdateWorkspaceConfigurationCommandOutput,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
-import { GrafanaClient, GrafanaClientConfig } from "./GrafanaClient";
+import { GrafanaClient } from "./GrafanaClient";
 
 const commands = {
   AssociateLicenseCommand,

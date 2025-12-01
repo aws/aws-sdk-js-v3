@@ -47,7 +47,7 @@ const n0 = "com.amazonaws.appconfigdata";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticMapSchema,
   StaticOperationSchema,

@@ -1,15 +1,18 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse } from "../models/models_0";
+import type {
+  DescribeReplicationSubnetGroupsMessage,
+  DescribeReplicationSubnetGroupsResponse,
+} from "../models/models_0";
 import { DescribeReplicationSubnetGroups } from "../schemas/schemas_0";
 
 /**

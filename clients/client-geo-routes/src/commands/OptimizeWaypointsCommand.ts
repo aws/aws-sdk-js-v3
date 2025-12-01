@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
-import { OptimizeWaypointsRequest, OptimizeWaypointsResponse } from "../models/models_0";
+import type { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
+import type { OptimizeWaypointsRequest, OptimizeWaypointsResponse } from "../models/models_0";
 import { OptimizeWaypoints } from "../schemas/schemas_0";
 
 /**

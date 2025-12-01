@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest as __HttpRequest, HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
@@ -11,10 +11,10 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
-  Endpoint as __Endpoint,
+  type Endpoint as __Endpoint,
+  type ResponseMetadata as __ResponseMetadata,
+  type SerdeContext as __SerdeContext,
   HeaderBag as __HeaderBag,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
 import { PredictCommandInput, PredictCommandOutput } from "../commands/PredictCommand";
@@ -261,7 +261,7 @@ const buildHttpRpcRequest = async (
   if (body !== undefined) {
     contents.body = body;
   }
-  return new __HttpRequest(contents);
+  return new HttpRequest(contents);
 };
 function sharedHeaders(operation: string): __HeaderBag {
   return {

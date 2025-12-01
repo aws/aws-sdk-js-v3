@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListFlywheelsRequest, ListFlywheelsResponse } from "../models/models_0";
+import type { ListFlywheelsRequest, ListFlywheelsResponse } from "../models/models_0";
 import { ListFlywheels } from "../schemas/schemas_0";
 
 /**

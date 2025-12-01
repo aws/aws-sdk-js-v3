@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateOAuth2TokenCommand,
   CreateOAuth2TokenCommandInput,
   CreateOAuth2TokenCommandOutput,
 } from "./commands/CreateOAuth2TokenCommand";
-import { SigninClient, SigninClientConfig } from "./SigninClient";
+import { SigninClient } from "./SigninClient";
 
 const commands = {
   CreateOAuth2TokenCommand,

@@ -7,6 +7,7 @@ import {
 } from "@aws-sdk/core";
 import {
   HttpRequest as __HttpRequest,
+  HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@smithy/protocol-http";
@@ -30,11 +31,11 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  type Endpoint as __Endpoint,
+  type ResponseMetadata as __ResponseMetadata,
+  type SerdeContext as __SerdeContext,
   DocumentType as __DocumentType,
-  Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
 import {
@@ -1076,7 +1077,7 @@ const buildHttpRpcRequest = async (
   if (body !== undefined) {
     contents.body = body;
   }
-  return new __HttpRequest(contents);
+  return new HttpRequest(contents);
 };
 function sharedHeaders(operation: string): __HeaderBag {
   return {

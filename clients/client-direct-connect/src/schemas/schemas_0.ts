@@ -369,7 +369,7 @@ const n0 = "com.amazonaws.directconnect";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { DirectConnectServiceException as __DirectConnectServiceException } from "../models/DirectConnectServiceException";
 import {

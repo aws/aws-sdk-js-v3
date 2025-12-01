@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateHttpNamespaceCommand,
@@ -140,7 +140,7 @@ import {
   UpdateServiceCommandInput,
   UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
-import { ServiceDiscoveryClient, ServiceDiscoveryClientConfig } from "./ServiceDiscoveryClient";
+import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient";
 
 const commands = {
   CreateHttpNamespaceCommand,

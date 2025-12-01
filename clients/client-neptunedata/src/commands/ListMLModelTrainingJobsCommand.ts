@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMLModelTrainingJobsInput, ListMLModelTrainingJobsOutput } from "../models/models_0";
-import { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
+import type { ListMLModelTrainingJobsInput, ListMLModelTrainingJobsOutput } from "../models/models_0";
+import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ListMLModelTrainingJobs } from "../schemas/schemas_0";
 
 /**

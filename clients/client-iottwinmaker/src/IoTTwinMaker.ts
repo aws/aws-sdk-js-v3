@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchPutPropertyValuesCommand,
@@ -170,7 +170,7 @@ import {
   UpdateWorkspaceCommandInput,
   UpdateWorkspaceCommandOutput,
 } from "./commands/UpdateWorkspaceCommand";
-import { IoTTwinMakerClient, IoTTwinMakerClientConfig } from "./IoTTwinMakerClient";
+import { IoTTwinMakerClient } from "./IoTTwinMakerClient";
 
 const commands = {
   BatchPutPropertyValuesCommand,

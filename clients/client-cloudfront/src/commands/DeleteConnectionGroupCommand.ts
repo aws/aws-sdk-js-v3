@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteConnectionGroupRequest } from "../models/models_0";
+import type { DeleteConnectionGroupRequest } from "../models/models_0";
 import { DeleteConnectionGroup } from "../schemas/schemas_0";
 
 /**

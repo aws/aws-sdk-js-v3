@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopRxNormInferenceJobRequest, StopRxNormInferenceJobResponse } from "../models/models_0";
+import type { StopRxNormInferenceJobRequest, StopRxNormInferenceJobResponse } from "../models/models_0";
 import { StopRxNormInferenceJob } from "../schemas/schemas_0";
 
 /**

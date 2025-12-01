@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { BedrockAgentClient, BedrockAgentClientConfig } from "./BedrockAgentClient";
+import { BedrockAgentClient } from "./BedrockAgentClient";
 import {
   AssociateAgentCollaboratorCommand,
   AssociateAgentCollaboratorCommandInput,

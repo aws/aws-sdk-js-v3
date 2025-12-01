@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCheckLayerAvailabilityCommand,
@@ -109,7 +109,7 @@ import {
   UploadLayerPartCommandInput,
   UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
-import { ECRPUBLICClient, ECRPUBLICClientConfig } from "./ECRPUBLICClient";
+import { ECRPUBLICClient } from "./ECRPUBLICClient";
 
 const commands = {
   BatchCheckLayerAvailabilityCommand,

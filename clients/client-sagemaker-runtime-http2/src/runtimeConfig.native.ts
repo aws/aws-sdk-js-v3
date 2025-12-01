@@ -3,7 +3,7 @@ import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@smithy/invalid-dependency";
 
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
-import { SageMakerRuntimeHTTP2ClientConfig } from "./SageMakerRuntimeHTTP2Client";
+import type { SageMakerRuntimeHTTP2ClientConfig } from "./SageMakerRuntimeHTTP2Client";
 
 /**
  * @internal

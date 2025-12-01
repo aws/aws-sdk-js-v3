@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MediaPackageV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageV2Client";
-import { TagResourceRequest } from "../models/models_0";
+import type {
+  MediaPackageV2ClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../MediaPackageV2Client";
+import type { TagResourceRequest } from "../models/models_0";
 import { TagResource } from "../schemas/schemas_0";
 
 /**

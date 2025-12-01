@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateTemplateCommand,
@@ -141,7 +141,7 @@ import {
   UpdateWorkflowStepGroupCommandInput,
   UpdateWorkflowStepGroupCommandOutput,
 } from "./commands/UpdateWorkflowStepGroupCommand";
-import { MigrationHubOrchestratorClient, MigrationHubOrchestratorClientConfig } from "./MigrationHubOrchestratorClient";
+import { MigrationHubOrchestratorClient } from "./MigrationHubOrchestratorClient";
 
 const commands = {
   CreateTemplateCommand,

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { CreateSchemaMappingInput, CreateSchemaMappingOutput } from "../models/models_0";
+import type {
+  EntityResolutionClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../EntityResolutionClient";
+import type { CreateSchemaMappingInput, CreateSchemaMappingOutput } from "../models/models_0";
 import { CreateSchemaMapping } from "../schemas/schemas_0";
 
 /**

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
+import type {
+  ConnectCampaignsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ConnectCampaignsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetInstanceOnboardingJobStatusRequest, GetInstanceOnboardingJobStatusResponse } from "../models/models_0";
+import type { GetInstanceOnboardingJobStatusRequest, GetInstanceOnboardingJobStatusResponse } from "../models/models_0";
 import { GetInstanceOnboardingJobStatus } from "../schemas/schemas_0";
 
 /**

@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultRpcV2ProtocolHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
-import { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
+import type { RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
 
 /**
  * @internal

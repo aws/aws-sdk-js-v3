@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddAttachmentsToSetCommand,
@@ -74,7 +74,7 @@ import {
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
 import { ResolveCaseCommand, ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
-import { SupportClient, SupportClientConfig } from "./SupportClient";
+import { SupportClient } from "./SupportClient";
 
 const commands = {
   AddAttachmentsToSetCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateBrokerCommand,
@@ -86,7 +86,7 @@ import {
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { MqClient, MqClientConfig } from "./MqClient";
+import { MqClient } from "./MqClient";
 
 const commands = {
   CreateBrokerCommand,

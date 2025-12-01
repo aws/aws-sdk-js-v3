@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAutoPredictorCommand,
@@ -313,7 +313,7 @@ import {
   UpdateDatasetGroupCommandInput,
   UpdateDatasetGroupCommandOutput,
 } from "./commands/UpdateDatasetGroupCommand";
-import { ForecastClient, ForecastClientConfig } from "./ForecastClient";
+import { ForecastClient } from "./ForecastClient";
 
 const commands = {
   CreateAutoPredictorCommand,

@@ -33,7 +33,7 @@ const n0 = "com.amazonaws.apigatewaymanagementapi";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ApiGatewayManagementApiServiceException as __ApiGatewayManagementApiServiceException } from "../models/ApiGatewayManagementApiServiceException";
 import {

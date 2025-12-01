@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateLegalHoldInput, CreateLegalHoldOutput } from "../models/models_0";
+import type { CreateLegalHoldInput, CreateLegalHoldOutput } from "../models/models_0";
 import { CreateLegalHold } from "../schemas/schemas_0";
 
 /**

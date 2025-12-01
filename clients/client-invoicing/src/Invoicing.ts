@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetInvoiceProfileCommand,
@@ -83,7 +83,7 @@ import {
   UpdateProcurementPortalPreferenceStatusCommandInput,
   UpdateProcurementPortalPreferenceStatusCommandOutput,
 } from "./commands/UpdateProcurementPortalPreferenceStatusCommand";
-import { InvoicingClient, InvoicingClientConfig } from "./InvoicingClient";
+import { InvoicingClient } from "./InvoicingClient";
 
 const commands = {
   BatchGetInvoiceProfileCommand,

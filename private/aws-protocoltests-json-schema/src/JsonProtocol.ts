@@ -1,90 +1,94 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type ContentTypeParametersCommandInput,
+  type ContentTypeParametersCommandOutput,
   ContentTypeParametersCommand,
-  ContentTypeParametersCommandInput,
-  ContentTypeParametersCommandOutput,
 } from "./commands/ContentTypeParametersCommand";
 import {
+  type DatetimeOffsetsCommandInput,
+  type DatetimeOffsetsCommandOutput,
   DatetimeOffsetsCommand,
-  DatetimeOffsetsCommandInput,
-  DatetimeOffsetsCommandOutput,
 } from "./commands/DatetimeOffsetsCommand";
 import {
+  type EmptyOperationCommandInput,
+  type EmptyOperationCommandOutput,
   EmptyOperationCommand,
-  EmptyOperationCommandInput,
-  EmptyOperationCommandOutput,
 } from "./commands/EmptyOperationCommand";
 import {
+  type EndpointOperationCommandInput,
+  type EndpointOperationCommandOutput,
   EndpointOperationCommand,
-  EndpointOperationCommandInput,
-  EndpointOperationCommandOutput,
 } from "./commands/EndpointOperationCommand";
 import {
+  type EndpointWithHostLabelOperationCommandInput,
+  type EndpointWithHostLabelOperationCommandOutput,
   EndpointWithHostLabelOperationCommand,
-  EndpointWithHostLabelOperationCommandInput,
-  EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import {
+  type FractionalSecondsCommandInput,
+  type FractionalSecondsCommandOutput,
   FractionalSecondsCommand,
-  FractionalSecondsCommandInput,
-  FractionalSecondsCommandOutput,
 } from "./commands/FractionalSecondsCommand";
 import {
+  type GreetingWithErrorsCommandInput,
+  type GreetingWithErrorsCommandOutput,
   GreetingWithErrorsCommand,
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  type HostWithPathOperationCommandInput,
+  type HostWithPathOperationCommandOutput,
   HostWithPathOperationCommand,
-  HostWithPathOperationCommandInput,
-  HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
-import { JsonEnumsCommand, JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { type JsonEnumsCommandInput, type JsonEnumsCommandOutput, JsonEnumsCommand } from "./commands/JsonEnumsCommand";
 import {
+  type JsonIntEnumsCommandInput,
+  type JsonIntEnumsCommandOutput,
   JsonIntEnumsCommand,
-  JsonIntEnumsCommandInput,
-  JsonIntEnumsCommandOutput,
 } from "./commands/JsonIntEnumsCommand";
-import { JsonUnionsCommand, JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
+  type JsonUnionsCommandInput,
+  type JsonUnionsCommandOutput,
+  JsonUnionsCommand,
+} from "./commands/JsonUnionsCommand";
+import {
+  type KitchenSinkOperationCommandInput,
+  type KitchenSinkOperationCommandOutput,
   KitchenSinkOperationCommand,
-  KitchenSinkOperationCommandInput,
-  KitchenSinkOperationCommandOutput,
 } from "./commands/KitchenSinkOperationCommand";
 import {
+  type NullOperationCommandInput,
+  type NullOperationCommandOutput,
   NullOperationCommand,
-  NullOperationCommandInput,
-  NullOperationCommandOutput,
 } from "./commands/NullOperationCommand";
 import {
+  type OperationWithOptionalInputOutputCommandInput,
+  type OperationWithOptionalInputOutputCommandOutput,
   OperationWithOptionalInputOutputCommand,
-  OperationWithOptionalInputOutputCommandInput,
-  OperationWithOptionalInputOutputCommandOutput,
 } from "./commands/OperationWithOptionalInputOutputCommand";
 import {
+  type PutAndGetInlineDocumentsCommandInput,
+  type PutAndGetInlineDocumentsCommandOutput,
   PutAndGetInlineDocumentsCommand,
-  PutAndGetInlineDocumentsCommandInput,
-  PutAndGetInlineDocumentsCommandOutput,
 } from "./commands/PutAndGetInlineDocumentsCommand";
 import {
+  type PutWithContentEncodingCommandInput,
+  type PutWithContentEncodingCommandOutput,
   PutWithContentEncodingCommand,
-  PutWithContentEncodingCommandInput,
-  PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
 import {
+  type SimpleScalarPropertiesCommandInput,
+  type SimpleScalarPropertiesCommandOutput,
   SimpleScalarPropertiesCommand,
-  SimpleScalarPropertiesCommandInput,
-  SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
 import {
+  type SparseNullsOperationCommandInput,
+  type SparseNullsOperationCommandOutput,
   SparseNullsOperationCommand,
-  SparseNullsOperationCommandInput,
-  SparseNullsOperationCommandOutput,
 } from "./commands/SparseNullsOperationCommand";
-import { JsonProtocolClient, JsonProtocolClientConfig } from "./JsonProtocolClient";
+import { JsonProtocolClient } from "./JsonProtocolClient";
 
 const commands = {
   ContentTypeParametersCommand,

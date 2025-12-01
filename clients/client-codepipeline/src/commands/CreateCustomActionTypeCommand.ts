@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/models_0";
+import type { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/models_0";
 import { CreateCustomActionType } from "../schemas/schemas_0";
 
 /**

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { RTBFabricClientConfig } from "./RTBFabricClient";
+import type { RTBFabricClientConfig } from "./RTBFabricClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

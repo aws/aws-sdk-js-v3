@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { PartnerCentralAccountClientConfig } from "./PartnerCentralAccountClient";
+import type { PartnerCentralAccountClientConfig } from "./PartnerCentralAccountClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

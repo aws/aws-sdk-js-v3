@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelKeyDeletionCommand,
@@ -183,7 +183,7 @@ import {
 } from "./commands/UpdatePrimaryRegionCommand";
 import { VerifyCommand, VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
 import { VerifyMacCommand, VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
-import { KMSClient, KMSClientConfig } from "./KMSClient";
+import { KMSClient } from "./KMSClient";
 
 const commands = {
   CancelKeyDeletionCommand,

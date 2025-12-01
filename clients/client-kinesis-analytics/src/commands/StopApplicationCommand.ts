@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
+import type {
+  KinesisAnalyticsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../KinesisAnalyticsClient";
+import type { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
 import { StopApplication } from "../schemas/schemas_0";
 
 /**

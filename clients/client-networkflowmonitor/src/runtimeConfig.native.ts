@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { NetworkFlowMonitorClientConfig } from "./NetworkFlowMonitorClient";
+import type { NetworkFlowMonitorClientConfig } from "./NetworkFlowMonitorClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { KinesisAnalyticsV2ClientConfig } from "./KinesisAnalyticsV2Client";
+import type { KinesisAnalyticsV2ClientConfig } from "./KinesisAnalyticsV2Client";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

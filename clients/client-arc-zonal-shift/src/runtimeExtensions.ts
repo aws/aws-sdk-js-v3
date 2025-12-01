@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { ARCZonalShiftExtensionConfiguration } from "./extensionConfiguration";
+import type { ARCZonalShiftExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

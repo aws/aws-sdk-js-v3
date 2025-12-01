@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateGatewayCommand,
@@ -454,7 +454,7 @@ import {
   UpdateVTLDeviceTypeCommandInput,
   UpdateVTLDeviceTypeCommandOutput,
 } from "./commands/UpdateVTLDeviceTypeCommand";
-import { StorageGatewayClient, StorageGatewayClientConfig } from "./StorageGatewayClient";
+import { StorageGatewayClient } from "./StorageGatewayClient";
 
 const commands = {
   ActivateGatewayCommand,

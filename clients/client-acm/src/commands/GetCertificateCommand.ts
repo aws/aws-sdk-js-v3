@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
+import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCertificateRequest, GetCertificateResponse } from "../models/models_0";
+import type { GetCertificateRequest, GetCertificateResponse } from "../models/models_0";
 import { GetCertificate } from "../schemas/schemas_0";
 
 /**

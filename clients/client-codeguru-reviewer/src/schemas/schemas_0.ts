@@ -159,7 +159,7 @@ const n0 = "com.amazonaws.codegurureviewer";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,

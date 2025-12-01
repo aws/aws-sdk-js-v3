@@ -1,69 +1,69 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type EmptyInputOutputCommandInput,
+  type EmptyInputOutputCommandOutput,
   EmptyInputOutputCommand,
-  EmptyInputOutputCommandInput,
-  EmptyInputOutputCommandOutput,
 } from "./commands/EmptyInputOutputCommand";
-import { Float16Command, Float16CommandInput, Float16CommandOutput } from "./commands/Float16Command";
+import { type Float16CommandInput, type Float16CommandOutput, Float16Command } from "./commands/Float16Command";
 import {
+  type FractionalSecondsCommandInput,
+  type FractionalSecondsCommandOutput,
   FractionalSecondsCommand,
-  FractionalSecondsCommandInput,
-  FractionalSecondsCommandOutput,
 } from "./commands/FractionalSecondsCommand";
 import {
+  type GreetingWithErrorsCommandInput,
+  type GreetingWithErrorsCommandOutput,
   GreetingWithErrorsCommand,
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  type NoInputOutputCommandInput,
+  type NoInputOutputCommandOutput,
   NoInputOutputCommand,
-  NoInputOutputCommandInput,
-  NoInputOutputCommandOutput,
 } from "./commands/NoInputOutputCommand";
 import {
+  type OperationWithDefaultsCommandInput,
+  type OperationWithDefaultsCommandOutput,
   OperationWithDefaultsCommand,
-  OperationWithDefaultsCommandInput,
-  OperationWithDefaultsCommandOutput,
 } from "./commands/OperationWithDefaultsCommand";
 import {
+  type OptionalInputOutputCommandInput,
+  type OptionalInputOutputCommandOutput,
   OptionalInputOutputCommand,
-  OptionalInputOutputCommandInput,
-  OptionalInputOutputCommandOutput,
 } from "./commands/OptionalInputOutputCommand";
 import {
+  type RecursiveShapesCommandInput,
+  type RecursiveShapesCommandOutput,
   RecursiveShapesCommand,
-  RecursiveShapesCommandInput,
-  RecursiveShapesCommandOutput,
 } from "./commands/RecursiveShapesCommand";
 import {
+  type RpcV2CborDenseMapsCommandInput,
+  type RpcV2CborDenseMapsCommandOutput,
   RpcV2CborDenseMapsCommand,
-  RpcV2CborDenseMapsCommandInput,
-  RpcV2CborDenseMapsCommandOutput,
 } from "./commands/RpcV2CborDenseMapsCommand";
 import {
+  type RpcV2CborListsCommandInput,
+  type RpcV2CborListsCommandOutput,
   RpcV2CborListsCommand,
-  RpcV2CborListsCommandInput,
-  RpcV2CborListsCommandOutput,
 } from "./commands/RpcV2CborListsCommand";
 import {
+  type RpcV2CborSparseMapsCommandInput,
+  type RpcV2CborSparseMapsCommandOutput,
   RpcV2CborSparseMapsCommand,
-  RpcV2CborSparseMapsCommandInput,
-  RpcV2CborSparseMapsCommandOutput,
 } from "./commands/RpcV2CborSparseMapsCommand";
 import {
+  type SimpleScalarPropertiesCommandInput,
+  type SimpleScalarPropertiesCommandOutput,
   SimpleScalarPropertiesCommand,
-  SimpleScalarPropertiesCommandInput,
-  SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
 import {
+  type SparseNullsOperationCommandInput,
+  type SparseNullsOperationCommandOutput,
   SparseNullsOperationCommand,
-  SparseNullsOperationCommandInput,
-  SparseNullsOperationCommandOutput,
 } from "./commands/SparseNullsOperationCommand";
-import { RpcV2ProtocolClient, RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
+import { RpcV2ProtocolClient } from "./RpcV2ProtocolClient";
 
 const commands = {
   EmptyInputOutputCommand,

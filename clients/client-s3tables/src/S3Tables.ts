@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateNamespaceCommand,
@@ -158,7 +158,7 @@ import {
   UpdateTableMetadataLocationCommandInput,
   UpdateTableMetadataLocationCommandOutput,
 } from "./commands/UpdateTableMetadataLocationCommand";
-import { S3TablesClient, S3TablesClientConfig } from "./S3TablesClient";
+import { S3TablesClient } from "./S3TablesClient";
 
 const commands = {
   CreateNamespaceCommand,

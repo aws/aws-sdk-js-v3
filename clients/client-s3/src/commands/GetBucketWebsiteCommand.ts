@@ -2,11 +2,11 @@
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/models_0";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import type { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/models_0";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketWebsite } from "../schemas/schemas_0";
 
 /**

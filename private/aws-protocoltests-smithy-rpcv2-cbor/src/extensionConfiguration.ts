@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { HttpHandlerExtensionConfiguration } from "@smithy/protocol-http";
-import { DefaultExtensionConfiguration } from "@smithy/types";
+import type { HttpHandlerExtensionConfiguration } from "@smithy/protocol-http";
+import type { DefaultExtensionConfiguration } from "@smithy/types";
 
-import { HttpAuthExtensionConfiguration } from "./auth/httpAuthExtensionConfiguration";
+import type { HttpAuthExtensionConfiguration } from "./auth/httpAuthExtensionConfiguration";
 
 /**
  * @internal

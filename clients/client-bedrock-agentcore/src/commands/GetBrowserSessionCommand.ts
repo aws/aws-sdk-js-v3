@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
+import type {
+  BedrockAgentCoreClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetBrowserSessionRequest, GetBrowserSessionResponse } from "../models/models_0";
+import type { GetBrowserSessionRequest, GetBrowserSessionResponse } from "../models/models_0";
 import { GetBrowserSession } from "../schemas/schemas_0";
 
 /**

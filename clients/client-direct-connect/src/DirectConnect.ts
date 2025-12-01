@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptDirectConnectGatewayAssociationProposalCommand,
@@ -297,7 +297,7 @@ import {
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput,
 } from "./commands/UpdateVirtualInterfaceAttributesCommand";
-import { DirectConnectClient, DirectConnectClientConfig } from "./DirectConnectClient";
+import { DirectConnectClient } from "./DirectConnectClient";
 
 const commands = {
   AcceptDirectConnectGatewayAssociationProposalCommand,

@@ -101,7 +101,7 @@ const n0 = "com.amazonaws.autoscalingplans";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { AutoScalingPlansServiceException as __AutoScalingPlansServiceException } from "../models/AutoScalingPlansServiceException";
 import {

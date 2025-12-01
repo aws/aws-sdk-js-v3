@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteRecommendationPreferencesCommand,
@@ -142,7 +142,7 @@ import {
   UpdateEnrollmentStatusCommandInput,
   UpdateEnrollmentStatusCommandOutput,
 } from "./commands/UpdateEnrollmentStatusCommand";
-import { ComputeOptimizerClient, ComputeOptimizerClientConfig } from "./ComputeOptimizerClient";
+import { ComputeOptimizerClient } from "./ComputeOptimizerClient";
 
 const commands = {
   DeleteRecommendationPreferencesCommand,

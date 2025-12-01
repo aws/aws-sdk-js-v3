@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolServiceException";
 import { ComplexNestedErrorData, KitchenSink } from "./models_0";

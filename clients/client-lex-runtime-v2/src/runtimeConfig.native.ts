@@ -2,7 +2,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@smithy/invalid-dependency";
 
-import { LexRuntimeV2ClientConfig } from "./LexRuntimeV2Client";
+import type { LexRuntimeV2ClientConfig } from "./LexRuntimeV2Client";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

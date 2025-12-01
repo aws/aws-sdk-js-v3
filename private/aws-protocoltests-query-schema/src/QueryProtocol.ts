@@ -1,145 +1,153 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type DatetimeOffsetsCommandInput,
+  type DatetimeOffsetsCommandOutput,
   DatetimeOffsetsCommand,
-  DatetimeOffsetsCommandInput,
-  DatetimeOffsetsCommandOutput,
 } from "./commands/DatetimeOffsetsCommand";
 import {
+  type EmptyInputAndEmptyOutputCommandInput,
+  type EmptyInputAndEmptyOutputCommandOutput,
   EmptyInputAndEmptyOutputCommand,
-  EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
 import {
+  type EndpointOperationCommandInput,
+  type EndpointOperationCommandOutput,
   EndpointOperationCommand,
-  EndpointOperationCommandInput,
-  EndpointOperationCommandOutput,
 } from "./commands/EndpointOperationCommand";
 import {
+  type EndpointWithHostLabelOperationCommandInput,
+  type EndpointWithHostLabelOperationCommandOutput,
   EndpointWithHostLabelOperationCommand,
-  EndpointWithHostLabelOperationCommandInput,
-  EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import {
+  type FlattenedXmlMapCommandInput,
+  type FlattenedXmlMapCommandOutput,
   FlattenedXmlMapCommand,
-  FlattenedXmlMapCommandInput,
-  FlattenedXmlMapCommandOutput,
 } from "./commands/FlattenedXmlMapCommand";
 import {
+  type FlattenedXmlMapWithXmlNameCommandInput,
+  type FlattenedXmlMapWithXmlNameCommandOutput,
   FlattenedXmlMapWithXmlNameCommand,
-  FlattenedXmlMapWithXmlNameCommandInput,
-  FlattenedXmlMapWithXmlNameCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
 import {
+  type FlattenedXmlMapWithXmlNamespaceCommandInput,
+  type FlattenedXmlMapWithXmlNamespaceCommandOutput,
   FlattenedXmlMapWithXmlNamespaceCommand,
-  FlattenedXmlMapWithXmlNamespaceCommandInput,
-  FlattenedXmlMapWithXmlNamespaceCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import {
+  type FractionalSecondsCommandInput,
+  type FractionalSecondsCommandOutput,
   FractionalSecondsCommand,
-  FractionalSecondsCommandInput,
-  FractionalSecondsCommandOutput,
 } from "./commands/FractionalSecondsCommand";
 import {
+  type GreetingWithErrorsCommandInput,
+  type GreetingWithErrorsCommandOutput,
   GreetingWithErrorsCommand,
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  type HostWithPathOperationCommandInput,
+  type HostWithPathOperationCommandOutput,
   HostWithPathOperationCommand,
-  HostWithPathOperationCommandInput,
-  HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
 import {
+  type IgnoresWrappingXmlNameCommandInput,
+  type IgnoresWrappingXmlNameCommandOutput,
   IgnoresWrappingXmlNameCommand,
-  IgnoresWrappingXmlNameCommandInput,
-  IgnoresWrappingXmlNameCommandOutput,
 } from "./commands/IgnoresWrappingXmlNameCommand";
 import {
+  type NestedStructuresCommandInput,
+  type NestedStructuresCommandOutput,
   NestedStructuresCommand,
-  NestedStructuresCommandInput,
-  NestedStructuresCommandOutput,
 } from "./commands/NestedStructuresCommand";
 import {
+  type NoInputAndNoOutputCommandInput,
+  type NoInputAndNoOutputCommandOutput,
   NoInputAndNoOutputCommand,
-  NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput,
 } from "./commands/NoInputAndNoOutputCommand";
 import {
+  type NoInputAndOutputCommandInput,
+  type NoInputAndOutputCommandOutput,
   NoInputAndOutputCommand,
-  NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput,
 } from "./commands/NoInputAndOutputCommand";
 import {
+  type PutWithContentEncodingCommandInput,
+  type PutWithContentEncodingCommandOutput,
   PutWithContentEncodingCommand,
-  PutWithContentEncodingCommandInput,
-  PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
 import {
+  type QueryIdempotencyTokenAutoFillCommandInput,
+  type QueryIdempotencyTokenAutoFillCommandOutput,
   QueryIdempotencyTokenAutoFillCommand,
-  QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
-import { QueryListsCommand, QueryListsCommandInput, QueryListsCommandOutput } from "./commands/QueryListsCommand";
-import { QueryMapsCommand, QueryMapsCommandInput, QueryMapsCommandOutput } from "./commands/QueryMapsCommand";
 import {
+  type QueryListsCommandInput,
+  type QueryListsCommandOutput,
+  QueryListsCommand,
+} from "./commands/QueryListsCommand";
+import { type QueryMapsCommandInput, type QueryMapsCommandOutput, QueryMapsCommand } from "./commands/QueryMapsCommand";
+import {
+  type QueryTimestampsCommandInput,
+  type QueryTimestampsCommandOutput,
   QueryTimestampsCommand,
-  QueryTimestampsCommandInput,
-  QueryTimestampsCommandOutput,
 } from "./commands/QueryTimestampsCommand";
 import {
+  type RecursiveXmlShapesCommandInput,
+  type RecursiveXmlShapesCommandOutput,
   RecursiveXmlShapesCommand,
-  RecursiveXmlShapesCommandInput,
-  RecursiveXmlShapesCommandOutput,
 } from "./commands/RecursiveXmlShapesCommand";
 import {
+  type SimpleInputParamsCommandInput,
+  type SimpleInputParamsCommandOutput,
   SimpleInputParamsCommand,
-  SimpleInputParamsCommandInput,
-  SimpleInputParamsCommandOutput,
 } from "./commands/SimpleInputParamsCommand";
 import {
+  type SimpleScalarXmlPropertiesCommandInput,
+  type SimpleScalarXmlPropertiesCommandOutput,
   SimpleScalarXmlPropertiesCommand,
-  SimpleScalarXmlPropertiesCommandInput,
-  SimpleScalarXmlPropertiesCommandOutput,
 } from "./commands/SimpleScalarXmlPropertiesCommand";
-import { XmlBlobsCommand, XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { type XmlBlobsCommandInput, type XmlBlobsCommandOutput, XmlBlobsCommand } from "./commands/XmlBlobsCommand";
 import {
+  type XmlEmptyBlobsCommandInput,
+  type XmlEmptyBlobsCommandOutput,
   XmlEmptyBlobsCommand,
-  XmlEmptyBlobsCommandInput,
-  XmlEmptyBlobsCommandOutput,
 } from "./commands/XmlEmptyBlobsCommand";
 import {
+  type XmlEmptyListsCommandInput,
+  type XmlEmptyListsCommandOutput,
   XmlEmptyListsCommand,
-  XmlEmptyListsCommandInput,
-  XmlEmptyListsCommandOutput,
 } from "./commands/XmlEmptyListsCommand";
 import {
+  type XmlEmptyMapsCommandInput,
+  type XmlEmptyMapsCommandOutput,
   XmlEmptyMapsCommand,
-  XmlEmptyMapsCommandInput,
-  XmlEmptyMapsCommandOutput,
 } from "./commands/XmlEmptyMapsCommand";
-import { XmlEnumsCommand, XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
-import { XmlIntEnumsCommand, XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/XmlIntEnumsCommand";
-import { XmlListsCommand, XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
-import { XmlMapsCommand, XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
+import { type XmlEnumsCommandInput, type XmlEnumsCommandOutput, XmlEnumsCommand } from "./commands/XmlEnumsCommand";
 import {
+  type XmlIntEnumsCommandInput,
+  type XmlIntEnumsCommandOutput,
+  XmlIntEnumsCommand,
+} from "./commands/XmlIntEnumsCommand";
+import { type XmlListsCommandInput, type XmlListsCommandOutput, XmlListsCommand } from "./commands/XmlListsCommand";
+import { type XmlMapsCommandInput, type XmlMapsCommandOutput, XmlMapsCommand } from "./commands/XmlMapsCommand";
+import {
+  type XmlMapsXmlNameCommandInput,
+  type XmlMapsXmlNameCommandOutput,
   XmlMapsXmlNameCommand,
-  XmlMapsXmlNameCommandInput,
-  XmlMapsXmlNameCommandOutput,
 } from "./commands/XmlMapsXmlNameCommand";
 import {
+  type XmlNamespacesCommandInput,
+  type XmlNamespacesCommandOutput,
   XmlNamespacesCommand,
-  XmlNamespacesCommandInput,
-  XmlNamespacesCommandOutput,
 } from "./commands/XmlNamespacesCommand";
 import {
+  type XmlTimestampsCommandInput,
+  type XmlTimestampsCommandOutput,
   XmlTimestampsCommand,
-  XmlTimestampsCommandInput,
-  XmlTimestampsCommandOutput,
 } from "./commands/XmlTimestampsCommand";
-import { QueryProtocolClient, QueryProtocolClientConfig } from "./QueryProtocolClient";
+import { QueryProtocolClient } from "./QueryProtocolClient";
 
 const commands = {
   DatetimeOffsetsCommand,

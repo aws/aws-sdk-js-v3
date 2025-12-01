@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddPermissionCommand,
@@ -85,7 +85,7 @@ import {
 } from "./commands/StartMessageMoveTaskCommand";
 import { TagQueueCommand, TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
 import { UntagQueueCommand, UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
-import { SQSClient, SQSClientConfig } from "./SQSClient";
+import { SQSClient } from "./SQSClient";
 
 const commands = {
   AddPermissionCommand,

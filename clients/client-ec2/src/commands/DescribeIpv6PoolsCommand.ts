@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_4";
+import type { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_4";
 import { DescribeIpv6Pools } from "../schemas/schemas_0";
 
 /**

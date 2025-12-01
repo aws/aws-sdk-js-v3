@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CodeGuruReviewerClientConfig } from "./CodeGuruReviewerClient";
+import type { CodeGuruReviewerClientConfig } from "./CodeGuruReviewerClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

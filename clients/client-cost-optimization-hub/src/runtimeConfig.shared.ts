@@ -2,13 +2,13 @@
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { AwsJson1_0Protocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultCostOptimizationHubHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { CostOptimizationHubClientConfig } from "./CostOptimizationHubClient";
+import type { CostOptimizationHubClientConfig } from "./CostOptimizationHubClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
 /**

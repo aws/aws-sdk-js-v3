@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { InspectorClientConfig, InspectorClientResolvedConfig } from "../InspectorClient";
+import { type InspectorClientResolvedConfig, InspectorClientConfig } from "../InspectorClient";
 
 /**
  * @internal

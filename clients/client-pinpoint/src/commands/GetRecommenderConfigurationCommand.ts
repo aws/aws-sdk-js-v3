@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetRecommenderConfigurationRequest, GetRecommenderConfigurationResponse } from "../models/models_1";
-import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import type { GetRecommenderConfigurationRequest, GetRecommenderConfigurationResponse } from "../models/models_1";
+import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetRecommenderConfiguration } from "../schemas/schemas_0";
 
 /**

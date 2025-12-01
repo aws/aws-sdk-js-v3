@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,10 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { ConnectCampaignsV2ClientConfig, ConnectCampaignsV2ClientResolvedConfig } from "../ConnectCampaignsV2Client";
+import {
+  type ConnectCampaignsV2ClientResolvedConfig,
+  ConnectCampaignsV2ClientConfig,
+} from "../ConnectCampaignsV2Client";
 
 /**
  * @internal

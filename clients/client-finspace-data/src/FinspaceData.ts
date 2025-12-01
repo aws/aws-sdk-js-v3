@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateUserToPermissionGroupCommand,
@@ -125,7 +125,7 @@ import {
   UpdatePermissionGroupCommandOutput,
 } from "./commands/UpdatePermissionGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { FinspaceDataClient, FinspaceDataClientConfig } from "./FinspaceDataClient";
+import { FinspaceDataClient } from "./FinspaceDataClient";
 
 const commands = {
   AssociateUserToPermissionGroupCommand,

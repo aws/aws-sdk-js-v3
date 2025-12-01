@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddProfilePermissionCommand,
@@ -89,7 +89,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { SignerClient, SignerClientConfig } from "./SignerClient";
+import { SignerClient } from "./SignerClient";
 
 const commands = {
   AddProfilePermissionCommand,

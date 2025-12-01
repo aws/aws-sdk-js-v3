@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeregisterSubscriptionProviderCommand,
@@ -53,10 +53,7 @@ import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
-import {
-  LicenseManagerLinuxSubscriptionsClient,
-  LicenseManagerLinuxSubscriptionsClientConfig,
-} from "./LicenseManagerLinuxSubscriptionsClient";
+import { LicenseManagerLinuxSubscriptionsClient } from "./LicenseManagerLinuxSubscriptionsClient";
 
 const commands = {
   DeregisterSubscriptionProviderCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CompleteSnapshotCommand,
@@ -32,7 +32,7 @@ import {
   StartSnapshotCommandInput,
   StartSnapshotCommandOutput,
 } from "./commands/StartSnapshotCommand";
-import { EBSClient, EBSClientConfig } from "./EBSClient";
+import { EBSClient } from "./EBSClient";
 
 const commands = {
   CompleteSnapshotCommand,

@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AcceptEnvironmentAccountConnectionInput, AcceptEnvironmentAccountConnectionOutput } from "../models/models_0";
-import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import type {
+  AcceptEnvironmentAccountConnectionInput,
+  AcceptEnvironmentAccountConnectionOutput,
+} from "../models/models_0";
+import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { AcceptEnvironmentAccountConnection } from "../schemas/schemas_0";
 
 /**

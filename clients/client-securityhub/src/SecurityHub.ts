@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptAdministratorInvitationCommand,
@@ -513,7 +513,7 @@ import {
   UpdateStandardsControlCommandInput,
   UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand";
-import { SecurityHubClient, SecurityHubClientConfig } from "./SecurityHubClient";
+import { SecurityHubClient } from "./SecurityHubClient";
 
 const commands = {
   AcceptAdministratorInvitationCommand,

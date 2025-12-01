@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
+import type { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetClusterPolicyInput, GetClusterPolicyOutput } from "../models/models_0";
+import type { GetClusterPolicyInput, GetClusterPolicyOutput } from "../models/models_0";
 import { GetClusterPolicy } from "../schemas/schemas_0";
 
 /**

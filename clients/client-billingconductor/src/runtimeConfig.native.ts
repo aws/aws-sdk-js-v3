@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { BillingconductorClientConfig } from "./BillingconductorClient";
+import type { BillingconductorClientConfig } from "./BillingconductorClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

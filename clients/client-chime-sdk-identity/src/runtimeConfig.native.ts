@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ChimeSDKIdentityClientConfig } from "./ChimeSDKIdentityClient";
+import type { ChimeSDKIdentityClientConfig } from "./ChimeSDKIdentityClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

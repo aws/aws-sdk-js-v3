@@ -2,14 +2,14 @@
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   InvokeEndpointWithBidirectionalStreamInput,
   InvokeEndpointWithBidirectionalStreamOutput,
 } from "../models/models_0";
-import {
+import type {
   SageMakerRuntimeHTTP2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,

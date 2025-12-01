@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { CloudHSMV2Client, CloudHSMV2ClientConfig } from "./CloudHSMV2Client";
+import { CloudHSMV2Client } from "./CloudHSMV2Client";
 import {
   CopyBackupToRegionCommand,
   CopyBackupToRegionCommandInput,

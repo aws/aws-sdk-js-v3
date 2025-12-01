@@ -2,14 +2,14 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   GetAccessPointPolicyStatusForObjectLambdaRequest,
   GetAccessPointPolicyStatusForObjectLambdaResult,
 } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { GetAccessPointPolicyStatusForObjectLambda } from "../schemas/schemas_0";
 
 /**

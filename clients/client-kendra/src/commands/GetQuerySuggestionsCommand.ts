@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { GetQuerySuggestionsRequest, GetQuerySuggestionsResponse } from "../models/models_0";
+import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import type { GetQuerySuggestionsRequest, GetQuerySuggestionsResponse } from "../models/models_0";
 import { GetQuerySuggestions } from "../schemas/schemas_0";
 
 /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRoutesInput, ListRoutesOutput } from "../models/models_0";
+import type { ListRoutesInput, ListRoutesOutput } from "../models/models_0";
 import { ListRoutes } from "../schemas/schemas_0";
 
 /**

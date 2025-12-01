@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { EMRContainersClientConfig } from "./EMRContainersClient";
+import type { EMRContainersClientConfig } from "./EMRContainersClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

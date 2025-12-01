@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddAssociationCommand,
@@ -1739,7 +1739,7 @@ import {
   UpdateWorkteamCommandInput,
   UpdateWorkteamCommandOutput,
 } from "./commands/UpdateWorkteamCommand";
-import { SageMakerClient, SageMakerClientConfig } from "./SageMakerClient";
+import { SageMakerClient } from "./SageMakerClient";
 
 const commands = {
   AddAssociationCommand,

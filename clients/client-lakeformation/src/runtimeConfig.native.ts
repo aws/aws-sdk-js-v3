@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { LakeFormationClientConfig } from "./LakeFormationClient";
+import type { LakeFormationClientConfig } from "./LakeFormationClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -2,14 +2,14 @@
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   StartDBInstanceAutomatedBackupsReplicationMessage,
   StartDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StartDBInstanceAutomatedBackupsReplication } from "../schemas/schemas_0";
 
 /**

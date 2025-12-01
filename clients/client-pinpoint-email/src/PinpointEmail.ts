@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateConfigurationSetCommand,
@@ -200,7 +200,7 @@ import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
-import { PinpointEmailClient, PinpointEmailClientConfig } from "./PinpointEmailClient";
+import { PinpointEmailClient } from "./PinpointEmailClient";
 
 const commands = {
   CreateConfigurationSetCommand,

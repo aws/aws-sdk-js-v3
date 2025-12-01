@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptDomainTransferFromAnotherAwsAccountCommand,
@@ -152,7 +152,7 @@ import {
   UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand";
 import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
-import { Route53DomainsClient, Route53DomainsClientConfig } from "./Route53DomainsClient";
+import { Route53DomainsClient } from "./Route53DomainsClient";
 
 const commands = {
   AcceptDomainTransferFromAnotherAwsAccountCommand,

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteProxyConfigurationRequest, DeleteProxyConfigurationResponse } from "../models/models_0";
-import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
+import type { DeleteProxyConfigurationRequest, DeleteProxyConfigurationResponse } from "../models/models_0";
+import type {
+  NetworkFirewallClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../NetworkFirewallClient";
 import { DeleteProxyConfiguration } from "../schemas/schemas_0";
 
 /**
