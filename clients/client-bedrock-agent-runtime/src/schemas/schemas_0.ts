@@ -21,6 +21,7 @@ const _APp = "ApiParameter";
 const _APpi = "ApiParameters";
 const _AR = "ApiResult";
 const _ARB = "ApiRequestBody";
+const _AS = "AudioSegment";
 const _AT = "AgentTraces";
 const _BCB = "ByteContentBlob";
 const _BCD = "ByteContentDoc";
@@ -206,8 +207,9 @@ const _IIARn = "InvokeInlineAgentResponse";
 const _IIM = "InvocationInputMember";
 const _IIS = "ImageInputSource";
 const _IIm = "ImageInputs";
-const _IIn = "InvocationInput";
-const _IInv = "InvocationInputs";
+const _IIn = "InputImage";
+const _IInv = "InvocationInput";
+const _IInvo = "InvocationInputs";
 const _IP = "InputPrompt";
 const _IRM = "InvocationResultMember";
 const _IS = "InvocationStep";
@@ -427,6 +429,7 @@ const _USR = "UpdateSessionRequest";
 const _USRp = "UpdateSessionResponse";
 const _V = "Verb";
 const _VE = "ValidationException";
+const _VS = "VideoSegment";
 const _VSBRC = "VectorSearchBedrockRerankingConfiguration";
 const _VSBRMC = "VectorSearchBedrockRerankingModelConfiguration";
 const _VSRC = "VectorSearchRerankingConfiguration";
@@ -459,6 +462,7 @@ const _aS = "apiSchema";
 const _aT = "agentTraces";
 const _aV = "agentVersion";
 const _at = "attribution";
+const _au = "audio";
 const _b = "body";
 const _bC = "byteContent";
 const _bGE = "badGatewayException";
@@ -585,7 +589,8 @@ const _hSC = "httpStatusCode";
 const _i = "input";
 const _iA = "inputAssessments";
 const _iC = "inferenceConfig";
-const _iCn = "inferenceConfiguration";
+const _iCn = "inlineContent";
+const _iCnf = "inferenceConfiguration";
 const _iDS = "inlineDocumentSource";
 const _iFC = "implicitFilterConfiguration";
 const _iFN = "inputFieldName";
@@ -783,6 +788,7 @@ const _sSt = "stopSequences";
 const _sT = "sourceType";
 const _sTt = "startTime";
 const _sTu = "summaryText";
+const _sU = "s3Uri";
 const _sW = "startsWith";
 const _s_ = "s3";
 const _sc = "score";
@@ -796,6 +802,7 @@ const _st = "status";
 const _sta = "start";
 const _str = "stream";
 const _stre = "streaming";
+const _su = "summary";
 const _t = "text";
 const _tC = "transformationConfiguration";
 const _tD = "textDocument";
@@ -818,7 +825,8 @@ const _ta = "tags";
 const _te = "temperature";
 const _ti = "timestamp";
 const _to = "topics";
-const _tr = "trace";
+const _tr = "transcription";
+const _tra = "trace";
 const _ty = "type";
 const _u = "usage";
 const _uC = "useCase";
@@ -828,6 +836,7 @@ const _v = "verb";
 const _vE = "validationException";
 const _vSC = "vectorSearchConfiguration";
 const _va = "value";
+const _vi = "video";
 const _wL = "webLocation";
 const _wP = "wordPolicy";
 const _xabact = "x-amzn-bedrock-agent-content-type";
@@ -1002,6 +1011,7 @@ export var ApiResult: StaticStructureSchema = [
   [0, 0, [() => ApiPath, 0], 0, 0, 1, () => ResponseBody, 0],
 ];
 export var Attribution: StaticStructureSchema = [3, n0, _A, 0, [_ci], [[() => Citations, 0]]];
+export var AudioSegment: StaticStructureSchema = [3, n0, _AS, 0, [_sU, _tr], [0, 0]];
 export var BadGatewayException: StaticErrorSchema = [
   -3,
   n0,
@@ -1302,7 +1312,7 @@ export var FlowTraceDependencyEvent: StaticStructureSchema = [
   [_nN, _ti, _tE],
   [0, 5, [() => TraceElements, 0]],
 ];
-export var FlowTraceEvent: StaticStructureSchema = [3, n0, _FTE, 0, [_tr], [[() => FlowTrace, 0]]];
+export var FlowTraceEvent: StaticStructureSchema = [3, n0, _FTE, 0, [_tra], [[() => FlowTrace, 0]]];
 export var FlowTraceNodeActionEvent: StaticStructureSchema = [
   3,
   n0,
@@ -1616,7 +1626,7 @@ export var InlineAgentTracePart: StaticStructureSchema = [
   n0,
   _IATP,
   8,
-  [_sIe, _tr, _cCa, _eTv, _cN],
+  [_sIe, _tra, _cCa, _eTv, _cN],
   [0, [() => Trace, 0], () => CallerChain, 5, [() => Name, 0]],
 ];
 export var InlineBedrockModelConfigurations: StaticStructureSchema = [
@@ -1643,6 +1653,7 @@ export var InlineSessionState: StaticStructureSchema = [
   ],
 ];
 export var InputFile: StaticStructureSchema = [3, n0, _IF, 0, [_n, _sou, _uC], [0, [() => FileSource, 0], 0]];
+export var InputImage: StaticStructureSchema = [3, n0, _IIn, 0, [_fo, _iCn], [0, [() => ByteContentBlob, 0]]];
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
@@ -1659,7 +1670,7 @@ TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerExce
 export var InvocationInput: StaticStructureSchema = [
   3,
   n0,
-  _IIn,
+  _IInv,
   8,
   [_tI, _iT, _aGII, _kBLI, _cIII, _aCII],
   [
@@ -1873,7 +1884,7 @@ export var KnowledgeBaseLookupOutput: StaticStructureSchema = [
     [() => Metadata, 0],
   ],
 ];
-export var KnowledgeBaseQuery: StaticStructureSchema = [3, n0, _KBQ, 8, [_t], [0]];
+export var KnowledgeBaseQuery: StaticStructureSchema = [3, n0, _KBQ, 8, [_ty, _t, _ima], [0, 0, [() => InputImage, 0]]];
 export var KnowledgeBaseRetrievalConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2108,7 +2119,7 @@ export var ModelInvocationInput: StaticStructureSchema = [
   n0,
   _MII,
   8,
-  [_tI, _t, _ty, _oL, _pCM, _iCn, _pM, _fM],
+  [_tI, _t, _ty, _oL, _pCM, _iCnf, _pM, _fM],
   [0, [() => PromptText, 0], 0, 0, 0, () => InferenceConfiguration, 0, 0],
 ];
 export var ModelNotReadyException: StaticErrorSchema = [
@@ -2297,7 +2308,7 @@ export var PromptConfiguration: StaticStructureSchema = [
   n0,
   _PCr,
   0,
-  [_pTr, _pCM, _pS, _bPT, _iCn, _pM, _fM, _aMRF],
+  [_pTr, _pCM, _pS, _bPT, _iCnf, _pM, _fM, _aMRF],
   [0, 0, 0, [() => BasePromptTemplate, 0], () => InferenceConfiguration, 0, 0, 15],
 ];
 export var PromptCreationConfigurations: StaticStructureSchema = [3, n0, _PCC, 0, [_pCTTI, _ePTS], [1, 2]];
@@ -2382,8 +2393,8 @@ export var RetrievalResultContent: StaticStructureSchema = [
   n0,
   _RRC,
   8,
-  [_ty, _t, _bC, _row],
-  [0, 0, 0, [() => RetrievalResultContentRow, 0]],
+  [_ty, _t, _bC, _vi, _au, _row],
+  [0, 0, 0, () => VideoSegment, () => AudioSegment, [() => RetrievalResultContentRow, 0]],
 ];
 export var RetrievalResultContentColumn: StaticStructureSchema = [3, n0, _RRCC, 8, [_cNol, _cV, _ty], [0, 0, 0]];
 export var RetrievalResultCustomDocumentLocation: StaticStructureSchema = [3, n0, _RRCDL, 0, [_id_], [0]];
@@ -2626,7 +2637,7 @@ export var TracePart: StaticStructureSchema = [
   n0,
   _TPr,
   8,
-  [_sIe, _tr, _cCa, _eTv, _cN, _aI, _aAI, _aV],
+  [_sIe, _tra, _cCa, _eTv, _cN, _aI, _aAI, _aV],
   [0, [() => Trace, 0], () => CallerChain, 5, [() => Name, 0], 0, 0, 0],
 ];
 export var TransformationConfiguration: StaticStructureSchema = [
@@ -2701,6 +2712,7 @@ export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
   [_ty, _bRC],
   [0, [() => VectorSearchBedrockRerankingConfiguration, 0]],
 ];
+export var VideoSegment: StaticStructureSchema = [3, n0, _VS, 0, [_sU, _su], [0, 0]];
 export var __Unit = "unit" as const;
 
 export var BedrockAgentRuntimeServiceException: StaticErrorSchema = [
@@ -2755,7 +2767,7 @@ export var GuardrailRegexFilterList: StaticListSchema = [1, n0, _GRFL, 8, [() =>
 export var GuardrailTopicList: StaticListSchema = [1, n0, _GTL, 8, [() => GuardrailTopic, 0]];
 export var ImageInputs: StaticListSchema = [1, n0, _IIm, 0, () => ImageInput];
 export var InputFiles: StaticListSchema = [1, n0, _IFn, 0, [() => InputFile, 0]];
-export var InvocationInputs: StaticListSchema = [1, n0, _IInv, 0, [() => InvocationInputMember, 0]];
+export var InvocationInputs: StaticListSchema = [1, n0, _IInvo, 0, [() => InvocationInputMember, 0]];
 export var InvocationStepSummaries: StaticListSchema = [1, n0, _ISSnv, 0, () => InvocationStepSummary];
 export var InvocationSummaries: StaticListSchema = [1, n0, _ISnv, 0, () => InvocationSummary];
 export var KnowledgeBaseConfigurations: StaticListSchema = [1, n0, _KBCn, 0, [() => KnowledgeBaseConfiguration, 0]];
@@ -2887,7 +2899,7 @@ export var InlineAgentResponseStream: StaticStructureSchema = [
   {
     [_stre]: 1,
   },
-  [_ch, _tr, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _fi],
+  [_ch, _tra, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _fi],
   [
     [() => InlineAgentPayloadPart, 0],
     [() => InlineAgentTracePart, 0],
@@ -3018,7 +3030,7 @@ export var ResponseStream: StaticStructureSchema = [
   {
     [_stre]: 1,
   },
-  [_ch, _tr, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _mNRE, _fi],
+  [_ch, _tra, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _mNRE, _fi],
   [
     [() => PayloadPart, 0],
     [() => TracePart, 0],

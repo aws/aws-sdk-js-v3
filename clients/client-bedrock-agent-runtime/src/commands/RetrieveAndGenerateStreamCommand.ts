@@ -262,9 +262,17 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //         retrievedReferences: [ // RetrievedReferences
  * //           { // RetrievedReference
  * //             content: { // RetrievalResultContent
- * //               type: "TEXT" || "IMAGE" || "ROW",
+ * //               type: "TEXT" || "IMAGE" || "ROW" || "AUDIO" || "VIDEO",
  * //               text: "STRING_VALUE",
  * //               byteContent: "STRING_VALUE",
+ * //               video: { // VideoSegment
+ * //                 s3Uri: "STRING_VALUE", // required
+ * //                 summary: "STRING_VALUE",
+ * //               },
+ * //               audio: { // AudioSegment
+ * //                 s3Uri: "STRING_VALUE", // required
+ * //                 transcription: "STRING_VALUE",
+ * //               },
  * //               row: [ // RetrievalResultContentRow
  * //                 { // RetrievalResultContentColumn
  * //                   columnName: "STRING_VALUE",
@@ -318,9 +326,17 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //       retrievedReferences: [
  * //         {
  * //           content: {
- * //             type: "TEXT" || "IMAGE" || "ROW",
+ * //             type: "TEXT" || "IMAGE" || "ROW" || "AUDIO" || "VIDEO",
  * //             text: "STRING_VALUE",
  * //             byteContent: "STRING_VALUE",
+ * //             video: {
+ * //               s3Uri: "STRING_VALUE", // required
+ * //               summary: "STRING_VALUE",
+ * //             },
+ * //             audio: {
+ * //               s3Uri: "STRING_VALUE", // required
+ * //               transcription: "STRING_VALUE",
+ * //             },
  * //             row: [
  * //               {
  * //                 columnName: "STRING_VALUE",
