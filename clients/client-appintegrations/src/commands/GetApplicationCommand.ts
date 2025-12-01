@@ -91,6 +91,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
  * // };
  *
  * ```

@@ -83,6 +83,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

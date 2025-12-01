@@ -11,6 +11,7 @@ const _AL = "ApplicationsList";
 const _AO = "ApprovedOrigins";
 const _AS = "ApplicationSummary";
 const _ASC = "ApplicationSourceConfig";
+const _AT = "ApplicationType";
 const _AU = "AccessUrl";
 const _Al = "Allow";
 const _Ap = "Applications";
@@ -166,6 +167,7 @@ const _UOE = "UnsupportedOperationException";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _aT = "applicationType";
 const _c = "client";
 const _e = "error";
 const _h = "http";
@@ -225,8 +227,8 @@ export var ApplicationSummary: StaticStructureSchema = [
   n0,
   _AS,
   0,
-  [_A, _I, _N, _Na, _CT, _LMT, _IS],
-  [0, 0, 0, 0, 4, 4, 2],
+  [_A, _I, _N, _Na, _CT, _LMT, _IS, _AT],
+  [0, 0, 0, 0, 4, 4, 2, 0],
 ];
 export var ContactHandling: StaticStructureSchema = [3, n0, _CH, 0, [_S], [0]];
 export var CreateApplicationRequest: StaticStructureSchema = [
@@ -234,7 +236,7 @@ export var CreateApplicationRequest: StaticStructureSchema = [
   n0,
   _CAR,
   0,
-  [_N, _Na, _D, _ASC, _Su, _P, _CTl, _T, _Pe, _IS, _IT, _AC, _IC],
+  [_N, _Na, _D, _ASC, _Su, _P, _CTl, _T, _Pe, _IS, _IT, _AC, _IC, _AT],
   [
     0,
     0,
@@ -249,6 +251,7 @@ export var CreateApplicationRequest: StaticStructureSchema = [
     1,
     () => ApplicationConfig,
     () => IframeConfig,
+    0,
   ],
 ];
 export var CreateApplicationResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_A, _I], [0, 0]];
@@ -369,7 +372,7 @@ export var GetApplicationResponse: StaticStructureSchema = [
   n0,
   _GARe,
   0,
-  [_A, _I, _N, _Na, _D, _ASC, _Su, _P, _CT, _LMT, _T, _Pe, _IS, _IT, _AC, _IC],
+  [_A, _I, _N, _Na, _D, _ASC, _Su, _P, _CT, _LMT, _T, _Pe, _IS, _IT, _AC, _IC, _AT],
   [
     0,
     0,
@@ -387,6 +390,7 @@ export var GetApplicationResponse: StaticStructureSchema = [
     1,
     () => ApplicationConfig,
     () => IframeConfig,
+    0,
   ],
 ];
 export var GetDataIntegrationRequest: StaticStructureSchema = [3, n0, _GDIR, 0, [_Id], [[0, 1]]];
@@ -481,7 +485,7 @@ export var ListApplicationsRequest: StaticStructureSchema = [
   n0,
   _LAR,
   0,
-  [_NT, _MR],
+  [_NT, _MR, _AT],
   [
     [
       0,
@@ -493,6 +497,12 @@ export var ListApplicationsRequest: StaticStructureSchema = [
       1,
       {
         [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _aT,
       },
     ],
   ],
@@ -698,7 +708,7 @@ export var UpdateApplicationRequest: StaticStructureSchema = [
   n0,
   _UAR,
   0,
-  [_A, _N, _D, _ASC, _Su, _P, _Pe, _IS, _IT, _AC, _IC],
+  [_A, _N, _D, _ASC, _Su, _P, _Pe, _IS, _IT, _AC, _IC, _AT],
   [
     [0, 1],
     0,
@@ -711,6 +721,7 @@ export var UpdateApplicationRequest: StaticStructureSchema = [
     1,
     () => ApplicationConfig,
     () => IframeConfig,
+    0,
   ],
 ];
 export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [], []];

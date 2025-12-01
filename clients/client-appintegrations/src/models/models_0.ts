@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ContactHandlingScope, ExecutionMode, ExecutionStatus } from "./enums";
+import { ApplicationType, ContactHandlingScope, ExecutionMode, ExecutionStatus } from "./enums";
 
 /**
  * <p>The contact handling configuration for the application.</p>
@@ -182,6 +182,8 @@ export interface CreateApplicationRequest {
 
   /**
    * <p>Indicates whether the application is a service.</p>
+   *
+   * @deprecated IsService has been deprecated in favor of ApplicationType
    * @public
    */
   IsService?: boolean | undefined;
@@ -203,6 +205,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   IframeConfig?: IframeConfig | undefined;
+
+  /**
+   * <p>The type of application.</p>
+   * @public
+   */
+  ApplicationType?: ApplicationType | undefined;
 }
 
 /**
@@ -721,6 +729,8 @@ export interface GetApplicationResponse {
 
   /**
    * <p>Indicates whether the application is a service.</p>
+   *
+   * @deprecated IsService has been deprecated in favor of ApplicationType
    * @public
    */
   IsService?: boolean | undefined;
@@ -742,6 +752,12 @@ export interface GetApplicationResponse {
    * @public
    */
   IframeConfig?: IframeConfig | undefined;
+
+  /**
+   * <p>The type of application.</p>
+   * @public
+   */
+  ApplicationType?: ApplicationType | undefined;
 }
 
 /**
@@ -953,6 +969,12 @@ export interface ListApplicationsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>The type of application.</p>
+   * @public
+   */
+  ApplicationType?: ApplicationType | undefined;
 }
 
 /**
@@ -998,9 +1020,17 @@ export interface ApplicationSummary {
 
   /**
    * <p>Indicates whether the application is a service.</p>
+   *
+   * @deprecated IsService has been deprecated in favor of ApplicationType
    * @public
    */
   IsService?: boolean | undefined;
+
+  /**
+   * <p>The type of application.</p>
+   * @public
+   */
+  ApplicationType?: ApplicationType | undefined;
 }
 
 /**
@@ -1459,6 +1489,8 @@ export interface UpdateApplicationRequest {
 
   /**
    * <p>Indicates whether the application is a service.</p>
+   *
+   * @deprecated IsService has been deprecated in favor of ApplicationType
    * @public
    */
   IsService?: boolean | undefined;
@@ -1480,6 +1512,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   IframeConfig?: IframeConfig | undefined;
+
+  /**
+   * <p>The type of application.</p>
+   * @public
+   */
+  ApplicationType?: ApplicationType | undefined;
 }
 
 /**
