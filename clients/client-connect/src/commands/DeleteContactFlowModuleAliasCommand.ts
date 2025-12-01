@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteContactFlowModuleAliasRequest, DeleteContactFlowModuleAliasResponse } from "../models/models_0";
+import { DeleteContactFlowModuleAliasRequest, DeleteContactFlowModuleAliasResponse } from "../models/models_1";
 import { DeleteContactFlowModuleAlias } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,8 @@ export interface DeleteContactFlowModuleAliasCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes an alias reference, breaking the named connection to the underlying module version without affecting the version itself.</p>
+ * <p>Removes an alias reference, breaking the named connection to the underlying module version without affecting the
+ *    version itself.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

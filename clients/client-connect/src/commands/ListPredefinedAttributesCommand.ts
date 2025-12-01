@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPredefinedAttributesRequest, ListPredefinedAttributesResponse } from "../models/models_1";
+import { ListPredefinedAttributesRequest, ListPredefinedAttributesResponse } from "../models/models_2";
 import { ListPredefinedAttributes } from "../schemas/schemas_0";
 
 /**
@@ -27,25 +27,23 @@ export interface ListPredefinedAttributesCommandInput extends ListPredefinedAttr
 export interface ListPredefinedAttributesCommandOutput extends ListPredefinedAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists predefined attributes for the specified Amazon Connect instance. A <i>predefined
- *     attribute</i> is made up of a name and a value. You can use predefined attributes
- *    for:</p>
+ * <p>Lists predefined attributes for the specified Amazon Connect instance. A <i>predefined attribute</i> is
+ *    made up of a name and a value. You can use predefined attributes for:</p>
  *          <ul>
  *             <li>
- *                <p>Routing proficiency (for example, agent certification) that has predefined values (for
- *      example, a list of possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
- *       predefined attributes for routing contacts to agents</a>.</p>
+ *                <p>Routing proficiency (for example, agent certification) that has predefined values (for example, a list of
+ *      possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create predefined attributes for routing contacts to
+ *       agents</a>.</p>
  *             </li>
  *             <li>
- *                <p>Contact information that varies between transfers or conferences, such as the name of the
- *      business unit handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment
- *       attributes</a>.</p>
+ *                <p>Contact information that varies between transfers or conferences, such as the name of the business unit
+ *      handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment attributes</a>.</p>
  *             </li>
  *          </ul>
- *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect quotas</a>.</p>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
+ *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect
  *    quotas</a>.</p>
+ *          <p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

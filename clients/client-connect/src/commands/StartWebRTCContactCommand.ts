@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartWebRTCContactRequest, StartWebRTCContactResponse } from "../models/models_2";
+import { StartWebRTCContactRequest, StartWebRTCContactResponse } from "../models/models_3";
 import { StartWebRTCContact } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,9 @@ export interface StartWebRTCContactCommandInput extends StartWebRTCContactReques
 export interface StartWebRTCContactCommandOutput extends StartWebRTCContactResponse, __MetadataBearer {}
 
 /**
- * <p>Places an inbound in-app, web, or video call to a contact, and then initiates the flow. It
- *    performs the actions in the flow that are specified (in ContactFlowId) and present in the Amazon Connect instance (specified as InstanceId).</p>
+ * <p>Places an inbound in-app, web, or video call to a contact, and then initiates the flow. It performs the actions
+ *    in the flow that are specified (in ContactFlowId) and present in the Amazon Connect instance (specified as
+ *    InstanceId).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +62,7 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
  *       Value: "STRING_VALUE",
- *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT", // required
  *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
  *       Arn: "STRING_VALUE",
  *       StatusReason: "STRING_VALUE",

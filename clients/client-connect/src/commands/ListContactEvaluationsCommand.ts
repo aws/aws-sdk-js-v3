@@ -59,6 +59,7 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //         Percentage: Number("double"),
  * //         NotApplicable: true || false,
  * //         AutomaticFail: true || false,
+ * //         AppliedWeight: Number("double"),
  * //       },
  * //       Acknowledgement: { // EvaluationAcknowledgementSummary
  * //         AcknowledgedTime: new Date("TIMESTAMP"),
@@ -68,6 +69,10 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //       EvaluationType: "STANDARD" || "CALIBRATION",
  * //       CreatedTime: new Date("TIMESTAMP"), // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       ContactParticipant: { // EvaluationContactParticipant
+ * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ContactParticipantId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

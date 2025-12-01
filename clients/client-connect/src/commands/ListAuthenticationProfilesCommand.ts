@@ -29,7 +29,8 @@ export interface ListAuthenticationProfilesCommandOutput extends ListAuthenticat
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.</p>
- *          <p>Provides summary information about the authentication profiles in a specified Amazon Connect instance.</p>
+ *          <p>Provides summary information about the authentication profiles in a specified Amazon Connect
+ *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

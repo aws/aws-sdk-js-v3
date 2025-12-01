@@ -27,8 +27,8 @@ export interface CompleteAttachedFileUploadCommandInput extends CompleteAttached
 export interface CompleteAttachedFileUploadCommandOutput extends CompleteAttachedFileUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to confirm that the attached file has been uploaded using the pre-signed URL
- *    provided in the StartAttachedFileUpload API.</p>
+ * <p>Allows you to confirm that the attached file has been uploaded using the pre-signed URL provided in the
+ *    StartAttachedFileUpload API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

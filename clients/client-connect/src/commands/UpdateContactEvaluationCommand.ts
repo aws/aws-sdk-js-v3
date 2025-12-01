@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContactEvaluationRequest, UpdateContactEvaluationResponse } from "../models/models_2";
+import { UpdateContactEvaluationRequest, UpdateContactEvaluationResponse } from "../models/models_3";
 import { UpdateContactEvaluation } from "../schemas/schemas_0";
 
 /**
@@ -27,10 +27,9 @@ export interface UpdateContactEvaluationCommandInput extends UpdateContactEvalua
 export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates details about a contact evaluation in the specified Amazon Connect instance. A
- *    contact evaluation must be in draft state. Answers included in the request are merged with
- *    existing answers for the given evaluation. An answer or note can be deleted by passing an empty
- *    object (<code>\{\}</code>) to the question identifier. </p>
+ * <p>Updates details about a contact evaluation in the specified Amazon Connect instance. A contact evaluation
+ *    must be in draft state. Answers included in the request are merged with existing answers for the given evaluation. An
+ *    answer or note can be deleted by passing an empty object (<code>\{\}</code>) to the question identifier. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +46,10 @@ export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvalu
  *       Value: { // EvaluationAnswerData Union: only one key present
  *         StringValue: "STRING_VALUE",
  *         NumericValue: Number("double"),
+ *         StringValues: [ // EvaluationAnswerDataStringValueList
+ *           "STRING_VALUE",
+ *         ],
+ *         DateTimeValue: "STRING_VALUE",
  *         NotApplicable: true || false,
  *       },
  *     },

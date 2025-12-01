@@ -28,8 +28,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
 
 /**
  * <p>Creates a rule for the specified Amazon Connect instance.</p>
- *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
- *    code conditions for the rule. </p>
+ *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function
+ *     language</a> to code conditions for the rule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,7 +56,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *         References: { // ContactReferences
  *           "<keys>": { // Reference
  *             Value: "STRING_VALUE",
- *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT", // required
  *             Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
  *             Arn: "STRING_VALUE",
  *             StatusReason: "STRING_VALUE",

@@ -27,8 +27,8 @@ export interface DeactivateEvaluationFormCommandInput extends DeactivateEvaluati
 export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates an evaluation form in the specified Amazon Connect instance. After a form is deactivated,
- *    it is no longer available for users to start new evaluations based on the form. </p>
+ * <p>Deactivates an evaluation form in the specified Amazon Connect instance. After a form is deactivated, it is no longer
+ *    available for users to start new evaluations based on the form. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

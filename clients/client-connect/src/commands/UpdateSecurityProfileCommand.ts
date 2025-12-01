@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSecurityProfileRequest } from "../models/models_2";
+import { UpdateSecurityProfileRequest } from "../models/models_3";
 import { UpdateSecurityProfile } from "../schemas/schemas_0";
 
 /**
@@ -28,10 +28,9 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a security profile.</p>
- *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and
- *    user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile
- *     permissions</a>. </p>
+ *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and user interface name of the security
+ *    profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+ *     of security profile permissions</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,12 +58,34 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  *       ApplicationPermissions: [ // ApplicationPermissions
  *         "STRING_VALUE",
  *       ],
+ *       Type: "MCP" || "THIRD_PARTY_APPLICATION",
  *     },
  *   ],
  *   HierarchyRestrictedResources: [ // HierarchyRestrictedResourceList
  *     "STRING_VALUE",
  *   ],
  *   AllowedAccessControlHierarchyGroupId: "STRING_VALUE",
+ *   AllowedFlowModules: [ // AllowedFlowModules
+ *     { // FlowModule
+ *       Type: "MCP",
+ *       FlowModuleId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   GranularAccessControlConfiguration: { // GranularAccessControlConfiguration
+ *     DataTableAccessControlConfiguration: { // DataTableAccessControlConfiguration
+ *       PrimaryAttributeAccessControlConfiguration: { // PrimaryAttributeAccessControlConfigurationItem
+ *         PrimaryAttributeValues: [ // PrimaryAttributeValuesSet
+ *           { // PrimaryAttributeValue
+ *             AccessType: "ALLOW",
+ *             AttributeName: "STRING_VALUE",
+ *             Values: [ // PrimaryValueList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_2";
+import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_3";
 import { UpdateRoutingProfileConcurrency } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface UpdateRoutingProfileConcurrencyCommandInput extends UpdateRouti
 export interface UpdateRoutingProfileConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
- *    profile.</p>
+ * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

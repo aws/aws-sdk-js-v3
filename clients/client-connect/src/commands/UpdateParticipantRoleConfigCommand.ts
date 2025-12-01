@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateParticipantRoleConfigRequest, UpdateParticipantRoleConfigResponse } from "../models/models_2";
+import { UpdateParticipantRoleConfigRequest, UpdateParticipantRoleConfigResponse } from "../models/models_3";
 import { UpdateParticipantRoleConfig } from "../schemas/schemas_0";
 
 /**
@@ -29,8 +29,8 @@ export interface UpdateParticipantRoleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents
- *    are automatically disconnected from a chat due to idleness. You can set four timers:</p>
+ * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically
+ *    disconnected from a chat due to idleness. You can set four timers:</p>
  *          <ul>
  *             <li>
  *                <p>Customer idle timeout</p>

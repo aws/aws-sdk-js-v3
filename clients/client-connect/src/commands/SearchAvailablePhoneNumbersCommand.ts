@@ -29,9 +29,9 @@ export interface SearchAvailablePhoneNumbersCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance
- *    or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both
- *     Amazon Web Services Regions associated with the traffic distribution group.</p>
+ * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the
+ *    provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with
+ *    the traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

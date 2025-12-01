@@ -28,11 +28,10 @@ export interface SearchUserHierarchyGroupsCommandInput extends SearchUserHierarc
 export interface SearchUserHierarchyGroupsCommandOutput extends SearchUserHierarchyGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches UserHierarchyGroups in an Amazon Connect instance, with optional
- *    filtering.</p>
+ * <p>Searches UserHierarchyGroups in an Amazon Connect instance, with optional filtering.</p>
  *          <important>
- *             <p>The UserHierarchyGroup with <code>"LevelId": "0"</code> is the foundation for building
- *     levels on top of an instance. It is not user-definable, nor is it visible in the UI.</p>
+ *             <p>The UserHierarchyGroup with <code>"LevelId": "0"</code> is the foundation for building levels on top of an
+ *     instance. It is not user-definable, nor is it visible in the UI.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

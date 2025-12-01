@@ -28,8 +28,8 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
- *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
+ *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex V1 bot. This API
+ *    only supports the association of Amazon Lex V1 bots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

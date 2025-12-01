@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListContactFlowVersionsRequest, ListContactFlowVersionsResponse } from "../models/models_1";
+import { ListContactFlowVersionsRequest, ListContactFlowVersionsResponse } from "../models/models_2";
 import { ListContactFlowVersions } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface ListContactFlowVersionsCommandInput extends ListContactFlowVers
 export interface ListContactFlowVersionsCommandOutput extends ListContactFlowVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all the available versions for the specified Amazon Connect instance and flow
- *    identifier.</p>
+ * <p>Returns all the available versions for the specified Amazon Connect instance and flow identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

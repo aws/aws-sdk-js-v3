@@ -29,8 +29,8 @@ export interface DeleteAttachedFileCommandOutput extends DeleteAttachedFileRespo
 /**
  * <p>Deletes an attached file along with the underlying S3 Object.</p>
  *          <important>
- *             <p>The attached file is <b>permanently deleted</b> if S3 bucket
- *     versioning is not enabled.</p>
+ *             <p>The attached file is <b>permanently deleted</b> if S3 bucket versioning is not
+ *     enabled.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -3,6 +3,18 @@
  * @public
  * @enum
  */
+export const AccessType = {
+  ALLOW: "ALLOW",
+} as const;
+/**
+ * @public
+ */
+export type AccessType = (typeof AccessType)[keyof typeof AccessType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ActionType = {
   ASSIGN_CONTACT_CATEGORY: "ASSIGN_CONTACT_CATEGORY",
   ASSIGN_SLA: "ASSIGN_SLA",
@@ -187,6 +199,31 @@ export type StringComparisonType = (typeof StringComparisonType)[keyof typeof St
  * @public
  * @enum
  */
+export const AiUseCase = {
+  AgentAssistance: "AgentAssistance",
+  SelfService: "SelfService",
+} as const;
+/**
+ * @public
+ */
+export type AiUseCase = (typeof AiUseCase)[keyof typeof AiUseCase];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowModuleType = {
+  MCP: "MCP",
+} as const;
+/**
+ * @public
+ */
+export type FlowModuleType = (typeof FlowModuleType)[keyof typeof FlowModuleType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MonitorCapability = {
   BARGE: "BARGE",
   SILENT_MONITOR: "SILENT_MONITOR",
@@ -342,6 +379,19 @@ export type StorageType = (typeof StorageType)[keyof typeof StorageType];
  * @public
  * @enum
  */
+export const EntityType = {
+  AI_AGENT: "AI_AGENT",
+  USER: "USER",
+} as const;
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const FileStatusType = {
   APPROVED: "APPROVED",
   FAILED: "FAILED",
@@ -473,6 +523,7 @@ export const ReferenceType = {
   DATE: "DATE",
   EMAIL: "EMAIL",
   EMAIL_MESSAGE: "EMAIL_MESSAGE",
+  EMAIL_MESSAGE_PLAIN_TEXT: "EMAIL_MESSAGE_PLAIN_TEXT",
   NUMBER: "NUMBER",
   STRING: "STRING",
   URL: "URL",
@@ -520,6 +571,51 @@ export type ContactFlowType = (typeof ContactFlowType)[keyof typeof ContactFlowT
  * @public
  * @enum
  */
+export const DataTableStatus = {
+  PUBLISHED: "PUBLISHED",
+} as const;
+/**
+ * @public
+ */
+export type DataTableStatus = (typeof DataTableStatus)[keyof typeof DataTableStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataTableLockLevel = {
+  ATTRIBUTE: "ATTRIBUTE",
+  DATA_TABLE: "DATA_TABLE",
+  NONE: "NONE",
+  PRIMARY_VALUE: "PRIMARY_VALUE",
+  VALUE: "VALUE",
+} as const;
+/**
+ * @public
+ */
+export type DataTableLockLevel = (typeof DataTableLockLevel)[keyof typeof DataTableLockLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataTableAttributeValueType = {
+  BOOLEAN: "BOOLEAN",
+  NUMBER: "NUMBER",
+  NUMBER_LIST: "NUMBER_LIST",
+  TEXT: "TEXT",
+  TEXT_LIST: "TEXT_LIST",
+} as const;
+/**
+ * @public
+ */
+export type DataTableAttributeValueType =
+  (typeof DataTableAttributeValueType)[keyof typeof DataTableAttributeValueType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormItemEnablementAction = {
   DISABLE: "DISABLE",
   ENABLE: "ENABLE",
@@ -535,6 +631,8 @@ export type EvaluationFormItemEnablementAction =
  * @enum
  */
 export const EvaluationFormItemSourceValuesComparator = {
+  ALL_IN: "ALL_IN",
+  EXACT: "EXACT",
   IN: "IN",
   NOT_IN: "NOT_IN",
 } as const;
@@ -589,6 +687,8 @@ export type EvaluationFormItemEnablementOperator =
  * @enum
  */
 export const EvaluationFormQuestionType = {
+  DATETIME: "DATETIME",
+  MULTISELECT: "MULTISELECT",
   NUMERIC: "NUMERIC",
   SINGLESELECT: "SINGLESELECT",
   TEXT: "TEXT",
@@ -616,11 +716,41 @@ export type EvaluationFormQuestionAutomationAnswerSourceType =
  * @public
  * @enum
  */
+export const MultiSelectQuestionRuleCategoryAutomationCondition = {
+  NOT_PRESENT: "NOT_PRESENT",
+  PRESENT: "PRESENT",
+} as const;
+/**
+ * @public
+ */
+export type MultiSelectQuestionRuleCategoryAutomationCondition =
+  (typeof MultiSelectQuestionRuleCategoryAutomationCondition)[keyof typeof MultiSelectQuestionRuleCategoryAutomationCondition];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormMultiSelectQuestionDisplayMode = {
+  CHECKBOX: "CHECKBOX",
+  DROPDOWN: "DROPDOWN",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormMultiSelectQuestionDisplayMode =
+  (typeof EvaluationFormMultiSelectQuestionDisplayMode)[keyof typeof EvaluationFormMultiSelectQuestionDisplayMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const NumericQuestionPropertyAutomationLabel = {
   AGENT_INTERACTION_AND_HOLD_DURATION: "AGENT_INTERACTION_AND_HOLD_DURATION",
   AGENT_INTERACTION_DURATION: "AGENT_INTERACTION_DURATION",
   CONTACT_DURATION: "CONTACT_DURATION",
   CUSTOMER_HOLD_TIME: "CUSTOMER_HOLD_TIME",
+  CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT: "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT",
+  CUSTOMER_SENTIMENT_SCORE_WITH_AGENT: "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT",
   LONGEST_HOLD_DURATION: "LONGEST_HOLD_DURATION",
   NON_TALK_TIME: "NON_TALK_TIME",
   NON_TALK_TIME_PERCENTAGE: "NON_TALK_TIME_PERCENTAGE",
@@ -667,6 +797,23 @@ export type EvaluationFormSingleSelectQuestionDisplayMode =
  * @public
  * @enum
  */
+export const EvaluationFormLanguageCode = {
+  DE_DE: "de-DE",
+  EN_US: "en-US",
+  ES_ES: "es-ES",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  PT_BR: "pt-BR",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormLanguageCode = (typeof EvaluationFormLanguageCode)[keyof typeof EvaluationFormLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormScoringMode = {
   QUESTION_ONLY: "QUESTION_ONLY",
   SECTION_ONLY: "SECTION_ONLY",
@@ -689,6 +836,19 @@ export const EvaluationFormScoringStatus = {
  */
 export type EvaluationFormScoringStatus =
   (typeof EvaluationFormScoringStatus)[keyof typeof EvaluationFormScoringStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactInteractionType = {
+  AGENT: "AGENT",
+  AUTOMATED: "AUTOMATED",
+} as const;
+/**
+ * @public
+ */
+export type ContactInteractionType = (typeof ContactInteractionType)[keyof typeof ContactInteractionType];
 
 /**
  * @public
@@ -752,6 +912,7 @@ export const IntegrationType = {
   COGNITO_USER_POOL: "COGNITO_USER_POOL",
   EVENT: "EVENT",
   FILE_SCANNER: "FILE_SCANNER",
+  MESSAGE_PROCESSOR: "MESSAGE_PROCESSOR",
   PINPOINT_APP: "PINPOINT_APP",
   Q_MESSAGE_TEMPLATES: "Q_MESSAGE_TEMPLATES",
   SES_IDENTITY: "SES_IDENTITY",
@@ -827,6 +988,7 @@ export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
  * @enum
  */
 export const QuickConnectType = {
+  FLOW: "FLOW",
   PHONE_NUMBER: "PHONE_NUMBER",
   QUEUE: "QUEUE",
   USER: "USER",
@@ -932,6 +1094,19 @@ export const EventSourceName = {
  * @public
  */
 export type EventSourceName = (typeof EventSourceName)[keyof typeof EventSourceName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationType = {
+  MCP: "MCP",
+  THIRD_PARTY_APPLICATION: "THIRD_PARTY_APPLICATION",
+} as const;
+/**
+ * @public
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
 
 /**
  * @public
@@ -1079,6 +1254,38 @@ export type VocabularyState = (typeof VocabularyState)[keyof typeof VocabularySt
  * @public
  * @enum
  */
+export const WorkspaceFontFamily = {
+  ARIAL: "Arial",
+  COURIER_NEW: "Courier New",
+  GEORGIA: "Georgia",
+  TIMES_NEW_ROMAN: "Times New Roman",
+  TREBUCHET: "Trebuchet",
+  VERDANA: "Verdana",
+} as const;
+/**
+ * @public
+ */
+export type WorkspaceFontFamily = (typeof WorkspaceFontFamily)[keyof typeof WorkspaceFontFamily];
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaType = {
+  IMAGE_LOGO_DARK_FAVICON: "IMAGE_LOGO_DARK_FAVICON",
+  IMAGE_LOGO_DARK_HORIZONTAL: "IMAGE_LOGO_DARK_HORIZONTAL",
+  IMAGE_LOGO_LIGHT_FAVICON: "IMAGE_LOGO_LIGHT_FAVICON",
+  IMAGE_LOGO_LIGHT_HORIZONTAL: "IMAGE_LOGO_LIGHT_HORIZONTAL",
+} as const;
+/**
+ * @public
+ */
+export type MediaType = (typeof MediaType)[keyof typeof MediaType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnsweringMachineDetectionStatus = {
   AMD_ERROR: "AMD_ERROR",
   AMD_NOT_APPLICABLE: "AMD_NOT_APPLICABLE",
@@ -1130,6 +1337,18 @@ export const Status = {
  * @public
  */
 export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const NextContactType = {
+  QUICK_CONNECT: "QUICK_CONNECT",
+} as const;
+/**
+ * @public
+ */
+export type NextContactType = (typeof NextContactType)[keyof typeof NextContactType];
 
 /**
  * @public
@@ -1259,6 +1478,20 @@ export type AutoEvaluationStatus = (typeof AutoEvaluationStatus)[keyof typeof Au
  * @public
  * @enum
  */
+export const ContactParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOM_BOT: "CUSTOM_BOT",
+  SYSTEM: "SYSTEM",
+} as const;
+/**
+ * @public
+ */
+export type ContactParticipantRole = (typeof ContactParticipantRole)[keyof typeof ContactParticipantRole];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationStatus = {
   DRAFT: "DRAFT",
   SUBMITTED: "SUBMITTED",
@@ -1365,6 +1598,7 @@ export const InstanceAttributeType = {
   ENHANCED_CONTACT_MONITORING: "ENHANCED_CONTACT_MONITORING",
   HIGH_VOLUME_OUTBOUND: "HIGH_VOLUME_OUTBOUND",
   INBOUND_CALLS: "INBOUND_CALLS",
+  MESSAGE_STREAMING: "MESSAGE_STREAMING",
   MULTI_PARTY_CHAT_CONFERENCE: "MULTI_PARTY_CHAT_CONFERENCE",
   MULTI_PARTY_CONFERENCE: "MULTI_PARTY_CONFERENCE",
   OUTBOUND_CALLS: "OUTBOUND_CALLS",
@@ -1690,6 +1924,20 @@ export type TrafficDistributionGroupStatus =
  * @public
  * @enum
  */
+export const Visibility = {
+  All: "ALL",
+  Assigned: "ASSIGNED",
+  None: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContactMetricName = {
   POSITION_IN_QUEUE: "POSITION_IN_QUEUE",
 } as const;
@@ -1826,6 +2074,19 @@ export const Comparison = {
  * @public
  */
 export type Comparison = (typeof Comparison)[keyof typeof Comparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterV2StringConditionComparisonOperator = {
+  NOT_EXISTS: "NOT_EXISTS",
+} as const;
+/**
+ * @public
+ */
+export type FilterV2StringConditionComparisonOperator =
+  (typeof FilterV2StringConditionComparisonOperator)[keyof typeof FilterV2StringConditionComparisonOperator];
 
 /**
  * @public
@@ -2226,6 +2487,33 @@ export const TrafficType = {
  * @public
  */
 export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResponseMode = {
+  COMPLETE: "COMPLETE",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+/**
+ * @public
+ */
+export type ResponseMode = (typeof ResponseMode)[keyof typeof ResponseMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactMediaProcessingFailureMode = {
+  DELIVER_UNPROCESSED_MESSAGE: "DELIVER_UNPROCESSED_MESSAGE",
+  DO_NOT_DELIVER_UNPROCESSED_MESSAGE: "DO_NOT_DELIVER_UNPROCESSED_MESSAGE",
+} as const;
+/**
+ * @public
+ */
+export type ContactMediaProcessingFailureMode =
+  (typeof ContactMediaProcessingFailureMode)[keyof typeof ContactMediaProcessingFailureMode];
 
 /**
  * @public

@@ -27,14 +27,13 @@ export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberReques
 export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
- *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
+ * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You can call this API
+ *    only in the Amazon Web Services Region where the number was claimed.</p>
  *          <important>
- *             <p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the
- *     Amazon Connect admin website.</p>
- *             <p>After releasing a phone number, the phone number enters into a cooldown period for up to
- *     180 days. It cannot be searched for or claimed again until the period has ended. If you
- *     accidentally release a phone number, contact Amazon Web Services Support.</p>
+ *             <p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the Amazon Connect admin website.</p>
+ *             <p>After releasing a phone number, the phone number enters into a cooldown period for up to 180 days. It cannot be
+ *     searched for or claimed again until the period has ended. If you accidentally release a phone number, contact
+ *      Amazon Web Services Support.</p>
  *          </important>
  *          <p>If you plan to claim and release numbers frequently,
  *                 contact us for a service quota exception. Otherwise, it is possible you will be blocked from
@@ -86,10 +85,9 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  *  <p>One or more of the specified parameters are not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

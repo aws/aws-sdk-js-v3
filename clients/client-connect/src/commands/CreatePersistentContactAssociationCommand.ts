@@ -32,9 +32,9 @@ export interface CreatePersistentContactAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables rehydration of chats for the lifespan of a contact. For more information about chat
- *    rehydration, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. </p>
+ * <p>Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a> in
+ *    the <i>Amazon Connect Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

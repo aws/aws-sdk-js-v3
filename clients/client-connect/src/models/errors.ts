@@ -264,6 +264,28 @@ export class IdempotencyException extends __BaseException {
 }
 
 /**
+ * <p>Request processing failed because dependent condition failed.</p>
+ * @public
+ */
+export class ConditionalOperationFailedException extends __BaseException {
+  readonly name = "ConditionalOperationFailedException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConditionalOperationFailedException, __BaseException>) {
+    super({
+      name: "ConditionalOperationFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConditionalOperationFailedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>A resource with the specified name already exists.</p>
  * @public
  */
@@ -286,8 +308,8 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
- * <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
+ * <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
+ *    state.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -403,10 +425,9 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ * <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -507,9 +528,8 @@ export class UserNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact.
- *    For example, if an OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction
- *    policy set in the flow.</p>
+ * <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact. For example, if an
+ *    OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction policy set in the flow.</p>
  * @public
  */
 export class OutputTypeNotFoundException extends __BaseException {
@@ -531,8 +551,8 @@ export class OutputTypeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Maximum number (1000) of tags have been returned with current request. Consider changing
- *    request parameters to get more tags.</p>
+ * <p>Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to
+ *    get more tags.</p>
  * @public
  */
 export class MaximumResultReturnedException extends __BaseException {
@@ -627,28 +647,6 @@ export class ContactNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ContactNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Request processing failed because dependent condition failed.</p>
- * @public
- */
-export class ConditionalOperationFailedException extends __BaseException {
-  readonly name = "ConditionalOperationFailedException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConditionalOperationFailedException, __BaseException>) {
-    super({
-      name: "ConditionalOperationFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConditionalOperationFailedException.prototype);
     this.Message = opts.Message;
   }
 }

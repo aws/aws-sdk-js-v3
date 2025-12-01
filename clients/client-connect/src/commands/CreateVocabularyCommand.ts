@@ -27,9 +27,9 @@ export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a
- *    custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
- *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
+ * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a custom vocabulary to
+ *    be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default vocabulary in post-call and real-time
+ *    contact analysis sessions for that language.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

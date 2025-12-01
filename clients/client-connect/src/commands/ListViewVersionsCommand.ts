@@ -27,8 +27,7 @@ export interface ListViewVersionsCommandInput extends ListViewVersionsRequest {}
 export interface ListViewVersionsCommandOutput extends ListViewVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all the available versions for the specified Amazon Connect instance and view
- *    identifier.</p>
+ * <p>Returns all the available versions for the specified Amazon Connect instance and view identifier.</p>
  *          <p>Results will be sorted from highest to lowest.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

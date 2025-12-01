@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_2";
+import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_3";
 import { UpdateRoutingProfileAgentAvailabilityTimer } from "../schemas/schemas_0";
 
 /**
@@ -28,9 +28,8 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerCommandInput
 export interface UpdateRoutingProfileAgentAvailabilityTimerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Whether agents with this routing profile will have their routing order calculated based on
- *     <i>time since their last inbound contact</i> or <i>longest idle
- *     time</i>. </p>
+ * <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since
+ *     their last inbound contact</i> or <i>longest idle time</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

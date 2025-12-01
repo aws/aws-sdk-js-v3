@@ -32,8 +32,8 @@ export interface BatchDisassociateAnalyticsDataSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes a list of analytics datasets associated with a given Amazon Connect instance.
- *    You can disassociate multiple datasets in a single call.</p>
+ * <p>Removes a list of analytics datasets associated with a given Amazon Connect instance. You can disassociate
+ *    multiple datasets in a single call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTaskTemplateRequest, UpdateTaskTemplateResponse } from "../models/models_2";
+import { UpdateTaskTemplateRequest, UpdateTaskTemplateResponse } from "../models/models_3";
 import { UpdateTaskTemplate } from "../schemas/schemas_0";
 
 /**
@@ -27,9 +27,8 @@ export interface UpdateTaskTemplateCommandInput extends UpdateTaskTemplateReques
 export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates details about a specific task template in the specified Amazon Connect instance.
- *    This operation does not support partial updates. Instead it does a full update of template
- *    content.</p>
+ * <p>Updates details about a specific task template in the specified Amazon Connect instance. This operation does
+ *    not support partial updates. Instead it does a full update of template content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

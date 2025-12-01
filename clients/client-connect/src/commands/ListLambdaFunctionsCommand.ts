@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_1";
+import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_2";
 import { ListLambdaFunctions } from "../schemas/schemas_0";
 
 /**
@@ -28,8 +28,8 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
- *    relevant flow blocks.</p>
+ *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant flow
+ *    blocks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

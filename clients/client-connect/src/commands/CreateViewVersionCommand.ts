@@ -29,9 +29,8 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
 /**
  * <p>Publishes a new version of the view identifier.</p>
  *          <p>Versions are immutable and monotonically increasing.</p>
- *          <p>It returns the highest version if there is no change in content compared to that version. An
- *    error is displayed if the supplied ViewContentSha256 is different from the ViewContentSha256 of
- *    the <code>$LATEST</code> alias.</p>
+ *          <p>It returns the highest version if there is no change in content compared to that version. An error is displayed
+ *    if the supplied ViewContentSha256 is different from the ViewContentSha256 of the <code>$LATEST</code> alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,10 +94,9 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
  *  <p>The request is not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

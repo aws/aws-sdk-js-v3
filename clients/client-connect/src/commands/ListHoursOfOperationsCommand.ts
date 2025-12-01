@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/models_1";
+import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/models_2";
 import { ListHoursOfOperations } from "../schemas/schemas_0";
 
 /**
@@ -27,10 +27,9 @@ export interface ListHoursOfOperationsCommandInput extends ListHoursOfOperations
 export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the hours of operation for the specified Amazon Connect
- *    instance.</p>
- *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
- *     Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+ *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a Queue</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

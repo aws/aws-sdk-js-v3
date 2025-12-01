@@ -28,7 +28,9 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to return both Amazon Lex V1 and V2 bots.</p>
+ *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots
+ *    currently associated with the instance. Use this API to return both Amazon Lex V1 and V2
+ *    bots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

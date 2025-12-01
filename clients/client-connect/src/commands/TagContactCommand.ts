@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagContactRequest, TagContactResponse } from "../models/models_2";
+import { TagContactRequest, TagContactResponse } from "../models/models_3";
 import { TagContact } from "../schemas/schemas_0";
 
 /**
@@ -27,9 +27,8 @@ export interface TagContactCommandInput extends TagContactRequest {}
 export interface TagContactCommandOutput extends TagContactResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the contact resource. For more information about this API is
- *    used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set
- *     up granular billing for a detailed view of your Amazon Connect usage</a>. </p>
+ * <p>Adds the specified tags to the contact resource. For more information about this API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set up granular billing for a detailed
+ *     view of your Amazon Connect usage</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

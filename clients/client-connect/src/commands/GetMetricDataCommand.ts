@@ -28,16 +28,13 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
 
 /**
  * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
- *      <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <note>
- *             <p>We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API. It
- *     provides more flexibility, features, and the ability to query longer time ranges than
- *      <code>GetMetricData</code>. Use it to retrieve historical agent and contact metrics for the
- *     last 3 months, at varying intervals. You can also use it to build custom dashboards to measure
- *     historical queue and agent performance. For example, you can track the number of incoming
- *     contacts for the last 7 days, with data split by day, to see how contact volume changed per day
- *     of the week.</p>
+ *             <p>We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API. It provides more flexibility, features, and the ability to query longer time ranges
+ *     than <code>GetMetricData</code>. Use it to retrieve historical agent and contact metrics for the last 3 months, at
+ *     varying intervals. You can also use it to build custom dashboards to measure historical queue and agent performance.
+ *     For example, you can track the number of incoming contacts for the last 7 days, with data split by day, to see how
+ *     contact volume changed per day of the week.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

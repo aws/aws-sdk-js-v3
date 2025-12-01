@@ -27,10 +27,10 @@ export interface PutUserStatusCommandInput extends PutUserStatusRequest {}
 export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is
- *    currently handling a contact, this sets the agent's next status.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next
- *     status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a
+ *    contact, this sets the agent's next status.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your
+ *     next status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

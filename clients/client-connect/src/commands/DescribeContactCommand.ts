@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeContactRequest } from "../models/models_0";
+import { DescribeContactRequest } from "../models/models_1";
 import { DescribeContactResponse } from "../models/models_3";
 import { DescribeContact } from "../schemas/schemas_0";
 
@@ -36,17 +36,18 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *          <p>Following are common uses cases for this API:</p>
  *          <ul>
  *             <li>
- *                <p>Retrieve contact information such as the caller's phone number and the specific number the
- *      caller dialed to integrate into custom monitoring or custom agent experience solutions.</p>
+ *                <p>Retrieve contact information such as the caller's phone number and the specific number the caller dialed to
+ *      integrate into custom monitoring or custom agent experience solutions.</p>
  *             </li>
  *             <li>
- *                <p>Detect when a customer chat session disconnects due to a network issue on the agent's end.
- *      Use the DisconnectReason field in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> to detect this event and then re-queue the chat for
- *      followup.</p>
+ *                <p>Detect when a customer chat session disconnects due to a network issue on the agent's end. Use the
+ *      DisconnectReason field in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> to detect
+ *      this event and then re-queue the chat for followup.</p>
  *             </li>
  *             <li>
- *                <p>Identify after contact work (ACW) duration and call recordings information when a
- *      COMPLETED event is received by using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html">contact event stream</a>. </p>
+ *                <p>Identify after contact work (ACW) duration and call recordings information when a COMPLETED event is received
+ *      by using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html">contact event
+ *       stream</a>. </p>
  *             </li>
  *          </ul>
  *          <p>
@@ -55,18 +56,16 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>SystemEndpoint</code> is not populated for contacts with initiation method of
- *      MONITOR, QUEUE_TRANSFER, or CALLBACK</p>
+ *                   <code>SystemEndpoint</code> is not populated for contacts with initiation method of MONITOR, QUEUE_TRANSFER,
+ *      or CALLBACK</p>
  *             </li>
  *             <li>
  *                <p>Contact information remains available in Amazon Connect for 24 months from the
- *       <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is
- *      available in Amazon Connect is returned by this API.</p>
+ *       <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is available in Amazon Connect is returned by this API.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
- *    quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -152,6 +151,13 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     RelatedContactId: "STRING_VALUE",
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
+ * //       AiAgents: [ // AiAgents
+ * //         { // AiAgentInfo
+ * //           AiUseCase: "AgentAssistance" || "SelfService",
+ * //           AiAgentVersionId: "STRING_VALUE",
+ * //           AiAgentEscalated: true || false,
+ * //         },
+ * //       ],
  * //     },
  * //     CustomerId: "STRING_VALUE",
  * //     CustomerEndpoint: { // EndpointInfo
@@ -389,6 +395,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         StopTimestamp: new Date("TIMESTAMP"),
  * //         Status: "AVAILABLE" || "DELETED",
  * //         DeletionReason: "STRING_VALUE",
+ * //         UnprocessedTranscriptLocation: "STRING_VALUE",
  * //       },
  * //     ],
  * //     DisconnectReason: "STRING_VALUE",
@@ -429,6 +436,20 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     Attributes: { // Attributes
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     NextContacts: [ // NextContacts
+ * //       { // NextContactEntry
+ * //         Type: "QUICK_CONNECT",
+ * //         NextContactMetadata: { // NextContactMetadata Union: only one key present
+ * //           QuickConnectContactData: { // QuickConnectContactData
+ * //             ContactId: "STRING_VALUE",
+ * //             InitiationTimestamp: new Date("TIMESTAMP"),
+ * //             QuickConnectId: "STRING_VALUE",
+ * //             QuickConnectName: "STRING_VALUE",
+ * //             QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER" || "FLOW",
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

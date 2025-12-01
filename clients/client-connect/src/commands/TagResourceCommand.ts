@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest } from "../models/models_2";
+import { TagResourceRequest } from "../models/models_3";
 import { TagResource } from "../schemas/schemas_0";
 
 /**
@@ -28,12 +28,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds the specified tags to the specified resource.</p>
- *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects,
- *    flows, agent statuses, hours of operation, phone numbers, security profiles, and task templates.
- *    For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p>
- *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect
- *     Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
+ *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects, flows, agent
+ *    statuses, hours of operation, phone numbers, security profiles, and task templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p>
+ *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy
+ *     Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

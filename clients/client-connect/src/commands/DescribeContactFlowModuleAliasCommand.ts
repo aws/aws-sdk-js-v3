@@ -29,7 +29,8 @@ export interface DescribeContactFlowModuleAliasCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a specific alias, including which version it currently points to and its metadata.</p>
+ * <p>Retrieves detailed information about a specific alias, including which version it currently points to and its
+ *    metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

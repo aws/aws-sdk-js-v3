@@ -27,8 +27,8 @@ export interface AssociateDefaultVocabularyCommandInput extends AssociateDefault
 export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaultVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call
- *    and real-time analysis sessions for the given language.</p>
+ * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time
+ *    analysis sessions for the given language.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

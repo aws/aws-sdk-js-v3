@@ -27,11 +27,10 @@ export interface ReplicateInstanceCommandInput extends ReplicateInstanceRequest 
 export interface ReplicateInstanceCommandOutput extends ReplicateInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region and
- *    copies configuration information for Amazon Connect resources across Amazon Web Services Regions. </p>
- *          <p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create
- *     a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect
- *     Administrator Guide</i>.</p>
+ * <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration
+ *    information for Amazon Connect resources across Amazon Web Services Regions. </p>
+ *          <p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create a replica of your existing Amazon Connect
+ *     instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

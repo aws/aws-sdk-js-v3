@@ -27,8 +27,7 @@ export interface ListAssociatedContactsCommandInput extends ListAssociatedContac
 export interface ListAssociatedContactsCommandOutput extends ListAssociatedContactsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about contact tree, a list of associated contacts with a unique
- *    identifier.</p>
+ * <p>Provides information about contact tree, a list of associated contacts with a unique identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -82,8 +82,8 @@ export interface SearchResourceTagsCommandOutput extends SearchResourceTagsRespo
  *  <p>The request is not valid.</p>
  *
  * @throws {@link MaximumResultReturnedException} (client fault)
- *  <p>Maximum number (1000) of tags have been returned with current request. Consider changing
- *    request parameters to get more tags.</p>
+ *  <p>Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to
+ *    get more tags.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

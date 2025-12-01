@@ -28,8 +28,7 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Removes the storage type configurations for the specified resource type and association
- *    ID.</p>
+ *          <p>Removes the storage type configurations for the specified resource type and association ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

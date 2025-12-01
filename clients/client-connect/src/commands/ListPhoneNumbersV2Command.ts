@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPhoneNumbersV2Request, ListPhoneNumbersV2Response } from "../models/models_1";
+import { ListPhoneNumbersV2Request, ListPhoneNumbersV2Response } from "../models/models_2";
 import { ListPhoneNumbersV2 } from "../schemas/schemas_0";
 
 /**
@@ -27,21 +27,19 @@ export interface ListPhoneNumbersV2CommandInput extends ListPhoneNumbersV2Reques
 export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Response, __MetadataBearer {}
 
 /**
- * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided
- *     <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions
- *    associated with traffic distribution group.</p>
- *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
- *     Contact Center</a> in the <i>Amazon Connect Administrator
- *    Guide</i>.</p>
+ * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code>
+ *    is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p>
+ *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact
+ *     Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>When given an instance ARN, <code>ListPhoneNumbersV2</code> returns only the phone
- *       numbers claimed to the instance.</p>
+ *                   <p>When given an instance ARN, <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the
+ *       instance.</p>
  *                </li>
  *                <li>
- *                   <p>When given a traffic distribution group ARN <code>ListPhoneNumbersV2</code> returns only the phone numbers
- *       claimed to the traffic distribution group.</p>
+ *                   <p>When given a traffic distribution group ARN <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the
+ *       traffic distribution group.</p>
  *                </li>
  *             </ul>
  *          </note>

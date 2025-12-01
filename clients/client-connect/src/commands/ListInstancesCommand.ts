@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInstancesRequest, ListInstancesResponse } from "../models/models_1";
+import { ListInstancesRequest, ListInstancesResponse } from "../models/models_2";
 import { ListInstances } from "../schemas/schemas_0";
 
 /**
@@ -28,9 +28,9 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed
- *    state. Instances that aren't successfully created (they are in a failed state) are returned only
- *    for 24 hours after the CreateInstance API was invoked.</p>
+ *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances
+ *    that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance
+ *    API was invoked.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

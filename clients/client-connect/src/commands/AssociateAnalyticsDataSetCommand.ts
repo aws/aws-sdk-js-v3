@@ -27,8 +27,8 @@ export interface AssociateAnalyticsDataSetCommandInput extends AssociateAnalytic
 export interface AssociateAnalyticsDataSetCommandOutput extends AssociateAnalyticsDataSetResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the specified dataset for a Amazon Connect instance with the target account.
- *    You can associate only one dataset in a single call.</p>
+ * <p>Associates the specified dataset for a Amazon Connect instance with the target account. You can associate
+ *    only one dataset in a single call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

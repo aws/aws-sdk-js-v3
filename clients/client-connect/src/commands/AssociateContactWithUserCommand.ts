@@ -37,8 +37,8 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *                <p>Programmatically assign queued contacts to available users.</p>
  *             </li>
  *             <li>
- *                <p>Leverage the IAM context key <code>connect:PreferredUserArn</code> to restrict contact
- *      association to specific preferred user.</p>
+ *                <p>Leverage the IAM context key <code>connect:PreferredUserArn</code> to restrict contact association to specific
+ *      preferred user.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -46,32 +46,29 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Use this API with chat, email, and task contacts. It does not support voice
- *      contacts.</p>
+ *                <p>Use this API with chat, email, and task contacts. It does not support voice contacts.</p>
  *             </li>
  *             <li>
- *                <p>Use it to associate contacts with users regardless of their current state, including
- *      custom states. Ensure your application logic accounts for user availability before making
+ *                <p>Use it to associate contacts with users regardless of their current state, including custom states. Ensure
+ *      your application logic accounts for user availability before making associations.</p>
+ *             </li>
+ *             <li>
+ *                <p>It honors the IAM context key <code>connect:PreferredUserArn</code> to prevent unauthorized contact
  *      associations.</p>
  *             </li>
  *             <li>
- *                <p>It honors the IAM context key <code>connect:PreferredUserArn</code> to prevent
- *      unauthorized contact associations.</p>
+ *                <p>It respects the IAM context key <code>connect:PreferredUserArn</code> to enforce authorization controls and
+ *      prevent unauthorized contact associations. Verify that your IAM policies are properly configured to support your
+ *      intended use cases.</p>
  *             </li>
  *             <li>
- *                <p>It respects the IAM context key <code>connect:PreferredUserArn</code> to enforce
- *      authorization controls and prevent unauthorized contact associations. Verify that your IAM
- *      policies are properly configured to support your intended use cases.</p>
- *             </li>
- *             <li>
- *                <p>The service quota <i>Queues per routing profile per instance</i> applies to
- *      manually assigned queues, too. For more information about this quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect quotas</a> in the <i>Amazon Connect Administrator
- *      Guide</i>.</p>
+ *                <p>The service quota <i>Queues per routing profile per instance</i> applies to manually assigned
+ *      queues, too. For more information about this quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect
+ *       quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
- *    quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

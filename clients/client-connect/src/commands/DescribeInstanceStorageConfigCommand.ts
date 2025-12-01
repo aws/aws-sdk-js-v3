@@ -30,8 +30,8 @@ export interface DescribeInstanceStorageConfigCommandOutput
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Retrieves the current storage configurations for the specified resource type, association
- *    ID, and instance ID.</p>
+ *          <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance
+ *    ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

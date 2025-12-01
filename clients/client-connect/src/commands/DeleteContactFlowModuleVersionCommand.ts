@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteContactFlowModuleVersionRequest, DeleteContactFlowModuleVersionResponse } from "../models/models_0";
+import { DeleteContactFlowModuleVersionRequest, DeleteContactFlowModuleVersionResponse } from "../models/models_1";
 import { DeleteContactFlowModuleVersion } from "../schemas/schemas_0";
 
 /**

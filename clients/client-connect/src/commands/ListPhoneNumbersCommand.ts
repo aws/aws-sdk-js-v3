@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/models_1";
+import { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/models_2";
 import { ListPhoneNumbers } from "../schemas/schemas_0";
 
 /**
@@ -28,23 +28,19 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
 
 /**
  * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
- *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
- *     Contact Center</a> in the <i>Amazon Connect Administrator
- *    Guide</i>.</p>
+ *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact
+ *     Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <important>
  *             <ul>
  *                <li>
- *                   <p>We recommend using <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> to
- *       return phone number types. ListPhoneNumbers doesn't support number types <code>UIFN</code>,
- *        <code>SHARED</code>, <code>THIRD_PARTY_TF</code>, and <code>THIRD_PARTY_DID</code>. While it
- *       returns numbers of those types, it incorrectly lists them as <code>TOLL_FREE</code> or
- *        <code>DID</code>. </p>
+ *                   <p>We recommend using <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> to return phone number types. ListPhoneNumbers doesn't support number types
+ *        <code>UIFN</code>, <code>SHARED</code>, <code>THIRD_PARTY_TF</code>, and <code>THIRD_PARTY_DID</code>. While it
+ *       returns numbers of those types, it incorrectly lists them as <code>TOLL_FREE</code> or <code>DID</code>. </p>
  *                </li>
  *                <li>
- *                   <p>The phone number <code>Arn</code> value that is returned from each of the items in the
- *        <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail
- *       with a <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API.
- *       It returns the new phone number ARN that can be used to tag phone number resources.</p>
+ *                   <p>The phone number <code>Arn</code> value that is returned from each of the items in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with a
+ *        <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API. It returns the new
+ *       phone number ARN that can be used to tag phone number resources.</p>
  *                </li>
  *             </ul>
  *          </important>

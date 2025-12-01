@@ -27,9 +27,9 @@ export interface CreateEmailAddressCommandInput extends CreateEmailAddressReques
 export interface CreateEmailAddressCommandOutput extends CreateEmailAddressResponse, __MetadataBearer {}
 
 /**
- * <p>Create new email address in the specified Amazon Connect instance. For more information
- *    about email addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html">Create email addresses</a> in the
- *     Amazon Connect Administrator Guide.</p>
+ * <p>Create new email address in the specified Amazon Connect instance. For more information about email
+ *    addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html">Create email
+ *     addresses</a> in the Amazon Connect Administrator Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

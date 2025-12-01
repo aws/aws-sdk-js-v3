@@ -28,14 +28,13 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
 
 /**
  * <note>
- *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a
- *     role in your account and call this API.</p>
+ *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account
+ *     and call this API.</p>
  *          </note>
- *          <p>Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns
- *    capability ingests dial requests via the <a href="https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html">PutDialRequestBatch</a> API. It then uses BatchPutContact to create contacts corresponding
- *    to those dial requests. If agents are available, the dial requests are dialed out, which results
- *    in a voice call. The resulting voice call uses the same contactId that was created by
- *    BatchPutContact. </p>
+ *          <p>Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns capability ingests dial
+ *    requests via the <a href="https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html">PutDialRequestBatch</a> API. It then uses BatchPutContact to create contacts corresponding to those dial
+ *    requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting
+ *    voice call uses the same contactId that was created by BatchPutContact. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

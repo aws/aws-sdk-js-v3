@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateViewContentRequest, UpdateViewContentResponse } from "../models/models_2";
+import { UpdateViewContentRequest, UpdateViewContentResponse } from "../models/models_3";
 import { UpdateViewContent } from "../schemas/schemas_0";
 
 /**
@@ -27,12 +27,11 @@ export interface UpdateViewContentCommandInput extends UpdateViewContentRequest 
 export interface UpdateViewContentCommandOutput extends UpdateViewContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the view content of the given view identifier in the specified Amazon Connect
- *    instance.</p>
- *          <p>It performs content validation if <code>Status</code> is set to <code>SAVED</code> and
- *    performs full content validation if <code>Status</code> is <code>PUBLISHED</code>. Note that the
- *     <code>$SAVED</code> alias' content will always be updated, but the <code>$LATEST</code> alias'
- *    content will only be updated if <code>Status</code> is <code>PUBLISHED</code>.</p>
+ * <p>Updates the view content of the given view identifier in the specified Amazon Connect instance.</p>
+ *          <p>It performs content validation if <code>Status</code> is set to <code>SAVED</code> and performs full content
+ *    validation if <code>Status</code> is <code>PUBLISHED</code>. Note that the <code>$SAVED</code> alias' content will
+ *    always be updated, but the <code>$LATEST</code> alias' content will only be updated if <code>Status</code> is
+ *     <code>PUBLISHED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,10 +100,9 @@ export interface UpdateViewContentCommandOutput extends UpdateViewContentRespons
  *  <p>The request is not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

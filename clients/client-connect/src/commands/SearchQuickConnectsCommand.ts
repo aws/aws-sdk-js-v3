@@ -96,7 +96,7 @@ export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsRes
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       QuickConnectConfig: { // QuickConnectConfig
- * //         QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ * //         QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER" || "FLOW", // required
  * //         UserConfig: { // UserQuickConnectConfig
  * //           UserId: "STRING_VALUE", // required
  * //           ContactFlowId: "STRING_VALUE", // required
@@ -107,6 +107,9 @@ export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsRes
  * //         },
  * //         PhoneConfig: { // PhoneNumberQuickConnectConfig
  * //           PhoneNumber: "STRING_VALUE", // required
+ * //         },
+ * //         FlowConfig: { // FlowQuickConnectConfig
+ * //           ContactFlowId: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       Tags: { // TagMap

@@ -28,10 +28,9 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
 
 /**
  * <p>Gets basic information about the security profile.</p>
- *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and
- *    user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile
- *     permissions</a>. </p>
+ *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and user interface name of the security
+ *    profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+ *     of security profile permissions</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +67,21 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * //       "STRING_VALUE",
  * //     ],
  * //     AllowedAccessControlHierarchyGroupId: "STRING_VALUE",
+ * //     GranularAccessControlConfiguration: { // GranularAccessControlConfiguration
+ * //       DataTableAccessControlConfiguration: { // DataTableAccessControlConfiguration
+ * //         PrimaryAttributeAccessControlConfiguration: { // PrimaryAttributeAccessControlConfigurationItem
+ * //           PrimaryAttributeValues: [ // PrimaryAttributeValuesSet
+ * //             { // PrimaryAttributeValue
+ * //               AccessType: "ALLOW",
+ * //               AttributeName: "STRING_VALUE",
+ * //               Values: [ // PrimaryValueList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

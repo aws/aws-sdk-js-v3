@@ -28,8 +28,7 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
- *    bot. </p>
+ *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

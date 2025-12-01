@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse } from "../models/models_1";
+import { ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse } from "../models/models_2";
 import { ListInstanceStorageConfigs } from "../schemas/schemas_0";
 
 /**
@@ -28,8 +28,7 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Returns a paginated list of storage configs for the identified instance and resource
- *    type.</p>
+ *          <p>Returns a paginated list of storage configs for the identified instance and resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

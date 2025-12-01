@@ -28,8 +28,8 @@ export interface StartEmailContactCommandInput extends StartEmailContactRequest 
 export interface StartEmailContactCommandOutput extends StartEmailContactResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an inbound email contact and initiates a flow to start the email contact for the
- *    customer. Response of this API provides the ContactId of the email contact created.</p>
+ * <p>Creates an inbound email contact and initiates a flow to start the email contact for the customer. Response of
+ *    this API provides the ContactId of the email contact created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +49,7 @@ export interface StartEmailContactCommandOutput extends StartEmailContactRespons
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
  *       Value: "STRING_VALUE",
- *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT", // required
  *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
  *       Arn: "STRING_VALUE",
  *       StatusReason: "STRING_VALUE",

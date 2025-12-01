@@ -28,26 +28,24 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
 
 /**
  * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
- *      <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <note>
- *             <p>When you make a successful API request, you can expect the following metric values in the
- *     response:</p>
+ *             <p>When you make a successful API request, you can expect the following metric values in the response:</p>
  *             <ol>
  *                <li>
  *                   <p>
- *                      <b>Metric value is null</b>: The calculation cannot be
- *       performed due to divide by zero or insufficient data</p>
+ *                      <b>Metric value is null</b>: The calculation cannot be performed due to divide by
+ *       zero or insufficient data</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Metric value is a number (including 0) of defined type</b>:
- *       The number provided is the calculation result</p>
+ *                      <b>Metric value is a number (including 0) of defined type</b>: The number provided
+ *       is the calculation result</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>MetricResult list is empty</b>: The request cannot find any
- *       data in the system</p>
+ *                      <b>MetricResult list is empty</b>: The request cannot find any data in the
+ *       system</p>
  *                </li>
  *             </ol>
  *             <p>The following guidelines can help you work with the API:</p>

@@ -28,28 +28,28 @@ export interface StartOutboundChatContactCommandInput extends StartOutboundChatC
 export interface StartOutboundChatContactCommandOutput extends StartOutboundChatContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a new outbound SMS contact to a customer. Response of this API provides the
- *     <code>ContactId</code> of the outbound SMS contact created.</p>
+ * <p>Initiates a new outbound SMS contact to a customer. Response of this API provides the <code>ContactId</code> of
+ *    the outbound SMS contact created.</p>
  *          <p>
  *             <b>SourceEndpoint</b> only supports Endpoints with
- *     <code>CONNECT_PHONENUMBER_ARN</code> as Type and <b>DestinationEndpoint</b> only supports Endpoints with <code>TELEPHONE_NUMBER</code> as
- *    Type. <b>ContactFlowId</b> initiates the flow to manage the new SMS
- *    contact created.</p>
- *          <p>This API can be used to initiate outbound SMS contacts for an agent, or it can also deflect
- *    an ongoing contact to an outbound SMS contact by using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html">StartOutboundChatContact</a> Flow Action.</p>
- *          <p>For more information about using SMS in Amazon Connect, see the following topics in the
- *      <i>Amazon Connect Administrator Guide</i>:</p>
+ *     <code>CONNECT_PHONENUMBER_ARN</code> as Type and <b>DestinationEndpoint</b> only supports
+ *    Endpoints with <code>TELEPHONE_NUMBER</code> as Type. <b>ContactFlowId</b> initiates the
+ *    flow to manage the new SMS contact created.</p>
+ *          <p>This API can be used to initiate outbound SMS contacts for an agent, or it can also deflect an ongoing contact
+ *    to an outbound SMS contact by using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html">StartOutboundChatContact</a> Flow
+ *    Action.</p>
+ *          <p>For more information about using SMS in Amazon Connect, see the following topics in the <i>Amazon Connect Administrator Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-sms-messaging.html">Set
- *       up SMS messaging</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-sms-messaging.html">Set up SMS
+ *       messaging</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/sms-number.html">Request an
- *       SMS-enabled phone number through AWS End User Messaging SMS</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/sms-number.html">Request an SMS-enabled phone
+ *       number through AWS End User Messaging SMS</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -130,8 +130,8 @@ export interface StartOutboundChatContactCommandOutput extends StartOutboundChat
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
+ *    state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

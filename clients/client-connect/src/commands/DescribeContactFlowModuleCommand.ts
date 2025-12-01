@@ -28,10 +28,9 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
 
 /**
  * <p>Describes the specified flow module.</p>
- *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
- *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
- *    published.</p>
+ *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content of a Flow. For
+ *    example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is published, <code>$SAVED</code> needs to
+ *    be supplied to view saved content that has not been published.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

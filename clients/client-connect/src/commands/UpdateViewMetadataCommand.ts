@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateViewMetadataRequest, UpdateViewMetadataResponse } from "../models/models_2";
+import { UpdateViewMetadataRequest, UpdateViewMetadataResponse } from "../models/models_3";
 import { UpdateViewMetadata } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,8 @@ export interface UpdateViewMetadataCommandInput extends UpdateViewMetadataReques
 export interface UpdateViewMetadataCommandOutput extends UpdateViewMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the view metadata. Note that either <code>Name</code> or <code>Description</code>
- *    must be provided.</p>
+ * <p>Updates the view metadata. Note that either <code>Name</code> or <code>Description</code> must be
+ *    provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,10 +71,9 @@ export interface UpdateViewMetadataCommandOutput extends UpdateViewMetadataRespo
  *  <p>The request is not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

@@ -30,8 +30,9 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * <p>Describes the specified routing profile.</p>
  *          <note>
  *             <p>
- *                <code>DescribeRoutingProfile</code> does not populate AssociatedQueueIds in its response.
- *     The example Response Syntax shown on this page is incorrect; we are working to update it. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfiles</a> does include AssociatedQueueIds.</p>
+ *                <code>DescribeRoutingProfile</code> does not populate AssociatedQueueIds in its response. The example Response
+ *     Syntax shown on this page is incorrect; we are working to update it. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfiles</a> does include
+ *     AssociatedQueueIds.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

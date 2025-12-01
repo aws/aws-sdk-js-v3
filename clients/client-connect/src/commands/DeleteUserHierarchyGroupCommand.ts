@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteUserHierarchyGroupRequest } from "../models/models_0";
+import { DeleteUserHierarchyGroupRequest } from "../models/models_1";
 import { DeleteUserHierarchyGroup } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,8 @@ export interface DeleteUserHierarchyGroupCommandInput extends DeleteUserHierarch
 export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
- *    any active child groups.</p>
+ * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have any active child
+ *    groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,10 +63,9 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  *  <p>The request is not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateParticipantAuthenticationRequest, UpdateParticipantAuthenticationResponse } from "../models/models_2";
+import { UpdateParticipantAuthenticationRequest, UpdateParticipantAuthenticationResponse } from "../models/models_3";
 import { UpdateParticipantAuthentication } from "../schemas/schemas_0";
 
 /**
@@ -29,23 +29,23 @@ export interface UpdateParticipantAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Instructs Amazon Connect to resume the authentication process. The subsequent actions
- *    depend on the request body contents:</p>
+ * <p>Instructs Amazon Connect to resume the authentication process. The subsequent actions depend on the request
+ *    body contents:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>If a code is provided</b>: Connect retrieves the identity
- *      information from Amazon Cognito and imports it into Connect Customer Profiles.</p>
+ *                   <b>If a code is provided</b>: Connect retrieves the identity information from Amazon
+ *      Cognito and imports it into Connect Customer Profiles.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>If an error is provided</b>: The error branch of the
- *      Authenticate Customer block is executed.</p>
+ *                   <b>If an error is provided</b>: The error branch of the Authenticate Customer block
+ *      is executed.</p>
  *             </li>
  *          </ul>
  *          <note>
- *             <p>The API returns a success response to acknowledge the request. However, the interaction and
- *     exchange of identity information occur asynchronously after the response is returned.</p>
+ *             <p>The API returns a success response to acknowledge the request. However, the interaction and exchange of
+ *     identity information occur asynchronously after the response is returned.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,8 +78,8 @@ export interface UpdateParticipantAuthenticationCommandOutput
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
+ *    state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

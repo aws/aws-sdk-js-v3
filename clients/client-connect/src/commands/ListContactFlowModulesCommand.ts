@@ -27,8 +27,7 @@ export interface ListContactFlowModulesCommandInput extends ListContactFlowModul
 export interface ListContactFlowModulesCommandOutput extends ListContactFlowModulesResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the flow modules for the specified Amazon Connect
- *    instance.</p>
+ * <p>Provides information about the flow modules for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

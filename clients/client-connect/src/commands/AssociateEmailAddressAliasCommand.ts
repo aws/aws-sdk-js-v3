@@ -27,9 +27,9 @@ export interface AssociateEmailAddressAliasCommandInput extends AssociateEmailAd
 export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailAddressAliasResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an email address alias with an existing email address in an Amazon Connect
- *    instance. This creates a forwarding relationship where emails sent to the alias email address are
- *    automatically forwarded to the primary email address. </p>
+ * <p>Associates an email address alias with an existing email address in an Amazon Connect instance. This creates
+ *    a forwarding relationship where emails sent to the alias email address are automatically forwarded to the primary
+ *    email address. </p>
  *          <p>
  *             <b>Use cases</b>
  *          </p>
@@ -37,20 +37,20 @@ export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailA
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Unified customer support</b>: Create multiple entry points (for example, support@example.com,
- *      help@example.com, customercare@example.com) that all forward to a single agent queue for
+ *                   <b>Unified customer support</b>: Create multiple entry points (for example,
+ *      support@example.com, help@example.com, customercare@example.com) that all forward to a single agent queue for
  *      streamlined management.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Department consolidation</b>: Forward emails from legacy department addresses (for example,
- *      sales@example.com, info@example.com) to a centralized customer service email during
- *      organizational restructuring.</p>
+ *                   <b>Department consolidation</b>: Forward emails from legacy department addresses
+ *      (for example, sales@example.com, info@example.com) to a centralized customer service email during organizational
+ *      restructuring.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Brand management</b>: Enable you to use familiar brand-specific email addresses that forward
- *      to the appropriate Amazon Connect instance email address.</p>
+ *                   <b>Brand management</b>: Enable you to use familiar brand-specific email addresses
+ *      that forward to the appropriate Amazon Connect instance email address.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -58,12 +58,12 @@ export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailA
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Each email address can have a maximum of one alias. You cannot create multiple aliases for
- *      the same email address. </p>
+ *                <p>Each email address can have a maximum of one alias. You cannot create multiple aliases for the same email
+ *      address. </p>
  *             </li>
  *             <li>
- *                <p>If the alias email address already receives direct emails, it continues to receive direct
- *      emails plus forwarded emails.</p>
+ *                <p>If the alias email address already receives direct emails, it continues to receive direct emails plus
+ *      forwarded emails.</p>
  *             </li>
  *             <li>
  *                <p>You cannot chain email aliases together (that is, create an alias of an alias).</p>
@@ -83,41 +83,34 @@ export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailA
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See
- *    <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  *          <p>
  *             <b>Related operations</b>
  *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html">DisassociateEmailAddressAlias</a>: Removes the alias association between two email
- *      addresses in an Amazon Connect instance.</p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html">DisassociateEmailAddressAlias</a>: Removes the alias association between two email addresses in an Amazon Connect instance.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html">DescribeEmailAddress</a>:
- *      View current alias configurations for an email address.</p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html">DescribeEmailAddress</a>: View current alias configurations for an email address.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html">SearchEmailAddresses</a>:
- *      Find email addresses and their alias relationships across an instance.</p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html">SearchEmailAddresses</a>: Find email addresses and their alias relationships across an instance.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html">CreateEmailAddress</a>: Create new email addresses that can participate in alias
- *      relationships.</p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html">CreateEmailAddress</a>: Create new email addresses that can participate in alias relationships.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html">DeleteEmailAddress</a>: Remove email addresses (automatically removes any alias
- *      relationships).</p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html">DeleteEmailAddress</a>: Remove email addresses (automatically removes any alias relationships).</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html">UpdateEmailAddressMetadata</a>: Modify email address properties (does not affect alias
- *      relationships).</p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html">UpdateEmailAddressMetadata</a>: Modify email address properties (does not affect alias relationships).</p>
  *             </li>
  *          </ul>
  * @example

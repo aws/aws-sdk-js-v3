@@ -27,22 +27,21 @@ export interface SendChatIntegrationEventCommandInput extends SendChatIntegratio
 export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrationEventResponse, __MetadataBearer {}
 
 /**
- * <p>Processes chat integration events from Amazon Web Services or external integrations to
- *     Amazon Connect. A chat integration event includes:</p>
+ * <p>Processes chat integration events from Amazon Web Services or external integrations to Amazon Connect. A chat
+ *    integration event includes:</p>
  *          <ul>
  *             <li>
- *                <p>SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing a
- *      chat</p>
+ *                <p>SourceId, DestinationId, and Subtype: a set of identifiers, uniquely representing a chat</p>
  *             </li>
  *             <li>
- *                <p> ChatEvent: details of the chat action to perform such as sending a message, event, or
- *      disconnecting from a chat</p>
+ *                <p> ChatEvent: details of the chat action to perform such as sending a message, event, or disconnecting from a
+ *      chat</p>
  *             </li>
  *          </ul>
- *          <p>When a chat integration event is sent with chat identifiers that do not map to an active
- *    chat contact, a new chat contact is also created before handling chat action. </p>
- *          <p>Access to this API is currently restricted to Amazon Web Services End User Messaging for
- *    supporting SMS integration. </p>
+ *          <p>When a chat integration event is sent with chat identifiers that do not map to an active chat contact, a new
+ *    chat contact is also created before handling chat action. </p>
+ *          <p>Access to this API is currently restricted to Amazon Web Services End User Messaging for supporting SMS
+ *    integration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

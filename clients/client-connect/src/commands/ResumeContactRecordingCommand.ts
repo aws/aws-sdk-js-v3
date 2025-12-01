@@ -27,10 +27,9 @@ export interface ResumeContactRecordingCommandInput extends ResumeContactRecordi
 export interface ResumeContactRecordingCommandOutput extends ResumeContactRecordingResponse, __MetadataBearer {}
 
 /**
- * <p>When a contact is being recorded, and the recording has been suspended using
- *    SuspendContactRecording, this API resumes recording whatever recording is selected in the flow
- *    configuration: call, screen, or both. If only call recording or only screen recording is enabled,
- *    then it would resume.</p>
+ * <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API
+ *    resumes recording whatever recording is selected in the flow configuration: call, screen, or both. If only call
+ *    recording or only screen recording is enabled, then it would resume.</p>
  *          <p>Voice and screen recordings are supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

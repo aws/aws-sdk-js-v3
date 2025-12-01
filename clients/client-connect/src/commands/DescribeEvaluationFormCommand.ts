@@ -28,8 +28,8 @@ export interface DescribeEvaluationFormCommandInput extends DescribeEvaluationFo
 export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an evaluation form in the specified Amazon Connect instance. If the version
- *    property is not provided, the latest version of the evaluation form is described.</p>
+ * <p>Describes an evaluation form in the specified Amazon Connect instance. If the version property is not
+ *    provided, the latest version of the evaluation form is described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,7 +74,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //                 Instructions: "STRING_VALUE",
  * //                 RefId: "STRING_VALUE", // required
  * //                 NotApplicableEnabled: true || false,
- * //                 QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC", // required
+ * //                 QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC" || "MULTISELECT" || "DATETIME", // required
  * //                 QuestionTypeProperties: { // EvaluationFormQuestionTypeProperties Union: only one key present
  * //                   Numeric: { // EvaluationFormNumericQuestionProperties
  * //                     MinValue: Number("int"), // required
@@ -92,7 +92,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //                     ],
  * //                     Automation: { // EvaluationFormNumericQuestionAutomation Union: only one key present
  * //                       PropertyValue: { // NumericQuestionPropertyValueAutomation
- * //                         Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ * //                         Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT" || "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
  * //                       },
  * //                       AnswerSource: { // EvaluationFormQuestionAutomationAnswerSource
  * //                         SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
@@ -135,6 +135,34 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //                       },
  * //                     },
  * //                   },
+ * //                   MultiSelect: { // EvaluationFormMultiSelectQuestionProperties
+ * //                     Options: [ // EvaluationFormMultiSelectQuestionOptionList // required
+ * //                       { // EvaluationFormMultiSelectQuestionOption
+ * //                         RefId: "STRING_VALUE", // required
+ * //                         Text: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     DisplayAs: "DROPDOWN" || "CHECKBOX",
+ * //                     Automation: { // EvaluationFormMultiSelectQuestionAutomation
+ * //                       Options: [ // EvaluationFormMultiSelectQuestionAutomationOptionList
+ * //                         { // EvaluationFormMultiSelectQuestionAutomationOption Union: only one key present
+ * //                           RuleCategory: { // MultiSelectQuestionRuleCategoryAutomation
+ * //                             Category: "STRING_VALUE", // required
+ * //                             Condition: "PRESENT" || "NOT_PRESENT", // required
+ * //                             OptionRefIds: [ // ReferenceIdList // required
+ * //                               "STRING_VALUE",
+ * //                             ],
+ * //                           },
+ * //                         },
+ * //                       ],
+ * //                       DefaultOptionRefIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       AnswerSource: {
+ * //                         SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ * //                       },
+ * //                     },
+ * //                   },
  * //                 },
  * //                 Enablement: { // EvaluationFormItemEnablementConfiguration
  * //                   Condition: { // EvaluationFormItemEnablementCondition
@@ -151,7 +179,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //                               RefId: "STRING_VALUE",
  * //                             },
  * //                           ],
- * //                           Comparator: "IN" || "NOT_IN", // required
+ * //                           Comparator: "IN" || "NOT_IN" || "ALL_IN" || "EXACT", // required
  * //                         },
  * //                         Condition: {
  * //                           Operands: [ // required
@@ -167,7 +195,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //                                     RefId: "STRING_VALUE",
  * //                                   },
  * //                                 ],
- * //                                 Comparator: "IN" || "NOT_IN", // required
+ * //                                 Comparator: "IN" || "NOT_IN" || "ALL_IN" || "EXACT", // required
  * //                               },
  * //                               Condition: "<EvaluationFormItemEnablementCondition>",
  * //                             },
@@ -192,7 +220,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //           Instructions: "STRING_VALUE",
  * //           RefId: "STRING_VALUE", // required
  * //           NotApplicableEnabled: true || false,
- * //           QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC", // required
+ * //           QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC" || "MULTISELECT" || "DATETIME", // required
  * //           QuestionTypeProperties: {//  Union: only one key present
  * //             Numeric: {
  * //               MinValue: Number("int"), // required
@@ -210,7 +238,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //               ],
  * //               Automation: {//  Union: only one key present
  * //                 PropertyValue: {
- * //                   Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ * //                   Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT" || "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
  * //                 },
  * //                 AnswerSource: {
  * //                   SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
@@ -241,13 +269,35 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //                   },
  * //                 ],
  * //                 DefaultOptionRefId: "STRING_VALUE",
- * //                 AnswerSource: {
- * //                   SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
- * //                 },
+ * //                 AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
  * //               },
  * //             },
  * //             Text: {
  * //               Automation: {
+ * //                 AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
+ * //               },
+ * //             },
+ * //             MultiSelect: {
+ * //               Options: [ // required
+ * //                 {
+ * //                   RefId: "STRING_VALUE", // required
+ * //                   Text: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               DisplayAs: "DROPDOWN" || "CHECKBOX",
+ * //               Automation: {
+ * //                 Options: [
+ * //                   {//  Union: only one key present
+ * //                     RuleCategory: {
+ * //                       Category: "STRING_VALUE", // required
+ * //                       Condition: "PRESENT" || "NOT_PRESENT", // required
+ * //                       OptionRefIds: [ // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //                 DefaultOptionRefIds: "<ReferenceIdList>",
  * //                 AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
  * //               },
  * //             },
@@ -274,6 +324,12 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //     },
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TargetConfiguration: { // EvaluationFormTargetConfiguration
+ * //       ContactInteractionType: "AGENT" || "AUTOMATED", // required
+ * //     },
+ * //     LanguageConfiguration: { // EvaluationFormLanguageConfiguration
+ * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR",
  * //     },
  * //   },
  * // };

@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContactRoutingDataResponse } from "../models/models_2";
-import { UpdateContactRoutingDataRequest } from "../models/models_3";
+import { UpdateContactRoutingDataRequest, UpdateContactRoutingDataResponse } from "../models/models_3";
 import { UpdateContactRoutingData } from "../schemas/schemas_0";
 
 /**
@@ -28,18 +27,15 @@ export interface UpdateContactRoutingDataCommandInput extends UpdateContactRouti
 export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRoutingDataResponse, __MetadataBearer {}
 
 /**
- * <p>Updates routing priority and age on the contact (<b>QueuePriority</b> and <b>QueueTimeAdjustmentInSeconds</b>).
- *    These properties can be used to change a customer's position in the queue. For example, you can
- *    move a contact to the back of the queue by setting a lower routing priority relative to other
- *    contacts in queue; or you can move a contact to the front of the queue by increasing the routing
- *    age which will make the contact look artificially older and therefore higher up in the
- *    first-in-first-out routing order. Note that adjusting the routing age of a contact affects only
- *    its position in queue, and not its actual queue wait time as reported through metrics. These
- *    properties can also be updated by using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html">the Set routing priority / age flow
- *     block</a>.</p>
+ * <p>Updates routing priority and age on the contact (<b>QueuePriority</b> and <b>QueueTimeAdjustmentInSeconds</b>). These properties can be used to change a customer's position
+ *    in the queue. For example, you can move a contact to the back of the queue by setting a lower routing priority
+ *    relative to other contacts in queue; or you can move a contact to the front of the queue by increasing the routing
+ *    age which will make the contact look artificially older and therefore higher up in the first-in-first-out routing
+ *    order. Note that adjusting the routing age of a contact affects only its position in queue, and not its actual queue
+ *    wait time as reported through metrics. These properties can also be updated by using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html">the Set routing priority / age flow
+ *    block</a>.</p>
  *          <note>
- *             <p>Either <b>QueuePriority</b> or <b>QueueTimeAdjustmentInSeconds</b> should be provided within the request body, but not
- *     both.</p>
+ *             <p>Either <b>QueuePriority</b> or <b>QueueTimeAdjustmentInSeconds</b> should be provided within the request body, but not both.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

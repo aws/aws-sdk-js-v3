@@ -49,14 +49,13 @@ export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationForm
  *          </p>
  *          <ul>
  *             <li>
- *                <p>A Search operation, unlike a List operation, takes time to index changes to resource
- *       (create, update or delete). If you don't see updated information for recently changed
- *       contact evaluations, try calling the API again in a few seconds.</p>
+ *                <p>A Search operation, unlike a List operation, takes time to index changes to resource (create, update or
+ *      delete). If you don't see updated information for recently changed contact evaluations, try calling the API again
+ *      in a few seconds.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
- *     quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -169,6 +168,8 @@ export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationForm
  * //       LatestVersion: Number("int"), // required
  * //       ActiveVersion: Number("int"),
  * //       AutoEvaluationEnabled: true || false,
+ * //       EvaluationFormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR",
+ * //       ContactInteractionType: "AGENT" || "AUTOMATED",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

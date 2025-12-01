@@ -28,8 +28,8 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
 
 /**
  * <p> Initiates real-time message streaming for a new chat contact.</p>
- *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
- *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>For more information about chat, see the following topics in the <i>Amazon Connect
  *    Administrator Guide</i>: </p>
  *          <ul>

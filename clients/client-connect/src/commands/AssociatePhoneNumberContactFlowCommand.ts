@@ -29,15 +29,12 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
 /**
  * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
  *          <important>
- *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the
- *      Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number
- *     ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the
- *     number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate
- *      Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN.
- *     If a UUID is provided
+ *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the
+ *      <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling
+ *     this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a
+ *     full phone number ARN. If a UUID is provided
  *     in
- *     this scenario, you will receive a
- *     <code>ResourceNotFoundException</code>.</p>
+ *     this scenario, you will receive a <code>ResourceNotFoundException</code>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

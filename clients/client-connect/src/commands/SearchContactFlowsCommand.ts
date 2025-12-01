@@ -59,6 +59,24 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  *       ],
  *       TagCondition: "<TagCondition>",
  *     },
+ *     FlowAttributeFilter: { // ContactFlowAttributeFilter
+ *       OrConditions: [ // ContactFlowAttributeOrConditionList
+ *         { // ContactFlowAttributeAndCondition
+ *           TagConditions: "<TagAndConditionList>",
+ *           ContactFlowTypeCondition: { // ContactFlowTypeCondition
+ *             ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
+ *           },
+ *         },
+ *       ],
+ *       AndCondition: {
+ *         TagConditions: "<TagAndConditionList>",
+ *         ContactFlowTypeCondition: {
+ *           ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
+ *         },
+ *       },
+ *       TagCondition: "<TagCondition>",
+ *       ContactFlowTypeCondition: "<ContactFlowTypeCondition>",
+ *     },
  *   },
  *   SearchCriteria: { // ContactFlowSearchCriteria
  *     OrConditions: [ // ContactFlowSearchConditionList

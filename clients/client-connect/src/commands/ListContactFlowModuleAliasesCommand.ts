@@ -29,7 +29,8 @@ export interface ListContactFlowModuleAliasesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all aliases associated with a contact flow module, showing their current version mappings and metadata.</p>
+ * <p>Lists all aliases associated with a contact flow module, showing their current version mappings and
+ *    metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

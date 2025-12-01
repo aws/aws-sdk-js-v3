@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/models_2";
+import { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/models_3";
 import { UpdatePhoneNumber } from "../schemas/schemas_0";
 
 /**
@@ -27,16 +27,12 @@ export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest 
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
- *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
+ * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
  *          <important>
- *             <p>After using this API, you must verify that the phone number is attached to the correct flow
- *     in the target instance or traffic distribution group. You need to do this because the API
- *     switches only the phone number to a new instance or traffic distribution group. It doesn't
- *     migrate the flow configuration of the phone number, too.</p>
- *             <p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
- *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>
- *     operation.</p>
+ *             <p>After using this API, you must verify that the phone number is attached to the correct flow in the target
+ *     instance or traffic distribution group. You need to do this because the API switches only the phone number to a new
+ *     instance or traffic distribution group. It doesn't migrate the flow configuration of the phone number, too.</p>
+ *             <p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,10 +76,9 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  *  <p>One or more of the specified parameters are not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

@@ -27,8 +27,7 @@ export interface GetTaskTemplateCommandInput extends GetTaskTemplateRequest {}
 export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a specific task template in the specified Amazon Connect
- *    instance.</p>
+ * <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

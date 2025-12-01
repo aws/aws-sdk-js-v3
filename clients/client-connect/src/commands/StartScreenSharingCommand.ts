@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartScreenSharingRequest, StartScreenSharingResponse } from "../models/models_2";
+import { StartScreenSharingRequest, StartScreenSharingResponse } from "../models/models_3";
 import { StartScreenSharing } from "../schemas/schemas_0";
 
 /**
@@ -27,9 +27,8 @@ export interface StartScreenSharingCommandInput extends StartScreenSharingReques
 export interface StartScreenSharingCommandOutput extends StartScreenSharingResponse, __MetadataBearer {}
 
 /**
- * <p>Starts screen sharing for a contact. For more information about screen sharing, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
- *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator
- *     Guide</i>. </p>
+ * <p>Starts screen sharing for a contact. For more information about screen sharing, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen sharing
+ *     capabilities</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
