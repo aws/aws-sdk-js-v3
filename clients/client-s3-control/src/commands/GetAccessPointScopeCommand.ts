@@ -28,14 +28,11 @@ export interface GetAccessPointScopeCommandInput extends GetAccessPointScopeRequ
 export interface GetAccessPointScopeCommandOutput extends GetAccessPointScopeResult, __MetadataBearer {}
 
 /**
- * <p> Returns the access point scope for a directory bucket.</p>
+ * <p>
+ *          Returns the access point scope for a directory bucket.</p>
  *          <p>To use this operation, you must have the permission to perform the
- *             <code>s3express:GetAccessPointScope</code>
- *          action.</p>
+ *          <code>s3express:GetAccessPointScope</code> action.</p>
  *          <p>For information about REST API errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses">REST error responses</a>.</p>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,21 +29,15 @@ export interface CreateAccessGrantCommandInput extends CreateAccessGrantRequest 
 export interface CreateAccessGrantCommandOutput extends CreateAccessGrantResult, __MetadataBearer {}
 
 /**
- * <p>Creates an access grant that gives a grantee access to your S3 data. The grantee can be
- *          an IAM user or role or a directory user, or group. Before you can create a grant, you
- *          must have an S3 Access Grants instance in the same Region as the S3 data. You can create an S3 Access Grants
- *          instance using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsInstance.html">CreateAccessGrantsInstance</a>. You must also have registered at least one S3 data
- *          location in your S3 Access Grants instance using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsLocation.html">CreateAccessGrantsLocation</a>. </p>
+ * <p>Creates an access grant that gives a grantee access to your S3 data. The grantee can be an IAM user or role or a directory user, or group. Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data. You can create an S3 Access Grants instance using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsInstance.html">CreateAccessGrantsInstance</a>. You must also have registered at least one S3 data location in your S3 Access Grants instance using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsLocation.html">CreateAccessGrantsLocation</a>.  </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:CreateAccessGrant</code> permission to use this
- *                   operation. </p>
+ *                <p>You must have the <code>s3:CreateAccessGrant</code> permission to use this operation. </p>
  *             </dd>
  *             <dt>Additional Permissions</dt>
  *             <dd>
- *                <p>For any directory identity - <code>sso:DescribeInstance</code> and
- *                      <code>sso:DescribeApplication</code>
+ *                <p>For any directory identity - <code>sso:DescribeInstance</code> and <code>sso:DescribeApplication</code>
  *                </p>
  *                <p>For directory users - <code>identitystore:DescribeUser</code>
  *                </p>
@@ -51,9 +45,6 @@ export interface CreateAccessGrantCommandOutput extends CreateAccessGrantResult,
  *                </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

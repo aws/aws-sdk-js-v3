@@ -29,25 +29,17 @@ export interface CreateAccessGrantsInstanceCommandInput extends CreateAccessGran
 export interface CreateAccessGrantsInstanceCommandOutput extends CreateAccessGrantsInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Creates an S3 Access Grants instance, which serves as a logical grouping for access grants. You
- *          can create one S3 Access Grants instance per Region per account. </p>
+ * <p>Creates an S3 Access Grants instance, which serves as a logical grouping for access grants. You can create one S3 Access Grants instance per Region per account. </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:CreateAccessGrantsInstance</code> permission to use
- *                   this operation. </p>
+ *                <p>You must have the <code>s3:CreateAccessGrantsInstance</code> permission to use this operation. </p>
  *             </dd>
  *             <dt>Additional Permissions</dt>
  *             <dd>
- *                <p>To associate an IAM Identity Center instance with your S3 Access Grants instance, you
- *                   must also have the <code>sso:DescribeInstance</code>,
- *                      <code>sso:CreateApplication</code>, <code>sso:PutApplicationGrant</code>, and
- *                      <code>sso:PutApplicationAuthenticationMethod</code> permissions. </p>
+ *                <p>To associate an IAM Identity Center instance with your S3 Access Grants instance, you must also have the <code>sso:DescribeInstance</code>, <code>sso:CreateApplication</code>, <code>sso:PutApplicationGrant</code>, and <code>sso:PutApplicationAuthenticationMethod</code> permissions. </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

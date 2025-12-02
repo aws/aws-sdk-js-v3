@@ -38,6 +38,7 @@ const _AOw = "AwsOrg";
 const _AP = "AccessPoint";
 const _APA = "AccessPointArn";
 const _APL = "AccessPointList";
+const _APM = "AdvancedPerformanceMetrics";
 const _APc = "AccessPoints";
 const _ARD = "AsyncResponseDetails";
 const _ARP = "AsyncRequestParameters";
@@ -198,6 +199,7 @@ const _EMO = "EnableManifestOutput";
 const _EMRAPP = "EstablishedMultiRegionAccessPointPolicy";
 const _EODM = "ExpiredObjectDeleteMarker";
 const _EOR = "ExistingObjectReplication";
+const _EPDE = "ExpandedPrefixesDataExport";
 const _ET = "ETag";
 const _ETIAS = "ElapsedTimeInActiveSeconds";
 const _ETv = "EventThreshold";
@@ -523,6 +525,7 @@ const _PBT = "PutBucketTagging";
 const _PBTR = "PutBucketTaggingRequest";
 const _PBV = "PutBucketVersioning";
 const _PBVR = "PutBucketVersioningRequest";
+const _PD = "PrefixDelimiter";
 const _PJT = "PutJobTagging";
 const _PJTR = "PutJobTaggingRequest";
 const _PJTRu = "PutJobTaggingResult";
@@ -622,6 +625,7 @@ const _SLC = "StorageLensConfiguration";
 const _SLCL = "StorageLensConfigurationList";
 const _SLDE = "StorageLensDataExport";
 const _SLDEE = "StorageLensDataExportEncryption";
+const _SLEPDE = "StorageLensExpandedPrefixesDataExport";
 const _SLG = "StorageLensGroup";
 const _SLGA = "StorageLensGroupArn";
 const _SLGAO = "StorageLensGroupAndOperator";
@@ -633,6 +637,7 @@ const _SLGLSC = "StorageLensGroupLevelSelectionCriteria";
 const _SLGLt = "StorageLensGroupList";
 const _SLGOO = "StorageLensGroupOrOperator";
 const _SLT = "StorageLensTag";
+const _SLTD = "StorageLensTableDestination";
 const _SLTt = "StorageLensTags";
 const _SM = "StorageMetrics";
 const _SMOL = "S3ManifestOutputLocation";
@@ -821,19 +826,21 @@ export var AccountLevel: StaticStructureSchema = [
   n0,
   _AL,
   0,
-  [_AM, _BL, _ACOM, _ADPM, _DSCM, _SLGL],
+  [_AM, _BL, _ACOM, _ADPM, _DSCM, _APM, _SLGL],
   [
     () => ActivityMetrics,
     () => BucketLevel,
     () => AdvancedCostOptimizationMetrics,
     () => AdvancedDataProtectionMetrics,
     () => DetailedStatusCodesMetrics,
+    () => AdvancedPerformanceMetrics,
     [() => StorageLensGroupLevel, 0],
   ],
 ];
 export var ActivityMetrics: StaticStructureSchema = [3, n0, _AM, 0, [_IE], [2]];
 export var AdvancedCostOptimizationMetrics: StaticStructureSchema = [3, n0, _ACOM, 0, [_IE], [2]];
 export var AdvancedDataProtectionMetrics: StaticStructureSchema = [3, n0, _ADPM, 0, [_IE], [2]];
+export var AdvancedPerformanceMetrics: StaticStructureSchema = [3, n0, _APM, 0, [_IE], [2]];
 export var AssociateAccessGrantsIdentityCenterRequest: StaticStructureSchema = [
   3,
   n0,
@@ -922,13 +929,14 @@ export var BucketLevel: StaticStructureSchema = [
   n0,
   _BL,
   0,
-  [_AM, _PL, _ACOM, _ADPM, _DSCM],
+  [_AM, _PL, _ACOM, _ADPM, _DSCM, _APM],
   [
     () => ActivityMetrics,
     () => PrefixLevel,
     () => AdvancedCostOptimizationMetrics,
     () => AdvancedDataProtectionMetrics,
     () => DetailedStatusCodesMetrics,
+    () => AdvancedPerformanceMetrics,
   ],
 ];
 export var CloudWatchMetrics: StaticStructureSchema = [3, n0, _CWM, 0, [_IE], [2]];
@@ -3830,15 +3838,17 @@ export var StorageLensConfiguration: StaticStructureSchema = [
   n0,
   _SLC,
   0,
-  [_Id, _AL, _I, _Ex, _DE, _IE, _AOw, _SLA],
+  [_Id, _AL, _I, _Ex, _DE, _EPDE, _IE, _AOw, _SLA, _PD],
   [
     0,
     [() => AccountLevel, 0],
     [() => Include, 0],
     [() => _Exclude, 0],
     [() => StorageLensDataExport, 0],
+    [() => StorageLensExpandedPrefixesDataExport, 0],
     2,
     () => StorageLensAwsOrg,
+    0,
     0,
   ],
 ];
@@ -3847,8 +3857,8 @@ export var StorageLensDataExport: StaticStructureSchema = [
   n0,
   _SLDE,
   0,
-  [_SBD, _CWM],
-  [[() => S3BucketDestination, 0], () => CloudWatchMetrics],
+  [_SBD, _CWM, _SLTD],
+  [[() => S3BucketDestination, 0], () => CloudWatchMetrics, [() => StorageLensTableDestination, 0]],
 ];
 export var StorageLensDataExportEncryption: StaticStructureSchema = [
   3,
@@ -3869,6 +3879,17 @@ export var StorageLensDataExportEncryption: StaticStructureSchema = [
         [_xN]: _SK,
       },
     ],
+  ],
+];
+export var StorageLensExpandedPrefixesDataExport: StaticStructureSchema = [
+  3,
+  n0,
+  _SLEPDE,
+  0,
+  [_SBD, _SLTD],
+  [
+    [() => S3BucketDestination, 0],
+    [() => StorageLensTableDestination, 0],
   ],
 ];
 export var StorageLensGroup: StaticStructureSchema = [
@@ -3941,6 +3962,14 @@ export var StorageLensGroupOrOperator: StaticStructureSchema = [
     () => MatchObjectAge,
     () => MatchObjectSize,
   ],
+];
+export var StorageLensTableDestination: StaticStructureSchema = [
+  3,
+  n0,
+  _SLTD,
+  0,
+  [_IE, _Enc],
+  [2, [() => StorageLensDataExportEncryption, 0]],
 ];
 export var StorageLensTag: StaticStructureSchema = [3, n0, _SLT, 0, [_K, _V], [0, 0]];
 export var SubmitMultiRegionAccessPointRoutesRequest: StaticStructureSchema = [

@@ -29,19 +29,13 @@ export interface ListAccessGrantsInstancesCommandInput extends ListAccessGrantsI
 export interface ListAccessGrantsInstancesCommandOutput extends ListAccessGrantsInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of S3 Access Grants instances. An S3 Access Grants instance serves as a logical grouping for
- *          your individual access grants. You can only have one S3 Access Grants instance per Region per
- *          account.</p>
+ * <p>Returns a list of S3 Access Grants instances. An S3 Access Grants instance serves as a logical grouping for your individual access grants. You can only have one S3 Access Grants instance per Region per account.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:ListAccessGrantsInstances</code> permission to use
- *                   this operation. </p>
+ *                <p>You must have the <code>s3:ListAccessGrantsInstances</code> permission to use this operation. </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,26 +29,17 @@ export interface GetDataAccessCommandInput extends GetDataAccessRequest {}
 export interface GetDataAccessCommandOutput extends GetDataAccessResult, __MetadataBearer {}
 
 /**
- * <p>Returns a temporary access credential from S3 Access Grants to the grantee or client application.
- *          The <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html">temporary credential</a> is an Amazon Web Services STS token that grants them access to the S3 data. </p>
+ * <p>Returns a temporary access credential from S3 Access Grants to the grantee or client application. The <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html">temporary credential</a> is an Amazon Web Services STS token that grants them access to the S3 data. </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:GetDataAccess</code> permission to use this
- *                   operation. </p>
+ *                <p>You must have the <code>s3:GetDataAccess</code> permission to use this operation. </p>
  *             </dd>
  *             <dt>Additional Permissions</dt>
  *             <dd>
- *                <p>The IAM role that S3 Access Grants assumes must have the following permissions
- *                   specified in the trust policy when registering the location:
- *                      <code>sts:AssumeRole</code>, for directory users or groups
- *                      <code>sts:SetContext</code>, and for IAM users or roles
- *                      <code>sts:SetSourceIdentity</code>. </p>
+ *                <p>The IAM role that S3 Access Grants assumes must have the following permissions specified in the trust policy when registering the location: <code>sts:AssumeRole</code>, for directory users or groups <code>sts:SetContext</code>, and for IAM users or roles <code>sts:SetSourceIdentity</code>. </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

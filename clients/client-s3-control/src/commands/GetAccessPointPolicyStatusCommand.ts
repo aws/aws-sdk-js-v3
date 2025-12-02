@@ -34,9 +34,6 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  *          <p>Indicates whether the specified access point currently has a policy that allows public access.
  *          For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3
  *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

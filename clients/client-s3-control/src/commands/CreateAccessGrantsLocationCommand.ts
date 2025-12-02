@@ -29,9 +29,7 @@ export interface CreateAccessGrantsLocationCommandInput extends CreateAccessGran
 export interface CreateAccessGrantsLocationCommandOutput extends CreateAccessGrantsLocationResult, __MetadataBearer {}
 
 /**
- * <p>The S3 data location that you would like to register in your S3 Access Grants instance. Your S3
- *          data must be in the same Region as your S3 Access Grants instance. The location can be one of the
- *          following: </p>
+ * <p>The S3 data location that you would like to register in your S3 Access Grants instance. Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following: </p>
  *          <ul>
  *             <li>
  *                <p>The default S3 location <code>s3://</code>
@@ -46,26 +44,18 @@ export interface CreateAccessGrantsLocationCommandOutput extends CreateAccessGra
  *                </p>
  *             </li>
  *          </ul>
- *          <p>When you register a location, you must include the IAM role that has permission to
- *          manage the S3 location that you are registering. Give S3 Access Grants permission to assume this role
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html">using a policy</a>. S3 Access Grants assumes this role to manage access to the location and
- *          to vend temporary credentials to grantees or client applications. </p>
+ *          <p>When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering. Give S3 Access Grants permission to assume this role <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html">using a policy</a>. S3 Access Grants assumes this role to manage access to the location and to vend temporary credentials to grantees or client applications. </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:CreateAccessGrantsLocation</code> permission to use
- *                   this operation. </p>
+ *                <p>You must have the <code>s3:CreateAccessGrantsLocation</code> permission to use this operation. </p>
  *             </dd>
  *             <dt>Additional Permissions</dt>
  *             <dd>
- *                <p>You must also have the following permission for the specified IAM role:
- *                      <code>iam:PassRole</code>
+ *                <p>You must also have the following permission for the specified IAM role: <code>iam:PassRole</code>
  *                </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

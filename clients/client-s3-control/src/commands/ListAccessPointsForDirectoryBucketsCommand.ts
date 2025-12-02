@@ -33,16 +33,11 @@ export interface ListAccessPointsForDirectoryBucketsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of the access points that are owned by the Amazon Web Services account and that are associated
- *          with the specified directory bucket.</p>
+ * <p>Returns a list of the access points that are owned by the Amazon Web Services account and that are associated with the specified directory bucket.</p>
  *          <p>To list access points for general purpose buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html">ListAccesspoints</a>.</p>
  *          <p>To use this operation, you must have the permission to perform the
- *             <code>s3express:ListAccessPointsForDirectoryBuckets</code>
- *          action.</p>
+ *          <code>s3express:ListAccessPointsForDirectoryBuckets</code> action.</p>
  *          <p>For information about REST API errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses">REST error responses</a>.</p>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

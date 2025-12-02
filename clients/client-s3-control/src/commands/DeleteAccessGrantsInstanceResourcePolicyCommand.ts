@@ -30,19 +30,13 @@ export interface DeleteAccessGrantsInstanceResourcePolicyCommandInput
 export interface DeleteAccessGrantsInstanceResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the resource policy of the S3 Access Grants instance. The resource policy is used to
- *          manage cross-account access to your S3 Access Grants instance. By deleting the resource policy, you
- *          delete any cross-account permissions to your S3 Access Grants instance. </p>
+ * <p>Deletes the resource policy of the S3 Access Grants instance. The resource policy is used to manage cross-account access to your S3 Access Grants instance. By deleting the resource policy, you delete any cross-account permissions to your S3 Access Grants instance. </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:DeleteAccessGrantsInstanceResourcePolicy</code>
- *                   permission to use this operation. </p>
+ *                <p>You must have the <code>s3:DeleteAccessGrantsInstanceResourcePolicy</code> permission to use this operation. </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

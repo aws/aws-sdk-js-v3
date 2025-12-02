@@ -35,8 +35,7 @@ export interface CreateMultiRegionAccessPointCommandOutput
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
  *          <p>Creates a Multi-Region Access Point and associates it with the specified buckets. For more information
- *          about creating Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html">Creating
- *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          about creating Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html">Creating Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
  *          about the restrictions around working with Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRestrictions.html">Multi-Region Access Point
  *             restrictions and limitations</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -67,9 +66,6 @@ export interface CreateMultiRegionAccessPointCommandOutput
  *                </p>
  *             </li>
  *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,18 +28,14 @@ export interface DeleteAccessPointScopeCommandInput extends DeleteAccessPointSco
 export interface DeleteAccessPointScopeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Deletes an existing access point scope for a directory bucket.</p>
+ * <p>
+ *          Deletes an existing access point scope for a directory bucket.</p>
  *          <note>
- *             <p>When you delete the scope of an access point, all prefixes and permissions are
- *             deleted.</p>
+ *             <p>When you delete the scope of an access point, all prefixes and permissions are deleted.</p>
  *          </note>
  *          <p>To use this operation, you must have the permission to perform the
- *             <code>s3express:DeleteAccessPointScope</code>
- *          action.</p>
+ *          <code>s3express:DeleteAccessPointScope</code> action.</p>
  *          <p>For information about REST API errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses">REST error responses</a>.</p>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

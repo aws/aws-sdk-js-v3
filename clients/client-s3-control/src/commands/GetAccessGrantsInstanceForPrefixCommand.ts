@@ -31,22 +31,17 @@ export interface GetAccessGrantsInstanceForPrefixCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieve the S3 Access Grants instance that contains a particular prefix. </p>
+ * <p>Retrieve the S3 Access Grants instance that contains a particular prefix.  </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:GetAccessGrantsInstanceForPrefix</code> permission
- *                   for the caller account to use this operation. </p>
+ *                <p>You must have the <code>s3:GetAccessGrantsInstanceForPrefix</code> permission for the caller account to use this operation. </p>
  *             </dd>
  *             <dt>Additional Permissions</dt>
  *             <dd>
- *                <p>The prefix owner account must grant you the following permissions to their
- *                   S3 Access Grants instance: <code>s3:GetAccessGrantsInstanceForPrefix</code>. </p>
+ *                <p>The prefix owner account must grant you the following permissions to their S3 Access Grants instance: <code>s3:GetAccessGrantsInstanceForPrefix</code>. </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

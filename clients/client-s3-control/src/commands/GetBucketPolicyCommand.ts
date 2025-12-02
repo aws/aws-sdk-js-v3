@@ -69,9 +69,6 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  *                </p>
  *             </li>
  *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

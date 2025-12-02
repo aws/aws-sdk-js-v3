@@ -32,8 +32,9 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>To use the <code>UpdateJobPriority</code> operation, you must have permission
- *                   to perform the <code>s3:UpdateJobPriority</code> action.</p>
+ *                <p>To use the
+ *                   <code>UpdateJobPriority</code> operation, you must have permission to
+ *                   perform the <code>s3:UpdateJobPriority</code> action.</p>
  *             </dd>
  *          </dl>
  *          <p>Related actions include:</p>
@@ -59,9 +60,6 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  *                </p>
  *             </li>
  *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
