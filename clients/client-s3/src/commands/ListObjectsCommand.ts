@@ -28,14 +28,7 @@ export interface ListObjectsCommandInput extends ListObjectsRequest {}
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
- *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
- * </p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
- *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
- *          </important>
- *          <note>
+ * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request parameters as
@@ -115,7 +108,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //       ],
  * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),
- * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS" || "FSX_ONTAP",
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",

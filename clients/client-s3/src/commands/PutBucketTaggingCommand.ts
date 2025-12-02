@@ -32,7 +32,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the tags for a general purpose bucket if attribute based access control (ABAC) is not enabled for the bucket. When you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">enable ABAC for a general purpose bucket</a>, you can no longer use this operation for that bucket and must use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">TagResource</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a> operations instead.</p>
- *          <p>if ABAC is not enabled for the bucket. When you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">enable ABAC for a general purpose bucket</a>, you can no longer use this operation for that bucket and must use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">TagResource</a> instead.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign up to get
  *       your Amazon Web Services account bill with tag key values included. Then, to see the cost of combined resources,
  *       organize your billing information according to resources with the same tag key values. For example, you

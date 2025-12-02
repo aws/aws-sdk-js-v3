@@ -36,11 +36,11 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).</p>
  *          </important>
  *          <note>
- *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your object up to 5
- *         GB in size in a single atomic action using this API. However, to copy an object greater than 5 GB, you
- *         must use the multipart upload Upload Part - Copy (UploadPartCopy) API. For more information, see
- *           <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object
- *           Using the REST Multipart Upload API</a>.</p>
+ *             <p>You can store individual objects of up to 50 TB in Amazon S3. You create a copy of your
+ *         object up to 5 GB in size in a single atomic action using this API. However, to copy an
+ *         object greater than 5 GB, you must use the multipart upload Upload Part - Copy
+ *         (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the REST
+ *           Multipart Upload API</a>.</p>
  *          </note>
  *          <p>You can copy individual objects between general purpose buckets, between directory buckets, and between
  *       general purpose buckets and directory buckets.</p>
@@ -266,7 +266,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *   MetadataDirective: "COPY" || "REPLACE",
  *   TaggingDirective: "COPY" || "REPLACE",
  *   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
- *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS" || "FSX_ONTAP",
  *   WebsiteRedirectLocation: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSECustomerKey: "STRING_VALUE",

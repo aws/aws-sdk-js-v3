@@ -202,55 +202,18 @@ export interface AccelerateConfiguration {
 }
 
 /**
- * <important>
- *             <p>End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
- *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
- * </p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
- *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
- *          </important>
- *          <p>Container for the person being granted permissions.</p>
+ * <p>Container for the person being granted permissions.</p>
  * @public
  */
 export interface Grantee {
   /**
-   * <p>Screen name of the grantee.</p>
+   * <p></p>
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>Email address of the grantee.</p>
-   *          <note>
-   *             <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
-   *             <ul>
-   *                <li>
-   *                   <p>US East (N. Virginia)</p>
-   *                </li>
-   *                <li>
-   *                   <p>US West (N. California)</p>
-   *                </li>
-   *                <li>
-   *                   <p> US West (Oregon)</p>
-   *                </li>
-   *                <li>
-   *                   <p> Asia Pacific (Singapore)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Asia Pacific (Sydney)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Asia Pacific (Tokyo)</p>
-   *                </li>
-   *                <li>
-   *                   <p>Europe (Ireland)</p>
-   *                </li>
-   *                <li>
-   *                   <p>South America (São Paulo)</p>
-   *                </li>
-   *             </ul>
-   *             <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
-   *          </note>
+   * <p></p>
    * @public
    */
   EmailAddress?: string | undefined;
@@ -293,49 +256,12 @@ export interface Grant {
 }
 
 /**
- * <important>
- *             <p>End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
- *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
- * </p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
- *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
- *          </important>
- *          <p>Container for the owner's display name and ID.</p>
+ * <p>Container for the owner's display name and ID.</p>
  * @public
  */
 export interface Owner {
   /**
-   * <p>Container for the display name of the owner. This value is only supported in the following Amazon Web Services
-   *       Regions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>US East (N. Virginia)</p>
-   *             </li>
-   *             <li>
-   *                <p>US West (N. California)</p>
-   *             </li>
-   *             <li>
-   *                <p>US West (Oregon)</p>
-   *             </li>
-   *             <li>
-   *                <p>Asia Pacific (Singapore)</p>
-   *             </li>
-   *             <li>
-   *                <p>Asia Pacific (Sydney)</p>
-   *             </li>
-   *             <li>
-   *                <p>Asia Pacific (Tokyo)</p>
-   *             </li>
-   *             <li>
-   *                <p>Europe (Ireland)</p>
-   *             </li>
-   *             <li>
-   *                <p>South America (São Paulo)</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
-   *          </note>
+   * <p></p>
    * @public
    */
   DisplayName?: string | undefined;
@@ -1887,11 +1813,9 @@ export interface CreateBucketConfiguration {
 
   /**
    * <p>An array of tags that you can apply to the bucket that you're creating. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. </p>
-   *          <note>
-   *             <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with
-   *         directory buckets</a>.</p>
-   *             <p>You must have the <code>s3express:TagResource</code> permission to create a directory bucket with tags.</p>
-   *          </note>
+   *          <p>You must have the <code>s3:TagResource</code> permission to create a general
+   *       purpose bucket with tags or the <code>s3express:TagResource</code> permission to create a directory bucket with tags.</p>
+   *          <p>When creating buckets with tags, note that tag-based conditions using <code>aws:ResourceTag</code> and <code>s3:BucketTag</code> condition keys are applicable only after ABAC is enabled on the bucket. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">Enabling ABAC in general purpose buckets</a>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -6002,7 +5926,7 @@ export interface GetBucketAccelerateConfigurationRequest {
  */
 export interface GetBucketAclOutput {
   /**
-   * <p>Container for the bucket owner's display name and ID.</p>
+   * <p>Container for the bucket owner's ID.</p>
    * @public
    */
   Owner?: Owner | undefined;
@@ -6459,7 +6383,7 @@ export interface ServerSideEncryptionByDefault {
 }
 
 /**
- * <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/userguide/block-encryption-type.html">Blocking an encryption type for a general purpose bucket</a>. </p>
+ * <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html">Blocking or unblocking SSE-C for a general purpose bucket</a>.</p>
  *          <p>This data type is used with the following actions:</p>
  *          <ul>
  *             <li>
@@ -6553,9 +6477,9 @@ export interface ServerSideEncryptionRule {
   BucketKeyEnabled?: boolean | undefined;
 
   /**
-   * <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/userguide/block-encryption-type.html">Blocking an encryption type for a general purpose bucket</a>. </p>
+   * <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html">Blocking or unblocking SSE-C for a general purpose bucket</a>.</p>
    *          <note>
-   *             <p>Currently, this parameter only supports blocking or unblocking Server Side Encryption with Customer Provided Keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
+   *             <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
    *          </note>
    * @public
    */
@@ -10189,7 +10113,7 @@ export interface GetObjectRequest {
  */
 export interface GetObjectAclOutput {
   /**
-   * <p> Container for the bucket owner's display name and ID.</p>
+   * <p> Container for the bucket owner's ID.</p>
    * @public
    */
   Owner?: Owner | undefined;
@@ -11028,9 +10952,10 @@ export interface GetObjectTorrentRequest {
 }
 
 /**
- * <p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the
- *       configuration options in any combination. For more information about when Amazon S3 considers a bucket or
- *       object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
+ * <p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can
+ *       enable the configuration options in any combination. Bucket-level settings work alongside
+ *       account-level settings (which may inherit from organization-level policies). For more
+ *       information about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
  * @public
  */
 export interface PublicAccessBlockConfiguration {
@@ -12278,7 +12203,7 @@ export interface Initiator {
   ID?: string | undefined;
 
   /**
-   * <p>Name of the Principal.</p>
+   * <p></p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -13741,14 +13666,14 @@ export interface ListPartsOutput {
   /**
    * <p>Container element that identifies who initiated the multipart upload. If the initiator is an
    *       Amazon Web Services account, this element provides the same information as the <code>Owner</code> element. If the
-   *       initiator is an IAM User, this element provides the user ARN and display name.</p>
+   *       initiator is an IAM User, this element provides the user ARN.</p>
    * @public
    */
   Initiator?: Initiator | undefined;
 
   /**
    * <p>Container element that identifies the object owner, after the object is created. If multipart upload
-   *       is initiated by an IAM user, this element provides the parent account ID and display name.</p>
+   *       is initiated by an IAM user, this element provides the parent account ID.</p>
    *          <note>
    *             <p>
    *                <b>Directory buckets</b> - The bucket owner is returned as the
@@ -16263,9 +16188,9 @@ export interface PutPublicAccessBlockRequest {
   ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 bucket. You can
-   *       enable the configuration options in any combination. For more information about when Amazon S3 considers a
-   *       bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
+   *       bucket. You can enable the configuration options in any combination. For more information
+   *       about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
