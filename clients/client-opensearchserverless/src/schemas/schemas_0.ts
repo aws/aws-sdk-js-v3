@@ -146,6 +146,7 @@ const _SPS = "SecurityPolicyStats";
 const _SPSe = "SecurityPolicySummary";
 const _SPSec = "SecurityPolicySummaries";
 const _SQEE = "ServiceQuotaExceededException";
+const _SVA = "ServerlessVectorAcceleration";
 const _T = "Tag";
 const _TPC = "TotalPolicyCount";
 const _TR = "TagResource";
@@ -190,6 +191,7 @@ const _VEEDp = "VpcEndpointErrorDetails";
 const _VEF = "VpcEndpointFilters";
 const _VES = "VpcEndpointSummary";
 const _VESp = "VpcEndpointSummaries";
+const _VO = "VectorOptions";
 const _a = "arn";
 const _aA = "applicationArn";
 const _aD = "applicationDescription";
@@ -288,6 +290,7 @@ const _vEED = "vpcEndpointErrorDetails";
 const _vEF = "vpcEndpointFilters";
 const _vES = "vpcEndpointSummaries";
 const _vI = "vpcId";
+const _vO = "vectorOptions";
 const n0 = "com.amazonaws.opensearchserverless";
 
 // smithy-typescript generated code
@@ -380,8 +383,8 @@ export var CollectionDetail: StaticStructureSchema = [
   n0,
   _CD,
   0,
-  [_id_, _n, _s, _t, _d, _a, _kKA, _sR, _cD, _lMD, _cE, _dE, _fE, _fC, _fM],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, () => FipsEndpoints, 0, 0],
+  [_id_, _n, _s, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD, _cE, _dE, _fE, _fC, _fM],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions, 1, 1, 0, 0, () => FipsEndpoints, 0, 0],
 ];
 export var CollectionErrorDetail: StaticStructureSchema = [3, n0, _CED, 0, [_id_, _n, _eM, _eC], [0, 0, 0, 0]];
 export var CollectionFilters: StaticStructureSchema = [3, n0, _CF, 0, [_n, _s], [0, 0]];
@@ -413,16 +416,16 @@ export var CreateCollectionDetail: StaticStructureSchema = [
   n0,
   _CCD,
   0,
-  [_id_, _n, _s, _t, _d, _a, _kKA, _sR, _cD, _lMD],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+  [_id_, _n, _s, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions, 1, 1],
 ];
 export var CreateCollectionRequest: StaticStructureSchema = [
   3,
   n0,
   _CCR,
   0,
-  [_n, _t, _d, _ta, _sR, _cT],
-  [0, 0, 0, () => Tags, 0, [0, 4]],
+  [_n, _t, _d, _ta, _sR, _vO, _cT],
+  [0, 0, 0, () => Tags, 0, () => VectorOptions, [0, 4]],
 ];
 export var CreateCollectionResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_cCD], [() => CreateCollectionDetail]];
 export var CreateIamIdentityCenterConfigOptions: StaticStructureSchema = [
@@ -903,6 +906,7 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 
+export var VectorOptions: StaticStructureSchema = [3, n0, _VO, 0, [_SVA], [0]];
 export var VpcEndpointDetail: StaticStructureSchema = [
   3,
   n0,

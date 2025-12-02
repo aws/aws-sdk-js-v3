@@ -68,6 +68,9 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
  *

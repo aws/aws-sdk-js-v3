@@ -87,6 +87,30 @@ export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType
  * @public
  * @enum
  */
+export const ServerlessVectorAccelerationStatus = {
+  /**
+   * Serverless vector acceleration is allowed but not enabled by default
+   */
+  ALLOWED: "ALLOWED",
+  /**
+   * Serverless vector acceleration is disabled
+   */
+  DISABLED: "DISABLED",
+  /**
+   * Serverless vector acceleration is enabled by default
+   */
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ServerlessVectorAccelerationStatus =
+  (typeof ServerlessVectorAccelerationStatus)[keyof typeof ServerlessVectorAccelerationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const LifecyclePolicyType = {
   /**
    * retention policy type
