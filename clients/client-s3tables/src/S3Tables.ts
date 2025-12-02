@@ -38,12 +38,22 @@ import {
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
 } from "./commands/DeleteTableBucketPolicyCommand";
+import {
+  DeleteTableBucketReplicationCommand,
+  DeleteTableBucketReplicationCommandInput,
+  DeleteTableBucketReplicationCommandOutput,
+} from "./commands/DeleteTableBucketReplicationCommand";
 import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
   DeleteTablePolicyCommand,
   DeleteTablePolicyCommandInput,
   DeleteTablePolicyCommandOutput,
 } from "./commands/DeleteTablePolicyCommand";
+import {
+  DeleteTableReplicationCommand,
+  DeleteTableReplicationCommandInput,
+  DeleteTableReplicationCommandOutput,
+} from "./commands/DeleteTableReplicationCommand";
 import {
   GetNamespaceCommand,
   GetNamespaceCommandInput,
@@ -74,6 +84,16 @@ import {
   GetTableBucketPolicyCommandInput,
   GetTableBucketPolicyCommandOutput,
 } from "./commands/GetTableBucketPolicyCommand";
+import {
+  GetTableBucketReplicationCommand,
+  GetTableBucketReplicationCommandInput,
+  GetTableBucketReplicationCommandOutput,
+} from "./commands/GetTableBucketReplicationCommand";
+import {
+  GetTableBucketStorageClassCommand,
+  GetTableBucketStorageClassCommandInput,
+  GetTableBucketStorageClassCommandOutput,
+} from "./commands/GetTableBucketStorageClassCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import {
   GetTableEncryptionCommand,
@@ -100,6 +120,31 @@ import {
   GetTablePolicyCommandInput,
   GetTablePolicyCommandOutput,
 } from "./commands/GetTablePolicyCommand";
+import {
+  GetTableRecordExpirationConfigurationCommand,
+  GetTableRecordExpirationConfigurationCommandInput,
+  GetTableRecordExpirationConfigurationCommandOutput,
+} from "./commands/GetTableRecordExpirationConfigurationCommand";
+import {
+  GetTableRecordExpirationJobStatusCommand,
+  GetTableRecordExpirationJobStatusCommandInput,
+  GetTableRecordExpirationJobStatusCommandOutput,
+} from "./commands/GetTableRecordExpirationJobStatusCommand";
+import {
+  GetTableReplicationCommand,
+  GetTableReplicationCommandInput,
+  GetTableReplicationCommandOutput,
+} from "./commands/GetTableReplicationCommand";
+import {
+  GetTableReplicationStatusCommand,
+  GetTableReplicationStatusCommandInput,
+  GetTableReplicationStatusCommandOutput,
+} from "./commands/GetTableReplicationStatusCommand";
+import {
+  GetTableStorageClassCommand,
+  GetTableStorageClassCommandInput,
+  GetTableStorageClassCommandOutput,
+} from "./commands/GetTableStorageClassCommand";
 import {
   ListNamespacesCommand,
   ListNamespacesCommandInput,
@@ -137,6 +182,16 @@ import {
   PutTableBucketPolicyCommandOutput,
 } from "./commands/PutTableBucketPolicyCommand";
 import {
+  PutTableBucketReplicationCommand,
+  PutTableBucketReplicationCommandInput,
+  PutTableBucketReplicationCommandOutput,
+} from "./commands/PutTableBucketReplicationCommand";
+import {
+  PutTableBucketStorageClassCommand,
+  PutTableBucketStorageClassCommandInput,
+  PutTableBucketStorageClassCommandOutput,
+} from "./commands/PutTableBucketStorageClassCommand";
+import {
   PutTableMaintenanceConfigurationCommand,
   PutTableMaintenanceConfigurationCommandInput,
   PutTableMaintenanceConfigurationCommandOutput,
@@ -146,6 +201,16 @@ import {
   PutTablePolicyCommandInput,
   PutTablePolicyCommandOutput,
 } from "./commands/PutTablePolicyCommand";
+import {
+  PutTableRecordExpirationConfigurationCommand,
+  PutTableRecordExpirationConfigurationCommandInput,
+  PutTableRecordExpirationConfigurationCommandOutput,
+} from "./commands/PutTableRecordExpirationConfigurationCommand";
+import {
+  PutTableReplicationCommand,
+  PutTableReplicationCommandInput,
+  PutTableReplicationCommandOutput,
+} from "./commands/PutTableReplicationCommand";
 import { RenameTableCommand, RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
@@ -170,7 +235,9 @@ const commands = {
   DeleteTableBucketEncryptionCommand,
   DeleteTableBucketMetricsConfigurationCommand,
   DeleteTableBucketPolicyCommand,
+  DeleteTableBucketReplicationCommand,
   DeleteTablePolicyCommand,
+  DeleteTableReplicationCommand,
   GetNamespaceCommand,
   GetTableCommand,
   GetTableBucketCommand,
@@ -178,11 +245,18 @@ const commands = {
   GetTableBucketMaintenanceConfigurationCommand,
   GetTableBucketMetricsConfigurationCommand,
   GetTableBucketPolicyCommand,
+  GetTableBucketReplicationCommand,
+  GetTableBucketStorageClassCommand,
   GetTableEncryptionCommand,
   GetTableMaintenanceConfigurationCommand,
   GetTableMaintenanceJobStatusCommand,
   GetTableMetadataLocationCommand,
   GetTablePolicyCommand,
+  GetTableRecordExpirationConfigurationCommand,
+  GetTableRecordExpirationJobStatusCommand,
+  GetTableReplicationCommand,
+  GetTableReplicationStatusCommand,
+  GetTableStorageClassCommand,
   ListNamespacesCommand,
   ListTableBucketsCommand,
   ListTablesCommand,
@@ -191,8 +265,12 @@ const commands = {
   PutTableBucketMaintenanceConfigurationCommand,
   PutTableBucketMetricsConfigurationCommand,
   PutTableBucketPolicyCommand,
+  PutTableBucketReplicationCommand,
+  PutTableBucketStorageClassCommand,
   PutTableMaintenanceConfigurationCommand,
   PutTablePolicyCommand,
+  PutTableRecordExpirationConfigurationCommand,
+  PutTableReplicationCommand,
   RenameTableCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -336,6 +414,23 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link DeleteTableBucketReplicationCommand}
+   */
+  deleteTableBucketReplication(
+    args: DeleteTableBucketReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableBucketReplicationCommandOutput>;
+  deleteTableBucketReplication(
+    args: DeleteTableBucketReplicationCommandInput,
+    cb: (err: any, data?: DeleteTableBucketReplicationCommandOutput) => void
+  ): void;
+  deleteTableBucketReplication(
+    args: DeleteTableBucketReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTableBucketReplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTablePolicyCommand}
    */
   deleteTablePolicy(
@@ -350,6 +445,23 @@ export interface S3Tables {
     args: DeleteTablePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTablePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTableReplicationCommand}
+   */
+  deleteTableReplication(
+    args: DeleteTableReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableReplicationCommandOutput>;
+  deleteTableReplication(
+    args: DeleteTableReplicationCommandInput,
+    cb: (err: any, data?: DeleteTableReplicationCommandOutput) => void
+  ): void;
+  deleteTableReplication(
+    args: DeleteTableReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTableReplicationCommandOutput) => void
   ): void;
 
   /**
@@ -458,6 +570,40 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link GetTableBucketReplicationCommand}
+   */
+  getTableBucketReplication(
+    args: GetTableBucketReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableBucketReplicationCommandOutput>;
+  getTableBucketReplication(
+    args: GetTableBucketReplicationCommandInput,
+    cb: (err: any, data?: GetTableBucketReplicationCommandOutput) => void
+  ): void;
+  getTableBucketReplication(
+    args: GetTableBucketReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableBucketReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableBucketStorageClassCommand}
+   */
+  getTableBucketStorageClass(
+    args: GetTableBucketStorageClassCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableBucketStorageClassCommandOutput>;
+  getTableBucketStorageClass(
+    args: GetTableBucketStorageClassCommandInput,
+    cb: (err: any, data?: GetTableBucketStorageClassCommandOutput) => void
+  ): void;
+  getTableBucketStorageClass(
+    args: GetTableBucketStorageClassCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableBucketStorageClassCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTableEncryptionCommand}
    */
   getTableEncryption(
@@ -537,6 +683,91 @@ export interface S3Tables {
     args: GetTablePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTablePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableRecordExpirationConfigurationCommand}
+   */
+  getTableRecordExpirationConfiguration(
+    args: GetTableRecordExpirationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableRecordExpirationConfigurationCommandOutput>;
+  getTableRecordExpirationConfiguration(
+    args: GetTableRecordExpirationConfigurationCommandInput,
+    cb: (err: any, data?: GetTableRecordExpirationConfigurationCommandOutput) => void
+  ): void;
+  getTableRecordExpirationConfiguration(
+    args: GetTableRecordExpirationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableRecordExpirationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableRecordExpirationJobStatusCommand}
+   */
+  getTableRecordExpirationJobStatus(
+    args: GetTableRecordExpirationJobStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableRecordExpirationJobStatusCommandOutput>;
+  getTableRecordExpirationJobStatus(
+    args: GetTableRecordExpirationJobStatusCommandInput,
+    cb: (err: any, data?: GetTableRecordExpirationJobStatusCommandOutput) => void
+  ): void;
+  getTableRecordExpirationJobStatus(
+    args: GetTableRecordExpirationJobStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableRecordExpirationJobStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableReplicationCommand}
+   */
+  getTableReplication(
+    args: GetTableReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableReplicationCommandOutput>;
+  getTableReplication(
+    args: GetTableReplicationCommandInput,
+    cb: (err: any, data?: GetTableReplicationCommandOutput) => void
+  ): void;
+  getTableReplication(
+    args: GetTableReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableReplicationStatusCommand}
+   */
+  getTableReplicationStatus(
+    args: GetTableReplicationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableReplicationStatusCommandOutput>;
+  getTableReplicationStatus(
+    args: GetTableReplicationStatusCommandInput,
+    cb: (err: any, data?: GetTableReplicationStatusCommandOutput) => void
+  ): void;
+  getTableReplicationStatus(
+    args: GetTableReplicationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableReplicationStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableStorageClassCommand}
+   */
+  getTableStorageClass(
+    args: GetTableStorageClassCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableStorageClassCommandOutput>;
+  getTableStorageClass(
+    args: GetTableStorageClassCommandInput,
+    cb: (err: any, data?: GetTableStorageClassCommandOutput) => void
+  ): void;
+  getTableStorageClass(
+    args: GetTableStorageClassCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableStorageClassCommandOutput) => void
   ): void;
 
   /**
@@ -668,6 +899,40 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link PutTableBucketReplicationCommand}
+   */
+  putTableBucketReplication(
+    args: PutTableBucketReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTableBucketReplicationCommandOutput>;
+  putTableBucketReplication(
+    args: PutTableBucketReplicationCommandInput,
+    cb: (err: any, data?: PutTableBucketReplicationCommandOutput) => void
+  ): void;
+  putTableBucketReplication(
+    args: PutTableBucketReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTableBucketReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTableBucketStorageClassCommand}
+   */
+  putTableBucketStorageClass(
+    args: PutTableBucketStorageClassCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTableBucketStorageClassCommandOutput>;
+  putTableBucketStorageClass(
+    args: PutTableBucketStorageClassCommandInput,
+    cb: (err: any, data?: PutTableBucketStorageClassCommandOutput) => void
+  ): void;
+  putTableBucketStorageClass(
+    args: PutTableBucketStorageClassCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTableBucketStorageClassCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutTableMaintenanceConfigurationCommand}
    */
   putTableMaintenanceConfiguration(
@@ -696,6 +961,40 @@ export interface S3Tables {
     args: PutTablePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutTablePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTableRecordExpirationConfigurationCommand}
+   */
+  putTableRecordExpirationConfiguration(
+    args: PutTableRecordExpirationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTableRecordExpirationConfigurationCommandOutput>;
+  putTableRecordExpirationConfiguration(
+    args: PutTableRecordExpirationConfigurationCommandInput,
+    cb: (err: any, data?: PutTableRecordExpirationConfigurationCommandOutput) => void
+  ): void;
+  putTableRecordExpirationConfiguration(
+    args: PutTableRecordExpirationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTableRecordExpirationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTableReplicationCommand}
+   */
+  putTableReplication(
+    args: PutTableReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTableReplicationCommandOutput>;
+  putTableReplication(
+    args: PutTableReplicationCommandInput,
+    cb: (err: any, data?: PutTableReplicationCommandOutput) => void
+  ): void;
+  putTableReplication(
+    args: PutTableReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTableReplicationCommandOutput) => void
   ): void;
 
   /**

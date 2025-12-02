@@ -63,6 +63,11 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //   ownerAccountId: "STRING_VALUE", // required
  * //   format: "ICEBERG", // required
  * //   tableBucketId: "STRING_VALUE",
+ * //   managedTableInformation: { // ManagedTableInformation
+ * //     replicationInformation: { // ReplicationInformation
+ * //       sourceTableARN: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

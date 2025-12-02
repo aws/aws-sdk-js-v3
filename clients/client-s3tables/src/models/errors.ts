@@ -142,3 +142,23 @@ export class TooManyRequestsException extends __BaseException {
     Object.setPrototypeOf(this, TooManyRequestsException.prototype);
   }
 }
+
+/**
+ * <p>The requested operation is not allowed on this resource. This may occur when attempting to modify a resource that is managed by a service or has restrictions that prevent the operation.</p>
+ * @public
+ */
+export class MethodNotAllowedException extends __BaseException {
+  readonly name = "MethodNotAllowedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
+    super({
+      name: "MethodNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
+  }
+}

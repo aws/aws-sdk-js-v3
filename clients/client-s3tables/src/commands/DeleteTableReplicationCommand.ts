@@ -1,0 +1,109 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import { DeleteTableReplicationRequest } from "../models/models_0";
+import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
+import { DeleteTableReplication } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+export { $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteTableReplicationCommand}.
+ */
+export interface DeleteTableReplicationCommandInput extends DeleteTableReplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTableReplicationCommand}.
+ */
+export interface DeleteTableReplicationCommandOutput extends __MetadataBearer {}
+
+/**
+ * <p>Deletes the replication configuration for a specific table. After deletion, new updates to this table will no longer be replicated to destination tables, though existing replicated copies will remain in destination buckets.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableReplication</code> permission to use this operation.</p> </dd> </dl>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3TablesClient, DeleteTableReplicationCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
+ * // const { S3TablesClient, DeleteTableReplicationCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
+ * const client = new S3TablesClient(config);
+ * const input = { // DeleteTableReplicationRequest
+ *   tableArn: "STRING_VALUE", // required
+ *   versionToken: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteTableReplicationCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param DeleteTableReplicationCommandInput - {@link DeleteTableReplicationCommandInput}
+ * @returns {@link DeleteTableReplicationCommandOutput}
+ * @see {@link DeleteTableReplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteTableReplicationCommandOutput} for command's `response` shape.
+ * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The action cannot be performed because you do not have the required permission.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is invalid or malformed.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The request failed due to an internal server error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified resource could not be found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * @throws {@link S3TablesServiceException}
+ * <p>Base exception class for all service exceptions from S3Tables service.</p>
+ *
+ *
+ * @public
+ */
+export class DeleteTableReplicationCommand extends $Command
+  .classBuilder<
+    DeleteTableReplicationCommandInput,
+    DeleteTableReplicationCommandOutput,
+    S3TablesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep(commonParams)
+  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+  })
+  .s("S3TableBuckets", "DeleteTableReplication", {})
+  .n("S3TablesClient", "DeleteTableReplicationCommand")
+  .sc(DeleteTableReplication)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTableReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTableReplicationCommandInput;
+      output: DeleteTableReplicationCommandOutput;
+    };
+  };
+}

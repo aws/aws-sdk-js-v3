@@ -74,8 +74,16 @@ import {
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
 } from "./commands/DeleteTableBucketPolicyCommand";
+import {
+  DeleteTableBucketReplicationCommandInput,
+  DeleteTableBucketReplicationCommandOutput,
+} from "./commands/DeleteTableBucketReplicationCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { DeleteTablePolicyCommandInput, DeleteTablePolicyCommandOutput } from "./commands/DeleteTablePolicyCommand";
+import {
+  DeleteTableReplicationCommandInput,
+  DeleteTableReplicationCommandOutput,
+} from "./commands/DeleteTableReplicationCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetTableBucketCommandInput, GetTableBucketCommandOutput } from "./commands/GetTableBucketCommand";
 import {
@@ -94,6 +102,14 @@ import {
   GetTableBucketPolicyCommandInput,
   GetTableBucketPolicyCommandOutput,
 } from "./commands/GetTableBucketPolicyCommand";
+import {
+  GetTableBucketReplicationCommandInput,
+  GetTableBucketReplicationCommandOutput,
+} from "./commands/GetTableBucketReplicationCommand";
+import {
+  GetTableBucketStorageClassCommandInput,
+  GetTableBucketStorageClassCommandOutput,
+} from "./commands/GetTableBucketStorageClassCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import { GetTableEncryptionCommandInput, GetTableEncryptionCommandOutput } from "./commands/GetTableEncryptionCommand";
 import {
@@ -109,6 +125,26 @@ import {
   GetTableMetadataLocationCommandOutput,
 } from "./commands/GetTableMetadataLocationCommand";
 import { GetTablePolicyCommandInput, GetTablePolicyCommandOutput } from "./commands/GetTablePolicyCommand";
+import {
+  GetTableRecordExpirationConfigurationCommandInput,
+  GetTableRecordExpirationConfigurationCommandOutput,
+} from "./commands/GetTableRecordExpirationConfigurationCommand";
+import {
+  GetTableRecordExpirationJobStatusCommandInput,
+  GetTableRecordExpirationJobStatusCommandOutput,
+} from "./commands/GetTableRecordExpirationJobStatusCommand";
+import {
+  GetTableReplicationCommandInput,
+  GetTableReplicationCommandOutput,
+} from "./commands/GetTableReplicationCommand";
+import {
+  GetTableReplicationStatusCommandInput,
+  GetTableReplicationStatusCommandOutput,
+} from "./commands/GetTableReplicationStatusCommand";
+import {
+  GetTableStorageClassCommandInput,
+  GetTableStorageClassCommandOutput,
+} from "./commands/GetTableStorageClassCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "./commands/ListTableBucketsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
@@ -133,10 +169,26 @@ import {
   PutTableBucketPolicyCommandOutput,
 } from "./commands/PutTableBucketPolicyCommand";
 import {
+  PutTableBucketReplicationCommandInput,
+  PutTableBucketReplicationCommandOutput,
+} from "./commands/PutTableBucketReplicationCommand";
+import {
+  PutTableBucketStorageClassCommandInput,
+  PutTableBucketStorageClassCommandOutput,
+} from "./commands/PutTableBucketStorageClassCommand";
+import {
   PutTableMaintenanceConfigurationCommandInput,
   PutTableMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableMaintenanceConfigurationCommand";
 import { PutTablePolicyCommandInput, PutTablePolicyCommandOutput } from "./commands/PutTablePolicyCommand";
+import {
+  PutTableRecordExpirationConfigurationCommandInput,
+  PutTableRecordExpirationConfigurationCommandOutput,
+} from "./commands/PutTableRecordExpirationConfigurationCommand";
+import {
+  PutTableReplicationCommandInput,
+  PutTableReplicationCommandOutput,
+} from "./commands/PutTableReplicationCommand";
 import { RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -167,20 +219,29 @@ export type ServiceInputTypes =
   | DeleteTableBucketEncryptionCommandInput
   | DeleteTableBucketMetricsConfigurationCommandInput
   | DeleteTableBucketPolicyCommandInput
+  | DeleteTableBucketReplicationCommandInput
   | DeleteTableCommandInput
   | DeleteTablePolicyCommandInput
+  | DeleteTableReplicationCommandInput
   | GetNamespaceCommandInput
   | GetTableBucketCommandInput
   | GetTableBucketEncryptionCommandInput
   | GetTableBucketMaintenanceConfigurationCommandInput
   | GetTableBucketMetricsConfigurationCommandInput
   | GetTableBucketPolicyCommandInput
+  | GetTableBucketReplicationCommandInput
+  | GetTableBucketStorageClassCommandInput
   | GetTableCommandInput
   | GetTableEncryptionCommandInput
   | GetTableMaintenanceConfigurationCommandInput
   | GetTableMaintenanceJobStatusCommandInput
   | GetTableMetadataLocationCommandInput
   | GetTablePolicyCommandInput
+  | GetTableRecordExpirationConfigurationCommandInput
+  | GetTableRecordExpirationJobStatusCommandInput
+  | GetTableReplicationCommandInput
+  | GetTableReplicationStatusCommandInput
+  | GetTableStorageClassCommandInput
   | ListNamespacesCommandInput
   | ListTableBucketsCommandInput
   | ListTablesCommandInput
@@ -189,8 +250,12 @@ export type ServiceInputTypes =
   | PutTableBucketMaintenanceConfigurationCommandInput
   | PutTableBucketMetricsConfigurationCommandInput
   | PutTableBucketPolicyCommandInput
+  | PutTableBucketReplicationCommandInput
+  | PutTableBucketStorageClassCommandInput
   | PutTableMaintenanceConfigurationCommandInput
   | PutTablePolicyCommandInput
+  | PutTableRecordExpirationConfigurationCommandInput
+  | PutTableReplicationCommandInput
   | RenameTableCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -208,20 +273,29 @@ export type ServiceOutputTypes =
   | DeleteTableBucketEncryptionCommandOutput
   | DeleteTableBucketMetricsConfigurationCommandOutput
   | DeleteTableBucketPolicyCommandOutput
+  | DeleteTableBucketReplicationCommandOutput
   | DeleteTableCommandOutput
   | DeleteTablePolicyCommandOutput
+  | DeleteTableReplicationCommandOutput
   | GetNamespaceCommandOutput
   | GetTableBucketCommandOutput
   | GetTableBucketEncryptionCommandOutput
   | GetTableBucketMaintenanceConfigurationCommandOutput
   | GetTableBucketMetricsConfigurationCommandOutput
   | GetTableBucketPolicyCommandOutput
+  | GetTableBucketReplicationCommandOutput
+  | GetTableBucketStorageClassCommandOutput
   | GetTableCommandOutput
   | GetTableEncryptionCommandOutput
   | GetTableMaintenanceConfigurationCommandOutput
   | GetTableMaintenanceJobStatusCommandOutput
   | GetTableMetadataLocationCommandOutput
   | GetTablePolicyCommandOutput
+  | GetTableRecordExpirationConfigurationCommandOutput
+  | GetTableRecordExpirationJobStatusCommandOutput
+  | GetTableReplicationCommandOutput
+  | GetTableReplicationStatusCommandOutput
+  | GetTableStorageClassCommandOutput
   | ListNamespacesCommandOutput
   | ListTableBucketsCommandOutput
   | ListTablesCommandOutput
@@ -230,8 +304,12 @@ export type ServiceOutputTypes =
   | PutTableBucketMaintenanceConfigurationCommandOutput
   | PutTableBucketMetricsConfigurationCommandOutput
   | PutTableBucketPolicyCommandOutput
+  | PutTableBucketReplicationCommandOutput
+  | PutTableBucketStorageClassCommandOutput
   | PutTableMaintenanceConfigurationCommandOutput
   | PutTablePolicyCommandOutput
+  | PutTableRecordExpirationConfigurationCommandOutput
+  | PutTableReplicationCommandOutput
   | RenameTableCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

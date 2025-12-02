@@ -56,6 +56,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * //       tableARN: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       modifiedAt: new Date("TIMESTAMP"), // required
+ * //       managedByService: "STRING_VALUE",
  * //       namespaceId: "STRING_VALUE",
  * //       tableBucketId: "STRING_VALUE",
  * //     },
