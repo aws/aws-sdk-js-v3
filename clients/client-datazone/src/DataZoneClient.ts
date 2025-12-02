@@ -215,6 +215,10 @@ import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAsset
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
+import {
+  GetDataExportConfigurationCommandInput,
+  GetDataExportConfigurationCommandOutput,
+} from "./commands/GetDataExportConfigurationCommand";
 import { GetDataProductCommandInput, GetDataProductCommandOutput } from "./commands/GetDataProductCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
@@ -367,6 +371,10 @@ import {
   PostTimeSeriesDataPointsCommandInput,
   PostTimeSeriesDataPointsCommandOutput,
 } from "./commands/PostTimeSeriesDataPointsCommand";
+import {
+  PutDataExportConfigurationCommandInput,
+  PutDataExportConfigurationCommandOutput,
+} from "./commands/PutDataExportConfigurationCommand";
 import {
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
@@ -525,6 +533,7 @@ export type ServiceInputTypes =
   | GetAssetFilterCommandInput
   | GetAssetTypeCommandInput
   | GetConnectionCommandInput
+  | GetDataExportConfigurationCommandInput
   | GetDataProductCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceRunCommandInput
@@ -590,6 +599,7 @@ export type ServiceInputTypes =
   | ListTimeSeriesDataPointsCommandInput
   | PostLineageEventCommandInput
   | PostTimeSeriesDataPointsCommandInput
+  | PutDataExportConfigurationCommandInput
   | PutEnvironmentBlueprintConfigurationCommandInput
   | RejectPredictionsCommandInput
   | RejectSubscriptionRequestCommandInput
@@ -702,6 +712,7 @@ export type ServiceOutputTypes =
   | GetAssetFilterCommandOutput
   | GetAssetTypeCommandOutput
   | GetConnectionCommandOutput
+  | GetDataExportConfigurationCommandOutput
   | GetDataProductCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceRunCommandOutput
@@ -767,6 +778,7 @@ export type ServiceOutputTypes =
   | ListTimeSeriesDataPointsCommandOutput
   | PostLineageEventCommandOutput
   | PostTimeSeriesDataPointsCommandOutput
+  | PutDataExportConfigurationCommandOutput
   | PutEnvironmentBlueprintConfigurationCommandOutput
   | RejectPredictionsCommandOutput
   | RejectSubscriptionRequestCommandOutput

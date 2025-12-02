@@ -333,7 +333,7 @@ const _EBC = "EnvironmentBlueprintConfigurations";
 const _EBCI = "EnvironmentBlueprintConfigurationItem";
 const _EBS = "EnvironmentBlueprintSummary";
 const _EBSn = "EnvironmentBlueprintSummaries";
-const _EC = "EnvironmentConfiguration";
+const _EC = "EncryptionConfiguration";
 const _ECI = "EnvironmentConfigurationId";
 const _ECL = "EnvironmentConfigurationsList";
 const _ECN = "EnvironmentConfigurationName";
@@ -342,6 +342,7 @@ const _ECPD = "EnvironmentConfigurationParametersDetails";
 const _ECPL = "EnvironmentConfigurationParametersList";
 const _ECUP = "EnvironmentConfigurationUserParameter";
 const _ECUPL = "EnvironmentConfigurationUserParametersList";
+const _ECn = "EnvironmentConfiguration";
 const _EDD = "EnvironmentDeploymentDetails";
 const _EE = "EnvironmentError";
 const _EFR = "EnvironmentFailureReasons";
@@ -398,6 +399,9 @@ const _GCO = "GetConnectionOutput";
 const _GCP = "GlueConnectionPatch";
 const _GCe = "GetConnection";
 const _GD = "GlossaryDescription";
+const _GDEC = "GetDataExportConfiguration";
+const _GDECI = "GetDataExportConfigurationInput";
+const _GDECO = "GetDataExportConfigurationOutput";
 const _GDI = "GetDomainInput";
 const _GDO = "GetDomainOutput";
 const _GDP = "GetDataProduct";
@@ -666,6 +670,8 @@ const _MFSe = "MetadataFormsSummary";
 const _MGR = "MetadataGenerationRuns";
 const _MGRI = "MetadataGenerationRunItem";
 const _MGRT = "MetadataGenerationRunTarget";
+const _MGRTS = "MetadataGenerationRunTypeStat";
+const _MGRTSe = "MetadataGenerationRunTypeStats";
 const _MO = "MatchOffset";
 const _MOa = "MatchOffsets";
 const _MPI = "MlflowPropertiesInput";
@@ -701,6 +707,9 @@ const _PCL = "ProvisioningConfigurationList";
 const _PCR = "PhysicalConnectionRequirements";
 const _PCr = "ProvisioningConfiguration";
 const _PDE = "ProjectDeletionError";
+const _PDEC = "PutDataExportConfiguration";
+const _PDECI = "PutDataExportConfigurationInput";
+const _PDECO = "PutDataExportConfigurationOutput";
 const _PE = "PhysicalEndpoint";
 const _PEBC = "PutEnvironmentBlueprintConfiguration";
 const _PEBCI = "PutEnvironmentBlueprintConfigurationInput";
@@ -1127,8 +1136,10 @@ const _eC = "environmentConfigurations";
 const _eCI = "environmentConfigurationId";
 const _eCN = "effectiveColumnNames";
 const _eCNn = "environmentConfigurationName";
+const _eCn = "encryptionConfiguration";
 const _eD = "errorDetail";
 const _eDD = "environmentDeploymentDetails";
+const _eE = "enableExport";
 const _eFR = "environmentFailureReasons";
 const _eI = "entityIdentifier";
 const _eIn = "entityId";
@@ -1233,6 +1244,7 @@ const _iCI = "iamConnectionId";
 const _iCN = "includedColumnNames";
 const _iDC = "isDeploymentComplete";
 const _iE = "isEnabled";
+const _iEE = "isExportEnabled";
 const _iEs = "isEditable";
 const _iIA = "idcInstanceArn";
 const _iN = "isNull";
@@ -1448,6 +1460,7 @@ const _sAGLI = "s3AccessGrantLocationId";
 const _sAK = "secretAccessKey";
 const _sAPI = "sourceAccountPoolId";
 const _sAT = "specificAssetTypes";
+const _sAs = "sseAlgorithm";
 const _sAt = "startedAt";
 const _sAto = "stoppedAt";
 const _sB = "sortBy";
@@ -1487,6 +1500,7 @@ const _sRt = "statusReason";
 const _sS = "searchScope";
 const _sSO = "singleSignOn";
 const _sT = "sessionToken";
+const _sTBA = "s3TableBucketArn";
 const _sTC = "subscriptionTargetConfig";
 const _sTI = "subscriptionTargetIdentifier";
 const _sTIu = "subscriptionTargetId";
@@ -1528,8 +1542,9 @@ const _tNy = "typeName";
 const _tQP = "totalQueriesProcessed";
 const _tR = "typeRevision";
 const _tRe = "termRelations";
-const _tS = "taskStatus";
+const _tS = "typeStats";
 const _tSA = "trackingServerArn";
+const _tSa = "taskStatus";
 const _tT = "targetType";
 const _tU = "templateUrl";
 const _tUPM = "tokenUrlParametersMap";
@@ -1543,6 +1558,7 @@ const _tit = "title";
 const _to = "token";
 const _top = "topic";
 const _ty = "type";
+const _typ = "types";
 const _u = "uri";
 const _uA = "updatedAt";
 const _uAT = "useAssetType";
@@ -3394,6 +3410,7 @@ export var DomainUnitPolicyGrantPrincipal: StaticStructureSchema = [
 export var DomainUnitSummary: StaticStructureSchema = [3, n0, _DUS, 0, [_n, _id], [0, 0]];
 export var DomainUnitTarget: StaticStructureSchema = [3, n0, _DUT, 0, [_dUI, _iCDU], [0, 2]];
 export var DomainUnitUserProperties: StaticStructureSchema = [3, n0, _DUUP, 0, [_uIs], [0]];
+export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_kKA, _sAs], [0, 0]];
 export var EnvironmentActionSummary: StaticStructureSchema = [
   3,
   n0,
@@ -3421,7 +3438,7 @@ export var EnvironmentBlueprintSummary: StaticStructureSchema = [
 export var EnvironmentConfiguration: StaticStructureSchema = [
   3,
   n0,
-  _EC,
+  _ECn,
   0,
   [_n, _id, _eBIn, _de, _dM, _cP, _aAw, _aPc, _aRw, _dO],
   [
@@ -3673,6 +3690,15 @@ export var GetConnectionOutput: StaticStructureSchema = [
     0,
     0,
   ],
+];
+export var GetDataExportConfigurationInput: StaticStructureSchema = [3, n0, _GDECI, 0, [_dI], [[0, 1]]];
+export var GetDataExportConfigurationOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _GDECO,
+  0,
+  [_iEE, _s, _eCn, _sTBA, _cA, _uA],
+  [2, 0, () => EncryptionConfiguration, 0, 4, 4],
 ];
 export var GetDataProductInput: StaticStructureSchema = [
   3,
@@ -4250,10 +4276,16 @@ export var GetMetadataGenerationRunInput: StaticStructureSchema = [
   n0,
   _GMGRI,
   0,
-  [_dI, _i],
+  [_dI, _i, _ty],
   [
     [0, 1],
     [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _ty,
+      },
+    ],
   ],
 ];
 export var GetMetadataGenerationRunOutput: StaticStructureSchema = [
@@ -4261,8 +4293,8 @@ export var GetMetadataGenerationRunOutput: StaticStructureSchema = [
   n0,
   _GMGRO,
   0,
-  [_dIo, _id, _tar, _s, _ty, _cA, _cB, _oPI],
-  [0, 0, () => MetadataGenerationRunTarget, 0, 0, 4, 0, 0],
+  [_dIo, _id, _tar, _s, _ty, _typ, _cA, _cB, _oPI, _tS],
+  [0, 0, () => MetadataGenerationRunTarget, 0, 0, 64 | 0, 4, 0, 0, () => MetadataGenerationRunTypeStats],
 ];
 export var GetProjectInput: StaticStructureSchema = [
   3,
@@ -5611,7 +5643,7 @@ export var ListMetadataGenerationRunsInput: StaticStructureSchema = [
   n0,
   _LMGRI,
   0,
-  [_dI, _s, _ty, _nT, _mRa],
+  [_dI, _s, _ty, _nT, _mRa, _tIa],
   [
     [0, 1],
     [
@@ -5638,6 +5670,12 @@ export var ListMetadataGenerationRunsInput: StaticStructureSchema = [
         [_hQ]: _mRa,
       },
     ],
+    [
+      0,
+      {
+        [_hQ]: _tIa,
+      },
+    ],
   ],
 ];
 export var ListMetadataGenerationRunsOutput: StaticStructureSchema = [
@@ -5653,7 +5691,7 @@ export var ListNotificationsInput: StaticStructureSchema = [
   n0,
   _LNI,
   0,
-  [_dI, _ty, _aTf, _bT, _su, _tS, _mRa, _nT],
+  [_dI, _ty, _aTf, _bT, _su, _tSa, _mRa, _nT],
   [
     [0, 1],
     [
@@ -5683,7 +5721,7 @@ export var ListNotificationsInput: StaticStructureSchema = [
     [
       0,
       {
-        [_hQ]: _tS,
+        [_hQ]: _tSa,
       },
     ],
     [
@@ -6290,10 +6328,11 @@ export var MetadataGenerationRunItem: StaticStructureSchema = [
   n0,
   _MGRI,
   0,
-  [_dIo, _id, _tar, _s, _ty, _cA, _cB, _oPI],
-  [0, 0, () => MetadataGenerationRunTarget, 0, 0, 4, 0, 0],
+  [_dIo, _id, _tar, _s, _ty, _typ, _cA, _cB, _oPI],
+  [0, 0, () => MetadataGenerationRunTarget, 0, 0, 64 | 0, 4, 0, 0],
 ];
 export var MetadataGenerationRunTarget: StaticStructureSchema = [3, n0, _MGRT, 0, [_ty, _i, _r], [0, 0, 0]];
+export var MetadataGenerationRunTypeStat: StaticStructureSchema = [3, n0, _MGRTS, 0, [_ty, _s, _eM], [0, 0, 0]];
 export var MlflowPropertiesInput: StaticStructureSchema = [3, n0, _MPI, 0, [_tSA], [0]];
 export var MlflowPropertiesOutput: StaticStructureSchema = [3, n0, _MPO, 0, [_tSA], [0]];
 export var MlflowPropertiesPatch: StaticStructureSchema = [3, n0, _MPP, 0, [_tSA], [0]];
@@ -6427,6 +6466,15 @@ export var ProjectSummary: StaticStructureSchema = [
   [_dIo, _id, _n, _de, _pS, _fR, _cB, _cA, _uA, _dUI],
   [0, 0, [() => ProjectName, 0], [() => Description, 0], 0, () => FailureReasons, 0, 5, 5, 0],
 ];
+export var PutDataExportConfigurationInput: StaticStructureSchema = [
+  3,
+  n0,
+  _PDECI,
+  0,
+  [_dI, _eE, _eCn, _cT],
+  [[0, 1], 2, () => EncryptionConfiguration, [0, 4]],
+];
+export var PutDataExportConfigurationOutput: StaticStructureSchema = [3, n0, _PDECO, 0, [], []];
 export var PutEnvironmentBlueprintConfigurationInput: StaticStructureSchema = [
   3,
   n0,
@@ -6864,16 +6912,16 @@ export var StartMetadataGenerationRunInput: StaticStructureSchema = [
   n0,
   _SMGRI,
   0,
-  [_dI, _ty, _tar, _cT, _oPIw],
-  [[0, 1], 0, () => MetadataGenerationRunTarget, [0, 4], 0],
+  [_dI, _ty, _typ, _tar, _cT, _oPIw],
+  [[0, 1], 0, 64 | 0, () => MetadataGenerationRunTarget, [0, 4], 0],
 ];
 export var StartMetadataGenerationRunOutput: StaticStructureSchema = [
   3,
   n0,
   _SMGRO,
   0,
-  [_dIo, _id, _s, _ty, _cA, _cB, _oPI],
-  [0, 0, 0, 0, 4, 0, 0],
+  [_dIo, _id, _s, _ty, _typ, _cA, _cB, _oPI],
+  [0, 0, 0, 0, 64 | 0, 4, 0, 0],
 ];
 export var SubscribedAsset: StaticStructureSchema = [
   3,
@@ -7017,7 +7065,7 @@ export var UnauthorizedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
 
-export var Unit: StaticStructureSchema = [3, n0, _U, 0, [], []];
+export var Unit_n0: StaticStructureSchema = [3, n0, _U, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -7731,6 +7779,9 @@ export var MetadataFormInputs: StaticListSchema = [1, n0, _MFI, 0, [() => FormIn
 export var MetadataForms: StaticListSchema = [1, n0, _MF, 0, [() => FormOutput, 0]];
 export var MetadataFormsSummary: StaticListSchema = [1, n0, _MFSe, 0, [() => MetadataFormSummary, 0]];
 export var MetadataGenerationRuns: StaticListSchema = [1, n0, _MGR, 0, () => MetadataGenerationRunItem];
+export var MetadataGenerationRunTypes = 64 | 0;
+
+export var MetadataGenerationRunTypeStats: StaticListSchema = [1, n0, _MGRTSe, 0, () => MetadataGenerationRunTypeStat];
 export var NameIdentifiers: StaticListSchema = [1, n0, _NIa, 0, () => NameIdentifier];
 export var NotificationsList: StaticListSchema = [1, n0, _NL, 0, [() => NotificationOutput, 0]];
 export var NotificationSubjects = 64 | 0;
@@ -7999,9 +8050,9 @@ export var PolicyGrantDetail: StaticStructureSchema = [
     () => CreateAssetTypePolicyGrantDetail,
     () => CreateProjectPolicyGrantDetail,
     () => CreateEnvironmentProfilePolicyGrantDetail,
-    () => Unit,
-    () => Unit,
-    () => Unit,
+    () => Unit_n0,
+    () => Unit_n0,
+    () => Unit_n0,
     () => CreateProjectFromProjectProfilePolicyGrantDetail,
     () => UseAssetTypePolicyGrantDetail,
   ],
@@ -8914,6 +8965,16 @@ export var GetConnection: StaticOperationSchema = [
   () => GetConnectionInput,
   () => GetConnectionOutput,
 ];
+export var GetDataExportConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _GDEC,
+  {
+    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-export-configuration", 200],
+  },
+  () => GetDataExportConfigurationInput,
+  () => GetDataExportConfigurationOutput,
+];
 export var GetDataProduct: StaticOperationSchema = [
   9,
   n0,
@@ -9583,6 +9644,16 @@ export var PostTimeSeriesDataPoints: StaticOperationSchema = [
   },
   () => PostTimeSeriesDataPointsInput,
   () => PostTimeSeriesDataPointsOutput,
+];
+export var PutDataExportConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _PDEC,
+  {
+    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/data-export-configuration", 200],
+  },
+  () => PutDataExportConfigurationInput,
+  () => PutDataExportConfigurationOutput,
 ];
 export var PutEnvironmentBlueprintConfiguration: StaticOperationSchema = [
   9,

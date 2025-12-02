@@ -39,6 +39,7 @@ export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenera
  * const input = { // GetMetadataGenerationRunInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
+ *   type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
  * };
  * const command = new GetMetadataGenerationRunCommand(input);
  * const response = await client.send(command);
@@ -50,11 +51,21 @@ export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenera
  * //     identifier: "STRING_VALUE", // required
  * //     revision: "STRING_VALUE",
  * //   },
- * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
- * //   type: "BUSINESS_DESCRIPTIONS",
+ * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ * //   type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //   types: [ // MetadataGenerationRunTypes
+ * //     "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",
  * //   owningProjectId: "STRING_VALUE", // required
+ * //   typeStats: [ // MetadataGenerationRunTypeStats
+ * //     { // MetadataGenerationRunTypeStat
+ * //       type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS", // required
+ * //       status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED" || "PARTIALLY_SUCCEEDED", // required
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

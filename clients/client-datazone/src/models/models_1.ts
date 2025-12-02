@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  ConfigurationStatus,
   ConnectionScope,
   ConnectionType,
   DataAssetActivityStatus,
@@ -71,11 +72,9 @@ import {
   AssetListingItem,
   AssetRevision,
   AssetTypeItem,
-  AwsLocation,
   ConfigurableEnvironmentAction,
   ConnectionCredentials,
   ConnectionPropertiesOutput,
-  ConnectionPropertiesPatch,
   ConnectionSummary,
   CustomParameter,
   DataSourceConfigurationInput,
@@ -88,7 +87,6 @@ import {
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
-  EnvironmentParameter,
   FormEntryOutput,
   FormInput,
   FormOutput,
@@ -3568,6 +3566,76 @@ export interface GetConnectionOutput {
    * @public
    */
   scope?: ConnectionScope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataExportConfigurationInput {
+  /**
+   * <p>The ID of the domain where you want to get the data export configuration details.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+}
+
+/**
+ * <p>The encryption configuration details.</p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key to use for encryption. This field is required only when <code>sseAlgorithm</code> is set to <code>aws:kms</code>.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The server-side encryption algorithm to use. Valid values are AES256 for S3-managed encryption keys, or aws:kms for Amazon Web Services KMS-managed encryption keys. If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p>
+   * @public
+   */
+  sseAlgorithm?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataExportConfigurationOutput {
+  /**
+   * <p>Specifies whether the export is enabled.</p>
+   * @public
+   */
+  isExportEnabled?: boolean | undefined;
+
+  /**
+   * <p>The status of the data export configuration.</p>
+   * @public
+   */
+  status?: ConfigurationStatus | undefined;
+
+  /**
+   * <p>The encryption configuration as part of the data export configuration details.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The Amazon S3 table bucket ARN as part of the data export configuration details.</p>
+   * @public
+   */
+  s3TableBucketArn?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data export configuration report was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the data export configuration report was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -8851,6 +8919,12 @@ export interface GetMetadataGenerationRunInput {
    * @public
    */
   identifier: string | undefined;
+
+  /**
+   * <p>The type of the metadata generation run.</p>
+   * @public
+   */
+  type?: MetadataGenerationRunType | undefined;
 }
 
 /**
@@ -8875,6 +8949,30 @@ export interface MetadataGenerationRunTarget {
    * @public
    */
   revision?: string | undefined;
+}
+
+/**
+ * <p>The statistics of the metadata generation run type.</p>
+ * @public
+ */
+export interface MetadataGenerationRunTypeStat {
+  /**
+   * <p>The type of the metadata generation run type statistics.</p>
+   * @public
+   */
+  type: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The status of the metadata generation run type statistics.</p>
+   * @public
+   */
+  status: MetadataGenerationRunStatus | undefined;
+
+  /**
+   * <p>The error message displayed if the action fails to run.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -8907,9 +9005,17 @@ export interface GetMetadataGenerationRunOutput {
 
   /**
    * <p>The type of metadata generation run.</p>
+   *
+   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
    * @public
    */
   type?: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The types of the metadata generation run.</p>
+   * @public
+   */
+  types?: MetadataGenerationRunType[] | undefined;
 
   /**
    * <p>The timestamp of when the metadata generation run was start.</p>
@@ -8928,6 +9034,12 @@ export interface GetMetadataGenerationRunOutput {
    * @public
    */
   owningProjectId: string | undefined;
+
+  /**
+   * <p>The type stats included in the metadata generation run output details.</p>
+   * @public
+   */
+  typeStats?: MetadataGenerationRunTypeStat[] | undefined;
 }
 
 /**
@@ -8963,6 +9075,12 @@ export interface ListMetadataGenerationRunsInput {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The target ID for which you want to list metadata generation runs.</p>
+   * @public
+   */
+  targetIdentifier?: string | undefined;
 }
 
 /**
@@ -8996,9 +9114,17 @@ export interface MetadataGenerationRunItem {
 
   /**
    * <p>The type of the metadata generation run.</p>
+   *
+   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
    * @public
    */
   type?: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The types of the metadata generation run.</p>
+   * @public
+   */
+  types?: MetadataGenerationRunType[] | undefined;
 
   /**
    * <p>The timestamp at which the metadata generation run was created.</p>
@@ -9048,9 +9174,17 @@ export interface StartMetadataGenerationRunInput {
 
   /**
    * <p>The type of the metadata generation run.</p>
+   *
+   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
    * @public
    */
-  type: MetadataGenerationRunType | undefined;
+  type?: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The types of the metadata generation run.</p>
+   * @public
+   */
+  types?: MetadataGenerationRunType[] | undefined;
 
   /**
    * <p>The asset for which you want to start a metadata generation run.</p>
@@ -9095,9 +9229,17 @@ export interface StartMetadataGenerationRunOutput {
 
   /**
    * <p>The type of the metadata generation run.</p>
+   *
+   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
    * @public
    */
   type?: MetadataGenerationRunType | undefined;
+
+  /**
+   * <p>The types of the metadata generation run.</p>
+   * @public
+   */
+  types?: MetadataGenerationRunType[] | undefined;
 
   /**
    * <p>The timestamp at which the metadata generation run was started.</p>
@@ -9257,6 +9399,40 @@ export interface PostTimeSeriesDataPointsOutput {
    */
   forms?: TimeSeriesDataPointFormOutput[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PutDataExportConfigurationInput {
+  /**
+   * <p>The domain ID where you want to create data export configuration details.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies that the export is to be enabled as part of creating data export configuration details.</p>
+   * @public
+   */
+  enableExport: boolean | undefined;
+
+  /**
+   * <p>The encryption configuration as part of creating data export configuration details.</p> <p>The KMS key provided here as part of encryptionConfiguration must have the required permissions as described in <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.html">KMS permissions for exporting asset metadata in Amazon SageMaker Unified Studio</a>.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataExportConfigurationOutput {}
 
 /**
  * <p>The details of the automatically generated business metadata that is rejected.</p>
@@ -10949,405 +11125,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateAccountPoolInput {
-  /**
-   * <p>The domain ID where the account pool that is to be updated lives.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the account pool that is to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name of the account pool that is to be updated.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description of the account pool that is to be udpated.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The mechanism used to resolve the account selection from the account pool.</p>
-   * @public
-   */
-  resolutionStrategy?: ResolutionStrategy | undefined;
-
-  /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
-   * @public
-   */
-  accountSource?: AccountSource | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAccountPoolOutput {
-  /**
-   * <p>The domain ID where the account pool that is to be updated lives.</p>
-   * @public
-   */
-  domainId?: string | undefined;
-
-  /**
-   * <p>The name of the account pool that is to be updated.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The ID of the account pool that is to be updated.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The description of the account pool that is to be udpated.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The mechanism used to resolve the account selection from the account pool.</p>
-   * @public
-   */
-  resolutionStrategy?: ResolutionStrategy | undefined;
-
-  /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
-   * @public
-   */
-  accountSource: AccountSource | undefined;
-
-  /**
-   * <p>The user who created the account pool.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp at which the account pool was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the account pool was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The user who last updated the account pool.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The domain ID in which the account pool that is to be updated lives.</p>
-   * @public
-   */
-  domainUnitId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateConnectionInput {
-  /**
-   * <p>The ID of the domain where a connection is to be updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the connection to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The description of a connection.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The location where a connection is to be updated.</p>
-   * @public
-   */
-  awsLocation?: AwsLocation | undefined;
-
-  /**
-   * <p>The connection props.</p>
-   * @public
-   */
-  props?: ConnectionPropertiesPatch | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateConnectionOutput {
-  /**
-   * <p>The ID of the connection.</p>
-   * @public
-   */
-  connectionId: string | undefined;
-
-  /**
-   * <p>The connection description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The ID of the domain where a connection is to be updated.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the domain unit where a connection is to be updated.</p>
-   * @public
-   */
-  domainUnitId: string | undefined;
-
-  /**
-   * <p>The ID of the environment where a connection is to be updated.</p>
-   * @public
-   */
-  environmentId?: string | undefined;
-
-  /**
-   * <p>The name of the connection.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The physical endpoints of the connection.</p>
-   * @public
-   */
-  physicalEndpoints: PhysicalEndpoint[] | undefined;
-
-  /**
-   * <p>The project ID of the connection.</p>
-   * @public
-   */
-  projectId?: string | undefined;
-
-  /**
-   * <p>The connection props.</p>
-   * @public
-   */
-  props?: ConnectionPropertiesOutput | undefined;
-
-  /**
-   * <p>The connection type.</p>
-   * @public
-   */
-  type: ConnectionType | undefined;
-
-  /**
-   * <p>The scope of the connection.</p>
-   * @public
-   */
-  scope?: ConnectionScope | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentInput {
-  /**
-   * <p>The identifier of the domain in which the environment is to be updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the environment that is to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  glossaryTerms?: string[] | undefined;
-
-  /**
-   * <p>The blueprint version to which the environment should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
-   * @public
-   */
-  blueprintVersion?: string | undefined;
-
-  /**
-   * <p>The user parameters of the environment.</p>
-   * @public
-   */
-  userParameters?: EnvironmentParameter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentOutput {
-  /**
-   * <p>The project identifier of the environment.</p>
-   * @public
-   */
-  projectId: string | undefined;
-
-  /**
-   * <p>The identifier of the environment that is to be updated.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The identifier of the domain in which the environment is to be updated.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the environment.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp of when the environment was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the environment was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The profile identifier of the environment.</p>
-   * @public
-   */
-  environmentProfileId?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Web Services account in which the environment is to be updated.</p>
-   * @public
-   */
-  awsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region in which the environment is updated.</p>
-   * @public
-   */
-  awsAccountRegion?: string | undefined;
-
-  /**
-   * <p>The provider identifier of the environment.</p>
-   * @public
-   */
-  provider: string | undefined;
-
-  /**
-   * <p>The provisioned resources to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  provisionedResources?: Resource[] | undefined;
-
-  /**
-   * <p>The status to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  status?: EnvironmentStatus | undefined;
-
-  /**
-   * <p>The environment actions to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  environmentActions?: ConfigurableEnvironmentAction[] | undefined;
-
-  /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  glossaryTerms?: string[] | undefined;
-
-  /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  userParameters?: CustomParameter[] | undefined;
-
-  /**
-   * <p>The last deployment of the environment.</p>
-   * @public
-   */
-  lastDeployment?: Deployment | undefined;
-
-  /**
-   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  provisioningProperties?: ProvisioningProperties | undefined;
-
-  /**
-   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
-   * @public
-   */
-  deploymentProperties?: DeploymentProperties | undefined;
-
-  /**
-   * <p>The blueprint identifier of the environment.</p>
-   * @public
-   */
-  environmentBlueprintId?: string | undefined;
-
-  /**
-   * <p>The configuration ID of the environment.</p>
-   * @public
-   */
-  environmentConfigurationId?: string | undefined;
-}

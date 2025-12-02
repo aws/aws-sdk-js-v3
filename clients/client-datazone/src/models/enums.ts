@@ -294,6 +294,19 @@ export type ConfigurableActionTypeAuthorization =
  * @public
  * @enum
  */
+export const ConfigurationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const GlueConnectionType = {
   BIGQUERY: "BIGQUERY",
   DOCUMENTDB: "DOCUMENTDB",
@@ -1270,10 +1283,25 @@ export type SortKey = (typeof SortKey)[keyof typeof SortKey];
  * @public
  * @enum
  */
+export const MetadataGenerationRunType = {
+  BUSINESS_DESCRIPTIONS: "BUSINESS_DESCRIPTIONS",
+  BUSINESS_GLOSSARY_ASSOCIATIONS: "BUSINESS_GLOSSARY_ASSOCIATIONS",
+  BUSINESS_NAMES: "BUSINESS_NAMES",
+} as const;
+/**
+ * @public
+ */
+export type MetadataGenerationRunType = (typeof MetadataGenerationRunType)[keyof typeof MetadataGenerationRunType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MetadataGenerationRunStatus = {
   CANCELED: "CANCELED",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
+  PARTIALLY_SUCCEEDED: "PARTIALLY_SUCCEEDED",
   SUBMITTED: "SUBMITTED",
   SUCCEEDED: "SUCCEEDED",
 } as const;
@@ -1295,18 +1323,6 @@ export const MetadataGenerationTargetType = {
  */
 export type MetadataGenerationTargetType =
   (typeof MetadataGenerationTargetType)[keyof typeof MetadataGenerationTargetType];
-
-/**
- * @public
- * @enum
- */
-export const MetadataGenerationRunType = {
-  BUSINESS_DESCRIPTIONS: "BUSINESS_DESCRIPTIONS",
-} as const;
-/**
- * @public
- */
-export type MetadataGenerationRunType = (typeof MetadataGenerationRunType)[keyof typeof MetadataGenerationRunType];
 
 /**
  * @public
