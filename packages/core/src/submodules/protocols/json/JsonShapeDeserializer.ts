@@ -42,49 +42,51 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
     return this._read(schema, data);
   }
 
-  private _read(schema: Schema, value: unknown): any {
+  protected _read(schema: Schema, value: unknown): any {
     const isObject = value !== null && typeof value === "object";
 
     const ns = NormalizedSchema.of(schema);
 
-    // === aggregate types ===
-    if (ns.isListSchema() && Array.isArray(value)) {
-      const listMember = ns.getValueSchema();
-      const out = [] as any[];
-      const sparse = !!ns.getMergedTraits().sparse;
-      for (const item of value) {
-        if (sparse || item != null) {
-          out.push(this._read(listMember, item));
+    if (isObject) {
+      if (ns.isStructSchema()) {
+        const out = {} as any;
+        for (const [memberName, memberSchema] of deserializingStructIterator(
+          ns,
+          value,
+          this.settings.jsonName ? "jsonName" : false
+        )) {
+          const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+          const deserializedValue = this._read(memberSchema, (value as any)[fromKey]);
+          if (deserializedValue != null) {
+            out[memberName] = deserializedValue;
+          }
         }
+        return out;
       }
-      return out;
-    } else if (ns.isMapSchema() && isObject) {
-      const mapMember = ns.getValueSchema();
-      const out = {} as any;
-      const sparse = !!ns.getMergedTraits().sparse;
-      for (const [_k, _v] of Object.entries(value)) {
-        if (sparse || _v != null) {
-          out[_k] = this._read(mapMember, _v);
+      if (Array.isArray(value) && ns.isListSchema()) {
+        const listMember = ns.getValueSchema();
+        const out = [] as any[];
+        const sparse = !!ns.getMergedTraits().sparse;
+        for (const item of value) {
+          if (sparse || item != null) {
+            out.push(this._read(listMember, item));
+          }
         }
+        return out;
       }
-      return out;
-    } else if (ns.isStructSchema() && isObject) {
-      const out = {} as any;
-      for (const [memberName, memberSchema] of deserializingStructIterator(
-        ns,
-        value,
-        this.settings.jsonName ? "jsonName" : false
-      )) {
-        const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
-        const deserializedValue = this._read(memberSchema, (value as any)[fromKey]);
-        if (deserializedValue != null) {
-          out[memberName] = deserializedValue;
+      if (ns.isMapSchema()) {
+        const mapMember = ns.getValueSchema();
+        const out = {} as any;
+        const sparse = !!ns.getMergedTraits().sparse;
+        for (const [_k, _v] of Object.entries(value)) {
+          if (sparse || _v != null) {
+            out[_k] = this._read(mapMember, _v);
+          }
         }
+        return out;
       }
-      return out;
     }
 
-    // === simple types ===
     if (ns.isBlobSchema() && typeof value === "string") {
       return fromBase64(value);
     }
@@ -95,6 +97,7 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       if (isJson) {
         return LazyJsonString.from(value);
       }
+      return value;
     }
 
     if (ns.isTimestampSchema() && value != null) {
@@ -136,6 +139,7 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
         case "NaN":
           return NaN;
       }
+      return value;
     }
 
     if (ns.isDocumentSchema()) {
@@ -154,7 +158,7 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       }
     }
 
-    // covers string, numeric, boolean, document, bigDecimal
+    // covers boolean, bigint (long/BigInt), bigDecimal
     return value;
   }
 }

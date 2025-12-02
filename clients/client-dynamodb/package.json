@@ -24,6 +24,7 @@
     "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/core": "*",
     "@aws-sdk/credential-provider-node": "*",
+    "@aws-sdk/dynamodb-codec": "*",
     "@aws-sdk/middleware-endpoint-discovery": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",

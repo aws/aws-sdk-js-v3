@@ -32,22 +32,26 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     defaultNamespace,
     serviceTarget,
     awsQueryCompatible,
+    jsonCodec,
   }: {
     defaultNamespace: string;
     serviceTarget: string;
     awsQueryCompatible?: boolean;
+    jsonCodec?: JsonCodec;
   }) {
     super({
       defaultNamespace,
     });
     this.serviceTarget = serviceTarget;
-    this.codec = new JsonCodec({
-      timestampFormat: {
-        useTrait: true,
-        default: 7 as const satisfies TimestampEpochSecondsSchema,
-      },
-      jsonName: false,
-    });
+    this.codec =
+      jsonCodec ??
+      new JsonCodec({
+        timestampFormat: {
+          useTrait: true,
+          default: 7 as const satisfies TimestampEpochSecondsSchema,
+        },
+        jsonName: false,
+      });
     this.serializer = this.codec.createSerializer();
     this.deserializer = this.codec.createDeserializer();
     this.awsQueryCompatible = !!awsQueryCompatible;

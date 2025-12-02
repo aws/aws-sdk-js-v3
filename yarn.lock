@@ -8318,6 +8318,7 @@ __metadata:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
+    "@aws-sdk/dynamodb-codec": "npm:*"
     "@aws-sdk/middleware-endpoint-discovery": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
     "@aws-sdk/middleware-logger": "npm:*"
@@ -23594,6 +23595,26 @@ __metadata:
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@aws-sdk/dynamodb-codec@npm:*, @aws-sdk/dynamodb-codec@workspace:packages/dynamodb-codec":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/dynamodb-codec@workspace:packages/dynamodb-codec"
+  dependencies:
+    "@aws-sdk/core": "npm:*"
+    "@smithy/core": "npm:^3.18.5"
+    "@smithy/smithy-client": "npm:^4.9.8"
+    "@smithy/types": "npm:^4.9.0"
+    "@smithy/util-base64": "npm:^4.3.0"
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  peerDependencies:
+    "@aws-sdk/client-dynamodb": "*"
   languageName: unknown
   linkType: soft
 
