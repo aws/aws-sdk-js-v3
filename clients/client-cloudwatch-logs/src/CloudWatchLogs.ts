@@ -9,6 +9,11 @@ import {
   AssociateKmsKeyCommandOutput,
 } from "./commands/AssociateKmsKeyCommand";
 import {
+  AssociateSourceToS3TableIntegrationCommand,
+  AssociateSourceToS3TableIntegrationCommandInput,
+  AssociateSourceToS3TableIntegrationCommandOutput,
+} from "./commands/AssociateSourceToS3TableIntegrationCommand";
+import {
   CancelExportTaskCommand,
   CancelExportTaskCommandInput,
   CancelExportTaskCommandOutput,
@@ -224,6 +229,11 @@ import {
   DisassociateKmsKeyCommandOutput,
 } from "./commands/DisassociateKmsKeyCommand";
 import {
+  DisassociateSourceFromS3TableIntegrationCommand,
+  DisassociateSourceFromS3TableIntegrationCommandInput,
+  DisassociateSourceFromS3TableIntegrationCommandOutput,
+} from "./commands/DisassociateSourceFromS3TableIntegrationCommand";
+import {
   FilterLogEventsCommand,
   FilterLogEventsCommandInput,
   FilterLogEventsCommandOutput,
@@ -265,6 +275,11 @@ import {
   GetLogEventsCommandOutput,
 } from "./commands/GetLogEventsCommand";
 import {
+  GetLogFieldsCommand,
+  GetLogFieldsCommandInput,
+  GetLogFieldsCommandOutput,
+} from "./commands/GetLogFieldsCommand";
+import {
   GetLogGroupFieldsCommand,
   GetLogGroupFieldsCommandInput,
   GetLogGroupFieldsCommandOutput,
@@ -300,6 +315,11 @@ import {
   GetTransformerCommandOutput,
 } from "./commands/GetTransformerCommand";
 import {
+  ListAggregateLogGroupSummariesCommand,
+  ListAggregateLogGroupSummariesCommandInput,
+  ListAggregateLogGroupSummariesCommandOutput,
+} from "./commands/ListAggregateLogGroupSummariesCommand";
+import {
   ListAnomaliesCommand,
   ListAnomaliesCommandInput,
   ListAnomaliesCommandOutput,
@@ -329,6 +349,11 @@ import {
   ListScheduledQueriesCommandInput,
   ListScheduledQueriesCommandOutput,
 } from "./commands/ListScheduledQueriesCommand";
+import {
+  ListSourcesForS3TableIntegrationCommand,
+  ListSourcesForS3TableIntegrationCommandInput,
+  ListSourcesForS3TableIntegrationCommandOutput,
+} from "./commands/ListSourcesForS3TableIntegrationCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -476,6 +501,7 @@ import {
 
 const commands = {
   AssociateKmsKeyCommand,
+  AssociateSourceToS3TableIntegrationCommand,
   CancelExportTaskCommand,
   CreateDeliveryCommand,
   CreateExportTaskCommand,
@@ -519,6 +545,7 @@ const commands = {
   DescribeResourcePoliciesCommand,
   DescribeSubscriptionFiltersCommand,
   DisassociateKmsKeyCommand,
+  DisassociateSourceFromS3TableIntegrationCommand,
   FilterLogEventsCommand,
   GetDataProtectionPolicyCommand,
   GetDeliveryCommand,
@@ -528,6 +555,7 @@ const commands = {
   GetIntegrationCommand,
   GetLogAnomalyDetectorCommand,
   GetLogEventsCommand,
+  GetLogFieldsCommand,
   GetLogGroupFieldsCommand,
   GetLogObjectCommand,
   GetLogRecordCommand,
@@ -535,12 +563,14 @@ const commands = {
   GetScheduledQueryCommand,
   GetScheduledQueryHistoryCommand,
   GetTransformerCommand,
+  ListAggregateLogGroupSummariesCommand,
   ListAnomaliesCommand,
   ListIntegrationsCommand,
   ListLogAnomalyDetectorsCommand,
   ListLogGroupsCommand,
   ListLogGroupsForQueryCommand,
   ListScheduledQueriesCommand,
+  ListSourcesForS3TableIntegrationCommand,
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
   PutAccountPolicyCommand,
@@ -588,6 +618,23 @@ export interface CloudWatchLogs {
     args: AssociateKmsKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateKmsKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSourceToS3TableIntegrationCommand}
+   */
+  associateSourceToS3TableIntegration(
+    args: AssociateSourceToS3TableIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSourceToS3TableIntegrationCommandOutput>;
+  associateSourceToS3TableIntegration(
+    args: AssociateSourceToS3TableIntegrationCommandInput,
+    cb: (err: any, data?: AssociateSourceToS3TableIntegrationCommandOutput) => void
+  ): void;
+  associateSourceToS3TableIntegration(
+    args: AssociateSourceToS3TableIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSourceToS3TableIntegrationCommandOutput) => void
   ): void;
 
   /**
@@ -1315,6 +1362,23 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link DisassociateSourceFromS3TableIntegrationCommand}
+   */
+  disassociateSourceFromS3TableIntegration(
+    args: DisassociateSourceFromS3TableIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSourceFromS3TableIntegrationCommandOutput>;
+  disassociateSourceFromS3TableIntegration(
+    args: DisassociateSourceFromS3TableIntegrationCommandInput,
+    cb: (err: any, data?: DisassociateSourceFromS3TableIntegrationCommandOutput) => void
+  ): void;
+  disassociateSourceFromS3TableIntegration(
+    args: DisassociateSourceFromS3TableIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSourceFromS3TableIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link FilterLogEventsCommand}
    */
   filterLogEvents(): Promise<FilterLogEventsCommandOutput>;
@@ -1451,6 +1515,17 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetLogFieldsCommand}
+   */
+  getLogFields(args: GetLogFieldsCommandInput, options?: __HttpHandlerOptions): Promise<GetLogFieldsCommandOutput>;
+  getLogFields(args: GetLogFieldsCommandInput, cb: (err: any, data?: GetLogFieldsCommandOutput) => void): void;
+  getLogFields(
+    args: GetLogFieldsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLogFieldsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLogGroupFieldsCommand}
    */
   getLogGroupFields(): Promise<GetLogGroupFieldsCommandOutput>;
@@ -1553,6 +1628,23 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link ListAggregateLogGroupSummariesCommand}
+   */
+  listAggregateLogGroupSummaries(
+    args: ListAggregateLogGroupSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAggregateLogGroupSummariesCommandOutput>;
+  listAggregateLogGroupSummaries(
+    args: ListAggregateLogGroupSummariesCommandInput,
+    cb: (err: any, data?: ListAggregateLogGroupSummariesCommandOutput) => void
+  ): void;
+  listAggregateLogGroupSummaries(
+    args: ListAggregateLogGroupSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAggregateLogGroupSummariesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAnomaliesCommand}
    */
   listAnomalies(): Promise<ListAnomaliesCommandOutput>;
@@ -1645,6 +1737,23 @@ export interface CloudWatchLogs {
     args: ListScheduledQueriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListScheduledQueriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSourcesForS3TableIntegrationCommand}
+   */
+  listSourcesForS3TableIntegration(
+    args: ListSourcesForS3TableIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSourcesForS3TableIntegrationCommandOutput>;
+  listSourcesForS3TableIntegration(
+    args: ListSourcesForS3TableIntegrationCommandInput,
+    cb: (err: any, data?: ListSourcesForS3TableIntegrationCommandOutput) => void
+  ): void;
+  listSourcesForS3TableIntegration(
+    args: ListSourcesForS3TableIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSourcesForS3TableIntegrationCommandOutput) => void
   ): void;
 
   /**

@@ -30,6 +30,10 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
  *       been run recently in this account. You can request all queries or limit it to queries of a
  *       specific log group or queries with a certain status.</p>
+ *          <p>This operation includes both interactive queries started directly by users and automated
+ *       queries executed by scheduled query configurations. Scheduled query executions appear in the
+ *       results alongside manually initiated queries, providing visibility into all query activity
+ *       in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

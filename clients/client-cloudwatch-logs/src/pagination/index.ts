@@ -25,3 +25,4 @@ export * from "./ListAnomaliesPaginator";
 export * from "./ListLogAnomalyDetectorsPaginator";
 export * from "./ListLogGroupsForQueryPaginator";
 export * from "./ListScheduledQueriesPaginator";
+export * from "./ListSourcesForS3TableIntegrationPaginator";

@@ -27,7 +27,7 @@ export interface UpdateScheduledQueryCommandInput extends UpdateScheduledQueryRe
 export interface UpdateScheduledQueryCommandOutput extends UpdateScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an existing scheduled query. This operation follows PUT semantics, replacing the existing configuration with the provided values.</p>
+ * <p>Updates an existing scheduled query with new configuration. This operation uses PUT semantics, allowing modification of query parameters, schedule, and destinations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,7 +100,9 @@ export interface UpdateScheduledQueryCommandOutput extends UpdateScheduledQueryR
  *  <p>You don't have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
+ *  <p>An internal server error occurred while processing the request. This exception is returned
+ *       when the service encounters an unexpected condition that prevents it from fulfilling the
+ *       request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

@@ -64,6 +64,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "./commands/AssociateKmsKeyCommand";
+import {
+  AssociateSourceToS3TableIntegrationCommandInput,
+  AssociateSourceToS3TableIntegrationCommandOutput,
+} from "./commands/AssociateSourceToS3TableIntegrationCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
 import { CreateDeliveryCommandInput, CreateDeliveryCommandOutput } from "./commands/CreateDeliveryCommand";
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./commands/CreateExportTaskCommand";
@@ -182,6 +186,10 @@ import {
   DescribeSubscriptionFiltersCommandOutput,
 } from "./commands/DescribeSubscriptionFiltersCommand";
 import { DisassociateKmsKeyCommandInput, DisassociateKmsKeyCommandOutput } from "./commands/DisassociateKmsKeyCommand";
+import {
+  DisassociateSourceFromS3TableIntegrationCommandInput,
+  DisassociateSourceFromS3TableIntegrationCommandOutput,
+} from "./commands/DisassociateSourceFromS3TableIntegrationCommand";
 import { FilterLogEventsCommandInput, FilterLogEventsCommandOutput } from "./commands/FilterLogEventsCommand";
 import {
   GetDataProtectionPolicyCommandInput,
@@ -203,6 +211,7 @@ import {
   GetLogAnomalyDetectorCommandOutput,
 } from "./commands/GetLogAnomalyDetectorCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/GetLogEventsCommand";
+import { GetLogFieldsCommandInput, GetLogFieldsCommandOutput } from "./commands/GetLogFieldsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
 import { GetLogObjectCommandInput, GetLogObjectCommandOutput } from "./commands/GetLogObjectCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
@@ -213,6 +222,10 @@ import {
   GetScheduledQueryHistoryCommandOutput,
 } from "./commands/GetScheduledQueryHistoryCommand";
 import { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
+import {
+  ListAggregateLogGroupSummariesCommandInput,
+  ListAggregateLogGroupSummariesCommandOutput,
+} from "./commands/ListAggregateLogGroupSummariesCommand";
 import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "./commands/ListAnomaliesCommand";
 import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
 import {
@@ -228,6 +241,10 @@ import {
   ListScheduledQueriesCommandInput,
   ListScheduledQueriesCommandOutput,
 } from "./commands/ListScheduledQueriesCommand";
+import {
+  ListSourcesForS3TableIntegrationCommandInput,
+  ListSourcesForS3TableIntegrationCommandOutput,
+} from "./commands/ListSourcesForS3TableIntegrationCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -306,6 +323,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateKmsKeyCommandInput
+  | AssociateSourceToS3TableIntegrationCommandInput
   | CancelExportTaskCommandInput
   | CreateDeliveryCommandInput
   | CreateExportTaskCommandInput
@@ -349,6 +367,7 @@ export type ServiceInputTypes =
   | DescribeResourcePoliciesCommandInput
   | DescribeSubscriptionFiltersCommandInput
   | DisassociateKmsKeyCommandInput
+  | DisassociateSourceFromS3TableIntegrationCommandInput
   | FilterLogEventsCommandInput
   | GetDataProtectionPolicyCommandInput
   | GetDeliveryCommandInput
@@ -358,6 +377,7 @@ export type ServiceInputTypes =
   | GetIntegrationCommandInput
   | GetLogAnomalyDetectorCommandInput
   | GetLogEventsCommandInput
+  | GetLogFieldsCommandInput
   | GetLogGroupFieldsCommandInput
   | GetLogObjectCommandInput
   | GetLogRecordCommandInput
@@ -365,12 +385,14 @@ export type ServiceInputTypes =
   | GetScheduledQueryCommandInput
   | GetScheduledQueryHistoryCommandInput
   | GetTransformerCommandInput
+  | ListAggregateLogGroupSummariesCommandInput
   | ListAnomaliesCommandInput
   | ListIntegrationsCommandInput
   | ListLogAnomalyDetectorsCommandInput
   | ListLogGroupsCommandInput
   | ListLogGroupsForQueryCommandInput
   | ListScheduledQueriesCommandInput
+  | ListSourcesForS3TableIntegrationCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
@@ -409,6 +431,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateKmsKeyCommandOutput
+  | AssociateSourceToS3TableIntegrationCommandOutput
   | CancelExportTaskCommandOutput
   | CreateDeliveryCommandOutput
   | CreateExportTaskCommandOutput
@@ -452,6 +475,7 @@ export type ServiceOutputTypes =
   | DescribeResourcePoliciesCommandOutput
   | DescribeSubscriptionFiltersCommandOutput
   | DisassociateKmsKeyCommandOutput
+  | DisassociateSourceFromS3TableIntegrationCommandOutput
   | FilterLogEventsCommandOutput
   | GetDataProtectionPolicyCommandOutput
   | GetDeliveryCommandOutput
@@ -461,6 +485,7 @@ export type ServiceOutputTypes =
   | GetIntegrationCommandOutput
   | GetLogAnomalyDetectorCommandOutput
   | GetLogEventsCommandOutput
+  | GetLogFieldsCommandOutput
   | GetLogGroupFieldsCommandOutput
   | GetLogObjectCommandOutput
   | GetLogRecordCommandOutput
@@ -468,12 +493,14 @@ export type ServiceOutputTypes =
   | GetScheduledQueryCommandOutput
   | GetScheduledQueryHistoryCommandOutput
   | GetTransformerCommandOutput
+  | ListAggregateLogGroupSummariesCommandOutput
   | ListAnomaliesCommandOutput
   | ListIntegrationsCommandOutput
   | ListLogAnomalyDetectorsCommandOutput
   | ListLogGroupsCommandOutput
   | ListLogGroupsForQueryCommandOutput
   | ListScheduledQueriesCommandOutput
+  | ListSourcesForS3TableIntegrationCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput

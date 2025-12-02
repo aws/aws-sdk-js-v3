@@ -30,6 +30,8 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * <p>Returns a list of the fields that are included in log events in the specified log group.
  *       Includes the percentage of log events that contain each field. The search is limited to a time
  *       period that you specify.</p>
+ *          <p>This operation is used for discovering fields within log group events. For discovering
+ *       fields across data sources, use the GetLogFields operation.</p>
  *          <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or
  *         <code>logGroupName</code>. You must specify one of these parameters, but you can't specify
  *       both. </p>

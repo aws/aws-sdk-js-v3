@@ -53,6 +53,7 @@ export interface DescribeFieldIndexesCommandOutput extends DescribeFieldIndexesR
  * //       lastScanTime: Number("long"),
  * //       firstEventTime: Number("long"),
  * //       lastEventTime: Number("long"),
+ * //       type: "FACET" || "FIELD_INDEX",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

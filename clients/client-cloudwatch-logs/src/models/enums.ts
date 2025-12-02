@@ -198,6 +198,19 @@ export type ExportTaskStatusCode = (typeof ExportTaskStatusCode)[keyof typeof Ex
  * @public
  * @enum
  */
+export const IndexType = {
+  FACET: "FACET",
+  FIELD_INDEX: "FIELD_INDEX",
+} as const;
+/**
+ * @public
+ */
+export type IndexType = (typeof IndexType)[keyof typeof IndexType];
+
+/**
+ * @public
+ * @enum
+ */
 export const IndexSource = {
   ACCOUNT: "ACCOUNT",
   LOG_GROUP: "LOG_GROUP",
@@ -463,6 +476,20 @@ export type Type = (typeof Type)[keyof typeof Type];
  * @public
  * @enum
  */
+export const ListAggregateLogGroupSummariesGroupBy = {
+  DATA_SOURCE_NAME_AND_TYPE: "DATA_SOURCE_NAME_AND_TYPE",
+  DATA_SOURCE_NAME_TYPE_AND_FORMAT: "DATA_SOURCE_NAME_TYPE_AND_FORMAT",
+} as const;
+/**
+ * @public
+ */
+export type ListAggregateLogGroupSummariesGroupBy =
+  (typeof ListAggregateLogGroupSummariesGroupBy)[keyof typeof ListAggregateLogGroupSummariesGroupBy];
+
+/**
+ * @public
+ * @enum
+ */
 export const SuppressionState = {
   SUPPRESSED: "SUPPRESSED",
   UNSUPPRESSED: "UNSUPPRESSED",
@@ -471,6 +498,22 @@ export const SuppressionState = {
  * @public
  */
 export type SuppressionState = (typeof SuppressionState)[keyof typeof SuppressionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3TableIntegrationSourceStatus = {
+  ACTIVE: "ACTIVE",
+  DATA_SOURCE_DELETE_IN_PROGRESS: "DATA_SOURCE_DELETE_IN_PROGRESS",
+  FAILED: "FAILED",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+/**
+ * @public
+ */
+export type S3TableIntegrationSourceStatus =
+  (typeof S3TableIntegrationSourceStatus)[keyof typeof S3TableIntegrationSourceStatus];
 
 /**
  * @public

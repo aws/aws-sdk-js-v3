@@ -27,7 +27,7 @@ export interface GetScheduledQueryHistoryCommandInput extends GetScheduledQueryH
 export interface GetScheduledQueryHistoryCommandOutput extends GetScheduledQueryHistoryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the execution history of a scheduled query within a specified time range, including execution status and destination processing metadata.</p>
+ * <p>Retrieves the execution history of a scheduled query within a specified time range, including query results and destination processing status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +83,9 @@ export interface GetScheduledQueryHistoryCommandOutput extends GetScheduledQuery
  *  <p>You don't have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
+ *  <p>An internal server error occurred while processing the request. This exception is returned
+ *       when the service encounters an unexpected condition that prevents it from fulfilling the
+ *       request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

@@ -247,6 +247,14 @@ AssociateKmsKey
 </details>
 <details>
 <summary>
+AssociateSourceToS3TableIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/AssociateSourceToS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/AssociateSourceToS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/AssociateSourceToS3TableIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelExportTask
 </summary>
 
@@ -591,6 +599,14 @@ DisassociateKmsKey
 </details>
 <details>
 <summary>
+DisassociateSourceFromS3TableIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/DisassociateSourceFromS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DisassociateSourceFromS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/DisassociateSourceFromS3TableIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 FilterLogEvents
 </summary>
 
@@ -663,6 +679,14 @@ GetLogEvents
 </details>
 <details>
 <summary>
+GetLogFields
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetLogFieldsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogFieldsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetLogFieldsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetLogGroupFields
 </summary>
 
@@ -719,6 +743,14 @@ GetTransformer
 </details>
 <details>
 <summary>
+ListAggregateLogGroupSummaries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListAggregateLogGroupSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAggregateLogGroupSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListAggregateLogGroupSummariesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAnomalies
 </summary>
 
@@ -763,6 +795,14 @@ ListScheduledQueries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListScheduledQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListScheduledQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListScheduledQueriesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSourcesForS3TableIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/ListSourcesForS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListSourcesForS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/ListSourcesForS3TableIntegrationCommandOutput/)
 
 </details>
 <details>

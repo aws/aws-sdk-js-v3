@@ -27,7 +27,7 @@ export interface ListScheduledQueriesCommandInput extends ListScheduledQueriesRe
 export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all scheduled queries in the current AWS account and region with optional filtering by state.</p>
+ * <p>Lists all scheduled queries in your account and region. You can filter results by state to show only enabled or disabled queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +78,9 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  *  <p>You don't have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
+ *  <p>An internal server error occurred while processing the request. This exception is returned
+ *       when the service encounters an unexpected condition that prevents it from fulfilling the
+ *       request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled because of quota limits.</p>
