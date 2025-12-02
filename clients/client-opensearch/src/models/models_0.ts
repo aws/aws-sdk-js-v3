@@ -1017,6 +1017,19 @@ export interface S3VectorsEngine {
 }
 
 /**
+ * <p>Configuration for serverless vector acceleration, which provides <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gpu-acceleration-vector-index.html">GPU-accelerated</a> vector
+ *          search capabilities for improved performance on vector workloads.</p>
+ * @public
+ */
+export interface ServerlessVectorAcceleration {
+  /**
+   * <p>Specifies whether serverless vector acceleration is enabled for the domain.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
  * <p>Container for parameters required to enable all machine learning features.</p>
  * @public
  */
@@ -1034,6 +1047,14 @@ export interface AIMLOptionsInput {
    * @public
    */
   S3VectorsEngine?: S3VectorsEngine | undefined;
+
+  /**
+   * <p>Specifies whether to enable serverless vector acceleration for the domain. When enabled,
+   *          provides <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gpu-acceleration-vector-index.html">GPU-accelerated</a> vector search capabilities for improved performance on vector
+   *          workloads.</p>
+   * @public
+   */
+  ServerlessVectorAcceleration?: ServerlessVectorAcceleration | undefined;
 }
 
 /**
@@ -1076,6 +1097,12 @@ export interface AIMLOptionsOutput {
    * @public
    */
   S3VectorsEngine?: S3VectorsEngine | undefined;
+
+  /**
+   * <p>The current serverless vector acceleration configuration for the domain.</p>
+   * @public
+   */
+  ServerlessVectorAcceleration?: ServerlessVectorAcceleration | undefined;
 }
 
 /**

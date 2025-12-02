@@ -226,6 +226,9 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //       S3VectorsEngine: { // S3VectorsEngine
  * //         Enabled: true || false,
  * //       },
+ * //       ServerlessVectorAcceleration: { // ServerlessVectorAcceleration
+ * //         Enabled: true || false,
+ * //       },
  * //     },
  * //   },
  * // };

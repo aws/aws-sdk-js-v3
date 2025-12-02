@@ -303,6 +303,9 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //         S3VectorsEngine: { // S3VectorsEngine
  * //           Enabled: true || false,
  * //         },
+ * //         ServerlessVectorAcceleration: { // ServerlessVectorAcceleration
+ * //           Enabled: true || false,
+ * //         },
  * //       },
  * //       Status: "<OptionStatus>",
  * //     },

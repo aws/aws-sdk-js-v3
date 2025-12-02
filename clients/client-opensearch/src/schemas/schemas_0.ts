@@ -623,6 +623,7 @@ const _SU = "SkipUnavailable";
 const _SUO = "SoftwareUpdateOptions";
 const _SUOS = "SoftwareUpdateOptionsStatus";
 const _SV = "SourceVersion";
+const _SVA = "ServerlessVectorAcceleration";
 const _SVE = "S3VectorsEngine";
 const _SVT = "StorageVolumeType";
 const _Se = "Service";
@@ -882,16 +883,16 @@ export var AIMLOptionsInput: StaticStructureSchema = [
   n0,
   _AIMLOI,
   0,
-  [_NLQGO, _SVE],
-  [() => NaturalLanguageQueryGenerationOptionsInput, () => S3VectorsEngine],
+  [_NLQGO, _SVE, _SVA],
+  [() => NaturalLanguageQueryGenerationOptionsInput, () => S3VectorsEngine, () => ServerlessVectorAcceleration],
 ];
 export var AIMLOptionsOutput: StaticStructureSchema = [
   3,
   n0,
   _AIMLOO,
   0,
-  [_NLQGO, _SVE],
-  [() => NaturalLanguageQueryGenerationOptionsOutput, () => S3VectorsEngine],
+  [_NLQGO, _SVE, _SVA],
+  [() => NaturalLanguageQueryGenerationOptionsOutput, () => S3VectorsEngine, () => ServerlessVectorAcceleration],
 ];
 export var AIMLOptionsStatus: StaticStructureSchema = [
   3,
@@ -2626,6 +2627,7 @@ export var ScheduledAction: StaticStructureSchema = [
 ];
 export var ScheduledAutoTuneDetails: StaticStructureSchema = [3, n0, _SATD, 0, [_Da, _ATc, _Ac, _Sev], [4, 0, 0, 0]];
 export var SecurityLakeDirectQueryDataSource: StaticStructureSchema = [3, n0, _SLDQDS, 0, [_RA], [0]];
+export var ServerlessVectorAcceleration: StaticStructureSchema = [3, n0, _SVA, 0, [_E], [2]];
 export var ServiceSoftwareOptions: StaticStructureSchema = [
   3,
   n0,

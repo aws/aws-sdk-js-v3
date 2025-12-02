@@ -229,6 +229,9 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //         S3VectorsEngine: { // S3VectorsEngine
  * //           Enabled: true || false,
  * //         },
+ * //         ServerlessVectorAcceleration: { // ServerlessVectorAcceleration
+ * //           Enabled: true || false,
+ * //         },
  * //       },
  * //     },
  * //   ],
