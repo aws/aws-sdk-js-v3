@@ -62,6 +62,7 @@ export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
  */
 export const SupportedSavingsPlansType = {
   COMPUTE_SP: "COMPUTE_SP",
+  DATABASE_SP: "DATABASE_SP",
   EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
   SAGEMAKER_SP: "SAGEMAKER_SP",
 } as const;

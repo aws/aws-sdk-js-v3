@@ -65,7 +65,7 @@ export interface ListCommitmentPurchaseAnalysesCommandOutput
  * //           SavingsPlansToAdd: [ // SavingsPlansToAdd // required
  * //             { // SavingsPlans
  * //               PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
- * //               SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP",
+ * //               SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP" || "DATABASE_SP",
  * //               Region: "STRING_VALUE",
  * //               InstanceFamily: "STRING_VALUE",
  * //               TermInYears: "ONE_YEAR" || "THREE_YEARS",

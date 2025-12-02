@@ -46,7 +46,7 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // GetSavingsPlansPurchaseRecommendationRequest
- *   SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP", // required
+ *   SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP" || "DATABASE_SP", // required
  *   TermInYears: "ONE_YEAR" || "THREE_YEARS", // required
  *   PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION", // required
  *   AccountScope: "PAYER" || "LINKED",
@@ -131,7 +131,7 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * //   },
  * //   SavingsPlansPurchaseRecommendation: { // SavingsPlansPurchaseRecommendation
  * //     AccountScope: "PAYER" || "LINKED",
- * //     SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP",
+ * //     SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP" || "DATABASE_SP",
  * //     TermInYears: "ONE_YEAR" || "THREE_YEARS",
  * //     PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
  * //     LookbackPeriodInDays: "SEVEN_DAYS" || "THIRTY_DAYS" || "SIXTY_DAYS",

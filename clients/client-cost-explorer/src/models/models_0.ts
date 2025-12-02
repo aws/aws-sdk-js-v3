@@ -6611,7 +6611,7 @@ export interface GetCostForecastRequest {
 
   /**
    * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
-   *       forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
+   *       forecasts or 18 months of <code>MONTHLY</code> forecasts.</p>
    *          <p>The <code>GetCostForecast</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    * @public
@@ -8605,7 +8605,7 @@ export interface GetUsageForecastRequest {
 
   /**
    * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
-   *       forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
+   *       forecasts or 18 months of <code>MONTHLY</code> forecasts.</p>
    *          <p>The <code>GetUsageForecast</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    * @public
