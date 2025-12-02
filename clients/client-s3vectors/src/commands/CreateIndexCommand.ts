@@ -27,7 +27,7 @@ export interface CreateIndexCommandInput extends CreateIndexInput {}
 export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>Creates a vector index within a vector bucket. To specify the vector bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN).</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateIndex</code> permission to use this operation. </p> </dd> </dl>
+ * <p>Creates a vector index within a vector bucket. To specify the vector bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN).</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateIndex</code> permission to use this operation.</p> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateIndex</code> permission to create a vector index with tags.</p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +47,13 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  *     nonFilterableMetadataKeys: [ // NonFilterableMetadataKeys // required
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     sseType: "AES256" || "aws:kms",
+ *     kmsKeyArn: "STRING_VALUE",
+ *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new CreateIndexCommand(input);

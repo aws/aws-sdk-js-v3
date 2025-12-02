@@ -45,6 +45,9 @@ const _LII = "ListIndexesInput";
 const _LIO = "ListIndexesOutput";
 const _LIOL = "ListIndexesOutputList";
 const _LOV = "ListOutputVector";
+const _LTFR = "ListTagsForResource";
+const _LTFRI = "ListTagsForResourceInput";
+const _LTFRO = "ListTagsForResourceOutput";
 const _LV = "ListVectors";
 const _LVB = "ListVectorBuckets";
 const _LVBI = "ListVectorBucketsInput";
@@ -72,6 +75,12 @@ const _RTE = "RequestTimeoutException";
 const _SQEE = "ServiceQuotaExceededException";
 const _SUE = "ServiceUnavailableException";
 const _TMRE = "TooManyRequestsException";
+const _TR = "TagResource";
+const _TRI = "TagResourceInput";
+const _TRO = "TagResourceOutput";
+const _UR = "UntagResource";
+const _URI = "UntagResourceInput";
+const _URO = "UntagResourceOutput";
 const _VB = "VectorBucket";
 const _VBS = "VectorBucketSummary";
 const _VD = "VectorData";
@@ -92,6 +101,7 @@ const _fL = "fieldList";
 const _fl = "float32";
 const _h = "http";
 const _hE = "httpError";
+const _hQ = "httpQuery";
 const _i = "index";
 const _iA = "indexArn";
 const _iN = "indexName";
@@ -109,6 +119,7 @@ const _p = "policy";
 const _pa = "path";
 const _pr = "prefix";
 const _qV = "queryVector";
+const _rA = "resourceArn";
 const _rD = "returnData";
 const _rDe = "returnDistance";
 const _rM = "returnMetadata";
@@ -117,7 +128,9 @@ const _sC = "segmentCount";
 const _sI = "segmentIndex";
 const _sT = "sseType";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.s3vectors";
+const _t = "tags";
 const _tK = "topK";
+const _tKa = "tagKeys";
 const _v = "vectors";
 const _vB = "vectorBucket";
 const _vBA = "vectorBucketArn";
@@ -127,7 +140,13 @@ const n0 = "com.amazonaws.s3vectors";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticMapSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException as __AccessDeniedException,
@@ -179,8 +198,8 @@ export var CreateIndexInput: StaticStructureSchema = [
   n0,
   _CII,
   0,
-  [_vBN, _vBA, _iN, _dT, _d, _dM, _mC],
-  [0, 0, 0, 0, 1, 0, () => MetadataConfiguration],
+  [_vBN, _vBA, _iN, _dT, _d, _dM, _mC, _eC, _t],
+  [0, 0, 0, 0, 1, 0, () => MetadataConfiguration, () => EncryptionConfiguration, 128 | 0],
 ];
 export var CreateIndexOutput: StaticStructureSchema = [3, n0, _CIO, 0, [_iA], [0]];
 export var CreateVectorBucketInput: StaticStructureSchema = [
@@ -188,8 +207,8 @@ export var CreateVectorBucketInput: StaticStructureSchema = [
   n0,
   _CVBI,
   0,
-  [_vBN, _eC],
-  [0, () => EncryptionConfiguration],
+  [_vBN, _eC, _t],
+  [0, () => EncryptionConfiguration, 128 | 0],
 ];
 export var CreateVectorBucketOutput: StaticStructureSchema = [3, n0, _CVBO, 0, [_vBA], [0]];
 export var DeleteIndexInput: StaticStructureSchema = [3, n0, _DII, 0, [_vBN, _iN, _iA], [0, 0, 0]];
@@ -222,8 +241,8 @@ export var Index: StaticStructureSchema = [
   n0,
   _I,
   0,
-  [_vBN, _iN, _iA, _cT, _dT, _d, _dM, _mC],
-  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration],
+  [_vBN, _iN, _iA, _cT, _dT, _d, _dM, _mC, _eC],
+  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration, () => EncryptionConfiguration],
 ];
 export var IndexSummary: StaticStructureSchema = [3, n0, _IS, 0, [_vBN, _iN, _iA, _cT], [0, 0, 0, 4]];
 export var InternalServerException: StaticErrorSchema = [
@@ -294,6 +313,8 @@ TypeRegistry.for(n0).registerError(KmsNotFoundException, __KmsNotFoundException)
 export var ListIndexesInput: StaticStructureSchema = [3, n0, _LII, 0, [_vBN, _vBA, _mR, _nT, _pr], [0, 0, 1, 0, 0]];
 export var ListIndexesOutput: StaticStructureSchema = [3, n0, _LIO, 0, [_nT, _in], [0, () => ListIndexesOutputList]];
 export var ListOutputVector: StaticStructureSchema = [3, n0, _LOV, 0, [_ke, _da, _me], [0, () => VectorData, 15]];
+export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
 export var ListVectorBucketsInput: StaticStructureSchema = [3, n0, _LVBI, 0, [_mR, _nT, _pr], [1, 0, 0]];
 export var ListVectorBucketsOutput: StaticStructureSchema = [
   3,
@@ -338,14 +359,7 @@ export var PutVectorsInput: StaticStructureSchema = [
   [0, 0, 0, () => PutVectorsInputList],
 ];
 export var PutVectorsOutput: StaticStructureSchema = [3, n0, _PVO, 0, [], []];
-export var QueryOutputVector: StaticStructureSchema = [
-  3,
-  n0,
-  _QOV,
-  0,
-  [_ke, _da, _me, _di],
-  [0, () => VectorData, 15, 1],
-];
+export var QueryOutputVector: StaticStructureSchema = [3, n0, _QOV, 0, [_di, _ke, _me], [1, 0, 15]];
 export var QueryVectorsInput: StaticStructureSchema = [
   3,
   n0,
@@ -394,6 +408,8 @@ export var ServiceUnavailableException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
 
+export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var TooManyRequestsException: StaticErrorSchema = [
   -3,
   n0,
@@ -407,6 +423,23 @@ export var TooManyRequestsException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
 
+export var UntagResourceInput: StaticStructureSchema = [
+  3,
+  n0,
+  _URI,
+  0,
+  [_rA, _tKa],
+  [
+    [0, 1],
+    [
+      64 | 0,
+      {
+        [_hQ]: _tKa,
+      },
+    ],
+  ],
+];
+export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
@@ -448,7 +481,11 @@ export var NonFilterableMetadataKeys = 64 | 0;
 
 export var PutVectorsInputList: StaticListSchema = [1, n0, _PVIL, 0, () => PutInputVector];
 export var QueryVectorsOutputList: StaticListSchema = [1, n0, _QVOL, 0, () => QueryOutputVector];
+export var TagKeyList = 64 | 0;
+
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
+export var TagsMap = 128 | 0;
+
 export var VectorData: StaticStructureSchema = [3, n0, _VD, 0, [_fl], [64 | 1]];
 export var CreateIndex: StaticOperationSchema = [
   9,
@@ -560,6 +597,16 @@ export var ListIndexes: StaticOperationSchema = [
   () => ListIndexesInput,
   () => ListIndexesOutput,
 ];
+export var ListTagsForResource: StaticOperationSchema = [
+  9,
+  n0,
+  _LTFR,
+  {
+    [_h]: ["GET", "/tags/{resourceArn}", 200],
+  },
+  () => ListTagsForResourceInput,
+  () => ListTagsForResourceOutput,
+];
 export var ListVectorBuckets: StaticOperationSchema = [
   9,
   n0,
@@ -609,4 +656,24 @@ export var QueryVectors: StaticOperationSchema = [
   },
   () => QueryVectorsInput,
   () => QueryVectorsOutput,
+];
+export var TagResource: StaticOperationSchema = [
+  9,
+  n0,
+  _TR,
+  {
+    [_h]: ["POST", "/tags/{resourceArn}", 200],
+  },
+  () => TagResourceInput,
+  () => TagResourceOutput,
+];
+export var UntagResource: StaticOperationSchema = [
+  9,
+  n0,
+  _UR,
+  {
+    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
+  },
+  () => UntagResourceInput,
+  () => UntagResourceOutput,
 ];

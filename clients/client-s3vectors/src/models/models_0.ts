@@ -4,7 +4,25 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { DataType, DistanceMetric, SseType } from "./enums";
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The metadata configuration for a vector index.</p>
+ * <p>The encryption configuration for a vector bucket or index. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>. You can optionally override bucket level encryption settings, and set a specific encryption configuration for a vector index at the time of index creation.</p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>.</p>
+   * @public
+   */
+  sseType?: SseType | undefined;
+
+  /**
+   * <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if <code>sseType</code> is set to <code>aws:kms</code>.</p> <p>To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).</p> <p>For example, specify Key ARN in the following format: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * <p>The metadata configuration for a vector index.</p>
  * @public
  */
 export interface MetadataConfiguration {
@@ -60,6 +78,18 @@ export interface CreateIndexInput {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>An array of user-defined tags that you would like to apply to the vector index that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize, track costs, and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateIndex</code> permission to create a vector index with tags.</p> </note>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -92,24 +122,6 @@ export interface ValidationExceptionField {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The encryption configuration for a vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>.</p>
- * @public
- */
-export interface EncryptionConfiguration {
-  /**
-   * <p>The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>.</p>
-   * @public
-   */
-  sseType?: SseType | undefined;
-
-  /**
-   * <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if <code>sseType</code> is set to <code>aws:kms</code>.</p> <p>To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).</p> <p>For example, specify Key ARN in the following format: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface CreateVectorBucketInput {
@@ -124,6 +136,12 @@ export interface CreateVectorBucketInput {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>An array of user-defined tags that you would like to apply to the vector bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </note>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -267,7 +285,7 @@ export interface GetIndexInput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The attributes of a vector index.</p>
+ * <p>The attributes of a vector index.</p>
  * @public
  */
 export interface Index {
@@ -318,6 +336,12 @@ export interface Index {
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
+
+  /**
+   * <p>The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -332,7 +356,7 @@ export interface GetIndexOutput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The vector data in different formats.</p>
+ * <p>The vector data in different formats.</p>
  * @public
  */
 export type VectorData = VectorData.Float32Member | VectorData.$UnknownMember;
@@ -369,7 +393,7 @@ export namespace VectorData {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The attributes of a vector returned by the <code>GetVectors</code> operation.</p>
+ * <p>The attributes of a vector returned by the <code>GetVectors</code> operation.</p>
  * @public
  */
 export interface GetOutputVector {
@@ -410,7 +434,7 @@ export interface GetVectorBucketInput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The attributes of a vector bucket. </p>
+ * <p>The attributes of a vector bucket. </p>
  * @public
  */
 export interface VectorBucket {
@@ -566,7 +590,7 @@ export interface ListIndexesInput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>Summary information about a vector index.</p>
+ * <p>Summary information about a vector index.</p>
  * @public
  */
 export interface IndexSummary {
@@ -672,7 +696,7 @@ export interface ListVectorsInput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The attributes of a vector returned by the <code>ListVectors</code> operation.</p>
+ * <p>The attributes of a vector returned by the <code>ListVectors</code> operation.</p>
  * @public
  */
 export interface ListOutputVector {
@@ -713,7 +737,7 @@ export interface ListVectorsOutput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The attributes of a vector to add to a vector index.</p>
+ * <p>The attributes of a vector to add to a vector index.</p>
  * @public
  */
 export interface PutInputVector {
@@ -824,10 +848,16 @@ export interface QueryVectorsInput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>The attributes of a vector in the approximate nearest neighbor search.</p>
+ * <p>The attributes of a vector in the approximate nearest neighbor search.</p>
  * @public
  */
 export interface QueryOutputVector {
+  /**
+   * <p>The measure of similarity between the vector in the response and the query vector.</p>
+   * @public
+   */
+  distance?: number | undefined;
+
   /**
    * <p>The key of the vector in the approximate nearest neighbor search.</p>
    * @public
@@ -835,22 +865,10 @@ export interface QueryOutputVector {
   key: string | undefined;
 
   /**
-   * <p>The vector data associated with the vector, if requested. </p>
-   * @public
-   */
-  data?: VectorData | undefined;
-
-  /**
    * <p>The metadata associated with the vector, if requested.</p>
    * @public
    */
   metadata?: __DocumentType | undefined;
-
-  /**
-   * <p>The measure of similarity between the vector in the response and the query vector.</p>
-   * @public
-   */
-  distance?: number | undefined;
 }
 
 /**
@@ -868,6 +886,28 @@ export interface QueryVectorsOutput {
    * @public
    */
   distanceMetric: DistanceMetric | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you want to list tags for. The tagged resource can be a vector bucket or a vector index. </p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>The user-defined tags that are applied to the S3 Vectors resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
 }
 
 /**
@@ -894,7 +934,7 @@ export interface ListVectorBucketsInput {
 }
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>Summary information about a vector bucket.</p>
+ * <p>Summary information about a vector bucket.</p>
  * @public
  */
 export interface VectorBucketSummary {
@@ -961,3 +1001,47 @@ export interface PutVectorBucketPolicyInput {
  * @public
  */
 export interface PutVectorBucketPolicyOutput {}
+
+/**
+ * @public
+ */
+export interface TagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're applying tags to. The tagged resource can be a vector bucket or a vector index. </p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The user-defined tag that you want to add to the specified S3 Vectors resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceOutput {}
+
+/**
+ * @public
+ */
+export interface UntagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're removing tags from. The tagged resource can be a vector bucket or a vector index. </p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The array of tag keys that you're removing from the S3 Vectors resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceOutput {}

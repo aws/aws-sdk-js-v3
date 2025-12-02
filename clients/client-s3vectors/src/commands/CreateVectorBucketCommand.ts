@@ -27,7 +27,7 @@ export interface CreateVectorBucketCommandInput extends CreateVectorBucketInput 
 export interface CreateVectorBucketCommandOutput extends CreateVectorBucketOutput, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>Creates a vector bucket in the Amazon Web Services Region that you want your bucket to be in. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateVectorBucket</code> permission to use this operation. </p> </dd> </dl>
+ * <p>Creates a vector bucket in the Amazon Web Services Region that you want your bucket to be in. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateVectorBucket</code> permission to use this operation. </p> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +41,9 @@ export interface CreateVectorBucketCommandOutput extends CreateVectorBucketOutpu
  *   encryptionConfiguration: { // EncryptionConfiguration
  *     sseType: "AES256" || "aws:kms",
  *     kmsKeyArn: "STRING_VALUE",
+ *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new CreateVectorBucketCommand(input);

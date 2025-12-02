@@ -38,6 +38,11 @@ import {
 import { GetVectorsCommand, GetVectorsCommandInput, GetVectorsCommandOutput } from "./commands/GetVectorsCommand";
 import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListVectorBucketsCommand,
   ListVectorBucketsCommandInput,
   ListVectorBucketsCommandOutput,
@@ -54,6 +59,12 @@ import {
   QueryVectorsCommandInput,
   QueryVectorsCommandOutput,
 } from "./commands/QueryVectorsCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { S3VectorsClient, S3VectorsClientConfig } from "./S3VectorsClient";
 
 const commands = {
@@ -68,11 +79,14 @@ const commands = {
   GetVectorBucketPolicyCommand,
   GetVectorsCommand,
   ListIndexesCommand,
+  ListTagsForResourceCommand,
   ListVectorBucketsCommand,
   ListVectorsCommand,
   PutVectorBucketPolicyCommand,
   PutVectorsCommand,
   QueryVectorsCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
 };
 
 export interface S3Vectors {
@@ -232,6 +246,23 @@ export interface S3Vectors {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListVectorBucketsCommand}
    */
   listVectorBuckets(): Promise<ListVectorBucketsCommandOutput>;
@@ -298,6 +329,28 @@ export interface S3Vectors {
     args: QueryVectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: QueryVectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 }
 

@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIndexInput, GetIndexOutput } from "../models/models_0";
+import { TagResourceInput, TagResourceOutput } from "../models/models_0";
 import { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
-import { GetIndex } from "../schemas/schemas_0";
+import { TagResource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,61 +16,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetIndexCommand}.
+ * The input for {@link TagResourceCommand}.
  */
-export interface GetIndexCommandInput extends GetIndexInput {}
+export interface TagResourceCommandInput extends TagResourceInput {}
 /**
  * @public
  *
- * The output of {@link GetIndexCommand}.
+ * The output of {@link TagResourceCommand}.
  */
-export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer {}
+export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns vector index attributes. To specify the vector index, you can either use both the vector bucket name and the vector index name, or use the vector index Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:GetIndex</code> permission to use this operation. </p> </dd> </dl>
+ * <p>Applies one or more user-defined tags to an Amazon S3 Vectors resource or updates existing tags. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to your resources. You can add up to 50 tags for each resource.</p> <note> <p>For a list of S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p> </note> <dl> <dt>Permissions</dt> <dd> <p>For vector buckets and vector indexes, you must have the <code>s3vectors:TagResource</code> permission to use this operation.</p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3VectorsClient, GetIndexCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
- * // const { S3VectorsClient, GetIndexCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * import { S3VectorsClient, TagResourceCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
+ * // const { S3VectorsClient, TagResourceCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
  * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
  * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
- * const input = { // GetIndexInput
- *   vectorBucketName: "STRING_VALUE",
- *   indexName: "STRING_VALUE",
- *   indexArn: "STRING_VALUE",
+ * const input = { // TagResourceInput
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // TagsMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new GetIndexCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * // { // GetIndexOutput
- * //   index: { // Index
- * //     vectorBucketName: "STRING_VALUE", // required
- * //     indexName: "STRING_VALUE", // required
- * //     indexArn: "STRING_VALUE", // required
- * //     creationTime: new Date("TIMESTAMP"), // required
- * //     dataType: "float32", // required
- * //     dimension: Number("int"), // required
- * //     distanceMetric: "euclidean" || "cosine", // required
- * //     metadataConfiguration: { // MetadataConfiguration
- * //       nonFilterableMetadataKeys: [ // NonFilterableMetadataKeys // required
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //     encryptionConfiguration: { // EncryptionConfiguration
- * //       sseType: "AES256" || "aws:kms",
- * //       kmsKeyArn: "STRING_VALUE",
- * //     },
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetIndexCommandInput - {@link GetIndexCommandInput}
- * @returns {@link GetIndexCommandOutput}
- * @see {@link GetIndexCommandInput} for command's `input` shape.
- * @see {@link GetIndexCommandOutput} for command's `response` shape.
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link S3VectorsClientResolvedConfig | config} for S3VectorsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>The request was rejected because the specified resource can't be found.</p>
@@ -99,10 +84,10 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  *
  * @public
  */
-export class GetIndexCommand extends $Command
+export class TagResourceCommand extends $Command
   .classBuilder<
-    GetIndexCommandInput,
-    GetIndexCommandOutput,
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
     S3VectorsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,19 +96,19 @@ export class GetIndexCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: S3VectorsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("S3Vectors", "GetIndex", {})
-  .n("S3VectorsClient", "GetIndexCommand")
-  .sc(GetIndex)
+  .s("S3Vectors", "TagResource", {})
+  .n("S3VectorsClient", "TagResourceCommand")
+  .sc(TagResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetIndexInput;
-      output: GetIndexOutput;
+      input: TagResourceInput;
+      output: {};
     };
     sdk: {
-      input: GetIndexCommandInput;
-      output: GetIndexCommandOutput;
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
     };
   };
 }

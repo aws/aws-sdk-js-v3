@@ -74,6 +74,10 @@ import {
 } from "./commands/GetVectorBucketPolicyCommand";
 import { GetVectorsCommandInput, GetVectorsCommandOutput } from "./commands/GetVectorsCommand";
 import { ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListVectorBucketsCommandInput, ListVectorBucketsCommandOutput } from "./commands/ListVectorBucketsCommand";
 import { ListVectorsCommandInput, ListVectorsCommandOutput } from "./commands/ListVectorsCommand";
 import {
@@ -82,6 +86,8 @@ import {
 } from "./commands/PutVectorBucketPolicyCommand";
 import { PutVectorsCommandInput, PutVectorsCommandOutput } from "./commands/PutVectorsCommand";
 import { QueryVectorsCommandInput, QueryVectorsCommandOutput } from "./commands/QueryVectorsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -108,11 +114,14 @@ export type ServiceInputTypes =
   | GetVectorBucketPolicyCommandInput
   | GetVectorsCommandInput
   | ListIndexesCommandInput
+  | ListTagsForResourceCommandInput
   | ListVectorBucketsCommandInput
   | ListVectorsCommandInput
   | PutVectorBucketPolicyCommandInput
   | PutVectorsCommandInput
-  | QueryVectorsCommandInput;
+  | QueryVectorsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 /**
  * @public
@@ -129,11 +138,14 @@ export type ServiceOutputTypes =
   | GetVectorBucketPolicyCommandOutput
   | GetVectorsCommandOutput
   | ListIndexesCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListVectorBucketsCommandOutput
   | ListVectorsCommandOutput
   | PutVectorBucketPolicyCommandOutput
   | PutVectorsCommandOutput
-  | QueryVectorsCommandOutput;
+  | QueryVectorsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 /**
  * @public
