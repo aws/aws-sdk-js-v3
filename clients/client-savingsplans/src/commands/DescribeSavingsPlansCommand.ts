@@ -50,7 +50,7 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  *   ],
  *   filters: [ // SavingsPlanFilterList
  *     { // SavingsPlanFilter
- *       name: "region" || "ec2-instance-family" || "commitment" || "upfront" || "term" || "savings-plan-type" || "payment-option" || "start" || "end",
+ *       name: "region" || "ec2-instance-family" || "commitment" || "upfront" || "term" || "savings-plan-type" || "payment-option" || "start" || "end" || "instance-family",
  *       values: [ // ListOfStrings
  *         "STRING_VALUE",
  *       ],
@@ -71,12 +71,12 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * //       state: "payment-pending" || "payment-failed" || "active" || "retired" || "queued" || "queued-deleted" || "pending-return" || "returned",
  * //       region: "STRING_VALUE",
  * //       ec2InstanceFamily: "STRING_VALUE",
- * //       savingsPlanType: "Compute" || "EC2Instance" || "SageMaker",
+ * //       savingsPlanType: "Compute" || "EC2Instance" || "SageMaker" || "Database",
  * //       paymentOption: "All Upfront" || "Partial Upfront" || "No Upfront",
  * //       productTypes: [ // SavingsPlanProductTypeList
- * //         "EC2" || "Fargate" || "Lambda" || "SageMaker",
+ * //         "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
  * //       ],
- * //       currency: "CNY" || "USD",
+ * //       currency: "CNY" || "USD" || "EUR",
  * //       commitment: "STRING_VALUE",
  * //       upfrontPaymentAmount: "STRING_VALUE",
  * //       recurringPaymentAmount: "STRING_VALUE",

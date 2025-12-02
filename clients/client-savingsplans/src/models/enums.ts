@@ -24,6 +24,7 @@ export type SavingsPlanRateFilterName = (typeof SavingsPlanRateFilterName)[keyof
  */
 export const CurrencyCode = {
   CNY: "CNY",
+  EUR: "EUR",
   USD: "USD",
 } as const;
 /**
@@ -36,10 +37,19 @@ export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
  * @enum
  */
 export const SavingsPlanProductType = {
+  DMS: "DMS",
+  DOCDB: "DocDB",
+  DSQL: "DSQL",
+  DYNAMODB: "DynamoDB",
   EC2: "EC2",
+  ELASTICACHE: "ElastiCache",
   FARGATE: "Fargate",
+  KEYSPACES: "Keyspaces",
   LAMBDA: "Lambda",
+  NEPTUNE: "Neptune",
+  RDS: "RDS",
   SAGEMAKER: "SageMaker",
+  TIMESTREAM: "Timestream",
 } as const;
 /**
  * @public
@@ -67,11 +77,20 @@ export type SavingsPlanRatePropertyKey = (typeof SavingsPlanRatePropertyKey)[key
  * @enum
  */
 export const SavingsPlanRateServiceCode = {
+  AURORA: "AuroraDSQL",
+  DMS: "AWSDatabaseMigrationSvc",
+  DOCDB: "AmazonDocDB",
+  DYNAMODB: "AmazonDynamoDB",
   EC2: "AmazonEC2",
+  ELASTICACHE: "AmazonElastiCache",
   FARGATE: "AmazonECS",
   FARGATE_EKS: "AmazonEKS",
   LAMBDA: "AWSLambda",
+  MCS: "AmazonMCS",
+  NEPTUNE: "AmazonNeptune",
+  RDS: "AmazonRDS",
   SAGEMAKER: "AmazonSageMaker",
+  TIMESTREAM: "AmazonTimestream",
 } as const;
 /**
  * @public
@@ -83,9 +102,21 @@ export type SavingsPlanRateServiceCode = (typeof SavingsPlanRateServiceCode)[key
  * @enum
  */
 export const SavingsPlanRateUnit = {
+  ACU_HR: "ACU-Hr",
+  DCU_HR: "DCU-Hr",
+  DPU: "DPU",
+  ELASTI_CACHE_PROCESSING_UNIT: "ElastiCacheProcessingUnit",
+  GB_HOURS: "GB-Hours",
   HOURS: "Hrs",
   LAMBDA_GB_SECOND: "Lambda-GB-Second",
+  NCU_HR: "NCU-hr",
+  READ_CAPACITY_UNIT_HRS: "ReadCapacityUnit-Hrs",
+  READ_REQUEST_UNITS: "ReadRequestUnits",
+  REPLICATED_WRITE_CAPACITY_UNIT_HRS: "ReplicatedWriteCapacityUnit-Hrs",
+  REPLICATED_WRITE_REQUEST_UNITS: "ReplicatedWriteRequestUnits",
   REQUEST: "Request",
+  WRITE_CAPACITY_UNIT_HRS: "WriteCapacityUnit-Hrs",
+  WRITE_REQUEST_UNITS: "WriteRequestUnits",
 } as const;
 /**
  * @public
@@ -100,6 +131,7 @@ export const SavingsPlansFilterName = {
   COMMITMENT: "commitment",
   EC2_INSTANCE_FAMILY: "ec2-instance-family",
   END: "end",
+  INSTANCE_FAMILY: "instance-family",
   PAYMENT_OPTION: "payment-option",
   REGION: "region",
   SAVINGS_PLAN_TYPE: "savings-plan-type",
@@ -151,6 +183,7 @@ export type SavingsPlanPaymentOption = (typeof SavingsPlanPaymentOption)[keyof t
  */
 export const SavingsPlanType = {
   COMPUTE: "Compute",
+  DATABASE: "Database",
   EC2_INSTANCE: "EC2Instance",
   SAGEMAKER: "SageMaker",
 } as const;
