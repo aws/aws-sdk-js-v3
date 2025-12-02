@@ -661,6 +661,7 @@ const _a = "annotation";
 const _aA = "agreementAvailability";
 const _aAn = "andAll";
 const _aD = "agreementDuration";
+const _aDDE = "audioDataDeliveryEnabled";
 const _aE = "alternateExpression";
 const _aEc = "acceptEula";
 const _aMRF = "additionalModelRequestFields";
@@ -4238,8 +4239,8 @@ export var LoggingConfig: StaticStructureSchema = [
   n0,
   _LC,
   0,
-  [_cWC, _sC, _tDDE, _iDDE, _eDDE, _vDDE],
-  [() => CloudWatchConfig, () => S3Config, 2, 2, 2, 2],
+  [_cWC, _sC, _tDDE, _iDDE, _eDDE, _vDDE, _aDDE],
+  [() => CloudWatchConfig, () => S3Config, 2, 2, 2, 2, 2],
 ];
 export var MarketplaceModelEndpoint: StaticStructureSchema = [
   3,

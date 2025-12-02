@@ -60,6 +60,7 @@ export interface PutModelInvocationLoggingConfigurationCommandOutput
  *     imageDataDeliveryEnabled: true || false,
  *     embeddingDataDeliveryEnabled: true || false,
  *     videoDataDeliveryEnabled: true || false,
+ *     audioDataDeliveryEnabled: true || false,
  *   },
  * };
  * const command = new PutModelInvocationLoggingConfigurationCommand(input);

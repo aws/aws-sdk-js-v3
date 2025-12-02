@@ -151,6 +151,12 @@ export interface LoggingConfig {
    * @public
    */
   videoDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include audio data in the log delivery.</p>
+   * @public
+   */
+  audioDataDeliveryEnabled?: boolean | undefined;
 }
 
 /**
