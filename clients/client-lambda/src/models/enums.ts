@@ -167,6 +167,58 @@ export type State = (typeof State)[keyof typeof State];
  * @public
  * @enum
  */
+export const OperationAction = {
+  CANCEL: "CANCEL",
+  FAIL: "FAIL",
+  RETRY: "RETRY",
+  START: "START",
+  SUCCEED: "SUCCEED",
+} as const;
+/**
+ * @public
+ */
+export type OperationAction = (typeof OperationAction)[keyof typeof OperationAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationType = {
+  CALLBACK: "CALLBACK",
+  CHAINED_INVOKE: "CHAINED_INVOKE",
+  CONTEXT: "CONTEXT",
+  EXECUTION: "EXECUTION",
+  STEP: "STEP",
+  WAIT: "WAIT",
+} as const;
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeSigningPolicy = {
   Enforce: "Enforce",
   Warn: "Warn",
@@ -484,6 +536,7 @@ export const StateReasonCode = {
   CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   Creating: "Creating",
   DisabledKMSKey: "DisabledKMSKey",
+  DrainingDurableExecutions: "DrainingDurableExecutions",
   EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
   EFSIOError: "EFSIOError",
   EFSMountConnectivityError: "EFSMountConnectivityError",
@@ -630,3 +683,54 @@ export const ProvisionedConcurrencyStatusEnum = {
  */
 export type ProvisionedConcurrencyStatusEnum =
   (typeof ProvisionedConcurrencyStatusEnum)[keyof typeof ProvisionedConcurrencyStatusEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  CallbackFailed: "CallbackFailed",
+  CallbackStarted: "CallbackStarted",
+  CallbackSucceeded: "CallbackSucceeded",
+  CallbackTimedOut: "CallbackTimedOut",
+  ChainedInvokeFailed: "ChainedInvokeFailed",
+  ChainedInvokeStarted: "ChainedInvokeStarted",
+  ChainedInvokeStopped: "ChainedInvokeStopped",
+  ChainedInvokeSucceeded: "ChainedInvokeSucceeded",
+  ChainedInvokeTimedOut: "ChainedInvokeTimedOut",
+  ContextFailed: "ContextFailed",
+  ContextStarted: "ContextStarted",
+  ContextSucceeded: "ContextSucceeded",
+  ExecutionFailed: "ExecutionFailed",
+  ExecutionStarted: "ExecutionStarted",
+  ExecutionStopped: "ExecutionStopped",
+  ExecutionSucceeded: "ExecutionSucceeded",
+  ExecutionTimedOut: "ExecutionTimedOut",
+  InvocationCompleted: "InvocationCompleted",
+  StepFailed: "StepFailed",
+  StepStarted: "StepStarted",
+  StepSucceeded: "StepSucceeded",
+  WaitCancelled: "WaitCancelled",
+  WaitStarted: "WaitStarted",
+  WaitSucceeded: "WaitSucceeded",
+} as const;
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];

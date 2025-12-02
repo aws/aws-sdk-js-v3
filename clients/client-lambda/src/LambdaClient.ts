@@ -68,6 +68,10 @@ import {
   AddLayerVersionPermissionCommandOutput,
 } from "./commands/AddLayerVersionPermissionCommand";
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
+import {
+  CheckpointDurableExecutionCommandInput,
+  CheckpointDurableExecutionCommandOutput,
+} from "./commands/CheckpointDurableExecutionCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
   CreateCapacityProviderCommandInput,
@@ -131,6 +135,18 @@ import {
   GetCodeSigningConfigCommandInput,
   GetCodeSigningConfigCommandOutput,
 } from "./commands/GetCodeSigningConfigCommand";
+import {
+  GetDurableExecutionCommandInput,
+  GetDurableExecutionCommandOutput,
+} from "./commands/GetDurableExecutionCommand";
+import {
+  GetDurableExecutionHistoryCommandInput,
+  GetDurableExecutionHistoryCommandOutput,
+} from "./commands/GetDurableExecutionHistoryCommand";
+import {
+  GetDurableExecutionStateCommandInput,
+  GetDurableExecutionStateCommandOutput,
+} from "./commands/GetDurableExecutionStateCommand";
 import {
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput,
@@ -197,6 +213,10 @@ import {
   ListCodeSigningConfigsCommandInput,
   ListCodeSigningConfigsCommandOutput,
 } from "./commands/ListCodeSigningConfigsCommand";
+import {
+  ListDurableExecutionsByFunctionCommandInput,
+  ListDurableExecutionsByFunctionCommandOutput,
+} from "./commands/ListDurableExecutionsByFunctionCommand";
 import {
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput,
@@ -267,6 +287,22 @@ import {
   RemoveLayerVersionPermissionCommandOutput,
 } from "./commands/RemoveLayerVersionPermissionCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import {
+  SendDurableExecutionCallbackFailureCommandInput,
+  SendDurableExecutionCallbackFailureCommandOutput,
+} from "./commands/SendDurableExecutionCallbackFailureCommand";
+import {
+  SendDurableExecutionCallbackHeartbeatCommandInput,
+  SendDurableExecutionCallbackHeartbeatCommandOutput,
+} from "./commands/SendDurableExecutionCallbackHeartbeatCommand";
+import {
+  SendDurableExecutionCallbackSuccessCommandInput,
+  SendDurableExecutionCallbackSuccessCommandOutput,
+} from "./commands/SendDurableExecutionCallbackSuccessCommand";
+import {
+  StopDurableExecutionCommandInput,
+  StopDurableExecutionCommandOutput,
+} from "./commands/StopDurableExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
@@ -312,6 +348,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AddLayerVersionPermissionCommandInput
   | AddPermissionCommandInput
+  | CheckpointDurableExecutionCommandInput
   | CreateAliasCommandInput
   | CreateCapacityProviderCommandInput
   | CreateCodeSigningConfigCommandInput
@@ -333,6 +370,9 @@ export type ServiceInputTypes =
   | GetAliasCommandInput
   | GetCapacityProviderCommandInput
   | GetCodeSigningConfigCommandInput
+  | GetDurableExecutionCommandInput
+  | GetDurableExecutionHistoryCommandInput
+  | GetDurableExecutionStateCommandInput
   | GetEventSourceMappingCommandInput
   | GetFunctionCodeSigningConfigCommandInput
   | GetFunctionCommandInput
@@ -354,6 +394,7 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListCapacityProvidersCommandInput
   | ListCodeSigningConfigsCommandInput
+  | ListDurableExecutionsByFunctionCommandInput
   | ListEventSourceMappingsCommandInput
   | ListFunctionEventInvokeConfigsCommandInput
   | ListFunctionUrlConfigsCommandInput
@@ -376,6 +417,10 @@ export type ServiceInputTypes =
   | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
   | RemovePermissionCommandInput
+  | SendDurableExecutionCallbackFailureCommandInput
+  | SendDurableExecutionCallbackHeartbeatCommandInput
+  | SendDurableExecutionCallbackSuccessCommandInput
+  | StopDurableExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
@@ -393,6 +438,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddLayerVersionPermissionCommandOutput
   | AddPermissionCommandOutput
+  | CheckpointDurableExecutionCommandOutput
   | CreateAliasCommandOutput
   | CreateCapacityProviderCommandOutput
   | CreateCodeSigningConfigCommandOutput
@@ -414,6 +460,9 @@ export type ServiceOutputTypes =
   | GetAliasCommandOutput
   | GetCapacityProviderCommandOutput
   | GetCodeSigningConfigCommandOutput
+  | GetDurableExecutionCommandOutput
+  | GetDurableExecutionHistoryCommandOutput
+  | GetDurableExecutionStateCommandOutput
   | GetEventSourceMappingCommandOutput
   | GetFunctionCodeSigningConfigCommandOutput
   | GetFunctionCommandOutput
@@ -435,6 +484,7 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListCapacityProvidersCommandOutput
   | ListCodeSigningConfigsCommandOutput
+  | ListDurableExecutionsByFunctionCommandOutput
   | ListEventSourceMappingsCommandOutput
   | ListFunctionEventInvokeConfigsCommandOutput
   | ListFunctionUrlConfigsCommandOutput
@@ -457,6 +507,10 @@ export type ServiceOutputTypes =
   | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
   | RemovePermissionCommandOutput
+  | SendDurableExecutionCallbackFailureCommandOutput
+  | SendDurableExecutionCallbackHeartbeatCommandOutput
+  | SendDurableExecutionCallbackSuccessCommandOutput
+  | StopDurableExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput

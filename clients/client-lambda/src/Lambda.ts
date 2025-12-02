@@ -12,6 +12,11 @@ import {
   AddPermissionCommandInput,
   AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand";
+import {
+  CheckpointDurableExecutionCommand,
+  CheckpointDurableExecutionCommandInput,
+  CheckpointDurableExecutionCommandOutput,
+} from "./commands/CheckpointDurableExecutionCommand";
 import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
   CreateCapacityProviderCommand,
@@ -106,6 +111,21 @@ import {
   GetCodeSigningConfigCommandOutput,
 } from "./commands/GetCodeSigningConfigCommand";
 import {
+  GetDurableExecutionCommand,
+  GetDurableExecutionCommandInput,
+  GetDurableExecutionCommandOutput,
+} from "./commands/GetDurableExecutionCommand";
+import {
+  GetDurableExecutionHistoryCommand,
+  GetDurableExecutionHistoryCommandInput,
+  GetDurableExecutionHistoryCommandOutput,
+} from "./commands/GetDurableExecutionHistoryCommand";
+import {
+  GetDurableExecutionStateCommand,
+  GetDurableExecutionStateCommandInput,
+  GetDurableExecutionStateCommandOutput,
+} from "./commands/GetDurableExecutionStateCommand";
+import {
   GetEventSourceMappingCommand,
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput,
@@ -190,6 +210,11 @@ import {
   ListCodeSigningConfigsCommandInput,
   ListCodeSigningConfigsCommandOutput,
 } from "./commands/ListCodeSigningConfigsCommand";
+import {
+  ListDurableExecutionsByFunctionCommand,
+  ListDurableExecutionsByFunctionCommandInput,
+  ListDurableExecutionsByFunctionCommandOutput,
+} from "./commands/ListDurableExecutionsByFunctionCommand";
 import {
   ListEventSourceMappingsCommand,
   ListEventSourceMappingsCommandInput,
@@ -292,6 +317,26 @@ import {
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
+import {
+  SendDurableExecutionCallbackFailureCommand,
+  SendDurableExecutionCallbackFailureCommandInput,
+  SendDurableExecutionCallbackFailureCommandOutput,
+} from "./commands/SendDurableExecutionCallbackFailureCommand";
+import {
+  SendDurableExecutionCallbackHeartbeatCommand,
+  SendDurableExecutionCallbackHeartbeatCommandInput,
+  SendDurableExecutionCallbackHeartbeatCommandOutput,
+} from "./commands/SendDurableExecutionCallbackHeartbeatCommand";
+import {
+  SendDurableExecutionCallbackSuccessCommand,
+  SendDurableExecutionCallbackSuccessCommandInput,
+  SendDurableExecutionCallbackSuccessCommandOutput,
+} from "./commands/SendDurableExecutionCallbackSuccessCommand";
+import {
+  StopDurableExecutionCommand,
+  StopDurableExecutionCommandInput,
+  StopDurableExecutionCommandOutput,
+} from "./commands/StopDurableExecutionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -339,6 +384,7 @@ import { LambdaClient, LambdaClientConfig } from "./LambdaClient";
 const commands = {
   AddLayerVersionPermissionCommand,
   AddPermissionCommand,
+  CheckpointDurableExecutionCommand,
   CreateAliasCommand,
   CreateCapacityProviderCommand,
   CreateCodeSigningConfigCommand,
@@ -360,6 +406,9 @@ const commands = {
   GetAliasCommand,
   GetCapacityProviderCommand,
   GetCodeSigningConfigCommand,
+  GetDurableExecutionCommand,
+  GetDurableExecutionHistoryCommand,
+  GetDurableExecutionStateCommand,
   GetEventSourceMappingCommand,
   GetFunctionCommand,
   GetFunctionCodeSigningConfigCommand,
@@ -381,6 +430,7 @@ const commands = {
   ListAliasesCommand,
   ListCapacityProvidersCommand,
   ListCodeSigningConfigsCommand,
+  ListDurableExecutionsByFunctionCommand,
   ListEventSourceMappingsCommand,
   ListFunctionEventInvokeConfigsCommand,
   ListFunctionsCommand,
@@ -403,6 +453,10 @@ const commands = {
   PutRuntimeManagementConfigCommand,
   RemoveLayerVersionPermissionCommand,
   RemovePermissionCommand,
+  SendDurableExecutionCallbackFailureCommand,
+  SendDurableExecutionCallbackHeartbeatCommand,
+  SendDurableExecutionCallbackSuccessCommand,
+  StopDurableExecutionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAliasCommand,
@@ -442,6 +496,23 @@ export interface Lambda {
     args: AddPermissionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CheckpointDurableExecutionCommand}
+   */
+  checkpointDurableExecution(
+    args: CheckpointDurableExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckpointDurableExecutionCommandOutput>;
+  checkpointDurableExecution(
+    args: CheckpointDurableExecutionCommandInput,
+    cb: (err: any, data?: CheckpointDurableExecutionCommandOutput) => void
+  ): void;
+  checkpointDurableExecution(
+    args: CheckpointDurableExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckpointDurableExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -779,6 +850,57 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link GetDurableExecutionCommand}
+   */
+  getDurableExecution(
+    args: GetDurableExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDurableExecutionCommandOutput>;
+  getDurableExecution(
+    args: GetDurableExecutionCommandInput,
+    cb: (err: any, data?: GetDurableExecutionCommandOutput) => void
+  ): void;
+  getDurableExecution(
+    args: GetDurableExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDurableExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDurableExecutionHistoryCommand}
+   */
+  getDurableExecutionHistory(
+    args: GetDurableExecutionHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDurableExecutionHistoryCommandOutput>;
+  getDurableExecutionHistory(
+    args: GetDurableExecutionHistoryCommandInput,
+    cb: (err: any, data?: GetDurableExecutionHistoryCommandOutput) => void
+  ): void;
+  getDurableExecutionHistory(
+    args: GetDurableExecutionHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDurableExecutionHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDurableExecutionStateCommand}
+   */
+  getDurableExecutionState(
+    args: GetDurableExecutionStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDurableExecutionStateCommandOutput>;
+  getDurableExecutionState(
+    args: GetDurableExecutionStateCommandInput,
+    cb: (err: any, data?: GetDurableExecutionStateCommandOutput) => void
+  ): void;
+  getDurableExecutionState(
+    args: GetDurableExecutionStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDurableExecutionStateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEventSourceMappingCommand}
    */
   getEventSourceMapping(
@@ -1102,6 +1224,23 @@ export interface Lambda {
     args: ListCodeSigningConfigsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCodeSigningConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDurableExecutionsByFunctionCommand}
+   */
+  listDurableExecutionsByFunction(
+    args: ListDurableExecutionsByFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDurableExecutionsByFunctionCommandOutput>;
+  listDurableExecutionsByFunction(
+    args: ListDurableExecutionsByFunctionCommandInput,
+    cb: (err: any, data?: ListDurableExecutionsByFunctionCommandOutput) => void
+  ): void;
+  listDurableExecutionsByFunction(
+    args: ListDurableExecutionsByFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDurableExecutionsByFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -1458,6 +1597,74 @@ export interface Lambda {
     args: RemovePermissionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDurableExecutionCallbackFailureCommand}
+   */
+  sendDurableExecutionCallbackFailure(
+    args: SendDurableExecutionCallbackFailureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDurableExecutionCallbackFailureCommandOutput>;
+  sendDurableExecutionCallbackFailure(
+    args: SendDurableExecutionCallbackFailureCommandInput,
+    cb: (err: any, data?: SendDurableExecutionCallbackFailureCommandOutput) => void
+  ): void;
+  sendDurableExecutionCallbackFailure(
+    args: SendDurableExecutionCallbackFailureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDurableExecutionCallbackFailureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDurableExecutionCallbackHeartbeatCommand}
+   */
+  sendDurableExecutionCallbackHeartbeat(
+    args: SendDurableExecutionCallbackHeartbeatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDurableExecutionCallbackHeartbeatCommandOutput>;
+  sendDurableExecutionCallbackHeartbeat(
+    args: SendDurableExecutionCallbackHeartbeatCommandInput,
+    cb: (err: any, data?: SendDurableExecutionCallbackHeartbeatCommandOutput) => void
+  ): void;
+  sendDurableExecutionCallbackHeartbeat(
+    args: SendDurableExecutionCallbackHeartbeatCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDurableExecutionCallbackHeartbeatCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDurableExecutionCallbackSuccessCommand}
+   */
+  sendDurableExecutionCallbackSuccess(
+    args: SendDurableExecutionCallbackSuccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDurableExecutionCallbackSuccessCommandOutput>;
+  sendDurableExecutionCallbackSuccess(
+    args: SendDurableExecutionCallbackSuccessCommandInput,
+    cb: (err: any, data?: SendDurableExecutionCallbackSuccessCommandOutput) => void
+  ): void;
+  sendDurableExecutionCallbackSuccess(
+    args: SendDurableExecutionCallbackSuccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDurableExecutionCallbackSuccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopDurableExecutionCommand}
+   */
+  stopDurableExecution(
+    args: StopDurableExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDurableExecutionCommandOutput>;
+  stopDurableExecution(
+    args: StopDurableExecutionCommandInput,
+    cb: (err: any, data?: StopDurableExecutionCommandOutput) => void
+  ): void;
+  stopDurableExecution(
+    args: StopDurableExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDurableExecutionCommandOutput) => void
   ): void;
 
   /**

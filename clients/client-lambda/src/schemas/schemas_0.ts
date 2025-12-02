@@ -30,8 +30,10 @@ const _Al = "Aliases";
 const _Ar = "Architectures";
 const _Arn = "Arn";
 const _At = "Attribute";
+const _Att = "Attempt";
 const _B = "Blob";
 const _BBOFE = "BisectBatchOnFunctionError";
+const _BOP = "BinaryOperationPayload";
 const _BS = "BlobStream";
 const _BSa = "BatchSize";
 const _C = "Concurrency";
@@ -39,6 +41,7 @@ const _CA = "CompatibleArchitectures";
 const _CAR = "CreateAliasRequest";
 const _CAo = "CompatibleArchitecture";
 const _CAr = "CreateAlias";
+const _CAu = "CurrentAttempt";
 const _CC = "ClientContext";
 const _CCP = "CreateCapacityProvider";
 const _CCPR = "CreateCapacityProviderRequest";
@@ -46,17 +49,34 @@ const _CCPRr = "CreateCapacityProviderResponse";
 const _CCSC = "CreateCodeSigningConfig";
 const _CCSCR = "CreateCodeSigningConfigRequest";
 const _CCSCRr = "CreateCodeSigningConfigResponse";
-const _CD = "CreatedDate";
+const _CD = "CallbackDetails";
+const _CDE = "CheckpointDurableExecution";
+const _CDER = "CheckpointDurableExecutionRequest";
+const _CDERh = "CheckpointDurableExecutionResponse";
+const _CDo = "ContextDetails";
+const _CDr = "CreatedDate";
 const _CE = "ConcurrentExecutions";
 const _CESM = "CreateEventSourceMapping";
 const _CESMR = "CreateEventSourceMappingRequest";
 const _CF = "CreateFunction";
+const _CFD = "CallbackFailedDetails";
+const _CFDo = "ContextFailedDetails";
 const _CFR = "CreateFunctionRequest";
 const _CFUC = "CreateFunctionUrlConfig";
 const _CFUCR = "CreateFunctionUrlConfigRequest";
 const _CFUCRr = "CreateFunctionUrlConfigResponse";
 const _CGI = "ConsumerGroupId";
+const _CI = "CallbackId";
+const _CID = "ChainedInvokeDetails";
+const _CIFD = "ChainedInvokeFailedDetails";
+const _CIO = "ChainedInvokeOptions";
+const _CISD = "ChainedInvokeStartedDetails";
+const _CISDh = "ChainedInvokeStoppedDetails";
+const _CISDha = "ChainedInvokeSucceededDetails";
+const _CITOD = "ChainedInvokeTimedOutDetails";
 const _CN = "CollectionName";
+const _CO = "CallbackOptions";
+const _COo = "ContextOptions";
 const _CP = "CapacityProvider";
 const _CPA = "CapacityProviderArn";
 const _CPC = "CapacityProviderConfig";
@@ -78,14 +98,23 @@ const _CSCI = "CodeSigningConfigId";
 const _CSCL = "CodeSigningConfigList";
 const _CSCNFE = "CodeSigningConfigNotFoundException";
 const _CSCo = "CodeSigningConfigs";
+const _CSD = "CallbackStartedDetails";
+const _CSDa = "CallbackSucceededDetails";
+const _CSDo = "ContextStartedDetails";
+const _CSDon = "ContextSucceededDetails";
 const _CSEE = "CodeStorageExceededException";
 const _CSP = "CodeSigningPolicies";
 const _CSU = "CodeSizeUnzipped";
 const _CSZ = "CodeSizeZipped";
 const _CSo = "CodeSha256";
 const _CSon = "ConfigSha256";
-const _CT = "CreationTime";
+const _CT = "CheckpointToken";
+const _CTE = "CallbackTimeoutException";
+const _CTOD = "CallbackTimedOutDetails";
 const _CT_ = "Content-Type";
+const _CTl = "ClientToken";
+const _CTr = "CreationTime";
+const _CUES = "CheckpointUpdatedExecutionState";
 const _CVFE = "CodeVerificationFailedException";
 const _Co = "Cors";
 const _Cod = "Code";
@@ -102,7 +131,12 @@ const _DCPRe = "DeleteCapacityProviderResponse";
 const _DCSC = "DeleteCodeSigningConfig";
 const _DCSCR = "DeleteCodeSigningConfigRequest";
 const _DCSCRe = "DeleteCodeSigningConfigResponse";
+const _DCu = "DurableConfig";
 const _DDBESC = "DocumentDBEventSourceConfig";
+const _DE = "DurableExecutions";
+const _DEA = "DurableExecutionArn";
+const _DEASE = "DurableExecutionAlreadyStartedException";
+const _DEN = "DurableExecutionName";
 const _DESM = "DeleteEventSourceMapping";
 const _DESMR = "DeleteEventSourceMappingRequest";
 const _DF = "DeleteFunction";
@@ -124,27 +158,40 @@ const _DPCC = "DeleteProvisionedConcurrencyConfig";
 const _DPCCR = "DeleteProvisionedConcurrencyConfigRequest";
 const _DR = "DryRun";
 const _De = "Destination";
-const _E = "Enabled";
+const _Du = "Duration";
+const _E = "Error";
 const _EC = "ErrorCode";
 const _ECADE = "EC2AccessDeniedException";
 const _ECEC = "EC2ErrorCode";
 const _ECTE = "EC2ThrottledException";
 const _ECUE = "EC2UnexpectedException";
-const _ED = "ErrorDetails";
+const _ED = "ErrorData";
+const _EDr = "ErrorDetails";
+const _EDx = "ExecutionDetails";
 const _EE = "EnvironmentError";
 const _EEMGBPVC = "ExecutionEnvironmentMemoryGiBPerVCpu";
+const _EEv = "EventError";
+const _EFD = "ExecutionFailedDetails";
 const _EFSIOE = "EFSIOException";
 const _EFSMCE = "EFSMountConnectivityException";
 const _EFSMFE = "EFSMountFailureException";
 const _EFSMTE = "EFSMountTimeoutException";
 const _EH = "ExposeHeaders";
+const _EI = "EventId";
 const _EIT = "ExcludedInstanceTypes";
+const _EIv = "EventInput";
+const _EM = "ErrorMessage";
 const _ENILRE = "ENILimitReachedException";
+const _EO = "ErrorObject";
 const _EP = "EntryPoint";
 const _ER = "EnvironmentResponse";
 const _ERF = "EventRecordFormat";
+const _ERv = "EventResult";
 const _ES = "EphemeralStorage";
 const _ESA = "EventSourceArn";
+const _ESD = "ExecutionStartedDetails";
+const _ESDx = "ExecutionSucceededDetails";
+const _ESDxe = "ExecutionStoppedDetails";
 const _ESM = "EventSourceMappings";
 const _ESMA = "EventSourceMappingArn";
 const _ESMC = "EventSourceMappingConfiguration";
@@ -152,13 +199,22 @@ const _ESML = "EventSourceMappingsList";
 const _ESMMC = "EventSourceMappingMetricsConfig";
 const _EST = "EventSourceToken";
 const _ESv = "EventStream";
+const _ET = "ErrorType";
+const _ETOD = "ExecutionTimedOutDetails";
+const _ETn = "EndTimestamp";
+const _ETv = "EventType";
+const _ETve = "EventTimestamp";
+const _ETx = "ExecutionTimeout";
 const _EV = "ExecutedVersion";
 const _EVN = "EnvironmentVariableName";
 const _EVV = "EnvironmentVariableValue";
 const _EVn = "EnvironmentVariables";
-const _En = "Environment";
+const _En = "Enabled";
 const _End = "Endpoints";
-const _Er = "Error";
+const _Env = "Environment";
+const _Ev = "Event";
+const _Eve = "Events";
+const _Ex = "Execution";
 const _F = "Filter";
 const _FA = "FunctionArn";
 const _FAu = "FunctionArns";
@@ -205,6 +261,15 @@ const _GCPRe = "GetCapacityProviderResponse";
 const _GCSC = "GetCodeSigningConfig";
 const _GCSCR = "GetCodeSigningConfigRequest";
 const _GCSCRe = "GetCodeSigningConfigResponse";
+const _GDE = "GetDurableExecution";
+const _GDEH = "GetDurableExecutionHistory";
+const _GDEHR = "GetDurableExecutionHistoryRequest";
+const _GDEHRe = "GetDurableExecutionHistoryResponse";
+const _GDER = "GetDurableExecutionRequest";
+const _GDERe = "GetDurableExecutionResponse";
+const _GDES = "GetDurableExecutionState";
+const _GDESR = "GetDurableExecutionStateRequest";
+const _GDESRe = "GetDurableExecutionStateResponse";
 const _GESM = "GetEventSourceMapping";
 const _GESMR = "GetEventSourceMappingRequest";
 const _GF = "GetFunction";
@@ -247,18 +312,23 @@ const _GRMC = "GetRuntimeManagementConfig";
 const _GRMCR = "GetRuntimeManagementConfigRequest";
 const _GRMCRe = "GetRuntimeManagementConfigResponse";
 const _H = "Handler";
-const _I = "Invoke";
+const _HT = "HeartbeatTimeout";
+const _HTS = "HeartbeatTimeoutSeconds";
+const _I = "Input";
 const _IA = "InvokeArgs";
 const _IAFDS = "Ipv6AllowedForDualStack";
 const _IAR = "InvokeAsyncRequest";
 const _IARn = "InvokeAsyncResponse";
 const _IAn = "InvokeAsync";
 const _IC = "ImageConfig";
+const _ICD = "InvocationCompletedDetails";
 const _ICE = "ImageConfigError";
 const _ICR = "ImageConfigResponse";
 const _ICSE = "InvalidCodeSignatureException";
 const _ICn = "InvokeComplete";
+const _IED = "IncludeExecutionData";
 const _IM = "InvokeMode";
+const _IP = "InputPayload";
 const _IPVE = "InvalidParameterValueException";
 const _IR = "InstanceRequirements";
 const _IRCE = "InvalidRequestContentException";
@@ -277,6 +347,8 @@ const _IWRSR = "InvokeWithResponseStreamRequest";
 const _IWRSRE = "InvokeWithResponseStreamResponseEvent";
 const _IWRSRn = "InvokeWithResponseStreamResponse";
 const _IZFE = "InvalidZipFileException";
+const _Id = "Id";
+const _In = "Invoke";
 const _KKA = "KmsKeyArn";
 const _KMSADE = "KMSAccessDeniedException";
 const _KMSDE = "KMSDisabledException";
@@ -300,6 +372,9 @@ const _LCPRi = "ListCapacityProvidersResponse";
 const _LCSC = "ListCodeSigningConfigs";
 const _LCSCR = "ListCodeSigningConfigsRequest";
 const _LCSCRi = "ListCodeSigningConfigsResponse";
+const _LDEBF = "ListDurableExecutionsByFunction";
+const _LDEBFR = "ListDurableExecutionsByFunctionRequest";
+const _LDEBFRi = "ListDurableExecutionsByFunctionResponse";
 const _LESM = "ListEventSourceMappings";
 const _LESMR = "ListEventSourceMappingsRequest";
 const _LESMRi = "ListEventSourceMappingsResponse";
@@ -380,12 +455,21 @@ const _Ma = "Marker";
 const _Me = "Metrics";
 const _Mo = "Mode";
 const _N = "Name";
+const _NADS = "NextAttemptDelaySeconds";
+const _NAT = "NextAttemptTimestamp";
+const _NES = "NewExecutionState";
 const _NM = "NextMarker";
 const _NPVE = "NoPublishedVersionException";
+const _O = "Operations";
 const _OF = "OnFailure";
 const _OI = "OrganizationId";
+const _OP = "OperationPayload";
+const _OPu = "OutputPayload";
 const _OS = "OnSuccess";
 const _OSp = "OptimizationStatus";
+const _OU = "OperationUpdate";
+const _OUp = "OperationUpdates";
+const _Op = "Operation";
 const _P = "Principal";
 const _PC = "PermissionsConfig";
 const _PCC = "ProvisionedConcurrencyConfigs";
@@ -411,6 +495,7 @@ const _PFSC = "PutFunctionScalingConfig";
 const _PFSCR = "PutFunctionScalingConfigRequest";
 const _PFSCRu = "PutFunctionScalingConfigResponse";
 const _PGN = "PollerGroupName";
+const _PI = "ParentId";
 const _PLEE = "PolicyLengthExceededException";
 const _PLV = "PublishLayerVersion";
 const _PLVR = "PublishLayerVersionRequest";
@@ -428,29 +513,34 @@ const _PT = "PackageType";
 const _PTu = "PublishTo";
 const _PV = "PublishVersion";
 const _PVR = "PublishVersionRequest";
-const _Pa = "Pattern";
-const _Pay = "Payload";
+const _Pa = "Payload";
+const _Pat = "Pattern";
 const _Po = "Policy";
 const _Pu = "Publish";
 const _Q = "Qualifier";
 const _Qu = "Queues";
-const _R = "Runtime";
+const _R = "Result";
 const _RA = "Retry-After";
 const _RC = "RoutingConfig";
 const _RCE = "ReservedConcurrentExecutions";
 const _RCEe = "ResourceConflictException";
+const _RCe = "ReplayChildren";
+const _RD = "RetryDetails";
 const _RFSC = "RequestedFunctionScalingConfig";
 const _RI = "RevisionId";
 const _RIE = "RecursiveInvocationException";
 const _RIU = "ResolvedImageUri";
 const _RIUE = "ResourceInUseException";
+const _RIe = "RequestId";
 const _RL = "RecursiveLoop";
 const _RLVP = "RemoveLayerVersionPermission";
 const _RLVPR = "RemoveLayerVersionPermissionRequest";
 const _RNFE = "ResourceNotFoundException";
 const _RNRE = "ResourceNotReadyException";
+const _RO = "ReverseOrder";
 const _RP = "RemovePermission";
 const _RPCE = "RequestedProvisionedConcurrentExecutions";
+const _RPID = "RetentionPeriodInDays";
 const _RPR = "RemovePermissionRequest";
 const _RSCT = "ResponseStreamContentType";
 const _RT = "RepositoryType";
@@ -461,15 +551,33 @@ const _RVE = "RuntimeVersionError";
 const _Re = "Resource";
 const _Rea = "Reason";
 const _Ro = "Role";
+const _Ru = "Runtime";
 const _S = "Statement";
 const _SA = "SourceArn";
 const _SAC = "SourceAccessConfigurations";
 const _SACo = "SourceAccessConfiguration";
 const _SAo = "SourceAccount";
+const _SAt = "StartedAfter";
 const _SB = "S3Bucket";
+const _SBt = "StartedBefore";
 const _SC = "ScalingConfig";
 const _SCt = "StatusCode";
+const _SD = "StepDetails";
+const _SDE = "StopDurableExecution";
+const _SDECF = "SendDurableExecutionCallbackFailure";
+const _SDECFR = "SendDurableExecutionCallbackFailureRequest";
+const _SDECFRe = "SendDurableExecutionCallbackFailureResponse";
+const _SDECH = "SendDurableExecutionCallbackHeartbeat";
+const _SDECHR = "SendDurableExecutionCallbackHeartbeatRequest";
+const _SDECHRe = "SendDurableExecutionCallbackHeartbeatResponse";
+const _SDECS = "SendDurableExecutionCallbackSuccess";
+const _SDECSR = "SendDurableExecutionCallbackSuccessRequest";
+const _SDECSRe = "SendDurableExecutionCallbackSuccessResponse";
+const _SDER = "StopDurableExecutionRequest";
+const _SDERt = "StopDurableExecutionResponse";
 const _SE = "ServiceException";
+const _SET = "ScheduledEndTimestamp";
+const _SFD = "StepFailedDetails";
 const _SGI = "SecurityGroupIds";
 const _SI = "StatementId";
 const _SIPALRE = "SubnetIPAddressLimitReachedException";
@@ -481,6 +589,7 @@ const _SLL = "SystemLogLevel";
 const _SM = "ScalingMode";
 const _SMES = "SelfManagedEventSource";
 const _SMKESC = "SelfManagedKafkaEventSourceConfig";
+const _SO = "StepOptions";
 const _SOV = "S3ObjectVersion";
 const _SP = "ScalingPolicies";
 const _SPT = "StartingPositionTimestamp";
@@ -494,35 +603,48 @@ const _SRETLE = "SerializedRequestEntityTooLargeException";
 const _SRURI = "SchemaRegistryURI";
 const _SRt = "StatusReason";
 const _SS = "SensitiveString";
+const _SSD = "StepStartedDetails";
+const _SSDt = "StepSucceededDetails";
 const _SSE = "SnapStartException";
 const _SSNRE = "SnapStartNotReadyException";
 const _SSR = "SnapStartResponse";
 const _SSTE = "SnapStartTimeoutException";
 const _SSn = "SnapStart";
+const _ST = "StackTrace";
+const _STE = "StackTraceEntry";
+const _STEt = "StackTraceEntries";
 const _STR = "StateTransitionReason";
+const _STt = "StartTimestamp";
+const _STto = "StopTimestamp";
+const _STu = "SubType";
 const _SVC = "SchemaValidationConfigs";
 const _Si = "Size";
 const _St = "State";
 const _Sta = "Status";
-const _T = "Type";
+const _Stat = "Statuses";
+const _T = "Timeout";
 const _TA = "TargetArn";
 const _TC = "TracingConfig";
 const _TCR = "TracingConfigResponse";
 const _TCS = "TotalCodeSize";
 const _TCe = "TenancyConfig";
 const _TE = "TagsError";
+const _TH = "TraceHeader";
 const _TI = "TenantId";
 const _TIM = "TenantIsolationMode";
 const _TK = "TagKeys";
 const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
+const _TS = "TimeoutSeconds";
 const _TTSP = "TargetTrackingScalingPolicy";
 const _TV = "TargetValue";
 const _TWIS = "TumblingWindowInSeconds";
 const _Ta = "Tags";
-const _Ti = "Timeout";
 const _To = "Topics";
+const _Tr = "Truncated";
+const _Ty = "Type";
+const _U = "Updates";
 const _UA = "UpdateAlias";
 const _UAOD = "UntrustedArtifactOnDeployment";
 const _UAR = "UpdateAliasRequest";
@@ -557,14 +679,23 @@ const _VI = "VpcId";
 const _VN = "VersionNumber";
 const _Ve = "Version";
 const _Ver = "Versions";
+const _WCD = "WaitCancelledDetails";
 const _WD = "WorkingDirectory";
+const _WDa = "WaitDetails";
+const _WO = "WaitOptions";
+const _WS = "WaitSeconds";
+const _WSD = "WaitStartedDetails";
+const _WSDa = "WaitSucceededDetails";
 const _XACC = "X-Amz-Client-Context";
+const _XADEA = "X-Amz-Durable-Execution-Arn";
+const _XADEN = "X-Amz-Durable-Execution-Name";
 const _XAEV = "X-Amz-Executed-Version";
 const _XAFE = "X-Amz-Function-Error";
 const _XAIT = "X-Amz-Invocation-Type";
 const _XALR = "X-Amz-Log-Result";
 const _XALT = "X-Amz-Log-Type";
 const _XATI = "X-Amz-Tenant-Id";
+const _XATIm = "XAmznTraceId";
 const _ZF = "ZipFile";
 const _c = "client";
 const _e = "error";
@@ -593,10 +724,12 @@ import {
 } from "@smithy/types";
 
 import {
+  CallbackTimeoutException as __CallbackTimeoutException,
   CapacityProviderLimitExceededException as __CapacityProviderLimitExceededException,
   CodeSigningConfigNotFoundException as __CodeSigningConfigNotFoundException,
   CodeStorageExceededException as __CodeStorageExceededException,
   CodeVerificationFailedException as __CodeVerificationFailedException,
+  DurableExecutionAlreadyStartedException as __DurableExecutionAlreadyStartedException,
   EC2AccessDeniedException as __EC2AccessDeniedException,
   EC2ThrottledException as __EC2ThrottledException,
   EC2UnexpectedException as __EC2UnexpectedException,
@@ -640,6 +773,7 @@ import { LambdaServiceException as __LambdaServiceException } from "../models/La
 
 /* eslint no-var: 0 */
 
+export var BinaryOperationPayload: StaticSimpleSchema = [0, n0, _BOP, 8, 21];
 export var _Blob: StaticSimpleSchema = [0, n0, _B, 8, 21];
 export var BlobStream: StaticSimpleSchema = [
   0,
@@ -652,7 +786,14 @@ export var BlobStream: StaticSimpleSchema = [
 ];
 export var EnvironmentVariableName: StaticSimpleSchema = [0, n0, _EVN, 8, 0];
 export var EnvironmentVariableValue: StaticSimpleSchema = [0, n0, _EVV, 8, 0];
+export var ErrorData: StaticSimpleSchema = [0, n0, _ED, 8, 0];
+export var ErrorMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
+export var ErrorType: StaticSimpleSchema = [0, n0, _ET, 8, 0];
+export var InputPayload: StaticSimpleSchema = [0, n0, _IP, 8, 0];
+export var OperationPayload: StaticSimpleSchema = [0, n0, _OP, 8, 0];
+export var OutputPayload: StaticSimpleSchema = [0, n0, _OPu, 8, 0];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var StackTraceEntry: StaticSimpleSchema = [0, n0, _STE, 8, 0];
 export var AccountLimit: StaticStructureSchema = [3, n0, _AL, 0, [_TCS, _CSU, _CSZ, _CE, _UCE], [1, 1, 1, 1, 1]];
 export var AccountUsage: StaticStructureSchema = [3, n0, _AU, 0, [_TCS, _FC], [1, 1]];
 export var AddLayerVersionPermissionRequest: StaticStructureSchema = [
@@ -722,6 +863,32 @@ export var AmazonManagedKafkaEventSourceConfig: StaticStructureSchema = [
   [_CGI, _SRC],
   [0, () => KafkaSchemaRegistryConfig],
 ];
+export var CallbackDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _CD,
+  0,
+  [_CI, _R, _E],
+  [0, [() => OperationPayload, 0], [() => ErrorObject, 0]],
+];
+export var CallbackFailedDetails: StaticStructureSchema = [3, n0, _CFD, 0, [_E], [[() => EventError, 0]]];
+export var CallbackOptions: StaticStructureSchema = [3, n0, _CO, 0, [_TS, _HTS], [1, 1]];
+export var CallbackStartedDetails: StaticStructureSchema = [3, n0, _CSD, 0, [_CI, _HT, _T], [0, 1, 1]];
+export var CallbackSucceededDetails: StaticStructureSchema = [3, n0, _CSDa, 0, [_R], [[() => EventResult, 0]]];
+export var CallbackTimedOutDetails: StaticStructureSchema = [3, n0, _CTOD, 0, [_E], [[() => EventError, 0]]];
+export var CallbackTimeoutException: StaticErrorSchema = [
+  -3,
+  n0,
+  _CTE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_Ty, _M],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(CallbackTimeoutException, __CallbackTimeoutException);
+
 export var CapacityProvider: StaticStructureSchema = [
   3,
   n0,
@@ -755,7 +922,7 @@ export var CapacityProviderLimitExceededException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CapacityProviderLimitExceededException, __CapacityProviderLimitExceededException);
@@ -770,6 +937,54 @@ export var CapacityProviderScalingConfig: StaticStructureSchema = [
   [1, 0, () => CapacityProviderScalingPoliciesList],
 ];
 export var CapacityProviderVpcConfig: StaticStructureSchema = [3, n0, _CPVC, 0, [_SIu, _SGI], [64 | 0, 64 | 0]];
+export var ChainedInvokeDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _CID,
+  0,
+  [_R, _E],
+  [
+    [() => OperationPayload, 0],
+    [() => ErrorObject, 0],
+  ],
+];
+export var ChainedInvokeFailedDetails: StaticStructureSchema = [3, n0, _CIFD, 0, [_E], [[() => EventError, 0]]];
+export var ChainedInvokeOptions: StaticStructureSchema = [3, n0, _CIO, 0, [_FN, _TI], [0, 0]];
+export var ChainedInvokeStartedDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _CISD,
+  0,
+  [_FN, _TI, _I, _EV, _DEA],
+  [0, 0, [() => EventInput, 0], 0, 0],
+];
+export var ChainedInvokeStoppedDetails: StaticStructureSchema = [3, n0, _CISDh, 0, [_E], [[() => EventError, 0]]];
+export var ChainedInvokeSucceededDetails: StaticStructureSchema = [3, n0, _CISDha, 0, [_R], [[() => EventResult, 0]]];
+export var ChainedInvokeTimedOutDetails: StaticStructureSchema = [3, n0, _CITOD, 0, [_E], [[() => EventError, 0]]];
+export var CheckpointDurableExecutionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CDER,
+  0,
+  [_DEA, _CT, _U, _CTl],
+  [[0, 1], 0, [() => OperationUpdates, 0], [0, 4]],
+];
+export var CheckpointDurableExecutionResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CDERh,
+  0,
+  [_CT, _NES],
+  [0, [() => CheckpointUpdatedExecutionState, 0]],
+];
+export var CheckpointUpdatedExecutionState: StaticStructureSchema = [
+  3,
+  n0,
+  _CUES,
+  0,
+  [_O, _NM],
+  [[() => Operations, 0], 0],
+];
 export var CodeSigningConfig: StaticStructureSchema = [
   3,
   n0,
@@ -786,7 +1001,7 @@ export var CodeSigningConfigNotFoundException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 404,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CodeSigningConfigNotFoundException, __CodeSigningConfigNotFoundException);
@@ -800,7 +1015,7 @@ export var CodeStorageExceededException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CodeStorageExceededException, __CodeStorageExceededException);
@@ -813,12 +1028,24 @@ export var CodeVerificationFailedException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CodeVerificationFailedException, __CodeVerificationFailedException);
 
 export var Concurrency: StaticStructureSchema = [3, n0, _C, 0, [_RCE], [1]];
+export var ContextDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _CDo,
+  0,
+  [_RCe, _R, _E],
+  [2, [() => OperationPayload, 0], [() => ErrorObject, 0]],
+];
+export var ContextFailedDetails: StaticStructureSchema = [3, n0, _CFDo, 0, [_E], [[() => EventError, 0]]];
+export var ContextOptions: StaticStructureSchema = [3, n0, _COo, 0, [_RCe], [2]];
+export var ContextStartedDetails: StaticStructureSchema = [3, n0, _CSDo, 0, [], []];
+export var ContextSucceededDetails: StaticStructureSchema = [3, n0, _CSDon, 0, [_R], [[() => EventResult, 0]]];
 export var Cors: StaticStructureSchema = [
   3,
   n0,
@@ -876,7 +1103,7 @@ export var CreateEventSourceMappingRequest: StaticStructureSchema = [
   [
     _ESA,
     _FN,
-    _E,
+    _En,
     _BSa,
     _FCi,
     _MBWIS,
@@ -939,18 +1166,18 @@ export var CreateFunctionRequest: StaticStructureSchema = [
   0,
   [
     _FN,
-    _R,
+    _Ru,
     _Ro,
     _H,
     _Cod,
     _D,
-    _Ti,
+    _T,
     _MS,
     _Pu,
     _VC,
     _PT,
     _DLC,
-    _En,
+    _Env,
     _KMSKA,
     _TC,
     _Ta,
@@ -964,6 +1191,7 @@ export var CreateFunctionRequest: StaticStructureSchema = [
     _LC,
     _CPC,
     _PTu,
+    _DCu,
     _TCe,
   ],
   [
@@ -993,6 +1221,7 @@ export var CreateFunctionRequest: StaticStructureSchema = [
     () => LoggingConfig,
     () => CapacityProviderConfig,
     0,
+    () => DurableConfig,
     () => TenancyConfig,
   ],
 ];
@@ -1020,7 +1249,7 @@ export var CreateFunctionUrlConfigResponse: StaticStructureSchema = [
   n0,
   _CFUCRr,
   0,
-  [_FU, _FA, _AT, _Co, _CT, _IM],
+  [_FU, _FA, _AT, _Co, _CTr, _IM],
   [0, 0, 0, () => Cors, 0, 0],
 ];
 export var DeadLetterConfig: StaticStructureSchema = [3, n0, _DLC, 0, [_TA], [0]];
@@ -1120,6 +1349,20 @@ export var DeleteProvisionedConcurrencyConfigRequest: StaticStructureSchema = [
 ];
 export var DestinationConfig: StaticStructureSchema = [3, n0, _DC, 0, [_OS, _OF], [() => OnSuccess, () => OnFailure]];
 export var DocumentDBEventSourceConfig: StaticStructureSchema = [3, n0, _DDBESC, 0, [_DN, _CN, _FD], [0, 0, 0]];
+export var DurableConfig: StaticStructureSchema = [3, n0, _DCu, 0, [_RPID, _ETx], [1, 1]];
+export var DurableExecutionAlreadyStartedException: StaticErrorSchema = [
+  -3,
+  n0,
+  _DEASE,
+  {
+    [_e]: _c,
+    [_hE]: 409,
+  },
+  [_Ty, _M],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(DurableExecutionAlreadyStartedException, __DurableExecutionAlreadyStartedException);
+
 export var EC2AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
@@ -1128,7 +1371,7 @@ export var EC2AccessDeniedException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(EC2AccessDeniedException, __EC2AccessDeniedException);
@@ -1141,7 +1384,7 @@ export var EC2ThrottledException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(EC2ThrottledException, __EC2ThrottledException);
@@ -1154,7 +1397,7 @@ export var EC2UnexpectedException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M, _ECEC],
+  [_Ty, _M, _ECEC],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(EC2UnexpectedException, __EC2UnexpectedException);
@@ -1167,7 +1410,7 @@ export var EFSIOException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 410,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(EFSIOException, __EFSIOException);
@@ -1180,7 +1423,7 @@ export var EFSMountConnectivityException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 408,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(EFSMountConnectivityException, __EFSMountConnectivityException);
@@ -1193,7 +1436,7 @@ export var EFSMountFailureException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 403,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(EFSMountFailureException, __EFSMountFailureException);
@@ -1206,7 +1449,7 @@ export var EFSMountTimeoutException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 408,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(EFSMountTimeoutException, __EFSMountTimeoutException);
@@ -1219,25 +1462,113 @@ export var ENILimitReachedException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ENILimitReachedException, __ENILimitReachedException);
 
-export var Environment: StaticStructureSchema = [3, n0, _En, 0, [_V], [[() => EnvironmentVariables, 0]]];
+export var Environment: StaticStructureSchema = [3, n0, _Env, 0, [_V], [[() => EnvironmentVariables, 0]]];
 export var EnvironmentError: StaticStructureSchema = [3, n0, _EE, 0, [_EC, _M], [0, [() => SensitiveString, 0]]];
 export var EnvironmentResponse: StaticStructureSchema = [
   3,
   n0,
   _ER,
   0,
-  [_V, _Er],
+  [_V, _E],
   [
     [() => EnvironmentVariables, 0],
     [() => EnvironmentError, 0],
   ],
 ];
 export var EphemeralStorage: StaticStructureSchema = [3, n0, _ES, 0, [_Si], [1]];
+export var ErrorObject: StaticStructureSchema = [
+  3,
+  n0,
+  _EO,
+  0,
+  [_EM, _ET, _ED, _ST],
+  [
+    [() => ErrorMessage, 0],
+    [() => ErrorType, 0],
+    [() => ErrorData, 0],
+    [() => StackTraceEntries, 0],
+  ],
+];
+export var Event: StaticStructureSchema = [
+  3,
+  n0,
+  _Ev,
+  0,
+  [
+    _ETv,
+    _STu,
+    _EI,
+    _Id,
+    _N,
+    _ETve,
+    _PI,
+    _ESD,
+    _ESDx,
+    _EFD,
+    _ETOD,
+    _ESDxe,
+    _CSDo,
+    _CSDon,
+    _CFDo,
+    _WSD,
+    _WSDa,
+    _WCD,
+    _SSD,
+    _SSDt,
+    _SFD,
+    _CISD,
+    _CISDha,
+    _CIFD,
+    _CITOD,
+    _CISDh,
+    _CSD,
+    _CSDa,
+    _CFD,
+    _CTOD,
+    _ICD,
+  ],
+  [
+    0,
+    0,
+    1,
+    0,
+    0,
+    4,
+    0,
+    [() => ExecutionStartedDetails, 0],
+    [() => ExecutionSucceededDetails, 0],
+    [() => ExecutionFailedDetails, 0],
+    [() => ExecutionTimedOutDetails, 0],
+    [() => ExecutionStoppedDetails, 0],
+    () => ContextStartedDetails,
+    [() => ContextSucceededDetails, 0],
+    [() => ContextFailedDetails, 0],
+    () => WaitStartedDetails,
+    () => WaitSucceededDetails,
+    [() => WaitCancelledDetails, 0],
+    () => StepStartedDetails,
+    [() => StepSucceededDetails, 0],
+    [() => StepFailedDetails, 0],
+    [() => ChainedInvokeStartedDetails, 0],
+    [() => ChainedInvokeSucceededDetails, 0],
+    [() => ChainedInvokeFailedDetails, 0],
+    [() => ChainedInvokeTimedOutDetails, 0],
+    [() => ChainedInvokeStoppedDetails, 0],
+    () => CallbackStartedDetails,
+    [() => CallbackSucceededDetails, 0],
+    [() => CallbackFailedDetails, 0],
+    [() => CallbackTimedOutDetails, 0],
+    [() => InvocationCompletedDetails, 0],
+  ],
+];
+export var EventError: StaticStructureSchema = [3, n0, _EEv, 0, [_Pa, _Tr], [[() => ErrorObject, 0], 2]];
+export var EventInput: StaticStructureSchema = [3, n0, _EIv, 0, [_Pa, _Tr], [[() => InputPayload, 0], 2]];
+export var EventResult: StaticStructureSchema = [3, n0, _ERv, 0, [_Pa, _Tr], [[() => OperationPayload, 0], 2]];
 export var EventSourceMappingConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1313,8 +1644,15 @@ export var EventSourceMappingConfiguration: StaticStructureSchema = [
   ],
 ];
 export var EventSourceMappingMetricsConfig: StaticStructureSchema = [3, n0, _ESMMC, 0, [_Me], [64 | 0]];
+export var Execution: StaticStructureSchema = [3, n0, _Ex, 0, [_DEA, _DEN, _FA, _Sta, _STt, _ETn], [0, 0, 0, 0, 4, 4]];
+export var ExecutionDetails: StaticStructureSchema = [3, n0, _EDx, 0, [_IP], [[() => InputPayload, 0]]];
+export var ExecutionFailedDetails: StaticStructureSchema = [3, n0, _EFD, 0, [_E], [[() => EventError, 0]]];
+export var ExecutionStartedDetails: StaticStructureSchema = [3, n0, _ESD, 0, [_I, _ETx], [[() => EventInput, 0], 1]];
+export var ExecutionStoppedDetails: StaticStructureSchema = [3, n0, _ESDxe, 0, [_E], [[() => EventError, 0]]];
+export var ExecutionSucceededDetails: StaticStructureSchema = [3, n0, _ESDx, 0, [_R], [[() => EventResult, 0]]];
+export var ExecutionTimedOutDetails: StaticStructureSchema = [3, n0, _ETOD, 0, [_E], [[() => EventError, 0]]];
 export var FileSystemConfig: StaticStructureSchema = [3, n0, _FSCi, 0, [_Arn, _LMP], [0, 0]];
-export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_Pa], [0]];
+export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_Pat], [0]];
 export var FilterCriteria: StaticStructureSchema = [3, n0, _FCi, 0, [_Fi], [() => FilterList]];
 export var FilterCriteriaError: StaticStructureSchema = [3, n0, _FCE, 0, [_EC, _M], [0, 0]];
 export var FunctionCode: StaticStructureSchema = [
@@ -1341,19 +1679,19 @@ export var FunctionConfiguration: StaticStructureSchema = [
   [
     _FN,
     _FA,
-    _R,
+    _Ru,
     _Ro,
     _H,
     _CS,
     _D,
-    _Ti,
+    _T,
     _MS,
     _LM,
     _CSo,
     _Ve,
     _VC,
     _DLC,
-    _En,
+    _Env,
     _KMSKA,
     _TC,
     _MAa,
@@ -1377,6 +1715,7 @@ export var FunctionConfiguration: StaticStructureSchema = [
     _LC,
     _CPC,
     _CSon,
+    _DCu,
     _TCe,
   ],
   [
@@ -1418,6 +1757,7 @@ export var FunctionConfiguration: StaticStructureSchema = [
     () => LoggingConfig,
     () => CapacityProviderConfig,
     0,
+    () => DurableConfig,
     () => TenancyConfig,
   ],
 ];
@@ -1435,7 +1775,7 @@ export var FunctionUrlConfig: StaticStructureSchema = [
   n0,
   _FUC,
   0,
-  [_FU, _FA, _CT, _LMT, _Co, _AT, _IM],
+  [_FU, _FA, _CTr, _LMT, _Co, _AT, _IM],
   [0, 0, 0, 0, () => Cors, 0, 0],
 ];
 export var FunctionVersionsByCapacityProviderListItem: StaticStructureSchema = [3, n0, _FVBCPLI, 0, [_FA, _St], [0, 0]];
@@ -1447,7 +1787,7 @@ export var FunctionVersionsPerCapacityProviderLimitExceededException: StaticErro
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(
@@ -1479,6 +1819,93 @@ export var GetCapacityProviderRequest: StaticStructureSchema = [3, n0, _GCPR, 0,
 export var GetCapacityProviderResponse: StaticStructureSchema = [3, n0, _GCPRe, 0, [_CP], [() => CapacityProvider]];
 export var GetCodeSigningConfigRequest: StaticStructureSchema = [3, n0, _GCSCR, 0, [_CSCA], [[0, 1]]];
 export var GetCodeSigningConfigResponse: StaticStructureSchema = [3, n0, _GCSCRe, 0, [_CSC], [() => CodeSigningConfig]];
+export var GetDurableExecutionHistoryRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GDEHR,
+  0,
+  [_DEA, _IED, _MI, _Ma, _RO],
+  [
+    [0, 1],
+    [
+      2,
+      {
+        [_hQ]: _IED,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _Ma,
+      },
+    ],
+    [
+      2,
+      {
+        [_hQ]: _RO,
+      },
+    ],
+  ],
+];
+export var GetDurableExecutionHistoryResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GDEHRe,
+  0,
+  [_Eve, _NM],
+  [[() => Events, 0], 0],
+];
+export var GetDurableExecutionRequest: StaticStructureSchema = [3, n0, _GDER, 0, [_DEA], [[0, 1]]];
+export var GetDurableExecutionResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GDERe,
+  0,
+  [_DEA, _DEN, _FA, _IP, _R, _E, _STt, _Sta, _ETn, _Ve, _TH],
+  [0, 0, 0, [() => InputPayload, 0], [() => OutputPayload, 0], [() => ErrorObject, 0], 4, 0, 4, 0, () => TraceHeader],
+];
+export var GetDurableExecutionStateRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GDESR,
+  0,
+  [_DEA, _CT, _Ma, _MI],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _CT,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _Ma,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MI,
+      },
+    ],
+  ],
+];
+export var GetDurableExecutionStateResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GDESRe,
+  0,
+  [_O, _NM],
+  [[() => Operations, 0], 0],
+];
 export var GetEventSourceMappingRequest: StaticStructureSchema = [3, n0, _GESMR, 0, [_UUID], [[0, 1]]];
 export var GetFunctionCodeSigningConfigRequest: StaticStructureSchema = [3, n0, _GFCSCR, 0, [_FN], [[0, 1]]];
 export var GetFunctionCodeSigningConfigResponse: StaticStructureSchema = [3, n0, _GFCSCRe, 0, [_CSCA, _FN], [0, 0]];
@@ -1587,7 +2014,7 @@ export var GetFunctionUrlConfigResponse: StaticStructureSchema = [
   n0,
   _GFUCRe,
   0,
-  [_FU, _FA, _AT, _Co, _CT, _LMT, _IM],
+  [_FU, _FA, _AT, _Co, _CTr, _LMT, _IM],
   [0, 0, 0, () => Cors, 0, 0, 0],
 ];
 export var GetLayerVersionByArnRequest: StaticStructureSchema = [
@@ -1633,7 +2060,7 @@ export var GetLayerVersionResponse: StaticStructureSchema = [
   n0,
   _GLVRe,
   0,
-  [_Cont, _LA, _LVA, _D, _CD, _Ve, _CR, _LI, _CA],
+  [_Cont, _LA, _LVA, _D, _CDr, _Ve, _CR, _LI, _CA],
   [() => LayerVersionContentOutput, 0, 0, 0, 0, 1, 64 | 0, 0, 64 | 0],
 ];
 export var GetPolicyRequest: StaticStructureSchema = [
@@ -1708,7 +2135,7 @@ export var ImageConfigResponse: StaticStructureSchema = [
   n0,
   _ICR,
   0,
-  [_IC, _Er],
+  [_IC, _E],
   [() => ImageConfig, [() => ImageConfigError, 0]],
 ];
 export var InstanceRequirements: StaticStructureSchema = [3, n0, _IR, 0, [_Ar, _AIT, _EIT], [64 | 0, 64 | 0, 64 | 0]];
@@ -1720,7 +2147,7 @@ export var InvalidCodeSignatureException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidCodeSignatureException, __InvalidCodeSignatureException);
@@ -1733,7 +2160,7 @@ export var InvalidParameterValueException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
@@ -1746,7 +2173,7 @@ export var InvalidRequestContentException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestContentException, __InvalidRequestContentException);
@@ -1759,7 +2186,7 @@ export var InvalidRuntimeException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRuntimeException, __InvalidRuntimeException);
@@ -1772,7 +2199,7 @@ export var InvalidSecurityGroupIDException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSecurityGroupIDException, __InvalidSecurityGroupIDException);
@@ -1785,7 +2212,7 @@ export var InvalidSubnetIDException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSubnetIDException, __InvalidSubnetIDException);
@@ -1798,17 +2225,25 @@ export var InvalidZipFileException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidZipFileException, __InvalidZipFileException);
 
+export var InvocationCompletedDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _ICD,
+  0,
+  [_STt, _ETn, _RIe, _E],
+  [4, 4, 0, [() => EventError, 0]],
+];
 export var InvocationRequest: StaticStructureSchema = [
   3,
   n0,
   _IRn,
   0,
-  [_FN, _IT, _LT, _CC, _Pay, _Q, _TI],
+  [_FN, _IT, _LT, _CC, _DEN, _Pa, _Q, _TI],
   [
     [0, 1],
     [
@@ -1827,6 +2262,12 @@ export var InvocationRequest: StaticStructureSchema = [
       0,
       {
         [_hH]: _XACC,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _XADEN,
       },
     ],
     [() => _Blob, 16],
@@ -1849,7 +2290,7 @@ export var InvocationResponse: StaticStructureSchema = [
   n0,
   _IRnv,
   0,
-  [_SCt, _FE, _LR, _Pay, _EV],
+  [_SCt, _FE, _LR, _Pa, _EV, _DEA],
   [
     [1, 32],
     [
@@ -1871,6 +2312,12 @@ export var InvocationResponse: StaticStructureSchema = [
         [_hH]: _XAEV,
       },
     ],
+    [
+      0,
+      {
+        [_hH]: _XADEA,
+      },
+    ],
   ],
 ];
 export var InvokeAsyncRequest: StaticStructureSchema = [
@@ -1890,7 +2337,7 @@ export var InvokeResponseStreamUpdate: StaticStructureSchema = [
   n0,
   _IRSU,
   0,
-  [_Pay],
+  [_Pa],
   [
     [
       () => _Blob,
@@ -1905,7 +2352,7 @@ export var InvokeWithResponseStreamCompleteEvent: StaticStructureSchema = [
   n0,
   _IWRSCE,
   0,
-  [_EC, _ED, _LR],
+  [_EC, _EDr, _LR],
   [0, 0, 0],
 ];
 export var InvokeWithResponseStreamRequest: StaticStructureSchema = [
@@ -1913,7 +2360,7 @@ export var InvokeWithResponseStreamRequest: StaticStructureSchema = [
   n0,
   _IWRSR,
   0,
-  [_FN, _IT, _LT, _CC, _Q, _Pay, _TI],
+  [_FN, _IT, _LT, _CC, _Q, _Pa, _TI],
   [
     [0, 1],
     [
@@ -1972,7 +2419,7 @@ export var InvokeWithResponseStreamResponse: StaticStructureSchema = [
     ],
   ],
 ];
-export var KafkaSchemaRegistryAccessConfig: StaticStructureSchema = [3, n0, _KSRAC, 0, [_T, _URI], [0, 0]];
+export var KafkaSchemaRegistryAccessConfig: StaticStructureSchema = [3, n0, _KSRAC, 0, [_Ty, _URI], [0, 0]];
 export var KafkaSchemaRegistryConfig: StaticStructureSchema = [
   3,
   n0,
@@ -1990,7 +2437,7 @@ export var KMSAccessDeniedException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(KMSAccessDeniedException, __KMSAccessDeniedException);
@@ -2003,7 +2450,7 @@ export var KMSDisabledException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(KMSDisabledException, __KMSDisabledException);
@@ -2016,7 +2463,7 @@ export var KMSInvalidStateException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(KMSInvalidStateException, __KMSInvalidStateException);
@@ -2029,7 +2476,7 @@ export var KMSNotFoundException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(KMSNotFoundException, __KMSNotFoundException);
@@ -2072,7 +2519,7 @@ export var LayerVersionsListItem: StaticStructureSchema = [
   n0,
   _LVLI,
   0,
-  [_LVA, _Ve, _D, _CD, _CR, _LI, _CA],
+  [_LVA, _Ve, _D, _CDr, _CR, _LI, _CA],
   [0, 1, 0, 0, 64 | 0, 0, 64 | 0],
 ];
 export var ListAliasesRequest: StaticStructureSchema = [
@@ -2167,6 +2614,72 @@ export var ListCodeSigningConfigsResponse: StaticStructureSchema = [
   0,
   [_NM, _CSCo],
   [0, () => CodeSigningConfigList],
+];
+export var ListDurableExecutionsByFunctionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LDEBFR,
+  0,
+  [_FN, _Q, _DEN, _Stat, _SAt, _SBt, _RO, _Ma, _MI],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _Q,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _DEN,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_hQ]: _Stat,
+      },
+    ],
+    [
+      4,
+      {
+        [_hQ]: _SAt,
+      },
+    ],
+    [
+      4,
+      {
+        [_hQ]: _SBt,
+      },
+    ],
+    [
+      2,
+      {
+        [_hQ]: _RO,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _Ma,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MI,
+      },
+    ],
+  ],
+];
+export var ListDurableExecutionsByFunctionResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LDEBFRi,
+  0,
+  [_DE, _NM],
+  [() => DurableExecutions, 0],
 ];
 export var ListEventSourceMappingsRequest: StaticStructureSchema = [
   3,
@@ -2510,13 +3023,58 @@ export var NoPublishedVersionException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(NoPublishedVersionException, __NoPublishedVersionException);
 
 export var OnFailure: StaticStructureSchema = [3, n0, _OF, 0, [_De], [0]];
 export var OnSuccess: StaticStructureSchema = [3, n0, _OS, 0, [_De], [0]];
+export var Operation: StaticStructureSchema = [
+  3,
+  n0,
+  _Op,
+  0,
+  [_Id, _PI, _N, _Ty, _STu, _STt, _ETn, _Sta, _EDx, _CDo, _SD, _WDa, _CD, _CID],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    4,
+    4,
+    0,
+    [() => ExecutionDetails, 0],
+    [() => ContextDetails, 0],
+    [() => StepDetails, 0],
+    () => WaitDetails,
+    [() => CallbackDetails, 0],
+    [() => ChainedInvokeDetails, 0],
+  ],
+];
+export var OperationUpdate: StaticStructureSchema = [
+  3,
+  n0,
+  _OU,
+  0,
+  [_Id, _PI, _N, _Ty, _STu, _A, _Pa, _E, _COo, _SO, _WO, _CO, _CIO],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    [() => OperationPayload, 0],
+    [() => ErrorObject, 0],
+    () => ContextOptions,
+    () => StepOptions,
+    () => WaitOptions,
+    () => CallbackOptions,
+    () => ChainedInvokeOptions,
+  ],
+];
 export var PolicyLengthExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -2525,7 +3083,7 @@ export var PolicyLengthExceededException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(PolicyLengthExceededException, __PolicyLengthExceededException);
@@ -2538,7 +3096,7 @@ export var PreconditionFailedException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 412,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
@@ -2559,7 +3117,7 @@ export var ProvisionedConcurrencyConfigNotFoundException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 404,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(
@@ -2581,7 +3139,7 @@ export var PublishLayerVersionResponse: StaticStructureSchema = [
   n0,
   _PLVRu,
   0,
-  [_Cont, _LA, _LVA, _D, _CD, _Ve, _CR, _LI, _CA],
+  [_Cont, _LA, _LVA, _D, _CDr, _Ve, _CR, _LI, _CA],
   [() => LayerVersionContentOutput, 0, 0, 0, 0, 1, 64 | 0, 0, 64 | 0],
 ];
 export var PublishVersionRequest: StaticStructureSchema = [
@@ -2693,7 +3251,7 @@ export var RecursiveInvocationException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(RecursiveInvocationException, __RecursiveInvocationException);
@@ -2747,7 +3305,7 @@ export var RequestTooLargeException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 413,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(RequestTooLargeException, __RequestTooLargeException);
@@ -2760,7 +3318,7 @@ export var ResourceConflictException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 409,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
@@ -2773,7 +3331,7 @@ export var ResourceInUseException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
@@ -2786,7 +3344,7 @@ export var ResourceNotFoundException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 404,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
@@ -2799,17 +3357,18 @@ export var ResourceNotReadyException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotReadyException, __ResourceNotReadyException);
 
+export var RetryDetails: StaticStructureSchema = [3, n0, _RD, 0, [_CAu, _NADS], [1, 1]];
 export var RuntimeVersionConfig: StaticStructureSchema = [
   3,
   n0,
   _RVC,
   0,
-  [_RVA, _Er],
+  [_RVA, _E],
   [0, [() => RuntimeVersionError, 0]],
 ];
 export var RuntimeVersionError: StaticStructureSchema = [3, n0, _RVE, 0, [_EC, _M], [0, [() => SensitiveString, 0]]];
@@ -2823,6 +3382,32 @@ export var SelfManagedKafkaEventSourceConfig: StaticStructureSchema = [
   [_CGI, _SRC],
   [0, () => KafkaSchemaRegistryConfig],
 ];
+export var SendDurableExecutionCallbackFailureRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SDECFR,
+  0,
+  [_CI, _E],
+  [
+    [0, 1],
+    [() => ErrorObject, 16],
+  ],
+];
+export var SendDurableExecutionCallbackFailureResponse: StaticStructureSchema = [3, n0, _SDECFRe, 0, [], []];
+export var SendDurableExecutionCallbackHeartbeatRequest: StaticStructureSchema = [3, n0, _SDECHR, 0, [_CI], [[0, 1]]];
+export var SendDurableExecutionCallbackHeartbeatResponse: StaticStructureSchema = [3, n0, _SDECHRe, 0, [], []];
+export var SendDurableExecutionCallbackSuccessRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SDECSR,
+  0,
+  [_CI, _R],
+  [
+    [0, 1],
+    [() => BinaryOperationPayload, 16],
+  ],
+];
+export var SendDurableExecutionCallbackSuccessResponse: StaticStructureSchema = [3, n0, _SDECSRe, 0, [], []];
 export var SerializedRequestEntityTooLargeException: StaticErrorSchema = [
   -3,
   n0,
@@ -2831,7 +3416,7 @@ export var SerializedRequestEntityTooLargeException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 413,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(
@@ -2847,7 +3432,7 @@ export var ServiceException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 500,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
@@ -2861,7 +3446,7 @@ export var SnapStartException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(SnapStartException, __SnapStartException);
@@ -2874,7 +3459,7 @@ export var SnapStartNotReadyException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 409,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(SnapStartNotReadyException, __SnapStartNotReadyException);
@@ -2888,12 +3473,50 @@ export var SnapStartTimeoutException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 408,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(SnapStartTimeoutException, __SnapStartTimeoutException);
 
-export var SourceAccessConfiguration: StaticStructureSchema = [3, n0, _SACo, 0, [_T, _URI], [0, 0]];
+export var SourceAccessConfiguration: StaticStructureSchema = [3, n0, _SACo, 0, [_Ty, _URI], [0, 0]];
+export var StepDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _SD,
+  0,
+  [_Att, _NAT, _R, _E],
+  [1, 4, [() => OperationPayload, 0], [() => ErrorObject, 0]],
+];
+export var StepFailedDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _SFD,
+  0,
+  [_E, _RD],
+  [[() => EventError, 0], () => RetryDetails],
+];
+export var StepOptions: StaticStructureSchema = [3, n0, _SO, 0, [_NADS], [1]];
+export var StepStartedDetails: StaticStructureSchema = [3, n0, _SSD, 0, [], []];
+export var StepSucceededDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _SSDt,
+  0,
+  [_R, _RD],
+  [[() => EventResult, 0], () => RetryDetails],
+];
+export var StopDurableExecutionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SDER,
+  0,
+  [_DEA, _E],
+  [
+    [0, 1],
+    [() => ErrorObject, 16],
+  ],
+];
+export var StopDurableExecutionResponse: StaticStructureSchema = [3, n0, _SDERt, 0, [_STto], [4]];
 export var SubnetIPAddressLimitReachedException: StaticErrorSchema = [
   -3,
   n0,
@@ -2902,7 +3525,7 @@ export var SubnetIPAddressLimitReachedException: StaticErrorSchema = [
     [_e]: _se,
     [_hE]: 502,
   },
-  [_T, _M],
+  [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(SubnetIPAddressLimitReachedException, __SubnetIPAddressLimitReachedException);
@@ -2919,7 +3542,7 @@ export var TooManyRequestsException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 429,
   },
-  [_rAS, _T, _m, _Rea],
+  [_rAS, _Ty, _m, _Rea],
   [
     [
       0,
@@ -2934,6 +3557,7 @@ export var TooManyRequestsException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
 
+export var TraceHeader: StaticStructureSchema = [3, n0, _TH, 0, [_XATIm], [0]];
 export var TracingConfig: StaticStructureSchema = [3, n0, _TC, 0, [_Mo], [0]];
 export var TracingConfigResponse: StaticStructureSchema = [3, n0, _TCR, 0, [_Mo], [0]];
 export var UnsupportedMediaTypeException: StaticErrorSchema = [
@@ -2944,7 +3568,7 @@ export var UnsupportedMediaTypeException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 415,
   },
-  [_T, _m],
+  [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedMediaTypeException, __UnsupportedMediaTypeException);
@@ -3006,7 +3630,7 @@ export var UpdateEventSourceMappingRequest: StaticStructureSchema = [
   [
     _UUID,
     _FN,
-    _E,
+    _En,
     _BSa,
     _FCi,
     _MBWIS,
@@ -3063,7 +3687,7 @@ export var UpdateFunctionConfigurationRequest: StaticStructureSchema = [
   n0,
   _UFCRp,
   0,
-  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _En, _R, _DLC, _KMSKA, _TC, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC],
+  [_FN, _Ro, _H, _D, _T, _MS, _VC, _Env, _Ru, _DLC, _KMSKA, _TC, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC, _DCu],
   [
     [0, 1],
     0,
@@ -3085,6 +3709,7 @@ export var UpdateFunctionConfigurationRequest: StaticStructureSchema = [
     () => SnapStart,
     () => LoggingConfig,
     () => CapacityProviderConfig,
+    () => DurableConfig,
   ],
 ];
 export var UpdateFunctionEventInvokeConfigRequest: StaticStructureSchema = [
@@ -3130,7 +3755,7 @@ export var UpdateFunctionUrlConfigResponse: StaticStructureSchema = [
   n0,
   _UFUCRp,
   0,
-  [_FU, _FA, _AT, _Co, _CT, _LMT, _IM],
+  [_FU, _FA, _AT, _Co, _CTr, _LMT, _IM],
   [0, 0, 0, () => Cors, 0, 0, 0],
 ];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SIu, _SGI, _IAFDS], [64 | 0, 64 | 0, 2]];
@@ -3142,6 +3767,11 @@ export var VpcConfigResponse: StaticStructureSchema = [
   [_SIu, _SGI, _VI, _IAFDS],
   [64 | 0, 64 | 0, 0, 2],
 ];
+export var WaitCancelledDetails: StaticStructureSchema = [3, n0, _WCD, 0, [_E], [[() => EventError, 0]]];
+export var WaitDetails: StaticStructureSchema = [3, n0, _WDa, 0, [_SET], [4]];
+export var WaitOptions: StaticStructureSchema = [3, n0, _WO, 0, [_WS], [1]];
+export var WaitStartedDetails: StaticStructureSchema = [3, n0, _WSD, 0, [_Du, _SET], [1, 4]];
+export var WaitSucceededDetails: StaticStructureSchema = [3, n0, _WSDa, 0, [_Du], [1]];
 export var __Unit = "unit" as const;
 
 export var LambdaServiceException: StaticErrorSchema = [-3, _sm, "LambdaServiceException", 0, [], []];
@@ -3171,11 +3801,15 @@ export var CompatibleArchitectures = 64 | 0;
 
 export var CompatibleRuntimes = 64 | 0;
 
+export var DurableExecutions: StaticListSchema = [1, n0, _DE, 0, () => Execution];
 export var EndpointLists = 64 | 0;
 
+export var Events: StaticListSchema = [1, n0, _Eve, 0, [() => Event, 0]];
 export var EventSourceMappingMetricList = 64 | 0;
 
 export var EventSourceMappingsList: StaticListSchema = [1, n0, _ESML, 0, () => EventSourceMappingConfiguration];
+export var ExecutionStatusList = 64 | 0;
+
 export var FileSystemConfigList: StaticListSchema = [1, n0, _FSCL, 0, () => FileSystemConfig];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FunctionArnList = 64 | 0;
@@ -3209,6 +3843,8 @@ export var LayerList = 64 | 0;
 export var LayersList: StaticListSchema = [1, n0, _LL, 0, () => LayersListItem];
 export var LayersReferenceList: StaticListSchema = [1, n0, _LRL, 0, () => Layer];
 export var LayerVersionsList: StaticListSchema = [1, n0, _LVL, 0, () => LayerVersionsListItem];
+export var Operations: StaticListSchema = [1, n0, _O, 0, [() => Operation, 0]];
+export var OperationUpdates: StaticListSchema = [1, n0, _OUp, 0, [() => OperationUpdate, 0]];
 export var ProvisionedConcurrencyConfigList: StaticListSchema = [
   1,
   n0,
@@ -3223,6 +3859,7 @@ export var SecurityGroupIds = 64 | 0;
 export var SigningProfileVersionArns = 64 | 0;
 
 export var SourceAccessConfigurations: StaticListSchema = [1, n0, _SAC, 0, () => SourceAccessConfiguration];
+export var StackTraceEntries: StaticListSchema = [1, n0, _STEt, 0, [() => StackTraceEntry, 0]];
 export var StringList = 64 | 0;
 
 export var SubnetIds = 64 | 0;
@@ -3273,6 +3910,16 @@ export var AddPermission: StaticOperationSchema = [
   },
   () => AddPermissionRequest,
   () => AddPermissionResponse,
+];
+export var CheckpointDurableExecution: StaticOperationSchema = [
+  9,
+  n0,
+  _CDE,
+  {
+    [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/checkpoint", 200],
+  },
+  () => CheckpointDurableExecutionRequest,
+  () => CheckpointDurableExecutionResponse,
 ];
 export var CreateAlias: StaticOperationSchema = [
   9,
@@ -3484,6 +4131,36 @@ export var GetCodeSigningConfig: StaticOperationSchema = [
   () => GetCodeSigningConfigRequest,
   () => GetCodeSigningConfigResponse,
 ];
+export var GetDurableExecution: StaticOperationSchema = [
+  9,
+  n0,
+  _GDE,
+  {
+    [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}", 200],
+  },
+  () => GetDurableExecutionRequest,
+  () => GetDurableExecutionResponse,
+];
+export var GetDurableExecutionHistory: StaticOperationSchema = [
+  9,
+  n0,
+  _GDEH,
+  {
+    [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}/history", 200],
+  },
+  () => GetDurableExecutionHistoryRequest,
+  () => GetDurableExecutionHistoryResponse,
+];
+export var GetDurableExecutionState: StaticOperationSchema = [
+  9,
+  n0,
+  _GDES,
+  {
+    [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}/state", 200],
+  },
+  () => GetDurableExecutionStateRequest,
+  () => GetDurableExecutionStateResponse,
+];
 export var GetEventSourceMapping: StaticOperationSchema = [
   9,
   n0,
@@ -3637,7 +4314,7 @@ export var GetRuntimeManagementConfig: StaticOperationSchema = [
 export var Invoke: StaticOperationSchema = [
   9,
   n0,
-  _I,
+  _In,
   {
     [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/invocations", 200],
   },
@@ -3693,6 +4370,16 @@ export var ListCodeSigningConfigs: StaticOperationSchema = [
   },
   () => ListCodeSigningConfigsRequest,
   () => ListCodeSigningConfigsResponse,
+];
+export var ListDurableExecutionsByFunction: StaticOperationSchema = [
+  9,
+  n0,
+  _LDEBF,
+  {
+    [_h]: ["GET", "/2025-12-01/functions/{FunctionName}/durable-executions", 200],
+  },
+  () => ListDurableExecutionsByFunctionRequest,
+  () => ListDurableExecutionsByFunctionResponse,
 ];
 export var ListEventSourceMappings: StaticOperationSchema = [
   9,
@@ -3913,6 +4600,46 @@ export var RemovePermission: StaticOperationSchema = [
   },
   () => RemovePermissionRequest,
   () => __Unit,
+];
+export var SendDurableExecutionCallbackFailure: StaticOperationSchema = [
+  9,
+  n0,
+  _SDECF,
+  {
+    [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/fail", 200],
+  },
+  () => SendDurableExecutionCallbackFailureRequest,
+  () => SendDurableExecutionCallbackFailureResponse,
+];
+export var SendDurableExecutionCallbackHeartbeat: StaticOperationSchema = [
+  9,
+  n0,
+  _SDECH,
+  {
+    [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/heartbeat", 200],
+  },
+  () => SendDurableExecutionCallbackHeartbeatRequest,
+  () => SendDurableExecutionCallbackHeartbeatResponse,
+];
+export var SendDurableExecutionCallbackSuccess: StaticOperationSchema = [
+  9,
+  n0,
+  _SDECS,
+  {
+    [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/succeed", 200],
+  },
+  () => SendDurableExecutionCallbackSuccessRequest,
+  () => SendDurableExecutionCallbackSuccessResponse,
+];
+export var StopDurableExecution: StaticOperationSchema = [
+  9,
+  n0,
+  _SDE,
+  {
+    [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/stop", 200],
+  },
+  () => StopDurableExecutionRequest,
+  () => StopDurableExecutionResponse,
 ];
 export var TagResource: StaticOperationSchema = [
   9,

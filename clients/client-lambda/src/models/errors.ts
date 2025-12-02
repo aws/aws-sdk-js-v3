@@ -364,6 +364,35 @@ export class InvalidCodeSignatureException extends __BaseException {
 }
 
 /**
+ * <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
+ * @public
+ */
+export class DurableExecutionAlreadyStartedException extends __BaseException {
+  readonly name = "DurableExecutionAlreadyStartedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DurableExecutionAlreadyStartedException, __BaseException>) {
+    super({
+      name: "DurableExecutionAlreadyStartedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DurableExecutionAlreadyStartedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Need additional permissions to configure VPC settings.</p>
  * @public
  */
@@ -1051,5 +1080,34 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
     });
     Object.setPrototypeOf(this, ProvisionedConcurrencyConfigNotFoundException.prototype);
     this.Type = opts.Type;
+  }
+}
+
+/**
+ * <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
+ * @public
+ */
+export class CallbackTimeoutException extends __BaseException {
+  readonly name = "CallbackTimeoutException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CallbackTimeoutException, __BaseException>) {
+    super({
+      name: "CallbackTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CallbackTimeoutException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
   }
 }
