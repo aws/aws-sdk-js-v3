@@ -28,7 +28,7 @@ export interface GetResourcesTrendsV2CommandInput extends GetResourcesTrendsV2Re
 export interface GetResourcesTrendsV2CommandOutput extends GetResourcesTrendsV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns resource trend data based on the specified criteria. This operation helps you analyze patterns and changes in resource compliance over time. This API is in public preview and subject to change.</p>
+ * <p>Returns resource trend data based on the specified criteria. This operation helps you analyze patterns and changes in resource compliance over time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

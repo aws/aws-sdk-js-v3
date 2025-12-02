@@ -388,14 +388,6 @@ BatchUpdateStandardsControlAssociations
 </details>
 <details>
 <summary>
-ConnectorRegistrationsV2
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ConnectorRegistrationsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ConnectorRegistrationsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ConnectorRegistrationsV2CommandOutput/)
-
-</details>
-<details>
-<summary>
 CreateActionTarget
 </summary>
 
@@ -1000,6 +992,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+RegisterConnectorV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/RegisterConnectorV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/RegisterConnectorV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/RegisterConnectorV2CommandOutput/)
 
 </details>
 <details>

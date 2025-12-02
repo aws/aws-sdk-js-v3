@@ -27,7 +27,7 @@ export interface GetConnectorV2CommandInput extends GetConnectorV2Request {}
 export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to retrieve details for a connectorV2 based on connector id. This API is in public preview and subject to change.</p>
+ * <p>Grants permission to retrieve details for a connectorV2 based on connector id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,7 +64,7 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  * //     },
  * //     ServiceNow: { // ServiceNowDetail
  * //       InstanceName: "STRING_VALUE",
- * //       ClientId: "STRING_VALUE",
+ * //       SecretArn: "STRING_VALUE", // required
  * //       AuthStatus: "ACTIVE" || "FAILED", // required
  * //     },
  * //   },

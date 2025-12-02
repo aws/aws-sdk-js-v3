@@ -4100,7 +4100,7 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
   RamdiskId?: string | undefined;
 
   /**
-   * <p>The security groups to assign to the instances in the Auto Scaling group.</p>
+   * <p>The security groups to assign to the instances in the Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   SecurityGroups?: string[] | undefined;
@@ -5449,7 +5449,7 @@ export interface AwsCloudFrontDistributionOriginS3OriginConfig {
 
 /**
  * <p>A complex type that describes the
- *             Amazon S3 bucket, HTTP server (for example, a web server), Elemental MediaStore, or other server from which CloudFront gets your files.</p>
+ *             Amazon S3 bucket, HTTP server (for example, a web server), or other server from which CloudFront gets your files.</p>
  * @public
  */
 export interface AwsCloudFrontDistributionOriginItem {
@@ -11633,7 +11633,7 @@ export interface AwsEcsServiceLoadBalancersDetails {
   LoadBalancerName?: string | undefined;
 
   /**
-   * <p>The ARN of the Elastic Load Balancing target group or groups associated with a service or task set.</p>
+   * <p>The ARN of the ELB target group or groups associated with a service or task set.</p>
    *          <p>Only specified when using an Application Load Balancer or a Network Load Balancer. For a Classic Load Balancer, the target group ARN is omitted.</p>
    * @public
    */
@@ -11808,7 +11808,7 @@ export interface AwsEcsServiceDetails {
   EnableExecuteCommand?: boolean | undefined;
 
   /**
-   * <p>After a task starts, the amount of time in seconds that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks.</p>
+   * <p>After a task starts, the amount of time in seconds that the Amazon ECS service scheduler ignores unhealthy ELB target health checks.</p>
    * @public
    */
   HealthCheckGracePeriodSeconds?: number | undefined;
@@ -11866,7 +11866,7 @@ export interface AwsEcsServiceDetails {
   PropagateTags?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is associated with the service. The role allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.</p>
+   * <p>The ARN of the IAM role that is associated with the service. The role allows the Amazon ECS container agent to register container instances with an ELB load balancer.</p>
    * @public
    */
   Role?: string | undefined;

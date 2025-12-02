@@ -27,7 +27,7 @@ export interface ListConnectorsV2CommandInput extends ListConnectorsV2Request {}
 export interface ListConnectorsV2CommandOutput extends ListConnectorsV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to retrieve a list of connectorsV2 and their metadata for the calling account. This API is in public preview and subject to change.</p>
+ * <p>Grants permission to retrieve a list of connectorsV2 and their metadata for the calling account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

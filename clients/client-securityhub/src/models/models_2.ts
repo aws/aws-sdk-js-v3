@@ -47,6 +47,7 @@ import {
   TargetType,
   ThreatIntelIndicatorCategory,
   ThreatIntelIndicatorType,
+  TicketCreationMode,
   UnprocessedErrorCode,
   UpdateStatus,
   VerificationState,
@@ -5783,40 +5784,6 @@ export interface ConfigurationPolicySummary {
 }
 
 /**
- * @public
- */
-export interface ConnectorRegistrationsV2Request {
-  /**
-   * <p>The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
-   * @public
-   */
-  AuthCode: string | undefined;
-
-  /**
-   * <p>The authState retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
-   * @public
-   */
-  AuthState: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ConnectorRegistrationsV2Response {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
-   * @public
-   */
-  ConnectorArn?: string | undefined;
-
-  /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
-   * @public
-   */
-  ConnectorId: string | undefined;
-}
-
-/**
  * <p>The connectorV2 third-party provider configuration summary.</p>
  * @public
  */
@@ -6352,16 +6319,10 @@ export interface ServiceNowProviderConfiguration {
   InstanceName: string | undefined;
 
   /**
-   * <p>The client ID of ServiceNow ITSM.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
    * @public
    */
-  ClientId: string | undefined;
-
-  /**
-   * <p>The client secret of ServiceNow ITSM.</p>
-   * @public
-   */
-  ClientSecret: string | undefined;
+  SecretArn: string | undefined;
 }
 
 /**
@@ -6466,7 +6427,7 @@ export interface CreateConnectorV2Response {
    * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
    * @public
    */
-  ConnectorArn?: string | undefined;
+  ConnectorArn: string | undefined;
 
   /**
    * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
@@ -6479,6 +6440,12 @@ export interface CreateConnectorV2Response {
    * @public
    */
   AuthUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the connectorV2.</p>
+   * @public
+   */
+  ConnectorStatus?: ConnectorStatus | undefined;
 }
 
 /**
@@ -6656,6 +6623,12 @@ export interface CreateTicketV2Request {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The mode for ticket creation. When set to DRYRUN, the ticket is created using a Security Hub owned template test finding to verify the integration is working correctly.</p>
+   * @public
+   */
+  Mode?: TicketCreationMode | undefined;
 }
 
 /**
@@ -8226,13 +8199,13 @@ export interface ServiceNowDetail {
   InstanceName?: string | undefined;
 
   /**
-   * <p>The clientId of ServiceNow ITSM.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
    * @public
    */
-  ClientId?: string | undefined;
+  SecretArn: string | undefined;
 
   /**
-   * <p>The status of the authorization between Jira Cloud and the service.</p>
+   * <p>The status of the authorization between ServiceNow and the service.</p>
    * @public
    */
   AuthStatus: ConnectorAuthStatus | undefined;
@@ -9593,7 +9566,7 @@ export interface JiraCloudUpdateConfiguration {
    * <p>The project key for a JiraCloud instance.</p>
    * @public
    */
-  ProjectKey: string | undefined;
+  ProjectKey?: string | undefined;
 }
 
 /**
@@ -10246,4 +10219,34 @@ export interface StandardsControlAssociationSummary {
    * @public
    */
   StandardsControlDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStandardsControlAssociationsResponse {
+  /**
+   * <p> An array that provides the enablement status and other details for each security
+   *          control that applies to each enabled standard. </p>
+   * @public
+   */
+  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource to retrieve tags for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
 }

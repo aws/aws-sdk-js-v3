@@ -826,8 +826,8 @@ const _ASsso = "AssociationState";
 const _ASssoc = "AssociationSet";
 const _ASssoci = "AssociatedStandards";
 const _ASu = "AuthenticationStrategy";
-const _ASut = "AuthState";
-const _ASuth = "AuthStatus";
+const _ASut = "AuthStatus";
+const _ASuth = "AuthState";
 const _ASuto = "AutonomousSystem";
 const _AT = "ActionType";
 const _ATA = "ActionTargetArn";
@@ -1211,9 +1211,6 @@ const _CRRGA = "CapacityReservationResourceGroupArn";
 const _CRRIMBPS = "CurrentRestoreRateInMegaBytesPerSecond";
 const _CRS = "CapacityReservationSpecification";
 const _CRT = "CapacityReservationTarget";
-const _CRV = "ConnectorRegistrationsV2";
-const _CRVR = "ConnectorRegistrationsV2Request";
-const _CRVRo = "ConnectorRegistrationsV2Response";
 const _CRe = "CellReference";
 const _CRl = "ClassificationResult";
 const _CRo = "CompatibleRuntimes";
@@ -1240,7 +1237,6 @@ const _CSa = "CanarySettings";
 const _CSe = "CertificateSource";
 const _CSl = "ClusterSettings";
 const _CSla = "ClassificationStatus";
-const _CSli = "ClientSecret";
 const _CSlu = "ClusterStatus";
 const _CSo = "ConnectionSettings";
 const _CSod = "CodeSha256";
@@ -2659,6 +2655,9 @@ const _RCLA = "ResourceContainerLaunchedAt";
 const _RCN = "ResourceContainerName";
 const _RCTD = "ResourceCreationTimeDt";
 const _RCU = "ReadCapacityUnits";
+const _RCV = "RegisterConnectorV2";
+const _RCVR = "RegisterConnectorV2Request";
+const _RCVRe = "RegisterConnectorV2Response";
 const _RCe = "RegistryCredential";
 const _RCea = "ReasonCode";
 const _RCep = "RepositoryCredentials";
@@ -2877,6 +2876,7 @@ const _SAU = "ServiceAccountUsername";
 const _SAZ = "SecondaryAvailabilityZone";
 const _SAZu = "SubnetAvailabilityZone";
 const _SAe = "SecondaryArtifacts";
+const _SAec = "SecretArn";
 const _SAer = "ServiceArn";
 const _SAo = "SourceArn";
 const _SAt = "StartedAt";
@@ -3023,8 +3023,8 @@ const _SMs = "SslMode";
 const _SMu = "SubnetMappings";
 const _SN = "ServiceName";
 const _SND = "ServiceNowDetail";
-const _SNES = "SensitiveNonEmptyString";
 const _SNPC = "ServiceNowProviderConfiguration";
+const _SNUC = "ServiceNowUpdateConfiguration";
 const _SNe = "ServerName";
 const _SNer = "ServiceNow";
 const _SNev = "SeverityNormalized";
@@ -3047,6 +3047,7 @@ const _SPof = "SoftwarePackage";
 const _SPou = "SourcePort";
 const _SPour = "SourcePorts";
 const _SPt = "StartPeriod";
+const _SQEE = "ServiceQuotaExceededException";
 const _SR = "ServiceRole";
 const _SRACA = "StatelessRulesAndCustomActions";
 const _SRC = "StatusReasonCode";
@@ -3429,7 +3430,6 @@ import {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
-  StaticSimpleSchema,
   StaticStructureSchema,
 } from "@smithy/types";
 
@@ -3444,6 +3444,7 @@ import {
   ResourceConflictException as __ResourceConflictException,
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
+  ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
 } from "../models/errors";
@@ -3451,7 +3452,6 @@ import { SecurityHubServiceException as __SecurityHubServiceException } from "..
 
 /* eslint no-var: 0 */
 
-export var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
 export var AcceptAdministratorInvitationRequest: StaticStructureSchema = [3, n0, _AAIR, 0, [_AI, _II], [0, 0]];
 export var AcceptAdministratorInvitationResponse: StaticStructureSchema = [3, n0, _AAIRc, 0, [], []];
 export var AcceptInvitationRequest: StaticStructureSchema = [3, n0, _AIR, 0, [_MI, _II], [0, 0]];
@@ -8609,8 +8609,6 @@ export var ConflictException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
 
-export var ConnectorRegistrationsV2Request: StaticStructureSchema = [3, n0, _CRVR, 0, [_ACut, _ASut], [0, 0]];
-export var ConnectorRegistrationsV2Response: StaticStructureSchema = [3, n0, _CRVRo, 0, [_CAon, _CIo], [0, 0]];
 export var ConnectorSummary: StaticStructureSchema = [
   3,
   n0,
@@ -8686,9 +8684,16 @@ export var CreateConnectorV2Request: StaticStructureSchema = [
   _CCVR,
   0,
   [_N, _D, _Prov, _KKA, _Tags, _CTl],
-  [0, 0, [() => ProviderConfiguration, 0], 0, 128 | 0, [0, 4]],
+  [0, 0, () => ProviderConfiguration, 0, 128 | 0, [0, 4]],
 ];
-export var CreateConnectorV2Response: StaticStructureSchema = [3, n0, _CCVRr, 0, [_CAon, _CIo, _AUut], [0, 0, 0]];
+export var CreateConnectorV2Response: StaticStructureSchema = [
+  3,
+  n0,
+  _CCVRr,
+  0,
+  [_CAon, _CIo, _AUut, _CSonn],
+  [0, 0, 0, 0],
+];
 export var CreateFindingAggregatorRequest: StaticStructureSchema = [3, n0, _CFAR, 0, [_RLM, _Regi], [0, 64 | 0]];
 export var CreateFindingAggregatorResponse: StaticStructureSchema = [
   3,
@@ -8709,7 +8714,14 @@ export var CreateInsightRequest: StaticStructureSchema = [
 export var CreateInsightResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_IAns], [0]];
 export var CreateMembersRequest: StaticStructureSchema = [3, n0, _CMR, 0, [_AD], [() => AccountDetailsList]];
 export var CreateMembersResponse: StaticStructureSchema = [3, n0, _CMRr, 0, [_UAnp], [() => ResultList]];
-export var CreateTicketV2Request: StaticStructureSchema = [3, n0, _CTVR, 0, [_CIo, _FMU, _CTl], [0, 0, [0, 4]]];
+export var CreateTicketV2Request: StaticStructureSchema = [
+  3,
+  n0,
+  _CTVR,
+  0,
+  [_CIo, _FMU, _CTl, _Mod],
+  [0, 0, [0, 4], 0],
+];
 export var CreateTicketV2Response: StaticStructureSchema = [3, n0, _CTVRr, 0, [_TIi, _TSU], [0, 0]];
 export var CustomDataIdentifiersDetections: StaticStructureSchema = [
   3,
@@ -9326,7 +9338,7 @@ export var InviteMembersResponse: StaticStructureSchema = [3, n0, _IMRn, 0, [_UA
 export var IpFilter: StaticStructureSchema = [3, n0, _IFp, 0, [_Cid], [0]];
 export var IpOrganizationDetails: StaticStructureSchema = [3, n0, _IOD, 0, [_Asn, _AOs, _Isp, _Org], [1, 0, 0, 0]];
 export var Ipv6CidrBlockAssociation: StaticStructureSchema = [3, n0, _ICBA, 0, [_AIs, _ICB, _CBSi], [0, 0, 0]];
-export var JiraCloudDetail: StaticStructureSchema = [3, n0, _JCD, 0, [_CIlo, _PK, _Do, _AUut, _ASuth], [0, 0, 0, 0, 0]];
+export var JiraCloudDetail: StaticStructureSchema = [3, n0, _JCD, 0, [_CIlo, _PK, _Do, _AUut, _ASut], [0, 0, 0, 0, 0]];
 export var JiraCloudProviderConfiguration: StaticStructureSchema = [3, n0, _JCPC, 0, [_PK], [0]];
 export var JiraCloudUpdateConfiguration: StaticStructureSchema = [3, n0, _JCUC, 0, [_PK], [0]];
 export var KeywordFilter: StaticStructureSchema = [3, n0, _KF, 0, [_Val], [0]];
@@ -9864,6 +9876,8 @@ export var ProviderSummary: StaticStructureSchema = [3, n0, _PSr, 0, [_PNrov, _C
 export var Range: StaticStructureSchema = [3, n0, _Ra, 0, [_Star, _End_, _SCta], [1, 1, 1]];
 export var Recommendation: StaticStructureSchema = [3, n0, _Reco, 0, [_Tex, _Ur], [0, 0]];
 export var _Record: StaticStructureSchema = [3, n0, _Recor, 0, [_JP, _RIec], [0, 1]];
+export var RegisterConnectorV2Request: StaticStructureSchema = [3, n0, _RCVR, 0, [_ACut, _ASuth], [0, 0]];
+export var RegisterConnectorV2Response: StaticStructureSchema = [3, n0, _RCVRe, 0, [_CAon, _CIo], [0, 0]];
 export var RelatedFinding: StaticStructureSchema = [3, n0, _RFe, 0, [_PA, _I], [0, 0]];
 export var Remediation: StaticStructureSchema = [3, n0, _Rem, 0, [_Reco], [() => Recommendation]];
 export var Resource: StaticStructureSchema = [
@@ -10434,15 +10448,22 @@ export var Sequence: StaticStructureSchema = [
   [_Ui, _Acto, _Endp, _Sig, _SIeq],
   [0, () => ActorsList, () => NetworkEndpointsList, () => SignalsList, () => IndicatorsList],
 ];
-export var ServiceNowDetail: StaticStructureSchema = [3, n0, _SND, 0, [_INn, _CI, _ASuth], [0, 0, 0]];
-export var ServiceNowProviderConfiguration: StaticStructureSchema = [
-  3,
+export var ServiceNowDetail: StaticStructureSchema = [3, n0, _SND, 0, [_INn, _SAec, _ASut], [0, 0, 0]];
+export var ServiceNowProviderConfiguration: StaticStructureSchema = [3, n0, _SNPC, 0, [_INn, _SAec], [0, 0]];
+export var ServiceNowUpdateConfiguration: StaticStructureSchema = [3, n0, _SNUC, 0, [_SAec], [0]];
+export var ServiceQuotaExceededException: StaticErrorSchema = [
+  -3,
   n0,
-  _SNPC,
-  0,
-  [_INn, _CI, _CSli],
-  [0, 0, [() => SensitiveNonEmptyString, 0]],
+  _SQEE,
+  {
+    [_e]: _c,
+    [_hE]: 402,
+  },
+  [_M, _C],
+  [0, 0],
 ];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
+
 export var Severity: StaticStructureSchema = [3, n0, _Se, 0, [_Produ, _Lab, _Norm, _Orig], [1, 0, 1, 0]];
 export var SeverityTrendsCount: StaticStructureSchema = [
   3,
@@ -10693,8 +10714,8 @@ export var UpdateConnectorV2Request: StaticStructureSchema = [
   n0,
   _UCVR,
   0,
-  [_CIo, _CSli, _D, _Prov],
-  [[0, 1], [() => SensitiveNonEmptyString, 0], 0, () => ProviderUpdateConfiguration],
+  [_CIo, _D, _Prov],
+  [[0, 1], 0, () => ProviderUpdateConfiguration],
 ];
 export var UpdateConnectorV2Response: StaticStructureSchema = [3, n0, _UCVRp, 0, [], []];
 export var UpdateFindingAggregatorRequest: StaticStructureSchema = [
@@ -12013,7 +12034,7 @@ export var ProviderConfiguration: StaticStructureSchema = [
   _PCro,
   0,
   [_JC, _SNer],
-  [() => JiraCloudProviderConfiguration, [() => ServiceNowProviderConfiguration, 0]],
+  [() => JiraCloudProviderConfiguration, () => ServiceNowProviderConfiguration],
 ];
 export var ProviderDetail: StaticStructureSchema = [
   3,
@@ -12028,8 +12049,8 @@ export var ProviderUpdateConfiguration: StaticStructureSchema = [
   n0,
   _PUC,
   0,
-  [_JC],
-  [() => JiraCloudUpdateConfiguration],
+  [_JC, _SNer],
+  [() => JiraCloudUpdateConfiguration, () => ServiceNowUpdateConfiguration],
 ];
 export var Target: StaticStructureSchema = [3, n0, _Ta, 0, [_AIc, _OUI, _RIoo], [0, 0, 0]];
 export var AcceptAdministratorInvitation: StaticOperationSchema = [
@@ -12171,16 +12192,6 @@ export var BatchUpdateStandardsControlAssociations: StaticOperationSchema = [
   },
   () => BatchUpdateStandardsControlAssociationsRequest,
   () => BatchUpdateStandardsControlAssociationsResponse,
-];
-export var ConnectorRegistrationsV2: StaticOperationSchema = [
-  9,
-  n0,
-  _CRV,
-  {
-    [_h]: ["POST", "/connectorsv2/registrations", 200],
-  },
-  () => ConnectorRegistrationsV2Request,
-  () => ConnectorRegistrationsV2Response,
 ];
 export var CreateActionTarget: StaticOperationSchema = [
   9,
@@ -12941,6 +12952,16 @@ export var ListTagsForResource: StaticOperationSchema = [
   },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
+];
+export var RegisterConnectorV2: StaticOperationSchema = [
+  9,
+  n0,
+  _RCV,
+  {
+    [_h]: ["POST", "/connectorsv2/register", 200],
+  },
+  () => RegisterConnectorV2Request,
+  () => RegisterConnectorV2Response,
 ];
 export var StartConfigurationPolicyAssociation: StaticOperationSchema = [
   9,

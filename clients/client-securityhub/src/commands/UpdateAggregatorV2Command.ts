@@ -27,7 +27,7 @@ export interface UpdateAggregatorV2CommandInput extends UpdateAggregatorV2Reques
 export interface UpdateAggregatorV2CommandOutput extends UpdateAggregatorV2Response, __MetadataBearer {}
 
 /**
- * <p>Udpates the configuration for the Aggregator V2. This API is in public preview and subject to change.</p>
+ * <p>Udpates the configuration for the Aggregator V2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

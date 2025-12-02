@@ -27,7 +27,7 @@ export interface DeleteConnectorV2CommandInput extends DeleteConnectorV2Request 
 export interface DeleteConnectorV2CommandOutput extends DeleteConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to delete a connectorV2. This API is in public preview and subject to change.</p>
+ * <p>Grants permission to delete a connectorV2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -110,10 +110,6 @@ import {
   BatchUpdateStandardsControlAssociationsCommandInput,
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
-import {
-  ConnectorRegistrationsV2CommandInput,
-  ConnectorRegistrationsV2CommandOutput,
-} from "./commands/ConnectorRegistrationsV2Command";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
 import { CreateAggregatorV2CommandInput, CreateAggregatorV2CommandOutput } from "./commands/CreateAggregatorV2Command";
 import {
@@ -317,6 +313,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  RegisterConnectorV2CommandInput,
+  RegisterConnectorV2CommandOutput,
+} from "./commands/RegisterConnectorV2Command";
+import {
   StartConfigurationPolicyAssociationCommandInput,
   StartConfigurationPolicyAssociationCommandOutput,
 } from "./commands/StartConfigurationPolicyAssociationCommand";
@@ -388,7 +388,6 @@ export type ServiceInputTypes =
   | BatchUpdateFindingsCommandInput
   | BatchUpdateFindingsV2CommandInput
   | BatchUpdateStandardsControlAssociationsCommandInput
-  | ConnectorRegistrationsV2CommandInput
   | CreateActionTargetCommandInput
   | CreateAggregatorV2CommandInput
   | CreateAutomationRuleCommandInput
@@ -465,6 +464,7 @@ export type ServiceInputTypes =
   | ListSecurityControlDefinitionsCommandInput
   | ListStandardsControlAssociationsCommandInput
   | ListTagsForResourceCommandInput
+  | RegisterConnectorV2CommandInput
   | StartConfigurationPolicyAssociationCommandInput
   | StartConfigurationPolicyDisassociationCommandInput
   | TagResourceCommandInput
@@ -500,7 +500,6 @@ export type ServiceOutputTypes =
   | BatchUpdateFindingsCommandOutput
   | BatchUpdateFindingsV2CommandOutput
   | BatchUpdateStandardsControlAssociationsCommandOutput
-  | ConnectorRegistrationsV2CommandOutput
   | CreateActionTargetCommandOutput
   | CreateAggregatorV2CommandOutput
   | CreateAutomationRuleCommandOutput
@@ -577,6 +576,7 @@ export type ServiceOutputTypes =
   | ListSecurityControlDefinitionsCommandOutput
   | ListStandardsControlAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RegisterConnectorV2CommandOutput
   | StartConfigurationPolicyAssociationCommandOutput
   | StartConfigurationPolicyDisassociationCommandOutput
   | TagResourceCommandOutput

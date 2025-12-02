@@ -28,7 +28,7 @@ export interface GetResourcesStatisticsV2CommandInput extends GetResourcesStatis
 export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStatisticsV2Response, __MetadataBearer {}
 
 /**
- * <p>Retrieves statistical information about Amazon Web Services resources and their associated security findings. This API is in public preview and subject to change.</p>
+ * <p>Retrieves statistical information about Amazon Web Services resources and their associated security findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

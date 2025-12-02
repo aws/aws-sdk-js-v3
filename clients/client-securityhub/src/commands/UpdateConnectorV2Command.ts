@@ -27,7 +27,7 @@ export interface UpdateConnectorV2CommandInput extends UpdateConnectorV2Request 
 export interface UpdateConnectorV2CommandOutput extends UpdateConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to update a connectorV2 based on its id and input parameters. This API is in public preview and subject to change.</p>
+ * <p>Grants permission to update a connectorV2 based on its id and input parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,11 +38,13 @@ export interface UpdateConnectorV2CommandOutput extends UpdateConnectorV2Respons
  * const client = new SecurityHubClient(config);
  * const input = { // UpdateConnectorV2Request
  *   ConnectorId: "STRING_VALUE", // required
- *   ClientSecret: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Provider: { // ProviderUpdateConfiguration Union: only one key present
  *     JiraCloud: { // JiraCloudUpdateConfiguration
- *       ProjectKey: "STRING_VALUE", // required
+ *       ProjectKey: "STRING_VALUE",
+ *     },
+ *     ServiceNow: { // ServiceNowUpdateConfiguration
+ *       SecretArn: "STRING_VALUE",
  *     },
  *   },
  * };

@@ -274,6 +274,30 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * <p>The request was rejected because it would exceed the service quota limit.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
  * <p>
  *             The request was rejected because it conflicts with the resource's availability. For example, you tried
  *             to update a security control that's currently in the <code>UPDATING</code> state.

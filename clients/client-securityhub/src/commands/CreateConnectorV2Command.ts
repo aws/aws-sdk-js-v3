@@ -27,7 +27,7 @@ export interface CreateConnectorV2CommandInput extends CreateConnectorV2Request 
 export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to create a connectorV2 based on input parameters. This API is in public preview and subject to change.</p>
+ * <p>Grants permission to create a connectorV2 based on input parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,8 +45,7 @@ export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Respons
  *     },
  *     ServiceNow: { // ServiceNowProviderConfiguration
  *       InstanceName: "STRING_VALUE", // required
- *       ClientId: "STRING_VALUE", // required
- *       ClientSecret: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
  *     },
  *   },
  *   KmsKeyArn: "STRING_VALUE",
@@ -58,9 +57,10 @@ export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Respons
  * const command = new CreateConnectorV2Command(input);
  * const response = await client.send(command);
  * // { // CreateConnectorV2Response
- * //   ConnectorArn: "STRING_VALUE",
+ * //   ConnectorArn: "STRING_VALUE", // required
  * //   ConnectorId: "STRING_VALUE", // required
  * //   AuthUrl: "STRING_VALUE",
+ * //   ConnectorStatus: "CONNECTED" || "FAILED_TO_CONNECT" || "PENDING_CONFIGURATION" || "PENDING_AUTHORIZATION",
  * // };
  *
  * ```
@@ -84,6 +84,9 @@ export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Respons
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request was rejected because it would exceed the service quota limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>

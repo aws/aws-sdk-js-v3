@@ -35,39 +35,8 @@ import {
   ResourcesStringFilter,
   ResourcesTrendsStringFilter,
   SortCriterion,
-  StandardsControlAssociationSummary,
   Target,
 } from "./models_2";
-
-/**
- * @public
- */
-export interface ListStandardsControlAssociationsResponse {
-  /**
-   * <p> An array that provides the enablement status and other details for each security
-   *          control that applies to each enabled standard. </p>
-   * @public
-   */
-  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
-
-  /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource to retrieve tags for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
 
 /**
  * @public
@@ -81,11 +50,24 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * <p>The parameters used to modify an existing ServiceNow integration.</p>
+ * @public
+ */
+export interface ServiceNowUpdateConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
  * <p>The parameters required to update the configuration of an integration provider.</p>
  * @public
  */
 export type ProviderUpdateConfiguration =
   | ProviderUpdateConfiguration.JiraCloudMember
+  | ProviderUpdateConfiguration.ServiceNowMember
   | ProviderUpdateConfiguration.$UnknownMember;
 
 /**
@@ -98,6 +80,17 @@ export namespace ProviderUpdateConfiguration {
    */
   export interface JiraCloudMember {
     JiraCloud: JiraCloudUpdateConfiguration;
+    ServiceNow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters required to update the configuration for a ServiceNow integration.</p>
+   * @public
+   */
+  export interface ServiceNowMember {
+    JiraCloud?: never;
+    ServiceNow: ServiceNowUpdateConfiguration;
     $unknown?: never;
   }
 
@@ -106,6 +99,7 @@ export namespace ProviderUpdateConfiguration {
    */
   export interface $UnknownMember {
     JiraCloud?: never;
+    ServiceNow?: never;
     $unknown: [string, any];
   }
 
@@ -115,8 +109,43 @@ export namespace ProviderUpdateConfiguration {
    */
   export interface Visitor<T> {
     JiraCloud: (value: JiraCloudUpdateConfiguration) => T;
+    ServiceNow: (value: ServiceNowUpdateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * @public
+ */
+export interface RegisterConnectorV2Request {
+  /**
+   * <p>The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
+   * @public
+   */
+  AuthCode: string | undefined;
+
+  /**
+   * <p>The authState retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
+   * @public
+   */
+  AuthState: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterConnectorV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+
+  /**
+   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
 }
 
 /**
@@ -485,12 +514,6 @@ export interface UpdateConnectorV2Request {
    * @public
    */
   ConnectorId: string | undefined;
-
-  /**
-   * <p>The clientSecret of ServiceNow.</p>
-   * @public
-   */
-  ClientSecret?: string | undefined;
 
   /**
    * <p>The description of the connectorV2.</p>

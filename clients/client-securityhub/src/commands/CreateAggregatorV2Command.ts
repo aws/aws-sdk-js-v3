@@ -27,7 +27,7 @@ export interface CreateAggregatorV2CommandInput extends CreateAggregatorV2Reques
 export interface CreateAggregatorV2CommandOutput extends CreateAggregatorV2Response, __MetadataBearer {}
 
 /**
- * <p>Enables aggregation across Amazon Web Services Regions. This API is in public preview and subject to change.</p>
+ * <p>Enables aggregation across Amazon Web Services Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +78,9 @@ export interface CreateAggregatorV2CommandOutput extends CreateAggregatorV2Respo
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request was rejected because it would exceed the service quota limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>

@@ -28,7 +28,7 @@ export interface GetResourcesV2CommandInput extends GetResourcesV2Request {}
 export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns a list of resources. This API is in public preview and subject to change.</p>
+ * <p>Returns a list of resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

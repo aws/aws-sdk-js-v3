@@ -27,7 +27,7 @@ export interface ListAggregatorsV2CommandInput extends ListAggregatorsV2Request 
 export interface ListAggregatorsV2CommandOutput extends ListAggregatorsV2Response, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of V2 aggregators. This API is in public preview and subject to change.</p>
+ * <p>Retrieves a list of V2 aggregators.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

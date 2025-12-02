@@ -28,7 +28,7 @@ export interface GetFindingsTrendsV2CommandInput extends GetFindingsTrendsV2Requ
 export interface GetFindingsTrendsV2CommandOutput extends GetFindingsTrendsV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns findings trend data based on the specified criteria. This operation helps you analyze patterns and changes in findings over time. This API is in public preview and subject to change.</p>
+ * <p>Returns findings trend data based on the specified criteria. This operation helps you analyze patterns and changes in findings over time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -4,8 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ConnectorRegistrationsV2Request, ConnectorRegistrationsV2Response } from "../models/models_2";
-import { ConnectorRegistrationsV2 } from "../schemas/schemas_0";
+import { RegisterConnectorV2Request, RegisterConnectorV2Response } from "../models/models_3";
+import { RegisterConnectorV2 } from "../schemas/schemas_0";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -16,43 +16,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ConnectorRegistrationsV2Command}.
+ * The input for {@link RegisterConnectorV2Command}.
  */
-export interface ConnectorRegistrationsV2CommandInput extends ConnectorRegistrationsV2Request {}
+export interface RegisterConnectorV2CommandInput extends RegisterConnectorV2Request {}
 /**
  * @public
  *
- * The output of {@link ConnectorRegistrationsV2Command}.
+ * The output of {@link RegisterConnectorV2Command}.
  */
-export interface ConnectorRegistrationsV2CommandOutput extends ConnectorRegistrationsV2Response, __MetadataBearer {}
+export interface RegisterConnectorV2CommandOutput extends RegisterConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to complete the authorization based on input parameters. This API is in public preview and subject to change.</p>
+ * <p>Grants permission to complete the authorization based on input parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, ConnectorRegistrationsV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, ConnectorRegistrationsV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, RegisterConnectorV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, RegisterConnectorV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
  * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
- * const input = { // ConnectorRegistrationsV2Request
+ * const input = { // RegisterConnectorV2Request
  *   AuthCode: "STRING_VALUE", // required
  *   AuthState: "STRING_VALUE", // required
  * };
- * const command = new ConnectorRegistrationsV2Command(input);
+ * const command = new RegisterConnectorV2Command(input);
  * const response = await client.send(command);
- * // { // ConnectorRegistrationsV2Response
+ * // { // RegisterConnectorV2Response
  * //   ConnectorArn: "STRING_VALUE",
  * //   ConnectorId: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param ConnectorRegistrationsV2CommandInput - {@link ConnectorRegistrationsV2CommandInput}
- * @returns {@link ConnectorRegistrationsV2CommandOutput}
- * @see {@link ConnectorRegistrationsV2CommandInput} for command's `input` shape.
- * @see {@link ConnectorRegistrationsV2CommandOutput} for command's `response` shape.
+ * @param RegisterConnectorV2CommandInput - {@link RegisterConnectorV2CommandInput}
+ * @returns {@link RegisterConnectorV2CommandOutput}
+ * @see {@link RegisterConnectorV2CommandInput} for command's `input` shape.
+ * @see {@link RegisterConnectorV2CommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -83,10 +83,10 @@ export interface ConnectorRegistrationsV2CommandOutput extends ConnectorRegistra
  *
  * @public
  */
-export class ConnectorRegistrationsV2Command extends $Command
+export class RegisterConnectorV2Command extends $Command
   .classBuilder<
-    ConnectorRegistrationsV2CommandInput,
-    ConnectorRegistrationsV2CommandOutput,
+    RegisterConnectorV2CommandInput,
+    RegisterConnectorV2CommandOutput,
     SecurityHubClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,19 +95,19 @@ export class ConnectorRegistrationsV2Command extends $Command
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("SecurityHubAPIService", "ConnectorRegistrationsV2", {})
-  .n("SecurityHubClient", "ConnectorRegistrationsV2Command")
-  .sc(ConnectorRegistrationsV2)
+  .s("SecurityHubAPIService", "RegisterConnectorV2", {})
+  .n("SecurityHubClient", "RegisterConnectorV2Command")
+  .sc(RegisterConnectorV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ConnectorRegistrationsV2Request;
-      output: ConnectorRegistrationsV2Response;
+      input: RegisterConnectorV2Request;
+      output: RegisterConnectorV2Response;
     };
     sdk: {
-      input: ConnectorRegistrationsV2CommandInput;
-      output: ConnectorRegistrationsV2CommandOutput;
+      input: RegisterConnectorV2CommandInput;
+      output: RegisterConnectorV2CommandOutput;
     };
   };
 }
