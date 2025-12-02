@@ -53,6 +53,11 @@ export interface GetMemoryRecordCommandOutput extends GetMemoryRecordOutput, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     metadata: { // MetadataMap
+ * //       "<keys>": { // MetadataValue Union: only one key present
+ * //         stringValue: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

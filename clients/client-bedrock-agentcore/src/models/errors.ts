@@ -190,6 +190,26 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * <p> An exception thrown when attempting to create a resource with an identifier that already exists.</p>
+ * @public
+ */
+export class DuplicateIdException extends __BaseException {
+  readonly name = "DuplicateIdException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateIdException, __BaseException>) {
+    super({
+      name: "DuplicateIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateIdException.prototype);
+  }
+}
+
+/**
  * <p>The service encountered an internal error. Try your request again later.</p>
  * @public
  */

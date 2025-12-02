@@ -83,6 +83,7 @@ import {
 import { CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import { DeleteMemoryRecordCommandInput, DeleteMemoryRecordCommandOutput } from "./commands/DeleteMemoryRecordCommand";
+import { EvaluateCommandInput, EvaluateCommandOutput } from "./commands/EvaluateCommand";
 import { GetAgentCardCommandInput, GetAgentCardCommandOutput } from "./commands/GetAgentCardCommand";
 import { GetBrowserSessionCommandInput, GetBrowserSessionCommandOutput } from "./commands/GetBrowserSessionCommand";
 import {
@@ -177,6 +178,7 @@ export type ServiceInputTypes =
   | CreateEventCommandInput
   | DeleteEventCommandInput
   | DeleteMemoryRecordCommandInput
+  | EvaluateCommandInput
   | GetAgentCardCommandInput
   | GetBrowserSessionCommandInput
   | GetCodeInterpreterSessionCommandInput
@@ -216,6 +218,7 @@ export type ServiceOutputTypes =
   | CreateEventCommandOutput
   | DeleteEventCommandOutput
   | DeleteMemoryRecordCommandOutput
+  | EvaluateCommandOutput
   | GetAgentCardCommandOutput
   | GetBrowserSessionCommandOutput
   | GetCodeInterpreterSessionCommandOutput

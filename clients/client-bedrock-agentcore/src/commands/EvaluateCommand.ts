@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopCodeInterpreterSessionRequest, StopCodeInterpreterSessionResponse } from "../models/models_0";
-import { StopCodeInterpreterSession } from "../schemas/schemas_0";
+import { EvaluateRequest, EvaluateResponse } from "../models/models_0";
+import { Evaluate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,47 +16,77 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopCodeInterpreterSessionCommand}.
+ * The input for {@link EvaluateCommand}.
  */
-export interface StopCodeInterpreterSessionCommandInput extends StopCodeInterpreterSessionRequest {}
+export interface EvaluateCommandInput extends EvaluateRequest {}
 /**
  * @public
  *
- * The output of {@link StopCodeInterpreterSessionCommand}.
+ * The output of {@link EvaluateCommand}.
  */
-export interface StopCodeInterpreterSessionCommandOutput extends StopCodeInterpreterSessionResponse, __MetadataBearer {}
+export interface EvaluateCommandOutput extends EvaluateResponse, __MetadataBearer {}
 
 /**
- * <p>Terminates an active code interpreter session in Amazon Bedrock. This operation stops the session, releases associated resources, and makes the session unavailable for further use.</p> <p>To stop a code interpreter session, you must specify both the code interpreter identifier and the session ID. Once stopped, a session cannot be restarted; you must create a new session using <code>StartCodeInterpreterSession</code>.</p> <p>The following operations are related to <code>StopCodeInterpreterSession</code>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html">GetCodeInterpreterSession</a> </p> </li> </ul>
+ * <p> Performs on-demand evaluation of agent traces using a specified evaluator. This synchronous API accepts traces in OpenTelemetry format and returns immediate scoring results with detailed explanations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreClient, StopCodeInterpreterSessionCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
- * // const { BedrockAgentCoreClient, StopCodeInterpreterSessionCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * import { BedrockAgentCoreClient, EvaluateCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
+ * // const { BedrockAgentCoreClient, EvaluateCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
  * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
- * const input = { // StopCodeInterpreterSessionRequest
- *   traceId: "STRING_VALUE",
- *   traceParent: "STRING_VALUE",
- *   codeInterpreterIdentifier: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ * const input = { // EvaluateRequest
+ *   evaluatorId: "STRING_VALUE", // required
+ *   evaluationInput: { // EvaluationInput Union: only one key present
+ *     sessionSpans: [ // Spans
+ *       "DOCUMENT_VALUE",
+ *     ],
+ *   },
+ *   evaluationTarget: { // EvaluationTarget Union: only one key present
+ *     spanIds: [ // SpanIds
+ *       "STRING_VALUE",
+ *     ],
+ *     traceIds: [ // TraceIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
- * const command = new StopCodeInterpreterSessionCommand(input);
+ * const command = new EvaluateCommand(input);
  * const response = await client.send(command);
- * // { // StopCodeInterpreterSessionResponse
- * //   codeInterpreterIdentifier: "STRING_VALUE", // required
- * //   sessionId: "STRING_VALUE", // required
- * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * // { // EvaluateResponse
+ * //   evaluationResults: [ // EvaluationResults // required
+ * //     { // EvaluationResultContent
+ * //       evaluatorArn: "STRING_VALUE", // required
+ * //       evaluatorId: "STRING_VALUE", // required
+ * //       evaluatorName: "STRING_VALUE", // required
+ * //       explanation: "STRING_VALUE",
+ * //       context: { // Context Union: only one key present
+ * //         spanContext: { // SpanContext
+ * //           sessionId: "STRING_VALUE", // required
+ * //           traceId: "STRING_VALUE",
+ * //           spanId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       value: Number("double"),
+ * //       label: "STRING_VALUE",
+ * //       tokenUsage: { // TokenUsage
+ * //         inputTokens: Number("int"),
+ * //         outputTokens: Number("int"),
+ * //         totalTokens: Number("int"),
+ * //       },
+ * //       errorMessage: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param StopCodeInterpreterSessionCommandInput - {@link StopCodeInterpreterSessionCommandInput}
- * @returns {@link StopCodeInterpreterSessionCommandOutput}
- * @see {@link StopCodeInterpreterSessionCommandInput} for command's `input` shape.
- * @see {@link StopCodeInterpreterSessionCommandOutput} for command's `response` shape.
+ * @param EvaluateCommandInput - {@link EvaluateCommandInput}
+ * @returns {@link EvaluateCommandOutput}
+ * @see {@link EvaluateCommandInput} for command's `input` shape.
+ * @see {@link EvaluateCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreClientResolvedConfig | config} for BedrockAgentCoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -64,6 +94,9 @@ export interface StopCodeInterpreterSessionCommandOutput extends StopCodeInterpr
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
+ *
+ * @throws {@link DuplicateIdException} (client fault)
+ *  <p> An exception thrown when attempting to create a resource with an identifier that already exists.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
@@ -77,6 +110,9 @@ export interface StopCodeInterpreterSessionCommandOutput extends StopCodeInterpr
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
  *
@@ -86,10 +122,10 @@ export interface StopCodeInterpreterSessionCommandOutput extends StopCodeInterpr
  *
  * @public
  */
-export class StopCodeInterpreterSessionCommand extends $Command
+export class EvaluateCommand extends $Command
   .classBuilder<
-    StopCodeInterpreterSessionCommandInput,
-    StopCodeInterpreterSessionCommandOutput,
+    EvaluateCommandInput,
+    EvaluateCommandOutput,
     BedrockAgentCoreClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,19 +134,19 @@ export class StopCodeInterpreterSessionCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCore", "StopCodeInterpreterSession", {})
-  .n("BedrockAgentCoreClient", "StopCodeInterpreterSessionCommand")
-  .sc(StopCodeInterpreterSession)
+  .s("AmazonBedrockAgentCore", "Evaluate", {})
+  .n("BedrockAgentCoreClient", "EvaluateCommand")
+  .sc(Evaluate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopCodeInterpreterSessionRequest;
-      output: StopCodeInterpreterSessionResponse;
+      input: EvaluateRequest;
+      output: EvaluateResponse;
     };
     sdk: {
-      input: StopCodeInterpreterSessionCommandInput;
-      output: StopCodeInterpreterSessionCommandOutput;
+      input: EvaluateCommandInput;
+      output: EvaluateCommandOutput;
     };
   };
 }

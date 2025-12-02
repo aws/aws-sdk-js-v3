@@ -40,14 +40,18 @@ const _CRTARo = "CompleteResourceTokenAuthResponse";
 const _CRVT = "CustomRequestValueType";
 const _CT = "Content-Type";
 const _Co = "Content";
+const _Con = "Context";
 const _D = "Document";
 const _DE = "DeleteEvent";
 const _DEI = "DeleteEventInput";
 const _DEO = "DeleteEventOutput";
+const _DIE = "DuplicateIdException";
 const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
 const _DMRO = "DeleteMemoryRecordOutput";
 const _E = "Event";
+const _EE = "EvaluationExplanation";
+const _EI = "EvaluationInput";
 const _EJ = "ExtractionJob";
 const _EJFI = "ExtractionJobFilterInput";
 const _EJM = "ExtractionJobMetadata";
@@ -56,6 +60,12 @@ const _EJMx = "ExtractionJobMessages";
 const _EL = "EventList";
 const _EMFE = "EventMetadataFilterExpression";
 const _EMFL = "EventMetadataFilterList";
+const _ER = "EvaluateRequest";
+const _ERC = "EvaluationResultContent";
+const _ERv = "EvaluateResponse";
+const _ERva = "EvaluationResults";
+const _ET = "EvaluationTarget";
+const _Ev = "Evaluate";
 const _FI = "FilterInput";
 const _GAC = "GetAgentCard";
 const _GACR = "GetAgentCardRequest";
@@ -123,6 +133,8 @@ const _LVS = "LiveViewStream";
 const _MC = "MemoryContent";
 const _ML = "MessagesList";
 const _MM = "MessageMetadata";
+const _MMFE = "MemoryMetadataFilterExpression";
+const _MMFL = "MemoryMetadataFilterList";
 const _MMe = "MetadataMap";
 const _MPV = "Mcp-Protocol-Version";
 const _MR = "MemoryRecord";
@@ -162,6 +174,7 @@ const _SCISRt = "StartCodeInterpreterSessionResponse";
 const _SCISRto = "StopCodeInterpreterSessionRequest";
 const _SCISRtop = "StopCodeInterpreterSessionResponse";
 const _SCISt = "StopCodeInterpreterSession";
+const _SCp = "SpanContext";
 const _SE = "ServiceException";
 const _SMEJ = "StartMemoryExtractionJob";
 const _SMEJI = "StartMemoryExtractionJobInput";
@@ -174,10 +187,12 @@ const _SS = "SensitiveString";
 const _SSL = "SessionSummaryList";
 const _SSe = "SessionSummary";
 const _SU = "StreamUpdate";
+const _Sp = "Spans";
 const _TA = "ToolArguments";
 const _TE = "ThrottledException";
 const _TEh = "ThrottlingException";
 const _TRSC = "ToolResultStructuredContent";
+const _TU = "TokenUsage";
 const _UBS = "UpdateBrowserStream";
 const _UBSR = "UpdateBrowserStreamRequest";
 const _UBSRp = "UpdateBrowserStreamResponse";
@@ -221,21 +236,29 @@ const _cTo = "contentType";
 const _co = "content";
 const _cod = "code";
 const _com = "command";
-const _con = "conversational";
+const _con = "context";
+const _conv = "conversational";
 const _d = "data";
 const _dP = "directoryPath";
 const _de = "description";
 const _e = "error";
+const _eA = "evaluatorArn";
 const _eC = "errorCode";
 const _eCx = "exitCode";
 const _eI = "eventId";
+const _eIv = "evaluatorId";
+const _eIva = "evaluationInput";
 const _eJ = "extractionJob";
-const _eM = "eventMetadata";
-const _eMr = "errorMessage";
+const _eM = "errorMessage";
+const _eMv = "eventMetadata";
+const _eN = "evaluatorName";
+const _eR = "evaluationResults";
 const _eT = "eventTimestamp";
+const _eTv = "evaluationTarget";
 const _eTx = "executionTime";
 const _ev = "event";
 const _eve = "events";
+const _ex = "explanation";
 const _f = "filter";
 const _fA = "forceAuthentication";
 const _fL = "fieldList";
@@ -252,14 +275,17 @@ const _iP = "includePayloads";
 const _iPB = "includeParentBranches";
 const _iSE = "internalServerException";
 const _iT = "idempotencyToken";
+const _iTn = "inputTokens";
 const _j = "jobs";
 const _jI = "jobId";
 const _jID = "jobID";
-const _l = "left";
+const _l = "label";
 const _lUA = "lastUpdatedAt";
 const _lVS = "liveViewStream";
 const _la = "language";
+const _le = "left";
 const _m = "message";
+const _mF = "metadataFilters";
 const _mI = "memoryId";
 const _mIe = "messageIndex";
 const _mK = "metadataKey";
@@ -281,6 +307,7 @@ const _na = "namespace";
 const _nam = "namespaces";
 const _o = "operator";
 const _oF = "oauth2Flow";
+const _oT = "outputTokens";
 const _p = "payload";
 const _pa = "path";
 const _pat = "paths";
@@ -302,9 +329,12 @@ const _ro = "role";
 const _s = "streaming";
 const _sC = "structuredContent";
 const _sCe = "searchCriteria";
+const _sCp = "spanContext";
 const _sCt = "statusCode";
 const _sE = "streamEndpoint";
 const _sI = "sessionId";
+const _sIp = "spanId";
+const _sIpa = "spanIds";
 const _sIt = "strategyId";
 const _sQ = "searchQuery";
 const _sQEE = "serviceQuotaExceededException";
@@ -313,6 +343,7 @@ const _sRA = "sessionReplayArtifact";
 const _sS = "streamStatus";
 const _sSe = "sessionStatus";
 const _sSes = "sessionSummaries";
+const _sSess = "sessionSpans";
 const _sTS = "sessionTimeoutSeconds";
 const _sU = "sessionUri";
 const _sUt = "streamUpdate";
@@ -332,10 +363,13 @@ const _t = "type";
 const _tE = "throttlingException";
 const _tI = "traceId";
 const _tIa = "taskId";
+const _tIr = "traceIds";
 const _tK = "topK";
 const _tP = "traceParent";
 const _tS = "traceState";
 const _tSa = "taskStatus";
+const _tT = "totalTokens";
+const _tU = "tokenUsage";
 const _te = "text";
 const _ti = "timestamp";
 const _tr = "traceparent";
@@ -345,6 +379,7 @@ const _uA = "updatedAt";
 const _uI = "userIdentifier";
 const _uIs = "userId";
 const _uT = "userToken";
+const _v = "value";
 const _vE = "validationException";
 const _vP = "viewPort";
 const _w = "width";
@@ -369,6 +404,7 @@ import { BedrockAgentCoreServiceException as __BedrockAgentCoreServiceException 
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
+  DuplicateIdException as __DuplicateIdException,
   InternalServerException as __InternalServerException,
   InvalidInputException as __InvalidInputException,
   ResourceNotFoundException as __ResourceNotFoundException,
@@ -389,6 +425,7 @@ export var AuthorizationUrlType: StaticSimpleSchema = [0, n0, _AUT, 8, 0];
 export var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 export var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
 export var Document: StaticSimpleSchema = [0, n0, _D, 8, 15];
+export var EvaluationExplanation: StaticSimpleSchema = [0, n0, _EE, 8, 0];
 export var ResponseStream: StaticSimpleSchema = [
   0,
   n0,
@@ -574,6 +611,36 @@ export var DeleteMemoryRecordInput: StaticStructureSchema = [
   ],
 ];
 export var DeleteMemoryRecordOutput: StaticStructureSchema = [3, n0, _DMRO, 0, [_mRI], [0]];
+export var DuplicateIdException: StaticErrorSchema = [
+  -3,
+  n0,
+  _DIE,
+  {
+    [_e]: _c,
+    [_hE]: 409,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(DuplicateIdException, __DuplicateIdException);
+
+export var EvaluateRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _ER,
+  0,
+  [_eIv, _eIva, _eTv],
+  [[0, 1], [() => EvaluationInput, 0], () => EvaluationTarget],
+];
+export var EvaluateResponse: StaticStructureSchema = [3, n0, _ERv, 0, [_eR], [[() => EvaluationResults, 0]]];
+export var EvaluationResultContent: StaticStructureSchema = [
+  3,
+  n0,
+  _ERC,
+  0,
+  [_eA, _eIv, _eN, _ex, _con, _v, _l, _tU, _eM, _eC],
+  [0, 0, 0, [() => EvaluationExplanation, 0], () => Context, 1, 0, () => TokenUsage, 0, 0],
+];
 export var Event: StaticStructureSchema = [
   3,
   n0,
@@ -587,7 +654,7 @@ export var EventMetadataFilterExpression: StaticStructureSchema = [
   n0,
   _EMFE,
   0,
-  [_l, _o, _ri],
+  [_le, _o, _ri],
   [() => LeftExpression, 0, () => RightExpression],
 ];
 export var ExtractionJob: StaticStructureSchema = [3, n0, _EJ, 0, [_jI], [0]];
@@ -605,7 +672,7 @@ export var FilterInput: StaticStructureSchema = [
   n0,
   _FI,
   0,
-  [_b, _eM],
+  [_b, _eMv],
   [() => BranchFilter, () => EventMetadataFilterList],
 ];
 export var GetAgentCardRequest: StaticStructureSchema = [
@@ -1085,13 +1152,21 @@ export var ListMemoryRecordsOutput: StaticStructureSchema = [
 export var ListSessionsInput: StaticStructureSchema = [3, n0, _LSI, 0, [_mI, _aI, _mRa, _nT], [[0, 1], [0, 1], 1, 0]];
 export var ListSessionsOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_sSes, _nT], [() => SessionSummaryList, 0]];
 export var LiveViewStream: StaticStructureSchema = [3, n0, _LVS, 0, [_sE], [0]];
+export var MemoryMetadataFilterExpression: StaticStructureSchema = [
+  3,
+  n0,
+  _MMFE,
+  0,
+  [_le, _o, _ri],
+  [() => LeftExpression, 0, () => RightExpression],
+];
 export var MemoryRecord: StaticStructureSchema = [
   3,
   n0,
   _MR,
   0,
-  [_mRI, _co, _mSIe, _nam, _cA],
-  [0, [() => MemoryContent, 0], 0, 64 | 0, 4],
+  [_mRI, _co, _mSIe, _nam, _cA, _me],
+  [0, [() => MemoryContent, 0], 0, 64 | 0, 4, () => MetadataMap],
 ];
 export var MemoryRecordCreateInput: StaticStructureSchema = [
   3,
@@ -1102,14 +1177,14 @@ export var MemoryRecordCreateInput: StaticStructureSchema = [
   [0, 64 | 0, [() => MemoryContent, 0], 4, 0],
 ];
 export var MemoryRecordDeleteInput: StaticStructureSchema = [3, n0, _MRDI, 0, [_mRI], [0]];
-export var MemoryRecordOutput: StaticStructureSchema = [3, n0, _MRO, 0, [_mRI, _st, _rI, _eC, _eMr], [0, 0, 0, 1, 0]];
+export var MemoryRecordOutput: StaticStructureSchema = [3, n0, _MRO, 0, [_mRI, _st, _rI, _eC, _eM], [0, 0, 0, 1, 0]];
 export var MemoryRecordSummary: StaticStructureSchema = [
   3,
   n0,
   _MRS,
   0,
-  [_mRI, _co, _mSIe, _nam, _cA, _sco],
-  [0, [() => MemoryContent, 0], 0, 64 | 0, 4, 1],
+  [_mRI, _co, _mSIe, _nam, _cA, _sco, _me],
+  [0, [() => MemoryContent, 0], 0, 64 | 0, 4, 1, () => MetadataMap],
 ];
 export var MemoryRecordUpdateInput: StaticStructureSchema = [
   3,
@@ -1168,8 +1243,8 @@ export var SearchCriteria: StaticStructureSchema = [
   n0,
   _SC,
   0,
-  [_sQ, _mSIe, _tK],
-  [[() => SensitiveString, 0], 0, 1],
+  [_sQ, _mSIe, _tK, _mF],
+  [[() => SensitiveString, 0], 0, 1, () => MemoryMetadataFilterList],
 ];
 export var ServiceException: StaticErrorSchema = [
   -3,
@@ -1198,6 +1273,7 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
 
 export var SessionSummary: StaticStructureSchema = [3, n0, _SSe, 0, [_sI, _aI, _cA], [0, 0, 4]];
+export var SpanContext: StaticStructureSchema = [3, n0, _SCp, 0, [_sI, _tI, _sIp], [0, 0, 0]];
 export var StartBrowserSessionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1406,6 +1482,7 @@ export var ThrottlingException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 
+export var TokenUsage: StaticStructureSchema = [3, n0, _TU, 0, [_iTn, _oT, _tT], [1, 1, 1]];
 export var ToolArguments: StaticStructureSchema = [
   3,
   n0,
@@ -1492,10 +1569,12 @@ export var ActorSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ActorSumm
 export var BrowserSessionSummaries: StaticListSchema = [1, n0, _BSSro, 0, () => BrowserSessionSummary];
 export var CodeInterpreterSessionSummaries: StaticListSchema = [1, n0, _CISSo, 0, () => CodeInterpreterSessionSummary];
 export var ContentBlockList: StaticListSchema = [1, n0, _CBL, 0, () => ContentBlock];
+export var EvaluationResults: StaticListSchema = [1, n0, _ERva, 0, [() => EvaluationResultContent, 0]];
 export var EventList: StaticListSchema = [1, n0, _EL, 0, [() => Event, 0]];
 export var EventMetadataFilterList: StaticListSchema = [1, n0, _EMFL, 0, () => EventMetadataFilterExpression];
 export var ExtractionJobMetadataList: StaticListSchema = [1, n0, _EJML, 0, () => ExtractionJobMetadata];
 export var InputContentBlockList: StaticListSchema = [1, n0, _ICBL, 0, [() => InputContentBlock, 0]];
+export var MemoryMetadataFilterList: StaticListSchema = [1, n0, _MMFL, 0, () => MemoryMetadataFilterExpression];
 export var MemoryRecordsCreateInputList: StaticListSchema = [1, n0, _MRCIL, 0, [() => MemoryRecordCreateInput, 0]];
 export var MemoryRecordsDeleteInputList: StaticListSchema = [1, n0, _MRDIL, 0, () => MemoryRecordDeleteInput];
 export var MemoryRecordsOutputList: StaticListSchema = [1, n0, _MROL, 0, () => MemoryRecordOutput];
@@ -1508,7 +1587,12 @@ export var PayloadTypeList: StaticListSchema = [1, n0, _PTL, 0, [() => PayloadTy
 export var ScopesListType = 64 | 0;
 
 export var SessionSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => SessionSummary];
+export var SpanIds = 64 | 0;
+
+export var Spans: StaticListSchema = [1, n0, _Sp, 8, 15];
 export var StringList = 64 | 0;
+
+export var TraceIds = 64 | 0;
 
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT, 0, [0, 0], [() => CustomRequestValueType, 0]];
@@ -1533,6 +1617,9 @@ export var CodeInterpreterStreamOutput: StaticStructureSchema = [
   ],
 ];
 export var Content: StaticStructureSchema = [3, n0, _Co, 0, [_te], [[() => SensitiveString, 0]]];
+export var Context: StaticStructureSchema = [3, n0, _Con, 0, [_sCp], [() => SpanContext]];
+export var EvaluationInput: StaticStructureSchema = [3, n0, _EI, 0, [_sSess], [[() => Spans, 0]]];
+export var EvaluationTarget: StaticStructureSchema = [3, n0, _ET, 0, [_sIpa, _tIr], [64 | 0, 64 | 0]];
 export var ExtractionJobMessages: StaticStructureSchema = [3, n0, _EJMx, 0, [_mL], [() => MessagesList]];
 export var LeftExpression: StaticStructureSchema = [3, n0, _LE, 0, [_mK], [0]];
 export var MemoryContent: StaticStructureSchema = [3, n0, _MC, 0, [_te], [[() => SensitiveString, 0]]];
@@ -1542,7 +1629,7 @@ export var PayloadType: StaticStructureSchema = [
   n0,
   _PT,
   0,
-  [_con, _bl],
+  [_conv, _bl],
   [
     [() => Conversational, 0],
     [() => Document, 0],
@@ -1620,6 +1707,16 @@ export var DeleteMemoryRecord: StaticOperationSchema = [
   },
   () => DeleteMemoryRecordInput,
   () => DeleteMemoryRecordOutput,
+];
+export var Evaluate: StaticOperationSchema = [
+  9,
+  n0,
+  _Ev,
+  {
+    [_ht]: ["POST", "/evaluations/evaluate/{evaluatorId}", 200],
+  },
+  () => EvaluateRequest,
+  () => EvaluateResponse,
 ];
 export var GetAgentCard: StaticOperationSchema = [
   9,

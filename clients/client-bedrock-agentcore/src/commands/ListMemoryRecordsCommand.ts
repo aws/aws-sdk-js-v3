@@ -58,6 +58,11 @@ export interface ListMemoryRecordsCommandOutput extends ListMemoryRecordsOutput,
  * //       ],
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       score: Number("double"),
+ * //       metadata: { // MetadataMap
+ * //         "<keys>": { // MetadataValue Union: only one key present
+ * //           stringValue: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -43,6 +43,19 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  *     searchQuery: "STRING_VALUE", // required
  *     memoryStrategyId: "STRING_VALUE",
  *     topK: Number("int"),
+ *     metadataFilters: [ // MemoryMetadataFilterList
+ *       { // MemoryMetadataFilterExpression
+ *         left: { // LeftExpression Union: only one key present
+ *           metadataKey: "STRING_VALUE",
+ *         },
+ *         operator: "EQUALS_TO" || "EXISTS" || "NOT_EXISTS", // required
+ *         right: { // RightExpression Union: only one key present
+ *           metadataValue: { // MetadataValue Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -62,6 +75,11 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  * //       ],
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       score: Number("double"),
+ * //       metadata: { // MetadataMap
+ * //         "<keys>": { // MetadataValue Union: only one key present
+ * //           stringValue: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

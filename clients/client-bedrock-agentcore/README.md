@@ -261,6 +261,14 @@ DeleteMemoryRecord
 </details>
 <details>
 <summary>
+Evaluate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/EvaluateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/EvaluateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/EvaluateCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAgentCard
 </summary>
 

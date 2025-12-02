@@ -1125,6 +1125,281 @@ export interface CompleteResourceTokenAuthRequest {
 export interface CompleteResourceTokenAuthResponse {}
 
 /**
+ * <p> The input data structure containing agent session spans in OpenTelemetry format. Supports traces from frameworks like Strands (AgentCore Runtime) and LangGraph with OpenInference instrumentation for comprehensive evaluation. </p>
+ * @public
+ */
+export type EvaluationInput = EvaluationInput.SessionSpansMember | EvaluationInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationInput {
+  /**
+   * <p> The collection of spans representing agent execution traces within a session. Each span contains detailed information about tool calls, model interactions, and other agent activities that can be evaluated for quality and performance. </p>
+   * @public
+   */
+  export interface SessionSpansMember {
+    sessionSpans: __DocumentType[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sessionSpans?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    sessionSpans: (value: __DocumentType[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The specification of which trace or span IDs to evaluate within the provided input data. Allows precise targeting of evaluation at different levels: tool calls, traces, or sessions. </p>
+ * @public
+ */
+export type EvaluationTarget =
+  | EvaluationTarget.SpanIdsMember
+  | EvaluationTarget.TraceIdsMember
+  | EvaluationTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationTarget {
+  /**
+   * <p> The list of specific span IDs to evaluate within the provided traces. Used to target evaluation at individual tool calls or specific operations within the agent's execution flow. </p>
+   * @public
+   */
+  export interface SpanIdsMember {
+    spanIds: string[];
+    traceIds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The list of trace IDs to evaluate, representing complete request-response interactions. Used to evaluate entire conversation turns or specific agent interactions within a session. </p>
+   * @public
+   */
+  export interface TraceIdsMember {
+    spanIds?: never;
+    traceIds: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spanIds?: never;
+    traceIds?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    spanIds: (value: string[]) => T;
+    traceIds: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface EvaluateRequest {
+  /**
+   * <p> The unique identifier of the evaluator to use for scoring. Can be a built-in evaluator (e.g., <code>Builtin.Helpfulness</code>, <code>Builtin.Correctness</code>) or a custom evaluator ARN created through the control plane API. </p>
+   * @public
+   */
+  evaluatorId: string | undefined;
+
+  /**
+   * <p> The input data containing agent session spans to be evaluated. Includes a list of spans in OpenTelemetry format from supported frameworks like Strands (AgentCore Runtime) or LangGraph with OpenInference instrumentation. </p>
+   * @public
+   */
+  evaluationInput: EvaluationInput | undefined;
+
+  /**
+   * <p> The specific trace or span IDs to evaluate within the provided input. Allows targeting evaluation at different levels: individual tool calls, single request-response interactions (traces), or entire conversation sessions. </p>
+   * @public
+   */
+  evaluationTarget?: EvaluationTarget | undefined;
+}
+
+/**
+ * <p> The contextual information that uniquely identifies a span within the distributed tracing system. Contains session, trace, and span identifiers used to correlate evaluation results with specific agent execution points. </p>
+ * @public
+ */
+export interface SpanContext {
+  /**
+   * <p> The unique identifier of the session containing this span. Sessions represent complete conversation flows and are detected using configurable <code>SessionTimeoutMinutes</code> (default 15 minutes). </p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p> The unique identifier of the trace containing this span. Traces represent individual request-response interactions within a session and group related spans together. </p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p> The unique identifier of the specific span being referenced. Spans represent individual operations like tool calls, model invocations, or other discrete actions within the agent's execution. </p>
+   * @public
+   */
+  spanId?: string | undefined;
+}
+
+/**
+ * <p> The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow. </p>
+ * @public
+ */
+export type Context = Context.SpanContextMember | Context.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Context {
+  /**
+   * <p> The span context information that uniquely identifies the trace and span being evaluated, including session ID, trace ID, and span ID for precise targeting within the agent's execution flow. </p>
+   * @public
+   */
+  export interface SpanContextMember {
+    spanContext: SpanContext;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spanContext?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    spanContext: (value: SpanContext) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The token consumption statistics for language model operations during evaluation. Provides detailed breakdown of input, output, and total tokens used for cost tracking and performance monitoring. </p>
+ * @public
+ */
+export interface TokenUsage {
+  /**
+   * <p> The number of tokens consumed for input processing during the evaluation. Includes tokens from the evaluation prompt, agent traces, and any additional context provided to the evaluator model. </p>
+   * @public
+   */
+  inputTokens?: number | undefined;
+
+  /**
+   * <p> The number of tokens generated by the evaluator model in its response. Includes tokens for the score, explanation, and any additional output produced during the evaluation process. </p>
+   * @public
+   */
+  outputTokens?: number | undefined;
+
+  /**
+   * <p> The total number of tokens consumed during the evaluation, calculated as the sum of input and output tokens. Used for cost calculation and rate limiting within the service limits. </p>
+   * @public
+   */
+  totalTokens?: number | undefined;
+}
+
+/**
+ * <p> The comprehensive result of an evaluation containing the score, explanation, evaluator metadata, and execution details. Provides both quantitative ratings and qualitative insights about agent performance. </p>
+ * @public
+ */
+export interface EvaluationResultContent {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the evaluator used to generate this result. For custom evaluators, this is the full ARN; for built-in evaluators, this follows the pattern <code>Builtin.\{EvaluatorName\}</code>. </p>
+   * @public
+   */
+  evaluatorArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the evaluator that produced this result. This matches the <code>evaluatorId</code> provided in the evaluation request and can be used to identify which evaluator generated specific results. </p>
+   * @public
+   */
+  evaluatorId: string | undefined;
+
+  /**
+   * <p> The human-readable name of the evaluator used for this evaluation. For built-in evaluators, this is the descriptive name (e.g., "Helpfulness", "Correctness"); for custom evaluators, this is the user-defined name. </p>
+   * @public
+   */
+  evaluatorName: string | undefined;
+
+  /**
+   * <p> The detailed explanation provided by the evaluator describing the reasoning behind the assigned score. This qualitative feedback helps understand why specific ratings were given and provides actionable insights for improvement. </p>
+   * @public
+   */
+  explanation?: string | undefined;
+
+  /**
+   * <p> The contextual information associated with this evaluation result, including span context details that identify the specific traces and sessions that were evaluated. </p>
+   * @public
+   */
+  context: Context | undefined;
+
+  /**
+   * <p> The numerical score assigned by the evaluator according to its configured rating scale. For numerical scales, this is a decimal value within the defined range. This field is not allowed for categorical scales. </p>
+   * @public
+   */
+  value?: number | undefined;
+
+  /**
+   * <p> The categorical label assigned by the evaluator when using a categorical rating scale. This provides a human-readable description of the evaluation result (e.g., "Excellent", "Good", "Poor") corresponding to the numerical value. For numerical scales, this field is optional and provides a natural language explanation of what the value means (e.g., value 0.5 = "Somewhat Helpful"). </p>
+   * @public
+   */
+  label?: string | undefined;
+
+  /**
+   * <p> The token consumption statistics for this evaluation, including input tokens, output tokens, and total tokens used by the underlying language model during the evaluation process. </p>
+   * @public
+   */
+  tokenUsage?: TokenUsage | undefined;
+
+  /**
+   * <p> The error message describing what went wrong if the evaluation failed. Provides detailed information about evaluation failures to help diagnose and resolve issues with evaluator configuration or input data. </p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p> The error code indicating the type of failure that occurred during evaluation. Used to programmatically identify and handle different categories of evaluation errors. </p>
+   * @public
+   */
+  errorCode?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EvaluateResponse {
+  /**
+   * <p> The detailed evaluation results containing scores, explanations, and metadata. Includes the evaluator information, numerical or categorical ratings based on the evaluator's rating scale, and token usage statistics for the evaluation process. </p>
+   * @public
+   */
+  evaluationResults: EvaluationResultContent[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetResourceApiKeyRequest {
@@ -2503,6 +2778,12 @@ export interface MemoryRecord {
    * @public
    */
   createdAt: Date | undefined;
+
+  /**
+   * <p>A map of metadata key-value pairs associated with a memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MetadataValue> | undefined;
 }
 
 /**
@@ -3008,6 +3289,12 @@ export interface MemoryRecordSummary {
    * @public
    */
   score?: number | undefined;
+
+  /**
+   * <p>A map of metadata key-value pairs associated with a memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MetadataValue> | undefined;
 }
 
 /**
@@ -3098,6 +3385,30 @@ export interface ListSessionsOutput {
 }
 
 /**
+ * <p>Filters to apply to metadata associated with a memory. Specify the metadata key and value in the <code>left</code> and <code>right</code> fields and use the <code>operator</code> field to define the relationship to match.</p>
+ * @public
+ */
+export interface MemoryMetadataFilterExpression {
+  /**
+   * <p>Left expression of the event metadata filter.</p>
+   * @public
+   */
+  left: LeftExpression | undefined;
+
+  /**
+   * <p>The relationship between the metadata key and value to match when applying the metadata filter.</p>
+   * @public
+   */
+  operator: OperatorType | undefined;
+
+  /**
+   * <p>Right expression of the <code>eventMetadata</code>filter.</p>
+   * @public
+   */
+  right?: RightExpression | undefined;
+}
+
+/**
  * <p>Contains search criteria for retrieving memory records.</p>
  * @public
  */
@@ -3119,6 +3430,12 @@ export interface SearchCriteria {
    * @public
    */
   topK?: number | undefined;
+
+  /**
+   * <p>Filters to apply to metadata associated with a memory.</p>
+   * @public
+   */
+  metadataFilters?: MemoryMetadataFilterExpression[] | undefined;
 }
 
 /**
