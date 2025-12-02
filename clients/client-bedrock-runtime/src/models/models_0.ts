@@ -3,6 +3,7 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 
 import {
   AsyncInvokeStatus,
+  AudioFormat,
   CachePointType,
   ConversationRole,
   DocumentFormat,
@@ -1598,6 +1599,110 @@ export interface InferenceConfiguration {
 }
 
 /**
+ * <p>A block containing error information when content processing fails.</p>
+ * @public
+ */
+export interface ErrorBlock {
+  /**
+   * <p>A human-readable error message describing what went wrong during content processing.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>A storage location in an Amazon S3 bucket.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>An object URI starting with <code>s3://</code>.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>If the bucket belongs to another AWS account, specify that account's ID.</p>
+   * @public
+   */
+  bucketOwner?: string | undefined;
+}
+
+/**
+ * <p>The source of audio data, which can be provided either as raw bytes or a reference to an S3 location.</p>
+ * @public
+ */
+export type AudioSource = AudioSource.BytesMember | AudioSource.S3LocationMember | AudioSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AudioSource {
+  /**
+   * <p>Audio data encoded in base64.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    s3Location?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to audio data stored in an Amazon S3 bucket. To see which models support S3 uploads, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-supported-models-features.html">Supported models and features for Converse</a>.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    bytes?: never;
+    s3Location: S3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    s3Location?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    s3Location: (value: S3Location) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>An audio content block that contains audio data in various supported formats.</p>
+ * @public
+ */
+export interface AudioBlock {
+  /**
+   * <p>The format of the audio data, such as MP3, WAV, FLAC, or other supported audio formats.</p>
+   * @public
+   */
+  format: AudioFormat | undefined;
+
+  /**
+   * <p>The source of the audio data, which can be provided as raw bytes or an S3 location.</p>
+   * @public
+   */
+  source: AudioSource | undefined;
+
+  /**
+   * <p>Error information if the audio block could not be processed or contains invalid data.</p>
+   * @public
+   */
+  error?: ErrorBlock | undefined;
+}
+
+/**
  * <p>Defines a section of content to be cached for reuse in subsequent API calls.</p>
  * @public
  */
@@ -2002,24 +2107,6 @@ export namespace DocumentContentBlock {
 }
 
 /**
- * <p>A storage location in an Amazon S3 bucket.</p>
- * @public
- */
-export interface S3Location {
-  /**
-   * <p>An object URI starting with <code>s3://</code>.</p>
-   * @public
-   */
-  uri: string | undefined;
-
-  /**
-   * <p>If the bucket belongs to another AWS account, specify that account's ID.</p>
-   * @public
-   */
-  bucketOwner?: string | undefined;
-}
-
-/**
  * <p>Contains the content of a document.</p>
  * @public
  */
@@ -2336,6 +2423,12 @@ export interface ImageBlock {
    * @public
    */
   source: ImageSource | undefined;
+
+  /**
+   * <p>Error information if the image block could not be processed or contains invalid data.</p>
+   * @public
+   */
+  error?: ErrorBlock | undefined;
 }
 
 /**
@@ -2713,6 +2806,7 @@ export interface ToolUseBlock {
  * @public
  */
 export type ContentBlock =
+  | ContentBlock.AudioMember
   | ContentBlock.CachePointMember
   | ContentBlock.CitationsContentMember
   | ContentBlock.DocumentMember
@@ -2739,6 +2833,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2758,6 +2853,7 @@ export namespace ContentBlock {
     image: ImageBlock;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2777,6 +2873,7 @@ export namespace ContentBlock {
     image?: never;
     document: DocumentBlock;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2796,6 +2893,27 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video: VideoBlock;
+    audio?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent?: never;
+    cachePoint?: never;
+    reasoningContent?: never;
+    citationsContent?: never;
+    searchResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An audio content block containing audio data in the conversation.</p>
+   * @public
+   */
+  export interface AudioMember {
+    text?: never;
+    image?: never;
+    document?: never;
+    video?: never;
+    audio: AudioBlock;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2815,6 +2933,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse: ToolUseBlock;
     toolResult?: never;
     guardContent?: never;
@@ -2834,6 +2953,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult: ToolResultBlock;
     guardContent?: never;
@@ -2853,6 +2973,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent: GuardrailConverseContentBlock;
@@ -2872,6 +2993,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2891,6 +3013,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2910,6 +3033,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2929,6 +3053,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2947,6 +3072,7 @@ export namespace ContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    audio?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -2966,6 +3092,7 @@ export namespace ContentBlock {
     image: (value: ImageBlock) => T;
     document: (value: DocumentBlock) => T;
     video: (value: VideoBlock) => T;
+    audio: (value: AudioBlock) => T;
     toolUse: (value: ToolUseBlock) => T;
     toolResult: (value: ToolResultBlock) => T;
     guardContent: (value: GuardrailConverseContentBlock) => T;
@@ -3799,6 +3926,24 @@ export interface CitationsDelta {
 }
 
 /**
+ * <p>A streaming delta event that contains incremental image data during streaming responses.</p>
+ * @public
+ */
+export interface ImageBlockDelta {
+  /**
+   * <p>The incremental image source data for this delta event.</p>
+   * @public
+   */
+  source?: ImageSource | undefined;
+
+  /**
+   * <p>Error information if this image delta could not be processed.</p>
+   * @public
+   */
+  error?: ErrorBlock | undefined;
+}
+
+/**
  * <p>Contains content regarding the reasoning that is carried out by the model with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
  * @public
  */
@@ -3871,7 +4016,10 @@ export namespace ReasoningContentBlockDelta {
  * <p>Contains incremental updates to tool results information during streaming responses. This allows clients to build up tool results data progressively as the response is generated.</p>
  * @public
  */
-export type ToolResultBlockDelta = ToolResultBlockDelta.TextMember | ToolResultBlockDelta.$UnknownMember;
+export type ToolResultBlockDelta =
+  | ToolResultBlockDelta.JsonMember
+  | ToolResultBlockDelta.TextMember
+  | ToolResultBlockDelta.$UnknownMember;
 
 /**
  * @public
@@ -3883,6 +4031,17 @@ export namespace ToolResultBlockDelta {
    */
   export interface TextMember {
     text: string;
+    json?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The JSON schema for the tool result content block. see <a href="https://json-schema.org/understanding-json-schema/reference">JSON Schema Reference</a>.</p>
+   * @public
+   */
+  export interface JsonMember {
+    text?: never;
+    json: __DocumentType;
     $unknown?: never;
   }
 
@@ -3891,6 +4050,7 @@ export namespace ToolResultBlockDelta {
    */
   export interface $UnknownMember {
     text?: never;
+    json?: never;
     $unknown: [string, any];
   }
 
@@ -3900,6 +4060,7 @@ export namespace ToolResultBlockDelta {
    */
   export interface Visitor<T> {
     text: (value: string) => T;
+    json: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3922,6 +4083,7 @@ export interface ToolUseBlockDelta {
  */
 export type ContentBlockDelta =
   | ContentBlockDelta.CitationMember
+  | ContentBlockDelta.ImageMember
   | ContentBlockDelta.ReasoningContentMember
   | ContentBlockDelta.TextMember
   | ContentBlockDelta.ToolResultMember
@@ -3942,6 +4104,7 @@ export namespace ContentBlockDelta {
     toolResult?: never;
     reasoningContent?: never;
     citation?: never;
+    image?: never;
     $unknown?: never;
   }
 
@@ -3955,6 +4118,7 @@ export namespace ContentBlockDelta {
     toolResult?: never;
     reasoningContent?: never;
     citation?: never;
+    image?: never;
     $unknown?: never;
   }
 
@@ -3968,6 +4132,7 @@ export namespace ContentBlockDelta {
     toolResult: ToolResultBlockDelta[];
     reasoningContent?: never;
     citation?: never;
+    image?: never;
     $unknown?: never;
   }
 
@@ -3981,6 +4146,7 @@ export namespace ContentBlockDelta {
     toolResult?: never;
     reasoningContent: ReasoningContentBlockDelta;
     citation?: never;
+    image?: never;
     $unknown?: never;
   }
 
@@ -3994,6 +4160,21 @@ export namespace ContentBlockDelta {
     toolResult?: never;
     reasoningContent?: never;
     citation: CitationsDelta;
+    image?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A streaming delta event containing incremental image data.</p>
+   * @public
+   */
+  export interface ImageMember {
+    text?: never;
+    toolUse?: never;
+    toolResult?: never;
+    reasoningContent?: never;
+    citation?: never;
+    image: ImageBlockDelta;
     $unknown?: never;
   }
 
@@ -4006,6 +4187,7 @@ export namespace ContentBlockDelta {
     toolResult?: never;
     reasoningContent?: never;
     citation?: never;
+    image?: never;
     $unknown: [string, any];
   }
 
@@ -4019,6 +4201,7 @@ export namespace ContentBlockDelta {
     toolResult: (value: ToolResultBlockDelta[]) => T;
     reasoningContent: (value: ReasoningContentBlockDelta) => T;
     citation: (value: CitationsDelta) => T;
+    image: (value: ImageBlockDelta) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4039,6 +4222,18 @@ export interface ContentBlockDeltaEvent {
    * @public
    */
   contentBlockIndex: number | undefined;
+}
+
+/**
+ * <p>The initial event in a streaming image block that indicates the start of image content.</p>
+ * @public
+ */
+export interface ImageBlockStart {
+  /**
+   * <p>The format of the image data that will be streamed in subsequent delta events.</p>
+   * @public
+   */
+  format: ImageFormat | undefined;
 }
 
 /**
@@ -4094,6 +4289,7 @@ export interface ToolUseBlockStart {
  * @public
  */
 export type ContentBlockStart =
+  | ContentBlockStart.ImageMember
   | ContentBlockStart.ToolResultMember
   | ContentBlockStart.ToolUseMember
   | ContentBlockStart.$UnknownMember;
@@ -4109,6 +4305,7 @@ export namespace ContentBlockStart {
   export interface ToolUseMember {
     toolUse: ToolUseBlockStart;
     toolResult?: never;
+    image?: never;
     $unknown?: never;
   }
 
@@ -4119,6 +4316,18 @@ export namespace ContentBlockStart {
   export interface ToolResultMember {
     toolUse?: never;
     toolResult: ToolResultBlockStart;
+    image?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The initial event indicating the start of a streaming image block.</p>
+   * @public
+   */
+  export interface ImageMember {
+    toolUse?: never;
+    toolResult?: never;
+    image: ImageBlockStart;
     $unknown?: never;
   }
 
@@ -4128,6 +4337,7 @@ export namespace ContentBlockStart {
   export interface $UnknownMember {
     toolUse?: never;
     toolResult?: never;
+    image?: never;
     $unknown: [string, any];
   }
 
@@ -4138,6 +4348,7 @@ export namespace ContentBlockStart {
   export interface Visitor<T> {
     toolUse: (value: ToolUseBlockStart) => T;
     toolResult: (value: ToolResultBlockStart) => T;
+    image: (value: ImageBlockStart) => T;
     _: (name: string, value: any) => T;
   }
 }

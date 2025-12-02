@@ -58,6 +58,9 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *                     bucketOwner: "STRING_VALUE",
  *                   },
  *                 },
+ *                 error: { // ErrorBlock
+ *                   message: "STRING_VALUE",
+ *                 },
  *               },
  *               document: { // DocumentBlock
  *                 format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md",
@@ -90,6 +93,19 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *                   },
  *                 },
  *               },
+ *               audio: { // AudioBlock
+ *                 format: "mp3" || "opus" || "wav" || "aac" || "flac" || "mp4" || "ogg" || "mkv" || "mka" || "x-aac" || "m4a" || "mpeg" || "mpga" || "pcm" || "webm", // required
+ *                 source: { // AudioSource Union: only one key present
+ *                   bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   s3Location: {
+ *                     uri: "STRING_VALUE", // required
+ *                     bucketOwner: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 error: {
+ *                   message: "STRING_VALUE",
+ *                 },
+ *               },
  *               toolUse: { // ToolUseBlock
  *                 toolUseId: "STRING_VALUE", // required
  *                 name: "STRING_VALUE", // required
@@ -111,16 +127,16 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *                           bucketOwner: "STRING_VALUE",
  *                         },
  *                       },
+ *                       error: {
+ *                         message: "STRING_VALUE",
+ *                       },
  *                     },
  *                     document: {
  *                       format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md",
  *                       name: "STRING_VALUE", // required
  *                       source: {//  Union: only one key present
  *                         bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
- *                         s3Location: {
- *                           uri: "STRING_VALUE", // required
- *                           bucketOwner: "STRING_VALUE",
- *                         },
+ *                         s3Location: "<S3Location>",
  *                         text: "STRING_VALUE",
  *                         content: [
  *                           {//  Union: only one key present

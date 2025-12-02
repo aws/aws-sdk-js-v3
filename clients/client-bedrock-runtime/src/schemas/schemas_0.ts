@@ -1,4 +1,5 @@
 const _A = "Accept";
+const _AB = "AudioBlock";
 const _ADE = "AccessDeniedException";
 const _AG = "ApplyGuardrail";
 const _AGD = "AppliedGuardrailDetails";
@@ -9,6 +10,7 @@ const _AIODC = "AsyncInvokeOutputDataConfig";
 const _AIS = "AsyncInvokeSummary";
 const _AISODC = "AsyncInvokeS3OutputDataConfig";
 const _AISs = "AsyncInvokeSummaries";
+const _AS = "AudioSource";
 const _ATC = "AnyToolChoice";
 const _ATCu = "AutoToolChoice";
 const _B = "Body";
@@ -61,6 +63,7 @@ const _DCL = "DocumentCharLocation";
 const _DCLo = "DocumentChunkLocation";
 const _DPL = "DocumentPageLocation";
 const _DS = "DocumentSource";
+const _EB = "ErrorBlock";
 const _GA = "GuardrailAssessment";
 const _GAI = "GetAsyncInvoke";
 const _GAIR = "GetAsyncInvokeRequest";
@@ -132,6 +135,8 @@ const _GTPA = "GuardrailTopicPolicyAssessment";
 const _GU = "GuardrailUsage";
 const _GWPA = "GuardrailWordPolicyAssessment";
 const _IB = "ImageBlock";
+const _IBD = "ImageBlockDelta";
+const _IBS = "ImageBlockStart";
 const _IC = "InferenceConfiguration";
 const _IM = "InvokeModel";
 const _IMR = "InvokeModelRequest";
@@ -229,7 +234,8 @@ const _aRPu = "automatedReasoningPolicies";
 const _ac = "accept";
 const _an = "any";
 const _as = "assessments";
-const _au = "auto";
+const _au = "audio";
+const _aut = "auto";
 const _b = "bytes";
 const _bO = "bucketOwner";
 const _bo = "body";
@@ -530,6 +536,14 @@ export var AsyncInvokeSummary: StaticStructureSchema = [
   [_iA, _mA, _cRT, _st, _fM, _sT, _lMT, _eT, _oDC],
   [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig],
 ];
+export var AudioBlock: StaticStructureSchema = [
+  3,
+  n0,
+  _AB,
+  0,
+  [_f, _s, _e],
+  [0, [() => AudioSource, 0], [() => ErrorBlock, 0]],
+];
 export var AutoToolChoice: StaticStructureSchema = [3, n0, _ATCu, 0, [], []];
 export var BidirectionalInputPayloadPart: StaticStructureSchema = [3, n0, _BIPP, 8, [_b], [[() => PartBody, 0]]];
 export var BidirectionalOutputPayloadPart: StaticStructureSchema = [3, n0, _BOPP, 8, [_b], [[() => PartBody, 0]]];
@@ -720,6 +734,7 @@ export var DocumentBlock: StaticStructureSchema = [
 export var DocumentCharLocation: StaticStructureSchema = [3, n0, _DCL, 0, [_dI, _sta, _end], [1, 1, 1]];
 export var DocumentChunkLocation: StaticStructureSchema = [3, n0, _DCLo, 0, [_dI, _sta, _end], [1, 1, 1]];
 export var DocumentPageLocation: StaticStructureSchema = [3, n0, _DPL, 0, [_dI, _sta, _end], [1, 1, 1]];
+export var ErrorBlock: StaticStructureSchema = [3, n0, _EB, 8, [_m], [0]];
 export var GetAsyncInvokeRequest: StaticStructureSchema = [3, n0, _GAIR, 0, [_iA], [[0, 1]]];
 export var GetAsyncInvokeResponse: StaticStructureSchema = [
   3,
@@ -984,7 +999,26 @@ export var GuardrailWordPolicyAssessment: StaticStructureSchema = [
   [_cW, _mWL],
   [() => GuardrailCustomWordList, () => GuardrailManagedWordList],
 ];
-export var ImageBlock: StaticStructureSchema = [3, n0, _IB, 0, [_f, _s], [0, () => ImageSource]];
+export var ImageBlock: StaticStructureSchema = [
+  3,
+  n0,
+  _IB,
+  0,
+  [_f, _s, _e],
+  [0, [() => ImageSource, 0], [() => ErrorBlock, 0]],
+];
+export var ImageBlockDelta: StaticStructureSchema = [
+  3,
+  n0,
+  _IBD,
+  0,
+  [_s, _e],
+  [
+    [() => ImageSource, 0],
+    [() => ErrorBlock, 0],
+  ],
+];
+export var ImageBlockStart: StaticStructureSchema = [3, n0, _IBS, 0, [_f], [0]];
 export var InferenceConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_mT, _tem, _tPo, _sS], [1, 1, 1, 64 | 0]];
 export var InternalServerException: StaticErrorSchema = [
   -3,
@@ -1383,7 +1417,7 @@ export var ToolResultBlock: StaticStructureSchema = [
   _TRB,
   0,
   [_tUI, _co, _st, _t],
-  [0, () => ToolResultContentBlocks, 0, 0],
+  [0, [() => ToolResultContentBlocks, 0], 0, 0],
 ];
 export var ToolResultBlockStart: StaticStructureSchema = [3, n0, _TRBS, 0, [_tUI, _t, _st], [0, 0, 0]];
 export var ToolSpecification: StaticStructureSchema = [3, n0, _TS, 0, [_n, _des, _iS], [0, 0, () => ToolInputSchema]];
@@ -1499,7 +1533,7 @@ export var SearchResultContentBlocks: StaticListSchema = [1, n0, _SRCBe, 0, () =
 export var SystemContentBlocks: StaticListSchema = [1, n0, _SCB, 0, [() => SystemContentBlock, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ToolResultBlocksDelta: StaticListSchema = [1, n0, _TRBD, 0, () => ToolResultBlockDelta];
-export var ToolResultContentBlocks: StaticListSchema = [1, n0, _TRCB, 0, () => ToolResultContentBlock];
+export var ToolResultContentBlocks: StaticListSchema = [1, n0, _TRCB, 0, [() => ToolResultContentBlock, 0]];
 export var Tools: StaticListSchema = [1, n0, _To, 0, () => Tool];
 export var GuardrailAssessmentListMap: StaticMapSchema = [2, n0, _GALM, 0, [0, 0], [() => GuardrailAssessmentList, 0]];
 export var GuardrailAssessmentMap: StaticMapSchema = [2, n0, _GAM, 0, [0, 0], [() => GuardrailAssessment, 0]];
@@ -1513,6 +1547,7 @@ export var AsyncInvokeOutputDataConfig: StaticStructureSchema = [
   [_sODC],
   [() => AsyncInvokeS3OutputDataConfig],
 ];
+export var AudioSource: StaticStructureSchema = [3, n0, _AS, 8, [_b, _sL], [21, () => S3Location]];
 export var CitationGeneratedContent: StaticStructureSchema = [3, n0, _CGC, 0, [_te], [0]];
 export var CitationLocation: StaticStructureSchema = [
   3,
@@ -1534,14 +1569,15 @@ export var ContentBlock: StaticStructureSchema = [
   n0,
   _CBo,
   0,
-  [_te, _ima, _doc, _vi, _tU, _tR, _gCua, _cPa, _rC, _cC, _sRe],
+  [_te, _ima, _doc, _vi, _au, _tU, _tR, _gCua, _cPa, _rC, _cC, _sRe],
   [
     0,
-    () => ImageBlock,
+    [() => ImageBlock, 0],
     () => DocumentBlock,
     () => VideoBlock,
+    [() => AudioBlock, 0],
     () => ToolUseBlock,
-    () => ToolResultBlock,
+    [() => ToolResultBlock, 0],
     [() => GuardrailConverseContentBlock, 0],
     () => CachePointBlock,
     [() => ReasoningContentBlock, 0],
@@ -1554,13 +1590,14 @@ export var ContentBlockDelta: StaticStructureSchema = [
   n0,
   _CBD,
   0,
-  [_te, _tU, _tR, _rC, _cit],
+  [_te, _tU, _tR, _rC, _cit, _ima],
   [
     0,
     () => ToolUseBlockDelta,
     () => ToolResultBlocksDelta,
     [() => ReasoningContentBlockDelta, 0],
     () => CitationsDelta,
+    [() => ImageBlockDelta, 0],
   ],
 ];
 export var ContentBlockStart: StaticStructureSchema = [
@@ -1568,8 +1605,8 @@ export var ContentBlockStart: StaticStructureSchema = [
   n0,
   _CBS,
   0,
-  [_tU, _tR],
-  [() => ToolUseBlockStart, () => ToolResultBlockStart],
+  [_tU, _tR, _ima],
+  [() => ToolUseBlockStart, () => ToolResultBlockStart, () => ImageBlockStart],
 ];
 export var ConverseOutput: StaticStructureSchema = [3, n0, _CO, 0, [_m], [[() => Message, 0]]];
 export var ConverseStreamOutput: StaticStructureSchema = [
@@ -1648,7 +1685,7 @@ export var GuardrailConverseContentBlock: StaticStructureSchema = [
 ];
 export var GuardrailConverseImageSource: StaticStructureSchema = [3, n0, _GCIS, 8, [_b], [21]];
 export var GuardrailImageSource: StaticStructureSchema = [3, n0, _GIS, 8, [_b], [21]];
-export var ImageSource: StaticStructureSchema = [3, n0, _IS, 0, [_b, _sL], [21, () => S3Location]];
+export var ImageSource: StaticStructureSchema = [3, n0, _IS, 8, [_b, _sL], [21, () => S3Location]];
 export var InvokeModelWithBidirectionalStreamInput: StaticStructureSchema = [
   3,
   n0,
@@ -1726,18 +1763,18 @@ export var ToolChoice: StaticStructureSchema = [
   n0,
   _TCo,
   0,
-  [_au, _an, _tool],
+  [_aut, _an, _tool],
   [() => AutoToolChoice, () => AnyToolChoice, () => SpecificToolChoice],
 ];
 export var ToolInputSchema: StaticStructureSchema = [3, n0, _TIS, 0, [_j], [15]];
-export var ToolResultBlockDelta: StaticStructureSchema = [3, n0, _TRBDo, 0, [_te], [0]];
+export var ToolResultBlockDelta: StaticStructureSchema = [3, n0, _TRBDo, 0, [_te, _j], [0, 15]];
 export var ToolResultContentBlock: StaticStructureSchema = [
   3,
   n0,
   _TRCBo,
   0,
   [_j, _te, _ima, _doc, _vi, _sRe],
-  [15, 0, () => ImageBlock, () => DocumentBlock, () => VideoBlock, () => SearchResultBlock],
+  [15, 0, [() => ImageBlock, 0], () => DocumentBlock, () => VideoBlock, () => SearchResultBlock],
 ];
 export var VideoSource: StaticStructureSchema = [3, n0, _VS, 0, [_b, _sL], [21, () => S3Location]];
 export var ApplyGuardrail: StaticOperationSchema = [
