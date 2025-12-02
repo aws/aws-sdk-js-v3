@@ -24,6 +24,7 @@ const _ACt = "AttemptCount";
 const _AD = "AlarmDetails";
 const _ADC = "ActiveDeviceCount";
 const _ADD = "AthenaDatasetDefinition";
+const _ADS = "AccountDefaultStatus";
 const _ADl = "AlgorithmDescription";
 const _ADp = "AppDetails";
 const _ADpp = "ApprovalDescription";
@@ -446,6 +447,9 @@ const _CLJ = "CreateLabelingJob";
 const _CLJR = "CreateLabelingJobRequest";
 const _CLJRr = "CreateLabelingJobResponse";
 const _CM = "CandidateMetrics";
+const _CMA = "CreateMlflowApp";
+const _CMAR = "CreateMlflowAppRequest";
+const _CMARr = "CreateMlflowAppResponse";
 const _CMBJD = "CreateModelBiasJobDefinition";
 const _CMBJDR = "CreateModelBiasJobDefinitionRequest";
 const _CMBJDRr = "CreateModelBiasJobDefinitionResponse";
@@ -525,6 +529,9 @@ const _CPIo = "CostPerInference";
 const _CPJ = "CreateProcessingJob";
 const _CPJR = "CreateProcessingJobRequest";
 const _CPJRr = "CreateProcessingJobResponse";
+const _CPMAU = "CreatePresignedMlflowAppUrl";
+const _CPMAUR = "CreatePresignedMlflowAppUrlRequest";
+const _CPMAURr = "CreatePresignedMlflowAppUrlResponse";
 const _CPMTSU = "CreatePresignedMlflowTrackingServerUrl";
 const _CPMTSUR = "CreatePresignedMlflowTrackingServerUrlRequest";
 const _CPMTSURr = "CreatePresignedMlflowTrackingServerUrlResponse";
@@ -806,6 +813,7 @@ const _DDFRe = "DescribeDeviceFleetRequest";
 const _DDFRes = "DescribeDeviceFleetResponse";
 const _DDFe = "DescribeDeviceFleet";
 const _DDIC = "DerivedDataInputConfig";
+const _DDIL = "DefaultDomainIdList";
 const _DDQJD = "DeleteDataQualityJobDefinition";
 const _DDQJDR = "DeleteDataQualityJobDefinitionRequest";
 const _DDQJDRe = "DescribeDataQualityJobDefinitionRequest";
@@ -861,6 +869,7 @@ const _DEesc = "DescribeExperiment";
 const _DF = "DatasetFormat";
 const _DFA = "DeviceFleetArn";
 const _DFD = "DeleteFlowDefinition";
+const _DFDI = "DefaultForDomainId";
 const _DFDR = "DeleteFlowDefinitionRequest";
 const _DFDRe = "DeleteFlowDefinitionResponse";
 const _DFDRes = "DescribeFlowDefinitionRequest";
@@ -953,6 +962,12 @@ const _DLJRe = "DescribeLabelingJobResponse";
 const _DLU = "DefaultLandingUri";
 const _DLo = "DomainList";
 const _DM = "DurationMinutes";
+const _DMA = "DeleteMlflowApp";
+const _DMAR = "DeleteMlflowAppRequest";
+const _DMARe = "DeleteMlflowAppResponse";
+const _DMARes = "DescribeMlflowAppRequest";
+const _DMAResc = "DescribeMlflowAppResponse";
+const _DMAe = "DescribeMlflowApp";
 const _DMBJD = "DeleteModelBiasJobDefinition";
 const _DMBJDR = "DeleteModelBiasJobDefinitionRequest";
 const _DMBJDRe = "DescribeModelBiasJobDefinitionRequest";
@@ -1844,9 +1859,12 @@ const _LMA = "LastModifiedAt";
 const _LMAH = "ListMonitoringAlertHistory";
 const _LMAHR = "ListMonitoringAlertHistoryRequest";
 const _LMAHRi = "ListMonitoringAlertHistoryResponse";
-const _LMAR = "ListMonitoringAlertsRequest";
-const _LMARi = "ListMonitoringAlertsResponse";
-const _LMAi = "ListMonitoringAlerts";
+const _LMAR = "ListMlflowAppsRequest";
+const _LMARi = "ListMlflowAppsResponse";
+const _LMARis = "ListMonitoringAlertsRequest";
+const _LMARist = "ListMonitoringAlertsResponse";
+const _LMAi = "ListMlflowApps";
+const _LMAis = "ListMonitoringAlerts";
 const _LMB = "LastModifiedBy";
 const _LMBJD = "ListModelBiasJobDefinitions";
 const _LMBJDR = "ListModelBiasJobDefinitionsRequest";
@@ -2000,6 +2018,8 @@ const _MAMLJRIS = "MaxAutoMLJobRuntimeInSeconds";
 const _MAN = "MonitoringAlertName";
 const _MAS = "ModelApprovalStatus";
 const _MASL = "MonitoringAlertSummaryList";
+const _MASl = "MlflowAppSummary";
+const _MASlf = "MlflowAppSummaries";
 const _MASo = "MonitoringAlertSummaries";
 const _MASon = "MonitoringAlertSummary";
 const _MASoni = "MonitoringAppSpecification";
@@ -2193,6 +2213,7 @@ const _MRA = "MlReservationArn";
 const _MRAa = "MaximumRetryAttempts";
 const _MRC = "MaxRecordCount";
 const _MRIS = "MaxRuntimeInSeconds";
+const _MRM = "ModelRegistrationMode";
 const _MRPTJIS = "MaxRuntimePerTrainingJobInSeconds";
 const _MRS = "ModelRegisterSettings";
 const _MRa = "MaxResource";
@@ -2219,6 +2240,7 @@ const _MSSon = "MonitoringScheduleSummary";
 const _MST = "ModelSetupTime";
 const _MSU = "ManifestS3Uri";
 const _MSV = "MaxSchemaVersion";
+const _MSa = "MaintenanceStatus";
 const _MSe = "MetricsSource";
 const _MSet = "MetricSpecification";
 const _MSo = "ModelSignature";
@@ -3216,9 +3238,12 @@ const _UIV = "UpdateImageVersion";
 const _UIVR = "UpdateImageVersionRequest";
 const _UIVRp = "UpdateImageVersionResponse";
 const _UL = "UseLogit";
-const _UMA = "UpdateMonitoringAlert";
-const _UMAR = "UpdateMonitoringAlertRequest";
-const _UMARp = "UpdateMonitoringAlertResponse";
+const _UMA = "UpdateMlflowApp";
+const _UMAR = "UpdateMlflowAppRequest";
+const _UMARp = "UpdateMlflowAppResponse";
+const _UMARpd = "UpdateMonitoringAlertRequest";
+const _UMARpda = "UpdateMonitoringAlertResponse";
+const _UMAp = "UpdateMonitoringAlert";
 const _UMC = "UpdateModelCard";
 const _UMCR = "UpdateModelCardRequest";
 const _UMCRp = "UpdateModelCardResponse";
@@ -4739,6 +4764,15 @@ export var CreateLabelingJobRequest: StaticStructureSchema = [
   ],
 ];
 export var CreateLabelingJobResponse: StaticStructureSchema = [3, n0, _CLJRr, 0, [_LJA], [0]];
+export var CreateMlflowAppRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CMAR,
+  0,
+  [_N, _ASU, _RAo, _MRM, _WMWS, _ADS, _DDIL, _Ta],
+  [0, 0, 0, 0, 0, 0, 64 | 0, () => TagList],
+];
+export var CreateMlflowAppResponse: StaticStructureSchema = [3, n0, _CMARr, 0, [_Ar], [0]];
 export var CreateMlflowTrackingServerRequest: StaticStructureSchema = [
   3,
   n0,
@@ -5012,6 +5046,15 @@ export var CreatePresignedDomainUrlRequest: StaticStructureSchema = [
   [0, 0, 1, 1, 0, 0],
 ];
 export var CreatePresignedDomainUrlResponse: StaticStructureSchema = [3, n0, _CPDURr, 0, [_AU], [0]];
+export var CreatePresignedMlflowAppUrlRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CPMAUR,
+  0,
+  [_Ar, _EIS, _SEDIS],
+  [0, 1, 1],
+];
+export var CreatePresignedMlflowAppUrlResponse: StaticStructureSchema = [3, n0, _CPMAURr, 0, [_AU], [0]];
 export var CreatePresignedMlflowTrackingServerUrlRequest: StaticStructureSchema = [
   3,
   n0,
@@ -5383,6 +5426,8 @@ export var DeleteImageVersionResponse: StaticStructureSchema = [3, n0, _DIVRe, 0
 export var DeleteInferenceComponentInput: StaticStructureSchema = [3, n0, _DICI, 0, [_ICN], [0]];
 export var DeleteInferenceExperimentRequest: StaticStructureSchema = [3, n0, _DIER, 0, [_N], [0]];
 export var DeleteInferenceExperimentResponse: StaticStructureSchema = [3, n0, _DIERe, 0, [_IEA], [0]];
+export var DeleteMlflowAppRequest: StaticStructureSchema = [3, n0, _DMAR, 0, [_Ar], [0]];
+export var DeleteMlflowAppResponse: StaticStructureSchema = [3, n0, _DMARe, 0, [_Ar], [0]];
 export var DeleteMlflowTrackingServerRequest: StaticStructureSchema = [3, n0, _DMTSR, 0, [_TSN], [0]];
 export var DeleteMlflowTrackingServerResponse: StaticStructureSchema = [3, n0, _DMTSRe, 0, [_TSA], [0]];
 export var DeleteModelBiasJobDefinitionRequest: StaticStructureSchema = [3, n0, _DMBJDR, 0, [_JDN], [0]];
@@ -6191,6 +6236,15 @@ export var DescribeLineageGroupResponse: StaticStructureSchema = [
   0,
   [_LGN, _LGA, _DNi, _D, _CT, _CB, _LMT, _LMB],
   [0, 0, 0, 0, 4, () => UserContext, 4, () => UserContext],
+];
+export var DescribeMlflowAppRequest: StaticStructureSchema = [3, n0, _DMARes, 0, [_Ar], [0]];
+export var DescribeMlflowAppResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DMAResc,
+  0,
+  [_Ar, _N, _ASU, _MVl, _RAo, _St, _MRM, _ADS, _DDIL, _CT, _CB, _LMT, _LMB, _WMWS, _MSa],
+  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 4, () => UserContext, 4, () => UserContext, 0, 0],
 ];
 export var DescribeMlflowTrackingServerRequest: StaticStructureSchema = [3, n0, _DMTSRes, 0, [_TSN], [0]];
 export var DescribeMlflowTrackingServerResponse: StaticStructureSchema = [
@@ -8422,6 +8476,22 @@ export var ListLineageGroupsResponse: StaticStructureSchema = [
   [_LGSi, _NT],
   [() => LineageGroupSummaries, 0],
 ];
+export var ListMlflowAppsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LMAR,
+  0,
+  [_CAre, _CBr, _St, _MVl, _DFDI, _ADS, _SBo, _SO, _NT, _MR],
+  [4, 4, 0, 0, 0, 0, 0, 0, 0, 1],
+];
+export var ListMlflowAppsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LMARi,
+  0,
+  [_Sum, _NT],
+  [() => MlflowAppSummaries, 0],
+];
 export var ListMlflowTrackingServersRequest: StaticStructureSchema = [
   3,
   n0,
@@ -8607,11 +8677,11 @@ export var ListMonitoringAlertHistoryResponse: StaticStructureSchema = [
   [_MAH, _NT],
   [() => MonitoringAlertHistoryList, 0],
 ];
-export var ListMonitoringAlertsRequest: StaticStructureSchema = [3, n0, _LMAR, 0, [_MSN, _NT, _MR], [0, 0, 1]];
+export var ListMonitoringAlertsRequest: StaticStructureSchema = [3, n0, _LMARis, 0, [_MSN, _NT, _MR], [0, 0, 1]];
 export var ListMonitoringAlertsResponse: StaticStructureSchema = [
   3,
   n0,
-  _LMARi,
+  _LMARist,
   0,
   [_MASo, _NT],
   [() => MonitoringAlertSummaryList, 0],
@@ -9031,6 +9101,14 @@ export var MetricDatum: StaticStructureSchema = [3, n0, _MDetr, 0, [_MN, _SMN, _
 export var MetricDefinition: StaticStructureSchema = [3, n0, _MDetri, 0, [_N, _Reg], [0, 0]];
 export var MetricsConfig: StaticStructureSchema = [3, n0, _MCe, 0, [_EEM, _MPFIS], [2, 1]];
 export var MetricsSource: StaticStructureSchema = [3, n0, _MSe, 0, [_CTon, _CDon, _SUr], [0, 0, 0]];
+export var MlflowAppSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _MASl,
+  0,
+  [_Ar, _N, _St, _CT, _LMT, _MVl],
+  [0, 0, 0, 4, 4, 0],
+];
 export var Model: StaticStructureSchema = [
   3,
   n0,
@@ -11400,6 +11478,15 @@ export var UpdateInferenceExperimentRequest: StaticStructureSchema = [
   ],
 ];
 export var UpdateInferenceExperimentResponse: StaticStructureSchema = [3, n0, _UIERp, 0, [_IEA], [0]];
+export var UpdateMlflowAppRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UMAR,
+  0,
+  [_Ar, _N, _ASU, _MRM, _WMWS, _DDIL, _ADS],
+  [0, 0, 0, 0, 0, 64 | 0, 0],
+];
+export var UpdateMlflowAppResponse: StaticStructureSchema = [3, n0, _UMARp, 0, [_Ar], [0]];
 export var UpdateMlflowTrackingServerRequest: StaticStructureSchema = [
   3,
   n0,
@@ -11442,12 +11529,12 @@ export var UpdateModelPackageOutput: StaticStructureSchema = [3, n0, _UMPO, 0, [
 export var UpdateMonitoringAlertRequest: StaticStructureSchema = [
   3,
   n0,
-  _UMAR,
+  _UMARpd,
   0,
   [_MSN, _MAN, _DTA, _EPv],
   [0, 0, 1, 1],
 ];
-export var UpdateMonitoringAlertResponse: StaticStructureSchema = [3, n0, _UMARp, 0, [_MSA, _MAN], [0, 0]];
+export var UpdateMonitoringAlertResponse: StaticStructureSchema = [3, n0, _UMARpda, 0, [_MSA, _MAN], [0, 0]];
 export var UpdateMonitoringScheduleRequest: StaticStructureSchema = [
   3,
   n0,
@@ -11878,6 +11965,8 @@ export var CustomImageContainerEntrypoint = 64 | 0;
 export var CustomImages: StaticListSchema = [1, n0, _CI, 0, () => CustomImage];
 export var DebugRuleConfigurations: StaticListSchema = [1, n0, _DRC, 0, () => DebugRuleConfiguration];
 export var DebugRuleEvaluationStatuses: StaticListSchema = [1, n0, _DRESe, 0, () => DebugRuleEvaluationStatus];
+export var DefaultDomainIdList = 64 | 0;
+
 export var DeployedImages: StaticListSchema = [1, n0, _DIep, 0, () => DeployedImage];
 export var DeploymentStages: StaticListSchema = [1, n0, _DSepl, 0, () => DeploymentStage];
 export var DeploymentStageStatusSummaries: StaticListSchema = [1, n0, _DSSSep, 0, () => DeploymentStageStatusSummary];
@@ -12028,6 +12117,7 @@ export var ListTrialComponentKey256 = 64 | 0;
 export var MemberDefinitions: StaticListSchema = [1, n0, _MDe, 0, () => MemberDefinition];
 export var MetricDataList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDatum];
 export var MetricDefinitionList: StaticListSchema = [1, n0, _MDLe, 0, () => MetricDefinition];
+export var MlflowAppSummaries: StaticListSchema = [1, n0, _MASlf, 0, () => MlflowAppSummary];
 export var ModelCardExportJobSummaryList: StaticListSchema = [1, n0, _MCEJSL, 0, () => ModelCardExportJobSummary];
 export var ModelCardSummaryList: StaticListSchema = [1, n0, _MCSL, 0, () => ModelCardSummary];
 export var ModelCardVersionSummaryList: StaticListSchema = [1, n0, _MCVSL, 0, () => ModelCardVersionSummary];
@@ -12719,6 +12809,14 @@ export var CreateLabelingJob: StaticOperationSchema = [
   () => CreateLabelingJobRequest,
   () => CreateLabelingJobResponse,
 ];
+export var CreateMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _CMA,
+  0,
+  () => CreateMlflowAppRequest,
+  () => CreateMlflowAppResponse,
+];
 export var CreateMlflowTrackingServer: StaticOperationSchema = [
   9,
   n0,
@@ -12847,6 +12945,14 @@ export var CreatePresignedDomainUrl: StaticOperationSchema = [
   0,
   () => CreatePresignedDomainUrlRequest,
   () => CreatePresignedDomainUrlResponse,
+];
+export var CreatePresignedMlflowAppUrl: StaticOperationSchema = [
+  9,
+  n0,
+  _CPMAU,
+  0,
+  () => CreatePresignedMlflowAppUrlRequest,
+  () => CreatePresignedMlflowAppUrlResponse,
 ];
 export var CreatePresignedMlflowTrackingServerUrl: StaticOperationSchema = [
   9,
@@ -13123,6 +13229,14 @@ export var DeleteInferenceExperiment: StaticOperationSchema = [
   0,
   () => DeleteInferenceExperimentRequest,
   () => DeleteInferenceExperimentResponse,
+];
+export var DeleteMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _DMA,
+  0,
+  () => DeleteMlflowAppRequest,
+  () => DeleteMlflowAppResponse,
 ];
 export var DeleteMlflowTrackingServer: StaticOperationSchema = [
   9,
@@ -13566,6 +13680,14 @@ export var DescribeLineageGroup: StaticOperationSchema = [
   0,
   () => DescribeLineageGroupRequest,
   () => DescribeLineageGroupResponse,
+];
+export var DescribeMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _DMAe,
+  0,
+  () => DescribeMlflowAppRequest,
+  () => DescribeMlflowAppResponse,
 ];
 export var DescribeMlflowTrackingServer: StaticOperationSchema = [
   9,
@@ -14183,6 +14305,14 @@ export var ListLineageGroups: StaticOperationSchema = [
   () => ListLineageGroupsRequest,
   () => ListLineageGroupsResponse,
 ];
+export var ListMlflowApps: StaticOperationSchema = [
+  9,
+  n0,
+  _LMAi,
+  0,
+  () => ListMlflowAppsRequest,
+  () => ListMlflowAppsResponse,
+];
 export var ListMlflowTrackingServers: StaticOperationSchema = [
   9,
   n0,
@@ -14275,7 +14405,7 @@ export var ListMonitoringAlertHistory: StaticOperationSchema = [
 export var ListMonitoringAlerts: StaticOperationSchema = [
   9,
   n0,
-  _LMAi,
+  _LMAis,
   0,
   () => ListMonitoringAlertsRequest,
   () => ListMonitoringAlertsResponse,
@@ -14842,6 +14972,14 @@ export var UpdateInferenceExperiment: StaticOperationSchema = [
   () => UpdateInferenceExperimentRequest,
   () => UpdateInferenceExperimentResponse,
 ];
+export var UpdateMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _UMA,
+  0,
+  () => UpdateMlflowAppRequest,
+  () => UpdateMlflowAppResponse,
+];
 export var UpdateMlflowTrackingServer: StaticOperationSchema = [
   9,
   n0,
@@ -14869,7 +15007,7 @@ export var UpdateModelPackage: StaticOperationSchema = [
 export var UpdateMonitoringAlert: StaticOperationSchema = [
   9,
   n0,
-  _UMA,
+  _UMAp,
   0,
   () => UpdateMonitoringAlertRequest,
   () => UpdateMonitoringAlertResponse,

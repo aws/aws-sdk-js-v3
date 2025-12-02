@@ -38,7 +38,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * const client = new SageMakerClient(config);
  * const input = { // DescribeHubContentRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   HubContentName: "STRING_VALUE", // required
  *   HubContentVersion: "STRING_VALUE",
  * };
@@ -48,7 +48,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentName: "STRING_VALUE", // required
  * //   HubContentArn: "STRING_VALUE", // required
  * //   HubContentVersion: "STRING_VALUE", // required
- * //   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ * //   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  * //   DocumentSchemaVersion: "STRING_VALUE", // required
  * //   HubName: "STRING_VALUE", // required
  * //   HubArn: "STRING_VALUE", // required
@@ -68,7 +68,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //       DependencyCopyPath: "STRING_VALUE",
  * //     },
  * //   ],
- * //   HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
+ * //   HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed" || "PendingImport" || "PendingDelete", // required
  * //   FailureReason: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   LastModifiedTime: new Date("TIMESTAMP"),

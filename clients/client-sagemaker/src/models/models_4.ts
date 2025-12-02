@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   _InstanceType,
+  AccountDefaultStatus,
   ActionStatus,
   ActivationState,
   AppNetworkAccessType,
@@ -24,6 +25,7 @@ import {
   ModelCardStatus,
   ModelPackageGroupStatus,
   ModelPackageStatus,
+  ModelRegistrationMode,
   ModelVariantAction,
   MonitoringType,
   NotebookInstanceAcceleratorType,
@@ -49,13 +51,19 @@ import {
   TagPropagation,
   ThroughputMode,
   TrackingServerSize,
+  TrainingJobSortByOptions,
   TrainingJobStatus,
+  TrainingPlanFilterName,
+  TrainingPlanSortBy,
+  TrainingPlanSortOrder,
+  TrainingPlanStatus,
   TransformJobStatus,
   UltraServerHealthStatus,
   UserProfileSortKey,
   UserProfileStatus,
   VariantPropertyType,
   VendorGuidance,
+  WarmPoolResourceStatus,
   WorkforceIpAddressType,
 } from "./enums";
 
@@ -135,7 +143,6 @@ import {
   ShadowModeConfig,
   SourceAlgorithmSpecification,
   SpaceSettings,
-  TensorBoardOutputConfig,
   TtlDuration,
   UiTemplate,
   UserSettings,
@@ -146,9 +153,9 @@ import {
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   FeatureParameter,
+  HyperParameterTrainingJobSummary,
   InferenceComponentDeploymentConfig,
   MemberDefinition,
-  MetricData,
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageStatusDetails,
@@ -156,11 +163,11 @@ import {
   NotificationConfiguration,
   OidcConfig,
   PipelineExperimentConfig,
-  SecondaryStatusTransition,
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
   TemplateProviderDetail,
+  TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
@@ -180,15 +187,455 @@ import {
   Filter,
   GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
+  MetricData,
   MonitoringAlertSummary,
   Parameter,
-  TrainingPlanSummary,
+  ReservedCapacitySummary,
+  SecondaryStatusTransition,
+  SubscribedWorkteam,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
+  WarmPoolStatus,
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListSubscribedWorkteamsResponse {
+  /**
+   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
+   * @public
+   */
+  SubscribedWorkteams: SubscribedWorkteam[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p> If the response to the previous <code>ListTags</code> request is truncated, SageMaker returns this token. To retrieve the next set of tags, use it in the subsequent request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of tags to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsOutput {
+  /**
+   * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p> If response is truncated, SageMaker includes a token in the response. You can use this token in your subsequent request to fetch next set of tokens. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainingJobsRequest {
+  /**
+   * <p>If the result of the previous <code>ListTrainingJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of training jobs, use the token in the next request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of training jobs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A filter that returns only training jobs created after the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only training jobs created before the specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only training jobs modified after the specified time (timestamp).</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only training jobs modified before the specified time (timestamp).</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A string in the training job name. This filter returns only training jobs whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that retrieves only training jobs with a specific status.</p>
+   * @public
+   */
+  StatusEquals?: TrainingJobStatus | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>A filter that retrieves only training jobs with a specific warm pool status.</p>
+   * @public
+   */
+  WarmPoolStatusEquals?: WarmPoolResourceStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan to filter training jobs by. For more information about reserving GPU capacity for your SageMaker training jobs using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArnEquals?: string | undefined;
+}
+
+/**
+ * <p>Provides summary information about a training job.</p>
+ * @public
+ */
+export interface TrainingJobSummary {
+  /**
+   * <p>The name of the training job that you want a summary for.</p>
+   * @public
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   * @public
+   */
+  TrainingJobArn: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the training job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the training job ended. This field is set only if the training job has one of the terminal statuses (<code>Completed</code>, <code>Failed</code>, or <code>Stopped</code>). </p>
+   * @public
+   */
+  TrainingEndTime?: Date | undefined;
+
+  /**
+   * <p> Timestamp when the training job was last modified. </p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The status of the training job.</p>
+   * @public
+   */
+  TrainingJobStatus: TrainingJobStatus | undefined;
+
+  /**
+   * <p>The secondary status of the training job.</p>
+   * @public
+   */
+  SecondaryStatus?: SecondaryStatus | undefined;
+
+  /**
+   * <p>The status of the warm pool associated with the training job.</p>
+   * @public
+   */
+  WarmPoolStatus?: WarmPoolStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan associated with this training job.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainingJobsResponse {
+  /**
+   * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training job.</p>
+   * @public
+   */
+  TrainingJobSummaries: TrainingJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainingJobsForHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job whose training jobs you want to list.</p>
+   * @public
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListTrainingJobsForHyperParameterTuningJob</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of training jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of training jobs to return. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A filter that returns only training jobs with the specified status.</p>
+   * @public
+   */
+  StatusEquals?: TrainingJobStatus | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p> <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training jobs that did not return an objective metric are not listed.</p>
+   * @public
+   */
+  SortBy?: TrainingJobSortByOptions | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainingJobsForHyperParameterTuningJobResponse {
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> objects that describe the training jobs that the <code>ListTrainingJobsForHyperParameterTuningJob</code> request returned.</p>
+   * @public
+   */
+  TrainingJobSummaries: HyperParameterTrainingJobSummary[] | undefined;
+
+  /**
+   * <p>If the result of this <code>ListTrainingJobsForHyperParameterTuningJob</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of training jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter to apply when listing or searching for training plans.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+ * @public
+ */
+export interface TrainingPlanFilter {
+  /**
+   * <p>The name of the filter field (e.g., Status, InstanceType).</p>
+   * @public
+   */
+  Name: TrainingPlanFilterName | undefined;
+
+  /**
+   * <p>The value to filter by for the specified field.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrainingPlansRequest {
+  /**
+   * <p>A token to continue pagination if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filter to list only training plans with an actual start time after this date.</p>
+   * @public
+   */
+  StartTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Filter to list only training plans with an actual start time before this date.</p>
+   * @public
+   */
+  StartTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The training plan field to sort the results by (e.g., StartTime, Status).</p>
+   * @public
+   */
+  SortBy?: TrainingPlanSortBy | undefined;
+
+  /**
+   * <p>The order to sort the results (Ascending or Descending).</p>
+   * @public
+   */
+  SortOrder?: TrainingPlanSortOrder | undefined;
+
+  /**
+   * <p>Additional filters to apply to the list of training plans.</p>
+   * @public
+   */
+  Filters?: TrainingPlanFilter[] | undefined;
+}
+
+/**
+ * <p>Details of the training plan.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+ * @public
+ */
+export interface TrainingPlanSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan.</p>
+   * @public
+   */
+  TrainingPlanArn: string | undefined;
+
+  /**
+   * <p>The name of the training plan.</p>
+   * @public
+   */
+  TrainingPlanName: string | undefined;
+
+  /**
+   * <p>The current status of the training plan (e.g., Pending, Active, Expired). To see the complete list of status values available for a training plan, refer to the <code>Status</code> attribute within the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingPlanSummary.html">TrainingPlanSummary</a> </code> object.</p>
+   * @public
+   */
+  Status: TrainingPlanStatus | undefined;
+
+  /**
+   * <p>A message providing additional information about the current status of the training plan.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The number of whole hours in the total duration for this training plan.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The additional minutes beyond whole hours in the total duration for this training plan.</p>
+   * @public
+   */
+  DurationMinutes?: number | undefined;
+
+  /**
+   * <p>The start time of the training plan.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the training plan.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The upfront fee for the training plan.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency code for the upfront fee (e.g., USD).</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The total number of instances reserved in this training plan.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently available for use in this training plan.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently in use from this training plan.</p>
+   * @public
+   */
+  InUseInstanceCount?: number | undefined;
+
+  /**
+   * <p>The total number of UltraServers allocated to this training plan.</p>
+   * @public
+   */
+  TotalUltraServerCount?: number | undefined;
+
+  /**
+   * <p>The target resources (e.g., training jobs, HyperPod clusters, Endpoints) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
+   * @public
+   */
+  TargetResources?: SageMakerResourceName[] | undefined;
+
+  /**
+   * <p>A list of reserved capacities associated with this training plan, including details such as instance types, counts, and availability zones.</p>
+   * @public
+   */
+  ReservedCapacitySummaries?: ReservedCapacitySummary[] | undefined;
+}
 
 /**
  * @public
@@ -5096,6 +5543,64 @@ export interface UpdateInferenceExperimentResponse {
    * @public
    */
   InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMlflowAppRequest {
+  /**
+   * <p>The ARN of the MLflow App to update.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the MLflow App to update.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The new S3 URI for the general purpose bucket to use as the artifact store for the MLflow App.</p>
+   * @public
+   */
+  ArtifactStoreUri?: string | undefined;
+
+  /**
+   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>AutoModelRegistrationEnabled</code>. To disable automatic model registration, set this value to <code>AutoModelRegistrationDisabled</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>AutoModelRegistrationEnabled</code> </p>
+   * @public
+   */
+  ModelRegistrationMode?: ModelRegistrationMode | undefined;
+
+  /**
+   * <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string | undefined;
+
+  /**
+   * <p>List of SageMaker Domain IDs for which this MLflow App is the default.</p>
+   * @public
+   */
+  DefaultDomainIdList?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether this this MLflow App is the default for the account.</p>
+   * @public
+   */
+  AccountDefaultStatus?: AccountDefaultStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMlflowAppResponse {
+  /**
+   * <p>The ARN of the updated MLflow App.</p>
+   * @public
+   */
+  Arn?: string | undefined;
 }
 
 /**

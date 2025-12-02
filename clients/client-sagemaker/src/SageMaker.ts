@@ -207,6 +207,11 @@ import {
   CreateLabelingJobCommandOutput,
 } from "./commands/CreateLabelingJobCommand";
 import {
+  CreateMlflowAppCommand,
+  CreateMlflowAppCommandInput,
+  CreateMlflowAppCommandOutput,
+} from "./commands/CreateMlflowAppCommand";
+import {
   CreateMlflowTrackingServerCommand,
   CreateMlflowTrackingServerCommandInput,
   CreateMlflowTrackingServerCommandOutput,
@@ -287,6 +292,11 @@ import {
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
 } from "./commands/CreatePresignedDomainUrlCommand";
+import {
+  CreatePresignedMlflowAppUrlCommand,
+  CreatePresignedMlflowAppUrlCommandInput,
+  CreatePresignedMlflowAppUrlCommandOutput,
+} from "./commands/CreatePresignedMlflowAppUrlCommand";
 import {
   CreatePresignedMlflowTrackingServerUrlCommand,
   CreatePresignedMlflowTrackingServerUrlCommandInput,
@@ -492,6 +502,11 @@ import {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
 } from "./commands/DeleteInferenceExperimentCommand";
+import {
+  DeleteMlflowAppCommand,
+  DeleteMlflowAppCommandInput,
+  DeleteMlflowAppCommandOutput,
+} from "./commands/DeleteMlflowAppCommand";
 import {
   DeleteMlflowTrackingServerCommand,
   DeleteMlflowTrackingServerCommandInput,
@@ -793,6 +808,11 @@ import {
   DescribeLineageGroupCommandInput,
   DescribeLineageGroupCommandOutput,
 } from "./commands/DescribeLineageGroupCommand";
+import {
+  DescribeMlflowAppCommand,
+  DescribeMlflowAppCommandInput,
+  DescribeMlflowAppCommandOutput,
+} from "./commands/DescribeMlflowAppCommand";
 import {
   DescribeMlflowTrackingServerCommand,
   DescribeMlflowTrackingServerCommandInput,
@@ -1185,6 +1205,11 @@ import {
   ListLineageGroupsCommandInput,
   ListLineageGroupsCommandOutput,
 } from "./commands/ListLineageGroupsCommand";
+import {
+  ListMlflowAppsCommand,
+  ListMlflowAppsCommandInput,
+  ListMlflowAppsCommandOutput,
+} from "./commands/ListMlflowAppsCommand";
 import {
   ListMlflowTrackingServersCommand,
   ListMlflowTrackingServersCommandInput,
@@ -1653,6 +1678,11 @@ import {
   UpdateInferenceExperimentCommandOutput,
 } from "./commands/UpdateInferenceExperimentCommand";
 import {
+  UpdateMlflowAppCommand,
+  UpdateMlflowAppCommandInput,
+  UpdateMlflowAppCommandOutput,
+} from "./commands/UpdateMlflowAppCommand";
+import {
   UpdateMlflowTrackingServerCommand,
   UpdateMlflowTrackingServerCommandInput,
   UpdateMlflowTrackingServerCommandOutput,
@@ -1786,6 +1816,7 @@ const commands = {
   CreateInferenceExperimentCommand,
   CreateInferenceRecommendationsJobCommand,
   CreateLabelingJobCommand,
+  CreateMlflowAppCommand,
   CreateMlflowTrackingServerCommand,
   CreateModelCommand,
   CreateModelBiasJobDefinitionCommand,
@@ -1803,6 +1834,7 @@ const commands = {
   CreatePartnerAppPresignedUrlCommand,
   CreatePipelineCommand,
   CreatePresignedDomainUrlCommand,
+  CreatePresignedMlflowAppUrlCommand,
   CreatePresignedMlflowTrackingServerUrlCommand,
   CreatePresignedNotebookInstanceUrlCommand,
   CreateProcessingJobCommand,
@@ -1848,6 +1880,7 @@ const commands = {
   DeleteImageVersionCommand,
   DeleteInferenceComponentCommand,
   DeleteInferenceExperimentCommand,
+  DeleteMlflowAppCommand,
   DeleteMlflowTrackingServerCommand,
   DeleteModelCommand,
   DeleteModelBiasJobDefinitionCommand,
@@ -1913,6 +1946,7 @@ const commands = {
   DescribeInferenceRecommendationsJobCommand,
   DescribeLabelingJobCommand,
   DescribeLineageGroupCommand,
+  DescribeMlflowAppCommand,
   DescribeMlflowTrackingServerCommand,
   DescribeModelCommand,
   DescribeModelBiasJobDefinitionCommand,
@@ -1997,6 +2031,7 @@ const commands = {
   ListLabelingJobsCommand,
   ListLabelingJobsForWorkteamCommand,
   ListLineageGroupsCommand,
+  ListMlflowAppsCommand,
   ListMlflowTrackingServersCommand,
   ListModelBiasJobDefinitionsCommand,
   ListModelCardExportJobsCommand,
@@ -2096,6 +2131,7 @@ const commands = {
   UpdateInferenceComponentCommand,
   UpdateInferenceComponentRuntimeConfigCommand,
   UpdateInferenceExperimentCommand,
+  UpdateMlflowAppCommand,
   UpdateMlflowTrackingServerCommand,
   UpdateModelCardCommand,
   UpdateModelPackageCommand,
@@ -2804,6 +2840,20 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreateMlflowAppCommand}
+   */
+  createMlflowApp(
+    args: CreateMlflowAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMlflowAppCommandOutput>;
+  createMlflowApp(args: CreateMlflowAppCommandInput, cb: (err: any, data?: CreateMlflowAppCommandOutput) => void): void;
+  createMlflowApp(
+    args: CreateMlflowAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMlflowAppCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateMlflowTrackingServerCommand}
    */
   createMlflowTrackingServer(
@@ -3079,6 +3129,23 @@ export interface SageMaker {
     args: CreatePresignedDomainUrlCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePresignedDomainUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePresignedMlflowAppUrlCommand}
+   */
+  createPresignedMlflowAppUrl(
+    args: CreatePresignedMlflowAppUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresignedMlflowAppUrlCommandOutput>;
+  createPresignedMlflowAppUrl(
+    args: CreatePresignedMlflowAppUrlCommandInput,
+    cb: (err: any, data?: CreatePresignedMlflowAppUrlCommandOutput) => void
+  ): void;
+  createPresignedMlflowAppUrl(
+    args: CreatePresignedMlflowAppUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresignedMlflowAppUrlCommandOutput) => void
   ): void;
 
   /**
@@ -3770,6 +3837,20 @@ export interface SageMaker {
     args: DeleteInferenceExperimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMlflowAppCommand}
+   */
+  deleteMlflowApp(
+    args: DeleteMlflowAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMlflowAppCommandOutput>;
+  deleteMlflowApp(args: DeleteMlflowAppCommandInput, cb: (err: any, data?: DeleteMlflowAppCommandOutput) => void): void;
+  deleteMlflowApp(
+    args: DeleteMlflowAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMlflowAppCommandOutput) => void
   ): void;
 
   /**
@@ -4800,6 +4881,23 @@ export interface SageMaker {
     args: DescribeLineageGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeLineageGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMlflowAppCommand}
+   */
+  describeMlflowApp(
+    args: DescribeMlflowAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMlflowAppCommandOutput>;
+  describeMlflowApp(
+    args: DescribeMlflowAppCommandInput,
+    cb: (err: any, data?: DescribeMlflowAppCommandOutput) => void
+  ): void;
+  describeMlflowApp(
+    args: DescribeMlflowAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMlflowAppCommandOutput) => void
   ): void;
 
   /**
@@ -6165,6 +6263,21 @@ export interface SageMaker {
     args: ListLineageGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLineageGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMlflowAppsCommand}
+   */
+  listMlflowApps(): Promise<ListMlflowAppsCommandOutput>;
+  listMlflowApps(
+    args: ListMlflowAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMlflowAppsCommandOutput>;
+  listMlflowApps(args: ListMlflowAppsCommandInput, cb: (err: any, data?: ListMlflowAppsCommandOutput) => void): void;
+  listMlflowApps(
+    args: ListMlflowAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMlflowAppsCommandOutput) => void
   ): void;
 
   /**
@@ -7749,6 +7862,20 @@ export interface SageMaker {
     args: UpdateInferenceExperimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMlflowAppCommand}
+   */
+  updateMlflowApp(
+    args: UpdateMlflowAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMlflowAppCommandOutput>;
+  updateMlflowApp(args: UpdateMlflowAppCommandInput, cb: (err: any, data?: UpdateMlflowAppCommandOutput) => void): void;
+  updateMlflowApp(
+    args: UpdateMlflowAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMlflowAppCommandOutput) => void
   ): void;
 
   /**

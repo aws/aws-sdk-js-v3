@@ -3,6 +3,7 @@ import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from
 
 import {
   _InstanceType,
+  AccountDefaultStatus,
   AppInstanceType,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
@@ -38,6 +39,7 @@ import {
   ModelApprovalStatus,
   ModelCardStatus,
   ModelInfrastructureType,
+  ModelRegistrationMode,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
   MonitoringProblemType,
@@ -85,7 +87,6 @@ import {
 
 import {
   AdditionalInferenceSpecificationDefinition,
-  AlgorithmSpecification,
   AmazonQSettings,
   AnnotationConsolidationConfig,
   AppLifecycleManagement,
@@ -4592,6 +4593,70 @@ export interface CreateLabelingJobResponse {
 /**
  * @public
  */
+export interface CreateMlflowAppRequest {
+  /**
+   * <p>A string identifying the MLflow app name. This string is not part of the tracking server ARN.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The S3 URI for a general purpose bucket to use as the MLflow App artifact store.</p>
+   * @public
+   */
+  ArtifactStoreUri: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3. The role should have the <code>AmazonS3FullAccess</code> permission.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>AutoModelRegistrationEnabled</code>. To disable automatic model registration, set this value to <code>AutoModelRegistrationDisabled</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>AutoModelRegistrationDisabled</code>.</p>
+   * @public
+   */
+  ModelRegistrationMode?: ModelRegistrationMode | undefined;
+
+  /**
+   * <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string | undefined;
+
+  /**
+   * <p>Indicates whether this MLflow app is the default for the entire account.</p>
+   * @public
+   */
+  AccountDefaultStatus?: AccountDefaultStatus | undefined;
+
+  /**
+   * <p>List of SageMaker domain IDs for which this MLflow App is used as the default.</p>
+   * @public
+   */
+  DefaultDomainIdList?: string[] | undefined;
+
+  /**
+   * <p>Tags consisting of key-value pairs used to manage metadata for the MLflow App.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMlflowAppResponse {
+  /**
+   * <p>The ARN of the MLflow App.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateMlflowTrackingServerRequest {
   /**
    * <p>A unique string identifying the tracking server name. This string is part of the tracking server ARN.</p>
@@ -6961,6 +7026,40 @@ export interface CreatePresignedDomainUrlResponse {
 /**
  * @public
  */
+export interface CreatePresignedMlflowAppUrlRequest {
+  /**
+   * <p>The ARN of the MLflow App to connect to your MLflow UI.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used only once.</p>
+   * @public
+   */
+  ExpiresInSeconds?: number | undefined;
+
+  /**
+   * <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used only once.</p>
+   * @public
+   */
+  SessionExpirationDurationInSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresignedMlflowAppUrlResponse {
+  /**
+   * <p>A presigned URL with an authorization token.</p>
+   * @public
+   */
+  AuthorizedUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreatePresignedMlflowTrackingServerUrlRequest {
   /**
    * <p>The name of the tracking server to connect to your MLflow UI.</p>
@@ -8093,201 +8192,4 @@ export interface ProfilerRuleConfiguration {
    * @public
    */
   RuleParameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. To learn more about the remote debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM) for remote debugging</a>.</p>
- * @public
- */
-export interface RemoteDebugConfig {
-  /**
-   * <p>If set to True, enables remote debugging.</p>
-   * @public
-   */
-  EnableRemoteDebug?: boolean | undefined;
-}
-
-/**
- * <p>Contains information about attribute-based access control (ABAC) for a training job. The session chaining configuration uses Amazon Security Token Service (STS) for your training job to request temporary, limited-privilege credentials to tenants. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-access-training-data.html#model-access-training-data-abac">Attribute-based access control (ABAC) for multi-tenancy training</a>.</p>
- * @public
- */
-export interface SessionChainingConfig {
-  /**
-   * <p>Set to <code>True</code> to allow SageMaker to extract session tags from a training job creation role and reuse these tags when assuming the training job execution role.</p>
-   * @public
-   */
-  EnableSessionTagChaining?: boolean | undefined;
-}
-
-/**
- * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
- * @public
- */
-export interface TensorBoardOutputConfig {
-  /**
-   * <p>Path to local storage location for tensorBoard output. Defaults to <code>/opt/ml/output/tensorboard</code>.</p>
-   * @public
-   */
-  LocalPath?: string | undefined;
-
-  /**
-   * <p>Path to Amazon S3 storage location for TensorBoard output.</p>
-   * @public
-   */
-  S3OutputPath: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrainingJobRequest {
-  /**
-   * <p>The name of the training job. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account. </p>
-   * @public
-   */
-  TrainingJobName: string | undefined;
-
-  /**
-   * <p>Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p> <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the <code>Length Constraint</code>. </p> <important> <p>Do not include any security-sensitive information including account access IDs, secrets, or tokens in any hyperparameter fields. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by any security-sensitive information included in the request hyperparameter variable or plain text fields.</p> </important>
-   * @public
-   */
-  HyperParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For information about providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon SageMaker</a>. </p>
-   * @public
-   */
-  AlgorithmSpecification?: AlgorithmSpecification | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that SageMaker can assume to perform tasks on your behalf. </p> <p>During model training, SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>An array of <code>Channel</code> objects. Each channel is a named input source. <code>InputDataConfig</code> describes the input data and its location. </p> <p>Algorithms can accept input data from one or more channels. For example, an algorithm might have two channels of input data, <code>training_data</code> and <code>validation_data</code>. The configuration for each channel provides the S3, EFS, or FSx location where the input data is stored. It also provides information about the stored data: the MIME type, compression method, and whether the data is wrapped in RecordIO format. </p> <p>Depending on the input mode that the algorithm supports, SageMaker either copies input data files from an S3 bucket to a local directory in the Docker container, or makes it available as input streams. For example, if you specify an EFS location, input data files are available as input streams. They do not need to be downloaded.</p> <p>Your input must be in the same Amazon Web Services region as your training job.</p>
-   * @public
-   */
-  InputDataConfig?: Channel[] | undefined;
-
-  /**
-   * <p>Specifies the path to the S3 location where you want to store model artifacts. SageMaker creates subfolders for the artifacts. </p>
-   * @public
-   */
-  OutputDataConfig: OutputDataConfig | undefined;
-
-  /**
-   * <p>The resources, including the ML compute instances and ML storage volumes, to use for model training. </p> <p>ML storage volumes store model artifacts and incremental states. Training algorithms might also use ML storage volumes for scratch space. If you want SageMaker to use the ML storage volume to store the training data, choose <code>File</code> as the <code>TrainingInputMode</code> in the algorithm specification. For distributed training algorithms, specify an instance count greater than 1.</p>
-   * @public
-   */
-  ResourceConfig?: ResourceConfig | undefined;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your training job to connect to. Control access to and from your training container by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>Specifies a limit to how long a model training job can run. It also specifies how long a managed Spot training job has to complete. When the job reaches the time limit, SageMaker ends the training job. Use this API to cap model training costs.</p> <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost. </p>
-   * @public
-   */
-  StoppingCondition?: StoppingCondition | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p> <important> <p>Do not include any security-sensitive information including account access IDs, secrets, or tokens in any tags. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by any security-sensitive information included in the request tag variable or plain text fields.</p> </important>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers within a training cluster for distributed training. If you enable network isolation for training jobs that are configured to use a VPC, SageMaker downloads and uploads customer data and model artifacts through the specified VPC, but the training container does not have network access.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-
-  /**
-   * <p>To encrypt all communications between ML compute instances in distributed training, choose <code>True</code>. Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html">Protect Communications Between ML Compute Instances in a Distributed Training Job</a>.</p>
-   * @public
-   */
-  EnableInterContainerTrafficEncryption?: boolean | undefined;
-
-  /**
-   * <p>To train models using managed spot training, choose <code>True</code>. Managed spot training provides a fully managed and scalable infrastructure for training machine learning models. this option is useful when training jobs can be interrupted and when there is flexibility when the training job is run. </p> <p>The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be used as a starting point to train models incrementally. Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to see when managed spot training jobs are running, interrupted, resumed, or completed. </p>
-   * @public
-   */
-  EnableManagedSpotTraining?: boolean | undefined;
-
-  /**
-   * <p>Contains information about the output location for managed spot training checkpoint data.</p>
-   * @public
-   */
-  CheckpointConfig?: CheckpointConfig | undefined;
-
-  /**
-   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and storage paths. To learn more about how to configure the <code>DebugHookConfig</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
-   * @public
-   */
-  DebugHookConfig?: DebugHookConfig | undefined;
-
-  /**
-   * <p>Configuration information for Amazon SageMaker Debugger rules for debugging output tensors.</p>
-   * @public
-   */
-  DebugRuleConfigurations?: DebugRuleConfiguration[] | undefined;
-
-  /**
-   * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
-   * @public
-   */
-  TensorBoardOutputConfig?: TensorBoardOutputConfig | undefined;
-
-  /**
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a> </p> </li> </ul>
-   * @public
-   */
-  ExperimentConfig?: ExperimentConfig | undefined;
-
-  /**
-   * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
-   * @public
-   */
-  ProfilerConfig?: ProfilerConfig | undefined;
-
-  /**
-   * <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
-   * @public
-   */
-  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[] | undefined;
-
-  /**
-   * <p>The environment variables to set in the Docker container.</p> <important> <p>Do not include any security-sensitive information including account access IDs, secrets, or tokens in any environment fields. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by security-sensitive information included in the request environment variable or plain text fields.</p> </important>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>The number of times to retry the job when the job fails due to an <code>InternalServerError</code>.</p>
-   * @public
-   */
-  RetryStrategy?: RetryStrategy | undefined;
-
-  /**
-   * <p>Configuration for remote debugging. To learn more about the remote debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM) for remote debugging</a>.</p>
-   * @public
-   */
-  RemoteDebugConfig?: RemoteDebugConfig | undefined;
-
-  /**
-   * <p>Contains information about the infrastructure health check configuration for the training job.</p>
-   * @public
-   */
-  InfraCheckConfig?: InfraCheckConfig | undefined;
-
-  /**
-   * <p>Contains information about attribute-based access control (ABAC) for the training job.</p>
-   * @public
-   */
-  SessionChainingConfig?: SessionChainingConfig | undefined;
 }

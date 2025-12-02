@@ -39,7 +39,7 @@ export interface UpdateHubContentCommandOutput extends UpdateHubContentResponse,
  * const input = { // UpdateHubContentRequest
  *   HubName: "STRING_VALUE", // required
  *   HubContentName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   HubContentVersion: "STRING_VALUE", // required
  *   HubContentDisplayName: "STRING_VALUE",
  *   HubContentDescription: "STRING_VALUE",

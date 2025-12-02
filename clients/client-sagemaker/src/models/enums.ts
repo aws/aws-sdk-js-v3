@@ -42,6 +42,19 @@ export type MIGProfileType = (typeof MIGProfileType)[keyof typeof MIGProfileType
  * @public
  * @enum
  */
+export const AccountDefaultStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type AccountDefaultStatus = (typeof AccountDefaultStatus)[keyof typeof AccountDefaultStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ActionStatus = {
   COMPLETED: "Completed",
   FAILED: "Failed",
@@ -2198,6 +2211,7 @@ export const ClusterInstanceType = {
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P5_4XLARGE: "ml.p5.4xlarge",
   ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
   ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
   ML_R6I_12XLARGE: "ml.r6i.12xlarge",
@@ -2924,10 +2938,12 @@ export type StudioWebPortal = (typeof StudioWebPortal)[keyof typeof StudioWebPor
 export const MlTools = {
   AUTO_ML: "AutoMl",
   COMET: "Comet",
+  DATASETS: "Datasets",
   DATA_WRANGLER: "DataWrangler",
   DEEPCHECKS_LLM_EVALUATION: "DeepchecksLLMEvaluation",
   EMR_CLUSTERS: "EmrClusters",
   ENDPOINTS: "Endpoints",
+  EVALUATORS: "Evaluators",
   EXPERIMENTS: "Experiments",
   FEATURE_STORE: "FeatureStore",
   FIDDLER: "Fiddler",
@@ -2941,6 +2957,7 @@ export const MlTools = {
   PERFORMANCE_EVALUATION: "PerformanceEvaluation",
   PIPELINES: "Pipelines",
   PROJECTS: "Projects",
+  RUNNING_INSTANCES: "RunningInstances",
   TRAINING: "Training",
 } as const;
 /**
@@ -3173,6 +3190,8 @@ export type ThroughputMode = (typeof ThroughputMode)[keyof typeof ThroughputMode
  * @enum
  */
 export const HubContentType = {
+  DATA_SET: "DataSet",
+  JSON_DOC: "JsonDoc",
   MODEL: "Model",
   MODEL_REFERENCE: "ModelReference",
   NOTEBOOK: "Notebook",
@@ -3541,6 +3560,19 @@ export const FlatInvocations = {
  * @public
  */
 export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocations];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelRegistrationMode = {
+  AUTO_MODEL_REGISTRATION_DISABLED: "AutoModelRegistrationDisabled",
+  AUTO_MODEL_REGISTRATION_ENABLED: "AutoModelRegistrationEnabled",
+} as const;
+/**
+ * @public
+ */
+export type ModelRegistrationMode = (typeof ModelRegistrationMode)[keyof typeof ModelRegistrationMode];
 
 /**
  * @public
@@ -4204,6 +4236,8 @@ export const HubContentStatus = {
   DELETING: "Deleting",
   IMPORTING: "Importing",
   IMPORT_FAILED: "ImportFailed",
+  PENDING_DELETE: "PendingDelete",
+  PENDING_IMPORT: "PendingImport",
 } as const;
 /**
  * @public
@@ -4407,6 +4441,40 @@ export const LabelingJobStatus = {
  * @public
  */
 export type LabelingJobStatus = (typeof LabelingJobStatus)[keyof typeof LabelingJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceStatus = {
+  MAINTENANCE_COMPLETE: "MaintenanceComplete",
+  MAINTENANCE_FAILED: "MaintenanceFailed",
+  MAINTENANCE_IN_PROGRESS: "MaintenanceInProgress",
+} as const;
+/**
+ * @public
+ */
+export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MlflowAppStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+/**
+ * @public
+ */
+export type MlflowAppStatus = (typeof MlflowAppStatus)[keyof typeof MlflowAppStatus];
 
 /**
  * @public
@@ -5465,6 +5533,20 @@ export const SortLineageGroupsBy = {
  * @public
  */
 export type SortLineageGroupsBy = (typeof SortLineageGroupsBy)[keyof typeof SortLineageGroupsBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortMlflowAppBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type SortMlflowAppBy = (typeof SortMlflowAppBy)[keyof typeof SortMlflowAppBy];
 
 /**
  * @public

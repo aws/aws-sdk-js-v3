@@ -38,7 +38,7 @@ export interface DeleteHubContentReferenceCommandOutput extends __MetadataBearer
  * const client = new SageMakerClient(config);
  * const input = { // DeleteHubContentReferenceRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   HubContentName: "STRING_VALUE", // required
  * };
  * const command = new DeleteHubContentReferenceCommand(input);

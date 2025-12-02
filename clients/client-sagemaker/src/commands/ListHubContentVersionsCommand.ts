@@ -38,7 +38,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * const client = new SageMakerClient(config);
  * const input = { // ListHubContentVersionsRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   HubContentName: "STRING_VALUE", // required
  *   MinVersion: "STRING_VALUE",
  *   MaxSchemaVersion: "STRING_VALUE",
@@ -58,7 +58,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * //       HubContentArn: "STRING_VALUE", // required
  * //       SageMakerPublicHubContentArn: "STRING_VALUE",
  * //       HubContentVersion: "STRING_VALUE", // required
- * //       HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ * //       HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
@@ -66,7 +66,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],
- * //       HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
+ * //       HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed" || "PendingImport" || "PendingDelete", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       OriginalCreationTime: new Date("TIMESTAMP"),
  * //     },

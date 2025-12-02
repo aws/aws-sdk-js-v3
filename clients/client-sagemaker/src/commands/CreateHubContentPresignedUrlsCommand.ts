@@ -40,7 +40,7 @@ export interface CreateHubContentPresignedUrlsCommandOutput
  * const client = new SageMakerClient(config);
  * const input = { // CreateHubContentPresignedUrlsRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   HubContentName: "STRING_VALUE", // required
  *   HubContentVersion: "STRING_VALUE",
  *   AccessConfig: { // PresignedUrlAccessConfig

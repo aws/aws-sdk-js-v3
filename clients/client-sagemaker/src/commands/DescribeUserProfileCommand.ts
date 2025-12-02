@@ -255,7 +255,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * //     ],
  * //     StudioWebPortalSettings: { // StudioWebPortalSettings
  * //       HiddenMlTools: [ // HiddenMlToolsList
- * //         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler" || "HyperPodClusters",
+ * //         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler" || "HyperPodClusters" || "RunningInstances" || "Datasets" || "Evaluators",
  * //       ],
  * //       HiddenAppTypes: [ // HiddenAppTypesList
  * //         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",

@@ -39,7 +39,7 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  * const input = { // ImportHubContentRequest
  *   HubContentName: "STRING_VALUE", // required
  *   HubContentVersion: "STRING_VALUE",
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   DocumentSchemaVersion: "STRING_VALUE", // required
  *   HubName: "STRING_VALUE", // required
  *   HubContentDisplayName: "STRING_VALUE",
