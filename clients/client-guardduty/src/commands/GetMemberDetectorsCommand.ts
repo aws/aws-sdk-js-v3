@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetMemberDetectorsRequest, GetMemberDetectorsResponse } from "../models/models_0";
+import { GetMemberDetectorsRequest } from "../models/models_0";
+import { GetMemberDetectorsResponse } from "../models/models_1";
 import { GetMemberDetectors } from "../schemas/schemas_0";
 
 /**

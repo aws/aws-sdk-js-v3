@@ -7,6 +7,7 @@ const _AAIR = "AcceptAdministratorInvitationRequest";
 const _AAIRc = "AcceptAdministratorInvitationResponse";
 const _AAIc = "AcceptAdministratorInvitation";
 const _AASA = "AssociatedAttackSequenceArn";
+const _AASG = "AutoscalingAutoScalingGroup";
 const _AAd = "AdminAccounts";
 const _AC = "AdditionalConfiguration";
 const _ACL = "AccessControlList";
@@ -144,13 +145,14 @@ const _CR = "ContainerRuntime";
 const _CRD = "CoverageResourceDetails";
 const _CRo = "CoverageResource";
 const _CRov = "CoverageResources";
-const _CS = "CoverageStatus";
+const _CS = "CloudformationStack";
 const _CSBR = "CreateS3BucketResource";
 const _CSC = "CoverageSortCriteria";
 const _CSF = "CreateSampleFindings";
 const _CSFR = "CreateSampleFindingsRequest";
 const _CSFRr = "CreateSampleFindingsResponse";
-const _CSo = "CoverageStatistics";
+const _CSo = "CoverageStatus";
+const _CSov = "CoverageStatistics";
 const _CT = "CallerType";
 const _CTCR = "CloudTrailConfigurationResult";
 const _CTES = "CreateThreatEntitySet";
@@ -283,16 +285,19 @@ const _EBO = "ExpectedBucketOwner";
 const _EC = "ErrorCode";
 const _ECD = "EksClusterDetails";
 const _ECDc = "EcsClusterDetails";
+const _ECc = "EcsCluster";
 const _ECk = "EksCluster";
 const _ED = "ErrorDetails";
 const _EFS = "EventFirstSeen";
-const _EI = "Ec2Instance";
+const _EI = "Ec2Image";
 const _EID = "Ec2InstanceDetails";
 const _EIDc = "Ec2ImageDetails";
 const _EIU = "Ec2InstanceUids";
+const _EIc = "Ec2Instance";
 const _EIn = "EndpointIds";
 const _EKA = "EncryptionKeyArn";
 const _ELS = "EventLastSeen";
+const _ELT = "Ec2LaunchTemplate";
 const _ENI = "Ec2NetworkInterface";
 const _ENIU = "Ec2NetworkInterfaceUids";
 const _EOAA = "EnableOrganizationAdminAccount";
@@ -307,13 +312,15 @@ const _ESx = "ExecutableSha256";
 const _ET = "EncryptionType";
 const _ETD = "EcsTaskDetails";
 const _ETa = "ETag";
-const _EV = "EqualsValue";
+const _ETc = "EcsTask";
+const _EV = "Ec2Vpc";
 const _EVD = "EbsVolumeDetails";
 const _EVR = "EbsVolumesResult";
 const _EVSD = "EbsVolumeScanDetails";
 const _EVb = "EbsVolumes";
 const _EVbs = "EbsVolume";
 const _EVn = "EngineVersion";
+const _EVq = "EqualsValue";
 const _En = "Enable";
 const _End = "Endpoints";
 const _Eng = "Engine";
@@ -461,6 +468,7 @@ const _IDn = "InstanceDetails";
 const _IDt = "ItemDetails";
 const _II = "InvitationId";
 const _IIP = "IamInstanceProfile";
+const _IIPV = "IamInstanceProfileV2";
 const _IIm = "ImageId";
 const _IIn = "InstanceId";
 const _IM = "InviteMembers";
@@ -625,7 +633,8 @@ const _MSo = "MountSource";
 const _MSod = "ModuleSha256";
 const _MT = "ManagementType";
 const _MTo = "MountTarget";
-const _Ma = "Master";
+const _Ma = "Matches";
+const _Mas = "Master";
 const _Me = "Members";
 const _Mem = "Member";
 const _N = "Name";
@@ -639,6 +648,7 @@ const _NI = "NetworkInterfaces";
 const _NII = "NetworkInterfaceId";
 const _NIP = "NestedItemPath";
 const _NIe = "NetworkInterface";
+const _NM = "NotMatches";
 const _NP = "NamespacePid";
 const _NT = "NextToken";
 const _Na = "Namespace";
@@ -879,6 +889,7 @@ const _TB = "TotalBytes";
 const _TC = "ToolCategory";
 const _TCA = "TaskCreatedAt";
 const _TD = "TaskDetails";
+const _TDA = "TaskDefinitionArn";
 const _TDBN = "ThreatDetectedByName";
 const _TDIC = "ThreatsDetectedItemCount";
 const _TDr = "TriggerDetails";
@@ -1015,6 +1026,7 @@ const _aAC = "activeAccountsCount";
 const _aACA = "awsApiCallAction";
 const _aAI = "adminAccountId";
 const _aASA = "associatedAttackSequenceArn";
+const _aASG = "autoscalingAutoScalingGroup";
 const _aC = "additionalConfiguration";
 const _aCL = "accessControlList";
 const _aD = "agentDetails";
@@ -1101,6 +1113,7 @@ const _cNov = "coveredNodes";
 const _cP = "cloudPartition";
 const _cR = "containerRuntime";
 const _cS = "coverageStatus";
+const _cSl = "cloudformationStack";
 const _cSo = "coverageStatistics";
 const _cT = "callerType";
 const _cTl = "clientToken";
@@ -1155,6 +1168,7 @@ const _eBO = "expectedBucketOwner";
 const _eC = "errorCode";
 const _eCD = "eksClusterDetails";
 const _eCDc = "ecsClusterDetails";
+const _eCc = "ecsCluster";
 const _eCk = "eksCluster";
 const _eD = "errorDetails";
 const _eFS = "eventFirstSeen";
@@ -1162,9 +1176,11 @@ const _eI = "ec2Instance";
 const _eID = "ec2InstanceDetails";
 const _eIDc = "ec2ImageDetails";
 const _eIU = "ec2InstanceUids";
+const _eIc = "ec2Image";
 const _eIn = "endpointIds";
 const _eKA = "encryptionKeyArn";
 const _eLS = "eventLastSeen";
+const _eLT = "ec2LaunchTemplate";
 const _eNI = "ec2NetworkInterface";
 const _eNIU = "ec2NetworkInterfaceUids";
 const _eP = "executablePath";
@@ -1175,11 +1191,13 @@ const _eSP = "ebsSnapshotPreservation";
 const _eSb = "ebsSnapshot";
 const _eT = "encryptionType";
 const _eTa = "eTag";
+const _eTc = "ecsTask";
 const _eV = "equalsValue";
 const _eVD = "ebsVolumeDetails";
 const _eVSD = "ebsVolumeScanDetails";
 const _eVb = "ebsVolumes";
 const _eVbs = "ebsVolume";
+const _eVc = "ec2Vpc";
 const _eVn = "engineVersion";
 const _em = "email";
 const _en = "enable";
@@ -1343,7 +1361,8 @@ const _mSf = "mfaStatus";
 const _mSo = "moduleSha256";
 const _mT = "managementType";
 const _mTo = "mountTarget";
-const _ma = "master";
+const _ma = "matches";
+const _mas = "master";
 const _me = "members";
 const _n = "name";
 const _nCA = "networkConnectionAction";
@@ -1351,6 +1370,7 @@ const _nE = "notEquals";
 const _nI = "networkInterfaces";
 const _nII = "networkInterfaceId";
 const _nIP = "nestedItemPath";
+const _nM = "notMatches";
 const _nP = "namespacePid";
 const _nT = "nextToken";
 const _na = "namespace";
@@ -1521,6 +1541,7 @@ const _tAC = "totalAccountsCount";
 const _tB = "totalBytes";
 const _tC = "toolCategory";
 const _tD = "taskDetails";
+const _tDA = "taskDefinitionArn";
 const _tDBN = "threatDetectedByName";
 const _tDIC = "threatsDetectedItemCount";
 const _tDr = "triggerDetails";
@@ -2234,6 +2255,21 @@ export var AutonomousSystem: StaticStructureSchema = [
     ],
   ],
 ];
+export var AutoscalingAutoScalingGroup: StaticStructureSchema = [
+  3,
+  n0,
+  _AASG,
+  0,
+  [_EIU],
+  [
+    [
+      64 | 0,
+      {
+        [_jN]: _eIU,
+      },
+    ],
+  ],
+];
 export var AwsApiCallAction: StaticStructureSchema = [
   3,
   n0,
@@ -2419,6 +2455,21 @@ export var City: StaticStructureSchema = [
     ],
   ],
 ];
+export var CloudformationStack: StaticStructureSchema = [
+  3,
+  n0,
+  _CS,
+  0,
+  [_EIU],
+  [
+    [
+      64 | 0,
+      {
+        [_jN]: _eIU,
+      },
+    ],
+  ],
+];
 export var CloudTrailConfigurationResult: StaticStructureSchema = [
   3,
   n0,
@@ -2439,7 +2490,7 @@ export var Condition: StaticStructureSchema = [
   n0,
   _Co,
   0,
-  [_Eq, _Ne, _G, _Gt, _L, _Lt, _Equ, _NE, _GT, _GTOE, _LT, _LTOE],
+  [_Eq, _Ne, _G, _Gt, _L, _Lt, _Equ, _NE, _GT, _GTOE, _LT, _LTOE, _Ma, _NM],
   [
     [
       64 | 0,
@@ -2511,6 +2562,18 @@ export var Condition: StaticStructureSchema = [
       1,
       {
         [_jN]: _lTOE,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _ma,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _nM,
       },
     ],
   ],
@@ -2822,7 +2885,7 @@ export var CoverageResource: StaticStructureSchema = [
   n0,
   _CRo,
   0,
-  [_RI, _DI, _AIc, _RD, _CS, _Is, _UAp],
+  [_RI, _DI, _AIc, _RD, _CSo, _Is, _UAp],
   [
     [
       0,
@@ -2925,7 +2988,7 @@ export var CoverageSortCriteria: StaticStructureSchema = [
 export var CoverageStatistics: StaticStructureSchema = [
   3,
   n0,
-  _CSo,
+  _CSov,
   0,
   [_CBRT, _CBCS],
   [
@@ -4707,6 +4770,21 @@ export var EbsVolumesResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var Ec2Image: StaticStructureSchema = [
+  3,
+  n0,
+  _EI,
+  0,
+  [_EIU],
+  [
+    [
+      64 | 0,
+      {
+        [_jN]: _eIU,
+      },
+    ],
+  ],
+];
 export var Ec2ImageDetails: StaticStructureSchema = [
   3,
   n0,
@@ -4725,7 +4803,7 @@ export var Ec2ImageDetails: StaticStructureSchema = [
 export var Ec2Instance: StaticStructureSchema = [
   3,
   n0,
-  _EI,
+  _EIc,
   0,
   [_AZ, _ID, _IS, _IIP, _IT, _OA, _Pl, _PC, _ENIU],
   [
@@ -4780,6 +4858,22 @@ export var Ec2Instance: StaticStructureSchema = [
     ],
   ],
 ];
+export var Ec2LaunchTemplate: StaticStructureSchema = [
+  3,
+  n0,
+  _ELT,
+  0,
+  [_EIU, _V],
+  [
+    [
+      64 | 0,
+      {
+        [_jN]: _eIU,
+      },
+    ],
+    0,
+  ],
+];
 export var Ec2NetworkInterface: StaticStructureSchema = [
   3,
   n0,
@@ -4821,6 +4915,42 @@ export var Ec2NetworkInterface: StaticStructureSchema = [
       0,
       {
         [_jN]: _vIp,
+      },
+    ],
+  ],
+];
+export var Ec2Vpc: StaticStructureSchema = [
+  3,
+  n0,
+  _EV,
+  0,
+  [_EIU],
+  [
+    [
+      64 | 0,
+      {
+        [_jN]: _eIU,
+      },
+    ],
+  ],
+];
+export var EcsCluster: StaticStructureSchema = [
+  3,
+  n0,
+  _ECc,
+  0,
+  [_St, _EIU],
+  [
+    [
+      0,
+      {
+        [_jN]: _st,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _eIU,
       },
     ],
   ],
@@ -4878,6 +5008,39 @@ export var EcsClusterDetails: StaticStructureSchema = [
       () => EcsTaskDetails,
       {
         [_jN]: _tD,
+      },
+    ],
+  ],
+];
+export var EcsTask: StaticStructureSchema = [
+  3,
+  n0,
+  _ETc,
+  0,
+  [_CAr, _TDA, _LTa, _CU],
+  [
+    [
+      4,
+      {
+        [_jN]: _cAr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tDA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _lTa,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _cU,
       },
     ],
   ],
@@ -5098,7 +5261,7 @@ export var FilterCondition: StaticStructureSchema = [
   n0,
   _FCi,
   0,
-  [_EV, _GT, _LT],
+  [_EVq, _GT, _LT],
   [
     [
       0,
@@ -5469,7 +5632,7 @@ export var GetCoverageStatisticsResponse: StaticStructureSchema = [
   n0,
   _GCSRe,
   0,
-  [_CSo],
+  [_CSov],
   [
     [
       () => CoverageStatistics,
@@ -6129,12 +6292,12 @@ export var GetMasterAccountResponse: StaticStructureSchema = [
   n0,
   _GMARe,
   0,
-  [_Ma],
+  [_Mas],
   [
     [
       () => Master,
       {
-        [_jN]: _ma,
+        [_jN]: _mas,
       },
     ],
   ],
@@ -6649,6 +6812,21 @@ export var IamInstanceProfile: StaticStructureSchema = [
       0,
       {
         [_jN]: _i,
+      },
+    ],
+  ],
+];
+export var IamInstanceProfileV2: StaticStructureSchema = [
+  3,
+  n0,
+  _IIPV,
+  0,
+  [_EIU],
+  [
+    [
+      64 | 0,
+      {
+        [_jN]: _eIU,
       },
     ],
   ],
@@ -8592,7 +8770,7 @@ export var MalwareScanDetails: StaticStructureSchema = [
 export var Master: StaticStructureSchema = [
   3,
   n0,
-  _Ma,
+  _Mas,
   0,
   [_AIc, _II, _RS, _IA],
   [
@@ -10176,7 +10354,7 @@ export var ResourceData: StaticStructureSchema = [
   n0,
   _RDe,
   0,
-  [_SB, _EI, _AK, _ENI, _SO, _ECk, _KW, _Con],
+  [_SB, _EIc, _AK, _ENI, _SO, _ECk, _KW, _Con, _ECc, _ETc, _IIP, _AASG, _ELT, _EV, _EI, _CS],
   [
     [
       () => S3Bucket,
@@ -10224,6 +10402,54 @@ export var ResourceData: StaticStructureSchema = [
       () => ContainerFindingResource,
       {
         [_jN]: _cont,
+      },
+    ],
+    [
+      () => EcsCluster,
+      {
+        [_jN]: _eCc,
+      },
+    ],
+    [
+      () => EcsTask,
+      {
+        [_jN]: _eTc,
+      },
+    ],
+    [
+      () => IamInstanceProfileV2,
+      {
+        [_jN]: _iIP,
+      },
+    ],
+    [
+      () => AutoscalingAutoScalingGroup,
+      {
+        [_jN]: _aASG,
+      },
+    ],
+    [
+      () => Ec2LaunchTemplate,
+      {
+        [_jN]: _eLT,
+      },
+    ],
+    [
+      () => Ec2Vpc,
+      {
+        [_jN]: _eVc,
+      },
+    ],
+    [
+      () => Ec2Image,
+      {
+        [_jN]: _eIc,
+      },
+    ],
+    [
+      () => CloudformationStack,
+      {
+        [_jN]: _cSl,
       },
     ],
   ],
@@ -13192,6 +13418,8 @@ export var MalwareProtectionPlanStatusReasonsList: StaticListSchema = [
 ];
 export var MalwareScans: StaticListSchema = [1, n0, _MSa, 0, [() => MalwareScan, 0]];
 export var MapEquals: StaticListSchema = [1, n0, _ME, 0, [() => ScanConditionPair, 0]];
+export var Matches = 64 | 0;
+
 export var MemberAdditionalConfigurationResults: StaticListSchema = [
   1,
   n0,
@@ -13229,6 +13457,8 @@ export var Neq = 64 | 0;
 export var NetworkEndpoints: StaticListSchema = [1, n0, _NEet, 0, [() => NetworkEndpoint, 0]];
 export var NetworkInterfaces: StaticListSchema = [1, n0, _NI, 0, [() => NetworkInterface, 0]];
 export var NotEquals = 64 | 0;
+
+export var NotMatches = 64 | 0;
 
 export var ObservationTexts = 64 | 0;
 

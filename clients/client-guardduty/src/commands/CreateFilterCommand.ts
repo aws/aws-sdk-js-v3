@@ -66,6 +66,12 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *         GreaterThanOrEqual: Number("long"),
  *         LessThan: Number("long"),
  *         LessThanOrEqual: Number("long"),
+ *         Matches: [ // Matches
+ *           "STRING_VALUE",
+ *         ],
+ *         NotMatches: [ // NotMatches
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *     },
  *   },

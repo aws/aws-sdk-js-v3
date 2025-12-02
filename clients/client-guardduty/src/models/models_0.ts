@@ -15,6 +15,8 @@ import {
   DetectorFeatureResult,
   DetectorStatus,
   EbsSnapshotPreservation,
+  EcsClusterStatus,
+  EcsLaunchType,
   FeatureAdditionalConfiguration,
   FeatureStatus,
   FilterAction,
@@ -1480,6 +1482,20 @@ export interface AutonomousSystem {
 }
 
 /**
+ * <p>Contains information about the Auto Scaling Group involved in a GuardDuty finding,
+ *           including unique identifiers of the Amazon EC2 instances.</p>
+ * @public
+ */
+export interface AutoscalingAutoScalingGroup {
+  /**
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that are part of the
+   *           same Auto Scaling Group.</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
+}
+
+/**
  * <p>Contains information on the current bucket policies for the S3 bucket.</p>
  * @public
  */
@@ -1522,6 +1538,20 @@ export interface BucketLevelPermissions {
    * @public
    */
   BlockPublicAccess?: BlockPublicAccess | undefined;
+}
+
+/**
+ * <p>Contains information about the CloudFormation stack involved in a GuardDuty finding,
+ *           including unique identifiers of the Amazon EC2 instances.</p>
+ * @public
+ */
+export interface CloudformationStack {
+  /**
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were created as part of the
+   *           same CloudFormation stack.</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
 }
 
 /**
@@ -1638,6 +1668,30 @@ export interface Condition {
    * @public
    */
   LessThanOrEqual?: number | undefined;
+
+  /**
+   * <p>Represents the <i>match</i> condition to be applied to a single field when querying for findings.
+   *     </p>
+   *          <note>
+   *             <p>
+   *           The <i>matches</i> condition is available only for create-filter and update-filter APIs.
+   *         </p>
+   *          </note>
+   * @public
+   */
+  Matches?: string[] | undefined;
+
+  /**
+   * <p>Represents the <i>not match</i> condition to be applied to a single field when querying for findings.
+   *     </p>
+   *          <note>
+   *             <p>
+   *         The <i>not-matches</i> condition is available only for create-filter and update-filter APIs.
+   *       </p>
+   *          </note>
+   * @public
+   */
+  NotMatches?: string[] | undefined;
 }
 
 /**
@@ -4536,6 +4590,20 @@ export interface NetworkEndpoint {
 }
 
 /**
+ * <p>Contains information about the Amazon EC2 Image involved in a GuardDuty finding,
+ *           including unique identifiers of the Amazon EC2 instances.</p>
+ * @public
+ */
+export interface Ec2Image {
+  /**
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were launched with the
+   *           same Amazon Machine Image (AMI).</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
+}
+
+/**
  * <p>Contains information about the EC2 instance profile.</p>
  * @public
  */
@@ -4636,6 +4704,26 @@ export interface Ec2Instance {
 }
 
 /**
+ * <p>Contains information about the Amazon EC2 launch template involved in a GuardDuty finding,
+ *           including unique identifiers of the Amazon EC2 instances.</p>
+ * @public
+ */
+export interface Ec2LaunchTemplate {
+  /**
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that share the
+   *           same Amazon EC2 launch template.</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
+
+  /**
+   * <p>Version of the EC2 launch template.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
  * <p>Contains other private IP address information of the EC2 instance.</p>
  * @public
  */
@@ -4714,6 +4802,71 @@ export interface Ec2NetworkInterface {
 }
 
 /**
+ * <p>Contains information about the Amazon EC2 VPC involved in a GuardDuty finding,
+ *           including unique identifiers of the Amazon EC2 instances.</p>
+ * @public
+ */
+export interface Ec2Vpc {
+  /**
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that were launched within the
+   *           same Virtual Private Cloud (VPC).</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about the Amazon ECS cluster involved in a GuardDuty finding,
+ *           including cluster identification and status.</p>
+ * @public
+ */
+export interface EcsCluster {
+  /**
+   * <p>The current status of the Amazon ECS cluster.</p>
+   * @public
+   */
+  Status?: EcsClusterStatus | undefined;
+
+  /**
+   * <p>A list of unique identifiers for the Amazon EC2 instances that serve as container instances in
+   *           the Amazon ECS cluster.</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about Amazon ECS task involved in a GuardDuty finding,
+ *           including task definition and container identifiers.</p>
+ * @public
+ */
+export interface EcsTask {
+  /**
+   * <p>The timestamp indicating when the Amazon ECS task was created, in UTC format.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The ARN of task definition which describes the container and volume definitions of the Amazon ECS task.</p>
+   * @public
+   */
+  TaskDefinitionArn?: string | undefined;
+
+  /**
+   * <p>The infrastructure type on which the Amazon ECS task runs.</p>
+   * @public
+   */
+  LaunchType?: EcsLaunchType | undefined;
+
+  /**
+   * <p>A list of unique identifiers for the containers associated with the Amazon ECS task.</p>
+   * @public
+   */
+  ContainerUids?: string[] | undefined;
+}
+
+/**
  * <p>Contains information about the Amazon EKS cluster involved in a GuardDuty finding,
  *       including cluster identification, status, and network configuration.</p>
  * @public
@@ -4745,6 +4898,20 @@ export interface EksCluster {
 
   /**
    * <p>A list of unique identifiers for the Amazon EC2 instances that serve as worker nodes in the Amazon EKS cluster.</p>
+   * @public
+   */
+  Ec2InstanceUids?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about the IAM instance profile involved in a GuardDuty finding,
+ *           including unique identifiers of the Amazon EC2 instances.</p>
+ * @public
+ */
+export interface IamInstanceProfileV2 {
+  /**
+   * <p>A list of unique identifiers for the compromised Amazon EC2 instances that share the
+   *           same IAM instance profile.</p>
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
@@ -4958,6 +5125,62 @@ export interface ResourceData {
    * @public
    */
   Container?: ContainerFindingResource | undefined;
+
+  /**
+   * <p>Contains detailed information about the Amazon ECS cluster associated with the activity that
+   *           prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  EcsCluster?: EcsCluster | undefined;
+
+  /**
+   * <p>Contains detailed information about the Amazon ECS task associated with the activity that
+   *             prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  EcsTask?: EcsTask | undefined;
+
+  /**
+   * <p>Contains detailed information about the IAM instance profile associated with the activity that
+   *             prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  IamInstanceProfile?: IamInstanceProfileV2 | undefined;
+
+  /**
+   * <p>Contains detailed information about the Auto Scaling Group associated with the activity that
+   *             prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  AutoscalingAutoScalingGroup?: AutoscalingAutoScalingGroup | undefined;
+
+  /**
+   * <p>Contains detailed information about the EC2 launch template associated with the activity that
+   *             prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  Ec2LaunchTemplate?: Ec2LaunchTemplate | undefined;
+
+  /**
+   * <p>Contains detailed information about the EC2 VPC associated with the activity that
+   *             prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  Ec2Vpc?: Ec2Vpc | undefined;
+
+  /**
+   * <p>Contains detailed information about the EC2 Image associated with the activity that
+   *             prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  Ec2Image?: Ec2Image | undefined;
+
+  /**
+   * <p>Contains detailed information about the CloudFormation stack associated with the activity that
+   *             prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  CloudformationStack?: CloudformationStack | undefined;
 }
 
 /**
@@ -8555,219 +8778,4 @@ export interface GetMemberDetectorsRequest {
    * @public
    */
   AccountIds: string[] | undefined;
-}
-
-/**
- * <p>Information about the additional configuration for the member account.</p>
- * @public
- */
-export interface MemberAdditionalConfigurationResult {
-  /**
-   * <p>Indicates the name of the additional configuration that is set for the member
-   *       account.</p>
-   * @public
-   */
-  Name?: OrgFeatureAdditionalConfiguration | undefined;
-
-  /**
-   * <p>Indicates the status of the additional configuration that is set for the member
-   *       account.</p>
-   * @public
-   */
-  Status?: FeatureStatus | undefined;
-
-  /**
-   * <p>The timestamp at which the additional configuration was set for the member account. This
-   *       is in UTC format.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-}
-
-/**
- * <p>Contains information about the features for the member account.</p>
- * @public
- */
-export interface MemberFeaturesConfigurationResult {
-  /**
-   * <p>Indicates the name of the feature that is enabled for the detector.</p>
-   * @public
-   */
-  Name?: OrgFeature | undefined;
-
-  /**
-   * <p>Indicates the status of the feature that is enabled for the detector.</p>
-   * @public
-   */
-  Status?: FeatureStatus | undefined;
-
-  /**
-   * <p>The timestamp at which the feature object was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>Indicates the additional configuration of the feature that is configured for the member
-   *       account.</p>
-   * @public
-   */
-  AdditionalConfiguration?: MemberAdditionalConfigurationResult[] | undefined;
-}
-
-/**
- * <p>Contains information on which data sources are enabled for a member account.</p>
- * @public
- */
-export interface MemberDataSourceConfiguration {
-  /**
-   * <p>The account ID for the member account.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>Contains information on the status of data sources for the account.</p>
-   *
-   * @deprecated This parameter is deprecated, use Features instead
-   * @public
-   */
-  DataSources?: DataSourceConfigurationsResult | undefined;
-
-  /**
-   * <p>Contains information about the status of the features for the member account.</p>
-   * @public
-   */
-  Features?: MemberFeaturesConfigurationResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemberDetectorsResponse {
-  /**
-   * <p>An object that describes which data sources are enabled for a member account.</p>
-   * @public
-   */
-  MemberDataSourceConfigurations: MemberDataSourceConfiguration[] | undefined;
-
-  /**
-   * <p>A list of member account IDs that were unable to be processed along with an explanation
-   *       for why they were not processed.</p>
-   * @public
-   */
-  UnprocessedAccounts: UnprocessedAccount[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembersRequest {
-  /**
-   * <p>The unique ID of the detector of the GuardDuty account whose members you want to
-   *       retrieve.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A list of account IDs of the GuardDuty member accounts that you want to describe.</p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * <p>Contains information about the member account. </p>
- * @public
- */
-export interface Member {
-  /**
-   * <p>The ID of the member account.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The detector ID of the member account.</p>
-   * @public
-   */
-  DetectorId?: string | undefined;
-
-  /**
-   * <p>The administrator account ID.</p>
-   * @public
-   */
-  MasterId: string | undefined;
-
-  /**
-   * <p>The email address of the member account.</p>
-   * @public
-   */
-  Email: string | undefined;
-
-  /**
-   * <p>The status of the relationship between the member and the administrator.</p>
-   * @public
-   */
-  RelationshipStatus: string | undefined;
-
-  /**
-   * <p>The timestamp when the invitation was sent.</p>
-   * @public
-   */
-  InvitedAt?: string | undefined;
-
-  /**
-   * <p>The last-updated timestamp of the member.</p>
-   * @public
-   */
-  UpdatedAt: string | undefined;
-
-  /**
-   * <p>The administrator account ID.</p>
-   * @public
-   */
-  AdministratorId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembersResponse {
-  /**
-   * <p>A list of members.</p>
-   * @public
-   */
-  Members: Member[] | undefined;
-
-  /**
-   * <p>A list of objects that contain the unprocessed account and a result string that explains
-   *       why it was unprocessed.</p>
-   * @public
-   */
-  UnprocessedAccounts: UnprocessedAccount[] | undefined;
-}
-
-/**
- * <p>Information about the coverage
- *       statistic for the additional
- *     configuration of the feature.</p>
- * @public
- */
-export interface OrganizationFeatureStatisticsAdditionalConfiguration {
-  /**
-   * <p>Name of the additional configuration within a feature.</p>
-   * @public
-   */
-  Name?: OrgFeatureAdditionalConfiguration | undefined;
-
-  /**
-   * <p>Total number of accounts that have enabled the additional
-   *       configuration.</p>
-   * @public
-   */
-  EnabledAccountsCount?: number | undefined;
 }
