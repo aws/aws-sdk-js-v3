@@ -8,6 +8,16 @@ import {
   CreateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
 import {
+  CreateS3TableIntegrationCommand,
+  CreateS3TableIntegrationCommandInput,
+  CreateS3TableIntegrationCommandOutput,
+} from "./commands/CreateS3TableIntegrationCommand";
+import {
+  CreateTelemetryPipelineCommand,
+  CreateTelemetryPipelineCommandInput,
+  CreateTelemetryPipelineCommandOutput,
+} from "./commands/CreateTelemetryPipelineCommand";
+import {
   CreateTelemetryRuleCommand,
   CreateTelemetryRuleCommandInput,
   CreateTelemetryRuleCommandOutput,
@@ -22,6 +32,16 @@ import {
   DeleteCentralizationRuleForOrganizationCommandInput,
   DeleteCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
+import {
+  DeleteS3TableIntegrationCommand,
+  DeleteS3TableIntegrationCommandInput,
+  DeleteS3TableIntegrationCommandOutput,
+} from "./commands/DeleteS3TableIntegrationCommand";
+import {
+  DeleteTelemetryPipelineCommand,
+  DeleteTelemetryPipelineCommandInput,
+  DeleteTelemetryPipelineCommandOutput,
+} from "./commands/DeleteTelemetryPipelineCommand";
 import {
   DeleteTelemetryRuleCommand,
   DeleteTelemetryRuleCommandInput,
@@ -38,6 +58,11 @@ import {
   GetCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
 import {
+  GetS3TableIntegrationCommand,
+  GetS3TableIntegrationCommandInput,
+  GetS3TableIntegrationCommandOutput,
+} from "./commands/GetS3TableIntegrationCommand";
+import {
   GetTelemetryEnrichmentStatusCommand,
   GetTelemetryEnrichmentStatusCommandInput,
   GetTelemetryEnrichmentStatusCommandOutput,
@@ -52,6 +77,11 @@ import {
   GetTelemetryEvaluationStatusForOrganizationCommandInput,
   GetTelemetryEvaluationStatusForOrganizationCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusForOrganizationCommand";
+import {
+  GetTelemetryPipelineCommand,
+  GetTelemetryPipelineCommandInput,
+  GetTelemetryPipelineCommandOutput,
+} from "./commands/GetTelemetryPipelineCommand";
 import {
   GetTelemetryRuleCommand,
   GetTelemetryRuleCommandInput,
@@ -78,10 +108,20 @@ import {
   ListResourceTelemetryForOrganizationCommandOutput,
 } from "./commands/ListResourceTelemetryForOrganizationCommand";
 import {
+  ListS3TableIntegrationsCommand,
+  ListS3TableIntegrationsCommandInput,
+  ListS3TableIntegrationsCommandOutput,
+} from "./commands/ListS3TableIntegrationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTelemetryPipelinesCommand,
+  ListTelemetryPipelinesCommandInput,
+  ListTelemetryPipelinesCommandOutput,
+} from "./commands/ListTelemetryPipelinesCommand";
 import {
   ListTelemetryRulesCommand,
   ListTelemetryRulesCommandInput,
@@ -124,6 +164,11 @@ import {
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TestTelemetryPipelineCommand,
+  TestTelemetryPipelineCommandInput,
+  TestTelemetryPipelineCommandOutput,
+} from "./commands/TestTelemetryPipelineCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -134,6 +179,11 @@ import {
   UpdateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/UpdateCentralizationRuleForOrganizationCommand";
 import {
+  UpdateTelemetryPipelineCommand,
+  UpdateTelemetryPipelineCommandInput,
+  UpdateTelemetryPipelineCommandOutput,
+} from "./commands/UpdateTelemetryPipelineCommand";
+import {
   UpdateTelemetryRuleCommand,
   UpdateTelemetryRuleCommandInput,
   UpdateTelemetryRuleCommandOutput,
@@ -143,25 +193,38 @@ import {
   UpdateTelemetryRuleForOrganizationCommandInput,
   UpdateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/UpdateTelemetryRuleForOrganizationCommand";
+import {
+  ValidateTelemetryPipelineConfigurationCommand,
+  ValidateTelemetryPipelineConfigurationCommandInput,
+  ValidateTelemetryPipelineConfigurationCommandOutput,
+} from "./commands/ValidateTelemetryPipelineConfigurationCommand";
 import { ObservabilityAdminClient, ObservabilityAdminClientConfig } from "./ObservabilityAdminClient";
 
 const commands = {
   CreateCentralizationRuleForOrganizationCommand,
+  CreateS3TableIntegrationCommand,
+  CreateTelemetryPipelineCommand,
   CreateTelemetryRuleCommand,
   CreateTelemetryRuleForOrganizationCommand,
   DeleteCentralizationRuleForOrganizationCommand,
+  DeleteS3TableIntegrationCommand,
+  DeleteTelemetryPipelineCommand,
   DeleteTelemetryRuleCommand,
   DeleteTelemetryRuleForOrganizationCommand,
   GetCentralizationRuleForOrganizationCommand,
+  GetS3TableIntegrationCommand,
   GetTelemetryEnrichmentStatusCommand,
   GetTelemetryEvaluationStatusCommand,
   GetTelemetryEvaluationStatusForOrganizationCommand,
+  GetTelemetryPipelineCommand,
   GetTelemetryRuleCommand,
   GetTelemetryRuleForOrganizationCommand,
   ListCentralizationRulesForOrganizationCommand,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganizationCommand,
+  ListS3TableIntegrationsCommand,
   ListTagsForResourceCommand,
+  ListTelemetryPipelinesCommand,
   ListTelemetryRulesCommand,
   ListTelemetryRulesForOrganizationCommand,
   StartTelemetryEnrichmentCommand,
@@ -171,10 +234,13 @@ const commands = {
   StopTelemetryEvaluationCommand,
   StopTelemetryEvaluationForOrganizationCommand,
   TagResourceCommand,
+  TestTelemetryPipelineCommand,
   UntagResourceCommand,
   UpdateCentralizationRuleForOrganizationCommand,
+  UpdateTelemetryPipelineCommand,
   UpdateTelemetryRuleCommand,
   UpdateTelemetryRuleForOrganizationCommand,
+  ValidateTelemetryPipelineConfigurationCommand,
 };
 
 export interface ObservabilityAdmin {
@@ -193,6 +259,40 @@ export interface ObservabilityAdmin {
     args: CreateCentralizationRuleForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateS3TableIntegrationCommand}
+   */
+  createS3TableIntegration(
+    args: CreateS3TableIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateS3TableIntegrationCommandOutput>;
+  createS3TableIntegration(
+    args: CreateS3TableIntegrationCommandInput,
+    cb: (err: any, data?: CreateS3TableIntegrationCommandOutput) => void
+  ): void;
+  createS3TableIntegration(
+    args: CreateS3TableIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateS3TableIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTelemetryPipelineCommand}
+   */
+  createTelemetryPipeline(
+    args: CreateTelemetryPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTelemetryPipelineCommandOutput>;
+  createTelemetryPipeline(
+    args: CreateTelemetryPipelineCommandInput,
+    cb: (err: any, data?: CreateTelemetryPipelineCommandOutput) => void
+  ): void;
+  createTelemetryPipeline(
+    args: CreateTelemetryPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTelemetryPipelineCommandOutput) => void
   ): void;
 
   /**
@@ -247,6 +347,40 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link DeleteS3TableIntegrationCommand}
+   */
+  deleteS3TableIntegration(
+    args: DeleteS3TableIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteS3TableIntegrationCommandOutput>;
+  deleteS3TableIntegration(
+    args: DeleteS3TableIntegrationCommandInput,
+    cb: (err: any, data?: DeleteS3TableIntegrationCommandOutput) => void
+  ): void;
+  deleteS3TableIntegration(
+    args: DeleteS3TableIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteS3TableIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTelemetryPipelineCommand}
+   */
+  deleteTelemetryPipeline(
+    args: DeleteTelemetryPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTelemetryPipelineCommandOutput>;
+  deleteTelemetryPipeline(
+    args: DeleteTelemetryPipelineCommandInput,
+    cb: (err: any, data?: DeleteTelemetryPipelineCommandOutput) => void
+  ): void;
+  deleteTelemetryPipeline(
+    args: DeleteTelemetryPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTelemetryPipelineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTelemetryRuleCommand}
    */
   deleteTelemetryRule(
@@ -295,6 +429,23 @@ export interface ObservabilityAdmin {
     args: GetCentralizationRuleForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetS3TableIntegrationCommand}
+   */
+  getS3TableIntegration(
+    args: GetS3TableIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetS3TableIntegrationCommandOutput>;
+  getS3TableIntegration(
+    args: GetS3TableIntegrationCommandInput,
+    cb: (err: any, data?: GetS3TableIntegrationCommandOutput) => void
+  ): void;
+  getS3TableIntegration(
+    args: GetS3TableIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetS3TableIntegrationCommandOutput) => void
   ): void;
 
   /**
@@ -349,6 +500,23 @@ export interface ObservabilityAdmin {
     args: GetTelemetryEvaluationStatusForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTelemetryEvaluationStatusForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTelemetryPipelineCommand}
+   */
+  getTelemetryPipeline(
+    args: GetTelemetryPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTelemetryPipelineCommandOutput>;
+  getTelemetryPipeline(
+    args: GetTelemetryPipelineCommandInput,
+    cb: (err: any, data?: GetTelemetryPipelineCommandOutput) => void
+  ): void;
+  getTelemetryPipeline(
+    args: GetTelemetryPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTelemetryPipelineCommandOutput) => void
   ): void;
 
   /**
@@ -440,6 +608,24 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link ListS3TableIntegrationsCommand}
+   */
+  listS3TableIntegrations(): Promise<ListS3TableIntegrationsCommandOutput>;
+  listS3TableIntegrations(
+    args: ListS3TableIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListS3TableIntegrationsCommandOutput>;
+  listS3TableIntegrations(
+    args: ListS3TableIntegrationsCommandInput,
+    cb: (err: any, data?: ListS3TableIntegrationsCommandOutput) => void
+  ): void;
+  listS3TableIntegrations(
+    args: ListS3TableIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListS3TableIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -454,6 +640,24 @@ export interface ObservabilityAdmin {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTelemetryPipelinesCommand}
+   */
+  listTelemetryPipelines(): Promise<ListTelemetryPipelinesCommandOutput>;
+  listTelemetryPipelines(
+    args: ListTelemetryPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTelemetryPipelinesCommandOutput>;
+  listTelemetryPipelines(
+    args: ListTelemetryPipelinesCommandInput,
+    cb: (err: any, data?: ListTelemetryPipelinesCommandOutput) => void
+  ): void;
+  listTelemetryPipelines(
+    args: ListTelemetryPipelinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTelemetryPipelinesCommandOutput) => void
   ): void;
 
   /**
@@ -612,6 +816,23 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link TestTelemetryPipelineCommand}
+   */
+  testTelemetryPipeline(
+    args: TestTelemetryPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestTelemetryPipelineCommandOutput>;
+  testTelemetryPipeline(
+    args: TestTelemetryPipelineCommandInput,
+    cb: (err: any, data?: TestTelemetryPipelineCommandOutput) => void
+  ): void;
+  testTelemetryPipeline(
+    args: TestTelemetryPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestTelemetryPipelineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UntagResourceCommand}
    */
   untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
@@ -637,6 +858,23 @@ export interface ObservabilityAdmin {
     args: UpdateCentralizationRuleForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTelemetryPipelineCommand}
+   */
+  updateTelemetryPipeline(
+    args: UpdateTelemetryPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTelemetryPipelineCommandOutput>;
+  updateTelemetryPipeline(
+    args: UpdateTelemetryPipelineCommandInput,
+    cb: (err: any, data?: UpdateTelemetryPipelineCommandOutput) => void
+  ): void;
+  updateTelemetryPipeline(
+    args: UpdateTelemetryPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTelemetryPipelineCommandOutput) => void
   ): void;
 
   /**
@@ -671,6 +909,23 @@ export interface ObservabilityAdmin {
     args: UpdateTelemetryRuleForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateTelemetryPipelineConfigurationCommand}
+   */
+  validateTelemetryPipelineConfiguration(
+    args: ValidateTelemetryPipelineConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateTelemetryPipelineConfigurationCommandOutput>;
+  validateTelemetryPipelineConfiguration(
+    args: ValidateTelemetryPipelineConfigurationCommandInput,
+    cb: (err: any, data?: ValidateTelemetryPipelineConfigurationCommandOutput) => void
+  ): void;
+  validateTelemetryPipelineConfiguration(
+    args: ValidateTelemetryPipelineConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateTelemetryPipelineConfigurationCommandOutput) => void
   ): void;
 }
 

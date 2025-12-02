@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceInput } from "../models/models_0";
+import { TestTelemetryPipelineInput, TestTelemetryPipelineOutput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { UntagResource } from "../schemas/schemas_0";
+import { TestTelemetryPipeline } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,42 +20,59 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link TestTelemetryPipelineCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceInput {}
+export interface TestTelemetryPipelineCommandInput extends TestTelemetryPipelineInput {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link TestTelemetryPipelineCommand}.
  */
-export interface UntagResourceCommandOutput extends __MetadataBearer {}
+export interface TestTelemetryPipelineCommandOutput extends TestTelemetryPipelineOutput, __MetadataBearer {}
 
 /**
- * <p> Removes tags from a resource. Supports telemetry rule resources and telemetry pipeline resources. </p>
+ * <p>Tests a pipeline configuration with sample records to validate data processing before deployment. This operation helps ensure your pipeline configuration works as expected. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, UntagResourceCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, UntagResourceCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, TestTelemetryPipelineCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, TestTelemetryPipelineCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
  * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
- * const input = { // UntagResourceInput
- *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ * const input = { // TestTelemetryPipelineInput
+ *   Records: [ // Records // required
+ *     { // Record
+ *       Data: "STRING_VALUE",
+ *       Type: "STRING" || "JSON",
+ *     },
  *   ],
+ *   Configuration: { // TelemetryPipelineConfiguration
+ *     Body: "STRING_VALUE", // required
+ *   },
  * };
- * const command = new UntagResourceCommand(input);
+ * const command = new TestTelemetryPipelineCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // TestTelemetryPipelineOutput
+ * //   Results: [ // PipelineOutputs
+ * //     { // PipelineOutput
+ * //       Record: { // Record
+ * //         Data: "STRING_VALUE",
+ * //         Type: "STRING" || "JSON",
+ * //       },
+ * //       Error: { // PipelineOutputError
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param TestTelemetryPipelineCommandInput - {@link TestTelemetryPipelineCommandInput}
+ * @returns {@link TestTelemetryPipelineCommandOutput}
+ * @see {@link TestTelemetryPipelineCommandInput} for command's `input` shape.
+ * @see {@link TestTelemetryPipelineCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -63,9 +80,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified resource (such as a telemetry rule) could not be found. </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p> The request throughput limit was exceeded. </p>
@@ -79,10 +93,10 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UntagResourceCommand extends $Command
+export class TestTelemetryPipelineCommand extends $Command
   .classBuilder<
-    UntagResourceCommandInput,
-    UntagResourceCommandOutput,
+    TestTelemetryPipelineCommandInput,
+    TestTelemetryPipelineCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -91,19 +105,19 @@ export class UntagResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ObservabilityAdmin", "UntagResource", {})
-  .n("ObservabilityAdminClient", "UntagResourceCommand")
-  .sc(UntagResource)
+  .s("ObservabilityAdmin", "TestTelemetryPipeline", {})
+  .n("ObservabilityAdminClient", "TestTelemetryPipelineCommand")
+  .sc(TestTelemetryPipeline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UntagResourceInput;
-      output: {};
+      input: TestTelemetryPipelineInput;
+      output: TestTelemetryPipelineOutput;
     };
     sdk: {
-      input: UntagResourceCommandInput;
-      output: UntagResourceCommandOutput;
+      input: TestTelemetryPipelineCommandInput;
+      output: TestTelemetryPipelineCommandOutput;
     };
   };
 }

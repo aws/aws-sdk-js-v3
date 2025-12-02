@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTelemetryEnrichmentOutput } from "../models/models_0";
+import { DeleteS3TableIntegrationInput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { StartTelemetryEnrichment } from "../schemas/schemas_0";
+import { DeleteS3TableIntegration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,53 +20,58 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartTelemetryEnrichmentCommand}.
+ * The input for {@link DeleteS3TableIntegrationCommand}.
  */
-export interface StartTelemetryEnrichmentCommandInput {}
+export interface DeleteS3TableIntegrationCommandInput extends DeleteS3TableIntegrationInput {}
 /**
  * @public
  *
- * The output of {@link StartTelemetryEnrichmentCommand}.
+ * The output of {@link DeleteS3TableIntegrationCommand}.
  */
-export interface StartTelemetryEnrichmentCommandOutput extends StartTelemetryEnrichmentOutput, __MetadataBearer {}
+export interface DeleteS3TableIntegrationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Enables the resource tags for telemetry feature for your account, which enhances telemetry data with additional resource metadata from Resource Explorer to provide richer context for monitoring and observability. </p>
+ * <p>Deletes an S3 Table integration and its associated data. This operation removes the connection between CloudWatch Observability Admin and S3 Tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, StartTelemetryEnrichmentCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, StartTelemetryEnrichmentCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, DeleteS3TableIntegrationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, DeleteS3TableIntegrationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
  * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new StartTelemetryEnrichmentCommand(input);
+ * const input = { // DeleteS3TableIntegrationInput
+ *   Arn: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteS3TableIntegrationCommand(input);
  * const response = await client.send(command);
- * // { // StartTelemetryEnrichmentOutput
- * //   Status: "Running" || "Stopped" || "Impaired",
- * //   AwsResourceExplorerManagedViewArn: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param StartTelemetryEnrichmentCommandInput - {@link StartTelemetryEnrichmentCommandInput}
- * @returns {@link StartTelemetryEnrichmentCommandOutput}
- * @see {@link StartTelemetryEnrichmentCommandInput} for command's `input` shape.
- * @see {@link StartTelemetryEnrichmentCommandOutput} for command's `response` shape.
+ * @param DeleteS3TableIntegrationCommandInput - {@link DeleteS3TableIntegrationCommandInput}
+ * @returns {@link DeleteS3TableIntegrationCommandOutput}
+ * @see {@link DeleteS3TableIntegrationCommandInput} for command's `input` shape.
+ * @see {@link DeleteS3TableIntegrationCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
  *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p> The requested operation cannot be completed on the specified resource in the current state. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p> The request throughput limit was exceeded. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
  *
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
@@ -74,10 +79,10 @@ export interface StartTelemetryEnrichmentCommandOutput extends StartTelemetryEnr
  *
  * @public
  */
-export class StartTelemetryEnrichmentCommand extends $Command
+export class DeleteS3TableIntegrationCommand extends $Command
   .classBuilder<
-    StartTelemetryEnrichmentCommandInput,
-    StartTelemetryEnrichmentCommandOutput,
+    DeleteS3TableIntegrationCommandInput,
+    DeleteS3TableIntegrationCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -86,19 +91,19 @@ export class StartTelemetryEnrichmentCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ObservabilityAdmin", "StartTelemetryEnrichment", {})
-  .n("ObservabilityAdminClient", "StartTelemetryEnrichmentCommand")
-  .sc(StartTelemetryEnrichment)
+  .s("ObservabilityAdmin", "DeleteS3TableIntegration", {})
+  .n("ObservabilityAdminClient", "DeleteS3TableIntegrationCommand")
+  .sc(DeleteS3TableIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: StartTelemetryEnrichmentOutput;
+      input: DeleteS3TableIntegrationInput;
+      output: {};
     };
     sdk: {
-      input: StartTelemetryEnrichmentCommandInput;
-      output: StartTelemetryEnrichmentCommandOutput;
+      input: DeleteS3TableIntegrationCommandInput;
+      output: DeleteS3TableIntegrationCommandOutput;
     };
   };
 }

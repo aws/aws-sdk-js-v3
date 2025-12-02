@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTelemetryEnrichmentStatusOutput } from "../models/models_0";
+import { GetS3TableIntegrationInput, GetS3TableIntegrationOutput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetTelemetryEnrichmentStatus } from "../schemas/schemas_0";
+import { GetS3TableIntegration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,42 +20,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTelemetryEnrichmentStatusCommand}.
+ * The input for {@link GetS3TableIntegrationCommand}.
  */
-export interface GetTelemetryEnrichmentStatusCommandInput {}
+export interface GetS3TableIntegrationCommandInput extends GetS3TableIntegrationInput {}
 /**
  * @public
  *
- * The output of {@link GetTelemetryEnrichmentStatusCommand}.
+ * The output of {@link GetS3TableIntegrationCommand}.
  */
-export interface GetTelemetryEnrichmentStatusCommandOutput
-  extends GetTelemetryEnrichmentStatusOutput,
-    __MetadataBearer {}
+export interface GetS3TableIntegrationCommandOutput extends GetS3TableIntegrationOutput, __MetadataBearer {}
 
 /**
- * <p> Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from Resource Explorer. </p>
+ * <p>Retrieves information about a specific S3 Table integration, including its configuration, status, and metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, GetTelemetryEnrichmentStatusCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, GetTelemetryEnrichmentStatusCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, GetS3TableIntegrationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, GetS3TableIntegrationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
  * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new GetTelemetryEnrichmentStatusCommand(input);
+ * const input = { // GetS3TableIntegrationInput
+ *   Arn: "STRING_VALUE", // required
+ * };
+ * const command = new GetS3TableIntegrationCommand(input);
  * const response = await client.send(command);
- * // { // GetTelemetryEnrichmentStatusOutput
- * //   Status: "Running" || "Stopped" || "Impaired",
- * //   AwsResourceExplorerManagedViewArn: "STRING_VALUE",
+ * // { // GetS3TableIntegrationOutput
+ * //   Arn: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   Status: "ACTIVE" || "DELETING",
+ * //   Encryption: { // Encryption
+ * //     SseAlgorithm: "aws:kms" || "AES256", // required
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   DestinationTableBucketArn: "STRING_VALUE",
+ * //   CreatedTimeStamp: Number("long"),
  * // };
  *
  * ```
  *
- * @param GetTelemetryEnrichmentStatusCommandInput - {@link GetTelemetryEnrichmentStatusCommandInput}
- * @returns {@link GetTelemetryEnrichmentStatusCommandOutput}
- * @see {@link GetTelemetryEnrichmentStatusCommandInput} for command's `input` shape.
- * @see {@link GetTelemetryEnrichmentStatusCommandOutput} for command's `response` shape.
+ * @param GetS3TableIntegrationCommandInput - {@link GetS3TableIntegrationCommandInput}
+ * @returns {@link GetS3TableIntegrationCommandOutput}
+ * @see {@link GetS3TableIntegrationCommandInput} for command's `input` shape.
+ * @see {@link GetS3TableIntegrationCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -70,16 +77,19 @@ export interface GetTelemetryEnrichmentStatusCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p> The request throughput limit was exceeded. </p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ *
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
  *
  * @public
  */
-export class GetTelemetryEnrichmentStatusCommand extends $Command
+export class GetS3TableIntegrationCommand extends $Command
   .classBuilder<
-    GetTelemetryEnrichmentStatusCommandInput,
-    GetTelemetryEnrichmentStatusCommandOutput,
+    GetS3TableIntegrationCommandInput,
+    GetS3TableIntegrationCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -88,19 +98,19 @@ export class GetTelemetryEnrichmentStatusCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ObservabilityAdmin", "GetTelemetryEnrichmentStatus", {})
-  .n("ObservabilityAdminClient", "GetTelemetryEnrichmentStatusCommand")
-  .sc(GetTelemetryEnrichmentStatus)
+  .s("ObservabilityAdmin", "GetS3TableIntegration", {})
+  .n("ObservabilityAdminClient", "GetS3TableIntegrationCommand")
+  .sc(GetS3TableIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: GetTelemetryEnrichmentStatusOutput;
+      input: GetS3TableIntegrationInput;
+      output: GetS3TableIntegrationOutput;
     };
     sdk: {
-      input: GetTelemetryEnrichmentStatusCommandInput;
-      output: GetTelemetryEnrichmentStatusCommandOutput;
+      input: GetS3TableIntegrationCommandInput;
+      output: GetS3TableIntegrationCommandOutput;
     };
   };
 }

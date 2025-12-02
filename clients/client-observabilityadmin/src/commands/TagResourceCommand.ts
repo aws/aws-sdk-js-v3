@@ -31,7 +31,7 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Adds or updates tags for a telemetry rule resource. </p>
+ * <p> Adds or updates tags for a resource. Supports telemetry rule resources and telemetry pipeline resources. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

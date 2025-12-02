@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTelemetryEnrichmentStatusOutput } from "../models/models_0";
+import { GetTelemetryPipelineInput, GetTelemetryPipelineOutput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetTelemetryEnrichmentStatus } from "../schemas/schemas_0";
+import { GetTelemetryPipeline } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,42 +20,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTelemetryEnrichmentStatusCommand}.
+ * The input for {@link GetTelemetryPipelineCommand}.
  */
-export interface GetTelemetryEnrichmentStatusCommandInput {}
+export interface GetTelemetryPipelineCommandInput extends GetTelemetryPipelineInput {}
 /**
  * @public
  *
- * The output of {@link GetTelemetryEnrichmentStatusCommand}.
+ * The output of {@link GetTelemetryPipelineCommand}.
  */
-export interface GetTelemetryEnrichmentStatusCommandOutput
-  extends GetTelemetryEnrichmentStatusOutput,
-    __MetadataBearer {}
+export interface GetTelemetryPipelineCommandOutput extends GetTelemetryPipelineOutput, __MetadataBearer {}
 
 /**
- * <p> Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from Resource Explorer. </p>
+ * <p>Retrieves information about a specific telemetry pipeline, including its configuration, status, and metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, GetTelemetryEnrichmentStatusCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, GetTelemetryEnrichmentStatusCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, GetTelemetryPipelineCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, GetTelemetryPipelineCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
  * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new GetTelemetryEnrichmentStatusCommand(input);
+ * const input = { // GetTelemetryPipelineInput
+ *   PipelineIdentifier: "STRING_VALUE", // required
+ * };
+ * const command = new GetTelemetryPipelineCommand(input);
  * const response = await client.send(command);
- * // { // GetTelemetryEnrichmentStatusOutput
- * //   Status: "Running" || "Stopped" || "Impaired",
- * //   AwsResourceExplorerManagedViewArn: "STRING_VALUE",
+ * // { // GetTelemetryPipelineOutput
+ * //   Pipeline: { // TelemetryPipeline
+ * //     CreatedTimeStamp: Number("long"),
+ * //     LastUpdateTimeStamp: Number("long"),
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Configuration: { // TelemetryPipelineConfiguration
+ * //       Body: "STRING_VALUE", // required
+ * //     },
+ * //     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED",
+ * //     StatusReason: { // TelemetryPipelineStatusReason
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //     Tags: { // TagMapOutput
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```
  *
- * @param GetTelemetryEnrichmentStatusCommandInput - {@link GetTelemetryEnrichmentStatusCommandInput}
- * @returns {@link GetTelemetryEnrichmentStatusCommandOutput}
- * @see {@link GetTelemetryEnrichmentStatusCommandInput} for command's `input` shape.
- * @see {@link GetTelemetryEnrichmentStatusCommandOutput} for command's `response` shape.
+ * @param GetTelemetryPipelineCommandInput - {@link GetTelemetryPipelineCommandInput}
+ * @returns {@link GetTelemetryPipelineCommandOutput}
+ * @see {@link GetTelemetryPipelineCommandInput} for command's `input` shape.
+ * @see {@link GetTelemetryPipelineCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -70,16 +84,19 @@ export interface GetTelemetryEnrichmentStatusCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p> The request throughput limit was exceeded. </p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ *
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
  *
  * @public
  */
-export class GetTelemetryEnrichmentStatusCommand extends $Command
+export class GetTelemetryPipelineCommand extends $Command
   .classBuilder<
-    GetTelemetryEnrichmentStatusCommandInput,
-    GetTelemetryEnrichmentStatusCommandOutput,
+    GetTelemetryPipelineCommandInput,
+    GetTelemetryPipelineCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -88,19 +105,19 @@ export class GetTelemetryEnrichmentStatusCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ObservabilityAdmin", "GetTelemetryEnrichmentStatus", {})
-  .n("ObservabilityAdminClient", "GetTelemetryEnrichmentStatusCommand")
-  .sc(GetTelemetryEnrichmentStatus)
+  .s("ObservabilityAdmin", "GetTelemetryPipeline", {})
+  .n("ObservabilityAdminClient", "GetTelemetryPipelineCommand")
+  .sc(GetTelemetryPipeline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: GetTelemetryEnrichmentStatusOutput;
+      input: GetTelemetryPipelineInput;
+      output: GetTelemetryPipelineOutput;
     };
     sdk: {
-      input: GetTelemetryEnrichmentStatusCommandInput;
-      output: GetTelemetryEnrichmentStatusCommandOutput;
+      input: GetTelemetryPipelineCommandInput;
+      output: GetTelemetryPipelineCommandOutput;
     };
   };
 }

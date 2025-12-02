@@ -213,6 +213,22 @@ CreateCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+CreateS3TableIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/CreateS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateS3TableIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateTelemetryPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/CreateTelemetryPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateTelemetryPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateTelemetryPipelineCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateTelemetryRule
 </summary>
 
@@ -233,6 +249,22 @@ DeleteCentralizationRuleForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/DeleteCentralizationRuleForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteCentralizationRuleForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteCentralizationRuleForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteS3TableIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/DeleteS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteS3TableIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTelemetryPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/DeleteTelemetryPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteTelemetryPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteTelemetryPipelineCommandOutput/)
 
 </details>
 <details>
@@ -261,6 +293,14 @@ GetCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+GetS3TableIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetS3TableIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetS3TableIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetS3TableIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTelemetryEnrichmentStatus
 </summary>
 
@@ -281,6 +321,14 @@ GetTelemetryEvaluationStatusForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetTelemetryEvaluationStatusForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetTelemetryEvaluationStatusForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetTelemetryEvaluationStatusForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetTelemetryPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetTelemetryPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetTelemetryPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetTelemetryPipelineCommandOutput/)
 
 </details>
 <details>
@@ -325,10 +373,26 @@ ListResourceTelemetryForOrganization
 </details>
 <details>
 <summary>
+ListS3TableIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListS3TableIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListS3TableIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListS3TableIntegrationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTelemetryPipelines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListTelemetryPipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListTelemetryPipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListTelemetryPipelinesCommandOutput/)
 
 </details>
 <details>
@@ -405,6 +469,14 @@ TagResource
 </details>
 <details>
 <summary>
+TestTelemetryPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/TestTelemetryPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/TestTelemetryPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/TestTelemetryPipelineCommandOutput/)
+
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 
@@ -421,6 +493,14 @@ UpdateCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+UpdateTelemetryPipeline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/UpdateTelemetryPipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateTelemetryPipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateTelemetryPipelineCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateTelemetryRule
 </summary>
 
@@ -433,5 +513,13 @@ UpdateTelemetryRuleForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/UpdateTelemetryRuleForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateTelemetryRuleForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateTelemetryRuleForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ValidateTelemetryPipelineConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ValidateTelemetryPipelineConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ValidateTelemetryPipelineConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ValidateTelemetryPipelineConfigurationCommandOutput/)
 
 </details>

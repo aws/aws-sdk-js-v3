@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTelemetryEnrichmentOutput } from "../models/models_0";
+import { CreateS3TableIntegrationInput, CreateS3TableIntegrationOutput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { StartTelemetryEnrichment } from "../schemas/schemas_0";
+import { CreateS3TableIntegration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,40 +20,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartTelemetryEnrichmentCommand}.
+ * The input for {@link CreateS3TableIntegrationCommand}.
  */
-export interface StartTelemetryEnrichmentCommandInput {}
+export interface CreateS3TableIntegrationCommandInput extends CreateS3TableIntegrationInput {}
 /**
  * @public
  *
- * The output of {@link StartTelemetryEnrichmentCommand}.
+ * The output of {@link CreateS3TableIntegrationCommand}.
  */
-export interface StartTelemetryEnrichmentCommandOutput extends StartTelemetryEnrichmentOutput, __MetadataBearer {}
+export interface CreateS3TableIntegrationCommandOutput extends CreateS3TableIntegrationOutput, __MetadataBearer {}
 
 /**
- * <p> Enables the resource tags for telemetry feature for your account, which enhances telemetry data with additional resource metadata from Resource Explorer to provide richer context for monitoring and observability. </p>
+ * <p>Creates an integration between CloudWatch and S3 Tables for analytics. This integration enables querying CloudWatch telemetry data using analytics engines like Amazon Athena, Amazon Redshift, and Apache Spark.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, StartTelemetryEnrichmentCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, StartTelemetryEnrichmentCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, CreateS3TableIntegrationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, CreateS3TableIntegrationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
  * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
- * const command = new StartTelemetryEnrichmentCommand(input);
+ * const input = { // CreateS3TableIntegrationInput
+ *   Encryption: { // Encryption
+ *     SseAlgorithm: "aws:kms" || "AES256", // required
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: { // TagMapInput
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ * const command = new CreateS3TableIntegrationCommand(input);
  * const response = await client.send(command);
- * // { // StartTelemetryEnrichmentOutput
- * //   Status: "Running" || "Stopped" || "Impaired",
- * //   AwsResourceExplorerManagedViewArn: "STRING_VALUE",
+ * // { // CreateS3TableIntegrationOutput
+ * //   Arn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StartTelemetryEnrichmentCommandInput - {@link StartTelemetryEnrichmentCommandInput}
- * @returns {@link StartTelemetryEnrichmentCommandOutput}
- * @see {@link StartTelemetryEnrichmentCommandInput} for command's `input` shape.
- * @see {@link StartTelemetryEnrichmentCommandOutput} for command's `response` shape.
+ * @param CreateS3TableIntegrationCommandInput - {@link CreateS3TableIntegrationCommandInput}
+ * @returns {@link CreateS3TableIntegrationCommandOutput}
+ * @see {@link CreateS3TableIntegrationCommandInput} for command's `input` shape.
+ * @see {@link CreateS3TableIntegrationCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -65,8 +73,14 @@ export interface StartTelemetryEnrichmentCommandOutput extends StartTelemetryEnr
  * @throws {@link InternalServerException} (server fault)
  *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p> The request throughput limit was exceeded. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
  *
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
@@ -74,10 +88,10 @@ export interface StartTelemetryEnrichmentCommandOutput extends StartTelemetryEnr
  *
  * @public
  */
-export class StartTelemetryEnrichmentCommand extends $Command
+export class CreateS3TableIntegrationCommand extends $Command
   .classBuilder<
-    StartTelemetryEnrichmentCommandInput,
-    StartTelemetryEnrichmentCommandOutput,
+    CreateS3TableIntegrationCommandInput,
+    CreateS3TableIntegrationCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -86,19 +100,19 @@ export class StartTelemetryEnrichmentCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ObservabilityAdmin", "StartTelemetryEnrichment", {})
-  .n("ObservabilityAdminClient", "StartTelemetryEnrichmentCommand")
-  .sc(StartTelemetryEnrichment)
+  .s("ObservabilityAdmin", "CreateS3TableIntegration", {})
+  .n("ObservabilityAdminClient", "CreateS3TableIntegrationCommand")
+  .sc(CreateS3TableIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
-      output: StartTelemetryEnrichmentOutput;
+      input: CreateS3TableIntegrationInput;
+      output: CreateS3TableIntegrationOutput;
     };
     sdk: {
-      input: StartTelemetryEnrichmentCommandInput;
-      output: StartTelemetryEnrichmentCommandOutput;
+      input: CreateS3TableIntegrationCommandInput;
+      output: CreateS3TableIntegrationCommandOutput;
     };
   };
 }
