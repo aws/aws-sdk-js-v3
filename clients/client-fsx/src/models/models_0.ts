@@ -32,6 +32,7 @@ import {
   NetworkType,
   NfsVersion,
   OntapDeploymentType,
+  OntapFileSystemUserType,
   OntapVolumeType,
   OpenZFSCopyStrategy,
   OpenZFSDataCompressionType,
@@ -2580,6 +2581,72 @@ export interface CopySnapshotAndUpdateVolumeRequest {
 }
 
 /**
+ * <p>The FSx for ONTAP UNIX file system user that is used for authorizing all file access requests that are made using the S3 access point.</p>
+ * @public
+ */
+export interface OntapUnixFileSystemUser {
+  /**
+   * <p>The name of the UNIX user. The name can be up to 256 characters long.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>The FSx for ONTAP Windows file system user that is used for authorizing all file access requests that are made using the S3 access point.</p>
+ * @public
+ */
+export interface OntapWindowsFileSystemUser {
+  /**
+   * <p>The name of the Windows user. The name can be up to 256 characters long and supports Active Directory users.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>Specifies the file system user identity that will be used for authorizing all file access requests that are made using the S3 access point. The identity can be either a UNIX user or a Windows user.</p>
+ * @public
+ */
+export interface OntapFileSystemIdentity {
+  /**
+   * <p>Specifies the FSx for ONTAP user identity type. Valid values are <code>UNIX</code> and <code>WINDOWS</code>.</p>
+   * @public
+   */
+  Type: OntapFileSystemUserType | undefined;
+
+  /**
+   * <p>Specifies the UNIX user identity for file system operations.</p>
+   * @public
+   */
+  UnixUser?: OntapUnixFileSystemUser | undefined;
+
+  /**
+   * <p>Specifies the Windows user identity for file system operations.</p>
+   * @public
+   */
+  WindowsUser?: OntapWindowsFileSystemUser | undefined;
+}
+
+/**
+ * <p>Specifies the FSx for ONTAP volume that the S3 access point will be attached to, and the file system user identity.</p>
+ * @public
+ */
+export interface CreateAndAttachS3AccessPointOntapConfiguration {
+  /**
+   * <p>The ID of the FSx for ONTAP volume to which you want the S3 access point attached.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Specifies the file system user identity to use for authorizing file read and write requests that are made using this S3 access point.</p>
+   * @public
+   */
+  FileSystemIdentity: OntapFileSystemIdentity | undefined;
+}
+
+/**
  * <p>The FSx for OpenZFS file system user that is used for authorizing all file access requests that are made using the S3 access point.</p>
  * @public
  */
@@ -2702,11 +2769,35 @@ export interface CreateAndAttachS3AccessPointRequest {
   OpenZFSConfiguration?: CreateAndAttachS3AccessPointOpenZFSConfiguration | undefined;
 
   /**
+   * <p>Specifies the FSx for ONTAP volume that the S3 access point will be attached to, and the file system user identity.</p>
+   * @public
+   */
+  OntapConfiguration?: CreateAndAttachS3AccessPointOntapConfiguration | undefined;
+
+  /**
    * <p>Specifies the virtual private cloud (VPC) configuration if you're creating an access point that is restricted to a VPC.
    *          For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-vpc.html">Creating access points restricted to a virtual private cloud</a>.</p>
    * @public
    */
   S3AccessPoint?: CreateAndAttachS3AccessPointS3Configuration | undefined;
+}
+
+/**
+ * <p>Describes the FSx for ONTAP attachment configuration of an S3 access point attachment.</p>
+ * @public
+ */
+export interface S3AccessPointOntapConfiguration {
+  /**
+   * <p>The ID of the FSx for ONTAP volume that the S3 access point is attached to.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The file system identity used to authorize file access requests made using the S3 access point.</p>
+   * @public
+   */
+  FileSystemIdentity?: OntapFileSystemIdentity | undefined;
 }
 
 /**
@@ -2810,6 +2901,12 @@ export interface S3AccessPointAttachment {
    * @public
    */
   OpenZFSConfiguration?: S3AccessPointOpenZFSConfiguration | undefined;
+
+  /**
+   * <p>The ONTAP configuration of the S3 access point attachment.</p>
+   * @public
+   */
+  OntapConfiguration?: S3AccessPointOntapConfiguration | undefined;
 
   /**
    * <p>The S3 access point configuration of the S3 access point attachment.</p>

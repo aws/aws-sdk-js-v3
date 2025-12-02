@@ -41,6 +41,7 @@ const _BSER = "BypassSnaplockEnterpriseRetention";
 const _Ba = "Backups";
 const _C = "Clients";
 const _CAASAP = "CreateAndAttachS3AccessPoint";
+const _CAASAPOC = "CreateAndAttachS3AccessPointOntapConfiguration";
 const _CAASAPOZFSC = "CreateAndAttachS3AccessPointOpenZFSConfiguration";
 const _CAASAPR = "CreateAndAttachS3AccessPointRequest";
 const _CAASAPRr = "CreateAndAttachS3AccessPointResponse";
@@ -344,12 +345,15 @@ const _Nf = "Nfs";
 const _O = "Options";
 const _OC = "OntapConfiguration";
 const _OFSC = "OntapFileSystemConfiguration";
+const _OFSI = "OntapFileSystemIdentity";
 const _OI = "OwnerId";
 const _OR = "OntapResponse";
 const _OS = "OriginSnapshot";
 const _OUDN = "OrganizationalUnitDistinguishedName";
+const _OUFSU = "OntapUnixFileSystemUser";
 const _OVC = "OntapVolumeConfiguration";
 const _OVT = "OntapVolumeType";
+const _OWFSU = "OntapWindowsFileSystemUser";
 const _OZFSC = "OpenZFSConfiguration";
 const _OZFSCC = "OpenZFSClientConfiguration";
 const _OZFSCCp = "OpenZFSClientConfigurations";
@@ -414,6 +418,7 @@ const _SAPAF = "S3AccessPointAttachmentsFilter";
 const _SAPAFc = "S3AccessPointAttachmentsFilters";
 const _SAPANF = "S3AccessPointAttachmentNotFound";
 const _SAPAc = "S3AccessPointAttachments";
+const _SAPOC = "S3AccessPointOntapConfiguration";
 const _SAPOZFSC = "S3AccessPointOpenZFSConfiguration";
 const _SAPVC = "S3AccessPointVpcConfiguration";
 const _SAPv = "SvmAdminPassword";
@@ -526,6 +531,7 @@ const _USVCRp = "UpdateSharedVpcConfigurationResponse";
 const _USVM = "UpdateStorageVirtualMachine";
 const _USVMR = "UpdateStorageVirtualMachineRequest";
 const _USVMRp = "UpdateStorageVirtualMachineResponse";
+const _UU = "UnixUser";
 const _UUID = "UUID";
 const _UV = "UpdateVolume";
 const _UVR = "UpdateVolumeRequest";
@@ -554,6 +560,7 @@ const _WFC = "WindowsFsrmConfiguration";
 const _WFSC = "WindowsFileSystemConfiguration";
 const _WMST = "WeeklyMaintenanceStartTime";
 const _WR = "WindowsResponse";
+const _WU = "WindowsUser";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
@@ -786,6 +793,14 @@ export var CopySnapshotAndUpdateVolumeResponse: StaticStructureSchema = [
   [0, 0, [() => AdministrativeActions, 0]],
 ];
 export var CreateAggregateConfiguration: StaticStructureSchema = [3, n0, _CAC, 0, [_A, _CPA], [64 | 0, 1]];
+export var CreateAndAttachS3AccessPointOntapConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _CAASAPOC,
+  0,
+  [_VI, _FSIi],
+  [0, () => OntapFileSystemIdentity],
+];
 export var CreateAndAttachS3AccessPointOpenZFSConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -799,12 +814,13 @@ export var CreateAndAttachS3AccessPointRequest: StaticStructureSchema = [
   n0,
   _CAASAPR,
   0,
-  [_CRT, _N, _T, _OZFSC, _SAP],
+  [_CRT, _N, _T, _OZFSC, _OC, _SAP],
   [
     [0, 4],
     0,
     0,
     () => CreateAndAttachS3AccessPointOpenZFSConfiguration,
+    () => CreateAndAttachS3AccessPointOntapConfiguration,
     () => CreateAndAttachS3AccessPointS3Configuration,
   ],
 ];
@@ -1938,6 +1954,15 @@ export var OntapFileSystemConfiguration: StaticStructureSchema = [
     0,
   ],
 ];
+export var OntapFileSystemIdentity: StaticStructureSchema = [
+  3,
+  n0,
+  _OFSI,
+  0,
+  [_T, _UU, _WU],
+  [0, () => OntapUnixFileSystemUser, () => OntapWindowsFileSystemUser],
+];
+export var OntapUnixFileSystemUser: StaticStructureSchema = [3, n0, _OUFSU, 0, [_N], [0]];
 export var OntapVolumeConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1963,6 +1988,7 @@ export var OntapVolumeConfiguration: StaticStructureSchema = [
     1,
   ],
 ];
+export var OntapWindowsFileSystemUser: StaticStructureSchema = [3, n0, _OWFSU, 0, [_N], [0]];
 export var OpenZFSClientConfiguration: StaticStructureSchema = [3, n0, _OZFSCC, 0, [_C, _O], [0, 64 | 0]];
 export var OpenZFSCreateRootVolumeConfiguration: StaticStructureSchema = [
   3,
@@ -2084,8 +2110,17 @@ export var S3AccessPointAttachment: StaticStructureSchema = [
   n0,
   _SAPA,
   0,
-  [_L, _LTR, _CT, _N, _T, _OZFSC, _SAP],
-  [0, () => LifecycleTransitionReason, 4, 0, 0, () => S3AccessPointOpenZFSConfiguration, () => S3AccessPoint],
+  [_L, _LTR, _CT, _N, _T, _OZFSC, _OC, _SAP],
+  [
+    0,
+    () => LifecycleTransitionReason,
+    4,
+    0,
+    0,
+    () => S3AccessPointOpenZFSConfiguration,
+    () => S3AccessPointOntapConfiguration,
+    () => S3AccessPoint,
+  ],
 ];
 export var S3AccessPointAttachmentNotFound: StaticErrorSchema = [
   -3,
@@ -2100,6 +2135,14 @@ export var S3AccessPointAttachmentNotFound: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(S3AccessPointAttachmentNotFound, __S3AccessPointAttachmentNotFound);
 
 export var S3AccessPointAttachmentsFilter: StaticStructureSchema = [3, n0, _SAPAF, 0, [_N, _Va], [0, 64 | 0]];
+export var S3AccessPointOntapConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SAPOC,
+  0,
+  [_VI, _FSIi],
+  [0, () => OntapFileSystemIdentity],
+];
 export var S3AccessPointOpenZFSConfiguration: StaticStructureSchema = [
   3,
   n0,

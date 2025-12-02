@@ -86,7 +86,7 @@ export interface CreateAndAttachS3AccessPointCommandOutput
  * const input = { // CreateAndAttachS3AccessPointRequest
  *   ClientRequestToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
- *   Type: "OPENZFS", // required
+ *   Type: "OPENZFS" || "ONTAP", // required
  *   OpenZFSConfiguration: { // CreateAndAttachS3AccessPointOpenZFSConfiguration
  *     VolumeId: "STRING_VALUE", // required
  *     FileSystemIdentity: { // OpenZFSFileSystemIdentity
@@ -97,6 +97,18 @@ export interface CreateAndAttachS3AccessPointCommandOutput
  *         SecondaryGids: [ // FileSystemSecondaryGIDs
  *           Number("long"),
  *         ],
+ *       },
+ *     },
+ *   },
+ *   OntapConfiguration: { // CreateAndAttachS3AccessPointOntapConfiguration
+ *     VolumeId: "STRING_VALUE", // required
+ *     FileSystemIdentity: { // OntapFileSystemIdentity
+ *       Type: "UNIX" || "WINDOWS", // required
+ *       UnixUser: { // OntapUnixFileSystemUser
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       WindowsUser: { // OntapWindowsFileSystemUser
+ *         Name: "STRING_VALUE", // required
  *       },
  *     },
  *   },
@@ -111,13 +123,13 @@ export interface CreateAndAttachS3AccessPointCommandOutput
  * const response = await client.send(command);
  * // { // CreateAndAttachS3AccessPointResponse
  * //   S3AccessPointAttachment: { // S3AccessPointAttachment
- * //     Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED",
+ * //     Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED" || "MISCONFIGURED",
  * //     LifecycleTransitionReason: { // LifecycleTransitionReason
  * //       Message: "STRING_VALUE",
  * //     },
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     Name: "STRING_VALUE",
- * //     Type: "OPENZFS",
+ * //     Type: "OPENZFS" || "ONTAP",
  * //     OpenZFSConfiguration: { // S3AccessPointOpenZFSConfiguration
  * //       VolumeId: "STRING_VALUE",
  * //       FileSystemIdentity: { // OpenZFSFileSystemIdentity
@@ -128,6 +140,18 @@ export interface CreateAndAttachS3AccessPointCommandOutput
  * //           SecondaryGids: [ // FileSystemSecondaryGIDs
  * //             Number("long"),
  * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //     OntapConfiguration: { // S3AccessPointOntapConfiguration
+ * //       VolumeId: "STRING_VALUE",
+ * //       FileSystemIdentity: { // OntapFileSystemIdentity
+ * //         Type: "UNIX" || "WINDOWS", // required
+ * //         UnixUser: { // OntapUnixFileSystemUser
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //         WindowsUser: { // OntapWindowsFileSystemUser
+ * //           Name: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

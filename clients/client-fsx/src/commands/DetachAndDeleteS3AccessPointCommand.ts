@@ -58,7 +58,7 @@ export interface DetachAndDeleteS3AccessPointCommandOutput
  * const command = new DetachAndDeleteS3AccessPointCommand(input);
  * const response = await client.send(command);
  * // { // DetachAndDeleteS3AccessPointResponse
- * //   Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED",
+ * //   Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED" || "MISCONFIGURED",
  * //   Name: "STRING_VALUE",
  * // };
  *
