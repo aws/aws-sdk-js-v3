@@ -82,6 +82,24 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *       allowedClients: [ // AllowedClientsList
  *         "STRING_VALUE",
  *       ],
+ *       allowedScopes: [ // AllowedScopesType
+ *         "STRING_VALUE",
+ *       ],
+ *       customClaims: [ // CustomClaimValidationsType
+ *         { // CustomClaimValidationType
+ *           inboundTokenClaimName: "STRING_VALUE", // required
+ *           inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ *           authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ *             claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ *               matchValueString: "STRING_VALUE",
+ *               matchValueStringList: [ // MatchValueStringList
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   },
  *   requestHeaderConfiguration: { // RequestHeaderConfiguration Union: only one key present

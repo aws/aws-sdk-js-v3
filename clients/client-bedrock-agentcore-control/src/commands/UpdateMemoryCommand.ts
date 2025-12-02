@@ -103,6 +103,23 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *                 modelId: "STRING_VALUE", // required
  *               },
  *             },
+ *             episodicOverride: { // EpisodicOverrideConfigurationInput
+ *               extraction: { // EpisodicOverrideExtractionConfigurationInput
+ *                 appendToPrompt: "STRING_VALUE", // required
+ *                 modelId: "STRING_VALUE", // required
+ *               },
+ *               consolidation: { // EpisodicOverrideConsolidationConfigurationInput
+ *                 appendToPrompt: "STRING_VALUE", // required
+ *                 modelId: "STRING_VALUE", // required
+ *               },
+ *               reflection: { // EpisodicOverrideReflectionConfigurationInput
+ *                 appendToPrompt: "STRING_VALUE", // required
+ *                 modelId: "STRING_VALUE", // required
+ *                 namespaces: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
  *             selfManagedConfiguration: { // SelfManagedConfigurationInput
  *               triggerConditions: [ // TriggerConditionInputList
  *                 { // TriggerConditionInput Union: only one key present
@@ -125,15 +142,21 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *             },
  *           },
  *         },
+ *         episodicMemoryStrategy: { // EpisodicMemoryStrategyInput
+ *           name: "STRING_VALUE", // required
+ *           description: "STRING_VALUE",
+ *           namespaces: "<NamespacesList>",
+ *           reflectionConfiguration: { // EpisodicReflectionConfigurationInput
+ *             namespaces: "<NamespacesList>", // required
+ *           },
+ *         },
  *       },
  *     ],
  *     modifyMemoryStrategies: [ // ModifyMemoryStrategiesList
  *       { // ModifyMemoryStrategyInput
  *         memoryStrategyId: "STRING_VALUE", // required
  *         description: "STRING_VALUE",
- *         namespaces: [
- *           "STRING_VALUE",
- *         ],
+ *         namespaces: "<NamespacesList>",
  *         configuration: { // ModifyStrategyConfiguration
  *           extraction: { // ModifyExtractionConfiguration Union: only one key present
  *             customExtractionConfiguration: { // CustomExtractionConfigurationInput Union: only one key present
@@ -142,6 +165,10 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *                 modelId: "STRING_VALUE", // required
  *               },
  *               userPreferenceExtractionOverride: {
+ *                 appendToPrompt: "STRING_VALUE", // required
+ *                 modelId: "STRING_VALUE", // required
+ *               },
+ *               episodicExtractionOverride: {
  *                 appendToPrompt: "STRING_VALUE", // required
  *                 modelId: "STRING_VALUE", // required
  *               },
@@ -160,6 +187,22 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *               userPreferenceConsolidationOverride: {
  *                 appendToPrompt: "STRING_VALUE", // required
  *                 modelId: "STRING_VALUE", // required
+ *               },
+ *               episodicConsolidationOverride: {
+ *                 appendToPrompt: "STRING_VALUE", // required
+ *                 modelId: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           },
+ *           reflection: { // ModifyReflectionConfiguration Union: only one key present
+ *             episodicReflectionConfiguration: {
+ *               namespaces: "<NamespacesList>", // required
+ *             },
+ *             customReflectionConfiguration: { // CustomReflectionConfigurationInput Union: only one key present
+ *               episodicReflectionOverride: {
+ *                 appendToPrompt: "STRING_VALUE", // required
+ *                 modelId: "STRING_VALUE", // required
+ *                 namespaces: "<NamespacesList>",
  *               },
  *             },
  *           },
@@ -214,7 +257,7 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //         name: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
  * //         configuration: { // StrategyConfiguration
- * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE" || "SELF_MANAGED",
+ * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE" || "SELF_MANAGED" || "EPISODIC_OVERRIDE",
  * //           extraction: { // ExtractionConfiguration Union: only one key present
  * //             customExtractionConfiguration: { // CustomExtractionConfiguration Union: only one key present
  * //               semanticExtractionOverride: { // SemanticExtractionOverride
@@ -222,6 +265,10 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //                 modelId: "STRING_VALUE", // required
  * //               },
  * //               userPreferenceExtractionOverride: { // UserPreferenceExtractionOverride
+ * //                 appendToPrompt: "STRING_VALUE", // required
+ * //                 modelId: "STRING_VALUE", // required
+ * //               },
+ * //               episodicExtractionOverride: { // EpisodicExtractionOverride
  * //                 appendToPrompt: "STRING_VALUE", // required
  * //                 modelId: "STRING_VALUE", // required
  * //               },
@@ -241,6 +288,26 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //                 appendToPrompt: "STRING_VALUE", // required
  * //                 modelId: "STRING_VALUE", // required
  * //               },
+ * //               episodicConsolidationOverride: { // EpisodicConsolidationOverride
+ * //                 appendToPrompt: "STRING_VALUE", // required
+ * //                 modelId: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           },
+ * //           reflection: { // ReflectionConfiguration Union: only one key present
+ * //             customReflectionConfiguration: { // CustomReflectionConfiguration Union: only one key present
+ * //               episodicReflectionOverride: { // EpisodicReflectionOverride
+ * //                 appendToPrompt: "STRING_VALUE", // required
+ * //                 modelId: "STRING_VALUE", // required
+ * //                 namespaces: [ // NamespacesList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //             episodicReflectionConfiguration: { // EpisodicReflectionConfiguration
+ * //               namespaces: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
  * //             },
  * //           },
  * //           selfManagedConfiguration: { // SelfManagedConfiguration
@@ -264,10 +331,8 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //             historicalContextWindowSize: Number("int"), // required
  * //           },
  * //         },
- * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM", // required
- * //         namespaces: [ // NamespacesList // required
- * //           "STRING_VALUE",
- * //         ],
+ * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM" || "EPISODIC", // required
+ * //         namespaces: "<NamespacesList>", // required
  * //         createdAt: new Date("TIMESTAMP"),
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",

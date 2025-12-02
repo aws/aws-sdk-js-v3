@@ -29,6 +29,11 @@ import {
   CreateCodeInterpreterCommandOutput,
 } from "./commands/CreateCodeInterpreterCommand";
 import {
+  CreateEvaluatorCommand,
+  CreateEvaluatorCommandInput,
+  CreateEvaluatorCommandOutput,
+} from "./commands/CreateEvaluatorCommand";
+import {
   CreateGatewayCommand,
   CreateGatewayCommandInput,
   CreateGatewayCommandOutput,
@@ -48,6 +53,21 @@ import {
   CreateOauth2CredentialProviderCommandInput,
   CreateOauth2CredentialProviderCommandOutput,
 } from "./commands/CreateOauth2CredentialProviderCommand";
+import {
+  CreateOnlineEvaluationConfigCommand,
+  CreateOnlineEvaluationConfigCommandInput,
+  CreateOnlineEvaluationConfigCommandOutput,
+} from "./commands/CreateOnlineEvaluationConfigCommand";
+import {
+  CreatePolicyCommand,
+  CreatePolicyCommandInput,
+  CreatePolicyCommandOutput,
+} from "./commands/CreatePolicyCommand";
+import {
+  CreatePolicyEngineCommand,
+  CreatePolicyEngineCommandInput,
+  CreatePolicyEngineCommandOutput,
+} from "./commands/CreatePolicyEngineCommand";
 import {
   CreateWorkloadIdentityCommand,
   CreateWorkloadIdentityCommandInput,
@@ -79,6 +99,11 @@ import {
   DeleteCodeInterpreterCommandOutput,
 } from "./commands/DeleteCodeInterpreterCommand";
 import {
+  DeleteEvaluatorCommand,
+  DeleteEvaluatorCommandInput,
+  DeleteEvaluatorCommandOutput,
+} from "./commands/DeleteEvaluatorCommand";
+import {
   DeleteGatewayCommand,
   DeleteGatewayCommandInput,
   DeleteGatewayCommandOutput,
@@ -98,6 +123,26 @@ import {
   DeleteOauth2CredentialProviderCommandInput,
   DeleteOauth2CredentialProviderCommandOutput,
 } from "./commands/DeleteOauth2CredentialProviderCommand";
+import {
+  DeleteOnlineEvaluationConfigCommand,
+  DeleteOnlineEvaluationConfigCommandInput,
+  DeleteOnlineEvaluationConfigCommandOutput,
+} from "./commands/DeleteOnlineEvaluationConfigCommand";
+import {
+  DeletePolicyCommand,
+  DeletePolicyCommandInput,
+  DeletePolicyCommandOutput,
+} from "./commands/DeletePolicyCommand";
+import {
+  DeletePolicyEngineCommand,
+  DeletePolicyEngineCommandInput,
+  DeletePolicyEngineCommandOutput,
+} from "./commands/DeletePolicyEngineCommand";
+import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteWorkloadIdentityCommand,
   DeleteWorkloadIdentityCommandInput,
@@ -124,6 +169,11 @@ import {
   GetCodeInterpreterCommandInput,
   GetCodeInterpreterCommandOutput,
 } from "./commands/GetCodeInterpreterCommand";
+import {
+  GetEvaluatorCommand,
+  GetEvaluatorCommandInput,
+  GetEvaluatorCommandOutput,
+} from "./commands/GetEvaluatorCommand";
 import { GetGatewayCommand, GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import {
   GetGatewayTargetCommand,
@@ -136,6 +186,27 @@ import {
   GetOauth2CredentialProviderCommandInput,
   GetOauth2CredentialProviderCommandOutput,
 } from "./commands/GetOauth2CredentialProviderCommand";
+import {
+  GetOnlineEvaluationConfigCommand,
+  GetOnlineEvaluationConfigCommandInput,
+  GetOnlineEvaluationConfigCommandOutput,
+} from "./commands/GetOnlineEvaluationConfigCommand";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import {
+  GetPolicyEngineCommand,
+  GetPolicyEngineCommandInput,
+  GetPolicyEngineCommandOutput,
+} from "./commands/GetPolicyEngineCommand";
+import {
+  GetPolicyGenerationCommand,
+  GetPolicyGenerationCommandInput,
+  GetPolicyGenerationCommandOutput,
+} from "./commands/GetPolicyGenerationCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import {
   GetTokenVaultCommand,
   GetTokenVaultCommandInput,
@@ -177,6 +248,11 @@ import {
   ListCodeInterpretersCommandOutput,
 } from "./commands/ListCodeInterpretersCommand";
 import {
+  ListEvaluatorsCommand,
+  ListEvaluatorsCommandInput,
+  ListEvaluatorsCommandOutput,
+} from "./commands/ListEvaluatorsCommand";
+import {
   ListGatewaysCommand,
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
@@ -197,6 +273,31 @@ import {
   ListOauth2CredentialProvidersCommandOutput,
 } from "./commands/ListOauth2CredentialProvidersCommand";
 import {
+  ListOnlineEvaluationConfigsCommand,
+  ListOnlineEvaluationConfigsCommandInput,
+  ListOnlineEvaluationConfigsCommandOutput,
+} from "./commands/ListOnlineEvaluationConfigsCommand";
+import {
+  ListPoliciesCommand,
+  ListPoliciesCommandInput,
+  ListPoliciesCommandOutput,
+} from "./commands/ListPoliciesCommand";
+import {
+  ListPolicyEnginesCommand,
+  ListPolicyEnginesCommandInput,
+  ListPolicyEnginesCommandOutput,
+} from "./commands/ListPolicyEnginesCommand";
+import {
+  ListPolicyGenerationAssetsCommand,
+  ListPolicyGenerationAssetsCommandInput,
+  ListPolicyGenerationAssetsCommandOutput,
+} from "./commands/ListPolicyGenerationAssetsCommand";
+import {
+  ListPolicyGenerationsCommand,
+  ListPolicyGenerationsCommandInput,
+  ListPolicyGenerationsCommandOutput,
+} from "./commands/ListPolicyGenerationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -207,10 +308,20 @@ import {
   ListWorkloadIdentitiesCommandOutput,
 } from "./commands/ListWorkloadIdentitiesCommand";
 import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
   SetTokenVaultCMKCommand,
   SetTokenVaultCMKCommandInput,
   SetTokenVaultCMKCommandOutput,
 } from "./commands/SetTokenVaultCMKCommand";
+import {
+  StartPolicyGenerationCommand,
+  StartPolicyGenerationCommandInput,
+  StartPolicyGenerationCommandOutput,
+} from "./commands/StartPolicyGenerationCommand";
 import {
   SynchronizeGatewayTargetsCommand,
   SynchronizeGatewayTargetsCommandInput,
@@ -238,6 +349,11 @@ import {
   UpdateApiKeyCredentialProviderCommandOutput,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
 import {
+  UpdateEvaluatorCommand,
+  UpdateEvaluatorCommandInput,
+  UpdateEvaluatorCommandOutput,
+} from "./commands/UpdateEvaluatorCommand";
+import {
   UpdateGatewayCommand,
   UpdateGatewayCommandInput,
   UpdateGatewayCommandOutput,
@@ -258,6 +374,21 @@ import {
   UpdateOauth2CredentialProviderCommandOutput,
 } from "./commands/UpdateOauth2CredentialProviderCommand";
 import {
+  UpdateOnlineEvaluationConfigCommand,
+  UpdateOnlineEvaluationConfigCommandInput,
+  UpdateOnlineEvaluationConfigCommandOutput,
+} from "./commands/UpdateOnlineEvaluationConfigCommand";
+import {
+  UpdatePolicyCommand,
+  UpdatePolicyCommandInput,
+  UpdatePolicyCommandOutput,
+} from "./commands/UpdatePolicyCommand";
+import {
+  UpdatePolicyEngineCommand,
+  UpdatePolicyEngineCommandInput,
+  UpdatePolicyEngineCommandOutput,
+} from "./commands/UpdatePolicyEngineCommand";
+import {
   UpdateWorkloadIdentityCommand,
   UpdateWorkloadIdentityCommandInput,
   UpdateWorkloadIdentityCommandOutput,
@@ -269,30 +400,45 @@ const commands = {
   CreateApiKeyCredentialProviderCommand,
   CreateBrowserCommand,
   CreateCodeInterpreterCommand,
+  CreateEvaluatorCommand,
   CreateGatewayCommand,
   CreateGatewayTargetCommand,
   CreateMemoryCommand,
   CreateOauth2CredentialProviderCommand,
+  CreateOnlineEvaluationConfigCommand,
+  CreatePolicyCommand,
+  CreatePolicyEngineCommand,
   CreateWorkloadIdentityCommand,
   DeleteAgentRuntimeCommand,
   DeleteAgentRuntimeEndpointCommand,
   DeleteApiKeyCredentialProviderCommand,
   DeleteBrowserCommand,
   DeleteCodeInterpreterCommand,
+  DeleteEvaluatorCommand,
   DeleteGatewayCommand,
   DeleteGatewayTargetCommand,
   DeleteMemoryCommand,
   DeleteOauth2CredentialProviderCommand,
+  DeleteOnlineEvaluationConfigCommand,
+  DeletePolicyCommand,
+  DeletePolicyEngineCommand,
+  DeleteResourcePolicyCommand,
   DeleteWorkloadIdentityCommand,
   GetAgentRuntimeCommand,
   GetAgentRuntimeEndpointCommand,
   GetApiKeyCredentialProviderCommand,
   GetBrowserCommand,
   GetCodeInterpreterCommand,
+  GetEvaluatorCommand,
   GetGatewayCommand,
   GetGatewayTargetCommand,
   GetMemoryCommand,
   GetOauth2CredentialProviderCommand,
+  GetOnlineEvaluationConfigCommand,
+  GetPolicyCommand,
+  GetPolicyEngineCommand,
+  GetPolicyGenerationCommand,
+  GetResourcePolicyCommand,
   GetTokenVaultCommand,
   GetWorkloadIdentityCommand,
   ListAgentRuntimeEndpointsCommand,
@@ -301,23 +447,35 @@ const commands = {
   ListApiKeyCredentialProvidersCommand,
   ListBrowsersCommand,
   ListCodeInterpretersCommand,
+  ListEvaluatorsCommand,
   ListGatewaysCommand,
   ListGatewayTargetsCommand,
   ListMemoriesCommand,
   ListOauth2CredentialProvidersCommand,
+  ListOnlineEvaluationConfigsCommand,
+  ListPoliciesCommand,
+  ListPolicyEnginesCommand,
+  ListPolicyGenerationAssetsCommand,
+  ListPolicyGenerationsCommand,
   ListTagsForResourceCommand,
   ListWorkloadIdentitiesCommand,
+  PutResourcePolicyCommand,
   SetTokenVaultCMKCommand,
+  StartPolicyGenerationCommand,
   SynchronizeGatewayTargetsCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeEndpointCommand,
   UpdateApiKeyCredentialProviderCommand,
+  UpdateEvaluatorCommand,
   UpdateGatewayCommand,
   UpdateGatewayTargetCommand,
   UpdateMemoryCommand,
   UpdateOauth2CredentialProviderCommand,
+  UpdateOnlineEvaluationConfigCommand,
+  UpdatePolicyCommand,
+  UpdatePolicyEngineCommand,
   UpdateWorkloadIdentityCommand,
 };
 
@@ -402,6 +560,20 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link CreateEvaluatorCommand}
+   */
+  createEvaluator(
+    args: CreateEvaluatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEvaluatorCommandOutput>;
+  createEvaluator(args: CreateEvaluatorCommandInput, cb: (err: any, data?: CreateEvaluatorCommandOutput) => void): void;
+  createEvaluator(
+    args: CreateEvaluatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEvaluatorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateGatewayCommand}
    */
   createGateway(args: CreateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<CreateGatewayCommandOutput>;
@@ -455,6 +627,51 @@ export interface BedrockAgentCoreControl {
     args: CreateOauth2CredentialProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOauth2CredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateOnlineEvaluationConfigCommand}
+   */
+  createOnlineEvaluationConfig(
+    args: CreateOnlineEvaluationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOnlineEvaluationConfigCommandOutput>;
+  createOnlineEvaluationConfig(
+    args: CreateOnlineEvaluationConfigCommandInput,
+    cb: (err: any, data?: CreateOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+  createOnlineEvaluationConfig(
+    args: CreateOnlineEvaluationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePolicyCommand}
+   */
+  createPolicy(args: CreatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<CreatePolicyCommandOutput>;
+  createPolicy(args: CreatePolicyCommandInput, cb: (err: any, data?: CreatePolicyCommandOutput) => void): void;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePolicyEngineCommand}
+   */
+  createPolicyEngine(
+    args: CreatePolicyEngineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePolicyEngineCommandOutput>;
+  createPolicyEngine(
+    args: CreatePolicyEngineCommandInput,
+    cb: (err: any, data?: CreatePolicyEngineCommandOutput) => void
+  ): void;
+  createPolicyEngine(
+    args: CreatePolicyEngineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePolicyEngineCommandOutput) => void
   ): void;
 
   /**
@@ -554,6 +771,20 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link DeleteEvaluatorCommand}
+   */
+  deleteEvaluator(
+    args: DeleteEvaluatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEvaluatorCommandOutput>;
+  deleteEvaluator(args: DeleteEvaluatorCommandInput, cb: (err: any, data?: DeleteEvaluatorCommandOutput) => void): void;
+  deleteEvaluator(
+    args: DeleteEvaluatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEvaluatorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteGatewayCommand}
    */
   deleteGateway(args: DeleteGatewayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGatewayCommandOutput>;
@@ -607,6 +838,68 @@ export interface BedrockAgentCoreControl {
     args: DeleteOauth2CredentialProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOauth2CredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteOnlineEvaluationConfigCommand}
+   */
+  deleteOnlineEvaluationConfig(
+    args: DeleteOnlineEvaluationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOnlineEvaluationConfigCommandOutput>;
+  deleteOnlineEvaluationConfig(
+    args: DeleteOnlineEvaluationConfigCommandInput,
+    cb: (err: any, data?: DeleteOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+  deleteOnlineEvaluationConfig(
+    args: DeleteOnlineEvaluationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePolicyCommand}
+   */
+  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePolicyEngineCommand}
+   */
+  deletePolicyEngine(
+    args: DeletePolicyEngineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyEngineCommandOutput>;
+  deletePolicyEngine(
+    args: DeletePolicyEngineCommandInput,
+    cb: (err: any, data?: DeletePolicyEngineCommandOutput) => void
+  ): void;
+  deletePolicyEngine(
+    args: DeletePolicyEngineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePolicyEngineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -703,6 +996,17 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link GetEvaluatorCommand}
+   */
+  getEvaluator(args: GetEvaluatorCommandInput, options?: __HttpHandlerOptions): Promise<GetEvaluatorCommandOutput>;
+  getEvaluator(args: GetEvaluatorCommandInput, cb: (err: any, data?: GetEvaluatorCommandOutput) => void): void;
+  getEvaluator(
+    args: GetEvaluatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEvaluatorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetGatewayCommand}
    */
   getGateway(args: GetGatewayCommandInput, options?: __HttpHandlerOptions): Promise<GetGatewayCommandOutput>;
@@ -756,6 +1060,82 @@ export interface BedrockAgentCoreControl {
     args: GetOauth2CredentialProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOauth2CredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOnlineEvaluationConfigCommand}
+   */
+  getOnlineEvaluationConfig(
+    args: GetOnlineEvaluationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOnlineEvaluationConfigCommandOutput>;
+  getOnlineEvaluationConfig(
+    args: GetOnlineEvaluationConfigCommandInput,
+    cb: (err: any, data?: GetOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+  getOnlineEvaluationConfig(
+    args: GetOnlineEvaluationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyCommand}
+   */
+  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyEngineCommand}
+   */
+  getPolicyEngine(
+    args: GetPolicyEngineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyEngineCommandOutput>;
+  getPolicyEngine(args: GetPolicyEngineCommandInput, cb: (err: any, data?: GetPolicyEngineCommandOutput) => void): void;
+  getPolicyEngine(
+    args: GetPolicyEngineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyEngineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyGenerationCommand}
+   */
+  getPolicyGeneration(
+    args: GetPolicyGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyGenerationCommandOutput>;
+  getPolicyGeneration(
+    args: GetPolicyGenerationCommandInput,
+    cb: (err: any, data?: GetPolicyGenerationCommandOutput) => void
+  ): void;
+  getPolicyGeneration(
+    args: GetPolicyGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -888,6 +1268,21 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListEvaluatorsCommand}
+   */
+  listEvaluators(): Promise<ListEvaluatorsCommandOutput>;
+  listEvaluators(
+    args: ListEvaluatorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEvaluatorsCommandOutput>;
+  listEvaluators(args: ListEvaluatorsCommandInput, cb: (err: any, data?: ListEvaluatorsCommandOutput) => void): void;
+  listEvaluators(
+    args: ListEvaluatorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEvaluatorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListGatewaysCommand}
    */
   listGateways(): Promise<ListGatewaysCommandOutput>;
@@ -947,6 +1342,87 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListOnlineEvaluationConfigsCommand}
+   */
+  listOnlineEvaluationConfigs(): Promise<ListOnlineEvaluationConfigsCommandOutput>;
+  listOnlineEvaluationConfigs(
+    args: ListOnlineEvaluationConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOnlineEvaluationConfigsCommandOutput>;
+  listOnlineEvaluationConfigs(
+    args: ListOnlineEvaluationConfigsCommandInput,
+    cb: (err: any, data?: ListOnlineEvaluationConfigsCommandOutput) => void
+  ): void;
+  listOnlineEvaluationConfigs(
+    args: ListOnlineEvaluationConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOnlineEvaluationConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   */
+  listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
+  listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicyEnginesCommand}
+   */
+  listPolicyEngines(): Promise<ListPolicyEnginesCommandOutput>;
+  listPolicyEngines(
+    args: ListPolicyEnginesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyEnginesCommandOutput>;
+  listPolicyEngines(
+    args: ListPolicyEnginesCommandInput,
+    cb: (err: any, data?: ListPolicyEnginesCommandOutput) => void
+  ): void;
+  listPolicyEngines(
+    args: ListPolicyEnginesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyEnginesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicyGenerationAssetsCommand}
+   */
+  listPolicyGenerationAssets(
+    args: ListPolicyGenerationAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyGenerationAssetsCommandOutput>;
+  listPolicyGenerationAssets(
+    args: ListPolicyGenerationAssetsCommandInput,
+    cb: (err: any, data?: ListPolicyGenerationAssetsCommandOutput) => void
+  ): void;
+  listPolicyGenerationAssets(
+    args: ListPolicyGenerationAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyGenerationAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicyGenerationsCommand}
+   */
+  listPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyGenerationsCommandOutput>;
+  listPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    cb: (err: any, data?: ListPolicyGenerationsCommandOutput) => void
+  ): void;
+  listPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyGenerationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -982,6 +1458,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SetTokenVaultCMKCommand}
    */
   setTokenVaultCMK(
@@ -996,6 +1489,23 @@ export interface BedrockAgentCoreControl {
     args: SetTokenVaultCMKCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetTokenVaultCMKCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartPolicyGenerationCommand}
+   */
+  startPolicyGeneration(
+    args: StartPolicyGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPolicyGenerationCommandOutput>;
+  startPolicyGeneration(
+    args: StartPolicyGenerationCommandInput,
+    cb: (err: any, data?: StartPolicyGenerationCommandOutput) => void
+  ): void;
+  startPolicyGeneration(
+    args: StartPolicyGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartPolicyGenerationCommandOutput) => void
   ): void;
 
   /**
@@ -1089,6 +1599,20 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateEvaluatorCommand}
+   */
+  updateEvaluator(
+    args: UpdateEvaluatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEvaluatorCommandOutput>;
+  updateEvaluator(args: UpdateEvaluatorCommandInput, cb: (err: any, data?: UpdateEvaluatorCommandOutput) => void): void;
+  updateEvaluator(
+    args: UpdateEvaluatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEvaluatorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateGatewayCommand}
    */
   updateGateway(args: UpdateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGatewayCommandOutput>;
@@ -1142,6 +1666,51 @@ export interface BedrockAgentCoreControl {
     args: UpdateOauth2CredentialProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOauth2CredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOnlineEvaluationConfigCommand}
+   */
+  updateOnlineEvaluationConfig(
+    args: UpdateOnlineEvaluationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOnlineEvaluationConfigCommandOutput>;
+  updateOnlineEvaluationConfig(
+    args: UpdateOnlineEvaluationConfigCommandInput,
+    cb: (err: any, data?: UpdateOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+  updateOnlineEvaluationConfig(
+    args: UpdateOnlineEvaluationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePolicyCommand}
+   */
+  updatePolicy(args: UpdatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePolicyCommandOutput>;
+  updatePolicy(args: UpdatePolicyCommandInput, cb: (err: any, data?: UpdatePolicyCommandOutput) => void): void;
+  updatePolicy(
+    args: UpdatePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePolicyEngineCommand}
+   */
+  updatePolicyEngine(
+    args: UpdatePolicyEngineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePolicyEngineCommandOutput>;
+  updatePolicyEngine(
+    args: UpdatePolicyEngineCommandInput,
+    cb: (err: any, data?: UpdatePolicyEngineCommandOutput) => void
+  ): void;
+  updatePolicyEngine(
+    args: UpdatePolicyEngineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePolicyEngineCommandOutput) => void
   ): void;
 
   /**

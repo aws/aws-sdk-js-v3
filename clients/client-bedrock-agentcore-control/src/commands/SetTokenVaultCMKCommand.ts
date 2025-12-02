@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetTokenVaultCMKRequest, SetTokenVaultCMKResponse } from "../models/models_0";
+import { SetTokenVaultCMKRequest, SetTokenVaultCMKResponse } from "../models/models_1";
 import { SetTokenVaultCMK } from "../schemas/schemas_0";
 
 /**

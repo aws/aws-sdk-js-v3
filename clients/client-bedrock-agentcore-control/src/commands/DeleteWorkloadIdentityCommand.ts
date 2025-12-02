@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteWorkloadIdentityRequest, DeleteWorkloadIdentityResponse } from "../models/models_0";
+import { DeleteWorkloadIdentityRequest, DeleteWorkloadIdentityResponse } from "../models/models_1";
 import { DeleteWorkloadIdentity } from "../schemas/schemas_0";
 
 /**

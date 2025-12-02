@@ -65,6 +65,24 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       allowedClients: [ // AllowedClientsList
  *         "STRING_VALUE",
  *       ],
+ *       allowedScopes: [ // AllowedScopesType
+ *         "STRING_VALUE",
+ *       ],
+ *       customClaims: [ // CustomClaimValidationsType
+ *         { // CustomClaimValidationType
+ *           inboundTokenClaimName: "STRING_VALUE", // required
+ *           inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ *           authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ *             claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ *               matchValueString: "STRING_VALUE",
+ *               matchValueStringList: [ // MatchValueStringList
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",
@@ -83,6 +101,10 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       },
  *     },
  *   ],
+ *   policyEngineConfiguration: { // GatewayPolicyEngineConfiguration
+ *     arn: "STRING_VALUE", // required
+ *     mode: "LOG_ONLY" || "ENFORCE", // required
+ *   },
  *   exceptionLevel: "DEBUG",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
@@ -123,6 +145,24 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //       allowedClients: [ // AllowedClientsList
  * //         "STRING_VALUE",
  * //       ],
+ * //       allowedScopes: [ // AllowedScopesType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       customClaims: [ // CustomClaimValidationsType
+ * //         { // CustomClaimValidationType
+ * //           inboundTokenClaimName: "STRING_VALUE", // required
+ * //           inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ * //           authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ * //             claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ * //               matchValueString: "STRING_VALUE",
+ * //               matchValueStringList: [ // MatchValueStringList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   kmsKeyArn: "STRING_VALUE",
@@ -141,6 +181,10 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //       },
  * //     },
  * //   ],
+ * //   policyEngineConfiguration: { // GatewayPolicyEngineConfiguration
+ * //     arn: "STRING_VALUE", // required
+ * //     mode: "LOG_ONLY" || "ENFORCE", // required
+ * //   },
  * //   workloadIdentityDetails: { // WorkloadIdentityDetails
  * //     workloadIdentityArn: "STRING_VALUE", // required
  * //   },

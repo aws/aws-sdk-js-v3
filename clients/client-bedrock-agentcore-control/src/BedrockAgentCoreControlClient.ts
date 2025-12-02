@@ -71,6 +71,7 @@ import {
   CreateCodeInterpreterCommandInput,
   CreateCodeInterpreterCommandOutput,
 } from "./commands/CreateCodeInterpreterCommand";
+import { CreateEvaluatorCommandInput, CreateEvaluatorCommandOutput } from "./commands/CreateEvaluatorCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
 import {
   CreateGatewayTargetCommandInput,
@@ -81,6 +82,12 @@ import {
   CreateOauth2CredentialProviderCommandInput,
   CreateOauth2CredentialProviderCommandOutput,
 } from "./commands/CreateOauth2CredentialProviderCommand";
+import {
+  CreateOnlineEvaluationConfigCommandInput,
+  CreateOnlineEvaluationConfigCommandOutput,
+} from "./commands/CreateOnlineEvaluationConfigCommand";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
+import { CreatePolicyEngineCommandInput, CreatePolicyEngineCommandOutput } from "./commands/CreatePolicyEngineCommand";
 import {
   CreateWorkloadIdentityCommandInput,
   CreateWorkloadIdentityCommandOutput,
@@ -99,6 +106,7 @@ import {
   DeleteCodeInterpreterCommandInput,
   DeleteCodeInterpreterCommandOutput,
 } from "./commands/DeleteCodeInterpreterCommand";
+import { DeleteEvaluatorCommandInput, DeleteEvaluatorCommandOutput } from "./commands/DeleteEvaluatorCommand";
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
 import {
   DeleteGatewayTargetCommandInput,
@@ -109,6 +117,16 @@ import {
   DeleteOauth2CredentialProviderCommandInput,
   DeleteOauth2CredentialProviderCommandOutput,
 } from "./commands/DeleteOauth2CredentialProviderCommand";
+import {
+  DeleteOnlineEvaluationConfigCommandInput,
+  DeleteOnlineEvaluationConfigCommandOutput,
+} from "./commands/DeleteOnlineEvaluationConfigCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import { DeletePolicyEngineCommandInput, DeletePolicyEngineCommandOutput } from "./commands/DeletePolicyEngineCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteWorkloadIdentityCommandInput,
   DeleteWorkloadIdentityCommandOutput,
@@ -124,6 +142,7 @@ import {
 } from "./commands/GetApiKeyCredentialProviderCommand";
 import { GetBrowserCommandInput, GetBrowserCommandOutput } from "./commands/GetBrowserCommand";
 import { GetCodeInterpreterCommandInput, GetCodeInterpreterCommandOutput } from "./commands/GetCodeInterpreterCommand";
+import { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
 import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import { GetGatewayTargetCommandInput, GetGatewayTargetCommandOutput } from "./commands/GetGatewayTargetCommand";
 import { GetMemoryCommandInput, GetMemoryCommandOutput } from "./commands/GetMemoryCommand";
@@ -131,6 +150,17 @@ import {
   GetOauth2CredentialProviderCommandInput,
   GetOauth2CredentialProviderCommandOutput,
 } from "./commands/GetOauth2CredentialProviderCommand";
+import {
+  GetOnlineEvaluationConfigCommandInput,
+  GetOnlineEvaluationConfigCommandOutput,
+} from "./commands/GetOnlineEvaluationConfigCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { GetPolicyEngineCommandInput, GetPolicyEngineCommandOutput } from "./commands/GetPolicyEngineCommand";
+import {
+  GetPolicyGenerationCommandInput,
+  GetPolicyGenerationCommandOutput,
+} from "./commands/GetPolicyGenerationCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { GetTokenVaultCommandInput, GetTokenVaultCommandOutput } from "./commands/GetTokenVaultCommand";
 import {
   GetWorkloadIdentityCommandInput,
@@ -154,6 +184,7 @@ import {
   ListCodeInterpretersCommandInput,
   ListCodeInterpretersCommandOutput,
 } from "./commands/ListCodeInterpretersCommand";
+import { ListEvaluatorsCommandInput, ListEvaluatorsCommandOutput } from "./commands/ListEvaluatorsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import { ListGatewayTargetsCommandInput, ListGatewayTargetsCommandOutput } from "./commands/ListGatewayTargetsCommand";
 import { ListMemoriesCommandInput, ListMemoriesCommandOutput } from "./commands/ListMemoriesCommand";
@@ -162,6 +193,20 @@ import {
   ListOauth2CredentialProvidersCommandOutput,
 } from "./commands/ListOauth2CredentialProvidersCommand";
 import {
+  ListOnlineEvaluationConfigsCommandInput,
+  ListOnlineEvaluationConfigsCommandOutput,
+} from "./commands/ListOnlineEvaluationConfigsCommand";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import { ListPolicyEnginesCommandInput, ListPolicyEnginesCommandOutput } from "./commands/ListPolicyEnginesCommand";
+import {
+  ListPolicyGenerationAssetsCommandInput,
+  ListPolicyGenerationAssetsCommandOutput,
+} from "./commands/ListPolicyGenerationAssetsCommand";
+import {
+  ListPolicyGenerationsCommandInput,
+  ListPolicyGenerationsCommandOutput,
+} from "./commands/ListPolicyGenerationsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -169,7 +214,12 @@ import {
   ListWorkloadIdentitiesCommandInput,
   ListWorkloadIdentitiesCommandOutput,
 } from "./commands/ListWorkloadIdentitiesCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "./commands/SetTokenVaultCMKCommand";
+import {
+  StartPolicyGenerationCommandInput,
+  StartPolicyGenerationCommandOutput,
+} from "./commands/StartPolicyGenerationCommand";
 import {
   SynchronizeGatewayTargetsCommandInput,
   SynchronizeGatewayTargetsCommandOutput,
@@ -185,6 +235,7 @@ import {
   UpdateApiKeyCredentialProviderCommandInput,
   UpdateApiKeyCredentialProviderCommandOutput,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
+import { UpdateEvaluatorCommandInput, UpdateEvaluatorCommandOutput } from "./commands/UpdateEvaluatorCommand";
 import { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
 import {
   UpdateGatewayTargetCommandInput,
@@ -195,6 +246,12 @@ import {
   UpdateOauth2CredentialProviderCommandInput,
   UpdateOauth2CredentialProviderCommandOutput,
 } from "./commands/UpdateOauth2CredentialProviderCommand";
+import {
+  UpdateOnlineEvaluationConfigCommandInput,
+  UpdateOnlineEvaluationConfigCommandOutput,
+} from "./commands/UpdateOnlineEvaluationConfigCommand";
+import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
+import { UpdatePolicyEngineCommandInput, UpdatePolicyEngineCommandOutput } from "./commands/UpdatePolicyEngineCommand";
 import {
   UpdateWorkloadIdentityCommandInput,
   UpdateWorkloadIdentityCommandOutput,
@@ -219,30 +276,45 @@ export type ServiceInputTypes =
   | CreateApiKeyCredentialProviderCommandInput
   | CreateBrowserCommandInput
   | CreateCodeInterpreterCommandInput
+  | CreateEvaluatorCommandInput
   | CreateGatewayCommandInput
   | CreateGatewayTargetCommandInput
   | CreateMemoryCommandInput
   | CreateOauth2CredentialProviderCommandInput
+  | CreateOnlineEvaluationConfigCommandInput
+  | CreatePolicyCommandInput
+  | CreatePolicyEngineCommandInput
   | CreateWorkloadIdentityCommandInput
   | DeleteAgentRuntimeCommandInput
   | DeleteAgentRuntimeEndpointCommandInput
   | DeleteApiKeyCredentialProviderCommandInput
   | DeleteBrowserCommandInput
   | DeleteCodeInterpreterCommandInput
+  | DeleteEvaluatorCommandInput
   | DeleteGatewayCommandInput
   | DeleteGatewayTargetCommandInput
   | DeleteMemoryCommandInput
   | DeleteOauth2CredentialProviderCommandInput
+  | DeleteOnlineEvaluationConfigCommandInput
+  | DeletePolicyCommandInput
+  | DeletePolicyEngineCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteWorkloadIdentityCommandInput
   | GetAgentRuntimeCommandInput
   | GetAgentRuntimeEndpointCommandInput
   | GetApiKeyCredentialProviderCommandInput
   | GetBrowserCommandInput
   | GetCodeInterpreterCommandInput
+  | GetEvaluatorCommandInput
   | GetGatewayCommandInput
   | GetGatewayTargetCommandInput
   | GetMemoryCommandInput
   | GetOauth2CredentialProviderCommandInput
+  | GetOnlineEvaluationConfigCommandInput
+  | GetPolicyCommandInput
+  | GetPolicyEngineCommandInput
+  | GetPolicyGenerationCommandInput
+  | GetResourcePolicyCommandInput
   | GetTokenVaultCommandInput
   | GetWorkloadIdentityCommandInput
   | ListAgentRuntimeEndpointsCommandInput
@@ -251,23 +323,35 @@ export type ServiceInputTypes =
   | ListApiKeyCredentialProvidersCommandInput
   | ListBrowsersCommandInput
   | ListCodeInterpretersCommandInput
+  | ListEvaluatorsCommandInput
   | ListGatewayTargetsCommandInput
   | ListGatewaysCommandInput
   | ListMemoriesCommandInput
   | ListOauth2CredentialProvidersCommandInput
+  | ListOnlineEvaluationConfigsCommandInput
+  | ListPoliciesCommandInput
+  | ListPolicyEnginesCommandInput
+  | ListPolicyGenerationAssetsCommandInput
+  | ListPolicyGenerationsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkloadIdentitiesCommandInput
+  | PutResourcePolicyCommandInput
   | SetTokenVaultCMKCommandInput
+  | StartPolicyGenerationCommandInput
   | SynchronizeGatewayTargetsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentRuntimeCommandInput
   | UpdateAgentRuntimeEndpointCommandInput
   | UpdateApiKeyCredentialProviderCommandInput
+  | UpdateEvaluatorCommandInput
   | UpdateGatewayCommandInput
   | UpdateGatewayTargetCommandInput
   | UpdateMemoryCommandInput
   | UpdateOauth2CredentialProviderCommandInput
+  | UpdateOnlineEvaluationConfigCommandInput
+  | UpdatePolicyCommandInput
+  | UpdatePolicyEngineCommandInput
   | UpdateWorkloadIdentityCommandInput;
 
 /**
@@ -279,30 +363,45 @@ export type ServiceOutputTypes =
   | CreateApiKeyCredentialProviderCommandOutput
   | CreateBrowserCommandOutput
   | CreateCodeInterpreterCommandOutput
+  | CreateEvaluatorCommandOutput
   | CreateGatewayCommandOutput
   | CreateGatewayTargetCommandOutput
   | CreateMemoryCommandOutput
   | CreateOauth2CredentialProviderCommandOutput
+  | CreateOnlineEvaluationConfigCommandOutput
+  | CreatePolicyCommandOutput
+  | CreatePolicyEngineCommandOutput
   | CreateWorkloadIdentityCommandOutput
   | DeleteAgentRuntimeCommandOutput
   | DeleteAgentRuntimeEndpointCommandOutput
   | DeleteApiKeyCredentialProviderCommandOutput
   | DeleteBrowserCommandOutput
   | DeleteCodeInterpreterCommandOutput
+  | DeleteEvaluatorCommandOutput
   | DeleteGatewayCommandOutput
   | DeleteGatewayTargetCommandOutput
   | DeleteMemoryCommandOutput
   | DeleteOauth2CredentialProviderCommandOutput
+  | DeleteOnlineEvaluationConfigCommandOutput
+  | DeletePolicyCommandOutput
+  | DeletePolicyEngineCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteWorkloadIdentityCommandOutput
   | GetAgentRuntimeCommandOutput
   | GetAgentRuntimeEndpointCommandOutput
   | GetApiKeyCredentialProviderCommandOutput
   | GetBrowserCommandOutput
   | GetCodeInterpreterCommandOutput
+  | GetEvaluatorCommandOutput
   | GetGatewayCommandOutput
   | GetGatewayTargetCommandOutput
   | GetMemoryCommandOutput
   | GetOauth2CredentialProviderCommandOutput
+  | GetOnlineEvaluationConfigCommandOutput
+  | GetPolicyCommandOutput
+  | GetPolicyEngineCommandOutput
+  | GetPolicyGenerationCommandOutput
+  | GetResourcePolicyCommandOutput
   | GetTokenVaultCommandOutput
   | GetWorkloadIdentityCommandOutput
   | ListAgentRuntimeEndpointsCommandOutput
@@ -311,23 +410,35 @@ export type ServiceOutputTypes =
   | ListApiKeyCredentialProvidersCommandOutput
   | ListBrowsersCommandOutput
   | ListCodeInterpretersCommandOutput
+  | ListEvaluatorsCommandOutput
   | ListGatewayTargetsCommandOutput
   | ListGatewaysCommandOutput
   | ListMemoriesCommandOutput
   | ListOauth2CredentialProvidersCommandOutput
+  | ListOnlineEvaluationConfigsCommandOutput
+  | ListPoliciesCommandOutput
+  | ListPolicyEnginesCommandOutput
+  | ListPolicyGenerationAssetsCommandOutput
+  | ListPolicyGenerationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkloadIdentitiesCommandOutput
+  | PutResourcePolicyCommandOutput
   | SetTokenVaultCMKCommandOutput
+  | StartPolicyGenerationCommandOutput
   | SynchronizeGatewayTargetsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentRuntimeCommandOutput
   | UpdateAgentRuntimeEndpointCommandOutput
   | UpdateApiKeyCredentialProviderCommandOutput
+  | UpdateEvaluatorCommandOutput
   | UpdateGatewayCommandOutput
   | UpdateGatewayTargetCommandOutput
   | UpdateMemoryCommandOutput
   | UpdateOauth2CredentialProviderCommandOutput
+  | UpdateOnlineEvaluationConfigCommandOutput
+  | UpdatePolicyCommandOutput
+  | UpdatePolicyEngineCommandOutput
   | UpdateWorkloadIdentityCommandOutput;
 
 /**
