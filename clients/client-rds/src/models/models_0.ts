@@ -182,6 +182,110 @@ export interface AccountAttributesMessage {
 }
 
 /**
+ * <p>Contains details about an additional storage volume for a DB instance. RDS support
+ *             additional storage volumes for RDS for Oracle and RDS for SQL Server.</p>
+ * @public
+ */
+export interface AdditionalStorageVolume {
+  /**
+   * <p>The name of the additional storage volume.</p>
+   *          <p>Valid Values: <code>RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4</code>
+   *          </p>
+   * @public
+   */
+  VolumeName: string | undefined;
+
+  /**
+   * <p>The amount of storage allocated for the additional storage volume, in gibibytes (GiB).
+   *             The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).</p>
+   * @public
+   */
+  AllocatedStorage?: number | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) provisioned for the additional storage
+   *             volume.</p>
+   * @public
+   */
+  IOPS?: number | undefined;
+
+  /**
+   * <p>The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of
+   *             the additional storage volume.</p>
+   * @public
+   */
+  MaxAllocatedStorage?: number | undefined;
+
+  /**
+   * <p>The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (<code>gp3</code>) storage type.</p>
+   * @public
+   */
+  StorageThroughput?: number | undefined;
+
+  /**
+   * <p>The storage type for the additional storage volume.</p>
+   *          <p>Valid Values: <code>GP3 | IO2</code>
+   *          </p>
+   * @public
+   */
+  StorageType?: string | undefined;
+}
+
+/**
+ * <p>Contains information about an additional storage volume for a DB instance.</p>
+ * @public
+ */
+export interface AdditionalStorageVolumeOutput {
+  /**
+   * <p>The name of the additional storage volume.</p>
+   * @public
+   */
+  VolumeName?: string | undefined;
+
+  /**
+   * <p>The status of the additional storage volume.</p>
+   *          <p>Valid Values: <code>ACTIVE | CREATING | DELETING | MODIFYING | NOT-IN-USE |
+   *                 STORAGE-OPTIMIZATION | VOLUME-FULL</code>
+   *          </p>
+   * @public
+   */
+  StorageVolumeStatus?: string | undefined;
+
+  /**
+   * <p>The amount of storage allocated for the additional storage volume, in gibibytes (GiB).
+   *             The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).</p>
+   * @public
+   */
+  AllocatedStorage?: number | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) provisioned for the additional storage volume.</p>
+   * @public
+   */
+  IOPS?: number | undefined;
+
+  /**
+   * <p>The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.</p>
+   * @public
+   */
+  MaxAllocatedStorage?: number | undefined;
+
+  /**
+   * <p>The storage throughput value for the additional storage volume, in mebibytes per second (MiBps).</p>
+   * @public
+   */
+  StorageThroughput?: number | undefined;
+
+  /**
+   * <p>The storage type for the additional storage volume.</p>
+   *          <p>Valid Values: <code>GP3 | IO2</code>
+   *          </p>
+   * @public
+   */
+  StorageType?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface AddRoleToDBClusterMessage {
@@ -1867,17 +1971,19 @@ export interface CopyDBSnapshotMessage {
  *             non-null values only if the following conditions are met:</p>
  *          <ul>
  *             <li>
- *                <p>You are accessing an Oracle DB instance.</p>
+ *                <p>You are accessing an Oracle or SQL Server DB instance.</p>
  *             </li>
  *             <li>
- *                <p>Your Oracle DB instance class supports configuring the number of CPU cores and threads per core.</p>
+ *                <p>Your Oracle or SQL Server DB instance class supports configuring the number of CPU cores and threads per core.</p>
  *             </li>
  *             <li>
  *                <p>The current number CPU cores and threads is set to a non-default value.</p>
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">
- *             Configuring the processor for a DB instance class in RDS for Oracle</a> in the <i>Amazon RDS User Guide.
+ *             Configuring the processor for a DB instance class in RDS for Oracle</a>, <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.OptimizeCPU.html">
+ *                 Optimizing your RDS for SQL Server CPU</a>, and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance classes</a>
+ *             in the <i>Amazon RDS User Guide.
  *             </i>
  *          </p>
  * @public
@@ -2144,6 +2250,13 @@ export interface DBSnapshot {
    * @public
    */
   SnapshotAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The additional storage volumes associated with the DB snapshot. RDS supports
+   *             additional storage volumes for RDS for Oracle and RDS for SQL Server.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -2837,7 +2950,8 @@ export interface CreateBlueGreenDeploymentResponse {
  */
 export interface CreateCustomDBEngineVersionMessage {
   /**
-   * <p>The database engine. RDS Custom for Oracle supports the following values:</p>
+   * <p>The database engine.</p>
+   *          <p>RDS Custom for Oracle supports the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2860,15 +2974,39 @@ export interface CreateCustomDBEngineVersionMessage {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>RDS Custom for SQL Server supports the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ccustom-sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-dev</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>RDS for SQL Server supports only <code>sqlserver-dev-ee</code>.</p>
    * @public
    */
   Engine: string | undefined;
 
   /**
-   * <p>The name of your CEV. The name format is 19.<i>customized_string</i>.
-   *             For example, a valid CEV name is <code>19.my_cev1</code>. This setting is required for RDS
-   *             Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code>
-   *             and <code>EngineVersion</code> is unique per customer per Region.</p>
+   * <p>The name of your custom engine version (CEV).</p>
+   *          <p>For RDS Custom for Oracle, the name format is <code>19.*customized_string*</code>. For example, a valid CEV name is <code>19.my_cev1</code>.</p>
+   *          <p>For RDS for SQL Server and RDS Custom for SQL Server, the name format is <code>major engine_version*.*minor_engine_version*.*customized_string*</code>. For example, a valid CEV name is <code>16.00.4215.2.my_cev1</code>.</p>
+   *          <p>The CEV name is unique per customer per Amazon Web Services Regions.</p>
    * @public
    */
   EngineVersion: string | undefined;
@@ -2975,6 +3113,12 @@ export interface CreateCustomDBEngineVersionMessage {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The database installation files (ISO and EXE) uploaded to Amazon S3 for your database engine version to import to Amazon RDS.</p>
+   * @public
+   */
+  DatabaseInstallationFiles?: string[] | undefined;
 }
 
 /**
@@ -3393,6 +3537,18 @@ export interface DBEngineVersion {
    * @public
    */
   ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
+
+  /**
+   * <p>The database installation files (ISO and EXE) uploaded to Amazon S3 for your database engine version to import to Amazon RDS. Required for <code>sqlserver-dev-ee</code>.</p>
+   * @public
+   */
+  DatabaseInstallationFiles?: string[] | undefined;
+
+  /**
+   * <p>The reason that the custom engine version creation for <code>sqlserver-dev-ee</code> failed with an <code>incompatible-installation-media</code> status.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -6298,6 +6454,11 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>sqlserver-dev-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>sqlserver-ee</code>
    *                </p>
    *             </li>
@@ -7325,6 +7486,15 @@ export interface CreateDBInstanceMessage {
    * @public
    */
   MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
+
+  /**
+   * <p>A list of additional storage volumes to create for the DB instance. You can create up
+   *             to three additional storage volumes using the names <code>rdsdbdata2</code>,
+   *                 <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>. Additional storage volumes are
+   *             supported for RDS for Oracle and RDS for SQL Server DB instances only.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -7816,6 +7986,12 @@ export interface PendingModifiedValues {
    * @public
    */
   Engine?: string | undefined;
+
+  /**
+   * <p>The additional storage volume modifications that are pending for the DB instance.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -8542,6 +8718,20 @@ export interface DBInstance {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>The additional storage volumes associated with the DB instance. RDS supports
+   *             additional storage volumes for RDS for Oracle and RDS for SQL Server.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolumeOutput[] | undefined;
+
+  /**
+   * <p>The detailed status information for storage volumes associated with the DB instance.
+   *             This information helps identify which specific volume is causing the instance to be in a storage-full state.</p>
+   * @public
+   */
+  StorageVolumeStatus?: string | undefined;
 }
 
 /**
@@ -9287,6 +9477,15 @@ export interface CreateDBInstanceReadReplicaMessage {
    * @public
    */
   CACertificateIdentifier?: string | undefined;
+
+  /**
+   * <p>A list of additional storage volumes to create for the DB instance. You can create up
+   *             to three additional storage volumes using the names <code>rdsdbdata2</code>,
+   *                 <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>. Additional storage volumes are
+   *             supported for RDS for Oracle and RDS for SQL Server DB instances only.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -11455,7 +11654,8 @@ export interface DeleteBlueGreenDeploymentResponse {
  */
 export interface DeleteCustomDBEngineVersionMessage {
   /**
-   * <p>The database engine. RDS Custom for Oracle supports the following values:</p>
+   * <p>The database engine.</p>
+   *          <p>RDS Custom for Oracle supports the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -11478,6 +11678,30 @@ export interface DeleteCustomDBEngineVersionMessage {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>RDS Custom for SQL Server supports the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ccustom-sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-dev</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>RDS for SQL Server supports only <code>sqlserver-dev-ee</code>.</p>
    * @public
    */
   Engine: string | undefined;
@@ -12002,7 +12226,7 @@ export interface DBInstanceAutomatedBackup {
   RestoreWindow?: RestoreWindow | undefined;
 
   /**
-   * <p>The allocated storage size for the the automated backup in gibibytes (GiB).</p>
+   * <p>The allocated storage size for the automated backup in gibibytes (GiB).</p>
    * @public
    */
   AllocatedStorage?: number | undefined;
@@ -12181,6 +12405,14 @@ export interface DBInstanceAutomatedBackup {
    * @public
    */
   DedicatedLogVolume?: boolean | undefined;
+
+  /**
+   * <p>The additional storage volumes associated with the automated backup.</p>
+   *          <p>Valid Values: <code>GP3 | IO2</code>
+   *          </p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -18048,6 +18280,86 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 }
 
 /**
+ * <p>Contains the available options for additional storage volumes for a DB instance class.</p>
+ * @public
+ */
+export interface AvailableAdditionalStorageVolumesOption {
+  /**
+   * <p>Indicates whether the additional storage volume supports storage autoscaling.</p>
+   * @public
+   */
+  SupportsStorageAutoscaling?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the additional storage volume supports configurable storage throughput.</p>
+   * @public
+   */
+  SupportsStorageThroughput?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the additional storage volume supports provisioned IOPS.</p>
+   * @public
+   */
+  SupportsIops?: boolean | undefined;
+
+  /**
+   * <p>The storage type for the additional storage volume.</p>
+   *          <p>Valid Values: <code>GP3 | IO2</code>
+   *          </p>
+   * @public
+   */
+  StorageType?: string | undefined;
+
+  /**
+   * <p>The minimum amount of storage that you can allocate for the additional storage volume, in gibibytes (GiB).</p>
+   * @public
+   */
+  MinStorageSize?: number | undefined;
+
+  /**
+   * <p>The maximum amount of storage that you can allocate for the additional storage volume, in gibibytes (GiB).</p>
+   * @public
+   */
+  MaxStorageSize?: number | undefined;
+
+  /**
+   * <p>The minimum number of I/O operations per second (IOPS) that the additional storage volume supports.</p>
+   * @public
+   */
+  MinIops?: number | undefined;
+
+  /**
+   * <p>The maximum number of I/O operations per second (IOPS) that the additional storage volume supports.</p>
+   * @public
+   */
+  MaxIops?: number | undefined;
+
+  /**
+   * <p>The minimum ratio of I/O operations per second (IOPS) to gibibytes (GiB) of storage for the additional storage volume.</p>
+   * @public
+   */
+  MinIopsPerGib?: number | undefined;
+
+  /**
+   * <p>The maximum ratio of I/O operations per second (IOPS) to gibibytes (GiB) of storage for the additional storage volume.</p>
+   * @public
+   */
+  MaxIopsPerGib?: number | undefined;
+
+  /**
+   * <p>The minimum storage throughput that the additional storage volume supports, in mebibytes per second (MiBps).</p>
+   * @public
+   */
+  MinStorageThroughput?: number | undefined;
+
+  /**
+   * <p>The maximum storage throughput that the additional storage volume supports, in mebibytes per second (MiBps).</p>
+   * @public
+   */
+  MaxStorageThroughput?: number | undefined;
+}
+
+/**
  * <p>Contains the available processor feature information for the DB instance class of a DB instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">Configuring the
  *                 Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide.
@@ -18318,6 +18630,18 @@ export interface OrderableDBInstanceOption {
    * @public
    */
   SupportsHttpEndpoint?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the DB instance class supports additional storage volumes.</p>
+   * @public
+   */
+  SupportsAdditionalStorageVolumes?: boolean | undefined;
+
+  /**
+   * <p>The available options for additional storage volumes for the DB instance class.</p>
+   * @public
+   */
+  AvailableAdditionalStorageVolumesOptions?: AvailableAdditionalStorageVolumesOption[] | undefined;
 }
 
 /**
@@ -18991,64 +19315,4 @@ export interface TenantDatabasesMessage {
    * @public
    */
   TenantDatabases?: TenantDatabase[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeValidDBInstanceModificationsMessage {
-  /**
-   * <p>The customer identifier or the ARN of your DB instance.</p>
-   * @public
-   */
-  DBInstanceIdentifier: string | undefined;
-}
-
-/**
- * <p>A range of double values.</p>
- * @public
- */
-export interface DoubleRange {
-  /**
-   * <p>The minimum value in the range.</p>
-   * @public
-   */
-  From?: number | undefined;
-
-  /**
-   * <p>The maximum value in the range.</p>
-   * @public
-   */
-  To?: number | undefined;
-}
-
-/**
- * <p>A range of integer values.</p>
- * @public
- */
-export interface Range {
-  /**
-   * <p>The minimum value in the range.</p>
-   * @public
-   */
-  From?: number | undefined;
-
-  /**
-   * <p>The maximum value in the range.</p>
-   * @public
-   */
-  To?: number | undefined;
-
-  /**
-   * <p>The step value for the range.
-   *             For example, if you have a range of 5,000 to 10,000,
-   *             with a step value of 1,000,
-   *             the valid values start at 5,000 and step up by 1,000.
-   *             Even though 7,500 is within the range,
-   *             it isn't a valid value for the range.
-   *             The valid values are 5,000, 6,000, 7,000, 8,000...</p>
-   * @public
-   */
-  Step?: number | undefined;
 }

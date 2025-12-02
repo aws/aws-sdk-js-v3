@@ -53,6 +53,9 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   DatabaseInstallationFiles: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);
@@ -145,6 +148,10 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     MinCapacity: Number("double"),
  * //     MaxCapacity: Number("double"),
  * //   },
+ * //   DatabaseInstallationFiles: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

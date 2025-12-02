@@ -13,6 +13,7 @@ import {
 } from "./enums";
 
 import {
+  AdditionalStorageVolume,
   AvailableProcessorFeature,
   BlueGreenDeployment,
   Certificate,
@@ -29,7 +30,6 @@ import {
   DBSnapshot,
   DBSnapshotAttributesResult,
   DBSubnetGroup,
-  DoubleRange,
   EventSubscription,
   Filter,
   GlobalCluster,
@@ -37,7 +37,6 @@ import {
   OptionSetting,
   Parameter,
   ProcessorFeature,
-  Range,
   RdsCustomClusterConfiguration,
   ReservedDBInstance,
   ScalingConfiguration,
@@ -46,6 +45,66 @@ import {
   TenantDatabase,
   UserAuthConfig,
 } from "./models_0";
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeValidDBInstanceModificationsMessage {
+  /**
+   * <p>The customer identifier or the ARN of your DB instance.</p>
+   * @public
+   */
+  DBInstanceIdentifier: string | undefined;
+}
+
+/**
+ * <p>A range of double values.</p>
+ * @public
+ */
+export interface DoubleRange {
+  /**
+   * <p>The minimum value in the range.</p>
+   * @public
+   */
+  From?: number | undefined;
+
+  /**
+   * <p>The maximum value in the range.</p>
+   * @public
+   */
+  To?: number | undefined;
+}
+
+/**
+ * <p>A range of integer values.</p>
+ * @public
+ */
+export interface Range {
+  /**
+   * <p>The minimum value in the range.</p>
+   * @public
+   */
+  From?: number | undefined;
+
+  /**
+   * <p>The maximum value in the range.</p>
+   * @public
+   */
+  To?: number | undefined;
+
+  /**
+   * <p>The step value for the range.
+   *             For example, if you have a range of 5,000 to 10,000,
+   *             with a step value of 1,000,
+   *             the valid values start at 5,000 and step up by 1,000.
+   *             Even though 7,500 is within the range,
+   *             it isn't a valid value for the range.
+   *             The valid values are 5,000, 6,000, 7,000, 8,000...</p>
+   * @public
+   */
+  Step?: number | undefined;
+}
 
 /**
  * <p>Information about valid modifications that you can make to your DB instance.
@@ -105,6 +164,42 @@ export interface ValidStorageOptions {
 }
 
 /**
+ * <p>Contains the valid options for an additional storage volume.</p>
+ * @public
+ */
+export interface ValidVolumeOptions {
+  /**
+   * <p>The name of the additional storage volume.</p>
+   * @public
+   */
+  VolumeName?: string | undefined;
+
+  /**
+   * <p>The valid storage options for the additional storage volume.</p>
+   * @public
+   */
+  Storage?: ValidStorageOptions[] | undefined;
+}
+
+/**
+ * <p>Contains the valid options for additional storage volumes for a DB instance. </p>
+ * @public
+ */
+export interface ValidAdditionalStorageOptions {
+  /**
+   * <p>Indicates whether the DB instance supports additional storage volumes.</p>
+   * @public
+   */
+  SupportsAdditionalStorageVolumes?: boolean | undefined;
+
+  /**
+   * <p>The valid additional storage volume options for the DB instance.</p>
+   * @public
+   */
+  Volumes?: ValidVolumeOptions[] | undefined;
+}
+
+/**
  * <p>Information about valid modifications that you can make to your DB instance.
  *             Contains the result of a successful call to the
  *             <code>DescribeValidDBInstanceModifications</code> action.
@@ -130,6 +225,12 @@ export interface ValidDBInstanceModificationsMessage {
    * @public
    */
   SupportsDedicatedLogVolume?: boolean | undefined;
+
+  /**
+   * <p>The valid additional storage options for the DB instance.</p>
+   * @public
+   */
+  AdditionalStorage?: ValidAdditionalStorageOptions | undefined;
 }
 
 /**
@@ -628,7 +729,8 @@ export interface ModifyCurrentDBClusterCapacityMessage {
  */
 export interface ModifyCustomDBEngineVersionMessage {
   /**
-   * <p>The database engine. RDS Custom for Oracle supports the following values:</p>
+   * <p>The database engine.</p>
+   *          <p>RDS Custom for Oracle supports the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -651,6 +753,30 @@ export interface ModifyCustomDBEngineVersionMessage {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>RDS Custom for SQL Server supports the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ccustom-sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-dev</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>RDS for SQL Server supports only <code>sqlserver-dev-ee</code>.</p>
    * @public
    */
   Engine: string | undefined;
@@ -1627,6 +1753,67 @@ export interface ModifyDBClusterSnapshotAttributeResult {
    * @public
    */
   DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult | undefined;
+}
+
+/**
+ * <p>Contains details about the modification of an additional storage volume.</p>
+ * @public
+ */
+export interface ModifyAdditionalStorageVolume {
+  /**
+   * <p>The name of the additional storage volume that you want to modify.</p>
+   *          <p>Valid Values: <code>RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4</code>
+   *          </p>
+   * @public
+   */
+  VolumeName: string | undefined;
+
+  /**
+   * <p>The amount of storage allocated for the additional storage volume, in gibibytes (GiB).
+   *             The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).</p>
+   * @public
+   */
+  AllocatedStorage?: number | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) provisioned for the additional storage
+   *             volume. This setting is only supported for Provisioned IOPS SSD (<code>io1</code> and
+   *             <code>io2</code>) storage types.</p>
+   * @public
+   */
+  IOPS?: number | undefined;
+
+  /**
+   * <p>The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of
+   *             the additional storage volume. You must provide a value greater than or equal to
+   *             <code>AllocatedStorage</code>.</p>
+   * @public
+   */
+  MaxAllocatedStorage?: number | undefined;
+
+  /**
+   * <p>The storage throughput value for the additional storage volume, in mebibytes per
+   *             second (MiBps). This setting applies only to the General Purpose SSD (<code>gp3</code>)
+   *             storage type.</p>
+   * @public
+   */
+  StorageThroughput?: number | undefined;
+
+  /**
+   * <p>The new storage type for the additional storage volume.</p>
+   *          <p>Valid Values: <code>GP3 | IO2</code>
+   *          </p>
+   * @public
+   */
+  StorageType?: string | undefined;
+
+  /**
+   * <p>Indicates whether to delete the additional storage volume. The value
+   *             <code>true</code> schedules the volume for deletion. You can delete an
+   *             additional storage volume only when it doesn't contain database files or other data.</p>
+   * @public
+   */
+  SetForDelete?: boolean | undefined;
 }
 
 /**
@@ -2793,6 +2980,14 @@ export interface ModifyDBInstanceMessage {
    * @public
    */
   MasterUserAuthenticationType?: MasterUserAuthenticationType | undefined;
+
+  /**
+   * <p>A list of additional storage volumes to modify or delete for the DB instance. You can
+   *             create up to 3 additional storage volumes. Additional storage volumes are supported for
+   *             RDS for Oracle and RDS for SQL Server DB instances only.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: ModifyAdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -6564,6 +6759,15 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    * @public
    */
   MasterUserSecretKmsKeyId?: string | undefined;
+
+  /**
+   * <p>A list of additional storage volumes to create for the DB instance. You can create up
+   *             to three additional storage volumes using the names <code>rdsdbdata2</code>,
+   *                 <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>. Additional storage volumes are
+   *             supported for RDS for Oracle and RDS for SQL Server DB instances only.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -7205,6 +7409,16 @@ export interface RestoreDBInstanceFromS3Message {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>A list of additional storage volumes to modify or delete for the DB instance. You can
+   *             modify or delete up to three additional storage volumes using the names
+   *                 <code>rdsdbdata2</code>, <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>.
+   *             Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB
+   *             instances only.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**
@@ -7948,6 +8162,15 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * @public
    */
   MasterUserSecretKmsKeyId?: string | undefined;
+
+  /**
+   * <p>A list of additional storage volumes to restore to the DB instance. You can restore up
+   *             to three additional storage volumes using the names <code>rdsdbdata2</code>,
+   *                 <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>. Additional storage volumes are
+   *             supported for RDS for Oracle and RDS for SQL Server DB instances only.</p>
+   * @public
+   */
+  AdditionalStorageVolumes?: AdditionalStorageVolume[] | undefined;
 }
 
 /**

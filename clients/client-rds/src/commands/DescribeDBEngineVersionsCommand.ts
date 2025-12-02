@@ -149,6 +149,10 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //         MinCapacity: Number("double"),
  * //         MaxCapacity: Number("double"),
  * //       },
+ * //       DatabaseInstallationFiles: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       FailureReason: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -144,6 +144,10 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     MinCapacity: Number("double"),
  * //     MaxCapacity: Number("double"),
  * //   },
+ * //   DatabaseInstallationFiles: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

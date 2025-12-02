@@ -3,6 +3,9 @@ const _AA = "ApplyAction";
 const _AAAD = "AutoAppliedAfterDate";
 const _AAEF = "AuthorizationAlreadyExistsFault";
 const _AAM = "AccountAttributesMessage";
+const _AASVO = "AvailableAdditionalStorageVolumesOption";
+const _AASVOL = "AvailableAdditionalStorageVolumesOptionList";
+const _AASVOv = "AvailableAdditionalStorageVolumesOptions";
 const _ABRPA = "AwsBackupRecoveryPointArn";
 const _ADBSGI = "AuthorizeDBSecurityGroupIngress";
 const _ADBSGIM = "AuthorizeDBSecurityGroupIngressMessage";
@@ -51,6 +54,12 @@ const _ASKSN = "ActivityStreamKinesisStreamName";
 const _ASM = "ActivityStreamMode";
 const _ASPS = "ActivityStreamPolicyStatus";
 const _ASS = "ActivityStreamStatus";
+const _ASV = "AdditionalStorageVolume";
+const _ASVL = "AdditionalStorageVolumesList";
+const _ASVO = "AdditionalStorageVolumeOutput";
+const _ASVOL = "AdditionalStorageVolumesOutputList";
+const _ASVd = "AdditionalStorageVolumes";
+const _ASd = "AdditionalStorage";
 const _ASu = "AuthScheme";
 const _AT = "ApplyType";
 const _ATTR = "AddTagsToResource";
@@ -587,6 +596,7 @@ const _DHER = "DisableHttpEndpointRequest";
 const _DHERi = "DisableHttpEndpointResponse";
 const _DI = "DnsIps";
 const _DIAMRN = "DomainIAMRoleName";
+const _DIF = "DatabaseInstallationFiles";
 const _DIFSBN = "DatabaseInstallationFilesS3BucketName";
 const _DIFSP = "DatabaseInstallationFilesS3Prefix";
 const _DIM = "DatabaseInsightsMode";
@@ -729,6 +739,7 @@ const _FLW = "FileLastWritten";
 const _FN = "FeatureName";
 const _FP = "FixedPrice";
 const _FQDN = "FQDN";
+const _FR = "FailureReason";
 const _FS = "FileSize";
 const _FSa = "FailoverState";
 const _FVL = "FilterValueList";
@@ -807,6 +818,7 @@ const _IN = "IntegrationName";
 const _INFF = "IntegrationNotFoundFault";
 const _IOGSF = "InvalidOptionGroupStateFault";
 const _IOONAMT = "IOOptimizedNextAllowedModificationTime";
+const _IOPS = "IOPS";
 const _IP = "IncludePublic";
 const _IPR = "IPRanges";
 const _IPRL = "IPRangeList";
@@ -868,6 +880,8 @@ const _MACUi = "MinACU";
 const _MAS = "MaxAllocatedStorage";
 const _MASR = "ModifyActivityStreamRequest";
 const _MASRo = "ModifyActivityStreamResponse";
+const _MASV = "ModifyAdditionalStorageVolume";
+const _MASVL = "ModifyAdditionalStorageVolumesList";
 const _MASo = "ModifyActivityStream";
 const _MAZ = "MultiAZ";
 const _MAZC = "MultiAZCapable";
@@ -929,14 +943,16 @@ const _MEVi = "MinimumEngineVersion";
 const _MGC = "ModifyGlobalCluster";
 const _MGCM = "ModifyGlobalClusterMessage";
 const _MGCR = "ModifyGlobalClusterResult";
-const _MI = "MonitoringInterval";
+const _MI = "MinIops";
 const _MICP = "MaxIdleConnectionsPercent";
 const _MIM = "ModifyIntegrationMessage";
 const _MIPDI = "MinIopsPerDbInstance";
 const _MIPDIa = "MaxIopsPerDbInstance";
 const _MIPG = "MinIopsPerGib";
 const _MIPGa = "MaxIopsPerGib";
-const _MIo = "ModifyIntegration";
+const _MIa = "MaxIops";
+const _MIo = "MonitoringInterval";
+const _MIod = "ModifyIntegration";
 const _ML = "MetricList";
 const _MMUP = "ManageMasterUserPassword";
 const _MOG = "ModifyOptionGroup";
@@ -951,10 +967,12 @@ const _MRMEV = "MinimumRequiredMinorEngineVersion";
 const _MRe = "MetricReference";
 const _MSS = "MinStorageSize";
 const _MSSa = "MaxStorageSize";
+const _MST = "MinStorageThroughput";
 const _MSTPDI = "MinStorageThroughputPerDbInstance";
 const _MSTPDIa = "MaxStorageThroughputPerDbInstance";
 const _MSTPI = "MinStorageThroughputPerIops";
 const _MSTPIa = "MaxStorageThroughputPerIops";
+const _MSTa = "MaxStorageThroughput";
 const _MT = "MultiTenant";
 const _MTD = "ModifyTenantDatabase";
 const _MTDM = "ModifyTenantDatabaseMessage";
@@ -1214,6 +1232,7 @@ const _SASR = "StartActivityStreamRequest";
 const _SASRt = "StartActivityStreamResponse";
 const _SASRto = "StopActivityStreamRequest";
 const _SASRtop = "StopActivityStreamResponse";
+const _SASV = "SupportsAdditionalStorageVolumes";
 const _SASt = "StopActivityStream";
 const _SAZ = "SnapshotAvailabilityZone";
 const _SAZe = "SecondaryAvailabilityZone";
@@ -1287,6 +1306,7 @@ const _SET = "StartExportTask";
 const _SETM = "StartExportTaskMessage";
 const _SEV = "SourceEngineVersion";
 const _SEo = "SourceEngine";
+const _SFD = "SetForDelete";
 const _SFN = "SupportedFeatureNames";
 const _SFS = "SkipFinalSnapshot";
 const _SG = "SecurityGroups";
@@ -1305,10 +1325,10 @@ const _SIn = "SnapshotIdentifier";
 const _SIo = "SourceIds";
 const _SIou = "SourceId";
 const _SIt = "StatusInfos";
-const _SIu = "SubnetIds";
-const _SIub = "SubnetIdentifier";
+const _SIu = "SupportsIops";
+const _SIub = "SubnetIds";
+const _SIubn = "SubnetIdentifier";
 const _SIup = "SupportsIntegrations";
-const _SIupp = "SupportsIops";
 const _SKA = "SupportsKerberosAuthentication";
 const _SL = "SubnetList";
 const _SLD = "SupportsLimitlessDatabase";
@@ -1353,7 +1373,7 @@ const _SSe = "SecretStatus";
 const _SSt = "StorageSize";
 const _SSu = "SubnetStatus";
 const _SSy = "SynchronizationStatus";
-const _ST = "StorageType";
+const _ST = "StorageThroughput";
 const _STA = "SnsTopicArn";
 const _STL = "SupportedTimezonesList";
 const _STNAF = "StorageTypeNotAvailableFault";
@@ -1363,7 +1383,7 @@ const _STn = "SnapshotTarget";
 const _STna = "SnapshotType";
 const _STnap = "SnapshotTime";
 const _STo = "SourceType";
-const _STt = "StorageThroughput";
+const _STt = "StorageType";
 const _STta = "StatusType";
 const _STtar = "StartTime";
 const _STu = "SupportedTimezones";
@@ -1371,6 +1391,7 @@ const _STw = "SwitchoverTimeout";
 const _SUAP = "SecondsUntilAutoPause";
 const _SVFS = "ServerlessV2FeaturesSupport";
 const _SVPV = "ServerlessV2PlatformVersion";
+const _SVS = "StorageVolumeStatus";
 const _SVSC = "ServerlessV2ScalingConfiguration";
 const _SVSCI = "ServerlessV2ScalingConfigurationInfo";
 const _Se = "Severity";
@@ -1470,10 +1491,12 @@ const _UTSC = "UpgradeTargetStorageConfig";
 const _UTp = "UpgradeTarget";
 const _Ur = "Url";
 const _V = "Value";
+const _VASO = "ValidAdditionalStorageOptions";
 const _VDBIMM = "ValidDBInstanceModificationsMessage";
 const _VECVE = "VpcEncryptionControlViolationException";
 const _VF = "ValidFrom";
 const _VI = "VpcId";
+const _VN = "VolumeName";
 const _VO = "VpcOnly";
 const _VPF = "ValidProcessorFeatures";
 const _VSG = "VpcSecurityGroups";
@@ -1491,8 +1514,11 @@ const _VTA = "ValuesToAdd";
 const _VTR = "ValuesToRemove";
 const _VUT = "ValidUpgradeTarget";
 const _VUTL = "ValidUpgradeTargetList";
+const _VVO = "ValidVolumeOptions";
+const _VVOL = "ValidVolumeOptionsList";
 const _Va = "Values";
 const _Ve = "Version";
+const _Vo = "Volumes";
 const _Vp = "Vpc";
 const _WM = "WarningMessage";
 const _aQE = "awsQueryError";
@@ -1671,6 +1697,22 @@ export var PotentiallySensitiveOptionSettingValue: StaticSimpleSchema = [0, n0, 
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccountAttributesMessage: StaticStructureSchema = [3, n0, _AAM, 0, [_AQ], [[() => AccountQuotaList, 0]]];
 export var AccountQuota: StaticStructureSchema = [3, n0, _AQc, 0, [_AQN, _U, _M], [0, 1, 1]];
+export var AdditionalStorageVolume: StaticStructureSchema = [
+  3,
+  n0,
+  _ASV,
+  0,
+  [_VN, _AS, _IOPS, _MAS, _ST, _STt],
+  [0, 1, 1, 1, 1, 0],
+];
+export var AdditionalStorageVolumeOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _ASVO,
+  0,
+  [_VN, _SVS, _AS, _IOPS, _MAS, _ST, _STt],
+  [0, 0, 1, 1, 1, 1, 0],
+];
 export var AddRoleToDBClusterMessage: StaticStructureSchema = [3, n0, _ARTDBCM, 0, [_DBCI, _RA, _FN], [0, 0, 0]];
 export var AddRoleToDBInstanceMessage: StaticStructureSchema = [3, n0, _ARTDBIM, 0, [_DBII, _RA, _FN], [0, 0, 0]];
 export var AddSourceIdentifierToSubscriptionMessage: StaticStructureSchema = [3, n0, _ASITSM, 0, [_SN, _SI], [0, 0]];
@@ -1758,6 +1800,14 @@ export var AuthorizeDBSecurityGroupIngressResult: StaticStructureSchema = [
   [[() => DBSecurityGroup, 0]],
 ];
 export var AvailabilityZone: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [0]];
+export var AvailableAdditionalStorageVolumesOption: StaticStructureSchema = [
+  3,
+  n0,
+  _AASVO,
+  0,
+  [_SSA, _SST, _SIu, _STt, _MSS, _MSSa, _MI, _MIa, _MIPG, _MIPGa, _MST, _MSTa],
+  [2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+];
 export var AvailableProcessorFeature: StaticStructureSchema = [3, n0, _APF, 0, [_N, _DV, _AV], [0, 0, 0]];
 export var BacktrackDBClusterMessage: StaticStructureSchema = [
   3,
@@ -1857,7 +1907,7 @@ export var ClusterPendingModifiedValues: StaticStructureSchema = [
   n0,
   _CPMV,
   0,
-  [_PCLE, _DBCI, _MUP, _IAMDAE, _EV, _BRP, _ST, _AS, _RCCC, _I, _CD],
+  [_PCLE, _DBCI, _MUP, _IAMDAE, _EV, _BRP, _STt, _AS, _RCCC, _I, _CD],
   [
     () => PendingCloudwatchLogsExports,
     0,
@@ -1983,8 +2033,8 @@ export var CreateCustomDBEngineVersionMessage: StaticStructureSchema = [
   n0,
   _CCDBEVM,
   0,
-  [_E, _EV, _DIFSBN, _DIFSP, _II, _KMSKI, _SCDEVI, _UAPLI, _D, _Man, _T],
-  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, [() => TagList, 0]],
+  [_E, _EV, _DIFSBN, _DIFSP, _II, _KMSKI, _SCDEVI, _UAPLI, _D, _Man, _T, _DIF],
+  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, [() => TagList, 0], 64 | 0],
 ];
 export var CreateDBClusterEndpointMessage: StaticStructureSchema = [
   3,
@@ -2029,7 +2079,7 @@ export var CreateDBClusterMessage: StaticStructureSchema = [
     _RCCC,
     _DBCIC,
     _AS,
-    _ST,
+    _STt,
     _I,
     _PA,
     _AMVU,
@@ -2042,7 +2092,7 @@ export var CreateDBClusterMessage: StaticStructureSchema = [
     _EGWF,
     _NT,
     _SVSC,
-    _MI,
+    _MIo,
     _MRA,
     _DIM,
     _EPI,
@@ -2178,14 +2228,14 @@ export var CreateDBInstanceMessage: StaticStructureSchema = [
     _AMVU,
     _LM,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _CSN,
     _NCSN,
     _PA,
     _T,
     _DBCI,
-    _ST,
+    _STt,
     _TCA,
     _TCP,
     _SE,
@@ -2196,7 +2246,7 @@ export var CreateDBInstanceMessage: StaticStructureSchema = [
     _DASA,
     _DDI,
     _CTTS,
-    _MI,
+    _MIo,
     _MRA,
     _DIAMRN,
     _PT,
@@ -2222,6 +2272,7 @@ export var CreateDBInstanceMessage: StaticStructureSchema = [
     _DLV,
     _ELS,
     _MUAT,
+    _ASVd,
   ],
   [
     0,
@@ -2289,6 +2340,7 @@ export var CreateDBInstanceMessage: StaticStructureSchema = [
     2,
     0,
     0,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var CreateDBInstanceReadReplicaMessage: StaticStructureSchema = [
@@ -2305,16 +2357,16 @@ export var CreateDBInstanceReadReplicaMessage: StaticStructureSchema = [
     _MAZ,
     _AMVU,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _DBPGN,
     _PA,
     _T,
     _DBSGNu,
     _VSGI,
-    _ST,
+    _STt,
     _CTTS,
-    _MI,
+    _MIo,
     _MRA,
     _KKI,
     _PSU,
@@ -2344,6 +2396,7 @@ export var CreateDBInstanceReadReplicaMessage: StaticStructureSchema = [
     _DLV,
     _USC,
     _CACI,
+    _ASVd,
   ],
   [
     0,
@@ -2393,6 +2446,7 @@ export var CreateDBInstanceReadReplicaMessage: StaticStructureSchema = [
     2,
     2,
     0,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var CreateDBInstanceReadReplicaResult: StaticStructureSchema = [
@@ -2483,7 +2537,7 @@ export var CreateDBSubnetGroupMessage: StaticStructureSchema = [
   n0,
   _CDBSGMre,
   0,
-  [_DBSGNu, _DBSGDu, _SIu, _T],
+  [_DBSGNu, _DBSGDu, _SIub, _T],
   [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]],
 ];
 export var CreateDBSubnetGroupResult: StaticStructureSchema = [
@@ -2656,9 +2710,9 @@ export var DBCluster: StaticStructureSchema = [
     _SCI,
     _RCCC,
     _DBCIC,
-    _ST,
-    _I,
     _STt,
+    _I,
+    _ST,
     _IOONAMT,
     _PA,
     _AMVU,
@@ -2679,7 +2733,7 @@ export var DBCluster: StaticStructureSchema = [
     _ART,
     _SVSC,
     _SVPV,
-    _MI,
+    _MIo,
     _MRA,
     _DIM,
     _PIE,
@@ -2823,9 +2877,9 @@ export var DBClusterAutomatedBackup: StaticStructureSchema = [
     _AZv,
     _P,
     _KKI,
-    _ST,
-    _I,
     _STt,
+    _I,
+    _ST,
     _ABRPA,
   ],
   [
@@ -3132,8 +3186,8 @@ export var DBClusterSnapshot: StaticStructureSchema = [
     _SDBCSA,
     _IAMDAE,
     _TL,
-    _ST,
     _STt,
+    _ST,
     _DCRI,
     _DBSI,
   ],
@@ -3260,6 +3314,8 @@ export var DBEngineVersion: StaticStructureSchema = [
     _SLWF,
     _SIup,
     _SVFS,
+    _DIF,
+    _FR,
   ],
   [
     0,
@@ -3297,6 +3353,8 @@ export var DBEngineVersion: StaticStructureSchema = [
     2,
     2,
     () => ServerlessV2FeaturesSupport,
+    64 | 0,
+    0,
   ],
 ];
 export var DBEngineVersionMessage: StaticStructureSchema = [
@@ -3342,14 +3400,14 @@ export var DBInstance: StaticStructureSchema = [
     _RM,
     _LM,
     _I,
-    _STt,
+    _ST,
     _OGM,
     _CSN,
     _NCSN,
     _SAZe,
     _PA,
     _SIt,
-    _ST,
+    _STt,
     _TCA,
     _DIP,
     _DBCI,
@@ -3359,7 +3417,7 @@ export var DBInstance: StaticStructureSchema = [
     _CACI,
     _DM,
     _CTTS,
-    _MI,
+    _MIo,
     _EMRA,
     _MRA,
     _PT,
@@ -3401,6 +3459,8 @@ export var DBInstance: StaticStructureSchema = [
     _DLV,
     _ISCUA,
     _ELS,
+    _ASVd,
+    _SVS,
   ],
   [
     0,
@@ -3491,6 +3551,8 @@ export var DBInstance: StaticStructureSchema = [
     2,
     2,
     0,
+    () => AdditionalStorageVolumesOutputList,
+    0,
   ],
 ];
 export var DBInstanceAlreadyExistsFault: StaticErrorSchema = [
@@ -3529,11 +3591,11 @@ export var DBInstanceAutomatedBackup: StaticStructureSchema = [
     _EV,
     _LM,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _TCA,
     _Enc,
-    _ST,
+    _STt,
     _KKI,
     _Ti,
     _IAMDAE,
@@ -3544,6 +3606,7 @@ export var DBInstanceAutomatedBackup: StaticStructureSchema = [
     _MT,
     _ABRPA,
     _DLV,
+    _ASVd,
   ],
   [
     0,
@@ -3577,6 +3640,7 @@ export var DBInstanceAutomatedBackup: StaticStructureSchema = [
     2,
     0,
     2,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var DBInstanceAutomatedBackupMessage: StaticStructureSchema = [
@@ -4101,12 +4165,12 @@ export var DBSnapshot: StaticStructureSchema = [
     _LM,
     _STna,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _PP,
     _SR,
     _SDBSI,
-    _ST,
+    _STt,
     _TCA,
     _Enc,
     _KKI,
@@ -4123,6 +4187,7 @@ export var DBSnapshot: StaticStructureSchema = [
     _MT,
     _DLV,
     _SAZ,
+    _ASVd,
   ],
   [
     0,
@@ -4162,6 +4227,7 @@ export var DBSnapshot: StaticStructureSchema = [
     2,
     2,
     0,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var DBSnapshotAlreadyExistsFault: StaticErrorSchema = [
@@ -5806,6 +5872,14 @@ export var ModifyActivityStreamResponse: StaticStructureSchema = [
   [_KKI, _KSN, _St, _Mo, _ENAFI, _PS],
   [0, 0, 0, 0, 2, 0],
 ];
+export var ModifyAdditionalStorageVolume: StaticStructureSchema = [
+  3,
+  n0,
+  _MASV,
+  0,
+  [_VN, _AS, _IOPS, _MAS, _ST, _STt, _SFD],
+  [0, 1, 1, 1, 1, 0, 2],
+];
 export var ModifyCertificatesMessage: StaticStructureSchema = [3, n0, _MCM, 0, [_CI, _RCO], [0, 2]];
 export var ModifyCertificatesResult: StaticStructureSchema = [3, n0, _MCR, 0, [_C], [() => Certificate]];
 export var ModifyCurrentDBClusterCapacityMessage: StaticStructureSchema = [
@@ -5864,12 +5938,12 @@ export var ModifyDBClusterMessage: StaticStructureSchema = [
     _EGWF,
     _DBCIC,
     _AS,
-    _ST,
+    _STt,
     _I,
     _AMVU,
     _NT,
     _SVSC,
-    _MI,
+    _MIo,
     _MRA,
     _DIM,
     _EPI,
@@ -5985,10 +6059,10 @@ export var ModifyDBInstanceMessage: StaticStructureSchema = [
     _AMVU,
     _LM,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _NDBII,
-    _ST,
+    _STt,
     _TCA,
     _TCP,
     _CACI,
@@ -5999,7 +6073,7 @@ export var ModifyDBInstanceMessage: StaticStructureSchema = [
     _DDI,
     _DD,
     _CTTS,
-    _MI,
+    _MIo,
     _DBPNo,
     _PA,
     _MRA,
@@ -6029,6 +6103,7 @@ export var ModifyDBInstanceMessage: StaticStructureSchema = [
     _DLV,
     _E,
     _MUAT,
+    _ASVd,
   ],
   [
     0,
@@ -6093,6 +6168,7 @@ export var ModifyDBInstanceMessage: StaticStructureSchema = [
     2,
     0,
     0,
+    () => ModifyAdditionalStorageVolumesList,
   ],
 ];
 export var ModifyDBInstanceResult: StaticStructureSchema = [3, n0, _MDBIR, 0, [_DBI], [[() => DBInstance, 0]]];
@@ -6184,7 +6260,7 @@ export var ModifyDBSubnetGroupMessage: StaticStructureSchema = [
   n0,
   _MDBSGMo,
   0,
-  [_DBSGNu, _DBSGDu, _SIu],
+  [_DBSGNu, _DBSGDu, _SIub],
   [0, 0, [() => SubnetIdentifierList, 0]],
 ];
 export var ModifyDBSubnetGroupResult: StaticStructureSchema = [3, n0, _MDBSGR, 0, [_DBSGu], [[() => DBSubnetGroup, 0]]];
@@ -6391,8 +6467,8 @@ export var OrderableDBInstanceOption: StaticStructureSchema = [
     _RRC,
     _Vp,
     _SSE,
-    _ST,
-    _SIupp,
+    _STt,
+    _SIu,
     _SST,
     _SEMu,
     _SIAMDA,
@@ -6418,6 +6494,8 @@ export var OrderableDBInstanceOption: StaticStructureSchema = [
     _SCu,
     _SDLV,
     _SHE,
+    _SASV,
+    _AASVOv,
   ],
   [
     0,
@@ -6457,6 +6535,8 @@ export var OrderableDBInstanceOption: StaticStructureSchema = [
     2,
     2,
     2,
+    2,
+    [() => AvailableAdditionalStorageVolumesOptionList, 0],
   ],
 ];
 export var OrderableDBInstanceOptionsMessage: StaticStructureSchema = [
@@ -6508,9 +6588,9 @@ export var PendingModifiedValues: StaticStructureSchema = [
     _EV,
     _LM,
     _I,
-    _STt,
-    _DBII,
     _ST,
+    _DBII,
+    _STt,
     _CACI,
     _DBSGNu,
     _PCLE,
@@ -6521,6 +6601,7 @@ export var PendingModifiedValues: StaticStructureSchema = [
     _IAMDAE,
     _DLV,
     _E,
+    _ASVd,
   ],
   [
     0,
@@ -6545,6 +6626,7 @@ export var PendingModifiedValues: StaticStructureSchema = [
     2,
     2,
     0,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var PerformanceInsightsMetricDimensionGroup: StaticStructureSchema = [
@@ -6842,7 +6924,7 @@ export var RestoreDBClusterFromS3Message: StaticStructureSchema = [
     _CTTS,
     _Do,
     _DIAMRN,
-    _ST,
+    _STt,
     _NT,
     _SVSC,
     _MMUP,
@@ -6919,13 +7001,13 @@ export var RestoreDBClusterFromSnapshotMessage: StaticStructureSchema = [
     _Do,
     _DIAMRN,
     _DBCIC,
-    _ST,
+    _STt,
     _I,
     _PA,
     _NT,
     _SVSC,
     _RCCC,
-    _MI,
+    _MIo,
     _MRA,
     _EPI,
     _PIKMSKI,
@@ -7004,7 +7086,7 @@ export var RestoreDBClusterToPointInTimeMessage: StaticStructureSchema = [
     _Do,
     _DIAMRN,
     _DBCIC,
-    _ST,
+    _STt,
     _PA,
     _I,
     _NT,
@@ -7013,7 +7095,7 @@ export var RestoreDBClusterToPointInTimeMessage: StaticStructureSchema = [
     _SC,
     _EMn,
     _RCCC,
-    _MI,
+    _MIo,
     _MRA,
     _EPI,
     _PIKMSKI,
@@ -7085,10 +7167,10 @@ export var RestoreDBInstanceFromDBSnapshotMessage: StaticStructureSchema = [
     _DBN,
     _E,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _T,
-    _ST,
+    _STt,
     _TCA,
     _TCP,
     _VSGI,
@@ -7116,6 +7198,7 @@ export var RestoreDBInstanceFromDBSnapshotMessage: StaticStructureSchema = [
     _ELS,
     _MMUP,
     _MUSKKI,
+    _ASVd,
   ],
   [
     0,
@@ -7162,6 +7245,7 @@ export var RestoreDBInstanceFromDBSnapshotMessage: StaticStructureSchema = [
     0,
     2,
     0,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var RestoreDBInstanceFromDBSnapshotResult: StaticStructureSchema = [
@@ -7199,15 +7283,15 @@ export var RestoreDBInstanceFromS3Message: StaticStructureSchema = [
     _AMVU,
     _LM,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _PA,
     _T,
-    _ST,
+    _STt,
     _SE,
     _KKI,
     _CTTS,
-    _MI,
+    _MIo,
     _MRA,
     _EIAMDA,
     _SEo,
@@ -7230,6 +7314,7 @@ export var RestoreDBInstanceFromS3Message: StaticStructureSchema = [
     _DLV,
     _CACI,
     _ELS,
+    _ASVd,
   ],
   [
     0,
@@ -7284,6 +7369,7 @@ export var RestoreDBInstanceFromS3Message: StaticStructureSchema = [
     2,
     0,
     0,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var RestoreDBInstanceFromS3Result: StaticStructureSchema = [3, n0, _RDBIFSR, 0, [_DBI], [[() => DBInstance, 0]]];
@@ -7308,11 +7394,11 @@ export var RestoreDBInstanceToPointInTimeMessage: StaticStructureSchema = [
     _DBN,
     _E,
     _I,
-    _STt,
+    _ST,
     _OGN,
     _CTTS,
     _T,
-    _ST,
+    _STt,
     _TCA,
     _TCP,
     _VSGI,
@@ -7341,6 +7427,7 @@ export var RestoreDBInstanceToPointInTimeMessage: StaticStructureSchema = [
     _ELS,
     _MMUP,
     _MUSKKI,
+    _ASVd,
   ],
   [
     0,
@@ -7391,6 +7478,7 @@ export var RestoreDBInstanceToPointInTimeMessage: StaticStructureSchema = [
     0,
     2,
     0,
+    () => AdditionalStorageVolumesList,
   ],
 ];
 export var RestoreDBInstanceToPointInTimeResult: StaticStructureSchema = [
@@ -7672,7 +7760,7 @@ export var Subnet: StaticStructureSchema = [
   n0,
   _Sub,
   0,
-  [_SIub, _SAZu, _SO, _SSu],
+  [_SIubn, _SAZu, _SO, _SSu],
   [0, () => AvailabilityZone, () => Outpost, 0],
 ];
 export var SubnetAlreadyInUse: StaticErrorSchema = [
@@ -7869,20 +7957,33 @@ export var UserAuthConfigInfo: StaticStructureSchema = [
   [_D, _UN, _ASu, _SAe, _IAMA, _CPAT],
   [0, 0, 0, 0, 0, 0],
 ];
+export var ValidAdditionalStorageOptions: StaticStructureSchema = [
+  3,
+  n0,
+  _VASO,
+  0,
+  [_SASV, _Vo],
+  [2, [() => ValidVolumeOptionsList, 0]],
+];
 export var ValidDBInstanceModificationsMessage: StaticStructureSchema = [
   3,
   n0,
   _VDBIMM,
   0,
-  [_Sto, _VPF, _SDLV],
-  [[() => ValidStorageOptionsList, 0], [() => AvailableProcessorFeatureList, 0], 2],
+  [_Sto, _VPF, _SDLV, _ASd],
+  [
+    [() => ValidStorageOptionsList, 0],
+    [() => AvailableProcessorFeatureList, 0],
+    2,
+    [() => ValidAdditionalStorageOptions, 0],
+  ],
 ];
 export var ValidStorageOptions: StaticStructureSchema = [
   3,
   n0,
   _VSO,
   0,
-  [_ST, _SSt, _PI, _ITSR, _PST, _STTIR, _SSA],
+  [_STt, _SSt, _PI, _ITSR, _PST, _STTIR, _SSA],
   [
     0,
     [() => RangeList, 0],
@@ -7892,6 +7993,14 @@ export var ValidStorageOptions: StaticStructureSchema = [
     [() => DoubleRangeList, 0],
     2,
   ],
+];
+export var ValidVolumeOptions: StaticStructureSchema = [
+  3,
+  n0,
+  _VVO,
+  0,
+  [_VN, _Sto],
+  [0, [() => ValidStorageOptionsList, 0]],
 ];
 export var VpcEncryptionControlViolationException: StaticErrorSchema = [
   -3,
@@ -7927,6 +8036,14 @@ export var AccountQuotaList: StaticListSchema = [
 ];
 export var ActivityStreamModeList = 64 | 0;
 
+export var AdditionalStorageVolumesList: StaticListSchema = [1, n0, _ASVL, 0, () => AdditionalStorageVolume];
+export var AdditionalStorageVolumesOutputList: StaticListSchema = [
+  1,
+  n0,
+  _ASVOL,
+  0,
+  () => AdditionalStorageVolumeOutput,
+];
 export var AttributeValueList: StaticListSchema = [
   1,
   n0,
@@ -7960,6 +8077,18 @@ export var AvailabilityZones: StaticListSchema = [
     0,
     {
       [_xN]: _AZ,
+    },
+  ],
+];
+export var AvailableAdditionalStorageVolumesOptionList: StaticListSchema = [
+  1,
+  n0,
+  _AASVOL,
+  0,
+  [
+    () => AvailableAdditionalStorageVolumesOption,
+    {
+      [_xN]: _AASVO,
     },
   ],
 ];
@@ -8546,6 +8675,13 @@ export var MinimumEngineVersionPerAllowedValueList: StaticListSchema = [
     },
   ],
 ];
+export var ModifyAdditionalStorageVolumesList: StaticListSchema = [
+  1,
+  n0,
+  _MASVL,
+  0,
+  () => ModifyAdditionalStorageVolume,
+];
 export var OptionConfigurationList: StaticListSchema = [
   1,
   n0,
@@ -8863,7 +8999,7 @@ export var SubnetIdentifierList: StaticListSchema = [
   [
     0,
     {
-      [_xN]: _SIub,
+      [_xN]: _SIubn,
     },
   ],
 ];
@@ -8968,6 +9104,7 @@ export var ValidUpgradeTargetList: StaticListSchema = [
     },
   ],
 ];
+export var ValidVolumeOptionsList: StaticListSchema = [1, n0, _VVOL, 0, [() => ValidVolumeOptions, 0]];
 export var VpcSecurityGroupIdList: StaticListSchema = [
   1,
   n0,
@@ -9985,7 +10122,7 @@ export var ModifyGlobalCluster: StaticOperationSchema = [
 export var ModifyIntegration: StaticOperationSchema = [
   9,
   n0,
-  _MIo,
+  _MIod,
   0,
   () => ModifyIntegrationMessage,
   () => Integration,

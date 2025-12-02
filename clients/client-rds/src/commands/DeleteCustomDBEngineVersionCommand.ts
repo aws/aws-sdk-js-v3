@@ -151,6 +151,10 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     MinCapacity: Number("double"),
  * //     MaxCapacity: Number("double"),
  * //   },
+ * //   DatabaseInstallationFiles: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

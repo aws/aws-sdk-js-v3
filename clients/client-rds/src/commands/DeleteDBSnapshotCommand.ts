@@ -94,6 +94,16 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
+ * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ * //       { // AdditionalStorageVolume
+ * //         VolumeName: "STRING_VALUE", // required
+ * //         AllocatedStorage: Number("int"),
+ * //         IOPS: Number("int"),
+ * //         MaxAllocatedStorage: Number("int"),
+ * //         StorageThroughput: Number("int"),
+ * //         StorageType: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

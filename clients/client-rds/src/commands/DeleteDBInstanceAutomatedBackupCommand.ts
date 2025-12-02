@@ -84,6 +84,16 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * //     MultiTenant: true || false,
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ * //       { // AdditionalStorageVolume
+ * //         VolumeName: "STRING_VALUE", // required
+ * //         AllocatedStorage: Number("int"),
+ * //         IOPS: Number("int"),
+ * //         MaxAllocatedStorage: Number("int"),
+ * //         StorageThroughput: Number("int"),
+ * //         StorageType: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
