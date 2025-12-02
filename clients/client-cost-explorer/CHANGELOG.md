@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-cost-explorer:** This release updates existing Savings Plans Purchase Analyzer and Recommendations APIs to support Database Savings Plans. ([4dd5eca](https://github.com/aws/aws-sdk-js-v3/commit/4dd5ecaaff72f048e7e08f3994d9b66a26529316))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-explorer

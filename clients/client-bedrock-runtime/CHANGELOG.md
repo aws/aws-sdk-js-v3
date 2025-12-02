@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-bedrock-runtime:** Adds support for Audio Blocks and Streaming Image Output plus new Stop Reasons of malformed_model_output and malformed_tool_use. ([57bdac0](https://github.com/aws/aws-sdk-js-v3/commit/57bdac089bd21e477fe1f2cf6cf0c2e8c8a0c0a3))
+
+
+
+
+
 # [3.941.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.940.0...v3.941.0) (2025-11-26)
 
 

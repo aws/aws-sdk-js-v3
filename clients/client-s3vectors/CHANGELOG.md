@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-s3vectors:** Amazon S3 Vectors provides cost-effective, elastic, and durable vector storage for queries based on semantic meaning and similarity. ([b983581](https://github.com/aws/aws-sdk-js-v3/commit/b98358147a07e99335571bd49d0c094c7340cc16))
+
+
+
+
+
 # [3.941.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.940.0...v3.941.0) (2025-11-26)
 
 **Note:** Version bump only for package @aws-sdk/client-s3vectors

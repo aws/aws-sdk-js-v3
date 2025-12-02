@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-rds:** RDS Oracle and SQL Server: Add support for adding, modifying, and removing additional storage volumes, offering up to 256TiB storage; RDS SQL Server: Support Developer Edition via custom engine versions for development and testing purposes; M7i/R7i instances with Optimize CPU for cost savings. ([0fc234a](https://github.com/aws/aws-sdk-js-v3/commit/0fc234af2dea6e5b8d12287c0ab5aaa5a267fa4a))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

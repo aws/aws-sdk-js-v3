@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Supports AgentCore Evaluations, Policy, Episodic Memory Strategy, Resource Based Policy for Runtime and Gateway APIs, API Gateway Rest API Targets and enhances JWT authorizer. ([072c9ff](https://github.com/aws/aws-sdk-js-v3/commit/072c9ff20c902c54c7c2b69bc6df9379098e35f1))
+* **client-bedrock-agentcore:** Support for AgentCore Evaluations and Episodic memory strategy for AgentCore Memory. ([ff3003b](https://github.com/aws/aws-sdk-js-v3/commit/ff3003b7ef9054a894526b766faf78556a41786f))
+* **client-bedrock-runtime:** Adds support for Audio Blocks and Streaming Image Output plus new Stop Reasons of malformed_model_output and malformed_tool_use. ([57bdac0](https://github.com/aws/aws-sdk-js-v3/commit/57bdac089bd21e477fe1f2cf6cf0c2e8c8a0c0a3))
+* **client-bedrock:** Adds the audioDataDeliveryEnabled boolean field to the Model Invocation Logging Configuration. ([c3ccd65](https://github.com/aws/aws-sdk-js-v3/commit/c3ccd65d3bd4d3004af7d6462a995f6b6fda8a3d))
+* **client-cloudwatch-logs:** CloudWatch Logs adds managed S3 Tables integration to access logs using other analytical tools, as well as facets and field indexing to simplify log analytics in CloudWatch Logs Insights. ([f3383c4](https://github.com/aws/aws-sdk-js-v3/commit/f3383c4ebdc9dab96f3393d49a2da03a056379b3))
+* **client-cost-explorer:** This release updates existing Savings Plans Purchase Analyzer and Recommendations APIs to support Database Savings Plans. ([4dd5eca](https://github.com/aws/aws-sdk-js-v3/commit/4dd5ecaaff72f048e7e08f3994d9b66a26529316))
+* **client-datazone:** Amazon DataZone now supports exporting Catalog datasets as Amazon S3 tables, and provides automatic business glossary term suggestions for data assets. ([f82c5bd](https://github.com/aws/aws-sdk-js-v3/commit/f82c5bd4e30e9dc3fafb4529b524b5c36ff8bf39))
+* **client-fsx:** S3 Access Points support for FSx for NetApp ONTAP ([cb2d0f3](https://github.com/aws/aws-sdk-js-v3/commit/cb2d0f30c873641e3371490d80ec7422f6ea2ae2))
+* **client-guardduty:** Adding support for extended threat detection for Amazon EC2 and Amazon ECS. Adding support for wild card suppression rules. ([d338e8a](https://github.com/aws/aws-sdk-js-v3/commit/d338e8aaf2cda0a46aa14460ce2d9ca226a4f86f))
+* **client-lambda:** Launching Lambda durable functions - a new feature to build reliable multi-step applications and AI workflows natively within the Lambda developer experience. ([01476cf](https://github.com/aws/aws-sdk-js-v3/commit/01476cf7a303a04f994968d03d16f6fffb372ad8))
+* **client-nova-act:** Initial release of Nova Act SDK. The Nova Act service enables customers to build and manage fleets of agents for automating production UI workflows with high reliability, fastest time-to-value, and ease of implementation at scale. ([f0544c3](https://github.com/aws/aws-sdk-js-v3/commit/f0544c319eb2877311c59c595065f6150cd12dd4))
+* **client-observabilityadmin:** CloudWatch Observability Admin adds pipelines configuration for third party log ingestion and transformation of all logs ingested, integration of CloudWatch logs with S3 Tables, and AWS account or organization level enablement for 7 AWS services. ([1e20b0f](https://github.com/aws/aws-sdk-js-v3/commit/1e20b0fe47ec2588b3a1693d7f6d025689abb7e2))
+* **client-opensearch:** GPU-acceleration helps you build large-scale vector databases faster and more efficiently. You can enable this feature on new OpenSearch domains and OpenSearch Serverless collections. This feature uses GPU-acceleration to reduce the time needed to index data into vector indexes. ([263dd4c](https://github.com/aws/aws-sdk-js-v3/commit/263dd4ca4eb49a1e5bdf9cf6b7bd080c1030bfef))
+* **client-opensearchserverless:** GPU-acceleration helps you build large-scale vector databases faster and more efficiently. You can enable this feature on new OpenSearch domains and OpenSearch Serverless collections. This feature uses GPU-acceleration to reduce the time needed to index data into vector indexes. ([ae1f36f](https://github.com/aws/aws-sdk-js-v3/commit/ae1f36f702add0ce767089e1acc5ae970def596f))
+* **client-rds:** RDS Oracle and SQL Server: Add support for adding, modifying, and removing additional storage volumes, offering up to 256TiB storage; RDS SQL Server: Support Developer Edition via custom engine versions for development and testing purposes; M7i/R7i instances with Optimize CPU for cost savings. ([0fc234a](https://github.com/aws/aws-sdk-js-v3/commit/0fc234af2dea6e5b8d12287c0ab5aaa5a267fa4a))
+* **client-s3-control:** Add support for S3 Storage Lens Advanced Performance Metrics, Expanded Prefixes metrics report, and export to S3 Tables. ([a873777](https://github.com/aws/aws-sdk-js-v3/commit/a87377781e7cb316ce2c7335fa637ec3124f2f6d))
+* **client-s3:** New S3 Storage Class FSX_ONTAP ([56ffa40](https://github.com/aws/aws-sdk-js-v3/commit/56ffa40ae180847a5e8d2e37d96356e6eaf38c72))
+* **client-s3tables:** Add storage class, replication, and table record expiration features to S3 Tables. ([f73480a](https://github.com/aws/aws-sdk-js-v3/commit/f73480a7b322942493f5008ce09ca98d0014c539))
+* **client-s3vectors:** Amazon S3 Vectors provides cost-effective, elastic, and durable vector storage for queries based on semantic meaning and similarity. ([b983581](https://github.com/aws/aws-sdk-js-v3/commit/b98358147a07e99335571bd49d0c094c7340cc16))
+* **client-sagemaker:** Added support for serverless MLflow Apps. ([99cda6c](https://github.com/aws/aws-sdk-js-v3/commit/99cda6cb9d944e23c7980371bbfb2ddddfa4afc4))
+* **client-savingsplans:** Added support for Amazon Database Savings Plans ([d93e9c4](https://github.com/aws/aws-sdk-js-v3/commit/d93e9c4162e4864ba44a2f5235b07fffda90d188))
+* **client-securityhub:** ITSM enhancements: DRYRUN mode for testing ticket creation, ServiceNow now uses AWS Secrets Manager for credentials, ConnectorRegistrationsV2 renamed to RegisterConnectorV2, added ServiceQuotaExceededException error, and ConnectorStatus visibility in CreateConnectorV2. ([45c4bd1](https://github.com/aws/aws-sdk-js-v3/commit/45c4bd145565a45e1aa5a5200ae1730825547ad2))
+* **clients:** update client endpoints as of 2025-12-02 ([2f1ed32](https://github.com/aws/aws-sdk-js-v3/commit/2f1ed327f3f2b793e65a2bf911ad9743febca017))
+
+
+
+
+
 # [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
 
 

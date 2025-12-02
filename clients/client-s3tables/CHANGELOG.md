@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-s3tables:** Add storage class, replication, and table record expiration features to S3 Tables. ([f73480a](https://github.com/aws/aws-sdk-js-v3/commit/f73480a7b322942493f5008ce09ca98d0014c539))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-s3tables

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-observabilityadmin:** CloudWatch Observability Admin adds pipelines configuration for third party log ingestion and transformation of all logs ingested, integration of CloudWatch logs with S3 Tables, and AWS account or organization level enablement for 7 AWS services. ([1e20b0f](https://github.com/aws/aws-sdk-js-v3/commit/1e20b0fe47ec2588b3a1693d7f6d025689abb7e2))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-sagemaker:** Added support for serverless MLflow Apps. ([99cda6c](https://github.com/aws/aws-sdk-js-v3/commit/99cda6cb9d944e23c7980371bbfb2ddddfa4afc4))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

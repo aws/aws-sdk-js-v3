@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-lambda:** Launching Lambda durable functions - a new feature to build reliable multi-step applications and AI workflows natively within the Lambda developer experience. ([01476cf](https://github.com/aws/aws-sdk-js-v3/commit/01476cf7a303a04f994968d03d16f6fffb372ad8))
+
+
+
+
+
 # [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
 
 

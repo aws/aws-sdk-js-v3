@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-arc-region-switch",
   "description": "AWS SDK for JavaScript Arc Region Switch Client for Node.js, Browser and React Native",
-  "version": "3.940.0",
+  "version": "3.943.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-arc-region-switch",
