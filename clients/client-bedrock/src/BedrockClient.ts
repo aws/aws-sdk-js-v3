@@ -361,6 +361,10 @@ import {
   UpdateAutomatedReasoningPolicyTestCaseCommandInput,
   UpdateAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyTestCaseCommand";
+import {
+  UpdateCustomModelDeploymentCommandInput,
+  UpdateCustomModelDeploymentCommandOutput,
+} from "./commands/UpdateCustomModelDeploymentCommand";
 import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "./commands/UpdateGuardrailCommand";
 import {
   UpdateMarketplaceModelEndpointCommandInput,
@@ -479,6 +483,7 @@ export type ServiceInputTypes =
   | UpdateAutomatedReasoningPolicyAnnotationsCommandInput
   | UpdateAutomatedReasoningPolicyCommandInput
   | UpdateAutomatedReasoningPolicyTestCaseCommandInput
+  | UpdateCustomModelDeploymentCommandInput
   | UpdateGuardrailCommandInput
   | UpdateMarketplaceModelEndpointCommandInput
   | UpdateProvisionedModelThroughputCommandInput;
@@ -581,6 +586,7 @@ export type ServiceOutputTypes =
   | UpdateAutomatedReasoningPolicyAnnotationsCommandOutput
   | UpdateAutomatedReasoningPolicyCommandOutput
   | UpdateAutomatedReasoningPolicyTestCaseCommandOutput
+  | UpdateCustomModelDeploymentCommandOutput
   | UpdateGuardrailCommandOutput
   | UpdateMarketplaceModelEndpointCommandOutput
   | UpdateProvisionedModelThroughputCommandOutput;

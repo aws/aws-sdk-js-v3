@@ -44,7 +44,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   roleArn: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  *   baseModelIdentifier: "STRING_VALUE", // required
- *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
+ *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "REINFORCEMENT_FINE_TUNING" || "IMPORTED",
  *   customModelKmsKeyId: "STRING_VALUE",
  *   jobTags: [ // TagList
  *     { // Tag
@@ -119,6 +119,23 @@ export interface CreateModelCustomizationJobCommandOutput
  *       teacherModelConfig: { // TeacherModelConfig
  *         teacherModelIdentifier: "STRING_VALUE", // required
  *         maxResponseLengthForInference: Number("int"),
+ *       },
+ *     },
+ *     rftConfig: { // RFTConfig
+ *       graderConfig: { // GraderConfig Union: only one key present
+ *         lambdaGrader: { // LambdaGraderConfig
+ *           lambdaArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       hyperParameters: { // RFTHyperParameters
+ *         epochCount: Number("int"),
+ *         batchSize: Number("int"),
+ *         learningRate: Number("float"),
+ *         maxPromptLength: Number("int"),
+ *         trainingSamplePerPrompt: Number("int"),
+ *         inferenceMaxTokens: Number("int"),
+ *         reasoningEffort: "low" || "medium" || "high",
+ *         evalInterval: Number("int"),
  *       },
  *     },
  *   },

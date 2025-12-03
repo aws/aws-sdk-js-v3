@@ -5,9 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteInferenceProfileRequest } from "../models/models_0";
-import { DeleteInferenceProfileResponse } from "../models/models_1";
-import { DeleteInferenceProfile } from "../schemas/schemas_0";
+import { UpdateCustomModelDeploymentRequest, UpdateCustomModelDeploymentResponse } from "../models/models_0";
+import { UpdateCustomModelDeployment } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,46 +16,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteInferenceProfileCommand}.
+ * The input for {@link UpdateCustomModelDeploymentCommand}.
  */
-export interface DeleteInferenceProfileCommandInput extends DeleteInferenceProfileRequest {}
+export interface UpdateCustomModelDeploymentCommandInput extends UpdateCustomModelDeploymentRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteInferenceProfileCommand}.
+ * The output of {@link UpdateCustomModelDeploymentCommand}.
  */
-export interface DeleteInferenceProfileCommandOutput extends DeleteInferenceProfileResponse, __MetadataBearer {}
+export interface UpdateCustomModelDeploymentCommandOutput
+  extends UpdateCustomModelDeploymentResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes an application inference profile. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">Increase throughput and resilience with cross-region inference in Amazon Bedrock</a>. in the Amazon Bedrock User Guide.</p>
+ * <p> Updates a custom model deployment with a new custom model. This allows you to deploy updated models without creating new deployment endpoints. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, DeleteInferenceProfileCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, DeleteInferenceProfileCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, UpdateCustomModelDeploymentCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, UpdateCustomModelDeploymentCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
  * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
- * const input = { // DeleteInferenceProfileRequest
- *   inferenceProfileIdentifier: "STRING_VALUE", // required
+ * const input = { // UpdateCustomModelDeploymentRequest
+ *   modelArn: "STRING_VALUE", // required
+ *   customModelDeploymentIdentifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteInferenceProfileCommand(input);
+ * const command = new UpdateCustomModelDeploymentCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateCustomModelDeploymentResponse
+ * //   customModelDeploymentArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param DeleteInferenceProfileCommandInput - {@link DeleteInferenceProfileCommandInput}
- * @returns {@link DeleteInferenceProfileCommandOutput}
- * @see {@link DeleteInferenceProfileCommandInput} for command's `input` shape.
- * @see {@link DeleteInferenceProfileCommandOutput} for command's `response` shape.
+ * @param UpdateCustomModelDeploymentCommandInput - {@link UpdateCustomModelDeploymentCommandInput}
+ * @returns {@link UpdateCustomModelDeploymentCommandOutput}
+ * @see {@link UpdateCustomModelDeploymentCommandInput} for command's `input` shape.
+ * @see {@link UpdateCustomModelDeploymentCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request is denied because of missing access permissions.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Error occurred because of a conflict while performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
@@ -76,10 +77,10 @@ export interface DeleteInferenceProfileCommandOutput extends DeleteInferenceProf
  *
  * @public
  */
-export class DeleteInferenceProfileCommand extends $Command
+export class UpdateCustomModelDeploymentCommand extends $Command
   .classBuilder<
-    DeleteInferenceProfileCommandInput,
-    DeleteInferenceProfileCommandOutput,
+    UpdateCustomModelDeploymentCommandInput,
+    UpdateCustomModelDeploymentCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -88,19 +89,19 @@ export class DeleteInferenceProfileCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockControlPlaneService", "DeleteInferenceProfile", {})
-  .n("BedrockClient", "DeleteInferenceProfileCommand")
-  .sc(DeleteInferenceProfile)
+  .s("AmazonBedrockControlPlaneService", "UpdateCustomModelDeployment", {})
+  .n("BedrockClient", "UpdateCustomModelDeploymentCommand")
+  .sc(UpdateCustomModelDeployment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteInferenceProfileRequest;
-      output: {};
+      input: UpdateCustomModelDeploymentRequest;
+      output: UpdateCustomModelDeploymentResponse;
     };
     sdk: {
-      input: DeleteInferenceProfileCommandInput;
-      output: DeleteInferenceProfileCommandOutput;
+      input: UpdateCustomModelDeploymentCommandInput;
+      output: UpdateCustomModelDeploymentCommandOutput;
     };
   };
 }

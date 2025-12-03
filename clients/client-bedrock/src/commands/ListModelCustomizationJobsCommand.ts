@@ -78,7 +78,7 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * //       endTime: new Date("TIMESTAMP"),
  * //       customModelArn: "STRING_VALUE",
  * //       customModelName: "STRING_VALUE",
- * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "REINFORCEMENT_FINE_TUNING" || "IMPORTED",
  * //     },
  * //   ],
  * // };

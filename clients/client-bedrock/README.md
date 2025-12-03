@@ -957,6 +957,14 @@ UpdateAutomatedReasoningPolicyTestCase
 </details>
 <details>
 <summary>
+UpdateCustomModelDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/UpdateCustomModelDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/UpdateCustomModelDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/UpdateCustomModelDeploymentCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateGuardrail
 </summary>
 

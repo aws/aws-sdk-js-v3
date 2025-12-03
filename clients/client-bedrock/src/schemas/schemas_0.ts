@@ -181,6 +181,7 @@ const _CMCJr = "CreateModelCustomizationJob";
 const _CMD = "CustomMetricDefinition";
 const _CMDS = "CustomModelDeploymentSummary";
 const _CMDSL = "CustomModelDeploymentSummaryList";
+const _CMDUD = "CustomModelDeploymentUpdateDetails";
 const _CMEMC = "CustomMetricEvaluatorModelConfig";
 const _CMIJ = "CreateModelImportJob";
 const _CMIJR = "CreateModelImportJobRequest";
@@ -342,6 +343,7 @@ const _GCP = "GuardrailContentPolicy";
 const _GCPC = "GuardrailContentPolicyConfig";
 const _GCRC = "GuardrailCrossRegionConfig";
 const _GCRD = "GuardrailCrossRegionDetails";
+const _GCr = "GraderConfig";
 const _GCu = "GuardrailConfiguration";
 const _GD = "GuardrailDescription";
 const _GEJ = "GetEvaluationJob";
@@ -488,6 +490,7 @@ const _LFMAORi = "ListFoundationModelAgreementOffersResponse";
 const _LFMR = "ListFoundationModelsRequest";
 const _LFMRi = "ListFoundationModelsResponse";
 const _LG = "ListGuardrails";
+const _LGC = "LambdaGraderConfig";
 const _LGR = "ListGuardrailsRequest";
 const _LGRi = "ListGuardrailsResponse";
 const _LIM = "ListImportedModels";
@@ -574,6 +577,8 @@ const _RCat = "RateCard";
 const _RCo = "RoutingCriteria";
 const _RF = "RetrievalFilter";
 const _RFL = "RetrievalFilterList";
+const _RFTC = "RFTConfig";
+const _RFTHP = "RFTHyperParameters";
 const _RIUE = "ResourceInUseException";
 const _RMBF = "RequestMetadataBaseFilters";
 const _RMF = "RequestMetadataFilters";
@@ -633,6 +638,9 @@ const _UARPRp = "UpdateAutomatedReasoningPolicyResponse";
 const _UARPTC = "UpdateAutomatedReasoningPolicyTestCase";
 const _UARPTCR = "UpdateAutomatedReasoningPolicyTestCaseRequest";
 const _UARPTCRp = "UpdateAutomatedReasoningPolicyTestCaseResponse";
+const _UCMD = "UpdateCustomModelDeployment";
+const _UCMDR = "UpdateCustomModelDeploymentRequest";
+const _UCMDRp = "UpdateCustomModelDeploymentResponse";
 const _UG = "UpdateGuardrail";
 const _UGR = "UpdateGuardrailRequest";
 const _UGRp = "UpdateGuardrailResponse";
@@ -703,6 +711,7 @@ const _bOMy = "byOutputModality";
 const _bP = "byProvider";
 const _bRC = "bedrockRerankingConfiguration";
 const _bS = "buildSteps";
+const _bSa = "batchSize";
 const _bWA = "buildWorkflowAssets";
 const _bWI = "buildWorkflowId";
 const _bWT = "buildWorkflowType";
@@ -786,8 +795,10 @@ const _eAFR = "expectedAggregatedFindingsResult";
 const _eAn = "entitlementAvailability";
 const _eC = "evaluationConfig";
 const _eCn = "endpointConfig";
+const _eCp = "epochCount";
 const _eDDE = "embeddingDataDeliveryEnabled";
 const _eI = "endpointIdentifier";
+const _eIv = "evalInterval";
 const _eJ = "evaluationJobs";
 const _eM = "errorMessage";
 const _eMC = "evaluatorModelConfig";
@@ -827,6 +838,7 @@ const _g = "guardrails";
 const _gA = "guardrailArn";
 const _gC = "guardContent";
 const _gCe = "generationConfiguration";
+const _gCr = "graderConfig";
 const _gCu = "guardrailConfiguration";
 const _gCua = "guardrailsConfig";
 const _gI = "guardrailIdentifier";
@@ -865,6 +877,7 @@ const _iMKKA = "importedModelKmsKeyArn";
 const _iMKKI = "importedModelKmsKeyId";
 const _iMN = "importedModelName";
 const _iMT = "importedModelTags";
+const _iMTn = "inferenceMaxTokens";
 const _iO = "isOwned";
 const _iP = "inferenceParams";
 const _iPA = "inferenceProfileArn";
@@ -905,11 +918,14 @@ const _kKA = "kmsKeyArn";
 const _kKI = "kmsKeyId";
 const _kP = "keyPrefix";
 const _l = "logic";
+const _lA = "lambdaArn";
 const _lC = "loggingConfig";
 const _lCi = "listContains";
 const _lDDSC = "largeDataDeliveryS3Config";
+const _lG = "lambdaGrader";
 const _lGN = "logGroupName";
 const _lMT = "lastModifiedTime";
+const _lR = "learningRate";
 const _lT = "legalTerm";
 const _lTOE = "lessThanOrEquals";
 const _lTe = "lessThan";
@@ -943,6 +959,7 @@ const _mME = "marketplaceModelEndpoint";
 const _mMEa = "marketplaceModelEndpoints";
 const _mN = "modelName";
 const _mNe = "metricNames";
+const _mPL = "maxPromptLength";
 const _mR = "maxResults";
 const _mRLFI = "maxResponseLengthForInference";
 const _mS = "modelSource";
@@ -1037,7 +1054,9 @@ const _rCe = "regexesConfig";
 const _rCer = "rerankingConfiguration";
 const _rCet = "retrievalConfiguration";
 const _rCetr = "retrieveConfig";
+const _rCf = "rftConfig";
 const _rCo = "routingCriteria";
+const _rE = "reasoningEffort";
 const _rI = "ruleId";
 const _rIa = "ragIdentifiers";
 const _rIu = "ruleIds";
@@ -1136,6 +1155,7 @@ const _tR = "testResult";
 const _tRR = "testRunResult";
 const _tRS = "testRunStatus";
 const _tRe = "testResults";
+const _tSPP = "trainingSamplePerPrompt";
 const _tT = "taskType";
 const _ta = "tags";
 const _te = "text";
@@ -1151,11 +1171,13 @@ const _uA = "updatedAt";
 const _uB = "updatedBy";
 const _uBPT = "usageBasedPricingTerm";
 const _uC = "untranslatedClaims";
+const _uD = "updateDetails";
 const _uFRF = "updateFromRulesFeedback";
 const _uFSF = "updateFromScenarioFeedback";
 const _uP = "untranslatedPremises";
 const _uPR = "usePromptResponse";
 const _uR = "updateRule";
+const _uS = "updateStatus";
 const _uT = "unusedTypes";
 const _uTV = "unusedTypeValues";
 const _uTVp = "updateTypeValue";
@@ -2206,6 +2228,7 @@ export var CustomModelDeploymentSummary: StaticStructureSchema = [
   [_cMDA, _cMDN, _mA, _cA, _s, _lUA, _fMa],
   [0, 0, 0, 5, 0, 5, 0],
 ];
+export var CustomModelDeploymentUpdateDetails: StaticStructureSchema = [3, n0, _CMDUD, 0, [_mA, _uS], [0, 0]];
 export var CustomModelSummary: StaticStructureSchema = [
   3,
   n0,
@@ -2569,8 +2592,8 @@ export var GetCustomModelDeploymentResponse: StaticStructureSchema = [
   n0,
   _GCMDRe,
   0,
-  [_cMDA, _mDN, _mA, _cA, _s, _d, _fMa, _lUA],
-  [0, 0, 0, 5, 0, 0, 0, 5],
+  [_cMDA, _mDN, _mA, _cA, _s, _d, _uD, _fMa, _lUA],
+  [0, 0, 0, 5, 0, 0, () => CustomModelDeploymentUpdateDetails, 0, 5],
 ];
 export var GetCustomModelRequest: StaticStructureSchema = [3, n0, _GCMR, 0, [_mI], [[0, 1]]];
 export var GetCustomModelResponse: StaticStructureSchema = [
@@ -3250,6 +3273,7 @@ export var KnowledgeBaseVectorSearchConfiguration: StaticStructureSchema = [
     [() => VectorSearchRerankingConfiguration, 0],
   ],
 ];
+export var LambdaGraderConfig: StaticStructureSchema = [3, n0, _LGC, 0, [_lA], [0]];
 export var LegalTerm: StaticStructureSchema = [3, n0, _LT, 0, [_ur], [0]];
 export var ListAutomatedReasoningPoliciesRequest: StaticStructureSchema = [
   3,
@@ -4474,6 +4498,22 @@ export var RetrieveConfig: StaticStructureSchema = [
   [_kBI, _kBRC],
   [0, [() => KnowledgeBaseRetrievalConfiguration, 0]],
 ];
+export var RFTConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _RFTC,
+  0,
+  [_gCr, _hP],
+  [() => GraderConfig, () => RFTHyperParameters],
+];
+export var RFTHyperParameters: StaticStructureSchema = [
+  3,
+  n0,
+  _RFTHP,
+  0,
+  [_eCp, _bSa, _lR, _mPL, _tSPP, _iMTn, _rE, _eIv],
+  [1, 1, 1, 1, 1, 1, 0, 1],
+];
 export var RoutingCriteria: StaticStructureSchema = [3, n0, _RCo, 0, [_rQD], [1]];
 export var S3Config: StaticStructureSchema = [3, n0, _SC, 0, [_bN, _kP], [0, 0]];
 export var S3DataSource: StaticStructureSchema = [3, n0, _SDS, 0, [_sU], [0]];
@@ -4683,6 +4723,8 @@ export var UpdateAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema
   [_pA, _tCI],
   [0, 0],
 ];
+export var UpdateCustomModelDeploymentRequest: StaticStructureSchema = [3, n0, _UCMDR, 0, [_mA, _cMDI], [0, [0, 1]]];
+export var UpdateCustomModelDeploymentResponse: StaticStructureSchema = [3, n0, _UCMDRp, 0, [_cMDA], [0]];
 export var UpdateGuardrailRequest: StaticStructureSchema = [
   3,
   n0,
@@ -5247,7 +5289,14 @@ export var AutomatedReasoningPolicyWorkflowTypeContent: StaticStructureSchema = 
     [() => AutomatedReasoningPolicyBuildWorkflowRepairContent, 0],
   ],
 ];
-export var CustomizationConfig: StaticStructureSchema = [3, n0, _CC, 0, [_dC], [() => DistillationConfig]];
+export var CustomizationConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _CC,
+  0,
+  [_dC, _rCf],
+  [() => DistillationConfig, () => RFTConfig],
+];
 export var EndpointConfig: StaticStructureSchema = [3, n0, _EC, 0, [_sMa], [() => SageMakerEndpoint]];
 export var EvaluationConfig: StaticStructureSchema = [
   3,
@@ -5289,6 +5338,7 @@ export var EvaluationPrecomputedRagSourceConfig: StaticStructureSchema = [
   [() => EvaluationPrecomputedRetrieveSourceConfig, () => EvaluationPrecomputedRetrieveAndGenerateSourceConfig],
 ];
 export var EvaluatorModelConfig: StaticStructureSchema = [3, n0, _EMCva, 0, [_bEM], [() => BedrockEvaluatorModels]];
+export var GraderConfig: StaticStructureSchema = [3, n0, _GCr, 0, [_lG], [() => LambdaGraderConfig]];
 export var InferenceProfileModelSource: StaticStructureSchema = [3, n0, _IPMS, 0, [_cF], [0]];
 export var InvocationLogSource: StaticStructureSchema = [3, n0, _ILS, 0, [_sU], [0]];
 export var KnowledgeBaseConfig: StaticStructureSchema = [
@@ -6317,6 +6367,16 @@ export var UpdateAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
   },
   () => UpdateAutomatedReasoningPolicyTestCaseRequest,
   () => UpdateAutomatedReasoningPolicyTestCaseResponse,
+];
+export var UpdateCustomModelDeployment: StaticOperationSchema = [
+  9,
+  n0,
+  _UCMD,
+  {
+    [_ht]: ["PATCH", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 202],
+  },
+  () => UpdateCustomModelDeploymentRequest,
+  () => UpdateCustomModelDeploymentResponse,
 ];
 export var UpdateGuardrail: StaticOperationSchema = [
   9,

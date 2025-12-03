@@ -48,6 +48,10 @@ export interface GetCustomModelDeploymentCommandOutput extends GetCustomModelDep
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   status: "Creating" || "Active" || "Failed", // required
  * //   description: "STRING_VALUE",
+ * //   updateDetails: { // CustomModelDeploymentUpdateDetails
+ * //     modelArn: "STRING_VALUE", // required
+ * //     updateStatus: "Updating" || "UpdateCompleted" || "UpdateFailed", // required
+ * //   },
  * //   failureMessage: "STRING_VALUE",
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * // };
