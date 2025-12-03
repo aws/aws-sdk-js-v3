@@ -1,0 +1,168 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
+import { Glacier } from "@aws-sdk/client-glacier";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
+
+describe("Amazon Glacier Features", () => {
+  let client: Glacier;
+  let region: string;
+  let vaultName: string;
+
+  beforeAll(async () => {
+    const e2eTestResourcesEnv = await getE2eTestResources();
+    Object.assign(process.env, e2eTestResourcesEnv);
+
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+
+    client = new Glacier({ region });
+    vaultName = `aws-js-sdk-integration`;
+
+    // Create vault
+    await client.createVault({
+      accountId: "",
+      vaultName: vaultName,
+    });
+  });
+
+  afterAll(async () => {
+    // Delete vault
+    try {
+      await client.deleteVault({
+        accountId: "",
+        vaultName: vaultName,
+      });
+    } catch (error) {
+      console.warn(`Could not delete vault ${vaultName}:`, (error as Error).message);
+    }
+  });
+
+  it("should describe vault with NumberOfArchives property", async () => {
+    const describeResult = await client.describeVault({
+      accountId: "",
+      vaultName: vaultName,
+    });
+
+    expect(describeResult.NumberOfArchives).toBeDefined();
+    expect(typeof describeResult.NumberOfArchives).toBe("number");
+  });
+
+  it("should upload archive, verify checksum, and delete it", async () => {
+    // Create 0.25MB test data
+    const data = Buffer.alloc(0.25 * 1024 * 1024);
+    data.fill("0");
+
+    // Upload archive
+    const uploadResult = await client.uploadArchive({
+      accountId: "",
+      vaultName: vaultName,
+      body: data,
+    });
+
+    expect(uploadResult.archiveId).toBeDefined();
+    expect(uploadResult.checksum).toBeDefined();
+    expect(uploadResult.checksum).toBe("6faefade5a638cd3545d638dd5754763658e32209e69420cb559b7650d4bf93a");
+
+    // Delete archive
+    const deleteResult = await client.deleteArchive({
+      accountId: "",
+      vaultName: vaultName,
+      archiveId: uploadResult.archiveId!,
+    });
+
+    expect(deleteResult.$metadata?.httpStatusCode).toBe(204);
+  });
+
+  it("should complete multi-part upload with chunks", async () => {
+    // Setup multi-part upload: 2.5MB archive in 1MB chunks
+    const totalSize = 2.5 * 1024 * 1024;
+    const partSize = 1024 * 1024; // 1MB
+    const uploadData = Buffer.alloc(totalSize);
+    uploadData.fill("0");
+
+    // Initiate multi-part upload
+    const initiateResult = await client.initiateMultipartUpload({
+      accountId: "",
+      vaultName: vaultName,
+      partSize: partSize.toString(),
+    });
+
+    expect(initiateResult.uploadId).toBeDefined();
+
+    const uploadId = initiateResult.uploadId!;
+
+    // Upload parts
+    for (let i = 0; i < uploadData.length; i += partSize) {
+      const end = Math.min(i + partSize, uploadData.length);
+      const buf = uploadData.subarray(i, end);
+      const range = `bytes ${i}-${end - 1}/*`;
+
+      await client.uploadMultipartPart({
+        accountId: "",
+        vaultName: vaultName,
+        uploadId: uploadId,
+        range: range,
+        body: buf,
+      });
+    }
+
+    // Complete multi-part upload
+    const completeResult = await client.completeMultipartUpload({
+      accountId: "",
+      vaultName: vaultName,
+      uploadId: uploadId,
+      archiveSize: uploadData.length.toString(),
+      checksum: "86118ad0c187fd240db59a37360e0e7f8a3a0c608eed740b4cd7b4271ab45171",
+    });
+
+    expect(completeResult.$metadata?.httpStatusCode).toBe(201);
+    expect(completeResult.archiveId).toBeDefined();
+    expect(completeResult.checksum).toBeDefined();
+    expect(completeResult.checksum).toBe("86118ad0c187fd240db59a37360e0e7f8a3a0c608eed740b4cd7b4271ab45171");
+
+    // Delete multipart archive
+    await client.deleteArchive({
+      accountId: "",
+      vaultName: vaultName,
+      archiveId: completeResult.archiveId!,
+    });
+  });
+
+  describe("Error handling", () => {
+    it("should throw InvalidParameterValueException for incorrect checksum", async () => {
+      const data = Buffer.alloc(0.05 * 1024 * 1024);
+      data.fill("0");
+
+      await expect(
+        client.uploadArchive({
+          accountId: "",
+          vaultName: vaultName,
+          body: data,
+          checksum: "00000000000000000000000000000000",
+        })
+      ).rejects.toThrow(
+        expect.objectContaining({
+          name: "InvalidParameterValueException",
+          message: expect.stringContaining("Checksum mismatch"),
+        })
+      );
+    });
+
+    it("should throw InvalidParameterValueException for invalid checksum format", async () => {
+      const data = Buffer.alloc(0.05 * 1024 * 1024);
+      data.fill("0");
+
+      await expect(
+        client.uploadArchive({
+          accountId: "",
+          vaultName: vaultName,
+          body: data,
+          checksum: "000",
+        })
+      ).rejects.toThrow(
+        expect.objectContaining({
+          name: "InvalidParameterValueException",
+          message: expect.stringContaining("Invalid x-amz-sha256-tree-hash: 000"),
+        })
+      );
+    });
+  });
+});
