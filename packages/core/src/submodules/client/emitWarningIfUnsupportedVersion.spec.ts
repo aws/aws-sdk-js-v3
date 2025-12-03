@@ -4,7 +4,7 @@ import { emitWarningIfUnsupportedVersion, state } from "./emitWarningIfUnsupport
 
 describe("emitWarningIfUnsupportedVersion", () => {
   const emitWarning = process.emitWarning;
-  const supportedVersion = "18.0.0";
+  const supportedVersion = "20.0.0";
 
   beforeEach(() => {});
 
