@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.944.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.943.0...v3.944.0) (2025-12-03)
+
+
+### Features
+
+* **client-bedrock:** Adding support in Amazon Bedrock to customize models with reinforcement fine-tuning (RFT) and support for updating the existing Custom Model Deployments. ([415382c](https://github.com/aws/aws-sdk-js-v3/commit/415382c6c3ea1e3ba8d04f91a7c7b719aed64286))
+
+
+
+
+
 # [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
 
 

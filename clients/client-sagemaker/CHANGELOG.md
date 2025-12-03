@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.944.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.943.0...v3.944.0) (2025-12-03)
+
+
+### Features
+
+* **client-sagemaker:** Introduces Serverless training: A fully managed compute infrastructure that abstracts away all infrastructure complexity, allowing you to focus purely on model development. ([ca01bcc](https://github.com/aws/aws-sdk-js-v3/commit/ca01bcce32422fbb7155e04a4ca06f4da54a309b))
+
+
+
+
+
 # [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
 
 
