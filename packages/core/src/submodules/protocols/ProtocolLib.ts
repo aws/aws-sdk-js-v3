@@ -110,11 +110,23 @@ export class ProtocolLib {
   ): E {
     if (this.queryCompat) {
       const msg = (exception as any).Message ?? additions.Message;
-      const error = decorateServiceException(exception, additions);
+      const error: any = decorateServiceException(exception, additions);
       if (msg) {
-        (error as any).Message = msg;
-        (error as any).message = msg;
+        error.message = msg;
       }
+
+      error.Error = {
+        ...error.Error,
+        Type: error.Error.Type,
+        Code: error.Error.Code,
+        Message: error.Error.message ?? error.Error.Message ?? msg,
+      };
+
+      const reqId = error.$metadata.requestId;
+      if (reqId) {
+        error.RequestId = reqId;
+      }
+
       return error;
     }
     return decorateServiceException(exception, additions);
@@ -138,7 +150,7 @@ export class ProtocolLib {
       } as any;
       Object.assign(output, Error);
       for (const [k, v] of entries) {
-        Error[k] = v;
+        Error[k === "message" ? "Message" : k] = v;
       }
       delete Error.__type;
       output.Error = Error;
@@ -159,6 +171,21 @@ export class ProtocolLib {
     }
     if (queryCompatErrorData.Code) {
       errorData.Code = queryCompatErrorData.Code;
+    }
+  }
+
+  /**
+   * Finds the canonical modeled error using the awsQueryError alias.
+   * @param registry - service error registry.
+   * @param errorName - awsQueryError name or regular qualified shapeId.
+   */
+  public findQueryCompatibleError(registry: TypeRegistry, errorName: string) {
+    try {
+      return registry.getSchema(errorName) as StaticErrorSchema;
+    } catch (e) {
+      return registry.find(
+        (schema) => (NormalizedSchema.of(schema).getMergedTraits().awsQueryError as any)?.[0] === errorName
+      ) as StaticErrorSchema;
     }
   }
 }
