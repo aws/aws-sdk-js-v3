@@ -2752,6 +2752,42 @@
         "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:(experiment|experiment-trial-component|artifact|action|context)/"
       }
     },
+    "com.amazonaws.sagemaker#AssociationInfo": {
+      "type": "structure",
+      "members": {
+        "SourceArn": {
+          "target": "com.amazonaws.sagemaker#String2048",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the <code>AssociationInfo</code> source. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DestinationArn": {
+          "target": "com.amazonaws.sagemaker#String2048",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the <code>AssociationInfo</code> destination. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The data type used to describe the relationship between different sources. </p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AssociationInfoList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AssociationInfo"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
     "com.amazonaws.sagemaker#AssociationSummaries": {
       "type": "list",
       "member": {
@@ -5020,6 +5056,32 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#BaseModel": {
+      "type": "structure",
+      "members": {
+        "HubContentName": {
+          "target": "com.amazonaws.sagemaker#HubContentName",
+          "traits": {
+            "smithy.api#documentation": "<p> The hub content name of the base model. </p>"
+          }
+        },
+        "HubContentVersion": {
+          "target": "com.amazonaws.sagemaker#HubContentVersion",
+          "traits": {
+            "smithy.api#documentation": "<p> The hub content version of the base model. </p>"
+          }
+        },
+        "RecipeName": {
+          "target": "com.amazonaws.sagemaker#RecipeName",
+          "traits": {
+            "smithy.api#documentation": "<p> The recipe name of the base model. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Identifies the foundation model that was used as the starting point for model customization.</p>"
+      }
+    },
     "com.amazonaws.sagemaker#BaseModelName": {
       "type": "string",
       "traits": {
@@ -5540,6 +5602,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The approval status of the model.</p>"
           }
+        },
+        "ModelPackageRegistrationType": {
+          "target": "com.amazonaws.sagemaker#ModelPackageRegistrationType",
+          "traits": {
+            "smithy.api#documentation": "<p> The package registration type of the model package summary. </p>"
+          }
         }
       },
       "traits": {
@@ -6057,6 +6125,62 @@
         "smithy.api#documentation": "<p>Input object for the batch transform job.</p>"
       }
     },
+    "com.amazonaws.sagemaker#BedrockCustomModelDeploymentMetadata": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.sagemaker#String1024",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the metadata for the Amazon Bedrock custom model deployment. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The metadata of the Amazon Bedrock custom model deployment. </p>"
+      }
+    },
+    "com.amazonaws.sagemaker#BedrockCustomModelMetadata": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.sagemaker#String1024",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock custom model metadata. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The metadata of the Amazon Bedrock custom model. </p>"
+      }
+    },
+    "com.amazonaws.sagemaker#BedrockModelImportMetadata": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.sagemaker#String1024",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock model import metadata. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The metadata of the Amazon Bedrock model import. </p>"
+      }
+    },
+    "com.amazonaws.sagemaker#BedrockProvisionedModelThroughputMetadata": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.sagemaker#String1024",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the Amazon Bedrock provisioned model throughput metadata. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The metadata of the Amazon Bedrock provisioned model throughput. </p>"
+      }
+    },
     "com.amazonaws.sagemaker#BestObjectiveNotImproving": {
       "type": "structure",
       "members": {
@@ -6102,6 +6226,14 @@
       "traits": {
         "smithy.api#range": {
           "min": 1
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#BillableTokenCount": {
+      "type": "long",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
         }
       }
     },
@@ -10261,7 +10393,8 @@
           "target": "com.amazonaws.sagemaker#ClusterOrchestratorEksConfig",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>"
+            "smithy.api#documentation": "<p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -16022,6 +16155,12 @@
             "smithy.api#documentation": "<p>A description of the model package.</p>"
           }
         },
+        "ModelPackageRegistrationType": {
+          "target": "com.amazonaws.sagemaker#ModelPackageRegistrationType",
+          "traits": {
+            "smithy.api#documentation": "<p> The package registration type of the model package input. </p>"
+          }
+        },
         "InferenceSpecification": {
           "target": "com.amazonaws.sagemaker#InferenceSpecification",
           "traits": {
@@ -17762,6 +17901,24 @@
           "traits": {
             "smithy.api#documentation": "<p>Contains information about attribute-based access control (ABAC) for the training job.</p>"
           }
+        },
+        "ServerlessJobConfig": {
+          "target": "com.amazonaws.sagemaker#ServerlessJobConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> The configuration for serverless training jobs. </p>"
+          }
+        },
+        "MlflowConfig": {
+          "target": "com.amazonaws.sagemaker#MlflowConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow configuration using SageMaker managed MLflow. </p>"
+          }
+        },
+        "ModelPackageConfig": {
+          "target": "com.amazonaws.sagemaker#ModelPackageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> The configuration for the model package. </p>"
+          }
         }
       },
       "traits": {
@@ -18693,6 +18850,35 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]*)${1,256}$"
       }
     },
+    "com.amazonaws.sagemaker#CustomizationTechnique": {
+      "type": "enum",
+      "members": {
+        "SFT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SFT"
+          }
+        },
+        "DPO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DPO"
+          }
+        },
+        "RLVR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RLVR"
+          }
+        },
+        "RLAIF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RLAIF"
+          }
+        }
+      }
+    },
     "com.amazonaws.sagemaker#CustomizedMetricSpecification": {
       "type": "structure",
       "members": {
@@ -19007,6 +19193,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The file system that is associated with a channel.</p>"
           }
+        },
+        "DatasetSource": {
+          "target": "com.amazonaws.sagemaker#DatasetSource",
+          "traits": {
+            "smithy.api#documentation": "<p> The dataset resource that's associated with a channel. </p>"
+          }
         }
       },
       "traits": {
@@ -19070,6 +19262,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either <code>AthenaDatasetDefinition</code> or <code>RedshiftDatasetDefinition</code> types.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DatasetSource": {
+      "type": "structure",
+      "members": {
+        "DatasetArn": {
+          "target": "com.amazonaws.sagemaker#HubDataSetArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the dataset resource. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Specifies a dataset source for a channel. </p>"
       }
     },
     "com.amazonaws.sagemaker#DebugHookConfig": {
@@ -27890,6 +28097,12 @@
             "smithy.api#documentation": "<p>The version of the model package.</p>"
           }
         },
+        "ModelPackageRegistrationType": {
+          "target": "com.amazonaws.sagemaker#ModelPackageRegistrationType",
+          "traits": {
+            "smithy.api#documentation": "<p> The package registration type of the model package output. </p>"
+          }
+        },
         "ModelPackageArn": {
           "target": "com.amazonaws.sagemaker#ModelPackageArn",
           "traits": {
@@ -29121,6 +29334,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the pipeline version.</p>"
           }
+        },
+        "MLflowConfig": {
+          "target": "com.amazonaws.sagemaker#MLflowConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow configuration of the pipeline execution. </p>"
+          }
         }
       },
       "traits": {
@@ -30085,7 +30304,7 @@
           "target": "com.amazonaws.sagemaker#SecondaryStatus",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p> Provides detailed information about the state of the training job. For detailed information on the secondary status of the training job, see <code>StatusMessage</code> under <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html\">SecondaryStatusTransition</a>.</p> <p>SageMaker provides primary statuses and secondary statuses that apply to each of them:</p> <dl> <dt>InProgress</dt> <dd> <ul> <li> <p> <code>Starting</code> - Starting the training job.</p> </li> <li> <p> <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode. It indicates that data is being downloaded to the ML storage volumes.</p> </li> <li> <p> <code>Training</code> - Training is in progress.</p> </li> <li> <p> <code>Interrupted</code> - The job stopped because the managed spot training instances were interrupted. </p> </li> <li> <p> <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.</p> </li> </ul> </dd> <dt>Completed</dt> <dd> <ul> <li> <p> <code>Completed</code> - The training job has completed.</p> </li> </ul> </dd> <dt>Failed</dt> <dd> <ul> <li> <p> <code>Failed</code> - The training job has failed. The reason for the failure is returned in the <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.</p> </li> </ul> </dd> <dt>Stopped</dt> <dd> <ul> <li> <p> <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.</p> </li> <li> <p> <code>MaxWaitTimeExceeded</code> - The job stopped because it exceeded the maximum allowed wait time.</p> </li> <li> <p> <code>Stopped</code> - The training job has stopped.</p> </li> </ul> </dd> <dt>Stopping</dt> <dd> <ul> <li> <p> <code>Stopping</code> - Stopping the training job.</p> </li> </ul> </dd> </dl> <important> <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p> </important> <p>We no longer support the following secondary statuses:</p> <ul> <li> <p> <code>LaunchingMLInstances</code> </p> </li> <li> <p> <code>PreparingTraining</code> </p> </li> <li> <p> <code>DownloadingTrainingImage</code> </p> </li> </ul>",
+            "smithy.api#documentation": "<p> Provides detailed information about the state of the training job. For detailed information on the secondary status of the training job, see <code>StatusMessage</code> under <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html\">SecondaryStatusTransition</a>.</p> <p>SageMaker provides primary statuses and secondary statuses that apply to each of them:</p> <dl> <dt>InProgress</dt> <dd> <ul> <li> <p> <code>Starting</code> - Starting the training job.</p> </li> <li> <p> <code>Pending</code> - The training job is waiting for compute capacity or compute resource provision.</p> </li> <li> <p> <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode. It indicates that data is being downloaded to the ML storage volumes.</p> </li> <li> <p> <code>Training</code> - Training is in progress.</p> </li> <li> <p> <code>Interrupted</code> - The job stopped because the managed spot training instances were interrupted. </p> </li> <li> <p> <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.</p> </li> </ul> </dd> <dt>Completed</dt> <dd> <ul> <li> <p> <code>Completed</code> - The training job has completed.</p> </li> </ul> </dd> <dt>Failed</dt> <dd> <ul> <li> <p> <code>Failed</code> - The training job has failed. The reason for the failure is returned in the <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.</p> </li> </ul> </dd> <dt>Stopped</dt> <dd> <ul> <li> <p> <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.</p> </li> <li> <p> <code>MaxWaitTimeExceeded</code> - The job stopped because it exceeded the maximum allowed wait time.</p> </li> <li> <p> <code>Stopped</code> - The training job has stopped.</p> </li> </ul> </dd> <dt>Stopping</dt> <dd> <ul> <li> <p> <code>Stopping</code> - Stopping the training job.</p> </li> </ul> </dd> </dl> <important> <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p> </important> <p>We no longer support the following secondary statuses:</p> <ul> <li> <p> <code>LaunchingMLInstances</code> </p> </li> <li> <p> <code>PreparingTraining</code> </p> </li> <li> <p> <code>DownloadingTrainingImage</code> </p> </li> </ul>",
             "smithy.api#required": {}
           }
         },
@@ -30222,6 +30441,12 @@
             "smithy.api#documentation": "<p>The billable time in seconds. Billable time refers to the absolute wall-clock time.</p> <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances (<code>InstanceCount</code>) in your training cluster to get the total compute time SageMaker bills you if you run distributed training. The formula is as follows: <code>BillableTimeInSeconds * InstanceCount</code> .</p> <p>You can calculate the savings from using managed spot training using the formula <code>(1 - BillableTimeInSeconds / TrainingTimeInSeconds) * 100</code>. For example, if <code>BillableTimeInSeconds</code> is 100 and <code>TrainingTimeInSeconds</code> is 500, the savings is 80%.</p>"
           }
         },
+        "BillableTokenCount": {
+          "target": "com.amazonaws.sagemaker#BillableTokenCount",
+          "traits": {
+            "smithy.api#documentation": "<p> The billable token count for eligible serverless training jobs. </p>"
+          }
+        },
         "DebugHookConfig": {
           "target": "com.amazonaws.sagemaker#DebugHookConfig"
         },
@@ -30286,6 +30511,42 @@
           "target": "com.amazonaws.sagemaker#InfraCheckConfig",
           "traits": {
             "smithy.api#documentation": "<p>Contains information about the infrastructure health check configuration for the training job.</p>"
+          }
+        },
+        "ServerlessJobConfig": {
+          "target": "com.amazonaws.sagemaker#ServerlessJobConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> The configuration for serverless training jobs. </p>"
+          }
+        },
+        "MlflowConfig": {
+          "target": "com.amazonaws.sagemaker#MlflowConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow configuration using SageMaker managed MLflow. </p>"
+          }
+        },
+        "ModelPackageConfig": {
+          "target": "com.amazonaws.sagemaker#ModelPackageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> The configuration for the model package. </p>"
+          }
+        },
+        "MlflowDetails": {
+          "target": "com.amazonaws.sagemaker#MlflowDetails",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow details of this job. </p>"
+          }
+        },
+        "ProgressInfo": {
+          "target": "com.amazonaws.sagemaker#TrainingProgressInfo",
+          "traits": {
+            "smithy.api#documentation": "<p> The Serverless training job progress information. </p>"
+          }
+        },
+        "OutputModelPackageArn": {
+          "target": "com.amazonaws.sagemaker#ModelPackageArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the output model package containing model weights or checkpoints. </p>"
           }
         }
       },
@@ -34045,6 +34306,35 @@
         "smithy.api#documentation": "<p>This is an error field object that contains the error code and the reason for an operation failure.</p>"
       }
     },
+    "com.amazonaws.sagemaker#EvaluationType": {
+      "type": "enum",
+      "members": {
+        "LLMAJ_EVALUATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LLMAJEvaluation"
+          }
+        },
+        "CUSTOM_SCORER_EVALUATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CustomScorerEvaluation"
+          }
+        },
+        "BENCHMARK_EVALUATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BenchmarkEvaluation"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#EvaluatorArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": ".*"
+      }
+    },
     "com.amazonaws.sagemaker#EventDetails": {
       "type": "structure",
       "members": {
@@ -36814,6 +37104,16 @@
         "smithy.api#pattern": "^\\d{1,4}.\\d{1,4}.\\d{1,4}$"
       }
     },
+    "com.amazonaws.sagemaker#HubDataSetArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^(arn:[a-z0-9-\\.]{1,63}:sagemaker:\\w+(?:-\\w+)+:(\\d{12}|aws):hub-content\\/)[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}\\/DataSet\\/[a-zA-Z0-9](-*[a-zA-Z0-9]){0,63}(\\/\\d{1,4}.\\d{1,4}.\\d{1,4})?$"
+      }
+    },
     "com.amazonaws.sagemaker#HubDescription": {
       "type": "string",
       "traits": {
@@ -39390,6 +39690,20 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The deployment configuration for an endpoint that hosts inference components. The configuration includes the desired deployment strategy and rollback settings.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#InferenceComponentMetadata": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.sagemaker#String2048",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the inference component metadata. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The metadata of the inference component. </p>"
       }
     },
     "com.amazonaws.sagemaker#InferenceComponentName": {
@@ -42925,6 +43239,38 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Lists a summary of the properties of a lineage group. A lineage group provides a group of shareable lineage entity resources.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#LineageMetadata": {
+      "type": "structure",
+      "members": {
+        "ActionArns": {
+          "target": "com.amazonaws.sagemaker#MapString2048",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage metadata action. </p>"
+          }
+        },
+        "ArtifactArns": {
+          "target": "com.amazonaws.sagemaker#MapString2048",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage metadata artifact. </p>"
+          }
+        },
+        "ContextArns": {
+          "target": "com.amazonaws.sagemaker#MapString2048",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the lineage metadata context. </p>"
+          }
+        },
+        "Associations": {
+          "target": "com.amazonaws.sagemaker#AssociationInfoList",
+          "traits": {
+            "smithy.api#documentation": "<p> The lineage metadata associations. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The metadata that tracks relationships between ML artifacts, actions, and contexts. </p>"
       }
     },
     "com.amazonaws.sagemaker#LineageType": {
@@ -51587,6 +51933,36 @@
         "smithy.api#pattern": "^[a-zA-Z]+ ?\\d+\\.\\d+(\\.\\d+)?$"
       }
     },
+    "com.amazonaws.sagemaker#MLflowArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:mlflow-[a-zA-Z-]*/"
+      }
+    },
+    "com.amazonaws.sagemaker#MLflowConfiguration": {
+      "type": "structure",
+      "members": {
+        "MlflowResourceArn": {
+          "target": "com.amazonaws.sagemaker#MLflowArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of MLflow configuration resource. </p>"
+          }
+        },
+        "MlflowExperimentName": {
+          "target": "com.amazonaws.sagemaker#MlflowExperimentEntityName",
+          "traits": {
+            "smithy.api#documentation": "<p> The name of the MLflow configuration. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The MLflow configuration. </p>"
+      }
+    },
     "com.amazonaws.sagemaker#MaintenanceStatus": {
       "type": "enum",
       "members": {
@@ -51650,6 +52026,21 @@
           "traits": {
             "smithy.api#enumValue": "DISABLED"
           }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#MapString2048": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.sagemaker#String2048"
+      },
+      "value": {
+        "target": "com.amazonaws.sagemaker#String2048"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 5
         }
       }
     },
@@ -52217,6 +52608,17 @@
         "smithy.api#pattern": "^1|2$"
       }
     },
+    "com.amazonaws.sagemaker#MlFlowResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "MlflowDetails relevant fields",
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:mlflow-[a-zA-Z-]*/"
+      }
+    },
     "com.amazonaws.sagemaker#MlReservationArn": {
       "type": "string",
       "traits": {
@@ -52512,6 +52914,104 @@
           "min": 0,
           "max": 2048
         }
+      }
+    },
+    "com.amazonaws.sagemaker#MlflowConfig": {
+      "type": "structure",
+      "members": {
+        "MlflowResourceArn": {
+          "target": "com.amazonaws.sagemaker#MlFlowResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the MLflow resource. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MlflowExperimentName": {
+          "target": "com.amazonaws.sagemaker#MlflowExperimentName",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow experiment name used for this job. </p>"
+          }
+        },
+        "MlflowRunName": {
+          "target": "com.amazonaws.sagemaker#MlflowRunName",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow run name used for this job. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The MLflow configuration using SageMaker managed MLflow. </p>"
+      }
+    },
+    "com.amazonaws.sagemaker#MlflowDetails": {
+      "type": "structure",
+      "members": {
+        "MlflowExperimentId": {
+          "target": "com.amazonaws.sagemaker#MlflowExperimentId",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow experiment ID used for this job. </p>"
+          }
+        },
+        "MlflowRunId": {
+          "target": "com.amazonaws.sagemaker#MlflowRunId",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow run ID used for this job. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The MLflow details of this job. </p>"
+      }
+    },
+    "com.amazonaws.sagemaker#MlflowExperimentEntityName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.sagemaker#MlflowExperimentId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.sagemaker#MlflowExperimentName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "MlflowConfig relevant fields",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.sagemaker#MlflowRunId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.sagemaker#MlflowRunName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": ".*"
       }
     },
     "com.amazonaws.sagemaker#MlflowVersion": {
@@ -54089,6 +54589,12 @@
             "smithy.api#documentation": "<p>The version number of a versioned model.</p>"
           }
         },
+        "ModelPackageRegistrationType": {
+          "target": "com.amazonaws.sagemaker#ModelPackageRegistrationType",
+          "traits": {
+            "smithy.api#documentation": "<p> The package registration type of the model package. </p>"
+          }
+        },
         "ModelPackageArn": {
           "target": "com.amazonaws.sagemaker#ModelPackageArn",
           "traits": {
@@ -54278,6 +54784,27 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#ModelPackageConfig": {
+      "type": "structure",
+      "members": {
+        "ModelPackageGroupArn": {
+          "target": "com.amazonaws.sagemaker#ModelPackageGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the model package group of output model package. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceModelPackageArn": {
+          "target": "com.amazonaws.sagemaker#ModelPackageArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the source model package used for continued fine-tuning and custom model evaluation. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The configuration for the Model package. </p>"
+      }
+    },
     "com.amazonaws.sagemaker#ModelPackageContainerDefinition": {
       "type": "structure",
       "members": {
@@ -54357,6 +54884,18 @@
           "target": "com.amazonaws.sagemaker#String",
           "traits": {
             "smithy.api#documentation": "<p>The ETag associated with Model Data URL.</p>"
+          }
+        },
+        "IsCheckpoint": {
+          "target": "com.amazonaws.sagemaker#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p> The checkpoint of the model package. </p>"
+          }
+        },
+        "BaseModel": {
+          "target": "com.amazonaws.sagemaker#BaseModel",
+          "traits": {
+            "smithy.api#documentation": "<p> The base model of the package. </p>"
           }
         }
       },
@@ -54573,6 +55112,23 @@
         "smithy.api#documentation": "<p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema\">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html\">View the Details of a Model Version</a>.</p>"
       }
     },
+    "com.amazonaws.sagemaker#ModelPackageRegistrationType": {
+      "type": "enum",
+      "members": {
+        "LOGGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Logged"
+          }
+        },
+        "REGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Registered"
+          }
+        }
+      }
+    },
     "com.amazonaws.sagemaker#ModelPackageSecurityConfig": {
       "type": "structure",
       "members": {
@@ -54777,6 +55333,12 @@
         },
         "ModelLifeCycle": {
           "target": "com.amazonaws.sagemaker#ModelLifeCycle"
+        },
+        "ModelPackageRegistrationType": {
+          "target": "com.amazonaws.sagemaker#ModelPackageRegistrationType",
+          "traits": {
+            "smithy.api#documentation": "<p> The package registration type of the model package summary. </p>"
+          }
         }
       },
       "traits": {
@@ -59004,6 +59566,17 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#Peft": {
+      "type": "enum",
+      "members": {
+        "LORA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LORA"
+          }
+        }
+      }
+    },
     "com.amazonaws.sagemaker#PendingDeploymentSummary": {
       "type": "structure",
       "members": {
@@ -59675,6 +60248,42 @@
           "target": "com.amazonaws.sagemaker#EndpointConfigStepMetadata",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint configuration used to create an endpoint during this step execution.</p>"
+          }
+        },
+        "BedrockCustomModel": {
+          "target": "com.amazonaws.sagemaker#BedrockCustomModelMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p> The metadata of the Amazon Bedrock custom model used in the pipeline execution step. </p>"
+          }
+        },
+        "BedrockCustomModelDeployment": {
+          "target": "com.amazonaws.sagemaker#BedrockCustomModelDeploymentMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p> The metadata of the Amazon Bedrock custom model deployment used in pipeline execution step. </p>"
+          }
+        },
+        "BedrockProvisionedModelThroughput": {
+          "target": "com.amazonaws.sagemaker#BedrockProvisionedModelThroughputMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p> The metadata of the Amazon Bedrock provisioned model throughput used in the pipeline execution step. </p>"
+          }
+        },
+        "BedrockModelImport": {
+          "target": "com.amazonaws.sagemaker#BedrockModelImportMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p> The metadata of Amazon Bedrock model import used in pipeline execution step. </p>"
+          }
+        },
+        "InferenceComponent": {
+          "target": "com.amazonaws.sagemaker#InferenceComponentMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p> The metadata of the inference component used in pipeline execution step. </p>"
+          }
+        },
+        "Lineage": {
+          "target": "com.amazonaws.sagemaker#LineageMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p> The metadata of the lineage used in pipeline execution step. </p>"
           }
         }
       },
@@ -64944,6 +65553,15 @@
         "target": "com.amazonaws.sagemaker#ProductionVariantInstanceType"
       }
     },
+    "com.amazonaws.sagemaker#RecipeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
     "com.amazonaws.sagemaker#RecommendationFailureReason": {
       "type": "string"
     },
@@ -66566,7 +67184,7 @@
           "target": "com.amazonaws.sagemaker#OptionalVolumeSizeInGB",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The size of the ML storage volume that you want to provision. </p> <p>ML storage volumes store model artifacts and incremental states. Training algorithms might also use the ML storage volume for scratch space. If you want to store the training data in the ML storage volume, choose <code>File</code> as the <code>TrainingInputMode</code> in the algorithm specification. </p> <p>When using an ML instance with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes\">NVMe SSD volumes</a>, SageMaker doesn't provision Amazon EBS General Purpose SSD (gp2) storage. Available storage is fixed to the NVMe-type instance's storage capacity. SageMaker configures storage paths for training datasets, checkpoints, model artifacts, and outputs to use the entire capacity of the instance storage. For example, ML instance families with the NVMe-type instance storage include <code>ml.p4d</code>, <code>ml.g4dn</code>, and <code>ml.g5</code>. </p> <p>When using an ML instance with the EBS-only storage option and without instance storage, you must define the size of EBS volume through <code>VolumeSizeInGB</code> in the <code>ResourceConfig</code> API. For example, ML instance families that use EBS volumes include <code>ml.c5</code> and <code>ml.p2</code>. </p> <p>To look up instance types and their instance storage types and volumes, see <a href=\"http://aws.amazon.com/ec2/instance-types/\">Amazon EC2 Instance Types</a>.</p> <p>To find the default local paths defined by the SageMaker training platform, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html\">Amazon SageMaker Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and Outputs</a>.</p>"
+            "smithy.api#documentation": "<p>The size of the ML storage volume that you want to provision. </p> <p>SageMaker automatically selects the volume size for serverless training jobs. You cannot customize this setting.</p> <p>ML storage volumes store model artifacts and incremental states. Training algorithms might also use the ML storage volume for scratch space. If you want to store the training data in the ML storage volume, choose <code>File</code> as the <code>TrainingInputMode</code> in the algorithm specification. </p> <p>When using an ML instance with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes\">NVMe SSD volumes</a>, SageMaker doesn't provision Amazon EBS General Purpose SSD (gp2) storage. Available storage is fixed to the NVMe-type instance's storage capacity. SageMaker configures storage paths for training datasets, checkpoints, model artifacts, and outputs to use the entire capacity of the instance storage. For example, ML instance families with the NVMe-type instance storage include <code>ml.p4d</code>, <code>ml.g4dn</code>, and <code>ml.g5</code>. </p> <p>When using an ML instance with the EBS-only storage option and without instance storage, you must define the size of EBS volume through <code>VolumeSizeInGB</code> in the <code>ResourceConfig</code> API. For example, ML instance families that use EBS volumes include <code>ml.c5</code> and <code>ml.p2</code>. </p> <p>To look up instance types and their instance storage types and volumes, see <a href=\"http://aws.amazon.com/ec2/instance-types/\">Amazon EC2 Instance Types</a>.</p> <p>To find the default local paths defined by the SageMaker training platform, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html\">Amazon SageMaker Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and Outputs</a>.</p>"
           }
         },
         "VolumeKmsKeyId": {
@@ -70776,6 +71394,86 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.sagemaker#ServerlessJobBaseModelArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "ServerlessJobConfig relevant fields",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^(arn:[a-z0-9-\\.]{1,63}:sagemaker:\\w+(?:-\\w+)+:(\\d{12}|aws):hub-content\\/)[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}\\/Model\\/[a-zA-Z0-9](-*[a-zA-Z0-9]){0,63}(\\/\\d{1,4}.\\d{1,4}.\\d{1,4})?$"
+      }
+    },
+    "com.amazonaws.sagemaker#ServerlessJobConfig": {
+      "type": "structure",
+      "members": {
+        "BaseModelArn": {
+          "target": "com.amazonaws.sagemaker#ServerlessJobBaseModelArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The base model Amazon Resource Name (ARN) in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-use.html\">SageMaker Public Hub</a>. SageMaker always selects the latest version of the provided model. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AcceptEula": {
+          "target": "com.amazonaws.sagemaker#AcceptEula",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula\">End-user license agreements</a> section for more details on accepting the EULA. </p>"
+          }
+        },
+        "JobType": {
+          "target": "com.amazonaws.sagemaker#ServerlessJobType",
+          "traits": {
+            "smithy.api#documentation": "<p> The serverless training job type. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CustomizationTechnique": {
+          "target": "com.amazonaws.sagemaker#CustomizationTechnique",
+          "traits": {
+            "smithy.api#documentation": "<p> The model customization technique. </p>"
+          }
+        },
+        "Peft": {
+          "target": "com.amazonaws.sagemaker#Peft",
+          "traits": {
+            "smithy.api#documentation": "<p> The parameter-efficient fine-tuning configuration. </p>"
+          }
+        },
+        "EvaluationType": {
+          "target": "com.amazonaws.sagemaker#EvaluationType",
+          "traits": {
+            "smithy.api#documentation": "<p> The evaluation job type. Required when serverless job type is <code>Evaluation</code>. </p>"
+          }
+        },
+        "EvaluatorArn": {
+          "target": "com.amazonaws.sagemaker#EvaluatorArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The evaluator Amazon Resource Name (ARN) used as reward function or reward prompt. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The configuration for the serverless training job. </p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ServerlessJobType": {
+      "type": "enum",
+      "members": {
+        "FINE_TUNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FineTuning"
+          }
+        },
+        "EVALUATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Evaluation"
+          }
+        }
+      }
+    },
     "com.amazonaws.sagemaker#ServerlessMaxConcurrency": {
       "type": "integer",
       "traits": {
@@ -72328,6 +73026,12 @@
           "target": "com.amazonaws.sagemaker#PipelineVersionId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the pipeline version to start execution from.</p>"
+          }
+        },
+        "MlflowExperimentName": {
+          "target": "com.amazonaws.sagemaker#MlflowExperimentEntityName",
+          "traits": {
+            "smithy.api#documentation": "<p> The MLflow experiment name of the start execution. </p>"
           }
         }
       },
@@ -74703,6 +75407,15 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#TotalStepCountPerEpoch": {
+      "type": "long",
+      "traits": {
+        "smithy.api#documentation": "TrainingProgressInfo relevant fields",
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
     "com.amazonaws.sagemaker#TrackingServerArn": {
       "type": "string",
       "traits": {
@@ -75134,6 +75847,22 @@
           "max": 512
         },
         "smithy.api#pattern": "^[\\S\\s]*$"
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingEpochCount": {
+      "type": "long",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingEpochIndex": {
+      "type": "long",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
       }
     },
     "com.amazonaws.sagemaker#TrainingImageConfig": {
@@ -76226,6 +76955,18 @@
             "smithy.api#documentation": "<p>Information about the evaluation status of the rules for the training job.</p>"
           }
         },
+        "OutputModelPackageArn": {
+          "target": "com.amazonaws.sagemaker#ModelPackageArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The output model package Amazon Resource Name (ARN) that contains model weights or checkpoint. </p>"
+          }
+        },
+        "ModelPackageConfig": {
+          "target": "com.amazonaws.sagemaker#ModelPackageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p> The model package configuration. </p>"
+          }
+        },
         "ProfilerConfig": {
           "target": "com.amazonaws.sagemaker#ProfilerConfig"
         },
@@ -76935,6 +77676,38 @@
         "smithy.api#documentation": "<p>Details of the training plan.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html\">CreateTrainingPlan</a> </code>.</p>"
       }
     },
+    "com.amazonaws.sagemaker#TrainingProgressInfo": {
+      "type": "structure",
+      "members": {
+        "TotalStepCountPerEpoch": {
+          "target": "com.amazonaws.sagemaker#TotalStepCountPerEpoch",
+          "traits": {
+            "smithy.api#documentation": "<p> The total step count per epoch. </p>"
+          }
+        },
+        "CurrentStep": {
+          "target": "com.amazonaws.sagemaker#TrainingStepIndex",
+          "traits": {
+            "smithy.api#documentation": "<p> The current step number. </p>"
+          }
+        },
+        "CurrentEpoch": {
+          "target": "com.amazonaws.sagemaker#TrainingEpochIndex",
+          "traits": {
+            "smithy.api#documentation": "<p> The current epoch number. </p>"
+          }
+        },
+        "MaxEpoch": {
+          "target": "com.amazonaws.sagemaker#TrainingEpochCount",
+          "traits": {
+            "smithy.api#documentation": "<p> The maximum number of epochs for this job. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The serverless training job progress information. </p>"
+      }
+    },
     "com.amazonaws.sagemaker#TrainingRepositoryAccessMode": {
       "type": "enum",
       "members": {
@@ -77044,6 +77817,14 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Defines how the algorithm is used for a training job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingStepIndex": {
+      "type": "long",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
       }
     },
     "com.amazonaws.sagemaker#TrainingTimeInSeconds": {
@@ -81595,6 +82376,12 @@
           "target": "com.amazonaws.sagemaker#ModelApprovalStatus",
           "traits": {
             "smithy.api#documentation": "<p>The approval status of the model.</p>"
+          }
+        },
+        "ModelPackageRegistrationType": {
+          "target": "com.amazonaws.sagemaker#ModelPackageRegistrationType",
+          "traits": {
+            "smithy.api#documentation": "<p> The package registration type of the model package input. </p>"
           }
         },
         "ApprovalDescription": {

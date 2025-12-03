@@ -93,6 +93,9 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *           FileSystemType: "EFS" || "FSxLustre", // required
  *           DirectoryPath: "STRING_VALUE", // required
  *         },
+ *         DatasetSource: { // DatasetSource
+ *           DatasetArn: "STRING_VALUE", // required
+ *         },
  *       },
  *       ContentType: "STRING_VALUE",
  *       CompressionType: "None" || "Gzip",
@@ -231,6 +234,24 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *   },
  *   SessionChainingConfig: { // SessionChainingConfig
  *     EnableSessionTagChaining: true || false,
+ *   },
+ *   ServerlessJobConfig: { // ServerlessJobConfig
+ *     BaseModelArn: "STRING_VALUE", // required
+ *     AcceptEula: true || false,
+ *     JobType: "FineTuning" || "Evaluation", // required
+ *     CustomizationTechnique: "SFT" || "DPO" || "RLVR" || "RLAIF",
+ *     Peft: "LORA",
+ *     EvaluationType: "LLMAJEvaluation" || "CustomScorerEvaluation" || "BenchmarkEvaluation",
+ *     EvaluatorArn: "STRING_VALUE",
+ *   },
+ *   MlflowConfig: { // MlflowConfig
+ *     MlflowResourceArn: "STRING_VALUE", // required
+ *     MlflowExperimentName: "STRING_VALUE",
+ *     MlflowRunName: "STRING_VALUE",
+ *   },
+ *   ModelPackageConfig: { // ModelPackageConfig
+ *     ModelPackageGroupArn: "STRING_VALUE", // required
+ *     SourceModelPackageArn: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateTrainingJobCommand(input);

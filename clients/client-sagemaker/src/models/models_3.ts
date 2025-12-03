@@ -5,7 +5,6 @@ import {
   AlgorithmSortBy,
   AppImageConfigSortKey,
   AppSortKey,
-  AppType,
   AssociationEdgeType,
   AutoMLJobStatus,
   AutoMLSortBy,
@@ -31,7 +30,6 @@ import {
   FeatureGroupSortBy,
   FeatureGroupSortOrder,
   FeatureGroupStatus,
-  FeatureStatus,
   FeatureType,
   FlowDefinitionStatus,
   HubContentSortBy,
@@ -75,6 +73,7 @@ import {
   ModelMetadataFilterType,
   ModelPackageGroupSortBy,
   ModelPackageGroupStatus,
+  ModelPackageRegistrationType,
   ModelPackageSortBy,
   ModelPackageStatus,
   ModelPackageType,
@@ -109,8 +108,6 @@ import {
   ReservedCapacityInstanceType,
   ReservedCapacityStatus,
   ReservedCapacityType,
-  ResourceCatalogSortBy,
-  ResourceCatalogSortOrder,
   ResourceType,
   RuleEvaluationStatus,
   SageMakerResourceName,
@@ -118,7 +115,6 @@ import {
   SchedulerResourceStatus,
   ScheduleStatus,
   SecondaryStatus,
-  SharingType,
   SortActionsBy,
   SortArtifactsBy,
   SortAssociationsBy,
@@ -134,11 +130,9 @@ import {
   SortPipelinesBy,
   SortQuotaBy,
   SortTrackingServerBy,
-  SpaceSortKey,
   SpaceStatus,
   StepStatus,
   StudioLifecycleConfigAppType,
-  StudioLifecycleConfigSortKey,
   TrackingServerStatus,
   TrainingJobStatus,
   TrainingPlanStatus,
@@ -159,13 +153,19 @@ import {
   AppDetails,
   AppImageConfigDetails,
   ArtifactSummary,
+  AssociationInfo,
   AssociationSummary,
   AutoMLCandidate,
   AutoMLJobStepMetadata,
   AutoMLJobSummary,
   BatchDataCaptureConfig,
+  BedrockCustomModelDeploymentMetadata,
+  BedrockCustomModelMetadata,
+  BedrockModelImportMetadata,
+  BedrockProvisionedModelThroughputMetadata,
   CacheHitResult,
   CallbackStepMetadata,
+  CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
@@ -194,8 +194,6 @@ import {
 } from "./models_0";
 
 import {
-  DebugHookConfig,
-  DebugRuleConfiguration,
   DockerSettings,
   EdgeOutputConfig,
   ExperimentConfig,
@@ -204,17 +202,17 @@ import {
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobWarmStartConfig,
   InferenceExperimentSchedule,
-  InfraCheckConfig,
   LabelingJobInputConfig,
   ModelLifeCycle,
   MonitoringScheduleConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
-  ProfilerConfig,
-  ProfilerRuleConfiguration,
+  OwnershipSettings,
   ResourceLimits,
   RetryStrategy,
-  SpaceStorageSettings,
+  ServiceCatalogProvisioningDetails,
+  SpaceSettings,
+  SpaceSharingSettings,
   TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
   UserSettings,
@@ -224,6 +222,8 @@ import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
+  DebugHookConfig,
+  DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   EndpointOutputConfiguration,
   ExperimentSource,
@@ -232,20 +232,26 @@ import {
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
   InferenceMetrics,
+  InfraCheckConfig,
   LabelCounters,
   LabelingJobOutput,
   LastUpdateStatus,
   MemberDefinition,
+  MlflowConfig,
   ModelArtifacts,
   ModelClientConfig,
   ModelConfiguration,
+  ModelPackageConfig,
   MonitoringExecutionSummary,
   NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   ProductionVariantSummary,
+  ProfilerConfig,
+  ProfilerRuleConfiguration,
   RecommendationMetrics,
   RemoteDebugConfig,
+  ServerlessJobConfig,
   SourceIpConfig,
   TensorBoardOutputConfig,
   TrainingJobStatusCounters,
@@ -254,6 +260,406 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>Details of a provisioned service catalog product. For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.</p>
+ * @public
+ */
+export interface ServiceCatalogProvisionedProductDetails {
+  /**
+   * <p>The ID of the provisioned product.</p>
+   * @public
+   */
+  ProvisionedProductId?: string | undefined;
+
+  /**
+   * <p>The current status of the product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> <li> <p> <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p> </li> </ul>
+   * @public
+   */
+  ProvisionedProductStatusMessage?: string | undefined;
+}
+
+/**
+ * <p> Details about a template provider configuration and associated provisioning information. </p>
+ * @public
+ */
+export interface TemplateProviderDetail {
+  /**
+   * <p> Details about a CloudFormation template provider configuration and associated provisioning information. </p>
+   * @public
+   */
+  CfnTemplateProviderDetail?: CfnTemplateProviderDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeProjectOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The ID of the project.</p>
+   * @public
+   */
+  ProjectId: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   * @public
+   */
+  ProjectDescription?: string | undefined;
+
+  /**
+   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.</p>
+   * @public
+   */
+  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails | undefined;
+
+  /**
+   * <p>Information about a provisioned service catalog product.</p>
+   * @public
+   */
+  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails | undefined;
+
+  /**
+   * <p>The status of the project.</p>
+   * @public
+   */
+  ProjectStatus: ProjectStatus | undefined;
+
+  /**
+   * <p> An array of template providers associated with the project. </p>
+   * @public
+   */
+  TemplateProviderDetails?: TemplateProviderDetail[] | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>The time when the project was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when project was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReservedCapacityRequest {
+  /**
+   * <p>ARN of the reserved capacity to describe.</p>
+   * @public
+   */
+  ReservedCapacityArn: string | undefined;
+}
+
+/**
+ * <p>A summary of UltraServer resources and their current status.</p>
+ * @public
+ */
+export interface UltraServerSummary {
+  /**
+   * <p>The type of UltraServer, such as ml.u-p6e-gb200x72.</p>
+   * @public
+   */
+  UltraServerType: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type used in the UltraServer.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The number of UltraServers of this type.</p>
+   * @public
+   */
+  UltraServerCount?: number | undefined;
+
+  /**
+   * <p>The number of available spare instances in the UltraServers.</p>
+   * @public
+   */
+  AvailableSpareInstanceCount?: number | undefined;
+
+  /**
+   * <p>The total number of instances across all UltraServers of this type that are currently in an unhealthy state.</p>
+   * @public
+   */
+  UnhealthyInstanceCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReservedCapacityResponse {
+  /**
+   * <p>ARN of the reserved capacity.</p>
+   * @public
+   */
+  ReservedCapacityArn: string | undefined;
+
+  /**
+   * <p>The type of reserved capacity.</p>
+   * @public
+   */
+  ReservedCapacityType?: ReservedCapacityType | undefined;
+
+  /**
+   * <p>The current status of the reserved capacity.</p>
+   * @public
+   */
+  Status?: ReservedCapacityStatus | undefined;
+
+  /**
+   * <p>The Availability Zone where the reserved capacity is provisioned.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The total duration of the reserved capacity in hours.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The number of minutes for the duration of the reserved capacity. For example, if a reserved capacity starts at 08:55 and ends at 11:30, the minutes field would be 35.</p>
+   * @public
+   */
+  DurationMinutes?: number | undefined;
+
+  /**
+   * <p>The timestamp when the reserved capacity becomes active.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the reserved capacity expires.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon EC2 instance type used in the reserved capacity.</p>
+   * @public
+   */
+  InstanceType: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The total number of instances allocated to this reserved capacity.</p>
+   * @public
+   */
+  TotalInstanceCount: number | undefined;
+
+  /**
+   * <p>The number of instances currently available for use in this reserved capacity.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The number of instances currently in use from this reserved capacity.</p>
+   * @public
+   */
+  InUseInstanceCount?: number | undefined;
+
+  /**
+   * <p>A summary of the UltraServer associated with this reserved capacity.</p>
+   * @public
+   */
+  UltraServerSummary?: UltraServerSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSpaceRequest {
+  /**
+   * <p>The ID of the associated domain.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   * @public
+   */
+  SpaceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSpaceResponse {
+  /**
+   * <p>The ID of the associated domain.</p>
+   * @public
+   */
+  DomainId?: string | undefined;
+
+  /**
+   * <p>The space's Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  SpaceArn?: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   * @public
+   */
+  SpaceName?: string | undefined;
+
+  /**
+   * <p>The ID of the space's profile in the Amazon EFS volume.</p>
+   * @public
+   */
+  HomeEfsFileSystemUid?: string | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: SpaceStatus | undefined;
+
+  /**
+   * <p>The last modified time.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The creation time.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The failure reason.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>A collection of space settings.</p>
+   * @public
+   */
+  SpaceSettings?: SpaceSettings | undefined;
+
+  /**
+   * <p>The collection of ownership settings for a space.</p>
+   * @public
+   */
+  OwnershipSettings?: OwnershipSettings | undefined;
+
+  /**
+   * <p>The collection of space sharing settings for a space.</p>
+   * @public
+   */
+  SpaceSharingSettings?: SpaceSharingSettings | undefined;
+
+  /**
+   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
+   * @public
+   */
+  SpaceDisplayName?: string | undefined;
+
+  /**
+   * <p>Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.</p> <p>The following application types are supported:</p> <ul> <li> <p>Studio Classic: <code>&amp;redirect=JupyterServer</code> </p> </li> <li> <p>JupyterLab: <code>&amp;redirect=JupyterLab</code> </p> </li> <li> <p>Code Editor, based on Code-OSS, Visual Studio Code - Open Source: <code>&amp;redirect=CodeEditor</code> </p> </li> </ul>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStudioLifecycleConfigRequest {
+  /**
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to describe.</p>
+   * @public
+   */
+  StudioLifecycleConfigName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStudioLifecycleConfigResponse {
+  /**
+   * <p>The ARN of the Lifecycle Configuration to describe.</p>
+   * @public
+   */
+  StudioLifecycleConfigArn?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration that is described.</p>
+   * @public
+   */
+  StudioLifecycleConfigName?: string | undefined;
+
+  /**
+   * <p>The creation time of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>This value is equivalent to CreationTime because Amazon SageMaker AI Studio Lifecycle Configurations are immutable.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script.</p>
+   * @public
+   */
+  StudioLifecycleConfigContent?: string | undefined;
+
+  /**
+   * <p>The App type that the Lifecycle Configuration is attached to.</p>
+   * @public
+   */
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSubscribedWorkteamRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
+   * @public
+   */
+  WorkteamArn: string | undefined;
+}
 
 /**
  * <p>Describes a work team of a vendor that does the labelling job.</p>
@@ -338,6 +744,24 @@ export interface MetricData {
 }
 
 /**
+ * <p> The MLflow details of this job. </p>
+ * @public
+ */
+export interface MlflowDetails {
+  /**
+   * <p> The MLflow experiment ID used for this job. </p>
+   * @public
+   */
+  MlflowExperimentId?: string | undefined;
+
+  /**
+   * <p> The MLflow run ID used for this job. </p>
+   * @public
+   */
+  MlflowRunId?: string | undefined;
+}
+
+/**
  * <p>Information about the status of the rule evaluation.</p>
  * @public
  */
@@ -371,6 +795,36 @@ export interface ProfilerRuleEvaluationStatus {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p> The serverless training job progress information. </p>
+ * @public
+ */
+export interface TrainingProgressInfo {
+  /**
+   * <p> The total step count per epoch. </p>
+   * @public
+   */
+  TotalStepCountPerEpoch?: number | undefined;
+
+  /**
+   * <p> The current step number. </p>
+   * @public
+   */
+  CurrentStep?: number | undefined;
+
+  /**
+   * <p> The current epoch number. </p>
+   * @public
+   */
+  CurrentEpoch?: number | undefined;
+
+  /**
+   * <p> The maximum number of epochs for this job. </p>
+   * @public
+   */
+  MaxEpoch?: number | undefined;
 }
 
 /**
@@ -474,7 +928,7 @@ export interface DescribeTrainingJobResponse {
   TrainingJobStatus: TrainingJobStatus | undefined;
 
   /**
-   * <p> Provides detailed information about the state of the training job. For detailed information on the secondary status of the training job, see <code>StatusMessage</code> under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p> <p>SageMaker provides primary statuses and secondary statuses that apply to each of them:</p> <dl> <dt>InProgress</dt> <dd> <ul> <li> <p> <code>Starting</code> - Starting the training job.</p> </li> <li> <p> <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode. It indicates that data is being downloaded to the ML storage volumes.</p> </li> <li> <p> <code>Training</code> - Training is in progress.</p> </li> <li> <p> <code>Interrupted</code> - The job stopped because the managed spot training instances were interrupted. </p> </li> <li> <p> <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.</p> </li> </ul> </dd> <dt>Completed</dt> <dd> <ul> <li> <p> <code>Completed</code> - The training job has completed.</p> </li> </ul> </dd> <dt>Failed</dt> <dd> <ul> <li> <p> <code>Failed</code> - The training job has failed. The reason for the failure is returned in the <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.</p> </li> </ul> </dd> <dt>Stopped</dt> <dd> <ul> <li> <p> <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.</p> </li> <li> <p> <code>MaxWaitTimeExceeded</code> - The job stopped because it exceeded the maximum allowed wait time.</p> </li> <li> <p> <code>Stopped</code> - The training job has stopped.</p> </li> </ul> </dd> <dt>Stopping</dt> <dd> <ul> <li> <p> <code>Stopping</code> - Stopping the training job.</p> </li> </ul> </dd> </dl> <important> <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p> </important> <p>We no longer support the following secondary statuses:</p> <ul> <li> <p> <code>LaunchingMLInstances</code> </p> </li> <li> <p> <code>PreparingTraining</code> </p> </li> <li> <p> <code>DownloadingTrainingImage</code> </p> </li> </ul>
+   * <p> Provides detailed information about the state of the training job. For detailed information on the secondary status of the training job, see <code>StatusMessage</code> under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p> <p>SageMaker provides primary statuses and secondary statuses that apply to each of them:</p> <dl> <dt>InProgress</dt> <dd> <ul> <li> <p> <code>Starting</code> - Starting the training job.</p> </li> <li> <p> <code>Pending</code> - The training job is waiting for compute capacity or compute resource provision.</p> </li> <li> <p> <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode. It indicates that data is being downloaded to the ML storage volumes.</p> </li> <li> <p> <code>Training</code> - Training is in progress.</p> </li> <li> <p> <code>Interrupted</code> - The job stopped because the managed spot training instances were interrupted. </p> </li> <li> <p> <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.</p> </li> </ul> </dd> <dt>Completed</dt> <dd> <ul> <li> <p> <code>Completed</code> - The training job has completed.</p> </li> </ul> </dd> <dt>Failed</dt> <dd> <ul> <li> <p> <code>Failed</code> - The training job has failed. The reason for the failure is returned in the <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.</p> </li> </ul> </dd> <dt>Stopped</dt> <dd> <ul> <li> <p> <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.</p> </li> <li> <p> <code>MaxWaitTimeExceeded</code> - The job stopped because it exceeded the maximum allowed wait time.</p> </li> <li> <p> <code>Stopped</code> - The training job has stopped.</p> </li> </ul> </dd> <dt>Stopping</dt> <dd> <ul> <li> <p> <code>Stopping</code> - Stopping the training job.</p> </li> </ul> </dd> </dl> <important> <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p> </important> <p>We no longer support the following secondary statuses:</p> <ul> <li> <p> <code>LaunchingMLInstances</code> </p> </li> <li> <p> <code>PreparingTraining</code> </p> </li> <li> <p> <code>DownloadingTrainingImage</code> </p> </li> </ul>
    * @public
    */
   SecondaryStatus: SecondaryStatus | undefined;
@@ -612,6 +1066,12 @@ export interface DescribeTrainingJobResponse {
   BillableTimeInSeconds?: number | undefined;
 
   /**
+   * <p> The billable token count for eligible serverless training jobs. </p>
+   * @public
+   */
+  BillableTokenCount?: number | undefined;
+
+  /**
    * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and storage paths. To learn more about how to configure the <code>DebugHookConfig</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
    * @public
    */
@@ -688,6 +1148,42 @@ export interface DescribeTrainingJobResponse {
    * @public
    */
   InfraCheckConfig?: InfraCheckConfig | undefined;
+
+  /**
+   * <p> The configuration for serverless training jobs. </p>
+   * @public
+   */
+  ServerlessJobConfig?: ServerlessJobConfig | undefined;
+
+  /**
+   * <p> The MLflow configuration using SageMaker managed MLflow. </p>
+   * @public
+   */
+  MlflowConfig?: MlflowConfig | undefined;
+
+  /**
+   * <p> The configuration for the model package. </p>
+   * @public
+   */
+  ModelPackageConfig?: ModelPackageConfig | undefined;
+
+  /**
+   * <p> The MLflow details of this job. </p>
+   * @public
+   */
+  MlflowDetails?: MlflowDetails | undefined;
+
+  /**
+   * <p> The Serverless training job progress information. </p>
+   * @public
+   */
+  ProgressInfo?: TrainingProgressInfo | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the output model package containing model weights or checkpoints. </p>
+   * @public
+   */
+  OutputModelPackageArn?: string | undefined;
 }
 
 /**
@@ -4051,6 +4547,18 @@ export interface ImportHubContentResponse {
 }
 
 /**
+ * <p> The metadata of the inference component. </p>
+ * @public
+ */
+export interface InferenceComponentMetadata {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the inference component metadata. </p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * <p>A summary of the properties of an inference component.</p>
  * @public
  */
@@ -4528,6 +5036,36 @@ export interface LineageGroupSummary {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p> The metadata that tracks relationships between ML artifacts, actions, and contexts. </p>
+ * @public
+ */
+export interface LineageMetadata {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the lineage metadata action. </p>
+   * @public
+   */
+  ActionArns?: Record<string, string> | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the lineage metadata artifact. </p>
+   * @public
+   */
+  ArtifactArns?: Record<string, string> | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the lineage metadata context. </p>
+   * @public
+   */
+  ContextArns?: Record<string, string> | undefined;
+
+  /**
+   * <p> The lineage metadata associations. </p>
+   * @public
+   */
+  Associations?: AssociationInfo[] | undefined;
 }
 
 /**
@@ -8667,6 +9205,12 @@ export interface ModelPackageSummary {
    * @public
    */
   ModelLifeCycle?: ModelLifeCycle | undefined;
+
+  /**
+   * <p> The package registration type of the model package summary. </p>
+   * @public
+   */
+  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
 }
 
 /**
@@ -10197,6 +10741,42 @@ export interface PipelineExecutionStepMetadata {
    * @public
    */
   EndpointConfig?: EndpointConfigStepMetadata | undefined;
+
+  /**
+   * <p> The metadata of the Amazon Bedrock custom model used in the pipeline execution step. </p>
+   * @public
+   */
+  BedrockCustomModel?: BedrockCustomModelMetadata | undefined;
+
+  /**
+   * <p> The metadata of the Amazon Bedrock custom model deployment used in pipeline execution step. </p>
+   * @public
+   */
+  BedrockCustomModelDeployment?: BedrockCustomModelDeploymentMetadata | undefined;
+
+  /**
+   * <p> The metadata of the Amazon Bedrock provisioned model throughput used in the pipeline execution step. </p>
+   * @public
+   */
+  BedrockProvisionedModelThroughput?: BedrockProvisionedModelThroughputMetadata | undefined;
+
+  /**
+   * <p> The metadata of Amazon Bedrock model import used in pipeline execution step. </p>
+   * @public
+   */
+  BedrockModelImport?: BedrockModelImportMetadata | undefined;
+
+  /**
+   * <p> The metadata of the inference component used in pipeline execution step. </p>
+   * @public
+   */
+  InferenceComponent?: InferenceComponentMetadata | undefined;
+
+  /**
+   * <p> The metadata of the lineage used in pipeline execution step. </p>
+   * @public
+   */
+  Lineage?: LineageMetadata | undefined;
 }
 
 /**
@@ -10816,457 +11396,4 @@ export interface ListProjectsOutput {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListResourceCatalogsRequest {
-  /**
-   * <p> A string that partially matches one or more <code>ResourceCatalog</code>s names. Filters <code>ResourceCatalog</code> by name. </p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p> Use this parameter to search for <code>ResourceCatalog</code>s created after a specific date and time. </p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p> Use this parameter to search for <code>ResourceCatalog</code>s created before a specific date and time. </p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p> The order in which the resource catalogs are listed. </p>
-   * @public
-   */
-  SortOrder?: ResourceCatalogSortOrder | undefined;
-
-  /**
-   * <p> The value on which the resource catalog list is sorted. </p>
-   * @public
-   */
-  SortBy?: ResourceCatalogSortBy | undefined;
-
-  /**
-   * <p> The maximum number of results returned by <code>ListResourceCatalogs</code>. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> A token to resume pagination of <code>ListResourceCatalogs</code> results. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p> A resource catalog containing all of the resources of a specific resource type within a resource owner account. For an example on sharing the Amazon SageMaker Feature Store <code>DefaultFeatureGroupCatalog</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/feature-store-cross-account-discoverability-share-sagemaker-catalog.html">Share Amazon SageMaker Catalog resource type</a> in the Amazon SageMaker Developer Guide. </p>
- * @public
- */
-export interface ResourceCatalog {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the <code>ResourceCatalog</code>. </p>
-   * @public
-   */
-  ResourceCatalogArn: string | undefined;
-
-  /**
-   * <p> The name of the <code>ResourceCatalog</code>. </p>
-   * @public
-   */
-  ResourceCatalogName: string | undefined;
-
-  /**
-   * <p> A free form description of the <code>ResourceCatalog</code>. </p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p> The time the <code>ResourceCatalog</code> was created. </p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListResourceCatalogsResponse {
-  /**
-   * <p> A list of the requested <code>ResourceCatalog</code>s. </p>
-   * @public
-   */
-  ResourceCatalogs?: ResourceCatalog[] | undefined;
-
-  /**
-   * <p> A token to resume pagination of <code>ListResourceCatalogs</code> results. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSpacesRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SpaceSortKey | undefined;
-
-  /**
-   * <p>A parameter to search for the domain ID.</p>
-   * @public
-   */
-  DomainIdEquals?: string | undefined;
-
-  /**
-   * <p>A parameter by which to filter the results.</p>
-   * @public
-   */
-  SpaceNameContains?: string | undefined;
-}
-
-/**
- * <p>Specifies summary information about the ownership settings.</p>
- * @public
- */
-export interface OwnershipSettingsSummary {
-  /**
-   * <p>The user profile who is the owner of the space.</p>
-   * @public
-   */
-  OwnerUserProfileName?: string | undefined;
-}
-
-/**
- * <p>Specifies summary information about the space settings.</p>
- * @public
- */
-export interface SpaceSettingsSummary {
-  /**
-   * <p>The type of app created within the space.</p>
-   * @public
-   */
-  AppType?: AppType | undefined;
-
-  /**
-   * <p>A setting that enables or disables remote access for a SageMaker space. When enabled, this allows you to connect to the remote space from your local IDE.</p>
-   * @public
-   */
-  RemoteAccess?: FeatureStatus | undefined;
-
-  /**
-   * <p>The storage settings for a space.</p>
-   * @public
-   */
-  SpaceStorageSettings?: SpaceStorageSettings | undefined;
-}
-
-/**
- * <p>Specifies summary information about the space sharing settings.</p>
- * @public
- */
-export interface SpaceSharingSettingsSummary {
-  /**
-   * <p>Specifies the sharing type of the space.</p>
-   * @public
-   */
-  SharingType?: SharingType | undefined;
-}
-
-/**
- * <p>The space's details.</p>
- * @public
- */
-export interface SpaceDetails {
-  /**
-   * <p>The ID of the associated domain.</p>
-   * @public
-   */
-  DomainId?: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   * @public
-   */
-  SpaceName?: string | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: SpaceStatus | undefined;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last modified time.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Specifies summary information about the space settings.</p>
-   * @public
-   */
-  SpaceSettingsSummary?: SpaceSettingsSummary | undefined;
-
-  /**
-   * <p>Specifies summary information about the space sharing settings.</p>
-   * @public
-   */
-  SpaceSharingSettingsSummary?: SpaceSharingSettingsSummary | undefined;
-
-  /**
-   * <p>Specifies summary information about the ownership settings.</p>
-   * @public
-   */
-  OwnershipSettingsSummary?: OwnershipSettingsSummary | undefined;
-
-  /**
-   * <p>The name of the space that appears in the Studio UI.</p>
-   * @public
-   */
-  SpaceDisplayName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSpacesResponse {
-  /**
-   * <p>The list of spaces.</p>
-   * @public
-   */
-  Spaces?: SpaceDetails[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStageDevicesRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to neeed tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of requests to select.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The name of the edge deployment plan.</p>
-   * @public
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>Toggle for excluding devices deployed in other stages.</p>
-   * @public
-   */
-  ExcludeDevicesDeployedInOtherStage?: boolean | undefined;
-
-  /**
-   * <p>The name of the stage in the deployment.</p>
-   * @public
-   */
-  StageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStageDevicesResponse {
-  /**
-   * <p>List of summaries of devices allocated to the stage.</p>
-   * @public
-   */
-  DeviceDeploymentSummaries: DeviceDeploymentSummary[] | undefined;
-
-  /**
-   * <p>The token to use when calling the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStudioLifecycleConfigsRequest {
-  /**
-   * <p>The total number of items to return in the response. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the response. To resume pagination, provide the <code>NextToken</code> value in the as part of a subsequent call. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle Configurations, the call returns a token for getting the next set of Lifecycle Configurations.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle Configurations whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
-   * @public
-   */
-  AppTypeEquals?: StudioLifecycleConfigAppType | undefined;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations created on or after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations modified before the specified time.</p>
-   * @public
-   */
-  ModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>
-   * @public
-   */
-  ModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is CreationTime.</p>
-   * @public
-   */
-  SortBy?: StudioLifecycleConfigSortKey | undefined;
-
-  /**
-   * <p>The sort order. The default value is Descending.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * <p>Details of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
- * @public
- */
-export interface StudioLifecycleConfigDetails {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration.</p>
-   * @public
-   */
-  StudioLifecycleConfigArn?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
-   * @public
-   */
-  StudioLifecycleConfigName?: string | undefined;
-
-  /**
-   * <p>The creation time of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>This value is equivalent to CreationTime because Amazon SageMaker AI Studio Lifecycle Configurations are immutable.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The App type to which the Lifecycle Configuration is attached.</p>
-   * @public
-   */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStudioLifecycleConfigsResponse {
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of Lifecycle Configurations and their properties.</p>
-   * @public
-   */
-  StudioLifecycleConfigs?: StudioLifecycleConfigDetails[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSubscribedWorkteamsRequest {
-  /**
-   * <p>A string in the work team name. This filter returns only work teams whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListSubscribedWorkteams</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of work teams to return in each page of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

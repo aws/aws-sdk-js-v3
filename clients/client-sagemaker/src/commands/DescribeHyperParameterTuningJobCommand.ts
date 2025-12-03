@@ -187,6 +187,9 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //             FileSystemType: "EFS" || "FSxLustre", // required
  * //             DirectoryPath: "STRING_VALUE", // required
  * //           },
+ * //           DatasetSource: { // DatasetSource
+ * //             DatasetArn: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         ContentType: "STRING_VALUE",
  * //         CompressionType: "None" || "Gzip",
@@ -347,6 +350,9 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //               FileSystemAccessMode: "rw" || "ro", // required
  * //               FileSystemType: "EFS" || "FSxLustre", // required
  * //               DirectoryPath: "STRING_VALUE", // required
+ * //             },
+ * //             DatasetSource: {
+ * //               DatasetArn: "STRING_VALUE", // required
  * //             },
  * //           },
  * //           ContentType: "STRING_VALUE",

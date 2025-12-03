@@ -66,6 +66,7 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * //         StageStatus: "STRING_VALUE", // required
  * //         StageDescription: "STRING_VALUE",
  * //       },
+ * //       ModelPackageRegistrationType: "Logged" || "Registered",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

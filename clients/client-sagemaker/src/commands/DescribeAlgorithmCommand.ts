@@ -153,6 +153,12 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //           ETag: "STRING_VALUE",
  * //         },
  * //         ModelDataETag: "STRING_VALUE",
+ * //         IsCheckpoint: true || false,
+ * //         BaseModel: { // BaseModel
+ * //           HubContentName: "STRING_VALUE",
+ * //           HubContentVersion: "STRING_VALUE",
+ * //           RecipeName: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -204,6 +210,9 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //                   FileSystemAccessMode: "rw" || "ro", // required
  * //                   FileSystemType: "EFS" || "FSxLustre", // required
  * //                   DirectoryPath: "STRING_VALUE", // required
+ * //                 },
+ * //                 DatasetSource: { // DatasetSource
+ * //                   DatasetArn: "STRING_VALUE", // required
  * //                 },
  * //               },
  * //               ContentType: "STRING_VALUE",

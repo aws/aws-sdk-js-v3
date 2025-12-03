@@ -86,6 +86,10 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * //     ],
  * //   },
  * //   PipelineVersionId: Number("long"),
+ * //   MLflowConfig: { // MLflowConfiguration
+ * //     MlflowResourceArn: "STRING_VALUE",
+ * //     MlflowExperimentName: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

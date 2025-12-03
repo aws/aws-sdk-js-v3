@@ -91,6 +91,12 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //               ETag: "STRING_VALUE",
  * //             },
  * //             ModelDataETag: "STRING_VALUE",
+ * //             IsCheckpoint: true || false,
+ * //             BaseModel: { // BaseModel
+ * //               HubContentName: "STRING_VALUE",
+ * //               HubContentVersion: "STRING_VALUE",
+ * //               RecipeName: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -108,6 +114,7 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //       },
  * //       ModelPackageStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
  * //       ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ * //       ModelPackageRegistrationType: "Logged" || "Registered",
  * //     },
  * //   },
  * //   BatchDescribeModelPackageErrorMap: { // BatchDescribeModelPackageErrorMap

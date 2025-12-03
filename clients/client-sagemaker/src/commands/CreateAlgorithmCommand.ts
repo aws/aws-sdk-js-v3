@@ -146,6 +146,12 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *           ETag: "STRING_VALUE",
  *         },
  *         ModelDataETag: "STRING_VALUE",
+ *         IsCheckpoint: true || false,
+ *         BaseModel: { // BaseModel
+ *           HubContentName: "STRING_VALUE",
+ *           HubContentVersion: "STRING_VALUE",
+ *           RecipeName: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -197,6 +203,9 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *                   FileSystemAccessMode: "rw" || "ro", // required
  *                   FileSystemType: "EFS" || "FSxLustre", // required
  *                   DirectoryPath: "STRING_VALUE", // required
+ *                 },
+ *                 DatasetSource: { // DatasetSource
+ *                   DatasetArn: "STRING_VALUE", // required
  *                 },
  *               },
  *               ContentType: "STRING_VALUE",

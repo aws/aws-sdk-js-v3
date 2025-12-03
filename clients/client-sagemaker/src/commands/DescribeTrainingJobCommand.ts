@@ -108,6 +108,9 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //           FileSystemType: "EFS" || "FSxLustre", // required
  * //           DirectoryPath: "STRING_VALUE", // required
  * //         },
+ * //         DatasetSource: { // DatasetSource
+ * //           DatasetArn: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       ContentType: "STRING_VALUE",
  * //       CompressionType: "None" || "Gzip",
@@ -193,6 +196,7 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //   },
  * //   TrainingTimeInSeconds: Number("int"),
  * //   BillableTimeInSeconds: Number("int"),
+ * //   BillableTokenCount: Number("long"),
  * //   DebugHookConfig: { // DebugHookConfig
  * //     LocalPath: "STRING_VALUE",
  * //     S3OutputPath: "STRING_VALUE", // required
@@ -283,6 +287,35 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //   InfraCheckConfig: { // InfraCheckConfig
  * //     EnableInfraCheck: true || false,
  * //   },
+ * //   ServerlessJobConfig: { // ServerlessJobConfig
+ * //     BaseModelArn: "STRING_VALUE", // required
+ * //     AcceptEula: true || false,
+ * //     JobType: "FineTuning" || "Evaluation", // required
+ * //     CustomizationTechnique: "SFT" || "DPO" || "RLVR" || "RLAIF",
+ * //     Peft: "LORA",
+ * //     EvaluationType: "LLMAJEvaluation" || "CustomScorerEvaluation" || "BenchmarkEvaluation",
+ * //     EvaluatorArn: "STRING_VALUE",
+ * //   },
+ * //   MlflowConfig: { // MlflowConfig
+ * //     MlflowResourceArn: "STRING_VALUE", // required
+ * //     MlflowExperimentName: "STRING_VALUE",
+ * //     MlflowRunName: "STRING_VALUE",
+ * //   },
+ * //   ModelPackageConfig: { // ModelPackageConfig
+ * //     ModelPackageGroupArn: "STRING_VALUE", // required
+ * //     SourceModelPackageArn: "STRING_VALUE",
+ * //   },
+ * //   MlflowDetails: { // MlflowDetails
+ * //     MlflowExperimentId: "STRING_VALUE",
+ * //     MlflowRunId: "STRING_VALUE",
+ * //   },
+ * //   ProgressInfo: { // TrainingProgressInfo
+ * //     TotalStepCountPerEpoch: Number("long"),
+ * //     CurrentStep: Number("long"),
+ * //     CurrentEpoch: Number("long"),
+ * //     MaxEpoch: Number("long"),
+ * //   },
+ * //   OutputModelPackageArn: "STRING_VALUE",
  * // };
  *
  * ```

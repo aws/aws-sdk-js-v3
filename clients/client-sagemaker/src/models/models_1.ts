@@ -39,6 +39,7 @@ import {
   ModelApprovalStatus,
   ModelCardStatus,
   ModelInfrastructureType,
+  ModelPackageRegistrationType,
   ModelRegistrationMode,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
@@ -71,7 +72,6 @@ import {
   SharingType,
   SkipModelValidation,
   StorageType,
-  StudioLifecycleConfigAppType,
   StudioWebPortal,
   TableFormat,
   TagPropagation,
@@ -114,21 +114,17 @@ import {
   CodeEditorAppSettings,
   CodeRepository,
   CollectionConfig,
-  CollectionConfiguration,
   ContainerDefinition,
+  ContextSource,
   ContinuousParameterRange,
   ConvergenceDetected,
   CustomImage,
-  DataQualityAppSpecification,
-  DataQualityBaselineConfig,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
   MetadataProperties,
   MetricDefinition,
   MetricsSource,
   ModelDataSource,
-  MonitoringConstraintsResource,
-  MonitoringStatisticsResource,
   OutputDataConfig,
   ResourceConfig,
   ResourceSpec,
@@ -137,6 +133,165 @@ import {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateComputeQuotaResponse {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContextRequest {
+  /**
+   * <p>The name of the context. Must be unique to your account in an Amazon Web Services Region.</p>
+   * @public
+   */
+  ContextName: string | undefined;
+
+  /**
+   * <p>The source type, ID, and URI.</p>
+   * @public
+   */
+  Source: ContextSource | undefined;
+
+  /**
+   * <p>The context type.</p>
+   * @public
+   */
+  ContextType: string | undefined;
+
+  /**
+   * <p>The description of the context.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of properties to add to the context.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of tags to apply to the context.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContextResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   * @public
+   */
+  ContextArn?: string | undefined;
+}
+
+/**
+ * <p>Information about the container that a data quality monitoring job runs.</p>
+ * @public
+ */
+export interface DataQualityAppSpecification {
+  /**
+   * <p>The container image that the data quality monitoring job runs.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>The entrypoint for a container used to run a monitoring job.</p>
+   * @public
+   */
+  ContainerEntrypoint?: string[] | undefined;
+
+  /**
+   * <p>The arguments to send to the container that the monitoring job runs.</p>
+   * @public
+   */
+  ContainerArguments?: string[] | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  RecordPreprocessorSourceUri?: string | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  PostAnalyticsProcessorSourceUri?: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The constraints resource for a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringConstraintsResource {
+  /**
+   * <p>The Amazon S3 URI for the constraints resource.</p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+}
+
+/**
+ * <p>The statistics resource for a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringStatisticsResource {
+  /**
+   * <p>The Amazon S3 URI for the statistics resource.</p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+}
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
+ * @public
+ */
+export interface DataQualityBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the data quality monitoring job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+
+  /**
+   * <p>The statistics resource for a monitoring job.</p>
+   * @public
+   */
+  StatisticsResource?: MonitoringStatisticsResource | undefined;
+}
 
 /**
  * <p>Input object for the endpoint</p>
@@ -5559,6 +5714,12 @@ export interface CreateModelPackageInput {
   ModelPackageDescription?: string | undefined;
 
   /**
+   * <p> The package registration type of the model package input. </p>
+   * @public
+   */
+  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
+
+  /**
    * <p>Specifies details about inference jobs that you can run with models based on this model package, including the following information:</p> <ul> <li> <p>The Amazon ECR paths of containers that contain the inference code and model artifacts.</p> </li> <li> <p>The instance types that the model package supports for transform jobs and real-time endpoints used for inference.</p> </li> <li> <p>The input and output content formats that the model package supports for inference.</p> </li> </ul>
    * @public
    */
@@ -7984,212 +8145,4 @@ export interface CreateSpaceResponse {
    * @public
    */
   SpaceArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateStudioLifecycleConfigRequest {
-  /**
-   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to create.</p>
-   * @public
-   */
-  StudioLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
-   * @public
-   */
-  StudioLifecycleConfigContent: string | undefined;
-
-  /**
-   * <p>The App type that the Lifecycle Configuration is attached to.</p>
-   * @public
-   */
-  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | undefined;
-
-  /**
-   * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateStudioLifecycleConfigResponse {
-  /**
-   * <p>The ARN of your created Lifecycle Configuration.</p>
-   * @public
-   */
-  StudioLifecycleConfigArn?: string | undefined;
-}
-
-/**
- * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and storage paths. To learn more about how to configure the <code>DebugHookConfig</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
- * @public
- */
-export interface DebugHookConfig {
-  /**
-   * <p>Path to local storage location for metrics and tensors. Defaults to <code>/opt/ml/output/tensors/</code>.</p>
-   * @public
-   */
-  LocalPath?: string | undefined;
-
-  /**
-   * <p>Path to Amazon S3 storage location for metrics and tensors.</p>
-   * @public
-   */
-  S3OutputPath: string | undefined;
-
-  /**
-   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters.</p>
-   * @public
-   */
-  HookParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>Configuration information for Amazon SageMaker Debugger tensor collections. To learn more about how to configure the <code>CollectionConfiguration</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>. </p>
-   * @public
-   */
-  CollectionConfigurations?: CollectionConfiguration[] | undefined;
-}
-
-/**
- * <p>Configuration information for SageMaker Debugger rules for debugging. To learn more about how to configure the <code>DebugRuleConfiguration</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
- * @public
- */
-export interface DebugRuleConfiguration {
-  /**
-   * <p>The name of the rule configuration. It must be unique relative to other rule configuration names.</p>
-   * @public
-   */
-  RuleConfigurationName: string | undefined;
-
-  /**
-   * <p>Path to local storage location for output of rules. Defaults to <code>/opt/ml/processing/output/rule/</code>.</p>
-   * @public
-   */
-  LocalPath?: string | undefined;
-
-  /**
-   * <p>Path to Amazon S3 storage location for rules.</p>
-   * @public
-   */
-  S3OutputPath?: string | undefined;
-
-  /**
-   * <p>The Amazon Elastic Container (ECR) Image for the managed rule evaluation.</p>
-   * @public
-   */
-  RuleEvaluatorImage: string | undefined;
-
-  /**
-   * <p>The instance type to deploy a custom rule for debugging a training job.</p>
-   * @public
-   */
-  InstanceType?: ProcessingInstanceType | undefined;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
-   * @public
-   */
-  VolumeSizeInGB?: number | undefined;
-
-  /**
-   * <p>Runtime configuration for rule container.</p>
-   * @public
-   */
-  RuleParameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Configuration information for the infrastructure health check of a training job. A SageMaker-provided health check tests the health of instance hardware and cluster network connectivity.</p>
- * @public
- */
-export interface InfraCheckConfig {
-  /**
-   * <p>Enables an infrastructure health check.</p>
-   * @public
-   */
-  EnableInfraCheck?: boolean | undefined;
-}
-
-/**
- * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
- * @public
- */
-export interface ProfilerConfig {
-  /**
-   * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
-   * @public
-   */
-  S3OutputPath?: string | undefined;
-
-  /**
-   * <p>A time interval for capturing system metrics in milliseconds. Available values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
-   * @public
-   */
-  ProfilingIntervalInMilliseconds?: number | undefined;
-
-  /**
-   * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>, and <code>DataLoaderProfilingConfig</code>. The following codes are configuration structures for the <code>ProfilingParameters</code> parameter. To learn more about how to configure the <code>ProfilingParameters</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>. </p>
-   * @public
-   */
-  ProfilingParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>Configuration to turn off Amazon SageMaker Debugger's system monitoring and profiling functionality. To turn it off, set to <code>True</code>.</p>
-   * @public
-   */
-  DisableProfiler?: boolean | undefined;
-}
-
-/**
- * <p>Configuration information for profiling rules.</p>
- * @public
- */
-export interface ProfilerRuleConfiguration {
-  /**
-   * <p>The name of the rule configuration. It must be unique relative to other rule configuration names.</p>
-   * @public
-   */
-  RuleConfigurationName: string | undefined;
-
-  /**
-   * <p>Path to local storage location for output of rules. Defaults to <code>/opt/ml/processing/output/rule/</code>. </p>
-   * @public
-   */
-  LocalPath?: string | undefined;
-
-  /**
-   * <p>Path to Amazon S3 storage location for rules.</p>
-   * @public
-   */
-  S3OutputPath?: string | undefined;
-
-  /**
-   * <p>The Amazon Elastic Container Registry Image for the managed rule evaluation.</p>
-   * @public
-   */
-  RuleEvaluatorImage: string | undefined;
-
-  /**
-   * <p>The instance type to deploy a custom rule for profiling a training job.</p>
-   * @public
-   */
-  InstanceType?: ProcessingInstanceType | undefined;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
-   * @public
-   */
-  VolumeSizeInGB?: number | undefined;
-
-  /**
-   * <p>Runtime configuration for rule container.</p>
-   * @public
-   */
-  RuleParameters?: Record<string, string> | undefined;
 }

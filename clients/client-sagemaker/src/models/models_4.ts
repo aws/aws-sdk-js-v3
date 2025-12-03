@@ -6,6 +6,7 @@ import {
   ActivationState,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
+  AppType,
   BatchStrategy,
   BooleanOperator,
   ClusterNodeProvisioningMode,
@@ -13,6 +14,7 @@ import {
   CrossAccountFilterOption,
   Direction,
   EndpointStatus,
+  FeatureStatus,
   HubContentSupportStatus,
   HubContentType,
   InferenceExperimentStopDesiredState,
@@ -24,6 +26,7 @@ import {
   ModelApprovalStatus,
   ModelCardStatus,
   ModelPackageGroupStatus,
+  ModelPackageRegistrationType,
   ModelPackageStatus,
   ModelRegistrationMode,
   ModelVariantAction,
@@ -37,17 +40,24 @@ import {
   Relation,
   ReservedCapacityInstanceType,
   ReservedCapacityType,
+  ResourceCatalogSortBy,
+  ResourceCatalogSortOrder,
   ResourceType,
   RootAccess,
   SageMakerResourceName,
   ScheduleStatus,
   SearchSortOrder,
   SecondaryStatus,
+  SharingType,
   SkipModelValidation,
   SortBy,
   SortOrder,
   SortTrialComponentsBy,
   SortTrialsBy,
+  SpaceSortKey,
+  SpaceStatus,
+  StudioLifecycleConfigAppType,
+  StudioLifecycleConfigSortKey,
   TagPropagation,
   ThroughputMode,
   TrackingServerSize,
@@ -103,8 +113,6 @@ import {
 } from "./models_0";
 
 import {
-  DebugHookConfig,
-  DebugRuleConfiguration,
   DefaultSpaceSettings,
   DeploymentConfig,
   DriftCheckBaselines,
@@ -135,14 +143,13 @@ import {
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
-  ProfilerConfig,
-  ProfilerRuleConfiguration,
   ProvisioningParameter,
   RetryStrategy,
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
   SourceAlgorithmSpecification,
   SpaceSettings,
+  SpaceStorageSettings,
   TtlDuration,
   UiTemplate,
   UserSettings,
@@ -150,6 +157,8 @@ import {
 
 import {
   DataProcessing,
+  DebugHookConfig,
+  DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   FeatureParameter,
@@ -158,15 +167,16 @@ import {
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
+  ModelPackageConfig,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   NotificationConfiguration,
   OidcConfig,
   PipelineExperimentConfig,
+  ProfilerConfig,
+  ProfilerRuleConfiguration,
   SelectiveExecutionConfig,
-  ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
-  TemplateProviderDetail,
   TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
@@ -178,6 +188,7 @@ import {
 import {
   DesiredWeightAndCapacity,
   Device,
+  DeviceDeploymentSummary,
   DomainSettingsForUpdate,
   Edge,
   Endpoint,
@@ -192,7 +203,9 @@ import {
   Parameter,
   ReservedCapacitySummary,
   SecondaryStatusTransition,
+  ServiceCatalogProvisionedProductDetails,
   SubscribedWorkteam,
+  TemplateProviderDetail,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
@@ -200,6 +213,459 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListResourceCatalogsRequest {
+  /**
+   * <p> A string that partially matches one or more <code>ResourceCatalog</code>s names. Filters <code>ResourceCatalog</code> by name. </p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p> Use this parameter to search for <code>ResourceCatalog</code>s created after a specific date and time. </p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p> Use this parameter to search for <code>ResourceCatalog</code>s created before a specific date and time. </p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p> The order in which the resource catalogs are listed. </p>
+   * @public
+   */
+  SortOrder?: ResourceCatalogSortOrder | undefined;
+
+  /**
+   * <p> The value on which the resource catalog list is sorted. </p>
+   * @public
+   */
+  SortBy?: ResourceCatalogSortBy | undefined;
+
+  /**
+   * <p> The maximum number of results returned by <code>ListResourceCatalogs</code>. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> A token to resume pagination of <code>ListResourceCatalogs</code> results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p> A resource catalog containing all of the resources of a specific resource type within a resource owner account. For an example on sharing the Amazon SageMaker Feature Store <code>DefaultFeatureGroupCatalog</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/feature-store-cross-account-discoverability-share-sagemaker-catalog.html">Share Amazon SageMaker Catalog resource type</a> in the Amazon SageMaker Developer Guide. </p>
+ * @public
+ */
+export interface ResourceCatalog {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the <code>ResourceCatalog</code>. </p>
+   * @public
+   */
+  ResourceCatalogArn: string | undefined;
+
+  /**
+   * <p> The name of the <code>ResourceCatalog</code>. </p>
+   * @public
+   */
+  ResourceCatalogName: string | undefined;
+
+  /**
+   * <p> A free form description of the <code>ResourceCatalog</code>. </p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p> The time the <code>ResourceCatalog</code> was created. </p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceCatalogsResponse {
+  /**
+   * <p> A list of the requested <code>ResourceCatalog</code>s. </p>
+   * @public
+   */
+  ResourceCatalogs?: ResourceCatalog[] | undefined;
+
+  /**
+   * <p> A token to resume pagination of <code>ListResourceCatalogs</code> results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSpacesRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SpaceSortKey | undefined;
+
+  /**
+   * <p>A parameter to search for the domain ID.</p>
+   * @public
+   */
+  DomainIdEquals?: string | undefined;
+
+  /**
+   * <p>A parameter by which to filter the results.</p>
+   * @public
+   */
+  SpaceNameContains?: string | undefined;
+}
+
+/**
+ * <p>Specifies summary information about the ownership settings.</p>
+ * @public
+ */
+export interface OwnershipSettingsSummary {
+  /**
+   * <p>The user profile who is the owner of the space.</p>
+   * @public
+   */
+  OwnerUserProfileName?: string | undefined;
+}
+
+/**
+ * <p>Specifies summary information about the space settings.</p>
+ * @public
+ */
+export interface SpaceSettingsSummary {
+  /**
+   * <p>The type of app created within the space.</p>
+   * @public
+   */
+  AppType?: AppType | undefined;
+
+  /**
+   * <p>A setting that enables or disables remote access for a SageMaker space. When enabled, this allows you to connect to the remote space from your local IDE.</p>
+   * @public
+   */
+  RemoteAccess?: FeatureStatus | undefined;
+
+  /**
+   * <p>The storage settings for a space.</p>
+   * @public
+   */
+  SpaceStorageSettings?: SpaceStorageSettings | undefined;
+}
+
+/**
+ * <p>Specifies summary information about the space sharing settings.</p>
+ * @public
+ */
+export interface SpaceSharingSettingsSummary {
+  /**
+   * <p>Specifies the sharing type of the space.</p>
+   * @public
+   */
+  SharingType?: SharingType | undefined;
+}
+
+/**
+ * <p>The space's details.</p>
+ * @public
+ */
+export interface SpaceDetails {
+  /**
+   * <p>The ID of the associated domain.</p>
+   * @public
+   */
+  DomainId?: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   * @public
+   */
+  SpaceName?: string | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: SpaceStatus | undefined;
+
+  /**
+   * <p>The creation time.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The last modified time.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Specifies summary information about the space settings.</p>
+   * @public
+   */
+  SpaceSettingsSummary?: SpaceSettingsSummary | undefined;
+
+  /**
+   * <p>Specifies summary information about the space sharing settings.</p>
+   * @public
+   */
+  SpaceSharingSettingsSummary?: SpaceSharingSettingsSummary | undefined;
+
+  /**
+   * <p>Specifies summary information about the ownership settings.</p>
+   * @public
+   */
+  OwnershipSettingsSummary?: OwnershipSettingsSummary | undefined;
+
+  /**
+   * <p>The name of the space that appears in the Studio UI.</p>
+   * @public
+   */
+  SpaceDisplayName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSpacesResponse {
+  /**
+   * <p>The list of spaces.</p>
+   * @public
+   */
+  Spaces?: SpaceDetails[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStageDevicesRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to neeed tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of requests to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The name of the edge deployment plan.</p>
+   * @public
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>Toggle for excluding devices deployed in other stages.</p>
+   * @public
+   */
+  ExcludeDevicesDeployedInOtherStage?: boolean | undefined;
+
+  /**
+   * <p>The name of the stage in the deployment.</p>
+   * @public
+   */
+  StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStageDevicesResponse {
+  /**
+   * <p>List of summaries of devices allocated to the stage.</p>
+   * @public
+   */
+  DeviceDeploymentSummaries: DeviceDeploymentSummary[] | undefined;
+
+  /**
+   * <p>The token to use when calling the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStudioLifecycleConfigsRequest {
+  /**
+   * <p>The total number of items to return in the response. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the response. To resume pagination, provide the <code>NextToken</code> value in the as part of a subsequent call. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle Configurations, the call returns a token for getting the next set of Lifecycle Configurations.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle Configurations whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
+   * @public
+   */
+  AppTypeEquals?: StudioLifecycleConfigAppType | undefined;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations created on or after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified before the specified time.</p>
+   * @public
+   */
+  ModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>
+   * @public
+   */
+  ModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is CreationTime.</p>
+   * @public
+   */
+  SortBy?: StudioLifecycleConfigSortKey | undefined;
+
+  /**
+   * <p>The sort order. The default value is Descending.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>Details of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
+ * @public
+ */
+export interface StudioLifecycleConfigDetails {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration.</p>
+   * @public
+   */
+  StudioLifecycleConfigArn?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
+   * @public
+   */
+  StudioLifecycleConfigName?: string | undefined;
+
+  /**
+   * <p>The creation time of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>This value is equivalent to CreationTime because Amazon SageMaker AI Studio Lifecycle Configurations are immutable.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The App type to which the Lifecycle Configuration is attached.</p>
+   * @public
+   */
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStudioLifecycleConfigsResponse {
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of Lifecycle Configurations and their properties.</p>
+   * @public
+   */
+  StudioLifecycleConfigs?: StudioLifecycleConfigDetails[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscribedWorkteamsRequest {
+  /**
+   * <p>A string in the work team name. This filter returns only work teams whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListSubscribedWorkteams</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of work teams to return in each page of the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -1906,6 +2372,12 @@ export interface ModelPackage {
   ModelPackageVersion?: number | undefined;
 
   /**
+   * <p> The package registration type of the model package. </p>
+   * @public
+   */
+  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
    * @public
    */
@@ -3301,6 +3773,18 @@ export interface TrainingJob {
   DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[] | undefined;
 
   /**
+   * <p> The output model package Amazon Resource Name (ARN) that contains model weights or checkpoint. </p>
+   * @public
+   */
+  OutputModelPackageArn?: string | undefined;
+
+  /**
+   * <p> The model package configuration. </p>
+   * @public
+   */
+  ModelPackageConfig?: ModelPackageConfig | undefined;
+
+  /**
    * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
    * @public
    */
@@ -4070,6 +4554,12 @@ export interface StartPipelineExecutionRequest {
    * @public
    */
   PipelineVersionId?: number | undefined;
+
+  /**
+   * <p> The MLflow experiment name of the start execution. </p>
+   * @public
+   */
+  MlflowExperimentName?: string | undefined;
 }
 
 /**
@@ -5698,6 +6188,12 @@ export interface UpdateModelPackageInput {
    * @public
    */
   ModelApprovalStatus?: ModelApprovalStatus | undefined;
+
+  /**
+   * <p> The package registration type of the model package input. </p>
+   * @public
+   */
+  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
 
   /**
    * <p>A description for the approval status of the model.</p>

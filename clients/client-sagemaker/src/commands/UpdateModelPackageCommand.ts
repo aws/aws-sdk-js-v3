@@ -39,6 +39,7 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  * const input = { // UpdateModelPackageInput
  *   ModelPackageArn: "STRING_VALUE", // required
  *   ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ *   ModelPackageRegistrationType: "Logged" || "Registered",
  *   ApprovalDescription: "STRING_VALUE",
  *   CustomerMetadataProperties: { // CustomerMetadataMap
  *     "<keys>": "STRING_VALUE",
@@ -89,6 +90,12 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  *             ETag: "STRING_VALUE",
  *           },
  *           ModelDataETag: "STRING_VALUE",
+ *           IsCheckpoint: true || false,
+ *           BaseModel: { // BaseModel
+ *             HubContentName: "STRING_VALUE",
+ *             HubContentVersion: "STRING_VALUE",
+ *             RecipeName: "STRING_VALUE",
+ *           },
  *         },
  *       ],
  *       SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -145,6 +152,12 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  *           ETag: "STRING_VALUE",
  *         },
  *         ModelDataETag: "STRING_VALUE",
+ *         IsCheckpoint: true || false,
+ *         BaseModel: {
+ *           HubContentName: "STRING_VALUE",
+ *           HubContentVersion: "STRING_VALUE",
+ *           RecipeName: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     SupportedTransformInstanceTypes: [

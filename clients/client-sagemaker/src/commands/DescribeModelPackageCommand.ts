@@ -45,6 +45,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //   ModelPackageName: "STRING_VALUE", // required
  * //   ModelPackageGroupName: "STRING_VALUE",
  * //   ModelPackageVersion: Number("int"),
+ * //   ModelPackageRegistrationType: "Logged" || "Registered",
  * //   ModelPackageArn: "STRING_VALUE", // required
  * //   ModelPackageDescription: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
@@ -88,6 +89,12 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //           ETag: "STRING_VALUE",
  * //         },
  * //         ModelDataETag: "STRING_VALUE",
+ * //         IsCheckpoint: true || false,
+ * //         BaseModel: { // BaseModel
+ * //           HubContentName: "STRING_VALUE",
+ * //           HubContentVersion: "STRING_VALUE",
+ * //           RecipeName: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -328,6 +335,12 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //             ETag: "STRING_VALUE",
  * //           },
  * //           ModelDataETag: "STRING_VALUE",
+ * //           IsCheckpoint: true || false,
+ * //           BaseModel: {
+ * //             HubContentName: "STRING_VALUE",
+ * //             HubContentVersion: "STRING_VALUE",
+ * //             RecipeName: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       SupportedTransformInstanceTypes: [

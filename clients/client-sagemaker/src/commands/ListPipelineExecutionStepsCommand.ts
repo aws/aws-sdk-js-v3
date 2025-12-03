@@ -138,6 +138,38 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //         EndpointConfig: { // EndpointConfigStepMetadata
  * //           Arn: "STRING_VALUE",
  * //         },
+ * //         BedrockCustomModel: { // BedrockCustomModelMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         BedrockCustomModelDeployment: { // BedrockCustomModelDeploymentMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         BedrockProvisionedModelThroughput: { // BedrockProvisionedModelThroughputMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         BedrockModelImport: { // BedrockModelImportMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         InferenceComponent: { // InferenceComponentMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Lineage: { // LineageMetadata
+ * //           ActionArns: { // MapString2048
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           ArtifactArns: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           ContextArns: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           Associations: [ // AssociationInfoList
+ * //             { // AssociationInfo
+ * //               SourceArn: "STRING_VALUE", // required
+ * //               DestinationArn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       AttemptCount: Number("int"),
  * //       SelectiveExecutionResult: { // SelectiveExecutionResult

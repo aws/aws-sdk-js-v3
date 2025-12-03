@@ -165,6 +165,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 FileSystemType: "EFS" || "FSxLustre", // required
  * //                 DirectoryPath: "STRING_VALUE", // required
  * //               },
+ * //               DatasetSource: { // DatasetSource
+ * //                 DatasetArn: "STRING_VALUE", // required
+ * //               },
  * //             },
  * //             ContentType: "STRING_VALUE",
  * //             CompressionType: "None" || "Gzip",
@@ -292,6 +295,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             LastModifiedTime: new Date("TIMESTAMP"),
  * //           },
  * //         ],
+ * //         OutputModelPackageArn: "STRING_VALUE",
+ * //         ModelPackageConfig: { // ModelPackageConfig
+ * //           ModelPackageGroupArn: "STRING_VALUE", // required
+ * //           SourceModelPackageArn: "STRING_VALUE",
+ * //         },
  * //         ProfilerConfig: { // ProfilerConfig
  * //           S3OutputPath: "STRING_VALUE",
  * //           ProfilingIntervalInMilliseconds: Number("long"),
@@ -540,6 +548,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     FileSystemType: "EFS" || "FSxLustre", // required
  * //                     DirectoryPath: "STRING_VALUE", // required
  * //                   },
+ * //                   DatasetSource: {
+ * //                     DatasetArn: "STRING_VALUE", // required
+ * //                   },
  * //                 },
  * //                 ContentType: "STRING_VALUE",
  * //                 CompressionType: "None" || "Gzip",
@@ -667,6 +678,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 LastModifiedTime: new Date("TIMESTAMP"),
  * //               },
  * //             ],
+ * //             OutputModelPackageArn: "STRING_VALUE",
+ * //             ModelPackageConfig: {
+ * //               ModelPackageGroupArn: "STRING_VALUE", // required
+ * //               SourceModelPackageArn: "STRING_VALUE",
+ * //             },
  * //             ProfilerConfig: {
  * //               S3OutputPath: "STRING_VALUE",
  * //               ProfilingIntervalInMilliseconds: Number("long"),
@@ -1133,6 +1149,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         ModelPackageName: "STRING_VALUE",
  * //         ModelPackageGroupName: "STRING_VALUE",
  * //         ModelPackageVersion: Number("int"),
+ * //         ModelPackageRegistrationType: "Logged" || "Registered",
  * //         ModelPackageArn: "STRING_VALUE",
  * //         ModelPackageDescription: "STRING_VALUE",
  * //         CreationTime: new Date("TIMESTAMP"),
@@ -1174,6 +1191,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 ETag: "STRING_VALUE",
  * //               },
  * //               ModelDataETag: "STRING_VALUE",
+ * //               IsCheckpoint: true || false,
+ * //               BaseModel: { // BaseModel
+ * //                 HubContentName: "STRING_VALUE",
+ * //                 HubContentVersion: "STRING_VALUE",
+ * //                 RecipeName: "STRING_VALUE",
+ * //               },
  * //             },
  * //           ],
  * //           SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -1362,6 +1385,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   ETag: "STRING_VALUE",
  * //                 },
  * //                 ModelDataETag: "STRING_VALUE",
+ * //                 IsCheckpoint: true || false,
+ * //                 BaseModel: {
+ * //                   HubContentName: "STRING_VALUE",
+ * //                   HubContentVersion: "STRING_VALUE",
+ * //                   RecipeName: "STRING_VALUE",
+ * //                 },
  * //               },
  * //             ],
  * //             SupportedTransformInstanceTypes: [

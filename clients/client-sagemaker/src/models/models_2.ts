@@ -20,6 +20,7 @@ import {
   ClusterNodeRecovery,
   ClusterStatus,
   CompilationJobStatus,
+  CustomizationTechnique,
   DetailedModelPackageStatus,
   DirectInternetAccess,
   DomainStatus,
@@ -28,6 +29,7 @@ import {
   EdgePresetDeploymentType,
   EnabledOrDisabled,
   EndpointStatus,
+  EvaluationType,
   ExecutionStatus,
   FeatureGroupStatus,
   FeatureStatus,
@@ -59,6 +61,7 @@ import {
   ModelCardProcessingStatus,
   ModelCardStatus,
   ModelPackageGroupStatus,
+  ModelPackageRegistrationType,
   ModelPackageStatus,
   ModelRegistrationMode,
   ModelVariantStatus,
@@ -72,27 +75,25 @@ import {
   PartnerAppAuthType,
   PartnerAppStatus,
   PartnerAppType,
+  Peft,
   PipelineExecutionStatus,
   PipelineStatus,
   ProblemType,
+  ProcessingInstanceType,
   ProcessingJobStatus,
   Processor,
   ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
-  ProjectStatus,
   RecommendationJobStatus,
   RecommendationJobType,
   RecommendationStatus,
-  ReservedCapacityInstanceType,
-  ReservedCapacityStatus,
-  ReservedCapacityType,
   RetentionType,
   RootAccess,
   RuleEvaluationStatus,
   SchedulerResourceStatus,
   ScheduleStatus,
+  ServerlessJobType,
   SkipModelValidation,
-  SpaceStatus,
   StageStatus,
   Statistic,
   StudioLifecycleConfigAppType,
@@ -135,7 +136,6 @@ import {
   Autotune,
   AvailableUpgrade,
   BatchDataCaptureConfig,
-  CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
   ClusterAutoScalingConfigOutput,
@@ -148,12 +148,11 @@ import {
   CodeEditorAppImageConfig,
   CognitoConfig,
   CognitoMemberDefinition,
+  CollectionConfiguration,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ContainerDefinition,
   ContextSource,
-  DataQualityAppSpecification,
-  DataQualityBaselineConfig,
   GitConfig,
   InferenceSpecification,
   InputConfig,
@@ -179,9 +178,9 @@ import {
 
 import {
   DataCaptureConfig,
+  DataQualityAppSpecification,
+  DataQualityBaselineConfig,
   DataQualityJobInput,
-  DebugHookConfig,
-  DebugRuleConfiguration,
   DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
@@ -208,7 +207,6 @@ import {
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
-  InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
@@ -245,7 +243,6 @@ import {
   OptimizationJobModelSource,
   OptimizationJobOutputConfig,
   OptimizationVpcConfig,
-  OwnershipSettings,
   ParallelismConfiguration,
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
@@ -257,18 +254,263 @@ import {
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
-  ProfilerConfig,
-  ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RetryStrategy,
-  ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
   SourceAlgorithmSpecification,
-  SpaceSettings,
-  SpaceSharingSettings,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateStudioLifecycleConfigRequest {
+  /**
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to create.</p>
+   * @public
+   */
+  StudioLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
+   * @public
+   */
+  StudioLifecycleConfigContent: string | undefined;
+
+  /**
+   * <p>The App type that the Lifecycle Configuration is attached to.</p>
+   * @public
+   */
+  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | undefined;
+
+  /**
+   * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStudioLifecycleConfigResponse {
+  /**
+   * <p>The ARN of your created Lifecycle Configuration.</p>
+   * @public
+   */
+  StudioLifecycleConfigArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and storage paths. To learn more about how to configure the <code>DebugHookConfig</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
+ * @public
+ */
+export interface DebugHookConfig {
+  /**
+   * <p>Path to local storage location for metrics and tensors. Defaults to <code>/opt/ml/output/tensors/</code>.</p>
+   * @public
+   */
+  LocalPath?: string | undefined;
+
+  /**
+   * <p>Path to Amazon S3 storage location for metrics and tensors.</p>
+   * @public
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters.</p>
+   * @public
+   */
+  HookParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration information for Amazon SageMaker Debugger tensor collections. To learn more about how to configure the <code>CollectionConfiguration</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>. </p>
+   * @public
+   */
+  CollectionConfigurations?: CollectionConfiguration[] | undefined;
+}
+
+/**
+ * <p>Configuration information for SageMaker Debugger rules for debugging. To learn more about how to configure the <code>DebugRuleConfiguration</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
+ * @public
+ */
+export interface DebugRuleConfiguration {
+  /**
+   * <p>The name of the rule configuration. It must be unique relative to other rule configuration names.</p>
+   * @public
+   */
+  RuleConfigurationName: string | undefined;
+
+  /**
+   * <p>Path to local storage location for output of rules. Defaults to <code>/opt/ml/processing/output/rule/</code>.</p>
+   * @public
+   */
+  LocalPath?: string | undefined;
+
+  /**
+   * <p>Path to Amazon S3 storage location for rules.</p>
+   * @public
+   */
+  S3OutputPath?: string | undefined;
+
+  /**
+   * <p>The Amazon Elastic Container (ECR) Image for the managed rule evaluation.</p>
+   * @public
+   */
+  RuleEvaluatorImage: string | undefined;
+
+  /**
+   * <p>The instance type to deploy a custom rule for debugging a training job.</p>
+   * @public
+   */
+  InstanceType?: ProcessingInstanceType | undefined;
+
+  /**
+   * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
+   * @public
+   */
+  VolumeSizeInGB?: number | undefined;
+
+  /**
+   * <p>Runtime configuration for rule container.</p>
+   * @public
+   */
+  RuleParameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration information for the infrastructure health check of a training job. A SageMaker-provided health check tests the health of instance hardware and cluster network connectivity.</p>
+ * @public
+ */
+export interface InfraCheckConfig {
+  /**
+   * <p>Enables an infrastructure health check.</p>
+   * @public
+   */
+  EnableInfraCheck?: boolean | undefined;
+}
+
+/**
+ * <p> The MLflow configuration using SageMaker managed MLflow. </p>
+ * @public
+ */
+export interface MlflowConfig {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the MLflow resource. </p>
+   * @public
+   */
+  MlflowResourceArn: string | undefined;
+
+  /**
+   * <p> The MLflow experiment name used for this job. </p>
+   * @public
+   */
+  MlflowExperimentName?: string | undefined;
+
+  /**
+   * <p> The MLflow run name used for this job. </p>
+   * @public
+   */
+  MlflowRunName?: string | undefined;
+}
+
+/**
+ * <p> The configuration for the Model package. </p>
+ * @public
+ */
+export interface ModelPackageConfig {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the model package group of output model package. </p>
+   * @public
+   */
+  ModelPackageGroupArn: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the source model package used for continued fine-tuning and custom model evaluation. </p>
+   * @public
+   */
+  SourceModelPackageArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
+ * @public
+ */
+export interface ProfilerConfig {
+  /**
+   * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
+   * @public
+   */
+  S3OutputPath?: string | undefined;
+
+  /**
+   * <p>A time interval for capturing system metrics in milliseconds. Available values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
+   * @public
+   */
+  ProfilingIntervalInMilliseconds?: number | undefined;
+
+  /**
+   * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>, and <code>DataLoaderProfilingConfig</code>. The following codes are configuration structures for the <code>ProfilingParameters</code> parameter. To learn more about how to configure the <code>ProfilingParameters</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>. </p>
+   * @public
+   */
+  ProfilingParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration to turn off Amazon SageMaker Debugger's system monitoring and profiling functionality. To turn it off, set to <code>True</code>.</p>
+   * @public
+   */
+  DisableProfiler?: boolean | undefined;
+}
+
+/**
+ * <p>Configuration information for profiling rules.</p>
+ * @public
+ */
+export interface ProfilerRuleConfiguration {
+  /**
+   * <p>The name of the rule configuration. It must be unique relative to other rule configuration names.</p>
+   * @public
+   */
+  RuleConfigurationName: string | undefined;
+
+  /**
+   * <p>Path to local storage location for output of rules. Defaults to <code>/opt/ml/processing/output/rule/</code>. </p>
+   * @public
+   */
+  LocalPath?: string | undefined;
+
+  /**
+   * <p>Path to Amazon S3 storage location for rules.</p>
+   * @public
+   */
+  S3OutputPath?: string | undefined;
+
+  /**
+   * <p>The Amazon Elastic Container Registry Image for the managed rule evaluation.</p>
+   * @public
+   */
+  RuleEvaluatorImage: string | undefined;
+
+  /**
+   * <p>The instance type to deploy a custom rule for profiling a training job.</p>
+   * @public
+   */
+  InstanceType?: ProcessingInstanceType | undefined;
+
+  /**
+   * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
+   * @public
+   */
+  VolumeSizeInGB?: number | undefined;
+
+  /**
+   * <p>Runtime configuration for rule container.</p>
+   * @public
+   */
+  RuleParameters?: Record<string, string> | undefined;
+}
 
 /**
  * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. To learn more about the remote debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM) for remote debugging</a>.</p>
@@ -280,6 +522,54 @@ export interface RemoteDebugConfig {
    * @public
    */
   EnableRemoteDebug?: boolean | undefined;
+}
+
+/**
+ * <p> The configuration for the serverless training job. </p>
+ * @public
+ */
+export interface ServerlessJobConfig {
+  /**
+   * <p> The base model Amazon Resource Name (ARN) in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-use.html">SageMaker Public Hub</a>. SageMaker always selects the latest version of the provided model. </p>
+   * @public
+   */
+  BaseModelArn: string | undefined;
+
+  /**
+   * <p> Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a> section for more details on accepting the EULA. </p>
+   * @public
+   */
+  AcceptEula?: boolean | undefined;
+
+  /**
+   * <p> The serverless training job type. </p>
+   * @public
+   */
+  JobType: ServerlessJobType | undefined;
+
+  /**
+   * <p> The model customization technique. </p>
+   * @public
+   */
+  CustomizationTechnique?: CustomizationTechnique | undefined;
+
+  /**
+   * <p> The parameter-efficient fine-tuning configuration. </p>
+   * @public
+   */
+  Peft?: Peft | undefined;
+
+  /**
+   * <p> The evaluation job type. Required when serverless job type is <code>Evaluation</code>. </p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
+
+  /**
+   * <p> The evaluator Amazon Resource Name (ARN) used as reward function or reward prompt. </p>
+   * @public
+   */
+  EvaluatorArn?: string | undefined;
 }
 
 /**
@@ -465,6 +755,24 @@ export interface CreateTrainingJobRequest {
    * @public
    */
   SessionChainingConfig?: SessionChainingConfig | undefined;
+
+  /**
+   * <p> The configuration for serverless training jobs. </p>
+   * @public
+   */
+  ServerlessJobConfig?: ServerlessJobConfig | undefined;
+
+  /**
+   * <p> The MLflow configuration using SageMaker managed MLflow. </p>
+   * @public
+   */
+  MlflowConfig?: MlflowConfig | undefined;
+
+  /**
+   * <p> The configuration for the model package. </p>
+   * @public
+   */
+  ModelPackageConfig?: ModelPackageConfig | undefined;
 }
 
 /**
@@ -7968,6 +8276,12 @@ export interface DescribeModelPackageOutput {
   ModelPackageVersion?: number | undefined;
 
   /**
+   * <p> The package registration type of the model package output. </p>
+   * @public
+   */
+  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
    * @public
    */
@@ -9054,6 +9368,24 @@ export interface DescribePipelineExecutionRequest {
 }
 
 /**
+ * <p> The MLflow configuration. </p>
+ * @public
+ */
+export interface MLflowConfiguration {
+  /**
+   * <p> The Amazon Resource Name (ARN) of MLflow configuration resource. </p>
+   * @public
+   */
+  MlflowResourceArn?: string | undefined;
+
+  /**
+   * <p> The name of the MLflow configuration. </p>
+   * @public
+   */
+  MlflowExperimentName?: string | undefined;
+}
+
+/**
  * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
  * @public
  */
@@ -9188,6 +9520,12 @@ export interface DescribePipelineExecutionResponse {
    * @public
    */
   PipelineVersionId?: number | undefined;
+
+  /**
+   * <p> The MLflow configuration of the pipeline execution. </p>
+   * @public
+   */
+  MLflowConfig?: MLflowConfiguration | undefined;
 }
 
 /**
@@ -9341,404 +9679,4 @@ export interface DescribeProjectInput {
    * @public
    */
   ProjectName: string | undefined;
-}
-
-/**
- * <p>Details of a provisioned service catalog product. For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.</p>
- * @public
- */
-export interface ServiceCatalogProvisionedProductDetails {
-  /**
-   * <p>The ID of the provisioned product.</p>
-   * @public
-   */
-  ProvisionedProductId?: string | undefined;
-
-  /**
-   * <p>The current status of the product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> <li> <p> <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p> </li> </ul>
-   * @public
-   */
-  ProvisionedProductStatusMessage?: string | undefined;
-}
-
-/**
- * <p> Details about a template provider configuration and associated provisioning information. </p>
- * @public
- */
-export interface TemplateProviderDetail {
-  /**
-   * <p> Details about a CloudFormation template provider configuration and associated provisioning information. </p>
-   * @public
-   */
-  CfnTemplateProviderDetail?: CfnTemplateProviderDetail | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProjectOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   * @public
-   */
-  ProjectArn: string | undefined;
-
-  /**
-   * <p>The name of the project.</p>
-   * @public
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * <p>The ID of the project.</p>
-   * @public
-   */
-  ProjectId: string | undefined;
-
-  /**
-   * <p>The description of the project.</p>
-   * @public
-   */
-  ProjectDescription?: string | undefined;
-
-  /**
-   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.</p>
-   * @public
-   */
-  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails | undefined;
-
-  /**
-   * <p>Information about a provisioned service catalog product.</p>
-   * @public
-   */
-  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails | undefined;
-
-  /**
-   * <p>The status of the project.</p>
-   * @public
-   */
-  ProjectStatus: ProjectStatus | undefined;
-
-  /**
-   * <p> An array of template providers associated with the project. </p>
-   * @public
-   */
-  TemplateProviderDetails?: TemplateProviderDetail[] | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>The time when the project was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when project was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeReservedCapacityRequest {
-  /**
-   * <p>ARN of the reserved capacity to describe.</p>
-   * @public
-   */
-  ReservedCapacityArn: string | undefined;
-}
-
-/**
- * <p>A summary of UltraServer resources and their current status.</p>
- * @public
- */
-export interface UltraServerSummary {
-  /**
-   * <p>The type of UltraServer, such as ml.u-p6e-gb200x72.</p>
-   * @public
-   */
-  UltraServerType: string | undefined;
-
-  /**
-   * <p>The Amazon EC2 instance type used in the UltraServer.</p>
-   * @public
-   */
-  InstanceType: ReservedCapacityInstanceType | undefined;
-
-  /**
-   * <p>The number of UltraServers of this type.</p>
-   * @public
-   */
-  UltraServerCount?: number | undefined;
-
-  /**
-   * <p>The number of available spare instances in the UltraServers.</p>
-   * @public
-   */
-  AvailableSpareInstanceCount?: number | undefined;
-
-  /**
-   * <p>The total number of instances across all UltraServers of this type that are currently in an unhealthy state.</p>
-   * @public
-   */
-  UnhealthyInstanceCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeReservedCapacityResponse {
-  /**
-   * <p>ARN of the reserved capacity.</p>
-   * @public
-   */
-  ReservedCapacityArn: string | undefined;
-
-  /**
-   * <p>The type of reserved capacity.</p>
-   * @public
-   */
-  ReservedCapacityType?: ReservedCapacityType | undefined;
-
-  /**
-   * <p>The current status of the reserved capacity.</p>
-   * @public
-   */
-  Status?: ReservedCapacityStatus | undefined;
-
-  /**
-   * <p>The Availability Zone where the reserved capacity is provisioned.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The total duration of the reserved capacity in hours.</p>
-   * @public
-   */
-  DurationHours?: number | undefined;
-
-  /**
-   * <p>The number of minutes for the duration of the reserved capacity. For example, if a reserved capacity starts at 08:55 and ends at 11:30, the minutes field would be 35.</p>
-   * @public
-   */
-  DurationMinutes?: number | undefined;
-
-  /**
-   * <p>The timestamp when the reserved capacity becomes active.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the reserved capacity expires.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon EC2 instance type used in the reserved capacity.</p>
-   * @public
-   */
-  InstanceType: ReservedCapacityInstanceType | undefined;
-
-  /**
-   * <p>The total number of instances allocated to this reserved capacity.</p>
-   * @public
-   */
-  TotalInstanceCount: number | undefined;
-
-  /**
-   * <p>The number of instances currently available for use in this reserved capacity.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances currently in use from this reserved capacity.</p>
-   * @public
-   */
-  InUseInstanceCount?: number | undefined;
-
-  /**
-   * <p>A summary of the UltraServer associated with this reserved capacity.</p>
-   * @public
-   */
-  UltraServerSummary?: UltraServerSummary | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSpaceRequest {
-  /**
-   * <p>The ID of the associated domain.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   * @public
-   */
-  SpaceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSpaceResponse {
-  /**
-   * <p>The ID of the associated domain.</p>
-   * @public
-   */
-  DomainId?: string | undefined;
-
-  /**
-   * <p>The space's Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  SpaceArn?: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   * @public
-   */
-  SpaceName?: string | undefined;
-
-  /**
-   * <p>The ID of the space's profile in the Amazon EFS volume.</p>
-   * @public
-   */
-  HomeEfsFileSystemUid?: string | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: SpaceStatus | undefined;
-
-  /**
-   * <p>The last modified time.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The failure reason.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>A collection of space settings.</p>
-   * @public
-   */
-  SpaceSettings?: SpaceSettings | undefined;
-
-  /**
-   * <p>The collection of ownership settings for a space.</p>
-   * @public
-   */
-  OwnershipSettings?: OwnershipSettings | undefined;
-
-  /**
-   * <p>The collection of space sharing settings for a space.</p>
-   * @public
-   */
-  SpaceSharingSettings?: SpaceSharingSettings | undefined;
-
-  /**
-   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
-   * @public
-   */
-  SpaceDisplayName?: string | undefined;
-
-  /**
-   * <p>Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.</p> <p>The following application types are supported:</p> <ul> <li> <p>Studio Classic: <code>&amp;redirect=JupyterServer</code> </p> </li> <li> <p>JupyterLab: <code>&amp;redirect=JupyterLab</code> </p> </li> <li> <p>Code Editor, based on Code-OSS, Visual Studio Code - Open Source: <code>&amp;redirect=CodeEditor</code> </p> </li> </ul>
-   * @public
-   */
-  Url?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeStudioLifecycleConfigRequest {
-  /**
-   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to describe.</p>
-   * @public
-   */
-  StudioLifecycleConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeStudioLifecycleConfigResponse {
-  /**
-   * <p>The ARN of the Lifecycle Configuration to describe.</p>
-   * @public
-   */
-  StudioLifecycleConfigArn?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration that is described.</p>
-   * @public
-   */
-  StudioLifecycleConfigName?: string | undefined;
-
-  /**
-   * <p>The creation time of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>This value is equivalent to CreationTime because Amazon SageMaker AI Studio Lifecycle Configurations are immutable.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script.</p>
-   * @public
-   */
-  StudioLifecycleConfigContent?: string | undefined;
-
-  /**
-   * <p>The App type that the Lifecycle Configuration is attached to.</p>
-   * @public
-   */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSubscribedWorkteamRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
-   * @public
-   */
-  WorkteamArn: string | undefined;
 }

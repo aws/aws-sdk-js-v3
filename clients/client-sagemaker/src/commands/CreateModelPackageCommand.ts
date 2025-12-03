@@ -40,6 +40,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *   ModelPackageName: "STRING_VALUE",
  *   ModelPackageGroupName: "STRING_VALUE",
  *   ModelPackageDescription: "STRING_VALUE",
+ *   ModelPackageRegistrationType: "Logged" || "Registered",
  *   InferenceSpecification: { // InferenceSpecification
  *     Containers: [ // ModelPackageContainerDefinitionList // required
  *       { // ModelPackageContainerDefinition
@@ -80,6 +81,12 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *           ETag: "STRING_VALUE",
  *         },
  *         ModelDataETag: "STRING_VALUE",
+ *         IsCheckpoint: true || false,
+ *         BaseModel: { // BaseModel
+ *           HubContentName: "STRING_VALUE",
+ *           HubContentVersion: "STRING_VALUE",
+ *           RecipeName: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -288,6 +295,12 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *             ETag: "STRING_VALUE",
  *           },
  *           ModelDataETag: "STRING_VALUE",
+ *           IsCheckpoint: true || false,
+ *           BaseModel: {
+ *             HubContentName: "STRING_VALUE",
+ *             HubContentVersion: "STRING_VALUE",
+ *             RecipeName: "STRING_VALUE",
+ *           },
  *         },
  *       ],
  *       SupportedTransformInstanceTypes: [

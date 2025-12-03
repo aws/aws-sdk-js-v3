@@ -1737,6 +1737,20 @@ export type ModelApprovalStatus = (typeof ModelApprovalStatus)[keyof typeof Mode
  * @public
  * @enum
  */
+export const ModelPackageRegistrationType = {
+  LOGGED: "Logged",
+  REGISTERED: "Registered",
+} as const;
+/**
+ * @public
+ */
+export type ModelPackageRegistrationType =
+  (typeof ModelPackageRegistrationType)[keyof typeof ModelPackageRegistrationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ModelPackageStatus = {
   COMPLETED: "Completed",
   DELETING: "Deleting",
@@ -3915,6 +3929,60 @@ export const StudioLifecycleConfigAppType = {
  */
 export type StudioLifecycleConfigAppType =
   (typeof StudioLifecycleConfigAppType)[keyof typeof StudioLifecycleConfigAppType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomizationTechnique = {
+  DPO: "DPO",
+  RLAIF: "RLAIF",
+  RLVR: "RLVR",
+  SFT: "SFT",
+} as const;
+/**
+ * @public
+ */
+export type CustomizationTechnique = (typeof CustomizationTechnique)[keyof typeof CustomizationTechnique];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationType = {
+  BENCHMARK_EVALUATION: "BenchmarkEvaluation",
+  CUSTOM_SCORER_EVALUATION: "CustomScorerEvaluation",
+  LLMAJ_EVALUATION: "LLMAJEvaluation",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerlessJobType = {
+  EVALUATION: "Evaluation",
+  FINE_TUNING: "FineTuning",
+} as const;
+/**
+ * @public
+ */
+export type ServerlessJobType = (typeof ServerlessJobType)[keyof typeof ServerlessJobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Peft = {
+  LORA: "LORA",
+} as const;
+/**
+ * @public
+ */
+export type Peft = (typeof Peft)[keyof typeof Peft];
 
 /**
  * @public
