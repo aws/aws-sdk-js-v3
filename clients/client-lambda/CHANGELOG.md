@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.945.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.944.0...v3.945.0) (2025-12-04)
+
+
+### Features
+
+* **client-lambda:** Add DisallowedByVpcEncryptionControl to the LastUpdateStatusReasonCode and StateReasonCode enums to represent failures caused by VPC Encryption Controls. ([cc1ebe7](https://github.com/aws/aws-sdk-js-v3/commit/cc1ebe72de21549a7c4bbc02963de04dd810f264))
+
+
+
+
+
 # [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
 
 
