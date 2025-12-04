@@ -11,7 +11,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
     "extract:docs": "api-extractor run --local",
-    "generate:client": "node ../../scripts/generate-clients/single-service --solo sagemaker-runtime-http2"
+    "generate:client": "node ../../scripts/generate-clients/single-service --solo sagemaker-runtime-http2",
+    "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

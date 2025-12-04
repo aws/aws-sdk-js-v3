@@ -17,6 +17,7 @@
     "test:browser:watch": "node ./test/browser-build/esbuild && yarn g:vitest watch -c vitest.config.browser.mts",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts && yarn test:browser",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts",
+    "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts",
     "test:watch": "yarn g:vitest watch"

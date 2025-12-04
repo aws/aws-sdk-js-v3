@@ -2542,8 +2542,8 @@ export var UnionPayloadEvent: StaticStructureSchema = [
     ],
   ],
 ];
-export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
-export var GreetingStruct_n1: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
+export var GreetingStruct_n2: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
+export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
 export var __Unit = "unit" as const;
 
 export var RestJsonProtocolServiceException: StaticErrorSchema = [
@@ -2610,7 +2610,7 @@ export var DenseNumberMap = 128 | 1;
 export var DenseSetMap: StaticMapSchema = [2, n0, _DSM, 0, 0, 64 | 0];
 export var DenseStringMap = 128 | 0;
 
-export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct_n1];
+export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct];
 export var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog];
 export var DocumentValuedMap = 128 | 15;
 
@@ -2656,7 +2656,7 @@ export var SparseStructMap: StaticMapSchema = [
     [_sp]: 1,
   },
   0,
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
 ];
 export var TestStringMap = 128 | 0;
 
@@ -2702,7 +2702,7 @@ export var MyUnion: StaticStructureSchema = [
   _MU,
   0,
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
-  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1, () => GreetingStruct],
+  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct, () => GreetingStruct_n2],
 ];
 export var PayloadUnion: StaticStructureSchema = [3, n0, _PU, 0, [_uM], [0]];
 export var PlayerAction: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => __Unit]];
@@ -3200,7 +3200,7 @@ export var MalformedAcceptWithBody: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedAcceptWithBody", 200],
   },
   () => __Unit,
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
 ];
 export var MalformedAcceptWithGenericString: StaticOperationSchema = [
   9,
@@ -3259,7 +3259,7 @@ export var MalformedContentTypeWithBody: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/MalformedContentTypeWithBody", 200],
   },
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
   () => __Unit,
 ];
 export var MalformedContentTypeWithGenericString: StaticOperationSchema = [

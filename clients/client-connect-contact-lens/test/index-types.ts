@@ -1,0 +1,23 @@
+// smithy-typescript generated code
+export type {
+  ConnectContactLensClient,
+  ConnectContactLens,
+  ListRealtimeContactAnalysisSegmentsCommand,
+  ListRealtimeContactAnalysisSegmentsCommandInput,
+  ListRealtimeContactAnalysisSegmentsCommandOutput,
+  PostContactSummaryFailureCode,
+  PostContactSummaryStatus,
+  SentimentValue,
+  Categories,
+  CategoryDetails,
+  CharacterOffsets,
+  IssueDetected,
+  ListRealtimeContactAnalysisSegmentsRequest,
+  ListRealtimeContactAnalysisSegmentsResponse,
+  PointOfInterest,
+  PostContactSummary,
+  RealtimeContactAnalysisSegment,
+  Transcript,
+  ConnectContactLensServiceException,
+  paginateListRealtimeContactAnalysisSegments,
+} from "../dist-types/index.d";
