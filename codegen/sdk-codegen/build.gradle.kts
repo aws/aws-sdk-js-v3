@@ -81,19 +81,19 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
     @get:Input
     @get:Optional
     abstract val clientName: Property<String>
-    
+
     @get:Input
     abstract val modelsDir: Property<String>
-    
+
     @get:InputDirectory
     abstract val modelsDirPath: DirectoryProperty
-    
+
     @get:InputFile
     abstract val templateFile: RegularFileProperty
-    
+
     @get:OutputFile
     abstract val buildFile: RegularFileProperty
-    
+
     @TaskAction
     fun generate() {
         val projectionsBuilder = Node.objectNodeBuilder()
@@ -145,6 +145,7 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                                     .withMember("useLegacyAuth",
                                         useLegacyAuthServices.contains(serviceTrait.sdkId))
                                     .withMember("generateSchemas", true)
+                                    .withMember("generateIndexTests", true)
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.lowercase(), projectionContents)
@@ -160,18 +161,18 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
 val generateSmithyBuild = tasks.register<GenerateSmithyBuildTask>("generate-smithy-build") {
     val clientNameProp = providers.gradleProperty("clientNameProp")
     val modelsDirProp = providers.gradleProperty("modelsDirProp").orElse("aws-models")
-    
+
     clientName.set(clientNameProp)
     modelsDir.set(modelsDirProp)
     modelsDirPath.set(layout.projectDirectory.dir(modelsDirProp))
     templateFile.set(layout.projectDirectory.file("../smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template"))
-    
+
     val buildFileName = if (clientNameProp.isPresent && clientNameProp.get().isNotEmpty()) {
         "smithy-build-${clientNameProp.get()}.json"
     } else {
         "smithy-build.json"
     }
-    
+
     buildFile.set(layout.projectDirectory.file(buildFileName))
 }
 
