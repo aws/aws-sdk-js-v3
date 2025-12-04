@@ -487,20 +487,8 @@ import {
 import { WellArchitectedServiceException as __WellArchitectedServiceException } from "../models/WellArchitectedServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountJiraConfigurationInput: StaticStructureSchema = [
   3,
   n0,
@@ -566,19 +554,8 @@ export var ChoiceAnswerSummary: StaticStructureSchema = [3, n0, _CASh, 0, [_CI, 
 export var ChoiceContent: StaticStructureSchema = [3, n0, _CC, 0, [_DT, _U], [0, 0]];
 export var ChoiceImprovementPlan: StaticStructureSchema = [3, n0, _CIP, 0, [_CI, _DT, _IPU], [0, 0, 0]];
 export var ChoiceUpdate: StaticStructureSchema = [3, n0, _CU, 0, [_St, _Re, _N], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConsolidatedReportMetric: StaticStructureSchema = [
   3,
   n0,
@@ -669,19 +646,8 @@ export var DeleteLensInput: StaticStructureSchema = [
   [_LAen, _CRT, _LS],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _LS,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _LS }],
   ],
 ];
 export var DeleteLensShareInput: StaticStructureSchema = [
@@ -693,13 +659,7 @@ export var DeleteLensShareInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
   ],
 ];
 export var DeleteProfileInput: StaticStructureSchema = [
@@ -710,13 +670,7 @@ export var DeleteProfileInput: StaticStructureSchema = [
   [_PAr, _CRT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
   ],
 ];
 export var DeleteProfileShareInput: StaticStructureSchema = [
@@ -728,13 +682,7 @@ export var DeleteProfileShareInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
   ],
 ];
 export var DeleteReviewTemplateInput: StaticStructureSchema = [
@@ -745,13 +693,7 @@ export var DeleteReviewTemplateInput: StaticStructureSchema = [
   [_TA, _CRT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
   ],
 ];
 export var DeleteTemplateShareInput: StaticStructureSchema = [
@@ -763,13 +705,7 @@ export var DeleteTemplateShareInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
   ],
 ];
 export var DeleteWorkloadInput: StaticStructureSchema = [
@@ -780,13 +716,7 @@ export var DeleteWorkloadInput: StaticStructureSchema = [
   [_WI, _CRT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
   ],
 ];
 export var DeleteWorkloadShareInput: StaticStructureSchema = [
@@ -798,13 +728,7 @@ export var DeleteWorkloadShareInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _CRT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _CRT }],
   ],
 ];
 export var DisassociateLensesInput: StaticStructureSchema = [3, n0, _DLIi, 0, [_WI, _LA], [[0, 1], 64 | 0]];
@@ -817,12 +741,7 @@ export var ExportLensInput: StaticStructureSchema = [
   [_LAen, _LV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _LV,
-      },
-    ],
+    [0, { [_hQ]: _LV }],
   ],
 ];
 export var ExportLensOutput: StaticStructureSchema = [3, n0, _ELO, 0, [_LJSON], [0]];
@@ -836,12 +755,7 @@ export var GetAnswerInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MNi,
-      },
-    ],
+    [1, { [_hQ]: _MNi }],
   ],
 ];
 export var GetAnswerOutput: StaticStructureSchema = [
@@ -859,30 +773,10 @@ export var GetConsolidatedReportInput: StaticStructureSchema = [
   0,
   [_F, _ISR, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _F,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _ISR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _F }],
+    [2, { [_hQ]: _ISR }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var GetConsolidatedReportOutput: StaticStructureSchema = [
@@ -909,12 +803,7 @@ export var GetLensInput: StaticStructureSchema = [
   [_LAen, _LV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _LV,
-      },
-    ],
+    [0, { [_hQ]: _LV }],
   ],
 ];
 export var GetLensOutput: StaticStructureSchema = [3, n0, _GLO, 0, [_Le], [() => Lens]];
@@ -927,12 +816,7 @@ export var GetLensReviewInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MNi,
-      },
-    ],
+    [1, { [_hQ]: _MNi }],
   ],
 ];
 export var GetLensReviewOutput: StaticStructureSchema = [3, n0, _GLRO, 0, [_WI, _MNi, _LR], [0, 1, () => LensReview]];
@@ -945,12 +829,7 @@ export var GetLensReviewReportInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MNi,
-      },
-    ],
+    [1, { [_hQ]: _MNi }],
   ],
 ];
 export var GetLensReviewReportOutput: StaticStructureSchema = [
@@ -969,18 +848,8 @@ export var GetLensVersionDifferenceInput: StaticStructureSchema = [
   [_LAen, _BLV, _TLV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _BLV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _TLV,
-      },
-    ],
+    [0, { [_hQ]: _BLV }],
+    [0, { [_hQ]: _TLV }],
   ],
 ];
 export var GetLensVersionDifferenceOutput: StaticStructureSchema = [
@@ -1011,12 +880,7 @@ export var GetProfileInput: StaticStructureSchema = [
   [_PAr, _PV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _PV,
-      },
-    ],
+    [0, { [_hQ]: _PV }],
   ],
 ];
 export var GetProfileOutput: StaticStructureSchema = [3, n0, _GPO, 0, [_Pr], [() => Profile]];
@@ -1082,19 +946,8 @@ export var ImprovementSummary: StaticStructureSchema = [
   [_QI, _PI, _QT, _R, _IPU, _IPm, _JC],
   [0, 0, 0, 0, 0, () => ChoiceImprovementPlans, () => JiraConfiguration],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JiraConfiguration: StaticStructureSchema = [3, n0, _JC, 0, [_JIU, _LST], [0, 4]];
 export var JiraSelectedQuestionConfiguration: StaticStructureSchema = [3, n0, _JSQC, 0, [_SP], [() => SelectedPillars]];
 export var Lens: StaticStructureSchema = [
@@ -1163,36 +1016,11 @@ export var ListAnswersInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _PI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MNi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _QP,
-      },
-    ],
+    [0, { [_hQ]: _PI }],
+    [1, { [_hQ]: _MNi }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _QP }],
   ],
 ];
 export var ListAnswersOutput: StaticStructureSchema = [
@@ -1228,36 +1056,11 @@ export var ListLensesInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _LT, _LS, _LN],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _LT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _LS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _LN,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _LT }],
+    [0, { [_hQ]: _LS }],
+    [0, { [_hQ]: _LN }],
   ],
 ];
 export var ListLensesOutput: StaticStructureSchema = [3, n0, _LLO, 0, [_LSen, _NT], [() => LensSummaries, 0]];
@@ -1270,36 +1073,11 @@ export var ListLensReviewImprovementsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _PI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MNi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _QP,
-      },
-    ],
+    [0, { [_hQ]: _PI }],
+    [1, { [_hQ]: _MNi }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _QP }],
   ],
 ];
 export var ListLensReviewImprovementsOutput: StaticStructureSchema = [
@@ -1318,24 +1096,9 @@ export var ListLensReviewsInput: StaticStructureSchema = [
   [_WI, _MNi, _NT, _MR],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MNi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [1, { [_hQ]: _MNi }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListLensReviewsOutput: StaticStructureSchema = [
@@ -1354,30 +1117,10 @@ export var ListLensSharesInput: StaticStructureSchema = [
   [_LAen, _SWP, _NT, _MR, _St],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _SWP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
+    [0, { [_hQ]: _SWP }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _St }],
   ],
 ];
 export var ListLensSharesOutput: StaticStructureSchema = [3, n0, _LLSO, 0, [_LSSe, _NT], [() => LensShareSummaries, 0]];
@@ -1406,24 +1149,9 @@ export var ListProfileNotificationsInput: StaticStructureSchema = [
   0,
   [_WI, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _WI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _WI }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListProfileNotificationsOutput: StaticStructureSchema = [
@@ -1442,30 +1170,10 @@ export var ListProfileSharesInput: StaticStructureSchema = [
   [_PAr, _SWP, _NT, _MR, _St],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _SWP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
+    [0, { [_hQ]: _SWP }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _St }],
   ],
 ];
 export var ListProfileSharesOutput: StaticStructureSchema = [
@@ -1483,30 +1191,10 @@ export var ListProfilesInput: StaticStructureSchema = [
   0,
   [_PNP, _POT, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _PNP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _POT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _PNP }],
+    [0, { [_hQ]: _POT }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListProfilesOutput: StaticStructureSchema = [3, n0, _LPO, 0, [_PS, _NT], [() => ProfileSummaries, 0]];
@@ -1519,24 +1207,9 @@ export var ListReviewTemplateAnswersInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _PI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _PI }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListReviewTemplateAnswersOutput: StaticStructureSchema = [
@@ -1554,18 +1227,8 @@ export var ListReviewTemplatesInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListReviewTemplatesOutput: StaticStructureSchema = [
@@ -1583,48 +1246,13 @@ export var ListShareInvitationsInput: StaticStructureSchema = [
   0,
   [_WNP, _LNP, _SRT, _NT, _MR, _PNP, _TNP],
   [
-    [
-      0,
-      {
-        [_hQ]: _WNP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _LNP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SRT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PNP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _TNP,
-      },
-    ],
+    [0, { [_hQ]: _WNP }],
+    [0, { [_hQ]: _LNP }],
+    [0, { [_hQ]: _SRT }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _PNP }],
+    [0, { [_hQ]: _TNP }],
   ],
 ];
 export var ListShareInvitationsOutput: StaticStructureSchema = [
@@ -1645,30 +1273,10 @@ export var ListTemplateSharesInput: StaticStructureSchema = [
   [_TA, _SWP, _NT, _MR, _St],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _SWP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
+    [0, { [_hQ]: _SWP }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _St }],
   ],
 ];
 export var ListTemplateSharesOutput: StaticStructureSchema = [
@@ -1687,30 +1295,10 @@ export var ListWorkloadSharesInput: StaticStructureSchema = [
   [_WI, _SWP, _NT, _MR, _St],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _SWP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
+    [0, { [_hQ]: _SWP }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _St }],
   ],
 ];
 export var ListWorkloadSharesOutput: StaticStructureSchema = [
@@ -1808,15 +1396,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ReviewTemplate: StaticStructureSchema = [
   3,
   n0,
@@ -1870,15 +1454,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _QCuo, _SCe],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ShareInvitation: StaticStructureSchema = [
   3,
   n0,
@@ -1902,15 +1482,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _QCuo, _SCe],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -1919,12 +1495,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_WA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -2072,15 +1643,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Re, _Fi],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_Na, _M], [0, 0]];
 export var VersionDifferences: StaticStructureSchema = [3, n0, _VD, 0, [_PDil], [() => PillarDifferences]];
 export var Workload: StaticStructureSchema = [
@@ -2178,10 +1745,8 @@ export var WorkloadSummary: StaticStructureSchema = [
   [0, 0, 0, 0, 4, 64 | 0, 128 | 1, 0, () => WorkloadProfiles, 128 | 1],
 ];
 export var __Unit = "unit" as const;
-
 export var WellArchitectedServiceException: StaticErrorSchema = [-3, _sm, "WellArchitectedServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WellArchitectedServiceException, __WellArchitectedServiceException);
-
 export var AdditionalResourcesList: StaticListSchema = [1, n0, _ARL, 0, () => AdditionalResources];
 export var AnswerSummaries: StaticListSchema = [1, n0, _ASn, 0, () => AnswerSummary];
 export var BestPractices: StaticListSchema = [1, n0, _BPe, 0, () => BestPractice];
@@ -2194,7 +1759,6 @@ export var Choices: StaticListSchema = [1, n0, _Ch, 0, () => Choice];
 export var ConsolidatedReportMetrics: StaticListSchema = [1, n0, _CRMo, 0, () => ConsolidatedReportMetric];
 export var ImprovementSummaries: StaticListSchema = [1, n0, _ISmp, 0, () => ImprovementSummary];
 export var LensAliases = 64 | 0;
-
 export var LensMetrics: StaticListSchema = [1, n0, _LMe, 0, () => LensMetric];
 export var LensReviewSummaries: StaticListSchema = [1, n0, _LRSe, 0, () => LensReviewSummary];
 export var LensShareSummaries: StaticListSchema = [1, n0, _LSSe, 0, () => LensShareSummary];
@@ -2205,7 +1769,6 @@ export var PillarDifferences: StaticListSchema = [1, n0, _PDil, 0, () => PillarD
 export var PillarMetrics: StaticListSchema = [1, n0, _PMi, 0, () => PillarMetric];
 export var PillarReviewSummaries: StaticListSchema = [1, n0, _PRS, 0, () => PillarReviewSummary];
 export var ProfileArns = 64 | 0;
-
 export var ProfileNotificationSummaries: StaticListSchema = [1, n0, _PNSr, 0, () => ProfileNotificationSummary];
 export var ProfileQuestionChoices: StaticListSchema = [1, n0, _PQC, 0, () => ProfileChoice];
 export var ProfileQuestions: StaticListSchema = [1, n0, _PQ, 0, () => ProfileQuestion];
@@ -2217,11 +1780,8 @@ export var QuestionDifferences: StaticListSchema = [1, n0, _QDu, 0, () => Questi
 export var QuestionMetrics: StaticListSchema = [1, n0, _QMu, 0, () => QuestionMetric];
 export var ReviewTemplateAnswerSummaries: StaticListSchema = [1, n0, _RTASe, 0, () => ReviewTemplateAnswerSummary];
 export var ReviewTemplateArns = 64 | 0;
-
 export var ReviewTemplateLensAliases = 64 | 0;
-
 export var ReviewTemplateLenses = 64 | 0;
-
 export var ReviewTemplatePillarReviewSummaries: StaticListSchema = [
   1,
   n0,
@@ -2231,58 +1791,38 @@ export var ReviewTemplatePillarReviewSummaries: StaticListSchema = [
 ];
 export var ReviewTemplates: StaticListSchema = [1, n0, _RTev, 0, () => ReviewTemplateSummary];
 export var SelectedChoiceIds = 64 | 0;
-
 export var SelectedChoices = 64 | 0;
-
 export var SelectedPillars: StaticListSchema = [1, n0, _SP, 0, () => SelectedPillar];
 export var SelectedProfileChoiceIds = 64 | 0;
-
 export var SelectedQuestionIds = 64 | 0;
-
 export var ShareInvitationSummaries: StaticListSchema = [1, n0, _SIS, 0, () => ShareInvitationSummary];
 export var TagKeyList = 64 | 0;
-
 export var TemplateQuestions: StaticListSchema = [1, n0, _TQ, 0, () => ProfileTemplateQuestion];
 export var TemplateShareSummaries: StaticListSchema = [1, n0, _TSS, 0, () => TemplateShareSummary];
 export var Urls: StaticListSchema = [1, n0, _Ur, 0, () => ChoiceContent];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var WorkloadAccountIds = 64 | 0;
-
 export var WorkloadApplications = 64 | 0;
-
 export var WorkloadAwsRegions = 64 | 0;
-
 export var WorkloadLenses = 64 | 0;
-
 export var WorkloadNonAwsRegions = 64 | 0;
-
 export var WorkloadPillarPriorities = 64 | 0;
-
 export var WorkloadProfileArns = 64 | 0;
-
 export var WorkloadProfiles: StaticListSchema = [1, n0, _WPo, 0, () => WorkloadProfile];
 export var WorkloadResourceDefinition = 64 | 0;
-
 export var WorkloadShareSummaries: StaticListSchema = [1, n0, _WSS, 0, () => WorkloadShareSummary];
 export var WorkloadSummaries: StaticListSchema = [1, n0, _WS, 0, () => WorkloadSummary];
 export var AccountSummary = 128 | 1;
-
 export var ChoiceUpdates: StaticMapSchema = [2, n0, _CUh, 0, 0, () => ChoiceUpdate];
 export var PillarNotes = 128 | 0;
-
 export var QuestionCounts = 128 | 1;
-
 export var RiskCounts = 128 | 1;
-
 export var TagMap = 128 | 0;
-
 export var AssociateLenses: StaticOperationSchema = [
   9,
   n0,
   _AL,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}/associateLenses", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}/associateLenses", 200] },
   () => AssociateLensesInput,
   () => __Unit,
 ];
@@ -2290,9 +1830,7 @@ export var AssociateProfiles: StaticOperationSchema = [
   9,
   n0,
   _AP,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}/associateProfiles", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}/associateProfiles", 200] },
   () => AssociateProfilesInput,
   () => __Unit,
 ];
@@ -2300,9 +1838,7 @@ export var CreateLensShare: StaticOperationSchema = [
   9,
   n0,
   _CLS,
-  {
-    [_h]: ["POST", "/lenses/{LensAlias}/shares", 200],
-  },
+  { [_h]: ["POST", "/lenses/{LensAlias}/shares", 200] },
   () => CreateLensShareInput,
   () => CreateLensShareOutput,
 ];
@@ -2310,9 +1846,7 @@ export var CreateLensVersion: StaticOperationSchema = [
   9,
   n0,
   _CLVr,
-  {
-    [_h]: ["POST", "/lenses/{LensAlias}/versions", 200],
-  },
+  { [_h]: ["POST", "/lenses/{LensAlias}/versions", 200] },
   () => CreateLensVersionInput,
   () => CreateLensVersionOutput,
 ];
@@ -2320,9 +1854,7 @@ export var CreateMilestone: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_h]: ["POST", "/workloads/{WorkloadId}/milestones", 200],
-  },
+  { [_h]: ["POST", "/workloads/{WorkloadId}/milestones", 200] },
   () => CreateMilestoneInput,
   () => CreateMilestoneOutput,
 ];
@@ -2330,9 +1862,7 @@ export var CreateProfile: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/profiles", 200],
-  },
+  { [_h]: ["POST", "/profiles", 200] },
   () => CreateProfileInput,
   () => CreateProfileOutput,
 ];
@@ -2340,9 +1870,7 @@ export var CreateProfileShare: StaticOperationSchema = [
   9,
   n0,
   _CPS,
-  {
-    [_h]: ["POST", "/profiles/{ProfileArn}/shares", 200],
-  },
+  { [_h]: ["POST", "/profiles/{ProfileArn}/shares", 200] },
   () => CreateProfileShareInput,
   () => CreateProfileShareOutput,
 ];
@@ -2350,9 +1878,7 @@ export var CreateReviewTemplate: StaticOperationSchema = [
   9,
   n0,
   _CRTr,
-  {
-    [_h]: ["POST", "/reviewTemplates", 200],
-  },
+  { [_h]: ["POST", "/reviewTemplates", 200] },
   () => CreateReviewTemplateInput,
   () => CreateReviewTemplateOutput,
 ];
@@ -2360,9 +1886,7 @@ export var CreateTemplateShare: StaticOperationSchema = [
   9,
   n0,
   _CTS,
-  {
-    [_h]: ["POST", "/templates/shares/{TemplateArn}", 200],
-  },
+  { [_h]: ["POST", "/templates/shares/{TemplateArn}", 200] },
   () => CreateTemplateShareInput,
   () => CreateTemplateShareOutput,
 ];
@@ -2370,9 +1894,7 @@ export var CreateWorkload: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_h]: ["POST", "/workloads", 200],
-  },
+  { [_h]: ["POST", "/workloads", 200] },
   () => CreateWorkloadInput,
   () => CreateWorkloadOutput,
 ];
@@ -2380,9 +1902,7 @@ export var CreateWorkloadShare: StaticOperationSchema = [
   9,
   n0,
   _CWS,
-  {
-    [_h]: ["POST", "/workloads/{WorkloadId}/shares", 200],
-  },
+  { [_h]: ["POST", "/workloads/{WorkloadId}/shares", 200] },
   () => CreateWorkloadShareInput,
   () => CreateWorkloadShareOutput,
 ];
@@ -2390,9 +1910,7 @@ export var DeleteLens: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_h]: ["DELETE", "/lenses/{LensAlias}", 200],
-  },
+  { [_h]: ["DELETE", "/lenses/{LensAlias}", 200] },
   () => DeleteLensInput,
   () => __Unit,
 ];
@@ -2400,9 +1918,7 @@ export var DeleteLensShare: StaticOperationSchema = [
   9,
   n0,
   _DLS,
-  {
-    [_h]: ["DELETE", "/lenses/{LensAlias}/shares/{ShareId}", 200],
-  },
+  { [_h]: ["DELETE", "/lenses/{LensAlias}/shares/{ShareId}", 200] },
   () => DeleteLensShareInput,
   () => __Unit,
 ];
@@ -2410,9 +1926,7 @@ export var DeleteProfile: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/profiles/{ProfileArn}", 200],
-  },
+  { [_h]: ["DELETE", "/profiles/{ProfileArn}", 200] },
   () => DeleteProfileInput,
   () => __Unit,
 ];
@@ -2420,9 +1934,7 @@ export var DeleteProfileShare: StaticOperationSchema = [
   9,
   n0,
   _DPS,
-  {
-    [_h]: ["DELETE", "/profiles/{ProfileArn}/shares/{ShareId}", 200],
-  },
+  { [_h]: ["DELETE", "/profiles/{ProfileArn}/shares/{ShareId}", 200] },
   () => DeleteProfileShareInput,
   () => __Unit,
 ];
@@ -2430,9 +1942,7 @@ export var DeleteReviewTemplate: StaticOperationSchema = [
   9,
   n0,
   _DRT,
-  {
-    [_h]: ["DELETE", "/reviewTemplates/{TemplateArn}", 200],
-  },
+  { [_h]: ["DELETE", "/reviewTemplates/{TemplateArn}", 200] },
   () => DeleteReviewTemplateInput,
   () => __Unit,
 ];
@@ -2440,9 +1950,7 @@ export var DeleteTemplateShare: StaticOperationSchema = [
   9,
   n0,
   _DTS,
-  {
-    [_h]: ["DELETE", "/templates/shares/{TemplateArn}/{ShareId}", 200],
-  },
+  { [_h]: ["DELETE", "/templates/shares/{TemplateArn}/{ShareId}", 200] },
   () => DeleteTemplateShareInput,
   () => __Unit,
 ];
@@ -2450,9 +1958,7 @@ export var DeleteWorkload: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/workloads/{WorkloadId}", 200],
-  },
+  { [_h]: ["DELETE", "/workloads/{WorkloadId}", 200] },
   () => DeleteWorkloadInput,
   () => __Unit,
 ];
@@ -2460,9 +1966,7 @@ export var DeleteWorkloadShare: StaticOperationSchema = [
   9,
   n0,
   _DWS,
-  {
-    [_h]: ["DELETE", "/workloads/{WorkloadId}/shares/{ShareId}", 200],
-  },
+  { [_h]: ["DELETE", "/workloads/{WorkloadId}/shares/{ShareId}", 200] },
   () => DeleteWorkloadShareInput,
   () => __Unit,
 ];
@@ -2470,9 +1974,7 @@ export var DisassociateLenses: StaticOperationSchema = [
   9,
   n0,
   _DLi,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}/disassociateLenses", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}/disassociateLenses", 200] },
   () => DisassociateLensesInput,
   () => __Unit,
 ];
@@ -2480,9 +1982,7 @@ export var DisassociateProfiles: StaticOperationSchema = [
   9,
   n0,
   _DPi,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}/disassociateProfiles", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}/disassociateProfiles", 200] },
   () => DisassociateProfilesInput,
   () => __Unit,
 ];
@@ -2490,9 +1990,7 @@ export var ExportLens: StaticOperationSchema = [
   9,
   n0,
   _EL,
-  {
-    [_h]: ["GET", "/lenses/{LensAlias}/export", 200],
-  },
+  { [_h]: ["GET", "/lenses/{LensAlias}/export", 200] },
   () => ExportLensInput,
   () => ExportLensOutput,
 ];
@@ -2500,9 +1998,7 @@ export var GetAnswer: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] },
   () => GetAnswerInput,
   () => GetAnswerOutput,
 ];
@@ -2510,9 +2006,7 @@ export var GetConsolidatedReport: StaticOperationSchema = [
   9,
   n0,
   _GCR,
-  {
-    [_h]: ["GET", "/consolidatedReport", 200],
-  },
+  { [_h]: ["GET", "/consolidatedReport", 200] },
   () => GetConsolidatedReportInput,
   () => GetConsolidatedReportOutput,
 ];
@@ -2520,9 +2014,7 @@ export var GetGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _GGS,
-  {
-    [_h]: ["GET", "/global-settings", 200],
-  },
+  { [_h]: ["GET", "/global-settings", 200] },
   () => __Unit,
   () => GetGlobalSettingsOutput,
 ];
@@ -2530,9 +2022,7 @@ export var GetLens: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_h]: ["GET", "/lenses/{LensAlias}", 200],
-  },
+  { [_h]: ["GET", "/lenses/{LensAlias}", 200] },
   () => GetLensInput,
   () => GetLensOutput,
 ];
@@ -2540,9 +2030,7 @@ export var GetLensReview: StaticOperationSchema = [
   9,
   n0,
   _GLR,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200] },
   () => GetLensReviewInput,
   () => GetLensReviewOutput,
 ];
@@ -2550,9 +2038,7 @@ export var GetLensReviewReport: StaticOperationSchema = [
   9,
   n0,
   _GLRR,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report", 200] },
   () => GetLensReviewReportInput,
   () => GetLensReviewReportOutput,
 ];
@@ -2560,9 +2046,7 @@ export var GetLensVersionDifference: StaticOperationSchema = [
   9,
   n0,
   _GLVD,
-  {
-    [_h]: ["GET", "/lenses/{LensAlias}/versionDifference", 200],
-  },
+  { [_h]: ["GET", "/lenses/{LensAlias}/versionDifference", 200] },
   () => GetLensVersionDifferenceInput,
   () => GetLensVersionDifferenceOutput,
 ];
@@ -2570,9 +2054,7 @@ export var GetMilestone: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/milestones/{MilestoneNumber}", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/milestones/{MilestoneNumber}", 200] },
   () => GetMilestoneInput,
   () => GetMilestoneOutput,
 ];
@@ -2580,9 +2062,7 @@ export var GetProfile: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/profiles/{ProfileArn}", 200],
-  },
+  { [_h]: ["GET", "/profiles/{ProfileArn}", 200] },
   () => GetProfileInput,
   () => GetProfileOutput,
 ];
@@ -2590,9 +2070,7 @@ export var GetProfileTemplate: StaticOperationSchema = [
   9,
   n0,
   _GPT,
-  {
-    [_h]: ["GET", "/profileTemplate", 200],
-  },
+  { [_h]: ["GET", "/profileTemplate", 200] },
   () => GetProfileTemplateInput,
   () => GetProfileTemplateOutput,
 ];
@@ -2600,9 +2078,7 @@ export var GetReviewTemplate: StaticOperationSchema = [
   9,
   n0,
   _GRT,
-  {
-    [_h]: ["GET", "/reviewTemplates/{TemplateArn}", 200],
-  },
+  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}", 200] },
   () => GetReviewTemplateInput,
   () => GetReviewTemplateOutput,
 ];
@@ -2610,9 +2086,7 @@ export var GetReviewTemplateAnswer: StaticOperationSchema = [
   9,
   n0,
   _GRTA,
-  {
-    [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200],
-  },
+  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] },
   () => GetReviewTemplateAnswerInput,
   () => GetReviewTemplateAnswerOutput,
 ];
@@ -2620,9 +2094,7 @@ export var GetReviewTemplateLensReview: StaticOperationSchema = [
   9,
   n0,
   _GRTLR,
-  {
-    [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200],
-  },
+  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200] },
   () => GetReviewTemplateLensReviewInput,
   () => GetReviewTemplateLensReviewOutput,
 ];
@@ -2630,9 +2102,7 @@ export var GetWorkload: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}", 200] },
   () => GetWorkloadInput,
   () => GetWorkloadOutput,
 ];
@@ -2640,9 +2110,7 @@ export var ImportLens: StaticOperationSchema = [
   9,
   n0,
   _IL,
-  {
-    [_h]: ["PUT", "/importLens", 200],
-  },
+  { [_h]: ["PUT", "/importLens", 200] },
   () => ImportLensInput,
   () => ImportLensOutput,
 ];
@@ -2650,9 +2118,7 @@ export var ListAnswers: StaticOperationSchema = [
   9,
   n0,
   _LAi,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers", 200] },
   () => ListAnswersInput,
   () => ListAnswersOutput,
 ];
@@ -2660,9 +2126,7 @@ export var ListCheckDetails: StaticOperationSchema = [
   9,
   n0,
   _LCD,
-  {
-    [_h]: ["POST", "/workloads/{WorkloadId}/checks", 200],
-  },
+  { [_h]: ["POST", "/workloads/{WorkloadId}/checks", 200] },
   () => ListCheckDetailsInput,
   () => ListCheckDetailsOutput,
 ];
@@ -2670,9 +2134,7 @@ export var ListCheckSummaries: StaticOperationSchema = [
   9,
   n0,
   _LCS,
-  {
-    [_h]: ["POST", "/workloads/{WorkloadId}/checkSummaries", 200],
-  },
+  { [_h]: ["POST", "/workloads/{WorkloadId}/checkSummaries", 200] },
   () => ListCheckSummariesInput,
   () => ListCheckSummariesOutput,
 ];
@@ -2680,9 +2142,7 @@ export var ListLenses: StaticOperationSchema = [
   9,
   n0,
   _LL,
-  {
-    [_h]: ["GET", "/lenses", 200],
-  },
+  { [_h]: ["GET", "/lenses", 200] },
   () => ListLensesInput,
   () => ListLensesOutput,
 ];
@@ -2690,9 +2150,7 @@ export var ListLensReviewImprovements: StaticOperationSchema = [
   9,
   n0,
   _LLRIi,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements", 200] },
   () => ListLensReviewImprovementsInput,
   () => ListLensReviewImprovementsOutput,
 ];
@@ -2700,9 +2158,7 @@ export var ListLensReviews: StaticOperationSchema = [
   9,
   n0,
   _LLR,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews", 200] },
   () => ListLensReviewsInput,
   () => ListLensReviewsOutput,
 ];
@@ -2710,9 +2166,7 @@ export var ListLensShares: StaticOperationSchema = [
   9,
   n0,
   _LLS,
-  {
-    [_h]: ["GET", "/lenses/{LensAlias}/shares", 200],
-  },
+  { [_h]: ["GET", "/lenses/{LensAlias}/shares", 200] },
   () => ListLensSharesInput,
   () => ListLensSharesOutput,
 ];
@@ -2720,9 +2174,7 @@ export var ListMilestones: StaticOperationSchema = [
   9,
   n0,
   _LMi,
-  {
-    [_h]: ["POST", "/workloads/{WorkloadId}/milestonesSummaries", 200],
-  },
+  { [_h]: ["POST", "/workloads/{WorkloadId}/milestonesSummaries", 200] },
   () => ListMilestonesInput,
   () => ListMilestonesOutput,
 ];
@@ -2730,9 +2182,7 @@ export var ListNotifications: StaticOperationSchema = [
   9,
   n0,
   _LNi,
-  {
-    [_h]: ["POST", "/notifications", 200],
-  },
+  { [_h]: ["POST", "/notifications", 200] },
   () => ListNotificationsInput,
   () => ListNotificationsOutput,
 ];
@@ -2740,9 +2190,7 @@ export var ListProfileNotifications: StaticOperationSchema = [
   9,
   n0,
   _LPN,
-  {
-    [_h]: ["GET", "/profileNotifications", 200],
-  },
+  { [_h]: ["GET", "/profileNotifications", 200] },
   () => ListProfileNotificationsInput,
   () => ListProfileNotificationsOutput,
 ];
@@ -2750,9 +2198,7 @@ export var ListProfiles: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/profileSummaries", 200],
-  },
+  { [_h]: ["GET", "/profileSummaries", 200] },
   () => ListProfilesInput,
   () => ListProfilesOutput,
 ];
@@ -2760,9 +2206,7 @@ export var ListProfileShares: StaticOperationSchema = [
   9,
   n0,
   _LPS,
-  {
-    [_h]: ["GET", "/profiles/{ProfileArn}/shares", 200],
-  },
+  { [_h]: ["GET", "/profiles/{ProfileArn}/shares", 200] },
   () => ListProfileSharesInput,
   () => ListProfileSharesOutput,
 ];
@@ -2770,9 +2214,7 @@ export var ListReviewTemplateAnswers: StaticOperationSchema = [
   9,
   n0,
   _LRTA,
-  {
-    [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers", 200],
-  },
+  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers", 200] },
   () => ListReviewTemplateAnswersInput,
   () => ListReviewTemplateAnswersOutput,
 ];
@@ -2780,9 +2222,7 @@ export var ListReviewTemplates: StaticOperationSchema = [
   9,
   n0,
   _LRT,
-  {
-    [_h]: ["GET", "/reviewTemplates", 200],
-  },
+  { [_h]: ["GET", "/reviewTemplates", 200] },
   () => ListReviewTemplatesInput,
   () => ListReviewTemplatesOutput,
 ];
@@ -2790,9 +2230,7 @@ export var ListShareInvitations: StaticOperationSchema = [
   9,
   n0,
   _LSI,
-  {
-    [_h]: ["GET", "/shareInvitations", 200],
-  },
+  { [_h]: ["GET", "/shareInvitations", 200] },
   () => ListShareInvitationsInput,
   () => ListShareInvitationsOutput,
 ];
@@ -2800,9 +2238,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{WorkloadArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{WorkloadArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -2810,9 +2246,7 @@ export var ListTemplateShares: StaticOperationSchema = [
   9,
   n0,
   _LTS,
-  {
-    [_h]: ["GET", "/templates/shares/{TemplateArn}", 200],
-  },
+  { [_h]: ["GET", "/templates/shares/{TemplateArn}", 200] },
   () => ListTemplateSharesInput,
   () => ListTemplateSharesOutput,
 ];
@@ -2820,9 +2254,7 @@ export var ListWorkloads: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_h]: ["POST", "/workloadsSummaries", 200],
-  },
+  { [_h]: ["POST", "/workloadsSummaries", 200] },
   () => ListWorkloadsInput,
   () => ListWorkloadsOutput,
 ];
@@ -2830,9 +2262,7 @@ export var ListWorkloadShares: StaticOperationSchema = [
   9,
   n0,
   _LWS,
-  {
-    [_h]: ["GET", "/workloads/{WorkloadId}/shares", 200],
-  },
+  { [_h]: ["GET", "/workloads/{WorkloadId}/shares", 200] },
   () => ListWorkloadSharesInput,
   () => ListWorkloadSharesOutput,
 ];
@@ -2840,9 +2270,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{WorkloadArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{WorkloadArn}", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -2850,9 +2278,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{WorkloadArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{WorkloadArn}", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -2860,9 +2286,7 @@ export var UpdateAnswer: StaticOperationSchema = [
   9,
   n0,
   _UAp,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] },
   () => UpdateAnswerInput,
   () => UpdateAnswerOutput,
 ];
@@ -2870,9 +2294,7 @@ export var UpdateGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _UGS,
-  {
-    [_h]: ["PATCH", "/global-settings", 200],
-  },
+  { [_h]: ["PATCH", "/global-settings", 200] },
   () => UpdateGlobalSettingsInput,
   () => __Unit,
 ];
@@ -2880,9 +2302,7 @@ export var UpdateIntegration: StaticOperationSchema = [
   9,
   n0,
   _UI,
-  {
-    [_h]: ["POST", "/workloads/{WorkloadId}/updateIntegration", 200],
-  },
+  { [_h]: ["POST", "/workloads/{WorkloadId}/updateIntegration", 200] },
   () => UpdateIntegrationInput,
   () => __Unit,
 ];
@@ -2890,9 +2310,7 @@ export var UpdateLensReview: StaticOperationSchema = [
   9,
   n0,
   _ULR,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200] },
   () => UpdateLensReviewInput,
   () => UpdateLensReviewOutput,
 ];
@@ -2900,9 +2318,7 @@ export var UpdateProfile: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PATCH", "/profiles/{ProfileArn}", 200],
-  },
+  { [_h]: ["PATCH", "/profiles/{ProfileArn}", 200] },
   () => UpdateProfileInput,
   () => UpdateProfileOutput,
 ];
@@ -2910,9 +2326,7 @@ export var UpdateReviewTemplate: StaticOperationSchema = [
   9,
   n0,
   _URT,
-  {
-    [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}", 200],
-  },
+  { [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}", 200] },
   () => UpdateReviewTemplateInput,
   () => UpdateReviewTemplateOutput,
 ];
@@ -2920,9 +2334,7 @@ export var UpdateReviewTemplateAnswer: StaticOperationSchema = [
   9,
   n0,
   _URTA,
-  {
-    [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200],
-  },
+  { [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] },
   () => UpdateReviewTemplateAnswerInput,
   () => UpdateReviewTemplateAnswerOutput,
 ];
@@ -2930,9 +2342,7 @@ export var UpdateReviewTemplateLensReview: StaticOperationSchema = [
   9,
   n0,
   _URTLR,
-  {
-    [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200],
-  },
+  { [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200] },
   () => UpdateReviewTemplateLensReviewInput,
   () => UpdateReviewTemplateLensReviewOutput,
 ];
@@ -2940,9 +2350,7 @@ export var UpdateShareInvitation: StaticOperationSchema = [
   9,
   n0,
   _USI,
-  {
-    [_h]: ["PATCH", "/shareInvitations/{ShareInvitationId}", 200],
-  },
+  { [_h]: ["PATCH", "/shareInvitations/{ShareInvitationId}", 200] },
   () => UpdateShareInvitationInput,
   () => UpdateShareInvitationOutput,
 ];
@@ -2950,9 +2358,7 @@ export var UpdateWorkload: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}", 200] },
   () => UpdateWorkloadInput,
   () => UpdateWorkloadOutput,
 ];
@@ -2960,9 +2366,7 @@ export var UpdateWorkloadShare: StaticOperationSchema = [
   9,
   n0,
   _UWS,
-  {
-    [_h]: ["PATCH", "/workloads/{WorkloadId}/shares/{ShareId}", 200],
-  },
+  { [_h]: ["PATCH", "/workloads/{WorkloadId}/shares/{ShareId}", 200] },
   () => UpdateWorkloadShareInput,
   () => UpdateWorkloadShareOutput,
 ];
@@ -2970,9 +2374,7 @@ export var UpgradeLensReview: StaticOperationSchema = [
   9,
   n0,
   _ULRp,
-  {
-    [_h]: ["PUT", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade", 200],
-  },
+  { [_h]: ["PUT", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade", 200] },
   () => UpgradeLensReviewInput,
   () => __Unit,
 ];
@@ -2980,9 +2382,7 @@ export var UpgradeProfileVersion: StaticOperationSchema = [
   9,
   n0,
   _UPV,
-  {
-    [_h]: ["PUT", "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade", 200],
-  },
+  { [_h]: ["PUT", "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade", 200] },
   () => UpgradeProfileVersionInput,
   () => __Unit,
 ];
@@ -2990,9 +2390,7 @@ export var UpgradeReviewTemplateLensReview: StaticOperationSchema = [
   9,
   n0,
   _URTLRp,
-  {
-    [_h]: ["PUT", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade", 200],
-  },
+  { [_h]: ["PUT", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade", 200] },
   () => UpgradeReviewTemplateLensReviewInput,
   () => __Unit,
 ];

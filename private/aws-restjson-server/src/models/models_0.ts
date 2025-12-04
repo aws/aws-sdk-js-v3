@@ -1568,14 +1568,46 @@ export namespace EventStream {
  * @internal
  */
 export const EventStreamFilterSensitiveLog = (obj: EventStream): any => {
-  if (obj.headers !== undefined) return { headers: obj.headers };
-  if (obj.blobPayload !== undefined) return { blobPayload: obj.blobPayload };
-  if (obj.stringPayload !== undefined) return { stringPayload: obj.stringPayload };
-  if (obj.structurePayload !== undefined) return { structurePayload: obj.structurePayload };
-  if (obj.unionPayload !== undefined) return { unionPayload: obj.unionPayload };
-  if (obj.headersAndExplicitPayload !== undefined) return { headersAndExplicitPayload: obj.headersAndExplicitPayload };
-  if (obj.headersAndImplicitPayload !== undefined) return { headersAndImplicitPayload: obj.headersAndImplicitPayload };
-  if (obj.error !== undefined) return { error: obj.error };
+  if (obj.headers !== undefined) {
+    return {
+      headers: obj.headers,
+    };
+  }
+  if (obj.blobPayload !== undefined) {
+    return {
+      blobPayload: obj.blobPayload,
+    };
+  }
+  if (obj.stringPayload !== undefined) {
+    return {
+      stringPayload: obj.stringPayload,
+    };
+  }
+  if (obj.structurePayload !== undefined) {
+    return {
+      structurePayload: obj.structurePayload,
+    };
+  }
+  if (obj.unionPayload !== undefined) {
+    return {
+      unionPayload: obj.unionPayload,
+    };
+  }
+  if (obj.headersAndExplicitPayload !== undefined) {
+    return {
+      headersAndExplicitPayload: obj.headersAndExplicitPayload,
+    };
+  }
+  if (obj.headersAndImplicitPayload !== undefined) {
+    return {
+      headersAndImplicitPayload: obj.headersAndImplicitPayload,
+    };
+  }
+  if (obj.error !== undefined) {
+    return {
+      error: obj.error,
+    };
+  }
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

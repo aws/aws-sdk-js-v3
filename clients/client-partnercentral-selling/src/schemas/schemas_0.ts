@@ -436,7 +436,6 @@ import {
 import { PartnerCentralSellingServiceException as __PartnerCentralSellingServiceException } from "../models/PartnerCentralSellingServiceException";
 
 /* eslint no-var: 0 */
-
 export var AddressPart: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 export var Alias: StaticSimpleSchema = [0, n0, _A, 8, 0];
 export var Amount: StaticSimpleSchema = [0, n0, _Am, 8, 0];
@@ -457,19 +456,8 @@ export var PiiString: StaticSimpleSchema = [0, n0, _PS, 8, 0];
 export var SenderContactEmail: StaticSimpleSchema = [0, n0, _SCE, 8, 0];
 export var WebsiteUrl: StaticSimpleSchema = [0, n0, _WU, 8, 0];
 export var AcceptEngagementInvitationRequest: StaticStructureSchema = [3, n0, _AEIR, 0, [_C, _I], [0, 0]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Account: StaticStructureSchema = [
   3,
   n0,
@@ -575,19 +563,8 @@ export var AwsTeamMember: StaticStructureSchema = [
   [_E, _FN, _LN, _BT],
   [[() => Email, 0], [() => Name, 0], [() => Name, 0], 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Contact: StaticStructureSchema = [
   3,
   n0,
@@ -894,19 +871,8 @@ export var GetResourceSnapshotResponse: StaticStructureSchema = [
 ];
 export var GetSellingSystemSettingsRequest: StaticStructureSchema = [3, n0, _GSSSR, 0, [_C], [0]];
 export var GetSellingSystemSettingsResponse: StaticStructureSchema = [3, n0, _GSSSRe, 0, [_C, _RSJRA], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Invitation: StaticStructureSchema = [
   3,
   n0,
@@ -1292,19 +1258,8 @@ export var RelatedEntityIdentifiers: StaticStructureSchema = [
   [_AMO, _AMOS, _So, _APw],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceSnapshotJobSummary: StaticStructureSchema = [3, n0, _RSJSe, 0, [_Id, _Ar, _EIn, _St], [0, 0, 0, 0]];
 export var ResourceSnapshotSummary: StaticStructureSchema = [
   3,
@@ -1328,19 +1283,8 @@ export var SenderContact: StaticStructureSchema = [
     [() => PhoneNumber, 0],
   ],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SoftwareRevenue: StaticStructureSchema = [
   3,
   n0,
@@ -1413,19 +1357,8 @@ export var SubmitOpportunityRequest: StaticStructureSchema = [3, n0, _SORu, 0, [
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateEngagementContextRequest: StaticStructureSchema = [
@@ -1478,18 +1411,13 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _R, _EL],
   [0, 0, () => ValidationExceptionErrorList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionError: StaticStructureSchema = [3, n0, _VEE, 0, [_FNi, _M, _Cod], [0, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var PartnerCentralSellingServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1499,34 +1427,22 @@ export var PartnerCentralSellingServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PartnerCentralSellingServiceException, __PartnerCentralSellingServiceException);
-
 export var ApnPrograms = 64 | 0;
-
 export var AwsAccountIdOrAliasList: StaticListSchema = [1, n0, _AAIOAL, 0, [() => AwsAccount, 0]];
 export var AwsAccountList: StaticListSchema = [1, n0, _AAL, 0, [() => AwsAccount, 0]];
 export var AwsMarketplaceOfferIdentifiers = 64 | 0;
-
 export var AwsMarketplaceOfferSetIdentifiers = 64 | 0;
-
 export var AwsOpportunityTeamMembersList: StaticListSchema = [1, n0, _AOTML, 0, [() => AwsTeamMember, 0]];
 export var AwsProductIdentifiers = 64 | 0;
-
 export var Channels = 64 | 0;
-
 export var ContextIdentifiers = 64 | 0;
-
 export var CustomerContactsList: StaticListSchema = [1, n0, _CCL, 0, [() => Contact, 0]];
 export var DeliveryModels = 64 | 0;
-
 export var EngagementContexts: StaticListSchema = [1, n0, _ECn, 0, [() => EngagementContextDetails, 0]];
 export var EngagementContextTypeList = 64 | 0;
-
 export var EngagementIdentifiers = 64 | 0;
-
 export var EngagementInvitationIdentifiers = 64 | 0;
-
 export var EngagementInvitationsPayloadType = 64 | 0;
-
 export var EngagementInvitationSummaries: StaticListSchema = [1, n0, _EISn, 0, [() => EngagementInvitationSummary, 0]];
 export var EngagementMembers: StaticListSchema = [1, n0, _EMn, 0, [() => EngagementMember, 0]];
 export var EngagementMemberSummaries: StaticListSchema = [1, n0, _EMSn, 0, [() => EngagementMemberSummary, 0]];
@@ -1540,15 +1456,10 @@ export var EngagementResourceAssociationSummaryList: StaticListSchema = [
 export var EngagementSummaryList: StaticListSchema = [1, n0, _ESL, 0, [() => EngagementSummary, 0]];
 export var ExpectedCustomerSpendList: StaticListSchema = [1, n0, _ECSL, 0, [() => ExpectedCustomerSpend, 0]];
 export var FilterIdentifier = 64 | 0;
-
 export var FilterLifeCycleReviewStatus = 64 | 0;
-
 export var FilterLifeCycleStage = 64 | 0;
-
 export var FilterStatus = 64 | 0;
-
 export var InvitationStatusList = 64 | 0;
-
 export var LeadInteractionList: StaticListSchema = [1, n0, _LIL, 0, [() => LeadInteraction, 0]];
 export var ListEngagementByAcceptingInvitationTaskSummaries: StaticListSchema = [
   1,
@@ -1573,33 +1484,23 @@ export var ListOpportunityFromEngagementTaskSummaries: StaticListSchema = [
 ];
 export var NextStepsHistories: StaticListSchema = [1, n0, _NSHe, 0, () => NextStepsHistory];
 export var OpportunityIdentifiers = 64 | 0;
-
 export var OpportunitySummaries: StaticListSchema = [1, n0, _OS, 0, [() => OpportunitySummary, 0]];
 export var PartnerOpportunityTeamMembersList: StaticListSchema = [1, n0, _POTML, 0, [() => Contact, 0]];
 export var PrimaryNeedsFromAws = 64 | 0;
-
 export var ProfileNextStepsHistories: StaticListSchema = [1, n0, _PNSHr, 0, () => ProfileNextStepsHistory];
 export var ReceiverResponsibilityList = 64 | 0;
-
 export var ResourceSnapshotJobSummaryList: StaticListSchema = [1, n0, _RSJSL, 0, () => ResourceSnapshotJobSummary];
 export var ResourceSnapshotSummaryList: StaticListSchema = [1, n0, _RSSL, 0, [() => ResourceSnapshotSummary, 0]];
 export var SalesActivities = 64 | 0;
-
 export var SenderContactList: StaticListSchema = [1, n0, _SCL, 0, [() => SenderContact, 0]];
 export var SolutionIdentifiers = 64 | 0;
-
 export var SolutionList: StaticListSchema = [1, n0, _SL, 0, () => SolutionBase];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TaskIdentifiers = 64 | 0;
-
 export var TaskStatuses = 64 | 0;
-
 export var UseCases = 64 | 0;
-
 export var ValidationExceptionErrorList: StaticListSchema = [1, n0, _VEEL, 0, () => ValidationExceptionError];
 export var EngagementContextPayload: StaticStructureSchema = [
   3,
@@ -1647,9 +1548,7 @@ export var AcceptEngagementInvitation: StaticOperationSchema = [
   9,
   n0,
   _AEI,
-  {
-    [_h]: ["POST", "/AcceptEngagementInvitation", 200],
-  },
+  { [_h]: ["POST", "/AcceptEngagementInvitation", 200] },
   () => AcceptEngagementInvitationRequest,
   () => __Unit,
 ];
@@ -1657,9 +1556,7 @@ export var AssignOpportunity: StaticOperationSchema = [
   9,
   n0,
   _AO,
-  {
-    [_h]: ["POST", "/AssignOpportunity", 200],
-  },
+  { [_h]: ["POST", "/AssignOpportunity", 200] },
   () => AssignOpportunityRequest,
   () => __Unit,
 ];
@@ -1667,9 +1564,7 @@ export var AssociateOpportunity: StaticOperationSchema = [
   9,
   n0,
   _AOs,
-  {
-    [_h]: ["POST", "/AssociateOpportunity", 200],
-  },
+  { [_h]: ["POST", "/AssociateOpportunity", 200] },
   () => AssociateOpportunityRequest,
   () => __Unit,
 ];
@@ -1677,9 +1572,7 @@ export var CreateEngagement: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/CreateEngagement", 200],
-  },
+  { [_h]: ["POST", "/CreateEngagement", 200] },
   () => CreateEngagementRequest,
   () => CreateEngagementResponse,
 ];
@@ -1687,9 +1580,7 @@ export var CreateEngagementContext: StaticOperationSchema = [
   9,
   n0,
   _CEC,
-  {
-    [_h]: ["POST", "/CreateEngagementContext", 200],
-  },
+  { [_h]: ["POST", "/CreateEngagementContext", 200] },
   () => CreateEngagementContextRequest,
   () => CreateEngagementContextResponse,
 ];
@@ -1697,9 +1588,7 @@ export var CreateEngagementInvitation: StaticOperationSchema = [
   9,
   n0,
   _CEI,
-  {
-    [_h]: ["POST", "/CreateEngagementInvitation", 200],
-  },
+  { [_h]: ["POST", "/CreateEngagementInvitation", 200] },
   () => CreateEngagementInvitationRequest,
   () => CreateEngagementInvitationResponse,
 ];
@@ -1707,9 +1596,7 @@ export var CreateOpportunity: StaticOperationSchema = [
   9,
   n0,
   _CO,
-  {
-    [_h]: ["POST", "/CreateOpportunity", 200],
-  },
+  { [_h]: ["POST", "/CreateOpportunity", 200] },
   () => CreateOpportunityRequest,
   () => CreateOpportunityResponse,
 ];
@@ -1717,9 +1604,7 @@ export var CreateResourceSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CRS,
-  {
-    [_h]: ["POST", "/CreateResourceSnapshot", 200],
-  },
+  { [_h]: ["POST", "/CreateResourceSnapshot", 200] },
   () => CreateResourceSnapshotRequest,
   () => CreateResourceSnapshotResponse,
 ];
@@ -1727,9 +1612,7 @@ export var CreateResourceSnapshotJob: StaticOperationSchema = [
   9,
   n0,
   _CRSJ,
-  {
-    [_h]: ["POST", "/CreateResourceSnapshotJob", 200],
-  },
+  { [_h]: ["POST", "/CreateResourceSnapshotJob", 200] },
   () => CreateResourceSnapshotJobRequest,
   () => CreateResourceSnapshotJobResponse,
 ];
@@ -1737,9 +1620,7 @@ export var DeleteResourceSnapshotJob: StaticOperationSchema = [
   9,
   n0,
   _DRSJ,
-  {
-    [_h]: ["POST", "/DeleteResourceSnapshotJob", 204],
-  },
+  { [_h]: ["POST", "/DeleteResourceSnapshotJob", 204] },
   () => DeleteResourceSnapshotJobRequest,
   () => __Unit,
 ];
@@ -1747,9 +1628,7 @@ export var DisassociateOpportunity: StaticOperationSchema = [
   9,
   n0,
   _DO,
-  {
-    [_h]: ["POST", "/DisassociateOpportunity", 200],
-  },
+  { [_h]: ["POST", "/DisassociateOpportunity", 200] },
   () => DisassociateOpportunityRequest,
   () => __Unit,
 ];
@@ -1757,9 +1636,7 @@ export var GetAwsOpportunitySummary: StaticOperationSchema = [
   9,
   n0,
   _GAOS,
-  {
-    [_h]: ["POST", "/GetAwsOpportunitySummary", 200],
-  },
+  { [_h]: ["POST", "/GetAwsOpportunitySummary", 200] },
   () => GetAwsOpportunitySummaryRequest,
   () => GetAwsOpportunitySummaryResponse,
 ];
@@ -1767,9 +1644,7 @@ export var GetEngagement: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["POST", "/GetEngagement", 200],
-  },
+  { [_h]: ["POST", "/GetEngagement", 200] },
   () => GetEngagementRequest,
   () => GetEngagementResponse,
 ];
@@ -1777,9 +1652,7 @@ export var GetEngagementInvitation: StaticOperationSchema = [
   9,
   n0,
   _GEI,
-  {
-    [_h]: ["POST", "/GetEngagementInvitation", 200],
-  },
+  { [_h]: ["POST", "/GetEngagementInvitation", 200] },
   () => GetEngagementInvitationRequest,
   () => GetEngagementInvitationResponse,
 ];
@@ -1787,9 +1660,7 @@ export var GetOpportunity: StaticOperationSchema = [
   9,
   n0,
   _GO,
-  {
-    [_h]: ["POST", "/GetOpportunity", 200],
-  },
+  { [_h]: ["POST", "/GetOpportunity", 200] },
   () => GetOpportunityRequest,
   () => GetOpportunityResponse,
 ];
@@ -1797,9 +1668,7 @@ export var GetResourceSnapshot: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  {
-    [_h]: ["POST", "/GetResourceSnapshot", 200],
-  },
+  { [_h]: ["POST", "/GetResourceSnapshot", 200] },
   () => GetResourceSnapshotRequest,
   () => GetResourceSnapshotResponse,
 ];
@@ -1807,9 +1676,7 @@ export var GetResourceSnapshotJob: StaticOperationSchema = [
   9,
   n0,
   _GRSJ,
-  {
-    [_h]: ["POST", "/GetResourceSnapshotJob", 200],
-  },
+  { [_h]: ["POST", "/GetResourceSnapshotJob", 200] },
   () => GetResourceSnapshotJobRequest,
   () => GetResourceSnapshotJobResponse,
 ];
@@ -1817,9 +1684,7 @@ export var GetSellingSystemSettings: StaticOperationSchema = [
   9,
   n0,
   _GSSS,
-  {
-    [_h]: ["POST", "/GetSellingSystemSettings", 200],
-  },
+  { [_h]: ["POST", "/GetSellingSystemSettings", 200] },
   () => GetSellingSystemSettingsRequest,
   () => GetSellingSystemSettingsResponse,
 ];
@@ -1827,9 +1692,7 @@ export var ListEngagementByAcceptingInvitationTasks: StaticOperationSchema = [
   9,
   n0,
   _LEBAIT,
-  {
-    [_h]: ["POST", "/ListEngagementByAcceptingInvitationTasks", 200],
-  },
+  { [_h]: ["POST", "/ListEngagementByAcceptingInvitationTasks", 200] },
   () => ListEngagementByAcceptingInvitationTasksRequest,
   () => ListEngagementByAcceptingInvitationTasksResponse,
 ];
@@ -1837,9 +1700,7 @@ export var ListEngagementFromOpportunityTasks: StaticOperationSchema = [
   9,
   n0,
   _LEFOT,
-  {
-    [_h]: ["POST", "/ListEngagementFromOpportunityTasks", 200],
-  },
+  { [_h]: ["POST", "/ListEngagementFromOpportunityTasks", 200] },
   () => ListEngagementFromOpportunityTasksRequest,
   () => ListEngagementFromOpportunityTasksResponse,
 ];
@@ -1847,9 +1708,7 @@ export var ListEngagementInvitations: StaticOperationSchema = [
   9,
   n0,
   _LEI,
-  {
-    [_h]: ["POST", "/ListEngagementInvitations", 200],
-  },
+  { [_h]: ["POST", "/ListEngagementInvitations", 200] },
   () => ListEngagementInvitationsRequest,
   () => ListEngagementInvitationsResponse,
 ];
@@ -1857,9 +1716,7 @@ export var ListEngagementMembers: StaticOperationSchema = [
   9,
   n0,
   _LEM,
-  {
-    [_h]: ["POST", "/ListEngagementMembers", 200],
-  },
+  { [_h]: ["POST", "/ListEngagementMembers", 200] },
   () => ListEngagementMembersRequest,
   () => ListEngagementMembersResponse,
 ];
@@ -1867,9 +1724,7 @@ export var ListEngagementResourceAssociations: StaticOperationSchema = [
   9,
   n0,
   _LERA,
-  {
-    [_h]: ["POST", "/ListEngagementResourceAssociations", 200],
-  },
+  { [_h]: ["POST", "/ListEngagementResourceAssociations", 200] },
   () => ListEngagementResourceAssociationsRequest,
   () => ListEngagementResourceAssociationsResponse,
 ];
@@ -1877,9 +1732,7 @@ export var ListEngagements: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["POST", "/ListEngagements", 200],
-  },
+  { [_h]: ["POST", "/ListEngagements", 200] },
   () => ListEngagementsRequest,
   () => ListEngagementsResponse,
 ];
@@ -1887,9 +1740,7 @@ export var ListOpportunities: StaticOperationSchema = [
   9,
   n0,
   _LO,
-  {
-    [_h]: ["POST", "/ListOpportunities", 200],
-  },
+  { [_h]: ["POST", "/ListOpportunities", 200] },
   () => ListOpportunitiesRequest,
   () => ListOpportunitiesResponse,
 ];
@@ -1897,9 +1748,7 @@ export var ListOpportunityFromEngagementTasks: StaticOperationSchema = [
   9,
   n0,
   _LOFET,
-  {
-    [_h]: ["POST", "/ListOpportunityFromEngagementTasks", 200],
-  },
+  { [_h]: ["POST", "/ListOpportunityFromEngagementTasks", 200] },
   () => ListOpportunityFromEngagementTasksRequest,
   () => ListOpportunityFromEngagementTasksResponse,
 ];
@@ -1907,9 +1756,7 @@ export var ListResourceSnapshotJobs: StaticOperationSchema = [
   9,
   n0,
   _LRSJ,
-  {
-    [_h]: ["POST", "/ListResourceSnapshotJobs", 200],
-  },
+  { [_h]: ["POST", "/ListResourceSnapshotJobs", 200] },
   () => ListResourceSnapshotJobsRequest,
   () => ListResourceSnapshotJobsResponse,
 ];
@@ -1917,9 +1764,7 @@ export var ListResourceSnapshots: StaticOperationSchema = [
   9,
   n0,
   _LRS,
-  {
-    [_h]: ["POST", "/ListResourceSnapshots", 200],
-  },
+  { [_h]: ["POST", "/ListResourceSnapshots", 200] },
   () => ListResourceSnapshotsRequest,
   () => ListResourceSnapshotsResponse,
 ];
@@ -1927,9 +1772,7 @@ export var ListSolutions: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["POST", "/ListSolutions", 200],
-  },
+  { [_h]: ["POST", "/ListSolutions", 200] },
   () => ListSolutionsRequest,
   () => ListSolutionsResponse,
 ];
@@ -1937,9 +1780,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1947,9 +1788,7 @@ export var PutSellingSystemSettings: StaticOperationSchema = [
   9,
   n0,
   _PSSS,
-  {
-    [_h]: ["POST", "/PutSellingSystemSettings", 200],
-  },
+  { [_h]: ["POST", "/PutSellingSystemSettings", 200] },
   () => PutSellingSystemSettingsRequest,
   () => PutSellingSystemSettingsResponse,
 ];
@@ -1957,9 +1796,7 @@ export var RejectEngagementInvitation: StaticOperationSchema = [
   9,
   n0,
   _REIej,
-  {
-    [_h]: ["POST", "/RejectEngagementInvitation", 200],
-  },
+  { [_h]: ["POST", "/RejectEngagementInvitation", 200] },
   () => RejectEngagementInvitationRequest,
   () => __Unit,
 ];
@@ -1967,9 +1804,7 @@ export var StartEngagementByAcceptingInvitationTask: StaticOperationSchema = [
   9,
   n0,
   _SEBAIT,
-  {
-    [_h]: ["POST", "/StartEngagementByAcceptingInvitationTask", 200],
-  },
+  { [_h]: ["POST", "/StartEngagementByAcceptingInvitationTask", 200] },
   () => StartEngagementByAcceptingInvitationTaskRequest,
   () => StartEngagementByAcceptingInvitationTaskResponse,
 ];
@@ -1977,9 +1812,7 @@ export var StartEngagementFromOpportunityTask: StaticOperationSchema = [
   9,
   n0,
   _SEFOT,
-  {
-    [_h]: ["POST", "/StartEngagementFromOpportunityTask", 200],
-  },
+  { [_h]: ["POST", "/StartEngagementFromOpportunityTask", 200] },
   () => StartEngagementFromOpportunityTaskRequest,
   () => StartEngagementFromOpportunityTaskResponse,
 ];
@@ -1987,9 +1820,7 @@ export var StartOpportunityFromEngagementTask: StaticOperationSchema = [
   9,
   n0,
   _SOFET,
-  {
-    [_h]: ["POST", "/StartOpportunityFromEngagementTask", 200],
-  },
+  { [_h]: ["POST", "/StartOpportunityFromEngagementTask", 200] },
   () => StartOpportunityFromEngagementTaskRequest,
   () => StartOpportunityFromEngagementTaskResponse,
 ];
@@ -1997,9 +1828,7 @@ export var StartResourceSnapshotJob: StaticOperationSchema = [
   9,
   n0,
   _SRSJ,
-  {
-    [_h]: ["POST", "/StartResourceSnapshotJob", 204],
-  },
+  { [_h]: ["POST", "/StartResourceSnapshotJob", 204] },
   () => StartResourceSnapshotJobRequest,
   () => __Unit,
 ];
@@ -2007,9 +1836,7 @@ export var StopResourceSnapshotJob: StaticOperationSchema = [
   9,
   n0,
   _SRSJt,
-  {
-    [_h]: ["POST", "/StopResourceSnapshotJob", 204],
-  },
+  { [_h]: ["POST", "/StopResourceSnapshotJob", 204] },
   () => StopResourceSnapshotJobRequest,
   () => __Unit,
 ];
@@ -2017,9 +1844,7 @@ export var SubmitOpportunity: StaticOperationSchema = [
   9,
   n0,
   _SOu,
-  {
-    [_h]: ["POST", "/SubmitOpportunity", 200],
-  },
+  { [_h]: ["POST", "/SubmitOpportunity", 200] },
   () => SubmitOpportunityRequest,
   () => __Unit,
 ];
@@ -2027,9 +1852,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2037,9 +1860,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2047,9 +1868,7 @@ export var UpdateEngagementContext: StaticOperationSchema = [
   9,
   n0,
   _UEC,
-  {
-    [_h]: ["POST", "/UpdateEngagementContext", 200],
-  },
+  { [_h]: ["POST", "/UpdateEngagementContext", 200] },
   () => UpdateEngagementContextRequest,
   () => UpdateEngagementContextResponse,
 ];
@@ -2057,9 +1876,7 @@ export var UpdateOpportunity: StaticOperationSchema = [
   9,
   n0,
   _UO,
-  {
-    [_h]: ["POST", "/UpdateOpportunity", 200],
-  },
+  { [_h]: ["POST", "/UpdateOpportunity", 200] },
   () => UpdateOpportunityRequest,
   () => UpdateOpportunityResponse,
 ];

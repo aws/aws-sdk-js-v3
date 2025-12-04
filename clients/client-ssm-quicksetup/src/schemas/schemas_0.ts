@@ -126,20 +126,8 @@ import {
 import { SSMQuickSetupServiceException as __SSMQuickSetupServiceException } from "../models/SSMQuickSetupServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ConfigurationDefinition: StaticStructureSchema = [
   3,
   n0,
@@ -180,19 +168,8 @@ export var ConfigurationSummary: StaticStructureSchema = [
   [_I, _MA, _CDIo, _T, _TV, _R, _A, _CA, _FCP, _SS],
   [0, 0, 0, 0, 0, 0, 0, 5, 128 | 0, () => StatusSummariesList],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateConfigurationManagerInput: StaticStructureSchema = [
   3,
   n0,
@@ -223,19 +200,8 @@ export var GetConfigurationOutput: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 5, 5, () => StatusSummariesList, 128 | 0],
 ];
 export var GetServiceSettingsOutput: StaticStructureSchema = [3, n0, _GSSO, 0, [_SSe], [() => ServiceSettings]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListConfigurationManagersInput: StaticStructureSchema = [
   3,
   n0,
@@ -272,19 +238,8 @@ export var ListQuickSetupTypesOutput: StaticStructureSchema = [3, n0, _LQSTO, 0,
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [[() => Tags, 0]]];
 export var QuickSetupTypeOutput: StaticStructureSchema = [3, n0, _QSTO, 0, [_T, _LV], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceSettings: StaticStructureSchema = [3, n0, _SSe, 0, [_EERA], [0]];
 export var StatusSummary: StaticStructureSchema = [3, n0, _SSt, 0, [_STt, _S, _SM, _LUA, _SD], [0, 0, 0, 5, 128 | 0]];
 export var TagEntry: StaticStructureSchema = [3, n0, _TE, 8, [_K, _Va], [0, 0]];
@@ -299,19 +254,8 @@ export var TagResourceInput: StaticStructureSchema = [
     [() => TagsMap, 0],
   ],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TEh,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEh, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -320,12 +264,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateConfigurationDefinitionInput: StaticStructureSchema = [
@@ -338,24 +277,11 @@ export var UpdateConfigurationDefinitionInput: StaticStructureSchema = [
 ];
 export var UpdateConfigurationManagerInput: StaticStructureSchema = [3, n0, _UCMI, 0, [_MA, _N, _D], [[0, 1], 0, 0]];
 export var UpdateServiceSettingsInput: StaticStructureSchema = [3, n0, _USSI, 0, [_EERA], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var SSMQuickSetupServiceException: StaticErrorSchema = [-3, _sm, "SSMQuickSetupServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSMQuickSetupServiceException, __SSMQuickSetupServiceException);
-
 export var ConfigurationDefinitionsInputList: StaticListSchema = [1, n0, _CDIL, 0, () => ConfigurationDefinitionInput];
 export var ConfigurationDefinitionsList: StaticListSchema = [1, n0, _CDL, 0, () => ConfigurationDefinition];
 export var ConfigurationDefinitionSummariesList: StaticListSchema = [
@@ -369,24 +295,18 @@ export var ConfigurationManagerList: StaticListSchema = [1, n0, _CMLo, 0, () => 
 export var ConfigurationsList: StaticListSchema = [1, n0, _CL, 0, () => ConfigurationSummary];
 export var FiltersList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FilterValues = 64 | 0;
-
 export var QuickSetupTypeList: StaticListSchema = [1, n0, _QSTL, 0, () => QuickSetupTypeOutput];
 export var StatusSummariesList: StaticListSchema = [1, n0, _SSL, 0, () => StatusSummary];
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 8, [() => TagEntry, 0]];
 export var ConfigurationParametersMap = 128 | 0;
-
 export var StatusDetails = 128 | 0;
-
 export var TagsMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
 export var CreateConfigurationManager: StaticOperationSchema = [
   9,
   n0,
   _CCM,
-  {
-    [_h]: ["POST", "/configurationManager", 200],
-  },
+  { [_h]: ["POST", "/configurationManager", 200] },
   () => CreateConfigurationManagerInput,
   () => CreateConfigurationManagerOutput,
 ];
@@ -394,9 +314,7 @@ export var DeleteConfigurationManager: StaticOperationSchema = [
   9,
   n0,
   _DCM,
-  {
-    [_h]: ["DELETE", "/configurationManager/{ManagerArn}", 200],
-  },
+  { [_h]: ["DELETE", "/configurationManager/{ManagerArn}", 200] },
   () => DeleteConfigurationManagerInput,
   () => __Unit,
 ];
@@ -404,9 +322,7 @@ export var GetConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/getConfiguration/{ConfigurationId}", 200],
-  },
+  { [_h]: ["GET", "/getConfiguration/{ConfigurationId}", 200] },
   () => GetConfigurationInput,
   () => GetConfigurationOutput,
 ];
@@ -414,9 +330,7 @@ export var GetConfigurationManager: StaticOperationSchema = [
   9,
   n0,
   _GCM,
-  {
-    [_h]: ["GET", "/configurationManager/{ManagerArn}", 200],
-  },
+  { [_h]: ["GET", "/configurationManager/{ManagerArn}", 200] },
   () => GetConfigurationManagerInput,
   () => GetConfigurationManagerOutput,
 ];
@@ -424,9 +338,7 @@ export var GetServiceSettings: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  {
-    [_h]: ["GET", "/serviceSettings", 200],
-  },
+  { [_h]: ["GET", "/serviceSettings", 200] },
   () => __Unit,
   () => GetServiceSettingsOutput,
 ];
@@ -434,9 +346,7 @@ export var ListConfigurationManagers: StaticOperationSchema = [
   9,
   n0,
   _LCM,
-  {
-    [_h]: ["POST", "/listConfigurationManagers", 200],
-  },
+  { [_h]: ["POST", "/listConfigurationManagers", 200] },
   () => ListConfigurationManagersInput,
   () => ListConfigurationManagersOutput,
 ];
@@ -444,9 +354,7 @@ export var ListConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["POST", "/listConfigurations", 200],
-  },
+  { [_h]: ["POST", "/listConfigurations", 200] },
   () => ListConfigurationsInput,
   () => ListConfigurationsOutput,
 ];
@@ -454,9 +362,7 @@ export var ListQuickSetupTypes: StaticOperationSchema = [
   9,
   n0,
   _LQST,
-  {
-    [_h]: ["GET", "/listQuickSetupTypes", 200],
-  },
+  { [_h]: ["GET", "/listQuickSetupTypes", 200] },
   () => __Unit,
   () => ListQuickSetupTypesOutput,
 ];
@@ -464,9 +370,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -474,9 +378,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["PUT", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/tags/{ResourceArn}", 200] },
   () => TagResourceInput,
   () => __Unit,
 ];
@@ -484,9 +386,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceInput,
   () => __Unit,
 ];
@@ -494,9 +394,7 @@ export var UpdateConfigurationDefinition: StaticOperationSchema = [
   9,
   n0,
   _UCD,
-  {
-    [_h]: ["PUT", "/configurationDefinition/{ManagerArn}/{Id}", 200],
-  },
+  { [_h]: ["PUT", "/configurationDefinition/{ManagerArn}/{Id}", 200] },
   () => UpdateConfigurationDefinitionInput,
   () => __Unit,
 ];
@@ -504,9 +402,7 @@ export var UpdateConfigurationManager: StaticOperationSchema = [
   9,
   n0,
   _UCM,
-  {
-    [_h]: ["PUT", "/configurationManager/{ManagerArn}", 200],
-  },
+  { [_h]: ["PUT", "/configurationManager/{ManagerArn}", 200] },
   () => UpdateConfigurationManagerInput,
   () => __Unit,
 ];
@@ -514,9 +410,7 @@ export var UpdateServiceSettings: StaticOperationSchema = [
   9,
   n0,
   _USS,
-  {
-    [_h]: ["PUT", "/serviceSettings", 200],
-  },
+  { [_h]: ["PUT", "/serviceSettings", 200] },
   () => UpdateServiceSettingsInput,
   () => __Unit,
 ];

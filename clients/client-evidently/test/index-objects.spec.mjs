@@ -66,47 +66,47 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof EvidentlyClient === "function")
-assert(typeof Evidently === "function")
+assert(typeof EvidentlyClient === "function");
+assert(typeof Evidently === "function");
 // commands
-assert(typeof BatchEvaluateFeatureCommand === "function")
-assert(typeof CreateExperimentCommand === "function")
-assert(typeof CreateFeatureCommand === "function")
-assert(typeof CreateLaunchCommand === "function")
-assert(typeof CreateProjectCommand === "function")
-assert(typeof CreateSegmentCommand === "function")
-assert(typeof DeleteExperimentCommand === "function")
-assert(typeof DeleteFeatureCommand === "function")
-assert(typeof DeleteLaunchCommand === "function")
-assert(typeof DeleteProjectCommand === "function")
-assert(typeof DeleteSegmentCommand === "function")
-assert(typeof EvaluateFeatureCommand === "function")
-assert(typeof GetExperimentCommand === "function")
-assert(typeof GetExperimentResultsCommand === "function")
-assert(typeof GetFeatureCommand === "function")
-assert(typeof GetLaunchCommand === "function")
-assert(typeof GetProjectCommand === "function")
-assert(typeof GetSegmentCommand === "function")
-assert(typeof ListExperimentsCommand === "function")
-assert(typeof ListFeaturesCommand === "function")
-assert(typeof ListLaunchesCommand === "function")
-assert(typeof ListProjectsCommand === "function")
-assert(typeof ListSegmentReferencesCommand === "function")
-assert(typeof ListSegmentsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutProjectEventsCommand === "function")
-assert(typeof StartExperimentCommand === "function")
-assert(typeof StartLaunchCommand === "function")
-assert(typeof StopExperimentCommand === "function")
-assert(typeof StopLaunchCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof TestSegmentPatternCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateExperimentCommand === "function")
-assert(typeof UpdateFeatureCommand === "function")
-assert(typeof UpdateLaunchCommand === "function")
-assert(typeof UpdateProjectCommand === "function")
-assert(typeof UpdateProjectDataDeliveryCommand === "function")
+assert(typeof BatchEvaluateFeatureCommand === "function");
+assert(typeof CreateExperimentCommand === "function");
+assert(typeof CreateFeatureCommand === "function");
+assert(typeof CreateLaunchCommand === "function");
+assert(typeof CreateProjectCommand === "function");
+assert(typeof CreateSegmentCommand === "function");
+assert(typeof DeleteExperimentCommand === "function");
+assert(typeof DeleteFeatureCommand === "function");
+assert(typeof DeleteLaunchCommand === "function");
+assert(typeof DeleteProjectCommand === "function");
+assert(typeof DeleteSegmentCommand === "function");
+assert(typeof EvaluateFeatureCommand === "function");
+assert(typeof GetExperimentCommand === "function");
+assert(typeof GetExperimentResultsCommand === "function");
+assert(typeof GetFeatureCommand === "function");
+assert(typeof GetLaunchCommand === "function");
+assert(typeof GetProjectCommand === "function");
+assert(typeof GetSegmentCommand === "function");
+assert(typeof ListExperimentsCommand === "function");
+assert(typeof ListFeaturesCommand === "function");
+assert(typeof ListLaunchesCommand === "function");
+assert(typeof ListProjectsCommand === "function");
+assert(typeof ListSegmentReferencesCommand === "function");
+assert(typeof ListSegmentsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutProjectEventsCommand === "function");
+assert(typeof StartExperimentCommand === "function");
+assert(typeof StartLaunchCommand === "function");
+assert(typeof StopExperimentCommand === "function");
+assert(typeof StopLaunchCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof TestSegmentPatternCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateExperimentCommand === "function");
+assert(typeof UpdateFeatureCommand === "function");
+assert(typeof UpdateLaunchCommand === "function");
+assert(typeof UpdateProjectCommand === "function");
+assert(typeof UpdateProjectDataDeliveryCommand === "function");
 // enums
 assert(typeof ChangeDirectionEnum === "object");
 assert(typeof EventType === "object");
@@ -126,12 +126,12 @@ assert(typeof ProjectStatus === "object");
 assert(typeof SegmentReferenceResourceType === "object");
 assert(typeof VariationValueType === "object");
 // errors
-assert(EvidentlyServiceException.prototype instanceof Error)
+assert(EvidentlyServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListExperiments === "function")
-assert(typeof paginateListFeatures === "function")
-assert(typeof paginateListLaunches === "function")
-assert(typeof paginateListProjects === "function")
-assert(typeof paginateListSegmentReferences === "function")
-assert(typeof paginateListSegments === "function")
+assert(typeof paginateListExperiments === "function");
+assert(typeof paginateListFeatures === "function");
+assert(typeof paginateListLaunches === "function");
+assert(typeof paginateListProjects === "function");
+assert(typeof paginateListSegmentReferences === "function");
+assert(typeof paginateListSegments === "function");
 console.log(`Evidently index test passed.`);

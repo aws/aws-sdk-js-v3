@@ -308,7 +308,6 @@ import {
 import { OpenSearchServerlessServiceException as __OpenSearchServerlessServiceException } from "../models/OpenSearchServerlessServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessPolicyDetail: StaticStructureSchema = [
   3,
   n0,
@@ -389,19 +388,8 @@ export var CollectionDetail: StaticStructureSchema = [
 export var CollectionErrorDetail: StaticStructureSchema = [3, n0, _CED, 0, [_id_, _n, _eM, _eC], [0, 0, 0, 0]];
 export var CollectionFilters: StaticStructureSchema = [3, n0, _CF, 0, [_n, _s], [0, 0]];
 export var CollectionSummary: StaticStructureSchema = [3, n0, _CS, 0, [_id_, _n, _s, _a], [0, 0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAccessPolicyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -586,19 +574,8 @@ export var IamIdentityCenterConfigOptions: StaticStructureSchema = [
   [_iA, _aA, _aN, _aD, _uA, _gA],
   [0, 0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LifecyclePolicyDetail: StaticStructureSchema = [
   3,
   n0,
@@ -703,32 +680,10 @@ export var ListVpcEndpointsResponse: StaticStructureSchema = [
   [_vES, _nT],
   [() => VpcEndpointSummaries, 0],
 ];
-export var OcuLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OLEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var OcuLimitExceededException: StaticErrorSchema = [-3, n0, _OLEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OcuLimitExceededException, __OcuLimitExceededException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SamlConfigOptions: StaticStructureSchema = [3, n0, _SCO, 0, [_me, _uA, _gA, _oSSEI, _sT], [0, 0, 0, 0, 1]];
 export var SecurityConfigDetail: StaticStructureSchema = [
   3,
@@ -768,15 +723,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rIe, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [0, () => Tags]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -893,19 +844,8 @@ export var UpdateVpcEndpointResponse: StaticStructureSchema = [
   [_UVED],
   [() => UpdateVpcEndpointDetail],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VectorOptions: StaticStructureSchema = [3, n0, _VO, 0, [_SVA], [0]];
 export var VpcEndpointDetail: StaticStructureSchema = [
   3,
@@ -927,14 +867,11 @@ export var OpenSearchServerlessServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(OpenSearchServerlessServiceException, __OpenSearchServerlessServiceException);
-
 export var AccessPolicySummaries: StaticListSchema = [1, n0, _APScc, 0, () => AccessPolicySummary];
 export var CollectionDetails: StaticListSchema = [1, n0, _CDo, 0, () => CollectionDetail];
 export var CollectionErrorDetails: StaticListSchema = [1, n0, _CEDo, 0, () => CollectionErrorDetail];
 export var CollectionIds = 64 | 0;
-
 export var CollectionNames = 64 | 0;
-
 export var CollectionSummaries: StaticListSchema = [1, n0, _CSo, 0, () => CollectionSummary];
 export var EffectiveLifecyclePolicyDetails: StaticListSchema = [1, n0, _ELPDf, 0, () => EffectiveLifecyclePolicyDetail];
 export var EffectiveLifecyclePolicyErrorDetails: StaticListSchema = [
@@ -956,22 +893,16 @@ export var LifecyclePolicyResourceIdentifiers: StaticListSchema = [
 ];
 export var LifecyclePolicySummaries: StaticListSchema = [1, n0, _LPSif, 0, () => LifecyclePolicySummary];
 export var LifecycleResourceFilter = 64 | 0;
-
 export var ResourceFilter = 64 | 0;
-
 export var SecurityConfigSummaries: StaticListSchema = [1, n0, _SCSec, 0, () => SecurityConfigSummary];
 export var SecurityGroupIds = 64 | 0;
-
 export var SecurityPolicySummaries: StaticListSchema = [1, n0, _SPSec, 0, () => SecurityPolicySummary];
 export var SubnetIds = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var VpcEndpointDetails: StaticListSchema = [1, n0, _VEDp, 0, () => VpcEndpointDetail];
 export var VpcEndpointErrorDetails: StaticListSchema = [1, n0, _VEEDp, 0, () => VpcEndpointErrorDetail];
 export var VpcEndpointIds = 64 | 0;
-
 export var VpcEndpointSummaries: StaticListSchema = [1, n0, _VESp, 0, () => VpcEndpointSummary];
 export var BatchGetCollection: StaticOperationSchema = [
   9,

@@ -580,7 +580,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AlexaSkillId: StaticSimpleSchema = [0, n0, _ASI, 8, 0];
 export var Arn: StaticSimpleSchema = [0, n0, _A, 8, 0];
 export var CallingName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
@@ -592,19 +591,8 @@ export var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Address: StaticStructureSchema = [
   3,
   n0,
@@ -656,19 +644,8 @@ export var AssociatePhoneNumbersWithVoiceConnectorResponse: StaticStructureSchem
   [_PNE],
   [[() => PhoneNumberErrorList, 0]],
 ];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BatchDeletePhoneNumberRequest: StaticStructureSchema = [3, n0, _BDPNR, 0, [_PNI], [64 | 0]];
 export var BatchDeletePhoneNumberResponse: StaticStructureSchema = [
   3,
@@ -711,19 +688,8 @@ export var CandidateAddress: StaticStructureSchema = [
     [() => SensitiveNonEmptyString, 0],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreatePhoneNumberOrderRequest: StaticStructureSchema = [
   3,
   n0,
@@ -977,19 +943,8 @@ export var EmergencyCallingConfiguration: StaticStructureSchema = [
   [[() => DNISEmergencyCallingConfigurationList, 0]],
 ];
 export var ExternalSystemsConfiguration: StaticStructureSchema = [3, n0, _ESC, 0, [_SBCT, _CCST], [64 | 0, 64 | 0]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GeoMatchParams: StaticStructureSchema = [3, n0, _GMP, 0, [_Co, _AC], [0, 0]];
 export var GetGlobalSettingsResponse: StaticStructureSchema = [3, n0, _GGSR, 0, [_VC], [() => VoiceConnectorSettings]];
 export var GetPhoneNumberOrderRequest: StaticStructureSchema = [3, n0, _GPNOR, 0, [_PNOI], [[0, 1]]];
@@ -1195,12 +1150,7 @@ export var GetVoiceToneAnalysisTaskRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iC,
-      },
-    ],
+    [2, { [_hQ]: _iC }],
   ],
 ];
 export var GetVoiceToneAnalysisTaskResponse: StaticStructureSchema = [
@@ -1211,19 +1161,8 @@ export var GetVoiceToneAnalysisTaskResponse: StaticStructureSchema = [
   [_VTAT],
   [() => VoiceToneAnalysisTask],
 ];
-export var GoneException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var GoneException: StaticErrorSchema = [-3, n0, _GE, { [_e]: _c, [_hE]: 410 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(GoneException, __GoneException);
-
 export var ListAvailableVoiceConnectorRegionsResponse: StaticStructureSchema = [3, n0, _LAVCRR, 0, [_VCR], [64 | 0]];
 export var ListPhoneNumberOrdersRequest: StaticStructureSchema = [
   3,
@@ -1232,18 +1171,8 @@ export var ListPhoneNumberOrdersRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListPhoneNumberOrdersResponse: StaticStructureSchema = [
@@ -1261,42 +1190,12 @@ export var ListPhoneNumbersRequest: StaticStructureSchema = [
   0,
   [_S, _PT, _FN, _FV, _MR, _NTe],
   [
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fv,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _pt }],
+    [0, { [_hQ]: _fn }],
+    [0, { [_hQ]: _fv }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListPhoneNumbersResponse: StaticStructureSchema = [
@@ -1315,24 +1214,9 @@ export var ListProxySessionsRequest: StaticStructureSchema = [
   [_VCI, _S, _NTe, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListProxySessionsResponse: StaticStructureSchema = [
@@ -1350,18 +1234,8 @@ export var ListSipMediaApplicationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NTe],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListSipMediaApplicationsResponse: StaticStructureSchema = [
@@ -1379,24 +1253,9 @@ export var ListSipRulesRequest: StaticStructureSchema = [
   0,
   [_SMAI, _MR, _NTe],
   [
-    [
-      0,
-      {
-        [_hQ]: _sma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _sma }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListSipRulesResponse: StaticStructureSchema = [3, n0, _LSRRi, 0, [_SRi, _NTe], [() => SipRuleList, 0]];
@@ -1406,14 +1265,7 @@ export var ListSupportedPhoneNumberCountriesRequest: StaticStructureSchema = [
   _LSPNCR,
   0,
   [_PT],
-  [
-    [
-      0,
-      {
-        [_hQ]: _pt,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _pt }]],
 ];
 export var ListSupportedPhoneNumberCountriesResponse: StaticStructureSchema = [
   3,
@@ -1429,14 +1281,7 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [
   _LTFRR,
   0,
   [_RARN],
-  [
-    [
-      () => Arn,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
+  [[() => Arn, { [_hQ]: _a }]],
 ];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[() => TagList, 0]]];
 export var ListVoiceConnectorGroupsRequest: StaticStructureSchema = [
@@ -1446,18 +1291,8 @@ export var ListVoiceConnectorGroupsRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListVoiceConnectorGroupsResponse: StaticStructureSchema = [
@@ -1475,18 +1310,8 @@ export var ListVoiceConnectorsRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListVoiceConnectorsResponse: StaticStructureSchema = [
@@ -1520,18 +1345,8 @@ export var ListVoiceProfileDomainsRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListVoiceProfileDomainsResponse: StaticStructureSchema = [
@@ -1549,24 +1364,9 @@ export var ListVoiceProfilesRequest: StaticStructureSchema = [
   0,
   [_VPDI, _NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _vpdi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _vpdi }],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListVoiceProfilesResponse: StaticStructureSchema = [
@@ -1579,19 +1379,8 @@ export var ListVoiceProfilesResponse: StaticStructureSchema = [
 ];
 export var LoggingConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_ESIPL, _EMML], [2, 2]];
 export var MediaInsightsConfiguration: StaticStructureSchema = [3, n0, _MIC, 0, [_D, _CAo], [2, [() => Arn, 0]]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OrderedPhoneNumber: StaticStructureSchema = [3, n0, _OPN, 0, [_EPN, _S], [[() => E164PhoneNumber, 0], 0]];
 export var Origination: StaticStructureSchema = [3, n0, _O, 0, [_R, _D], [() => OriginationRouteList, 2]];
 export var OriginationRoute: StaticStructureSchema = [3, n0, _OR, 0, [_H, _Po, _Pro, _Pri, _W], [0, 1, 0, 1, 1]];
@@ -1829,15 +1618,11 @@ export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
 export var RestorePhoneNumberRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1854,54 +1639,14 @@ export var SearchAvailablePhoneNumbersRequest: StaticStructureSchema = [
   0,
   [_AC, _Ci, _Co, _St, _TFP, _PNT, _MR, _NTe],
   [
-    [
-      0,
-      {
-        [_hQ]: _ac,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ci,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _co,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tfp,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pnt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _ac }],
+    [0, { [_hQ]: _ci }],
+    [0, { [_hQ]: _co }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _tfp }],
+    [0, { [_hQ]: _pnt }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
@@ -1913,32 +1658,10 @@ export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
   [[() => E164PhoneNumberList, 0], 0],
 ];
 export var ServerSideEncryptionConfiguration: StaticStructureSchema = [3, n0, _SSEC, 0, [_KKA], [[() => Arn, 0]]];
-export var ServiceFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ServiceFailureException: StaticErrorSchema = [-3, n0, _SFE, { [_e]: _se, [_hE]: 500 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceFailureException, __ServiceFailureException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SipMediaApplication: StaticStructureSchema = [
   3,
   n0,
@@ -2078,45 +1801,12 @@ export var Termination: StaticStructureSchema = [
   [1, [() => E164PhoneNumber, 0], 64 | 0, 64 | 0, 2],
 ];
 export var TerminationHealth: StaticStructureSchema = [3, n0, _TH, 0, [_Ti, _So], [5, 0]];
-export var ThrottledClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ThrottledClientException: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 429 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottledClientException, __ThrottledClientException);
-
-export var UnauthorizedClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UCE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var UnauthorizedClientException: StaticErrorSchema = [-3, n0, _UCE, { [_e]: _c, [_hE]: 401 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(UnauthorizedClientException, __UnauthorizedClientException);
-
-export var UnprocessableEntityException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UEE,
-  {
-    [_e]: _c,
-    [_hE]: 422,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var UnprocessableEntityException: StaticErrorSchema = [-3, n0, _UEE, { [_e]: _c, [_hE]: 422 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(UnprocessableEntityException, __UnprocessableEntityException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2334,31 +2024,14 @@ export var VoiceToneAnalysisTask: StaticStructureSchema = [
   [0, 0, () => CallDetails, 5, 5, 5, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var ChimeSDKVoiceServiceException: StaticErrorSchema = [-3, _sm, "ChimeSDKVoiceServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ChimeSDKVoiceServiceException, __ChimeSDKVoiceServiceException);
-
 export var AlexaSkillIdList: StaticListSchema = [1, n0, _ASIL, 0, [() => AlexaSkillId, 0]];
 export var CallingRegionList = 64 | 0;
-
-export var CandidateAddressList: StaticListSchema = [
-  1,
-  n0,
-  _CALa,
-  0,
-  [
-    () => CandidateAddress,
-    {
-      [_xN]: _CA,
-    },
-  ],
-];
+export var CandidateAddressList: StaticListSchema = [1, n0, _CALa, 0, [() => CandidateAddress, { [_xN]: _CA }]];
 export var CapabilityList = 64 | 0;
-
 export var ContactCenterSystemTypeList = 64 | 0;
-
 export var CountryList = 64 | 0;
-
 export var CredentialList: StaticListSchema = [1, n0, _CLr, 0, [() => Credential, 0]];
 export var DNISEmergencyCallingConfigurationList: StaticListSchema = [
   1,
@@ -2369,7 +2042,6 @@ export var DNISEmergencyCallingConfigurationList: StaticListSchema = [
 ];
 export var E164PhoneNumberList: StaticListSchema = [1, n0, _EPNL, 0, [() => E164PhoneNumber, 0]];
 export var NonEmptyStringList = 64 | 0;
-
 export var OrderedPhoneNumberList: StaticListSchema = [1, n0, _OPNL, 0, [() => OrderedPhoneNumber, 0]];
 export var OriginationRouteList: StaticListSchema = [1, n0, _ORL, 0, () => OriginationRoute];
 export var ParticipantPhoneNumberList: StaticListSchema = [1, n0, _PPNL, 0, [() => E164PhoneNumber, 0]];
@@ -2380,11 +2052,9 @@ export var PhoneNumberErrorList: StaticListSchema = [1, n0, _PNEL, 0, [() => Pho
 export var PhoneNumberList: StaticListSchema = [1, n0, _PNL, 0, [() => PhoneNumber, 0]];
 export var PhoneNumberOrderList: StaticListSchema = [1, n0, _PNOL, 0, [() => PhoneNumberOrder, 0]];
 export var PhoneNumberTypeList = 64 | 0;
-
 export var ProxySessions: StaticListSchema = [1, n0, _PSr, 0, [() => ProxySession, 0]];
 export var SensitiveStringList: StaticListSchema = [1, n0, _SSL, 0, [() => SensitiveString, 0]];
 export var SessionBorderControllerTypeList = 64 | 0;
-
 export var SipMediaApplicationEndpointList: StaticListSchema = [
   1,
   n0,
@@ -2398,7 +2068,6 @@ export var SipRuleTargetApplicationList: StaticListSchema = [1, n0, _SRTAL, 0, (
 export var SpeakerSearchResultList: StaticListSchema = [1, n0, _SSRL, 0, () => SpeakerSearchResult];
 export var StreamingNotificationTargetList: StaticListSchema = [1, n0, _SNTL, 0, () => StreamingNotificationTarget];
 export var StringList = 64 | 0;
-
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, 0]];
 export var UpdatePhoneNumberRequestItemList: StaticListSchema = [
@@ -2409,7 +2078,6 @@ export var UpdatePhoneNumberRequestItemList: StaticListSchema = [
   [() => UpdatePhoneNumberRequestItem, 0],
 ];
 export var VoiceConnectorAwsRegionList = 64 | 0;
-
 export var VoiceConnectorGroupList: StaticListSchema = [1, n0, _VCGL, 0, () => VoiceConnectorGroup];
 export var VoiceConnectorItemList: StaticListSchema = [1, n0, _VCIL, 0, () => VoiceConnectorItem];
 export var VoiceConnectorList: StaticListSchema = [1, n0, _VCL, 0, () => VoiceConnector];
@@ -2436,9 +2104,7 @@ export var AssociatePhoneNumbersWithVoiceConnector: StaticOperationSchema = [
   9,
   n0,
   _APNWVC,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}?operation=associate-phone-numbers", 200],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}?operation=associate-phone-numbers", 200] },
   () => AssociatePhoneNumbersWithVoiceConnectorRequest,
   () => AssociatePhoneNumbersWithVoiceConnectorResponse,
 ];
@@ -2446,9 +2112,7 @@ export var AssociatePhoneNumbersWithVoiceConnectorGroup: StaticOperationSchema =
   9,
   n0,
   _APNWVCG,
-  {
-    [_h]: ["POST", "/voice-connector-groups/{VoiceConnectorGroupId}?operation=associate-phone-numbers", 200],
-  },
+  { [_h]: ["POST", "/voice-connector-groups/{VoiceConnectorGroupId}?operation=associate-phone-numbers", 200] },
   () => AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
   () => AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
 ];
@@ -2456,9 +2120,7 @@ export var BatchDeletePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _BDPN,
-  {
-    [_h]: ["POST", "/phone-numbers?operation=batch-delete", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers?operation=batch-delete", 200] },
   () => BatchDeletePhoneNumberRequest,
   () => BatchDeletePhoneNumberResponse,
 ];
@@ -2466,9 +2128,7 @@ export var BatchUpdatePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _BUPN,
-  {
-    [_h]: ["POST", "/phone-numbers?operation=batch-update", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers?operation=batch-update", 200] },
   () => BatchUpdatePhoneNumberRequest,
   () => BatchUpdatePhoneNumberResponse,
 ];
@@ -2476,9 +2136,7 @@ export var CreatePhoneNumberOrder: StaticOperationSchema = [
   9,
   n0,
   _CPNO,
-  {
-    [_h]: ["POST", "/phone-number-orders", 201],
-  },
+  { [_h]: ["POST", "/phone-number-orders", 201] },
   () => CreatePhoneNumberOrderRequest,
   () => CreatePhoneNumberOrderResponse,
 ];
@@ -2486,9 +2144,7 @@ export var CreateProxySession: StaticOperationSchema = [
   9,
   n0,
   _CPS,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/proxy-sessions", 201],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/proxy-sessions", 201] },
   () => CreateProxySessionRequest,
   () => CreateProxySessionResponse,
 ];
@@ -2496,9 +2152,7 @@ export var CreateSipMediaApplication: StaticOperationSchema = [
   9,
   n0,
   _CSMA,
-  {
-    [_h]: ["POST", "/sip-media-applications", 201],
-  },
+  { [_h]: ["POST", "/sip-media-applications", 201] },
   () => CreateSipMediaApplicationRequest,
   () => CreateSipMediaApplicationResponse,
 ];
@@ -2506,9 +2160,7 @@ export var CreateSipMediaApplicationCall: StaticOperationSchema = [
   9,
   n0,
   _CSMAC,
-  {
-    [_h]: ["POST", "/sip-media-applications/{SipMediaApplicationId}/calls", 201],
-  },
+  { [_h]: ["POST", "/sip-media-applications/{SipMediaApplicationId}/calls", 201] },
   () => CreateSipMediaApplicationCallRequest,
   () => CreateSipMediaApplicationCallResponse,
 ];
@@ -2516,9 +2168,7 @@ export var CreateSipRule: StaticOperationSchema = [
   9,
   n0,
   _CSR,
-  {
-    [_h]: ["POST", "/sip-rules", 201],
-  },
+  { [_h]: ["POST", "/sip-rules", 201] },
   () => CreateSipRuleRequest,
   () => CreateSipRuleResponse,
 ];
@@ -2526,9 +2176,7 @@ export var CreateVoiceConnector: StaticOperationSchema = [
   9,
   n0,
   _CVC,
-  {
-    [_h]: ["POST", "/voice-connectors", 201],
-  },
+  { [_h]: ["POST", "/voice-connectors", 201] },
   () => CreateVoiceConnectorRequest,
   () => CreateVoiceConnectorResponse,
 ];
@@ -2536,9 +2184,7 @@ export var CreateVoiceConnectorGroup: StaticOperationSchema = [
   9,
   n0,
   _CVCG,
-  {
-    [_h]: ["POST", "/voice-connector-groups", 201],
-  },
+  { [_h]: ["POST", "/voice-connector-groups", 201] },
   () => CreateVoiceConnectorGroupRequest,
   () => CreateVoiceConnectorGroupResponse,
 ];
@@ -2546,9 +2192,7 @@ export var CreateVoiceProfile: StaticOperationSchema = [
   9,
   n0,
   _CVP,
-  {
-    [_h]: ["POST", "/voice-profiles", 201],
-  },
+  { [_h]: ["POST", "/voice-profiles", 201] },
   () => CreateVoiceProfileRequest,
   () => CreateVoiceProfileResponse,
 ];
@@ -2556,9 +2200,7 @@ export var CreateVoiceProfileDomain: StaticOperationSchema = [
   9,
   n0,
   _CVPD,
-  {
-    [_h]: ["POST", "/voice-profile-domains", 201],
-  },
+  { [_h]: ["POST", "/voice-profile-domains", 201] },
   () => CreateVoiceProfileDomainRequest,
   () => CreateVoiceProfileDomainResponse,
 ];
@@ -2566,9 +2208,7 @@ export var DeletePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _DPNe,
-  {
-    [_h]: ["DELETE", "/phone-numbers/{PhoneNumberId}", 204],
-  },
+  { [_h]: ["DELETE", "/phone-numbers/{PhoneNumberId}", 204] },
   () => DeletePhoneNumberRequest,
   () => __Unit,
 ];
@@ -2576,9 +2216,7 @@ export var DeleteProxySession: StaticOperationSchema = [
   9,
   n0,
   _DPS,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", 204] },
   () => DeleteProxySessionRequest,
   () => __Unit,
 ];
@@ -2586,9 +2224,7 @@ export var DeleteSipMediaApplication: StaticOperationSchema = [
   9,
   n0,
   _DSMA,
-  {
-    [_h]: ["DELETE", "/sip-media-applications/{SipMediaApplicationId}", 204],
-  },
+  { [_h]: ["DELETE", "/sip-media-applications/{SipMediaApplicationId}", 204] },
   () => DeleteSipMediaApplicationRequest,
   () => __Unit,
 ];
@@ -2596,9 +2232,7 @@ export var DeleteSipRule: StaticOperationSchema = [
   9,
   n0,
   _DSR,
-  {
-    [_h]: ["DELETE", "/sip-rules/{SipRuleId}", 204],
-  },
+  { [_h]: ["DELETE", "/sip-rules/{SipRuleId}", 204] },
   () => DeleteSipRuleRequest,
   () => __Unit,
 ];
@@ -2606,9 +2240,7 @@ export var DeleteVoiceConnector: StaticOperationSchema = [
   9,
   n0,
   _DVC,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}", 204] },
   () => DeleteVoiceConnectorRequest,
   () => __Unit,
 ];
@@ -2616,9 +2248,7 @@ export var DeleteVoiceConnectorEmergencyCallingConfiguration: StaticOperationSch
   9,
   n0,
   _DVCECC,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration", 204] },
   () => DeleteVoiceConnectorEmergencyCallingConfigurationRequest,
   () => __Unit,
 ];
@@ -2626,9 +2256,7 @@ export var DeleteVoiceConnectorExternalSystemsConfiguration: StaticOperationSche
   9,
   n0,
   _DVCESC,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/external-systems-configuration", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/external-systems-configuration", 204] },
   () => DeleteVoiceConnectorExternalSystemsConfigurationRequest,
   () => __Unit,
 ];
@@ -2636,9 +2264,7 @@ export var DeleteVoiceConnectorGroup: StaticOperationSchema = [
   9,
   n0,
   _DVCG,
-  {
-    [_h]: ["DELETE", "/voice-connector-groups/{VoiceConnectorGroupId}", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connector-groups/{VoiceConnectorGroupId}", 204] },
   () => DeleteVoiceConnectorGroupRequest,
   () => __Unit,
 ];
@@ -2646,9 +2272,7 @@ export var DeleteVoiceConnectorOrigination: StaticOperationSchema = [
   9,
   n0,
   _DVCO,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/origination", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/origination", 204] },
   () => DeleteVoiceConnectorOriginationRequest,
   () => __Unit,
 ];
@@ -2656,9 +2280,7 @@ export var DeleteVoiceConnectorProxy: StaticOperationSchema = [
   9,
   n0,
   _DVCP,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy", 204] },
   () => DeleteVoiceConnectorProxyRequest,
   () => __Unit,
 ];
@@ -2666,9 +2288,7 @@ export var DeleteVoiceConnectorStreamingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DVCSC,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/streaming-configuration", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/streaming-configuration", 204] },
   () => DeleteVoiceConnectorStreamingConfigurationRequest,
   () => __Unit,
 ];
@@ -2676,9 +2296,7 @@ export var DeleteVoiceConnectorTermination: StaticOperationSchema = [
   9,
   n0,
   _DVCT,
-  {
-    [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/termination", 204],
-  },
+  { [_h]: ["DELETE", "/voice-connectors/{VoiceConnectorId}/termination", 204] },
   () => DeleteVoiceConnectorTerminationRequest,
   () => __Unit,
 ];
@@ -2686,9 +2304,7 @@ export var DeleteVoiceConnectorTerminationCredentials: StaticOperationSchema = [
   9,
   n0,
   _DVCTC,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=delete", 204],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=delete", 204] },
   () => DeleteVoiceConnectorTerminationCredentialsRequest,
   () => __Unit,
 ];
@@ -2696,9 +2312,7 @@ export var DeleteVoiceProfile: StaticOperationSchema = [
   9,
   n0,
   _DVP,
-  {
-    [_h]: ["DELETE", "/voice-profiles/{VoiceProfileId}", 204],
-  },
+  { [_h]: ["DELETE", "/voice-profiles/{VoiceProfileId}", 204] },
   () => DeleteVoiceProfileRequest,
   () => __Unit,
 ];
@@ -2706,9 +2320,7 @@ export var DeleteVoiceProfileDomain: StaticOperationSchema = [
   9,
   n0,
   _DVPD,
-  {
-    [_h]: ["DELETE", "/voice-profile-domains/{VoiceProfileDomainId}", 204],
-  },
+  { [_h]: ["DELETE", "/voice-profile-domains/{VoiceProfileDomainId}", 204] },
   () => DeleteVoiceProfileDomainRequest,
   () => __Unit,
 ];
@@ -2716,9 +2328,7 @@ export var DisassociatePhoneNumbersFromVoiceConnector: StaticOperationSchema = [
   9,
   n0,
   _DPNFVC,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}?operation=disassociate-phone-numbers", 200],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}?operation=disassociate-phone-numbers", 200] },
   () => DisassociatePhoneNumbersFromVoiceConnectorRequest,
   () => DisassociatePhoneNumbersFromVoiceConnectorResponse,
 ];
@@ -2726,9 +2336,7 @@ export var DisassociatePhoneNumbersFromVoiceConnectorGroup: StaticOperationSchem
   9,
   n0,
   _DPNFVCG,
-  {
-    [_h]: ["POST", "/voice-connector-groups/{VoiceConnectorGroupId}?operation=disassociate-phone-numbers", 200],
-  },
+  { [_h]: ["POST", "/voice-connector-groups/{VoiceConnectorGroupId}?operation=disassociate-phone-numbers", 200] },
   () => DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
   () => DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
 ];
@@ -2736,9 +2344,7 @@ export var GetGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _GGS,
-  {
-    [_h]: ["GET", "/settings", 200],
-  },
+  { [_h]: ["GET", "/settings", 200] },
   () => __Unit,
   () => GetGlobalSettingsResponse,
 ];
@@ -2746,9 +2352,7 @@ export var GetPhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _GPN,
-  {
-    [_h]: ["GET", "/phone-numbers/{PhoneNumberId}", 200],
-  },
+  { [_h]: ["GET", "/phone-numbers/{PhoneNumberId}", 200] },
   () => GetPhoneNumberRequest,
   () => GetPhoneNumberResponse,
 ];
@@ -2756,9 +2360,7 @@ export var GetPhoneNumberOrder: StaticOperationSchema = [
   9,
   n0,
   _GPNO,
-  {
-    [_h]: ["GET", "/phone-number-orders/{PhoneNumberOrderId}", 200],
-  },
+  { [_h]: ["GET", "/phone-number-orders/{PhoneNumberOrderId}", 200] },
   () => GetPhoneNumberOrderRequest,
   () => GetPhoneNumberOrderResponse,
 ];
@@ -2766,9 +2368,7 @@ export var GetPhoneNumberSettings: StaticOperationSchema = [
   9,
   n0,
   _GPNS,
-  {
-    [_h]: ["GET", "/settings/phone-number", 200],
-  },
+  { [_h]: ["GET", "/settings/phone-number", 200] },
   () => __Unit,
   () => GetPhoneNumberSettingsResponse,
 ];
@@ -2776,9 +2376,7 @@ export var GetProxySession: StaticOperationSchema = [
   9,
   n0,
   _GPS,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", 200] },
   () => GetProxySessionRequest,
   () => GetProxySessionResponse,
 ];
@@ -2786,9 +2384,7 @@ export var GetSipMediaApplication: StaticOperationSchema = [
   9,
   n0,
   _GSMA,
-  {
-    [_h]: ["GET", "/sip-media-applications/{SipMediaApplicationId}", 200],
-  },
+  { [_h]: ["GET", "/sip-media-applications/{SipMediaApplicationId}", 200] },
   () => GetSipMediaApplicationRequest,
   () => GetSipMediaApplicationResponse,
 ];
@@ -2796,9 +2392,7 @@ export var GetSipMediaApplicationAlexaSkillConfiguration: StaticOperationSchema 
   9,
   n0,
   _GSMAASC,
-  {
-    [_h]: ["GET", "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration", 200],
-  },
+  { [_h]: ["GET", "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration", 200] },
   () => GetSipMediaApplicationAlexaSkillConfigurationRequest,
   () => GetSipMediaApplicationAlexaSkillConfigurationResponse,
 ];
@@ -2806,9 +2400,7 @@ export var GetSipMediaApplicationLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GSMALC,
-  {
-    [_h]: ["GET", "/sip-media-applications/{SipMediaApplicationId}/logging-configuration", 200],
-  },
+  { [_h]: ["GET", "/sip-media-applications/{SipMediaApplicationId}/logging-configuration", 200] },
   () => GetSipMediaApplicationLoggingConfigurationRequest,
   () => GetSipMediaApplicationLoggingConfigurationResponse,
 ];
@@ -2816,9 +2408,7 @@ export var GetSipRule: StaticOperationSchema = [
   9,
   n0,
   _GSR,
-  {
-    [_h]: ["GET", "/sip-rules/{SipRuleId}", 200],
-  },
+  { [_h]: ["GET", "/sip-rules/{SipRuleId}", 200] },
   () => GetSipRuleRequest,
   () => GetSipRuleResponse,
 ];
@@ -2826,9 +2416,7 @@ export var GetSpeakerSearchTask: StaticOperationSchema = [
   9,
   n0,
   _GSST,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}", 200] },
   () => GetSpeakerSearchTaskRequest,
   () => GetSpeakerSearchTaskResponse,
 ];
@@ -2836,9 +2424,7 @@ export var GetVoiceConnector: StaticOperationSchema = [
   9,
   n0,
   _GVC,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}", 200] },
   () => GetVoiceConnectorRequest,
   () => GetVoiceConnectorResponse,
 ];
@@ -2846,9 +2432,7 @@ export var GetVoiceConnectorEmergencyCallingConfiguration: StaticOperationSchema
   9,
   n0,
   _GVCECC,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration", 200] },
   () => GetVoiceConnectorEmergencyCallingConfigurationRequest,
   () => GetVoiceConnectorEmergencyCallingConfigurationResponse,
 ];
@@ -2856,9 +2440,7 @@ export var GetVoiceConnectorExternalSystemsConfiguration: StaticOperationSchema 
   9,
   n0,
   _GVCESC,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/external-systems-configuration", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/external-systems-configuration", 200] },
   () => GetVoiceConnectorExternalSystemsConfigurationRequest,
   () => GetVoiceConnectorExternalSystemsConfigurationResponse,
 ];
@@ -2866,9 +2448,7 @@ export var GetVoiceConnectorGroup: StaticOperationSchema = [
   9,
   n0,
   _GVCG,
-  {
-    [_h]: ["GET", "/voice-connector-groups/{VoiceConnectorGroupId}", 200],
-  },
+  { [_h]: ["GET", "/voice-connector-groups/{VoiceConnectorGroupId}", 200] },
   () => GetVoiceConnectorGroupRequest,
   () => GetVoiceConnectorGroupResponse,
 ];
@@ -2876,9 +2456,7 @@ export var GetVoiceConnectorLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GVCLC,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/logging-configuration", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/logging-configuration", 200] },
   () => GetVoiceConnectorLoggingConfigurationRequest,
   () => GetVoiceConnectorLoggingConfigurationResponse,
 ];
@@ -2886,9 +2464,7 @@ export var GetVoiceConnectorOrigination: StaticOperationSchema = [
   9,
   n0,
   _GVCO,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/origination", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/origination", 200] },
   () => GetVoiceConnectorOriginationRequest,
   () => GetVoiceConnectorOriginationResponse,
 ];
@@ -2896,9 +2472,7 @@ export var GetVoiceConnectorProxy: StaticOperationSchema = [
   9,
   n0,
   _GVCP,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy", 200] },
   () => GetVoiceConnectorProxyRequest,
   () => GetVoiceConnectorProxyResponse,
 ];
@@ -2906,9 +2480,7 @@ export var GetVoiceConnectorStreamingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GVCSC,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/streaming-configuration", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/streaming-configuration", 200] },
   () => GetVoiceConnectorStreamingConfigurationRequest,
   () => GetVoiceConnectorStreamingConfigurationResponse,
 ];
@@ -2916,9 +2488,7 @@ export var GetVoiceConnectorTermination: StaticOperationSchema = [
   9,
   n0,
   _GVCT,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/termination", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/termination", 200] },
   () => GetVoiceConnectorTerminationRequest,
   () => GetVoiceConnectorTerminationResponse,
 ];
@@ -2926,9 +2496,7 @@ export var GetVoiceConnectorTerminationHealth: StaticOperationSchema = [
   9,
   n0,
   _GVCTH,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/termination/health", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/termination/health", 200] },
   () => GetVoiceConnectorTerminationHealthRequest,
   () => GetVoiceConnectorTerminationHealthResponse,
 ];
@@ -2936,9 +2504,7 @@ export var GetVoiceProfile: StaticOperationSchema = [
   9,
   n0,
   _GVP,
-  {
-    [_h]: ["GET", "/voice-profiles/{VoiceProfileId}", 200],
-  },
+  { [_h]: ["GET", "/voice-profiles/{VoiceProfileId}", 200] },
   () => GetVoiceProfileRequest,
   () => GetVoiceProfileResponse,
 ];
@@ -2946,9 +2512,7 @@ export var GetVoiceProfileDomain: StaticOperationSchema = [
   9,
   n0,
   _GVPD,
-  {
-    [_h]: ["GET", "/voice-profile-domains/{VoiceProfileDomainId}", 200],
-  },
+  { [_h]: ["GET", "/voice-profile-domains/{VoiceProfileDomainId}", 200] },
   () => GetVoiceProfileDomainRequest,
   () => GetVoiceProfileDomainResponse,
 ];
@@ -2956,9 +2520,7 @@ export var GetVoiceToneAnalysisTask: StaticOperationSchema = [
   9,
   n0,
   _GVTAT,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}", 200] },
   () => GetVoiceToneAnalysisTaskRequest,
   () => GetVoiceToneAnalysisTaskResponse,
 ];
@@ -2966,9 +2528,7 @@ export var ListAvailableVoiceConnectorRegions: StaticOperationSchema = [
   9,
   n0,
   _LAVCR,
-  {
-    [_h]: ["GET", "/voice-connector-regions", 200],
-  },
+  { [_h]: ["GET", "/voice-connector-regions", 200] },
   () => __Unit,
   () => ListAvailableVoiceConnectorRegionsResponse,
 ];
@@ -2976,9 +2536,7 @@ export var ListPhoneNumberOrders: StaticOperationSchema = [
   9,
   n0,
   _LPNO,
-  {
-    [_h]: ["GET", "/phone-number-orders", 200],
-  },
+  { [_h]: ["GET", "/phone-number-orders", 200] },
   () => ListPhoneNumberOrdersRequest,
   () => ListPhoneNumberOrdersResponse,
 ];
@@ -2986,9 +2544,7 @@ export var ListPhoneNumbers: StaticOperationSchema = [
   9,
   n0,
   _LPN,
-  {
-    [_h]: ["GET", "/phone-numbers", 200],
-  },
+  { [_h]: ["GET", "/phone-numbers", 200] },
   () => ListPhoneNumbersRequest,
   () => ListPhoneNumbersResponse,
 ];
@@ -2996,9 +2552,7 @@ export var ListProxySessions: StaticOperationSchema = [
   9,
   n0,
   _LPS,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/proxy-sessions", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/proxy-sessions", 200] },
   () => ListProxySessionsRequest,
   () => ListProxySessionsResponse,
 ];
@@ -3006,9 +2560,7 @@ export var ListSipMediaApplications: StaticOperationSchema = [
   9,
   n0,
   _LSMA,
-  {
-    [_h]: ["GET", "/sip-media-applications", 200],
-  },
+  { [_h]: ["GET", "/sip-media-applications", 200] },
   () => ListSipMediaApplicationsRequest,
   () => ListSipMediaApplicationsResponse,
 ];
@@ -3016,9 +2568,7 @@ export var ListSipRules: StaticOperationSchema = [
   9,
   n0,
   _LSR,
-  {
-    [_h]: ["GET", "/sip-rules", 200],
-  },
+  { [_h]: ["GET", "/sip-rules", 200] },
   () => ListSipRulesRequest,
   () => ListSipRulesResponse,
 ];
@@ -3026,9 +2576,7 @@ export var ListSupportedPhoneNumberCountries: StaticOperationSchema = [
   9,
   n0,
   _LSPNC,
-  {
-    [_h]: ["GET", "/phone-number-countries", 200],
-  },
+  { [_h]: ["GET", "/phone-number-countries", 200] },
   () => ListSupportedPhoneNumberCountriesRequest,
   () => ListSupportedPhoneNumberCountriesResponse,
 ];
@@ -3036,9 +2584,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3046,9 +2592,7 @@ export var ListVoiceConnectorGroups: StaticOperationSchema = [
   9,
   n0,
   _LVCG,
-  {
-    [_h]: ["GET", "/voice-connector-groups", 200],
-  },
+  { [_h]: ["GET", "/voice-connector-groups", 200] },
   () => ListVoiceConnectorGroupsRequest,
   () => ListVoiceConnectorGroupsResponse,
 ];
@@ -3056,9 +2600,7 @@ export var ListVoiceConnectors: StaticOperationSchema = [
   9,
   n0,
   _LVC,
-  {
-    [_h]: ["GET", "/voice-connectors", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors", 200] },
   () => ListVoiceConnectorsRequest,
   () => ListVoiceConnectorsResponse,
 ];
@@ -3066,9 +2608,7 @@ export var ListVoiceConnectorTerminationCredentials: StaticOperationSchema = [
   9,
   n0,
   _LVCTC,
-  {
-    [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/termination/credentials", 200],
-  },
+  { [_h]: ["GET", "/voice-connectors/{VoiceConnectorId}/termination/credentials", 200] },
   () => ListVoiceConnectorTerminationCredentialsRequest,
   () => ListVoiceConnectorTerminationCredentialsResponse,
 ];
@@ -3076,9 +2616,7 @@ export var ListVoiceProfileDomains: StaticOperationSchema = [
   9,
   n0,
   _LVPD,
-  {
-    [_h]: ["GET", "/voice-profile-domains", 200],
-  },
+  { [_h]: ["GET", "/voice-profile-domains", 200] },
   () => ListVoiceProfileDomainsRequest,
   () => ListVoiceProfileDomainsResponse,
 ];
@@ -3086,9 +2624,7 @@ export var ListVoiceProfiles: StaticOperationSchema = [
   9,
   n0,
   _LVP,
-  {
-    [_h]: ["GET", "/voice-profiles", 200],
-  },
+  { [_h]: ["GET", "/voice-profiles", 200] },
   () => ListVoiceProfilesRequest,
   () => ListVoiceProfilesResponse,
 ];
@@ -3096,9 +2632,7 @@ export var PutSipMediaApplicationAlexaSkillConfiguration: StaticOperationSchema 
   9,
   n0,
   _PSMAASC,
-  {
-    [_h]: ["PUT", "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration", 200],
-  },
+  { [_h]: ["PUT", "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration", 200] },
   () => PutSipMediaApplicationAlexaSkillConfigurationRequest,
   () => PutSipMediaApplicationAlexaSkillConfigurationResponse,
 ];
@@ -3106,9 +2640,7 @@ export var PutSipMediaApplicationLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PSMALC,
-  {
-    [_h]: ["PUT", "/sip-media-applications/{SipMediaApplicationId}/logging-configuration", 200],
-  },
+  { [_h]: ["PUT", "/sip-media-applications/{SipMediaApplicationId}/logging-configuration", 200] },
   () => PutSipMediaApplicationLoggingConfigurationRequest,
   () => PutSipMediaApplicationLoggingConfigurationResponse,
 ];
@@ -3116,9 +2648,7 @@ export var PutVoiceConnectorEmergencyCallingConfiguration: StaticOperationSchema
   9,
   n0,
   _PVCECC,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration", 200] },
   () => PutVoiceConnectorEmergencyCallingConfigurationRequest,
   () => PutVoiceConnectorEmergencyCallingConfigurationResponse,
 ];
@@ -3126,9 +2656,7 @@ export var PutVoiceConnectorExternalSystemsConfiguration: StaticOperationSchema 
   9,
   n0,
   _PVCESC,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/external-systems-configuration", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/external-systems-configuration", 200] },
   () => PutVoiceConnectorExternalSystemsConfigurationRequest,
   () => PutVoiceConnectorExternalSystemsConfigurationResponse,
 ];
@@ -3136,9 +2664,7 @@ export var PutVoiceConnectorLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PVCLC,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/logging-configuration", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/logging-configuration", 200] },
   () => PutVoiceConnectorLoggingConfigurationRequest,
   () => PutVoiceConnectorLoggingConfigurationResponse,
 ];
@@ -3146,9 +2672,7 @@ export var PutVoiceConnectorOrigination: StaticOperationSchema = [
   9,
   n0,
   _PVCO,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/origination", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/origination", 200] },
   () => PutVoiceConnectorOriginationRequest,
   () => PutVoiceConnectorOriginationResponse,
 ];
@@ -3156,9 +2680,7 @@ export var PutVoiceConnectorProxy: StaticOperationSchema = [
   9,
   n0,
   _PVCP,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy", 200] },
   () => PutVoiceConnectorProxyRequest,
   () => PutVoiceConnectorProxyResponse,
 ];
@@ -3166,9 +2688,7 @@ export var PutVoiceConnectorStreamingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PVCSC,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/streaming-configuration", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/streaming-configuration", 200] },
   () => PutVoiceConnectorStreamingConfigurationRequest,
   () => PutVoiceConnectorStreamingConfigurationResponse,
 ];
@@ -3176,9 +2696,7 @@ export var PutVoiceConnectorTermination: StaticOperationSchema = [
   9,
   n0,
   _PVCT,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/termination", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}/termination", 200] },
   () => PutVoiceConnectorTerminationRequest,
   () => PutVoiceConnectorTerminationResponse,
 ];
@@ -3186,9 +2704,7 @@ export var PutVoiceConnectorTerminationCredentials: StaticOperationSchema = [
   9,
   n0,
   _PVCTC,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=put", 204],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/termination/credentials?operation=put", 204] },
   () => PutVoiceConnectorTerminationCredentialsRequest,
   () => __Unit,
 ];
@@ -3196,9 +2712,7 @@ export var RestorePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _RPN,
-  {
-    [_h]: ["POST", "/phone-numbers/{PhoneNumberId}?operation=restore", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers/{PhoneNumberId}?operation=restore", 200] },
   () => RestorePhoneNumberRequest,
   () => RestorePhoneNumberResponse,
 ];
@@ -3206,9 +2720,7 @@ export var SearchAvailablePhoneNumbers: StaticOperationSchema = [
   9,
   n0,
   _SAPN,
-  {
-    [_h]: ["GET", "/search?type=phone-numbers", 200],
-  },
+  { [_h]: ["GET", "/search?type=phone-numbers", 200] },
   () => SearchAvailablePhoneNumbersRequest,
   () => SearchAvailablePhoneNumbersResponse,
 ];
@@ -3216,9 +2728,7 @@ export var StartSpeakerSearchTask: StaticOperationSchema = [
   9,
   n0,
   _SSST,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks", 201],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks", 201] },
   () => StartSpeakerSearchTaskRequest,
   () => StartSpeakerSearchTaskResponse,
 ];
@@ -3226,9 +2736,7 @@ export var StartVoiceToneAnalysisTask: StaticOperationSchema = [
   9,
   n0,
   _SVTAT,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks", 201],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks", 201] },
   () => StartVoiceToneAnalysisTaskRequest,
   () => StartVoiceToneAnalysisTaskResponse,
 ];
@@ -3264,9 +2772,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags?operation=tag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=tag-resource", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -3274,9 +2780,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/tags?operation=untag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=untag-resource", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -3284,9 +2788,7 @@ export var UpdateGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _UGS,
-  {
-    [_h]: ["PUT", "/settings", 204],
-  },
+  { [_h]: ["PUT", "/settings", 204] },
   () => UpdateGlobalSettingsRequest,
   () => __Unit,
 ];
@@ -3294,9 +2796,7 @@ export var UpdatePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _UPN,
-  {
-    [_h]: ["POST", "/phone-numbers/{PhoneNumberId}", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers/{PhoneNumberId}", 200] },
   () => UpdatePhoneNumberRequest,
   () => UpdatePhoneNumberResponse,
 ];
@@ -3304,9 +2804,7 @@ export var UpdatePhoneNumberSettings: StaticOperationSchema = [
   9,
   n0,
   _UPNS,
-  {
-    [_h]: ["PUT", "/settings/phone-number", 204],
-  },
+  { [_h]: ["PUT", "/settings/phone-number", 204] },
   () => UpdatePhoneNumberSettingsRequest,
   () => __Unit,
 ];
@@ -3314,9 +2812,7 @@ export var UpdateProxySession: StaticOperationSchema = [
   9,
   n0,
   _UPS,
-  {
-    [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", 201],
-  },
+  { [_h]: ["POST", "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}", 201] },
   () => UpdateProxySessionRequest,
   () => UpdateProxySessionResponse,
 ];
@@ -3324,9 +2820,7 @@ export var UpdateSipMediaApplication: StaticOperationSchema = [
   9,
   n0,
   _USMA,
-  {
-    [_h]: ["PUT", "/sip-media-applications/{SipMediaApplicationId}", 200],
-  },
+  { [_h]: ["PUT", "/sip-media-applications/{SipMediaApplicationId}", 200] },
   () => UpdateSipMediaApplicationRequest,
   () => UpdateSipMediaApplicationResponse,
 ];
@@ -3334,9 +2828,7 @@ export var UpdateSipMediaApplicationCall: StaticOperationSchema = [
   9,
   n0,
   _USMAC,
-  {
-    [_h]: ["POST", "/sip-media-applications/{SipMediaApplicationId}/calls/{TransactionId}", 202],
-  },
+  { [_h]: ["POST", "/sip-media-applications/{SipMediaApplicationId}/calls/{TransactionId}", 202] },
   () => UpdateSipMediaApplicationCallRequest,
   () => UpdateSipMediaApplicationCallResponse,
 ];
@@ -3344,9 +2836,7 @@ export var UpdateSipRule: StaticOperationSchema = [
   9,
   n0,
   _USR,
-  {
-    [_h]: ["PUT", "/sip-rules/{SipRuleId}", 202],
-  },
+  { [_h]: ["PUT", "/sip-rules/{SipRuleId}", 202] },
   () => UpdateSipRuleRequest,
   () => UpdateSipRuleResponse,
 ];
@@ -3354,9 +2844,7 @@ export var UpdateVoiceConnector: StaticOperationSchema = [
   9,
   n0,
   _UVC,
-  {
-    [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}", 200],
-  },
+  { [_h]: ["PUT", "/voice-connectors/{VoiceConnectorId}", 200] },
   () => UpdateVoiceConnectorRequest,
   () => UpdateVoiceConnectorResponse,
 ];
@@ -3364,9 +2852,7 @@ export var UpdateVoiceConnectorGroup: StaticOperationSchema = [
   9,
   n0,
   _UVCG,
-  {
-    [_h]: ["PUT", "/voice-connector-groups/{VoiceConnectorGroupId}", 202],
-  },
+  { [_h]: ["PUT", "/voice-connector-groups/{VoiceConnectorGroupId}", 202] },
   () => UpdateVoiceConnectorGroupRequest,
   () => UpdateVoiceConnectorGroupResponse,
 ];
@@ -3374,9 +2860,7 @@ export var UpdateVoiceProfile: StaticOperationSchema = [
   9,
   n0,
   _UVP,
-  {
-    [_h]: ["PUT", "/voice-profiles/{VoiceProfileId}", 200],
-  },
+  { [_h]: ["PUT", "/voice-profiles/{VoiceProfileId}", 200] },
   () => UpdateVoiceProfileRequest,
   () => UpdateVoiceProfileResponse,
 ];
@@ -3384,9 +2868,7 @@ export var UpdateVoiceProfileDomain: StaticOperationSchema = [
   9,
   n0,
   _UVPD,
-  {
-    [_h]: ["PUT", "/voice-profile-domains/{VoiceProfileDomainId}", 200],
-  },
+  { [_h]: ["PUT", "/voice-profile-domains/{VoiceProfileDomainId}", 200] },
   () => UpdateVoiceProfileDomainRequest,
   () => UpdateVoiceProfileDomainResponse,
 ];
@@ -3394,9 +2876,7 @@ export var ValidateE911Address: StaticOperationSchema = [
   9,
   n0,
   _VEA,
-  {
-    [_h]: ["POST", "/emergency-calling/address", 202],
-  },
+  { [_h]: ["POST", "/emergency-calling/address", 202] },
   () => ValidateE911AddressRequest,
   () => ValidateE911AddressResponse,
 ];

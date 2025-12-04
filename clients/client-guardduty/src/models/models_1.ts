@@ -26,22 +26,22 @@ import {
 } from "./enums";
 
 import {
+  type CoverageFilterCriteria,
+  type CoverageSortCriteria,
+  type DataSourceConfigurations,
+  type DataSourceConfigurationsResult,
+  type DestinationProperties,
+  type FilterCondition,
+  type FindingCriteria,
+  type IncrementalScanDetails,
+  type MalwareProtectionPlanActions,
+  type ScanResourceCriteria,
+  type SortCriteria,
   AccountFreeTrialInfo,
   AdminAccount,
-  CoverageFilterCriteria,
   CoverageResource,
-  CoverageSortCriteria,
-  DataSourceConfigurations,
-  DataSourceConfigurationsResult,
   Destination,
-  DestinationProperties,
   DetectorFeatureConfiguration,
-  FilterCondition,
-  FindingCriteria,
-  IncrementalScanDetails,
-  MalwareProtectionPlanActions,
-  ScanResourceCriteria,
-  SortCriteria,
   UnprocessedAccount,
 } from "./models_0";
 

@@ -45,23 +45,23 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof BedrockDataAutomationClient === "function")
-assert(typeof BedrockDataAutomation === "function")
+assert(typeof BedrockDataAutomationClient === "function");
+assert(typeof BedrockDataAutomation === "function");
 // commands
-assert(typeof CreateBlueprintCommand === "function")
-assert(typeof CreateBlueprintVersionCommand === "function")
-assert(typeof CreateDataAutomationProjectCommand === "function")
-assert(typeof DeleteBlueprintCommand === "function")
-assert(typeof DeleteDataAutomationProjectCommand === "function")
-assert(typeof GetBlueprintCommand === "function")
-assert(typeof GetDataAutomationProjectCommand === "function")
-assert(typeof ListBlueprintsCommand === "function")
-assert(typeof ListDataAutomationProjectsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateBlueprintCommand === "function")
-assert(typeof UpdateDataAutomationProjectCommand === "function")
+assert(typeof CreateBlueprintCommand === "function");
+assert(typeof CreateBlueprintVersionCommand === "function");
+assert(typeof CreateDataAutomationProjectCommand === "function");
+assert(typeof DeleteBlueprintCommand === "function");
+assert(typeof DeleteDataAutomationProjectCommand === "function");
+assert(typeof GetBlueprintCommand === "function");
+assert(typeof GetDataAutomationProjectCommand === "function");
+assert(typeof ListBlueprintsCommand === "function");
+assert(typeof ListDataAutomationProjectsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateBlueprintCommand === "function");
+assert(typeof UpdateDataAutomationProjectCommand === "function");
 // enums
 assert(typeof AudioExtractionCategoryType === "object");
 assert(typeof AudioGenerativeOutputLanguage === "object");
@@ -88,8 +88,8 @@ assert(typeof Type === "object");
 assert(typeof VideoExtractionCategoryType === "object");
 assert(typeof VideoStandardGenerativeFieldType === "object");
 // errors
-assert(BedrockDataAutomationServiceException.prototype instanceof Error)
+assert(BedrockDataAutomationServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListBlueprints === "function")
-assert(typeof paginateListDataAutomationProjects === "function")
+assert(typeof paginateListBlueprints === "function");
+assert(typeof paginateListDataAutomationProjects === "function");
 console.log(`BedrockDataAutomation index test passed.`);

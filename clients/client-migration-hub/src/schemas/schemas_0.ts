@@ -145,19 +145,8 @@ import {
 import { MigrationHubServiceException as __MigrationHubServiceException } from "../models/MigrationHubServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ApplicationState: StaticStructureSchema = [3, n0, _AS, 0, [_AI, _ASp, _LUT], [0, 0, 4]];
 export var AssociateCreatedArtifactRequest: StaticStructureSchema = [
   3,
@@ -223,56 +212,16 @@ export var DisassociateSourceResourceRequest: StaticStructureSchema = [
 ];
 export var DisassociateSourceResourceResult: StaticStructureSchema = [3, n0, _DSRRi, 0, [], []];
 export var DiscoveredResource: StaticStructureSchema = [3, n0, _DRi, 0, [_CI, _D], [0, 0]];
-export var DryRunOperation: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRO,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DryRunOperation: StaticErrorSchema = [-3, n0, _DRO, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DryRunOperation, __DryRunOperation);
-
-export var HomeRegionNotSetException: StaticErrorSchema = [
-  -3,
-  n0,
-  _HRNSE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var HomeRegionNotSetException: StaticErrorSchema = [-3, n0, _HRNSE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(HomeRegionNotSetException, __HomeRegionNotSetException);
-
 export var ImportMigrationTaskRequest: StaticStructureSchema = [3, n0, _IMTR, 0, [_PUS, _MTN, _DR], [0, 0, 2]];
 export var ImportMigrationTaskResult: StaticStructureSchema = [3, n0, _IMTRm, 0, [], []];
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var ListApplicationStatesRequest: StaticStructureSchema = [3, n0, _LASR, 0, [_AIp, _NT, _MR], [64 | 0, 0, 1]];
 export var ListApplicationStatesResult: StaticStructureSchema = [
   3,
@@ -378,18 +327,8 @@ export var NotifyMigrationTaskStateRequest: StaticStructureSchema = [
   [0, 0, () => Task, 4, 1, 2],
 ];
 export var NotifyMigrationTaskStateResult: StaticStructureSchema = [3, n0, _NMTSRo, 0, [], []];
-export var PolicyErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var PolicyErrorException: StaticErrorSchema = [-3, n0, _PEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyErrorException, __PolicyErrorException);
-
 export var ProgressUpdateStreamSummary: StaticStructureSchema = [3, n0, _PUSS, 0, [_PUSN], [0]];
 export var PutResourceAttributesRequest: StaticStructureSchema = [
   3,
@@ -401,72 +340,27 @@ export var PutResourceAttributesRequest: StaticStructureSchema = [
 ];
 export var PutResourceAttributesResult: StaticStructureSchema = [3, n0, _PRARu, 0, [], []];
 export var ResourceAttribute: StaticStructureSchema = [3, n0, _RA, 0, [_Ty, _V], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SourceResource: StaticStructureSchema = [3, n0, _SR, 0, [_N, _D, _SD], [0, 0, 0]];
 export var Task: StaticStructureSchema = [3, n0, _T, 0, [_S, _SD, _PP], [0, 0, 1]];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UnauthorizedOperation: StaticErrorSchema = [
-  -3,
-  n0,
-  _UO,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var UnauthorizedOperation: StaticErrorSchema = [-3, n0, _UO, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedOperation, __UnauthorizedOperation);
-
 export var __Unit = "unit" as const;
-
 export var MigrationHubServiceException: StaticErrorSchema = [-3, _sm, "MigrationHubServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MigrationHubServiceException, __MigrationHubServiceException);
-
 export var ApplicationIds = 64 | 0;
-
 export var ApplicationStateList: StaticListSchema = [1, n0, _ASL, 0, () => ApplicationState];
 export var CreatedArtifactList: StaticListSchema = [1, n0, _CAL, 0, () => CreatedArtifact];
 export var DiscoveredResourceList: StaticListSchema = [1, n0, _DRL, 0, () => DiscoveredResource];

@@ -204,20 +204,8 @@ import {
 import { SignerServiceException as __SignerServiceException } from "../models/SignerServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddProfilePermissionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -227,33 +215,11 @@ export var AddProfilePermissionRequest: StaticStructureSchema = [
   [[0, 1], 0, 0, 0, 0, 0],
 ];
 export var AddProfilePermissionResponse: StaticStructureSchema = [3, n0, _APPRd, 0, [_rI], [0]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var CancelSigningProfileRequest: StaticStructureSchema = [3, n0, _CSPR, 0, [_pN], [[0, 1]]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DescribeSigningJobRequest: StaticStructureSchema = [3, n0, _DSJR, 0, [_jI], [[0, 1]]];
 export var DescribeSigningJobResponse: StaticStructureSchema = [
   3,
@@ -292,36 +258,11 @@ export var GetRevocationStatusRequest: StaticStructureSchema = [
   0,
   [_sT, _pI, _pVA, _jA, _cH],
   [
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pVA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _jA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _cH,
-      },
-    ],
+    [4, { [_hQ]: _sT }],
+    [0, { [_hQ]: _pI }],
+    [0, { [_hQ]: _pVA }],
+    [0, { [_hQ]: _jA }],
+    [64 | 0, { [_hQ]: _cH }],
   ],
 ];
 export var GetRevocationStatusResponse: StaticStructureSchema = [3, n0, _GRSRe, 0, [_rE], [64 | 0]];
@@ -342,12 +283,7 @@ export var GetSigningProfileRequest: StaticStructureSchema = [
   [_pN, _pO],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pO,
-      },
-    ],
+    [0, { [_hQ]: _pO }],
   ],
 ];
 export var GetSigningProfileResponse: StaticStructureSchema = [
@@ -378,15 +314,11 @@ export var InternalServiceErrorException: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _co],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException, __InternalServiceErrorException);
-
 export var ListProfilePermissionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -395,12 +327,7 @@ export var ListProfilePermissionsRequest: StaticStructureSchema = [
   [_pN, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProfilePermissionsResponse: StaticStructureSchema = [
@@ -418,60 +345,15 @@ export var ListSigningJobsRequest: StaticStructureSchema = [
   0,
   [_st, _pI, _rB, _mR, _nT, _iR, _sEB, _sEAi, _jIo],
   [
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rB,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iR,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sEB,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sEAi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _jIo,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _pI }],
+    [0, { [_hQ]: _rB }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [2, { [_hQ]: _iR }],
+    [4, { [_hQ]: _sEB }],
+    [4, { [_hQ]: _sEAi }],
+    [0, { [_hQ]: _jIo }],
   ],
 ];
 export var ListSigningJobsResponse: StaticStructureSchema = [3, n0, _LSJRi, 0, [_j, _nT], [() => SigningJobs, 0]];
@@ -482,36 +364,11 @@ export var ListSigningPlatformsRequest: StaticStructureSchema = [
   0,
   [_ca, _pa, _t, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _ca,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _ca }],
+    [0, { [_hQ]: _pa }],
+    [0, { [_hQ]: _t }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSigningPlatformsResponse: StaticStructureSchema = [
@@ -529,36 +386,11 @@ export var ListSigningProfilesRequest: StaticStructureSchema = [
   0,
   [_iC, _mR, _nT, _pI, _sta],
   [
-    [
-      2,
-      {
-        [_hQ]: _iC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _sta,
-      },
-    ],
+    [2, { [_hQ]: _iC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _pI }],
+    [64 | 0, { [_hQ]: _sta }],
   ],
 ];
 export var ListSigningProfilesResponse: StaticStructureSchema = [
@@ -571,19 +403,8 @@ export var ListSigningProfilesResponse: StaticStructureSchema = [
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var Permission: StaticStructureSchema = [3, n0, _P, 0, [_a, _p, _sI, _pV], [0, 0, 0, 0]];
 export var PutSigningProfileRequest: StaticStructureSchema = [
   3,
@@ -602,29 +423,13 @@ export var RemoveProfilePermissionRequest: StaticStructureSchema = [
   [_pN, _rI, _sI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rI,
-      },
-    ],
+    [0, { [_hQ]: _rI }],
     [0, 1],
   ],
 ];
 export var RemoveProfilePermissionResponse: StaticStructureSchema = [3, n0, _RPPRe, 0, [_rI], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RevokeSignatureRequest: StaticStructureSchema = [3, n0, _RSR, 0, [_jI, _jO, _r], [[0, 1], 0, 0]];
 export var RevokeSigningProfileRequest: StaticStructureSchema = [
   3,
@@ -641,15 +446,11 @@ export var ServiceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _co],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
-
 export var SignatureValidityPeriod: StaticStructureSchema = [3, n0, _SVP, 0, [_va, _ty], [1, 0]];
 export var SignedObject: StaticStructureSchema = [3, n0, _SO, 0, [_s_], [() => S3SignedObject]];
 export var SigningConfiguration: StaticStructureSchema = [
@@ -711,32 +512,10 @@ export var StartSigningJobRequest: StaticStructureSchema = [
 export var StartSigningJobResponse: StaticStructureSchema = [3, n0, _SSJRt, 0, [_jI, _jO], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -745,64 +524,34 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var SignerServiceException: StaticErrorSchema = [-3, _sm, "SignerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SignerServiceException, __SignerServiceException);
-
 export var CertificateHashes = 64 | 0;
-
 export var EncryptionAlgorithms = 64 | 0;
-
 export var HashAlgorithms = 64 | 0;
-
 export var ImageFormats = 64 | 0;
-
 export var Permissions: StaticListSchema = [1, n0, _Pe, 0, () => Permission];
 export var RevokedEntities = 64 | 0;
-
 export var SigningJobs: StaticListSchema = [1, n0, _SJi, 0, () => SigningJob];
 export var SigningPlatforms: StaticListSchema = [1, n0, _SPig, 0, () => SigningPlatform];
 export var SigningProfiles: StaticListSchema = [1, n0, _SPign, 0, () => SigningProfile];
 export var Statuses = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var Metadata = 128 | 0;
-
 export var SigningParameters = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AddProfilePermission: StaticOperationSchema = [
   9,
   n0,
   _APP,
-  {
-    [_h]: ["POST", "/signing-profiles/{profileName}/permissions", 200],
-  },
+  { [_h]: ["POST", "/signing-profiles/{profileName}/permissions", 200] },
   () => AddProfilePermissionRequest,
   () => AddProfilePermissionResponse,
 ];
@@ -810,9 +559,7 @@ export var CancelSigningProfile: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  {
-    [_h]: ["DELETE", "/signing-profiles/{profileName}", 200],
-  },
+  { [_h]: ["DELETE", "/signing-profiles/{profileName}", 200] },
   () => CancelSigningProfileRequest,
   () => __Unit,
 ];
@@ -820,9 +567,7 @@ export var DescribeSigningJob: StaticOperationSchema = [
   9,
   n0,
   _DSJ,
-  {
-    [_h]: ["GET", "/signing-jobs/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/signing-jobs/{jobId}", 200] },
   () => DescribeSigningJobRequest,
   () => DescribeSigningJobResponse,
 ];
@@ -830,10 +575,7 @@ export var GetRevocationStatus: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  {
-    [_h]: ["GET", "/revocations", 200],
-    [_en]: ["verification."],
-  },
+  { [_h]: ["GET", "/revocations", 200], [_en]: ["verification."] },
   () => GetRevocationStatusRequest,
   () => GetRevocationStatusResponse,
 ];
@@ -841,9 +583,7 @@ export var GetSigningPlatform: StaticOperationSchema = [
   9,
   n0,
   _GSP,
-  {
-    [_h]: ["GET", "/signing-platforms/{platformId}", 200],
-  },
+  { [_h]: ["GET", "/signing-platforms/{platformId}", 200] },
   () => GetSigningPlatformRequest,
   () => GetSigningPlatformResponse,
 ];
@@ -851,9 +591,7 @@ export var GetSigningProfile: StaticOperationSchema = [
   9,
   n0,
   _GSPe,
-  {
-    [_h]: ["GET", "/signing-profiles/{profileName}", 200],
-  },
+  { [_h]: ["GET", "/signing-profiles/{profileName}", 200] },
   () => GetSigningProfileRequest,
   () => GetSigningProfileResponse,
 ];
@@ -861,9 +599,7 @@ export var ListProfilePermissions: StaticOperationSchema = [
   9,
   n0,
   _LPP,
-  {
-    [_h]: ["GET", "/signing-profiles/{profileName}/permissions", 200],
-  },
+  { [_h]: ["GET", "/signing-profiles/{profileName}/permissions", 200] },
   () => ListProfilePermissionsRequest,
   () => ListProfilePermissionsResponse,
 ];
@@ -871,9 +607,7 @@ export var ListSigningJobs: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
-  {
-    [_h]: ["GET", "/signing-jobs", 200],
-  },
+  { [_h]: ["GET", "/signing-jobs", 200] },
   () => ListSigningJobsRequest,
   () => ListSigningJobsResponse,
 ];
@@ -881,9 +615,7 @@ export var ListSigningPlatforms: StaticOperationSchema = [
   9,
   n0,
   _LSP,
-  {
-    [_h]: ["GET", "/signing-platforms", 200],
-  },
+  { [_h]: ["GET", "/signing-platforms", 200] },
   () => ListSigningPlatformsRequest,
   () => ListSigningPlatformsResponse,
 ];
@@ -891,9 +623,7 @@ export var ListSigningProfiles: StaticOperationSchema = [
   9,
   n0,
   _LSPi,
-  {
-    [_h]: ["GET", "/signing-profiles", 200],
-  },
+  { [_h]: ["GET", "/signing-profiles", 200] },
   () => ListSigningProfilesRequest,
   () => ListSigningProfilesResponse,
 ];
@@ -901,9 +631,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -911,9 +639,7 @@ export var PutSigningProfile: StaticOperationSchema = [
   9,
   n0,
   _PSP,
-  {
-    [_h]: ["PUT", "/signing-profiles/{profileName}", 200],
-  },
+  { [_h]: ["PUT", "/signing-profiles/{profileName}", 200] },
   () => PutSigningProfileRequest,
   () => PutSigningProfileResponse,
 ];
@@ -921,9 +647,7 @@ export var RemoveProfilePermission: StaticOperationSchema = [
   9,
   n0,
   _RPP,
-  {
-    [_h]: ["DELETE", "/signing-profiles/{profileName}/permissions/{statementId}", 200],
-  },
+  { [_h]: ["DELETE", "/signing-profiles/{profileName}/permissions/{statementId}", 200] },
   () => RemoveProfilePermissionRequest,
   () => RemoveProfilePermissionResponse,
 ];
@@ -931,9 +655,7 @@ export var RevokeSignature: StaticOperationSchema = [
   9,
   n0,
   _RS,
-  {
-    [_h]: ["PUT", "/signing-jobs/{jobId}/revoke", 200],
-  },
+  { [_h]: ["PUT", "/signing-jobs/{jobId}/revoke", 200] },
   () => RevokeSignatureRequest,
   () => __Unit,
 ];
@@ -941,9 +663,7 @@ export var RevokeSigningProfile: StaticOperationSchema = [
   9,
   n0,
   _RSP,
-  {
-    [_h]: ["PUT", "/signing-profiles/{profileName}/revoke", 200],
-  },
+  { [_h]: ["PUT", "/signing-profiles/{profileName}/revoke", 200] },
   () => RevokeSigningProfileRequest,
   () => __Unit,
 ];
@@ -951,9 +671,7 @@ export var SignPayload: StaticOperationSchema = [
   9,
   n0,
   _SPigna,
-  {
-    [_h]: ["POST", "/signing-jobs/with-payload", 200],
-  },
+  { [_h]: ["POST", "/signing-jobs/with-payload", 200] },
   () => SignPayloadRequest,
   () => SignPayloadResponse,
 ];
@@ -961,9 +679,7 @@ export var StartSigningJob: StaticOperationSchema = [
   9,
   n0,
   _SSJ,
-  {
-    [_h]: ["POST", "/signing-jobs", 200],
-  },
+  { [_h]: ["POST", "/signing-jobs", 200] },
   () => StartSigningJobRequest,
   () => StartSigningJobResponse,
 ];
@@ -971,9 +687,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -981,9 +695,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

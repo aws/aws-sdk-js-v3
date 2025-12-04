@@ -806,7 +806,6 @@ import {
 import { S3ControlServiceException as __S3ControlServiceException } from "../models/S3ControlServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessKeyId: StaticSimpleSchema = [0, n0, _AKI, 8, 0];
 export var SecretAccessKey: StaticSimpleSchema = [0, n0, _SAK, 8, 0];
 export var SessionToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
@@ -847,16 +846,7 @@ export var AssociateAccessGrantsIdentityCenterRequest: StaticStructureSchema = [
   _AAGICR,
   0,
   [_AI, _ICA],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], 0],
 ];
 export var AsyncErrorDetails: StaticStructureSchema = [3, n0, _AED, 0, [_C, _M, _R, _RI], [0, 0, 0, 0]];
 export var AsyncOperation: StaticStructureSchema = [
@@ -888,42 +878,12 @@ export var AsyncResponseDetails: StaticStructureSchema = [
   [[() => MultiRegionAccessPointsAsyncResponse, 0], () => AsyncErrorDetails],
 ];
 export var AwsLambdaTransformation: StaticStructureSchema = [3, n0, _ALT, 0, [_FA, _FP], [0, 0]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
-export var BucketAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _BAE,
-  {
-    [_e]: _c,
-  },
-  [],
-  [],
-];
+export var BucketAlreadyExists: StaticErrorSchema = [-3, n0, _BAE, { [_e]: _c }, [], []];
 TypeRegistry.for(n0).registerError(BucketAlreadyExists, __BucketAlreadyExists);
-
-export var BucketAlreadyOwnedByYou: StaticErrorSchema = [
-  -3,
-  n0,
-  _BAOBY,
-  {
-    [_e]: _c,
-  },
-  [],
-  [],
-];
+export var BucketAlreadyOwnedByYou: StaticErrorSchema = [-3, n0, _BAOBY, { [_e]: _c }, [], []];
 TypeRegistry.for(n0).registerError(BucketAlreadyOwnedByYou, __BucketAlreadyOwnedByYou);
-
 export var BucketLevel: StaticStructureSchema = [
   3,
   n0,
@@ -947,13 +907,7 @@ export var CreateAccessGrantRequest: StaticStructureSchema = [
   0,
   [_AI, _AGLI, _AGLC, _G, _P, _AA, _SPT, _T],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     0,
     () => AccessGrantsLocationConfiguration,
     () => Grantee,
@@ -977,17 +931,7 @@ export var CreateAccessGrantsInstanceRequest: StaticStructureSchema = [
   _CAGIR,
   0,
   [_AI, _ICA, _T],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    0,
-    [() => TagList, 0],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], 0, [() => TagList, 0]],
 ];
 export var CreateAccessGrantsInstanceResult: StaticStructureSchema = [
   3,
@@ -1003,18 +947,7 @@ export var CreateAccessGrantsLocationRequest: StaticStructureSchema = [
   _CAGLR,
   0,
   [_AI, _LS, _IAMRA, _T],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    0,
-    0,
-    [() => TagList, 0],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], 0, 0, [() => TagList, 0]],
 ];
 export var CreateAccessGrantsLocationResult: StaticStructureSchema = [
   3,
@@ -1031,13 +964,7 @@ export var CreateAccessPointForObjectLambdaRequest: StaticStructureSchema = [
   0,
   [_AI, _N, _Co],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
     [() => ObjectLambdaConfiguration, 0],
   ],
@@ -1057,13 +984,7 @@ export var CreateAccessPointRequest: StaticStructureSchema = [
   0,
   [_AI, _N, _B, _VC, _PABC, _BAI, _S, _T],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
     0,
     () => VpcConfiguration,
@@ -1082,80 +1003,19 @@ export var CreateBucketRequest: StaticStructureSchema = [
   0,
   [_ACL, _B, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OI],
   [
-    [
-      0,
-      {
-        [_hH]: _xaa,
-      },
-    ],
+    [0, { [_hH]: _xaa }],
     [0, 1],
-    [
-      () => CreateBucketConfiguration,
-      {
-        [_xN]: _CBC,
-        [_hP]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xagfc,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xagr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xagra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xagw,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xagwa,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xabole,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaoi,
-      },
-    ],
+    [() => CreateBucketConfiguration, { [_xN]: _CBC, [_hP]: 1 }],
+    [0, { [_hH]: _xagfc }],
+    [0, { [_hH]: _xagr }],
+    [0, { [_hH]: _xagra }],
+    [0, { [_hH]: _xagw }],
+    [0, { [_hH]: _xagwa }],
+    [2, { [_hH]: _xabole }],
+    [0, { [_hH]: _xaoi }],
   ],
 ];
-export var CreateBucketResult: StaticStructureSchema = [
-  3,
-  n0,
-  _CBRr,
-  0,
-  [_L, _BA],
-  [
-    [
-      0,
-      {
-        [_hH]: _L,
-      },
-    ],
-    0,
-  ],
-];
+export var CreateBucketResult: StaticStructureSchema = [3, n0, _CBRr, 0, [_L, _BA], [[0, { [_hH]: _L }], 0]];
 export var CreateJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1163,13 +1023,7 @@ export var CreateJobRequest: StaticStructureSchema = [
   0,
   [_AI, _CR, _Op, _Re, _CRT, _Ma, _D, _Pr, _RA, _T, _MG],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     2,
     () => JobOperation,
     () => JobReport,
@@ -1198,13 +1052,7 @@ export var CreateMultiRegionAccessPointRequest: StaticStructureSchema = [
   0,
   [_AI, _CTl, _De],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 4],
     [() => CreateMultiRegionAccessPointInput, 0],
   ],
@@ -1217,13 +1065,7 @@ export var CreateStorageLensGroupRequest: StaticStructureSchema = [
   0,
   [_AI, _SLG, _T],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [() => StorageLensGroup, 0],
     [() => TagList, 0],
   ],
@@ -1243,13 +1085,7 @@ export var DeleteAccessGrantRequest: StaticStructureSchema = [
   0,
   [_AI, _AGI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1259,15 +1095,7 @@ export var DeleteAccessGrantsInstanceRequest: StaticStructureSchema = [
   _DAGIR,
   0,
   [_AI],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }]],
 ];
 export var DeleteAccessGrantsInstanceResourcePolicyRequest: StaticStructureSchema = [
   3,
@@ -1275,15 +1103,7 @@ export var DeleteAccessGrantsInstanceResourcePolicyRequest: StaticStructureSchem
   _DAGIRPR,
   0,
   [_AI],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }]],
 ];
 export var DeleteAccessGrantsLocationRequest: StaticStructureSchema = [
   3,
@@ -1292,13 +1112,7 @@ export var DeleteAccessGrantsLocationRequest: StaticStructureSchema = [
   0,
   [_AI, _AGLI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1309,13 +1123,7 @@ export var DeleteAccessPointForObjectLambdaRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1326,13 +1134,7 @@ export var DeleteAccessPointPolicyForObjectLambdaRequest: StaticStructureSchema 
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1343,13 +1145,7 @@ export var DeleteAccessPointPolicyRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1360,13 +1156,7 @@ export var DeleteAccessPointRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1377,13 +1167,7 @@ export var DeleteAccessPointScopeRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1394,13 +1178,7 @@ export var DeleteBucketLifecycleConfigurationRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1411,13 +1189,7 @@ export var DeleteBucketPolicyRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1428,13 +1200,7 @@ export var DeleteBucketReplicationRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1445,13 +1211,7 @@ export var DeleteBucketRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1462,13 +1222,7 @@ export var DeleteBucketTaggingRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1479,13 +1233,7 @@ export var DeleteJobTaggingRequest: StaticStructureSchema = [
   0,
   [_AI, _JI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1498,17 +1246,7 @@ export var DeleteMultiRegionAccessPointRequest: StaticStructureSchema = [
   _DMRAPR,
   0,
   [_AI, _CTl, _De],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [0, 4],
-    () => DeleteMultiRegionAccessPointInput,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 4], () => DeleteMultiRegionAccessPointInput],
 ];
 export var DeleteMultiRegionAccessPointResult: StaticStructureSchema = [3, n0, _DMRAPRe, 0, [_RTARN], [0]];
 export var DeletePublicAccessBlockRequest: StaticStructureSchema = [
@@ -1517,15 +1255,7 @@ export var DeletePublicAccessBlockRequest: StaticStructureSchema = [
   _DPABR,
   0,
   [_AI],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }]],
 ];
 export var DeleteStorageLensConfigurationRequest: StaticStructureSchema = [
   3,
@@ -1535,13 +1265,7 @@ export var DeleteStorageLensConfigurationRequest: StaticStructureSchema = [
   [_CI, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
 export var DeleteStorageLensConfigurationTaggingRequest: StaticStructureSchema = [
@@ -1552,13 +1276,7 @@ export var DeleteStorageLensConfigurationTaggingRequest: StaticStructureSchema =
   [_CI, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
 export var DeleteStorageLensConfigurationTaggingResult: StaticStructureSchema = [3, n0, _DSLCTRe, 0, [], []];
@@ -1570,13 +1288,7 @@ export var DeleteStorageLensGroupRequest: StaticStructureSchema = [
   [_N, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
 export var DescribeJobRequest: StaticStructureSchema = [
@@ -1586,13 +1298,7 @@ export var DescribeJobRequest: StaticStructureSchema = [
   0,
   [_AI, _JI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1604,13 +1310,7 @@ export var DescribeMultiRegionAccessPointOperationRequest: StaticStructureSchema
   0,
   [_AI, _RTARN],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1637,15 +1337,7 @@ export var DissociateAccessGrantsIdentityCenterRequest: StaticStructureSchema = 
   _DAGICR,
   0,
   [_AI],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }]],
 ];
 export var DSSEKMSFilter: StaticStructureSchema = [3, n0, _DSSEKMSF, 0, [_KKA], [0]];
 export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_RKKID], [0]];
@@ -1669,18 +1361,8 @@ export var GeneratedManifestEncryption: StaticStructureSchema = [
   0,
   [_SSES, _SSEKMS],
   [
-    [
-      () => SSES3Encryption,
-      {
-        [_xN]: _SS,
-      },
-    ],
-    [
-      () => SSEKMSEncryption,
-      {
-        [_xN]: _SK,
-      },
-    ],
+    [() => SSES3Encryption, { [_xN]: _SS }],
+    [() => SSEKMSEncryption, { [_xN]: _SK }],
   ],
 ];
 export var GetAccessGrantRequest: StaticStructureSchema = [
@@ -1690,13 +1372,7 @@ export var GetAccessGrantRequest: StaticStructureSchema = [
   0,
   [_AI, _AGI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1715,19 +1391,8 @@ export var GetAccessGrantsInstanceForPrefixRequest: StaticStructureSchema = [
   0,
   [_AI, _SP],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _s }],
   ],
 ];
 export var GetAccessGrantsInstanceForPrefixResult: StaticStructureSchema = [
@@ -1744,15 +1409,7 @@ export var GetAccessGrantsInstanceRequest: StaticStructureSchema = [
   _GAGIR,
   0,
   [_AI],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }]],
 ];
 export var GetAccessGrantsInstanceResourcePolicyRequest: StaticStructureSchema = [
   3,
@@ -1760,15 +1417,7 @@ export var GetAccessGrantsInstanceResourcePolicyRequest: StaticStructureSchema =
   _GAGIRPR,
   0,
   [_AI],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }]],
 ];
 export var GetAccessGrantsInstanceResourcePolicyResult: StaticStructureSchema = [
   3,
@@ -1793,13 +1442,7 @@ export var GetAccessGrantsLocationRequest: StaticStructureSchema = [
   0,
   [_AI, _AGLI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1818,13 +1461,7 @@ export var GetAccessPointConfigurationForObjectLambdaRequest: StaticStructureSch
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1843,13 +1480,7 @@ export var GetAccessPointForObjectLambdaRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1868,13 +1499,7 @@ export var GetAccessPointPolicyForObjectLambdaRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1886,13 +1511,7 @@ export var GetAccessPointPolicyRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1904,13 +1523,7 @@ export var GetAccessPointPolicyStatusForObjectLambdaRequest: StaticStructureSche
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1929,13 +1542,7 @@ export var GetAccessPointPolicyStatusRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1954,13 +1561,7 @@ export var GetAccessPointRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1979,13 +1580,7 @@ export var GetAccessPointScopeRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -1997,13 +1592,7 @@ export var GetBucketLifecycleConfigurationRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2022,13 +1611,7 @@ export var GetBucketPolicyRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2040,13 +1623,7 @@ export var GetBucketReplicationRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2065,13 +1642,7 @@ export var GetBucketRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2083,13 +1654,7 @@ export var GetBucketTaggingRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2101,13 +1666,7 @@ export var GetBucketVersioningRequest: StaticStructureSchema = [
   0,
   [_AI, _B],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2117,15 +1676,7 @@ export var GetBucketVersioningResult: StaticStructureSchema = [
   _GBVRe,
   0,
   [_St, _MFAD],
-  [
-    0,
-    [
-      0,
-      {
-        [_xN]: _MD,
-      },
-    ],
-  ],
+  [0, [0, { [_xN]: _MD }]],
 ];
 export var GetDataAccessRequest: StaticStructureSchema = [
   3,
@@ -2134,43 +1685,12 @@ export var GetDataAccessRequest: StaticStructureSchema = [
   0,
   [_AI, _Ta, _P, _DS, _Pri, _TT],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _dS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tT,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _t }],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _dS }],
+    [0, { [_hQ]: _pr }],
+    [0, { [_hQ]: _tT }],
   ],
 ];
 export var GetDataAccessResult: StaticStructureSchema = [
@@ -2188,13 +1708,7 @@ export var GetJobTaggingRequest: StaticStructureSchema = [
   0,
   [_AI, _JI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2206,13 +1720,7 @@ export var GetMultiRegionAccessPointPolicyRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2231,13 +1739,7 @@ export var GetMultiRegionAccessPointPolicyStatusRequest: StaticStructureSchema =
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2256,13 +1758,7 @@ export var GetMultiRegionAccessPointRequest: StaticStructureSchema = [
   0,
   [_AI, _N],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2281,13 +1777,7 @@ export var GetMultiRegionAccessPointRoutesRequest: StaticStructureSchema = [
   0,
   [_AI, _Mr],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -2313,15 +1803,7 @@ export var GetPublicAccessBlockRequest: StaticStructureSchema = [
   _GPABR,
   0,
   [_AI],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }]],
 ];
 export var GetStorageLensConfigurationRequest: StaticStructureSchema = [
   3,
@@ -2331,13 +1813,7 @@ export var GetStorageLensConfigurationRequest: StaticStructureSchema = [
   [_CI, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
 export var GetStorageLensConfigurationResult: StaticStructureSchema = [
@@ -2356,13 +1832,7 @@ export var GetStorageLensConfigurationTaggingRequest: StaticStructureSchema = [
   [_CI, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
 export var GetStorageLensConfigurationTaggingResult: StaticStructureSchema = [
@@ -2381,13 +1851,7 @@ export var GetStorageLensGroupRequest: StaticStructureSchema = [
   [_N, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
 export var GetStorageLensGroupResult: StaticStructureSchema = [
@@ -2399,18 +1863,8 @@ export var GetStorageLensGroupResult: StaticStructureSchema = [
   [[() => StorageLensGroup, 16]],
 ];
 export var Grantee: StaticStructureSchema = [3, n0, _G, 0, [_GT, _GI], [0, 0]];
-export var IdempotencyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEd,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var IdempotencyException: StaticErrorSchema = [-3, n0, _IEd, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IdempotencyException, __IdempotencyException);
-
 export var Include: StaticStructureSchema = [
   3,
   n0,
@@ -2422,42 +1876,12 @@ export var Include: StaticStructureSchema = [
     [() => Regions, 0],
   ],
 ];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var JobDescriptor: StaticStructureSchema = [
   3,
   n0,
@@ -2541,18 +1965,8 @@ export var JobProgressSummary: StaticStructureSchema = [
   [1, 1, 1, () => JobTimers],
 ];
 export var JobReport: StaticStructureSchema = [3, n0, _JR, 0, [_B, _F, _Ena, _Pre, _RSe, _EBO], [0, 0, 2, 0, 0, 0]];
-export var JobStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _JSE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var JobStatusException: StaticErrorSchema = [-3, n0, _JSE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(JobStatusException, __JobStatusException);
-
 export var JobTimers: StaticStructureSchema = [3, n0, _JT, 0, [_ETIAS], [1]];
 export var KeyNameConstraint: StaticStructureSchema = [3, n0, _KNC, 0, [_MAP, _MAS, _MASa], [64 | 0, 64 | 0, 64 | 0]];
 export var LambdaInvokeOperation: StaticStructureSchema = [3, n0, _LIO, 0, [_FA, _ISV, _UA], [0, 0, 128 | 0]];
@@ -2614,25 +2028,9 @@ export var ListAccessGrantsInstancesRequest: StaticStructureSchema = [
   0,
   [_AI, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAccessGrantsInstancesResult: StaticStructureSchema = [
@@ -2658,31 +2056,10 @@ export var ListAccessGrantsLocationsRequest: StaticStructureSchema = [
   0,
   [_AI, _NT, _MR, _LS],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _l }],
   ],
 ];
 export var ListAccessGrantsLocationsResult: StaticStructureSchema = [
@@ -2700,55 +2077,14 @@ export var ListAccessGrantsRequest: StaticStructureSchema = [
   0,
   [_AI, _NT, _MR, _GT, _GI, _P, _GS, _AA],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _g,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _gr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _gra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aa,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _g }],
+    [0, { [_hQ]: _gr }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _gra }],
+    [0, { [_hQ]: _aa }],
   ],
 ];
 export var ListAccessGrantsResult: StaticStructureSchema = [
@@ -2766,31 +2102,10 @@ export var ListAccessPointsForDirectoryBucketsRequest: StaticStructureSchema = [
   0,
   [_AI, _DB, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _dB }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAccessPointsForDirectoryBucketsResult: StaticStructureSchema = [
@@ -2808,25 +2123,9 @@ export var ListAccessPointsForObjectLambdaRequest: StaticStructureSchema = [
   0,
   [_AI, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAccessPointsForObjectLambdaResult: StaticStructureSchema = [
@@ -2844,43 +2143,12 @@ export var ListAccessPointsRequest: StaticStructureSchema = [
   0,
   [_AI, _B, _NT, _MR, _DSI, _DST],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _b,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dST,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _b }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _dSI }],
+    [0, { [_hQ]: _dST }],
   ],
 ];
 export var ListAccessPointsResult: StaticStructureSchema = [
@@ -2899,37 +2167,11 @@ export var ListCallerAccessGrantsRequest: StaticStructureSchema = [
   0,
   [_AI, _GS, _NT, _MR, _ABA],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _gra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _aBA,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _gra }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [2, { [_hQ]: _aBA }],
   ],
 ];
 export var ListCallerAccessGrantsResult: StaticStructureSchema = [
@@ -2947,31 +2189,10 @@ export var ListJobsRequest: StaticStructureSchema = [
   0,
   [_AI, _JS, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _jS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [64 | 0, { [_hQ]: _jS }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListJobsResult: StaticStructureSchema = [3, n0, _LJRi, 0, [_NT, _Jo], [0, () => JobListDescriptorList]];
@@ -2982,25 +2203,9 @@ export var ListMultiRegionAccessPointsRequest: StaticStructureSchema = [
   0,
   [_AI, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListMultiRegionAccessPointsResult: StaticStructureSchema = [
@@ -3018,31 +2223,10 @@ export var ListRegionalBucketsRequest: StaticStructureSchema = [
   0,
   [_AI, _NT, _MR, _OI],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaoi,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hH]: _xaoi }],
   ],
 ];
 export var ListRegionalBucketsResult: StaticStructureSchema = [
@@ -3068,39 +2252,17 @@ export var ListStorageLensConfigurationsRequest: StaticStructureSchema = [
   0,
   [_AI, _NT],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListStorageLensConfigurationsResult: StaticStructureSchema = [
   3,
   n0,
   _LSLCRi,
-  {
-    [_xN]: _LSLCRis,
-  },
+  { [_xN]: _LSLCRis },
   [_NT, _SLCL],
-  [
-    0,
-    [
-      () => StorageLensConfigurationList,
-      {
-        [_xN]: _SLC,
-        [_xF]: 1,
-      },
-    ],
-  ],
+  [0, [() => StorageLensConfigurationList, { [_xN]: _SLC, [_xF]: 1 }]],
 ];
 export var ListStorageLensGroupEntry: StaticStructureSchema = [3, n0, _LSLGE, 0, [_N, _SLGA, _HR], [0, 0, 0]];
 export var ListStorageLensGroupsRequest: StaticStructureSchema = [
@@ -3110,19 +2272,8 @@ export var ListStorageLensGroupsRequest: StaticStructureSchema = [
   0,
   [_AI, _NT],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListStorageLensGroupsResult: StaticStructureSchema = [
@@ -3131,16 +2282,7 @@ export var ListStorageLensGroupsResult: StaticStructureSchema = [
   _LSLGRi,
   0,
   [_NT, _SLGLt],
-  [
-    0,
-    [
-      () => StorageLensGroupList,
-      {
-        [_xN]: _SLG,
-        [_xF]: 1,
-      },
-    ],
-  ],
+  [0, [() => StorageLensGroupList, { [_xN]: _SLG, [_xF]: 1 }]],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [
   3,
@@ -3149,13 +2291,7 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [
   0,
   [_AI, _RAe],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
   ],
 ];
@@ -3195,27 +2331,13 @@ export var NoSuchPublicAccessBlockConfiguration: StaticErrorSchema = [
   -3,
   n0,
   _NSPABC,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NoSuchPublicAccessBlockConfiguration, __NoSuchPublicAccessBlockConfiguration);
-
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var NotSSEFilter: StaticStructureSchema = [3, n0, _NSSEF, 0, [], []];
 export var ObjectLambdaAccessPoint: StaticStructureSchema = [
   3,
@@ -3242,21 +2364,7 @@ export var ObjectLambdaTransformationConfiguration: StaticStructureSchema = [
   [_Act, _CTo],
   [[() => ObjectLambdaTransformationConfigurationActionsList, 0], () => ObjectLambdaContentTransformation],
 ];
-export var PolicyStatus: StaticStructureSchema = [
-  3,
-  n0,
-  _PS,
-  0,
-  [_IP],
-  [
-    [
-      2,
-      {
-        [_xN]: _IP,
-      },
-    ],
-  ],
-];
+export var PolicyStatus: StaticStructureSchema = [3, n0, _PS, 0, [_IP], [[2, { [_xN]: _IP }]]];
 export var PrefixLevel: StaticStructureSchema = [3, n0, _PL, 0, [_SM], [() => PrefixLevelStorageMetrics]];
 export var PrefixLevelStorageMetrics: StaticStructureSchema = [
   3,
@@ -3274,30 +2382,10 @@ export var PublicAccessBlockConfiguration: StaticStructureSchema = [
   0,
   [_BPA, _IPA, _BPP, _RPB],
   [
-    [
-      2,
-      {
-        [_xN]: _BPA,
-      },
-    ],
-    [
-      2,
-      {
-        [_xN]: _IPA,
-      },
-    ],
-    [
-      2,
-      {
-        [_xN]: _BPP,
-      },
-    ],
-    [
-      2,
-      {
-        [_xN]: _RPB,
-      },
-    ],
+    [2, { [_xN]: _BPA }],
+    [2, { [_xN]: _IPA }],
+    [2, { [_xN]: _BPP }],
+    [2, { [_xN]: _RPB }],
   ],
 ];
 export var PutAccessGrantsInstanceResourcePolicyRequest: StaticStructureSchema = [
@@ -3306,17 +2394,7 @@ export var PutAccessGrantsInstanceResourcePolicyRequest: StaticStructureSchema =
   _PAGIRPR,
   0,
   [_AI, _Po, _Or],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], 0, 0],
 ];
 export var PutAccessGrantsInstanceResourcePolicyResult: StaticStructureSchema = [
   3,
@@ -3333,13 +2411,7 @@ export var PutAccessPointConfigurationForObjectLambdaRequest: StaticStructureSch
   0,
   [_AI, _N, _Co],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
     [() => ObjectLambdaConfiguration, 0],
   ],
@@ -3350,17 +2422,7 @@ export var PutAccessPointPolicyForObjectLambdaRequest: StaticStructureSchema = [
   _PAPPFOLR,
   0,
   [_AI, _N, _Po],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [0, 1],
-    0,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], 0],
 ];
 export var PutAccessPointPolicyRequest: StaticStructureSchema = [
   3,
@@ -3368,17 +2430,7 @@ export var PutAccessPointPolicyRequest: StaticStructureSchema = [
   _PAPPR,
   0,
   [_AI, _N, _Po],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [0, 1],
-    0,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], 0],
 ];
 export var PutAccessPointScopeRequest: StaticStructureSchema = [
   3,
@@ -3387,13 +2439,7 @@ export var PutAccessPointScopeRequest: StaticStructureSchema = [
   0,
   [_AI, _N, _S],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
     [() => Scope, 0],
   ],
@@ -3405,21 +2451,9 @@ export var PutBucketLifecycleConfigurationRequest: StaticStructureSchema = [
   0,
   [_AI, _B, _LCi],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [
-      () => LifecycleConfiguration,
-      {
-        [_xN]: _LCi,
-        [_hP]: 1,
-      },
-    ],
+    [() => LifecycleConfiguration, { [_xN]: _LCi, [_hP]: 1 }],
   ],
 ];
 export var PutBucketPolicyRequest: StaticStructureSchema = [
@@ -3428,23 +2462,7 @@ export var PutBucketPolicyRequest: StaticStructureSchema = [
   _PBPR,
   0,
   [_AI, _B, _CRSBA, _Po],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [0, 1],
-    [
-      2,
-      {
-        [_hH]: _xacrsba,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], [2, { [_hH]: _xacrsba }], 0],
 ];
 export var PutBucketReplicationRequest: StaticStructureSchema = [
   3,
@@ -3453,21 +2471,9 @@ export var PutBucketReplicationRequest: StaticStructureSchema = [
   0,
   [_AI, _B, _RC],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [
-      () => ReplicationConfiguration,
-      {
-        [_xN]: _RC,
-        [_hP]: 1,
-      },
-    ],
+    [() => ReplicationConfiguration, { [_xN]: _RC, [_hP]: 1 }],
   ],
 ];
 export var PutBucketTaggingRequest: StaticStructureSchema = [
@@ -3477,21 +2483,9 @@ export var PutBucketTaggingRequest: StaticStructureSchema = [
   0,
   [_AI, _B, _Tagg],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [
-      () => Tagging,
-      {
-        [_xN]: _Tagg,
-        [_hP]: 1,
-      },
-    ],
+    [() => Tagging, { [_xN]: _Tagg, [_hP]: 1 }],
   ],
 ];
 export var PutBucketVersioningRequest: StaticStructureSchema = [
@@ -3501,27 +2495,10 @@ export var PutBucketVersioningRequest: StaticStructureSchema = [
   0,
   [_AI, _B, _MFA, _VCe],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xam,
-      },
-    ],
-    [
-      () => VersioningConfiguration,
-      {
-        [_xN]: _VCe,
-        [_hP]: 1,
-      },
-    ],
+    [0, { [_hH]: _xam }],
+    [() => VersioningConfiguration, { [_xN]: _VCe, [_hP]: 1 }],
   ],
 ];
 export var PutJobTaggingRequest: StaticStructureSchema = [
@@ -3530,17 +2507,7 @@ export var PutJobTaggingRequest: StaticStructureSchema = [
   _PJTR,
   0,
   [_AI, _JI, _T],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [0, 1],
-    () => S3TagSet,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], () => S3TagSet],
 ];
 export var PutJobTaggingResult: StaticStructureSchema = [3, n0, _PJTRu, 0, [], []];
 export var PutMultiRegionAccessPointPolicyInput: StaticStructureSchema = [3, n0, _PMRAPPI, 0, [_N, _Po], [0, 0]];
@@ -3550,17 +2517,7 @@ export var PutMultiRegionAccessPointPolicyRequest: StaticStructureSchema = [
   _PMRAPPR,
   0,
   [_AI, _CTl, _De],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [0, 4],
-    () => PutMultiRegionAccessPointPolicyInput,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 4], () => PutMultiRegionAccessPointPolicyInput],
 ];
 export var PutMultiRegionAccessPointPolicyResult: StaticStructureSchema = [3, n0, _PMRAPPRu, 0, [_RTARN], [0]];
 export var PutPublicAccessBlockRequest: StaticStructureSchema = [
@@ -3570,20 +2527,8 @@ export var PutPublicAccessBlockRequest: StaticStructureSchema = [
   0,
   [_PABC, _AI],
   [
-    [
-      () => PublicAccessBlockConfiguration,
-      {
-        [_xN]: _PABC,
-        [_hP]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [() => PublicAccessBlockConfiguration, { [_xN]: _PABC, [_hP]: 1 }],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
 export var PutStorageLensConfigurationRequest: StaticStructureSchema = [
@@ -3594,13 +2539,7 @@ export var PutStorageLensConfigurationRequest: StaticStructureSchema = [
   [_CI, _AI, _SLC, _T],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [() => StorageLensConfiguration, 0],
     [() => StorageLensTags, 0],
   ],
@@ -3613,13 +2552,7 @@ export var PutStorageLensConfigurationTaggingRequest: StaticStructureSchema = [
   [_CI, _AI, _T],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [() => StorageLensTags, 0],
   ],
 ];
@@ -3765,18 +2698,8 @@ export var Scope: StaticStructureSchema = [
   0,
   [_Pref, _Pe],
   [
-    [
-      () => PrefixesList,
-      {
-        [_xN]: _Pref,
-      },
-    ],
-    [
-      () => ScopePermissionList,
-      {
-        [_xN]: _Pe,
-      },
-    ],
+    [() => PrefixesList, { [_xN]: _Pref }],
+    [() => ScopePermissionList, { [_xN]: _Pe }],
   ],
 ];
 export var SelectionCriteria: StaticStructureSchema = [3, n0, _SCe, 0, [_Del, _MDa, _MSBP], [0, 1, 1]];
@@ -3789,48 +2712,12 @@ export var SourceSelectionCriteria: StaticStructureSchema = [
   [() => SseKmsEncryptedObjects, () => ReplicaModifications],
 ];
 export var SSECFilter: StaticStructureSchema = [3, n0, _SSECF, 0, [], []];
-export var SSEKMS: StaticStructureSchema = [
-  3,
-  n0,
-  _SSEKMS,
-  {
-    [_xN]: _SK,
-  },
-  [_KI],
-  [0],
-];
+export var SSEKMS: StaticStructureSchema = [3, n0, _SSEKMS, { [_xN]: _SK }, [_KI], [0]];
 export var SseKmsEncryptedObjects: StaticStructureSchema = [3, n0, _SKEO, 0, [_St], [0]];
-export var SSEKMSEncryption: StaticStructureSchema = [
-  3,
-  n0,
-  _SSEKMSE,
-  {
-    [_xN]: _SK,
-  },
-  [_KI],
-  [0],
-];
+export var SSEKMSEncryption: StaticStructureSchema = [3, n0, _SSEKMSE, { [_xN]: _SK }, [_KI], [0]];
 export var SSEKMSFilter: StaticStructureSchema = [3, n0, _SSEKMSF, 0, [_KKA, _BKE], [0, 2]];
-export var SSES3: StaticStructureSchema = [
-  3,
-  n0,
-  _SSES,
-  {
-    [_xN]: _SS,
-  },
-  [],
-  [],
-];
-export var SSES3Encryption: StaticStructureSchema = [
-  3,
-  n0,
-  _SSESE,
-  {
-    [_xN]: _SS,
-  },
-  [],
-  [],
-];
+export var SSES3: StaticStructureSchema = [3, n0, _SSES, { [_xN]: _SS }, [], []];
+export var SSES3Encryption: StaticStructureSchema = [3, n0, _SSESE, { [_xN]: _SS }, [], []];
 export var SSES3Filter: StaticStructureSchema = [3, n0, _SSESF, 0, [], []];
 export var StorageLensAwsOrg: StaticStructureSchema = [3, n0, _SLAO, 0, [_Ar], [0]];
 export var StorageLensConfiguration: StaticStructureSchema = [
@@ -3867,18 +2754,8 @@ export var StorageLensDataExportEncryption: StaticStructureSchema = [
   0,
   [_SSES, _SSEKMS],
   [
-    [
-      () => SSES3,
-      {
-        [_xN]: _SS,
-      },
-    ],
-    [
-      () => SSEKMS,
-      {
-        [_xN]: _SK,
-      },
-    ],
+    [() => SSES3, { [_xN]: _SS }],
+    [() => SSEKMS, { [_xN]: _SK }],
   ],
 ];
 export var StorageLensExpandedPrefixesDataExport: StaticStructureSchema = [
@@ -3979,13 +2856,7 @@ export var SubmitMultiRegionAccessPointRoutesRequest: StaticStructureSchema = [
   0,
   [_AI, _Mr, _RU],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
     [() => RouteList, 0],
   ],
@@ -4000,42 +2871,16 @@ export var TagResourceRequest: StaticStructureSchema = [
   0,
   [_AI, _RAe, _T],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
     [() => TagList, 0],
   ],
 ];
 export var TagResourceResult: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var Transition: StaticStructureSchema = [3, n0, _Tra, 0, [_Da, _Day, _SC], [4, 1, 0]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -4044,20 +2889,9 @@ export var UntagResourceRequest: StaticStructureSchema = [
   0,
   [_AI, _RAe, _TK],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResult: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -4067,17 +2901,7 @@ export var UpdateAccessGrantsLocationRequest: StaticStructureSchema = [
   _UAGLR,
   0,
   [_AI, _AGLI, _IAMRA],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
-    [0, 1],
-    0,
-  ],
+  [[0, { [_hL]: 1, [_hH]: _xaai }], [0, 1], 0],
 ];
 export var UpdateAccessGrantsLocationResult: StaticStructureSchema = [
   3,
@@ -4094,20 +2918,9 @@ export var UpdateJobPriorityRequest: StaticStructureSchema = [
   0,
   [_AI, _JI, _Pr],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _pri,
-      },
-    ],
+    [1, { [_hQ]: _pri }],
   ],
 ];
 export var UpdateJobPriorityResult: StaticStructureSchema = [3, n0, _UJPRp, 0, [_JI, _Pr], [0, 1]];
@@ -4118,26 +2931,10 @@ export var UpdateJobStatusRequest: StaticStructureSchema = [
   0,
   [_AI, _JI, _RJS, _SUR],
   [
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rJS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sUR,
-      },
-    ],
+    [0, { [_hQ]: _rJS }],
+    [0, { [_hQ]: _sUR }],
   ],
 ];
 export var UpdateJobStatusResult: StaticStructureSchema = [3, n0, _UJSRp, 0, [_JI, _St, _SUR], [0, 0, 0]];
@@ -4149,456 +2946,133 @@ export var UpdateStorageLensGroupRequest: StaticStructureSchema = [
   [_N, _AI, _SLG],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hL]: 1,
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hL]: 1, [_hH]: _xaai }],
     [() => StorageLensGroup, 0],
   ],
 ];
-export var VersioningConfiguration: StaticStructureSchema = [
-  3,
-  n0,
-  _VCe,
-  0,
-  [_MFAD, _St],
-  [
-    [
-      0,
-      {
-        [_xN]: _MD,
-      },
-    ],
-    0,
-  ],
-];
+export var VersioningConfiguration: StaticStructureSchema = [3, n0, _VCe, 0, [_MFAD, _St], [[0, { [_xN]: _MD }], 0]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_VI], [0]];
 export var __Unit = "unit" as const;
-
 export var S3ControlServiceException: StaticErrorSchema = [-3, _sm, "S3ControlServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(S3ControlServiceException, __S3ControlServiceException);
-
 export var AccessGrantsInstancesList: StaticListSchema = [
   1,
   n0,
   _AGIL,
   0,
-  [
-    () => ListAccessGrantsInstanceEntry,
-    {
-      [_xN]: _AGIc,
-    },
-  ],
+  [() => ListAccessGrantsInstanceEntry, { [_xN]: _AGIc }],
 ];
-export var AccessGrantsList: StaticListSchema = [
-  1,
-  n0,
-  _AGL,
-  0,
-  [
-    () => ListAccessGrantEntry,
-    {
-      [_xN]: _AG,
-    },
-  ],
-];
+export var AccessGrantsList: StaticListSchema = [1, n0, _AGL, 0, [() => ListAccessGrantEntry, { [_xN]: _AG }]];
 export var AccessGrantsLocationsList: StaticListSchema = [
   1,
   n0,
   _AGLL,
   0,
-  [
-    () => ListAccessGrantsLocationsEntry,
-    {
-      [_xN]: _AGLc,
-    },
-  ],
+  [() => ListAccessGrantsLocationsEntry, { [_xN]: _AGLc }],
 ];
-export var AccessPointList: StaticListSchema = [
-  1,
-  n0,
-  _APL,
-  0,
-  [
-    () => AccessPoint,
-    {
-      [_xN]: _AP,
-    },
-  ],
-];
-export var Buckets: StaticListSchema = [
-  1,
-  n0,
-  _Bu,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Ar,
-    },
-  ],
-];
+export var AccessPointList: StaticListSchema = [1, n0, _APL, 0, [() => AccessPoint, { [_xN]: _AP }]];
+export var Buckets: StaticListSchema = [1, n0, _Bu, 0, [0, { [_xN]: _Ar }]];
 export var CallerAccessGrantsList: StaticListSchema = [
   1,
   n0,
   _CAGL,
   0,
-  [
-    () => ListCallerAccessGrantsEntry,
-    {
-      [_xN]: _AG,
-    },
-  ],
+  [() => ListCallerAccessGrantsEntry, { [_xN]: _AG }],
 ];
 export var JobFailureList: StaticListSchema = [1, n0, _JFL, 0, () => JobFailure];
 export var JobListDescriptorList: StaticListSchema = [1, n0, _JLDL, 0, () => JobListDescriptor];
 export var JobManifestFieldList = 64 | 0;
-
 export var JobStatusList = 64 | 0;
-
-export var LifecycleRules: StaticListSchema = [
-  1,
-  n0,
-  _LRi,
-  0,
-  [
-    () => LifecycleRule,
-    {
-      [_xN]: _Rul,
-    },
-  ],
-];
-export var MatchAnyPrefix: StaticListSchema = [
-  1,
-  n0,
-  _MAP,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Pre,
-    },
-  ],
-];
-export var MatchAnySuffix: StaticListSchema = [
-  1,
-  n0,
-  _MAS,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Su,
-    },
-  ],
-];
-export var MatchAnyTag: StaticListSchema = [
-  1,
-  n0,
-  _MAT,
-  0,
-  [
-    () => S3Tag,
-    {
-      [_xN]: _Tag,
-    },
-  ],
-];
+export var LifecycleRules: StaticListSchema = [1, n0, _LRi, 0, [() => LifecycleRule, { [_xN]: _Rul }]];
+export var MatchAnyPrefix: StaticListSchema = [1, n0, _MAP, 0, [0, { [_xN]: _Pre }]];
+export var MatchAnySuffix: StaticListSchema = [1, n0, _MAS, 0, [0, { [_xN]: _Su }]];
+export var MatchAnyTag: StaticListSchema = [1, n0, _MAT, 0, [() => S3Tag, { [_xN]: _Tag }]];
 export var MultiRegionAccessPointRegionalResponseList: StaticListSchema = [
   1,
   n0,
   _MRAPRRL,
   0,
-  [
-    () => MultiRegionAccessPointRegionalResponse,
-    {
-      [_xN]: _Regi,
-    },
-  ],
+  [() => MultiRegionAccessPointRegionalResponse, { [_xN]: _Regi }],
 ];
 export var MultiRegionAccessPointReportList: StaticListSchema = [
   1,
   n0,
   _MRAPRL,
   0,
-  [
-    () => MultiRegionAccessPointReport,
-    {
-      [_xN]: _AP,
-    },
-  ],
+  [() => MultiRegionAccessPointReport, { [_xN]: _AP }],
 ];
 export var NoncurrentVersionTransitionList: StaticListSchema = [
   1,
   n0,
   _NVTL,
   0,
-  [
-    () => NoncurrentVersionTransition,
-    {
-      [_xN]: _NVTo,
-    },
-  ],
+  [() => NoncurrentVersionTransition, { [_xN]: _NVTo }],
 ];
 export var NonEmptyMaxLength1024StringList = 64 | 0;
-
 export var ObjectEncryptionFilterList: StaticListSchema = [
   1,
   n0,
   _OEFL,
   0,
-  [
-    () => ObjectEncryptionFilter,
-    {
-      [_xN]: _OE,
-    },
-  ],
+  [() => ObjectEncryptionFilter, { [_xN]: _OE }],
 ];
 export var ObjectLambdaAccessPointList: StaticListSchema = [
   1,
   n0,
   _OLAPL,
   0,
-  [
-    () => ObjectLambdaAccessPoint,
-    {
-      [_xN]: _OLAP,
-    },
-  ],
+  [() => ObjectLambdaAccessPoint, { [_xN]: _OLAP }],
 ];
-export var ObjectLambdaAllowedFeaturesList: StaticListSchema = [
-  1,
-  n0,
-  _OLAFL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _AFl,
-    },
-  ],
-];
+export var ObjectLambdaAllowedFeaturesList: StaticListSchema = [1, n0, _OLAFL, 0, [0, { [_xN]: _AFl }]];
 export var ObjectLambdaTransformationConfigurationActionsList: StaticListSchema = [
   1,
   n0,
   _OLTCAL,
   0,
-  [
-    0,
-    {
-      [_xN]: _Acti,
-    },
-  ],
+  [0, { [_xN]: _Acti }],
 ];
 export var ObjectLambdaTransformationConfigurationsList: StaticListSchema = [
   1,
   n0,
   _OLTCL,
   0,
-  [
-    () => ObjectLambdaTransformationConfiguration,
-    {
-      [_xN]: _TCr,
-    },
-  ],
+  [() => ObjectLambdaTransformationConfiguration, { [_xN]: _TCr }],
 ];
-export var PrefixesList: StaticListSchema = [
-  1,
-  n0,
-  _PLr,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Pre,
-    },
-  ],
-];
-export var RegionalBucketList: StaticListSchema = [
-  1,
-  n0,
-  _RBL,
-  0,
-  [
-    () => RegionalBucket,
-    {
-      [_xN]: _RB,
-    },
-  ],
-];
-export var RegionCreationList: StaticListSchema = [
-  1,
-  n0,
-  _RCL,
-  0,
-  [
-    () => Region,
-    {
-      [_xN]: _Regi,
-    },
-  ],
-];
-export var RegionReportList: StaticListSchema = [
-  1,
-  n0,
-  _RRL,
-  0,
-  [
-    () => RegionReport,
-    {
-      [_xN]: _Regi,
-    },
-  ],
-];
-export var Regions: StaticListSchema = [
-  1,
-  n0,
-  _Reg,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Regi,
-    },
-  ],
-];
-export var ReplicationRules: StaticListSchema = [
-  1,
-  n0,
-  _RRep,
-  0,
-  [
-    () => ReplicationRule,
-    {
-      [_xN]: _Rul,
-    },
-  ],
-];
+export var PrefixesList: StaticListSchema = [1, n0, _PLr, 0, [0, { [_xN]: _Pre }]];
+export var RegionalBucketList: StaticListSchema = [1, n0, _RBL, 0, [() => RegionalBucket, { [_xN]: _RB }]];
+export var RegionCreationList: StaticListSchema = [1, n0, _RCL, 0, [() => Region, { [_xN]: _Regi }]];
+export var RegionReportList: StaticListSchema = [1, n0, _RRL, 0, [() => RegionReport, { [_xN]: _Regi }]];
+export var Regions: StaticListSchema = [1, n0, _Reg, 0, [0, { [_xN]: _Regi }]];
+export var ReplicationRules: StaticListSchema = [1, n0, _RRep, 0, [() => ReplicationRule, { [_xN]: _Rul }]];
 export var ReplicationStatusFilterList = 64 | 0;
-
-export var RouteList: StaticListSchema = [
-  1,
-  n0,
-  _RLo,
-  0,
-  [
-    () => MultiRegionAccessPointRoute,
-    {
-      [_xN]: _Rou,
-    },
-  ],
-];
+export var RouteList: StaticListSchema = [1, n0, _RLo, 0, [() => MultiRegionAccessPointRoute, { [_xN]: _Rou }]];
 export var S3GrantList: StaticListSchema = [1, n0, _SGL, 0, () => S3Grant];
 export var S3TagSet: StaticListSchema = [1, n0, _STS, 0, () => S3Tag];
-export var ScopePermissionList: StaticListSchema = [
-  1,
-  n0,
-  _SPL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _P,
-    },
-  ],
-];
+export var ScopePermissionList: StaticListSchema = [1, n0, _SPL, 0, [0, { [_xN]: _P }]];
 export var StorageClassList = 64 | 0;
-
 export var StorageLensConfigurationList: StaticListSchema = [
   1,
   n0,
   _SLCL,
   0,
-  [
-    () => ListStorageLensConfigurationEntry,
-    {
-      [_xN]: _SLC,
-    },
-  ],
+  [() => ListStorageLensConfigurationEntry, { [_xN]: _SLC }],
 ];
-export var StorageLensGroupLevelExclude: StaticListSchema = [
-  1,
-  n0,
-  _SLGLE,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Ar,
-    },
-  ],
-];
-export var StorageLensGroupLevelInclude: StaticListSchema = [
-  1,
-  n0,
-  _SLGLI,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Ar,
-    },
-  ],
-];
+export var StorageLensGroupLevelExclude: StaticListSchema = [1, n0, _SLGLE, 0, [0, { [_xN]: _Ar }]];
+export var StorageLensGroupLevelInclude: StaticListSchema = [1, n0, _SLGLI, 0, [0, { [_xN]: _Ar }]];
 export var StorageLensGroupList: StaticListSchema = [
   1,
   n0,
   _SLGLt,
   0,
-  [
-    () => ListStorageLensGroupEntry,
-    {
-      [_xN]: _SLG,
-    },
-  ],
+  [() => ListStorageLensGroupEntry, { [_xN]: _SLG }],
 ];
-export var StorageLensTags: StaticListSchema = [
-  1,
-  n0,
-  _SLTt,
-  0,
-  [
-    () => StorageLensTag,
-    {
-      [_xN]: _Tag,
-    },
-  ],
-];
+export var StorageLensTags: StaticListSchema = [1, n0, _SLTt, 0, [() => StorageLensTag, { [_xN]: _Tag }]];
 export var TagKeyList = 64 | 0;
-
-export var TagList: StaticListSchema = [
-  1,
-  n0,
-  _TL,
-  0,
-  [
-    () => Tag,
-    {
-      [_xN]: _Tag,
-    },
-  ],
-];
-export var TransitionList: StaticListSchema = [
-  1,
-  n0,
-  _TLr,
-  0,
-  [
-    () => Transition,
-    {
-      [_xN]: _Tra,
-    },
-  ],
-];
+export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, { [_xN]: _Tag }]];
+export var TransitionList: StaticListSchema = [1, n0, _TLr, 0, [() => Transition, { [_xN]: _Tra }]];
 export var Endpoints = 128 | 0;
-
 export var S3UserMetadata = 128 | 0;
-
 export var UserArguments = 128 | 0;
-
 export var JobManifestGenerator: StaticStructureSchema = [3, n0, _JMG, 0, [_SJMG], [[() => S3JobManifestGenerator, 0]]];
 export var ObjectEncryptionFilter: StaticStructureSchema = [
   3,
@@ -4607,36 +3081,11 @@ export var ObjectEncryptionFilter: StaticStructureSchema = [
   0,
   [_SSES, _SSEKMS, _DSSEKMS, _SSEC, _NOTSSE],
   [
-    [
-      () => SSES3Filter,
-      {
-        [_xN]: _SS,
-      },
-    ],
-    [
-      () => SSEKMSFilter,
-      {
-        [_xN]: _SK,
-      },
-    ],
-    [
-      () => DSSEKMSFilter,
-      {
-        [_xN]: _DK,
-      },
-    ],
-    [
-      () => SSECFilter,
-      {
-        [_xN]: _SC_,
-      },
-    ],
-    [
-      () => NotSSEFilter,
-      {
-        [_xN]: _NS,
-      },
-    ],
+    [() => SSES3Filter, { [_xN]: _SS }],
+    [() => SSEKMSFilter, { [_xN]: _SK }],
+    [() => DSSEKMSFilter, { [_xN]: _DK }],
+    [() => SSECFilter, { [_xN]: _SC_ }],
+    [() => NotSSEFilter, { [_xN]: _NS }],
   ],
 ];
 export var ObjectLambdaContentTransformation: StaticStructureSchema = [
@@ -4651,10 +3100,7 @@ export var AssociateAccessGrantsIdentityCenter: StaticOperationSchema = [
   9,
   n0,
   _AAGIC,
-  {
-    [_h]: ["POST", "/v20180820/accessgrantsinstance/identitycenter", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["POST", "/v20180820/accessgrantsinstance/identitycenter", 200], [_hCR]: 1 },
   () => AssociateAccessGrantsIdentityCenterRequest,
   () => __Unit,
 ];
@@ -4662,10 +3108,7 @@ export var CreateAccessGrant: StaticOperationSchema = [
   9,
   n0,
   _CAG,
-  {
-    [_h]: ["POST", "/v20180820/accessgrantsinstance/grant", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["POST", "/v20180820/accessgrantsinstance/grant", 200], [_hCR]: 1 },
   () => CreateAccessGrantRequest,
   () => CreateAccessGrantResult,
 ];
@@ -4673,10 +3116,7 @@ export var CreateAccessGrantsInstance: StaticOperationSchema = [
   9,
   n0,
   _CAGI,
-  {
-    [_h]: ["POST", "/v20180820/accessgrantsinstance", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["POST", "/v20180820/accessgrantsinstance", 200], [_hCR]: 1 },
   () => CreateAccessGrantsInstanceRequest,
   () => CreateAccessGrantsInstanceResult,
 ];
@@ -4684,10 +3124,7 @@ export var CreateAccessGrantsLocation: StaticOperationSchema = [
   9,
   n0,
   _CAGLr,
-  {
-    [_h]: ["POST", "/v20180820/accessgrantsinstance/location", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["POST", "/v20180820/accessgrantsinstance/location", 200], [_hCR]: 1 },
   () => CreateAccessGrantsLocationRequest,
   () => CreateAccessGrantsLocationResult,
 ];
@@ -4695,9 +3132,7 @@ export var CreateAccessPoint: StaticOperationSchema = [
   9,
   n0,
   _CAP,
-  {
-    [_h]: ["PUT", "/v20180820/accesspoint/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/accesspoint/{Name}", 200] },
   () => CreateAccessPointRequest,
   () => CreateAccessPointResult,
 ];
@@ -4705,9 +3140,7 @@ export var CreateAccessPointForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _CAPFOL,
-  {
-    [_h]: ["PUT", "/v20180820/accesspointforobjectlambda/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/accesspointforobjectlambda/{Name}", 200] },
   () => CreateAccessPointForObjectLambdaRequest,
   () => CreateAccessPointForObjectLambdaResult,
 ];
@@ -4715,10 +3148,7 @@ export var CreateBucket: StaticOperationSchema = [
   9,
   n0,
   _CBr,
-  {
-    [_h]: ["PUT", "/v20180820/bucket/{Bucket}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/bucket/{Bucket}", 200], [_hCR]: 1 },
   () => CreateBucketRequest,
   () => CreateBucketResult,
 ];
@@ -4726,9 +3156,7 @@ export var CreateJob: StaticOperationSchema = [
   9,
   n0,
   _CJ,
-  {
-    [_h]: ["POST", "/v20180820/jobs", 200],
-  },
+  { [_h]: ["POST", "/v20180820/jobs", 200] },
   () => CreateJobRequest,
   () => CreateJobResult,
 ];
@@ -4736,10 +3164,7 @@ export var CreateMultiRegionAccessPoint: StaticOperationSchema = [
   9,
   n0,
   _CMRAP,
-  {
-    [_h]: ["POST", "/v20180820/async-requests/mrap/create", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["POST", "/v20180820/async-requests/mrap/create", 200], [_hCR]: 1 },
   () => CreateMultiRegionAccessPointRequest,
   () => CreateMultiRegionAccessPointResult,
 ];
@@ -4747,9 +3172,7 @@ export var CreateStorageLensGroup: StaticOperationSchema = [
   9,
   n0,
   _CSLG,
-  {
-    [_h]: ["POST", "/v20180820/storagelensgroup", 204],
-  },
+  { [_h]: ["POST", "/v20180820/storagelensgroup", 204] },
   () => CreateStorageLensGroupRequest,
   () => __Unit,
 ];
@@ -4757,10 +3180,7 @@ export var DeleteAccessGrant: StaticOperationSchema = [
   9,
   n0,
   _DAG,
-  {
-    [_h]: ["DELETE", "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["DELETE", "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", 200], [_hCR]: 1 },
   () => DeleteAccessGrantRequest,
   () => __Unit,
 ];
@@ -4768,10 +3188,7 @@ export var DeleteAccessGrantsInstance: StaticOperationSchema = [
   9,
   n0,
   _DAGI,
-  {
-    [_h]: ["DELETE", "/v20180820/accessgrantsinstance", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["DELETE", "/v20180820/accessgrantsinstance", 200], [_hCR]: 1 },
   () => DeleteAccessGrantsInstanceRequest,
   () => __Unit,
 ];
@@ -4779,10 +3196,7 @@ export var DeleteAccessGrantsInstanceResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DAGIRP,
-  {
-    [_h]: ["DELETE", "/v20180820/accessgrantsinstance/resourcepolicy", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["DELETE", "/v20180820/accessgrantsinstance/resourcepolicy", 200], [_hCR]: 1 },
   () => DeleteAccessGrantsInstanceResourcePolicyRequest,
   () => __Unit,
 ];
@@ -4790,10 +3204,7 @@ export var DeleteAccessGrantsLocation: StaticOperationSchema = [
   9,
   n0,
   _DAGL,
-  {
-    [_h]: ["DELETE", "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["DELETE", "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", 200], [_hCR]: 1 },
   () => DeleteAccessGrantsLocationRequest,
   () => __Unit,
 ];
@@ -4801,9 +3212,7 @@ export var DeleteAccessPoint: StaticOperationSchema = [
   9,
   n0,
   _DAP,
-  {
-    [_h]: ["DELETE", "/v20180820/accesspoint/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/accesspoint/{Name}", 200] },
   () => DeleteAccessPointRequest,
   () => __Unit,
 ];
@@ -4811,9 +3220,7 @@ export var DeleteAccessPointForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _DAPFOL,
-  {
-    [_h]: ["DELETE", "/v20180820/accesspointforobjectlambda/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/accesspointforobjectlambda/{Name}", 200] },
   () => DeleteAccessPointForObjectLambdaRequest,
   () => __Unit,
 ];
@@ -4821,9 +3228,7 @@ export var DeleteAccessPointPolicy: StaticOperationSchema = [
   9,
   n0,
   _DAPP,
-  {
-    [_h]: ["DELETE", "/v20180820/accesspoint/{Name}/policy", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/accesspoint/{Name}/policy", 200] },
   () => DeleteAccessPointPolicyRequest,
   () => __Unit,
 ];
@@ -4831,9 +3236,7 @@ export var DeleteAccessPointPolicyForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _DAPPFOL,
-  {
-    [_h]: ["DELETE", "/v20180820/accesspointforobjectlambda/{Name}/policy", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/accesspointforobjectlambda/{Name}/policy", 200] },
   () => DeleteAccessPointPolicyForObjectLambdaRequest,
   () => __Unit,
 ];
@@ -4841,9 +3244,7 @@ export var DeleteAccessPointScope: StaticOperationSchema = [
   9,
   n0,
   _DAPS,
-  {
-    [_h]: ["DELETE", "/v20180820/accesspoint/{Name}/scope", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/accesspoint/{Name}/scope", 200] },
   () => DeleteAccessPointScopeRequest,
   () => __Unit,
 ];
@@ -4851,9 +3252,7 @@ export var DeleteBucket: StaticOperationSchema = [
   9,
   n0,
   _DBe,
-  {
-    [_h]: ["DELETE", "/v20180820/bucket/{Bucket}", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/bucket/{Bucket}", 200] },
   () => DeleteBucketRequest,
   () => __Unit,
 ];
@@ -4861,9 +3260,7 @@ export var DeleteBucketLifecycleConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DBLC,
-  {
-    [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/lifecycleconfiguration", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/lifecycleconfiguration", 200] },
   () => DeleteBucketLifecycleConfigurationRequest,
   () => __Unit,
 ];
@@ -4871,9 +3268,7 @@ export var DeleteBucketPolicy: StaticOperationSchema = [
   9,
   n0,
   _DBP,
-  {
-    [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/policy", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/policy", 200] },
   () => DeleteBucketPolicyRequest,
   () => __Unit,
 ];
@@ -4881,9 +3276,7 @@ export var DeleteBucketReplication: StaticOperationSchema = [
   9,
   n0,
   _DBRe,
-  {
-    [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/replication", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/replication", 200] },
   () => DeleteBucketReplicationRequest,
   () => __Unit,
 ];
@@ -4891,9 +3284,7 @@ export var DeleteBucketTagging: StaticOperationSchema = [
   9,
   n0,
   _DBT,
-  {
-    [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/tagging", 204],
-  },
+  { [_h]: ["DELETE", "/v20180820/bucket/{Bucket}/tagging", 204] },
   () => DeleteBucketTaggingRequest,
   () => __Unit,
 ];
@@ -4901,9 +3292,7 @@ export var DeleteJobTagging: StaticOperationSchema = [
   9,
   n0,
   _DJT,
-  {
-    [_h]: ["DELETE", "/v20180820/jobs/{JobId}/tagging", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/jobs/{JobId}/tagging", 200] },
   () => DeleteJobTaggingRequest,
   () => DeleteJobTaggingResult,
 ];
@@ -4911,10 +3300,7 @@ export var DeleteMultiRegionAccessPoint: StaticOperationSchema = [
   9,
   n0,
   _DMRAP,
-  {
-    [_h]: ["POST", "/v20180820/async-requests/mrap/delete", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["POST", "/v20180820/async-requests/mrap/delete", 200], [_hCR]: 1 },
   () => DeleteMultiRegionAccessPointRequest,
   () => DeleteMultiRegionAccessPointResult,
 ];
@@ -4922,9 +3308,7 @@ export var DeletePublicAccessBlock: StaticOperationSchema = [
   9,
   n0,
   _DPAB,
-  {
-    [_h]: ["DELETE", "/v20180820/configuration/publicAccessBlock", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/configuration/publicAccessBlock", 200] },
   () => DeletePublicAccessBlockRequest,
   () => __Unit,
 ];
@@ -4932,9 +3316,7 @@ export var DeleteStorageLensConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DSLC,
-  {
-    [_h]: ["DELETE", "/v20180820/storagelens/{ConfigId}", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/storagelens/{ConfigId}", 200] },
   () => DeleteStorageLensConfigurationRequest,
   () => __Unit,
 ];
@@ -4942,9 +3324,7 @@ export var DeleteStorageLensConfigurationTagging: StaticOperationSchema = [
   9,
   n0,
   _DSLCT,
-  {
-    [_h]: ["DELETE", "/v20180820/storagelens/{ConfigId}/tagging", 200],
-  },
+  { [_h]: ["DELETE", "/v20180820/storagelens/{ConfigId}/tagging", 200] },
   () => DeleteStorageLensConfigurationTaggingRequest,
   () => DeleteStorageLensConfigurationTaggingResult,
 ];
@@ -4952,9 +3332,7 @@ export var DeleteStorageLensGroup: StaticOperationSchema = [
   9,
   n0,
   _DSLG,
-  {
-    [_h]: ["DELETE", "/v20180820/storagelensgroup/{Name}", 204],
-  },
+  { [_h]: ["DELETE", "/v20180820/storagelensgroup/{Name}", 204] },
   () => DeleteStorageLensGroupRequest,
   () => __Unit,
 ];
@@ -4962,9 +3340,7 @@ export var DescribeJob: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_h]: ["GET", "/v20180820/jobs/{JobId}", 200],
-  },
+  { [_h]: ["GET", "/v20180820/jobs/{JobId}", 200] },
   () => DescribeJobRequest,
   () => DescribeJobResult,
 ];
@@ -4972,10 +3348,7 @@ export var DescribeMultiRegionAccessPointOperation: StaticOperationSchema = [
   9,
   n0,
   _DMRAPO,
-  {
-    [_h]: ["GET", "/v20180820/async-requests/mrap/{RequestTokenARN+}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/async-requests/mrap/{RequestTokenARN+}", 200], [_hCR]: 1 },
   () => DescribeMultiRegionAccessPointOperationRequest,
   () => DescribeMultiRegionAccessPointOperationResult,
 ];
@@ -4983,10 +3356,7 @@ export var DissociateAccessGrantsIdentityCenter: StaticOperationSchema = [
   9,
   n0,
   _DAGIC,
-  {
-    [_h]: ["DELETE", "/v20180820/accessgrantsinstance/identitycenter", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["DELETE", "/v20180820/accessgrantsinstance/identitycenter", 200], [_hCR]: 1 },
   () => DissociateAccessGrantsIdentityCenterRequest,
   () => __Unit,
 ];
@@ -4994,10 +3364,7 @@ export var GetAccessGrant: StaticOperationSchema = [
   9,
   n0,
   _GAG,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/grant/{AccessGrantId}", 200], [_hCR]: 1 },
   () => GetAccessGrantRequest,
   () => GetAccessGrantResult,
 ];
@@ -5005,10 +3372,7 @@ export var GetAccessGrantsInstance: StaticOperationSchema = [
   9,
   n0,
   _GAGI,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance", 200], [_hCR]: 1 },
   () => GetAccessGrantsInstanceRequest,
   () => GetAccessGrantsInstanceResult,
 ];
@@ -5016,10 +3380,7 @@ export var GetAccessGrantsInstanceForPrefix: StaticOperationSchema = [
   9,
   n0,
   _GAGIFP,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/prefix", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/prefix", 200], [_hCR]: 1 },
   () => GetAccessGrantsInstanceForPrefixRequest,
   () => GetAccessGrantsInstanceForPrefixResult,
 ];
@@ -5027,10 +3388,7 @@ export var GetAccessGrantsInstanceResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GAGIRP,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/resourcepolicy", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/resourcepolicy", 200], [_hCR]: 1 },
   () => GetAccessGrantsInstanceResourcePolicyRequest,
   () => GetAccessGrantsInstanceResourcePolicyResult,
 ];
@@ -5038,10 +3396,7 @@ export var GetAccessGrantsLocation: StaticOperationSchema = [
   9,
   n0,
   _GAGL,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", 200], [_hCR]: 1 },
   () => GetAccessGrantsLocationRequest,
   () => GetAccessGrantsLocationResult,
 ];
@@ -5049,9 +3404,7 @@ export var GetAccessPoint: StaticOperationSchema = [
   9,
   n0,
   _GAP,
-  {
-    [_h]: ["GET", "/v20180820/accesspoint/{Name}", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspoint/{Name}", 200] },
   () => GetAccessPointRequest,
   () => GetAccessPointResult,
 ];
@@ -5059,9 +3412,7 @@ export var GetAccessPointConfigurationForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _GAPCFOL,
-  {
-    [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}/configuration", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}/configuration", 200] },
   () => GetAccessPointConfigurationForObjectLambdaRequest,
   () => GetAccessPointConfigurationForObjectLambdaResult,
 ];
@@ -5069,9 +3420,7 @@ export var GetAccessPointForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _GAPFOL,
-  {
-    [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}", 200] },
   () => GetAccessPointForObjectLambdaRequest,
   () => GetAccessPointForObjectLambdaResult,
 ];
@@ -5079,9 +3428,7 @@ export var GetAccessPointPolicy: StaticOperationSchema = [
   9,
   n0,
   _GAPP,
-  {
-    [_h]: ["GET", "/v20180820/accesspoint/{Name}/policy", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspoint/{Name}/policy", 200] },
   () => GetAccessPointPolicyRequest,
   () => GetAccessPointPolicyResult,
 ];
@@ -5089,9 +3436,7 @@ export var GetAccessPointPolicyForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _GAPPFOL,
-  {
-    [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}/policy", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}/policy", 200] },
   () => GetAccessPointPolicyForObjectLambdaRequest,
   () => GetAccessPointPolicyForObjectLambdaResult,
 ];
@@ -5099,9 +3444,7 @@ export var GetAccessPointPolicyStatus: StaticOperationSchema = [
   9,
   n0,
   _GAPPS,
-  {
-    [_h]: ["GET", "/v20180820/accesspoint/{Name}/policyStatus", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspoint/{Name}/policyStatus", 200] },
   () => GetAccessPointPolicyStatusRequest,
   () => GetAccessPointPolicyStatusResult,
 ];
@@ -5109,9 +3452,7 @@ export var GetAccessPointPolicyStatusForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _GAPPSFOL,
-  {
-    [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}/policyStatus", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspointforobjectlambda/{Name}/policyStatus", 200] },
   () => GetAccessPointPolicyStatusForObjectLambdaRequest,
   () => GetAccessPointPolicyStatusForObjectLambdaResult,
 ];
@@ -5119,9 +3460,7 @@ export var GetAccessPointScope: StaticOperationSchema = [
   9,
   n0,
   _GAPS,
-  {
-    [_h]: ["GET", "/v20180820/accesspoint/{Name}/scope", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspoint/{Name}/scope", 200] },
   () => GetAccessPointScopeRequest,
   () => GetAccessPointScopeResult,
 ];
@@ -5129,9 +3468,7 @@ export var GetBucket: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["GET", "/v20180820/bucket/{Bucket}", 200],
-  },
+  { [_h]: ["GET", "/v20180820/bucket/{Bucket}", 200] },
   () => GetBucketRequest,
   () => GetBucketResult,
 ];
@@ -5139,9 +3476,7 @@ export var GetBucketLifecycleConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GBLC,
-  {
-    [_h]: ["GET", "/v20180820/bucket/{Bucket}/lifecycleconfiguration", 200],
-  },
+  { [_h]: ["GET", "/v20180820/bucket/{Bucket}/lifecycleconfiguration", 200] },
   () => GetBucketLifecycleConfigurationRequest,
   () => GetBucketLifecycleConfigurationResult,
 ];
@@ -5149,9 +3484,7 @@ export var GetBucketPolicy: StaticOperationSchema = [
   9,
   n0,
   _GBP,
-  {
-    [_h]: ["GET", "/v20180820/bucket/{Bucket}/policy", 200],
-  },
+  { [_h]: ["GET", "/v20180820/bucket/{Bucket}/policy", 200] },
   () => GetBucketPolicyRequest,
   () => GetBucketPolicyResult,
 ];
@@ -5159,9 +3492,7 @@ export var GetBucketReplication: StaticOperationSchema = [
   9,
   n0,
   _GBRet,
-  {
-    [_h]: ["GET", "/v20180820/bucket/{Bucket}/replication", 200],
-  },
+  { [_h]: ["GET", "/v20180820/bucket/{Bucket}/replication", 200] },
   () => GetBucketReplicationRequest,
   () => GetBucketReplicationResult,
 ];
@@ -5169,9 +3500,7 @@ export var GetBucketTagging: StaticOperationSchema = [
   9,
   n0,
   _GBT,
-  {
-    [_h]: ["GET", "/v20180820/bucket/{Bucket}/tagging", 200],
-  },
+  { [_h]: ["GET", "/v20180820/bucket/{Bucket}/tagging", 200] },
   () => GetBucketTaggingRequest,
   () => GetBucketTaggingResult,
 ];
@@ -5179,9 +3508,7 @@ export var GetBucketVersioning: StaticOperationSchema = [
   9,
   n0,
   _GBV,
-  {
-    [_h]: ["GET", "/v20180820/bucket/{Bucket}/versioning", 200],
-  },
+  { [_h]: ["GET", "/v20180820/bucket/{Bucket}/versioning", 200] },
   () => GetBucketVersioningRequest,
   () => GetBucketVersioningResult,
 ];
@@ -5189,10 +3516,7 @@ export var GetDataAccess: StaticOperationSchema = [
   9,
   n0,
   _GDA,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/dataaccess", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/dataaccess", 200], [_hCR]: 1 },
   () => GetDataAccessRequest,
   () => GetDataAccessResult,
 ];
@@ -5200,9 +3524,7 @@ export var GetJobTagging: StaticOperationSchema = [
   9,
   n0,
   _GJTe,
-  {
-    [_h]: ["GET", "/v20180820/jobs/{JobId}/tagging", 200],
-  },
+  { [_h]: ["GET", "/v20180820/jobs/{JobId}/tagging", 200] },
   () => GetJobTaggingRequest,
   () => GetJobTaggingResult,
 ];
@@ -5210,10 +3532,7 @@ export var GetMultiRegionAccessPoint: StaticOperationSchema = [
   9,
   n0,
   _GMRAP,
-  {
-    [_h]: ["GET", "/v20180820/mrap/instances/{Name+}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/mrap/instances/{Name+}", 200], [_hCR]: 1 },
   () => GetMultiRegionAccessPointRequest,
   () => GetMultiRegionAccessPointResult,
 ];
@@ -5221,10 +3540,7 @@ export var GetMultiRegionAccessPointPolicy: StaticOperationSchema = [
   9,
   n0,
   _GMRAPP,
-  {
-    [_h]: ["GET", "/v20180820/mrap/instances/{Name+}/policy", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/mrap/instances/{Name+}/policy", 200], [_hCR]: 1 },
   () => GetMultiRegionAccessPointPolicyRequest,
   () => GetMultiRegionAccessPointPolicyResult,
 ];
@@ -5232,10 +3548,7 @@ export var GetMultiRegionAccessPointPolicyStatus: StaticOperationSchema = [
   9,
   n0,
   _GMRAPPS,
-  {
-    [_h]: ["GET", "/v20180820/mrap/instances/{Name+}/policystatus", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/mrap/instances/{Name+}/policystatus", 200], [_hCR]: 1 },
   () => GetMultiRegionAccessPointPolicyStatusRequest,
   () => GetMultiRegionAccessPointPolicyStatusResult,
 ];
@@ -5243,10 +3556,7 @@ export var GetMultiRegionAccessPointRoutes: StaticOperationSchema = [
   9,
   n0,
   _GMRAPRet,
-  {
-    [_h]: ["GET", "/v20180820/mrap/instances/{Mrap+}/routes", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/mrap/instances/{Mrap+}/routes", 200], [_hCR]: 1 },
   () => GetMultiRegionAccessPointRoutesRequest,
   () => GetMultiRegionAccessPointRoutesResult,
 ];
@@ -5254,9 +3564,7 @@ export var GetPublicAccessBlock: StaticOperationSchema = [
   9,
   n0,
   _GPAB,
-  {
-    [_h]: ["GET", "/v20180820/configuration/publicAccessBlock", 200],
-  },
+  { [_h]: ["GET", "/v20180820/configuration/publicAccessBlock", 200] },
   () => GetPublicAccessBlockRequest,
   () => GetPublicAccessBlockOutput,
 ];
@@ -5264,9 +3572,7 @@ export var GetStorageLensConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GSLC,
-  {
-    [_h]: ["GET", "/v20180820/storagelens/{ConfigId}", 200],
-  },
+  { [_h]: ["GET", "/v20180820/storagelens/{ConfigId}", 200] },
   () => GetStorageLensConfigurationRequest,
   () => GetStorageLensConfigurationResult,
 ];
@@ -5274,9 +3580,7 @@ export var GetStorageLensConfigurationTagging: StaticOperationSchema = [
   9,
   n0,
   _GSLCT,
-  {
-    [_h]: ["GET", "/v20180820/storagelens/{ConfigId}/tagging", 200],
-  },
+  { [_h]: ["GET", "/v20180820/storagelens/{ConfigId}/tagging", 200] },
   () => GetStorageLensConfigurationTaggingRequest,
   () => GetStorageLensConfigurationTaggingResult,
 ];
@@ -5284,9 +3588,7 @@ export var GetStorageLensGroup: StaticOperationSchema = [
   9,
   n0,
   _GSLG,
-  {
-    [_h]: ["GET", "/v20180820/storagelensgroup/{Name}", 200],
-  },
+  { [_h]: ["GET", "/v20180820/storagelensgroup/{Name}", 200] },
   () => GetStorageLensGroupRequest,
   () => GetStorageLensGroupResult,
 ];
@@ -5294,10 +3596,7 @@ export var ListAccessGrants: StaticOperationSchema = [
   9,
   n0,
   _LAG,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/grants", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/grants", 200], [_hCR]: 1 },
   () => ListAccessGrantsRequest,
   () => ListAccessGrantsResult,
 ];
@@ -5305,10 +3604,7 @@ export var ListAccessGrantsInstances: StaticOperationSchema = [
   9,
   n0,
   _LAGI,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstances", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstances", 200], [_hCR]: 1 },
   () => ListAccessGrantsInstancesRequest,
   () => ListAccessGrantsInstancesResult,
 ];
@@ -5316,10 +3612,7 @@ export var ListAccessGrantsLocations: StaticOperationSchema = [
   9,
   n0,
   _LAGL,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/locations", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/locations", 200], [_hCR]: 1 },
   () => ListAccessGrantsLocationsRequest,
   () => ListAccessGrantsLocationsResult,
 ];
@@ -5327,9 +3620,7 @@ export var ListAccessPoints: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_h]: ["GET", "/v20180820/accesspoint", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspoint", 200] },
   () => ListAccessPointsRequest,
   () => ListAccessPointsResult,
 ];
@@ -5337,9 +3628,7 @@ export var ListAccessPointsForDirectoryBuckets: StaticOperationSchema = [
   9,
   n0,
   _LAPFDB,
-  {
-    [_h]: ["GET", "/v20180820/accesspointfordirectory", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspointfordirectory", 200] },
   () => ListAccessPointsForDirectoryBucketsRequest,
   () => ListAccessPointsForDirectoryBucketsResult,
 ];
@@ -5347,9 +3636,7 @@ export var ListAccessPointsForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _LAPFOL,
-  {
-    [_h]: ["GET", "/v20180820/accesspointforobjectlambda", 200],
-  },
+  { [_h]: ["GET", "/v20180820/accesspointforobjectlambda", 200] },
   () => ListAccessPointsForObjectLambdaRequest,
   () => ListAccessPointsForObjectLambdaResult,
 ];
@@ -5357,10 +3644,7 @@ export var ListCallerAccessGrants: StaticOperationSchema = [
   9,
   n0,
   _LCAG,
-  {
-    [_h]: ["GET", "/v20180820/accessgrantsinstance/caller/grants", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/accessgrantsinstance/caller/grants", 200], [_hCR]: 1 },
   () => ListCallerAccessGrantsRequest,
   () => ListCallerAccessGrantsResult,
 ];
@@ -5368,9 +3652,7 @@ export var ListJobs: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_h]: ["GET", "/v20180820/jobs", 200],
-  },
+  { [_h]: ["GET", "/v20180820/jobs", 200] },
   () => ListJobsRequest,
   () => ListJobsResult,
 ];
@@ -5378,10 +3660,7 @@ export var ListMultiRegionAccessPoints: StaticOperationSchema = [
   9,
   n0,
   _LMRAP,
-  {
-    [_h]: ["GET", "/v20180820/mrap/instances", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["GET", "/v20180820/mrap/instances", 200], [_hCR]: 1 },
   () => ListMultiRegionAccessPointsRequest,
   () => ListMultiRegionAccessPointsResult,
 ];
@@ -5389,9 +3668,7 @@ export var ListRegionalBuckets: StaticOperationSchema = [
   9,
   n0,
   _LRB,
-  {
-    [_h]: ["GET", "/v20180820/bucket", 200],
-  },
+  { [_h]: ["GET", "/v20180820/bucket", 200] },
   () => ListRegionalBucketsRequest,
   () => ListRegionalBucketsResult,
 ];
@@ -5399,9 +3676,7 @@ export var ListStorageLensConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LSLC,
-  {
-    [_h]: ["GET", "/v20180820/storagelens", 200],
-  },
+  { [_h]: ["GET", "/v20180820/storagelens", 200] },
   () => ListStorageLensConfigurationsRequest,
   () => ListStorageLensConfigurationsResult,
 ];
@@ -5409,9 +3684,7 @@ export var ListStorageLensGroups: StaticOperationSchema = [
   9,
   n0,
   _LSLG,
-  {
-    [_h]: ["GET", "/v20180820/storagelensgroup", 200],
-  },
+  { [_h]: ["GET", "/v20180820/storagelensgroup", 200] },
   () => ListStorageLensGroupsRequest,
   () => ListStorageLensGroupsResult,
 ];
@@ -5419,9 +3692,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/v20180820/tags/{ResourceArn+}", 200],
-  },
+  { [_h]: ["GET", "/v20180820/tags/{ResourceArn+}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResult,
 ];
@@ -5429,10 +3700,7 @@ export var PutAccessGrantsInstanceResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PAGIRP,
-  {
-    [_h]: ["PUT", "/v20180820/accessgrantsinstance/resourcepolicy", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/accessgrantsinstance/resourcepolicy", 200], [_hCR]: 1 },
   () => PutAccessGrantsInstanceResourcePolicyRequest,
   () => PutAccessGrantsInstanceResourcePolicyResult,
 ];
@@ -5440,9 +3708,7 @@ export var PutAccessPointConfigurationForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _PAPCFOL,
-  {
-    [_h]: ["PUT", "/v20180820/accesspointforobjectlambda/{Name}/configuration", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/accesspointforobjectlambda/{Name}/configuration", 200] },
   () => PutAccessPointConfigurationForObjectLambdaRequest,
   () => __Unit,
 ];
@@ -5450,9 +3716,7 @@ export var PutAccessPointPolicy: StaticOperationSchema = [
   9,
   n0,
   _PAPP,
-  {
-    [_h]: ["PUT", "/v20180820/accesspoint/{Name}/policy", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/accesspoint/{Name}/policy", 200] },
   () => PutAccessPointPolicyRequest,
   () => __Unit,
 ];
@@ -5460,9 +3724,7 @@ export var PutAccessPointPolicyForObjectLambda: StaticOperationSchema = [
   9,
   n0,
   _PAPPFOL,
-  {
-    [_h]: ["PUT", "/v20180820/accesspointforobjectlambda/{Name}/policy", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/accesspointforobjectlambda/{Name}/policy", 200] },
   () => PutAccessPointPolicyForObjectLambdaRequest,
   () => __Unit,
 ];
@@ -5470,9 +3732,7 @@ export var PutAccessPointScope: StaticOperationSchema = [
   9,
   n0,
   _PAPS,
-  {
-    [_h]: ["PUT", "/v20180820/accesspoint/{Name}/scope", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/accesspoint/{Name}/scope", 200] },
   () => PutAccessPointScopeRequest,
   () => __Unit,
 ];
@@ -5480,10 +3740,7 @@ export var PutBucketLifecycleConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PBLC,
-  {
-    [_h]: ["PUT", "/v20180820/bucket/{Bucket}/lifecycleconfiguration", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/bucket/{Bucket}/lifecycleconfiguration", 200], [_hCR]: 1 },
   () => PutBucketLifecycleConfigurationRequest,
   () => __Unit,
 ];
@@ -5491,10 +3748,7 @@ export var PutBucketPolicy: StaticOperationSchema = [
   9,
   n0,
   _PBP,
-  {
-    [_h]: ["PUT", "/v20180820/bucket/{Bucket}/policy", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/bucket/{Bucket}/policy", 200], [_hCR]: 1 },
   () => PutBucketPolicyRequest,
   () => __Unit,
 ];
@@ -5502,10 +3756,7 @@ export var PutBucketReplication: StaticOperationSchema = [
   9,
   n0,
   _PBR,
-  {
-    [_h]: ["PUT", "/v20180820/bucket/{Bucket}/replication", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/bucket/{Bucket}/replication", 200], [_hCR]: 1 },
   () => PutBucketReplicationRequest,
   () => __Unit,
 ];
@@ -5513,10 +3764,7 @@ export var PutBucketTagging: StaticOperationSchema = [
   9,
   n0,
   _PBT,
-  {
-    [_h]: ["PUT", "/v20180820/bucket/{Bucket}/tagging", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/bucket/{Bucket}/tagging", 200], [_hCR]: 1 },
   () => PutBucketTaggingRequest,
   () => __Unit,
 ];
@@ -5524,10 +3772,7 @@ export var PutBucketVersioning: StaticOperationSchema = [
   9,
   n0,
   _PBV,
-  {
-    [_h]: ["PUT", "/v20180820/bucket/{Bucket}/versioning", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/bucket/{Bucket}/versioning", 200], [_hCR]: 1 },
   () => PutBucketVersioningRequest,
   () => __Unit,
 ];
@@ -5535,9 +3780,7 @@ export var PutJobTagging: StaticOperationSchema = [
   9,
   n0,
   _PJT,
-  {
-    [_h]: ["PUT", "/v20180820/jobs/{JobId}/tagging", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/jobs/{JobId}/tagging", 200] },
   () => PutJobTaggingRequest,
   () => PutJobTaggingResult,
 ];
@@ -5545,10 +3788,7 @@ export var PutMultiRegionAccessPointPolicy: StaticOperationSchema = [
   9,
   n0,
   _PMRAPPu,
-  {
-    [_h]: ["POST", "/v20180820/async-requests/mrap/put-policy", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["POST", "/v20180820/async-requests/mrap/put-policy", 200], [_hCR]: 1 },
   () => PutMultiRegionAccessPointPolicyRequest,
   () => PutMultiRegionAccessPointPolicyResult,
 ];
@@ -5556,9 +3796,7 @@ export var PutPublicAccessBlock: StaticOperationSchema = [
   9,
   n0,
   _PPAB,
-  {
-    [_h]: ["PUT", "/v20180820/configuration/publicAccessBlock", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/configuration/publicAccessBlock", 200] },
   () => PutPublicAccessBlockRequest,
   () => __Unit,
 ];
@@ -5566,9 +3804,7 @@ export var PutStorageLensConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PSLC,
-  {
-    [_h]: ["PUT", "/v20180820/storagelens/{ConfigId}", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/storagelens/{ConfigId}", 200] },
   () => PutStorageLensConfigurationRequest,
   () => __Unit,
 ];
@@ -5576,9 +3812,7 @@ export var PutStorageLensConfigurationTagging: StaticOperationSchema = [
   9,
   n0,
   _PSLCT,
-  {
-    [_h]: ["PUT", "/v20180820/storagelens/{ConfigId}/tagging", 200],
-  },
+  { [_h]: ["PUT", "/v20180820/storagelens/{ConfigId}/tagging", 200] },
   () => PutStorageLensConfigurationTaggingRequest,
   () => PutStorageLensConfigurationTaggingResult,
 ];
@@ -5586,10 +3820,7 @@ export var SubmitMultiRegionAccessPointRoutes: StaticOperationSchema = [
   9,
   n0,
   _SMRAPR,
-  {
-    [_h]: ["PATCH", "/v20180820/mrap/instances/{Mrap+}/routes", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PATCH", "/v20180820/mrap/instances/{Mrap+}/routes", 200], [_hCR]: 1 },
   () => SubmitMultiRegionAccessPointRoutesRequest,
   () => SubmitMultiRegionAccessPointRoutesResult,
 ];
@@ -5597,9 +3828,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/v20180820/tags/{ResourceArn+}", 204],
-  },
+  { [_h]: ["POST", "/v20180820/tags/{ResourceArn+}", 204] },
   () => TagResourceRequest,
   () => TagResourceResult,
 ];
@@ -5607,9 +3836,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/v20180820/tags/{ResourceArn+}", 204],
-  },
+  { [_h]: ["DELETE", "/v20180820/tags/{ResourceArn+}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResult,
 ];
@@ -5617,10 +3844,7 @@ export var UpdateAccessGrantsLocation: StaticOperationSchema = [
   9,
   n0,
   _UAGL,
-  {
-    [_h]: ["PUT", "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", 200],
-    [_hCR]: 1,
-  },
+  { [_h]: ["PUT", "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}", 200], [_hCR]: 1 },
   () => UpdateAccessGrantsLocationRequest,
   () => UpdateAccessGrantsLocationResult,
 ];
@@ -5628,9 +3852,7 @@ export var UpdateJobPriority: StaticOperationSchema = [
   9,
   n0,
   _UJP,
-  {
-    [_h]: ["POST", "/v20180820/jobs/{JobId}/priority", 200],
-  },
+  { [_h]: ["POST", "/v20180820/jobs/{JobId}/priority", 200] },
   () => UpdateJobPriorityRequest,
   () => UpdateJobPriorityResult,
 ];
@@ -5638,9 +3860,7 @@ export var UpdateJobStatus: StaticOperationSchema = [
   9,
   n0,
   _UJS,
-  {
-    [_h]: ["POST", "/v20180820/jobs/{JobId}/status", 200],
-  },
+  { [_h]: ["POST", "/v20180820/jobs/{JobId}/status", 200] },
   () => UpdateJobStatusRequest,
   () => UpdateJobStatusResult,
 ];
@@ -5648,9 +3868,7 @@ export var UpdateStorageLensGroup: StaticOperationSchema = [
   9,
   n0,
   _USLG,
-  {
-    [_h]: ["PUT", "/v20180820/storagelensgroup/{Name}", 204],
-  },
+  { [_h]: ["PUT", "/v20180820/storagelensgroup/{Name}", 204] },
   () => UpdateStorageLensGroupRequest,
   () => __Unit,
 ];

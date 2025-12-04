@@ -162,47 +162,12 @@ import {
 import { LexRuntimeServiceServiceException as __LexRuntimeServiceServiceException } from "../models/LexRuntimeServiceServiceException";
 
 /* eslint no-var: 0 */
-
-export var BlobStream: StaticSimpleSchema = [
-  0,
-  n0,
-  _BS,
-  {
-    [_s]: 1,
-  },
-  42,
-];
+export var BlobStream: StaticSimpleSchema = [0, n0, _BS, { [_s]: 1 }, 42];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var SensitiveStringUnbounded: StaticSimpleSchema = [0, n0, _SSU, 8, 0];
-export var SynthesizedJsonActiveContextsString: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJACS,
-  {
-    [_mT]: _a,
-    [_se]: 1,
-  },
-  0,
-];
-export var SynthesizedJsonAttributesString: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJAS,
-  {
-    [_mT]: _a,
-    [_se]: 1,
-  },
-  0,
-];
-export var SynthesizedJsonString: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJS,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
+export var SynthesizedJsonActiveContextsString: StaticSimpleSchema = [0, n0, _SJACS, { [_mT]: _a, [_se]: 1 }, 0];
+export var SynthesizedJsonAttributesString: StaticSimpleSchema = [0, n0, _SJAS, { [_mT]: _a, [_se]: 1 }, 0];
+export var SynthesizedJsonString: StaticSimpleSchema = [0, n0, _SJS, { [_mT]: _a }, 0];
 export var Text: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var ActiveContext: StaticStructureSchema = [
   3,
@@ -213,46 +178,13 @@ export var ActiveContext: StaticStructureSchema = [
   [0, () => ActiveContextTimeToLive, [() => ActiveContextParametersMap, 0]],
 ];
 export var ActiveContextTimeToLive: StaticStructureSchema = [3, n0, _ACTTL, 0, [_tTLIS, _tTLu], [1, 1]];
-export var BadGatewayException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BGE,
-  {
-    [_e]: _ser,
-    [_hE]: 502,
-  },
-  [_M],
-  [0],
-];
+export var BadGatewayException: StaticErrorSchema = [-3, n0, _BGE, { [_e]: _ser, [_hE]: 502 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadGatewayException, __BadGatewayException);
-
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var Button: StaticStructureSchema = [3, n0, _B, 0, [_t, _v], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DeleteSessionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -266,19 +198,8 @@ export var DeleteSessionRequest: StaticStructureSchema = [
   ],
 ];
 export var DeleteSessionResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_bN, _bA, _uI, _sI], [0, 0, 0, 0]];
-export var DependencyFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DFE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_M],
-  [0],
-];
+export var DependencyFailedException: StaticErrorSchema = [-3, n0, _DFE, { [_e]: _c, [_hE]: 424 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DependencyFailedException, __DependencyFailedException);
-
 export var DialogAction: StaticStructureSchema = [
   3,
   n0,
@@ -305,12 +226,7 @@ export var GetSessionRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cLF,
-      },
-    ],
+    [0, { [_hQ]: _cLF }],
   ],
 ];
 export var GetSessionResponse: StaticStructureSchema = [
@@ -330,79 +246,23 @@ export var IntentSummary: StaticStructureSchema = [
   [_iN, _cL, _sl, _cS, _dAT, _fS, _sTE],
   [0, 0, [() => StringMap, 0], 0, 0, 0, 0],
 ];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_rAS, _m],
-  [
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
-export var LoopDetectedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LDE,
-  {
-    [_e]: _ser,
-    [_hE]: 508,
-  },
-  [_M],
-  [0],
-];
+export var LoopDetectedException: StaticErrorSchema = [-3, n0, _LDE, { [_e]: _ser, [_hE]: 508 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LoopDetectedException, __LoopDetectedException);
-
-export var NotAcceptableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NAE,
-  {
-    [_e]: _c,
-    [_hE]: 406,
-  },
-  [_m],
-  [0],
-];
+export var NotAcceptableException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 406 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotAcceptableException, __NotAcceptableException);
-
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PostContentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -413,37 +273,12 @@ export var PostContentRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      () => SynthesizedJsonAttributesString,
-      {
-        [_hH]: _xalsa,
-      },
-    ],
-    [
-      () => SynthesizedJsonAttributesString,
-      {
-        [_hH]: _xalra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
+    [() => SynthesizedJsonAttributesString, { [_hH]: _xalsa }],
+    [() => SynthesizedJsonAttributesString, { [_hH]: _xalra }],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _A }],
     [() => BlobStream, 16],
-    [
-      () => SynthesizedJsonActiveContextsString,
-      {
-        [_hH]: _xalac,
-      },
-    ],
+    [() => SynthesizedJsonActiveContextsString, { [_hH]: _xalac }],
   ],
 ];
 export var PostContentResponse: StaticStructureSchema = [
@@ -453,109 +288,24 @@ export var PostContentResponse: StaticStructureSchema = [
   0,
   [_cT, _iN, _nIC, _aI, _sl, _sA, _sR, _m, _eM, _mF, _dS, _sTE, _iT, _eIT, _aS, _bV, _sI, _aC],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalin,
-      },
-    ],
-    [
-      () => SynthesizedJsonString,
-      {
-        [_hH]: _xalnic,
-      },
-    ],
-    [
-      () => SynthesizedJsonString,
-      {
-        [_hH]: _xalai,
-      },
-    ],
-    [
-      () => SynthesizedJsonString,
-      {
-        [_hH]: _xals,
-      },
-    ],
-    [
-      () => SynthesizedJsonString,
-      {
-        [_hH]: _xalsa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xals_,
-      },
-    ],
-    [
-      () => Text,
-      {
-        [_hH]: _xalm,
-      },
-    ],
-    [
-      () => SensitiveString,
-      {
-        [_hH]: _xalem,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalmf,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalds,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalste,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalit,
-      },
-    ],
-    [
-      () => SensitiveStringUnbounded,
-      {
-        [_hH]: _xaleit,
-      },
-    ],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _xalin }],
+    [() => SynthesizedJsonString, { [_hH]: _xalnic }],
+    [() => SynthesizedJsonString, { [_hH]: _xalai }],
+    [() => SynthesizedJsonString, { [_hH]: _xals }],
+    [() => SynthesizedJsonString, { [_hH]: _xalsa }],
+    [0, { [_hH]: _xals_ }],
+    [() => Text, { [_hH]: _xalm }],
+    [() => SensitiveString, { [_hH]: _xalem }],
+    [0, { [_hH]: _xalmf }],
+    [0, { [_hH]: _xalds }],
+    [0, { [_hH]: _xalste }],
+    [0, { [_hH]: _xalit }],
+    [() => SensitiveStringUnbounded, { [_hH]: _xaleit }],
     [() => BlobStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xalbv,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalsi,
-      },
-    ],
-    [
-      () => SynthesizedJsonActiveContextsString,
-      {
-        [_hH]: _xalac,
-      },
-    ],
+    [0, { [_hH]: _xalbv }],
+    [0, { [_hH]: _xalsi }],
+    [() => SynthesizedJsonActiveContextsString, { [_hH]: _xalac }],
   ],
 ];
 export var PostTextRequest: StaticStructureSchema = [
@@ -618,12 +368,7 @@ export var PutSessionRequest: StaticStructureSchema = [
     [() => StringMap, 0],
     [() => DialogAction, 0],
     [() => IntentSummaryList, 0],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
+    [0, { [_hH]: _A }],
     [() => ActiveContextsList, 0],
   ],
 ];
@@ -634,105 +379,27 @@ export var PutSessionResponse: StaticStructureSchema = [
   0,
   [_cT, _iN, _sl, _sA, _m, _eM, _mF, _dS, _sTE, _aS, _sI, _aC],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalin,
-      },
-    ],
-    [
-      () => SynthesizedJsonString,
-      {
-        [_hH]: _xals,
-      },
-    ],
-    [
-      () => SynthesizedJsonString,
-      {
-        [_hH]: _xalsa,
-      },
-    ],
-    [
-      () => Text,
-      {
-        [_hH]: _xalm,
-      },
-    ],
-    [
-      () => SensitiveString,
-      {
-        [_hH]: _xalem,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalmf,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalds,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalste,
-      },
-    ],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _xalin }],
+    [() => SynthesizedJsonString, { [_hH]: _xals }],
+    [() => SynthesizedJsonString, { [_hH]: _xalsa }],
+    [() => Text, { [_hH]: _xalm }],
+    [() => SensitiveString, { [_hH]: _xalem }],
+    [0, { [_hH]: _xalmf }],
+    [0, { [_hH]: _xalds }],
+    [0, { [_hH]: _xalste }],
     [() => BlobStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xalsi,
-      },
-    ],
-    [
-      () => SynthesizedJsonActiveContextsString,
-      {
-        [_hH]: _xalac,
-      },
-    ],
+    [0, { [_hH]: _xalsi }],
+    [() => SynthesizedJsonActiveContextsString, { [_hH]: _xalac }],
   ],
 ];
-export var RequestTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RTE,
-  {
-    [_e]: _c,
-    [_hE]: 408,
-  },
-  [_m],
-  [0],
-];
+export var RequestTimeoutException: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
-
 export var ResponseCard: StaticStructureSchema = [3, n0, _RC, 0, [_ve, _cT, _gA], [0, 0, () => genericAttachmentList]];
 export var SentimentResponse: StaticStructureSchema = [3, n0, _SR, 0, [_sL, _sS], [0, 0]];
-export var UnsupportedMediaTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UMTE,
-  {
-    [_e]: _c,
-    [_hE]: 415,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedMediaTypeException: StaticErrorSchema = [-3, n0, _UMTE, { [_e]: _c, [_hE]: 415 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedMediaTypeException, __UnsupportedMediaTypeException);
-
 export var __Unit = "unit" as const;
-
 export var LexRuntimeServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -742,7 +409,6 @@ export var LexRuntimeServiceServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(LexRuntimeServiceServiceException, __LexRuntimeServiceServiceException);
-
 export var ActiveContextsList: StaticListSchema = [1, n0, _ACL, 8, [() => ActiveContext, 0]];
 export var genericAttachmentList: StaticListSchema = [1, n0, _gAL, 0, () => GenericAttachment];
 export var IntentList: StaticListSchema = [1, n0, _IL, 0, [() => PredictedIntent, 0]];
@@ -754,9 +420,7 @@ export var DeleteSession: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/bot/{botName}/alias/{botAlias}/user/{userId}/session", 200],
-  },
+  { [_h]: ["DELETE", "/bot/{botName}/alias/{botAlias}/user/{userId}/session", 200] },
   () => DeleteSessionRequest,
   () => DeleteSessionResponse,
 ];
@@ -764,9 +428,7 @@ export var GetSession: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/bot/{botName}/alias/{botAlias}/user/{userId}/session", 200],
-  },
+  { [_h]: ["GET", "/bot/{botName}/alias/{botAlias}/user/{userId}/session", 200] },
   () => GetSessionRequest,
   () => GetSessionResponse,
 ];
@@ -774,9 +436,7 @@ export var PostContent: StaticOperationSchema = [
   9,
   n0,
   _PC,
-  {
-    [_h]: ["POST", "/bot/{botName}/alias/{botAlias}/user/{userId}/content", 200],
-  },
+  { [_h]: ["POST", "/bot/{botName}/alias/{botAlias}/user/{userId}/content", 200] },
   () => PostContentRequest,
   () => PostContentResponse,
 ];
@@ -784,9 +444,7 @@ export var PostText: StaticOperationSchema = [
   9,
   n0,
   _PT,
-  {
-    [_h]: ["POST", "/bot/{botName}/alias/{botAlias}/user/{userId}/text", 200],
-  },
+  { [_h]: ["POST", "/bot/{botName}/alias/{botAlias}/user/{userId}/text", 200] },
   () => PostTextRequest,
   () => PostTextResponse,
 ];
@@ -794,9 +452,7 @@ export var PutSession: StaticOperationSchema = [
   9,
   n0,
   _PS,
-  {
-    [_h]: ["POST", "/bot/{botName}/alias/{botAlias}/user/{userId}/session", 200],
-  },
+  { [_h]: ["POST", "/bot/{botName}/alias/{botAlias}/user/{userId}/session", 200] },
   () => PutSessionRequest,
   () => PutSessionResponse,
 ];

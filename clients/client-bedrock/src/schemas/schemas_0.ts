@@ -1238,7 +1238,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AutomatedReasoningLogicStatementContent: StaticSimpleSchema = [0, n0, _ARLSC, 8, 0];
 export var AutomatedReasoningNaturalLanguageStatementContent: StaticSimpleSchema = [0, n0, _ARNLSC, 8, 0];
 export var AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage: StaticSimpleSchema = [0, n0, _ARPAFNL, 8, 0];
@@ -1289,19 +1288,8 @@ export var Message: StaticSimpleSchema = [0, n0, _M, 8, 0];
 export var MetricName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
 export var PromptRouterDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 export var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountEnforcedGuardrailInferenceInputConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1938,19 +1926,8 @@ export var CancelAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSc
 ];
 export var CancelAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSchema = [3, n0, _CARPBWRa, 0, [], []];
 export var CloudWatchConfig: StaticStructureSchema = [3, n0, _CWC, 0, [_lGN, _rA, _lDDSC], [0, 0, () => S3Config]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAutomatedReasoningPolicyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2248,12 +2225,7 @@ export var DeleteAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSc
   [
     [0, 1],
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _uA,
-      },
-    ],
+    [5, { [_hQ]: _uA }],
   ],
 ];
 export var DeleteAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSchema = [3, n0, _DARPBWRe, 0, [], []];
@@ -2265,12 +2237,7 @@ export var DeleteAutomatedReasoningPolicyRequest: StaticStructureSchema = [
   [_pA, _fo],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _fo,
-      },
-    ],
+    [2, { [_hQ]: _fo }],
   ],
 ];
 export var DeleteAutomatedReasoningPolicyResponse: StaticStructureSchema = [3, n0, _DARPRe, 0, [], []];
@@ -2283,12 +2250,7 @@ export var DeleteAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema 
   [
     [0, 1],
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _uA,
-      },
-    ],
+    [5, { [_hQ]: _uA }],
   ],
 ];
 export var DeleteAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema = [3, n0, _DARPTCRe, 0, [], []];
@@ -2308,12 +2270,7 @@ export var DeleteGuardrailRequest: StaticStructureSchema = [
   [_gI, _gV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _gV,
-      },
-    ],
+    [0, { [_hQ]: _gV }],
   ],
 ];
 export var DeleteGuardrailResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
@@ -2503,12 +2460,7 @@ export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest: StaticSt
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aTs,
-      },
-    ],
+    [0, { [_hQ]: _aTs }],
   ],
 ];
 export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse: StaticStructureSchema = [
@@ -2679,12 +2631,7 @@ export var GetGuardrailRequest: StaticStructureSchema = [
   [_gI, _gV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _gV,
-      },
-    ],
+    [0, { [_hQ]: _gV }],
   ],
 ];
 export var GetGuardrailResponse: StaticStructureSchema = [
@@ -3215,19 +3162,8 @@ export var InferenceProfileSummary: StaticStructureSchema = [
   [_iPN, _d, _cA, _uA, _iPA, _mo, _iPIn, _s, _ty],
   [0, [() => InferenceProfileDescription, 0], 5, 5, 0, () => InferenceProfileModels, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvocationLogsConfig: StaticStructureSchema = [
   3,
   n0,
@@ -3282,24 +3218,9 @@ export var ListAutomatedReasoningPoliciesRequest: StaticStructureSchema = [
   0,
   [_pA, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _pA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _pA }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAutomatedReasoningPoliciesResponse: StaticStructureSchema = [
@@ -3318,18 +3239,8 @@ export var ListAutomatedReasoningPolicyBuildWorkflowsRequest: StaticStructureSch
   [_pA, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAutomatedReasoningPolicyBuildWorkflowsResponse: StaticStructureSchema = [
@@ -3348,18 +3259,8 @@ export var ListAutomatedReasoningPolicyTestCasesRequest: StaticStructureSchema =
   [_pA, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAutomatedReasoningPolicyTestCasesResponse: StaticStructureSchema = [
@@ -3379,18 +3280,8 @@ export var ListAutomatedReasoningPolicyTestResultsRequest: StaticStructureSchema
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAutomatedReasoningPolicyTestResultsResponse: StaticStructureSchema = [
@@ -3408,60 +3299,15 @@ export var ListCustomModelDeploymentsRequest: StaticStructureSchema = [
   0,
   [_cBr, _cAr, _nC, _mR, _nT, _sB, _sO, _sEt, _mAE],
   [
-    [
-      5,
-      {
-        [_hQ]: _cBr,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cAr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mAE,
-      },
-    ],
+    [5, { [_hQ]: _cBr }],
+    [5, { [_hQ]: _cAr }],
+    [0, { [_hQ]: _nC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [0, { [_hQ]: _sEt }],
+    [0, { [_hQ]: _mAE }],
   ],
 ];
 export var ListCustomModelDeploymentsResponse: StaticStructureSchema = [
@@ -3479,72 +3325,17 @@ export var ListCustomModelsRequest: StaticStructureSchema = [
   0,
   [_cTB, _cTA, _nC, _bMAE, _fMAE, _mR, _nT, _sB, _sO, _iO, _mSo],
   [
-    [
-      5,
-      {
-        [_hQ]: _cTB,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cTA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bMAE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fMAE,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mSo,
-      },
-    ],
+    [5, { [_hQ]: _cTB }],
+    [5, { [_hQ]: _cTA }],
+    [0, { [_hQ]: _nC }],
+    [0, { [_hQ]: _bMAE }],
+    [0, { [_hQ]: _fMAE }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [2, { [_hQ]: _iO }],
+    [0, { [_hQ]: _mSo }],
   ],
 ];
 export var ListCustomModelsResponse: StaticStructureSchema = [
@@ -3561,14 +3352,7 @@ export var ListEnforcedGuardrailsConfigurationRequest: StaticStructureSchema = [
   _LEGCR,
   0,
   [_nT],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _nT }]],
 ];
 export var ListEnforcedGuardrailsConfigurationResponse: StaticStructureSchema = [
   3,
@@ -3585,60 +3369,15 @@ export var ListEvaluationJobsRequest: StaticStructureSchema = [
   0,
   [_cTA, _cTB, _sEt, _aTE, _nC, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _cTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aTE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _cTA }],
+    [5, { [_hQ]: _cTB }],
+    [0, { [_hQ]: _sEt }],
+    [0, { [_hQ]: _aTE }],
+    [0, { [_hQ]: _nC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListEvaluationJobsResponse: StaticStructureSchema = [
@@ -3657,12 +3396,7 @@ export var ListFoundationModelAgreementOffersRequest: StaticStructureSchema = [
   [_mIo, _oTf],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _oTf,
-      },
-    ],
+    [0, { [_hQ]: _oTf }],
   ],
 ];
 export var ListFoundationModelAgreementOffersResponse: StaticStructureSchema = [
@@ -3680,30 +3414,10 @@ export var ListFoundationModelsRequest: StaticStructureSchema = [
   0,
   [_bP, _bCT, _bOMy, _bIT],
   [
-    [
-      0,
-      {
-        [_hQ]: _bP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bCT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bOMy,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bIT,
-      },
-    ],
+    [0, { [_hQ]: _bP }],
+    [0, { [_hQ]: _bCT }],
+    [0, { [_hQ]: _bOMy }],
+    [0, { [_hQ]: _bIT }],
   ],
 ];
 export var ListFoundationModelsResponse: StaticStructureSchema = [
@@ -3721,24 +3435,9 @@ export var ListGuardrailsRequest: StaticStructureSchema = [
   0,
   [_gI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _gI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _gI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListGuardrailsResponse: StaticStructureSchema = [
@@ -3756,48 +3455,13 @@ export var ListImportedModelsRequest: StaticStructureSchema = [
   0,
   [_cTB, _cTA, _nC, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _cTB,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cTA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _cTB }],
+    [5, { [_hQ]: _cTA }],
+    [0, { [_hQ]: _nC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListImportedModelsResponse: StaticStructureSchema = [
@@ -3815,24 +3479,9 @@ export var ListInferenceProfilesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _tE],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var ListInferenceProfilesResponse: StaticStructureSchema = [
@@ -3850,24 +3499,9 @@ export var ListMarketplaceModelEndpointsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _mSE],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mSI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _mSI }],
   ],
 ];
 export var ListMarketplaceModelEndpointsResponse: StaticStructureSchema = [
@@ -3885,66 +3519,16 @@ export var ListModelCopyJobsRequest: StaticStructureSchema = [
   0,
   [_cTA, _cTB, _sEt, _sAE, _sMAE, _tMNC, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _cTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sAE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sMAE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oMNC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _cTA }],
+    [5, { [_hQ]: _cTB }],
+    [0, { [_hQ]: _sEt }],
+    [0, { [_hQ]: _sAE }],
+    [0, { [_hQ]: _sMAE }],
+    [0, { [_hQ]: _oMNC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListModelCopyJobsResponse: StaticStructureSchema = [
@@ -3962,54 +3546,14 @@ export var ListModelCustomizationJobsRequest: StaticStructureSchema = [
   0,
   [_cTA, _cTB, _sEt, _nC, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _cTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _cTA }],
+    [5, { [_hQ]: _cTB }],
+    [0, { [_hQ]: _sEt }],
+    [0, { [_hQ]: _nC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListModelCustomizationJobsResponse: StaticStructureSchema = [
@@ -4027,54 +3571,14 @@ export var ListModelImportJobsRequest: StaticStructureSchema = [
   0,
   [_cTA, _cTB, _sEt, _nC, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _cTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _cTA }],
+    [5, { [_hQ]: _cTB }],
+    [0, { [_hQ]: _sEt }],
+    [0, { [_hQ]: _nC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListModelImportJobsResponse: StaticStructureSchema = [
@@ -4092,54 +3596,14 @@ export var ListModelInvocationJobsRequest: StaticStructureSchema = [
   0,
   [_sTA, _sTB, _sEt, _nC, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _sTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _sTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _sTA }],
+    [5, { [_hQ]: _sTB }],
+    [0, { [_hQ]: _sEt }],
+    [0, { [_hQ]: _nC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListModelInvocationJobsResponse: StaticStructureSchema = [
@@ -4157,24 +3621,9 @@ export var ListPromptRoutersRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _ty],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var ListPromptRoutersResponse: StaticStructureSchema = [
@@ -4192,60 +3641,15 @@ export var ListProvisionedModelThroughputsRequest: StaticStructureSchema = [
   0,
   [_cTA, _cTB, _sEt, _mAE, _nC, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _cTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mAE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _cTA }],
+    [5, { [_hQ]: _cTB }],
+    [0, { [_hQ]: _sEt }],
+    [0, { [_hQ]: _mAE }],
+    [0, { [_hQ]: _nC }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListProvisionedModelThroughputsResponse: StaticStructureSchema = [
@@ -4452,32 +3856,10 @@ export var RequestMetadataBaseFilters: StaticStructureSchema = [
     [() => RequestMetadataMap, 0],
   ],
 ];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetrieveAndGenerateConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -4526,32 +3908,10 @@ export var SageMakerEndpoint: StaticStructureSchema = [
   [_iIC, _iTn, _eRx, _kEK, _vp],
   [1, 0, 0, 0, () => VpcConfig],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4561,13 +3921,7 @@ export var StartAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSch
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xact,
-        [_iTd]: 1,
-      },
-    ],
+    [0, { [_hH]: _xact, [_iTd]: 1 }],
     [() => AutomatedReasoningPolicyBuildWorkflowSource, 16],
   ],
 ];
@@ -4623,32 +3977,10 @@ export var TermDetails: StaticStructureSchema = [
   [() => PricingTerm, () => LegalTerm, () => SupportTerm, () => ValidityTerm],
 ];
 export var TextInferenceConfig: StaticStructureSchema = [3, n0, _TIC, 0, [_tem, _tPo, _mTa, _sS], [1, 1, 1, 64 | 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TrainingDataConfig: StaticStructureSchema = [
   3,
   n0,
@@ -4775,19 +4107,8 @@ export var UpdateProvisionedModelThroughputRequest: StaticStructureSchema = [
 export var UpdateProvisionedModelThroughputResponse: StaticStructureSchema = [3, n0, _UPMTRp, 0, [], []];
 export var ValidationDataConfig: StaticStructureSchema = [3, n0, _VDC, 0, [_val], [() => Validators]];
 export var ValidationDetails: StaticStructureSchema = [3, n0, _VD, 0, [_s, _cTr, _lMT], [0, 5, 5]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Validator: StaticStructureSchema = [3, n0, _V, 0, [_sU], [0]];
 export var ValidatorMetric: StaticStructureSchema = [3, n0, _VM, 0, [_vL], [1]];
 export var ValidityTerm: StaticStructureSchema = [3, n0, _VT, 0, [_aD], [0]];
@@ -4817,10 +4138,8 @@ export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
 ];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_sI, _sGI], [64 | 0, 64 | 0]];
 export var __Unit = "unit" as const;
-
 export var BedrockServiceException: StaticErrorSchema = [-3, _sm, "BedrockServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockServiceException, __BedrockServiceException);
-
 export var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [
   1,
   n0,
@@ -4886,7 +4205,6 @@ export var AutomatedReasoningPolicyAnnotationList: StaticListSchema = [
   [() => AutomatedReasoningPolicyAnnotation, 0],
 ];
 export var AutomatedReasoningPolicyArnList = 64 | 0;
-
 export var AutomatedReasoningPolicyBuildLogEntryList: StaticListSchema = [
   1,
   n0,
@@ -4923,9 +4241,7 @@ export var AutomatedReasoningPolicyBuildWorkflowSummaries: StaticListSchema = [
   () => AutomatedReasoningPolicyBuildWorkflowSummary,
 ];
 export var AutomatedReasoningPolicyConflictedRuleIdList = 64 | 0;
-
 export var AutomatedReasoningPolicyDefinitionRuleIdList = 64 | 0;
-
 export var AutomatedReasoningPolicyDefinitionRuleList: StaticListSchema = [
   1,
   n0,
@@ -4976,7 +4292,6 @@ export var AutomatedReasoningPolicyDefinitionVariableNameList: StaticListSchema 
   [() => AutomatedReasoningPolicyDefinitionVariableName, 0],
 ];
 export var AutomatedReasoningPolicyDisjointedRuleIdList = 64 | 0;
-
 export var AutomatedReasoningPolicyDisjointRuleSetList: StaticListSchema = [
   1,
   n0,
@@ -4999,7 +4314,6 @@ export var AutomatedReasoningPolicySummaries: StaticListSchema = [
   [() => AutomatedReasoningPolicySummary, 0],
 ];
 export var AutomatedReasoningPolicyTestCaseIdList = 64 | 0;
-
 export var AutomatedReasoningPolicyTestCaseList: StaticListSchema = [
   1,
   n0,
@@ -5046,11 +4360,8 @@ export var CustomMetricBedrockEvaluatorModels: StaticListSchema = [
 export var CustomModelDeploymentSummaryList: StaticListSchema = [1, n0, _CMDSL, 0, () => CustomModelDeploymentSummary];
 export var CustomModelSummaryList: StaticListSchema = [1, n0, _CMSL, 0, () => CustomModelSummary];
 export var ErrorMessages = 64 | 0;
-
 export var EvaluationBedrockKnowledgeBaseIdentifiers = 64 | 0;
-
 export var EvaluationBedrockModelIdentifiers = 64 | 0;
-
 export var EvaluationDatasetMetricConfigs: StaticListSchema = [
   1,
   n0,
@@ -5062,14 +4373,10 @@ export var EvaluationJobIdentifiers: StaticListSchema = [1, n0, _EJIv, 0, [() =>
 export var EvaluationMetricNames: StaticListSchema = [1, n0, _EMNv, 0, [() => EvaluationMetricName, 0]];
 export var EvaluationModelConfigs: StaticListSchema = [1, n0, _EMC, 0, [() => EvaluationModelConfig, 0]];
 export var EvaluationPrecomputedInferenceSourceIdentifiers = 64 | 0;
-
 export var EvaluationPrecomputedRagSourceIdentifiers = 64 | 0;
-
 export var EvaluationSummaries: StaticListSchema = [1, n0, _ESv, 0, () => EvaluationSummary];
 export var EvaluationTaskTypes = 64 | 0;
-
 export var EvaluatorModelIdentifiers = 64 | 0;
-
 export var ExternalSources: StaticListSchema = [1, n0, _ESxt, 0, [() => ExternalSource, 0]];
 export var FieldsForReranking: StaticListSchema = [1, n0, _FFRi, 8, () => FieldForReranking];
 export var FoundationModelSummaryList: StaticListSchema = [1, n0, _FMSL, 0, () => FoundationModelSummary];
@@ -5127,7 +4434,6 @@ export var ImportedModelSummaryList: StaticListSchema = [1, n0, _IMSL, 0, () => 
 export var InferenceProfileModels: StaticListSchema = [1, n0, _IPMn, 0, () => InferenceProfileModel];
 export var InferenceProfileSummaries: StaticListSchema = [1, n0, _IPSn, 0, [() => InferenceProfileSummary, 0]];
 export var InferenceTypeList = 64 | 0;
-
 export var MarketplaceModelEndpointSummaries: StaticListSchema = [
   1,
   n0,
@@ -5139,35 +4445,27 @@ export var MetadataAttributeSchemaList: StaticListSchema = [1, n0, _MASL, 0, [()
 export var ModelCopyJobSummaries: StaticListSchema = [1, n0, _MCJSod, 0, () => ModelCopyJobSummary];
 export var ModelCustomizationJobSummaries: StaticListSchema = [1, n0, _MCJSode, 0, () => ModelCustomizationJobSummary];
 export var ModelCustomizationList = 64 | 0;
-
 export var ModelImportJobSummaries: StaticListSchema = [1, n0, _MIJSod, 0, () => ModelImportJobSummary];
 export var ModelInvocationJobSummaries: StaticListSchema = [1, n0, _MIJSode, 0, [() => ModelInvocationJobSummary, 0]];
 export var ModelModalityList = 64 | 0;
-
 export var Offers: StaticListSchema = [1, n0, _Of, 0, () => Offer];
 export var PromptRouterSummaries: StaticListSchema = [1, n0, _PRSr, 0, [() => PromptRouterSummary, 0]];
 export var PromptRouterTargetModels: StaticListSchema = [1, n0, _PRTMr, 0, () => PromptRouterTargetModel];
 export var ProvisionedModelSummaries: StaticListSchema = [1, n0, _PMSr, 0, () => ProvisionedModelSummary];
 export var RagConfigs: StaticListSchema = [1, n0, _RCa, 0, [() => RAGConfig, 0]];
 export var RAGStopSequences = 64 | 0;
-
 export var RateCard: StaticListSchema = [1, n0, _RCat, 0, () => DimensionalPriceRate];
 export var RatingScale: StaticListSchema = [1, n0, _RS, 0, () => RatingScaleItem];
 export var RequestMetadataFiltersList: StaticListSchema = [1, n0, _RMFL, 0, [() => RequestMetadataBaseFilters, 0]];
 export var RetrievalFilterList: StaticListSchema = [1, n0, _RFL, 0, [() => RetrievalFilter, 0]];
 export var SecurityGroupIds = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidationMetrics: StaticListSchema = [1, n0, _VMa, 0, () => ValidatorMetric];
 export var Validators: StaticListSchema = [1, n0, _Va, 0, () => Validator];
 export var AdditionalModelRequestFields = 128 | 15;
-
 export var ModelCustomizationHyperParameters = 128 | 0;
-
 export var RequestMetadataMap: StaticMapSchema = [2, n0, _RMM, 8, 0, 0];
 export var AutomatedEvaluationCustomMetricSource: StaticStructureSchema = [
   3,
@@ -5428,9 +4726,7 @@ export var BatchDeleteEvaluationJob: StaticOperationSchema = [
   9,
   n0,
   _BDEJ,
-  {
-    [_ht]: ["POST", "/evaluation-jobs/batch-delete", 202],
-  },
+  { [_ht]: ["POST", "/evaluation-jobs/batch-delete", 202] },
   () => BatchDeleteEvaluationJobRequest,
   () => BatchDeleteEvaluationJobResponse,
 ];
@@ -5438,9 +4734,7 @@ export var CancelAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = 
   9,
   n0,
   _CARPBW,
-  {
-    [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/cancel", 202],
-  },
+  { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/cancel", 202] },
   () => CancelAutomatedReasoningPolicyBuildWorkflowRequest,
   () => CancelAutomatedReasoningPolicyBuildWorkflowResponse,
 ];
@@ -5448,9 +4742,7 @@ export var CreateAutomatedReasoningPolicy: StaticOperationSchema = [
   9,
   n0,
   _CARP,
-  {
-    [_ht]: ["POST", "/automated-reasoning-policies", 200],
-  },
+  { [_ht]: ["POST", "/automated-reasoning-policies", 200] },
   () => CreateAutomatedReasoningPolicyRequest,
   () => CreateAutomatedReasoningPolicyResponse,
 ];
@@ -5458,9 +4750,7 @@ export var CreateAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
   9,
   n0,
   _CARPTC,
-  {
-    [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/test-cases", 200],
-  },
+  { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/test-cases", 200] },
   () => CreateAutomatedReasoningPolicyTestCaseRequest,
   () => CreateAutomatedReasoningPolicyTestCaseResponse,
 ];
@@ -5468,9 +4758,7 @@ export var CreateAutomatedReasoningPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _CARPV,
-  {
-    [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/versions", 200],
-  },
+  { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/versions", 200] },
   () => CreateAutomatedReasoningPolicyVersionRequest,
   () => CreateAutomatedReasoningPolicyVersionResponse,
 ];
@@ -5478,9 +4766,7 @@ export var CreateCustomModel: StaticOperationSchema = [
   9,
   n0,
   _CCM,
-  {
-    [_ht]: ["POST", "/custom-models/create-custom-model", 202],
-  },
+  { [_ht]: ["POST", "/custom-models/create-custom-model", 202] },
   () => CreateCustomModelRequest,
   () => CreateCustomModelResponse,
 ];
@@ -5488,9 +4774,7 @@ export var CreateCustomModelDeployment: StaticOperationSchema = [
   9,
   n0,
   _CCMD,
-  {
-    [_ht]: ["POST", "/model-customization/custom-model-deployments", 202],
-  },
+  { [_ht]: ["POST", "/model-customization/custom-model-deployments", 202] },
   () => CreateCustomModelDeploymentRequest,
   () => CreateCustomModelDeploymentResponse,
 ];
@@ -5498,9 +4782,7 @@ export var CreateEvaluationJob: StaticOperationSchema = [
   9,
   n0,
   _CEJ,
-  {
-    [_ht]: ["POST", "/evaluation-jobs", 202],
-  },
+  { [_ht]: ["POST", "/evaluation-jobs", 202] },
   () => CreateEvaluationJobRequest,
   () => CreateEvaluationJobResponse,
 ];
@@ -5508,9 +4790,7 @@ export var CreateFoundationModelAgreement: StaticOperationSchema = [
   9,
   n0,
   _CFMA,
-  {
-    [_ht]: ["POST", "/create-foundation-model-agreement", 202],
-  },
+  { [_ht]: ["POST", "/create-foundation-model-agreement", 202] },
   () => CreateFoundationModelAgreementRequest,
   () => CreateFoundationModelAgreementResponse,
 ];
@@ -5518,9 +4798,7 @@ export var CreateGuardrail: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  {
-    [_ht]: ["POST", "/guardrails", 202],
-  },
+  { [_ht]: ["POST", "/guardrails", 202] },
   () => CreateGuardrailRequest,
   () => CreateGuardrailResponse,
 ];
@@ -5528,9 +4806,7 @@ export var CreateGuardrailVersion: StaticOperationSchema = [
   9,
   n0,
   _CGV,
-  {
-    [_ht]: ["POST", "/guardrails/{guardrailIdentifier}", 202],
-  },
+  { [_ht]: ["POST", "/guardrails/{guardrailIdentifier}", 202] },
   () => CreateGuardrailVersionRequest,
   () => CreateGuardrailVersionResponse,
 ];
@@ -5538,9 +4814,7 @@ export var CreateInferenceProfile: StaticOperationSchema = [
   9,
   n0,
   _CIP,
-  {
-    [_ht]: ["POST", "/inference-profiles", 201],
-  },
+  { [_ht]: ["POST", "/inference-profiles", 201] },
   () => CreateInferenceProfileRequest,
   () => CreateInferenceProfileResponse,
 ];
@@ -5548,9 +4822,7 @@ export var CreateMarketplaceModelEndpoint: StaticOperationSchema = [
   9,
   n0,
   _CMME,
-  {
-    [_ht]: ["POST", "/marketplace-model/endpoints", 200],
-  },
+  { [_ht]: ["POST", "/marketplace-model/endpoints", 200] },
   () => CreateMarketplaceModelEndpointRequest,
   () => CreateMarketplaceModelEndpointResponse,
 ];
@@ -5558,9 +4830,7 @@ export var CreateModelCopyJob: StaticOperationSchema = [
   9,
   n0,
   _CMCJ,
-  {
-    [_ht]: ["POST", "/model-copy-jobs", 201],
-  },
+  { [_ht]: ["POST", "/model-copy-jobs", 201] },
   () => CreateModelCopyJobRequest,
   () => CreateModelCopyJobResponse,
 ];
@@ -5568,9 +4838,7 @@ export var CreateModelCustomizationJob: StaticOperationSchema = [
   9,
   n0,
   _CMCJr,
-  {
-    [_ht]: ["POST", "/model-customization-jobs", 201],
-  },
+  { [_ht]: ["POST", "/model-customization-jobs", 201] },
   () => CreateModelCustomizationJobRequest,
   () => CreateModelCustomizationJobResponse,
 ];
@@ -5578,9 +4846,7 @@ export var CreateModelImportJob: StaticOperationSchema = [
   9,
   n0,
   _CMIJ,
-  {
-    [_ht]: ["POST", "/model-import-jobs", 201],
-  },
+  { [_ht]: ["POST", "/model-import-jobs", 201] },
   () => CreateModelImportJobRequest,
   () => CreateModelImportJobResponse,
 ];
@@ -5588,9 +4854,7 @@ export var CreateModelInvocationJob: StaticOperationSchema = [
   9,
   n0,
   _CMIJr,
-  {
-    [_ht]: ["POST", "/model-invocation-job", 200],
-  },
+  { [_ht]: ["POST", "/model-invocation-job", 200] },
   () => CreateModelInvocationJobRequest,
   () => CreateModelInvocationJobResponse,
 ];
@@ -5598,9 +4862,7 @@ export var CreatePromptRouter: StaticOperationSchema = [
   9,
   n0,
   _CPR,
-  {
-    [_ht]: ["POST", "/prompt-routers", 200],
-  },
+  { [_ht]: ["POST", "/prompt-routers", 200] },
   () => CreatePromptRouterRequest,
   () => CreatePromptRouterResponse,
 ];
@@ -5608,9 +4870,7 @@ export var CreateProvisionedModelThroughput: StaticOperationSchema = [
   9,
   n0,
   _CPMT,
-  {
-    [_ht]: ["POST", "/provisioned-model-throughput", 201],
-  },
+  { [_ht]: ["POST", "/provisioned-model-throughput", 201] },
   () => CreateProvisionedModelThroughputRequest,
   () => CreateProvisionedModelThroughputResponse,
 ];
@@ -5618,9 +4878,7 @@ export var DeleteAutomatedReasoningPolicy: StaticOperationSchema = [
   9,
   n0,
   _DARP,
-  {
-    [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}", 202],
-  },
+  { [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}", 202] },
   () => DeleteAutomatedReasoningPolicyRequest,
   () => DeleteAutomatedReasoningPolicyResponse,
 ];
@@ -5628,9 +4886,7 @@ export var DeleteAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = 
   9,
   n0,
   _DARPBW,
-  {
-    [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}", 202],
-  },
+  { [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}", 202] },
   () => DeleteAutomatedReasoningPolicyBuildWorkflowRequest,
   () => DeleteAutomatedReasoningPolicyBuildWorkflowResponse,
 ];
@@ -5638,9 +4894,7 @@ export var DeleteAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
   9,
   n0,
   _DARPTC,
-  {
-    [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 202],
-  },
+  { [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 202] },
   () => DeleteAutomatedReasoningPolicyTestCaseRequest,
   () => DeleteAutomatedReasoningPolicyTestCaseResponse,
 ];
@@ -5648,9 +4902,7 @@ export var DeleteCustomModel: StaticOperationSchema = [
   9,
   n0,
   _DCM,
-  {
-    [_ht]: ["DELETE", "/custom-models/{modelIdentifier}", 200],
-  },
+  { [_ht]: ["DELETE", "/custom-models/{modelIdentifier}", 200] },
   () => DeleteCustomModelRequest,
   () => DeleteCustomModelResponse,
 ];
@@ -5658,9 +4910,7 @@ export var DeleteCustomModelDeployment: StaticOperationSchema = [
   9,
   n0,
   _DCMD,
-  {
-    [_ht]: ["DELETE", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 200],
-  },
+  { [_ht]: ["DELETE", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 200] },
   () => DeleteCustomModelDeploymentRequest,
   () => DeleteCustomModelDeploymentResponse,
 ];
@@ -5668,9 +4918,7 @@ export var DeleteEnforcedGuardrailConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DEGC,
-  {
-    [_ht]: ["DELETE", "/enforcedGuardrailsConfiguration/{configId}", 200],
-  },
+  { [_ht]: ["DELETE", "/enforcedGuardrailsConfiguration/{configId}", 200] },
   () => DeleteEnforcedGuardrailConfigurationRequest,
   () => DeleteEnforcedGuardrailConfigurationResponse,
 ];
@@ -5678,9 +4926,7 @@ export var DeleteFoundationModelAgreement: StaticOperationSchema = [
   9,
   n0,
   _DFMA,
-  {
-    [_ht]: ["POST", "/delete-foundation-model-agreement", 202],
-  },
+  { [_ht]: ["POST", "/delete-foundation-model-agreement", 202] },
   () => DeleteFoundationModelAgreementRequest,
   () => DeleteFoundationModelAgreementResponse,
 ];
@@ -5688,9 +4934,7 @@ export var DeleteGuardrail: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_ht]: ["DELETE", "/guardrails/{guardrailIdentifier}", 202],
-  },
+  { [_ht]: ["DELETE", "/guardrails/{guardrailIdentifier}", 202] },
   () => DeleteGuardrailRequest,
   () => DeleteGuardrailResponse,
 ];
@@ -5698,9 +4942,7 @@ export var DeleteImportedModel: StaticOperationSchema = [
   9,
   n0,
   _DIM,
-  {
-    [_ht]: ["DELETE", "/imported-models/{modelIdentifier}", 200],
-  },
+  { [_ht]: ["DELETE", "/imported-models/{modelIdentifier}", 200] },
   () => DeleteImportedModelRequest,
   () => DeleteImportedModelResponse,
 ];
@@ -5708,9 +4950,7 @@ export var DeleteInferenceProfile: StaticOperationSchema = [
   9,
   n0,
   _DIP,
-  {
-    [_ht]: ["DELETE", "/inference-profiles/{inferenceProfileIdentifier}", 200],
-  },
+  { [_ht]: ["DELETE", "/inference-profiles/{inferenceProfileIdentifier}", 200] },
   () => DeleteInferenceProfileRequest,
   () => DeleteInferenceProfileResponse,
 ];
@@ -5718,9 +4958,7 @@ export var DeleteMarketplaceModelEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DMME,
-  {
-    [_ht]: ["DELETE", "/marketplace-model/endpoints/{endpointArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/marketplace-model/endpoints/{endpointArn}", 200] },
   () => DeleteMarketplaceModelEndpointRequest,
   () => DeleteMarketplaceModelEndpointResponse,
 ];
@@ -5728,9 +4966,7 @@ export var DeleteModelInvocationLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DMILC,
-  {
-    [_ht]: ["DELETE", "/logging/modelinvocations", 200],
-  },
+  { [_ht]: ["DELETE", "/logging/modelinvocations", 200] },
   () => DeleteModelInvocationLoggingConfigurationRequest,
   () => DeleteModelInvocationLoggingConfigurationResponse,
 ];
@@ -5738,9 +4974,7 @@ export var DeletePromptRouter: StaticOperationSchema = [
   9,
   n0,
   _DPRe,
-  {
-    [_ht]: ["DELETE", "/prompt-routers/{promptRouterArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/prompt-routers/{promptRouterArn}", 200] },
   () => DeletePromptRouterRequest,
   () => DeletePromptRouterResponse,
 ];
@@ -5748,9 +4982,7 @@ export var DeleteProvisionedModelThroughput: StaticOperationSchema = [
   9,
   n0,
   _DPMT,
-  {
-    [_ht]: ["DELETE", "/provisioned-model-throughput/{provisionedModelId}", 200],
-  },
+  { [_ht]: ["DELETE", "/provisioned-model-throughput/{provisionedModelId}", 200] },
   () => DeleteProvisionedModelThroughputRequest,
   () => DeleteProvisionedModelThroughputResponse,
 ];
@@ -5758,9 +4990,7 @@ export var DeregisterMarketplaceModelEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DMMEe,
-  {
-    [_ht]: ["DELETE", "/marketplace-model/endpoints/{endpointArn}/registration", 200],
-  },
+  { [_ht]: ["DELETE", "/marketplace-model/endpoints/{endpointArn}/registration", 200] },
   () => DeregisterMarketplaceModelEndpointRequest,
   () => DeregisterMarketplaceModelEndpointResponse,
 ];
@@ -5768,9 +4998,7 @@ export var ExportAutomatedReasoningPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _EARPV,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/export", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/export", 200] },
   () => ExportAutomatedReasoningPolicyVersionRequest,
   () => ExportAutomatedReasoningPolicyVersionResponse,
 ];
@@ -5778,9 +5006,7 @@ export var GetAutomatedReasoningPolicy: StaticOperationSchema = [
   9,
   n0,
   _GARPe,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}", 200] },
   () => GetAutomatedReasoningPolicyRequest,
   () => GetAutomatedReasoningPolicyResponse,
 ];
@@ -5788,9 +5014,7 @@ export var GetAutomatedReasoningPolicyAnnotations: StaticOperationSchema = [
   9,
   n0,
   _GARPA,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations", 200] },
   () => GetAutomatedReasoningPolicyAnnotationsRequest,
   () => GetAutomatedReasoningPolicyAnnotationsResponse,
 ];
@@ -5798,9 +5022,7 @@ export var GetAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = [
   9,
   n0,
   _GARPBW,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}", 200] },
   () => GetAutomatedReasoningPolicyBuildWorkflowRequest,
   () => GetAutomatedReasoningPolicyBuildWorkflowResponse,
 ];
@@ -5808,9 +5030,7 @@ export var GetAutomatedReasoningPolicyBuildWorkflowResultAssets: StaticOperation
   9,
   n0,
   _GARPBWRA,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/result-assets", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/result-assets", 200] },
   () => GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
   () => GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
 ];
@@ -5818,9 +5038,7 @@ export var GetAutomatedReasoningPolicyNextScenario: StaticOperationSchema = [
   9,
   n0,
   _GARPNS,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/scenarios", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/scenarios", 200] },
   () => GetAutomatedReasoningPolicyNextScenarioRequest,
   () => GetAutomatedReasoningPolicyNextScenarioResponse,
 ];
@@ -5828,9 +5046,7 @@ export var GetAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
   9,
   n0,
   _GARPTC,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 200] },
   () => GetAutomatedReasoningPolicyTestCaseRequest,
   () => GetAutomatedReasoningPolicyTestCaseResponse,
 ];
@@ -5852,9 +5068,7 @@ export var GetCustomModel: StaticOperationSchema = [
   9,
   n0,
   _GCM,
-  {
-    [_ht]: ["GET", "/custom-models/{modelIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/custom-models/{modelIdentifier}", 200] },
   () => GetCustomModelRequest,
   () => GetCustomModelResponse,
 ];
@@ -5862,9 +5076,7 @@ export var GetCustomModelDeployment: StaticOperationSchema = [
   9,
   n0,
   _GCMD,
-  {
-    [_ht]: ["GET", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 200] },
   () => GetCustomModelDeploymentRequest,
   () => GetCustomModelDeploymentResponse,
 ];
@@ -5872,9 +5084,7 @@ export var GetEvaluationJob: StaticOperationSchema = [
   9,
   n0,
   _GEJ,
-  {
-    [_ht]: ["GET", "/evaluation-jobs/{jobIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/evaluation-jobs/{jobIdentifier}", 200] },
   () => GetEvaluationJobRequest,
   () => GetEvaluationJobResponse,
 ];
@@ -5882,9 +5092,7 @@ export var GetFoundationModel: StaticOperationSchema = [
   9,
   n0,
   _GFM,
-  {
-    [_ht]: ["GET", "/foundation-models/{modelIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/foundation-models/{modelIdentifier}", 200] },
   () => GetFoundationModelRequest,
   () => GetFoundationModelResponse,
 ];
@@ -5892,9 +5100,7 @@ export var GetFoundationModelAvailability: StaticOperationSchema = [
   9,
   n0,
   _GFMA,
-  {
-    [_ht]: ["GET", "/foundation-model-availability/{modelId}", 200],
-  },
+  { [_ht]: ["GET", "/foundation-model-availability/{modelId}", 200] },
   () => GetFoundationModelAvailabilityRequest,
   () => GetFoundationModelAvailabilityResponse,
 ];
@@ -5902,9 +5108,7 @@ export var GetGuardrail: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_ht]: ["GET", "/guardrails/{guardrailIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/guardrails/{guardrailIdentifier}", 200] },
   () => GetGuardrailRequest,
   () => GetGuardrailResponse,
 ];
@@ -5912,9 +5116,7 @@ export var GetImportedModel: StaticOperationSchema = [
   9,
   n0,
   _GIM,
-  {
-    [_ht]: ["GET", "/imported-models/{modelIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/imported-models/{modelIdentifier}", 200] },
   () => GetImportedModelRequest,
   () => GetImportedModelResponse,
 ];
@@ -5922,9 +5124,7 @@ export var GetInferenceProfile: StaticOperationSchema = [
   9,
   n0,
   _GIP,
-  {
-    [_ht]: ["GET", "/inference-profiles/{inferenceProfileIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/inference-profiles/{inferenceProfileIdentifier}", 200] },
   () => GetInferenceProfileRequest,
   () => GetInferenceProfileResponse,
 ];
@@ -5932,9 +5132,7 @@ export var GetMarketplaceModelEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GMME,
-  {
-    [_ht]: ["GET", "/marketplace-model/endpoints/{endpointArn}", 200],
-  },
+  { [_ht]: ["GET", "/marketplace-model/endpoints/{endpointArn}", 200] },
   () => GetMarketplaceModelEndpointRequest,
   () => GetMarketplaceModelEndpointResponse,
 ];
@@ -5942,9 +5140,7 @@ export var GetModelCopyJob: StaticOperationSchema = [
   9,
   n0,
   _GMCJ,
-  {
-    [_ht]: ["GET", "/model-copy-jobs/{jobArn}", 200],
-  },
+  { [_ht]: ["GET", "/model-copy-jobs/{jobArn}", 200] },
   () => GetModelCopyJobRequest,
   () => GetModelCopyJobResponse,
 ];
@@ -5952,9 +5148,7 @@ export var GetModelCustomizationJob: StaticOperationSchema = [
   9,
   n0,
   _GMCJe,
-  {
-    [_ht]: ["GET", "/model-customization-jobs/{jobIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/model-customization-jobs/{jobIdentifier}", 200] },
   () => GetModelCustomizationJobRequest,
   () => GetModelCustomizationJobResponse,
 ];
@@ -5962,9 +5156,7 @@ export var GetModelImportJob: StaticOperationSchema = [
   9,
   n0,
   _GMIJ,
-  {
-    [_ht]: ["GET", "/model-import-jobs/{jobIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/model-import-jobs/{jobIdentifier}", 200] },
   () => GetModelImportJobRequest,
   () => GetModelImportJobResponse,
 ];
@@ -5972,9 +5164,7 @@ export var GetModelInvocationJob: StaticOperationSchema = [
   9,
   n0,
   _GMIJe,
-  {
-    [_ht]: ["GET", "/model-invocation-job/{jobIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/model-invocation-job/{jobIdentifier}", 200] },
   () => GetModelInvocationJobRequest,
   () => GetModelInvocationJobResponse,
 ];
@@ -5982,9 +5172,7 @@ export var GetModelInvocationLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GMILC,
-  {
-    [_ht]: ["GET", "/logging/modelinvocations", 200],
-  },
+  { [_ht]: ["GET", "/logging/modelinvocations", 200] },
   () => GetModelInvocationLoggingConfigurationRequest,
   () => GetModelInvocationLoggingConfigurationResponse,
 ];
@@ -5992,9 +5180,7 @@ export var GetPromptRouter: StaticOperationSchema = [
   9,
   n0,
   _GPR,
-  {
-    [_ht]: ["GET", "/prompt-routers/{promptRouterArn}", 200],
-  },
+  { [_ht]: ["GET", "/prompt-routers/{promptRouterArn}", 200] },
   () => GetPromptRouterRequest,
   () => GetPromptRouterResponse,
 ];
@@ -6002,9 +5188,7 @@ export var GetProvisionedModelThroughput: StaticOperationSchema = [
   9,
   n0,
   _GPMT,
-  {
-    [_ht]: ["GET", "/provisioned-model-throughput/{provisionedModelId}", 200],
-  },
+  { [_ht]: ["GET", "/provisioned-model-throughput/{provisionedModelId}", 200] },
   () => GetProvisionedModelThroughputRequest,
   () => GetProvisionedModelThroughputResponse,
 ];
@@ -6012,9 +5196,7 @@ export var GetUseCaseForModelAccess: StaticOperationSchema = [
   9,
   n0,
   _GUCFMA,
-  {
-    [_ht]: ["GET", "/use-case-for-model-access", 200],
-  },
+  { [_ht]: ["GET", "/use-case-for-model-access", 200] },
   () => GetUseCaseForModelAccessRequest,
   () => GetUseCaseForModelAccessResponse,
 ];
@@ -6022,9 +5204,7 @@ export var ListAutomatedReasoningPolicies: StaticOperationSchema = [
   9,
   n0,
   _LARP,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies", 200] },
   () => ListAutomatedReasoningPoliciesRequest,
   () => ListAutomatedReasoningPoliciesResponse,
 ];
@@ -6032,9 +5212,7 @@ export var ListAutomatedReasoningPolicyBuildWorkflows: StaticOperationSchema = [
   9,
   n0,
   _LARPBW,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows", 200] },
   () => ListAutomatedReasoningPolicyBuildWorkflowsRequest,
   () => ListAutomatedReasoningPolicyBuildWorkflowsResponse,
 ];
@@ -6042,9 +5220,7 @@ export var ListAutomatedReasoningPolicyTestCases: StaticOperationSchema = [
   9,
   n0,
   _LARPTC,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/test-cases", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/test-cases", 200] },
   () => ListAutomatedReasoningPolicyTestCasesRequest,
   () => ListAutomatedReasoningPolicyTestCasesResponse,
 ];
@@ -6052,9 +5228,7 @@ export var ListAutomatedReasoningPolicyTestResults: StaticOperationSchema = [
   9,
   n0,
   _LARPTR,
-  {
-    [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-results", 200],
-  },
+  { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-results", 200] },
   () => ListAutomatedReasoningPolicyTestResultsRequest,
   () => ListAutomatedReasoningPolicyTestResultsResponse,
 ];
@@ -6062,9 +5236,7 @@ export var ListCustomModelDeployments: StaticOperationSchema = [
   9,
   n0,
   _LCMD,
-  {
-    [_ht]: ["GET", "/model-customization/custom-model-deployments", 200],
-  },
+  { [_ht]: ["GET", "/model-customization/custom-model-deployments", 200] },
   () => ListCustomModelDeploymentsRequest,
   () => ListCustomModelDeploymentsResponse,
 ];
@@ -6072,9 +5244,7 @@ export var ListCustomModels: StaticOperationSchema = [
   9,
   n0,
   _LCM,
-  {
-    [_ht]: ["GET", "/custom-models", 200],
-  },
+  { [_ht]: ["GET", "/custom-models", 200] },
   () => ListCustomModelsRequest,
   () => ListCustomModelsResponse,
 ];
@@ -6082,9 +5252,7 @@ export var ListEnforcedGuardrailsConfiguration: StaticOperationSchema = [
   9,
   n0,
   _LEGC,
-  {
-    [_ht]: ["GET", "/enforcedGuardrailsConfiguration", 200],
-  },
+  { [_ht]: ["GET", "/enforcedGuardrailsConfiguration", 200] },
   () => ListEnforcedGuardrailsConfigurationRequest,
   () => ListEnforcedGuardrailsConfigurationResponse,
 ];
@@ -6092,9 +5260,7 @@ export var ListEvaluationJobs: StaticOperationSchema = [
   9,
   n0,
   _LEJ,
-  {
-    [_ht]: ["GET", "/evaluation-jobs", 200],
-  },
+  { [_ht]: ["GET", "/evaluation-jobs", 200] },
   () => ListEvaluationJobsRequest,
   () => ListEvaluationJobsResponse,
 ];
@@ -6102,9 +5268,7 @@ export var ListFoundationModelAgreementOffers: StaticOperationSchema = [
   9,
   n0,
   _LFMAO,
-  {
-    [_ht]: ["GET", "/list-foundation-model-agreement-offers/{modelId}", 200],
-  },
+  { [_ht]: ["GET", "/list-foundation-model-agreement-offers/{modelId}", 200] },
   () => ListFoundationModelAgreementOffersRequest,
   () => ListFoundationModelAgreementOffersResponse,
 ];
@@ -6112,9 +5276,7 @@ export var ListFoundationModels: StaticOperationSchema = [
   9,
   n0,
   _LFM,
-  {
-    [_ht]: ["GET", "/foundation-models", 200],
-  },
+  { [_ht]: ["GET", "/foundation-models", 200] },
   () => ListFoundationModelsRequest,
   () => ListFoundationModelsResponse,
 ];
@@ -6122,9 +5284,7 @@ export var ListGuardrails: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  {
-    [_ht]: ["GET", "/guardrails", 200],
-  },
+  { [_ht]: ["GET", "/guardrails", 200] },
   () => ListGuardrailsRequest,
   () => ListGuardrailsResponse,
 ];
@@ -6132,9 +5292,7 @@ export var ListImportedModels: StaticOperationSchema = [
   9,
   n0,
   _LIM,
-  {
-    [_ht]: ["GET", "/imported-models", 200],
-  },
+  { [_ht]: ["GET", "/imported-models", 200] },
   () => ListImportedModelsRequest,
   () => ListImportedModelsResponse,
 ];
@@ -6142,9 +5300,7 @@ export var ListInferenceProfiles: StaticOperationSchema = [
   9,
   n0,
   _LIP,
-  {
-    [_ht]: ["GET", "/inference-profiles", 200],
-  },
+  { [_ht]: ["GET", "/inference-profiles", 200] },
   () => ListInferenceProfilesRequest,
   () => ListInferenceProfilesResponse,
 ];
@@ -6152,9 +5308,7 @@ export var ListMarketplaceModelEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LMME,
-  {
-    [_ht]: ["GET", "/marketplace-model/endpoints", 200],
-  },
+  { [_ht]: ["GET", "/marketplace-model/endpoints", 200] },
   () => ListMarketplaceModelEndpointsRequest,
   () => ListMarketplaceModelEndpointsResponse,
 ];
@@ -6162,9 +5316,7 @@ export var ListModelCopyJobs: StaticOperationSchema = [
   9,
   n0,
   _LMCJ,
-  {
-    [_ht]: ["GET", "/model-copy-jobs", 200],
-  },
+  { [_ht]: ["GET", "/model-copy-jobs", 200] },
   () => ListModelCopyJobsRequest,
   () => ListModelCopyJobsResponse,
 ];
@@ -6172,9 +5324,7 @@ export var ListModelCustomizationJobs: StaticOperationSchema = [
   9,
   n0,
   _LMCJi,
-  {
-    [_ht]: ["GET", "/model-customization-jobs", 200],
-  },
+  { [_ht]: ["GET", "/model-customization-jobs", 200] },
   () => ListModelCustomizationJobsRequest,
   () => ListModelCustomizationJobsResponse,
 ];
@@ -6182,9 +5332,7 @@ export var ListModelImportJobs: StaticOperationSchema = [
   9,
   n0,
   _LMIJ,
-  {
-    [_ht]: ["GET", "/model-import-jobs", 200],
-  },
+  { [_ht]: ["GET", "/model-import-jobs", 200] },
   () => ListModelImportJobsRequest,
   () => ListModelImportJobsResponse,
 ];
@@ -6192,9 +5340,7 @@ export var ListModelInvocationJobs: StaticOperationSchema = [
   9,
   n0,
   _LMIJi,
-  {
-    [_ht]: ["GET", "/model-invocation-jobs", 200],
-  },
+  { [_ht]: ["GET", "/model-invocation-jobs", 200] },
   () => ListModelInvocationJobsRequest,
   () => ListModelInvocationJobsResponse,
 ];
@@ -6202,9 +5348,7 @@ export var ListPromptRouters: StaticOperationSchema = [
   9,
   n0,
   _LPR,
-  {
-    [_ht]: ["GET", "/prompt-routers", 200],
-  },
+  { [_ht]: ["GET", "/prompt-routers", 200] },
   () => ListPromptRoutersRequest,
   () => ListPromptRoutersResponse,
 ];
@@ -6212,9 +5356,7 @@ export var ListProvisionedModelThroughputs: StaticOperationSchema = [
   9,
   n0,
   _LPMT,
-  {
-    [_ht]: ["GET", "/provisioned-model-throughputs", 200],
-  },
+  { [_ht]: ["GET", "/provisioned-model-throughputs", 200] },
   () => ListProvisionedModelThroughputsRequest,
   () => ListProvisionedModelThroughputsResponse,
 ];
@@ -6222,9 +5364,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["POST", "/listTagsForResource", 200],
-  },
+  { [_ht]: ["POST", "/listTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -6232,9 +5372,7 @@ export var PutEnforcedGuardrailConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PEGC,
-  {
-    [_ht]: ["PUT", "/enforcedGuardrailsConfiguration", 200],
-  },
+  { [_ht]: ["PUT", "/enforcedGuardrailsConfiguration", 200] },
   () => PutEnforcedGuardrailConfigurationRequest,
   () => PutEnforcedGuardrailConfigurationResponse,
 ];
@@ -6242,9 +5380,7 @@ export var PutModelInvocationLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PMILC,
-  {
-    [_ht]: ["PUT", "/logging/modelinvocations", 200],
-  },
+  { [_ht]: ["PUT", "/logging/modelinvocations", 200] },
   () => PutModelInvocationLoggingConfigurationRequest,
   () => PutModelInvocationLoggingConfigurationResponse,
 ];
@@ -6252,9 +5388,7 @@ export var PutUseCaseForModelAccess: StaticOperationSchema = [
   9,
   n0,
   _PUCFMA,
-  {
-    [_ht]: ["POST", "/use-case-for-model-access", 201],
-  },
+  { [_ht]: ["POST", "/use-case-for-model-access", 201] },
   () => PutUseCaseForModelAccessRequest,
   () => PutUseCaseForModelAccessResponse,
 ];
@@ -6262,9 +5396,7 @@ export var RegisterMarketplaceModelEndpoint: StaticOperationSchema = [
   9,
   n0,
   _RMME,
-  {
-    [_ht]: ["POST", "/marketplace-model/endpoints/{endpointIdentifier}/registration", 200],
-  },
+  { [_ht]: ["POST", "/marketplace-model/endpoints/{endpointIdentifier}/registration", 200] },
   () => RegisterMarketplaceModelEndpointRequest,
   () => RegisterMarketplaceModelEndpointResponse,
 ];
@@ -6272,9 +5404,7 @@ export var StartAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = [
   9,
   n0,
   _SARPBW,
-  {
-    [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowType}/start", 200],
-  },
+  { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowType}/start", 200] },
   () => StartAutomatedReasoningPolicyBuildWorkflowRequest,
   () => StartAutomatedReasoningPolicyBuildWorkflowResponse,
 ];
@@ -6292,9 +5422,7 @@ export var StopEvaluationJob: StaticOperationSchema = [
   9,
   n0,
   _SEJ,
-  {
-    [_ht]: ["POST", "/evaluation-job/{jobIdentifier}/stop", 200],
-  },
+  { [_ht]: ["POST", "/evaluation-job/{jobIdentifier}/stop", 200] },
   () => StopEvaluationJobRequest,
   () => StopEvaluationJobResponse,
 ];
@@ -6302,9 +5430,7 @@ export var StopModelCustomizationJob: StaticOperationSchema = [
   9,
   n0,
   _SMCJ,
-  {
-    [_ht]: ["POST", "/model-customization-jobs/{jobIdentifier}/stop", 200],
-  },
+  { [_ht]: ["POST", "/model-customization-jobs/{jobIdentifier}/stop", 200] },
   () => StopModelCustomizationJobRequest,
   () => StopModelCustomizationJobResponse,
 ];
@@ -6312,9 +5438,7 @@ export var StopModelInvocationJob: StaticOperationSchema = [
   9,
   n0,
   _SMIJ,
-  {
-    [_ht]: ["POST", "/model-invocation-job/{jobIdentifier}/stop", 200],
-  },
+  { [_ht]: ["POST", "/model-invocation-job/{jobIdentifier}/stop", 200] },
   () => StopModelInvocationJobRequest,
   () => StopModelInvocationJobResponse,
 ];
@@ -6322,9 +5446,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tagResource", 200],
-  },
+  { [_ht]: ["POST", "/tagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -6332,9 +5454,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["POST", "/untagResource", 200],
-  },
+  { [_ht]: ["POST", "/untagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -6342,9 +5462,7 @@ export var UpdateAutomatedReasoningPolicy: StaticOperationSchema = [
   9,
   n0,
   _UARP,
-  {
-    [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}", 200],
-  },
+  { [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}", 200] },
   () => UpdateAutomatedReasoningPolicyRequest,
   () => UpdateAutomatedReasoningPolicyResponse,
 ];
@@ -6352,9 +5470,7 @@ export var UpdateAutomatedReasoningPolicyAnnotations: StaticOperationSchema = [
   9,
   n0,
   _UARPA,
-  {
-    [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations", 200],
-  },
+  { [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations", 200] },
   () => UpdateAutomatedReasoningPolicyAnnotationsRequest,
   () => UpdateAutomatedReasoningPolicyAnnotationsResponse,
 ];
@@ -6362,9 +5478,7 @@ export var UpdateAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
   9,
   n0,
   _UARPTC,
-  {
-    [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 200],
-  },
+  { [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 200] },
   () => UpdateAutomatedReasoningPolicyTestCaseRequest,
   () => UpdateAutomatedReasoningPolicyTestCaseResponse,
 ];
@@ -6372,9 +5486,7 @@ export var UpdateCustomModelDeployment: StaticOperationSchema = [
   9,
   n0,
   _UCMD,
-  {
-    [_ht]: ["PATCH", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 202],
-  },
+  { [_ht]: ["PATCH", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 202] },
   () => UpdateCustomModelDeploymentRequest,
   () => UpdateCustomModelDeploymentResponse,
 ];
@@ -6382,9 +5494,7 @@ export var UpdateGuardrail: StaticOperationSchema = [
   9,
   n0,
   _UG,
-  {
-    [_ht]: ["PUT", "/guardrails/{guardrailIdentifier}", 202],
-  },
+  { [_ht]: ["PUT", "/guardrails/{guardrailIdentifier}", 202] },
   () => UpdateGuardrailRequest,
   () => UpdateGuardrailResponse,
 ];
@@ -6392,9 +5502,7 @@ export var UpdateMarketplaceModelEndpoint: StaticOperationSchema = [
   9,
   n0,
   _UMME,
-  {
-    [_ht]: ["PATCH", "/marketplace-model/endpoints/{endpointArn}", 200],
-  },
+  { [_ht]: ["PATCH", "/marketplace-model/endpoints/{endpointArn}", 200] },
   () => UpdateMarketplaceModelEndpointRequest,
   () => UpdateMarketplaceModelEndpointResponse,
 ];
@@ -6402,9 +5510,7 @@ export var UpdateProvisionedModelThroughput: StaticOperationSchema = [
   9,
   n0,
   _UPMT,
-  {
-    [_ht]: ["PATCH", "/provisioned-model-throughput/{provisionedModelId}", 200],
-  },
+  { [_ht]: ["PATCH", "/provisioned-model-throughput/{provisionedModelId}", 200] },
   () => UpdateProvisionedModelThroughputRequest,
   () => UpdateProvisionedModelThroughputResponse,
 ];

@@ -227,21 +227,9 @@ import {
 import { ResourceExplorer2ServiceException as __ResourceExplorer2ServiceException } from "../models/ResourceExplorer2ServiceException";
 
 /* eslint no-var: 0 */
-
 export var QueryString: StaticSimpleSchema = [0, n0, _QS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateDefaultViewInput: StaticStructureSchema = [3, n0, _ADVI, 0, [_VA], [0]];
 export var AssociateDefaultViewOutput: StaticStructureSchema = [3, n0, _ADVO, 0, [_VA], [0]];
 export var BatchGetViewError: StaticStructureSchema = [3, n0, _BGVE, 0, [_VA, _EM], [0, 0]];
@@ -254,19 +242,8 @@ export var BatchGetViewOutput: StaticStructureSchema = [
   [_V, _E],
   [[() => ViewList, 0], () => BatchGetViewErrors],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateIndexInput: StaticStructureSchema = [
   3,
   n0,
@@ -350,19 +327,8 @@ export var GetViewOutput: StaticStructureSchema = [
 export var IncludedProperty: StaticStructureSchema = [3, n0, _IPn, 0, [_N], [0]];
 export var Index: StaticStructureSchema = [3, n0, _I, 0, [_Re, _A, _Ty], [0, 0, 0]];
 export var IndexStatus: StaticStructureSchema = [3, n0, _IS, 0, [_St, _I, _ED], [0, () => Index, () => ErrorDetails]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListIndexesForMembersInput: StaticStructureSchema = [3, n0, _LIFMI, 0, [_AIL, _MR, _NT], [64 | 0, 1, 0]];
 export var ListIndexesForMembersOutput: StaticStructureSchema = [
   3,
@@ -438,19 +404,8 @@ export var Resource: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 5, () => ResourcePropertyList],
 ];
 export var ResourceCount: StaticStructureSchema = [3, n0, _RC, 0, [_TR, _Co], [1, 2]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceProperty: StaticStructureSchema = [3, n0, _RPe, 0, [_N, _LRA, _D], [0, 5, 15]];
 export var SearchFilter: StaticStructureSchema = [3, n0, _SF, 8, [_FS], [0]];
 export var SearchInput: StaticStructureSchema = [
@@ -473,15 +428,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _N, _Va],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceView: StaticStructureSchema = [
   3,
   n0,
@@ -504,32 +455,10 @@ export var TagResourceInput: StaticStructureSchema = [
   ],
 ];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_M],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -538,12 +467,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      () => StringList,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [() => StringList, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -562,15 +486,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _FL],
   [0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _VI], [0, 0]];
 export var View: StaticStructureSchema = [
   3,
@@ -589,7 +509,6 @@ export var ViewStatus: StaticStructureSchema = [
   [0, [() => View, 0], () => ErrorDetails],
 ];
 export var __Unit = "unit" as const;
-
 export var ResourceExplorer2ServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -599,37 +518,29 @@ export var ResourceExplorer2ServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ResourceExplorer2ServiceException, __ResourceExplorer2ServiceException);
-
 export var AccountIdList = 64 | 0;
-
 export var BatchGetViewErrors: StaticListSchema = [1, n0, _BGVEa, 0, () => BatchGetViewError];
 export var IncludedPropertyList: StaticListSchema = [1, n0, _IPL, 0, () => IncludedProperty];
 export var IndexList: StaticListSchema = [1, n0, _IL, 0, () => Index];
 export var ManagedViewArnList = 64 | 0;
-
 export var MemberIndexList: StaticListSchema = [1, n0, _MIL, 0, () => MemberIndex];
 export var RegionList = 64 | 0;
-
 export var RegionStatusList: StaticListSchema = [1, n0, _RSL, 0, [() => RegionStatus, 0]];
 export var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource];
 export var ResourcePropertyList: StaticListSchema = [1, n0, _RPL, 0, () => ResourceProperty];
 export var ResourceTypeList: StaticListSchema = [1, n0, _RTL, 0, () => SupportedResourceType];
 export var ServiceViewArnList = 64 | 0;
-
 export var StreamingAccessDetailsList: StaticListSchema = [1, n0, _SADL, 0, () => StreamingAccessDetails];
 export var StringList: StaticListSchema = [1, n0, _SL, 8, 0];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var ViewArnList = 64 | 0;
-
 export var ViewList: StaticListSchema = [1, n0, _VL, 0, [() => View, 0]];
 export var TagMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
 export var AssociateDefaultView: StaticOperationSchema = [
   9,
   n0,
   _ADV,
-  {
-    [_h]: ["POST", "/AssociateDefaultView", 200],
-  },
+  { [_h]: ["POST", "/AssociateDefaultView", 200] },
   () => AssociateDefaultViewInput,
   () => AssociateDefaultViewOutput,
 ];
@@ -637,9 +548,7 @@ export var BatchGetView: StaticOperationSchema = [
   9,
   n0,
   _BGV,
-  {
-    [_h]: ["POST", "/BatchGetView", 200],
-  },
+  { [_h]: ["POST", "/BatchGetView", 200] },
   () => BatchGetViewInput,
   () => BatchGetViewOutput,
 ];
@@ -647,9 +556,7 @@ export var CreateIndex: StaticOperationSchema = [
   9,
   n0,
   _CI,
-  {
-    [_h]: ["POST", "/CreateIndex", 200],
-  },
+  { [_h]: ["POST", "/CreateIndex", 200] },
   () => CreateIndexInput,
   () => CreateIndexOutput,
 ];
@@ -657,9 +564,7 @@ export var CreateResourceExplorerSetup: StaticOperationSchema = [
   9,
   n0,
   _CRES,
-  {
-    [_h]: ["POST", "/CreateResourceExplorerSetup", 200],
-  },
+  { [_h]: ["POST", "/CreateResourceExplorerSetup", 200] },
   () => CreateResourceExplorerSetupInput,
   () => CreateResourceExplorerSetupOutput,
 ];
@@ -667,9 +572,7 @@ export var CreateView: StaticOperationSchema = [
   9,
   n0,
   _CV,
-  {
-    [_h]: ["POST", "/CreateView", 200],
-  },
+  { [_h]: ["POST", "/CreateView", 200] },
   () => CreateViewInput,
   () => CreateViewOutput,
 ];
@@ -677,9 +580,7 @@ export var DeleteIndex: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_h]: ["POST", "/DeleteIndex", 200],
-  },
+  { [_h]: ["POST", "/DeleteIndex", 200] },
   () => DeleteIndexInput,
   () => DeleteIndexOutput,
 ];
@@ -687,9 +588,7 @@ export var DeleteResourceExplorerSetup: StaticOperationSchema = [
   9,
   n0,
   _DRES,
-  {
-    [_h]: ["POST", "/DeleteResourceExplorerSetup", 200],
-  },
+  { [_h]: ["POST", "/DeleteResourceExplorerSetup", 200] },
   () => DeleteResourceExplorerSetupInput,
   () => DeleteResourceExplorerSetupOutput,
 ];
@@ -697,9 +596,7 @@ export var DeleteView: StaticOperationSchema = [
   9,
   n0,
   _DV,
-  {
-    [_h]: ["POST", "/DeleteView", 200],
-  },
+  { [_h]: ["POST", "/DeleteView", 200] },
   () => DeleteViewInput,
   () => DeleteViewOutput,
 ];
@@ -707,9 +604,7 @@ export var DisassociateDefaultView: StaticOperationSchema = [
   9,
   n0,
   _DDV,
-  {
-    [_h]: ["POST", "/DisassociateDefaultView", 200],
-  },
+  { [_h]: ["POST", "/DisassociateDefaultView", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -717,9 +612,7 @@ export var GetAccountLevelServiceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GALSC,
-  {
-    [_h]: ["POST", "/GetAccountLevelServiceConfiguration", 200],
-  },
+  { [_h]: ["POST", "/GetAccountLevelServiceConfiguration", 200] },
   () => __Unit,
   () => GetAccountLevelServiceConfigurationOutput,
 ];
@@ -727,9 +620,7 @@ export var GetDefaultView: StaticOperationSchema = [
   9,
   n0,
   _GDV,
-  {
-    [_h]: ["POST", "/GetDefaultView", 200],
-  },
+  { [_h]: ["POST", "/GetDefaultView", 200] },
   () => __Unit,
   () => GetDefaultViewOutput,
 ];
@@ -737,9 +628,7 @@ export var GetIndex: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_h]: ["POST", "/GetIndex", 200],
-  },
+  { [_h]: ["POST", "/GetIndex", 200] },
   () => __Unit,
   () => GetIndexOutput,
 ];
@@ -747,9 +636,7 @@ export var GetManagedView: StaticOperationSchema = [
   9,
   n0,
   _GMV,
-  {
-    [_h]: ["POST", "/GetManagedView", 200],
-  },
+  { [_h]: ["POST", "/GetManagedView", 200] },
   () => GetManagedViewInput,
   () => GetManagedViewOutput,
 ];
@@ -757,9 +644,7 @@ export var GetResourceExplorerSetup: StaticOperationSchema = [
   9,
   n0,
   _GRES,
-  {
-    [_h]: ["POST", "/GetResourceExplorerSetup", 200],
-  },
+  { [_h]: ["POST", "/GetResourceExplorerSetup", 200] },
   () => GetResourceExplorerSetupInput,
   () => GetResourceExplorerSetupOutput,
 ];
@@ -767,9 +652,7 @@ export var GetServiceIndex: StaticOperationSchema = [
   9,
   n0,
   _GSI,
-  {
-    [_h]: ["POST", "/GetServiceIndex", 200],
-  },
+  { [_h]: ["POST", "/GetServiceIndex", 200] },
   () => __Unit,
   () => GetServiceIndexOutput,
 ];
@@ -777,9 +660,7 @@ export var GetServiceView: StaticOperationSchema = [
   9,
   n0,
   _GSV,
-  {
-    [_h]: ["POST", "/GetServiceView", 200],
-  },
+  { [_h]: ["POST", "/GetServiceView", 200] },
   () => GetServiceViewInput,
   () => GetServiceViewOutput,
 ];
@@ -787,9 +668,7 @@ export var GetView: StaticOperationSchema = [
   9,
   n0,
   _GV,
-  {
-    [_h]: ["POST", "/GetView", 200],
-  },
+  { [_h]: ["POST", "/GetView", 200] },
   () => GetViewInput,
   () => GetViewOutput,
 ];
@@ -797,9 +676,7 @@ export var ListIndexes: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["POST", "/ListIndexes", 200],
-  },
+  { [_h]: ["POST", "/ListIndexes", 200] },
   () => ListIndexesInput,
   () => ListIndexesOutput,
 ];
@@ -807,9 +684,7 @@ export var ListIndexesForMembers: StaticOperationSchema = [
   9,
   n0,
   _LIFM,
-  {
-    [_h]: ["POST", "/ListIndexesForMembers", 200],
-  },
+  { [_h]: ["POST", "/ListIndexesForMembers", 200] },
   () => ListIndexesForMembersInput,
   () => ListIndexesForMembersOutput,
 ];
@@ -817,9 +692,7 @@ export var ListManagedViews: StaticOperationSchema = [
   9,
   n0,
   _LMV,
-  {
-    [_h]: ["POST", "/ListManagedViews", 200],
-  },
+  { [_h]: ["POST", "/ListManagedViews", 200] },
   () => ListManagedViewsInput,
   () => ListManagedViewsOutput,
 ];
@@ -827,9 +700,7 @@ export var ListResources: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["POST", "/ListResources", 200],
-  },
+  { [_h]: ["POST", "/ListResources", 200] },
   () => ListResourcesInput,
   () => ListResourcesOutput,
 ];
@@ -837,9 +708,7 @@ export var ListServiceIndexes: StaticOperationSchema = [
   9,
   n0,
   _LSI,
-  {
-    [_h]: ["POST", "/ListServiceIndexes", 200],
-  },
+  { [_h]: ["POST", "/ListServiceIndexes", 200] },
   () => ListServiceIndexesInput,
   () => ListServiceIndexesOutput,
 ];
@@ -847,9 +716,7 @@ export var ListServiceViews: StaticOperationSchema = [
   9,
   n0,
   _LSV,
-  {
-    [_h]: ["POST", "/ListServiceViews", 200],
-  },
+  { [_h]: ["POST", "/ListServiceViews", 200] },
   () => ListServiceViewsInput,
   () => ListServiceViewsOutput,
 ];
@@ -857,9 +724,7 @@ export var ListStreamingAccessForServices: StaticOperationSchema = [
   9,
   n0,
   _LSAFS,
-  {
-    [_h]: ["POST", "/ListStreamingAccessForServices", 200],
-  },
+  { [_h]: ["POST", "/ListStreamingAccessForServices", 200] },
   () => ListStreamingAccessForServicesInput,
   () => ListStreamingAccessForServicesOutput,
 ];
@@ -867,9 +732,7 @@ export var ListSupportedResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _LSRT,
-  {
-    [_h]: ["POST", "/ListSupportedResourceTypes", 200],
-  },
+  { [_h]: ["POST", "/ListSupportedResourceTypes", 200] },
   () => ListSupportedResourceTypesInput,
   () => ListSupportedResourceTypesOutput,
 ];
@@ -877,9 +740,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -887,9 +748,7 @@ export var ListViews: StaticOperationSchema = [
   9,
   n0,
   _LV,
-  {
-    [_h]: ["POST", "/ListViews", 200],
-  },
+  { [_h]: ["POST", "/ListViews", 200] },
   () => ListViewsInput,
   () => ListViewsOutput,
 ];
@@ -897,9 +756,7 @@ export var Search: StaticOperationSchema = [
   9,
   n0,
   _Sea,
-  {
-    [_h]: ["POST", "/Search", 200],
-  },
+  { [_h]: ["POST", "/Search", 200] },
   () => SearchInput,
   () => SearchOutput,
 ];
@@ -907,9 +764,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -917,9 +772,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -927,9 +780,7 @@ export var UpdateIndexType: StaticOperationSchema = [
   9,
   n0,
   _UIT,
-  {
-    [_h]: ["POST", "/UpdateIndexType", 200],
-  },
+  { [_h]: ["POST", "/UpdateIndexType", 200] },
   () => UpdateIndexTypeInput,
   () => UpdateIndexTypeOutput,
 ];
@@ -937,9 +788,7 @@ export var UpdateView: StaticOperationSchema = [
   9,
   n0,
   _UV,
-  {
-    [_h]: ["POST", "/UpdateView", 200],
-  },
+  { [_h]: ["POST", "/UpdateView", 200] },
   () => UpdateViewInput,
   () => UpdateViewOutput,
 ];

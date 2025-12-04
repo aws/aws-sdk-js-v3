@@ -28,21 +28,21 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof BCMDataExportsClient === "function")
-assert(typeof BCMDataExports === "function")
+assert(typeof BCMDataExportsClient === "function");
+assert(typeof BCMDataExports === "function");
 // commands
-assert(typeof CreateExportCommand === "function")
-assert(typeof DeleteExportCommand === "function")
-assert(typeof GetExecutionCommand === "function")
-assert(typeof GetExportCommand === "function")
-assert(typeof GetTableCommand === "function")
-assert(typeof ListExecutionsCommand === "function")
-assert(typeof ListExportsCommand === "function")
-assert(typeof ListTablesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateExportCommand === "function")
+assert(typeof CreateExportCommand === "function");
+assert(typeof DeleteExportCommand === "function");
+assert(typeof GetExecutionCommand === "function");
+assert(typeof GetExportCommand === "function");
+assert(typeof GetTableCommand === "function");
+assert(typeof ListExecutionsCommand === "function");
+assert(typeof ListExportsCommand === "function");
+assert(typeof ListTablesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateExportCommand === "function");
 // enums
 assert(typeof CompressionOption === "object");
 assert(typeof ExecutionStatusCode === "object");
@@ -53,9 +53,9 @@ assert(typeof FrequencyOption === "object");
 assert(typeof OverwriteOption === "object");
 assert(typeof S3OutputType === "object");
 // errors
-assert(BCMDataExportsServiceException.prototype instanceof Error)
+assert(BCMDataExportsServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListExecutions === "function")
-assert(typeof paginateListExports === "function")
-assert(typeof paginateListTables === "function")
+assert(typeof paginateListExecutions === "function");
+assert(typeof paginateListExports === "function");
+assert(typeof paginateListTables === "function");
 console.log(`BCMDataExports index test passed.`);

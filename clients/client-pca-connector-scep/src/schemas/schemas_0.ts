@@ -114,34 +114,11 @@ import {
 import { PcaConnectorScepServiceException as __PcaConnectorScepServiceException } from "../models/PcaConnectorScepServiceException";
 
 /* eslint no-var: 0 */
-
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var Challenge: StaticStructureSchema = [
   3,
   n0,
@@ -152,19 +129,8 @@ export var Challenge: StaticStructureSchema = [
 ];
 export var ChallengeMetadata: StaticStructureSchema = [3, n0, _CM, 0, [_A, _CA, _CAr, _UA], [0, 0, 4, 4]];
 export var ChallengeMetadataSummary: StaticStructureSchema = [3, n0, _CMS, 0, [_A, _CA, _CAr, _UA], [0, 0, 4, 4]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Connector: StaticStructureSchema = [
   3,
   n0,
@@ -200,19 +166,8 @@ export var GetChallengePasswordRequest: StaticStructureSchema = [3, n0, _GCPR, 0
 export var GetChallengePasswordResponse: StaticStructureSchema = [3, n0, _GCPRe, 0, [_P], [[() => SensitiveString, 0]]];
 export var GetConnectorRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_CA], [[0, 1]]];
 export var GetConnectorResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_Co], [() => Connector]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IntuneConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_AAI, _D], [0, 0]];
 export var ListChallengeMetadataRequest: StaticStructureSchema = [
   3,
@@ -221,24 +176,9 @@ export var ListChallengeMetadataRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _CA],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CA,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
+    [0, { [_hQ]: _CA }],
   ],
 ];
 export var ListChallengeMetadataResponse: StaticStructureSchema = [
@@ -256,18 +196,8 @@ export var ListConnectorsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListConnectorsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_Con, _NT], [() => ConnectorList, 0]];
@@ -278,42 +208,23 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RT, _SC, _QC],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -322,29 +233,12 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var PcaConnectorScepServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -354,21 +248,16 @@ export var PcaConnectorScepServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PcaConnectorScepServiceException, __PcaConnectorScepServiceException);
-
 export var ChallengeMetadataList: StaticListSchema = [1, n0, _CML, 0, () => ChallengeMetadataSummary];
 export var ConnectorList: StaticListSchema = [1, n0, _CL, 0, () => ConnectorSummary];
 export var TagKeyList = 64 | 0;
-
 export var Tags = 128 | 0;
-
 export var MobileDeviceManagement: StaticStructureSchema = [3, n0, _MDM, 0, [_In], [() => IntuneConfiguration]];
 export var CreateChallenge: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/challenges", 202],
-  },
+  { [_h]: ["POST", "/challenges", 202] },
   () => CreateChallengeRequest,
   () => CreateChallengeResponse,
 ];
@@ -376,9 +265,7 @@ export var CreateConnector: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/connectors", 202],
-  },
+  { [_h]: ["POST", "/connectors", 202] },
   () => CreateConnectorRequest,
   () => CreateConnectorResponse,
 ];
@@ -386,9 +273,7 @@ export var DeleteChallenge: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/challenges/{ChallengeArn}", 202],
-  },
+  { [_h]: ["DELETE", "/challenges/{ChallengeArn}", 202] },
   () => DeleteChallengeRequest,
   () => __Unit,
 ];
@@ -396,9 +281,7 @@ export var DeleteConnector: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["DELETE", "/connectors/{ConnectorArn}", 202],
-  },
+  { [_h]: ["DELETE", "/connectors/{ConnectorArn}", 202] },
   () => DeleteConnectorRequest,
   () => __Unit,
 ];
@@ -406,9 +289,7 @@ export var GetChallengeMetadata: StaticOperationSchema = [
   9,
   n0,
   _GCM,
-  {
-    [_h]: ["GET", "/challengeMetadata/{ChallengeArn}", 200],
-  },
+  { [_h]: ["GET", "/challengeMetadata/{ChallengeArn}", 200] },
   () => GetChallengeMetadataRequest,
   () => GetChallengeMetadataResponse,
 ];
@@ -416,9 +297,7 @@ export var GetChallengePassword: StaticOperationSchema = [
   9,
   n0,
   _GCP,
-  {
-    [_h]: ["GET", "/challengePasswords/{ChallengeArn}", 200],
-  },
+  { [_h]: ["GET", "/challengePasswords/{ChallengeArn}", 200] },
   () => GetChallengePasswordRequest,
   () => GetChallengePasswordResponse,
 ];
@@ -426,9 +305,7 @@ export var GetConnector: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/connectors/{ConnectorArn}", 200],
-  },
+  { [_h]: ["GET", "/connectors/{ConnectorArn}", 200] },
   () => GetConnectorRequest,
   () => GetConnectorResponse,
 ];
@@ -436,9 +313,7 @@ export var ListChallengeMetadata: StaticOperationSchema = [
   9,
   n0,
   _LCM,
-  {
-    [_h]: ["GET", "/challengeMetadata", 200],
-  },
+  { [_h]: ["GET", "/challengeMetadata", 200] },
   () => ListChallengeMetadataRequest,
   () => ListChallengeMetadataResponse,
 ];
@@ -446,9 +321,7 @@ export var ListConnectors: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/connectors", 200],
-  },
+  { [_h]: ["GET", "/connectors", 200] },
   () => ListConnectorsRequest,
   () => ListConnectorsResponse,
 ];
@@ -456,9 +329,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -466,9 +337,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -476,9 +345,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];

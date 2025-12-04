@@ -176,7 +176,6 @@ import {
 import { IdentitystoreServiceException as __IdentitystoreServiceException } from "../models/IdentitystoreServiceException";
 
 /* eslint no-var: 0 */
-
 export var ExternalIdIdentifier: StaticSimpleSchema = [0, n0, _EII, 8, 0];
 export var ExternalIdIssuer: StaticSimpleSchema = [0, n0, _EIIx, 8, 0];
 export var GroupDisplayName: StaticSimpleSchema = [0, n0, _GDN, 8, 0];
@@ -187,15 +186,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M, _RI, _R],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Address: StaticStructureSchema = [
   3,
   n0,
@@ -214,19 +209,8 @@ export var Address: StaticStructureSchema = [
   ],
 ];
 export var AttributeOperation: StaticStructureSchema = [3, n0, _AO, 0, [_AP, _AV], [0, 15]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _R],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _R], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateGroupMembershipRequest: StaticStructureSchema = [
   3,
   n0,
@@ -434,24 +418,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RI, _RAS],
-  [
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IsMemberInGroupsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -555,51 +526,29 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_RT, _RIe, _R, _M, _RI],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _RI, _RAS, _R],
-  [
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [0, 0, [1, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UniqueAttribute: StaticStructureSchema = [3, n0, _UAn, 0, [_AP, _AV], [0, 15]];
 export var UpdateGroupRequest: StaticStructureSchema = [
   3,
@@ -677,31 +626,17 @@ export var User: StaticStructureSchema = [
     0,
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RI, _R],
-  [0, 0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _RI, _R], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var IdentitystoreServiceException: StaticErrorSchema = [-3, _sm, "IdentitystoreServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IdentitystoreServiceException, __IdentitystoreServiceException);
-
 export var Addresses: StaticListSchema = [1, n0, _Ad, 0, [() => Address, 0]];
 export var AttributeOperations: StaticListSchema = [1, n0, _AOt, 0, () => AttributeOperation];
 export var Emails: StaticListSchema = [1, n0, _E, 0, [() => Email, 0]];
 export var ExternalIds: StaticListSchema = [1, n0, _EI, 0, [() => ExternalId, 0]];
 export var Filters: StaticListSchema = [1, n0, _Fil, 0, [() => Filter, 0]];
 export var GroupIds = 64 | 0;
-
 export var GroupMembershipExistenceResults: StaticListSchema = [
   1,
   n0,

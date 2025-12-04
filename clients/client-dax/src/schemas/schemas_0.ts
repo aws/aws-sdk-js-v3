@@ -236,7 +236,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Cluster: StaticStructureSchema = [
   3,
   n0,
@@ -269,44 +268,29 @@ export var ClusterAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _CAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ClusterAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ClusterAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ClusterAlreadyExistsFault, __ClusterAlreadyExistsFault);
-
 export var ClusterNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _CNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ClusterNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ClusterNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ClusterNotFoundFault, __ClusterNotFoundFault);
-
 export var ClusterQuotaForCustomerExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _CQFCEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ClusterQuotaForCustomerExceededFault, __ClusterQuotaForCustomerExceededFault);
-
 export var CreateClusterRequest: StaticStructureSchema = [
   3,
   n0,
@@ -404,114 +388,74 @@ export var InsufficientClusterCapacityFault: StaticErrorSchema = [
   -3,
   n0,
   _ICCF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsufficientClusterCapacity`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientClusterCapacity`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientClusterCapacityFault, __InsufficientClusterCapacityFault);
-
 export var InvalidARNFault: StaticErrorSchema = [
   -3,
   n0,
   _IARNF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidARN`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidARN`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidARNFault, __InvalidARNFault);
-
 export var InvalidClusterStateFault: StaticErrorSchema = [
   -3,
   n0,
   _ICSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidClusterState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidClusterState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidClusterStateFault, __InvalidClusterStateFault);
-
 export var InvalidParameterCombinationException: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameterCombination`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombination`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-
 export var InvalidParameterGroupStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IPGSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameterGroupState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterGroupState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterGroupStateFault, __InvalidParameterGroupStateFault);
-
 export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameterValue`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterValue`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
 export var InvalidSubnet: StaticErrorSchema = [
   -3,
   n0,
   _IS,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidSubnet`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSubnet`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSubnet, __InvalidSubnet);
-
 export var InvalidVPCNetworkStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IVPCNSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidVPCNetworkStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidVPCNetworkStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault, __InvalidVPCNetworkStateFault);
-
 export var ListTagsRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_RN, _NTex], [0, 0]];
 export var ListTagsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_T, _NTex], [() => TagList, 0]];
 export var Node: StaticStructureSchema = [
@@ -526,44 +470,29 @@ export var NodeNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _NNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`NodeNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`NodeNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NodeNotFoundFault, __NodeNotFoundFault);
-
 export var NodeQuotaForClusterExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _NQFCEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`NodeQuotaForClusterExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForClusterExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NodeQuotaForClusterExceededFault, __NodeQuotaForClusterExceededFault);
-
 export var NodeQuotaForCustomerExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _NQFCEFo,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`NodeQuotaForCustomerExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForCustomerExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NodeQuotaForCustomerExceededFault, __NodeQuotaForCustomerExceededFault);
-
 export var NodeTypeSpecificValue: StaticStructureSchema = [3, n0, _NTSV, 0, [_NT, _V], [0, 0]];
 export var NotificationConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_TA, _TS], [0, 0]];
 export var Parameter: StaticStructureSchema = [
@@ -579,44 +508,29 @@ export var ParameterGroupAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _PGAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ParameterGroupAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterGroupAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterGroupAlreadyExistsFault, __ParameterGroupAlreadyExistsFault);
-
 export var ParameterGroupNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _PGNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ParameterGroupNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ParameterGroupNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterGroupNotFoundFault, __ParameterGroupNotFoundFault);
-
 export var ParameterGroupQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _PGQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ParameterGroupQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterGroupQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterGroupQuotaExceededFault, __ParameterGroupQuotaExceededFault);
-
 export var ParameterGroupStatus: StaticStructureSchema = [3, n0, _PGS, 0, [_PGN, _PAS, _NITRo], [0, 0, 64 | 0]];
 export var ParameterNameValue: StaticStructureSchema = [3, n0, _PNV, 0, [_PN, _PV], [0, 0]];
 export var RebootNodeRequest: StaticStructureSchema = [3, n0, _RNR, 0, [_CN, _NI], [0, 0]];
@@ -626,30 +540,20 @@ export var ServiceLinkedRoleNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _SLRNFF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceLinkedRoleNotFoundFault, __ServiceLinkedRoleNotFoundFault);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-    [_aQE]: [`ServiceQuotaExceeded`, 402],
-  },
+  { [_e]: _c, [_hE]: 402, [_aQE]: [`ServiceQuotaExceeded`, 402] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SSEDescription: StaticStructureSchema = [3, n0, _SSED, 0, [_S], [0]];
 export var SSESpecification: StaticStructureSchema = [3, n0, _SSES, 0, [_Ena], [2]];
 export var Subnet: StaticStructureSchema = [3, n0, _Su, 0, [_SIu, _SAZ, _SNT], [0, 0, 64 | 0]];
@@ -665,129 +569,84 @@ export var SubnetGroupAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _SGAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubnetGroupAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetGroupAlreadyExistsFault, __SubnetGroupAlreadyExistsFault);
-
 export var SubnetGroupInUseFault: StaticErrorSchema = [
   -3,
   n0,
   _SGIUF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubnetGroupInUse`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupInUse`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetGroupInUseFault, __SubnetGroupInUseFault);
-
 export var SubnetGroupNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _SGNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`SubnetGroupNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`SubnetGroupNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetGroupNotFoundFault, __SubnetGroupNotFoundFault);
-
 export var SubnetGroupQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _SGQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubnetGroupQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetGroupQuotaExceededFault, __SubnetGroupQuotaExceededFault);
-
 export var SubnetInUse: StaticErrorSchema = [
   -3,
   n0,
   _SIU,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubnetInUse`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetInUse`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetInUse, __SubnetInUse);
-
 export var SubnetNotAllowedFault: StaticErrorSchema = [
   -3,
   n0,
   _SNAF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubnetNotAllowedFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetNotAllowedFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetNotAllowedFault, __SubnetNotAllowedFault);
-
 export var SubnetQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _SQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubnetQuotaExceededFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetQuotaExceededFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetQuotaExceededFault, __SubnetQuotaExceededFault);
-
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _TNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`TagNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`TagNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagNotFoundFault, __TagNotFoundFault);
-
 export var TagQuotaPerResourceExceeded: StaticErrorSchema = [
   -3,
   n0,
   _TQPRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TagQuotaPerResourceExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagQuotaPerResourceExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagQuotaPerResourceExceeded, __TagQuotaPerResourceExceeded);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RN, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [_T], [() => TagList]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RN, _TK], [0, 64 | 0]];
@@ -813,37 +672,26 @@ export var UpdateParameterGroupResponse: StaticStructureSchema = [3, n0, _UPGRp,
 export var UpdateSubnetGroupRequest: StaticStructureSchema = [3, n0, _USGR, 0, [_SGN, _D, _SI], [0, 0, 64 | 0]];
 export var UpdateSubnetGroupResponse: StaticStructureSchema = [3, n0, _USGRp, 0, [_SG], [() => SubnetGroup]];
 export var __Unit = "unit" as const;
-
 export var DAXServiceException: StaticErrorSchema = [-3, _s, "DAXServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(DAXServiceException, __DAXServiceException);
-
 export var AvailabilityZoneList = 64 | 0;
-
 export var ClusterList: StaticListSchema = [1, n0, _CL, 0, () => Cluster];
 export var ClusterNameList = 64 | 0;
-
 export var EventList: StaticListSchema = [1, n0, _EL, 0, () => Event];
 export var KeyList = 64 | 0;
-
 export var NetworkTypeList = 64 | 0;
-
 export var NodeIdentifierList = 64 | 0;
-
 export var NodeList: StaticListSchema = [1, n0, _NL, 0, () => Node];
 export var NodeTypeSpecificValueList: StaticListSchema = [1, n0, _NTSVL, 0, () => NodeTypeSpecificValue];
 export var ParameterGroupList: StaticListSchema = [1, n0, _PGL, 0, () => ParameterGroup];
 export var ParameterGroupNameList = 64 | 0;
-
 export var ParameterList: StaticListSchema = [1, n0, _PL, 0, () => Parameter];
 export var ParameterNameValueList: StaticListSchema = [1, n0, _PNVL, 0, () => ParameterNameValue];
 export var SecurityGroupIdentifierList = 64 | 0;
-
 export var SecurityGroupMembershipList: StaticListSchema = [1, n0, _SGML, 0, () => SecurityGroupMembership];
 export var SubnetGroupList: StaticListSchema = [1, n0, _SGL, 0, () => SubnetGroup];
 export var SubnetGroupNameList = 64 | 0;
-
 export var SubnetIdentifierList = 64 | 0;
-
 export var SubnetList: StaticListSchema = [1, n0, _SL, 0, () => Subnet];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var CreateCluster: StaticOperationSchema = [

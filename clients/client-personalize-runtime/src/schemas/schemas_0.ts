@@ -69,7 +69,6 @@ import {
 import { PersonalizeRuntimeServiceException as __PersonalizeRuntimeServiceException } from "../models/PersonalizeRuntimeServiceException";
 
 /* eslint no-var: 0 */
-
 export var AttributeValue: StaticSimpleSchema = [0, n0, _AV, 8, 0];
 export var FilterAttributeValue: StaticSimpleSchema = [0, n0, _FAV, 8, 0];
 export var GetActionRecommendationsRequest: StaticStructureSchema = [
@@ -113,19 +112,8 @@ export var GetRecommendationsRequest: StaticStructureSchema = [
   [0, 0, 0, 1, [() => Context, 0], 0, [() => FilterValues, 0], 0, [() => PromotionList, 0], [2, n0, _MC, 0, 0, 64 | 0]],
 ];
 export var GetRecommendationsResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_iLt, _rI], [[() => ItemList, 0], 0]];
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var PredictedAction: StaticStructureSchema = [3, n0, _PA, 0, [_aI, _s], [0, 1]];
 export var PredictedItem: StaticStructureSchema = [
   3,
@@ -136,19 +124,8 @@ export var PredictedItem: StaticStructureSchema = [
   [0, 1, 0, [() => Metadata, 0], 64 | 0],
 ];
 export var Promotion: StaticStructureSchema = [3, n0, _P, 0, [_n, _pPI, _fA, _fV], [0, 1, 0, [() => FilterValues, 0]]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var PersonalizeRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -158,16 +135,12 @@ export var PersonalizeRuntimeServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PersonalizeRuntimeServiceException, __PersonalizeRuntimeServiceException);
-
 export var ActionList: StaticListSchema = [1, n0, _AL, 0, () => PredictedAction];
 export var ColumnNamesList = 64 | 0;
-
 export var InputList = 64 | 0;
-
 export var ItemList: StaticListSchema = [1, n0, _IL, 0, [() => PredictedItem, 0]];
 export var PromotionList: StaticListSchema = [1, n0, _PL, 0, [() => Promotion, 0]];
 export var ReasonList = 64 | 0;
-
 export var Context: StaticMapSchema = [2, n0, _C, 0, [0, 0], [() => AttributeValue, 0]];
 export var FilterValues: StaticMapSchema = [2, n0, _FV, 0, [0, 0], [() => FilterAttributeValue, 0]];
 export var Metadata: StaticMapSchema = [2, n0, _M, 8, 0, 0];
@@ -176,9 +149,7 @@ export var GetActionRecommendations: StaticOperationSchema = [
   9,
   n0,
   _GAR,
-  {
-    [_h]: ["POST", "/action-recommendations", 200],
-  },
+  { [_h]: ["POST", "/action-recommendations", 200] },
   () => GetActionRecommendationsRequest,
   () => GetActionRecommendationsResponse,
 ];
@@ -186,9 +157,7 @@ export var GetPersonalizedRanking: StaticOperationSchema = [
   9,
   n0,
   _GPR,
-  {
-    [_h]: ["POST", "/personalize-ranking", 200],
-  },
+  { [_h]: ["POST", "/personalize-ranking", 200] },
   () => GetPersonalizedRankingRequest,
   () => GetPersonalizedRankingResponse,
 ];
@@ -196,9 +165,7 @@ export var GetRecommendations: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["POST", "/recommendations", 200],
-  },
+  { [_h]: ["POST", "/recommendations", 200] },
   () => GetRecommendationsRequest,
   () => GetRecommendationsResponse,
 ];

@@ -232,7 +232,6 @@ import {
 import { IoTThingsGraphServiceException as __IoTThingsGraphServiceException } from "../models/IoTThingsGraphServiceException";
 
 /* eslint no-var: 0 */
-
 export var AssociateEntityToThingRequest: StaticStructureSchema = [3, n0, _AETTR, 0, [_tN, _eI, _nV], [0, 0, 1]];
 export var AssociateEntityToThingResponse: StaticStructureSchema = [3, n0, _AETTRs, 0, [], []];
 export var CreateFlowTemplateRequest: StaticStructureSchema = [
@@ -396,45 +395,12 @@ export var GetUploadStatusResponse: StaticStructureSchema = [
   [_uI, _uS, _nA, _nN, _nV, _fR, _cD],
   [0, 0, 0, 0, 1, 64 | 0, 4],
 ];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 410 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListFlowExecutionMessagesRequest: StaticStructureSchema = [3, n0, _LFEMR, 0, [_fEI, _nT, _mR], [0, 0, 1]];
 export var ListFlowExecutionMessagesResponse: StaticStructureSchema = [
   3,
@@ -447,45 +413,12 @@ export var ListFlowExecutionMessagesResponse: StaticStructureSchema = [
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_mR, _rA, _nT], [1, 0, 0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t, _nT], [() => TagList, 0]];
 export var MetricsConfiguration: StaticStructureSchema = [3, n0, _MC, 0, [_cME, _mRRA], [2, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 412,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 412 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SearchEntitiesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -600,19 +533,8 @@ export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var Thing: StaticStructureSchema = [3, n0, _Th, 0, [_tA, _tN], [0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UndeploySystemInstanceRequest: StaticStructureSchema = [3, n0, _USIR, 0, [_i], [0]];
 export var UndeploySystemInstanceResponse: StaticStructureSchema = [
   3,
@@ -659,39 +581,29 @@ export var UploadEntityDefinitionsRequest: StaticStructureSchema = [
 ];
 export var UploadEntityDefinitionsResponse: StaticStructureSchema = [3, n0, _UEDRp, 0, [_uI], [0]];
 export var __Unit = "unit" as const;
-
 export var IoTThingsGraphServiceException: StaticErrorSchema = [-3, _sm, "IoTThingsGraphServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTThingsGraphServiceException, __IoTThingsGraphServiceException);
-
 export var DependencyRevisions: StaticListSchema = [1, n0, _DRe, 0, () => DependencyRevision];
 export var EntityDescriptions: StaticListSchema = [1, n0, _EDn, 0, () => EntityDescription];
 export var EntityFilters: StaticListSchema = [1, n0, _EFn, 0, () => EntityFilter];
 export var EntityFilterValues = 64 | 0;
-
 export var EntityTypes = 64 | 0;
-
 export var FlowExecutionMessages: StaticListSchema = [1, n0, _FEMl, 0, () => FlowExecutionMessage];
 export var FlowExecutionSummaries: StaticListSchema = [1, n0, _FESl, 0, () => FlowExecutionSummary];
 export var FlowTemplateFilters: StaticListSchema = [1, n0, _FTFl, 0, () => FlowTemplateFilter];
 export var FlowTemplateFilterValues = 64 | 0;
-
 export var FlowTemplateSummaries: StaticListSchema = [1, n0, _FTSl, 0, () => FlowTemplateSummary];
 export var StringList = 64 | 0;
-
 export var SystemInstanceFilters: StaticListSchema = [1, n0, _SIFy, 0, () => SystemInstanceFilter];
 export var SystemInstanceFilterValues = 64 | 0;
-
 export var SystemInstanceSummaries: StaticListSchema = [1, n0, _SISy, 0, () => SystemInstanceSummary];
 export var SystemTemplateFilters: StaticListSchema = [1, n0, _STFy, 0, () => SystemTemplateFilter];
 export var SystemTemplateFilterValues = 64 | 0;
-
 export var SystemTemplateSummaries: StaticListSchema = [1, n0, _STSy, 0, () => SystemTemplateSummary];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var Things: StaticListSchema = [1, n0, _Thi, 0, () => Thing];
 export var Urns = 64 | 0;
-
 export var AssociateEntityToThing: StaticOperationSchema = [
   9,
   n0,

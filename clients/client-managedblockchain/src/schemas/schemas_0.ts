@@ -254,21 +254,9 @@ import {
 import { ManagedBlockchainServiceException as __ManagedBlockchainServiceException } from "../models/ManagedBlockchainServiceException";
 
 /* eslint no-var: 0 */
-
 export var PasswordString: StaticSimpleSchema = [0, n0, _PS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Accessor: StaticStructureSchema = [
   3,
   n0,
@@ -356,12 +344,7 @@ export var DeleteNodeInput: StaticStructureSchema = [
   [_NI, _MI, _NIo],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mI,
-      },
-    ],
+    [0, { [_hQ]: _mI }],
     [0, 1],
   ],
 ];
@@ -390,12 +373,7 @@ export var GetNodeInput: StaticStructureSchema = [
   [_NI, _MI, _NIo],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mI,
-      },
-    ],
+    [0, { [_hQ]: _mI }],
     [0, 1],
   ],
 ];
@@ -412,45 +390,12 @@ export var GetProposalInput: StaticStructureSchema = [
   ],
 ];
 export var GetProposalOutput: StaticStructureSchema = [3, n0, _GPO, 0, [_P], [() => Proposal]];
-export var IllegalActionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var IllegalActionException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IllegalActionException, __IllegalActionException);
-
-export var InternalServiceErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [],
-  [],
-];
+export var InternalServiceErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _s, [_hE]: 500 }, [], []];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException, __InternalServiceErrorException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var Invitation: StaticStructureSchema = [
   3,
   n0,
@@ -467,24 +412,9 @@ export var ListAccessorsInput: StaticStructureSchema = [
   0,
   [_MR, _NTe, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _nTe }],
   ],
 ];
 export var ListAccessorsOutput: StaticStructureSchema = [3, n0, _LAO, 0, [_Acc, _NTe], [() => AccessorSummaryList, 0]];
@@ -495,18 +425,8 @@ export var ListInvitationsInput: StaticStructureSchema = [
   0,
   [_MR, _NTe],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListInvitationsOutput: StaticStructureSchema = [3, n0, _LIO, 0, [_Inv, _NTe], [() => InvitationList, 0]];
@@ -518,36 +438,11 @@ export var ListMembersInput: StaticStructureSchema = [
   [_NI, _N, _S, _IO, _MR, _NTe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iO,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _st }],
+    [2, { [_hQ]: _iO }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListMembersOutput: StaticStructureSchema = [3, n0, _LMO, 0, [_Mem, _NTe], [() => MemberSummaryList, 0]];
@@ -558,36 +453,11 @@ export var ListNetworksInput: StaticStructureSchema = [
   0,
   [_N, _F, _S, _MR, _NTe],
   [
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListNetworksOutput: StaticStructureSchema = [3, n0, _LNO, 0, [_Net, _NTe], [() => NetworkSummaryList, 0]];
@@ -599,30 +469,10 @@ export var ListNodesInput: StaticStructureSchema = [
   [_NI, _MI, _S, _MR, _NTe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _mI }],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListNodesOutput: StaticStructureSchema = [3, n0, _LNOi, 0, [_Nod, _NTe], [() => NodeSummaryList, 0]];
@@ -634,18 +484,8 @@ export var ListProposalsInput: StaticStructureSchema = [
   [_NI, _MR, _NTe],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProposalsOutput: StaticStructureSchema = [3, n0, _LPO, 0, [_Pro, _NTe], [() => ProposalSummaryList, 0]];
@@ -658,18 +498,8 @@ export var ListProposalVotesInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProposalVotesOutput: StaticStructureSchema = [3, n0, _LPVO, 0, [_PV, _NTe], [() => ProposalVoteList, 0]];
@@ -840,86 +670,20 @@ export var ProposalSummary: StaticStructureSchema = [
 export var RejectInvitationInput: StaticStructureSchema = [3, n0, _RII, 0, [_II], [[0, 1]]];
 export var RejectInvitationOutput: StaticStructureSchema = [3, n0, _RIO, 0, [], []];
 export var RemoveAction: StaticStructureSchema = [3, n0, _RAe, 0, [_MI], [0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ResourceLimitExceededException: StaticErrorSchema = [-3, n0, _RLEE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotReadyException: StaticErrorSchema = [-3, n0, _RNRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotReadyException, __ResourceNotReadyException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [],
-  [],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [], []];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -928,12 +692,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -960,7 +719,6 @@ export var VoteOnProposalOutput: StaticStructureSchema = [3, n0, _VOPO, 0, [], [
 export var VoteSummary: StaticStructureSchema = [3, n0, _VS, 0, [_V, _MN, _MI], [0, 0, 0]];
 export var VotingPolicy: StaticStructureSchema = [3, n0, _VP, 0, [_ATP], [() => ApprovalThresholdPolicy]];
 export var __Unit = "unit" as const;
-
 export var ManagedBlockchainServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -970,7 +728,6 @@ export var ManagedBlockchainServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ManagedBlockchainServiceException, __ManagedBlockchainServiceException);
-
 export var AccessorSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AccessorSummary];
 export var InvitationList: StaticListSchema = [1, n0, _IL, 0, () => Invitation];
 export var InviteActionList: StaticListSchema = [1, n0, _IAL, 0, () => InviteAction];
@@ -981,18 +738,13 @@ export var ProposalSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => Propos
 export var ProposalVoteList: StaticListSchema = [1, n0, _PVL, 0, () => VoteSummary];
 export var RemoveActionList: StaticListSchema = [1, n0, _RAL, 0, () => RemoveAction];
 export var TagKeyList = 64 | 0;
-
 export var InputTagMap = 128 | 0;
-
 export var OutputTagMap = 128 | 0;
-
 export var CreateAccessor: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/accessors", 200],
-  },
+  { [_h]: ["POST", "/accessors", 200] },
   () => CreateAccessorInput,
   () => CreateAccessorOutput,
 ];
@@ -1000,9 +752,7 @@ export var CreateMember: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_h]: ["POST", "/networks/{NetworkId}/members", 200],
-  },
+  { [_h]: ["POST", "/networks/{NetworkId}/members", 200] },
   () => CreateMemberInput,
   () => CreateMemberOutput,
 ];
@@ -1010,9 +760,7 @@ export var CreateNetwork: StaticOperationSchema = [
   9,
   n0,
   _CN,
-  {
-    [_h]: ["POST", "/networks", 200],
-  },
+  { [_h]: ["POST", "/networks", 200] },
   () => CreateNetworkInput,
   () => CreateNetworkOutput,
 ];
@@ -1020,9 +768,7 @@ export var CreateNode: StaticOperationSchema = [
   9,
   n0,
   _CNr,
-  {
-    [_h]: ["POST", "/networks/{NetworkId}/nodes", 200],
-  },
+  { [_h]: ["POST", "/networks/{NetworkId}/nodes", 200] },
   () => CreateNodeInput,
   () => CreateNodeOutput,
 ];
@@ -1030,9 +776,7 @@ export var CreateProposal: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/networks/{NetworkId}/proposals", 200],
-  },
+  { [_h]: ["POST", "/networks/{NetworkId}/proposals", 200] },
   () => CreateProposalInput,
   () => CreateProposalOutput,
 ];
@@ -1040,9 +784,7 @@ export var DeleteAccessor: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/accessors/{AccessorId}", 200],
-  },
+  { [_h]: ["DELETE", "/accessors/{AccessorId}", 200] },
   () => DeleteAccessorInput,
   () => DeleteAccessorOutput,
 ];
@@ -1050,9 +792,7 @@ export var DeleteMember: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_h]: ["DELETE", "/networks/{NetworkId}/members/{MemberId}", 200],
-  },
+  { [_h]: ["DELETE", "/networks/{NetworkId}/members/{MemberId}", 200] },
   () => DeleteMemberInput,
   () => DeleteMemberOutput,
 ];
@@ -1060,9 +800,7 @@ export var DeleteNode: StaticOperationSchema = [
   9,
   n0,
   _DN,
-  {
-    [_h]: ["DELETE", "/networks/{NetworkId}/nodes/{NodeId}", 200],
-  },
+  { [_h]: ["DELETE", "/networks/{NetworkId}/nodes/{NodeId}", 200] },
   () => DeleteNodeInput,
   () => DeleteNodeOutput,
 ];
@@ -1070,9 +808,7 @@ export var GetAccessor: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/accessors/{AccessorId}", 200],
-  },
+  { [_h]: ["GET", "/accessors/{AccessorId}", 200] },
   () => GetAccessorInput,
   () => GetAccessorOutput,
 ];
@@ -1080,9 +816,7 @@ export var GetMember: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}/members/{MemberId}", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}/members/{MemberId}", 200] },
   () => GetMemberInput,
   () => GetMemberOutput,
 ];
@@ -1090,9 +824,7 @@ export var GetNetwork: StaticOperationSchema = [
   9,
   n0,
   _GN,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}", 200] },
   () => GetNetworkInput,
   () => GetNetworkOutput,
 ];
@@ -1100,9 +832,7 @@ export var GetNode: StaticOperationSchema = [
   9,
   n0,
   _GNe,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}/nodes/{NodeId}", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}/nodes/{NodeId}", 200] },
   () => GetNodeInput,
   () => GetNodeOutput,
 ];
@@ -1110,9 +840,7 @@ export var GetProposal: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}/proposals/{ProposalId}", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}/proposals/{ProposalId}", 200] },
   () => GetProposalInput,
   () => GetProposalOutput,
 ];
@@ -1120,9 +848,7 @@ export var ListAccessors: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/accessors", 200],
-  },
+  { [_h]: ["GET", "/accessors", 200] },
   () => ListAccessorsInput,
   () => ListAccessorsOutput,
 ];
@@ -1130,9 +856,7 @@ export var ListInvitations: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["GET", "/invitations", 200],
-  },
+  { [_h]: ["GET", "/invitations", 200] },
   () => ListInvitationsInput,
   () => ListInvitationsOutput,
 ];
@@ -1140,9 +864,7 @@ export var ListMembers: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}/members", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}/members", 200] },
   () => ListMembersInput,
   () => ListMembersOutput,
 ];
@@ -1150,9 +872,7 @@ export var ListNetworks: StaticOperationSchema = [
   9,
   n0,
   _LN,
-  {
-    [_h]: ["GET", "/networks", 200],
-  },
+  { [_h]: ["GET", "/networks", 200] },
   () => ListNetworksInput,
   () => ListNetworksOutput,
 ];
@@ -1160,9 +880,7 @@ export var ListNodes: StaticOperationSchema = [
   9,
   n0,
   _LNi,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}/nodes", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}/nodes", 200] },
   () => ListNodesInput,
   () => ListNodesOutput,
 ];
@@ -1170,9 +888,7 @@ export var ListProposals: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}/proposals", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}/proposals", 200] },
   () => ListProposalsInput,
   () => ListProposalsOutput,
 ];
@@ -1180,9 +896,7 @@ export var ListProposalVotes: StaticOperationSchema = [
   9,
   n0,
   _LPV,
-  {
-    [_h]: ["GET", "/networks/{NetworkId}/proposals/{ProposalId}/votes", 200],
-  },
+  { [_h]: ["GET", "/networks/{NetworkId}/proposals/{ProposalId}/votes", 200] },
   () => ListProposalVotesInput,
   () => ListProposalVotesOutput,
 ];
@@ -1190,9 +904,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1200,9 +912,7 @@ export var RejectInvitation: StaticOperationSchema = [
   9,
   n0,
   _RI,
-  {
-    [_h]: ["DELETE", "/invitations/{InvitationId}", 200],
-  },
+  { [_h]: ["DELETE", "/invitations/{InvitationId}", 200] },
   () => RejectInvitationInput,
   () => RejectInvitationOutput,
 ];
@@ -1210,9 +920,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1220,9 +928,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1230,9 +936,7 @@ export var UpdateMember: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  {
-    [_h]: ["PATCH", "/networks/{NetworkId}/members/{MemberId}", 200],
-  },
+  { [_h]: ["PATCH", "/networks/{NetworkId}/members/{MemberId}", 200] },
   () => UpdateMemberInput,
   () => UpdateMemberOutput,
 ];
@@ -1240,9 +944,7 @@ export var UpdateNode: StaticOperationSchema = [
   9,
   n0,
   _UN,
-  {
-    [_h]: ["PATCH", "/networks/{NetworkId}/nodes/{NodeId}", 200],
-  },
+  { [_h]: ["PATCH", "/networks/{NetworkId}/nodes/{NodeId}", 200] },
   () => UpdateNodeInput,
   () => UpdateNodeOutput,
 ];
@@ -1250,9 +952,7 @@ export var VoteOnProposal: StaticOperationSchema = [
   9,
   n0,
   _VOP,
-  {
-    [_h]: ["POST", "/networks/{NetworkId}/proposals/{ProposalId}/votes", 200],
-  },
+  { [_h]: ["POST", "/networks/{NetworkId}/proposals/{ProposalId}/votes", 200] },
   () => VoteOnProposalInput,
   () => VoteOnProposalOutput,
 ];

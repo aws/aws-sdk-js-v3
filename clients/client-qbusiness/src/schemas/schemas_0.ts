@@ -879,25 +879,13 @@ import {
 import { QBusinessServiceException as __QBusinessServiceException } from "../models/QBusinessServiceException";
 
 /* eslint no-var: 0 */
-
 export var DataAccessorName: StaticSimpleSchema = [0, n0, _DAN, 8, 0];
 export var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
 export var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var AccessConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_aC, _mR], [() => AccessControls, 0]];
 export var AccessControl: StaticStructureSchema = [3, n0, _ACc, 0, [_p, _mR], [() => Principals, 0]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1073,37 +1061,11 @@ export var ChatInput: StaticStructureSchema = [
   [_aIp, _uI, _uG, _cI, _pMI, _cT, _iS],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _uG,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pMI,
-      },
-    ],
-    [
-      0,
-      {
-        [_iTd]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _uI }],
+    [64 | 0, { [_hQ]: _uG }],
+    [0, { [_hQ]: _cI }],
+    [0, { [_hQ]: _pMI }],
+    [0, { [_iTd]: 1, [_hQ]: _cT }],
     [() => ChatInputStream, 16],
   ],
 ];
@@ -1132,18 +1094,8 @@ export var ChatSyncInput: StaticStructureSchema = [
   [_aIp, _uI, _uG, _uM, _att, _aE, _aCR, _cI, _pMI, _aFt, _cM, _cMCh, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _uG,
-      },
-    ],
+    [0, { [_hQ]: _uI }],
+    [64 | 0, { [_hQ]: _uG }],
     0,
     () => AttachmentsInput,
     () => ActionExecution,
@@ -1175,12 +1127,7 @@ export var CheckDocumentAccessRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dSI,
-      },
-    ],
+    [0, { [_hQ]: _dSI }],
   ],
 ];
 export var CheckDocumentAccessResponse: StaticStructureSchema = [
@@ -1199,19 +1146,8 @@ export var ConfigurationEvent: StaticStructureSchema = [
   [_cM, _cMCh, _aFt],
   [0, () => ChatModeConfiguration, () => AttributeFilter],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContentBlockerRule: StaticStructureSchema = [3, n0, _CBR, 0, [_sMO], [0]];
 export var ContentRetrievalRule: StaticStructureSchema = [3, n0, _CRR, 0, [_eDS], [() => EligibleDataSources]];
 export var Conversation: StaticStructureSchema = [3, n0, _C, 0, [_cI, _ti, _sT], [0, 0, 4]];
@@ -1429,12 +1365,7 @@ export var DeleteAttachmentRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
+    [0, { [_hQ]: _uI }],
   ],
 ];
 export var DeleteAttachmentResponse: StaticStructureSchema = [3, n0, _DARele, 0, [], []];
@@ -1461,12 +1392,7 @@ export var DeleteConversationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
+    [0, { [_hQ]: _uI }],
   ],
 ];
 export var DeleteConversationResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
@@ -1506,12 +1432,7 @@ export var DeleteGroupRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dSI,
-      },
-    ],
+    [0, { [_hQ]: _dSI }],
   ],
 ];
 export var DeleteGroupResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
@@ -1668,19 +1589,8 @@ export var EligibleDataSource: StaticStructureSchema = [3, n0, _EDS, 0, [_iI, _d
 export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_kKI], [[() => KmsKeyId, 0]]];
 export var EndOfInputEvent: StaticStructureSchema = [3, n0, _EOIE, 0, [], []];
 export var ErrorDetail: StaticStructureSchema = [3, n0, _ED, 0, [_eM, _eCr], [0, 0]];
-export var ExternalResourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ERE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_m],
-  [0],
-];
+export var ExternalResourceException: StaticErrorSchema = [-3, n0, _ERE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExternalResourceException, __ExternalResourceException);
-
 export var FailedAttachmentEvent: StaticStructureSchema = [
   3,
   n0,
@@ -1727,18 +1637,8 @@ export var GetChatControlsConfigurationRequest: StaticStructureSchema = [
   [_aIp, _mRa, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetChatControlsConfigurationResponse: StaticStructureSchema = [
@@ -1853,19 +1753,9 @@ export var GetDocumentContentRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dSI,
-      },
-    ],
+    [0, { [_hQ]: _dSI }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _oF,
-      },
-    ],
+    [0, { [_hQ]: _oF }],
   ],
 ];
 export var GetDocumentContentResponse: StaticStructureSchema = [3, n0, _GDCRe, 0, [_pU, _mT], [0, 0]];
@@ -1879,12 +1769,7 @@ export var GetGroupRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dSI,
-      },
-    ],
+    [0, { [_hQ]: _dSI }],
   ],
 ];
 export var GetGroupResponse: StaticStructureSchema = [
@@ -2073,33 +1958,11 @@ export var InstructionCollection: StaticStructureSchema = [
   [_rL, _tA, _pe, _oSu, _id, _to, _cIu, _ex],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KendraIndexConfiguration: StaticStructureSchema = [3, n0, _KIC, 0, [_iI], [0]];
-export var LicenseNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var LicenseNotFoundException: StaticErrorSchema = [-3, n0, _LNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LicenseNotFoundException, __LicenseNotFoundException);
-
 export var ListApplicationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2107,18 +1970,8 @@ export var ListApplicationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListApplicationsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_nT, _ap], [0, () => Applications]];
@@ -2130,30 +1983,10 @@ export var ListAttachmentsRequest: StaticStructureSchema = [
   [_aIp, _cI, _uI, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _cI }],
+    [0, { [_hQ]: _uI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListAttachmentsResponse: StaticStructureSchema = [3, n0, _LARist, 0, [_att, _nT], [() => AttachmentList, 0]];
@@ -2165,18 +1998,8 @@ export var ListChatResponseConfigurationsRequest: StaticStructureSchema = [
   [_aIp, _mRa, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListChatResponseConfigurationsResponse: StaticStructureSchema = [
@@ -2195,24 +2018,9 @@ export var ListConversationsRequest: StaticStructureSchema = [
   [_aIp, _uI, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _uI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListConversationsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _conv], [0, () => Conversations]];
@@ -2224,18 +2032,8 @@ export var ListDataAccessorsRequest: StaticStructureSchema = [
   [_aIp, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListDataAccessorsResponse: StaticStructureSchema = [
@@ -2255,18 +2053,8 @@ export var ListDataSourcesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListDataSourcesResponse: StaticStructureSchema = [3, n0, _LDSRi, 0, [_dSa, _nT], [() => DataSources, 0]];
@@ -2280,36 +2068,11 @@ export var ListDataSourceSyncJobsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eTn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sSy,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eTn }],
+    [0, { [_hQ]: _sSy }],
   ],
 ];
 export var ListDataSourceSyncJobsResponse: StaticStructureSchema = [
@@ -2329,24 +2092,9 @@ export var ListDocumentsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _dSIa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [64 | 0, { [_hQ]: _dSIa }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListDocumentsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_dDL, _nT], [() => DocumentDetailList, 0]];
@@ -2359,30 +2107,10 @@ export var ListGroupsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      4,
-      {
-        [_hQ]: _uET,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [4, { [_hQ]: _uET }],
+    [0, { [_hQ]: _dSI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListGroupsResponse: StaticStructureSchema = [3, n0, _LGRi, 0, [_nT, _it], [0, () => GroupSummaryList]];
@@ -2394,18 +2122,8 @@ export var ListIndicesRequest: StaticStructureSchema = [
   [_aIp, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListIndicesResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_nT, _in], [0, () => Indices]];
@@ -2418,24 +2136,9 @@ export var ListMessagesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _uI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListMessagesResponse: StaticStructureSchema = [3, n0, _LMRi, 0, [_mes, _nT], [[() => Messages, 0], 0]];
@@ -2448,18 +2151,8 @@ export var ListPluginActionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListPluginActionsResponse: StaticStructureSchema = [3, n0, _LPARi, 0, [_nT, _it], [0, () => Actions]];
@@ -2471,18 +2164,8 @@ export var ListPluginsRequest: StaticStructureSchema = [
   [_aIp, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListPluginsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_nT, _pl], [0, () => Plugins]];
@@ -2494,18 +2177,8 @@ export var ListPluginTypeActionsRequest: StaticStructureSchema = [
   [_pT, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListPluginTypeActionsResponse: StaticStructureSchema = [3, n0, _LPTARi, 0, [_nT, _it], [0, () => Actions]];
@@ -2516,18 +2189,8 @@ export var ListPluginTypeMetadataRequest: StaticStructureSchema = [
   0,
   [_nT, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListPluginTypeMetadataResponse: StaticStructureSchema = [
@@ -2546,18 +2209,8 @@ export var ListRetrieversRequest: StaticStructureSchema = [
   [_aIp, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListRetrieversResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_re, _nT], [() => Retrievers, 0]];
@@ -2569,18 +2222,8 @@ export var ListSubscriptionsRequest: StaticStructureSchema = [
   [_aIp, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListSubscriptionsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_nT, _sub], [0, () => Subscriptions]];
@@ -2594,18 +2237,8 @@ export var ListWebExperiencesRequest: StaticStructureSchema = [
   [_aIp, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListWebExperiencesResponse: StaticStructureSchema = [
@@ -2624,19 +2257,8 @@ export var MediaExtractionConfiguration: StaticStructureSchema = [
   [_iEC, _aEC, _vEC],
   [() => ImageExtractionConfiguration, () => AudioExtractionConfiguration, () => VideoExtractionConfiguration],
 ];
-export var MediaTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MTLE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var MediaTooLargeException: StaticErrorSchema = [-3, n0, _MTLE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MediaTooLargeException, __MediaTooLargeException);
-
 export var MemberGroup: StaticStructureSchema = [3, n0, _MG, 0, [_gN, _t], [0, 0]];
 export var MemberUser: StaticStructureSchema = [3, n0, _MU, 0, [_uI, _t], [0, 0]];
 export var Message: StaticStructureSchema = [
@@ -2696,19 +2318,7 @@ export var PutFeedbackRequest: StaticStructureSchema = [
   _PFR,
   0,
   [_aIp, _uI, _cI, _mIe, _mCA, _mUe],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [0, 1],
-    [0, 1],
-    4,
-    () => MessageUsefulnessFeedback,
-  ],
+  [[0, 1], [0, { [_hQ]: _uI }], [0, 1], [0, 1], 4, () => MessageUsefulnessFeedback],
 ];
 export var PutGroupRequest: StaticStructureSchema = [
   3,
@@ -2733,15 +2343,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResponseConfiguration: StaticStructureSchema = [3, n0, _RCe, 0, [_iCns], [() => InstructionCollection]];
 export var Retriever: StaticStructureSchema = [3, n0, _R, 0, [_aIp, _rIe, _t, _s, _dN], [0, 0, 0, 0, 0]];
 export var RetrieverContentSource: StaticStructureSchema = [3, n0, _RCS, 0, [_rIe], [0]];
@@ -2777,15 +2383,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SnippetExcerpt: StaticStructureSchema = [3, n0, _SE, 0, [_te], [0]];
 export var SourceAttribution: StaticStructureSchema = [
   3,
@@ -2846,19 +2448,8 @@ export var TextSegment: StaticStructureSchema = [
   [_bOe, _eO, _sE, _mI, _mMT, _sD],
   [1, 1, () => SnippetExcerpt, 0, 0, () => SourceDetails],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TopicConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2875,12 +2466,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rARN, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -3041,24 +2627,18 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _f],
   [0, 0, () => ValidationExceptionFields],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VideoExtractionConfiguration: StaticStructureSchema = [3, n0, _VEC, 0, [_vES], [0]];
 export var VideoSourceDetails: StaticStructureSchema = [3, n0, _VSD, 0, [_mI, _mMT, _sTM, _eTM, _vET], [0, 0, 1, 1, 0]];
 export var WebExperience: StaticStructureSchema = [3, n0, _WE, 0, [_wEI, _cA, _uA, _dE, _s], [0, 4, 4, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var QBusinessServiceException: StaticErrorSchema = [-3, _sm, "QBusinessServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(QBusinessServiceException, __QBusinessServiceException);
-
 export var AccessControls: StaticListSchema = [1, n0, _ACcc, 0, () => AccessControl];
 export var ActionConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => ActionConfiguration];
 export var ActionReviewPayloadFieldAllowedValues: StaticListSchema = [
@@ -3077,18 +2657,13 @@ export var AttachmentsInput: StaticListSchema = [1, n0, _AIt, 0, () => Attachmen
 export var AttachmentsOutput: StaticListSchema = [1, n0, _AOt, 0, () => AttachmentOutput];
 export var AttributeFilters: StaticListSchema = [1, n0, _AFt, 0, () => AttributeFilter];
 export var BlockedPhrases = 64 | 0;
-
 export var BrowserExtensionList = 64 | 0;
-
 export var ChatResponseConfigurations: StaticListSchema = [1, n0, _CRCh, 0, () => ChatResponseConfiguration];
 export var ClientIdsForOIDC = 64 | 0;
-
 export var Conversations: StaticListSchema = [1, n0, _Co, 0, () => Conversation];
 export var DataAccessorExternalIds = 64 | 0;
-
 export var DataAccessors: StaticListSchema = [1, n0, _DAa, 0, [() => DataAccessor, 0]];
 export var DataSourceIds = 64 | 0;
-
 export var DataSources: StaticListSchema = [1, n0, _DSa, 0, () => DataSource];
 export var DataSourceSyncJobs: StaticListSchema = [1, n0, _DSSJa, 0, () => DataSourceSyncJob];
 export var DeleteDocuments: StaticListSchema = [1, n0, _DDe, 0, () => DeleteDocument];
@@ -3104,12 +2679,10 @@ export var DocumentAttributeConfigurations: StaticListSchema = [
 ];
 export var DocumentAttributes: StaticListSchema = [1, n0, _DAocu, 0, () => DocumentAttribute];
 export var DocumentAttributeStringListValue = 64 | 0;
-
 export var DocumentDetailList: StaticListSchema = [1, n0, _DDL, 0, () => DocumentDetails];
 export var Documents: StaticListSchema = [1, n0, _Do, 0, () => Document];
 export var EligibleDataSources: StaticListSchema = [1, n0, _EDSl, 0, () => EligibleDataSource];
 export var ExampleChatMessages = 64 | 0;
-
 export var FailedDocuments: StaticListSchema = [1, n0, _FDa, 0, () => FailedDocument];
 export var GroupStatusDetails: StaticListSchema = [1, n0, _GSDr, 0, () => GroupStatusDetail];
 export var GroupSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GroupSummary];
@@ -3127,46 +2700,29 @@ export var MemberUsers: StaticListSchema = [1, n0, _MUe, 0, () => MemberUser];
 export var Messages: StaticListSchema = [1, n0, _Me, 0, [() => Message, 0]];
 export var PermissionConditions: StaticListSchema = [1, n0, _PCer, 0, () => PermissionCondition];
 export var PermissionConditionValues = 64 | 0;
-
 export var Plugins: StaticListSchema = [1, n0, _Plu, 0, () => Plugin];
 export var Principals: StaticListSchema = [1, n0, _Pr, 0, () => Principal];
 export var QIamActions = 64 | 0;
-
 export var RelevantContentList: StaticListSchema = [1, n0, _RCL, 0, () => RelevantContent];
 export var Retrievers: StaticListSchema = [1, n0, _Re, 0, () => Retriever];
 export var Rules: StaticListSchema = [1, n0, _Rul, 0, () => Rule];
 export var SecurityGroupIds = 64 | 0;
-
-export var SourceAttributions: StaticListSchema = [
-  1,
-  n0,
-  _SAou,
-  {
-    [_sp]: 1,
-  },
-  () => SourceAttribution,
-];
+export var SourceAttributions: StaticListSchema = [1, n0, _SAou, { [_sp]: 1 }, () => SourceAttribution];
 export var SubnetIds = 64 | 0;
-
 export var Subscriptions: StaticListSchema = [1, n0, _Sub, 0, () => Subscription];
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var TextSegmentList: StaticListSchema = [1, n0, _TSL, 0, () => TextSegment];
 export var TopicConfigurations: StaticListSchema = [1, n0, _TCo, 0, () => TopicConfiguration];
 export var UserAliases: StaticListSchema = [1, n0, _UAs, 0, () => UserAlias];
 export var UserGroups = 64 | 0;
-
 export var UserIds = 64 | 0;
-
 export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
 export var WebExperienceOrigins = 64 | 0;
-
 export var WebExperiences: StaticListSchema = [1, n0, _WEe, 0, () => WebExperience];
 export var ActionExecutionPayload: StaticMapSchema = [2, n0, _AEP, 0, 0, () => ActionExecutionPayloadField];
 export var ActionReviewPayload: StaticMapSchema = [2, n0, _ARP, 0, 0, () => ActionReviewPayloadField];
 export var AuthorizationResponseMap = 128 | 0;
-
 export var DocumentAttributeBoostingOverrideMap: StaticMapSchema = [
   2,
   n0,
@@ -3177,15 +2733,12 @@ export var DocumentAttributeBoostingOverrideMap: StaticMapSchema = [
 ];
 export var ResponseConfigurations: StaticMapSchema = [2, n0, _RCes, 0, 0, () => ResponseConfiguration];
 export var StringAttributeValueBoosting = 128 | 0;
-
 export var APISchema: StaticStructureSchema = [3, n0, _APIS, 0, [_pa, _s_], [[() => Payload, 0], () => S3]];
 export var ChatInputStream: StaticStructureSchema = [
   3,
   n0,
   _CIS,
-  {
-    [_str]: 1,
-  },
+  { [_str]: 1 },
   [_cE, _tE, _aEt, _aEE, _eOIE, _aCRE],
   [
     () => ConfigurationEvent,
@@ -3201,9 +2754,7 @@ export var ChatOutputStream: StaticStructureSchema = [
   3,
   n0,
   _COS,
-  {
-    [_str]: 1,
-  },
+  { [_str]: 1 },
   [_tE, _mE, _aRE, _fAE, _aCREu],
   [
     () => TextOutputEvent,
@@ -3297,9 +2848,7 @@ export var AssociatePermission: StaticOperationSchema = [
   9,
   n0,
   _AP,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/policy", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/policy", 200] },
   () => AssociatePermissionRequest,
   () => AssociatePermissionResponse,
 ];
@@ -3307,9 +2856,7 @@ export var BatchDeleteDocument: StaticOperationSchema = [
   9,
   n0,
   _BDD,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/documents/delete", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/documents/delete", 200] },
   () => BatchDeleteDocumentRequest,
   () => BatchDeleteDocumentResponse,
 ];
@@ -3317,9 +2864,7 @@ export var BatchPutDocument: StaticOperationSchema = [
   9,
   n0,
   _BPD,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/documents", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/documents", 200] },
   () => BatchPutDocumentRequest,
   () => BatchPutDocumentResponse,
 ];
@@ -3327,9 +2872,7 @@ export var CancelSubscription: StaticOperationSchema = [
   9,
   n0,
   _CSa,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/subscriptions/{subscriptionId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/subscriptions/{subscriptionId}", 200] },
   () => CancelSubscriptionRequest,
   () => CancelSubscriptionResponse,
 ];
@@ -3337,9 +2880,7 @@ export var Chat: StaticOperationSchema = [
   9,
   n0,
   _Ch,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/conversations", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/conversations", 200] },
   () => ChatInput,
   () => ChatOutput,
 ];
@@ -3347,9 +2888,7 @@ export var ChatSync: StaticOperationSchema = [
   9,
   n0,
   _CSh,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/conversations?sync", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/conversations?sync", 200] },
   () => ChatSyncInput,
   () => ChatSyncOutput,
 ];
@@ -3371,9 +2910,7 @@ export var CreateAnonymousWebExperienceUrl: StaticOperationSchema = [
   9,
   n0,
   _CAWEU,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/experiences/{webExperienceId}/anonymous-url", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/experiences/{webExperienceId}/anonymous-url", 200] },
   () => CreateAnonymousWebExperienceUrlRequest,
   () => CreateAnonymousWebExperienceUrlResponse,
 ];
@@ -3381,9 +2918,7 @@ export var CreateApplication: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_ht]: ["POST", "/applications", 200],
-  },
+  { [_ht]: ["POST", "/applications", 200] },
   () => CreateApplicationRequest,
   () => CreateApplicationResponse,
 ];
@@ -3391,9 +2926,7 @@ export var CreateChatResponseConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CCRC,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/chatresponseconfigurations", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/chatresponseconfigurations", 200] },
   () => CreateChatResponseConfigurationRequest,
   () => CreateChatResponseConfigurationResponse,
 ];
@@ -3401,9 +2934,7 @@ export var CreateDataAccessor: StaticOperationSchema = [
   9,
   n0,
   _CDAr,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/dataaccessors", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/dataaccessors", 200] },
   () => CreateDataAccessorRequest,
   () => CreateDataAccessorResponse,
 ];
@@ -3411,9 +2942,7 @@ export var CreateDataSource: StaticOperationSchema = [
   9,
   n0,
   _CDS,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources", 200] },
   () => CreateDataSourceRequest,
   () => CreateDataSourceResponse,
 ];
@@ -3421,9 +2950,7 @@ export var CreateIndex: StaticOperationSchema = [
   9,
   n0,
   _CIr,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/indices", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/indices", 200] },
   () => CreateIndexRequest,
   () => CreateIndexResponse,
 ];
@@ -3431,9 +2958,7 @@ export var CreatePlugin: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/plugins", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/plugins", 200] },
   () => CreatePluginRequest,
   () => CreatePluginResponse,
 ];
@@ -3441,9 +2966,7 @@ export var CreateRetriever: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/retrievers", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/retrievers", 200] },
   () => CreateRetrieverRequest,
   () => CreateRetrieverResponse,
 ];
@@ -3451,9 +2974,7 @@ export var CreateSubscription: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/subscriptions", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/subscriptions", 200] },
   () => CreateSubscriptionRequest,
   () => CreateSubscriptionResponse,
 ];
@@ -3461,9 +2982,7 @@ export var CreateUser: StaticOperationSchema = [
   9,
   n0,
   _CU,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/users", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/users", 200] },
   () => CreateUserRequest,
   () => CreateUserResponse,
 ];
@@ -3471,9 +2990,7 @@ export var CreateWebExperience: StaticOperationSchema = [
   9,
   n0,
   _CWE,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/experiences", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/experiences", 200] },
   () => CreateWebExperienceRequest,
   () => CreateWebExperienceResponse,
 ];
@@ -3481,9 +2998,7 @@ export var DeleteApplication: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}", 200] },
   () => DeleteApplicationRequest,
   () => DeleteApplicationResponse,
 ];
@@ -3491,9 +3006,7 @@ export var DeleteAttachment: StaticOperationSchema = [
   9,
   n0,
   _DAel,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/conversations/{conversationId}/attachments/{attachmentId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/conversations/{conversationId}/attachments/{attachmentId}", 200] },
   () => DeleteAttachmentRequest,
   () => DeleteAttachmentResponse,
 ];
@@ -3501,9 +3014,7 @@ export var DeleteChatControlsConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DCCC,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/chatcontrols", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/chatcontrols", 200] },
   () => DeleteChatControlsConfigurationRequest,
   () => DeleteChatControlsConfigurationResponse,
 ];
@@ -3511,9 +3022,7 @@ export var DeleteChatResponseConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DCRC,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200] },
   () => DeleteChatResponseConfigurationRequest,
   () => DeleteChatResponseConfigurationResponse,
 ];
@@ -3521,9 +3030,7 @@ export var DeleteConversation: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/conversations/{conversationId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/conversations/{conversationId}", 200] },
   () => DeleteConversationRequest,
   () => DeleteConversationResponse,
 ];
@@ -3531,9 +3038,7 @@ export var DeleteDataAccessor: StaticOperationSchema = [
   9,
   n0,
   _DDA,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200] },
   () => DeleteDataAccessorRequest,
   () => DeleteDataAccessorResponse,
 ];
@@ -3541,9 +3046,7 @@ export var DeleteDataSource: StaticOperationSchema = [
   9,
   n0,
   _DDS,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200] },
   () => DeleteDataSourceRequest,
   () => DeleteDataSourceResponse,
 ];
@@ -3551,9 +3054,7 @@ export var DeleteGroup: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}/groups/{groupName}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}/groups/{groupName}", 200] },
   () => DeleteGroupRequest,
   () => DeleteGroupResponse,
 ];
@@ -3561,9 +3062,7 @@ export var DeleteIndex: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/indices/{indexId}", 200] },
   () => DeleteIndexRequest,
   () => DeleteIndexResponse,
 ];
@@ -3571,9 +3070,7 @@ export var DeletePlugin: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/plugins/{pluginId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/plugins/{pluginId}", 200] },
   () => DeletePluginRequest,
   () => DeletePluginResponse,
 ];
@@ -3581,9 +3078,7 @@ export var DeleteRetriever: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/retrievers/{retrieverId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/retrievers/{retrieverId}", 200] },
   () => DeleteRetrieverRequest,
   () => DeleteRetrieverResponse,
 ];
@@ -3591,9 +3086,7 @@ export var DeleteUser: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/users/{userId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/users/{userId}", 200] },
   () => DeleteUserRequest,
   () => DeleteUserResponse,
 ];
@@ -3601,9 +3094,7 @@ export var DeleteWebExperience: StaticOperationSchema = [
   9,
   n0,
   _DWE,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/experiences/{webExperienceId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/experiences/{webExperienceId}", 200] },
   () => DeleteWebExperienceRequest,
   () => DeleteWebExperienceResponse,
 ];
@@ -3611,9 +3102,7 @@ export var DisassociatePermission: StaticOperationSchema = [
   9,
   n0,
   _DPi,
-  {
-    [_ht]: ["DELETE", "/applications/{applicationId}/policy/{statementId}", 200],
-  },
+  { [_ht]: ["DELETE", "/applications/{applicationId}/policy/{statementId}", 200] },
   () => DisassociatePermissionRequest,
   () => DisassociatePermissionResponse,
 ];
@@ -3621,9 +3110,7 @@ export var GetApplication: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}", 200] },
   () => GetApplicationRequest,
   () => GetApplicationResponse,
 ];
@@ -3631,9 +3118,7 @@ export var GetChatControlsConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GCCC,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/chatcontrols", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/chatcontrols", 200] },
   () => GetChatControlsConfigurationRequest,
   () => GetChatControlsConfigurationResponse,
 ];
@@ -3641,9 +3126,7 @@ export var GetChatResponseConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GCRC,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200] },
   () => GetChatResponseConfigurationRequest,
   () => GetChatResponseConfigurationResponse,
 ];
@@ -3651,9 +3134,7 @@ export var GetDataAccessor: StaticOperationSchema = [
   9,
   n0,
   _GDA,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200] },
   () => GetDataAccessorRequest,
   () => GetDataAccessorResponse,
 ];
@@ -3661,9 +3142,7 @@ export var GetDataSource: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200] },
   () => GetDataSourceRequest,
   () => GetDataSourceResponse,
 ];
@@ -3671,9 +3150,7 @@ export var GetDocumentContent: StaticOperationSchema = [
   9,
   n0,
   _GDC,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/index/{indexId}/documents/{documentId}/content", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/index/{indexId}/documents/{documentId}/content", 200] },
   () => GetDocumentContentRequest,
   () => GetDocumentContentResponse,
 ];
@@ -3681,9 +3158,7 @@ export var GetGroup: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/groups/{groupName}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/groups/{groupName}", 200] },
   () => GetGroupRequest,
   () => GetGroupResponse,
 ];
@@ -3691,9 +3166,7 @@ export var GetIndex: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}", 200] },
   () => GetIndexRequest,
   () => GetIndexResponse,
 ];
@@ -3715,9 +3188,7 @@ export var GetPlugin: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/plugins/{pluginId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/plugins/{pluginId}", 200] },
   () => GetPluginRequest,
   () => GetPluginResponse,
 ];
@@ -3725,9 +3196,7 @@ export var GetPolicy: StaticOperationSchema = [
   9,
   n0,
   _GPe,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/policy", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/policy", 200] },
   () => GetPolicyRequest,
   () => GetPolicyResponse,
 ];
@@ -3735,9 +3204,7 @@ export var GetRetriever: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/retrievers/{retrieverId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/retrievers/{retrieverId}", 200] },
   () => GetRetrieverRequest,
   () => GetRetrieverResponse,
 ];
@@ -3745,9 +3212,7 @@ export var GetUser: StaticOperationSchema = [
   9,
   n0,
   _GU,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/users/{userId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/users/{userId}", 200] },
   () => GetUserRequest,
   () => GetUserResponse,
 ];
@@ -3755,9 +3220,7 @@ export var GetWebExperience: StaticOperationSchema = [
   9,
   n0,
   _GWE,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/experiences/{webExperienceId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/experiences/{webExperienceId}", 200] },
   () => GetWebExperienceRequest,
   () => GetWebExperienceResponse,
 ];
@@ -3765,9 +3228,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_ht]: ["GET", "/applications", 200],
-  },
+  { [_ht]: ["GET", "/applications", 200] },
   () => ListApplicationsRequest,
   () => ListApplicationsResponse,
 ];
@@ -3775,9 +3236,7 @@ export var ListAttachments: StaticOperationSchema = [
   9,
   n0,
   _LAi,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/attachments", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/attachments", 200] },
   () => ListAttachmentsRequest,
   () => ListAttachmentsResponse,
 ];
@@ -3785,9 +3244,7 @@ export var ListChatResponseConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LCRC,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/chatresponseconfigurations", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/chatresponseconfigurations", 200] },
   () => ListChatResponseConfigurationsRequest,
   () => ListChatResponseConfigurationsResponse,
 ];
@@ -3795,9 +3252,7 @@ export var ListConversations: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/conversations", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/conversations", 200] },
   () => ListConversationsRequest,
   () => ListConversationsResponse,
 ];
@@ -3805,9 +3260,7 @@ export var ListDataAccessors: StaticOperationSchema = [
   9,
   n0,
   _LDA,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/dataaccessors", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/dataaccessors", 200] },
   () => ListDataAccessorsRequest,
   () => ListDataAccessorsResponse,
 ];
@@ -3815,9 +3268,7 @@ export var ListDataSources: StaticOperationSchema = [
   9,
   n0,
   _LDS,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources", 200] },
   () => ListDataSourcesRequest,
   () => ListDataSourcesResponse,
 ];
@@ -3825,9 +3276,7 @@ export var ListDataSourceSyncJobs: StaticOperationSchema = [
   9,
   n0,
   _LDSSJ,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/syncjobs", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/syncjobs", 200] },
   () => ListDataSourceSyncJobsRequest,
   () => ListDataSourceSyncJobsResponse,
 ];
@@ -3835,9 +3284,7 @@ export var ListDocuments: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/index/{indexId}/documents", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/index/{indexId}/documents", 200] },
   () => ListDocumentsRequest,
   () => ListDocumentsResponse,
 ];
@@ -3845,9 +3292,7 @@ export var ListGroups: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/groups", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/indices/{indexId}/groups", 200] },
   () => ListGroupsRequest,
   () => ListGroupsResponse,
 ];
@@ -3855,9 +3300,7 @@ export var ListIndices: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/indices", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/indices", 200] },
   () => ListIndicesRequest,
   () => ListIndicesResponse,
 ];
@@ -3865,9 +3308,7 @@ export var ListMessages: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/conversations/{conversationId}", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/conversations/{conversationId}", 200] },
   () => ListMessagesRequest,
   () => ListMessagesResponse,
 ];
@@ -3875,9 +3316,7 @@ export var ListPluginActions: StaticOperationSchema = [
   9,
   n0,
   _LPA,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/plugins/{pluginId}/actions", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/plugins/{pluginId}/actions", 200] },
   () => ListPluginActionsRequest,
   () => ListPluginActionsResponse,
 ];
@@ -3885,9 +3324,7 @@ export var ListPlugins: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/plugins", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/plugins", 200] },
   () => ListPluginsRequest,
   () => ListPluginsResponse,
 ];
@@ -3895,9 +3332,7 @@ export var ListPluginTypeActions: StaticOperationSchema = [
   9,
   n0,
   _LPTA,
-  {
-    [_ht]: ["GET", "/pluginTypes/{pluginType}/actions", 200],
-  },
+  { [_ht]: ["GET", "/pluginTypes/{pluginType}/actions", 200] },
   () => ListPluginTypeActionsRequest,
   () => ListPluginTypeActionsResponse,
 ];
@@ -3905,9 +3340,7 @@ export var ListPluginTypeMetadata: StaticOperationSchema = [
   9,
   n0,
   _LPTM,
-  {
-    [_ht]: ["GET", "/pluginTypeMetadata", 200],
-  },
+  { [_ht]: ["GET", "/pluginTypeMetadata", 200] },
   () => ListPluginTypeMetadataRequest,
   () => ListPluginTypeMetadataResponse,
 ];
@@ -3915,9 +3348,7 @@ export var ListRetrievers: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/retrievers", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/retrievers", 200] },
   () => ListRetrieversRequest,
   () => ListRetrieversResponse,
 ];
@@ -3925,9 +3356,7 @@ export var ListSubscriptions: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/subscriptions", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/subscriptions", 200] },
   () => ListSubscriptionsRequest,
   () => ListSubscriptionsResponse,
 ];
@@ -3935,9 +3364,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/v1/tags/{resourceARN}", 200],
-  },
+  { [_ht]: ["GET", "/v1/tags/{resourceARN}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3945,9 +3372,7 @@ export var ListWebExperiences: StaticOperationSchema = [
   9,
   n0,
   _LWE,
-  {
-    [_ht]: ["GET", "/applications/{applicationId}/experiences", 200],
-  },
+  { [_ht]: ["GET", "/applications/{applicationId}/experiences", 200] },
   () => ListWebExperiencesRequest,
   () => ListWebExperiencesResponse,
 ];
@@ -3965,9 +3390,7 @@ export var PutGroup: StaticOperationSchema = [
   9,
   n0,
   _PGu,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}/groups", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}/groups", 200] },
   () => PutGroupRequest,
   () => PutGroupResponse,
 ];
@@ -3975,9 +3398,7 @@ export var SearchRelevantContent: StaticOperationSchema = [
   9,
   n0,
   _SRC,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/relevant-content", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/relevant-content", 200] },
   () => SearchRelevantContentRequest,
   () => SearchRelevantContentResponse,
 ];
@@ -3985,9 +3406,7 @@ export var StartDataSourceSyncJob: StaticOperationSchema = [
   9,
   n0,
   _SDSSJ,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/startsync", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/startsync", 200] },
   () => StartDataSourceSyncJobRequest,
   () => StartDataSourceSyncJobResponse,
 ];
@@ -3995,9 +3414,7 @@ export var StopDataSourceSyncJob: StaticOperationSchema = [
   9,
   n0,
   _SDSSJt,
-  {
-    [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/stopsync", 200],
-  },
+  { [_ht]: ["POST", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/stopsync", 200] },
   () => StopDataSourceSyncJobRequest,
   () => StopDataSourceSyncJobResponse,
 ];
@@ -4005,9 +3422,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/v1/tags/{resourceARN}", 200],
-  },
+  { [_ht]: ["POST", "/v1/tags/{resourceARN}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -4015,9 +3430,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/v1/tags/{resourceARN}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/tags/{resourceARN}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -4025,9 +3438,7 @@ export var UpdateApplication: StaticOperationSchema = [
   9,
   n0,
   _UAp,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}", 200] },
   () => UpdateApplicationRequest,
   () => UpdateApplicationResponse,
 ];
@@ -4035,9 +3446,7 @@ export var UpdateChatControlsConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UCCC,
-  {
-    [_ht]: ["PATCH", "/applications/{applicationId}/chatcontrols", 200],
-  },
+  { [_ht]: ["PATCH", "/applications/{applicationId}/chatcontrols", 200] },
   () => UpdateChatControlsConfigurationRequest,
   () => UpdateChatControlsConfigurationResponse,
 ];
@@ -4045,9 +3454,7 @@ export var UpdateChatResponseConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UCRC,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}", 200] },
   () => UpdateChatResponseConfigurationRequest,
   () => UpdateChatResponseConfigurationResponse,
 ];
@@ -4055,9 +3462,7 @@ export var UpdateDataAccessor: StaticOperationSchema = [
   9,
   n0,
   _UDA,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/dataaccessors/{dataAccessorId}", 200] },
   () => UpdateDataAccessorRequest,
   () => UpdateDataAccessorResponse,
 ];
@@ -4065,9 +3470,7 @@ export var UpdateDataSource: StaticOperationSchema = [
   9,
   n0,
   _UDS,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}", 200] },
   () => UpdateDataSourceRequest,
   () => UpdateDataSourceResponse,
 ];
@@ -4075,9 +3478,7 @@ export var UpdateIndex: StaticOperationSchema = [
   9,
   n0,
   _UI,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/indices/{indexId}", 200] },
   () => UpdateIndexRequest,
   () => UpdateIndexResponse,
 ];
@@ -4085,9 +3486,7 @@ export var UpdatePlugin: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/plugins/{pluginId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/plugins/{pluginId}", 200] },
   () => UpdatePluginRequest,
   () => UpdatePluginResponse,
 ];
@@ -4095,9 +3494,7 @@ export var UpdateRetriever: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/retrievers/{retrieverId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/retrievers/{retrieverId}", 200] },
   () => UpdateRetrieverRequest,
   () => UpdateRetrieverResponse,
 ];
@@ -4105,9 +3502,7 @@ export var UpdateSubscription: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/subscriptions/{subscriptionId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/subscriptions/{subscriptionId}", 200] },
   () => UpdateSubscriptionRequest,
   () => UpdateSubscriptionResponse,
 ];
@@ -4115,9 +3510,7 @@ export var UpdateUser: StaticOperationSchema = [
   9,
   n0,
   _UU,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/users/{userId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/users/{userId}", 200] },
   () => UpdateUserRequest,
   () => UpdateUserResponse,
 ];
@@ -4125,9 +3518,7 @@ export var UpdateWebExperience: StaticOperationSchema = [
   9,
   n0,
   _UWE,
-  {
-    [_ht]: ["PUT", "/applications/{applicationId}/experiences/{webExperienceId}", 200],
-  },
+  { [_ht]: ["PUT", "/applications/{applicationId}/experiences/{webExperienceId}", 200] },
   () => UpdateWebExperienceRequest,
   () => UpdateWebExperienceResponse,
 ];

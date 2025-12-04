@@ -1612,7 +1612,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccountPoolName: StaticSimpleSchema = [0, n0, _APN, 8, 0];
 export var ActionLink: StaticSimpleSchema = [0, n0, _AL, 8, 0];
 export var AssetName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
@@ -1661,19 +1660,7 @@ export var AcceptPredictionsInput: StaticStructureSchema = [
   _API,
   0,
   [_dI, _i, _r, _aR, _aC, _cT],
-  [
-    [0, 1],
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    () => AcceptRule,
-    [() => AcceptChoices, 0],
-    [0, 4],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _r }], () => AcceptRule, [() => AcceptChoices, 0], [0, 4]],
 ];
 export var AcceptPredictionsOutput: StaticStructureSchema = [3, n0, _APO, 0, [_dIo, _aI, _r], [0, 0, 0]];
 export var AcceptRule: StaticStructureSchema = [3, n0, _AR, 0, [_ru, _t], [0, 1]];
@@ -1708,19 +1695,8 @@ export var AcceptSubscriptionRequestOutput: StaticStructureSchema = [
     [() => MetadataForms, 0],
   ],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountInfo: StaticStructureSchema = [
   3,
   n0,
@@ -1953,18 +1929,8 @@ export var BatchGetAttributesMetadataInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _eR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _aIt,
-      },
-    ],
+    [0, { [_hQ]: _eR }],
+    [64 | 0, { [_hQ]: _aIt }],
   ],
 ];
 export var BatchGetAttributesMetadataOutput: StaticStructureSchema = [
@@ -2041,19 +2007,8 @@ export var ConfigurableEnvironmentAction: StaticStructureSchema = [
   [_ty, _au, _par],
   [0, 0, () => ConfigurableActionParameterList],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectionCredentials: StaticStructureSchema = [3, n0, _CC, 8, [_aKI, _sAK, _sT, _ex], [0, 0, 0, 5]];
 export var ConnectionSummary: StaticStructureSchema = [
   3,
@@ -3018,19 +2973,8 @@ export var DeleteDataSourceInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iTd]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _rPORF,
-      },
-    ],
+    [0, { [_iTd]: 1, [_hQ]: _cT }],
+    [2, { [_hQ]: _rPORF }],
   ],
 ];
 export var DeleteDataSourceOutput: StaticStructureSchema = [
@@ -3095,19 +3039,8 @@ export var DeleteDomainInput: StaticStructureSchema = [
   [_i, _cT, _sDC],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iTd]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _sDC,
-      },
-    ],
+    [0, { [_iTd]: 1, [_hQ]: _cT }],
+    [2, { [_hQ]: _sDC }],
   ],
 ];
 export var DeleteDomainOutput: StaticStructureSchema = [3, n0, _DDO, 0, [_s], [0]];
@@ -3237,12 +3170,7 @@ export var DeleteProjectInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sDC,
-      },
-    ],
+    [2, { [_hQ]: _sDC }],
   ],
 ];
 export var DeleteProjectMembershipInput: StaticStructureSchema = [
@@ -3331,19 +3259,8 @@ export var DeleteTimeSeriesDataPointsInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _fN,
-      },
-    ],
-    [
-      0,
-      {
-        [_iTd]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _fN }],
+    [0, { [_iTd]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteTimeSeriesDataPointsOutput: StaticStructureSchema = [3, n0, _DTSDPO, 0, [], []];
@@ -3591,12 +3508,7 @@ export var GetAssetInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var GetAssetOutput: StaticStructureSchema = [
@@ -3636,12 +3548,7 @@ export var GetAssetTypeInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var GetAssetTypeOutput: StaticStructureSchema = [
@@ -3661,12 +3568,7 @@ export var GetConnectionInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _wS,
-      },
-    ],
+    [2, { [_hQ]: _wS }],
   ],
 ];
 export var GetConnectionOutput: StaticStructureSchema = [
@@ -3709,12 +3611,7 @@ export var GetDataProductInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var GetDataProductOutput: StaticStructureSchema = [
@@ -4040,12 +3937,7 @@ export var GetFormTypeInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var GetFormTypeOutput: StaticStructureSchema = [
@@ -4166,43 +4058,13 @@ export var GetLineageEventOutput: StaticStructureSchema = [
   0,
   [_dIo, _id, _ev, _cB, _pSr, _eTv, _cA],
   [
-    [
-      0,
-      {
-        [_hH]: _DI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _I,
-      },
-    ],
+    [0, { [_hH]: _DI }],
+    [0, { [_hH]: _I }],
     [() => LineageEvent, 16],
-    [
-      0,
-      {
-        [_hH]: _CB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _PS,
-      },
-    ],
-    [
-      4,
-      {
-        [_hH]: _ET,
-      },
-    ],
-    [
-      4,
-      {
-        [_hH]: _CA,
-      },
-    ],
+    [0, { [_hH]: _CB }],
+    [0, { [_hH]: _PS }],
+    [4, { [_hH]: _ET }],
+    [4, { [_hH]: _CA }],
   ],
 ];
 export var GetLineageNodeInput: StaticStructureSchema = [
@@ -4214,12 +4076,7 @@ export var GetLineageNodeInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      4,
-      {
-        [_hQ]: _ti,
-      },
-    ],
+    [4, { [_hQ]: _ti }],
   ],
 ];
 export var GetLineageNodeOutput: StaticStructureSchema = [
@@ -4255,12 +4112,7 @@ export var GetListingInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _lR,
-      },
-    ],
+    [0, { [_hQ]: _lR }],
   ],
 ];
 export var GetListingOutput: StaticStructureSchema = [
@@ -4280,12 +4132,7 @@ export var GetMetadataGenerationRunInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var GetMetadataGenerationRunOutput: StaticStructureSchema = [
@@ -4373,12 +4220,7 @@ export var GetRuleInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var GetRuleOutput: StaticStructureSchema = [
@@ -4507,12 +4349,7 @@ export var GetTimeSeriesDataPointInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _fN,
-      },
-    ],
+    [0, { [_hQ]: _fN }],
   ],
 ];
 export var GetTimeSeriesDataPointOutput: StaticStructureSchema = [
@@ -4532,12 +4369,7 @@ export var GetUserProfileInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var GetUserProfileOutput: StaticStructureSchema = [
@@ -4705,19 +4537,8 @@ export var IamPropertiesPatch: StaticStructureSchema = [3, n0, _IPP, 0, [_gLSE],
 export var IamUserProfileDetails: StaticStructureSchema = [3, n0, _IUPD, 0, [_ar, _pIri], [0, 0]];
 export var Import: StaticStructureSchema = [3, n0, _Im, 0, [_n, _r], [[() => FormTypeName, 0], 0]];
 export var InExpression: StaticStructureSchema = [3, n0, _IE, 0, [_cN, _va], [0, 64 | 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IsNotNullExpression: StaticStructureSchema = [3, n0, _INNE, 0, [_cN], [0]];
 export var IsNullExpression: StaticStructureSchema = [3, n0, _INE, 0, [_cN], [0]];
 export var JobRunError: StaticStructureSchema = [3, n0, _JRE, 0, [_m], [0]];
@@ -4777,36 +4598,11 @@ export var ListAccountPoolsInput: StaticStructureSchema = [
   [_dI, _n, _sB, _sO, _nT, _mRa],
   [
     [0, 1],
-    [
-      () => AccountPoolName,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [() => AccountPoolName, { [_hQ]: _n }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListAccountPoolsOutput: StaticStructureSchema = [
@@ -4826,18 +4622,8 @@ export var ListAccountsInAccountPoolInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListAccountsInAccountPoolOutput: StaticStructureSchema = [
@@ -4857,24 +4643,9 @@ export var ListAssetFiltersInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListAssetFiltersOutput: StaticStructureSchema = [3, n0, _LAFO, 0, [_it, _nT], [[() => AssetFilters, 0], 0]];
@@ -4887,18 +4658,8 @@ export var ListAssetRevisionsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListAssetRevisionsOutput: StaticStructureSchema = [3, n0, _LARO, 0, [_it, _nT], [() => AssetRevisions, 0]];
@@ -4910,60 +4671,15 @@ export var ListConnectionsInput: StaticStructureSchema = [
   [_dI, _mRa, _nT, _sB, _sO, _n, _eInv, _pIr, _ty, _sc],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eInv,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pIr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sc,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _eInv }],
+    [0, { [_hQ]: _pIr }],
+    [0, { [_hQ]: _ty }],
+    [0, { [_hQ]: _sc }],
   ],
 ];
 export var ListConnectionsOutput: StaticStructureSchema = [
@@ -4983,18 +4699,8 @@ export var ListDataProductRevisionsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDataProductRevisionsOutput: StaticStructureSchema = [
@@ -5014,24 +4720,9 @@ export var ListDataSourceRunActivitiesInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListDataSourceRunActivitiesOutput: StaticStructureSchema = [
@@ -5051,24 +4742,9 @@ export var ListDataSourceRunsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListDataSourceRunsOutput: StaticStructureSchema = [
@@ -5087,54 +4763,14 @@ export var ListDataSourcesInput: StaticStructureSchema = [
   [_dI, _pIr, _eInv, _cIo, _ty, _s, _n, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pIr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eInv,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cIo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      () => Name,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _pIr }],
+    [0, { [_hQ]: _eInv }],
+    [0, { [_hQ]: _cIo }],
+    [0, { [_hQ]: _ty }],
+    [0, { [_hQ]: _s }],
+    [() => Name, { [_hQ]: _n }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListDataSourcesOutput: StaticStructureSchema = [
@@ -5152,24 +4788,9 @@ export var ListDomainsInput: StaticStructureSchema = [
   0,
   [_s, _mRa, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDomainsOutput: StaticStructureSchema = [3, n0, _LDO, 0, [_it, _nT], [[() => DomainSummaries, 0], 0]];
@@ -5181,24 +4802,9 @@ export var ListDomainUnitsForParentInput: StaticStructureSchema = [
   [_dI, _pDUI, _mRa, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pDUI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _pDUI }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDomainUnitsForParentOutput: StaticStructureSchema = [
@@ -5219,18 +4825,8 @@ export var ListEntityOwnersInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListEntityOwnersOutput: StaticStructureSchema = [3, n0, _LEOO, 0, [_ow, _nT], [() => EntityOwners, 0]];
@@ -5243,18 +4839,8 @@ export var ListEnvironmentActionsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListEnvironmentActionsOutput: StaticStructureSchema = [
@@ -5273,18 +4859,8 @@ export var ListEnvironmentBlueprintConfigurationsInput: StaticStructureSchema = 
   [_dI, _mRa, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListEnvironmentBlueprintConfigurationsOutput: StaticStructureSchema = [
@@ -5303,30 +4879,10 @@ export var ListEnvironmentBlueprintsInput: StaticStructureSchema = [
   [_dI, _mRa, _nT, _n, _ma],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _ma,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _n }],
+    [2, { [_hQ]: _ma }],
   ],
 ];
 export var ListEnvironmentBlueprintsOutput: StaticStructureSchema = [
@@ -5345,48 +4901,13 @@ export var ListEnvironmentProfilesInput: StaticStructureSchema = [
   [_dI, _aAI, _aAR, _eBI, _pIr, _n, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aAR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eBI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pIr,
-      },
-    ],
-    [
-      () => EnvironmentProfileName,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _aAI }],
+    [0, { [_hQ]: _aAR }],
+    [0, { [_hQ]: _eBI }],
+    [0, { [_hQ]: _pIr }],
+    [() => EnvironmentProfileName, { [_hQ]: _n }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListEnvironmentProfilesOutput: StaticStructureSchema = [
@@ -5405,66 +4926,16 @@ export var ListEnvironmentsInput: StaticStructureSchema = [
   [_dI, _aAI, _s, _aAR, _pIr, _ePI, _eBI, _pro, _n, _mRa, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aAR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pIr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ePI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eBI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pro,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _aAI }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _aAR }],
+    [0, { [_hQ]: _pIr }],
+    [0, { [_hQ]: _ePI }],
+    [0, { [_hQ]: _eBI }],
+    [0, { [_hQ]: _pro }],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListEnvironmentsOutput: StaticStructureSchema = [
@@ -5502,30 +4973,10 @@ export var ListJobRunsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _sO }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListJobRunsOutput: StaticStructureSchema = [3, n0, _LJRO, 0, [_it, _nT], [() => JobRunSummaries, 0]];
@@ -5537,42 +4988,12 @@ export var ListLineageEventsInput: StaticStructureSchema = [
   [_dI, _mRa, _tA, _tB, _pSr, _sO, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _tA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _tB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pSr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [4, { [_hQ]: _tA }],
+    [4, { [_hQ]: _tB }],
+    [0, { [_hQ]: _pSr }],
+    [0, { [_hQ]: _sO }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListLineageEventsOutput: StaticStructureSchema = [
@@ -5591,43 +5012,13 @@ export var ListLineageNodeHistoryInput: StaticStructureSchema = [
   [_dI, _mRa, _nT, _i, _di, _eTGTE, _eTLTE, _sO],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _di,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _tGTE,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _tLTE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [0, { [_hQ]: _di }],
+    [4, { [_hQ]: _tGTE }],
+    [4, { [_hQ]: _tLTE }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListLineageNodeHistoryOutput: StaticStructureSchema = [
@@ -5646,36 +5037,11 @@ export var ListMetadataGenerationRunsInput: StaticStructureSchema = [
   [_dI, _s, _ty, _nT, _mRa, _tIa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tIa,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _ty }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _tIa }],
   ],
 ];
 export var ListMetadataGenerationRunsOutput: StaticStructureSchema = [
@@ -5694,48 +5060,13 @@ export var ListNotificationsInput: StaticStructureSchema = [
   [_dI, _ty, _aTf, _bT, _su, _tSa, _mRa, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _aTf,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _bT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _su,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tSa,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _ty }],
+    [4, { [_hQ]: _aTf }],
+    [4, { [_hQ]: _bT }],
+    [64 | 0, { [_hQ]: _su }],
+    [0, { [_hQ]: _tSa }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListNotificationsOutput: StaticStructureSchema = [
@@ -5756,24 +5087,9 @@ export var ListPolicyGrantsInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pTo,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _pTo }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPolicyGrantsOutput: StaticStructureSchema = [3, n0, _LPGO, 0, [_gL, _nT], [() => PolicyGrantList, 0]];
@@ -5786,30 +5102,10 @@ export var ListProjectMembershipsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListProjectMembershipsOutput: StaticStructureSchema = [
@@ -5828,36 +5124,11 @@ export var ListProjectProfilesInput: StaticStructureSchema = [
   [_dI, _n, _sB, _sO, _nT, _mRa],
   [
     [0, 1],
-    [
-      () => ProjectProfileName,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [() => ProjectProfileName, { [_hQ]: _n }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListProjectProfilesOutput: StaticStructureSchema = [
@@ -5876,36 +5147,11 @@ export var ListProjectsInput: StaticStructureSchema = [
   [_dI, _uI, _gIr, _n, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _gIr,
-      },
-    ],
-    [
-      () => ProjectName,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _uI }],
+    [0, { [_hQ]: _gIr }],
+    [() => ProjectName, { [_hQ]: _n }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListProjectsOutput: StaticStructureSchema = [3, n0, _LPO, 0, [_it, _nT], [[() => ProjectSummaries, 0], 0]];
@@ -5919,54 +5165,14 @@ export var ListRulesInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rTu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _pIro,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _aTs,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _dPa,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iC,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rTu }],
+    [0, { [_hQ]: _rA }],
+    [64 | 0, { [_hQ]: _pIro }],
+    [64 | 0, { [_hQ]: _aTs }],
+    [2, { [_hQ]: _dPa }],
+    [2, { [_hQ]: _iC }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListRulesOutput: StaticStructureSchema = [3, n0, _LRO, 0, [_it, _nT], [[() => RuleSummaries, 0], 0]];
@@ -5978,72 +5184,17 @@ export var ListSubscriptionGrantsInput: StaticStructureSchema = [
   [_dI, _eInvi, _sTIu, _sLI, _sI, _oPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _eInvi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sTIu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sLI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oUI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _eInvi }],
+    [0, { [_hQ]: _sTIu }],
+    [0, { [_hQ]: _sLI }],
+    [0, { [_hQ]: _sI }],
+    [0, { [_hQ]: _oPI }],
+    [0, { [_hQ]: _oUI }],
+    [0, { [_hQ]: _oGI }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSubscriptionGrantsOutput: StaticStructureSchema = [
@@ -6062,66 +5213,16 @@ export var ListSubscriptionRequestsInput: StaticStructureSchema = [
   [_dI, _s, _sLI, _oPI, _aPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sLI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oUI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _sLI }],
+    [0, { [_hQ]: _oPI }],
+    [0, { [_hQ]: _aPI }],
+    [0, { [_hQ]: _oUI }],
+    [0, { [_hQ]: _oGI }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSubscriptionRequestsOutput: StaticStructureSchema = [
@@ -6140,72 +5241,17 @@ export var ListSubscriptionsInput: StaticStructureSchema = [
   [_dI, _sRIu, _s, _sLI, _oPI, _oUI, _oGI, _aPI, _sB, _sO, _mRa, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sRIu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sLI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oUI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sRIu }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _sLI }],
+    [0, { [_hQ]: _oPI }],
+    [0, { [_hQ]: _oUI }],
+    [0, { [_hQ]: _oGI }],
+    [0, { [_hQ]: _aPI }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSubscriptionsOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_it, _nT], [[() => Subscriptions, 0], 0]];
@@ -6218,30 +5264,10 @@ export var ListSubscriptionTargetsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSubscriptionTargetsOutput: StaticStructureSchema = [
@@ -6264,36 +5290,11 @@ export var ListTimeSeriesDataPointsInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _fN,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sAt,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eAn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _fN }],
+    [4, { [_hQ]: _sAt }],
+    [4, { [_hQ]: _eAn }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListTimeSeriesDataPointsOutput: StaticStructureSchema = [
@@ -6405,13 +5406,7 @@ export var PostLineageEventInput: StaticStructureSchema = [
   [
     [0, 1],
     [() => LineageEvent, 16],
-    [
-      0,
-      {
-        [_hH]: _CT,
-        [_iTd]: 1,
-      },
-    ],
+    [0, { [_hH]: _CT, [_iTd]: 1 }],
   ],
 ];
 export var PostLineageEventOutput: StaticStructureSchema = [3, n0, _PLEO, 0, [_id, _dIo], [0, 0]];
@@ -6590,19 +5585,7 @@ export var RejectPredictionsInput: StaticStructureSchema = [
   _RPIe,
   0,
   [_dI, _i, _r, _rRe, _rC, _cT],
-  [
-    [0, 1],
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    () => RejectRule,
-    () => RejectChoices,
-    [0, 4],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _r }], () => RejectRule, () => RejectChoices, [0, 4]],
 ];
 export var RejectPredictionsOutput: StaticStructureSchema = [3, n0, _RPOe, 0, [_dIo, _aI, _aRs], [0, 0, 0]];
 export var RejectRule: StaticStructureSchema = [3, n0, _RRe, 0, [_ru, _t], [0, 1]];
@@ -6668,19 +5651,8 @@ export var RemovePolicyGrantInput: StaticStructureSchema = [
 ];
 export var RemovePolicyGrantOutput: StaticStructureSchema = [3, n0, _RPGO, 0, [], []];
 export var Resource: StaticStructureSchema = [3, n0, _R, 0, [_pro, _n, _v, _ty], [0, 0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTag: StaticStructureSchema = [3, n0, _RT, 0, [_k, _v, _so], [0, 0, 0]];
 export var ResourceTagParameter: StaticStructureSchema = [3, n0, _RTP, 0, [_k, _v, _iVE], [0, 0, 2]];
 export var RevokeSubscriptionInput: StaticStructureSchema = [3, n0, _RSI, 0, [_dI, _i, _rP], [[0, 1], [0, 1], 2]];
@@ -6820,19 +5792,8 @@ export var SearchUserProfilesOutput: StaticStructureSchema = [
   [[() => UserProfileSummaries, 0], 0],
 ];
 export var SelfGrantStatusDetail: StaticStructureSchema = [3, n0, _SGSD, 0, [_dNa, _sN, _s, _fC], [0, 0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SingleSignOn: StaticStructureSchema = [3, n0, _SSO, 0, [_ty, _uAs, _iIA], [0, 0, 0]];
 export var SparkEmrPropertiesInput: StaticStructureSchema = [
   3,
@@ -7014,19 +5975,8 @@ export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TermRelations: StaticStructureSchema = [3, n0, _TR, 0, [_iA, _cl], [64 | 0, 64 | 0]];
 export var TextMatchItem: StaticStructureSchema = [3, n0, _TMI, 0, [_a, _te, _mO], [0, 0, () => MatchOffsets]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeSeriesDataPointFormInput: StaticStructureSchema = [
   3,
   n0,
@@ -7052,19 +6002,8 @@ export var TimeSeriesDataPointSummaryFormOutput: StaticStructureSchema = [
   [0, 0, 0, 4, 0, 0],
 ];
 export var Topic: StaticStructureSchema = [3, n0, _To, 0, [_sub, _res, _ro], [0, () => NotificationResource, 0]];
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var Unit_n0: StaticStructureSchema = [3, n0, _U, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -7074,12 +6013,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -7213,21 +6147,7 @@ export var UpdateDomainInput: StaticStructureSchema = [
   _UDI,
   0,
   [_i, _de, _sSO, _dER, _sRe, _n, _cT],
-  [
-    [0, 1],
-    0,
-    () => SingleSignOn,
-    0,
-    0,
-    0,
-    [
-      0,
-      {
-        [_iTd]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-  ],
+  [[0, 1], 0, () => SingleSignOn, 0, 0, 0, [0, { [_iTd]: 1, [_hQ]: _cT }]],
 ];
 export var UpdateDomainOutput: StaticStructureSchema = [
   3,
@@ -7646,56 +6566,35 @@ export var UserProfileSummary: StaticStructureSchema = [
   [_dIo, _id, _ty, _s, _det],
   [0, 0, 0, 0, [() => UserProfileDetails, 0]],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var DataZoneServiceException: StaticErrorSchema = [-3, _sm, "DataZoneServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DataZoneServiceException, __DataZoneServiceException);
-
 export var AcceptChoices: StaticListSchema = [1, n0, _ACc, 0, [() => AcceptChoice, 0]];
 export var AcceptedAssetScopes: StaticListSchema = [1, n0, _AASc, 0, () => AcceptedAssetScope];
 export var AccountInfoList: StaticListSchema = [1, n0, _AIL, 0, [() => AccountInfo, 0]];
 export var AccountPoolList = 64 | 0;
-
 export var AccountPoolSummaries: StaticListSchema = [1, n0, _APSc, 0, [() => AccountPoolSummary, 0]];
 export var AggregationList: StaticListSchema = [1, n0, _ALg, 0, () => AggregationListItem];
 export var AggregationOutputItems: StaticListSchema = [1, n0, _AOIg, 0, () => AggregationOutputItem];
 export var AggregationOutputList: StaticListSchema = [1, n0, _AOL, 0, () => AggregationOutput];
 export var ApplicableAssetTypes = 64 | 0;
-
 export var AssetFilters: StaticListSchema = [1, n0, _AF, 0, [() => AssetFilterSummary, 0]];
 export var AssetInDataProductListingItems: StaticListSchema = [1, n0, _AIDPLIs, 0, () => AssetInDataProductListingItem];
 export var AssetPermissions: StaticListSchema = [1, n0, _APs, 0, () => AssetPermission];
 export var AssetRevisions: StaticListSchema = [1, n0, _ARss, 0, () => AssetRevision];
 export var AssetTargetNames: StaticListSchema = [1, n0, _ATN, 0, () => AssetTargetNameMap];
 export var AssetTypeIdentifiers = 64 | 0;
-
 export var Attributes: StaticListSchema = [1, n0, _A, 0, [() => AttributeInput, 0]];
 export var AttributesErrors: StaticListSchema = [1, n0, _AEt, 0, () => AttributeError];
 export var AttributesList = 64 | 0;
-
 export var AuthorizedPrincipalIdentifiers = 64 | 0;
-
 export var AwsRegionList = 64 | 0;
-
 export var BatchGetAttributeItems: StaticListSchema = [1, n0, _BGAI, 0, [() => BatchGetAttributeOutput, 0]];
 export var BatchPutAttributeItems: StaticListSchema = [1, n0, _BPAI, 0, () => BatchPutAttributeOutput];
 export var ColumnNameList = 64 | 0;
-
 export var ComputeEnvironmentsList = 64 | 0;
-
 export var ConfigurableActionParameterList: StaticListSchema = [1, n0, _CAPL, 0, () => ConfigurableActionParameter];
 export var ConnectionSummaries: StaticListSchema = [1, n0, _CSo, 0, [() => ConnectionSummary, 0]];
 export var CustomParameterList: StaticListSchema = [1, n0, _CPL, 0, [() => CustomParameter, 0]];
@@ -7705,15 +6604,12 @@ export var DataSourceRunActivities: StaticListSchema = [1, n0, _DSRAa, 0, [() =>
 export var DataSourceRunSummaries: StaticListSchema = [1, n0, _DSRSa, 0, () => DataSourceRunSummary];
 export var DataSourceSummaries: StaticListSchema = [1, n0, _DSSa, 0, [() => DataSourceSummary, 0]];
 export var DeploymentMessagesList = 64 | 0;
-
 export var DetailedGlossaryTerms: StaticListSchema = [1, n0, _DGTe, 0, [() => DetailedGlossaryTerm, 0]];
 export var DomainSummaries: StaticListSchema = [1, n0, _DSo, 0, [() => DomainSummary, 0]];
 export var DomainUnitIds = 64 | 0;
-
 export var DomainUnitOwners: StaticListSchema = [1, n0, _DUO, 0, () => DomainUnitOwnerProperties];
 export var DomainUnitSummaries: StaticListSchema = [1, n0, _DUSo, 0, () => DomainUnitSummary];
 export var EnabledRegionList = 64 | 0;
-
 export var EntityOwners: StaticListSchema = [1, n0, _EO, 0, () => OwnerPropertiesOutput];
 export var EnvironmentActionList: StaticListSchema = [1, n0, _EAL, 0, () => ConfigurableEnvironmentAction];
 export var EnvironmentBlueprintConfigurations: StaticListSchema = [
@@ -7744,26 +6640,19 @@ export var EnvironmentParametersList: StaticListSchema = [1, n0, _EPL, 0, () => 
 export var EnvironmentProfileSummaries: StaticListSchema = [1, n0, _EPSn, 0, [() => EnvironmentProfileSummary, 0]];
 export var EnvironmentSummaries: StaticListSchema = [1, n0, _ESn, 0, [() => EnvironmentSummary, 0]];
 export var FailedQueryProcessingErrorMessages = 64 | 0;
-
 export var FailureReasons: StaticListSchema = [1, n0, _FR, 0, () => ProjectDeletionError];
 export var FilterExpressions: StaticListSchema = [1, n0, _FEi, 0, () => FilterExpression];
 export var FilterIds = 64 | 0;
-
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => FilterClause];
 export var FormInputList: StaticListSchema = [1, n0, _FIL, 8, [() => FormInput, 0]];
 export var FormOutputList: StaticListSchema = [1, n0, _FOL, 0, [() => FormOutput, 0]];
 export var GlossaryTermIdentifiers = 64 | 0;
-
 export var GlossaryTerms = 64 | 0;
-
 export var GlossaryUsageRestrictions = 64 | 0;
-
 export var GovernedGlossaryTerms = 64 | 0;
-
 export var GroupProfileSummaries: StaticListSchema = [1, n0, _GPSr, 0, [() => GroupProfileSummary, 0]];
 export var ImportList: StaticListSchema = [1, n0, _IL, 0, [() => Import, 0]];
 export var ItemGlossaryTerms = 64 | 0;
-
 export var JobRunSummaries: StaticListSchema = [1, n0, _JRSo, 0, () => JobRunSummary];
 export var LineageEventSummaries: StaticListSchema = [1, n0, _LESi, 0, () => LineageEventSummary];
 export var LineageNodeReferenceList: StaticListSchema = [1, n0, _LNRL, 0, () => LineageNodeReference];
@@ -7772,7 +6661,6 @@ export var ListEnvironmentActionSummaries: StaticListSchema = [1, n0, _LEAS, 0, 
 export var ListingSummaries: StaticListSchema = [1, n0, _LSi, 0, [() => ListingSummary, 0]];
 export var ListingSummaryItems: StaticListSchema = [1, n0, _LSIis, 0, [() => ListingSummaryItem, 0]];
 export var MatchCriteria = 64 | 0;
-
 export var MatchOffsets: StaticListSchema = [1, n0, _MOa, 0, () => MatchOffset];
 export var MatchRationale: StaticListSchema = [1, n0, _MR, 0, () => MatchRationaleItem];
 export var MetadataFormInputs: StaticListSchema = [1, n0, _MFI, 0, [() => FormInput, 0]];
@@ -7780,21 +6668,16 @@ export var MetadataForms: StaticListSchema = [1, n0, _MF, 0, [() => FormOutput, 
 export var MetadataFormsSummary: StaticListSchema = [1, n0, _MFSe, 0, [() => MetadataFormSummary, 0]];
 export var MetadataGenerationRuns: StaticListSchema = [1, n0, _MGR, 0, () => MetadataGenerationRunItem];
 export var MetadataGenerationRunTypes = 64 | 0;
-
 export var MetadataGenerationRunTypeStats: StaticListSchema = [1, n0, _MGRTSe, 0, () => MetadataGenerationRunTypeStat];
 export var NameIdentifiers: StaticListSchema = [1, n0, _NIa, 0, () => NameIdentifier];
 export var NotificationsList: StaticListSchema = [1, n0, _NL, 0, [() => NotificationOutput, 0]];
 export var NotificationSubjects = 64 | 0;
-
 export var PhysicalEndpoints: StaticListSchema = [1, n0, _PEh, 0, [() => PhysicalEndpoint, 0]];
 export var PolicyGrantList: StaticListSchema = [1, n0, _PGL, 0, () => PolicyGrantMember];
 export var PredictionChoices = 64 | 1;
-
 export var ProjectIds = 64 | 0;
-
 export var ProjectMembers: StaticListSchema = [1, n0, _PMr, 0, () => ProjectMember];
 export var ProjectProfileList = 64 | 0;
-
 export var ProjectProfileSummaries: StaticListSchema = [1, n0, _PPSr, 0, [() => ProjectProfileSummary, 0]];
 export var ProjectResourceTagParameters: StaticListSchema = [1, n0, _PRTP, 0, () => ResourceTagParameter];
 export var ProjectSummaries: StaticListSchema = [1, n0, _PSro, 0, [() => ProjectSummary, 0]];
@@ -7806,27 +6689,19 @@ export var ResourceList: StaticListSchema = [1, n0, _RL, 0, () => Resource];
 export var ResourceTags: StaticListSchema = [1, n0, _RTe, 0, () => ResourceTag];
 export var RowFilterList: StaticListSchema = [1, n0, _RFL, 0, () => RowFilter];
 export var RuleAssetTypeList = 64 | 0;
-
 export var RuleProjectIdentifierList = 64 | 0;
-
 export var RuleSummaries: StaticListSchema = [1, n0, _RSul, 0, [() => RuleSummary, 0]];
 export var S3LocationList = 64 | 0;
-
 export var S3Permissions = 64 | 0;
-
 export var SearchInList: StaticListSchema = [1, n0, _SIL, 0, () => SearchInItem];
 export var SearchInventoryResultItems: StaticListSchema = [1, n0, _SIRI, 0, [() => SearchInventoryResultItem, 0]];
 export var SearchOutputAdditionalAttributes = 64 | 0;
-
 export var SearchResultItems: StaticListSchema = [1, n0, _SRI, 0, [() => SearchResultItem, 0]];
 export var SearchTypesResultItems: StaticListSchema = [1, n0, _STRI, 0, [() => SearchTypesResultItem, 0]];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SelfGrantStatusDetails: StaticListSchema = [1, n0, _SGSDe, 0, () => SelfGrantStatusDetail];
 export var StringList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var SubscribedAssets: StaticListSchema = [1, n0, _SAu, 0, () => SubscribedAsset];
 export var SubscribedListingInputs: StaticListSchema = [1, n0, _SLIub, 0, () => SubscribedListingInput];
 export var SubscribedListings: StaticListSchema = [1, n0, _SLu, 0, [() => SubscribedListing, 0]];
@@ -7838,7 +6713,6 @@ export var Subscriptions: StaticListSchema = [1, n0, _S, 0, [() => SubscriptionS
 export var SubscriptionTargetForms: StaticListSchema = [1, n0, _STFu, 0, () => SubscriptionTargetForm];
 export var SubscriptionTargets: StaticListSchema = [1, n0, _ST, 0, [() => SubscriptionTargetSummary, 0]];
 export var TagKeyList = 64 | 0;
-
 export var TextMatches: StaticListSchema = [1, n0, _TM, 0, () => TextMatchItem];
 export var TimeSeriesDataPointFormInputList: StaticListSchema = [
   1,
@@ -7862,27 +6736,19 @@ export var TimeSeriesDataPointSummaryFormOutputList: StaticListSchema = [
   () => TimeSeriesDataPointSummaryFormOutput,
 ];
 export var TrackingAssetArns = 64 | 0;
-
 export var UserProfileSummaries: StaticListSchema = [1, n0, _UPSs, 0, [() => UserProfileSummary, 0]];
 export var ConnectionProperties = 128 | 0;
-
 export var CredentialMap: StaticMapSchema = [2, n0, _CM, 8, 0, 0];
 export var EnvironmentFailureReasons: StaticMapSchema = [2, n0, _EFR, 0, 0, () => EnvironmentFailureReasonsList];
 export var FormsInputMap: StaticMapSchema = [2, n0, _FIM, 0, 0, () => FormEntryInput];
 export var FormsOutputMap: StaticMapSchema = [2, n0, _FOM, 0, [0, 0], [() => FormEntryOutput, 0]];
 export var GlobalParameterMap = 128 | 0;
-
 export var MetadataMap = 128 | 0;
-
 export var PropertyMap = 128 | 0;
-
 export var RegionalParameter = 128 | 0;
-
 export var RegionalParameterMap: StaticMapSchema = [2, n0, _RPM, 0, 0, 128 | 0];
 export var Tags = 128 | 0;
-
 export var TokenUrlParametersMap = 128 | 0;
-
 export var TrackingAssets: StaticMapSchema = [2, n0, _TA, 0, 0, 64 | 0];
 export var AccountSource: StaticStructureSchema = [
   3,
@@ -8231,9 +7097,7 @@ export var AcceptPredictions: StaticOperationSchema = [
   9,
   n0,
   _APcc,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/assets/{identifier}/accept-predictions", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/assets/{identifier}/accept-predictions", 200] },
   () => AcceptPredictionsInput,
   () => AcceptPredictionsOutput,
 ];
@@ -8241,9 +7105,7 @@ export var AcceptSubscriptionRequest: StaticOperationSchema = [
   9,
   n0,
   _ASR,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}/accept", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}/accept", 200] },
   () => AcceptSubscriptionRequestInput,
   () => AcceptSubscriptionRequestOutput,
 ];
@@ -8251,9 +7113,7 @@ export var AddEntityOwner: StaticOperationSchema = [
   9,
   n0,
   _AEO,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/addOwner", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/addOwner", 201] },
   () => AddEntityOwnerInput,
   () => AddEntityOwnerOutput,
 ];
@@ -8261,9 +7121,7 @@ export var AddPolicyGrant: StaticOperationSchema = [
   9,
   n0,
   _APG,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/addGrant", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/addGrant", 201] },
   () => AddPolicyGrantInput,
   () => AddPolicyGrantOutput,
 ];
@@ -8319,9 +7177,7 @@ export var CancelMetadataGenerationRun: StaticOperationSchema = [
   9,
   n0,
   _CMGR,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}/cancel", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}/cancel", 200] },
   () => CancelMetadataGenerationRunInput,
   () => CancelMetadataGenerationRunOutput,
 ];
@@ -8329,9 +7185,7 @@ export var CancelSubscription: StaticOperationSchema = [
   9,
   n0,
   _CSa,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscriptions/{identifier}/cancel", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscriptions/{identifier}/cancel", 200] },
   () => CancelSubscriptionInput,
   () => CancelSubscriptionOutput,
 ];
@@ -8339,9 +7193,7 @@ export var CreateAccountPool: StaticOperationSchema = [
   9,
   n0,
   _CAPr,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/account-pools", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/account-pools", 201] },
   () => CreateAccountPoolInput,
   () => CreateAccountPoolOutput,
 ];
@@ -8349,9 +7201,7 @@ export var CreateAsset: StaticOperationSchema = [
   9,
   n0,
   _CAr,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/assets", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/assets", 201] },
   () => CreateAssetInput,
   () => CreateAssetOutput,
 ];
@@ -8359,9 +7209,7 @@ export var CreateAssetFilter: StaticOperationSchema = [
   9,
   n0,
   _CAF,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters", 201] },
   () => CreateAssetFilterInput,
   () => CreateAssetFilterOutput,
 ];
@@ -8369,9 +7217,7 @@ export var CreateAssetRevision: StaticOperationSchema = [
   9,
   n0,
   _CAR,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/assets/{identifier}/revisions", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/assets/{identifier}/revisions", 200] },
   () => CreateAssetRevisionInput,
   () => CreateAssetRevisionOutput,
 ];
@@ -8379,9 +7225,7 @@ export var CreateAssetType: StaticOperationSchema = [
   9,
   n0,
   _CAT,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/asset-types", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/asset-types", 201] },
   () => CreateAssetTypeInput,
   () => CreateAssetTypeOutput,
 ];
@@ -8389,9 +7233,7 @@ export var CreateConnection: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/connections", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/connections", 201] },
   () => CreateConnectionInput,
   () => CreateConnectionOutput,
 ];
@@ -8399,9 +7241,7 @@ export var CreateDataProduct: StaticOperationSchema = [
   9,
   n0,
   _CDP,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-products", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-products", 201] },
   () => CreateDataProductInput,
   () => CreateDataProductOutput,
 ];
@@ -8409,9 +7249,7 @@ export var CreateDataProductRevision: StaticOperationSchema = [
   9,
   n0,
   _CDPR,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-products/{identifier}/revisions", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-products/{identifier}/revisions", 201] },
   () => CreateDataProductRevisionInput,
   () => CreateDataProductRevisionOutput,
 ];
@@ -8419,9 +7257,7 @@ export var CreateDataSource: StaticOperationSchema = [
   9,
   n0,
   _CDS,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-sources", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-sources", 201] },
   () => CreateDataSourceInput,
   () => CreateDataSourceOutput,
 ];
@@ -8429,9 +7265,7 @@ export var CreateDomain: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_ht]: ["POST", "/v2/domains", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains", 201] },
   () => CreateDomainInput,
   () => CreateDomainOutput,
 ];
@@ -8439,9 +7273,7 @@ export var CreateDomainUnit: StaticOperationSchema = [
   9,
   n0,
   _CDU,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/domain-units", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/domain-units", 201] },
   () => CreateDomainUnitInput,
   () => CreateDomainUnitOutput,
 ];
@@ -8449,9 +7281,7 @@ export var CreateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environments", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environments", 201] },
   () => CreateEnvironmentInput,
   () => CreateEnvironmentOutput,
 ];
@@ -8459,9 +7289,7 @@ export var CreateEnvironmentAction: StaticOperationSchema = [
   9,
   n0,
   _CEAr,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions", 201] },
   () => CreateEnvironmentActionInput,
   () => CreateEnvironmentActionOutput,
 ];
@@ -8469,9 +7297,7 @@ export var CreateEnvironmentBlueprint: StaticOperationSchema = [
   9,
   n0,
   _CEB,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environment-blueprints", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environment-blueprints", 201] },
   () => CreateEnvironmentBlueprintInput,
   () => CreateEnvironmentBlueprintOutput,
 ];
@@ -8479,9 +7305,7 @@ export var CreateEnvironmentProfile: StaticOperationSchema = [
   9,
   n0,
   _CEP,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environment-profiles", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environment-profiles", 201] },
   () => CreateEnvironmentProfileInput,
   () => CreateEnvironmentProfileOutput,
 ];
@@ -8489,9 +7313,7 @@ export var CreateFormType: StaticOperationSchema = [
   9,
   n0,
   _CFT,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/form-types", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/form-types", 201] },
   () => CreateFormTypeInput,
   () => CreateFormTypeOutput,
 ];
@@ -8499,9 +7321,7 @@ export var CreateGlossary: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/glossaries", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/glossaries", 201] },
   () => CreateGlossaryInput,
   () => CreateGlossaryOutput,
 ];
@@ -8509,9 +7329,7 @@ export var CreateGlossaryTerm: StaticOperationSchema = [
   9,
   n0,
   _CGT,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/glossary-terms", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/glossary-terms", 201] },
   () => CreateGlossaryTermInput,
   () => CreateGlossaryTermOutput,
 ];
@@ -8519,9 +7337,7 @@ export var CreateGroupProfile: StaticOperationSchema = [
   9,
   n0,
   _CGP,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/group-profiles", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/group-profiles", 201] },
   () => CreateGroupProfileInput,
   () => CreateGroupProfileOutput,
 ];
@@ -8529,9 +7345,7 @@ export var CreateListingChangeSet: StaticOperationSchema = [
   9,
   n0,
   _CLCS,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/listings/change-set", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/listings/change-set", 200] },
   () => CreateListingChangeSetInput,
   () => CreateListingChangeSetOutput,
 ];
@@ -8539,9 +7353,7 @@ export var CreateProject: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/projects", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/projects", 201] },
   () => CreateProjectInput,
   () => CreateProjectOutput,
 ];
@@ -8549,9 +7361,7 @@ export var CreateProjectMembership: StaticOperationSchema = [
   9,
   n0,
   _CPM,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/projects/{projectIdentifier}/createMembership", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/projects/{projectIdentifier}/createMembership", 201] },
   () => CreateProjectMembershipInput,
   () => CreateProjectMembershipOutput,
 ];
@@ -8559,9 +7369,7 @@ export var CreateProjectProfile: StaticOperationSchema = [
   9,
   n0,
   _CPPr,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/project-profiles", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/project-profiles", 201] },
   () => CreateProjectProfileInput,
   () => CreateProjectProfileOutput,
 ];
@@ -8569,9 +7377,7 @@ export var CreateRule: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/rules", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/rules", 201] },
   () => CreateRuleInput,
   () => CreateRuleOutput,
 ];
@@ -8579,9 +7385,7 @@ export var CreateSubscriptionGrant: StaticOperationSchema = [
   9,
   n0,
   _CSG,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/subscription-grants", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/subscription-grants", 200] },
   () => CreateSubscriptionGrantInput,
   () => CreateSubscriptionGrantOutput,
 ];
@@ -8589,9 +7393,7 @@ export var CreateSubscriptionRequest: StaticOperationSchema = [
   9,
   n0,
   _CSR,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/subscription-requests", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/subscription-requests", 200] },
   () => CreateSubscriptionRequestInput,
   () => CreateSubscriptionRequestOutput,
 ];
@@ -8599,9 +7401,7 @@ export var CreateSubscriptionTarget: StaticOperationSchema = [
   9,
   n0,
   _CST,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/subscription-targets", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/subscription-targets", 200] },
   () => CreateSubscriptionTargetInput,
   () => CreateSubscriptionTargetOutput,
 ];
@@ -8609,9 +7409,7 @@ export var CreateUserProfile: StaticOperationSchema = [
   9,
   n0,
   _CUP,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/user-profiles", 201],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/user-profiles", 201] },
   () => CreateUserProfileInput,
   () => CreateUserProfileOutput,
 ];
@@ -8619,9 +7417,7 @@ export var DeleteAccountPool: StaticOperationSchema = [
   9,
   n0,
   _DAP,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/account-pools/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/account-pools/{identifier}", 204] },
   () => DeleteAccountPoolInput,
   () => DeleteAccountPoolOutput,
 ];
@@ -8629,9 +7425,7 @@ export var DeleteAsset: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/assets/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/assets/{identifier}", 204] },
   () => DeleteAssetInput,
   () => DeleteAssetOutput,
 ];
@@ -8639,9 +7433,7 @@ export var DeleteAssetFilter: StaticOperationSchema = [
   9,
   n0,
   _DAF,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 204] },
   () => DeleteAssetFilterInput,
   () => __Unit,
 ];
@@ -8649,9 +7441,7 @@ export var DeleteAssetType: StaticOperationSchema = [
   9,
   n0,
   _DAT,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/asset-types/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/asset-types/{identifier}", 204] },
   () => DeleteAssetTypeInput,
   () => DeleteAssetTypeOutput,
 ];
@@ -8659,9 +7449,7 @@ export var DeleteConnection: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/connections/{identifier}", 202],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/connections/{identifier}", 202] },
   () => DeleteConnectionInput,
   () => DeleteConnectionOutput,
 ];
@@ -8669,9 +7457,7 @@ export var DeleteDataProduct: StaticOperationSchema = [
   9,
   n0,
   _DDP,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/data-products/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/data-products/{identifier}", 204] },
   () => DeleteDataProductInput,
   () => DeleteDataProductOutput,
 ];
@@ -8679,9 +7465,7 @@ export var DeleteDataSource: StaticOperationSchema = [
   9,
   n0,
   _DDS,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200] },
   () => DeleteDataSourceInput,
   () => DeleteDataSourceOutput,
 ];
@@ -8689,9 +7473,7 @@ export var DeleteDomain: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{identifier}", 202],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{identifier}", 202] },
   () => DeleteDomainInput,
   () => DeleteDomainOutput,
 ];
@@ -8699,9 +7481,7 @@ export var DeleteDomainUnit: StaticOperationSchema = [
   9,
   n0,
   _DDU,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/domain-units/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/domain-units/{identifier}", 204] },
   () => DeleteDomainUnitInput,
   () => DeleteDomainUnitOutput,
 ];
@@ -8709,9 +7489,7 @@ export var DeleteEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environments/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environments/{identifier}", 204] },
   () => DeleteEnvironmentInput,
   () => __Unit,
 ];
@@ -8729,9 +7507,7 @@ export var DeleteEnvironmentBlueprint: StaticOperationSchema = [
   9,
   n0,
   _DEB,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}", 204] },
   () => DeleteEnvironmentBlueprintInput,
   () => __Unit,
 ];
@@ -8753,9 +7529,7 @@ export var DeleteEnvironmentProfile: StaticOperationSchema = [
   9,
   n0,
   _DEP,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environment-profiles/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environment-profiles/{identifier}", 204] },
   () => DeleteEnvironmentProfileInput,
   () => __Unit,
 ];
@@ -8763,9 +7537,7 @@ export var DeleteFormType: StaticOperationSchema = [
   9,
   n0,
   _DFT,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/form-types/{formTypeIdentifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/form-types/{formTypeIdentifier}", 204] },
   () => DeleteFormTypeInput,
   () => DeleteFormTypeOutput,
 ];
@@ -8773,9 +7545,7 @@ export var DeleteGlossary: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/glossaries/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/glossaries/{identifier}", 204] },
   () => DeleteGlossaryInput,
   () => DeleteGlossaryOutput,
 ];
@@ -8783,9 +7553,7 @@ export var DeleteGlossaryTerm: StaticOperationSchema = [
   9,
   n0,
   _DGTel,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/glossary-terms/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/glossary-terms/{identifier}", 204] },
   () => DeleteGlossaryTermInput,
   () => DeleteGlossaryTermOutput,
 ];
@@ -8793,9 +7561,7 @@ export var DeleteListing: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/listings/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/listings/{identifier}", 204] },
   () => DeleteListingInput,
   () => DeleteListingOutput,
 ];
@@ -8803,9 +7569,7 @@ export var DeleteProject: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/projects/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/projects/{identifier}", 204] },
   () => DeleteProjectInput,
   () => DeleteProjectOutput,
 ];
@@ -8813,9 +7577,7 @@ export var DeleteProjectMembership: StaticOperationSchema = [
   9,
   n0,
   _DPM,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/projects/{projectIdentifier}/deleteMembership", 204],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/projects/{projectIdentifier}/deleteMembership", 204] },
   () => DeleteProjectMembershipInput,
   () => DeleteProjectMembershipOutput,
 ];
@@ -8823,9 +7585,7 @@ export var DeleteProjectProfile: StaticOperationSchema = [
   9,
   n0,
   _DPP,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/project-profiles/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/project-profiles/{identifier}", 204] },
   () => DeleteProjectProfileInput,
   () => DeleteProjectProfileOutput,
 ];
@@ -8833,9 +7593,7 @@ export var DeleteRule: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/rules/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/rules/{identifier}", 204] },
   () => DeleteRuleInput,
   () => DeleteRuleOutput,
 ];
@@ -8843,9 +7601,7 @@ export var DeleteSubscriptionGrant: StaticOperationSchema = [
   9,
   n0,
   _DSG,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/subscription-grants/{identifier}", 200],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/subscription-grants/{identifier}", 200] },
   () => DeleteSubscriptionGrantInput,
   () => DeleteSubscriptionGrantOutput,
 ];
@@ -8853,9 +7609,7 @@ export var DeleteSubscriptionRequest: StaticOperationSchema = [
   9,
   n0,
   _DSR,
-  {
-    [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}", 204],
-  },
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}", 204] },
   () => DeleteSubscriptionRequestInput,
   () => __Unit,
 ];
@@ -8919,9 +7673,7 @@ export var GetAccountPool: StaticOperationSchema = [
   9,
   n0,
   _GAP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/account-pools/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/account-pools/{identifier}", 200] },
   () => GetAccountPoolInput,
   () => GetAccountPoolOutput,
 ];
@@ -8929,9 +7681,7 @@ export var GetAsset: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{identifier}", 200] },
   () => GetAssetInput,
   () => GetAssetOutput,
 ];
@@ -8939,9 +7689,7 @@ export var GetAssetFilter: StaticOperationSchema = [
   9,
   n0,
   _GAF,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 200] },
   () => GetAssetFilterInput,
   () => GetAssetFilterOutput,
 ];
@@ -8949,9 +7697,7 @@ export var GetAssetType: StaticOperationSchema = [
   9,
   n0,
   _GAT,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/asset-types/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/asset-types/{identifier}", 200] },
   () => GetAssetTypeInput,
   () => GetAssetTypeOutput,
 ];
@@ -8959,9 +7705,7 @@ export var GetConnection: StaticOperationSchema = [
   9,
   n0,
   _GCe,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/connections/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/connections/{identifier}", 200] },
   () => GetConnectionInput,
   () => GetConnectionOutput,
 ];
@@ -8969,9 +7713,7 @@ export var GetDataExportConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GDEC,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-export-configuration", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-export-configuration", 200] },
   () => GetDataExportConfigurationInput,
   () => GetDataExportConfigurationOutput,
 ];
@@ -8979,9 +7721,7 @@ export var GetDataProduct: StaticOperationSchema = [
   9,
   n0,
   _GDP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-products/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-products/{identifier}", 200] },
   () => GetDataProductInput,
   () => GetDataProductOutput,
 ];
@@ -8989,9 +7729,7 @@ export var GetDataSource: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200] },
   () => GetDataSourceInput,
   () => GetDataSourceOutput,
 ];
@@ -8999,9 +7737,7 @@ export var GetDataSourceRun: StaticOperationSchema = [
   9,
   n0,
   _GDSR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-source-runs/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-source-runs/{identifier}", 200] },
   () => GetDataSourceRunInput,
   () => GetDataSourceRunOutput,
 ];
@@ -9009,9 +7745,7 @@ export var GetDomain: StaticOperationSchema = [
   9,
   n0,
   _GDe,
-  {
-    [_ht]: ["GET", "/v2/domains/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{identifier}", 200] },
   () => GetDomainInput,
   () => GetDomainOutput,
 ];
@@ -9019,9 +7753,7 @@ export var GetDomainUnit: StaticOperationSchema = [
   9,
   n0,
   _GDU,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/domain-units/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/domain-units/{identifier}", 200] },
   () => GetDomainUnitInput,
   () => GetDomainUnitOutput,
 ];
@@ -9029,9 +7761,7 @@ export var GetEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GEe,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{identifier}", 200] },
   () => GetEnvironmentInput,
   () => GetEnvironmentOutput,
 ];
@@ -9039,9 +7769,7 @@ export var GetEnvironmentAction: StaticOperationSchema = [
   9,
   n0,
   _GEA,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}", 200] },
   () => GetEnvironmentActionInput,
   () => GetEnvironmentActionOutput,
 ];
@@ -9049,9 +7777,7 @@ export var GetEnvironmentBlueprint: StaticOperationSchema = [
   9,
   n0,
   _GEB,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}", 200] },
   () => GetEnvironmentBlueprintInput,
   () => GetEnvironmentBlueprintOutput,
 ];
@@ -9073,9 +7799,7 @@ export var GetEnvironmentCredentials: StaticOperationSchema = [
   9,
   n0,
   _GEC,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/credentials", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/credentials", 200] },
   () => GetEnvironmentCredentialsInput,
   () => GetEnvironmentCredentialsOutput,
 ];
@@ -9083,9 +7807,7 @@ export var GetEnvironmentProfile: StaticOperationSchema = [
   9,
   n0,
   _GEP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-profiles/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-profiles/{identifier}", 200] },
   () => GetEnvironmentProfileInput,
   () => GetEnvironmentProfileOutput,
 ];
@@ -9093,9 +7815,7 @@ export var GetFormType: StaticOperationSchema = [
   9,
   n0,
   _GFT,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/form-types/{formTypeIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/form-types/{formTypeIdentifier}", 200] },
   () => GetFormTypeInput,
   () => GetFormTypeOutput,
 ];
@@ -9103,9 +7823,7 @@ export var GetGlossary: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/glossaries/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/glossaries/{identifier}", 200] },
   () => GetGlossaryInput,
   () => GetGlossaryOutput,
 ];
@@ -9113,9 +7831,7 @@ export var GetGlossaryTerm: StaticOperationSchema = [
   9,
   n0,
   _GGT,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/glossary-terms/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/glossary-terms/{identifier}", 200] },
   () => GetGlossaryTermInput,
   () => GetGlossaryTermOutput,
 ];
@@ -9123,9 +7839,7 @@ export var GetGroupProfile: StaticOperationSchema = [
   9,
   n0,
   _GGP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/group-profiles/{groupIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/group-profiles/{groupIdentifier}", 200] },
   () => GetGroupProfileInput,
   () => GetGroupProfileOutput,
 ];
@@ -9133,9 +7847,7 @@ export var GetIamPortalLoginUrl: StaticOperationSchema = [
   9,
   n0,
   _GIPLU,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/get-portal-login-url", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/get-portal-login-url", 200] },
   () => GetIamPortalLoginUrlInput,
   () => GetIamPortalLoginUrlOutput,
 ];
@@ -9143,9 +7855,7 @@ export var GetJobRun: StaticOperationSchema = [
   9,
   n0,
   _GJR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/jobRuns/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/jobRuns/{identifier}", 200] },
   () => GetJobRunInput,
   () => GetJobRunOutput,
 ];
@@ -9153,9 +7863,7 @@ export var GetLineageEvent: StaticOperationSchema = [
   9,
   n0,
   _GLE,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/events/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/events/{identifier}", 200] },
   () => GetLineageEventInput,
   () => GetLineageEventOutput,
 ];
@@ -9163,9 +7871,7 @@ export var GetLineageNode: StaticOperationSchema = [
   9,
   n0,
   _GLN,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/nodes/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/nodes/{identifier}", 200] },
   () => GetLineageNodeInput,
   () => GetLineageNodeOutput,
 ];
@@ -9173,9 +7879,7 @@ export var GetListing: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/listings/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/listings/{identifier}", 200] },
   () => GetListingInput,
   () => GetListingOutput,
 ];
@@ -9183,9 +7887,7 @@ export var GetMetadataGenerationRun: StaticOperationSchema = [
   9,
   n0,
   _GMGR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}", 200] },
   () => GetMetadataGenerationRunInput,
   () => GetMetadataGenerationRunOutput,
 ];
@@ -9193,9 +7895,7 @@ export var GetProject: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects/{identifier}", 200] },
   () => GetProjectInput,
   () => GetProjectOutput,
 ];
@@ -9203,9 +7903,7 @@ export var GetProjectProfile: StaticOperationSchema = [
   9,
   n0,
   _GPPe,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/project-profiles/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/project-profiles/{identifier}", 200] },
   () => GetProjectProfileInput,
   () => GetProjectProfileOutput,
 ];
@@ -9213,9 +7911,7 @@ export var GetRule: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/rules/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/rules/{identifier}", 200] },
   () => GetRuleInput,
   () => GetRuleOutput,
 ];
@@ -9223,9 +7919,7 @@ export var GetSubscription: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscriptions/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscriptions/{identifier}", 200] },
   () => GetSubscriptionInput,
   () => GetSubscriptionOutput,
 ];
@@ -9233,9 +7927,7 @@ export var GetSubscriptionGrant: StaticOperationSchema = [
   9,
   n0,
   _GSG,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-grants/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-grants/{identifier}", 200] },
   () => GetSubscriptionGrantInput,
   () => GetSubscriptionGrantOutput,
 ];
@@ -9243,9 +7935,7 @@ export var GetSubscriptionRequestDetails: StaticOperationSchema = [
   9,
   n0,
   _GSRD,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}", 200] },
   () => GetSubscriptionRequestDetailsInput,
   () => GetSubscriptionRequestDetailsOutput,
 ];
@@ -9281,9 +7971,7 @@ export var GetUserProfile: StaticOperationSchema = [
   9,
   n0,
   _GUP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/user-profiles/{userIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/user-profiles/{userIdentifier}", 200] },
   () => GetUserProfileInput,
   () => GetUserProfileOutput,
 ];
@@ -9291,9 +7979,7 @@ export var ListAccountPools: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/account-pools", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/account-pools", 200] },
   () => ListAccountPoolsInput,
   () => ListAccountPoolsOutput,
 ];
@@ -9301,9 +7987,7 @@ export var ListAccountsInAccountPool: StaticOperationSchema = [
   9,
   n0,
   _LAIAP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/account-pools/{identifier}/accounts", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/account-pools/{identifier}/accounts", 200] },
   () => ListAccountsInAccountPoolInput,
   () => ListAccountsInAccountPoolOutput,
 ];
@@ -9311,9 +7995,7 @@ export var ListAssetFilters: StaticOperationSchema = [
   9,
   n0,
   _LAF,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters", 200] },
   () => ListAssetFiltersInput,
   () => ListAssetFiltersOutput,
 ];
@@ -9321,9 +8003,7 @@ export var ListAssetRevisions: StaticOperationSchema = [
   9,
   n0,
   _LAR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{identifier}/revisions", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/assets/{identifier}/revisions", 200] },
   () => ListAssetRevisionsInput,
   () => ListAssetRevisionsOutput,
 ];
@@ -9331,9 +8011,7 @@ export var ListConnections: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/connections", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/connections", 200] },
   () => ListConnectionsInput,
   () => ListConnectionsOutput,
 ];
@@ -9341,9 +8019,7 @@ export var ListDataProductRevisions: StaticOperationSchema = [
   9,
   n0,
   _LDPR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-products/{identifier}/revisions", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-products/{identifier}/revisions", 200] },
   () => ListDataProductRevisionsInput,
   () => ListDataProductRevisionsOutput,
 ];
@@ -9351,9 +8027,7 @@ export var ListDataSourceRunActivities: StaticOperationSchema = [
   9,
   n0,
   _LDSRA,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-source-runs/{identifier}/activities", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-source-runs/{identifier}/activities", 200] },
   () => ListDataSourceRunActivitiesInput,
   () => ListDataSourceRunActivitiesOutput,
 ];
@@ -9361,9 +8035,7 @@ export var ListDataSourceRuns: StaticOperationSchema = [
   9,
   n0,
   _LDSR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-sources/{dataSourceIdentifier}/runs", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-sources/{dataSourceIdentifier}/runs", 200] },
   () => ListDataSourceRunsInput,
   () => ListDataSourceRunsOutput,
 ];
@@ -9371,9 +8043,7 @@ export var ListDataSources: StaticOperationSchema = [
   9,
   n0,
   _LDS,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-sources", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/data-sources", 200] },
   () => ListDataSourcesInput,
   () => ListDataSourcesOutput,
 ];
@@ -9381,9 +8051,7 @@ export var ListDomains: StaticOperationSchema = [
   9,
   n0,
   _LDi,
-  {
-    [_ht]: ["GET", "/v2/domains", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains", 200] },
   () => ListDomainsInput,
   () => ListDomainsOutput,
 ];
@@ -9391,9 +8059,7 @@ export var ListDomainUnitsForParent: StaticOperationSchema = [
   9,
   n0,
   _LDUFP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/domain-units", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/domain-units", 200] },
   () => ListDomainUnitsForParentInput,
   () => ListDomainUnitsForParentOutput,
 ];
@@ -9401,9 +8067,7 @@ export var ListEntityOwners: StaticOperationSchema = [
   9,
   n0,
   _LEOi,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/owners", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/owners", 200] },
   () => ListEntityOwnersInput,
   () => ListEntityOwnersOutput,
 ];
@@ -9411,9 +8075,7 @@ export var ListEnvironmentActions: StaticOperationSchema = [
   9,
   n0,
   _LEA,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions", 200] },
   () => ListEnvironmentActionsInput,
   () => ListEnvironmentActionsOutput,
 ];
@@ -9421,9 +8083,7 @@ export var ListEnvironmentBlueprintConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LEBC,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-blueprint-configurations", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-blueprint-configurations", 200] },
   () => ListEnvironmentBlueprintConfigurationsInput,
   () => ListEnvironmentBlueprintConfigurationsOutput,
 ];
@@ -9431,9 +8091,7 @@ export var ListEnvironmentBlueprints: StaticOperationSchema = [
   9,
   n0,
   _LEB,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-blueprints", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-blueprints", 200] },
   () => ListEnvironmentBlueprintsInput,
   () => ListEnvironmentBlueprintsOutput,
 ];
@@ -9441,9 +8099,7 @@ export var ListEnvironmentProfiles: StaticOperationSchema = [
   9,
   n0,
   _LEP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-profiles", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environment-profiles", 200] },
   () => ListEnvironmentProfilesInput,
   () => ListEnvironmentProfilesOutput,
 ];
@@ -9451,9 +8107,7 @@ export var ListEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LEis,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments", 200] },
   () => ListEnvironmentsInput,
   () => ListEnvironmentsOutput,
 ];
@@ -9461,9 +8115,7 @@ export var ListJobRuns: StaticOperationSchema = [
   9,
   n0,
   _LJR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/jobs/{jobIdentifier}/runs", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/jobs/{jobIdentifier}/runs", 200] },
   () => ListJobRunsInput,
   () => ListJobRunsOutput,
 ];
@@ -9471,9 +8123,7 @@ export var ListLineageEvents: StaticOperationSchema = [
   9,
   n0,
   _LLE,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/events", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/events", 200] },
   () => ListLineageEventsInput,
   () => ListLineageEventsOutput,
 ];
@@ -9481,9 +8131,7 @@ export var ListLineageNodeHistory: StaticOperationSchema = [
   9,
   n0,
   _LLNH,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/nodes/{identifier}/history", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/lineage/nodes/{identifier}/history", 200] },
   () => ListLineageNodeHistoryInput,
   () => ListLineageNodeHistoryOutput,
 ];
@@ -9491,9 +8139,7 @@ export var ListMetadataGenerationRuns: StaticOperationSchema = [
   9,
   n0,
   _LMGR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/metadata-generation-runs", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/metadata-generation-runs", 200] },
   () => ListMetadataGenerationRunsInput,
   () => ListMetadataGenerationRunsOutput,
 ];
@@ -9501,9 +8147,7 @@ export var ListNotifications: StaticOperationSchema = [
   9,
   n0,
   _LNi,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/notifications", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/notifications", 200] },
   () => ListNotificationsInput,
   () => ListNotificationsOutput,
 ];
@@ -9511,9 +8155,7 @@ export var ListPolicyGrants: StaticOperationSchema = [
   9,
   n0,
   _LPG,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/grants", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/grants", 200] },
   () => ListPolicyGrantsInput,
   () => ListPolicyGrantsOutput,
 ];
@@ -9521,9 +8163,7 @@ export var ListProjectMemberships: StaticOperationSchema = [
   9,
   n0,
   _LPM,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects/{projectIdentifier}/memberships", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects/{projectIdentifier}/memberships", 200] },
   () => ListProjectMembershipsInput,
   () => ListProjectMembershipsOutput,
 ];
@@ -9531,9 +8171,7 @@ export var ListProjectProfiles: StaticOperationSchema = [
   9,
   n0,
   _LPP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/project-profiles", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/project-profiles", 200] },
   () => ListProjectProfilesInput,
   () => ListProjectProfilesOutput,
 ];
@@ -9541,9 +8179,7 @@ export var ListProjects: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects", 200] },
   () => ListProjectsInput,
   () => ListProjectsOutput,
 ];
@@ -9551,9 +8187,7 @@ export var ListRules: StaticOperationSchema = [
   9,
   n0,
   _LRi,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/list-rules/{targetType}/{targetIdentifier}", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/list-rules/{targetType}/{targetIdentifier}", 200] },
   () => ListRulesInput,
   () => ListRulesOutput,
 ];
@@ -9561,9 +8195,7 @@ export var ListSubscriptionGrants: StaticOperationSchema = [
   9,
   n0,
   _LSG,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-grants", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-grants", 200] },
   () => ListSubscriptionGrantsInput,
   () => ListSubscriptionGrantsOutput,
 ];
@@ -9571,9 +8203,7 @@ export var ListSubscriptionRequests: StaticOperationSchema = [
   9,
   n0,
   _LSR,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-requests", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscription-requests", 200] },
   () => ListSubscriptionRequestsInput,
   () => ListSubscriptionRequestsOutput,
 ];
@@ -9581,9 +8211,7 @@ export var ListSubscriptions: StaticOperationSchema = [
   9,
   n0,
   _LSis,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscriptions", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/subscriptions", 200] },
   () => ListSubscriptionsInput,
   () => ListSubscriptionsOutput,
 ];
@@ -9591,9 +8219,7 @@ export var ListSubscriptionTargets: StaticOperationSchema = [
   9,
   n0,
   _LST,
-  {
-    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/subscription-targets", 200],
-  },
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/subscription-targets", 200] },
   () => ListSubscriptionTargetsInput,
   () => ListSubscriptionTargetsOutput,
 ];
@@ -9601,9 +8227,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -9625,9 +8249,7 @@ export var PostLineageEvent: StaticOperationSchema = [
   9,
   n0,
   _PLE,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/lineage/events", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/lineage/events", 200] },
   () => PostLineageEventInput,
   () => PostLineageEventOutput,
 ];
@@ -9649,9 +8271,7 @@ export var PutDataExportConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PDEC,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/data-export-configuration", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/data-export-configuration", 200] },
   () => PutDataExportConfigurationInput,
   () => PutDataExportConfigurationOutput,
 ];
@@ -9673,9 +8293,7 @@ export var RejectPredictions: StaticOperationSchema = [
   9,
   n0,
   _RP,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/assets/{identifier}/reject-predictions", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/assets/{identifier}/reject-predictions", 200] },
   () => RejectPredictionsInput,
   () => RejectPredictionsOutput,
 ];
@@ -9683,9 +8301,7 @@ export var RejectSubscriptionRequest: StaticOperationSchema = [
   9,
   n0,
   _RSR,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}/reject", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}/reject", 200] },
   () => RejectSubscriptionRequestInput,
   () => RejectSubscriptionRequestOutput,
 ];
@@ -9693,9 +8309,7 @@ export var RemoveEntityOwner: StaticOperationSchema = [
   9,
   n0,
   _REO,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/removeOwner", 204],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/removeOwner", 204] },
   () => RemoveEntityOwnerInput,
   () => RemoveEntityOwnerOutput,
 ];
@@ -9713,9 +8327,7 @@ export var RevokeSubscription: StaticOperationSchema = [
   9,
   n0,
   _RSev,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscriptions/{identifier}/revoke", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/subscriptions/{identifier}/revoke", 200] },
   () => RevokeSubscriptionInput,
   () => RevokeSubscriptionOutput,
 ];
@@ -9723,9 +8335,7 @@ export var Search: StaticOperationSchema = [
   9,
   n0,
   _Se,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/search", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/search", 200] },
   () => SearchInput,
   () => SearchOutput,
 ];
@@ -9733,9 +8343,7 @@ export var SearchGroupProfiles: StaticOperationSchema = [
   9,
   n0,
   _SGP,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/search-group-profiles", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/search-group-profiles", 200] },
   () => SearchGroupProfilesInput,
   () => SearchGroupProfilesOutput,
 ];
@@ -9743,9 +8351,7 @@ export var SearchListings: StaticOperationSchema = [
   9,
   n0,
   _SLe,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/listings/search", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/listings/search", 200] },
   () => SearchListingsInput,
   () => SearchListingsOutput,
 ];
@@ -9753,9 +8359,7 @@ export var SearchTypes: StaticOperationSchema = [
   9,
   n0,
   _STe,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/types-search", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/types-search", 200] },
   () => SearchTypesInput,
   () => SearchTypesOutput,
 ];
@@ -9763,9 +8367,7 @@ export var SearchUserProfiles: StaticOperationSchema = [
   9,
   n0,
   _SUP,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/search-user-profiles", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/search-user-profiles", 200] },
   () => SearchUserProfilesInput,
   () => SearchUserProfilesOutput,
 ];
@@ -9773,9 +8375,7 @@ export var StartDataSourceRun: StaticOperationSchema = [
   9,
   n0,
   _SDSR,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-sources/{dataSourceIdentifier}/runs", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/data-sources/{dataSourceIdentifier}/runs", 200] },
   () => StartDataSourceRunInput,
   () => StartDataSourceRunOutput,
 ];
@@ -9783,9 +8383,7 @@ export var StartMetadataGenerationRun: StaticOperationSchema = [
   9,
   n0,
   _SMGR,
-  {
-    [_ht]: ["POST", "/v2/domains/{domainIdentifier}/metadata-generation-runs", 200],
-  },
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/metadata-generation-runs", 200] },
   () => StartMetadataGenerationRunInput,
   () => StartMetadataGenerationRunOutput,
 ];
@@ -9793,9 +8391,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -9803,9 +8399,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -9813,9 +8407,7 @@ export var UpdateAccountPool: StaticOperationSchema = [
   9,
   n0,
   _UAP,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/account-pools/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/account-pools/{identifier}", 200] },
   () => UpdateAccountPoolInput,
   () => UpdateAccountPoolOutput,
 ];
@@ -9823,9 +8415,7 @@ export var UpdateAssetFilter: StaticOperationSchema = [
   9,
   n0,
   _UAF,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 200] },
   () => UpdateAssetFilterInput,
   () => UpdateAssetFilterOutput,
 ];
@@ -9833,9 +8423,7 @@ export var UpdateConnection: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/connections/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/connections/{identifier}", 200] },
   () => UpdateConnectionInput,
   () => UpdateConnectionOutput,
 ];
@@ -9843,9 +8431,7 @@ export var UpdateDataSource: StaticOperationSchema = [
   9,
   n0,
   _UDS,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/data-sources/{identifier}", 200] },
   () => UpdateDataSourceInput,
   () => UpdateDataSourceOutput,
 ];
@@ -9853,9 +8439,7 @@ export var UpdateDomain: StaticOperationSchema = [
   9,
   n0,
   _UDp,
-  {
-    [_ht]: ["PUT", "/v2/domains/{identifier}", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{identifier}", 200] },
   () => UpdateDomainInput,
   () => UpdateDomainOutput,
 ];
@@ -9863,9 +8447,7 @@ export var UpdateDomainUnit: StaticOperationSchema = [
   9,
   n0,
   _UDU,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/domain-units/{identifier}", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/domain-units/{identifier}", 200] },
   () => UpdateDomainUnitInput,
   () => UpdateDomainUnitOutput,
 ];
@@ -9873,9 +8455,7 @@ export var UpdateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UEp,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environments/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environments/{identifier}", 200] },
   () => UpdateEnvironmentInput,
   () => UpdateEnvironmentOutput,
 ];
@@ -9883,9 +8463,7 @@ export var UpdateEnvironmentAction: StaticOperationSchema = [
   9,
   n0,
   _UEA,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}", 200] },
   () => UpdateEnvironmentActionInput,
   () => UpdateEnvironmentActionOutput,
 ];
@@ -9893,9 +8471,7 @@ export var UpdateEnvironmentBlueprint: StaticOperationSchema = [
   9,
   n0,
   _UEB,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}", 200] },
   () => UpdateEnvironmentBlueprintInput,
   () => UpdateEnvironmentBlueprintOutput,
 ];
@@ -9903,9 +8479,7 @@ export var UpdateEnvironmentProfile: StaticOperationSchema = [
   9,
   n0,
   _UEP,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environment-profiles/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/environment-profiles/{identifier}", 200] },
   () => UpdateEnvironmentProfileInput,
   () => UpdateEnvironmentProfileOutput,
 ];
@@ -9913,9 +8487,7 @@ export var UpdateGlossary: StaticOperationSchema = [
   9,
   n0,
   _UG,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/glossaries/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/glossaries/{identifier}", 200] },
   () => UpdateGlossaryInput,
   () => UpdateGlossaryOutput,
 ];
@@ -9923,9 +8495,7 @@ export var UpdateGlossaryTerm: StaticOperationSchema = [
   9,
   n0,
   _UGT,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/glossary-terms/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/glossary-terms/{identifier}", 200] },
   () => UpdateGlossaryTermInput,
   () => UpdateGlossaryTermOutput,
 ];
@@ -9933,9 +8503,7 @@ export var UpdateGroupProfile: StaticOperationSchema = [
   9,
   n0,
   _UGP,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/group-profiles/{groupIdentifier}", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/group-profiles/{groupIdentifier}", 200] },
   () => UpdateGroupProfileInput,
   () => UpdateGroupProfileOutput,
 ];
@@ -9943,9 +8511,7 @@ export var UpdateProject: StaticOperationSchema = [
   9,
   n0,
   _UPp,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/projects/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/projects/{identifier}", 200] },
   () => UpdateProjectInput,
   () => UpdateProjectOutput,
 ];
@@ -9953,9 +8519,7 @@ export var UpdateProjectProfile: StaticOperationSchema = [
   9,
   n0,
   _UPP,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/project-profiles/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/project-profiles/{identifier}", 200] },
   () => UpdateProjectProfileInput,
   () => UpdateProjectProfileOutput,
 ];
@@ -9963,9 +8527,7 @@ export var UpdateRootDomainUnitOwner: StaticOperationSchema = [
   9,
   n0,
   _URDUO,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/root-domain-unit-owner", 204],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/root-domain-unit-owner", 204] },
   () => UpdateRootDomainUnitOwnerInput,
   () => UpdateRootDomainUnitOwnerOutput,
 ];
@@ -9973,9 +8535,7 @@ export var UpdateRule: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/rules/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/rules/{identifier}", 200] },
   () => UpdateRuleInput,
   () => UpdateRuleOutput,
 ];
@@ -9983,9 +8543,7 @@ export var UpdateSubscriptionGrantStatus: StaticOperationSchema = [
   9,
   n0,
   _USGS,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/subscription-grants/{identifier}/status/{assetIdentifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/subscription-grants/{identifier}/status/{assetIdentifier}", 200] },
   () => UpdateSubscriptionGrantStatusInput,
   () => UpdateSubscriptionGrantStatusOutput,
 ];
@@ -9993,9 +8551,7 @@ export var UpdateSubscriptionRequest: StaticOperationSchema = [
   9,
   n0,
   _USR,
-  {
-    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}", 200],
-  },
+  { [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}", 200] },
   () => UpdateSubscriptionRequestInput,
   () => UpdateSubscriptionRequestOutput,
 ];
@@ -10017,9 +8573,7 @@ export var UpdateUserProfile: StaticOperationSchema = [
   9,
   n0,
   _UUP,
-  {
-    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/user-profiles/{userIdentifier}", 200],
-  },
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/user-profiles/{userIdentifier}", 200] },
   () => UpdateUserProfileInput,
   () => UpdateUserProfileOutput,
 ];

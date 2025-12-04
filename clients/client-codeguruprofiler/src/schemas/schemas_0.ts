@@ -231,7 +231,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AddNotificationChannelsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -266,34 +265,7 @@ export var BatchGetFrameMetricDataRequest: StaticStructureSchema = [
   _BGFMDR,
   0,
   [_pGN, _sT, _eT, _p, _tR, _fM],
-  [
-    [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tR,
-      },
-    ],
-    () => FrameMetrics,
-  ],
+  [[0, 1], [5, { [_hQ]: _sT }], [5, { [_hQ]: _eT }], [0, { [_hQ]: _p }], [0, { [_hQ]: _tR }], () => FrameMetrics],
 ];
 export var BatchGetFrameMetricDataResponse: StaticStructureSchema = [
   3,
@@ -306,38 +278,15 @@ export var BatchGetFrameMetricDataResponse: StaticStructureSchema = [
 export var Channel: StaticStructureSchema = [3, n0, _C, 0, [_id, _u, _eP], [0, 0, 64 | 0]];
 export var ConfigureAgentRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_pGN, _fII, _me], [[0, 1], 0, 128 | 0]];
 export var ConfigureAgentResponse: StaticStructureSchema = [3, n0, _CARo, 0, [_co], [[() => AgentConfiguration, 16]]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _cl,
-    [_hE]: 409,
-  },
-  [_mes],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _cl, [_hE]: 409 }, [_mes], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateProfilingGroupRequest: StaticStructureSchema = [
   3,
   n0,
   _CPGR,
   0,
   [_pGN, _cP, _cT, _aOC, _t],
-  [
-    0,
-    0,
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-    () => AgentOrchestrationConfig,
-    128 | 0,
-  ],
+  [0, 0, [0, { [_iT]: 1, [_hQ]: _cT }], () => AgentOrchestrationConfig, 128 | 0],
 ];
 export var CreateProfilingGroupResponse: StaticStructureSchema = [
   3,
@@ -375,24 +324,9 @@ export var GetFindingsReportAccountSummaryRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _dRO],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _dRO,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [2, { [_hQ]: _dRO }],
   ],
 ];
 export var GetFindingsReportAccountSummaryResponse: StaticStructureSchema = [
@@ -422,36 +356,11 @@ export var GetProfileRequest: StaticStructureSchema = [
   [_pGN, _sT, _p, _eT, _mD, _a],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mD,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _Ac,
-      },
-    ],
+    [5, { [_hQ]: _sT }],
+    [0, { [_hQ]: _p }],
+    [5, { [_hQ]: _eT }],
+    [1, { [_hQ]: _mD }],
+    [0, { [_hH]: _Ac }],
   ],
 ];
 export var GetProfileResponse: StaticStructureSchema = [
@@ -462,18 +371,8 @@ export var GetProfileResponse: StaticStructureSchema = [
   [_pr, _cTo, _cE],
   [
     [21, 16],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CE_,
-      },
-    ],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _CE_ }],
   ],
 ];
 export var GetRecommendationsRequest: StaticStructureSchema = [
@@ -484,24 +383,9 @@ export var GetRecommendationsRequest: StaticStructureSchema = [
   [_pGN, _sT, _eT, _l],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
+    [5, { [_hQ]: _sT }],
+    [5, { [_hQ]: _eT }],
+    [0, { [_hQ]: _l }],
   ],
 ];
 export var GetRecommendationsResponse: StaticStructureSchema = [
@@ -512,19 +396,8 @@ export var GetRecommendationsResponse: StaticStructureSchema = [
   [_pGN, _pST, _pET, _rec, _an],
   [0, 5, 5, () => Recommendations, () => Anomalies],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_mes],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_mes], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListFindingsReportsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -533,36 +406,11 @@ export var ListFindingsReportsRequest: StaticStructureSchema = [
   [_pGN, _sT, _eT, _nT, _mR, _dRO],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _dRO,
-      },
-    ],
+    [5, { [_hQ]: _sT }],
+    [5, { [_hQ]: _eT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [2, { [_hQ]: _dRO }],
   ],
 ];
 export var ListFindingsReportsResponse: StaticStructureSchema = [
@@ -581,42 +429,12 @@ export var ListProfileTimesRequest: StaticStructureSchema = [
   [_pGN, _sT, _eT, _p, _oB, _mR, _nT],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oB,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [5, { [_hQ]: _sT }],
+    [5, { [_hQ]: _eT }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _oB }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProfileTimesResponse: StaticStructureSchema = [3, n0, _LPTRi, 0, [_pT, _nT], [() => ProfileTimes, 0]];
@@ -627,24 +445,9 @@ export var ListProfilingGroupsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _iD],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iD,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [2, { [_hQ]: _iD }],
   ],
 ];
 export var ListProfilingGroupsResponse: StaticStructureSchema = [
@@ -677,19 +480,8 @@ export var PostAgentProfileRequest: StaticStructureSchema = [
   [
     [0, 1],
     [21, 16],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _pTr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _pTr }],
+    [0, { [_hH]: _CT }],
   ],
 ];
 export var PostAgentProfileResponse: StaticStructureSchema = [3, n0, _PAPRo, 0, [], []];
@@ -755,41 +547,14 @@ export var RemovePermissionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rI,
-      },
-    ],
+    [0, { [_hQ]: _rI }],
   ],
 ];
 export var RemovePermissionResponse: StaticStructureSchema = [3, n0, _RPRe, 0, [_po, _rI], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-  },
-  [_mes],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_mes], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _cl,
-    [_hE]: 402,
-  },
-  [_mes],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _cl, [_hE]: 402 }, [_mes], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SubmitFeedbackRequest: StaticStructureSchema = [
   3,
   n0,
@@ -801,19 +566,8 @@ export var SubmitFeedbackRequest: StaticStructureSchema = [
 export var SubmitFeedbackResponse: StaticStructureSchema = [3, n0, _SFRu, 0, [], []];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _cl,
-    [_hE]: 429,
-  },
-  [_mes],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _cl, [_hE]: 429 }, [_mes], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimestampStructure: StaticStructureSchema = [3, n0, _TS, 0, [_va], [5]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -823,12 +577,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -849,19 +598,8 @@ export var UpdateProfilingGroupResponse: StaticStructureSchema = [
   [[() => ProfilingGroupDescription, 16]],
 ];
 export var UserFeedback: StaticStructureSchema = [3, n0, _UF, 0, [_ty], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_mes],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _cl, [_hE]: 400 }, [_mes], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var CodeGuruProfilerServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -871,49 +609,35 @@ export var CodeGuruProfilerServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(CodeGuruProfilerServiceException, __CodeGuruProfilerServiceException);
-
 export var Anomalies: StaticListSchema = [1, n0, _An, 0, () => Anomaly];
 export var AnomalyInstances: StaticListSchema = [1, n0, _AIn, 0, () => AnomalyInstance];
 export var Channels: StaticListSchema = [1, n0, _Ch, 0, () => Channel];
 export var EventPublishers = 64 | 0;
-
 export var FindingsReportSummaries: StaticListSchema = [1, n0, _FRSi, 0, () => FindingsReportSummary];
 export var FrameMetricData: StaticListSchema = [1, n0, _FMDr, 0, () => FrameMetricDatum];
 export var FrameMetrics: StaticListSchema = [1, n0, _FMr, 0, () => FrameMetric];
 export var FrameMetricValues = 64 | 1;
-
 export var ListOfTimestamps: StaticListSchema = [1, n0, _LOT, 0, () => TimestampStructure];
 export var Matches: StaticListSchema = [1, n0, _Ma, 0, () => Match];
 export var Principals = 64 | 0;
-
 export var ProfileTimes: StaticListSchema = [1, n0, _PTr, 0, () => ProfileTime];
 export var ProfilingGroupDescriptions: StaticListSchema = [1, n0, _PGDr, 0, () => ProfilingGroupDescription];
 export var ProfilingGroupNames = 64 | 0;
-
 export var Recommendations: StaticListSchema = [1, n0, _Re, 0, () => Recommendation];
 export var Strings = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var TargetFrame = 64 | 0;
-
 export var TargetFrames: StaticListSchema = [1, n0, _TF, 0, 64 | 0];
 export var ThreadStates = 64 | 0;
-
 export var AgentParameters = 128 | 0;
-
 export var Metadata = 128 | 0;
-
 export var TagsMap = 128 | 0;
-
 export var UnprocessedEndTimeMap: StaticMapSchema = [2, n0, _UETM, 0, 0, () => ListOfTimestamps];
 export var AddNotificationChannels: StaticOperationSchema = [
   9,
   n0,
   _ANC,
-  {
-    [_h]: ["POST", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200],
-  },
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200] },
   () => AddNotificationChannelsRequest,
   () => AddNotificationChannelsResponse,
 ];
@@ -921,9 +645,7 @@ export var BatchGetFrameMetricData: StaticOperationSchema = [
   9,
   n0,
   _BGFMD,
-  {
-    [_h]: ["POST", "/profilingGroups/{profilingGroupName}/frames/-/metrics", 200],
-  },
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/frames/-/metrics", 200] },
   () => BatchGetFrameMetricDataRequest,
   () => BatchGetFrameMetricDataResponse,
 ];
@@ -931,9 +653,7 @@ export var ConfigureAgent: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/profilingGroups/{profilingGroupName}/configureAgent", 200],
-  },
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/configureAgent", 200] },
   () => ConfigureAgentRequest,
   () => ConfigureAgentResponse,
 ];
@@ -941,9 +661,7 @@ export var CreateProfilingGroup: StaticOperationSchema = [
   9,
   n0,
   _CPG,
-  {
-    [_h]: ["POST", "/profilingGroups", 201],
-  },
+  { [_h]: ["POST", "/profilingGroups", 201] },
   () => CreateProfilingGroupRequest,
   () => CreateProfilingGroupResponse,
 ];
@@ -951,9 +669,7 @@ export var DeleteProfilingGroup: StaticOperationSchema = [
   9,
   n0,
   _DPG,
-  {
-    [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}", 204],
-  },
+  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}", 204] },
   () => DeleteProfilingGroupRequest,
   () => DeleteProfilingGroupResponse,
 ];
@@ -961,9 +677,7 @@ export var DescribeProfilingGroup: StaticOperationSchema = [
   9,
   n0,
   _DPGe,
-  {
-    [_h]: ["GET", "/profilingGroups/{profilingGroupName}", 200],
-  },
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}", 200] },
   () => DescribeProfilingGroupRequest,
   () => DescribeProfilingGroupResponse,
 ];
@@ -971,9 +685,7 @@ export var GetFindingsReportAccountSummary: StaticOperationSchema = [
   9,
   n0,
   _GFRAS,
-  {
-    [_h]: ["GET", "/internal/findingsReports", 200],
-  },
+  { [_h]: ["GET", "/internal/findingsReports", 200] },
   () => GetFindingsReportAccountSummaryRequest,
   () => GetFindingsReportAccountSummaryResponse,
 ];
@@ -981,9 +693,7 @@ export var GetNotificationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GNC,
-  {
-    [_h]: ["GET", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200],
-  },
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/notificationConfiguration", 200] },
   () => GetNotificationConfigurationRequest,
   () => GetNotificationConfigurationResponse,
 ];
@@ -991,9 +701,7 @@ export var GetPolicy: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/profilingGroups/{profilingGroupName}/policy", 200],
-  },
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/policy", 200] },
   () => GetPolicyRequest,
   () => GetPolicyResponse,
 ];
@@ -1001,9 +709,7 @@ export var GetProfile: StaticOperationSchema = [
   9,
   n0,
   _GPe,
-  {
-    [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profile", 200],
-  },
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profile", 200] },
   () => GetProfileRequest,
   () => GetProfileResponse,
 ];
@@ -1011,9 +717,7 @@ export var GetRecommendations: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/recommendations", 200],
-  },
+  { [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/recommendations", 200] },
   () => GetRecommendationsRequest,
   () => GetRecommendationsResponse,
 ];
@@ -1021,9 +725,7 @@ export var ListFindingsReports: StaticOperationSchema = [
   9,
   n0,
   _LFR,
-  {
-    [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/findingsReports", 200],
-  },
+  { [_h]: ["GET", "/internal/profilingGroups/{profilingGroupName}/findingsReports", 200] },
   () => ListFindingsReportsRequest,
   () => ListFindingsReportsResponse,
 ];
@@ -1031,9 +733,7 @@ export var ListProfileTimes: StaticOperationSchema = [
   9,
   n0,
   _LPT,
-  {
-    [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profileTimes", 200],
-  },
+  { [_h]: ["GET", "/profilingGroups/{profilingGroupName}/profileTimes", 200] },
   () => ListProfileTimesRequest,
   () => ListProfileTimesResponse,
 ];
@@ -1041,9 +741,7 @@ export var ListProfilingGroups: StaticOperationSchema = [
   9,
   n0,
   _LPG,
-  {
-    [_h]: ["GET", "/profilingGroups", 200],
-  },
+  { [_h]: ["GET", "/profilingGroups", 200] },
   () => ListProfilingGroupsRequest,
   () => ListProfilingGroupsResponse,
 ];
@@ -1051,9 +749,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1061,9 +757,7 @@ export var PostAgentProfile: StaticOperationSchema = [
   9,
   n0,
   _PAP,
-  {
-    [_h]: ["POST", "/profilingGroups/{profilingGroupName}/agentProfile", 204],
-  },
+  { [_h]: ["POST", "/profilingGroups/{profilingGroupName}/agentProfile", 204] },
   () => PostAgentProfileRequest,
   () => PostAgentProfileResponse,
 ];
@@ -1071,9 +765,7 @@ export var PutPermission: StaticOperationSchema = [
   9,
   n0,
   _PP,
-  {
-    [_h]: ["PUT", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200],
-  },
+  { [_h]: ["PUT", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200] },
   () => PutPermissionRequest,
   () => PutPermissionResponse,
 ];
@@ -1081,9 +773,7 @@ export var RemoveNotificationChannel: StaticOperationSchema = [
   9,
   n0,
   _RNC,
-  {
-    [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}", 200],
-  },
+  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}", 200] },
   () => RemoveNotificationChannelRequest,
   () => RemoveNotificationChannelResponse,
 ];
@@ -1091,9 +781,7 @@ export var RemovePermission: StaticOperationSchema = [
   9,
   n0,
   _RP,
-  {
-    [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200],
-  },
+  { [_h]: ["DELETE", "/profilingGroups/{profilingGroupName}/policy/{actionGroup}", 200] },
   () => RemovePermissionRequest,
   () => RemovePermissionResponse,
 ];
@@ -1101,9 +789,7 @@ export var SubmitFeedback: StaticOperationSchema = [
   9,
   n0,
   _SF,
-  {
-    [_h]: ["POST", "/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback", 204],
-  },
+  { [_h]: ["POST", "/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback", 204] },
   () => SubmitFeedbackRequest,
   () => SubmitFeedbackResponse,
 ];
@@ -1111,9 +797,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1121,9 +805,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1131,9 +813,7 @@ export var UpdateProfilingGroup: StaticOperationSchema = [
   9,
   n0,
   _UPG,
-  {
-    [_h]: ["PUT", "/profilingGroups/{profilingGroupName}", 200],
-  },
+  { [_h]: ["PUT", "/profilingGroups/{profilingGroupName}", 200] },
   () => UpdateProfilingGroupRequest,
   () => UpdateProfilingGroupResponse,
 ];

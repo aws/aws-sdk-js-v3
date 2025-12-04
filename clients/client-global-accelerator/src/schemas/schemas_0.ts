@@ -340,7 +340,6 @@ import {
 import { GlobalAcceleratorServiceException as __GlobalAcceleratorServiceException } from "../models/GlobalAcceleratorServiceException";
 
 /* eslint no-var: 0 */
-
 export var Accelerator: StaticStructureSchema = [
   3,
   n0,
@@ -351,45 +350,12 @@ export var Accelerator: StaticStructureSchema = [
 ];
 export var AcceleratorAttributes: StaticStructureSchema = [3, n0, _AAc, 0, [_FLE, _FLSB, _FLSP], [2, 0, 0]];
 export var AcceleratorEvent: StaticStructureSchema = [3, n0, _AE, 0, [_M, _T], [0, 4]];
-export var AcceleratorNotDisabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var AcceleratorNotDisabledException: StaticErrorSchema = [-3, n0, _ANDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AcceleratorNotDisabledException, __AcceleratorNotDisabledException);
-
-export var AcceleratorNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var AcceleratorNotFoundException: StaticErrorSchema = [-3, n0, _ANFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AcceleratorNotFoundException, __AcceleratorNotFoundException);
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddCustomRoutingEndpointsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -436,28 +402,13 @@ export var AssociatedEndpointGroupFoundException: StaticErrorSchema = [
   -3,
   n0,
   _AEGFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AssociatedEndpointGroupFoundException, __AssociatedEndpointGroupFoundException);
-
-export var AssociatedListenerFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ALFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var AssociatedListenerFoundException: StaticErrorSchema = [-3, n0, _ALFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AssociatedListenerFoundException, __AssociatedListenerFoundException);
-
 export var Attachment: StaticStructureSchema = [
   3,
   n0,
@@ -466,48 +417,15 @@ export var Attachment: StaticStructureSchema = [
   [_AAt, _N, _P, _R, _LMT, _CT],
   [0, 0, 64 | 0, () => Resources, 4, 4],
 ];
-export var AttachmentNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANFEt,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var AttachmentNotFoundException: StaticErrorSchema = [-3, n0, _ANFEt, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AttachmentNotFoundException, __AttachmentNotFoundException);
-
 export var ByoipCidr: StaticStructureSchema = [3, n0, _BC, 0, [_C, _St, _Ev], [0, 0, () => ByoipCidrEvents]];
 export var ByoipCidrEvent: StaticStructureSchema = [3, n0, _BCE, 0, [_M, _T], [0, 4]];
-export var ByoipCidrNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BCNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ByoipCidrNotFoundException: StaticErrorSchema = [-3, n0, _BCNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ByoipCidrNotFoundException, __ByoipCidrNotFoundException);
-
 export var CidrAuthorizationContext: StaticStructureSchema = [3, n0, _CAC, 0, [_M, _Si], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAcceleratorRequest: StaticStructureSchema = [
   3,
   n0,
@@ -728,19 +646,8 @@ export var DestinationPortMapping: StaticStructureSchema = [
   [_AA, _ASA, _EGA, _EI, _EGR, _DSA, _IAT, _DTS],
   [0, () => SocketAddresses, 0, 0, 0, () => SocketAddress, 0, 0],
 ];
-export var EndpointAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var EndpointAlreadyExistsException: StaticErrorSchema = [-3, n0, _EAEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EndpointAlreadyExistsException, __EndpointAlreadyExistsException);
-
 export var EndpointConfiguration: StaticStructureSchema = [3, n0, _ECn, 0, [_EI, _W, _CIPPE, _AAt], [0, 1, 2, 0]];
 export var EndpointDescription: StaticStructureSchema = [3, n0, _EDn, 0, [_EI, _W, _HS, _HR, _CIPPE], [0, 1, 0, 0, 2]];
 export var EndpointGroup: StaticStructureSchema = [
@@ -755,121 +662,29 @@ export var EndpointGroupAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _EGAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EndpointGroupAlreadyExistsException, __EndpointGroupAlreadyExistsException);
-
-export var EndpointGroupNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EGNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var EndpointGroupNotFoundException: StaticErrorSchema = [-3, n0, _EGNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EndpointGroupNotFoundException, __EndpointGroupNotFoundException);
-
 export var EndpointIdentifier: StaticStructureSchema = [3, n0, _EIn, 0, [_EI, _CIPPE], [0, 2]];
-export var EndpointNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ENFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var EndpointNotFoundException: StaticErrorSchema = [-3, n0, _ENFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EndpointNotFoundException, __EndpointNotFoundException);
-
-export var IncorrectCidrStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICSE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var IncorrectCidrStateException: StaticErrorSchema = [-3, n0, _ICSE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IncorrectCidrStateException, __IncorrectCidrStateException);
-
-export var InternalServiceErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException, __InternalServiceErrorException);
-
-export var InvalidArgumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidPortRangeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidPortRangeException: StaticErrorSchema = [-3, n0, _IPRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidPortRangeException, __InvalidPortRangeException);
-
 export var IpSet: StaticStructureSchema = [3, n0, _ISp, 0, [_IF, _IA, _IAF], [0, 64 | 0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAcceleratorsRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_MR, _NT], [1, 0]];
 export var ListAcceleratorsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Ac, _NT], [() => Accelerators, 0]];
 export var ListByoipCidrsRequest: StaticStructureSchema = [3, n0, _LBCR, 0, [_MR, _NT], [1, 0]];
@@ -977,19 +792,8 @@ export var ListEndpointGroupsResponse: StaticStructureSchema = [
   [() => EndpointGroups, 0],
 ];
 export var Listener: StaticStructureSchema = [3, n0, _L, 0, [_LA, _PR, _Pr, _CA], [0, () => PortRanges, 0, 0]];
-export var ListenerNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ListenerNotFoundException: StaticErrorSchema = [-3, n0, _LNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ListenerNotFoundException, __ListenerNotFoundException);
-
 export var ListListenersRequest: StaticStructureSchema = [3, n0, _LLR, 0, [_AA, _MR, _NT], [0, 1, 0]];
 export var ListListenersResponse: StaticStructureSchema = [3, n0, _LLRi, 0, [_Li, _NT], [() => Listeners, 0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
@@ -1027,19 +831,8 @@ export var SocketAddress: StaticStructureSchema = [3, n0, _SA, 0, [_IAp, _Po], [
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => Tags]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TransactionInProgressException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TIPE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var TransactionInProgressException: StaticErrorSchema = [-3, n0, _TIPE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TransactionInProgressException, __TransactionInProgressException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAcceleratorAttributesRequest: StaticStructureSchema = [
@@ -1152,7 +945,6 @@ export var UpdateListenerResponse: StaticStructureSchema = [3, n0, _ULRp, 0, [_L
 export var WithdrawByoipCidrRequest: StaticStructureSchema = [3, n0, _WBCR, 0, [_C], [0]];
 export var WithdrawByoipCidrResponse: StaticStructureSchema = [3, n0, _WBCRi, 0, [_BC], [() => ByoipCidr]];
 export var __Unit = "unit" as const;
-
 export var GlobalAcceleratorServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1162,12 +954,10 @@ export var GlobalAcceleratorServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(GlobalAcceleratorServiceException, __GlobalAcceleratorServiceException);
-
 export var AcceleratorEvents: StaticListSchema = [1, n0, _AEc, 0, () => AcceleratorEvent];
 export var Accelerators: StaticListSchema = [1, n0, _Ac, 0, () => Accelerator];
 export var Attachments: StaticListSchema = [1, n0, _Att, 0, () => Attachment];
 export var AwsAccountIds = 64 | 0;
-
 export var ByoipCidrEvents: StaticListSchema = [1, n0, _BCEy, 0, () => ByoipCidrEvent];
 export var ByoipCidrs: StaticListSchema = [1, n0, _BCy, 0, () => ByoipCidr];
 export var CrossAccountResources: StaticListSchema = [1, n0, _CARros, 0, () => CrossAccountResource];
@@ -1203,33 +993,25 @@ export var CustomRoutingEndpointDescriptions: StaticListSchema = [
 export var CustomRoutingEndpointGroups: StaticListSchema = [1, n0, _CREGu, 0, () => CustomRoutingEndpointGroup];
 export var CustomRoutingListeners: StaticListSchema = [1, n0, _CRLu, 0, () => CustomRoutingListener];
 export var CustomRoutingProtocols = 64 | 0;
-
 export var DestinationAddresses = 64 | 0;
-
 export var DestinationPortMappings: StaticListSchema = [1, n0, _DPMe, 0, () => DestinationPortMapping];
 export var DestinationPorts = 64 | 1;
-
 export var EndpointConfigurations: StaticListSchema = [1, n0, _EC, 0, () => EndpointConfiguration];
 export var EndpointDescriptions: StaticListSchema = [1, n0, _ED, 0, () => EndpointDescription];
 export var EndpointGroups: StaticListSchema = [1, n0, _EGn, 0, () => EndpointGroup];
 export var EndpointIdentifiers: StaticListSchema = [1, n0, _EIndp, 0, () => EndpointIdentifier];
 export var EndpointIds = 64 | 0;
-
 export var IpAddresses = 64 | 0;
-
 export var IpSets: StaticListSchema = [1, n0, _IS, 0, () => IpSet];
 export var Listeners: StaticListSchema = [1, n0, _Li, 0, () => Listener];
 export var PortMappings: StaticListSchema = [1, n0, _PM, 0, () => PortMapping];
 export var PortOverrides: StaticListSchema = [1, n0, _PO, 0, () => PortOverride];
 export var PortRanges: StaticListSchema = [1, n0, _PR, 0, () => PortRange];
 export var Principals = 64 | 0;
-
 export var Protocols = 64 | 0;
-
 export var Resources: StaticListSchema = [1, n0, _R, 0, () => Resource];
 export var SocketAddresses: StaticListSchema = [1, n0, _SAo, 0, () => SocketAddress];
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var AddCustomRoutingEndpoints: StaticOperationSchema = [
   9,

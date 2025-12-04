@@ -310,22 +310,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 export var Phone: StaticSimpleSchema = [0, n0, _P, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AdvancedOptions: StaticStructureSchema = [3, n0, _AO, 0, [_x], [() => X12AdvancedOptions]];
 export var CapabilityOptions: StaticStructureSchema = [
   3,
@@ -336,19 +324,8 @@ export var CapabilityOptions: StaticStructureSchema = [
   [() => OutboundEdiOptions, () => InboundEdiOptions],
 ];
 export var CapabilitySummary: StaticStructureSchema = [3, n0, _CS, 0, [_cI, _n, _t, _cA, _mA], [0, 0, 0, 5, 5]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConversionSource: StaticStructureSchema = [3, n0, _CSo, 0, [_fF, _iF], [0, () => InputFileSource]];
 export var ConversionTarget: StaticStructureSchema = [
   3,
@@ -506,12 +483,7 @@ export var GetTransformerJobRequest: StaticStructureSchema = [
   [_tJI, _tI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
+    [0, { [_hQ]: _tI }],
   ],
 ];
 export var GetTransformerJobResponse: StaticStructureSchema = [
@@ -559,23 +531,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListCapabilitiesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -583,18 +543,8 @@ export var ListCapabilitiesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCapabilitiesResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_ca, _nT], [() => CapabilityList, 0]];
@@ -605,24 +555,9 @@ export var ListPartnershipsRequest: StaticStructureSchema = [
   0,
   [_pI, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _pI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPartnershipsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nT], [() => PartnershipList, 0]];
@@ -633,18 +568,8 @@ export var ListProfilesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListProfilesResponse: StaticStructureSchema = [3, n0, _LPRist, 0, [_pr, _nT], [() => ProfileList, 0]];
@@ -657,18 +582,8 @@ export var ListTransformersRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTransformersResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_tr, _nT], [() => TransformerList, 0]];
@@ -697,19 +612,8 @@ export var ProfileSummary: StaticStructureSchema = [
   [_pI, _n, _bN, _l, _lGN, _cA, _mA],
   [0, 0, 0, 0, 0, 5, 5],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_bNu, _k], [0, 0]];
 export var SampleDocumentKeys: StaticStructureSchema = [3, n0, _SDK, 0, [_i, _o], [0, 0]];
 export var SampleDocuments: StaticStructureSchema = [3, n0, _SD, 0, [_bNu, _ke], [0, () => KeyList]];
@@ -717,15 +621,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartTransformerJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -761,23 +661,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TransformerSummary: StaticStructureSchema = [
   3,
   n0,
@@ -808,12 +696,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RARN, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _TK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _TK }],
   ],
 ];
 export var UpdateCapabilityRequest: StaticStructureSchema = [
@@ -907,19 +790,8 @@ export var UpdateTransformerResponse: StaticStructureSchema = [
     () => SampleDocuments,
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Me],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WrapOptions: StaticStructureSchema = [3, n0, _WO, 0, [_wB, _lT, _lL], [0, 0, 1]];
 export var X12AcknowledgmentOptions: StaticStructureSchema = [3, n0, _XAO, 0, [_fA, _tAe], [0, 0]];
 export var X12AdvancedOptions: StaticStructureSchema = [
@@ -979,28 +851,21 @@ export var X12OutboundEdiHeaders: StaticStructureSchema = [
 export var X12SplitOptions: StaticStructureSchema = [3, n0, _XSO, 0, [_sB], [0]];
 export var X12ValidationOptions: StaticStructureSchema = [3, n0, _XVO, 0, [_vR], [() => X12ValidationRules]];
 export var __Unit = "unit" as const;
-
 export var B2biServiceException: StaticErrorSchema = [-3, _sm, "B2biServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(B2biServiceException, __B2biServiceException);
-
 export var CapabilityList: StaticListSchema = [1, n0, _CL, 0, () => CapabilitySummary];
 export var CodeList = 64 | 0;
-
 export var InstructionsDocuments: StaticListSchema = [1, n0, _ID, 0, () => S3Location];
 export var KeyList: StaticListSchema = [1, n0, _KL, 0, () => SampleDocumentKeys];
 export var ParsedSplitFileContentsList = 64 | 0;
-
 export var PartnershipCapabilities = 64 | 0;
-
 export var PartnershipList: StaticListSchema = [1, n0, _PL, 0, () => PartnershipSummary];
 export var ProfileList: StaticListSchema = [1, n0, _PLr, 0, () => ProfileSummary];
 export var S3LocationList: StaticListSchema = [1, n0, _SLL, 0, () => S3Location];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TransformerList: StaticListSchema = [1, n0, _TLr, 0, () => TransformerSummary];
 export var ValidationMessages = 64 | 0;
-
 export var X12ValidationRules: StaticListSchema = [1, n0, _XVR, 0, () => X12ValidationRule];
 export var CapabilityConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_ed], [() => EdiConfiguration]];
 export var ConversionTargetFormatDetails: StaticStructureSchema = [3, n0, _CTFD, 0, [_x], [() => X12Details]];
@@ -1022,9 +887,7 @@ export var CreateCapability: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/capabilities", 201],
-  },
+  { [_h]: ["POST", "/capabilities", 201] },
   () => CreateCapabilityRequest,
   () => CreateCapabilityResponse,
 ];
@@ -1032,9 +895,7 @@ export var CreatePartnership: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/partnerships", 201],
-  },
+  { [_h]: ["POST", "/partnerships", 201] },
   () => CreatePartnershipRequest,
   () => CreatePartnershipResponse,
 ];
@@ -1042,9 +903,7 @@ export var CreateProfile: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_h]: ["POST", "/profiles", 201],
-  },
+  { [_h]: ["POST", "/profiles", 201] },
   () => CreateProfileRequest,
   () => CreateProfileResponse,
 ];
@@ -1052,9 +911,7 @@ export var CreateStarterMappingTemplate: StaticOperationSchema = [
   9,
   n0,
   _CSMT,
-  {
-    [_h]: ["POST", "/createmappingstarttemplate", 200],
-  },
+  { [_h]: ["POST", "/createmappingstarttemplate", 200] },
   () => CreateStarterMappingTemplateRequest,
   () => CreateStarterMappingTemplateResponse,
 ];
@@ -1062,9 +919,7 @@ export var CreateTransformer: StaticOperationSchema = [
   9,
   n0,
   _CTr,
-  {
-    [_h]: ["POST", "/transformers", 201],
-  },
+  { [_h]: ["POST", "/transformers", 201] },
   () => CreateTransformerRequest,
   () => CreateTransformerResponse,
 ];
@@ -1072,9 +927,7 @@ export var DeleteCapability: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/capabilities/{capabilityId}", 200],
-  },
+  { [_h]: ["DELETE", "/capabilities/{capabilityId}", 200] },
   () => DeleteCapabilityRequest,
   () => __Unit,
 ];
@@ -1082,9 +935,7 @@ export var DeletePartnership: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/partnerships/{partnershipId}", 200],
-  },
+  { [_h]: ["DELETE", "/partnerships/{partnershipId}", 200] },
   () => DeletePartnershipRequest,
   () => __Unit,
 ];
@@ -1092,9 +943,7 @@ export var DeleteProfile: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["DELETE", "/profiles/{profileId}", 200],
-  },
+  { [_h]: ["DELETE", "/profiles/{profileId}", 200] },
   () => DeleteProfileRequest,
   () => __Unit,
 ];
@@ -1102,9 +951,7 @@ export var DeleteTransformer: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["DELETE", "/transformers/{transformerId}", 200],
-  },
+  { [_h]: ["DELETE", "/transformers/{transformerId}", 200] },
   () => DeleteTransformerRequest,
   () => __Unit,
 ];
@@ -1112,9 +959,7 @@ export var GenerateMapping: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["POST", "/generate-mapping", 200],
-  },
+  { [_h]: ["POST", "/generate-mapping", 200] },
   () => GenerateMappingRequest,
   () => GenerateMappingResponse,
 ];
@@ -1122,9 +967,7 @@ export var GetCapability: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/capabilities/{capabilityId}", 200],
-  },
+  { [_h]: ["GET", "/capabilities/{capabilityId}", 200] },
   () => GetCapabilityRequest,
   () => GetCapabilityResponse,
 ];
@@ -1132,9 +975,7 @@ export var GetPartnership: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/partnerships/{partnershipId}", 200],
-  },
+  { [_h]: ["GET", "/partnerships/{partnershipId}", 200] },
   () => GetPartnershipRequest,
   () => GetPartnershipResponse,
 ];
@@ -1142,9 +983,7 @@ export var GetProfile: StaticOperationSchema = [
   9,
   n0,
   _GPe,
-  {
-    [_h]: ["GET", "/profiles/{profileId}", 200],
-  },
+  { [_h]: ["GET", "/profiles/{profileId}", 200] },
   () => GetProfileRequest,
   () => GetProfileResponse,
 ];
@@ -1152,9 +991,7 @@ export var GetTransformer: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["GET", "/transformers/{transformerId}", 200],
-  },
+  { [_h]: ["GET", "/transformers/{transformerId}", 200] },
   () => GetTransformerRequest,
   () => GetTransformerResponse,
 ];
@@ -1162,9 +999,7 @@ export var GetTransformerJob: StaticOperationSchema = [
   9,
   n0,
   _GTJ,
-  {
-    [_h]: ["GET", "/transformer-jobs/{transformerJobId}", 200],
-  },
+  { [_h]: ["GET", "/transformer-jobs/{transformerJobId}", 200] },
   () => GetTransformerJobRequest,
   () => GetTransformerJobResponse,
 ];
@@ -1172,9 +1007,7 @@ export var ListCapabilities: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/capabilities", 200],
-  },
+  { [_h]: ["GET", "/capabilities", 200] },
   () => ListCapabilitiesRequest,
   () => ListCapabilitiesResponse,
 ];
@@ -1182,9 +1015,7 @@ export var ListPartnerships: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/partnerships", 200],
-  },
+  { [_h]: ["GET", "/partnerships", 200] },
   () => ListPartnershipsRequest,
   () => ListPartnershipsResponse,
 ];
@@ -1192,9 +1023,7 @@ export var ListProfiles: StaticOperationSchema = [
   9,
   n0,
   _LPi,
-  {
-    [_h]: ["GET", "/profiles", 200],
-  },
+  { [_h]: ["GET", "/profiles", 200] },
   () => ListProfilesRequest,
   () => ListProfilesResponse,
 ];
@@ -1202,9 +1031,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceARN}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceARN}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1212,9 +1039,7 @@ export var ListTransformers: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["GET", "/transformers", 200],
-  },
+  { [_h]: ["GET", "/transformers", 200] },
   () => ListTransformersRequest,
   () => ListTransformersResponse,
 ];
@@ -1222,9 +1047,7 @@ export var StartTransformerJob: StaticOperationSchema = [
   9,
   n0,
   _STJ,
-  {
-    [_h]: ["POST", "/transformer-jobs", 200],
-  },
+  { [_h]: ["POST", "/transformer-jobs", 200] },
   () => StartTransformerJobRequest,
   () => StartTransformerJobResponse,
 ];
@@ -1232,9 +1055,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceARN}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceARN}", 200] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -1242,9 +1063,7 @@ export var TestConversion: StaticOperationSchema = [
   9,
   n0,
   _TC,
-  {
-    [_h]: ["POST", "/testconversion", 200],
-  },
+  { [_h]: ["POST", "/testconversion", 200] },
   () => TestConversionRequest,
   () => TestConversionResponse,
 ];
@@ -1252,9 +1071,7 @@ export var TestMapping: StaticOperationSchema = [
   9,
   n0,
   _TM,
-  {
-    [_h]: ["POST", "/testmapping", 201],
-  },
+  { [_h]: ["POST", "/testmapping", 201] },
   () => TestMappingRequest,
   () => TestMappingResponse,
 ];
@@ -1262,9 +1079,7 @@ export var TestParsing: StaticOperationSchema = [
   9,
   n0,
   _TP,
-  {
-    [_h]: ["POST", "/testparsing", 201],
-  },
+  { [_h]: ["POST", "/testparsing", 201] },
   () => TestParsingRequest,
   () => TestParsingResponse,
 ];
@@ -1272,9 +1087,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceARN}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceARN}", 200] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -1282,9 +1095,7 @@ export var UpdateCapability: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PATCH", "/capabilities/{capabilityId}", 200],
-  },
+  { [_h]: ["PATCH", "/capabilities/{capabilityId}", 200] },
   () => UpdateCapabilityRequest,
   () => UpdateCapabilityResponse,
 ];
@@ -1292,9 +1103,7 @@ export var UpdatePartnership: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PATCH", "/partnerships/{partnershipId}", 200],
-  },
+  { [_h]: ["PATCH", "/partnerships/{partnershipId}", 200] },
   () => UpdatePartnershipRequest,
   () => UpdatePartnershipResponse,
 ];
@@ -1302,9 +1111,7 @@ export var UpdateProfile: StaticOperationSchema = [
   9,
   n0,
   _UPp,
-  {
-    [_h]: ["PATCH", "/profiles/{profileId}", 200],
-  },
+  { [_h]: ["PATCH", "/profiles/{profileId}", 200] },
   () => UpdateProfileRequest,
   () => UpdateProfileResponse,
 ];
@@ -1312,9 +1119,7 @@ export var UpdateTransformer: StaticOperationSchema = [
   9,
   n0,
   _UT,
-  {
-    [_h]: ["PATCH", "/transformers/{transformerId}", 200],
-  },
+  { [_h]: ["PATCH", "/transformers/{transformerId}", 200] },
   () => UpdateTransformerRequest,
   () => UpdateTransformerResponse,
 ];

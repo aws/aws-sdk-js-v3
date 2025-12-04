@@ -47,7 +47,6 @@ import {
 import { MarketplaceEntitlementServiceServiceException as __MarketplaceEntitlementServiceServiceException } from "../models/MarketplaceEntitlementServiceServiceException";
 
 /* eslint no-var: 0 */
-
 export var Entitlement: StaticStructureSchema = [
   3,
   n0,
@@ -66,44 +65,13 @@ export var GetEntitlementsRequest: StaticStructureSchema = [
   [0, [2, n0, _GEF, 0, 0, 64 | 0], 0, 1],
 ];
 export var GetEntitlementsResult: StaticStructureSchema = [3, n0, _GERe, 0, [_En, _NT], [() => EntitlementList, 0]];
-export var InternalServiceErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _s,
-  },
-  [_m],
-  [0],
-];
+export var InternalServiceErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _s }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException, __InternalServiceErrorException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var __Unit = "unit" as const;
-
 export var MarketplaceEntitlementServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -116,10 +84,8 @@ TypeRegistry.for(_sm).registerError(
   MarketplaceEntitlementServiceServiceException,
   __MarketplaceEntitlementServiceServiceException
 );
-
 export var EntitlementList: StaticListSchema = [1, n0, _EL, 0, () => Entitlement];
 export var FilterValueList = 64 | 0;
-
 export var GetEntitlementFilters: StaticMapSchema = [2, n0, _GEF, 0, 0, 64 | 0];
 export var GetEntitlements: StaticOperationSchema = [
   9,

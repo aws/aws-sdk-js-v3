@@ -468,20 +468,8 @@ import {
 import { IoTTwinMakerServiceException as __IoTTwinMakerServiceException } from "../models/IoTTwinMakerServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BatchPutPropertyError: StaticStructureSchema = [
   3,
   n0,
@@ -583,45 +571,12 @@ export var CompositeComponentUpdateRequest: StaticStructureSchema = [
   [_uT, _d, _pU, _pGU],
   [0, 0, () => PropertyRequests, () => ComponentPropertyGroupRequests],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
-export var ConnectorFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CFE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_m],
-  [0],
-];
+export var ConnectorFailureException: StaticErrorSchema = [-3, n0, _CFE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConnectorFailureException, __ConnectorFailureException);
-
-export var ConnectorTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CTE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_m],
-  [0],
-];
+export var ConnectorTimeoutException: StaticErrorSchema = [-3, n0, _CTE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConnectorTimeoutException, __ConnectorTimeoutException);
-
 export var CreateComponentTypeRequest: StaticStructureSchema = [
   3,
   n0,
@@ -733,12 +688,7 @@ export var DeleteEntityRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iR,
-      },
-    ],
+    [2, { [_hQ]: _iR }],
   ],
 ];
 export var DeleteEntityResponse: StaticStructureSchema = [3, n0, _DERe, 0, [_st], [0]];
@@ -960,12 +910,7 @@ export var GetSyncJobRequest: StaticStructureSchema = [
   [_sS, _wI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _w,
-      },
-    ],
+    [0, { [_hQ]: _w }],
   ],
 ];
 export var GetSyncJobResponse: StaticStructureSchema = [
@@ -985,19 +930,8 @@ export var GetWorkspaceResponse: StaticStructureSchema = [
   [_wI, _a, _d, _lS, _sL, _r, _cDT, _uDT],
   [0, 0, 0, 64 | 0, 0, 0, 4, 4],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InterpolationParameters: StaticStructureSchema = [3, n0, _IP, 0, [_iT, _iIS], [0, 1]];
 export var IotSiteWiseSourceConfiguration: StaticStructureSchema = [
   3,
@@ -1216,52 +1150,19 @@ export var PropertyValueHistory: StaticStructureSchema = [
   [_ePR, _va],
   [() => EntityPropertyReference, () => Values],
 ];
-export var QueryTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _QTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var QueryTimeoutException: StaticErrorSchema = [-3, n0, _QTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(QueryTimeoutException, __QueryTimeoutException);
-
 export var Relationship: StaticStructureSchema = [3, n0, _R, 0, [_tCTI, _rT], [0, 0]];
 export var RelationshipValue: StaticStructureSchema = [3, n0, _RV, 0, [_tEI, _tCN], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Row: StaticStructureSchema = [3, n0, _Ro, 0, [_rD], [64 | 15]];
 export var S3DestinationConfiguration: StaticStructureSchema = [3, n0, _SDC, 0, [_lo], [0]];
 export var S3SourceConfiguration: StaticStructureSchema = [3, n0, _SSC, 0, [_lo], [0]];
 export var SceneError: StaticStructureSchema = [3, n0, _SE, 0, [_cod, _m], [0, 0]];
 export var SceneSummary: StaticStructureSchema = [3, n0, _SS, 0, [_sI, _cL, _a, _cDT, _uDT, _d], [0, 0, 0, 4, 4, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SourceConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1299,32 +1200,10 @@ export var TabularConditions: StaticStructureSchema = [
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [0, 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1332,18 +1211,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
   0,
   [_rARN, _tK],
   [
-    [
-      0,
-      {
-        [_hQ]: _rARN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [0, { [_hQ]: _rARN }],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1404,19 +1273,8 @@ export var UpdateSceneRequest: StaticStructureSchema = [
 export var UpdateSceneResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_uDT], [4]];
 export var UpdateWorkspaceRequest: StaticStructureSchema = [3, n0, _UWR, 0, [_wI, _d, _r, _sL], [[0, 1], 0, 0, 0]];
 export var UpdateWorkspaceResponse: StaticStructureSchema = [3, n0, _UWRp, 0, [_uDT], [4]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WorkspaceSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1427,7 +1285,6 @@ export var WorkspaceSummary: StaticStructureSchema = [
 ];
 export var IoTTwinMakerServiceException: StaticErrorSchema = [-3, _sm, "IoTTwinMakerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTTwinMakerServiceException, __IoTTwinMakerServiceException);
-
 export var ColumnDescriptions: StaticListSchema = [1, n0, _CDo, 0, () => ColumnDescription];
 export var ComponentSummaries: StaticListSchema = [1, n0, _CSo, 0, () => ComponentSummary];
 export var ComponentTypeSummaries: StaticListSchema = [1, n0, _CTSo, 0, () => ComponentTypeSummary];
@@ -1437,7 +1294,6 @@ export var Entries: StaticListSchema = [1, n0, _E, 0, () => PropertyValueEntry];
 export var ErrorEntries: StaticListSchema = [1, n0, _EE, 0, () => BatchPutPropertyErrorEntry];
 export var Errors: StaticListSchema = [1, n0, _Er, 0, () => BatchPutPropertyError];
 export var ExtendsFrom = 64 | 0;
-
 export var IotSiteWiseSourceConfigurationFilters: StaticListSchema = [
   1,
   n0,
@@ -1453,30 +1309,23 @@ export var IotTwinMakerSourceConfigurationFilters: StaticListSchema = [
   () => IotTwinMakerSourceConfigurationFilter,
 ];
 export var LinkedServices = 64 | 0;
-
 export var ListComponentTypesFilters: StaticListSchema = [1, n0, _LCTF, 0, () => ListComponentTypesFilter];
 export var ListEntitiesFilters: StaticListSchema = [1, n0, _LEF, 0, () => ListEntitiesFilter];
 export var ListMetadataTransferJobsFilters: StaticListSchema = [1, n0, _LMTJF, 0, () => ListMetadataTransferJobsFilter];
 export var MetadataTransferJobSummaries: StaticListSchema = [1, n0, _MTJSet, 0, () => MetadataTransferJobSummary];
 export var OrderByList: StaticListSchema = [1, n0, _OBL, 0, () => OrderBy];
 export var PricingBundles = 64 | 0;
-
 export var PropertyFilters: StaticListSchema = [1, n0, _PFr, 0, () => PropertyFilter];
 export var PropertyNames = 64 | 0;
-
 export var PropertySummaries: StaticListSchema = [1, n0, _PSr, 0, () => PropertySummary];
 export var PropertyValueList: StaticListSchema = [1, n0, _PVL, 0, () => PropertyValueHistory];
 export var PropertyValues: StaticListSchema = [1, n0, _PVr, 0, () => PropertyValue];
 export var RequiredProperties = 64 | 0;
-
 export var RowData = 64 | 15;
-
 export var Rows: StaticListSchema = [1, n0, _Row, 0, () => Row];
 export var SceneCapabilities = 64 | 0;
-
 export var SceneSummaries: StaticListSchema = [1, n0, _SSc, 0, () => SceneSummary];
 export var SelectedPropertyList = 64 | 0;
-
 export var SourceConfigurations: StaticListSchema = [1, n0, _SCo, 0, () => SourceConfiguration];
 export var SyncJobSummaries: StaticListSchema = [1, n0, _SJSyn, 0, () => SyncJobSummary];
 export var SyncResourceFilters: StaticListSchema = [1, n0, _SRF, 0, () => SyncResourceFilter];
@@ -1484,7 +1333,6 @@ export var SyncResourceSummaries: StaticListSchema = [1, n0, _SRSyn, 0, () => Sy
 export var TabularPropertyValue: StaticListSchema = [1, n0, _TPVa, 0, () => PropertyTableValue];
 export var TabularPropertyValues: StaticListSchema = [1, n0, _TPV, 0, () => TabularPropertyValue];
 export var TagKeyList = 64 | 0;
-
 export var Values: StaticListSchema = [1, n0, _V, 0, () => PropertyValue];
 export var WorkspaceSummaries: StaticListSchema = [1, n0, _WSo, 0, () => WorkspaceSummary];
 export var ComponentPropertyGroupRequests: StaticMapSchema = [
@@ -1533,14 +1381,11 @@ export var CompositeComponentUpdatesMapRequest: StaticMapSchema = [
   () => CompositeComponentUpdateRequest,
 ];
 export var Configuration = 128 | 0;
-
 export var DataValueMap: StaticMapSchema = [2, n0, _DVM, 0, 0, () => DataValue];
 export var ExternalIdProperty = 128 | 0;
-
 export var FunctionsRequest: StaticMapSchema = [2, n0, _FRun, 0, 0, () => FunctionRequest];
 export var FunctionsResponse: StaticMapSchema = [2, n0, _FRunc, 0, 0, () => FunctionResponse];
 export var GeneratedSceneMetadataMap = 128 | 0;
-
 export var PropertyDefinitionsRequest: StaticMapSchema = [2, n0, _PDRro, 0, 0, () => PropertyDefinitionRequest];
 export var PropertyDefinitionsResponse: StaticMapSchema = [2, n0, _PDRrop, 0, 0, () => PropertyDefinitionResponse];
 export var PropertyGroupsRequest: StaticMapSchema = [2, n0, _PGRro, 0, 0, () => PropertyGroupRequest];
@@ -1550,9 +1395,7 @@ export var PropertyRequests: StaticMapSchema = [2, n0, _PRro, 0, 0, () => Proper
 export var PropertyResponses: StaticMapSchema = [2, n0, _PRrop, 0, 0, () => PropertyResponse];
 export var PropertyTableValue: StaticMapSchema = [2, n0, _PTV, 0, 0, () => DataValue];
 export var SceneMetadataMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var IotSiteWiseSourceConfigurationFilter: StaticStructureSchema = [
   3,
   n0,
@@ -1577,10 +1420,7 @@ export var BatchPutPropertyValues: StaticOperationSchema = [
   9,
   n0,
   _BPPV,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties", 200],
-    [_end]: ["data."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties", 200], [_end]: ["data."] },
   () => BatchPutPropertyValuesRequest,
   () => BatchPutPropertyValuesResponse,
 ];
@@ -1588,10 +1428,7 @@ export var CancelMetadataTransferJob: StaticOperationSchema = [
   9,
   n0,
   _CMTJ,
-  {
-    [_h]: ["PUT", "/metadata-transfer-jobs/{metadataTransferJobId}/cancel", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PUT", "/metadata-transfer-jobs/{metadataTransferJobId}/cancel", 200], [_end]: ["api."] },
   () => CancelMetadataTransferJobRequest,
   () => CancelMetadataTransferJobResponse,
 ];
@@ -1599,10 +1436,7 @@ export var CreateComponentType: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
   () => CreateComponentTypeRequest,
   () => CreateComponentTypeResponse,
 ];
@@ -1610,10 +1444,7 @@ export var CreateEntity: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/entities", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/entities", 200], [_end]: ["api."] },
   () => CreateEntityRequest,
   () => CreateEntityResponse,
 ];
@@ -1621,10 +1452,7 @@ export var CreateMetadataTransferJob: StaticOperationSchema = [
   9,
   n0,
   _CMTJr,
-  {
-    [_h]: ["POST", "/metadata-transfer-jobs", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/metadata-transfer-jobs", 200], [_end]: ["api."] },
   () => CreateMetadataTransferJobRequest,
   () => CreateMetadataTransferJobResponse,
 ];
@@ -1632,10 +1460,7 @@ export var CreateScene: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/scenes", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/scenes", 200], [_end]: ["api."] },
   () => CreateSceneRequest,
   () => CreateSceneResponse,
 ];
@@ -1643,10 +1468,7 @@ export var CreateSyncJob: StaticOperationSchema = [
   9,
   n0,
   _CSJ,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
   () => CreateSyncJobRequest,
   () => CreateSyncJobResponse,
 ];
@@ -1654,10 +1476,7 @@ export var CreateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
   () => CreateWorkspaceRequest,
   () => CreateWorkspaceResponse,
 ];
@@ -1665,10 +1484,7 @@ export var DeleteComponentType: StaticOperationSchema = [
   9,
   n0,
   _DCT,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
   () => DeleteComponentTypeRequest,
   () => DeleteComponentTypeResponse,
 ];
@@ -1676,10 +1492,7 @@ export var DeleteEntity: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/entities/{entityId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
   () => DeleteEntityRequest,
   () => DeleteEntityResponse,
 ];
@@ -1687,10 +1500,7 @@ export var DeleteScene: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/scenes/{sceneId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
   () => DeleteSceneRequest,
   () => DeleteSceneResponse,
 ];
@@ -1698,10 +1508,7 @@ export var DeleteSyncJob: StaticOperationSchema = [
   9,
   n0,
   _DSJ,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
   () => DeleteSyncJobRequest,
   () => DeleteSyncJobResponse,
 ];
@@ -1709,10 +1516,7 @@ export var DeleteWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
   () => DeleteWorkspaceRequest,
   () => DeleteWorkspaceResponse,
 ];
@@ -1720,10 +1524,7 @@ export var ExecuteQuery: StaticOperationSchema = [
   9,
   n0,
   _EQ,
-  {
-    [_h]: ["POST", "/queries/execution", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/queries/execution", 200], [_end]: ["api."] },
   () => ExecuteQueryRequest,
   () => ExecuteQueryResponse,
 ];
@@ -1731,10 +1532,7 @@ export var GetComponentType: StaticOperationSchema = [
   9,
   n0,
   _GCT,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
   () => GetComponentTypeRequest,
   () => GetComponentTypeResponse,
 ];
@@ -1742,10 +1540,7 @@ export var GetEntity: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/entities/{entityId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
   () => GetEntityRequest,
   () => GetEntityResponse,
 ];
@@ -1753,10 +1548,7 @@ export var GetMetadataTransferJob: StaticOperationSchema = [
   9,
   n0,
   _GMTJ,
-  {
-    [_h]: ["GET", "/metadata-transfer-jobs/{metadataTransferJobId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/metadata-transfer-jobs/{metadataTransferJobId}", 200], [_end]: ["api."] },
   () => GetMetadataTransferJobRequest,
   () => GetMetadataTransferJobResponse,
 ];
@@ -1764,10 +1556,7 @@ export var GetPricingPlan: StaticOperationSchema = [
   9,
   n0,
   _GPP,
-  {
-    [_h]: ["GET", "/pricingplan", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/pricingplan", 200], [_end]: ["api."] },
   () => GetPricingPlanRequest,
   () => GetPricingPlanResponse,
 ];
@@ -1775,10 +1564,7 @@ export var GetPropertyValue: StaticOperationSchema = [
   9,
   n0,
   _GPV,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/value", 200],
-    [_end]: ["data."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/value", 200], [_end]: ["data."] },
   () => GetPropertyValueRequest,
   () => GetPropertyValueResponse,
 ];
@@ -1786,10 +1572,7 @@ export var GetPropertyValueHistory: StaticOperationSchema = [
   9,
   n0,
   _GPVH,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/history", 200],
-    [_end]: ["data."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/history", 200], [_end]: ["data."] },
   () => GetPropertyValueHistoryRequest,
   () => GetPropertyValueHistoryResponse,
 ];
@@ -1797,10 +1580,7 @@ export var GetScene: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/scenes/{sceneId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
   () => GetSceneRequest,
   () => GetSceneResponse,
 ];
@@ -1808,10 +1588,7 @@ export var GetSyncJob: StaticOperationSchema = [
   9,
   n0,
   _GSJ,
-  {
-    [_h]: ["GET", "/sync-jobs/{syncSource}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
   () => GetSyncJobRequest,
   () => GetSyncJobResponse,
 ];
@@ -1819,10 +1596,7 @@ export var GetWorkspace: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
   () => GetWorkspaceRequest,
   () => GetWorkspaceResponse,
 ];
@@ -1830,10 +1604,7 @@ export var ListComponents: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/entities/{entityId}/components-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/entities/{entityId}/components-list", 200], [_end]: ["api."] },
   () => ListComponentsRequest,
   () => ListComponentsResponse,
 ];
@@ -1841,10 +1612,7 @@ export var ListComponentTypes: StaticOperationSchema = [
   9,
   n0,
   _LCT,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/component-types-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/component-types-list", 200], [_end]: ["api."] },
   () => ListComponentTypesRequest,
   () => ListComponentTypesResponse,
 ];
@@ -1852,10 +1620,7 @@ export var ListEntities: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/entities-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/entities-list", 200], [_end]: ["api."] },
   () => ListEntitiesRequest,
   () => ListEntitiesResponse,
 ];
@@ -1863,10 +1628,7 @@ export var ListMetadataTransferJobs: StaticOperationSchema = [
   9,
   n0,
   _LMTJ,
-  {
-    [_h]: ["POST", "/metadata-transfer-jobs-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/metadata-transfer-jobs-list", 200], [_end]: ["api."] },
   () => ListMetadataTransferJobsRequest,
   () => ListMetadataTransferJobsResponse,
 ];
@@ -1874,10 +1636,7 @@ export var ListProperties: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/properties-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/properties-list", 200], [_end]: ["api."] },
   () => ListPropertiesRequest,
   () => ListPropertiesResponse,
 ];
@@ -1885,10 +1644,7 @@ export var ListScenes: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/scenes-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/scenes-list", 200], [_end]: ["api."] },
   () => ListScenesRequest,
   () => ListScenesResponse,
 ];
@@ -1896,10 +1652,7 @@ export var ListSyncJobs: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs-list", 200], [_end]: ["api."] },
   () => ListSyncJobsRequest,
   () => ListSyncJobsResponse,
 ];
@@ -1907,10 +1660,7 @@ export var ListSyncResources: StaticOperationSchema = [
   9,
   n0,
   _LSRis,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list", 200], [_end]: ["api."] },
   () => ListSyncResourcesRequest,
   () => ListSyncResourcesResponse,
 ];
@@ -1918,10 +1668,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/tags-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/tags-list", 200], [_end]: ["api."] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1929,10 +1676,7 @@ export var ListWorkspaces: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_h]: ["POST", "/workspaces-list", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/workspaces-list", 200], [_end]: ["api."] },
   () => ListWorkspacesRequest,
   () => ListWorkspacesResponse,
 ];
@@ -1940,10 +1684,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/tags", 200], [_end]: ["api."] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1951,10 +1692,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/tags", 200], [_end]: ["api."] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1962,10 +1700,7 @@ export var UpdateComponentType: StaticOperationSchema = [
   9,
   n0,
   _UCT,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
   () => UpdateComponentTypeRequest,
   () => UpdateComponentTypeResponse,
 ];
@@ -1973,10 +1708,7 @@ export var UpdateEntity: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/entities/{entityId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
   () => UpdateEntityRequest,
   () => UpdateEntityResponse,
 ];
@@ -1984,10 +1716,7 @@ export var UpdatePricingPlan: StaticOperationSchema = [
   9,
   n0,
   _UPP,
-  {
-    [_h]: ["POST", "/pricingplan", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/pricingplan", 200], [_end]: ["api."] },
   () => UpdatePricingPlanRequest,
   () => UpdatePricingPlanResponse,
 ];
@@ -1995,10 +1724,7 @@ export var UpdateScene: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/scenes/{sceneId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
   () => UpdateSceneRequest,
   () => UpdateSceneResponse,
 ];
@@ -2006,10 +1732,7 @@ export var UpdateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
   () => UpdateWorkspaceRequest,
   () => UpdateWorkspaceResponse,
 ];

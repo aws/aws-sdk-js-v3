@@ -28,17 +28,17 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof DLMClient === "function")
-assert(typeof DLM === "function")
+assert(typeof DLMClient === "function");
+assert(typeof DLM === "function");
 // commands
-assert(typeof CreateLifecyclePolicyCommand === "function")
-assert(typeof DeleteLifecyclePolicyCommand === "function")
-assert(typeof GetLifecyclePoliciesCommand === "function")
-assert(typeof GetLifecyclePolicyCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateLifecyclePolicyCommand === "function")
+assert(typeof CreateLifecyclePolicyCommand === "function");
+assert(typeof DeleteLifecyclePolicyCommand === "function");
+assert(typeof GetLifecyclePoliciesCommand === "function");
+assert(typeof GetLifecyclePolicyCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateLifecyclePolicyCommand === "function");
 // enums
 assert(typeof DefaultPoliciesTypeValues === "object");
 assert(typeof DefaultPolicyTypeValues === "object");
@@ -56,5 +56,5 @@ assert(typeof RetentionIntervalUnitValues === "object");
 assert(typeof SettablePolicyStateValues === "object");
 assert(typeof StageValues === "object");
 // errors
-assert(DLMServiceException.prototype instanceof Error)
+assert(DLMServiceException.prototype instanceof Error);
 console.log(`DLM index test passed.`);

@@ -772,18 +772,9 @@ import {
 import { LambdaServiceException as __LambdaServiceException } from "../models/LambdaServiceException";
 
 /* eslint no-var: 0 */
-
 export var BinaryOperationPayload: StaticSimpleSchema = [0, n0, _BOP, 8, 21];
 export var _Blob: StaticSimpleSchema = [0, n0, _B, 8, 21];
-export var BlobStream: StaticSimpleSchema = [
-  0,
-  n0,
-  _BS,
-  {
-    [_s]: 1,
-  },
-  42,
-];
+export var BlobStream: StaticSimpleSchema = [0, n0, _BS, { [_s]: 1 }, 42];
 export var EnvironmentVariableName: StaticSimpleSchema = [0, n0, _EVN, 8, 0];
 export var EnvironmentVariableValue: StaticSimpleSchema = [0, n0, _EVV, 8, 0];
 export var ErrorData: StaticSimpleSchema = [0, n0, _ED, 8, 0];
@@ -802,20 +793,7 @@ export var AddLayerVersionPermissionRequest: StaticStructureSchema = [
   _ALVPR,
   0,
   [_LN, _VN, _SI, _A, _P, _OI, _RI],
-  [
-    [0, 1],
-    [1, 1],
-    0,
-    0,
-    0,
-    0,
-    [
-      0,
-      {
-        [_hQ]: _RI,
-      },
-    ],
-  ],
+  [[0, 1], [1, 1], 0, 0, 0, 0, [0, { [_hQ]: _RI }]],
 ];
 export var AddLayerVersionPermissionResponse: StaticStructureSchema = [3, n0, _ALVPRd, 0, [_S, _RI], [0, 0]];
 export var AddPermissionRequest: StaticStructureSchema = [
@@ -824,25 +802,7 @@ export var AddPermissionRequest: StaticStructureSchema = [
   _APR,
   0,
   [_FN, _SI, _A, _P, _SA, _SAo, _EST, _Q, _RI, _POID, _FUAT, _IVFU],
-  [
-    [0, 1],
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    0,
-    0,
-    0,
-    2,
-  ],
+  [[0, 1], 0, 0, 0, 0, 0, 0, [0, { [_hQ]: _Q }], 0, 0, 0, 2],
 ];
 export var AddPermissionResponse: StaticStructureSchema = [3, n0, _APRd, 0, [_S], [0]];
 export var AliasConfiguration: StaticStructureSchema = [
@@ -876,19 +836,8 @@ export var CallbackOptions: StaticStructureSchema = [3, n0, _CO, 0, [_TS, _HTS],
 export var CallbackStartedDetails: StaticStructureSchema = [3, n0, _CSD, 0, [_CI, _HT, _T], [0, 1, 1]];
 export var CallbackSucceededDetails: StaticStructureSchema = [3, n0, _CSDa, 0, [_R], [[() => EventResult, 0]]];
 export var CallbackTimedOutDetails: StaticStructureSchema = [3, n0, _CTOD, 0, [_E], [[() => EventError, 0]]];
-export var CallbackTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var CallbackTimeoutException: StaticErrorSchema = [-3, n0, _CTE, { [_e]: _c, [_hE]: 400 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(CallbackTimeoutException, __CallbackTimeoutException);
-
 export var CapacityProvider: StaticStructureSchema = [
   3,
   n0,
@@ -918,15 +867,11 @@ export var CapacityProviderLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _CPLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CapacityProviderLimitExceededException, __CapacityProviderLimitExceededException);
-
 export var CapacityProviderPermissionsConfig: StaticStructureSchema = [3, n0, _CPPC, 0, [_CPORA], [0]];
 export var CapacityProviderScalingConfig: StaticStructureSchema = [
   3,
@@ -997,42 +942,30 @@ export var CodeSigningConfigNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _CSCNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CodeSigningConfigNotFoundException, __CodeSigningConfigNotFoundException);
-
 export var CodeSigningPolicies: StaticStructureSchema = [3, n0, _CSP, 0, [_UAOD], [0]];
 export var CodeStorageExceededException: StaticErrorSchema = [
   -3,
   n0,
   _CSEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CodeStorageExceededException, __CodeStorageExceededException);
-
 export var CodeVerificationFailedException: StaticErrorSchema = [
   -3,
   n0,
   _CVFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CodeVerificationFailedException, __CodeVerificationFailedException);
-
 export var Concurrency: StaticStructureSchema = [3, n0, _C, 0, [_RCE], [1]];
 export var ContextDetails: StaticStructureSchema = [
   3,
@@ -1231,18 +1164,7 @@ export var CreateFunctionUrlConfigRequest: StaticStructureSchema = [
   _CFUCR,
   0,
   [_FN, _Q, _AT, _Co, _IM],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    0,
-    () => Cors,
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _Q }], 0, () => Cors, 0],
 ];
 export var CreateFunctionUrlConfigResponse: StaticStructureSchema = [
   3,
@@ -1279,12 +1201,7 @@ export var DeleteFunctionEventInvokeConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var DeleteFunctionRequest: StaticStructureSchema = [
@@ -1295,12 +1212,7 @@ export var DeleteFunctionRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var DeleteFunctionResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [_SCt], [[1, 32]]];
@@ -1312,12 +1224,7 @@ export var DeleteFunctionUrlConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var DeleteLayerVersionRequest: StaticStructureSchema = [
@@ -1339,12 +1246,7 @@ export var DeleteProvisionedConcurrencyConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var DestinationConfig: StaticStructureSchema = [3, n0, _DC, 0, [_OS, _OF], [() => OnSuccess, () => OnFailure]];
@@ -1354,119 +1256,48 @@ export var DurableExecutionAlreadyStartedException: StaticErrorSchema = [
   -3,
   n0,
   _DEASE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(DurableExecutionAlreadyStartedException, __DurableExecutionAlreadyStartedException);
-
-export var EC2AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ECADE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var EC2AccessDeniedException: StaticErrorSchema = [-3, n0, _ECADE, { [_e]: _se, [_hE]: 502 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(EC2AccessDeniedException, __EC2AccessDeniedException);
-
-export var EC2ThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ECTE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var EC2ThrottledException: StaticErrorSchema = [-3, n0, _ECTE, { [_e]: _se, [_hE]: 502 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(EC2ThrottledException, __EC2ThrottledException);
-
 export var EC2UnexpectedException: StaticErrorSchema = [
   -3,
   n0,
   _ECUE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
+  { [_e]: _se, [_hE]: 502 },
   [_Ty, _M, _ECEC],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(EC2UnexpectedException, __EC2UnexpectedException);
-
-export var EFSIOException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EFSIOE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var EFSIOException: StaticErrorSchema = [-3, n0, _EFSIOE, { [_e]: _c, [_hE]: 410 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(EFSIOException, __EFSIOException);
-
 export var EFSMountConnectivityException: StaticErrorSchema = [
   -3,
   n0,
   _EFSMCE,
-  {
-    [_e]: _c,
-    [_hE]: 408,
-  },
+  { [_e]: _c, [_hE]: 408 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(EFSMountConnectivityException, __EFSMountConnectivityException);
-
-export var EFSMountFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EFSMFE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var EFSMountFailureException: StaticErrorSchema = [-3, n0, _EFSMFE, { [_e]: _c, [_hE]: 403 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(EFSMountFailureException, __EFSMountFailureException);
-
-export var EFSMountTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EFSMTE,
-  {
-    [_e]: _c,
-    [_hE]: 408,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var EFSMountTimeoutException: StaticErrorSchema = [-3, n0, _EFSMTE, { [_e]: _c, [_hE]: 408 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(EFSMountTimeoutException, __EFSMountTimeoutException);
-
 export var ENILimitReachedException: StaticErrorSchema = [
   -3,
   n0,
   _ENILRE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
+  { [_e]: _se, [_hE]: 502 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ENILimitReachedException, __ENILimitReachedException);
-
 export var Environment: StaticStructureSchema = [3, n0, _Env, 0, [_V], [[() => EnvironmentVariables, 0]]];
 export var EnvironmentError: StaticStructureSchema = [3, n0, _EE, 0, [_EC, _M], [0, [() => SensitiveString, 0]]];
 export var EnvironmentResponse: StaticStructureSchema = [
@@ -1783,10 +1614,7 @@ export var FunctionVersionsPerCapacityProviderLimitExceededException: StaticErro
   -3,
   n0,
   _FVPCPLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _m],
   [0, 0],
 ];
@@ -1794,7 +1622,6 @@ TypeRegistry.for(n0).registerError(
   FunctionVersionsPerCapacityProviderLimitExceededException,
   __FunctionVersionsPerCapacityProviderLimitExceededException
 );
-
 export var GetAccountSettingsRequest: StaticStructureSchema = [3, n0, _GASR, 0, [], []];
 export var GetAccountSettingsResponse: StaticStructureSchema = [
   3,
@@ -1827,30 +1654,10 @@ export var GetDurableExecutionHistoryRequest: StaticStructureSchema = [
   [_DEA, _IED, _MI, _Ma, _RO],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _IED,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _RO,
-      },
-    ],
+    [2, { [_hQ]: _IED }],
+    [1, { [_hQ]: _MI }],
+    [0, { [_hQ]: _Ma }],
+    [2, { [_hQ]: _RO }],
   ],
 ];
 export var GetDurableExecutionHistoryResponse: StaticStructureSchema = [
@@ -1878,24 +1685,9 @@ export var GetDurableExecutionStateRequest: StaticStructureSchema = [
   [_DEA, _CT, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _CT }],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var GetDurableExecutionStateResponse: StaticStructureSchema = [
@@ -1919,12 +1711,7 @@ export var GetFunctionConfigurationRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetFunctionEventInvokeConfigRequest: StaticStructureSchema = [
@@ -1935,12 +1722,7 @@ export var GetFunctionEventInvokeConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetFunctionRecursionConfigRequest: StaticStructureSchema = [3, n0, _GFRCR, 0, [_FN], [[0, 1]]];
@@ -1953,12 +1735,7 @@ export var GetFunctionRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetFunctionResponse: StaticStructureSchema = [
@@ -1977,12 +1754,7 @@ export var GetFunctionScalingConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetFunctionScalingConfigResponse: StaticStructureSchema = [
@@ -2001,12 +1773,7 @@ export var GetFunctionUrlConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetFunctionUrlConfigResponse: StaticStructureSchema = [
@@ -2017,21 +1784,7 @@ export var GetFunctionUrlConfigResponse: StaticStructureSchema = [
   [_FU, _FA, _AT, _Co, _CTr, _LMT, _IM],
   [0, 0, 0, () => Cors, 0, 0, 0],
 ];
-export var GetLayerVersionByArnRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GLVBAR,
-  0,
-  [_Arn],
-  [
-    [
-      0,
-      {
-        [_hQ]: _Arn,
-      },
-    ],
-  ],
-];
+export var GetLayerVersionByArnRequest: StaticStructureSchema = [3, n0, _GLVBAR, 0, [_Arn], [[0, { [_hQ]: _Arn }]]];
 export var GetLayerVersionPolicyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2071,12 +1824,7 @@ export var GetPolicyRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetPolicyResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_Po, _RI], [0, 0]];
@@ -2088,12 +1836,7 @@ export var GetProvisionedConcurrencyConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetProvisionedConcurrencyConfigResponse: StaticStructureSchema = [
@@ -2112,12 +1855,7 @@ export var GetRuntimeManagementConfigRequest: StaticStructureSchema = [
   [_FN, _Q],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
   ],
 ];
 export var GetRuntimeManagementConfigResponse: StaticStructureSchema = [
@@ -2143,93 +1881,44 @@ export var InvalidCodeSignatureException: StaticErrorSchema = [
   -3,
   n0,
   _ICSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidCodeSignatureException, __InvalidCodeSignatureException);
-
 export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
 export var InvalidRequestContentException: StaticErrorSchema = [
   -3,
   n0,
   _IRCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestContentException, __InvalidRequestContentException);
-
-export var InvalidRuntimeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var InvalidRuntimeException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _se, [_hE]: 502 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRuntimeException, __InvalidRuntimeException);
-
 export var InvalidSecurityGroupIDException: StaticErrorSchema = [
   -3,
   n0,
   _ISGIDE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
+  { [_e]: _se, [_hE]: 502 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSecurityGroupIDException, __InvalidSecurityGroupIDException);
-
-export var InvalidSubnetIDException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISIDE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var InvalidSubnetIDException: StaticErrorSchema = [-3, n0, _ISIDE, { [_e]: _se, [_hE]: 502 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidSubnetIDException, __InvalidSubnetIDException);
-
-export var InvalidZipFileException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IZFE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var InvalidZipFileException: StaticErrorSchema = [-3, n0, _IZFE, { [_e]: _se, [_hE]: 502 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidZipFileException, __InvalidZipFileException);
-
 export var InvocationCompletedDetails: StaticStructureSchema = [
   3,
   n0,
@@ -2246,43 +1935,13 @@ export var InvocationRequest: StaticStructureSchema = [
   [_FN, _IT, _LT, _CC, _DEN, _Pa, _Q, _TI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _XAIT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XALT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XACC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XADEN,
-      },
-    ],
+    [0, { [_hH]: _XAIT }],
+    [0, { [_hH]: _XALT }],
+    [0, { [_hH]: _XACC }],
+    [0, { [_hH]: _XADEN }],
     [() => _Blob, 16],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
+    [0, { [_hH]: _XATI }],
   ],
 ];
 export var InvocationResponse: StaticStructureSchema = [
@@ -2293,31 +1952,11 @@ export var InvocationResponse: StaticStructureSchema = [
   [_SCt, _FE, _LR, _Pa, _EV, _DEA],
   [
     [1, 32],
-    [
-      0,
-      {
-        [_hH]: _XAFE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XALR,
-      },
-    ],
+    [0, { [_hH]: _XAFE }],
+    [0, { [_hH]: _XALR }],
     [() => _Blob, 16],
-    [
-      0,
-      {
-        [_hH]: _XAEV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XADEA,
-      },
-    ],
+    [0, { [_hH]: _XAEV }],
+    [0, { [_hH]: _XADEA }],
   ],
 ];
 export var InvokeAsyncRequest: StaticStructureSchema = [
@@ -2332,21 +1971,7 @@ export var InvokeAsyncRequest: StaticStructureSchema = [
   ],
 ];
 export var InvokeAsyncResponse: StaticStructureSchema = [3, n0, _IARn, 0, [_Sta], [[1, 32]]];
-export var InvokeResponseStreamUpdate: StaticStructureSchema = [
-  3,
-  n0,
-  _IRSU,
-  0,
-  [_Pa],
-  [
-    [
-      () => _Blob,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
-];
+export var InvokeResponseStreamUpdate: StaticStructureSchema = [3, n0, _IRSU, 0, [_Pa], [[() => _Blob, { [_eP]: 1 }]]];
 export var InvokeWithResponseStreamCompleteEvent: StaticStructureSchema = [
   3,
   n0,
@@ -2363,37 +1988,12 @@ export var InvokeWithResponseStreamRequest: StaticStructureSchema = [
   [_FN, _IT, _LT, _CC, _Q, _Pa, _TI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _XAIT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XALT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XACC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
+    [0, { [_hH]: _XAIT }],
+    [0, { [_hH]: _XALT }],
+    [0, { [_hH]: _XACC }],
+    [0, { [_hQ]: _Q }],
     [() => _Blob, 16],
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
+    [0, { [_hH]: _XATI }],
   ],
 ];
 export var InvokeWithResponseStreamResponse: StaticStructureSchema = [
@@ -2404,19 +2004,9 @@ export var InvokeWithResponseStreamResponse: StaticStructureSchema = [
   [_SCt, _EV, _ESv, _RSCT],
   [
     [1, 32],
-    [
-      0,
-      {
-        [_hH]: _XAEV,
-      },
-    ],
+    [0, { [_hH]: _XAEV }],
     [() => InvokeWithResponseStreamResponseEvent, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
   ],
 ];
 export var KafkaSchemaRegistryAccessConfig: StaticStructureSchema = [3, n0, _KSRAC, 0, [_Ty, _URI], [0, 0]];
@@ -2433,54 +2023,24 @@ export var KMSAccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _KMSADE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
+  { [_e]: _se, [_hE]: 502 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(KMSAccessDeniedException, __KMSAccessDeniedException);
-
-export var KMSDisabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSDE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var KMSDisabledException: StaticErrorSchema = [-3, n0, _KMSDE, { [_e]: _se, [_hE]: 502 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(KMSDisabledException, __KMSDisabledException);
-
 export var KMSInvalidStateException: StaticErrorSchema = [
   -3,
   n0,
   _KMSISE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
+  { [_e]: _se, [_hE]: 502 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(KMSInvalidStateException, __KMSInvalidStateException);
-
-export var KMSNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSNFE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var KMSNotFoundException: StaticErrorSchema = [-3, n0, _KMSNFE, { [_e]: _se, [_hE]: 502 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(KMSNotFoundException, __KMSNotFoundException);
-
 export var LambdaManagedInstancesCapacityProviderConfig: StaticStructureSchema = [
   3,
   n0,
@@ -2530,24 +2090,9 @@ export var ListAliasesRequest: StaticStructureSchema = [
   [_FN, _FV, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _FV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _FV }],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListAliasesResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_NM, _Al], [0, () => AliasList]];
@@ -2558,24 +2103,9 @@ export var ListCapacityProvidersRequest: StaticStructureSchema = [
   0,
   [_St, _Ma, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _St }],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListCapacityProvidersResponse: StaticStructureSchema = [
@@ -2593,18 +2123,8 @@ export var ListCodeSigningConfigsRequest: StaticStructureSchema = [
   0,
   [_Ma, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListCodeSigningConfigsResponse: StaticStructureSchema = [
@@ -2623,54 +2143,14 @@ export var ListDurableExecutionsByFunctionRequest: StaticStructureSchema = [
   [_FN, _Q, _DEN, _Stat, _SAt, _SBt, _RO, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _DEN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _Stat,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _SAt,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _SBt,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _RO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
+    [0, { [_hQ]: _DEN }],
+    [64 | 0, { [_hQ]: _Stat }],
+    [4, { [_hQ]: _SAt }],
+    [4, { [_hQ]: _SBt }],
+    [2, { [_hQ]: _RO }],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListDurableExecutionsByFunctionResponse: StaticStructureSchema = [
@@ -2688,30 +2168,10 @@ export var ListEventSourceMappingsRequest: StaticStructureSchema = [
   0,
   [_ESA, _FN, _Ma, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _ESA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _FN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _ESA }],
+    [0, { [_hQ]: _FN }],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListEventSourceMappingsResponse: StaticStructureSchema = [
@@ -2730,18 +2190,8 @@ export var ListFunctionEventInvokeConfigsRequest: StaticStructureSchema = [
   [_FN, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListFunctionEventInvokeConfigsResponse: StaticStructureSchema = [
@@ -2760,18 +2210,8 @@ export var ListFunctionsByCodeSigningConfigRequest: StaticStructureSchema = [
   [_CSCA, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListFunctionsByCodeSigningConfigResponse: StaticStructureSchema = [
@@ -2789,30 +2229,10 @@ export var ListFunctionsRequest: StaticStructureSchema = [
   0,
   [_MR, _FV, _Ma, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _FV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _FV }],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListFunctionsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_NM, _Fu], [0, [() => FunctionList, 0]]];
@@ -2824,18 +2244,8 @@ export var ListFunctionUrlConfigsRequest: StaticStructureSchema = [
   [_FN, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListFunctionUrlConfigsResponse: StaticStructureSchema = [
@@ -2854,18 +2264,8 @@ export var ListFunctionVersionsByCapacityProviderRequest: StaticStructureSchema 
   [_CPN, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListFunctionVersionsByCapacityProviderResponse: StaticStructureSchema = [
@@ -2883,30 +2283,10 @@ export var ListLayersRequest: StaticStructureSchema = [
   0,
   [_CRo, _Ma, _MI, _CAo],
   [
-    [
-      0,
-      {
-        [_hQ]: _CRo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CAo,
-      },
-    ],
+    [0, { [_hQ]: _CRo }],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
+    [0, { [_hQ]: _CAo }],
   ],
 ];
 export var ListLayersResponse: StaticStructureSchema = [3, n0, _LLRi, 0, [_NM, _L], [0, () => LayersList]];
@@ -2917,31 +2297,11 @@ export var ListLayerVersionsRequest: StaticStructureSchema = [
   0,
   [_CRo, _LN, _Ma, _MI, _CAo],
   [
-    [
-      0,
-      {
-        [_hQ]: _CRo,
-      },
-    ],
+    [0, { [_hQ]: _CRo }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CAo,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
+    [0, { [_hQ]: _CAo }],
   ],
 ];
 export var ListLayerVersionsResponse: StaticStructureSchema = [
@@ -2960,18 +2320,8 @@ export var ListProvisionedConcurrencyConfigsRequest: StaticStructureSchema = [
   [_FN, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListProvisionedConcurrencyConfigsResponse: StaticStructureSchema = [
@@ -2992,18 +2342,8 @@ export var ListVersionsByFunctionRequest: StaticStructureSchema = [
   [_FN, _Ma, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MI,
-      },
-    ],
+    [0, { [_hQ]: _Ma }],
+    [1, { [_hQ]: _MI }],
   ],
 ];
 export var ListVersionsByFunctionResponse: StaticStructureSchema = [
@@ -3019,15 +2359,11 @@ export var NoPublishedVersionException: StaticErrorSchema = [
   -3,
   n0,
   _NPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(NoPublishedVersionException, __NoPublishedVersionException);
-
 export var OnFailure: StaticStructureSchema = [3, n0, _OF, 0, [_De], [0]];
 export var OnSuccess: StaticStructureSchema = [3, n0, _OS, 0, [_De], [0]];
 export var Operation: StaticStructureSchema = [
@@ -3079,28 +2415,13 @@ export var PolicyLengthExceededException: StaticErrorSchema = [
   -3,
   n0,
   _PLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(PolicyLengthExceededException, __PolicyLengthExceededException);
-
-export var PreconditionFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PFE,
-  {
-    [_e]: _c,
-    [_hE]: 412,
-  },
-  [_Ty, _m],
-  [0, 0],
-];
+export var PreconditionFailedException: StaticErrorSchema = [-3, n0, _PFE, { [_e]: _c, [_hE]: 412 }, [_Ty, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
-
 export var ProvisionedConcurrencyConfigListItem: StaticStructureSchema = [
   3,
   n0,
@@ -3113,10 +2434,7 @@ export var ProvisionedConcurrencyConfigNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _PCCNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_Ty, _m],
   [0, 0],
 ];
@@ -3124,7 +2442,6 @@ TypeRegistry.for(n0).registerError(
   ProvisionedConcurrencyConfigNotFoundException,
   __ProvisionedConcurrencyConfigNotFoundException
 );
-
 export var ProvisionedPollerConfig: StaticStructureSchema = [3, n0, _PPC, 0, [_MP, _MPa, _PGN], [1, 1, 0]];
 export var PublishLayerVersionRequest: StaticStructureSchema = [
   3,
@@ -3159,18 +2476,7 @@ export var PutFunctionEventInvokeConfigRequest: StaticStructureSchema = [
   _PFEICR,
   0,
   [_FN, _Q, _MRA, _MEAIS, _DC],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    1,
-    1,
-    () => DestinationConfig,
-  ],
+  [[0, 1], [0, { [_hQ]: _Q }], 1, 1, () => DestinationConfig],
 ];
 export var PutFunctionRecursionConfigRequest: StaticStructureSchema = [3, n0, _PFRCR, 0, [_FN, _RL], [[0, 1], 0]];
 export var PutFunctionRecursionConfigResponse: StaticStructureSchema = [3, n0, _PFRCRu, 0, [_RL], [0]];
@@ -3180,16 +2486,7 @@ export var PutFunctionScalingConfigRequest: StaticStructureSchema = [
   _PFSCR,
   0,
   [_FN, _Q, _FSCu],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    () => FunctionScalingConfig,
-  ],
+  [[0, 1], [0, { [_hQ]: _Q }], () => FunctionScalingConfig],
 ];
 export var PutFunctionScalingConfigResponse: StaticStructureSchema = [3, n0, _PFSCRu, 0, [_FS], [0]];
 export var PutProvisionedConcurrencyConfigRequest: StaticStructureSchema = [
@@ -3198,16 +2495,7 @@ export var PutProvisionedConcurrencyConfigRequest: StaticStructureSchema = [
   _PPCCR,
   0,
   [_FN, _Q, _PCE],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    1,
-  ],
+  [[0, 1], [0, { [_hQ]: _Q }], 1],
 ];
 export var PutProvisionedConcurrencyConfigResponse: StaticStructureSchema = [
   3,
@@ -3223,17 +2511,7 @@ export var PutRuntimeManagementConfigRequest: StaticStructureSchema = [
   _PRMCR,
   0,
   [_FN, _Q, _URO, _RVA],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _Q }], 0, 0],
 ];
 export var PutRuntimeManagementConfigResponse: StaticStructureSchema = [
   3,
@@ -3247,15 +2525,11 @@ export var RecursiveInvocationException: StaticErrorSchema = [
   -3,
   n0,
   _RIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(RecursiveInvocationException, __RecursiveInvocationException);
-
 export var RemoveLayerVersionPermissionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3266,12 +2540,7 @@ export var RemoveLayerVersionPermissionRequest: StaticStructureSchema = [
     [0, 1],
     [1, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _RI,
-      },
-    ],
+    [0, { [_hQ]: _RI }],
   ],
 ];
 export var RemovePermissionRequest: StaticStructureSchema = [
@@ -3283,85 +2552,20 @@ export var RemovePermissionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _RI,
-      },
-    ],
+    [0, { [_hQ]: _Q }],
+    [0, { [_hQ]: _RI }],
   ],
 ];
-export var RequestTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RTLE,
-  {
-    [_e]: _c,
-    [_hE]: 413,
-  },
-  [_Ty, _m],
-  [0, 0],
-];
+export var RequestTooLargeException: StaticErrorSchema = [-3, n0, _RTLE, { [_e]: _c, [_hE]: 413 }, [_Ty, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(RequestTooLargeException, __RequestTooLargeException);
-
-export var ResourceConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCEe,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_Ty, _m],
-  [0, 0],
-];
+export var ResourceConflictException: StaticErrorSchema = [-3, n0, _RCEe, { [_e]: _c, [_hE]: 409 }, [_Ty, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNRE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_Ty, _m],
-  [0, 0],
-];
+export var ResourceNotReadyException: StaticErrorSchema = [-3, n0, _RNRE, { [_e]: _se, [_hE]: 502 }, [_Ty, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotReadyException, __ResourceNotReadyException);
-
 export var RetryDetails: StaticStructureSchema = [3, n0, _RD, 0, [_CAu, _NADS], [1, 1]];
 export var RuntimeVersionConfig: StaticStructureSchema = [
   3,
@@ -3412,10 +2616,7 @@ export var SerializedRequestEntityTooLargeException: StaticErrorSchema = [
   -3,
   n0,
   _SRETLE,
-  {
-    [_e]: _c,
-    [_hE]: 413,
-  },
+  { [_e]: _c, [_hE]: 413 },
   [_Ty, _m],
   [0, 0],
 ];
@@ -3423,61 +2624,23 @@ TypeRegistry.for(n0).registerError(
   SerializedRequestEntityTooLargeException,
   __SerializedRequestEntityTooLargeException
 );
-
-export var ServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var ServiceException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _se, [_hE]: 500 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
-
 export var SnapStart: StaticStructureSchema = [3, n0, _SSn, 0, [_AOp], [0]];
-export var SnapStartException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var SnapStartException: StaticErrorSchema = [-3, n0, _SSE, { [_e]: _c, [_hE]: 400 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(SnapStartException, __SnapStartException);
-
 export var SnapStartNotReadyException: StaticErrorSchema = [
   -3,
   n0,
   _SSNRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(SnapStartNotReadyException, __SnapStartNotReadyException);
-
 export var SnapStartResponse: StaticStructureSchema = [3, n0, _SSR, 0, [_AOp, _OSp], [0, 0]];
-export var SnapStartTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SSTE,
-  {
-    [_e]: _c,
-    [_hE]: 408,
-  },
-  [_Ty, _M],
-  [0, 0],
-];
+export var SnapStartTimeoutException: StaticErrorSchema = [-3, n0, _SSTE, { [_e]: _c, [_hE]: 408 }, [_Ty, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(SnapStartTimeoutException, __SnapStartTimeoutException);
-
 export var SourceAccessConfiguration: StaticStructureSchema = [3, n0, _SACo, 0, [_Ty, _URI], [0, 0]];
 export var StepDetails: StaticStructureSchema = [
   3,
@@ -3521,15 +2684,11 @@ export var SubnetIPAddressLimitReachedException: StaticErrorSchema = [
   -3,
   n0,
   _SIPALRE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
+  { [_e]: _se, [_hE]: 502 },
   [_Ty, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(SubnetIPAddressLimitReachedException, __SubnetIPAddressLimitReachedException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_Re, _Ta], [[0, 1], 128 | 0]];
 export var TagsError: StaticStructureSchema = [3, n0, _TE, 0, [_EC, _M], [0, 0]];
 export var TargetTrackingScalingPolicy: StaticStructureSchema = [3, n0, _TTSP, 0, [_PMT, _TV], [0, 1]];
@@ -3538,25 +2697,11 @@ export var TooManyRequestsException: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_rAS, _Ty, _m, _Rea],
-  [
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-    0,
-    0,
-  ],
+  [[0, { [_hH]: _RA }], 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var TraceHeader: StaticStructureSchema = [3, n0, _TH, 0, [_XATIm], [0]];
 export var TracingConfig: StaticStructureSchema = [3, n0, _TC, 0, [_Mo], [0]];
 export var TracingConfigResponse: StaticStructureSchema = [3, n0, _TCR, 0, [_Mo], [0]];
@@ -3564,15 +2709,11 @@ export var UnsupportedMediaTypeException: StaticErrorSchema = [
   -3,
   n0,
   _UMTE,
-  {
-    [_e]: _c,
-    [_hE]: 415,
-  },
+  { [_e]: _c, [_hE]: 415 },
   [_Ty, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedMediaTypeException, __UnsupportedMediaTypeException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3581,12 +2722,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_Re, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateAliasRequest: StaticStructureSchema = [
@@ -3718,18 +2854,7 @@ export var UpdateFunctionEventInvokeConfigRequest: StaticStructureSchema = [
   _UFEICR,
   0,
   [_FN, _Q, _MRA, _MEAIS, _DC],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    1,
-    1,
-    () => DestinationConfig,
-  ],
+  [[0, 1], [0, { [_hQ]: _Q }], 1, 1, () => DestinationConfig],
 ];
 export var UpdateFunctionUrlConfigRequest: StaticStructureSchema = [
   3,
@@ -3737,18 +2862,7 @@ export var UpdateFunctionUrlConfigRequest: StaticStructureSchema = [
   _UFUCR,
   0,
   [_FN, _Q, _AT, _Co, _IM],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _Q,
-      },
-    ],
-    0,
-    () => Cors,
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _Q }], 0, () => Cors, 0],
 ];
 export var UpdateFunctionUrlConfigResponse: StaticStructureSchema = [
   3,
@@ -3773,17 +2887,12 @@ export var WaitOptions: StaticStructureSchema = [3, n0, _WO, 0, [_WS], [1]];
 export var WaitStartedDetails: StaticStructureSchema = [3, n0, _WSD, 0, [_Du, _SET], [1, 4]];
 export var WaitSucceededDetails: StaticStructureSchema = [3, n0, _WSDa, 0, [_Du], [1]];
 export var __Unit = "unit" as const;
-
 export var LambdaServiceException: StaticErrorSchema = [-3, _sm, "LambdaServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LambdaServiceException, __LambdaServiceException);
-
 export var AliasList: StaticListSchema = [1, n0, _ALl, 0, () => AliasConfiguration];
 export var AllowMethodsList = 64 | 0;
-
 export var AllowOriginsList = 64 | 0;
-
 export var ArchitecturesList = 64 | 0;
-
 export var CapacityProviderScalingPoliciesList: StaticListSchema = [
   1,
   n0,
@@ -3792,32 +2901,23 @@ export var CapacityProviderScalingPoliciesList: StaticListSchema = [
   () => TargetTrackingScalingPolicy,
 ];
 export var CapacityProviderSecurityGroupIds = 64 | 0;
-
 export var CapacityProvidersList: StaticListSchema = [1, n0, _CPL, 0, () => CapacityProvider];
 export var CapacityProviderSubnetIds = 64 | 0;
-
 export var CodeSigningConfigList: StaticListSchema = [1, n0, _CSCL, 0, () => CodeSigningConfig];
 export var CompatibleArchitectures = 64 | 0;
-
 export var CompatibleRuntimes = 64 | 0;
-
 export var DurableExecutions: StaticListSchema = [1, n0, _DE, 0, () => Execution];
 export var EndpointLists = 64 | 0;
-
 export var Events: StaticListSchema = [1, n0, _Eve, 0, [() => Event, 0]];
 export var EventSourceMappingMetricList = 64 | 0;
-
 export var EventSourceMappingsList: StaticListSchema = [1, n0, _ESML, 0, () => EventSourceMappingConfiguration];
 export var ExecutionStatusList = 64 | 0;
-
 export var FileSystemConfigList: StaticListSchema = [1, n0, _FSCL, 0, () => FileSystemConfig];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FunctionArnList = 64 | 0;
-
 export var FunctionEventInvokeConfigList: StaticListSchema = [1, n0, _FEICL, 0, () => FunctionEventInvokeConfig];
 export var FunctionList: StaticListSchema = [1, n0, _FLu, 0, [() => FunctionConfiguration, 0]];
 export var FunctionResponseTypeList = 64 | 0;
-
 export var FunctionUrlConfigList: StaticListSchema = [1, n0, _FUCL, 0, () => FunctionUrlConfig];
 export var FunctionVersionsByCapacityProviderList: StaticListSchema = [
   1,
@@ -3827,9 +2927,7 @@ export var FunctionVersionsByCapacityProviderList: StaticListSchema = [
   () => FunctionVersionsByCapacityProviderListItem,
 ];
 export var HeadersList = 64 | 0;
-
 export var InstanceTypeSet = 64 | 0;
-
 export var KafkaSchemaRegistryAccessConfigList: StaticListSchema = [
   1,
   n0,
@@ -3839,7 +2937,6 @@ export var KafkaSchemaRegistryAccessConfigList: StaticListSchema = [
 ];
 export var KafkaSchemaValidationConfigList: StaticListSchema = [1, n0, _KSVCL, 0, () => KafkaSchemaValidationConfig];
 export var LayerList = 64 | 0;
-
 export var LayersList: StaticListSchema = [1, n0, _LL, 0, () => LayersListItem];
 export var LayersReferenceList: StaticListSchema = [1, n0, _LRL, 0, () => Layer];
 export var LayerVersionsList: StaticListSchema = [1, n0, _LVL, 0, () => LayerVersionsListItem];
@@ -3853,23 +2950,15 @@ export var ProvisionedConcurrencyConfigList: StaticListSchema = [
   () => ProvisionedConcurrencyConfigListItem,
 ];
 export var Queues = 64 | 0;
-
 export var SecurityGroupIds = 64 | 0;
-
 export var SigningProfileVersionArns = 64 | 0;
-
 export var SourceAccessConfigurations: StaticListSchema = [1, n0, _SAC, 0, () => SourceAccessConfiguration];
 export var StackTraceEntries: StaticListSchema = [1, n0, _STEt, 0, [() => StackTraceEntry, 0]];
 export var StringList = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var Topics = 64 | 0;
-
 export var AdditionalVersionWeights = 128 | 1;
-
 export var Endpoints: StaticMapSchema = [2, n0, _End, 0, 0, 64 | 0];
 export var EnvironmentVariables: StaticMapSchema = [
   2,
@@ -3880,14 +2969,11 @@ export var EnvironmentVariables: StaticMapSchema = [
   [() => EnvironmentVariableValue, 0],
 ];
 export var Tags = 128 | 0;
-
 export var InvokeWithResponseStreamResponseEvent: StaticStructureSchema = [
   3,
   n0,
   _IWRSRE,
-  {
-    [_s]: 1,
-  },
+  { [_s]: 1 },
   [_PCa, _ICn],
   [[() => InvokeResponseStreamUpdate, 0], () => InvokeWithResponseStreamCompleteEvent],
 ];
@@ -3895,9 +2981,7 @@ export var AddLayerVersionPermission: StaticOperationSchema = [
   9,
   n0,
   _ALVP,
-  {
-    [_h]: ["POST", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy", 201],
-  },
+  { [_h]: ["POST", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy", 201] },
   () => AddLayerVersionPermissionRequest,
   () => AddLayerVersionPermissionResponse,
 ];
@@ -3905,9 +2989,7 @@ export var AddPermission: StaticOperationSchema = [
   9,
   n0,
   _APd,
-  {
-    [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/policy", 201],
-  },
+  { [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/policy", 201] },
   () => AddPermissionRequest,
   () => AddPermissionResponse,
 ];
@@ -3915,9 +2997,7 @@ export var CheckpointDurableExecution: StaticOperationSchema = [
   9,
   n0,
   _CDE,
-  {
-    [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/checkpoint", 200],
-  },
+  { [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/checkpoint", 200] },
   () => CheckpointDurableExecutionRequest,
   () => CheckpointDurableExecutionResponse,
 ];
@@ -3925,9 +3005,7 @@ export var CreateAlias: StaticOperationSchema = [
   9,
   n0,
   _CAr,
-  {
-    [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/aliases", 201],
-  },
+  { [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/aliases", 201] },
   () => CreateAliasRequest,
   () => AliasConfiguration,
 ];
@@ -3935,9 +3013,7 @@ export var CreateCapacityProvider: StaticOperationSchema = [
   9,
   n0,
   _CCP,
-  {
-    [_h]: ["POST", "/2025-11-30/capacity-providers", 202],
-  },
+  { [_h]: ["POST", "/2025-11-30/capacity-providers", 202] },
   () => CreateCapacityProviderRequest,
   () => CreateCapacityProviderResponse,
 ];
@@ -3945,9 +3021,7 @@ export var CreateCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _CCSC,
-  {
-    [_h]: ["POST", "/2020-04-22/code-signing-configs", 201],
-  },
+  { [_h]: ["POST", "/2020-04-22/code-signing-configs", 201] },
   () => CreateCodeSigningConfigRequest,
   () => CreateCodeSigningConfigResponse,
 ];
@@ -3955,9 +3029,7 @@ export var CreateEventSourceMapping: StaticOperationSchema = [
   9,
   n0,
   _CESM,
-  {
-    [_h]: ["POST", "/2015-03-31/event-source-mappings", 202],
-  },
+  { [_h]: ["POST", "/2015-03-31/event-source-mappings", 202] },
   () => CreateEventSourceMappingRequest,
   () => EventSourceMappingConfiguration,
 ];
@@ -3965,9 +3037,7 @@ export var CreateFunction: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["POST", "/2015-03-31/functions", 201],
-  },
+  { [_h]: ["POST", "/2015-03-31/functions", 201] },
   () => CreateFunctionRequest,
   () => FunctionConfiguration,
 ];
@@ -3975,9 +3045,7 @@ export var CreateFunctionUrlConfig: StaticOperationSchema = [
   9,
   n0,
   _CFUC,
-  {
-    [_h]: ["POST", "/2021-10-31/functions/{FunctionName}/url", 201],
-  },
+  { [_h]: ["POST", "/2021-10-31/functions/{FunctionName}/url", 201] },
   () => CreateFunctionUrlConfigRequest,
   () => CreateFunctionUrlConfigResponse,
 ];
@@ -3985,9 +3053,7 @@ export var DeleteAlias: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}/aliases/{Name}", 204],
-  },
+  { [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}/aliases/{Name}", 204] },
   () => DeleteAliasRequest,
   () => __Unit,
 ];
@@ -3995,9 +3061,7 @@ export var DeleteCapacityProvider: StaticOperationSchema = [
   9,
   n0,
   _DCP,
-  {
-    [_h]: ["DELETE", "/2025-11-30/capacity-providers/{CapacityProviderName}", 202],
-  },
+  { [_h]: ["DELETE", "/2025-11-30/capacity-providers/{CapacityProviderName}", 202] },
   () => DeleteCapacityProviderRequest,
   () => DeleteCapacityProviderResponse,
 ];
@@ -4005,9 +3069,7 @@ export var DeleteCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _DCSC,
-  {
-    [_h]: ["DELETE", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}", 204],
-  },
+  { [_h]: ["DELETE", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}", 204] },
   () => DeleteCodeSigningConfigRequest,
   () => DeleteCodeSigningConfigResponse,
 ];
@@ -4015,9 +3077,7 @@ export var DeleteEventSourceMapping: StaticOperationSchema = [
   9,
   n0,
   _DESM,
-  {
-    [_h]: ["DELETE", "/2015-03-31/event-source-mappings/{UUID}", 202],
-  },
+  { [_h]: ["DELETE", "/2015-03-31/event-source-mappings/{UUID}", 202] },
   () => DeleteEventSourceMappingRequest,
   () => EventSourceMappingConfiguration,
 ];
@@ -4025,9 +3085,7 @@ export var DeleteFunction: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}", 200],
-  },
+  { [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}", 200] },
   () => DeleteFunctionRequest,
   () => DeleteFunctionResponse,
 ];
@@ -4035,9 +3093,7 @@ export var DeleteFunctionCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _DFCSC,
-  {
-    [_h]: ["DELETE", "/2020-06-30/functions/{FunctionName}/code-signing-config", 204],
-  },
+  { [_h]: ["DELETE", "/2020-06-30/functions/{FunctionName}/code-signing-config", 204] },
   () => DeleteFunctionCodeSigningConfigRequest,
   () => __Unit,
 ];
@@ -4045,9 +3101,7 @@ export var DeleteFunctionConcurrency: StaticOperationSchema = [
   9,
   n0,
   _DFC,
-  {
-    [_h]: ["DELETE", "/2017-10-31/functions/{FunctionName}/concurrency", 204],
-  },
+  { [_h]: ["DELETE", "/2017-10-31/functions/{FunctionName}/concurrency", 204] },
   () => DeleteFunctionConcurrencyRequest,
   () => __Unit,
 ];
@@ -4055,9 +3109,7 @@ export var DeleteFunctionEventInvokeConfig: StaticOperationSchema = [
   9,
   n0,
   _DFEIC,
-  {
-    [_h]: ["DELETE", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 204],
-  },
+  { [_h]: ["DELETE", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 204] },
   () => DeleteFunctionEventInvokeConfigRequest,
   () => __Unit,
 ];
@@ -4065,9 +3117,7 @@ export var DeleteFunctionUrlConfig: StaticOperationSchema = [
   9,
   n0,
   _DFUC,
-  {
-    [_h]: ["DELETE", "/2021-10-31/functions/{FunctionName}/url", 204],
-  },
+  { [_h]: ["DELETE", "/2021-10-31/functions/{FunctionName}/url", 204] },
   () => DeleteFunctionUrlConfigRequest,
   () => __Unit,
 ];
@@ -4075,9 +3125,7 @@ export var DeleteLayerVersion: StaticOperationSchema = [
   9,
   n0,
   _DLV,
-  {
-    [_h]: ["DELETE", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}", 204],
-  },
+  { [_h]: ["DELETE", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}", 204] },
   () => DeleteLayerVersionRequest,
   () => __Unit,
 ];
@@ -4085,9 +3133,7 @@ export var DeleteProvisionedConcurrencyConfig: StaticOperationSchema = [
   9,
   n0,
   _DPCC,
-  {
-    [_h]: ["DELETE", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 204],
-  },
+  { [_h]: ["DELETE", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 204] },
   () => DeleteProvisionedConcurrencyConfigRequest,
   () => __Unit,
 ];
@@ -4095,9 +3141,7 @@ export var GetAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_h]: ["GET", "/2016-08-19/account-settings", 200],
-  },
+  { [_h]: ["GET", "/2016-08-19/account-settings", 200] },
   () => GetAccountSettingsRequest,
   () => GetAccountSettingsResponse,
 ];
@@ -4105,9 +3149,7 @@ export var GetAlias: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/aliases/{Name}", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/aliases/{Name}", 200] },
   () => GetAliasRequest,
   () => AliasConfiguration,
 ];
@@ -4115,9 +3157,7 @@ export var GetCapacityProvider: StaticOperationSchema = [
   9,
   n0,
   _GCP,
-  {
-    [_h]: ["GET", "/2025-11-30/capacity-providers/{CapacityProviderName}", 200],
-  },
+  { [_h]: ["GET", "/2025-11-30/capacity-providers/{CapacityProviderName}", 200] },
   () => GetCapacityProviderRequest,
   () => GetCapacityProviderResponse,
 ];
@@ -4125,9 +3165,7 @@ export var GetCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _GCSC,
-  {
-    [_h]: ["GET", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}", 200],
-  },
+  { [_h]: ["GET", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}", 200] },
   () => GetCodeSigningConfigRequest,
   () => GetCodeSigningConfigResponse,
 ];
@@ -4135,9 +3173,7 @@ export var GetDurableExecution: StaticOperationSchema = [
   9,
   n0,
   _GDE,
-  {
-    [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}", 200],
-  },
+  { [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}", 200] },
   () => GetDurableExecutionRequest,
   () => GetDurableExecutionResponse,
 ];
@@ -4145,9 +3181,7 @@ export var GetDurableExecutionHistory: StaticOperationSchema = [
   9,
   n0,
   _GDEH,
-  {
-    [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}/history", 200],
-  },
+  { [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}/history", 200] },
   () => GetDurableExecutionHistoryRequest,
   () => GetDurableExecutionHistoryResponse,
 ];
@@ -4155,9 +3189,7 @@ export var GetDurableExecutionState: StaticOperationSchema = [
   9,
   n0,
   _GDES,
-  {
-    [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}/state", 200],
-  },
+  { [_h]: ["GET", "/2025-12-01/durable-executions/{DurableExecutionArn}/state", 200] },
   () => GetDurableExecutionStateRequest,
   () => GetDurableExecutionStateResponse,
 ];
@@ -4165,9 +3197,7 @@ export var GetEventSourceMapping: StaticOperationSchema = [
   9,
   n0,
   _GESM,
-  {
-    [_h]: ["GET", "/2015-03-31/event-source-mappings/{UUID}", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/event-source-mappings/{UUID}", 200] },
   () => GetEventSourceMappingRequest,
   () => EventSourceMappingConfiguration,
 ];
@@ -4175,9 +3205,7 @@ export var GetFunction: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["GET", "/2015-03-31/functions/{FunctionName}", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/functions/{FunctionName}", 200] },
   () => GetFunctionRequest,
   () => GetFunctionResponse,
 ];
@@ -4185,9 +3213,7 @@ export var GetFunctionCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _GFCSC,
-  {
-    [_h]: ["GET", "/2020-06-30/functions/{FunctionName}/code-signing-config", 200],
-  },
+  { [_h]: ["GET", "/2020-06-30/functions/{FunctionName}/code-signing-config", 200] },
   () => GetFunctionCodeSigningConfigRequest,
   () => GetFunctionCodeSigningConfigResponse,
 ];
@@ -4195,9 +3221,7 @@ export var GetFunctionConcurrency: StaticOperationSchema = [
   9,
   n0,
   _GFC,
-  {
-    [_h]: ["GET", "/2019-09-30/functions/{FunctionName}/concurrency", 200],
-  },
+  { [_h]: ["GET", "/2019-09-30/functions/{FunctionName}/concurrency", 200] },
   () => GetFunctionConcurrencyRequest,
   () => GetFunctionConcurrencyResponse,
 ];
@@ -4205,9 +3229,7 @@ export var GetFunctionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GFCe,
-  {
-    [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/configuration", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/configuration", 200] },
   () => GetFunctionConfigurationRequest,
   () => FunctionConfiguration,
 ];
@@ -4215,9 +3237,7 @@ export var GetFunctionEventInvokeConfig: StaticOperationSchema = [
   9,
   n0,
   _GFEIC,
-  {
-    [_h]: ["GET", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 200],
-  },
+  { [_h]: ["GET", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 200] },
   () => GetFunctionEventInvokeConfigRequest,
   () => FunctionEventInvokeConfig,
 ];
@@ -4225,9 +3245,7 @@ export var GetFunctionRecursionConfig: StaticOperationSchema = [
   9,
   n0,
   _GFRC,
-  {
-    [_h]: ["GET", "/2024-08-31/functions/{FunctionName}/recursion-config", 200],
-  },
+  { [_h]: ["GET", "/2024-08-31/functions/{FunctionName}/recursion-config", 200] },
   () => GetFunctionRecursionConfigRequest,
   () => GetFunctionRecursionConfigResponse,
 ];
@@ -4235,9 +3253,7 @@ export var GetFunctionScalingConfig: StaticOperationSchema = [
   9,
   n0,
   _GFSC,
-  {
-    [_h]: ["GET", "/2025-11-30/functions/{FunctionName}/function-scaling-config", 200],
-  },
+  { [_h]: ["GET", "/2025-11-30/functions/{FunctionName}/function-scaling-config", 200] },
   () => GetFunctionScalingConfigRequest,
   () => GetFunctionScalingConfigResponse,
 ];
@@ -4245,9 +3261,7 @@ export var GetFunctionUrlConfig: StaticOperationSchema = [
   9,
   n0,
   _GFUC,
-  {
-    [_h]: ["GET", "/2021-10-31/functions/{FunctionName}/url", 200],
-  },
+  { [_h]: ["GET", "/2021-10-31/functions/{FunctionName}/url", 200] },
   () => GetFunctionUrlConfigRequest,
   () => GetFunctionUrlConfigResponse,
 ];
@@ -4255,9 +3269,7 @@ export var GetLayerVersion: StaticOperationSchema = [
   9,
   n0,
   _GLV,
-  {
-    [_h]: ["GET", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}", 200],
-  },
+  { [_h]: ["GET", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}", 200] },
   () => GetLayerVersionRequest,
   () => GetLayerVersionResponse,
 ];
@@ -4265,9 +3277,7 @@ export var GetLayerVersionByArn: StaticOperationSchema = [
   9,
   n0,
   _GLVBA,
-  {
-    [_h]: ["GET", "/2018-10-31/layers?find=LayerVersion", 200],
-  },
+  { [_h]: ["GET", "/2018-10-31/layers?find=LayerVersion", 200] },
   () => GetLayerVersionByArnRequest,
   () => GetLayerVersionResponse,
 ];
@@ -4275,9 +3285,7 @@ export var GetLayerVersionPolicy: StaticOperationSchema = [
   9,
   n0,
   _GLVP,
-  {
-    [_h]: ["GET", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy", 200],
-  },
+  { [_h]: ["GET", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy", 200] },
   () => GetLayerVersionPolicyRequest,
   () => GetLayerVersionPolicyResponse,
 ];
@@ -4285,9 +3293,7 @@ export var GetPolicy: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/policy", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/policy", 200] },
   () => GetPolicyRequest,
   () => GetPolicyResponse,
 ];
@@ -4295,9 +3301,7 @@ export var GetProvisionedConcurrencyConfig: StaticOperationSchema = [
   9,
   n0,
   _GPCC,
-  {
-    [_h]: ["GET", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 200],
-  },
+  { [_h]: ["GET", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 200] },
   () => GetProvisionedConcurrencyConfigRequest,
   () => GetProvisionedConcurrencyConfigResponse,
 ];
@@ -4305,9 +3309,7 @@ export var GetRuntimeManagementConfig: StaticOperationSchema = [
   9,
   n0,
   _GRMC,
-  {
-    [_h]: ["GET", "/2021-07-20/functions/{FunctionName}/runtime-management-config", 200],
-  },
+  { [_h]: ["GET", "/2021-07-20/functions/{FunctionName}/runtime-management-config", 200] },
   () => GetRuntimeManagementConfigRequest,
   () => GetRuntimeManagementConfigResponse,
 ];
@@ -4315,9 +3317,7 @@ export var Invoke: StaticOperationSchema = [
   9,
   n0,
   _In,
-  {
-    [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/invocations", 200],
-  },
+  { [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/invocations", 200] },
   () => InvocationRequest,
   () => InvocationResponse,
 ];
@@ -4325,9 +3325,7 @@ export var InvokeAsync: StaticOperationSchema = [
   9,
   n0,
   _IAn,
-  {
-    [_h]: ["POST", "/2014-11-13/functions/{FunctionName}/invoke-async", 202],
-  },
+  { [_h]: ["POST", "/2014-11-13/functions/{FunctionName}/invoke-async", 202] },
   () => InvokeAsyncRequest,
   () => InvokeAsyncResponse,
 ];
@@ -4335,9 +3333,7 @@ export var InvokeWithResponseStream: StaticOperationSchema = [
   9,
   n0,
   _IWRS,
-  {
-    [_h]: ["POST", "/2021-11-15/functions/{FunctionName}/response-streaming-invocations", 200],
-  },
+  { [_h]: ["POST", "/2021-11-15/functions/{FunctionName}/response-streaming-invocations", 200] },
   () => InvokeWithResponseStreamRequest,
   () => InvokeWithResponseStreamResponse,
 ];
@@ -4345,9 +3341,7 @@ export var ListAliases: StaticOperationSchema = [
   9,
   n0,
   _LAi,
-  {
-    [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/aliases", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/aliases", 200] },
   () => ListAliasesRequest,
   () => ListAliasesResponse,
 ];
@@ -4355,9 +3349,7 @@ export var ListCapacityProviders: StaticOperationSchema = [
   9,
   n0,
   _LCP,
-  {
-    [_h]: ["GET", "/2025-11-30/capacity-providers", 200],
-  },
+  { [_h]: ["GET", "/2025-11-30/capacity-providers", 200] },
   () => ListCapacityProvidersRequest,
   () => ListCapacityProvidersResponse,
 ];
@@ -4365,9 +3357,7 @@ export var ListCodeSigningConfigs: StaticOperationSchema = [
   9,
   n0,
   _LCSC,
-  {
-    [_h]: ["GET", "/2020-04-22/code-signing-configs", 200],
-  },
+  { [_h]: ["GET", "/2020-04-22/code-signing-configs", 200] },
   () => ListCodeSigningConfigsRequest,
   () => ListCodeSigningConfigsResponse,
 ];
@@ -4375,9 +3365,7 @@ export var ListDurableExecutionsByFunction: StaticOperationSchema = [
   9,
   n0,
   _LDEBF,
-  {
-    [_h]: ["GET", "/2025-12-01/functions/{FunctionName}/durable-executions", 200],
-  },
+  { [_h]: ["GET", "/2025-12-01/functions/{FunctionName}/durable-executions", 200] },
   () => ListDurableExecutionsByFunctionRequest,
   () => ListDurableExecutionsByFunctionResponse,
 ];
@@ -4385,9 +3373,7 @@ export var ListEventSourceMappings: StaticOperationSchema = [
   9,
   n0,
   _LESM,
-  {
-    [_h]: ["GET", "/2015-03-31/event-source-mappings", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/event-source-mappings", 200] },
   () => ListEventSourceMappingsRequest,
   () => ListEventSourceMappingsResponse,
 ];
@@ -4395,9 +3381,7 @@ export var ListFunctionEventInvokeConfigs: StaticOperationSchema = [
   9,
   n0,
   _LFEIC,
-  {
-    [_h]: ["GET", "/2019-09-25/functions/{FunctionName}/event-invoke-config/list", 200],
-  },
+  { [_h]: ["GET", "/2019-09-25/functions/{FunctionName}/event-invoke-config/list", 200] },
   () => ListFunctionEventInvokeConfigsRequest,
   () => ListFunctionEventInvokeConfigsResponse,
 ];
@@ -4405,9 +3389,7 @@ export var ListFunctions: StaticOperationSchema = [
   9,
   n0,
   _LFi,
-  {
-    [_h]: ["GET", "/2015-03-31/functions", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/functions", 200] },
   () => ListFunctionsRequest,
   () => ListFunctionsResponse,
 ];
@@ -4415,9 +3397,7 @@ export var ListFunctionsByCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _LFBCSC,
-  {
-    [_h]: ["GET", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions", 200],
-  },
+  { [_h]: ["GET", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions", 200] },
   () => ListFunctionsByCodeSigningConfigRequest,
   () => ListFunctionsByCodeSigningConfigResponse,
 ];
@@ -4425,9 +3405,7 @@ export var ListFunctionUrlConfigs: StaticOperationSchema = [
   9,
   n0,
   _LFUC,
-  {
-    [_h]: ["GET", "/2021-10-31/functions/{FunctionName}/urls", 200],
-  },
+  { [_h]: ["GET", "/2021-10-31/functions/{FunctionName}/urls", 200] },
   () => ListFunctionUrlConfigsRequest,
   () => ListFunctionUrlConfigsResponse,
 ];
@@ -4435,9 +3413,7 @@ export var ListFunctionVersionsByCapacityProvider: StaticOperationSchema = [
   9,
   n0,
   _LFVBCP,
-  {
-    [_h]: ["GET", "/2025-11-30/capacity-providers/{CapacityProviderName}/function-versions", 200],
-  },
+  { [_h]: ["GET", "/2025-11-30/capacity-providers/{CapacityProviderName}/function-versions", 200] },
   () => ListFunctionVersionsByCapacityProviderRequest,
   () => ListFunctionVersionsByCapacityProviderResponse,
 ];
@@ -4445,9 +3421,7 @@ export var ListLayers: StaticOperationSchema = [
   9,
   n0,
   _LLi,
-  {
-    [_h]: ["GET", "/2018-10-31/layers", 200],
-  },
+  { [_h]: ["GET", "/2018-10-31/layers", 200] },
   () => ListLayersRequest,
   () => ListLayersResponse,
 ];
@@ -4455,9 +3429,7 @@ export var ListLayerVersions: StaticOperationSchema = [
   9,
   n0,
   _LLV,
-  {
-    [_h]: ["GET", "/2018-10-31/layers/{LayerName}/versions", 200],
-  },
+  { [_h]: ["GET", "/2018-10-31/layers/{LayerName}/versions", 200] },
   () => ListLayerVersionsRequest,
   () => ListLayerVersionsResponse,
 ];
@@ -4465,9 +3437,7 @@ export var ListProvisionedConcurrencyConfigs: StaticOperationSchema = [
   9,
   n0,
   _LPCC,
-  {
-    [_h]: ["GET", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency?List=ALL", 200],
-  },
+  { [_h]: ["GET", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency?List=ALL", 200] },
   () => ListProvisionedConcurrencyConfigsRequest,
   () => ListProvisionedConcurrencyConfigsResponse,
 ];
@@ -4475,9 +3445,7 @@ export var ListTags: StaticOperationSchema = [
   9,
   n0,
   _LTi,
-  {
-    [_h]: ["GET", "/2017-03-31/tags/{Resource}", 200],
-  },
+  { [_h]: ["GET", "/2017-03-31/tags/{Resource}", 200] },
   () => ListTagsRequest,
   () => ListTagsResponse,
 ];
@@ -4485,9 +3453,7 @@ export var ListVersionsByFunction: StaticOperationSchema = [
   9,
   n0,
   _LVBF,
-  {
-    [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/versions", 200],
-  },
+  { [_h]: ["GET", "/2015-03-31/functions/{FunctionName}/versions", 200] },
   () => ListVersionsByFunctionRequest,
   () => ListVersionsByFunctionResponse,
 ];
@@ -4495,9 +3461,7 @@ export var PublishLayerVersion: StaticOperationSchema = [
   9,
   n0,
   _PLV,
-  {
-    [_h]: ["POST", "/2018-10-31/layers/{LayerName}/versions", 201],
-  },
+  { [_h]: ["POST", "/2018-10-31/layers/{LayerName}/versions", 201] },
   () => PublishLayerVersionRequest,
   () => PublishLayerVersionResponse,
 ];
@@ -4505,9 +3469,7 @@ export var PublishVersion: StaticOperationSchema = [
   9,
   n0,
   _PV,
-  {
-    [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/versions", 201],
-  },
+  { [_h]: ["POST", "/2015-03-31/functions/{FunctionName}/versions", 201] },
   () => PublishVersionRequest,
   () => FunctionConfiguration,
 ];
@@ -4515,9 +3477,7 @@ export var PutFunctionCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _PFCSC,
-  {
-    [_h]: ["PUT", "/2020-06-30/functions/{FunctionName}/code-signing-config", 200],
-  },
+  { [_h]: ["PUT", "/2020-06-30/functions/{FunctionName}/code-signing-config", 200] },
   () => PutFunctionCodeSigningConfigRequest,
   () => PutFunctionCodeSigningConfigResponse,
 ];
@@ -4525,9 +3485,7 @@ export var PutFunctionConcurrency: StaticOperationSchema = [
   9,
   n0,
   _PFC,
-  {
-    [_h]: ["PUT", "/2017-10-31/functions/{FunctionName}/concurrency", 200],
-  },
+  { [_h]: ["PUT", "/2017-10-31/functions/{FunctionName}/concurrency", 200] },
   () => PutFunctionConcurrencyRequest,
   () => Concurrency,
 ];
@@ -4535,9 +3493,7 @@ export var PutFunctionEventInvokeConfig: StaticOperationSchema = [
   9,
   n0,
   _PFEIC,
-  {
-    [_h]: ["PUT", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 200],
-  },
+  { [_h]: ["PUT", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 200] },
   () => PutFunctionEventInvokeConfigRequest,
   () => FunctionEventInvokeConfig,
 ];
@@ -4545,9 +3501,7 @@ export var PutFunctionRecursionConfig: StaticOperationSchema = [
   9,
   n0,
   _PFRC,
-  {
-    [_h]: ["PUT", "/2024-08-31/functions/{FunctionName}/recursion-config", 200],
-  },
+  { [_h]: ["PUT", "/2024-08-31/functions/{FunctionName}/recursion-config", 200] },
   () => PutFunctionRecursionConfigRequest,
   () => PutFunctionRecursionConfigResponse,
 ];
@@ -4555,9 +3509,7 @@ export var PutFunctionScalingConfig: StaticOperationSchema = [
   9,
   n0,
   _PFSC,
-  {
-    [_h]: ["PUT", "/2025-11-30/functions/{FunctionName}/function-scaling-config", 202],
-  },
+  { [_h]: ["PUT", "/2025-11-30/functions/{FunctionName}/function-scaling-config", 202] },
   () => PutFunctionScalingConfigRequest,
   () => PutFunctionScalingConfigResponse,
 ];
@@ -4565,9 +3517,7 @@ export var PutProvisionedConcurrencyConfig: StaticOperationSchema = [
   9,
   n0,
   _PPCC,
-  {
-    [_h]: ["PUT", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 202],
-  },
+  { [_h]: ["PUT", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 202] },
   () => PutProvisionedConcurrencyConfigRequest,
   () => PutProvisionedConcurrencyConfigResponse,
 ];
@@ -4575,9 +3525,7 @@ export var PutRuntimeManagementConfig: StaticOperationSchema = [
   9,
   n0,
   _PRMC,
-  {
-    [_h]: ["PUT", "/2021-07-20/functions/{FunctionName}/runtime-management-config", 200],
-  },
+  { [_h]: ["PUT", "/2021-07-20/functions/{FunctionName}/runtime-management-config", 200] },
   () => PutRuntimeManagementConfigRequest,
   () => PutRuntimeManagementConfigResponse,
 ];
@@ -4585,9 +3533,7 @@ export var RemoveLayerVersionPermission: StaticOperationSchema = [
   9,
   n0,
   _RLVP,
-  {
-    [_h]: ["DELETE", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}", 204],
-  },
+  { [_h]: ["DELETE", "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}", 204] },
   () => RemoveLayerVersionPermissionRequest,
   () => __Unit,
 ];
@@ -4595,9 +3541,7 @@ export var RemovePermission: StaticOperationSchema = [
   9,
   n0,
   _RP,
-  {
-    [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}/policy/{StatementId}", 204],
-  },
+  { [_h]: ["DELETE", "/2015-03-31/functions/{FunctionName}/policy/{StatementId}", 204] },
   () => RemovePermissionRequest,
   () => __Unit,
 ];
@@ -4605,9 +3549,7 @@ export var SendDurableExecutionCallbackFailure: StaticOperationSchema = [
   9,
   n0,
   _SDECF,
-  {
-    [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/fail", 200],
-  },
+  { [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/fail", 200] },
   () => SendDurableExecutionCallbackFailureRequest,
   () => SendDurableExecutionCallbackFailureResponse,
 ];
@@ -4615,9 +3557,7 @@ export var SendDurableExecutionCallbackHeartbeat: StaticOperationSchema = [
   9,
   n0,
   _SDECH,
-  {
-    [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/heartbeat", 200],
-  },
+  { [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/heartbeat", 200] },
   () => SendDurableExecutionCallbackHeartbeatRequest,
   () => SendDurableExecutionCallbackHeartbeatResponse,
 ];
@@ -4625,9 +3565,7 @@ export var SendDurableExecutionCallbackSuccess: StaticOperationSchema = [
   9,
   n0,
   _SDECS,
-  {
-    [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/succeed", 200],
-  },
+  { [_h]: ["POST", "/2025-12-01/durable-execution-callbacks/{CallbackId}/succeed", 200] },
   () => SendDurableExecutionCallbackSuccessRequest,
   () => SendDurableExecutionCallbackSuccessResponse,
 ];
@@ -4635,9 +3573,7 @@ export var StopDurableExecution: StaticOperationSchema = [
   9,
   n0,
   _SDE,
-  {
-    [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/stop", 200],
-  },
+  { [_h]: ["POST", "/2025-12-01/durable-executions/{DurableExecutionArn}/stop", 200] },
   () => StopDurableExecutionRequest,
   () => StopDurableExecutionResponse,
 ];
@@ -4645,9 +3581,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/2017-03-31/tags/{Resource}", 204],
-  },
+  { [_h]: ["POST", "/2017-03-31/tags/{Resource}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -4655,9 +3589,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/2017-03-31/tags/{Resource}", 204],
-  },
+  { [_h]: ["DELETE", "/2017-03-31/tags/{Resource}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -4665,9 +3597,7 @@ export var UpdateAlias: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PUT", "/2015-03-31/functions/{FunctionName}/aliases/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/2015-03-31/functions/{FunctionName}/aliases/{Name}", 200] },
   () => UpdateAliasRequest,
   () => AliasConfiguration,
 ];
@@ -4675,9 +3605,7 @@ export var UpdateCapacityProvider: StaticOperationSchema = [
   9,
   n0,
   _UCP,
-  {
-    [_h]: ["PUT", "/2025-11-30/capacity-providers/{CapacityProviderName}", 202],
-  },
+  { [_h]: ["PUT", "/2025-11-30/capacity-providers/{CapacityProviderName}", 202] },
   () => UpdateCapacityProviderRequest,
   () => UpdateCapacityProviderResponse,
 ];
@@ -4685,9 +3613,7 @@ export var UpdateCodeSigningConfig: StaticOperationSchema = [
   9,
   n0,
   _UCSC,
-  {
-    [_h]: ["PUT", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}", 200],
-  },
+  { [_h]: ["PUT", "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}", 200] },
   () => UpdateCodeSigningConfigRequest,
   () => UpdateCodeSigningConfigResponse,
 ];
@@ -4695,9 +3621,7 @@ export var UpdateEventSourceMapping: StaticOperationSchema = [
   9,
   n0,
   _UESM,
-  {
-    [_h]: ["PUT", "/2015-03-31/event-source-mappings/{UUID}", 202],
-  },
+  { [_h]: ["PUT", "/2015-03-31/event-source-mappings/{UUID}", 202] },
   () => UpdateEventSourceMappingRequest,
   () => EventSourceMappingConfiguration,
 ];
@@ -4705,9 +3629,7 @@ export var UpdateFunctionCode: StaticOperationSchema = [
   9,
   n0,
   _UFC,
-  {
-    [_h]: ["PUT", "/2015-03-31/functions/{FunctionName}/code", 200],
-  },
+  { [_h]: ["PUT", "/2015-03-31/functions/{FunctionName}/code", 200] },
   () => UpdateFunctionCodeRequest,
   () => FunctionConfiguration,
 ];
@@ -4715,9 +3637,7 @@ export var UpdateFunctionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UFCp,
-  {
-    [_h]: ["PUT", "/2015-03-31/functions/{FunctionName}/configuration", 200],
-  },
+  { [_h]: ["PUT", "/2015-03-31/functions/{FunctionName}/configuration", 200] },
   () => UpdateFunctionConfigurationRequest,
   () => FunctionConfiguration,
 ];
@@ -4725,9 +3645,7 @@ export var UpdateFunctionEventInvokeConfig: StaticOperationSchema = [
   9,
   n0,
   _UFEIC,
-  {
-    [_h]: ["POST", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 200],
-  },
+  { [_h]: ["POST", "/2019-09-25/functions/{FunctionName}/event-invoke-config", 200] },
   () => UpdateFunctionEventInvokeConfigRequest,
   () => FunctionEventInvokeConfig,
 ];
@@ -4735,9 +3653,7 @@ export var UpdateFunctionUrlConfig: StaticOperationSchema = [
   9,
   n0,
   _UFUC,
-  {
-    [_h]: ["PUT", "/2021-10-31/functions/{FunctionName}/url", 200],
-  },
+  { [_h]: ["PUT", "/2021-10-31/functions/{FunctionName}/url", 200] },
   () => UpdateFunctionUrlConfigRequest,
   () => UpdateFunctionUrlConfigResponse,
 ];

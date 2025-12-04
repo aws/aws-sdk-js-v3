@@ -228,20 +228,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BaselineOperation: StaticStructureSchema = [
   3,
   n0,
@@ -251,19 +239,8 @@ export var BaselineOperation: StaticStructureSchema = [
   [0, 0, 0, 5, 5, 0],
 ];
 export var BaselineSummary: StaticStructureSchema = [3, n0, _BS, 0, [_a, _n, _d], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ControlOperation: StaticStructureSchema = [
   3,
   n0,
@@ -448,19 +425,8 @@ export var GetLandingZoneOperationOutput: StaticStructureSchema = [
   [() => LandingZoneOperationDetail],
 ];
 export var GetLandingZoneOutput: StaticStructureSchema = [3, n0, _GLZO, 0, [_lZ], [() => LandingZoneDetail]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LandingZoneDetail: StaticStructureSchema = [
   3,
   n0,
@@ -558,57 +524,21 @@ export var ResetEnabledControlInput: StaticStructureSchema = [3, n0, _RECI, 0, [
 export var ResetEnabledControlOutput: StaticStructureSchema = [3, n0, _RECO, 0, [_oI], [0]];
 export var ResetLandingZoneInput: StaticStructureSchema = [3, n0, _RLZI, 0, [_lZI], [0]];
 export var ResetLandingZoneOutput: StaticStructureSchema = [3, n0, _RLZO, 0, [_oI], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -617,12 +547,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -646,40 +571,20 @@ export var UpdateEnabledControlInput: StaticStructureSchema = [
 export var UpdateEnabledControlOutput: StaticStructureSchema = [3, n0, _UECO, 0, [_oI], [0]];
 export var UpdateLandingZoneInput: StaticStructureSchema = [3, n0, _ULZI, 0, [_v, _rT, _lZI, _ma], [0, 64 | 0, 0, 15]];
 export var UpdateLandingZoneOutput: StaticStructureSchema = [3, n0, _ULZO, 0, [_oI], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var ControlTowerServiceException: StaticErrorSchema = [-3, _sm, "ControlTowerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ControlTowerServiceException, __ControlTowerServiceException);
-
 export var Baselines: StaticListSchema = [1, n0, _B, 0, () => BaselineSummary];
 export var ControlIdentifiers = 64 | 0;
-
 export var ControlOperations: StaticListSchema = [1, n0, _COo, 0, () => ControlOperationSummary];
 export var ControlOperationStatuses = 64 | 0;
-
 export var ControlOperationTypes = 64 | 0;
-
 export var DriftStatuses = 64 | 0;
-
 export var EnabledBaselineBaselineIdentifiers = 64 | 0;
-
 export var EnabledBaselineDriftStatuses = 64 | 0;
-
 export var EnabledBaselineEnablementStatuses = 64 | 0;
-
 export var EnabledBaselineParameters: StaticListSchema = [1, n0, _EBPn, 0, () => EnabledBaselineParameter];
 export var EnabledBaselineParameterSummaries: StaticListSchema = [
   1,
@@ -689,12 +594,9 @@ export var EnabledBaselineParameterSummaries: StaticListSchema = [
   () => EnabledBaselineParameterSummary,
 ];
 export var EnabledBaselineParentIdentifiers = 64 | 0;
-
 export var EnabledBaselines: StaticListSchema = [1, n0, _EB, 0, () => EnabledBaselineSummary];
 export var EnabledBaselineTargetIdentifiers = 64 | 0;
-
 export var EnabledControlIdentifiers = 64 | 0;
-
 export var EnabledControlParameters: StaticListSchema = [1, n0, _ECPn, 0, () => EnabledControlParameter];
 export var EnabledControlParameterSummaries: StaticListSchema = [
   1,
@@ -705,31 +607,21 @@ export var EnabledControlParameterSummaries: StaticListSchema = [
 ];
 export var EnabledControls: StaticListSchema = [1, n0, _EC, 0, () => EnabledControlSummary];
 export var EnablementStatuses = 64 | 0;
-
 export var LandingZoneOperations: StaticListSchema = [1, n0, _LZO, 0, () => LandingZoneOperationSummary];
 export var LandingZoneOperationStatuses = 64 | 0;
-
 export var LandingZoneOperationTypes = 64 | 0;
-
 export var LandingZoneSummaries: StaticListSchema = [1, n0, _LZSa, 0, () => LandingZoneSummary];
 export var ParentIdentifiers = 64 | 0;
-
 export var RemediationTypes = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var TargetIdentifiers = 64 | 0;
-
 export var TargetRegions: StaticListSchema = [1, n0, _TR, 0, () => Region];
 export var TagMap = 128 | 0;
-
 export var CreateLandingZone: StaticOperationSchema = [
   9,
   n0,
   _CLZ,
-  {
-    [_h]: ["POST", "/create-landingzone", 200],
-  },
+  { [_h]: ["POST", "/create-landingzone", 200] },
   () => CreateLandingZoneInput,
   () => CreateLandingZoneOutput,
 ];
@@ -737,9 +629,7 @@ export var DeleteLandingZone: StaticOperationSchema = [
   9,
   n0,
   _DLZ,
-  {
-    [_h]: ["POST", "/delete-landingzone", 200],
-  },
+  { [_h]: ["POST", "/delete-landingzone", 200] },
   () => DeleteLandingZoneInput,
   () => DeleteLandingZoneOutput,
 ];
@@ -747,9 +637,7 @@ export var DisableBaseline: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["POST", "/disable-baseline", 200],
-  },
+  { [_h]: ["POST", "/disable-baseline", 200] },
   () => DisableBaselineInput,
   () => DisableBaselineOutput,
 ];
@@ -757,9 +645,7 @@ export var DisableControl: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["POST", "/disable-control", 200],
-  },
+  { [_h]: ["POST", "/disable-control", 200] },
   () => DisableControlInput,
   () => DisableControlOutput,
 ];
@@ -767,9 +653,7 @@ export var EnableBaseline: StaticOperationSchema = [
   9,
   n0,
   _EBn,
-  {
-    [_h]: ["POST", "/enable-baseline", 200],
-  },
+  { [_h]: ["POST", "/enable-baseline", 200] },
   () => EnableBaselineInput,
   () => EnableBaselineOutput,
 ];
@@ -777,9 +661,7 @@ export var EnableControl: StaticOperationSchema = [
   9,
   n0,
   _ECn,
-  {
-    [_h]: ["POST", "/enable-control", 200],
-  },
+  { [_h]: ["POST", "/enable-control", 200] },
   () => EnableControlInput,
   () => EnableControlOutput,
 ];
@@ -787,9 +669,7 @@ export var GetBaseline: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["POST", "/get-baseline", 200],
-  },
+  { [_h]: ["POST", "/get-baseline", 200] },
   () => GetBaselineInput,
   () => GetBaselineOutput,
 ];
@@ -797,9 +677,7 @@ export var GetBaselineOperation: StaticOperationSchema = [
   9,
   n0,
   _GBOe,
-  {
-    [_h]: ["POST", "/get-baseline-operation", 200],
-  },
+  { [_h]: ["POST", "/get-baseline-operation", 200] },
   () => GetBaselineOperationInput,
   () => GetBaselineOperationOutput,
 ];
@@ -807,9 +685,7 @@ export var GetControlOperation: StaticOperationSchema = [
   9,
   n0,
   _GCO,
-  {
-    [_h]: ["POST", "/get-control-operation", 200],
-  },
+  { [_h]: ["POST", "/get-control-operation", 200] },
   () => GetControlOperationInput,
   () => GetControlOperationOutput,
 ];
@@ -817,9 +693,7 @@ export var GetEnabledBaseline: StaticOperationSchema = [
   9,
   n0,
   _GEB,
-  {
-    [_h]: ["POST", "/get-enabled-baseline", 200],
-  },
+  { [_h]: ["POST", "/get-enabled-baseline", 200] },
   () => GetEnabledBaselineInput,
   () => GetEnabledBaselineOutput,
 ];
@@ -827,9 +701,7 @@ export var GetEnabledControl: StaticOperationSchema = [
   9,
   n0,
   _GEC,
-  {
-    [_h]: ["POST", "/get-enabled-control", 200],
-  },
+  { [_h]: ["POST", "/get-enabled-control", 200] },
   () => GetEnabledControlInput,
   () => GetEnabledControlOutput,
 ];
@@ -837,9 +709,7 @@ export var GetLandingZone: StaticOperationSchema = [
   9,
   n0,
   _GLZ,
-  {
-    [_h]: ["POST", "/get-landingzone", 200],
-  },
+  { [_h]: ["POST", "/get-landingzone", 200] },
   () => GetLandingZoneInput,
   () => GetLandingZoneOutput,
 ];
@@ -847,9 +717,7 @@ export var GetLandingZoneOperation: StaticOperationSchema = [
   9,
   n0,
   _GLZOe,
-  {
-    [_h]: ["POST", "/get-landingzone-operation", 200],
-  },
+  { [_h]: ["POST", "/get-landingzone-operation", 200] },
   () => GetLandingZoneOperationInput,
   () => GetLandingZoneOperationOutput,
 ];
@@ -857,9 +725,7 @@ export var ListBaselines: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_h]: ["POST", "/list-baselines", 200],
-  },
+  { [_h]: ["POST", "/list-baselines", 200] },
   () => ListBaselinesInput,
   () => ListBaselinesOutput,
 ];
@@ -867,9 +733,7 @@ export var ListControlOperations: StaticOperationSchema = [
   9,
   n0,
   _LCO,
-  {
-    [_h]: ["POST", "/list-control-operations", 200],
-  },
+  { [_h]: ["POST", "/list-control-operations", 200] },
   () => ListControlOperationsInput,
   () => ListControlOperationsOutput,
 ];
@@ -877,9 +741,7 @@ export var ListEnabledBaselines: StaticOperationSchema = [
   9,
   n0,
   _LEB,
-  {
-    [_h]: ["POST", "/list-enabled-baselines", 200],
-  },
+  { [_h]: ["POST", "/list-enabled-baselines", 200] },
   () => ListEnabledBaselinesInput,
   () => ListEnabledBaselinesOutput,
 ];
@@ -887,9 +749,7 @@ export var ListEnabledControls: StaticOperationSchema = [
   9,
   n0,
   _LEC,
-  {
-    [_h]: ["POST", "/list-enabled-controls", 200],
-  },
+  { [_h]: ["POST", "/list-enabled-controls", 200] },
   () => ListEnabledControlsInput,
   () => ListEnabledControlsOutput,
 ];
@@ -897,9 +757,7 @@ export var ListLandingZoneOperations: StaticOperationSchema = [
   9,
   n0,
   _LLZOi,
-  {
-    [_h]: ["POST", "/list-landingzone-operations", 200],
-  },
+  { [_h]: ["POST", "/list-landingzone-operations", 200] },
   () => ListLandingZoneOperationsInput,
   () => ListLandingZoneOperationsOutput,
 ];
@@ -907,9 +765,7 @@ export var ListLandingZones: StaticOperationSchema = [
   9,
   n0,
   _LLZ,
-  {
-    [_h]: ["POST", "/list-landingzones", 200],
-  },
+  { [_h]: ["POST", "/list-landingzones", 200] },
   () => ListLandingZonesInput,
   () => ListLandingZonesOutput,
 ];
@@ -917,9 +773,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -927,9 +781,7 @@ export var ResetEnabledBaseline: StaticOperationSchema = [
   9,
   n0,
   _REB,
-  {
-    [_h]: ["POST", "/reset-enabled-baseline", 200],
-  },
+  { [_h]: ["POST", "/reset-enabled-baseline", 200] },
   () => ResetEnabledBaselineInput,
   () => ResetEnabledBaselineOutput,
 ];
@@ -937,9 +789,7 @@ export var ResetEnabledControl: StaticOperationSchema = [
   9,
   n0,
   _REC,
-  {
-    [_h]: ["POST", "/reset-enabled-control", 200],
-  },
+  { [_h]: ["POST", "/reset-enabled-control", 200] },
   () => ResetEnabledControlInput,
   () => ResetEnabledControlOutput,
 ];
@@ -947,9 +797,7 @@ export var ResetLandingZone: StaticOperationSchema = [
   9,
   n0,
   _RLZ,
-  {
-    [_h]: ["POST", "/reset-landingzone", 200],
-  },
+  { [_h]: ["POST", "/reset-landingzone", 200] },
   () => ResetLandingZoneInput,
   () => ResetLandingZoneOutput,
 ];
@@ -957,9 +805,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 204] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -967,9 +813,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -977,9 +821,7 @@ export var UpdateEnabledBaseline: StaticOperationSchema = [
   9,
   n0,
   _UEB,
-  {
-    [_h]: ["POST", "/update-enabled-baseline", 200],
-  },
+  { [_h]: ["POST", "/update-enabled-baseline", 200] },
   () => UpdateEnabledBaselineInput,
   () => UpdateEnabledBaselineOutput,
 ];
@@ -987,9 +829,7 @@ export var UpdateEnabledControl: StaticOperationSchema = [
   9,
   n0,
   _UEC,
-  {
-    [_h]: ["POST", "/update-enabled-control", 200],
-  },
+  { [_h]: ["POST", "/update-enabled-control", 200] },
   () => UpdateEnabledControlInput,
   () => UpdateEnabledControlOutput,
 ];
@@ -997,9 +837,7 @@ export var UpdateLandingZone: StaticOperationSchema = [
   9,
   n0,
   _ULZ,
-  {
-    [_h]: ["POST", "/update-landingzone", 200],
-  },
+  { [_h]: ["POST", "/update-landingzone", 200] },
   () => UpdateLandingZoneInput,
   () => UpdateLandingZoneOutput,
 ];

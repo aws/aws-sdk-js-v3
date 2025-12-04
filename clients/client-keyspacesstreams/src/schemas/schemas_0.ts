@@ -126,21 +126,15 @@ import {
 import { KeyspacesStreamsServiceException as __KeyspacesStreamsServiceException } from "../models/KeyspacesStreamsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDeniedException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDeniedException`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var GetRecordsInput: StaticStructureSchema = [3, n0, _GRI, 0, [_sI, _mR], [0, 1]];
 export var GetRecordsOutput: StaticStructureSchema = [3, n0, _GRO, 0, [_cR, _nSI], [() => RecordList, 0]];
 export var GetShardIteratorInput: StaticStructureSchema = [3, n0, _GSII, 0, [_sA, _sIh, _sIT, _sN], [0, 0, 0, 0]];
@@ -158,16 +152,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-    [_aQE]: [`InternalServerException`, 500],
-  },
+  { [_e]: _se, [_hE]: 500, [_aQE]: [`InternalServerException`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KeyspacesCell: StaticStructureSchema = [
   3,
   n0,
@@ -207,16 +196,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SequenceNumberRange: StaticStructureSchema = [3, n0, _SNR, 0, [_sSN, _eSN], [0, 0]];
 export var Shard: StaticStructureSchema = [3, n0, _S, 0, [_sIh, _sNR, _pSI], [0, () => SequenceNumberRange, 64 | 0]];
 export var ShardFilter: StaticStructureSchema = [3, n0, _SF, 0, [_t, _sIh], [0, 0]];
@@ -225,32 +209,21 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ThrottlingException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
   [_m, _eC],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var KeyspacesStreamsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -260,13 +233,11 @@ export var KeyspacesStreamsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(KeyspacesStreamsServiceException, __KeyspacesStreamsServiceException);
-
 export var KeyspacesCellList: StaticListSchema = [1, n0, _KCL, 0, () => KeyspacesCell];
 export var KeyspacesCellMap: StaticListSchema = [1, n0, _KCM, 0, () => KeyspacesCellMapDefinition];
 export var RecordList: StaticListSchema = [1, n0, _RL, 0, () => _Record];
 export var ShardDescriptionList: StaticListSchema = [1, n0, _SDL, 0, () => Shard];
 export var ShardIdList = 64 | 0;
-
 export var StreamList: StaticListSchema = [1, n0, _SL, 0, () => _Stream];
 export var KeyspacesCells: StaticMapSchema = [2, n0, _KCe, 0, 0, () => KeyspacesCell];
 export var KeyspacesKeysMap: StaticMapSchema = [2, n0, _KKM, 0, 0, () => KeyspacesCellValue];

@@ -35,24 +35,24 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof TimestreamQueryClient === "function")
-assert(typeof TimestreamQuery === "function")
+assert(typeof TimestreamQueryClient === "function");
+assert(typeof TimestreamQuery === "function");
 // commands
-assert(typeof CancelQueryCommand === "function")
-assert(typeof CreateScheduledQueryCommand === "function")
-assert(typeof DeleteScheduledQueryCommand === "function")
-assert(typeof DescribeAccountSettingsCommand === "function")
-assert(typeof DescribeEndpointsCommand === "function")
-assert(typeof DescribeScheduledQueryCommand === "function")
-assert(typeof ExecuteScheduledQueryCommand === "function")
-assert(typeof ListScheduledQueriesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PrepareQueryCommand === "function")
-assert(typeof QueryCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateAccountSettingsCommand === "function")
-assert(typeof UpdateScheduledQueryCommand === "function")
+assert(typeof CancelQueryCommand === "function");
+assert(typeof CreateScheduledQueryCommand === "function");
+assert(typeof DeleteScheduledQueryCommand === "function");
+assert(typeof DescribeAccountSettingsCommand === "function");
+assert(typeof DescribeEndpointsCommand === "function");
+assert(typeof DescribeScheduledQueryCommand === "function");
+assert(typeof ExecuteScheduledQueryCommand === "function");
+assert(typeof ListScheduledQueriesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PrepareQueryCommand === "function");
+assert(typeof QueryCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateAccountSettingsCommand === "function");
+assert(typeof UpdateScheduledQueryCommand === "function");
 // enums
 assert(typeof ComputeMode === "object");
 assert(typeof DimensionValueType === "object");
@@ -67,9 +67,9 @@ assert(typeof ScheduledQueryInsightsMode === "object");
 assert(typeof ScheduledQueryRunStatus === "object");
 assert(typeof ScheduledQueryState === "object");
 // errors
-assert(TimestreamQueryServiceException.prototype instanceof Error)
+assert(TimestreamQueryServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListScheduledQueries === "function")
-assert(typeof paginateListTagsForResource === "function")
-assert(typeof paginateQuery === "function")
+assert(typeof paginateListScheduledQueries === "function");
+assert(typeof paginateListTagsForResource === "function");
+assert(typeof paginateQuery === "function");
 console.log(`TimestreamQuery index test passed.`);

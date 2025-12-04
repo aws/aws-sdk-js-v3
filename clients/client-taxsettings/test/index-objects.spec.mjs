@@ -42,25 +42,25 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof TaxSettingsClient === "function")
-assert(typeof TaxSettings === "function")
+assert(typeof TaxSettingsClient === "function");
+assert(typeof TaxSettings === "function");
 // commands
-assert(typeof BatchDeleteTaxRegistrationCommand === "function")
-assert(typeof BatchGetTaxExemptionsCommand === "function")
-assert(typeof BatchPutTaxRegistrationCommand === "function")
-assert(typeof DeleteSupplementalTaxRegistrationCommand === "function")
-assert(typeof DeleteTaxRegistrationCommand === "function")
-assert(typeof GetTaxExemptionTypesCommand === "function")
-assert(typeof GetTaxInheritanceCommand === "function")
-assert(typeof GetTaxRegistrationCommand === "function")
-assert(typeof GetTaxRegistrationDocumentCommand === "function")
-assert(typeof ListSupplementalTaxRegistrationsCommand === "function")
-assert(typeof ListTaxExemptionsCommand === "function")
-assert(typeof ListTaxRegistrationsCommand === "function")
-assert(typeof PutSupplementalTaxRegistrationCommand === "function")
-assert(typeof PutTaxExemptionCommand === "function")
-assert(typeof PutTaxInheritanceCommand === "function")
-assert(typeof PutTaxRegistrationCommand === "function")
+assert(typeof BatchDeleteTaxRegistrationCommand === "function");
+assert(typeof BatchGetTaxExemptionsCommand === "function");
+assert(typeof BatchPutTaxRegistrationCommand === "function");
+assert(typeof DeleteSupplementalTaxRegistrationCommand === "function");
+assert(typeof DeleteTaxRegistrationCommand === "function");
+assert(typeof GetTaxExemptionTypesCommand === "function");
+assert(typeof GetTaxInheritanceCommand === "function");
+assert(typeof GetTaxRegistrationCommand === "function");
+assert(typeof GetTaxRegistrationDocumentCommand === "function");
+assert(typeof ListSupplementalTaxRegistrationsCommand === "function");
+assert(typeof ListTaxExemptionsCommand === "function");
+assert(typeof ListTaxRegistrationsCommand === "function");
+assert(typeof PutSupplementalTaxRegistrationCommand === "function");
+assert(typeof PutTaxExemptionCommand === "function");
+assert(typeof PutTaxInheritanceCommand === "function");
+assert(typeof PutTaxRegistrationCommand === "function");
 // enums
 assert(typeof AddressRoleType === "object");
 assert(typeof EntityExemptionAccountStatus === "object");
@@ -81,9 +81,9 @@ assert(typeof TaxRegistrationType === "object");
 assert(typeof UkraineTrnType === "object");
 assert(typeof UzbekistanTaxRegistrationNumberType === "object");
 // errors
-assert(TaxSettingsServiceException.prototype instanceof Error)
+assert(TaxSettingsServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListSupplementalTaxRegistrations === "function")
-assert(typeof paginateListTaxExemptions === "function")
-assert(typeof paginateListTaxRegistrations === "function")
+assert(typeof paginateListSupplementalTaxRegistrations === "function");
+assert(typeof paginateListTaxExemptions === "function");
+assert(typeof paginateListTaxRegistrations === "function");
 console.log(`TaxSettings index test passed.`);

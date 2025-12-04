@@ -124,67 +124,46 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var PatchDocument: StaticSimpleSchema = [0, n0, _PD, 8, 0];
 export var Properties: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var AlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExistsException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
 export var CancelResourceRequestInput: StaticStructureSchema = [3, n0, _CRRI, 0, [_RT], [0]];
 export var CancelResourceRequestOutput: StaticStructureSchema = [3, n0, _CRRO, 0, [_PE], [[() => ProgressEvent, 0]]];
 export var ClientTokenConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CTCE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ClientTokenConflictException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ClientTokenConflictException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ClientTokenConflictException, __ClientTokenConflictException);
-
 export var ConcurrentModificationException: StaticErrorSchema = [
   -3,
   n0,
   _CME,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`ConcurrentModificationException`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`ConcurrentModificationException`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var ConcurrentOperationException: StaticErrorSchema = [
   -3,
   n0,
   _COE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ConcurrentOperationException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConcurrentOperationException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConcurrentOperationException, __ConcurrentOperationException);
-
 export var CreateResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -207,16 +186,11 @@ export var GeneralServiceException: StaticErrorSchema = [
   -3,
   n0,
   _GSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`GeneralServiceException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`GeneralServiceException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(GeneralServiceException, __GeneralServiceException);
-
 export var GetResourceInput: StaticStructureSchema = [3, n0, _GRI, 0, [_TN, _TVI, _RA, _I], [0, 0, 0, 0]];
 export var GetResourceOutput: StaticStructureSchema = [3, n0, _GRO, 0, [_TN, _RD], [0, [() => ResourceDescription, 0]]];
 export var GetResourceRequestStatusInput: StaticStructureSchema = [3, n0, _GRRSI, 0, [_RT], [0]];
@@ -232,30 +206,20 @@ export var HandlerFailureException: StaticErrorSchema = [
   -3,
   n0,
   _HFE,
-  {
-    [_e]: _s,
-    [_hE]: 502,
-    [_aQE]: [`HandlerFailureException`, 502],
-  },
+  { [_e]: _s, [_hE]: 502, [_aQE]: [`HandlerFailureException`, 502] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(HandlerFailureException, __HandlerFailureException);
-
 export var HandlerInternalFailureException: StaticErrorSchema = [
   -3,
   n0,
   _HIFE,
-  {
-    [_e]: _s,
-    [_hE]: 502,
-    [_aQE]: [`HandlerInternalFailureException`, 502],
-  },
+  { [_e]: _s, [_hE]: 502, [_aQE]: [`HandlerInternalFailureException`, 502] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(HandlerInternalFailureException, __HandlerInternalFailureException);
-
 export var HookProgressEvent: StaticStructureSchema = [
   3,
   n0,
@@ -268,30 +232,20 @@ export var InvalidCredentialsException: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-    [_aQE]: [`InvalidCredentialsException`, 401],
-  },
+  { [_e]: _c, [_hE]: 401, [_aQE]: [`InvalidCredentialsException`, 401] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidCredentialsException, __InvalidCredentialsException);
-
 export var InvalidRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidRequestException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRequestException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListResourceRequestsInput: StaticStructureSchema = [
   3,
   n0,
@@ -328,58 +282,38 @@ export var NetworkFailureException: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
-  {
-    [_e]: _s,
-    [_hE]: 502,
-    [_aQE]: [`NetworkFailureException`, 502],
-  },
+  { [_e]: _s, [_hE]: 502, [_aQE]: [`NetworkFailureException`, 502] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NetworkFailureException, __NetworkFailureException);
-
 export var NotStabilizedException: StaticErrorSchema = [
   -3,
   n0,
   _NSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`NotStabilizedException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`NotStabilizedException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NotStabilizedException, __NotStabilizedException);
-
 export var NotUpdatableException: StaticErrorSchema = [
   -3,
   n0,
   _NUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`NotUpdatableException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`NotUpdatableException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NotUpdatableException, __NotUpdatableException);
-
 export var PrivateTypeException: StaticErrorSchema = [
   -3,
   n0,
   _PTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`PrivateTypeException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`PrivateTypeException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PrivateTypeException, __PrivateTypeException);
-
 export var ProgressEvent: StaticStructureSchema = [
   3,
   n0,
@@ -392,116 +326,76 @@ export var RequestTokenNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RTNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`RequestTokenNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`RequestTokenNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RequestTokenNotFoundException, __RequestTokenNotFoundException);
-
 export var ResourceConflictException: StaticErrorSchema = [
   -3,
   n0,
   _RCE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ResourceConflictException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ResourceConflictException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-
 export var ResourceDescription: StaticStructureSchema = [3, n0, _RD, 0, [_I, _P], [0, [() => Properties, 0]]];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceRequestStatusFilter: StaticStructureSchema = [3, n0, _RRSF, 0, [_Op, _OSp], [64 | 0, 64 | 0]];
 export var ServiceInternalErrorException: StaticErrorSchema = [
   -3,
   n0,
   _SIEE,
-  {
-    [_e]: _s,
-    [_hE]: 502,
-    [_aQE]: [`ServiceInternalErrorException`, 502],
-  },
+  { [_e]: _s, [_hE]: 502, [_aQE]: [`ServiceInternalErrorException`, 502] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceInternalErrorException, __ServiceInternalErrorException);
-
 export var ServiceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ServiceLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServiceLimitExceededException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ThrottlingException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TypeNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _TNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`TypeNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`TypeNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TypeNotFoundException, __TypeNotFoundException);
-
 export var UnsupportedActionException: StaticErrorSchema = [
   -3,
   n0,
   _UAE,
-  {
-    [_e]: _c,
-    [_hE]: 405,
-    [_aQE]: [`UnsupportedActionException`, 405],
-  },
+  { [_e]: _c, [_hE]: 405, [_aQE]: [`UnsupportedActionException`, 405] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedActionException, __UnsupportedActionException);
-
 export var UpdateResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -513,12 +407,9 @@ export var UpdateResourceInput: StaticStructureSchema = [
 export var UpdateResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [_PE], [[() => ProgressEvent, 0]]];
 export var CloudControlServiceException: StaticErrorSchema = [-3, _sm, "CloudControlServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudControlServiceException, __CloudControlServiceException);
-
 export var HooksProgressEvent: StaticListSchema = [1, n0, _HPE, 0, () => HookProgressEvent];
 export var Operations = 64 | 0;
-
 export var OperationStatuses = 64 | 0;
-
 export var ResourceDescriptions: StaticListSchema = [1, n0, _RDe, 0, [() => ResourceDescription, 0]];
 export var ResourceRequestStatusSummaries: StaticListSchema = [1, n0, _RRSS, 0, [() => ProgressEvent, 0]];
 export var CancelResourceRequest: StaticOperationSchema = [

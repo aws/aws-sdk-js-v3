@@ -199,24 +199,12 @@ import {
 import { PartnerCentralBenefitsServiceException as __PartnerCentralBenefitsServiceException } from "../models/PartnerCentralBenefitsServiceException";
 
 /* eslint no-var: 0 */
-
 export var ContactEmail: StaticSimpleSchema = [0, n0, _CE, 8, 0];
 export var ContactFirstName: StaticSimpleSchema = [0, n0, _CFN, 8, 0];
 export var ContactLastName: StaticSimpleSchema = [0, n0, _CLN, 8, 0];
 export var ContactPhone: StaticSimpleSchema = [0, n0, _CP, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessDetails: StaticStructureSchema = [3, n0, _AD, 0, [_D], [0]];
 export var AmendBenefitApplicationInput: StaticStructureSchema = [
   3,
@@ -271,19 +259,8 @@ export var BenefitSummary: StaticStructureSchema = [
 ];
 export var CancelBenefitApplicationInput: StaticStructureSchema = [3, n0, _CBAI, 0, [_C, _CT, _I, _Re], [0, 0, 0, 0]];
 export var CancelBenefitApplicationOutput: StaticStructureSchema = [3, n0, _CBAO, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConsumableDetails: StaticStructureSchema = [
   3,
   n0,
@@ -385,19 +362,8 @@ export var GetBenefitOutput: StaticStructureSchema = [
   [_Id, _C, _Ar, _N, _D, _P, _FT, _BRS, _S],
   [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 15, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IssuanceDetail: StaticStructureSchema = [3, n0, _IDs, 0, [_II, _IAss, _IA], [0, () => MonetaryValue, 5]];
 export var ListBenefitAllocationsInput: StaticStructureSchema = [
   3,
@@ -445,50 +411,24 @@ export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi,
 export var MonetaryValue: StaticStructureSchema = [3, n0, _MV, 0, [_Amo, _CCu], [0, 0]];
 export var RecallBenefitApplicationInput: StaticStructureSchema = [3, n0, _RBAI, 0, [_C, _CT, _I, _Re], [0, 0, 0, 0]];
 export var RecallBenefitApplicationOutput: StaticStructureSchema = [3, n0, _RBAO, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RIe, _RT, _QC],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SubmitBenefitApplicationInput: StaticStructureSchema = [3, n0, _SBAI, 0, [_C, _I], [0, 0]];
 export var SubmitBenefitApplicationOutput: StaticStructureSchema = [3, n0, _SBAO, 0, [], []];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, () => Tags]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateBenefitApplicationInput: StaticStructureSchema = [
@@ -504,18 +444,13 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Re, _FL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M, _Code], [0, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var PartnerCentralBenefitsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -525,44 +460,30 @@ export var PartnerCentralBenefitsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PartnerCentralBenefitsServiceException, __PartnerCentralBenefitsServiceException);
-
 export var AmendmentList: StaticListSchema = [1, n0, _AL, 0, () => Amendment];
 export var Arns = 64 | 0;
-
 export var AssociatedResources: StaticListSchema = [1, n0, _ARss, 0, () => AssociatedResource];
 export var BenefitAllocationStatusList = 64 | 0;
-
 export var BenefitAllocationSummaries: StaticListSchema = [1, n0, _BASen, 0, () => BenefitAllocationSummary];
 export var BenefitApplicationIdentifierList = 64 | 0;
-
 export var BenefitApplicationSummaries: StaticListSchema = [1, n0, _BASene, 0, () => BenefitApplicationSummary];
 export var BenefitIdentifiers = 64 | 0;
-
 export var BenefitIds = 64 | 0;
-
 export var BenefitStatuses = 64 | 0;
-
 export var BenefitSummaries: StaticListSchema = [1, n0, _BSe, 0, () => BenefitSummary];
 export var Contacts: StaticListSchema = [1, n0, _Con, 0, [() => Contact, 0]];
 export var CreditCodes: StaticListSchema = [1, n0, _CCr, 0, () => CreditCode];
 export var FileDetails: StaticListSchema = [1, n0, _FD, 0, () => FileDetail];
 export var FileInputDetails: StaticListSchema = [1, n0, _FID, 0, () => FileInput];
 export var FulfillmentTypes = 64 | 0;
-
 export var Programs = 64 | 0;
-
 export var Stages = 64 | 0;
-
 export var Statuses = 64 | 0;
-
 export var StatusReasonCodes = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var Attributes = 128 | 0;
-
 export var FulfillmentDetails: StaticStructureSchema = [
   3,
   n0,
@@ -575,9 +496,7 @@ export var AmendBenefitApplication: StaticOperationSchema = [
   9,
   n0,
   _ABA,
-  {
-    [_h]: ["POST", "/AmendBenefitApplication", 200],
-  },
+  { [_h]: ["POST", "/AmendBenefitApplication", 200] },
   () => AmendBenefitApplicationInput,
   () => AmendBenefitApplicationOutput,
 ];
@@ -585,9 +504,7 @@ export var AssociateBenefitApplicationResource: StaticOperationSchema = [
   9,
   n0,
   _ABAR,
-  {
-    [_h]: ["POST", "/AssociateBenefitApplicationResource", 200],
-  },
+  { [_h]: ["POST", "/AssociateBenefitApplicationResource", 200] },
   () => AssociateBenefitApplicationResourceInput,
   () => AssociateBenefitApplicationResourceOutput,
 ];
@@ -595,9 +512,7 @@ export var CancelBenefitApplication: StaticOperationSchema = [
   9,
   n0,
   _CBA,
-  {
-    [_h]: ["POST", "/CancelBenefitApplication", 200],
-  },
+  { [_h]: ["POST", "/CancelBenefitApplication", 200] },
   () => CancelBenefitApplicationInput,
   () => CancelBenefitApplicationOutput,
 ];
@@ -605,9 +520,7 @@ export var CreateBenefitApplication: StaticOperationSchema = [
   9,
   n0,
   _CBAr,
-  {
-    [_h]: ["POST", "/CreateBenefitApplication", 200],
-  },
+  { [_h]: ["POST", "/CreateBenefitApplication", 200] },
   () => CreateBenefitApplicationInput,
   () => CreateBenefitApplicationOutput,
 ];
@@ -615,9 +528,7 @@ export var DisassociateBenefitApplicationResource: StaticOperationSchema = [
   9,
   n0,
   _DBAR,
-  {
-    [_h]: ["POST", "/DisassociateBenefitApplicationResource", 200],
-  },
+  { [_h]: ["POST", "/DisassociateBenefitApplicationResource", 200] },
   () => DisassociateBenefitApplicationResourceInput,
   () => DisassociateBenefitApplicationResourceOutput,
 ];
@@ -625,9 +536,7 @@ export var GetBenefit: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["POST", "/GetBenefit", 200],
-  },
+  { [_h]: ["POST", "/GetBenefit", 200] },
   () => GetBenefitInput,
   () => GetBenefitOutput,
 ];
@@ -635,9 +544,7 @@ export var GetBenefitAllocation: StaticOperationSchema = [
   9,
   n0,
   _GBA,
-  {
-    [_h]: ["POST", "/GetBenefitAllocation", 200],
-  },
+  { [_h]: ["POST", "/GetBenefitAllocation", 200] },
   () => GetBenefitAllocationInput,
   () => GetBenefitAllocationOutput,
 ];
@@ -645,9 +552,7 @@ export var GetBenefitApplication: StaticOperationSchema = [
   9,
   n0,
   _GBAe,
-  {
-    [_h]: ["POST", "/GetBenefitApplication", 200],
-  },
+  { [_h]: ["POST", "/GetBenefitApplication", 200] },
   () => GetBenefitApplicationInput,
   () => GetBenefitApplicationOutput,
 ];
@@ -655,9 +560,7 @@ export var ListBenefitAllocations: StaticOperationSchema = [
   9,
   n0,
   _LBA,
-  {
-    [_h]: ["POST", "/ListBenefitAllocations", 200],
-  },
+  { [_h]: ["POST", "/ListBenefitAllocations", 200] },
   () => ListBenefitAllocationsInput,
   () => ListBenefitAllocationsOutput,
 ];
@@ -665,9 +568,7 @@ export var ListBenefitApplications: StaticOperationSchema = [
   9,
   n0,
   _LBAi,
-  {
-    [_h]: ["POST", "/ListBenefitApplications", 200],
-  },
+  { [_h]: ["POST", "/ListBenefitApplications", 200] },
   () => ListBenefitApplicationsInput,
   () => ListBenefitApplicationsOutput,
 ];
@@ -675,9 +576,7 @@ export var ListBenefits: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_h]: ["POST", "/ListBenefits", 200],
-  },
+  { [_h]: ["POST", "/ListBenefits", 200] },
   () => ListBenefitsInput,
   () => ListBenefitsOutput,
 ];
@@ -685,9 +584,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -695,9 +592,7 @@ export var RecallBenefitApplication: StaticOperationSchema = [
   9,
   n0,
   _RBA,
-  {
-    [_h]: ["POST", "/RecallBenefitApplication", 200],
-  },
+  { [_h]: ["POST", "/RecallBenefitApplication", 200] },
   () => RecallBenefitApplicationInput,
   () => RecallBenefitApplicationOutput,
 ];
@@ -705,9 +600,7 @@ export var SubmitBenefitApplication: StaticOperationSchema = [
   9,
   n0,
   _SBA,
-  {
-    [_h]: ["POST", "/SubmitBenefitApplication", 200],
-  },
+  { [_h]: ["POST", "/SubmitBenefitApplication", 200] },
   () => SubmitBenefitApplicationInput,
   () => SubmitBenefitApplicationOutput,
 ];
@@ -715,9 +608,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -725,9 +616,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -735,9 +624,7 @@ export var UpdateBenefitApplication: StaticOperationSchema = [
   9,
   n0,
   _UBA,
-  {
-    [_h]: ["POST", "/UpdateBenefitApplication", 200],
-  },
+  { [_h]: ["POST", "/UpdateBenefitApplication", 200] },
   () => UpdateBenefitApplicationInput,
   () => UpdateBenefitApplicationOutput,
 ];

@@ -294,7 +294,6 @@ import {
 import { SNSServiceException as __SNSServiceException } from "../models/SNSServiceException";
 
 /* eslint no-var: 0 */
-
 export var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 export var PhoneNumberString: StaticSimpleSchema = [0, n0, _PNS, 8, 0];
 export var AddPermissionInput: StaticStructureSchema = [3, n0, _API, 0, [_TA, _L, _AWSAI, _AN], [0, 0, 64 | 0, 64 | 0]];
@@ -302,44 +301,29 @@ export var AuthorizationErrorException: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AuthorizationError`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AuthorizationError`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AuthorizationErrorException, __AuthorizationErrorException);
-
 export var BatchEntryIdsNotDistinctException: StaticErrorSchema = [
   -3,
   n0,
   _BEINDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`BatchEntryIdsNotDistinct`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`BatchEntryIdsNotDistinct`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(BatchEntryIdsNotDistinctException, __BatchEntryIdsNotDistinctException);
-
 export var BatchRequestTooLongException: StaticErrorSchema = [
   -3,
   n0,
   _BRTLE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`BatchRequestTooLong`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`BatchRequestTooLong`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(BatchRequestTooLongException, __BatchRequestTooLongException);
-
 export var BatchResultErrorEntry: StaticStructureSchema = [3, n0, _BREE, 0, [_I, _C, _M, _SF], [0, 0, 0, 2]];
 export var CheckIfPhoneNumberIsOptedOutInput: StaticStructureSchema = [
   3,
@@ -354,16 +338,11 @@ export var ConcurrentAccessException: StaticErrorSchema = [
   -3,
   n0,
   _CAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ConcurrentAccess`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConcurrentAccess`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConcurrentAccessException, __ConcurrentAccessException);
-
 export var ConfirmSubscriptionInput: StaticStructureSchema = [3, n0, _CSI, 0, [_TA, _T, _AOU], [0, 0, 0]];
 export var ConfirmSubscriptionResponse: StaticStructureSchema = [3, n0, _CSR, 0, [_SA], [0]];
 export var CreateEndpointResponse: StaticStructureSchema = [3, n0, _CER, 0, [_EA], [0]];
@@ -411,45 +390,30 @@ export var EmptyBatchRequestException: StaticErrorSchema = [
   -3,
   n0,
   _EBRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EmptyBatchRequest`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EmptyBatchRequest`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EmptyBatchRequestException, __EmptyBatchRequestException);
-
 export var Endpoint: StaticStructureSchema = [3, n0, _E, 0, [_EA, _A], [0, 128 | 0]];
 export var EndpointDisabledException: StaticErrorSchema = [
   -3,
   n0,
   _EDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EndpointDisabled`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EndpointDisabled`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EndpointDisabledException, __EndpointDisabledException);
-
 export var FilterPolicyLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _FPLEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`FilterPolicyLimitExceeded`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`FilterPolicyLimitExceeded`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(FilterPolicyLimitExceededException, __FilterPolicyLimitExceededException);
-
 export var GetDataProtectionPolicyInput: StaticStructureSchema = [3, n0, _GDPPI, 0, [_RA], [0]];
 export var GetDataProtectionPolicyResponse: StaticStructureSchema = [3, n0, _GDPPR, 0, [_DPP], [0]];
 export var GetEndpointAttributesInput: StaticStructureSchema = [3, n0, _GEAI, 0, [_EA], [0]];
@@ -468,170 +432,110 @@ export var InternalErrorException: StaticErrorSchema = [
   -3,
   n0,
   _IEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InternalError`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalError`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalErrorException, __InternalErrorException);
-
 export var InvalidBatchEntryIdException: StaticErrorSchema = [
   -3,
   n0,
   _IBEIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidBatchEntryId`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidBatchEntryId`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidBatchEntryIdException, __InvalidBatchEntryIdException);
-
 export var InvalidParameterException: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameter`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameter`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ParameterValueInvalid`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterValueInvalid`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
 export var InvalidSecurityException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`InvalidSecurity`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`InvalidSecurity`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSecurityException, __InvalidSecurityException);
-
 export var InvalidStateException: StaticErrorSchema = [
   -3,
   n0,
   _ISEn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
 export var KMSAccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _KMSADE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KMSAccessDenied`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSAccessDenied`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KMSAccessDeniedException, __KMSAccessDeniedException);
-
 export var KMSDisabledException: StaticErrorSchema = [
   -3,
   n0,
   _KMSDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KMSDisabled`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSDisabled`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KMSDisabledException, __KMSDisabledException);
-
 export var KMSInvalidStateException: StaticErrorSchema = [
   -3,
   n0,
   _KMSISE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KMSInvalidState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSInvalidState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KMSInvalidStateException, __KMSInvalidStateException);
-
 export var KMSNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _KMSNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KMSNotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSNotFound`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KMSNotFoundException, __KMSNotFoundException);
-
 export var KMSOptInRequired: StaticErrorSchema = [
   -3,
   n0,
   _KMSOIR,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`KMSOptInRequired`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`KMSOptInRequired`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KMSOptInRequired, __KMSOptInRequired);
-
 export var KMSThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _KMSTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KMSThrottling`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSThrottling`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KMSThrottlingException, __KMSThrottlingException);
-
 export var ListEndpointsByPlatformApplicationInput: StaticStructureSchema = [3, n0, _LEBPAI, 0, [_PAA, _NT], [0, 0]];
 export var ListEndpointsByPlatformApplicationResponse: StaticStructureSchema = [
   3,
@@ -697,30 +601,20 @@ export var NotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`NotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`NotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OptedOutException: StaticErrorSchema = [
   -3,
   n0,
   _OOE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`OptedOut`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`OptedOut`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OptedOutException, __OptedOutException);
-
 export var OptInPhoneNumberInput: StaticStructureSchema = [3, n0, _OIPNI, 0, [_pN], [[() => PhoneNumber, 0]]];
 export var OptInPhoneNumberResponse: StaticStructureSchema = [3, n0, _OIPNR, 0, [], []];
 export var PhoneNumberInformation: StaticStructureSchema = [
@@ -736,16 +630,11 @@ export var PlatformApplicationDisabledException: StaticErrorSchema = [
   -3,
   n0,
   _PADE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`PlatformApplicationDisabled`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`PlatformApplicationDisabled`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PlatformApplicationDisabledException, __PlatformApplicationDisabledException);
-
 export var PublishBatchInput: StaticStructureSchema = [
   3,
   n0,
@@ -786,30 +675,20 @@ export var ReplayLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`ReplayLimitExceeded`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`ReplayLimitExceeded`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ReplayLimitExceededException, __ReplayLimitExceededException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SetEndpointAttributesInput: StaticStructureSchema = [3, n0, _SEAI, 0, [_EA, _A], [0, 128 | 0]];
 export var SetPlatformApplicationAttributesInput: StaticStructureSchema = [3, n0, _SPAAI, 0, [_PAA, _A], [0, 128 | 0]];
 export var SetSMSAttributesInput: StaticStructureSchema = [3, n0, _SSMSAI, 0, [_a], [128 | 0]];
@@ -828,16 +707,11 @@ export var StaleTagException: StaticErrorSchema = [
   -3,
   n0,
   _STE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`StaleTag`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`StaleTag`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StaleTagException, __StaleTagException);
-
 export var SubscribeInput: StaticStructureSchema = [3, n0, _SI, 0, [_TA, _Pr, _E, _A, _RSA], [0, 0, 0, 128 | 0, 2]];
 export var SubscribeResponse: StaticStructureSchema = [3, n0, _SR, 0, [_SA], [0]];
 export var Subscription: StaticStructureSchema = [3, n0, _Sub, 0, [_SA, _O, _Pr, _E, _TA], [0, 0, 0, 0, 0]];
@@ -845,90 +719,60 @@ export var SubscriptionLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`SubscriptionLimitExceeded`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`SubscriptionLimitExceeded`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubscriptionLimitExceededException, __SubscriptionLimitExceededException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _TLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TagLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagLimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagLimitExceededException, __TagLimitExceededException);
-
 export var TagPolicyException: StaticErrorSchema = [
   -3,
   n0,
   _TPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TagPolicy`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagPolicy`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagPolicyException, __TagPolicyException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottledException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`Throttled`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`Throttled`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
-
 export var TooManyEntriesInBatchRequestException: StaticErrorSchema = [
   -3,
   n0,
   _TMEIBRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TooManyEntriesInBatchRequest`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyEntriesInBatchRequest`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyEntriesInBatchRequestException, __TooManyEntriesInBatchRequestException);
-
 export var Topic: StaticStructureSchema = [3, n0, _Top, 0, [_TA], [0]];
 export var TopicLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _TLEEo,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`TopicLimitExceeded`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`TopicLimitExceeded`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TopicLimitExceededException, __TopicLimitExceededException);
-
 export var UnsubscribeInput: StaticStructureSchema = [3, n0, _UI, 0, [_SA], [0]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -936,42 +780,22 @@ export var UserErrorException: StaticErrorSchema = [
   -3,
   n0,
   _UEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`UserError`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserError`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UserErrorException, __UserErrorException);
-
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var VerificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VEe,
-  {
-    [_e]: _c,
-  },
-  [_M, _St],
-  [0, 0],
-];
+export var VerificationException: StaticErrorSchema = [-3, n0, _VEe, { [_e]: _c }, [_M, _St], [0, 0]];
 TypeRegistry.for(n0).registerError(VerificationException, __VerificationException);
-
 export var VerifySMSSandboxPhoneNumberInput: StaticStructureSchema = [
   3,
   n0,
@@ -982,21 +806,15 @@ export var VerifySMSSandboxPhoneNumberInput: StaticStructureSchema = [
 ];
 export var VerifySMSSandboxPhoneNumberResult: StaticStructureSchema = [3, n0, _VSMSSPNR, 0, [], []];
 export var __Unit = "unit" as const;
-
 export var SNSServiceException: StaticErrorSchema = [-3, _sm, "SNSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SNSServiceException, __SNSServiceException);
-
 export var ActionsList = 64 | 0;
-
 export var BatchResultErrorEntryList: StaticListSchema = [1, n0, _BREEL, 0, () => BatchResultErrorEntry];
 export var DelegatesList = 64 | 0;
-
 export var ListOfEndpoints: StaticListSchema = [1, n0, _LOE, 0, () => Endpoint];
 export var ListOfPlatformApplications: StaticListSchema = [1, n0, _LOPA, 0, () => PlatformApplication];
 export var ListString = 64 | 0;
-
 export var NumberCapabilityList = 64 | 0;
-
 export var PhoneNumberInformationList: StaticListSchema = [1, n0, _PNIL, 0, [() => PhoneNumberInformation, 0]];
 export var PhoneNumberList: StaticListSchema = [1, n0, _PNL, 0, [() => PhoneNumber, 0]];
 export var PublishBatchRequestEntryList: StaticListSchema = [1, n0, _PBREL, 0, [() => PublishBatchRequestEntry, 0]];
@@ -1004,33 +822,19 @@ export var PublishBatchResultEntryList: StaticListSchema = [1, n0, _PBRELu, 0, (
 export var SMSSandboxPhoneNumberList: StaticListSchema = [1, n0, _SMSSPNL, 0, [() => SMSSandboxPhoneNumber, 0]];
 export var SubscriptionsList: StaticListSchema = [1, n0, _SL, 0, () => Subscription];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TopicsList: StaticListSchema = [1, n0, _TLo, 0, () => Topic];
 export var MapStringToString = 128 | 0;
-
 export var MessageAttributeMap: StaticMapSchema = [
   2,
   n0,
   _MAM,
   0,
-  [
-    0,
-    {
-      [_xN]: _N,
-    },
-  ],
-  [
-    () => MessageAttributeValue,
-    {
-      [_xN]: _V,
-    },
-  ],
+  [0, { [_xN]: _N }],
+  [() => MessageAttributeValue, { [_xN]: _V }],
 ];
 export var SubscriptionAttributesMap = 128 | 0;
-
 export var TopicAttributesMap = 128 | 0;
-
 export var AddPermission: StaticOperationSchema = [9, n0, _AP, 0, () => AddPermissionInput, () => __Unit];
 export var CheckIfPhoneNumberIsOptedOut: StaticOperationSchema = [
   9,

@@ -234,7 +234,6 @@ import {
 import { TimestreamQueryServiceException as __TimestreamQueryServiceException } from "../models/TimestreamQueryServiceException";
 
 /* eslint no-var: 0 */
-
 export var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
 export var ClientToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
 export var QueryString: StaticSimpleSchema = [0, n0, _QS, 8, 0];
@@ -242,16 +241,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDenied`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountSettingsNotificationConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -263,19 +257,8 @@ export var AccountSettingsNotificationConfiguration: StaticStructureSchema = [
 export var CancelQueryRequest: StaticStructureSchema = [3, n0, _CQR, 0, [_QI], [0]];
 export var CancelQueryResponse: StaticStructureSchema = [3, n0, _CQRa, 0, [_CM], [0]];
 export var ColumnInfo: StaticStructureSchema = [3, n0, _CI, 0, [_N, _T], [0, () => Type]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateScheduledQueryRequest: StaticStructureSchema = [
   3,
   n0,
@@ -345,32 +328,10 @@ export var ExecutionStats: StaticStructureSchema = [
   [_ETIM, _DW, _BM, _CBS, _RI, _QRR],
   [1, 1, 1, 1, 1, 1],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidEndpointException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEE,
-  {
-    [_e]: _c,
-    [_hE]: 421,
-  },
-  [_M],
-  [0],
-];
+export var InvalidEndpointException: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _c, [_hE]: 421 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidEndpointException, __InvalidEndpointException);
-
 export var LastUpdate: StaticStructureSchema = [3, n0, _LU, 0, [_TQTCU, _S, _SM], [1, 0, 0]];
 export var ListScheduledQueriesRequest: StaticStructureSchema = [3, n0, _LSQR, 0, [_MR, _NT], [1, 0]];
 export var ListScheduledQueriesResponse: StaticStructureSchema = [
@@ -443,19 +404,8 @@ export var QueryComputeResponse: StaticStructureSchema = [
   [_CMo, _PC],
   [0, () => ProvisionedCapacityResponse],
 ];
-export var QueryExecutionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _QEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var QueryExecutionException: StaticErrorSchema = [-3, n0, _QEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(QueryExecutionException, __QueryExecutionException);
-
 export var QueryInsights: StaticStructureSchema = [3, n0, _QIu, 0, [_Mo], [0]];
 export var QueryInsightsResponse: StaticStructureSchema = [
   3,
@@ -486,19 +436,8 @@ export var QuerySpatialCoverageMax: StaticStructureSchema = [3, n0, _QSCM, 0, [_
 export var QueryStatus: StaticStructureSchema = [3, n0, _QSu, 0, [_PP, _CBS, _CBM], [1, 1, 1]];
 export var QueryTemporalRange: StaticStructureSchema = [3, n0, _QTR, 0, [_Ma], [() => QueryTemporalRangeMax]];
 export var QueryTemporalRangeMax: StaticStructureSchema = [3, n0, _QTRM, 0, [_V, _TA], [1, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _SQA],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _SQA], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Row: StaticStructureSchema = [3, n0, _Ro, 0, [_Da], [() => DatumList]];
 export var S3Configuration: StaticStructureSchema = [3, n0, _SCo, 0, [_BN, _OKP, _EO], [0, 0, 0]];
 export var S3ReportLocation: StaticStructureSchema = [3, n0, _SRL, 0, [_BN, _OK], [0, 0]];
@@ -553,38 +492,16 @@ export var ScheduledQueryRunSummary: StaticStructureSchema = [
   [4, 4, 0, () => ExecutionStats, () => ScheduledQueryInsightsResponse, () => ErrorReportLocation, 0],
 ];
 export var SelectColumn: StaticStructureSchema = [3, n0, _SCe, 0, [_N, _T, _DN, _TN, _Al], [0, () => Type, 0, 0, 2]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SnsConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_TAo], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TargetConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_TCi], [() => TimestreamConfiguration]];
 export var TargetDestination: StaticStructureSchema = [3, n0, _TD, 0, [_TDi], [() => TimestreamDestination]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeSeriesDataPoint: StaticStructureSchema = [3, n0, _TSDP, 0, [_Ti, _V], [0, () => Datum]];
 export var TimestreamConfiguration: StaticStructureSchema = [
   3,
@@ -622,24 +539,11 @@ export var UpdateAccountSettingsResponse: StaticStructureSchema = [
   [1, 0, () => QueryComputeResponse],
 ];
 export var UpdateScheduledQueryRequest: StaticStructureSchema = [3, n0, _USQR, 0, [_SQA, _St], [0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var TimestreamQueryServiceException: StaticErrorSchema = [-3, _sm, "TimestreamQueryServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TimestreamQueryServiceException, __TimestreamQueryServiceException);
-
 export var ColumnInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ColumnInfo];
 export var DatumList: StaticListSchema = [1, n0, _DL, 0, () => Datum];
 export var DimensionMappingList: StaticListSchema = [1, n0, _DML, 0, () => DimensionMapping];
@@ -648,13 +552,11 @@ export var MixedMeasureMappingList: StaticListSchema = [1, n0, _MMML, 0, () => M
 export var MultiMeasureAttributeMappingList: StaticListSchema = [1, n0, _MMAML, 0, () => MultiMeasureAttributeMapping];
 export var ParameterMappingList: StaticListSchema = [1, n0, _PML, 0, () => ParameterMapping];
 export var PartitionKeyList = 64 | 0;
-
 export var RowList: StaticListSchema = [1, n0, _RL, 0, () => Row];
 export var ScheduledQueryList: StaticListSchema = [1, n0, _SQL, 0, () => ScheduledQuery];
 export var ScheduledQueryRunSummaryList: StaticListSchema = [1, n0, _SQRSL, 0, () => ScheduledQueryRunSummary];
 export var SelectColumnList: StaticListSchema = [1, n0, _SCL, 0, () => SelectColumn];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TimeSeriesDataPointList: StaticListSchema = [1, n0, _TSDPL, 0, () => TimeSeriesDataPoint];
 export var CancelQuery: StaticOperationSchema = [9, n0, _CQ, 2, () => CancelQueryRequest, () => CancelQueryResponse];

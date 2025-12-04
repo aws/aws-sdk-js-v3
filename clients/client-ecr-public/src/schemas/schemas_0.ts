@@ -227,7 +227,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AuthorizationData: StaticStructureSchema = [3, n0, _AD, 0, [_aT, _eA], [0, 4]];
 export var BatchCheckLayerAvailabilityRequest: StaticStructureSchema = [
   3,
@@ -326,18 +325,8 @@ export var DescribeRepositoriesResponse: StaticStructureSchema = [
   [_rep, _nT],
   [() => RepositoryList, 0],
 ];
-export var EmptyUploadException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EUE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var EmptyUploadException: StaticErrorSchema = [-3, n0, _EUE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(EmptyUploadException, __EmptyUploadException);
-
 export var GetAuthorizationTokenRequest: StaticStructureSchema = [3, n0, _GATR, 0, [], []];
 export var GetAuthorizationTokenResponse: StaticStructureSchema = [3, n0, _GATRe, 0, [_aD], [() => AuthorizationData]];
 export var GetRegistryCatalogDataRequest: StaticStructureSchema = [3, n0, _GRCDR, 0, [], []];
@@ -368,18 +357,8 @@ export var Image: StaticStructureSchema = [
   [_rI, _rN, _iIm, _iM, _iMMT],
   [0, 0, () => ImageIdentifier, 0, 0],
 ];
-export var ImageAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageAlreadyExistsException: StaticErrorSchema = [-3, n0, _IAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageAlreadyExistsException, __ImageAlreadyExistsException);
-
 export var ImageDetail: StaticStructureSchema = [
   3,
   n0,
@@ -388,44 +367,14 @@ export var ImageDetail: StaticStructureSchema = [
   [_rI, _rN, _iDm, _iT, _iSIB, _iPA, _iMMT, _aMT],
   [0, 0, 0, 64 | 0, 1, 4, 0, 0],
 ];
-export var ImageDigestDoesNotMatchException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDDNME,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageDigestDoesNotMatchException: StaticErrorSchema = [-3, n0, _IDDNME, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageDigestDoesNotMatchException, __ImageDigestDoesNotMatchException);
-
 export var ImageFailure: StaticStructureSchema = [3, n0, _IF, 0, [_iIm, _fC, _fR], [() => ImageIdentifier, 0, 0]];
 export var ImageIdentifier: StaticStructureSchema = [3, n0, _II, 0, [_iDm, _iTm], [0, 0]];
-export var ImageNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageNotFoundException: StaticErrorSchema = [-3, n0, _INFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageNotFoundException, __ImageNotFoundException);
-
-export var ImageTagAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageTagAlreadyExistsException: StaticErrorSchema = [-3, n0, _ITAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageTagAlreadyExistsException, __ImageTagAlreadyExistsException);
-
 export var ImageTagDetail: StaticStructureSchema = [
   3,
   n0,
@@ -436,104 +385,31 @@ export var ImageTagDetail: StaticStructureSchema = [
 ];
 export var InitiateLayerUploadRequest: StaticStructureSchema = [3, n0, _ILUR, 0, [_rI, _rN], [0, 0]];
 export var InitiateLayerUploadResponse: StaticStructureSchema = [3, n0, _ILURn, 0, [_uI, _pS], [0, 1]];
-export var InvalidLayerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ILE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidLayerException: StaticErrorSchema = [-3, n0, _ILE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidLayerException, __InvalidLayerException);
-
 export var InvalidLayerPartException: StaticErrorSchema = [
   -3,
   n0,
   _ILPE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_rI, _rN, _uI, _lVBR, _m],
   [0, 0, 0, 1, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidLayerPartException, __InvalidLayerPartException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidTagParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagParameterException: StaticErrorSchema = [-3, n0, _ITPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagParameterException, __InvalidTagParameterException);
-
 export var Layer: StaticStructureSchema = [3, n0, _L, 0, [_lDa, _lA, _lS, _mT], [0, 0, 1, 0]];
-export var LayerAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LayerAlreadyExistsException: StaticErrorSchema = [-3, n0, _LAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LayerAlreadyExistsException, __LayerAlreadyExistsException);
-
 export var LayerFailure: StaticStructureSchema = [3, n0, _LF, 0, [_lDa, _fC, _fR], [0, 0, 0]];
-export var LayerPartTooSmallException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LPTSE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LayerPartTooSmallException: StaticErrorSchema = [-3, n0, _LPTSE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LayerPartTooSmallException, __LayerPartTooSmallException);
-
-export var LayersNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LayersNotFoundException: StaticErrorSchema = [-3, n0, _LNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LayersNotFoundException, __LayersNotFoundException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [() => TagList]];
 export var PutImageRequest: StaticStructureSchema = [
@@ -578,18 +454,8 @@ export var ReferencedImageDetail: StaticStructureSchema = [
   [_iDm, _iSIB, _iPA, _iMMT, _aMT],
   [0, 1, 4, 0, 0],
 ];
-export var ReferencedImagesNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RINFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ReferencedImagesNotFoundException: StaticErrorSchema = [-3, n0, _RINFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ReferencedImagesNotFoundException, __ReferencedImagesNotFoundException);
-
 export var Registry: StaticStructureSchema = [
   3,
   n0,
@@ -600,31 +466,11 @@ export var Registry: StaticStructureSchema = [
 ];
 export var RegistryAlias: StaticStructureSchema = [3, n0, _RA, 0, [_n, _s, _pRA, _dRA], [0, 0, 2, 2]];
 export var RegistryCatalogData: StaticStructureSchema = [3, n0, _RCD, 0, [_dN], [0]];
-export var RegistryNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RegistryNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RegistryNotFoundException, __RegistryNotFoundException);
-
 export var Repository: StaticStructureSchema = [3, n0, _Re, 0, [_rAep, _rI, _rN, _rUe, _cA], [0, 0, 0, 0, 4]];
-export var RepositoryAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryAlreadyExistsException, __RepositoryAlreadyExistsException);
-
 export var RepositoryCatalogData: StaticStructureSchema = [
   3,
   n0,
@@ -641,95 +487,25 @@ export var RepositoryCatalogDataInput: StaticStructureSchema = [
   [_d, _ar, _oS, _lIB, _aTb, _uT],
   [0, 64 | 0, 64 | 0, 21, 0, 0],
 ];
-export var RepositoryCatalogDataNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCDNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryCatalogDataNotFoundException: StaticErrorSchema = [-3, n0, _RCDNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryCatalogDataNotFoundException, __RepositoryCatalogDataNotFoundException);
-
-export var RepositoryNotEmptyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryNotEmptyException: StaticErrorSchema = [-3, n0, _RNEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryNotEmptyException, __RepositoryNotEmptyException);
-
-export var RepositoryNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFEe,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryNotFoundException: StaticErrorSchema = [-3, n0, _RNFEe, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryNotFoundException, __RepositoryNotFoundException);
-
-export var RepositoryPolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RPNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryPolicyNotFoundException: StaticErrorSchema = [-3, n0, _RPNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryPolicyNotFoundException, __RepositoryPolicyNotFoundException);
-
-export var ServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _se,
-  },
-  [_m],
-  [0],
-];
+export var ServerException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _se }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServerException, __ServerException);
-
 export var SetRepositoryPolicyRequest: StaticStructureSchema = [3, n0, _SRPR, 0, [_rI, _rN, _pT, _fo], [0, 0, 0, 2]];
 export var SetRepositoryPolicyResponse: StaticStructureSchema = [3, n0, _SRPRe, 0, [_rI, _rN, _pT], [0, 0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
-export var UnsupportedCommandException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UCE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedCommandException: StaticErrorSchema = [-3, n0, _UCE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedCommandException, __UnsupportedCommandException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UploadLayerPartRequest: StaticStructureSchema = [
@@ -741,46 +517,27 @@ export var UploadLayerPartRequest: StaticStructureSchema = [
   [0, 0, 0, 1, 1, 21],
 ];
 export var UploadLayerPartResponse: StaticStructureSchema = [3, n0, _ULPRp, 0, [_rI, _rN, _uI, _lBR], [0, 0, 0, 1]];
-export var UploadNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UploadNotFoundException: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UploadNotFoundException, __UploadNotFoundException);
-
 export var __Unit = "unit" as const;
-
 export var ECRPUBLICServiceException: StaticErrorSchema = [-3, _sm, "ECRPUBLICServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECRPUBLICServiceException, __ECRPUBLICServiceException);
-
 export var ArchitectureList = 64 | 0;
-
 export var BatchedOperationLayerDigestList = 64 | 0;
-
 export var ImageDetailList: StaticListSchema = [1, n0, _IDL, 0, () => ImageDetail];
 export var ImageFailureList: StaticListSchema = [1, n0, _IFL, 0, () => ImageFailure];
 export var ImageIdentifierList: StaticListSchema = [1, n0, _IIL, 0, () => ImageIdentifier];
 export var ImageTagDetailList: StaticListSchema = [1, n0, _ITDL, 0, () => ImageTagDetail];
 export var ImageTagList = 64 | 0;
-
 export var LayerDigestList = 64 | 0;
-
 export var LayerFailureList: StaticListSchema = [1, n0, _LFL, 0, () => LayerFailure];
 export var LayerList: StaticListSchema = [1, n0, _LL, 0, () => Layer];
 export var OperatingSystemList = 64 | 0;
-
 export var RegistryAliasList: StaticListSchema = [1, n0, _RAL, 0, () => RegistryAlias];
 export var RegistryList: StaticListSchema = [1, n0, _RL, 0, () => Registry];
 export var RepositoryList: StaticListSchema = [1, n0, _RLe, 0, () => Repository];
 export var RepositoryNameList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var BatchCheckLayerAvailability: StaticOperationSchema = [
   9,

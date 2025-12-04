@@ -839,24 +839,12 @@ import {
 import { KendraServiceException as __KendraServiceException } from "../models/KendraServiceException";
 
 /* eslint no-var: 0 */
-
 export var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
 export var NameType: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 export var AccessControlConfigurationSummary: StaticStructureSchema = [3, n0, _ACCS, 0, [_I], [0]];
 export var AccessControlListConfiguration: StaticStructureSchema = [3, n0, _ACLC, 0, [_KP], [0]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AclConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_AGCN], [0]];
 export var AdditionalResultAttribute: StaticStructureSchema = [
   3,
@@ -1111,19 +1099,8 @@ export var ColumnConfiguration: StaticStructureSchema = [
   [_DICN, _DDCN, _DTCN, _FM, _CDC],
   [0, 0, 0, () => DataSourceToIndexFieldMappingList, 64 | 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConflictingItem: StaticStructureSchema = [3, n0, _CI, 0, [_QT, _SN, _SIe], [0, 0, 0]];
 export var ConfluenceAttachmentConfiguration: StaticStructureSchema = [
   3,
@@ -1701,15 +1678,11 @@ export var FeaturedResultsConflictException: StaticErrorSchema = [
   -3,
   n0,
   _FRCE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _CIo],
   [0, () => ConflictingItems],
 ];
 TypeRegistry.for(n0).registerError(FeaturedResultsConflictException, __FeaturedResultsConflictException);
-
 export var FeaturedResultsItem: StaticStructureSchema = [
   3,
   n0,
@@ -1898,32 +1871,10 @@ export var InlineCustomDocumentEnrichmentConfiguration: StaticStructureSchema = 
   [_Cond, _Tar, _DCD],
   [() => DocumentAttributeCondition, () => DocumentAttributeTarget, 2],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var JiraConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2204,58 +2155,14 @@ export var QuipConfiguration: StaticStructureSchema = [
 ];
 export var Relevance: StaticStructureSchema = [3, n0, _R, 0, [_Fr, _Im, _Du, _RO, _VIM], [2, 1, 0, 0, 128 | 1]];
 export var RelevanceFeedback: StaticStructureSchema = [3, n0, _RFe, 0, [_RI, _RV], [0, 0]];
-export var ResourceAlreadyExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceAlreadyExistException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistException, __ResourceAlreadyExistException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RUE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceUnavailableException: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-
 export var RetrieveRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2381,19 +2288,8 @@ export var ServiceNowServiceCatalogConfiguration: StaticStructureSchema = [
   [_CAr, _IAFP, _EAFP, _DDFN, _DTFN, _FM],
   [2, 64 | 0, 64 | 0, 0, 0, () => DataSourceToIndexFieldMappingList],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SharePointConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2494,19 +2390,8 @@ export var TemplateConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_Tem]
 export var TextDocumentStatistics: StaticStructureSchema = [3, n0, _TDS, 0, [_ITDC, _ITB], [1, 1]];
 export var TextWithHighlights: StaticStructureSchema = [3, n0, _TWH, 0, [_Te, _Hig], [0, () => HighlightList]];
 export var ThesaurusSummary: StaticStructureSchema = [3, n0, _TS, 0, [_I, _N, _St, _CAre, _UA], [0, 0, 0, 4, 4]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TEh,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEh, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeRange: StaticStructureSchema = [3, n0, _TRi, 0, [_ST, _ETn], [4, 4]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2630,19 +2515,8 @@ export var UserTokenConfiguration: StaticStructureSchema = [
   [_JTTCw, _JTTC],
   [() => JwtTokenTypeConfiguration, () => JsonTokenTypeConfiguration],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Warning: StaticStructureSchema = [3, n0, _Wa, 0, [_M, _Cod], [0, 0]];
 export var WebCrawlerConfiguration: StaticStructureSchema = [
   3,
@@ -2661,10 +2535,8 @@ export var WorkDocsConfiguration: StaticStructureSchema = [
   [0, 2, 2, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList],
 ];
 export var __Unit = "unit" as const;
-
 export var KendraServiceException: StaticErrorSchema = [-3, _sm, "KendraServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KendraServiceException, __KendraServiceException);
-
 export var AccessControlConfigurationSummaryList: StaticListSchema = [
   1,
   n0,
@@ -2712,7 +2584,6 @@ export var BatchPutDocumentResponseFailedDocuments: StaticListSchema = [
   () => BatchPutDocumentResponseFailedDocument,
 ];
 export var ChangeDetectingColumns = 64 | 0;
-
 export var ClickFeedbackList: StaticListSchema = [1, n0, _CFL, 0, () => ClickFeedback];
 export var ConflictingItems: StaticListSchema = [1, n0, _CIo, 0, () => ConflictingItem];
 export var ConfluenceAttachmentFieldMappingsList: StaticListSchema = [
@@ -2744,13 +2615,10 @@ export var ConfluenceSpaceFieldMappingsList: StaticListSchema = [
   () => ConfluenceSpaceToIndexFieldMapping,
 ];
 export var ConfluenceSpaceList = 64 | 0;
-
 export var CorrectionList: StaticListSchema = [1, n0, _CL, 0, () => Correction];
 export var DataSourceGroups: StaticListSchema = [1, n0, _DSGa, 0, () => DataSourceGroup];
 export var DataSourceIdList = 64 | 0;
-
 export var DataSourceInclusionsExclusionsStrings = 64 | 0;
-
 export var DataSourceSummaryList: StaticListSchema = [1, n0, _DSSL, 0, () => DataSourceSummary];
 export var DataSourceSyncJobHistoryList: StaticListSchema = [1, n0, _DSSJHL, 0, () => DataSourceSyncJob];
 export var DataSourceToIndexFieldMappingList: StaticListSchema = [
@@ -2762,10 +2630,8 @@ export var DataSourceToIndexFieldMappingList: StaticListSchema = [
 ];
 export var DisassociateEntityList: StaticListSchema = [1, n0, _DEL, 0, () => EntityConfiguration];
 export var DocumentAttributeKeyList = 64 | 0;
-
 export var DocumentAttributeList: StaticListSchema = [1, n0, _DAL, 0, () => DocumentAttribute];
 export var DocumentAttributeStringListValue = 64 | 0;
-
 export var DocumentAttributeValueCountPairList: StaticListSchema = [
   1,
   n0,
@@ -2774,7 +2640,6 @@ export var DocumentAttributeValueCountPairList: StaticListSchema = [
   () => DocumentAttributeValueCountPair,
 ];
 export var DocumentIdList = 64 | 0;
-
 export var DocumentInfoList: StaticListSchema = [1, n0, _DILo, 0, () => DocumentInfo];
 export var DocumentList: StaticListSchema = [1, n0, _DL, 0, () => Document];
 export var DocumentMetadataConfigurationList: StaticListSchema = [1, n0, _DMCL, 0, () => DocumentMetadataConfiguration];
@@ -2787,16 +2652,11 @@ export var DocumentRelevanceOverrideConfigurationList: StaticListSchema = [
 ];
 export var DocumentStatusList: StaticListSchema = [1, n0, _DSL, 0, () => Status];
 export var EntityFilter = 64 | 0;
-
 export var EntityIdsList = 64 | 0;
-
 export var EntityPersonaConfigurationList: StaticListSchema = [1, n0, _EPCL, 0, () => EntityPersonaConfiguration];
 export var ExcludeMimeTypesList = 64 | 0;
-
 export var ExcludeSharedDrivesList = 64 | 0;
-
 export var ExcludeUserAccountsList = 64 | 0;
-
 export var ExpandedResultList: StaticListSchema = [1, n0, _ERL, 0, () => ExpandedResultItem];
 export var ExperienceEndpoints: StaticListSchema = [1, n0, _EEx, 0, () => ExperienceEndpoint];
 export var ExperienceEntitiesSummaryList: StaticListSchema = [1, n0, _EESL, 0, [() => ExperienceEntitiesSummary, 0]];
@@ -2805,20 +2665,16 @@ export var FacetList: StaticListSchema = [1, n0, _FL, 0, () => Facet];
 export var FacetResultList: StaticListSchema = [1, n0, _FRL, 0, () => FacetResult];
 export var FailedEntityList: StaticListSchema = [1, n0, _FEL, 0, () => FailedEntity];
 export var FaqIdsList = 64 | 0;
-
 export var FaqSummaryItems: StaticListSchema = [1, n0, _FSIa, 0, () => FaqSummary];
 export var FeaturedDocumentList: StaticListSchema = [1, n0, _FDL, 0, () => FeaturedDocument];
 export var FeaturedDocumentMissingList: StaticListSchema = [1, n0, _FDML, 0, () => FeaturedDocumentMissing];
 export var FeaturedDocumentWithMetadataList: StaticListSchema = [1, n0, _FDWML, 0, () => FeaturedDocumentWithMetadata];
 export var FeaturedResultsItemList: StaticListSchema = [1, n0, _FRIL, 0, () => FeaturedResultsItem];
 export var FeaturedResultsSetIdList = 64 | 0;
-
 export var FeaturedResultsSetSummaryItems: StaticListSchema = [1, n0, _FRSSI, 0, () => FeaturedResultsSetSummary];
 export var FolderIdList = 64 | 0;
-
 export var GroupOrderingIdSummaries: StaticListSchema = [1, n0, _GOIS, 0, () => GroupOrderingIdSummary];
 export var Groups = 64 | 0;
-
 export var HierarchicalPrincipalList: StaticListSchema = [1, n0, _HPL, 0, () => HierarchicalPrincipal];
 export var HighlightList: StaticListSchema = [1, n0, _HL, 0, () => Highlight];
 export var IndexConfigurationSummaryList: StaticListSchema = [1, n0, _ICSL, 0, () => IndexConfigurationSummary];
@@ -2830,24 +2686,17 @@ export var InlineCustomDocumentEnrichmentConfigurationList: StaticListSchema = [
   () => InlineCustomDocumentEnrichmentConfiguration,
 ];
 export var IssueSubEntityFilter = 64 | 0;
-
 export var IssueType = 64 | 0;
-
 export var JiraStatus = 64 | 0;
-
 export var ListOfGroupSummaries: StaticListSchema = [1, n0, _LOGS, 0, () => GroupSummary];
 export var MemberGroups: StaticListSchema = [1, n0, _MG, 0, () => MemberGroup];
 export var MemberUsers: StaticListSchema = [1, n0, _MU, 0, () => MemberUser];
 export var OneDriveUserList = 64 | 0;
-
 export var PersonasSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PersonasSummary];
 export var PrincipalList: StaticListSchema = [1, n0, _PL, 0, () => Principal];
 export var PrivateChannelFilter = 64 | 0;
-
 export var Project = 64 | 0;
-
 export var PublicChannelFilter = 64 | 0;
-
 export var QueryResultItemList: StaticListSchema = [1, n0, _QRIL, 0, () => QueryResultItem];
 export var QuerySuggestionsBlockListSummaryItems: StaticListSchema = [
   1,
@@ -2857,13 +2706,10 @@ export var QuerySuggestionsBlockListSummaryItems: StaticListSchema = [
   () => QuerySuggestionsBlockListSummary,
 ];
 export var QueryTextList = 64 | 0;
-
 export var RelevanceFeedbackList: StaticListSchema = [1, n0, _RFL, 0, () => RelevanceFeedback];
 export var RepositoryNames = 64 | 0;
-
 export var RetrieveResultItemList: StaticListSchema = [1, n0, _RRIL, 0, () => RetrieveResultItem];
 export var SalesforceChatterFeedIncludeFilterTypes = 64 | 0;
-
 export var SalesforceCustomKnowledgeArticleTypeConfigurationList: StaticListSchema = [
   1,
   n0,
@@ -2872,7 +2718,6 @@ export var SalesforceCustomKnowledgeArticleTypeConfigurationList: StaticListSche
   () => SalesforceCustomKnowledgeArticleTypeConfiguration,
 ];
 export var SalesforceKnowledgeArticleStateList = 64 | 0;
-
 export var SalesforceStandardObjectConfigurationList: StaticListSchema = [
   1,
   n0,
@@ -2881,42 +2726,30 @@ export var SalesforceStandardObjectConfigurationList: StaticListSchema = [
   () => SalesforceStandardObjectConfiguration,
 ];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SeedUrlList = 64 | 0;
-
 export var SharePointUrlList = 64 | 0;
-
 export var SiteMapsList = 64 | 0;
-
 export var SlackEntityList = 64 | 0;
-
 export var SnapshotsDataHeaderFields = 64 | 0;
-
 export var SnapshotsDataRecord = 64 | 0;
-
 export var SnapshotsDataRecords: StaticListSchema = [1, n0, _SDR, 0, 64 | 0];
 export var SortingConfigurationList: StaticListSchema = [1, n0, _SCLo, 0, () => SortingConfiguration];
 export var SourceDocuments: StaticListSchema = [1, n0, _SDou, 0, () => SourceDocument];
 export var SpellCorrectedQueryList: StaticListSchema = [1, n0, _SCQL, 0, () => SpellCorrectedQuery];
 export var StringList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var SuggestableConfigList: StaticListSchema = [1, n0, _SCL, 0, () => SuggestableConfig];
 export var SuggestionHighlightList: StaticListSchema = [1, n0, _SHL, 0, () => SuggestionHighlight];
 export var SuggestionList: StaticListSchema = [1, n0, _SL, 0, () => Suggestion];
 export var SuggestionTypes = 64 | 0;
-
 export var TableCellList: StaticListSchema = [1, n0, _TCL, 0, () => TableCell];
 export var TableRowList: StaticListSchema = [1, n0, _TRL, 0, () => TableRow];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ThesaurusSummaryItems: StaticListSchema = [1, n0, _TSI, 0, () => ThesaurusSummary];
 export var UserTokenConfigurationList: StaticListSchema = [1, n0, _UTCL, 0, () => UserTokenConfiguration];
 export var WarningList: StaticListSchema = [1, n0, _WL, 0, () => Warning];
 export var ValueImportanceMap = 128 | 1;
-
 export var AssociateEntitiesToExperience: StaticOperationSchema = [
   9,
   n0,

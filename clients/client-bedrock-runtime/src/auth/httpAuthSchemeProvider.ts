@@ -142,7 +142,6 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
    * @internal
    */
   httpAuthSchemeProvider?: BedrockRuntimeHttpAuthSchemeProvider;
-
   /**
    * The token used to authenticate requests.
    */
@@ -172,7 +171,6 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
    * @internal
    */
   readonly httpAuthSchemeProvider: BedrockRuntimeHttpAuthSchemeProvider;
-
   /**
    * The token used to authenticate requests.
    */

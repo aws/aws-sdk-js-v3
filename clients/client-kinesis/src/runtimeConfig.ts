@@ -55,7 +55,11 @@ export const getRuntimeConfig = (config: KinesisClientConfig) => {
       config?.region ??
       loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }),
     requestHandler: RequestHandler.create(
-      config?.requestHandler ?? (async () => ({ ...(await defaultConfigProvider()), disableConcurrentStreams: true }))
+      config?.requestHandler ??
+        (async () => ({
+          ...(await defaultConfigProvider()),
+          disableConcurrentStreams: true,
+        }))
     ),
     retryMode:
       config?.retryMode ??

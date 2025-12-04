@@ -47,40 +47,44 @@ import {
 } from "./enums";
 
 import {
+  type AddressAttribute,
+  type ByoipCidr,
+  type CapacityReservation,
+  type ClientVpnAuthorizationRuleStatus,
+  type IamInstanceProfileAssociation,
+  type IamInstanceProfileSpecification,
+  type PortRange,
+  type RouteTableAssociationState,
+  type TransitGatewayMulticastDomainAssociations,
+  type TransitGatewayPeeringAttachment,
+  type TransitGatewayVpcAttachment,
+  type VerifiedAccessTrustProvider,
+  type VpcEncryptionControl,
   AddedPrincipal,
-  AddressAttribute,
-  ByoipCidr,
-  CapacityReservation,
-  ClientVpnAuthorizationRuleStatus,
-  IamInstanceProfileAssociation,
-  IamInstanceProfileSpecification,
   IpPermission,
   NatGatewayAddress,
-  PortRange,
-  RouteTableAssociationState,
   TagSpecification,
-  TransitGatewayMulticastDomainAssociations,
-  TransitGatewayPeeringAttachment,
-  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
-  VerifiedAccessTrustProvider,
-  VpcEncryptionControl,
 } from "./models_0";
 
 import {
+  type CreditSpecificationRequest,
+  type IcmpTypeCode,
+  type ManagedPrefixList,
+  type OperatorRequest,
+  type Placement,
   BlockDeviceMapping,
-  CreditSpecificationRequest,
   ElasticGpuSpecification,
-  IcmpTypeCode,
   InstanceIpv6Address,
   LocalGatewayRoute,
-  ManagedPrefixList,
-  OperatorRequest,
-  Placement,
 } from "./models_1";
 
 import {
-  DnsOptionsSpecification,
+  type DnsOptionsSpecification,
+  type VerifiedAccessSseSpecificationRequest,
+  type VpcBlockPublicAccessExclusion,
+  type VpnConnection,
+  type VpnTunnelLogOptionsSpecification,
   IKEVersionsRequestListValue,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
@@ -90,40 +94,36 @@ import {
   Phase2IntegrityAlgorithmsRequestListValue,
   SubnetConfiguration,
   TransitGatewayRoute,
-  VerifiedAccessSseSpecificationRequest,
-  VpcBlockPublicAccessExclusion,
-  VpnConnection,
-  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 
 import {
-  AttributeBooleanValue,
-  Byoasn,
+  type AttributeBooleanValue,
+  type Byoasn,
+  type ClientVpnConnectionStatus,
+  type InstanceState,
+  type InstanceTagNotificationAttribute,
+  type IpamPoolCidr,
+  type Monitoring,
   CapacityBlock,
   CapacityBlockExtension,
-  ClientVpnConnectionStatus,
   Filter,
-  InstanceState,
-  InstanceTagNotificationAttribute,
-  IpamPoolCidr,
-  Monitoring,
 } from "./models_3";
 
 import {
+  type NetworkInsightsAccessScopeAnalysis,
+  type NetworkInsightsAnalysis,
+  type PublicIpv4PoolRange,
+  type RunInstancesMonitoringEnabled,
+  type SpotFleetRequestConfigData,
+  type SpotPlacement,
   InstanceNetworkInterfaceSpecification,
-  NetworkInsightsAccessScopeAnalysis,
-  NetworkInsightsAnalysis,
-  PublicIpv4PoolRange,
-  RunInstancesMonitoringEnabled,
   ScheduledInstance,
-  SpotFleetRequestConfigData,
   SpotInstanceRequest,
-  SpotPlacement,
 } from "./models_4";
 
-import { Purchase, VolumeModification, VpcBlockPublicAccessOptions } from "./models_5";
+import { type VolumeModification, type VpcBlockPublicAccessOptions, Purchase } from "./models_5";
 
-import {
+import type {
   CapacityReservationSpecification,
   ModifyVerifiedAccessNativeApplicationOidcOptions,
   ModifyVerifiedAccessTrustProviderDeviceOptions,

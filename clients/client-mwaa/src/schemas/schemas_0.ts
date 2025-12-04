@@ -163,24 +163,12 @@ import {
 import { MWAAServiceException as __MWAAServiceException } from "../models/MWAAServiceException";
 
 /* eslint no-var: 0 */
-
 export var ConfigValue: StaticSimpleSchema = [0, n0, _CV, 8, 0];
 export var RestApiRequestBody: StaticSimpleSchema = [0, n0, _RARB, 8, 15];
 export var RestApiResponse: StaticSimpleSchema = [0, n0, _RAR, 8, 15];
 export var Token: StaticSimpleSchema = [0, n0, _T, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CreateCliTokenRequest: StaticStructureSchema = [3, n0, _CCTR, 0, [_N], [[0, 1]]];
 export var CreateCliTokenResponse: StaticStructureSchema = [3, n0, _CCTRr, 0, [_CT, _WSH], [[() => Token, 0], 0]];
 export var CreateEnvironmentInput: StaticStructureSchema = [
@@ -336,19 +324,8 @@ export var Environment: StaticStructureSchema = [
 ];
 export var GetEnvironmentInput: StaticStructureSchema = [3, n0, _GEI, 0, [_N], [[0, 1]]];
 export var GetEnvironmentOutput: StaticStructureSchema = [3, n0, _GEO, 0, [_E], [[() => Environment, 0]]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvokeRestApiRequest: StaticStructureSchema = [
   3,
   n0,
@@ -380,18 +357,8 @@ export var ListEnvironmentsInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListEnvironmentsOutput: StaticStructureSchema = [3, n0, _LEO, 0, [_En, _NT], [64 | 0, 0]];
@@ -438,45 +405,26 @@ export var ModuleLoggingConfigurationInput: StaticStructureSchema = [3, n0, _MLC
 export var NetworkConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_SI, _SGI], [64 | 0, 64 | 0]];
 export var PublishMetricsInput: StaticStructureSchema = [3, n0, _PMI, 0, [_EN, _MDe], [[0, 1], () => MetricData]];
 export var PublishMetricsOutput: StaticStructureSchema = [3, n0, _PMO, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RestApiClientException: StaticErrorSchema = [
   -3,
   n0,
   _RACE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_RASC, _RAR],
   [1, [() => RestApiResponse, 0]],
 ];
 TypeRegistry.for(n0).registerError(RestApiClientException, __RestApiClientException);
-
 export var RestApiServerException: StaticErrorSchema = [
   -3,
   n0,
   _RASE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_RASC, _RAR],
   [1, [() => RestApiResponse, 0]],
 ];
 TypeRegistry.for(n0).registerError(RestApiServerException, __RestApiServerException);
-
 export var StatisticSet: StaticStructureSchema = [3, n0, _SS, 0, [_SC, _Su, _Mi, _Ma], [1, 1, 1, 1]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
@@ -488,12 +436,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_RA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -556,43 +499,23 @@ export var UpdateEnvironmentInput: StaticStructureSchema = [
 export var UpdateEnvironmentOutput: StaticStructureSchema = [3, n0, _UEO, 0, [_A], [0]];
 export var UpdateError: StaticStructureSchema = [3, n0, _UE, 0, [_ECr, _EMr], [0, 0]];
 export var UpdateNetworkConfigurationInput: StaticStructureSchema = [3, n0, _UNCI, 0, [_SGI], [64 | 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var MWAAServiceException: StaticErrorSchema = [-3, _sm, "MWAAServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MWAAServiceException, __MWAAServiceException);
-
 export var Dimensions: StaticListSchema = [1, n0, _Di, 0, () => Dimension];
 export var EnvironmentList = 64 | 0;
-
 export var MetricData: StaticListSchema = [1, n0, _MDe, 0, () => MetricDatum];
 export var SecurityGroupList = 64 | 0;
-
 export var SubnetList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var AirflowConfigurationOptions: StaticMapSchema = [2, n0, _ACO, 8, [0, 0], [() => ConfigValue, 0]];
 export var TagMap = 128 | 0;
-
 export var CreateCliToken: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  {
-    [_h]: ["POST", "/clitoken/{Name}", 200],
-    [_en]: ["env."],
-  },
+  { [_h]: ["POST", "/clitoken/{Name}", 200], [_en]: ["env."] },
   () => CreateCliTokenRequest,
   () => CreateCliTokenResponse,
 ];
@@ -600,10 +523,7 @@ export var CreateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CE,
-  {
-    [_h]: ["PUT", "/environments/{Name}", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["PUT", "/environments/{Name}", 200], [_en]: ["api."] },
   () => CreateEnvironmentInput,
   () => CreateEnvironmentOutput,
 ];
@@ -611,10 +531,7 @@ export var CreateWebLoginToken: StaticOperationSchema = [
   9,
   n0,
   _CWLT,
-  {
-    [_h]: ["POST", "/webtoken/{Name}", 200],
-    [_en]: ["env."],
-  },
+  { [_h]: ["POST", "/webtoken/{Name}", 200], [_en]: ["env."] },
   () => CreateWebLoginTokenRequest,
   () => CreateWebLoginTokenResponse,
 ];
@@ -622,10 +539,7 @@ export var DeleteEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/environments/{Name}", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["DELETE", "/environments/{Name}", 200], [_en]: ["api."] },
   () => DeleteEnvironmentInput,
   () => DeleteEnvironmentOutput,
 ];
@@ -633,10 +547,7 @@ export var GetEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/environments/{Name}", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["GET", "/environments/{Name}", 200], [_en]: ["api."] },
   () => GetEnvironmentInput,
   () => GetEnvironmentOutput,
 ];
@@ -644,10 +555,7 @@ export var InvokeRestApi: StaticOperationSchema = [
   9,
   n0,
   _IRA,
-  {
-    [_h]: ["POST", "/restapi/{Name}", 200],
-    [_en]: ["env."],
-  },
+  { [_h]: ["POST", "/restapi/{Name}", 200], [_en]: ["env."] },
   () => InvokeRestApiRequest,
   () => InvokeRestApiResponse,
 ];
@@ -655,10 +563,7 @@ export var ListEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["GET", "/environments", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["GET", "/environments", 200], [_en]: ["api."] },
   () => ListEnvironmentsInput,
   () => ListEnvironmentsOutput,
 ];
@@ -666,10 +571,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200], [_en]: ["api."] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -677,10 +579,7 @@ export var PublishMetrics: StaticOperationSchema = [
   9,
   n0,
   _PM,
-  {
-    [_h]: ["POST", "/metrics/environments/{EnvironmentName}", 200],
-    [_en]: ["ops."],
-  },
+  { [_h]: ["POST", "/metrics/environments/{EnvironmentName}", 200], [_en]: ["ops."] },
   () => PublishMetricsInput,
   () => PublishMetricsOutput,
 ];
@@ -688,10 +587,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200], [_en]: ["api."] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -699,10 +595,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200], [_en]: ["api."] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -710,10 +603,7 @@ export var UpdateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UEp,
-  {
-    [_h]: ["PATCH", "/environments/{Name}", 200],
-    [_en]: ["api."],
-  },
+  { [_h]: ["PATCH", "/environments/{Name}", 200], [_en]: ["api."] },
   () => UpdateEnvironmentInput,
   () => UpdateEnvironmentOutput,
 ];

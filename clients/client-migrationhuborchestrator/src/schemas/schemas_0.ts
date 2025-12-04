@@ -238,33 +238,10 @@ import {
 import { MigrationHubOrchestratorServiceException as __MigrationHubOrchestratorServiceException } from "../models/MigrationHubOrchestratorServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateMigrationWorkflowRequest: StaticStructureSchema = [
   3,
   n0,
@@ -326,12 +303,7 @@ export var DeleteWorkflowStepGroupRequest: StaticStructureSchema = [
   0,
   [_wIo, _i],
   [
-    [
-      0,
-      {
-        [_hQ]: _wIo,
-      },
-    ],
+    [0, { [_hQ]: _wIo }],
     [0, 1],
   ],
 ];
@@ -344,18 +316,8 @@ export var DeleteWorkflowStepRequest: StaticStructureSchema = [
   [_i, _sGI, _wIo],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _wIo,
-      },
-    ],
+    [0, { [_hQ]: _sGI }],
+    [0, { [_hQ]: _wIo }],
   ],
 ];
 export var DeleteWorkflowStepResponse: StaticStructureSchema = [3, n0, _DWSRe, 0, [], []];
@@ -404,18 +366,8 @@ export var GetTemplateStepRequest: StaticStructureSchema = [
   [_i, _tI, _sGI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sGI,
-      },
-    ],
+    [0, { [_hQ]: _tI }],
+    [0, { [_hQ]: _sGI }],
   ],
 ];
 export var GetTemplateStepResponse: StaticStructureSchema = [
@@ -434,12 +386,7 @@ export var GetWorkflowStepGroupRequest: StaticStructureSchema = [
   [_i, _wIo],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _wIo,
-      },
-    ],
+    [0, { [_hQ]: _wIo }],
   ],
 ];
 export var GetWorkflowStepGroupResponse: StaticStructureSchema = [
@@ -457,18 +404,8 @@ export var GetWorkflowStepRequest: StaticStructureSchema = [
   0,
   [_wIo, _sGI, _i],
   [
-    [
-      0,
-      {
-        [_hQ]: _wIo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sGI,
-      },
-    ],
+    [0, { [_hQ]: _wIo }],
+    [0, { [_hQ]: _sGI }],
     [0, 1],
   ],
 ];
@@ -502,19 +439,8 @@ export var GetWorkflowStepResponse: StaticStructureSchema = [
     1,
   ],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListMigrationWorkflowsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -522,42 +448,12 @@ export var ListMigrationWorkflowsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _tI, _aACN, _s, _n],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aACN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _tI }],
+    [0, { [_hQ]: _aACN }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var ListMigrationWorkflowsResponse: StaticStructureSchema = [
@@ -575,24 +471,9 @@ export var ListMigrationWorkflowTemplatesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _n],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var ListMigrationWorkflowTemplatesResponse: StaticStructureSchema = [
@@ -610,18 +491,8 @@ export var ListPluginsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPluginsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_nT, _pl], [0, () => PluginSummaries]];
@@ -634,18 +505,8 @@ export var ListTemplateStepGroupsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _tI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -664,30 +525,10 @@ export var ListTemplateStepsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _tI, _sGI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sGI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _tI }],
+    [0, { [_hQ]: _sGI }],
   ],
 ];
 export var ListTemplateStepsResponse: StaticStructureSchema = [
@@ -705,24 +546,9 @@ export var ListWorkflowStepGroupsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _wIo],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _wIo,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _wIo }],
   ],
 ];
 export var ListWorkflowStepGroupsResponse: StaticStructureSchema = [
@@ -740,18 +566,8 @@ export var ListWorkflowStepsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _wIo, _sGI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
     [0, 1],
   ],
@@ -775,19 +591,8 @@ export var MigrationWorkflowSummary: StaticStructureSchema = [
 export var PlatformCommand: StaticStructureSchema = [3, n0, _PC, 0, [_l, _w], [0, 0]];
 export var PlatformScriptKey: StaticStructureSchema = [3, n0, _PSK, 0, [_l, _w], [0, 0]];
 export var PluginSummary: StaticStructureSchema = [3, n0, _PS, 0, [_pI, _h, _s, _iA, _v, _rT], [0, 0, 0, 0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetryWorkflowStepRequest: StaticStructureSchema = [
   3,
   n0,
@@ -795,18 +600,8 @@ export var RetryWorkflowStepRequest: StaticStructureSchema = [
   0,
   [_wIo, _sGI, _i],
   [
-    [
-      0,
-      {
-        [_hQ]: _wIo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sGI,
-      },
-    ],
+    [0, { [_hQ]: _wIo }],
+    [0, { [_hQ]: _sGI }],
     [0, 1],
   ],
 ];
@@ -858,19 +653,8 @@ export var TemplateStepSummary: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0],
 ];
 export var TemplateSummary: StaticStructureSchema = [3, n0, _TS, 0, [_i, _n, _a, _d], [0, 0, 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Tool: StaticStructureSchema = [3, n0, _T, 0, [_n, _u], [0, 0]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -880,12 +664,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -920,19 +699,7 @@ export var UpdateWorkflowStepGroupRequest: StaticStructureSchema = [
   _UWSGR,
   0,
   [_wIo, _i, _n, _d, _ne, _p],
-  [
-    [
-      0,
-      {
-        [_hQ]: _wIo,
-      },
-    ],
-    [0, 1],
-    0,
-    0,
-    64 | 0,
-    64 | 0,
-  ],
+  [[0, { [_hQ]: _wIo }], [0, 1], 0, 0, 64 | 0, 64 | 0],
 ];
 export var UpdateWorkflowStepGroupResponse: StaticStructureSchema = [
   3,
@@ -964,19 +731,8 @@ export var UpdateWorkflowStepRequest: StaticStructureSchema = [
   ],
 ];
 export var UpdateWorkflowStepResponse: StaticStructureSchema = [3, n0, _UWSRp, 0, [_i, _sGI, _wIo, _n], [0, 0, 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WorkflowStepAutomationConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1021,16 +777,12 @@ TypeRegistry.for(_sm).registerError(
   MigrationHubOrchestratorServiceException,
   __MigrationHubOrchestratorServiceException
 );
-
 export var MaxStringList = 64 | 0;
-
 export var MigrationWorkflowSummaryList: StaticListSchema = [1, n0, _MWSL, 0, () => MigrationWorkflowSummary];
 export var PluginSummaries: StaticListSchema = [1, n0, _PSl, 0, () => PluginSummary];
 export var StepOutputList: StaticListSchema = [1, n0, _SOL, 0, () => StepOutput];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TemplateInputList: StaticListSchema = [1, n0, _TIL, 0, () => TemplateInput];
 export var TemplateStepGroupSummaryList: StaticListSchema = [1, n0, _TSGSL, 0, () => TemplateStepGroupSummary];
 export var TemplateStepSummaryList: StaticListSchema = [1, n0, _TSSL, 0, () => TemplateStepSummary];
@@ -1041,9 +793,7 @@ export var WorkflowStepOutputList: StaticListSchema = [1, n0, _WSOL, 0, () => Wo
 export var WorkflowStepsSummaryList: StaticListSchema = [1, n0, _WSSL, 0, () => WorkflowStepSummary];
 export var StepInputParameters: StaticMapSchema = [2, n0, _SIP, 8, 0, () => StepInput];
 export var StringMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var StepInput: StaticStructureSchema = [3, n0, _SI, 0, [_iV, _sV, _lOSV, _mOSV], [1, 0, 64 | 0, 128 | 0]];
 export var TemplateSource: StaticStructureSchema = [3, n0, _TSe, 0, [_wIo], [0]];
 export var WorkflowStepOutputUnion: StaticStructureSchema = [3, n0, _WSOU, 0, [_iV, _sV, _lOSVi], [1, 0, 64 | 0]];
@@ -1051,9 +801,7 @@ export var CreateTemplate: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_ht]: ["POST", "/template", 200],
-  },
+  { [_ht]: ["POST", "/template", 200] },
   () => CreateTemplateRequest,
   () => CreateTemplateResponse,
 ];
@@ -1061,9 +809,7 @@ export var CreateWorkflow: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_ht]: ["POST", "/migrationworkflow/", 200],
-  },
+  { [_ht]: ["POST", "/migrationworkflow/", 200] },
   () => CreateMigrationWorkflowRequest,
   () => CreateMigrationWorkflowResponse,
 ];
@@ -1071,9 +817,7 @@ export var CreateWorkflowStep: StaticOperationSchema = [
   9,
   n0,
   _CWS,
-  {
-    [_ht]: ["POST", "/workflowstep", 200],
-  },
+  { [_ht]: ["POST", "/workflowstep", 200] },
   () => CreateWorkflowStepRequest,
   () => CreateWorkflowStepResponse,
 ];
@@ -1081,9 +825,7 @@ export var CreateWorkflowStepGroup: StaticOperationSchema = [
   9,
   n0,
   _CWSG,
-  {
-    [_ht]: ["POST", "/workflowstepgroups", 200],
-  },
+  { [_ht]: ["POST", "/workflowstepgroups", 200] },
   () => CreateWorkflowStepGroupRequest,
   () => CreateWorkflowStepGroupResponse,
 ];
@@ -1091,9 +833,7 @@ export var DeleteTemplate: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_ht]: ["DELETE", "/template/{id}", 200],
-  },
+  { [_ht]: ["DELETE", "/template/{id}", 200] },
   () => DeleteTemplateRequest,
   () => DeleteTemplateResponse,
 ];
@@ -1101,9 +841,7 @@ export var DeleteWorkflow: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_ht]: ["DELETE", "/migrationworkflow/{id}", 202],
-  },
+  { [_ht]: ["DELETE", "/migrationworkflow/{id}", 202] },
   () => DeleteMigrationWorkflowRequest,
   () => DeleteMigrationWorkflowResponse,
 ];
@@ -1111,9 +849,7 @@ export var DeleteWorkflowStep: StaticOperationSchema = [
   9,
   n0,
   _DWS,
-  {
-    [_ht]: ["DELETE", "/workflowstep/{id}", 200],
-  },
+  { [_ht]: ["DELETE", "/workflowstep/{id}", 200] },
   () => DeleteWorkflowStepRequest,
   () => DeleteWorkflowStepResponse,
 ];
@@ -1121,9 +857,7 @@ export var DeleteWorkflowStepGroup: StaticOperationSchema = [
   9,
   n0,
   _DWSG,
-  {
-    [_ht]: ["DELETE", "/workflowstepgroup/{id}", 202],
-  },
+  { [_ht]: ["DELETE", "/workflowstepgroup/{id}", 202] },
   () => DeleteWorkflowStepGroupRequest,
   () => DeleteWorkflowStepGroupResponse,
 ];
@@ -1131,9 +865,7 @@ export var GetTemplate: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_ht]: ["GET", "/migrationworkflowtemplate/{id}", 200],
-  },
+  { [_ht]: ["GET", "/migrationworkflowtemplate/{id}", 200] },
   () => GetMigrationWorkflowTemplateRequest,
   () => GetMigrationWorkflowTemplateResponse,
 ];
@@ -1141,9 +873,7 @@ export var GetTemplateStep: StaticOperationSchema = [
   9,
   n0,
   _GTS,
-  {
-    [_ht]: ["GET", "/templatestep/{id}", 200],
-  },
+  { [_ht]: ["GET", "/templatestep/{id}", 200] },
   () => GetTemplateStepRequest,
   () => GetTemplateStepResponse,
 ];
@@ -1151,9 +881,7 @@ export var GetTemplateStepGroup: StaticOperationSchema = [
   9,
   n0,
   _GTSG,
-  {
-    [_ht]: ["GET", "/templates/{templateId}/stepgroups/{id}", 200],
-  },
+  { [_ht]: ["GET", "/templates/{templateId}/stepgroups/{id}", 200] },
   () => GetTemplateStepGroupRequest,
   () => GetTemplateStepGroupResponse,
 ];
@@ -1161,9 +889,7 @@ export var GetWorkflow: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_ht]: ["GET", "/migrationworkflow/{id}", 200],
-  },
+  { [_ht]: ["GET", "/migrationworkflow/{id}", 200] },
   () => GetMigrationWorkflowRequest,
   () => GetMigrationWorkflowResponse,
 ];
@@ -1171,9 +897,7 @@ export var GetWorkflowStep: StaticOperationSchema = [
   9,
   n0,
   _GWS,
-  {
-    [_ht]: ["GET", "/workflowstep/{id}", 200],
-  },
+  { [_ht]: ["GET", "/workflowstep/{id}", 200] },
   () => GetWorkflowStepRequest,
   () => GetWorkflowStepResponse,
 ];
@@ -1181,9 +905,7 @@ export var GetWorkflowStepGroup: StaticOperationSchema = [
   9,
   n0,
   _GWSG,
-  {
-    [_ht]: ["GET", "/workflowstepgroup/{id}", 200],
-  },
+  { [_ht]: ["GET", "/workflowstepgroup/{id}", 200] },
   () => GetWorkflowStepGroupRequest,
   () => GetWorkflowStepGroupResponse,
 ];
@@ -1191,9 +913,7 @@ export var ListPlugins: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_ht]: ["GET", "/plugins", 200],
-  },
+  { [_ht]: ["GET", "/plugins", 200] },
   () => ListPluginsRequest,
   () => ListPluginsResponse,
 ];
@@ -1201,9 +921,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1211,9 +929,7 @@ export var ListTemplates: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_ht]: ["GET", "/migrationworkflowtemplates", 200],
-  },
+  { [_ht]: ["GET", "/migrationworkflowtemplates", 200] },
   () => ListMigrationWorkflowTemplatesRequest,
   () => ListMigrationWorkflowTemplatesResponse,
 ];
@@ -1221,9 +937,7 @@ export var ListTemplateStepGroups: StaticOperationSchema = [
   9,
   n0,
   _LTSG,
-  {
-    [_ht]: ["GET", "/templatestepgroups/{templateId}", 200],
-  },
+  { [_ht]: ["GET", "/templatestepgroups/{templateId}", 200] },
   () => ListTemplateStepGroupsRequest,
   () => ListTemplateStepGroupsResponse,
 ];
@@ -1231,9 +945,7 @@ export var ListTemplateSteps: StaticOperationSchema = [
   9,
   n0,
   _LTS,
-  {
-    [_ht]: ["GET", "/templatesteps", 200],
-  },
+  { [_ht]: ["GET", "/templatesteps", 200] },
   () => ListTemplateStepsRequest,
   () => ListTemplateStepsResponse,
 ];
@@ -1241,9 +953,7 @@ export var ListWorkflows: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_ht]: ["GET", "/migrationworkflows", 200],
-  },
+  { [_ht]: ["GET", "/migrationworkflows", 200] },
   () => ListMigrationWorkflowsRequest,
   () => ListMigrationWorkflowsResponse,
 ];
@@ -1251,9 +961,7 @@ export var ListWorkflowStepGroups: StaticOperationSchema = [
   9,
   n0,
   _LWSG,
-  {
-    [_ht]: ["GET", "/workflowstepgroups", 200],
-  },
+  { [_ht]: ["GET", "/workflowstepgroups", 200] },
   () => ListWorkflowStepGroupsRequest,
   () => ListWorkflowStepGroupsResponse,
 ];
@@ -1261,9 +969,7 @@ export var ListWorkflowSteps: StaticOperationSchema = [
   9,
   n0,
   _LWS,
-  {
-    [_ht]: ["GET", "/workflow/{workflowId}/workflowstepgroups/{stepGroupId}/workflowsteps", 200],
-  },
+  { [_ht]: ["GET", "/workflow/{workflowId}/workflowstepgroups/{stepGroupId}/workflowsteps", 200] },
   () => ListWorkflowStepsRequest,
   () => ListWorkflowStepsResponse,
 ];
@@ -1271,9 +977,7 @@ export var RetryWorkflowStep: StaticOperationSchema = [
   9,
   n0,
   _RWS,
-  {
-    [_ht]: ["POST", "/retryworkflowstep/{id}", 200],
-  },
+  { [_ht]: ["POST", "/retryworkflowstep/{id}", 200] },
   () => RetryWorkflowStepRequest,
   () => RetryWorkflowStepResponse,
 ];
@@ -1281,9 +985,7 @@ export var StartWorkflow: StaticOperationSchema = [
   9,
   n0,
   _SW,
-  {
-    [_ht]: ["POST", "/migrationworkflow/{id}/start", 200],
-  },
+  { [_ht]: ["POST", "/migrationworkflow/{id}/start", 200] },
   () => StartMigrationWorkflowRequest,
   () => StartMigrationWorkflowResponse,
 ];
@@ -1291,9 +993,7 @@ export var StopWorkflow: StaticOperationSchema = [
   9,
   n0,
   _SWt,
-  {
-    [_ht]: ["POST", "/migrationworkflow/{id}/stop", 200],
-  },
+  { [_ht]: ["POST", "/migrationworkflow/{id}/stop", 200] },
   () => StopMigrationWorkflowRequest,
   () => StopMigrationWorkflowResponse,
 ];
@@ -1301,9 +1001,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1311,9 +1009,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1321,9 +1017,7 @@ export var UpdateTemplate: StaticOperationSchema = [
   9,
   n0,
   _UT,
-  {
-    [_ht]: ["POST", "/template/{id}", 200],
-  },
+  { [_ht]: ["POST", "/template/{id}", 200] },
   () => UpdateTemplateRequest,
   () => UpdateTemplateResponse,
 ];
@@ -1331,9 +1025,7 @@ export var UpdateWorkflow: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_ht]: ["POST", "/migrationworkflow/{id}", 200],
-  },
+  { [_ht]: ["POST", "/migrationworkflow/{id}", 200] },
   () => UpdateMigrationWorkflowRequest,
   () => UpdateMigrationWorkflowResponse,
 ];
@@ -1341,9 +1033,7 @@ export var UpdateWorkflowStep: StaticOperationSchema = [
   9,
   n0,
   _UWS,
-  {
-    [_ht]: ["POST", "/workflowstep/{id}", 200],
-  },
+  { [_ht]: ["POST", "/workflowstep/{id}", 200] },
   () => UpdateWorkflowStepRequest,
   () => UpdateWorkflowStepResponse,
 ];
@@ -1351,9 +1041,7 @@ export var UpdateWorkflowStepGroup: StaticOperationSchema = [
   9,
   n0,
   _UWSG,
-  {
-    [_ht]: ["POST", "/workflowstepgroup/{id}", 202],
-  },
+  { [_ht]: ["POST", "/workflowstepgroup/{id}", 202] },
   () => UpdateWorkflowStepGroupRequest,
   () => UpdateWorkflowStepGroupResponse,
 ];

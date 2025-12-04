@@ -53,34 +53,34 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof PcaConnectorAdClient === "function")
-assert(typeof PcaConnectorAd === "function")
+assert(typeof PcaConnectorAdClient === "function");
+assert(typeof PcaConnectorAd === "function");
 // commands
-assert(typeof CreateConnectorCommand === "function")
-assert(typeof CreateDirectoryRegistrationCommand === "function")
-assert(typeof CreateServicePrincipalNameCommand === "function")
-assert(typeof CreateTemplateCommand === "function")
-assert(typeof CreateTemplateGroupAccessControlEntryCommand === "function")
-assert(typeof DeleteConnectorCommand === "function")
-assert(typeof DeleteDirectoryRegistrationCommand === "function")
-assert(typeof DeleteServicePrincipalNameCommand === "function")
-assert(typeof DeleteTemplateCommand === "function")
-assert(typeof DeleteTemplateGroupAccessControlEntryCommand === "function")
-assert(typeof GetConnectorCommand === "function")
-assert(typeof GetDirectoryRegistrationCommand === "function")
-assert(typeof GetServicePrincipalNameCommand === "function")
-assert(typeof GetTemplateCommand === "function")
-assert(typeof GetTemplateGroupAccessControlEntryCommand === "function")
-assert(typeof ListConnectorsCommand === "function")
-assert(typeof ListDirectoryRegistrationsCommand === "function")
-assert(typeof ListServicePrincipalNamesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ListTemplateGroupAccessControlEntriesCommand === "function")
-assert(typeof ListTemplatesCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateTemplateCommand === "function")
-assert(typeof UpdateTemplateGroupAccessControlEntryCommand === "function")
+assert(typeof CreateConnectorCommand === "function");
+assert(typeof CreateDirectoryRegistrationCommand === "function");
+assert(typeof CreateServicePrincipalNameCommand === "function");
+assert(typeof CreateTemplateCommand === "function");
+assert(typeof CreateTemplateGroupAccessControlEntryCommand === "function");
+assert(typeof DeleteConnectorCommand === "function");
+assert(typeof DeleteDirectoryRegistrationCommand === "function");
+assert(typeof DeleteServicePrincipalNameCommand === "function");
+assert(typeof DeleteTemplateCommand === "function");
+assert(typeof DeleteTemplateGroupAccessControlEntryCommand === "function");
+assert(typeof GetConnectorCommand === "function");
+assert(typeof GetDirectoryRegistrationCommand === "function");
+assert(typeof GetServicePrincipalNameCommand === "function");
+assert(typeof GetTemplateCommand === "function");
+assert(typeof GetTemplateGroupAccessControlEntryCommand === "function");
+assert(typeof ListConnectorsCommand === "function");
+assert(typeof ListDirectoryRegistrationsCommand === "function");
+assert(typeof ListServicePrincipalNamesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListTemplateGroupAccessControlEntriesCommand === "function");
+assert(typeof ListTemplatesCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateTemplateCommand === "function");
+assert(typeof UpdateTemplateGroupAccessControlEntryCommand === "function");
 // enums
 assert(typeof AccessRight === "object");
 assert(typeof ApplicationPolicyType === "object");
@@ -101,11 +101,11 @@ assert(typeof ServicePrincipalNameStatusReason === "object");
 assert(typeof TemplateStatus === "object");
 assert(typeof ValidityPeriodType === "object");
 // errors
-assert(PcaConnectorAdServiceException.prototype instanceof Error)
+assert(PcaConnectorAdServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListConnectors === "function")
-assert(typeof paginateListDirectoryRegistrations === "function")
-assert(typeof paginateListServicePrincipalNames === "function")
-assert(typeof paginateListTemplateGroupAccessControlEntries === "function")
-assert(typeof paginateListTemplates === "function")
+assert(typeof paginateListConnectors === "function");
+assert(typeof paginateListDirectoryRegistrations === "function");
+assert(typeof paginateListServicePrincipalNames === "function");
+assert(typeof paginateListTemplateGroupAccessControlEntries === "function");
+assert(typeof paginateListTemplates === "function");
 console.log(`PcaConnectorAd index test passed.`);

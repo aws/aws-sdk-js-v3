@@ -150,7 +150,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Backup: StaticStructureSchema = [
   3,
   n0,
@@ -161,90 +160,20 @@ export var Backup: StaticStructureSchema = [
 ];
 export var BackupRetentionPolicy: StaticStructureSchema = [3, n0, _BRP, 0, [_T, _V], [0, 0]];
 export var Certificates: StaticStructureSchema = [3, n0, _C, 0, [_CC, _HC, _AHC, _MHC, _CCl], [0, 0, 0, 0, 0]];
-export var CloudHsmAccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHADE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var CloudHsmAccessDeniedException: StaticErrorSchema = [-3, n0, _CHADE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(CloudHsmAccessDeniedException, __CloudHsmAccessDeniedException);
-
-export var CloudHsmInternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHIFE,
-  {
-    [_e]: _s,
-  },
-  [_Me],
-  [0],
-];
+export var CloudHsmInternalFailureException: StaticErrorSchema = [-3, n0, _CHIFE, { [_e]: _s }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(CloudHsmInternalFailureException, __CloudHsmInternalFailureException);
-
-export var CloudHsmInvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHIRE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var CloudHsmInvalidRequestException: StaticErrorSchema = [-3, n0, _CHIRE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(CloudHsmInvalidRequestException, __CloudHsmInvalidRequestException);
-
-export var CloudHsmResourceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHRLEE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var CloudHsmResourceLimitExceededException: StaticErrorSchema = [-3, n0, _CHRLEE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(CloudHsmResourceLimitExceededException, __CloudHsmResourceLimitExceededException);
-
-export var CloudHsmResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHRNFE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var CloudHsmResourceNotFoundException: StaticErrorSchema = [-3, n0, _CHRNFE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(CloudHsmResourceNotFoundException, __CloudHsmResourceNotFoundException);
-
-export var CloudHsmServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHSE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var CloudHsmServiceException: StaticErrorSchema = [-3, n0, _CHSE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(CloudHsmServiceException, __CloudHsmServiceException);
-
-export var CloudHsmTagException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHTE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var CloudHsmTagException: StaticErrorSchema = [-3, n0, _CHTE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(CloudHsmTagException, __CloudHsmTagException);
-
 export var Cluster: StaticStructureSchema = [
   3,
   n0,
@@ -354,22 +283,16 @@ export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RI, _TKL], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var __Unit = "unit" as const;
-
 export var CloudHSMV2ServiceException: StaticErrorSchema = [-3, _sm, "CloudHSMV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudHSMV2ServiceException, __CloudHSMV2ServiceException);
-
 export var Backups: StaticListSchema = [1, n0, _Ba, 0, () => Backup];
 export var Clusters: StaticListSchema = [1, n0, _Clu, 0, () => Cluster];
 export var Hsms: StaticListSchema = [1, n0, _H, 0, () => Hsm];
 export var Strings = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ExternalSubnetMapping = 128 | 0;
-
 export var Filters: StaticMapSchema = [2, n0, _F, 0, 0, 64 | 0];
 export var CopyBackupToRegion: StaticOperationSchema = [
   9,

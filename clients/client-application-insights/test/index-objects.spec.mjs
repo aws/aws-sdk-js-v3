@@ -61,42 +61,42 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ApplicationInsightsClient === "function")
-assert(typeof ApplicationInsights === "function")
+assert(typeof ApplicationInsightsClient === "function");
+assert(typeof ApplicationInsights === "function");
 // commands
-assert(typeof AddWorkloadCommand === "function")
-assert(typeof CreateApplicationCommand === "function")
-assert(typeof CreateComponentCommand === "function")
-assert(typeof CreateLogPatternCommand === "function")
-assert(typeof DeleteApplicationCommand === "function")
-assert(typeof DeleteComponentCommand === "function")
-assert(typeof DeleteLogPatternCommand === "function")
-assert(typeof DescribeApplicationCommand === "function")
-assert(typeof DescribeComponentCommand === "function")
-assert(typeof DescribeComponentConfigurationCommand === "function")
-assert(typeof DescribeComponentConfigurationRecommendationCommand === "function")
-assert(typeof DescribeLogPatternCommand === "function")
-assert(typeof DescribeObservationCommand === "function")
-assert(typeof DescribeProblemCommand === "function")
-assert(typeof DescribeProblemObservationsCommand === "function")
-assert(typeof DescribeWorkloadCommand === "function")
-assert(typeof ListApplicationsCommand === "function")
-assert(typeof ListComponentsCommand === "function")
-assert(typeof ListConfigurationHistoryCommand === "function")
-assert(typeof ListLogPatternsCommand === "function")
-assert(typeof ListLogPatternSetsCommand === "function")
-assert(typeof ListProblemsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ListWorkloadsCommand === "function")
-assert(typeof RemoveWorkloadCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateApplicationCommand === "function")
-assert(typeof UpdateComponentCommand === "function")
-assert(typeof UpdateComponentConfigurationCommand === "function")
-assert(typeof UpdateLogPatternCommand === "function")
-assert(typeof UpdateProblemCommand === "function")
-assert(typeof UpdateWorkloadCommand === "function")
+assert(typeof AddWorkloadCommand === "function");
+assert(typeof CreateApplicationCommand === "function");
+assert(typeof CreateComponentCommand === "function");
+assert(typeof CreateLogPatternCommand === "function");
+assert(typeof DeleteApplicationCommand === "function");
+assert(typeof DeleteComponentCommand === "function");
+assert(typeof DeleteLogPatternCommand === "function");
+assert(typeof DescribeApplicationCommand === "function");
+assert(typeof DescribeComponentCommand === "function");
+assert(typeof DescribeComponentConfigurationCommand === "function");
+assert(typeof DescribeComponentConfigurationRecommendationCommand === "function");
+assert(typeof DescribeLogPatternCommand === "function");
+assert(typeof DescribeObservationCommand === "function");
+assert(typeof DescribeProblemCommand === "function");
+assert(typeof DescribeProblemObservationsCommand === "function");
+assert(typeof DescribeWorkloadCommand === "function");
+assert(typeof ListApplicationsCommand === "function");
+assert(typeof ListComponentsCommand === "function");
+assert(typeof ListConfigurationHistoryCommand === "function");
+assert(typeof ListLogPatternsCommand === "function");
+assert(typeof ListLogPatternSetsCommand === "function");
+assert(typeof ListProblemsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListWorkloadsCommand === "function");
+assert(typeof RemoveWorkloadCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateApplicationCommand === "function");
+assert(typeof UpdateComponentCommand === "function");
+assert(typeof UpdateComponentConfigurationCommand === "function");
+assert(typeof UpdateLogPatternCommand === "function");
+assert(typeof UpdateProblemCommand === "function");
+assert(typeof UpdateWorkloadCommand === "function");
 // enums
 assert(typeof CloudWatchEventSource === "object");
 assert(typeof ConfigurationEventResourceType === "object");
@@ -115,13 +115,13 @@ assert(typeof Tier === "object");
 assert(typeof UpdateStatus === "object");
 assert(typeof Visibility === "object");
 // errors
-assert(ApplicationInsightsServiceException.prototype instanceof Error)
+assert(ApplicationInsightsServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListApplications === "function")
-assert(typeof paginateListComponents === "function")
-assert(typeof paginateListConfigurationHistory === "function")
-assert(typeof paginateListLogPatternSets === "function")
-assert(typeof paginateListLogPatterns === "function")
-assert(typeof paginateListProblems === "function")
-assert(typeof paginateListWorkloads === "function")
+assert(typeof paginateListApplications === "function");
+assert(typeof paginateListComponents === "function");
+assert(typeof paginateListConfigurationHistory === "function");
+assert(typeof paginateListLogPatternSets === "function");
+assert(typeof paginateListLogPatterns === "function");
+assert(typeof paginateListProblems === "function");
+assert(typeof paginateListWorkloads === "function");
 console.log(`ApplicationInsights index test passed.`);

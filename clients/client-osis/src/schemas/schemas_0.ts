@@ -198,20 +198,8 @@ import {
 import { OSISServiceException as __OSISServiceException } from "../models/OSISServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BufferOptions: StaticStructureSchema = [3, n0, _BO, 0, [_PBE], [2]];
 export var ChangeProgressStage: StaticStructureSchema = [3, n0, _CPS, 0, [_N, _S, _D, _LUA], [0, 0, 0, 4]];
 export var ChangeProgressStatus: StaticStructureSchema = [
@@ -223,19 +211,8 @@ export var ChangeProgressStatus: StaticStructureSchema = [
   [4, 0, 1, () => ChangeProgressStageList],
 ];
 export var CloudWatchLogDestination: StaticStructureSchema = [3, n0, _CWLD, 0, [_LG], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreatePipelineEndpointRequest: StaticStructureSchema = [
   3,
   n0,
@@ -278,19 +255,8 @@ export var DeletePipelineRequest: StaticStructureSchema = [3, n0, _DPR, 0, [_PN]
 export var DeletePipelineResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
 export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0, [_RA], [[0, 1]]];
 export var DeleteResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPRe, 0, [], []];
-export var DisabledOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DOE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var DisabledOperationException: StaticErrorSchema = [-3, n0, _DOE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DisabledOperationException, __DisabledOperationException);
-
 export var EncryptionAtRestOptions: StaticStructureSchema = [3, n0, _EARO, 0, [_KKA], [0]];
 export var GetPipelineBlueprintRequest: StaticStructureSchema = [
   3,
@@ -300,12 +266,7 @@ export var GetPipelineBlueprintRequest: StaticStructureSchema = [
   [_BN, _F],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
+    [0, { [_hQ]: _f }],
   ],
 ];
 export var GetPipelineBlueprintResponse: StaticStructureSchema = [
@@ -329,45 +290,12 @@ export var GetPipelineRequest: StaticStructureSchema = [3, n0, _GPR, 0, [_PN], [
 export var GetPipelineResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_P], [() => Pipeline]];
 export var GetResourcePolicyRequest: StaticStructureSchema = [3, n0, _GRPR, 0, [_RA], [[0, 1]]];
 export var GetResourcePolicyResponse: StaticStructureSchema = [3, n0, _GRPRe, 0, [_RA, _Po], [0, 0]];
-export var InternalException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalException: StaticErrorSchema = [-3, n0, _IE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-
-export var InvalidPaginationTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidPaginationTokenException: StaticErrorSchema = [-3, n0, _IPTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidPaginationTokenException, __InvalidPaginationTokenException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListPipelineBlueprintsRequest: StaticStructureSchema = [3, n0, _LPBR, 0, [], []];
 export var ListPipelineBlueprintsResponse: StaticStructureSchema = [
   3,
@@ -384,18 +312,8 @@ export var ListPipelineEndpointConnectionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPipelineEndpointConnectionsResponse: StaticStructureSchema = [
@@ -413,18 +331,8 @@ export var ListPipelineEndpointsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPipelineEndpointsResponse: StaticStructureSchema = [
@@ -442,36 +350,12 @@ export var ListPipelinesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPipelinesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_NT, _Pi], [0, () => PipelineSummaryList]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_A],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_A], [[0, { [_hQ]: _a }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [() => TagList]];
 export var LogPublishingOptions: StaticStructureSchema = [
   3,
@@ -547,32 +431,10 @@ export var PipelineSummary: StaticStructureSchema = [
 ];
 export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_RA, _Po], [[0, 1], 0]];
 export var PutResourcePolicyResponse: StaticStructureSchema = [3, n0, _PRPRu, 0, [_RA, _Po], [0, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RevokePipelineEndpointConnectionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -588,39 +450,9 @@ export var StartPipelineResponse: StaticStructureSchema = [3, n0, _SPRt, 0, [_P]
 export var StopPipelineRequest: StaticStructureSchema = [3, n0, _SPRto, 0, [_PN], [[0, 1]]];
 export var StopPipelineResponse: StaticStructureSchema = [3, n0, _SPRtop, 0, [_P], [() => Pipeline]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _TRR,
-  0,
-  [_A, _T],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-    () => TagList,
-  ],
-];
+export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_A, _T], [[0, { [_hQ]: _a }], () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
-  0,
-  [_A, _TK],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-    64 | 0,
-  ],
-];
+export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_A, _TK], [[0, { [_hQ]: _a }], 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdatePipelineRequest: StaticStructureSchema = [
   3,
@@ -640,19 +472,8 @@ export var ValidatePipelineResponse: StaticStructureSchema = [
   [_iV, _Er],
   [2, () => ValidationMessageList],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VEa,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VEa, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationMessage: StaticStructureSchema = [3, n0, _VM, 0, [_M], [0]];
 export var VpcAttachmentOptions: StaticStructureSchema = [3, n0, _VAO, 0, [_ATV, _CB], [2, 0]];
 export var VpcEndpoint: StaticStructureSchema = [3, n0, _VEp, 0, [_VEI, _VI, _VO], [0, 0, () => VpcOptions]];
@@ -665,14 +486,11 @@ export var VpcOptions: StaticStructureSchema = [
   [64 | 0, 64 | 0, () => VpcAttachmentOptions, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var OSISServiceException: StaticErrorSchema = [-3, _sm, "OSISServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OSISServiceException, __OSISServiceException);
-
 export var ChangeProgressStageList: StaticListSchema = [1, n0, _CPSL, 0, () => ChangeProgressStage];
 export var ChangeProgressStatusList: StaticListSchema = [1, n0, _CPSLh, 0, () => ChangeProgressStatus];
 export var IngestEndpointUrlsList = 64 | 0;
-
 export var PipelineBlueprintsSummaryList: StaticListSchema = [1, n0, _PBSL, 0, () => PipelineBlueprintSummary];
 export var PipelineDestinationList: StaticListSchema = [1, n0, _PDL, 0, () => PipelineDestination];
 export var PipelineEndpointConnectionsSummaryList: StaticListSchema = [
@@ -683,16 +501,12 @@ export var PipelineEndpointConnectionsSummaryList: StaticListSchema = [
   () => PipelineEndpointConnection,
 ];
 export var PipelineEndpointIdsList = 64 | 0;
-
 export var PipelineEndpointsSummaryList: StaticListSchema = [1, n0, _PESL, 0, () => PipelineEndpoint];
 export var PipelineSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PipelineSummary];
 export var SecurityGroupIds = 64 | 0;
-
 export var ServiceVpcEndpointsList: StaticListSchema = [1, n0, _SVEL, 0, () => ServiceVpcEndpoint];
 export var StringList = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidationMessageList: StaticListSchema = [1, n0, _VML, 0, () => ValidationMessage];
 export var VpcEndpointsList: StaticListSchema = [1, n0, _VEL, 0, () => VpcEndpoint];
@@ -700,9 +514,7 @@ export var CreatePipeline: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/2022-01-01/osis/createPipeline", 200],
-  },
+  { [_h]: ["POST", "/2022-01-01/osis/createPipeline", 200] },
   () => CreatePipelineRequest,
   () => CreatePipelineResponse,
 ];
@@ -710,9 +522,7 @@ export var CreatePipelineEndpoint: StaticOperationSchema = [
   9,
   n0,
   _CPE,
-  {
-    [_h]: ["POST", "/2022-01-01/osis/createPipelineEndpoint", 200],
-  },
+  { [_h]: ["POST", "/2022-01-01/osis/createPipelineEndpoint", 200] },
   () => CreatePipelineEndpointRequest,
   () => CreatePipelineEndpointResponse,
 ];
@@ -720,9 +530,7 @@ export var DeletePipeline: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/2022-01-01/osis/deletePipeline/{PipelineName}", 200],
-  },
+  { [_h]: ["DELETE", "/2022-01-01/osis/deletePipeline/{PipelineName}", 200] },
   () => DeletePipelineRequest,
   () => DeletePipelineResponse,
 ];
@@ -730,9 +538,7 @@ export var DeletePipelineEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DPE,
-  {
-    [_h]: ["DELETE", "/2022-01-01/osis/deletePipelineEndpoint/{EndpointId}", 200],
-  },
+  { [_h]: ["DELETE", "/2022-01-01/osis/deletePipelineEndpoint/{EndpointId}", 200] },
   () => DeletePipelineEndpointRequest,
   () => DeletePipelineEndpointResponse,
 ];
@@ -740,9 +546,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/2022-01-01/osis/resourcePolicy/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/2022-01-01/osis/resourcePolicy/{ResourceArn}", 200] },
   () => DeleteResourcePolicyRequest,
   () => DeleteResourcePolicyResponse,
 ];
@@ -750,9 +554,7 @@ export var GetPipeline: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/getPipeline/{PipelineName}", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/getPipeline/{PipelineName}", 200] },
   () => GetPipelineRequest,
   () => GetPipelineResponse,
 ];
@@ -760,9 +562,7 @@ export var GetPipelineBlueprint: StaticOperationSchema = [
   9,
   n0,
   _GPB,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/getPipelineBlueprint/{BlueprintName}", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/getPipelineBlueprint/{BlueprintName}", 200] },
   () => GetPipelineBlueprintRequest,
   () => GetPipelineBlueprintResponse,
 ];
@@ -770,9 +570,7 @@ export var GetPipelineChangeProgress: StaticOperationSchema = [
   9,
   n0,
   _GPCP,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/getPipelineChangeProgress/{PipelineName}", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/getPipelineChangeProgress/{PipelineName}", 200] },
   () => GetPipelineChangeProgressRequest,
   () => GetPipelineChangeProgressResponse,
 ];
@@ -780,9 +578,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/resourcePolicy/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/resourcePolicy/{ResourceArn}", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -790,9 +586,7 @@ export var ListPipelineBlueprints: StaticOperationSchema = [
   9,
   n0,
   _LPB,
-  {
-    [_h]: ["POST", "/2022-01-01/osis/listPipelineBlueprints", 200],
-  },
+  { [_h]: ["POST", "/2022-01-01/osis/listPipelineBlueprints", 200] },
   () => ListPipelineBlueprintsRequest,
   () => ListPipelineBlueprintsResponse,
 ];
@@ -800,9 +594,7 @@ export var ListPipelineEndpointConnections: StaticOperationSchema = [
   9,
   n0,
   _LPEC,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/listPipelineEndpointConnections", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/listPipelineEndpointConnections", 200] },
   () => ListPipelineEndpointConnectionsRequest,
   () => ListPipelineEndpointConnectionsResponse,
 ];
@@ -810,9 +602,7 @@ export var ListPipelineEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LPE,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/listPipelineEndpoints", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/listPipelineEndpoints", 200] },
   () => ListPipelineEndpointsRequest,
   () => ListPipelineEndpointsResponse,
 ];
@@ -820,9 +610,7 @@ export var ListPipelines: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/listPipelines", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/listPipelines", 200] },
   () => ListPipelinesRequest,
   () => ListPipelinesResponse,
 ];
@@ -830,9 +618,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/2022-01-01/osis/listTagsForResource", 200],
-  },
+  { [_h]: ["GET", "/2022-01-01/osis/listTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -840,9 +626,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["PUT", "/2022-01-01/osis/resourcePolicy/{ResourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/2022-01-01/osis/resourcePolicy/{ResourceArn}", 200] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResponse,
 ];
@@ -850,9 +634,7 @@ export var RevokePipelineEndpointConnections: StaticOperationSchema = [
   9,
   n0,
   _RPEC,
-  {
-    [_h]: ["POST", "/2022-01-01/osis/revokePipelineEndpointConnections", 200],
-  },
+  { [_h]: ["POST", "/2022-01-01/osis/revokePipelineEndpointConnections", 200] },
   () => RevokePipelineEndpointConnectionsRequest,
   () => RevokePipelineEndpointConnectionsResponse,
 ];
@@ -860,9 +642,7 @@ export var StartPipeline: StaticOperationSchema = [
   9,
   n0,
   _SP,
-  {
-    [_h]: ["PUT", "/2022-01-01/osis/startPipeline/{PipelineName}", 200],
-  },
+  { [_h]: ["PUT", "/2022-01-01/osis/startPipeline/{PipelineName}", 200] },
   () => StartPipelineRequest,
   () => StartPipelineResponse,
 ];
@@ -870,9 +650,7 @@ export var StopPipeline: StaticOperationSchema = [
   9,
   n0,
   _SPt,
-  {
-    [_h]: ["PUT", "/2022-01-01/osis/stopPipeline/{PipelineName}", 200],
-  },
+  { [_h]: ["PUT", "/2022-01-01/osis/stopPipeline/{PipelineName}", 200] },
   () => StopPipelineRequest,
   () => StopPipelineResponse,
 ];
@@ -880,9 +658,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/2022-01-01/osis/tagResource", 200],
-  },
+  { [_h]: ["POST", "/2022-01-01/osis/tagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -890,9 +666,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/2022-01-01/osis/untagResource", 200],
-  },
+  { [_h]: ["POST", "/2022-01-01/osis/untagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -900,9 +674,7 @@ export var UpdatePipeline: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PUT", "/2022-01-01/osis/updatePipeline/{PipelineName}", 200],
-  },
+  { [_h]: ["PUT", "/2022-01-01/osis/updatePipeline/{PipelineName}", 200] },
   () => UpdatePipelineRequest,
   () => UpdatePipelineResponse,
 ];
@@ -910,9 +682,7 @@ export var ValidatePipeline: StaticOperationSchema = [
   9,
   n0,
   _VP,
-  {
-    [_h]: ["POST", "/2022-01-01/osis/validatePipeline", 200],
-  },
+  { [_h]: ["POST", "/2022-01-01/osis/validatePipeline", 200] },
   () => ValidatePipelineRequest,
   () => ValidatePipelineResponse,
 ];

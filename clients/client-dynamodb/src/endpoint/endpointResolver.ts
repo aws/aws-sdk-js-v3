@@ -20,6 +20,9 @@ const cache = new EndpointCache({
   ],
 });
 
+/**
+ * @internal
+ */
 export const defaultEndpointResolver = (
   endpointParams: EndpointParameters,
   context: { logger?: Logger } = {}

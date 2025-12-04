@@ -43,26 +43,26 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof BraketClient === "function")
-assert(typeof Braket === "function")
+assert(typeof BraketClient === "function");
+assert(typeof Braket === "function");
 // commands
-assert(typeof CancelJobCommand === "function")
-assert(typeof CancelQuantumTaskCommand === "function")
-assert(typeof CreateJobCommand === "function")
-assert(typeof CreateQuantumTaskCommand === "function")
-assert(typeof CreateSpendingLimitCommand === "function")
-assert(typeof DeleteSpendingLimitCommand === "function")
-assert(typeof GetDeviceCommand === "function")
-assert(typeof GetJobCommand === "function")
-assert(typeof GetQuantumTaskCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof SearchDevicesCommand === "function")
-assert(typeof SearchJobsCommand === "function")
-assert(typeof SearchQuantumTasksCommand === "function")
-assert(typeof SearchSpendingLimitsCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateSpendingLimitCommand === "function")
+assert(typeof CancelJobCommand === "function");
+assert(typeof CancelQuantumTaskCommand === "function");
+assert(typeof CreateJobCommand === "function");
+assert(typeof CreateQuantumTaskCommand === "function");
+assert(typeof CreateSpendingLimitCommand === "function");
+assert(typeof DeleteSpendingLimitCommand === "function");
+assert(typeof GetDeviceCommand === "function");
+assert(typeof GetJobCommand === "function");
+assert(typeof GetQuantumTaskCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof SearchDevicesCommand === "function");
+assert(typeof SearchJobsCommand === "function");
+assert(typeof SearchQuantumTasksCommand === "function");
+assert(typeof SearchSpendingLimitsCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateSpendingLimitCommand === "function");
 // enums
 assert(typeof AssociationType === "object");
 assert(typeof CancellationStatus === "object");
@@ -82,10 +82,10 @@ assert(typeof SearchJobsFilterOperator === "object");
 assert(typeof SearchQuantumTasksFilterOperator === "object");
 assert(typeof SearchSpendingLimitsFilterOperator === "object");
 // errors
-assert(BraketServiceException.prototype instanceof Error)
+assert(BraketServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateSearchDevices === "function")
-assert(typeof paginateSearchJobs === "function")
-assert(typeof paginateSearchQuantumTasks === "function")
-assert(typeof paginateSearchSpendingLimits === "function")
+assert(typeof paginateSearchDevices === "function");
+assert(typeof paginateSearchJobs === "function");
+assert(typeof paginateSearchQuantumTasks === "function");
+assert(typeof paginateSearchSpendingLimits === "function");
 console.log(`Braket index test passed.`);

@@ -212,7 +212,6 @@ import {
 import { MPAServiceException as __MPAServiceException } from "../models/MPAServiceException";
 
 /* eslint no-var: 0 */
-
 export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var PolicyDocument: StaticSimpleSchema = [0, n0, _PD, 8, 0];
 export var RequesterComment: StaticSimpleSchema = [0, n0, _RC, 8, 0];
@@ -220,35 +219,13 @@ export var SessionKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
 export var SessionValue: StaticSimpleSchema = [0, n0, _SV, 8, 0];
 export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ApprovalTeamRequestApprover: StaticStructureSchema = [3, n0, _ATRA, 0, [_PII, _PISA], [0, 0]];
 export var CancelSessionRequest: StaticStructureSchema = [3, n0, _CSR, 0, [_SA], [[0, 1]]];
 export var CancelSessionResponse: StaticStructureSchema = [3, n0, _CSRa, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateApprovalTeamRequest: StaticStructureSchema = [
   3,
   n0,
@@ -419,32 +396,10 @@ export var IdentitySourceForList: StaticStructureSchema = [
   [0, () => IdentitySourceParametersForList, 0, 5, 0, 0, 0],
 ];
 export var IdentitySourceParameters: StaticStructureSchema = [3, n0, _ISP, 0, [_IIC], [() => IamIdentityCenter]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var ListApprovalTeamsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -452,18 +407,8 @@ export var ListApprovalTeamsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListApprovalTeamsResponse: StaticStructureSchema = [
@@ -489,18 +434,8 @@ export var ListIdentitySourcesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListIdentitySourcesResponse: StaticStructureSchema = [
@@ -518,18 +453,8 @@ export var ListPoliciesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListPoliciesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_NT, _P], [0, () => Policies]];
@@ -540,18 +465,8 @@ export var ListPolicyVersionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _PA],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
     [0, 1],
   ],
 ];
@@ -571,18 +486,8 @@ export var ListResourcePoliciesRequest: StaticStructureSchema = [
   [_RA, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListResourcePoliciesResponse: StaticStructureSchema = [
@@ -654,32 +559,10 @@ export var PolicyVersionSummary: StaticStructureSchema = [
   [_Ar, _PA, _VI, _PT, _ID, _N, _S, _CTr, _LUTa],
   [0, 0, 1, 0, 2, 0, 0, 5, 5],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartActiveApprovalTeamDeletionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -701,32 +584,10 @@ export var TagResourceRequest: StaticStructureSchema = [
   ],
 ];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -748,24 +609,11 @@ export var UpdateApprovalTeamRequest: StaticStructureSchema = [
   [() => ApprovalStrategy, () => ApprovalTeamRequestApprovers, [() => Description, 0], [0, 1]],
 ];
 export var UpdateApprovalTeamResponse: StaticStructureSchema = [3, n0, _UATRp, 0, [_VI], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var MPAServiceException: StaticErrorSchema = [-3, _sm, "MPAServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MPAServiceException, __MPAServiceException);
-
 export var ApprovalTeamRequestApprovers: StaticListSchema = [1, n0, _ATRAp, 0, () => ApprovalTeamRequestApprover];
 export var Filters: StaticListSchema = [1, n0, _Fi, 0, () => Filter];
 export var GetApprovalTeamResponseApprovers: StaticListSchema = [
@@ -826,9 +674,7 @@ export var CancelSession: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["PUT", "/sessions/{SessionArn}", 200],
-  },
+  { [_h]: ["PUT", "/sessions/{SessionArn}", 200] },
   () => CancelSessionRequest,
   () => CancelSessionResponse,
 ];
@@ -836,9 +682,7 @@ export var CreateApprovalTeam: StaticOperationSchema = [
   9,
   n0,
   _CAT,
-  {
-    [_h]: ["POST", "/approval-teams", 200],
-  },
+  { [_h]: ["POST", "/approval-teams", 200] },
   () => CreateApprovalTeamRequest,
   () => CreateApprovalTeamResponse,
 ];
@@ -846,9 +690,7 @@ export var CreateIdentitySource: StaticOperationSchema = [
   9,
   n0,
   _CIS,
-  {
-    [_h]: ["POST", "/identity-sources", 200],
-  },
+  { [_h]: ["POST", "/identity-sources", 200] },
   () => CreateIdentitySourceRequest,
   () => CreateIdentitySourceResponse,
 ];
@@ -856,9 +698,7 @@ export var DeleteIdentitySource: StaticOperationSchema = [
   9,
   n0,
   _DIS,
-  {
-    [_h]: ["DELETE", "/identity-sources/{IdentitySourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/identity-sources/{IdentitySourceArn}", 200] },
   () => DeleteIdentitySourceRequest,
   () => __Unit,
 ];
@@ -866,9 +706,7 @@ export var DeleteInactiveApprovalTeamVersion: StaticOperationSchema = [
   9,
   n0,
   _DIATV,
-  {
-    [_h]: ["DELETE", "/approval-teams/{Arn}/{VersionId}", 200],
-  },
+  { [_h]: ["DELETE", "/approval-teams/{Arn}/{VersionId}", 200] },
   () => DeleteInactiveApprovalTeamVersionRequest,
   () => DeleteInactiveApprovalTeamVersionResponse,
 ];
@@ -876,9 +714,7 @@ export var GetApprovalTeam: StaticOperationSchema = [
   9,
   n0,
   _GAT,
-  {
-    [_h]: ["GET", "/approval-teams/{Arn}", 200],
-  },
+  { [_h]: ["GET", "/approval-teams/{Arn}", 200] },
   () => GetApprovalTeamRequest,
   () => GetApprovalTeamResponse,
 ];
@@ -886,9 +722,7 @@ export var GetIdentitySource: StaticOperationSchema = [
   9,
   n0,
   _GIS,
-  {
-    [_h]: ["GET", "/identity-sources/{IdentitySourceArn}", 200],
-  },
+  { [_h]: ["GET", "/identity-sources/{IdentitySourceArn}", 200] },
   () => GetIdentitySourceRequest,
   () => GetIdentitySourceResponse,
 ];
@@ -896,9 +730,7 @@ export var GetPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _GPV,
-  {
-    [_h]: ["GET", "/policy-versions/{PolicyVersionArn}", 200],
-  },
+  { [_h]: ["GET", "/policy-versions/{PolicyVersionArn}", 200] },
   () => GetPolicyVersionRequest,
   () => GetPolicyVersionResponse,
 ];
@@ -906,9 +738,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["POST", "/GetResourcePolicy", 200],
-  },
+  { [_h]: ["POST", "/GetResourcePolicy", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -916,9 +746,7 @@ export var GetSession: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/sessions/{SessionArn}", 200],
-  },
+  { [_h]: ["GET", "/sessions/{SessionArn}", 200] },
   () => GetSessionRequest,
   () => GetSessionResponse,
 ];
@@ -926,9 +754,7 @@ export var ListApprovalTeams: StaticOperationSchema = [
   9,
   n0,
   _LAT,
-  {
-    [_h]: ["POST", "/approval-teams/?List", 200],
-  },
+  { [_h]: ["POST", "/approval-teams/?List", 200] },
   () => ListApprovalTeamsRequest,
   () => ListApprovalTeamsResponse,
 ];
@@ -936,9 +762,7 @@ export var ListIdentitySources: StaticOperationSchema = [
   9,
   n0,
   _LIS,
-  {
-    [_h]: ["POST", "/identity-sources/?List", 200],
-  },
+  { [_h]: ["POST", "/identity-sources/?List", 200] },
   () => ListIdentitySourcesRequest,
   () => ListIdentitySourcesResponse,
 ];
@@ -946,9 +770,7 @@ export var ListPolicies: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["POST", "/policies/?List", 200],
-  },
+  { [_h]: ["POST", "/policies/?List", 200] },
   () => ListPoliciesRequest,
   () => ListPoliciesResponse,
 ];
@@ -956,9 +778,7 @@ export var ListPolicyVersions: StaticOperationSchema = [
   9,
   n0,
   _LPV,
-  {
-    [_h]: ["POST", "/policies/{PolicyArn}/?List", 200],
-  },
+  { [_h]: ["POST", "/policies/{PolicyArn}/?List", 200] },
   () => ListPolicyVersionsRequest,
   () => ListPolicyVersionsResponse,
 ];
@@ -966,9 +786,7 @@ export var ListResourcePolicies: StaticOperationSchema = [
   9,
   n0,
   _LRP,
-  {
-    [_h]: ["POST", "/resource-policies/{ResourceArn}/?List", 200],
-  },
+  { [_h]: ["POST", "/resource-policies/{ResourceArn}/?List", 200] },
   () => ListResourcePoliciesRequest,
   () => ListResourcePoliciesResponse,
 ];
@@ -976,9 +794,7 @@ export var ListSessions: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["POST", "/approval-teams/{ApprovalTeamArn}/sessions/?List", 200],
-  },
+  { [_h]: ["POST", "/approval-teams/{ApprovalTeamArn}/sessions/?List", 200] },
   () => ListSessionsRequest,
   () => ListSessionsResponse,
 ];
@@ -986,9 +802,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -996,9 +810,7 @@ export var StartActiveApprovalTeamDeletion: StaticOperationSchema = [
   9,
   n0,
   _SAATD,
-  {
-    [_h]: ["POST", "/approval-teams/{Arn}?Delete", 200],
-  },
+  { [_h]: ["POST", "/approval-teams/{Arn}?Delete", 200] },
   () => StartActiveApprovalTeamDeletionRequest,
   () => StartActiveApprovalTeamDeletionResponse,
 ];
@@ -1006,9 +818,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["PUT", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1016,9 +826,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1026,9 +834,7 @@ export var UpdateApprovalTeam: StaticOperationSchema = [
   9,
   n0,
   _UAT,
-  {
-    [_h]: ["PATCH", "/approval-teams/{Arn}", 200],
-  },
+  { [_h]: ["PATCH", "/approval-teams/{Arn}", 200] },
   () => UpdateApprovalTeamRequest,
   () => UpdateApprovalTeamResponse,
 ];

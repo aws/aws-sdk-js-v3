@@ -11,6 +11,9 @@ import {
 } from "./enums";
 
 import {
+  type AwsEcsTaskDefinitionProxyConfigurationDetails,
+  type AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
+  type AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
   Actor,
   AssociatedStandard,
   AvailabilityZone,
@@ -18,9 +21,6 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsDetails,
   AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
   AwsEcsTaskDefinitionPlacementConstraintsDetails,
-  AwsEcsTaskDefinitionProxyConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
   RelatedFinding,
 } from "./models_0";
 

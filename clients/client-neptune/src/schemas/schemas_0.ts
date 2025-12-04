@@ -723,7 +723,6 @@ import {
 import { NeptuneServiceException as __NeptuneServiceException } from "../models/NeptuneServiceException";
 
 /* eslint no-var: 0 */
-
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AddRoleToDBClusterMessage: StaticStructureSchema = [3, n0, _ARTDBCM, 0, [_DBCI, _RA, _FN], [0, 0, 0]];
 export var AddSourceIdentifierToSubscriptionMessage: StaticStructureSchema = [3, n0, _ASITSM, 0, [_SN, _SI], [0, 0]];
@@ -756,31 +755,21 @@ export var AuthorizationNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _ANFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`AuthorizationNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`AuthorizationNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AuthorizationNotFoundFault, __AuthorizationNotFoundFault);
-
 export var AvailabilityZone: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [0]];
 export var CertificateNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _CNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`CertificateNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`CertificateNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CertificateNotFoundFault, __CertificateNotFoundFault);
-
 export var CharacterSet: StaticStructureSchema = [3, n0, _CS, 0, [_CSN, _CSD], [0, 0]];
 export var CloudwatchLogsExportConfiguration: StaticStructureSchema = [3, n0, _CLEC, 0, [_ELT, _DLT], [64 | 0, 64 | 0]];
 export var ClusterPendingModifiedValues: StaticStructureSchema = [
@@ -1198,16 +1187,11 @@ export var DBClusterAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBClusterAlreadyExistsFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterAlreadyExistsFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterAlreadyExistsFault, __DBClusterAlreadyExistsFault);
-
 export var DBClusterEndpoint: StaticStructureSchema = [
   3,
   n0,
@@ -1220,16 +1204,11 @@ export var DBClusterEndpointAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCEAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBClusterEndpointAlreadyExistsFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterEndpointAlreadyExistsFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterEndpointAlreadyExistsFault, __DBClusterEndpointAlreadyExistsFault);
-
 export var DBClusterEndpointMessage: StaticStructureSchema = [
   3,
   n0,
@@ -1242,46 +1221,31 @@ export var DBClusterEndpointNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCENFF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBClusterEndpointNotFoundFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterEndpointNotFoundFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterEndpointNotFoundFault, __DBClusterEndpointNotFoundFault);
-
 export var DBClusterEndpointQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCEQEF,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`DBClusterEndpointQuotaExceededFault`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`DBClusterEndpointQuotaExceededFault`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterEndpointQuotaExceededFault, __DBClusterEndpointQuotaExceededFault);
-
 export var DBClusterMember: StaticStructureSchema = [3, n0, _DBCMl, 0, [_DBII, _ICW, _DBCPGS, _PT], [0, 2, 0, 1]];
 export var DBClusterMessage: StaticStructureSchema = [3, n0, _DBCMlu, 0, [_M, _DBCl], [0, [() => DBClusterList, 0]]];
 export var DBClusterNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBClusterNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterNotFoundFault, __DBClusterNotFoundFault);
-
 export var DBClusterOptionGroupStatus: StaticStructureSchema = [3, n0, _DBCOGS, 0, [_DBCOGN, _S], [0, 0]];
 export var DBClusterParameterGroup: StaticStructureSchema = [
   3,
@@ -1304,16 +1268,11 @@ export var DBClusterParameterGroupNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCPGNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBClusterParameterGroupNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterParameterGroupNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterParameterGroupNotFoundFault, __DBClusterParameterGroupNotFoundFault);
-
 export var DBClusterParameterGroupsMessage: StaticStructureSchema = [
   3,
   n0,
@@ -1326,59 +1285,39 @@ export var DBClusterQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCQEF,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`DBClusterQuotaExceededFault`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`DBClusterQuotaExceededFault`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterQuotaExceededFault, __DBClusterQuotaExceededFault);
-
 export var DBClusterRole: StaticStructureSchema = [3, n0, _DBCR, 0, [_RA, _S, _FN], [0, 0, 0]];
 export var DBClusterRoleAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCRAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBClusterRoleAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterRoleAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterRoleAlreadyExistsFault, __DBClusterRoleAlreadyExistsFault);
-
 export var DBClusterRoleNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCRNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBClusterRoleNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterRoleNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterRoleNotFoundFault, __DBClusterRoleNotFoundFault);
-
 export var DBClusterRoleQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCRQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBClusterRoleQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterRoleQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterRoleQuotaExceededFault, __DBClusterRoleQuotaExceededFault);
-
 export var DBClusterSnapshot: StaticStructureSchema = [
   3,
   n0,
@@ -1413,16 +1352,11 @@ export var DBClusterSnapshotAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCSAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBClusterSnapshotAlreadyExistsFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterSnapshotAlreadyExistsFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterSnapshotAlreadyExistsFault, __DBClusterSnapshotAlreadyExistsFault);
-
 export var DBClusterSnapshotAttribute: StaticStructureSchema = [
   3,
   n0,
@@ -1451,16 +1385,11 @@ export var DBClusterSnapshotNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBCSNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBClusterSnapshotNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterSnapshotNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBClusterSnapshotNotFoundFault, __DBClusterSnapshotNotFoundFault);
-
 export var DBEngineVersion: StaticStructureSchema = [
   3,
   n0,
@@ -1611,47 +1540,32 @@ export var DBInstanceAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBIAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBInstanceAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBInstanceAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBInstanceAlreadyExistsFault, __DBInstanceAlreadyExistsFault);
-
 export var DBInstanceMessage: StaticStructureSchema = [3, n0, _DBIM, 0, [_M, _DBIn], [0, [() => DBInstanceList, 0]]];
 export var DBInstanceNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBINFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBInstanceNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBInstanceNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBInstanceNotFoundFault, __DBInstanceNotFoundFault);
-
 export var DBInstanceStatusInfo: StaticStructureSchema = [3, n0, _DBISI, 0, [_STt, _No, _S, _Me], [0, 2, 0, 0]];
 export var DBParameterGroup: StaticStructureSchema = [3, n0, _DBPG, 0, [_DBPGN, _DBPGF, _D, _DBPGA], [0, 0, 0, 0]];
 export var DBParameterGroupAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBPGAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBParameterGroupAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBParameterGroupAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBParameterGroupAlreadyExistsFault, __DBParameterGroupAlreadyExistsFault);
-
 export var DBParameterGroupDetails: StaticStructureSchema = [
   3,
   n0,
@@ -1665,30 +1579,20 @@ export var DBParameterGroupNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBPGNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBParameterGroupNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBParameterGroupNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBParameterGroupNotFoundFault, __DBParameterGroupNotFoundFault);
-
 export var DBParameterGroupQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _DBPGQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBParameterGroupQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBParameterGroupQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBParameterGroupQuotaExceededFault, __DBParameterGroupQuotaExceededFault);
-
 export var DBParameterGroupsMessage: StaticStructureSchema = [
   3,
   n0,
@@ -1703,44 +1607,29 @@ export var DBSecurityGroupNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBSGNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBSecurityGroupNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBSecurityGroupNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSecurityGroupNotFoundFault, __DBSecurityGroupNotFoundFault);
-
 export var DBSnapshotAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBSAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBSnapshotAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSnapshotAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSnapshotAlreadyExistsFault, __DBSnapshotAlreadyExistsFault);
-
 export var DBSnapshotNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBSNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBSnapshotNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBSnapshotNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSnapshotNotFoundFault, __DBSnapshotNotFoundFault);
-
 export var DBSubnetGroup: StaticStructureSchema = [
   3,
   n0,
@@ -1753,30 +1642,20 @@ export var DBSubnetGroupAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _DBSGAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBSubnetGroupAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetGroupAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSubnetGroupAlreadyExistsFault, __DBSubnetGroupAlreadyExistsFault);
-
 export var DBSubnetGroupDoesNotCoverEnoughAZs: StaticErrorSchema = [
   -3,
   n0,
   _DBSGDNCEAZ,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBSubnetGroupDoesNotCoverEnoughAZs`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetGroupDoesNotCoverEnoughAZs`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSubnetGroupDoesNotCoverEnoughAZs, __DBSubnetGroupDoesNotCoverEnoughAZs);
-
 export var DBSubnetGroupMessage: StaticStructureSchema = [
   3,
   n0,
@@ -1789,58 +1668,38 @@ export var DBSubnetGroupNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DBSGNFFu,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DBSubnetGroupNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBSubnetGroupNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSubnetGroupNotFoundFault, __DBSubnetGroupNotFoundFault);
-
 export var DBSubnetGroupQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _DBSGQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBSubnetGroupQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetGroupQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSubnetGroupQuotaExceededFault, __DBSubnetGroupQuotaExceededFault);
-
 export var DBSubnetQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _DBSQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBSubnetQuotaExceededFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetQuotaExceededFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBSubnetQuotaExceededFault, __DBSubnetQuotaExceededFault);
-
 export var DBUpgradeDependencyFailureFault: StaticErrorSchema = [
   -3,
   n0,
   _DBUDFF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DBUpgradeDependencyFailure`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBUpgradeDependencyFailure`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DBUpgradeDependencyFailureFault, __DBUpgradeDependencyFailureFault);
-
 export var DeleteDBClusterEndpointMessage: StaticStructureSchema = [3, n0, _DDBCEM, 0, [_DBCEI], [0]];
 export var DeleteDBClusterEndpointOutput: StaticStructureSchema = [
   3,
@@ -2053,16 +1912,11 @@ export var DomainNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _DNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`DomainNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`DomainNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DomainNotFoundFault, __DomainNotFoundFault);
-
 export var DoubleRange: StaticStructureSchema = [3, n0, _DR, 0, [_Fr, _To], [1, 1]];
 export var Endpoint: StaticStructureSchema = [3, n0, _E, 0, [_A, _P, _HZI], [0, 1, 0]];
 export var EngineDefaults: StaticStructureSchema = [
@@ -2110,16 +1964,11 @@ export var EventSubscriptionQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _ESQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventSubscriptionQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventSubscriptionQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EventSubscriptionQuotaExceededFault, __EventSubscriptionQuotaExceededFault);
-
 export var EventSubscriptionsMessage: StaticStructureSchema = [
   3,
   n0,
@@ -2153,45 +2002,30 @@ export var GlobalClusterAlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _GCAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`GlobalClusterAlreadyExistsFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`GlobalClusterAlreadyExistsFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(GlobalClusterAlreadyExistsFault, __GlobalClusterAlreadyExistsFault);
-
 export var GlobalClusterMember: StaticStructureSchema = [3, n0, _GCMl, 0, [_DBCA, _R, _IW], [0, 64 | 0, 2]];
 export var GlobalClusterNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _GCNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`GlobalClusterNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`GlobalClusterNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(GlobalClusterNotFoundFault, __GlobalClusterNotFoundFault);
-
 export var GlobalClusterQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _GCQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`GlobalClusterQuotaExceededFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`GlobalClusterQuotaExceededFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(GlobalClusterQuotaExceededFault, __GlobalClusterQuotaExceededFault);
-
 export var GlobalClustersMessage: StaticStructureSchema = [
   3,
   n0,
@@ -2204,268 +2038,173 @@ export var InstanceQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _IQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InstanceQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InstanceQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InstanceQuotaExceededFault, __InstanceQuotaExceededFault);
-
 export var InsufficientDBClusterCapacityFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBCCF,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`InsufficientDBClusterCapacityFault`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientDBClusterCapacityFault`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientDBClusterCapacityFault, __InsufficientDBClusterCapacityFault);
-
 export var InsufficientDBInstanceCapacityFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBICF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsufficientDBInstanceCapacity`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientDBInstanceCapacity`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientDBInstanceCapacityFault, __InsufficientDBInstanceCapacityFault);
-
 export var InsufficientStorageClusterCapacityFault: StaticErrorSchema = [
   -3,
   n0,
   _ISCCF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsufficientStorageClusterCapacity`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientStorageClusterCapacity`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientStorageClusterCapacityFault, __InsufficientStorageClusterCapacityFault);
-
 export var InvalidDBClusterEndpointStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBCESF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBClusterEndpointStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterEndpointStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBClusterEndpointStateFault, __InvalidDBClusterEndpointStateFault);
-
 export var InvalidDBClusterSnapshotStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBCSSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBClusterSnapshotStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterSnapshotStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBClusterSnapshotStateFault, __InvalidDBClusterSnapshotStateFault);
-
 export var InvalidDBClusterStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBCSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBClusterStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBClusterStateFault, __InvalidDBClusterStateFault);
-
 export var InvalidDBInstanceStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBISF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBInstanceState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBInstanceState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBInstanceStateFault, __InvalidDBInstanceStateFault);
-
 export var InvalidDBParameterGroupStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBPGSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBParameterGroupState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBParameterGroupState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBParameterGroupStateFault, __InvalidDBParameterGroupStateFault);
-
 export var InvalidDBSecurityGroupStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBSGSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBSecurityGroupState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSecurityGroupState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBSecurityGroupStateFault, __InvalidDBSecurityGroupStateFault);
-
 export var InvalidDBSnapshotStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBSSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBSnapshotState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSnapshotState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBSnapshotStateFault, __InvalidDBSnapshotStateFault);
-
 export var InvalidDBSubnetGroupStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBSGSFn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBSubnetGroupStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSubnetGroupStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBSubnetGroupStateFault, __InvalidDBSubnetGroupStateFault);
-
 export var InvalidDBSubnetStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IDBSSFn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDBSubnetStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSubnetStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDBSubnetStateFault, __InvalidDBSubnetStateFault);
-
 export var InvalidEventSubscriptionStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IESSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidEventSubscriptionState`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventSubscriptionState`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidEventSubscriptionStateFault, __InvalidEventSubscriptionStateFault);
-
 export var InvalidGlobalClusterStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IGCSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidGlobalClusterStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidGlobalClusterStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidGlobalClusterStateFault, __InvalidGlobalClusterStateFault);
-
 export var InvalidRestoreFault: StaticErrorSchema = [
   -3,
   n0,
   _IRF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidRestoreFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRestoreFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRestoreFault, __InvalidRestoreFault);
-
 export var InvalidSubnet: StaticErrorSchema = [
   -3,
   n0,
   _ISn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidSubnet`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSubnet`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSubnet, __InvalidSubnet);
-
 export var InvalidVPCNetworkStateFault: StaticErrorSchema = [
   -3,
   n0,
   _IVPCNSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidVPCNetworkStateFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidVPCNetworkStateFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault, __InvalidVPCNetworkStateFault);
-
 export var KMSKeyNotAccessibleFault: StaticErrorSchema = [
   -3,
   n0,
   _KMSKNAF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KMSKeyNotAccessibleFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSKeyNotAccessibleFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KMSKeyNotAccessibleFault, __KMSKeyNotAccessibleFault);
-
 export var ListTagsForResourceMessage: StaticStructureSchema = [
   3,
   n0,
@@ -2697,16 +2436,11 @@ export var OptionGroupNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _OGNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`OptionGroupNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`OptionGroupNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OptionGroupNotFoundFault, __OptionGroupNotFoundFault);
-
 export var OrderableDBInstanceOption: StaticStructureSchema = [
   3,
   n0,
@@ -2791,16 +2525,11 @@ export var ProvisionedIopsNotAvailableInAZFault: StaticErrorSchema = [
   -3,
   n0,
   _PINAIAZF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ProvisionedIopsNotAvailableInAZFault`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ProvisionedIopsNotAvailableInAZFault`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ProvisionedIopsNotAvailableInAZFault, __ProvisionedIopsNotAvailableInAZFault);
-
 export var Range: StaticStructureSchema = [3, n0, _Ra, 0, [_Fr, _To, _St], [1, 1, 1]];
 export var RebootDBInstanceMessage: StaticStructureSchema = [3, n0, _RDBIM, 0, [_DBII, _FF], [0, 2]];
 export var RebootDBInstanceResult: StaticStructureSchema = [3, n0, _RDBIR, 0, [_DBI], [[() => DBInstance, 0]]];
@@ -2844,16 +2573,11 @@ export var ResourceNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _RNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundFault`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundFault`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundFault, __ResourceNotFoundFault);
-
 export var ResourcePendingMaintenanceActions: StaticStructureSchema = [
   3,
   n0,
@@ -2958,86 +2682,56 @@ export var SharedSnapshotQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _SSQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SharedSnapshotQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SharedSnapshotQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SharedSnapshotQuotaExceededFault, __SharedSnapshotQuotaExceededFault);
-
 export var SnapshotQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _SQEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SnapshotQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SnapshotQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SnapshotQuotaExceededFault, __SnapshotQuotaExceededFault);
-
 export var SNSInvalidTopicFault: StaticErrorSchema = [
   -3,
   n0,
   _SNSITF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SNSInvalidTopic`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SNSInvalidTopic`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SNSInvalidTopicFault, __SNSInvalidTopicFault);
-
 export var SNSNoAuthorizationFault: StaticErrorSchema = [
   -3,
   n0,
   _SNSNAF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SNSNoAuthorization`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SNSNoAuthorization`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault, __SNSNoAuthorizationFault);
-
 export var SNSTopicArnNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _SNSTANFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`SNSTopicArnNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`SNSTopicArnNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SNSTopicArnNotFoundFault, __SNSTopicArnNotFoundFault);
-
 export var SourceNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _SNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`SourceNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`SourceNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SourceNotFoundFault, __SourceNotFoundFault);
-
 export var StartDBClusterMessage: StaticStructureSchema = [3, n0, _SDBCM, 0, [_DBCI], [0]];
 export var StartDBClusterResult: StaticStructureSchema = [3, n0, _SDBCR, 0, [_DBC], [[() => DBCluster, 0]]];
 export var StopDBClusterMessage: StaticStructureSchema = [3, n0, _SDBCMt, 0, [_DBCI], [0]];
@@ -3046,87 +2740,57 @@ export var StorageQuotaExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _SQEFt,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`StorageQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`StorageQuotaExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StorageQuotaExceededFault, __StorageQuotaExceededFault);
-
 export var StorageTypeNotSupportedFault: StaticErrorSchema = [
   -3,
   n0,
   _STNSF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`StorageTypeNotSupported`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`StorageTypeNotSupported`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StorageTypeNotSupportedFault, __StorageTypeNotSupportedFault);
-
 export var Subnet: StaticStructureSchema = [3, n0, _Sub, 0, [_SIub, _SAZu, _SSu], [0, () => AvailabilityZone, 0]];
 export var SubnetAlreadyInUse: StaticErrorSchema = [
   -3,
   n0,
   _SAIU,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubnetAlreadyInUse`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetAlreadyInUse`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubnetAlreadyInUse, __SubnetAlreadyInUse);
-
 export var SubscriptionAlreadyExistFault: StaticErrorSchema = [
   -3,
   n0,
   _SAEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SubscriptionAlreadyExist`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubscriptionAlreadyExist`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubscriptionAlreadyExistFault, __SubscriptionAlreadyExistFault);
-
 export var SubscriptionCategoryNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _SCNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`SubscriptionCategoryNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`SubscriptionCategoryNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubscriptionCategoryNotFoundFault, __SubscriptionCategoryNotFoundFault);
-
 export var SubscriptionNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _SNFFu,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`SubscriptionNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`SubscriptionNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubscriptionNotFoundFault, __SubscriptionNotFoundFault);
-
 export var SwitchoverGlobalClusterMessage: StaticStructureSchema = [3, n0, _SGCM, 0, [_GCI, _TDCI], [0, 0]];
 export var SwitchoverGlobalClusterResult: StaticStructureSchema = [3, n0, _SGCR, 0, [_GC], [[() => GlobalCluster, 0]]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Val], [0, 0]];
@@ -3151,593 +2815,125 @@ export var ValidStorageOptions: StaticStructureSchema = [
 ];
 export var VpcSecurityGroupMembership: StaticStructureSchema = [3, n0, _VSGM, 0, [_VSGIp, _S], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var NeptuneServiceException: StaticErrorSchema = [-3, _s, "NeptuneServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(NeptuneServiceException, __NeptuneServiceException);
-
-export var AttributeValueList: StaticListSchema = [
-  1,
-  n0,
-  _AVL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _AVt,
-    },
-  ],
-];
-export var AvailabilityZoneList: StaticListSchema = [
-  1,
-  n0,
-  _AZL,
-  0,
-  [
-    () => AvailabilityZone,
-    {
-      [_xN]: _AZ,
-    },
-  ],
-];
-export var AvailabilityZones: StaticListSchema = [
-  1,
-  n0,
-  _AZv,
-  0,
-  [
-    0,
-    {
-      [_xN]: _AZ,
-    },
-  ],
-];
-export var DBClusterEndpointList: StaticListSchema = [
-  1,
-  n0,
-  _DBCEL,
-  0,
-  [
-    () => DBClusterEndpoint,
-    {
-      [_xN]: _DBCEL,
-    },
-  ],
-];
-export var DBClusterList: StaticListSchema = [
-  1,
-  n0,
-  _DBCL,
-  0,
-  [
-    () => DBCluster,
-    {
-      [_xN]: _DBC,
-    },
-  ],
-];
-export var DBClusterMemberList: StaticListSchema = [
-  1,
-  n0,
-  _DBCML,
-  0,
-  [
-    () => DBClusterMember,
-    {
-      [_xN]: _DBCMl,
-    },
-  ],
-];
+export var AttributeValueList: StaticListSchema = [1, n0, _AVL, 0, [0, { [_xN]: _AVt }]];
+export var AvailabilityZoneList: StaticListSchema = [1, n0, _AZL, 0, [() => AvailabilityZone, { [_xN]: _AZ }]];
+export var AvailabilityZones: StaticListSchema = [1, n0, _AZv, 0, [0, { [_xN]: _AZ }]];
+export var DBClusterEndpointList: StaticListSchema = [1, n0, _DBCEL, 0, [() => DBClusterEndpoint, { [_xN]: _DBCEL }]];
+export var DBClusterList: StaticListSchema = [1, n0, _DBCL, 0, [() => DBCluster, { [_xN]: _DBC }]];
+export var DBClusterMemberList: StaticListSchema = [1, n0, _DBCML, 0, [() => DBClusterMember, { [_xN]: _DBCMl }]];
 export var DBClusterOptionGroupMemberships: StaticListSchema = [
   1,
   n0,
   _DBCOGM,
   0,
-  [
-    () => DBClusterOptionGroupStatus,
-    {
-      [_xN]: _DBCOG,
-    },
-  ],
+  [() => DBClusterOptionGroupStatus, { [_xN]: _DBCOG }],
 ];
 export var DBClusterParameterGroupList: StaticListSchema = [
   1,
   n0,
   _DBCPGL,
   0,
-  [
-    () => DBClusterParameterGroup,
-    {
-      [_xN]: _DBCPG,
-    },
-  ],
+  [() => DBClusterParameterGroup, { [_xN]: _DBCPG }],
 ];
-export var DBClusterRoles: StaticListSchema = [
-  1,
-  n0,
-  _DBCRl,
-  0,
-  [
-    () => DBClusterRole,
-    {
-      [_xN]: _DBCR,
-    },
-  ],
-];
+export var DBClusterRoles: StaticListSchema = [1, n0, _DBCRl, 0, [() => DBClusterRole, { [_xN]: _DBCR }]];
 export var DBClusterSnapshotAttributeList: StaticListSchema = [
   1,
   n0,
   _DBCSAL,
   0,
-  [
-    () => DBClusterSnapshotAttribute,
-    {
-      [_xN]: _DBCSAl,
-    },
-  ],
+  [() => DBClusterSnapshotAttribute, { [_xN]: _DBCSAl }],
 ];
-export var DBClusterSnapshotList: StaticListSchema = [
-  1,
-  n0,
-  _DBCSL,
-  0,
-  [
-    () => DBClusterSnapshot,
-    {
-      [_xN]: _DBCS,
-    },
-  ],
-];
-export var DBEngineVersionList: StaticListSchema = [
-  1,
-  n0,
-  _DBEVL,
-  0,
-  [
-    () => DBEngineVersion,
-    {
-      [_xN]: _DBEV,
-    },
-  ],
-];
-export var DBInstanceList: StaticListSchema = [
-  1,
-  n0,
-  _DBIL,
-  0,
-  [
-    () => DBInstance,
-    {
-      [_xN]: _DBI,
-    },
-  ],
-];
+export var DBClusterSnapshotList: StaticListSchema = [1, n0, _DBCSL, 0, [() => DBClusterSnapshot, { [_xN]: _DBCS }]];
+export var DBEngineVersionList: StaticListSchema = [1, n0, _DBEVL, 0, [() => DBEngineVersion, { [_xN]: _DBEV }]];
+export var DBInstanceList: StaticListSchema = [1, n0, _DBIL, 0, [() => DBInstance, { [_xN]: _DBI }]];
 export var DBInstanceStatusInfoList: StaticListSchema = [
   1,
   n0,
   _DBISIL,
   0,
-  [
-    () => DBInstanceStatusInfo,
-    {
-      [_xN]: _DBISI,
-    },
-  ],
+  [() => DBInstanceStatusInfo, { [_xN]: _DBISI }],
 ];
-export var DBParameterGroupList: StaticListSchema = [
-  1,
-  n0,
-  _DBPGL,
-  0,
-  [
-    () => DBParameterGroup,
-    {
-      [_xN]: _DBPG,
-    },
-  ],
-];
+export var DBParameterGroupList: StaticListSchema = [1, n0, _DBPGL, 0, [() => DBParameterGroup, { [_xN]: _DBPG }]];
 export var DBParameterGroupStatusList: StaticListSchema = [
   1,
   n0,
   _DBPGSL,
   0,
-  [
-    () => DBParameterGroupStatus,
-    {
-      [_xN]: _DBPG,
-    },
-  ],
+  [() => DBParameterGroupStatus, { [_xN]: _DBPG }],
 ];
 export var DBSecurityGroupMembershipList: StaticListSchema = [
   1,
   n0,
   _DBSGML,
   0,
-  [
-    () => DBSecurityGroupMembership,
-    {
-      [_xN]: _DBSGe,
-    },
-  ],
+  [() => DBSecurityGroupMembership, { [_xN]: _DBSGe }],
 ];
-export var DBSecurityGroupNameList: StaticListSchema = [
-  1,
-  n0,
-  _DBSGNL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _DBSGNe,
-    },
-  ],
-];
-export var DBSubnetGroups: StaticListSchema = [
-  1,
-  n0,
-  _DBSGub,
-  0,
-  [
-    () => DBSubnetGroup,
-    {
-      [_xN]: _DBSGu,
-    },
-  ],
-];
-export var DomainMembershipList: StaticListSchema = [
-  1,
-  n0,
-  _DML,
-  0,
-  [
-    () => DomainMembership,
-    {
-      [_xN]: _DMo,
-    },
-  ],
-];
-export var DoubleRangeList: StaticListSchema = [
-  1,
-  n0,
-  _DRL,
-  0,
-  [
-    () => DoubleRange,
-    {
-      [_xN]: _DR,
-    },
-  ],
-];
-export var EventCategoriesList: StaticListSchema = [
-  1,
-  n0,
-  _ECL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _ECv,
-    },
-  ],
-];
-export var EventCategoriesMapList: StaticListSchema = [
-  1,
-  n0,
-  _ECML,
-  0,
-  [
-    () => EventCategoriesMap,
-    {
-      [_xN]: _ECM,
-    },
-  ],
-];
-export var EventList: StaticListSchema = [
-  1,
-  n0,
-  _EL,
-  0,
-  [
-    () => Event,
-    {
-      [_xN]: _Ev,
-    },
-  ],
-];
-export var EventSubscriptionsList: StaticListSchema = [
-  1,
-  n0,
-  _ESL,
-  0,
-  [
-    () => EventSubscription,
-    {
-      [_xN]: _ES,
-    },
-  ],
-];
-export var FilterList: StaticListSchema = [
-  1,
-  n0,
-  _FL,
-  0,
-  [
-    () => Filter,
-    {
-      [_xN]: _Fi,
-    },
-  ],
-];
-export var FilterValueList: StaticListSchema = [
-  1,
-  n0,
-  _FVL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Val,
-    },
-  ],
-];
-export var GlobalClusterList: StaticListSchema = [
-  1,
-  n0,
-  _GCL,
-  0,
-  [
-    () => GlobalCluster,
-    {
-      [_xN]: _GCMl,
-    },
-  ],
-];
-export var GlobalClusterMemberList: StaticListSchema = [
-  1,
-  n0,
-  _GCML,
-  0,
-  [
-    () => GlobalClusterMember,
-    {
-      [_xN]: _GCMl,
-    },
-  ],
-];
+export var DBSecurityGroupNameList: StaticListSchema = [1, n0, _DBSGNL, 0, [0, { [_xN]: _DBSGNe }]];
+export var DBSubnetGroups: StaticListSchema = [1, n0, _DBSGub, 0, [() => DBSubnetGroup, { [_xN]: _DBSGu }]];
+export var DomainMembershipList: StaticListSchema = [1, n0, _DML, 0, [() => DomainMembership, { [_xN]: _DMo }]];
+export var DoubleRangeList: StaticListSchema = [1, n0, _DRL, 0, [() => DoubleRange, { [_xN]: _DR }]];
+export var EventCategoriesList: StaticListSchema = [1, n0, _ECL, 0, [0, { [_xN]: _ECv }]];
+export var EventCategoriesMapList: StaticListSchema = [1, n0, _ECML, 0, [() => EventCategoriesMap, { [_xN]: _ECM }]];
+export var EventList: StaticListSchema = [1, n0, _EL, 0, [() => Event, { [_xN]: _Ev }]];
+export var EventSubscriptionsList: StaticListSchema = [1, n0, _ESL, 0, [() => EventSubscription, { [_xN]: _ES }]];
+export var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter, { [_xN]: _Fi }]];
+export var FilterValueList: StaticListSchema = [1, n0, _FVL, 0, [0, { [_xN]: _Val }]];
+export var GlobalClusterList: StaticListSchema = [1, n0, _GCL, 0, [() => GlobalCluster, { [_xN]: _GCMl }]];
+export var GlobalClusterMemberList: StaticListSchema = [1, n0, _GCML, 0, [() => GlobalClusterMember, { [_xN]: _GCMl }]];
 export var KeyList = 64 | 0;
-
 export var LogTypeList = 64 | 0;
-
 export var OptionGroupMembershipList: StaticListSchema = [
   1,
   n0,
   _OGML,
   0,
-  [
-    () => OptionGroupMembership,
-    {
-      [_xN]: _OGMp,
-    },
-  ],
+  [() => OptionGroupMembership, { [_xN]: _OGMp }],
 ];
 export var OrderableDBInstanceOptionsList: StaticListSchema = [
   1,
   n0,
   _ODBIOL,
   0,
-  [
-    () => OrderableDBInstanceOption,
-    {
-      [_xN]: _ODBIO,
-    },
-  ],
+  [() => OrderableDBInstanceOption, { [_xN]: _ODBIO }],
 ];
-export var ParametersList: StaticListSchema = [
-  1,
-  n0,
-  _PL,
-  0,
-  [
-    () => Parameter,
-    {
-      [_xN]: _Par,
-    },
-  ],
-];
+export var ParametersList: StaticListSchema = [1, n0, _PL, 0, [() => Parameter, { [_xN]: _Par }]];
 export var PendingMaintenanceActionDetails: StaticListSchema = [
   1,
   n0,
   _PMAD,
   0,
-  [
-    () => PendingMaintenanceAction,
-    {
-      [_xN]: _PMA,
-    },
-  ],
+  [() => PendingMaintenanceAction, { [_xN]: _PMA }],
 ];
 export var PendingMaintenanceActions: StaticListSchema = [
   1,
   n0,
   _PMAe,
   0,
-  [
-    () => ResourcePendingMaintenanceActions,
-    {
-      [_xN]: _RPMA,
-    },
-  ],
+  [() => ResourcePendingMaintenanceActions, { [_xN]: _RPMA }],
 ];
-export var RangeList: StaticListSchema = [
-  1,
-  n0,
-  _RL,
-  0,
-  [
-    () => Range,
-    {
-      [_xN]: _Ra,
-    },
-  ],
-];
+export var RangeList: StaticListSchema = [1, n0, _RL, 0, [() => Range, { [_xN]: _Ra }]];
 export var ReadersArnList = 64 | 0;
-
-export var ReadReplicaDBClusterIdentifierList: StaticListSchema = [
-  1,
-  n0,
-  _RRDBCIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _RRDBCIe,
-    },
-  ],
-];
-export var ReadReplicaDBInstanceIdentifierList: StaticListSchema = [
-  1,
-  n0,
-  _RRDBIIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _RRDBIIe,
-    },
-  ],
-];
-export var ReadReplicaIdentifierList: StaticListSchema = [
-  1,
-  n0,
-  _RRIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _RRIe,
-    },
-  ],
-];
-export var SourceIdsList: StaticListSchema = [
-  1,
-  n0,
-  _SIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _SIou,
-    },
-  ],
-];
+export var ReadReplicaDBClusterIdentifierList: StaticListSchema = [1, n0, _RRDBCIL, 0, [0, { [_xN]: _RRDBCIe }]];
+export var ReadReplicaDBInstanceIdentifierList: StaticListSchema = [1, n0, _RRDBIIL, 0, [0, { [_xN]: _RRDBIIe }]];
+export var ReadReplicaIdentifierList: StaticListSchema = [1, n0, _RRIL, 0, [0, { [_xN]: _RRIe }]];
+export var SourceIdsList: StaticListSchema = [1, n0, _SIL, 0, [0, { [_xN]: _SIou }]];
 export var StringList = 64 | 0;
-
-export var SubnetIdentifierList: StaticListSchema = [
-  1,
-  n0,
-  _SILu,
-  0,
-  [
-    0,
-    {
-      [_xN]: _SIub,
-    },
-  ],
-];
-export var SubnetList: StaticListSchema = [
-  1,
-  n0,
-  _SL,
-  0,
-  [
-    () => Subnet,
-    {
-      [_xN]: _Sub,
-    },
-  ],
-];
-export var SupportedCharacterSetsList: StaticListSchema = [
-  1,
-  n0,
-  _SCSL,
-  0,
-  [
-    () => CharacterSet,
-    {
-      [_xN]: _CS,
-    },
-  ],
-];
-export var SupportedTimezonesList: StaticListSchema = [
-  1,
-  n0,
-  _STL,
-  0,
-  [
-    () => Timezone,
-    {
-      [_xN]: _Ti,
-    },
-  ],
-];
-export var TagList: StaticListSchema = [
-  1,
-  n0,
-  _TL,
-  0,
-  [
-    () => Tag,
-    {
-      [_xN]: _Ta,
-    },
-  ],
-];
-export var ValidStorageOptionsList: StaticListSchema = [
-  1,
-  n0,
-  _VSOL,
-  0,
-  [
-    () => ValidStorageOptions,
-    {
-      [_xN]: _VSO,
-    },
-  ],
-];
-export var ValidUpgradeTargetList: StaticListSchema = [
-  1,
-  n0,
-  _VUTL,
-  0,
-  [
-    () => UpgradeTarget,
-    {
-      [_xN]: _UT,
-    },
-  ],
-];
-export var VpcSecurityGroupIdList: StaticListSchema = [
-  1,
-  n0,
-  _VSGIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _VSGIp,
-    },
-  ],
-];
+export var SubnetIdentifierList: StaticListSchema = [1, n0, _SILu, 0, [0, { [_xN]: _SIub }]];
+export var SubnetList: StaticListSchema = [1, n0, _SL, 0, [() => Subnet, { [_xN]: _Sub }]];
+export var SupportedCharacterSetsList: StaticListSchema = [1, n0, _SCSL, 0, [() => CharacterSet, { [_xN]: _CS }]];
+export var SupportedTimezonesList: StaticListSchema = [1, n0, _STL, 0, [() => Timezone, { [_xN]: _Ti }]];
+export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, { [_xN]: _Ta }]];
+export var ValidStorageOptionsList: StaticListSchema = [1, n0, _VSOL, 0, [() => ValidStorageOptions, { [_xN]: _VSO }]];
+export var ValidUpgradeTargetList: StaticListSchema = [1, n0, _VUTL, 0, [() => UpgradeTarget, { [_xN]: _UT }]];
+export var VpcSecurityGroupIdList: StaticListSchema = [1, n0, _VSGIL, 0, [0, { [_xN]: _VSGIp }]];
 export var VpcSecurityGroupMembershipList: StaticListSchema = [
   1,
   n0,
   _VSGML,
   0,
-  [
-    () => VpcSecurityGroupMembership,
-    {
-      [_xN]: _VSGM,
-    },
-  ],
+  [() => VpcSecurityGroupMembership, { [_xN]: _VSGM }],
 ];
 export var AddRoleToDBCluster: StaticOperationSchema = [
   9,

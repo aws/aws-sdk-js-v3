@@ -31,17 +31,17 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof CostOptimizationHubClient === "function")
-assert(typeof CostOptimizationHub === "function")
+assert(typeof CostOptimizationHubClient === "function");
+assert(typeof CostOptimizationHub === "function");
 // commands
-assert(typeof GetPreferencesCommand === "function")
-assert(typeof GetRecommendationCommand === "function")
-assert(typeof ListEfficiencyMetricsCommand === "function")
-assert(typeof ListEnrollmentStatusesCommand === "function")
-assert(typeof ListRecommendationsCommand === "function")
-assert(typeof ListRecommendationSummariesCommand === "function")
-assert(typeof UpdateEnrollmentStatusCommand === "function")
-assert(typeof UpdatePreferencesCommand === "function")
+assert(typeof GetPreferencesCommand === "function");
+assert(typeof GetRecommendationCommand === "function");
+assert(typeof ListEfficiencyMetricsCommand === "function");
+assert(typeof ListEnrollmentStatusesCommand === "function");
+assert(typeof ListRecommendationsCommand === "function");
+assert(typeof ListRecommendationSummariesCommand === "function");
+assert(typeof UpdateEnrollmentStatusCommand === "function");
+assert(typeof UpdatePreferencesCommand === "function");
 // enums
 assert(typeof ActionType === "object");
 assert(typeof AllocationStrategy === "object");
@@ -58,10 +58,10 @@ assert(typeof Source === "object");
 assert(typeof SummaryMetrics === "object");
 assert(typeof Term === "object");
 // errors
-assert(CostOptimizationHubServiceException.prototype instanceof Error)
+assert(CostOptimizationHubServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListEfficiencyMetrics === "function")
-assert(typeof paginateListEnrollmentStatuses === "function")
-assert(typeof paginateListRecommendationSummaries === "function")
-assert(typeof paginateListRecommendations === "function")
+assert(typeof paginateListEfficiencyMetrics === "function");
+assert(typeof paginateListEnrollmentStatuses === "function");
+assert(typeof paginateListRecommendationSummaries === "function");
+assert(typeof paginateListRecommendations === "function");
 console.log(`CostOptimizationHub index test passed.`);

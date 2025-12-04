@@ -198,7 +198,6 @@ import {
 import { SupportServiceException as __SupportServiceException } from "../models/SupportServiceException";
 
 /* eslint no-var: 0 */
-
 export var AddAttachmentsToSetRequest: StaticStructureSchema = [3, n0, _AATSR, 0, [_aSI, _a], [0, () => Attachments]];
 export var AddAttachmentsToSetResponse: StaticStructureSchema = [3, n0, _AATSRd, 0, [_aSI, _eT], [0, 0]];
 export var AddCommunicationToCaseRequest: StaticStructureSchema = [
@@ -212,78 +211,18 @@ export var AddCommunicationToCaseRequest: StaticStructureSchema = [
 export var AddCommunicationToCaseResponse: StaticStructureSchema = [3, n0, _ACTCRd, 0, [_r], [2]];
 export var Attachment: StaticStructureSchema = [3, n0, _A, 0, [_fN, _d], [0, 21]];
 export var AttachmentDetails: StaticStructureSchema = [3, n0, _AD, 0, [_aI, _fN], [0, 0]];
-export var AttachmentIdNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _AINF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AttachmentIdNotFound: StaticErrorSchema = [-3, n0, _AINF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AttachmentIdNotFound, __AttachmentIdNotFound);
-
-export var AttachmentLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _ALE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AttachmentLimitExceeded: StaticErrorSchema = [-3, n0, _ALE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AttachmentLimitExceeded, __AttachmentLimitExceeded);
-
-export var AttachmentSetExpired: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AttachmentSetExpired: StaticErrorSchema = [-3, n0, _ASE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AttachmentSetExpired, __AttachmentSetExpired);
-
-export var AttachmentSetIdNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASINF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AttachmentSetIdNotFound: StaticErrorSchema = [-3, n0, _ASINF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AttachmentSetIdNotFound, __AttachmentSetIdNotFound);
-
-export var AttachmentSetSizeLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASSLE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AttachmentSetSizeLimitExceeded: StaticErrorSchema = [-3, n0, _ASSLE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AttachmentSetSizeLimitExceeded, __AttachmentSetSizeLimitExceeded);
-
-export var CaseCreationLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCLE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var CaseCreationLimitExceeded: StaticErrorSchema = [-3, n0, _CCLE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(CaseCreationLimitExceeded, __CaseCreationLimitExceeded);
-
 export var CaseDetails: StaticStructureSchema = [
   3,
   n0,
@@ -292,18 +231,8 @@ export var CaseDetails: StaticStructureSchema = [
   [_cI, _dI, _s, _st, _sC, _cC, _sCe, _sB, _tC, _rC, _cEA, _l],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => RecentCaseCommunications, 64 | 0, 0],
 ];
-export var CaseIdNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _CINF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var CaseIdNotFound: StaticErrorSchema = [-3, n0, _CINF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(CaseIdNotFound, __CaseIdNotFound);
-
 export var Category: StaticStructureSchema = [3, n0, _C, 0, [_co, _n], [0, 0]];
 export var Communication: StaticStructureSchema = [
   3,
@@ -331,18 +260,8 @@ export var CreateCaseRequest: StaticStructureSchema = [
 ];
 export var CreateCaseResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_cI], [0]];
 export var DateInterval: StaticStructureSchema = [3, n0, _DI, 0, [_sDT, _eDT], [0, 0]];
-export var DescribeAttachmentLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _DALE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DescribeAttachmentLimitExceeded: StaticErrorSchema = [-3, n0, _DALE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DescribeAttachmentLimitExceeded, __DescribeAttachmentLimitExceeded);
-
 export var DescribeAttachmentRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [0]];
 export var DescribeAttachmentResponse: StaticStructureSchema = [3, n0, _DARe, 0, [_at], [() => Attachment]];
 export var DescribeCasesRequest: StaticStructureSchema = [
@@ -456,18 +375,8 @@ export var DescribeTrustedAdvisorCheckSummariesResponse: StaticStructureSchema =
   [_su],
   [() => TrustedAdvisorCheckSummaryList],
 ];
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
 export var RecentCaseCommunications: StaticStructureSchema = [
   3,
   n0,
@@ -495,16 +404,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`Throttling`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`Throttling`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrustedAdvisorCategorySpecificSummary: StaticStructureSchema = [
   3,
   n0,
@@ -564,31 +468,19 @@ export var TrustedAdvisorResourcesSummary: StaticStructureSchema = [
 ];
 export var SupportServiceException: StaticErrorSchema = [-3, _sm, "SupportServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SupportServiceException, __SupportServiceException);
-
 export var Attachments: StaticListSchema = [1, n0, _At, 0, () => Attachment];
 export var AttachmentSet: StaticListSchema = [1, n0, _AS, 0, () => AttachmentDetails];
 export var CaseIdList = 64 | 0;
-
 export var CaseList: StaticListSchema = [1, n0, _CL, 0, () => CaseDetails];
 export var CategoryList: StaticListSchema = [1, n0, _CLa, 0, () => Category];
 export var CcEmailAddressList = 64 | 0;
-
 export var CommunicationList: StaticListSchema = [1, n0, _CLo, 0, () => Communication];
 export var CommunicationTypeOptionsList: StaticListSchema = [1, n0, _CTOL, 0, () => CommunicationTypeOptions];
 export var DatesWithoutSupportList: StaticListSchema = [1, n0, _DWSL, 0, () => DateInterval];
 export var ServiceCodeList = 64 | 0;
-
 export var ServiceList: StaticListSchema = [1, n0, _SLe, 0, () => Service];
 export var SeverityLevelsList: StaticListSchema = [1, n0, _SLL, 0, () => SeverityLevel];
-export var StringList: StaticListSchema = [
-  1,
-  n0,
-  _SLt,
-  {
-    [_sp]: 1,
-  },
-  0,
-];
+export var StringList: StaticListSchema = [1, n0, _SLt, { [_sp]: 1 }, 0];
 export var SupportedHoursList: StaticListSchema = [1, n0, _SHL, 0, () => SupportedHour];
 export var SupportedLanguagesList: StaticListSchema = [1, n0, _SLLu, 0, () => SupportedLanguage];
 export var TrustedAdvisorCheckList: StaticListSchema = [1, n0, _TACL, 0, [() => TrustedAdvisorCheckDescription, 0]];

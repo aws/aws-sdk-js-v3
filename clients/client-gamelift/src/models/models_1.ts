@@ -11,20 +11,20 @@ import {
 } from "./enums";
 
 import {
-  FilterConfiguration,
+  type FilterConfiguration,
+  type GameServer,
+  type GameServerGroup,
+  type GameSession,
+  type GameSessionQueue,
+  type MatchmakingConfiguration,
+  type PriorityConfiguration,
+  type RuntimeConfiguration,
+  type S3Location,
+  type Script,
   GameProperty,
-  GameServer,
-  GameServerGroup,
-  GameSession,
-  GameSessionQueue,
   GameSessionQueueDestination,
   InstanceDefinition,
-  MatchmakingConfiguration,
   PlayerLatencyPolicy,
-  PriorityConfiguration,
-  RuntimeConfiguration,
-  S3Location,
-  Script,
 } from "./models_0";
 
 /**

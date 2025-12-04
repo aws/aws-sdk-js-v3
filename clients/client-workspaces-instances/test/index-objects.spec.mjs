@@ -40,22 +40,22 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof WorkspacesInstancesClient === "function")
-assert(typeof WorkspacesInstances === "function")
+assert(typeof WorkspacesInstancesClient === "function");
+assert(typeof WorkspacesInstances === "function");
 // commands
-assert(typeof AssociateVolumeCommand === "function")
-assert(typeof CreateVolumeCommand === "function")
-assert(typeof CreateWorkspaceInstanceCommand === "function")
-assert(typeof DeleteVolumeCommand === "function")
-assert(typeof DeleteWorkspaceInstanceCommand === "function")
-assert(typeof DisassociateVolumeCommand === "function")
-assert(typeof GetWorkspaceInstanceCommand === "function")
-assert(typeof ListInstanceTypesCommand === "function")
-assert(typeof ListRegionsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ListWorkspaceInstancesCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
+assert(typeof AssociateVolumeCommand === "function");
+assert(typeof CreateVolumeCommand === "function");
+assert(typeof CreateWorkspaceInstanceCommand === "function");
+assert(typeof DeleteVolumeCommand === "function");
+assert(typeof DeleteWorkspaceInstanceCommand === "function");
+assert(typeof DisassociateVolumeCommand === "function");
+assert(typeof GetWorkspaceInstanceCommand === "function");
+assert(typeof ListInstanceTypesCommand === "function");
+assert(typeof ListRegionsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListWorkspaceInstancesCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
 // enums
 assert(typeof AmdSevSnpEnum === "object");
 assert(typeof AutoRecoveryEnum === "object");
@@ -77,9 +77,9 @@ assert(typeof SpotInstanceTypeEnum === "object");
 assert(typeof TenancyEnum === "object");
 assert(typeof VolumeTypeEnum === "object");
 // errors
-assert(WorkspacesInstancesServiceException.prototype instanceof Error)
+assert(WorkspacesInstancesServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListInstanceTypes === "function")
-assert(typeof paginateListRegions === "function")
-assert(typeof paginateListWorkspaceInstances === "function")
+assert(typeof paginateListInstanceTypes === "function");
+assert(typeof paginateListRegions === "function");
+assert(typeof paginateListWorkspaceInstances === "function");
 console.log(`WorkspacesInstances index test passed.`);

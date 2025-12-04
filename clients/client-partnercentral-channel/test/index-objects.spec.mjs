@@ -42,26 +42,26 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof PartnerCentralChannelClient === "function")
-assert(typeof PartnerCentralChannel === "function")
+assert(typeof PartnerCentralChannelClient === "function");
+assert(typeof PartnerCentralChannel === "function");
 // commands
-assert(typeof AcceptChannelHandshakeCommand === "function")
-assert(typeof CancelChannelHandshakeCommand === "function")
-assert(typeof CreateChannelHandshakeCommand === "function")
-assert(typeof CreateProgramManagementAccountCommand === "function")
-assert(typeof CreateRelationshipCommand === "function")
-assert(typeof DeleteProgramManagementAccountCommand === "function")
-assert(typeof DeleteRelationshipCommand === "function")
-assert(typeof GetRelationshipCommand === "function")
-assert(typeof ListChannelHandshakesCommand === "function")
-assert(typeof ListProgramManagementAccountsCommand === "function")
-assert(typeof ListRelationshipsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof RejectChannelHandshakeCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateProgramManagementAccountCommand === "function")
-assert(typeof UpdateRelationshipCommand === "function")
+assert(typeof AcceptChannelHandshakeCommand === "function");
+assert(typeof CancelChannelHandshakeCommand === "function");
+assert(typeof CreateChannelHandshakeCommand === "function");
+assert(typeof CreateProgramManagementAccountCommand === "function");
+assert(typeof CreateRelationshipCommand === "function");
+assert(typeof DeleteProgramManagementAccountCommand === "function");
+assert(typeof DeleteRelationshipCommand === "function");
+assert(typeof GetRelationshipCommand === "function");
+assert(typeof ListChannelHandshakesCommand === "function");
+assert(typeof ListProgramManagementAccountsCommand === "function");
+assert(typeof ListRelationshipsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof RejectChannelHandshakeCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateProgramManagementAccountCommand === "function");
+assert(typeof UpdateRelationshipCommand === "function");
 // enums
 assert(typeof AssociationType === "object");
 assert(typeof Coverage === "object");
@@ -81,9 +81,9 @@ assert(typeof ServicePeriodType === "object");
 assert(typeof SortOrder === "object");
 assert(typeof StartServicePeriodTypeSortName === "object");
 // errors
-assert(PartnerCentralChannelServiceException.prototype instanceof Error)
+assert(PartnerCentralChannelServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListChannelHandshakes === "function")
-assert(typeof paginateListProgramManagementAccounts === "function")
-assert(typeof paginateListRelationships === "function")
+assert(typeof paginateListChannelHandshakes === "function");
+assert(typeof paginateListProgramManagementAccounts === "function");
+assert(typeof paginateListRelationships === "function");
 console.log(`PartnerCentralChannel index test passed.`);

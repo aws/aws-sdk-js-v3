@@ -62,35 +62,35 @@ import {
 } from "./enums";
 
 import {
-  ActiveVpnTunnelStatus,
-  AddressTransfer,
+  type ActiveVpnTunnelStatus,
+  type AddressTransfer,
+  type AsnAssociation,
+  type AssociationStatus,
+  type IamInstanceProfileAssociation,
+  type InstanceEventWindow,
+  type InterruptibleCapacityAllocation,
+  type InterruptionInfo,
+  type IpamResourceDiscoveryAssociation,
+  type RouteServerAssociation,
+  type SubnetIpv6CidrBlockAssociation,
+  type TransitGatewayAssociation,
+  type TransitGatewayMulticastDomainAssociations,
+  type TransitGatewayPolicyTableAssociation,
+  type VpcCidrBlockAssociation,
+  type VpcIpv6CidrBlockAssociation,
   AllowedPrincipal,
-  AsnAssociation,
-  AssociationStatus,
-  IamInstanceProfileAssociation,
-  InstanceEventWindow,
-  InterruptibleCapacityAllocation,
-  InterruptionInfo,
-  IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
-  RouteServerAssociation,
-  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
-  TransitGatewayAssociation,
-  TransitGatewayMulticastDomainAssociations,
-  TransitGatewayPolicyTableAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   Volume,
   Vpc,
-  VpcCidrBlockAssociation,
   VpcEncryptionControl,
-  VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
 
-import { InstanceRequirementsRequest } from "./models_1";
+import type { InstanceRequirementsRequest } from "./models_1";
 
 import {
   ConnectionNotification,
@@ -105,18 +105,18 @@ import {
 } from "./models_2";
 
 import {
-  AttributeBooleanValue,
-  ExportTaskS3Location,
-  FastLaunchLaunchTemplateSpecificationResponse,
-  FastLaunchSnapshotConfigurationResponse,
+  type AttributeBooleanValue,
+  type ExportTaskS3Location,
+  type FastLaunchLaunchTemplateSpecificationResponse,
+  type FastLaunchSnapshotConfigurationResponse,
   Filter,
   ProductCode,
 } from "./models_3";
 
 import {
+  type VerifiedAccessLogCloudWatchLogsDestination,
+  type VerifiedAccessLogDeliveryStatus,
   RegisteredInstance,
-  VerifiedAccessLogCloudWatchLogsDestination,
-  VerifiedAccessLogDeliveryStatus,
 } from "./models_4";
 
 /**

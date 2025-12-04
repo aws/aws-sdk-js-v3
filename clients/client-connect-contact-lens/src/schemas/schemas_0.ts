@@ -64,49 +64,15 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Categories: StaticStructureSchema = [3, n0, _C, 0, [_MC, _MD], [64 | 0, () => MatchedDetails]];
 export var CategoryDetails: StaticStructureSchema = [3, n0, _CD, 0, [_POI], [() => PointsOfInterest]];
 export var CharacterOffsets: StaticStructureSchema = [3, n0, _CO, 0, [_BOC, _EOC], [1, 1]];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var IssueDetected: StaticStructureSchema = [3, n0, _ID, 0, [_CO], [() => CharacterOffsets]];
 export var ListRealtimeContactAnalysisSegmentsRequest: StaticStructureSchema = [
   3,
@@ -134,32 +100,10 @@ export var RealtimeContactAnalysisSegment: StaticStructureSchema = [
   [_T, _C, _PCS],
   [() => Transcript, () => Categories, () => PostContactSummary],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Transcript: StaticStructureSchema = [
   3,
   n0,
@@ -169,7 +113,6 @@ export var Transcript: StaticStructureSchema = [
   [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected],
 ];
 export var __Unit = "unit" as const;
-
 export var ConnectContactLensServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -179,10 +122,8 @@ export var ConnectContactLensServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ConnectContactLensServiceException, __ConnectContactLensServiceException);
-
 export var IssuesDetected: StaticListSchema = [1, n0, _IDs, 0, () => IssueDetected];
 export var MatchedCategories = 64 | 0;
-
 export var PointsOfInterest: StaticListSchema = [1, n0, _POI, 0, () => PointOfInterest];
 export var RealtimeContactAnalysisSegments: StaticListSchema = [1, n0, _RCASe, 0, () => RealtimeContactAnalysisSegment];
 export var MatchedDetails: StaticMapSchema = [2, n0, _MD, 0, 0, () => CategoryDetails];
@@ -190,9 +131,7 @@ export var ListRealtimeContactAnalysisSegments: StaticOperationSchema = [
   9,
   n0,
   _LRCAS,
-  {
-    [_h]: ["POST", "/realtime-contact-analysis/analysis-segments", 200],
-  },
+  { [_h]: ["POST", "/realtime-contact-analysis/analysis-segments", 200] },
   () => ListRealtimeContactAnalysisSegmentsRequest,
   () => ListRealtimeContactAnalysisSegmentsResponse,
 ];

@@ -50,21 +50,21 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof FirehoseClient === "function")
-assert(typeof Firehose === "function")
+assert(typeof FirehoseClient === "function");
+assert(typeof Firehose === "function");
 // commands
-assert(typeof CreateDeliveryStreamCommand === "function")
-assert(typeof DeleteDeliveryStreamCommand === "function")
-assert(typeof DescribeDeliveryStreamCommand === "function")
-assert(typeof ListDeliveryStreamsCommand === "function")
-assert(typeof ListTagsForDeliveryStreamCommand === "function")
-assert(typeof PutRecordCommand === "function")
-assert(typeof PutRecordBatchCommand === "function")
-assert(typeof StartDeliveryStreamEncryptionCommand === "function")
-assert(typeof StopDeliveryStreamEncryptionCommand === "function")
-assert(typeof TagDeliveryStreamCommand === "function")
-assert(typeof UntagDeliveryStreamCommand === "function")
-assert(typeof UpdateDestinationCommand === "function")
+assert(typeof CreateDeliveryStreamCommand === "function");
+assert(typeof DeleteDeliveryStreamCommand === "function");
+assert(typeof DescribeDeliveryStreamCommand === "function");
+assert(typeof ListDeliveryStreamsCommand === "function");
+assert(typeof ListTagsForDeliveryStreamCommand === "function");
+assert(typeof PutRecordCommand === "function");
+assert(typeof PutRecordBatchCommand === "function");
+assert(typeof StartDeliveryStreamEncryptionCommand === "function");
+assert(typeof StopDeliveryStreamEncryptionCommand === "function");
+assert(typeof TagDeliveryStreamCommand === "function");
+assert(typeof UntagDeliveryStreamCommand === "function");
+assert(typeof UpdateDestinationCommand === "function");
 // enums
 assert(typeof AmazonOpenSearchServerlessS3BackupMode === "object");
 assert(typeof AmazonopensearchserviceIndexRotationPeriod === "object");
@@ -100,5 +100,5 @@ assert(typeof SnowflakeS3BackupMode === "object");
 assert(typeof SplunkS3BackupMode === "object");
 assert(typeof SSLMode === "object");
 // errors
-assert(FirehoseServiceException.prototype instanceof Error)
+assert(FirehoseServiceException.prototype instanceof Error);
 console.log(`Firehose index test passed.`);

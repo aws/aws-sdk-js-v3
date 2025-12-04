@@ -341,20 +341,20 @@ export class WeatherClient extends __Client<
   readonly config: WeatherClientResolvedConfig;
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
-    let _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_0 = __getRuntimeConfig(configuration || {});
     super(_config_0 as any);
     this.initConfig = _config_0;
-    let _config_1 = resolveClientEndpointParameters(_config_0);
-    let _config_2 = resolveTokenConfig(_config_1);
-    let _config_3 = resolveUserAgentConfig(_config_2);
-    let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveRegionConfig(_config_4);
-    let _config_6 = resolveHostHeaderConfig(_config_5);
-    let _config_7 = resolveSigV4AuthConfig(_config_6);
-    let _config_8 = resolveEndpointConfig(_config_7);
-    let _config_9 = resolveEndpointRequiredConfig(_config_8);
-    let _config_10 = resolveHttpApiKeyAuthConfig(_config_9);
-    let _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveTokenConfig(_config_1);
+    const _config_3 = resolveUserAgentConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveRegionConfig(_config_4);
+    const _config_6 = resolveHostHeaderConfig(_config_5);
+    const _config_7 = resolveSigV4AuthConfig(_config_6);
+    const _config_8 = resolveEndpointConfig(_config_7);
+    const _config_9 = resolveEndpointRequiredConfig(_config_8);
+    const _config_10 = resolveHttpApiKeyAuthConfig(_config_9);
+    const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     this.config = _config_11;
     this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));

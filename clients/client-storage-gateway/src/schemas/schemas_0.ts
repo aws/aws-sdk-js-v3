@@ -584,7 +584,6 @@ import {
 import { StorageGatewayServiceException as __StorageGatewayServiceException } from "../models/StorageGatewayServiceException";
 
 /* eslint no-var: 0 */
-
 export var ChapSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
 export var DomainUserPassword: StaticSimpleSchema = [0, n0, _DUP, 8, 0];
 export var LocalConsolePassword: StaticSimpleSchema = [0, n0, _LCP, 8, 0];
@@ -1150,28 +1149,20 @@ export var InternalServerError: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_m, _e],
   [0, () => StorageGatewayError],
 ];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
 export var InvalidGatewayRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IGRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _e],
   [0, () => StorageGatewayError],
 ];
 TypeRegistry.for(n0).registerError(InvalidGatewayRequestException, __InvalidGatewayRequestException);
-
 export var JoinDomainInput: StaticStructureSchema = [
   3,
   n0,
@@ -1319,15 +1310,11 @@ export var ServiceUnavailableError: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
+  { [_e]: _s, [_hE]: 503 },
   [_m, _e],
   [0, () => StorageGatewayError],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableError, __ServiceUnavailableError);
-
 export var SetLocalConsolePasswordInput: StaticStructureSchema = [
   3,
   n0,
@@ -1629,10 +1616,8 @@ export var VTLDevice: StaticStructureSchema = [
   [0, 0, 0, 0, () => DeviceiSCSIAttributes],
 ];
 export var __Unit = "unit" as const;
-
 export var StorageGatewayServiceException: StaticErrorSchema = [-3, _sm, "StorageGatewayServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(StorageGatewayServiceException, __StorageGatewayServiceException);
-
 export var AutomaticTapeCreationPolicyInfos: StaticListSchema = [
   1,
   n0,
@@ -1645,23 +1630,16 @@ export var BandwidthRateLimitIntervals: StaticListSchema = [1, n0, _BRLIa, 0, ()
 export var CachediSCSIVolumes: StaticListSchema = [1, n0, _CSCSIVa, 0, () => CachediSCSIVolume];
 export var CacheReportFilterList: StaticListSchema = [1, n0, _CRFL, 0, () => CacheReportFilter];
 export var CacheReportFilterValues = 64 | 0;
-
 export var CacheReportList: StaticListSchema = [1, n0, _CRL, 0, () => CacheReportInfo];
 export var ChapCredentials: StaticListSchema = [1, n0, _CC, 0, [() => ChapInfo, 0]];
 export var DaysOfWeek = 64 | 1;
-
 export var DiskAttributeList = 64 | 0;
-
 export var DiskIds = 64 | 0;
-
 export var Disks: StaticListSchema = [1, n0, _Dis, 0, () => Disk];
 export var FileShareARNList = 64 | 0;
-
 export var FileShareClientList = 64 | 0;
-
 export var FileShareInfoList: StaticListSchema = [1, n0, _FSIL, 0, () => FileShareInfo];
 export var FileSystemAssociationARNList = 64 | 0;
-
 export var FileSystemAssociationInfoList: StaticListSchema = [1, n0, _FSAIL, 0, () => FileSystemAssociationInfo];
 export var FileSystemAssociationStatusDetails: StaticListSchema = [
   1,
@@ -1672,43 +1650,31 @@ export var FileSystemAssociationStatusDetails: StaticListSchema = [
 ];
 export var FileSystemAssociationSummaryList: StaticListSchema = [1, n0, _FSASL, 0, () => FileSystemAssociationSummary];
 export var FolderList = 64 | 0;
-
 export var GatewayNetworkInterfaces: StaticListSchema = [1, n0, _GNI, 0, [() => NetworkInterface, 0]];
 export var Gateways: StaticListSchema = [1, n0, _G, 0, () => GatewayInfo];
 export var Hosts = 64 | 0;
-
 export var Initiators = 64 | 0;
-
 export var IpAddressList = 64 | 0;
-
 export var NFSFileShareInfoList: StaticListSchema = [1, n0, _NFSFSIL, 0, () => NFSFileShareInfo];
 export var PoolARNs = 64 | 0;
-
 export var PoolInfos: StaticListSchema = [1, n0, _PIo, 0, () => PoolInfo];
 export var SMBFileShareInfoList: StaticListSchema = [1, n0, _SMBFSIL, 0, () => SMBFileShareInfo];
 export var StorediSCSIVolumes: StaticListSchema = [1, n0, _SSCSIV, 0, () => StorediSCSIVolume];
 export var SupportedGatewayCapacities = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
 export var TapeArchives: StaticListSchema = [1, n0, _TA, 0, () => TapeArchive];
 export var TapeARNs = 64 | 0;
-
 export var TapeInfos: StaticListSchema = [1, n0, _TI, 0, () => TapeInfo];
 export var TapeRecoveryPointInfos: StaticListSchema = [1, n0, _TRPI, 0, () => TapeRecoveryPointInfo];
 export var Tapes: StaticListSchema = [1, n0, _Ta, 0, () => Tape];
 export var UserList = 64 | 0;
-
 export var VolumeARNs = 64 | 0;
-
 export var VolumeInfos: StaticListSchema = [1, n0, _VIo, 0, () => VolumeInfo];
 export var VolumeRecoveryPointInfos: StaticListSchema = [1, n0, _VRPI, 0, () => VolumeRecoveryPointInfo];
 export var VTLDeviceARNs = 64 | 0;
-
 export var VTLDevices: StaticListSchema = [1, n0, _VTLD, 0, () => VTLDevice];
 export var errorDetails = 128 | 0;
-
 export var ActivateGateway: StaticOperationSchema = [
   9,
   n0,

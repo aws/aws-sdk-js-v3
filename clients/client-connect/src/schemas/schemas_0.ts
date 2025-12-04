@@ -2622,7 +2622,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AgentFirstName: StaticSimpleSchema = [0, n0, _AFN, 8, 0];
 export var AgentLastName: StaticSimpleSchema = [0, n0, _ALN, 8, 0];
 export var AuthenticationError: StaticSimpleSchema = [0, n0, _AE, 8, 0];
@@ -2653,16 +2652,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDeniedException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDeniedException`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActionSummary: StaticStructureSchema = [3, n0, _AS, 0, [_AT], [0]];
 export var ActivateEvaluationFormRequest: StaticStructureSchema = [
   3,
@@ -3133,16 +3127,7 @@ export var BatchGetAttachedFileMetadataRequest: StaticStructureSchema = [
   _BGAFMR,
   0,
   [_FIil, _II, _ARA],
-  [
-    64 | 0,
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aRA,
-      },
-    ],
-  ],
+  [64 | 0, [0, 1], [0, { [_hQ]: _aRA }]],
 ];
 export var BatchGetAttachedFileMetadataResponse: StaticStructureSchema = [
   3,
@@ -3280,12 +3265,7 @@ export var CompleteAttachedFileUploadRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aRA,
-      },
-    ],
+    [0, { [_hQ]: _aRA }],
   ],
 ];
 export var CompleteAttachedFileUploadResponse: StaticStructureSchema = [3, n0, _CAFURo, 0, [], []];
@@ -3301,28 +3281,13 @@ export var ConditionalOperationFailedException: StaticErrorSchema = [
   -3,
   n0,
   _COFE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConditionalOperationFailedException, __ConditionalOperationFailedException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectionData: StaticStructureSchema = [3, n0, _CD, 0, [_At, _Me], [[() => Attendee, 0], () => Meeting]];
 export var Contact: StaticStructureSchema = [
   3,
@@ -3519,19 +3484,8 @@ export var ContactFlowModuleSearchFilter: StaticStructureSchema = [
 ];
 export var ContactFlowModuleSummary: StaticStructureSchema = [3, n0, _CFMS, 0, [_I, _A, _N, _S], [0, 0, 0, 0]];
 export var ContactFlowModuleVersionSummary: StaticStructureSchema = [3, n0, _CFMVS, 0, [_A, _VD, _Ve], [0, 0, 1]];
-export var ContactFlowNotPublishedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CFNPE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ContactFlowNotPublishedException: StaticErrorSchema = [-3, n0, _CFNPE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ContactFlowNotPublishedException, __ContactFlowNotPublishedException);
-
 export var ContactFlowSearchCriteria: StaticStructureSchema = [
   3,
   n0,
@@ -3564,16 +3518,11 @@ export var ContactNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _CNFE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-    [_aQE]: [`ContactNotFoundException`, 410],
-  },
+  { [_e]: _c, [_hE]: 410, [_aQE]: [`ContactNotFoundException`, 410] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ContactNotFoundException, __ContactNotFoundException);
-
 export var ContactSearchSummary: StaticStructureSchema = [
   3,
   n0,
@@ -4153,12 +4102,7 @@ export var DeleteAttachedFileRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aRA,
-      },
-    ],
+    [0, { [_hQ]: _aRA }],
   ],
 ];
 export var DeleteAttachedFileResponse: StaticStructureSchema = [3, n0, _DAFRe, 0, [], []];
@@ -4289,12 +4233,7 @@ export var DeleteEvaluationFormRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [1, { [_hQ]: _v }],
   ],
 ];
 export var DeleteHoursOfOperationOverrideRequest: StaticStructureSchema = [
@@ -4328,13 +4267,7 @@ export var DeleteInstanceRequest: StaticStructureSchema = [
   [_II, _CT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteIntegrationAssociationRequest: StaticStructureSchema = [
@@ -4379,12 +4312,7 @@ export var DeletePushNotificationRegistrationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
+    [0, { [_hQ]: _cI }],
   ],
 ];
 export var DeletePushNotificationRegistrationResponse: StaticStructureSchema = [3, n0, _DPNRRe, 0, [], []];
@@ -4537,12 +4465,7 @@ export var DeleteWorkspaceMediaRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mT,
-      },
-    ],
+    [0, { [_hQ]: _mT }],
   ],
 ];
 export var DeleteWorkspaceMediaResponse: StaticStructureSchema = [3, n0, _DWMRe, 0, [], []];
@@ -4754,12 +4677,7 @@ export var DescribeEvaluationFormRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [1, { [_hQ]: _v }],
   ],
 ];
 export var DescribeEvaluationFormResponse: StaticStructureSchema = [3, n0, _DEFResc, 0, [_EFv], [() => EvaluationForm]];
@@ -4832,12 +4750,7 @@ export var DescribeInstanceStorageConfigRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
   ],
 ];
 export var DescribeInstanceStorageConfigResponse: StaticStructureSchema = [
@@ -5044,16 +4957,11 @@ export var DestinationNotAllowedException: StaticErrorSchema = [
   -3,
   n0,
   _DNAE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`DestinationNotAllowedException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`DestinationNotAllowedException`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DestinationNotAllowedException, __DestinationNotAllowedException);
-
 export var DeviceInfo: StaticStructureSchema = [3, n0, _DI, 0, [_PNl, _PVl, _OSp], [0, 0, 0]];
 export var Dimensions: StaticStructureSchema = [
   3,
@@ -5079,19 +4987,8 @@ export var DisassociateApprovedOriginRequest: StaticStructureSchema = [
   [_II, _O, _CT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _o }],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DisassociateBotRequest: StaticStructureSchema = [
@@ -5133,19 +5030,8 @@ export var DisassociateInstanceStorageConfigRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DisassociateLambdaFunctionRequest: StaticStructureSchema = [
@@ -5156,19 +5042,8 @@ export var DisassociateLambdaFunctionRequest: StaticStructureSchema = [
   [_II, _FA, _CT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _fA,
-      },
-    ],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _fA }],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DisassociateLexBotRequest: StaticStructureSchema = [
@@ -5179,25 +5054,9 @@ export var DisassociateLexBotRequest: StaticStructureSchema = [
   [_II, _BN, _LR, _CT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _lR,
-      },
-    ],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _bN }],
+    [0, { [_hQ]: _lR }],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DisassociatePhoneNumberContactFlowRequest: StaticStructureSchema = [
@@ -5208,12 +5067,7 @@ export var DisassociatePhoneNumberContactFlowRequest: StaticStructureSchema = [
   [_PNI, _II],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _iI,
-      },
-    ],
+    [0, { [_hQ]: _iI }],
   ],
 ];
 export var DisassociateQueueQuickConnectsRequest: StaticStructureSchema = [
@@ -5241,13 +5095,7 @@ export var DisassociateSecurityKeyRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DisassociateSecurityProfilesRequest: StaticStructureSchema = [
@@ -5266,18 +5114,8 @@ export var DisassociateTrafficDistributionGroupUserRequest: StaticStructureSchem
   [_TDGI, _UI, _II],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _UI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _II,
-      },
-    ],
+    [0, { [_hQ]: _UI }],
+    [0, { [_hQ]: _II }],
   ],
 ];
 export var DisassociateTrafficDistributionGroupUserResponse: StaticStructureSchema = [3, n0, _DTDGURi, 0, [], []];
@@ -5311,19 +5149,8 @@ export var DismissUserContactRequest: StaticStructureSchema = [3, n0, _DUCRi, 0,
 export var DismissUserContactResponse: StaticStructureSchema = [3, n0, _DUCRis, 0, [], []];
 export var Distribution: StaticStructureSchema = [3, n0, _Dis, 0, [_Reg, _Per], [0, 1]];
 export var DownloadUrlMetadata: StaticStructureSchema = [3, n0, _DUM, 0, [_Ur, _UE], [0, 0]];
-export var DuplicateResourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var DuplicateResourceException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicateResourceException, __DuplicateResourceException);
-
 export var EffectiveHoursOfOperations: StaticStructureSchema = [
   3,
   n0,
@@ -5383,24 +5210,7 @@ export var EvaluateDataTableValuesRequest: StaticStructureSchema = [
   _EDTVR,
   0,
   [_II, _DTI, _Va, _TZ, _NT, _MR],
-  [
-    [0, 1],
-    [0, 1],
-    () => DataTableValueEvaluationSetList,
-    0,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [[0, 1], [0, 1], () => DataTableValueEvaluationSetList, 0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var EvaluateDataTableValuesResponse: StaticStructureSchema = [
   3,
@@ -5849,18 +5659,8 @@ export var GetAttachedFileRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _uEIS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aRA,
-      },
-    ],
+    [1, { [_hQ]: _uEIS }],
+    [0, { [_hQ]: _aRA }],
   ],
 ];
 export var GetAttachedFileResponse: StaticStructureSchema = [
@@ -5940,18 +5740,8 @@ export var GetEffectiveHoursOfOperationsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _fD,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tD,
-      },
-    ],
+    [0, { [_hQ]: _fD }],
+    [0, { [_hQ]: _tD }],
   ],
 ];
 export var GetEffectiveHoursOfOperationsResponse: StaticStructureSchema = [
@@ -6037,12 +5827,7 @@ export var GetTaskTemplateRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sV,
-      },
-    ],
+    [0, { [_hQ]: _sV }],
   ],
 ];
 export var GetTaskTemplateResponse: StaticStructureSchema = [
@@ -6249,19 +6034,8 @@ export var HoursOfOperationSummary: StaticStructureSchema = [
   [0, 0, 0, 4, 0],
 ];
 export var HoursOfOperationTimeSlice: StaticStructureSchema = [3, n0, _HOOTS, 0, [_H, _Mi], [1, 1]];
-export var IdempotencyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var IdempotencyException: StaticErrorSchema = [-3, n0, _IE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IdempotencyException, __IdempotencyException);
-
 export var ImagesLogo: StaticStructureSchema = [3, n0, _IL, 0, [_Defa, _Fa], [0, 0]];
 export var ImportPhoneNumberRequest: StaticStructureSchema = [
   3,
@@ -6342,72 +6116,38 @@ export var IntegrationAssociationSummary: StaticStructureSchema = [
   [_IAI, _IAA, _II, _ITn, _IAnt, _SAU, _SAN, _STo],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
 export var IntervalDetails: StaticStructureSchema = [3, n0, _IDnt, 0, [_TZ, _IP], [0, 0]];
 export var InvalidContactFlowException: StaticErrorSchema = [
   -3,
   n0,
   _ICFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_p],
   [() => Problems],
 ];
 TypeRegistry.for(n0).registerError(InvalidContactFlowException, __InvalidContactFlowException);
-
 export var InvalidContactFlowModuleException: StaticErrorSchema = [
   -3,
   n0,
   _ICFME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Prob],
   [() => Problems],
 ];
 TypeRegistry.for(n0).registerError(InvalidContactFlowModuleException, __InvalidContactFlowModuleException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var InvalidRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea],
   [0, () => InvalidRequestExceptionReason],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var InvisibleFieldInfo: StaticStructureSchema = [3, n0, _IFI, 0, [_I], [() => TaskTemplateFieldIdentifier]];
 export var KinesisFirehoseConfig: StaticStructureSchema = [3, n0, _KFC, 0, [_FAir], [0]];
 export var KinesisStreamConfig: StaticStructureSchema = [3, n0, _KSC, 0, [_SAt], [0]];
@@ -6426,16 +6166,11 @@ export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`LimitExceededException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`LimitExceededException`, 429] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAgentStatusRequest: StaticStructureSchema = [
   3,
   n0,
@@ -6444,24 +6179,9 @@ export var ListAgentStatusRequest: StaticStructureSchema = [
   [_II, _NT, _MR, _AST],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _AST,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [64 | 0, { [_hQ]: _AST }],
   ],
 ];
 export var ListAgentStatusResponse: StaticStructureSchema = [
@@ -6480,24 +6200,9 @@ export var ListAnalyticsDataAssociationsRequest: StaticStructureSchema = [
   [_II, _DSI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _DSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _DSI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAnalyticsDataAssociationsResponse: StaticStructureSchema = [
@@ -6516,18 +6221,8 @@ export var ListAnalyticsDataLakeDataSetsRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAnalyticsDataLakeDataSetsResponse: StaticStructureSchema = [
@@ -6546,18 +6241,8 @@ export var ListApprovedOriginsRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListApprovedOriginsResponse: StaticStructureSchema = [3, n0, _LAORi, 0, [_Or, _NT], [64 | 0, 0]];
@@ -6569,24 +6254,9 @@ export var ListAssociatedContactsRequest: StaticStructureSchema = [
   [_II, _CI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAssociatedContactsResponse: StaticStructureSchema = [
@@ -6605,18 +6275,8 @@ export var ListAuthenticationProfilesRequest: StaticStructureSchema = [
   [_II, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAuthenticationProfilesResponse: StaticStructureSchema = [
@@ -6635,24 +6295,9 @@ export var ListBotsRequest: StaticStructureSchema = [
   [_II, _NT, _MR, _LVe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _lV,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _lV }],
   ],
 ];
 export var ListBotsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_LBe, _NT], [() => LexBotConfigList, 0]];
@@ -6665,18 +6310,8 @@ export var ListContactEvaluationsRequest: StaticStructureSchema = [
   [_II, _CI, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cI }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListContactEvaluationsResponse: StaticStructureSchema = [
@@ -6696,18 +6331,8 @@ export var ListContactFlowModuleAliasesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListContactFlowModuleAliasesResponse: StaticStructureSchema = [
@@ -6726,24 +6351,9 @@ export var ListContactFlowModulesRequest: StaticStructureSchema = [
   [_II, _NT, _MR, _CFMSo],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListContactFlowModulesResponse: StaticStructureSchema = [
@@ -6763,18 +6373,8 @@ export var ListContactFlowModuleVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListContactFlowModuleVersionsResponse: StaticStructureSchema = [
@@ -6793,24 +6393,9 @@ export var ListContactFlowsRequest: StaticStructureSchema = [
   [_II, _CFTo, _NT, _MR],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _cFT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [64 | 0, { [_hQ]: _cFT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListContactFlowsResponse: StaticStructureSchema = [
@@ -6830,18 +6415,8 @@ export var ListContactFlowVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListContactFlowVersionsResponse: StaticStructureSchema = [
@@ -6861,18 +6436,8 @@ export var ListContactReferencesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _rTe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _rTe }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListContactReferencesResponse: StaticStructureSchema = [
@@ -6889,23 +6454,7 @@ export var ListDataTableAttributesRequest: StaticStructureSchema = [
   _LDTAR,
   0,
   [_II, _DTI, _AIttr, _NT, _MR],
-  [
-    [0, 1],
-    [0, 1],
-    64 | 0,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [[0, 1], [0, 1], 64 | 0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var ListDataTableAttributesResponse: StaticStructureSchema = [
   3,
@@ -6921,24 +6470,7 @@ export var ListDataTablePrimaryValuesRequest: StaticStructureSchema = [
   _LDTPVR,
   0,
   [_II, _DTI, _RIec, _PAV, _NT, _MR],
-  [
-    [0, 1],
-    [0, 1],
-    64 | 0,
-    () => PrimaryAttributeValueFilters,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [[0, 1], [0, 1], 64 | 0, () => PrimaryAttributeValueFilters, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var ListDataTablePrimaryValuesResponse: StaticStructureSchema = [
   3,
@@ -6956,18 +6488,8 @@ export var ListDataTablesRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataTablesResponse: StaticStructureSchema = [
@@ -6984,24 +6506,7 @@ export var ListDataTableValuesRequest: StaticStructureSchema = [
   _LDTVR,
   0,
   [_II, _DTI, _RIec, _PAV, _NT, _MR],
-  [
-    [0, 1],
-    [0, 1],
-    64 | 0,
-    () => PrimaryAttributeValueFilters,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [[0, 1], [0, 1], 64 | 0, () => PrimaryAttributeValueFilters, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var ListDataTableValuesResponse: StaticStructureSchema = [
   3,
@@ -7051,18 +6556,8 @@ export var ListEvaluationFormsRequest: StaticStructureSchema = [
   [_II, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListEvaluationFormsResponse: StaticStructureSchema = [
@@ -7082,18 +6577,8 @@ export var ListEvaluationFormVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListEvaluationFormVersionsResponse: StaticStructureSchema = [
@@ -7112,24 +6597,9 @@ export var ListFlowAssociationsRequest: StaticStructureSchema = [
   [_II, _RT, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _RT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _RT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFlowAssociationsResponse: StaticStructureSchema = [
@@ -7149,18 +6619,8 @@ export var ListHoursOfOperationOverridesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListHoursOfOperationOverridesResponse: StaticStructureSchema = [
@@ -7179,18 +6639,8 @@ export var ListHoursOfOperationsRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListHoursOfOperationsResponse: StaticStructureSchema = [
@@ -7209,18 +6659,8 @@ export var ListInstanceAttributesRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListInstanceAttributesResponse: StaticStructureSchema = [
@@ -7238,18 +6678,8 @@ export var ListInstancesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListInstancesResponse: StaticStructureSchema = [
@@ -7268,24 +6698,9 @@ export var ListInstanceStorageConfigsRequest: StaticStructureSchema = [
   [_II, _RT, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListInstanceStorageConfigsResponse: StaticStructureSchema = [
@@ -7304,30 +6719,10 @@ export var ListIntegrationAssociationsRequest: StaticStructureSchema = [
   [_II, _ITn, _NT, _MR, _IAnt],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _iTn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _iA,
-      },
-    ],
+    [0, { [_hQ]: _iTn }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _iA }],
   ],
 ];
 export var ListIntegrationAssociationsResponse: StaticStructureSchema = [
@@ -7346,18 +6741,8 @@ export var ListLambdaFunctionsRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListLambdaFunctionsResponse: StaticStructureSchema = [3, n0, _LLFRi, 0, [_LFa, _NT], [64 | 0, 0]];
@@ -7369,18 +6754,8 @@ export var ListLexBotsRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListLexBotsResponse: StaticStructureSchema = [3, n0, _LLBRi, 0, [_LBe, _NT], [() => LexBotsList, 0]];
@@ -7392,30 +6767,10 @@ export var ListPhoneNumbersRequest: StaticStructureSchema = [
   [_II, _PNTh, _PNCCh, _NT, _MR],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _pNT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _pNCC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [64 | 0, { [_hQ]: _pNT }],
+    [64 | 0, { [_hQ]: _pNCC }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPhoneNumbersResponse: StaticStructureSchema = [
@@ -7458,18 +6813,8 @@ export var ListPredefinedAttributesRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPredefinedAttributesResponse: StaticStructureSchema = [
@@ -7488,18 +6833,8 @@ export var ListPromptsRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPromptsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_PSL, _NT], [() => PromptSummaryList, 0]];
@@ -7512,18 +6847,8 @@ export var ListQueueQuickConnectsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListQueueQuickConnectsResponse: StaticStructureSchema = [
@@ -7542,24 +6867,9 @@ export var ListQueuesRequest: StaticStructureSchema = [
   [_II, _QTu, _NT, _MR],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _qT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [64 | 0, { [_hQ]: _qT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListQueuesResponse: StaticStructureSchema = [3, n0, _LQRi, 0, [_QSL, _NT], [() => QueueSummaryList, 0]];
@@ -7571,24 +6881,9 @@ export var ListQuickConnectsRequest: StaticStructureSchema = [
   [_II, _NT, _MR, _QCT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _QCT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [64 | 0, { [_hQ]: _QCT }],
   ],
 ];
 export var ListQuickConnectsResponse: StaticStructureSchema = [
@@ -7624,18 +6919,8 @@ export var ListRoutingProfileManualAssignmentQueuesRequest: StaticStructureSchem
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRoutingProfileManualAssignmentQueuesResponse: StaticStructureSchema = [
@@ -7655,18 +6940,8 @@ export var ListRoutingProfileQueuesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRoutingProfileQueuesResponse: StaticStructureSchema = [
@@ -7685,18 +6960,8 @@ export var ListRoutingProfilesRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRoutingProfilesResponse: StaticStructureSchema = [
@@ -7715,30 +6980,10 @@ export var ListRulesRequest: StaticStructureSchema = [
   [_II, _PS, _ESN, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eSN,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _pS }],
+    [0, { [_hQ]: _eSN }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListRulesResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_RSLu, _NT], [() => RuleSummaryList, 0]];
@@ -7750,18 +6995,8 @@ export var ListSecurityKeysRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSecurityKeysResponse: StaticStructureSchema = [
@@ -7781,18 +7016,8 @@ export var ListSecurityProfileApplicationsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSecurityProfileApplicationsResponse: StaticStructureSchema = [
@@ -7812,18 +7037,8 @@ export var ListSecurityProfileFlowModulesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSecurityProfileFlowModulesResponse: StaticStructureSchema = [
@@ -7843,18 +7058,8 @@ export var ListSecurityProfilePermissionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSecurityProfilePermissionsResponse: StaticStructureSchema = [
@@ -7873,18 +7078,8 @@ export var ListSecurityProfilesRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSecurityProfilesResponse: StaticStructureSchema = [
@@ -7905,30 +7100,10 @@ export var ListTaskTemplatesRequest: StaticStructureSchema = [
   [_II, _NT, _MR, _St, _N],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sta,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _sta }],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var ListTaskTemplatesResponse: StaticStructureSchema = [
@@ -7946,24 +7121,9 @@ export var ListTrafficDistributionGroupsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _II],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _iI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _iI }],
   ],
 ];
 export var ListTrafficDistributionGroupsResponse: StaticStructureSchema = [
@@ -7982,18 +7142,8 @@ export var ListTrafficDistributionGroupUsersRequest: StaticStructureSchema = [
   [_TDGI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTrafficDistributionGroupUsersResponse: StaticStructureSchema = [
@@ -8013,18 +7163,8 @@ export var ListUseCasesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListUseCasesResponse: StaticStructureSchema = [
@@ -8043,18 +7183,8 @@ export var ListUserHierarchyGroupsRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListUserHierarchyGroupsResponse: StaticStructureSchema = [
@@ -8074,18 +7204,8 @@ export var ListUserProficienciesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListUserProficienciesResponse: StaticStructureSchema = [
@@ -8104,18 +7224,8 @@ export var ListUsersRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_USL, _NT], [() => UserSummaryList, 0]];
@@ -8127,24 +7237,9 @@ export var ListViewsRequest: StaticStructureSchema = [
   [_II, _T, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _ty }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListViewsResponse: StaticStructureSchema = [3, n0, _LVRi, 0, [_VSL, _NT], [[() => ViewsSummaryList, 0], 0]];
@@ -8157,18 +7252,8 @@ export var ListViewVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListViewVersionsResponse: StaticStructureSchema = [
@@ -8200,18 +7285,8 @@ export var ListWorkspacePagesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListWorkspacePagesResponse: StaticStructureSchema = [
@@ -8230,18 +7305,8 @@ export var ListWorkspacesRequest: StaticStructureSchema = [
   [_II, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListWorkspacesResponse: StaticStructureSchema = [
@@ -8253,19 +7318,8 @@ export var ListWorkspacesResponse: StaticStructureSchema = [
   [0, () => WorkspaceSummaryList],
 ];
 export var MatchCriteria: StaticStructureSchema = [3, n0, _MC, 0, [_ACge], [() => AgentsCriteria]];
-export var MaximumResultReturnedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MRRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var MaximumResultReturnedException: StaticErrorSchema = [-3, n0, _MRRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MaximumResultReturnedException, __MaximumResultReturnedException);
-
 export var MediaConcurrency: StaticStructureSchema = [
   3,
   n0,
@@ -8356,16 +7410,11 @@ export var OutboundContactNotPermittedException: StaticErrorSchema = [
   -3,
   n0,
   _OCNPE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`OutboundContactNotPermittedException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`OutboundContactNotPermittedException`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OutboundContactNotPermittedException, __OutboundContactNotPermittedException);
-
 export var OutboundEmailConfig: StaticStructureSchema = [3, n0, _OEC, 0, [_OEAI], [0]];
 export var OutboundEmailContent: StaticStructureSchema = [
   3,
@@ -8385,19 +7434,8 @@ export var OutboundRawMessage: StaticStructureSchema = [
 ];
 export var OutboundStrategy: StaticStructureSchema = [3, n0, _OSu, 0, [_T, _Conf], [0, () => OutboundStrategyConfig]];
 export var OutboundStrategyConfig: StaticStructureSchema = [3, n0, _OSC, 0, [_AF], [() => AgentFirst]];
-export var OutputTypeNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OTNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var OutputTypeNotFoundException: StaticErrorSchema = [-3, n0, _OTNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OutputTypeNotFoundException, __OutputTypeNotFoundException);
-
 export var OverrideTimeSlice: StaticStructureSchema = [3, n0, _OTS, 0, [_H, _Mi], [1, 1]];
 export var PaletteCanvas: StaticStructureSchema = [3, n0, _PCa, 0, [_CBo, _PB, _ABc], [0, 0, 0]];
 export var PaletteHeader: StaticStructureSchema = [3, n0, _PH, 0, [_Ba, _Te, _TH, _IAC], [0, 0, 0, 2]];
@@ -8499,15 +7537,11 @@ export var PropertyValidationException: StaticErrorSchema = [
   -3,
   n0,
   _PVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _PLr],
   [0, () => PropertyValidationExceptionPropertyList],
 ];
 TypeRegistry.for(n0).registerError(PropertyValidationException, __PropertyValidationException);
-
 export var PropertyValidationExceptionProperty: StaticStructureSchema = [3, n0, _PVEP, 0, [_PPr, _Rea, _M], [0, 0, 0]];
 export var PutUserStatusRequest: StaticStructureSchema = [3, n0, _PUSR, 0, [_UI, _II, _ASI], [[0, 1], [0, 1], 0]];
 export var PutUserStatusResponse: StaticStructureSchema = [3, n0, _PUSRu, 0, [], []];
@@ -8720,13 +7754,7 @@ export var ReleasePhoneNumberRequest: StaticStructureSchema = [
   [_PNI, _CT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var ReplicateInstanceRequest: StaticStructureSchema = [
@@ -8748,58 +7776,21 @@ export var ReplicationConfiguration: StaticStructureSchema = [
 ];
 export var ReplicationStatusSummary: StaticStructureSchema = [3, n0, _RSSe, 0, [_Reg, _RS, _RSR], [0, 0, 0]];
 export var RequiredFieldInfo: StaticStructureSchema = [3, n0, _RFI, 0, [_I], [() => TaskTemplateFieldIdentifier]];
-export var ResourceConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceConflictException: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-
 export var ResourceInUseException: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _RT, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotReadyException: StaticErrorSchema = [-3, n0, _RNRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotReadyException, __ResourceNotReadyException);
-
 export var ResourceTagsSearchCriteria: StaticStructureSchema = [3, n0, _RTSC, 0, [_TSC], [() => TagSearchCondition]];
 export var ResumeContactRecordingRequest: StaticStructureSchema = [
   3,
@@ -9464,15 +8455,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _Rea],
   [0, () => ServiceQuotaExceededExceptionReason],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SignInConfig: StaticStructureSchema = [3, n0, _SIC, 0, [_Di], [() => SignInDistributionList]];
 export var SignInDistribution: StaticStructureSchema = [3, n0, _SIDi, 0, [_Reg, _En], [0, 2]];
 export var SingleSelectQuestionRuleCategoryAutomation: StaticStructureSchema = [
@@ -9491,22 +8478,7 @@ export var StartAttachedFileUploadRequest: StaticStructureSchema = [
   _SAFUR,
   0,
   [_CT, _II, _FN, _FSIB, _UEIS, _FUCT, _ARA, _CB, _Ta],
-  [
-    [0, 4],
-    [0, 1],
-    0,
-    1,
-    1,
-    0,
-    [
-      0,
-      {
-        [_hQ]: _aRA,
-      },
-    ],
-    () => CreatedByInfo,
-    128 | 0,
-  ],
+  [[0, 4], [0, 1], 0, 1, 1, 0, [0, { [_hQ]: _aRA }], () => CreatedByInfo, 128 | 0],
 ];
 export var StartAttachedFileUploadResponse: StaticStructureSchema = [
   3,
@@ -9834,29 +8806,13 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ThrottlingException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var TrafficDistributionGroup: StaticStructureSchema = [
   3,
   n0,
@@ -9901,12 +8857,7 @@ export var UntagContactRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _TKa,
-      },
-    ],
+    [64 | 0, { [_hQ]: _TKa }],
   ],
 ];
 export var UntagContactResponse: StaticStructureSchema = [3, n0, _UCRn, 0, [], []];
@@ -9918,12 +8869,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tKa],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tKa,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tKa }],
   ],
 ];
 export var UpdateAgentStatusRequest: StaticStructureSchema = [
@@ -10156,18 +9102,7 @@ export var UpdateInstanceStorageConfigRequest: StaticStructureSchema = [
   _UISCR,
   0,
   [_II, _AIs, _RT, _SCt, _CT],
-  [
-    [0, 1],
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    () => InstanceStorageConfig,
-    [0, 4],
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _rT }], () => InstanceStorageConfig, [0, 4]],
 ];
 export var UpdateParticipantAuthenticationRequest: StaticStructureSchema = [
   3,
@@ -10559,19 +9494,8 @@ export var UserIdentityInfoLite: StaticStructureSchema = [
   ],
 ];
 export var UserInfo: StaticStructureSchema = [3, n0, _UIs, 0, [_UI], [0]];
-export var UserNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var UserNotFoundException: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UserNotFoundException, __UserNotFoundException);
-
 export var UserPhoneConfig: StaticStructureSchema = [
   3,
   n0,
@@ -10762,47 +9686,34 @@ export var WorkspaceThemePalette: StaticStructureSchema = [
 ];
 export var WorkspaceThemeTypography: StaticStructureSchema = [3, n0, _WTT, 0, [_FF], [() => FontFamily]];
 export var __Unit = "unit" as const;
-
 export var ConnectServiceException: StaticErrorSchema = [-3, _sm, "ConnectServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ConnectServiceException, __ConnectServiceException);
-
 export var ActionSummaries: StaticListSchema = [1, n0, _ASc, 0, () => ActionSummary];
 export var AgentContactReferenceList: StaticListSchema = [1, n0, _ACRL, 0, () => AgentContactReference];
 export var AgentIds = 64 | 0;
-
 export var AgentResourceIdList = 64 | 0;
-
 export var AgentsMinOneMaxHundred = 64 | 0;
-
 export var AgentStatuses = 64 | 0;
-
 export var AgentStatusList: StaticListSchema = [1, n0, _ASL, 0, () => AgentStatus];
 export var AgentStatusSearchConditionList: StaticListSchema = [1, n0, _ASSCL, 0, () => AgentStatusSearchCriteria];
 export var AgentStatusSummaryList: StaticListSchema = [1, n0, _ASSL, 0, () => AgentStatusSummary];
 export var AgentStatusTypes = 64 | 0;
-
 export var AiAgents: StaticListSchema = [1, n0, _AAi, 0, () => AiAgentInfo];
 export var AliasConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AliasConfiguration];
 export var AllowedFlowModules: StaticListSchema = [1, n0, _AFM, 0, () => FlowModule];
 export var AllowedMonitorCapabilities = 64 | 0;
-
 export var AllowedUserActions = 64 | 0;
-
 export var AnalyticsDataAssociationResults: StaticListSchema = [1, n0, _ADARn, 0, () => AnalyticsDataAssociationResult];
 export var AnalyticsDataSetsResults: StaticListSchema = [1, n0, _ADSRn, 0, () => AnalyticsDataSetsResult];
 export var ApplicationPermissions = 64 | 0;
-
 export var Applications: StaticListSchema = [1, n0, _App, 0, () => Application];
 export var AssociatedContactSummaryList: StaticListSchema = [1, n0, _ACSL, 0, () => AssociatedContactSummary];
 export var AssociatedQueueIdList = 64 | 0;
-
 export var AttachedFileErrorsList: StaticListSchema = [1, n0, _AFEL, 0, () => AttachedFileError];
 export var AttachedFilesList: StaticListSchema = [1, n0, _AFL, 0, () => AttachedFile];
 export var AttributeIds = 64 | 0;
-
 export var AttributeList: StaticListSchema = [1, n0, _AL, 0, () => DataTableAttribute];
 export var AttributeNameList = 64 | 0;
-
 export var AttributeOrConditionList: StaticListSchema = [1, n0, _AOCL, 0, () => AttributeAndCondition];
 export var AttributesList: StaticListSchema = [1, n0, _ALt, 0, () => Attribute];
 export var AuthenticationProfileSummaryList: StaticListSchema = [1, n0, _APSL, 0, () => AuthenticationProfileSummary];
@@ -10864,9 +9775,7 @@ export var BatchUpdateDataTableValueSuccessResultList: StaticListSchema = [
   () => BatchUpdateDataTableValueSuccessResult,
 ];
 export var ChannelList = 64 | 0;
-
 export var Channels = 64 | 0;
-
 export var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL, 0, () => CommonAttributeAndCondition];
 export var Conditions: StaticListSchema = [1, n0, _Cond, 0, () => Condition];
 export var ContactDataRequestList: StaticListSchema = [1, n0, _CDRL, 0, () => ContactDataRequest];
@@ -10904,21 +9813,17 @@ export var ContactFlowSearchConditionList: StaticListSchema = [1, n0, _CFSCL, 0,
 export var ContactFlowSearchSummaryList: StaticListSchema = [1, n0, _CFSSL, 0, () => ContactFlow];
 export var ContactFlowSummaryList: StaticListSchema = [1, n0, _CFSL, 0, () => ContactFlowSummary];
 export var ContactFlowTypes = 64 | 0;
-
 export var ContactFlowVersionSummaryList: StaticListSchema = [1, n0, _CFVSL, 0, () => ContactFlowVersionSummary];
 export var ContactMetricResults: StaticListSchema = [1, n0, _CMRo, 0, () => ContactMetricResult];
 export var ContactMetrics: StaticListSchema = [1, n0, _CMo, 0, () => ContactMetricInfo];
 export var Contacts: StaticListSchema = [1, n0, _Conta, 0, [() => ContactSearchSummary, 0]];
 export var ContactStates = 64 | 0;
-
 export var ContactTagKeys = 64 | 0;
-
 export var CurrentMetricDataCollections: StaticListSchema = [1, n0, _CMDC, 0, () => CurrentMetricData];
 export var CurrentMetricResults: StaticListSchema = [1, n0, _CMRur, 0, () => CurrentMetricResult];
 export var CurrentMetrics: StaticListSchema = [1, n0, _CMurr, 0, () => CurrentMetric];
 export var CurrentMetricSortCriteriaMaxOne: StaticListSchema = [1, n0, _CMSCMO, 0, () => CurrentMetricSortCriteria];
 export var DataSetIds = 64 | 0;
-
 export var DataTableDeleteValueIdentifierList: StaticListSchema = [
   1,
   n0,
@@ -10944,7 +9849,6 @@ export var EmailAttachments: StaticListSchema = [1, n0, _EAmai, 8, () => EmailAt
 export var EmailRecipientsList: StaticListSchema = [1, n0, _ERL, 0, () => EmailRecipient];
 export var ErrorResults: StaticListSchema = [1, n0, _ERrr, 0, () => ErrorResult];
 export var EvaluationAnswerDataStringValueList = 64 | 0;
-
 export var EvaluationAutomationRuleCategoryList: StaticListSchema = [
   1,
   n0,
@@ -11028,22 +9932,15 @@ export var FailedBatchAssociationSummaryList: StaticListSchema = [
 export var FailedRequestList: StaticListSchema = [1, n0, _FRL, 0, () => FailedRequest];
 export var FieldValues: StaticListSchema = [1, n0, _FVie, 0, () => FieldValue];
 export var FileIdList = 64 | 0;
-
 export var FiltersV2List: StaticListSchema = [1, n0, _FVL, 0, () => FilterV2];
 export var FilterValueList = 64 | 0;
-
 export var FlowAssociationSummaryList: StaticListSchema = [1, n0, _FASL, 0, () => FlowAssociationSummary];
 export var FunctionArnsList = 64 | 0;
-
 export var Groupings = 64 | 0;
-
 export var GroupingsV2 = 64 | 0;
-
 export var HierarchyGroupIdList = 64 | 0;
-
 export var HierarchyGroupSummaryList: StaticListSchema = [1, n0, _HGSL, 0, () => HierarchyGroupSummary];
 export var HierarchyRestrictedResourceList = 64 | 0;
-
 export var HistoricalMetricDataCollections: StaticListSchema = [1, n0, _HMDC, 0, () => HistoricalMetricData];
 export var HistoricalMetricResults: StaticListSchema = [1, n0, _HMRi, 0, () => HistoricalMetricResult];
 export var HistoricalMetrics: StaticListSchema = [1, n0, _HM, 0, () => HistoricalMetric];
@@ -11073,13 +9970,11 @@ export var HoursOfOperationSearchConditionList: StaticListSchema = [
 ];
 export var HoursOfOperationSummaryList: StaticListSchema = [1, n0, _HOOSL, 0, () => HoursOfOperationSummary];
 export var InitiationMethodList = 64 | 0;
-
 export var InstanceStorageConfigs: StaticListSchema = [1, n0, _ISCn, 0, () => InstanceStorageConfig];
 export var InstanceSummaryList: StaticListSchema = [1, n0, _ISL, 0, [() => InstanceSummary, 0]];
 export var IntegrationAssociationSummaryList: StaticListSchema = [1, n0, _IASL, 0, () => IntegrationAssociationSummary];
 export var InvisibleTaskTemplateFields: StaticListSchema = [1, n0, _ITTF, 0, () => InvisibleFieldInfo];
 export var IpCidrList = 64 | 0;
-
 export var LexBotConfigList: StaticListSchema = [1, n0, _LBCL, 0, () => LexBotConfig];
 export var LexBotsList: StaticListSchema = [1, n0, _LBL, 0, () => LexBot];
 export var ListPhoneNumbersSummaryList: StaticListSchema = [1, n0, _LPNSL, 0, () => ListPhoneNumbersSummary];
@@ -11088,25 +9983,18 @@ export var MediaList: StaticListSchema = [1, n0, _MLe, 0, () => MediaItem];
 export var MetricDataCollectionsV2: StaticListSchema = [1, n0, _MDCV, 0, () => MetricDataV2];
 export var MetricFiltersV2List: StaticListSchema = [1, n0, _MFVL, 0, () => MetricFilterV2];
 export var MetricFilterValueList = 64 | 0;
-
 export var MetricResultsV2: StaticListSchema = [1, n0, _MRVe, 0, () => MetricResultV2];
 export var MetricsV2: StaticListSchema = [1, n0, _MVet, 0, () => MetricV2];
 export var NextContacts: StaticListSchema = [1, n0, _NCe, 0, () => NextContactEntry];
 export var OperationalHours: StaticListSchema = [1, n0, _OH, 0, () => OperationalHour];
 export var OriginsList = 64 | 0;
-
 export var ParticipantTimerConfigList: StaticListSchema = [1, n0, _PTCL, 0, () => ParticipantTimerConfiguration];
 export var PermissionsList = 64 | 0;
-
 export var PhoneNumberCountryCodes = 64 | 0;
-
 export var PhoneNumberSummaryList: StaticListSchema = [1, n0, _PNSL, 0, () => PhoneNumberSummary];
 export var PhoneNumberTypes = 64 | 0;
-
 export var PotentialAudioQualityIssues = 64 | 0;
-
 export var PredefinedAttributePurposeNameList = 64 | 0;
-
 export var PredefinedAttributeSearchConditionList: StaticListSchema = [
   1,
   n0,
@@ -11116,12 +10004,10 @@ export var PredefinedAttributeSearchConditionList: StaticListSchema = [
 ];
 export var PredefinedAttributeSearchSummaryList: StaticListSchema = [1, n0, _PASSL, 0, () => PredefinedAttribute];
 export var PredefinedAttributeStringValuesList = 64 | 0;
-
 export var PredefinedAttributeSummaryList: StaticListSchema = [1, n0, _PASL, 0, () => PredefinedAttributeSummary];
 export var PrimaryAttributeValueFilters: StaticListSchema = [1, n0, _PAVFr, 0, () => PrimaryAttributeValueFilter];
 export var PrimaryAttributeValuesSet: StaticListSchema = [1, n0, _PAVS, 0, () => PrimaryAttributeValue];
 export var PrimaryValueList = 64 | 0;
-
 export var PrimaryValuesList: StaticListSchema = [1, n0, _PVL, 0, () => RecordPrimaryValue];
 export var PrimaryValuesResponseSet: StaticListSchema = [1, n0, _PVRS, 0, () => PrimaryValueResponse];
 export var PrimaryValuesSet: StaticListSchema = [1, n0, _PVS, 0, () => PrimaryValue];
@@ -11137,21 +10023,16 @@ export var PropertyValidationExceptionPropertyList: StaticListSchema = [
   () => PropertyValidationExceptionProperty,
 ];
 export var QueueIdList = 64 | 0;
-
 export var Queues = 64 | 0;
-
 export var QueueSearchConditionList: StaticListSchema = [1, n0, _QSCL, 0, () => QueueSearchCriteria];
 export var QueueSearchSummaryList: StaticListSchema = [1, n0, _QSSL, 0, () => Queue];
 export var QueueSummaryList: StaticListSchema = [1, n0, _QSL, 0, () => QueueSummary];
 export var QueueTypes = 64 | 0;
-
 export var QuickConnectSearchConditionList: StaticListSchema = [1, n0, _QCSCL, 0, () => QuickConnectSearchCriteria];
 export var QuickConnectSearchSummaryList: StaticListSchema = [1, n0, _QCSSL, 0, () => QuickConnect];
 export var QuickConnectsList = 64 | 0;
-
 export var QuickConnectSummaryList: StaticListSchema = [1, n0, _QCSL, 0, () => QuickConnectSummary];
 export var QuickConnectTypes = 64 | 0;
-
 export var ReadOnlyTaskTemplateFields: StaticListSchema = [1, n0, _ROTTF, 0, () => ReadOnlyFieldInfo];
 export var RealTimeContactAnalysisAttachments: StaticListSchema = [
   1,
@@ -11183,7 +10064,6 @@ export var RealTimeContactAnalysisPointsOfInterest: StaticListSchema = [
 ];
 export var RealtimeContactAnalysisSegments: StaticListSchema = [1, n0, _RCAS, 0, () => RealtimeContactAnalysisSegment];
 export var RealTimeContactAnalysisSegmentTypes = 64 | 0;
-
 export var RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets: StaticListSchema = [
   1,
   n0,
@@ -11199,22 +10079,16 @@ export var RealTimeContactAnalysisTranscriptItemsWithContent: StaticListSchema =
   () => RealTimeContactAnalysisTranscriptItemWithContent,
 ];
 export var RecordIds = 64 | 0;
-
 export var Recordings: StaticListSchema = [1, n0, _Re, 0, () => RecordingInfo];
 export var ReferenceIdList = 64 | 0;
-
 export var ReferenceSummaryList: StaticListSchema = [1, n0, _RSL, 0, () => ReferenceSummary];
 export var ReferenceTypes = 64 | 0;
-
 export var ReplicationStatusSummaryList: StaticListSchema = [1, n0, _RSSL, 0, () => ReplicationStatusSummary];
 export var RequiredTaskTemplateFields: StaticListSchema = [1, n0, _RTTF, 0, () => RequiredFieldInfo];
 export var resourceArnListMaxLimit100 = 64 | 0;
-
 export var ResourceTypeList = 64 | 0;
-
 export var RoutingCriteriaInputSteps: StaticListSchema = [1, n0, _RCISo, 0, () => RoutingCriteriaInputStep];
 export var RoutingExpressions = 64 | 0;
-
 export var RoutingProfileList: StaticListSchema = [1, n0, _RPL, 0, () => RoutingProfile];
 export var RoutingProfileManualAssignmentQueueConfigList: StaticListSchema = [
   1,
@@ -11240,7 +10114,6 @@ export var RoutingProfileQueueConfigSummaryList: StaticListSchema = [
 ];
 export var RoutingProfileQueueReferenceList: StaticListSchema = [1, n0, _RPQRL, 0, () => RoutingProfileQueueReference];
 export var RoutingProfiles = 64 | 0;
-
 export var RoutingProfileSearchConditionList: StaticListSchema = [1, n0, _RPSCL, 0, () => RoutingProfileSearchCriteria];
 export var RoutingProfileSummaryList: StaticListSchema = [1, n0, _RPSL, 0, () => RoutingProfileSummary];
 export var RuleActions: StaticListSchema = [1, n0, _RAule, 0, () => RuleAction];
@@ -11290,7 +10163,6 @@ export var SearchContactsAdditionalTimeRangeCriteriaList: StaticListSchema = [
 export var SearchTextList: StaticListSchema = [1, n0, _STL, 0, [() => SearchText, 0]];
 export var SecurityKeysList: StaticListSchema = [1, n0, _SKL, 0, () => SecurityKey];
 export var SecurityProfileIds = 64 | 0;
-
 export var SecurityProfiles: StaticListSchema = [1, n0, _SP, 0, () => SecurityProfileItem];
 export var SecurityProfiles100: StaticListSchema = [1, n0, _SPec, 0, () => SecurityProfileItem];
 export var SecurityProfileSearchConditionList: StaticListSchema = [
@@ -11305,7 +10177,6 @@ export var SecurityProfileSummaryList: StaticListSchema = [1, n0, _SPSL, 0, () =
 export var SegmentAttributeValueList: StaticListSchema = [1, n0, _SAVL, 0, () => SegmentAttributeValue];
 export var SignInDistributionList: StaticListSchema = [1, n0, _SIDL, 0, () => SignInDistribution];
 export var SingleSelectOptions = 64 | 0;
-
 export var SlaFieldValueUnionList: StaticListSchema = [1, n0, _SFVUL, 0, () => FieldValueUnion];
 export var StateTransitions: StaticListSchema = [1, n0, _STt, 0, () => StateTransition];
 export var Steps: StaticListSchema = [1, n0, _Ste, 0, () => Step];
@@ -11318,13 +10189,10 @@ export var SuccessfulBatchAssociationSummaryList: StaticListSchema = [
 ];
 export var SuccessfulRequestList: StaticListSchema = [1, n0, _SRL, 0, () => SuccessfulRequest];
 export var SupportedMessagingContentTypes = 64 | 0;
-
 export var TagAndConditionList: StaticListSchema = [1, n0, _TACL, 0, () => TagCondition];
 export var TagKeyList = 64 | 0;
-
 export var TagOrConditionList: StaticListSchema = [1, n0, _TOCL, 0, () => TagAndConditionList];
 export var TagRestrictedResourceList = 64 | 0;
-
 export var TagsList: StaticListSchema = [1, n0, _TLa, 0, () => TagSet];
 export var TaskTemplateDefaultFieldValueList: StaticListSchema = [
   1,
@@ -11353,7 +10221,6 @@ export var TrafficDistributionGroupUserSummaryList: StaticListSchema = [
 export var TranscriptCriteriaList: StaticListSchema = [1, n0, _TCL, 0, [() => TranscriptCriteria, 0]];
 export var UseCaseSummaryList: StaticListSchema = [1, n0, _UCSL, 0, () => UseCase];
 export var UserDataHierarchyGroups = 64 | 0;
-
 export var UserDataList: StaticListSchema = [1, n0, _UDL, 0, () => UserData];
 export var UserHierarchyGroupList: StaticListSchema = [1, n0, _UHGL, 0, () => HierarchyGroup];
 export var UserHierarchyGroupSearchConditionList: StaticListSchema = [
@@ -11364,16 +10231,13 @@ export var UserHierarchyGroupSearchConditionList: StaticListSchema = [
   () => UserHierarchyGroupSearchCriteria,
 ];
 export var UserIdList = 64 | 0;
-
 export var UserProficiencyDisassociateList: StaticListSchema = [1, n0, _UPDL, 0, () => UserProficiencyDisassociate];
 export var UserProficiencyList: StaticListSchema = [1, n0, _UPL, 0, () => UserProficiency];
 export var UserSearchConditionList: StaticListSchema = [1, n0, _USCL, 0, () => UserSearchCriteria];
 export var UserSearchSummaryList: StaticListSchema = [1, n0, _USSL, 0, [() => UserSearchSummary, 0]];
 export var UserSummaryList: StaticListSchema = [1, n0, _USL, 0, () => UserSummary];
 export var ValidationEnumValues = 64 | 0;
-
 export var ValueList = 64 | 0;
-
 export var ViewActions: StaticListSchema = [1, n0, _VAi, 0, [() => ViewAction, 0]];
 export var ViewSearchConditionList: StaticListSchema = [1, n0, _VSCL, 0, () => ViewSearchCriteria];
 export var ViewSearchSummaryList: StaticListSchema = [1, n0, _VSSL, 0, [() => View, 0]];
@@ -11396,16 +10260,12 @@ export var WorkspaceAssociationSearchSummaryList: StaticListSchema = [
 ];
 export var WorkspacePageList: StaticListSchema = [1, n0, _WPL, 0, () => WorkspacePage];
 export var WorkspaceResourceArnList = 64 | 0;
-
 export var WorkspaceSearchConditionList: StaticListSchema = [1, n0, _WSCL, 0, () => WorkspaceSearchCriteria];
 export var WorkspaceSearchSummaryList: StaticListSchema = [1, n0, _WSSL, 0, () => WorkspaceSearchSummary];
 export var WorkspaceSummaryList: StaticListSchema = [1, n0, _WSL, 0, () => WorkspaceSummary];
 export var AllowedAccessControlTags = 128 | 0;
-
 export var Attributes = 128 | 0;
-
 export var ChannelToCountMap = 128 | 1;
-
 export var ContactEvaluations: StaticMapSchema = [2, n0, _CEon, 0, 0, () => ContactEvaluation];
 export var ContactReferences: StaticMapSchema = [2, n0, _CR, 0, 0, () => Reference];
 export var ContactSearchSummarySegmentAttributes: StaticMapSchema = [
@@ -11417,11 +10277,8 @@ export var ContactSearchSummarySegmentAttributes: StaticMapSchema = [
   () => ContactSearchSummarySegmentAttributeValue,
 ];
 export var ContactTagMap = 128 | 0;
-
 export var DimensionsV2Map = 128 | 0;
-
 export var EmailHeaders = 128 | 0;
-
 export var EvaluationAnswersInputMap: StaticMapSchema = [2, n0, _EAIM, 0, 0, () => EvaluationAnswerInput];
 export var EvaluationAnswersOutputMap: StaticMapSchema = [2, n0, _EAOM, 0, 0, () => EvaluationAnswerOutput];
 export var EvaluationNotesMap: StaticMapSchema = [2, n0, _ENM, 0, 0, () => EvaluationNote];
@@ -11437,11 +10294,8 @@ export var RealTimeContactAnalysisMatchedDetails: StaticMapSchema = [
 export var SegmentAttributes: StaticMapSchema = [2, n0, _SAe, 0, 0, () => SegmentAttributeValue];
 export var SegmentAttributeValueMap: StaticMapSchema = [2, n0, _SAVM, 0, 0, () => SegmentAttributeValue];
 export var TagMap = 128 | 0;
-
 export var UrlMetadataSignedHeaders = 128 | 0;
-
 export var UserTagMap = 128 | 0;
-
 export var ContactMetricValue: StaticStructureSchema = [3, n0, _CMV, 0, [_Nu], [1]];
 export var CreatedByInfo: StaticStructureSchema = [3, n0, _CBI, 0, [_CUA, _AWSIA], [0, 0]];
 export var EvaluationAnswerData: StaticStructureSchema = [
@@ -11564,9 +10418,7 @@ export var ActivateEvaluationForm: StaticOperationSchema = [
   9,
   n0,
   _AEF,
-  {
-    [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/activate", 200],
-  },
+  { [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/activate", 200] },
   () => ActivateEvaluationFormRequest,
   () => ActivateEvaluationFormResponse,
 ];
@@ -11574,9 +10426,7 @@ export var AssociateAnalyticsDataSet: StaticOperationSchema = [
   9,
   n0,
   _AADS,
-  {
-    [_h]: ["PUT", "/analytics-data/instance/{InstanceId}/association", 200],
-  },
+  { [_h]: ["PUT", "/analytics-data/instance/{InstanceId}/association", 200] },
   () => AssociateAnalyticsDataSetRequest,
   () => AssociateAnalyticsDataSetResponse,
 ];
@@ -11584,9 +10434,7 @@ export var AssociateApprovedOrigin: StaticOperationSchema = [
   9,
   n0,
   _AAO,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/approved-origin", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/approved-origin", 200] },
   () => AssociateApprovedOriginRequest,
   () => __Unit,
 ];
@@ -11594,9 +10442,7 @@ export var AssociateBot: StaticOperationSchema = [
   9,
   n0,
   _ABs,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/bot", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/bot", 200] },
   () => AssociateBotRequest,
   () => __Unit,
 ];
@@ -11604,9 +10450,7 @@ export var AssociateContactWithUser: StaticOperationSchema = [
   9,
   n0,
   _ACWU,
-  {
-    [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}/associate-user", 200],
-  },
+  { [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}/associate-user", 200] },
   () => AssociateContactWithUserRequest,
   () => AssociateContactWithUserResponse,
 ];
@@ -11614,9 +10458,7 @@ export var AssociateDefaultVocabulary: StaticOperationSchema = [
   9,
   n0,
   _ADV,
-  {
-    [_h]: ["PUT", "/default-vocabulary/{InstanceId}/{LanguageCode}", 200],
-  },
+  { [_h]: ["PUT", "/default-vocabulary/{InstanceId}/{LanguageCode}", 200] },
   () => AssociateDefaultVocabularyRequest,
   () => AssociateDefaultVocabularyResponse,
 ];
@@ -11624,9 +10466,7 @@ export var AssociateEmailAddressAlias: StaticOperationSchema = [
   9,
   n0,
   _AEAA,
-  {
-    [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}/associate-alias", 200],
-  },
+  { [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}/associate-alias", 200] },
   () => AssociateEmailAddressAliasRequest,
   () => AssociateEmailAddressAliasResponse,
 ];
@@ -11634,9 +10474,7 @@ export var AssociateFlow: StaticOperationSchema = [
   9,
   n0,
   _AFs,
-  {
-    [_h]: ["PUT", "/flow-associations/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/flow-associations/{InstanceId}", 200] },
   () => AssociateFlowRequest,
   () => AssociateFlowResponse,
 ];
@@ -11644,9 +10482,7 @@ export var AssociateInstanceStorageConfig: StaticOperationSchema = [
   9,
   n0,
   _AISC,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/storage-config", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/storage-config", 200] },
   () => AssociateInstanceStorageConfigRequest,
   () => AssociateInstanceStorageConfigResponse,
 ];
@@ -11654,9 +10490,7 @@ export var AssociateLambdaFunction: StaticOperationSchema = [
   9,
   n0,
   _ALF,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/lambda-function", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/lambda-function", 200] },
   () => AssociateLambdaFunctionRequest,
   () => __Unit,
 ];
@@ -11664,9 +10498,7 @@ export var AssociateLexBot: StaticOperationSchema = [
   9,
   n0,
   _ALB,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/lex-bot", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/lex-bot", 200] },
   () => AssociateLexBotRequest,
   () => __Unit,
 ];
@@ -11674,9 +10506,7 @@ export var AssociatePhoneNumberContactFlow: StaticOperationSchema = [
   9,
   n0,
   _APNCF,
-  {
-    [_h]: ["PUT", "/phone-number/{PhoneNumberId}/contact-flow", 200],
-  },
+  { [_h]: ["PUT", "/phone-number/{PhoneNumberId}/contact-flow", 200] },
   () => AssociatePhoneNumberContactFlowRequest,
   () => __Unit,
 ];
@@ -11684,9 +10514,7 @@ export var AssociateQueueQuickConnects: StaticOperationSchema = [
   9,
   n0,
   _AQQC,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/associate-quick-connects", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/associate-quick-connects", 200] },
   () => AssociateQueueQuickConnectsRequest,
   () => __Unit,
 ];
@@ -11694,9 +10522,7 @@ export var AssociateRoutingProfileQueues: StaticOperationSchema = [
   9,
   n0,
   _ARPQ,
-  {
-    [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues", 200],
-  },
+  { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues", 200] },
   () => AssociateRoutingProfileQueuesRequest,
   () => __Unit,
 ];
@@ -11704,9 +10530,7 @@ export var AssociateSecurityKey: StaticOperationSchema = [
   9,
   n0,
   _ASK,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/security-key", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/security-key", 200] },
   () => AssociateSecurityKeyRequest,
   () => AssociateSecurityKeyResponse,
 ];
@@ -11714,9 +10538,7 @@ export var AssociateSecurityProfiles: StaticOperationSchema = [
   9,
   n0,
   _ASP,
-  {
-    [_h]: ["POST", "/associate-security-profiles/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/associate-security-profiles/{InstanceId}", 200] },
   () => AssociateSecurityProfilesRequest,
   () => __Unit,
 ];
@@ -11724,9 +10546,7 @@ export var AssociateTrafficDistributionGroupUser: StaticOperationSchema = [
   9,
   n0,
   _ATDGU,
-  {
-    [_h]: ["PUT", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200],
-  },
+  { [_h]: ["PUT", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200] },
   () => AssociateTrafficDistributionGroupUserRequest,
   () => AssociateTrafficDistributionGroupUserResponse,
 ];
@@ -11734,9 +10554,7 @@ export var AssociateUserProficiencies: StaticOperationSchema = [
   9,
   n0,
   _AUP,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/associate-proficiencies", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/associate-proficiencies", 200] },
   () => AssociateUserProficienciesRequest,
   () => __Unit,
 ];
@@ -11744,9 +10562,7 @@ export var AssociateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _AWs,
-  {
-    [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/associate", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/associate", 200] },
   () => AssociateWorkspaceRequest,
   () => AssociateWorkspaceResponse,
 ];
@@ -11754,9 +10570,7 @@ export var BatchAssociateAnalyticsDataSet: StaticOperationSchema = [
   9,
   n0,
   _BAADS,
-  {
-    [_h]: ["PUT", "/analytics-data/instance/{InstanceId}/associations", 200],
-  },
+  { [_h]: ["PUT", "/analytics-data/instance/{InstanceId}/associations", 200] },
   () => BatchAssociateAnalyticsDataSetRequest,
   () => BatchAssociateAnalyticsDataSetResponse,
 ];
@@ -11764,9 +10578,7 @@ export var BatchCreateDataTableValue: StaticOperationSchema = [
   9,
   n0,
   _BCDTV,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/create", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/create", 200] },
   () => BatchCreateDataTableValueRequest,
   () => BatchCreateDataTableValueResponse,
 ];
@@ -11774,9 +10586,7 @@ export var BatchDeleteDataTableValue: StaticOperationSchema = [
   9,
   n0,
   _BDDTV,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/delete", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/delete", 200] },
   () => BatchDeleteDataTableValueRequest,
   () => BatchDeleteDataTableValueResponse,
 ];
@@ -11784,9 +10594,7 @@ export var BatchDescribeDataTableValue: StaticOperationSchema = [
   9,
   n0,
   _BDDTVa,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/describe", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/describe", 200] },
   () => BatchDescribeDataTableValueRequest,
   () => BatchDescribeDataTableValueResponse,
 ];
@@ -11794,9 +10602,7 @@ export var BatchDisassociateAnalyticsDataSet: StaticOperationSchema = [
   9,
   n0,
   _BDADS,
-  {
-    [_h]: ["POST", "/analytics-data/instance/{InstanceId}/associations", 200],
-  },
+  { [_h]: ["POST", "/analytics-data/instance/{InstanceId}/associations", 200] },
   () => BatchDisassociateAnalyticsDataSetRequest,
   () => BatchDisassociateAnalyticsDataSetResponse,
 ];
@@ -11804,9 +10610,7 @@ export var BatchGetAttachedFileMetadata: StaticOperationSchema = [
   9,
   n0,
   _BGAFM,
-  {
-    [_h]: ["POST", "/attached-files/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/attached-files/{InstanceId}", 200] },
   () => BatchGetAttachedFileMetadataRequest,
   () => BatchGetAttachedFileMetadataResponse,
 ];
@@ -11814,9 +10618,7 @@ export var BatchGetFlowAssociation: StaticOperationSchema = [
   9,
   n0,
   _BGFA,
-  {
-    [_h]: ["POST", "/flow-associations-batch/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/flow-associations-batch/{InstanceId}", 200] },
   () => BatchGetFlowAssociationRequest,
   () => BatchGetFlowAssociationResponse,
 ];
@@ -11824,9 +10626,7 @@ export var BatchPutContact: StaticOperationSchema = [
   9,
   n0,
   _BPC,
-  {
-    [_h]: ["PUT", "/contact/batch/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/contact/batch/{InstanceId}", 200] },
   () => BatchPutContactRequest,
   () => BatchPutContactResponse,
 ];
@@ -11834,9 +10634,7 @@ export var BatchUpdateDataTableValue: StaticOperationSchema = [
   9,
   n0,
   _BUDTV,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/update", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/update", 200] },
   () => BatchUpdateDataTableValueRequest,
   () => BatchUpdateDataTableValueResponse,
 ];
@@ -11844,9 +10642,7 @@ export var ClaimPhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _CPN,
-  {
-    [_h]: ["POST", "/phone-number/claim", 200],
-  },
+  { [_h]: ["POST", "/phone-number/claim", 200] },
   () => ClaimPhoneNumberRequest,
   () => ClaimPhoneNumberResponse,
 ];
@@ -11854,9 +10650,7 @@ export var CompleteAttachedFileUpload: StaticOperationSchema = [
   9,
   n0,
   _CAFU,
-  {
-    [_h]: ["POST", "/attached-files/{InstanceId}/{FileId}", 200],
-  },
+  { [_h]: ["POST", "/attached-files/{InstanceId}/{FileId}", 200] },
   () => CompleteAttachedFileUploadRequest,
   () => CompleteAttachedFileUploadResponse,
 ];
@@ -11864,9 +10658,7 @@ export var CreateAgentStatus: StaticOperationSchema = [
   9,
   n0,
   _CAS,
-  {
-    [_h]: ["PUT", "/agent-status/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/agent-status/{InstanceId}", 200] },
   () => CreateAgentStatusRequest,
   () => CreateAgentStatusResponse,
 ];
@@ -11874,9 +10666,7 @@ export var CreateContact: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["PUT", "/contact/create-contact", 200],
-  },
+  { [_h]: ["PUT", "/contact/create-contact", 200] },
   () => CreateContactRequest,
   () => CreateContactResponse,
 ];
@@ -11884,9 +10674,7 @@ export var CreateContactFlow: StaticOperationSchema = [
   9,
   n0,
   _CCF,
-  {
-    [_h]: ["PUT", "/contact-flows/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/contact-flows/{InstanceId}", 200] },
   () => CreateContactFlowRequest,
   () => CreateContactFlowResponse,
 ];
@@ -11894,9 +10682,7 @@ export var CreateContactFlowModule: StaticOperationSchema = [
   9,
   n0,
   _CCFM,
-  {
-    [_h]: ["PUT", "/contact-flow-modules/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/contact-flow-modules/{InstanceId}", 200] },
   () => CreateContactFlowModuleRequest,
   () => CreateContactFlowModuleResponse,
 ];
@@ -11904,9 +10690,7 @@ export var CreateContactFlowModuleAlias: StaticOperationSchema = [
   9,
   n0,
   _CCFMA,
-  {
-    [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias", 200],
-  },
+  { [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias", 200] },
   () => CreateContactFlowModuleAliasRequest,
   () => CreateContactFlowModuleAliasResponse,
 ];
@@ -11914,9 +10698,7 @@ export var CreateContactFlowModuleVersion: StaticOperationSchema = [
   9,
   n0,
   _CCFMV,
-  {
-    [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/version", 200],
-  },
+  { [_h]: ["PUT", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/version", 200] },
   () => CreateContactFlowModuleVersionRequest,
   () => CreateContactFlowModuleVersionResponse,
 ];
@@ -11924,9 +10706,7 @@ export var CreateContactFlowVersion: StaticOperationSchema = [
   9,
   n0,
   _CCFV,
-  {
-    [_h]: ["PUT", "/contact-flows/{InstanceId}/{ContactFlowId}/version", 200],
-  },
+  { [_h]: ["PUT", "/contact-flows/{InstanceId}/{ContactFlowId}/version", 200] },
   () => CreateContactFlowVersionRequest,
   () => CreateContactFlowVersionResponse,
 ];
@@ -11934,9 +10714,7 @@ export var CreateDataTable: StaticOperationSchema = [
   9,
   n0,
   _CDT,
-  {
-    [_h]: ["PUT", "/data-tables/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/data-tables/{InstanceId}", 200] },
   () => CreateDataTableRequest,
   () => CreateDataTableResponse,
 ];
@@ -11944,9 +10722,7 @@ export var CreateDataTableAttribute: StaticOperationSchema = [
   9,
   n0,
   _CDTA,
-  {
-    [_h]: ["PUT", "/data-tables/{InstanceId}/{DataTableId}/attributes", 200],
-  },
+  { [_h]: ["PUT", "/data-tables/{InstanceId}/{DataTableId}/attributes", 200] },
   () => CreateDataTableAttributeRequest,
   () => CreateDataTableAttributeResponse,
 ];
@@ -11954,9 +10730,7 @@ export var CreateEmailAddress: StaticOperationSchema = [
   9,
   n0,
   _CEAr,
-  {
-    [_h]: ["PUT", "/email-addresses/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/email-addresses/{InstanceId}", 200] },
   () => CreateEmailAddressRequest,
   () => CreateEmailAddressResponse,
 ];
@@ -11964,9 +10738,7 @@ export var CreateEvaluationForm: StaticOperationSchema = [
   9,
   n0,
   _CEF,
-  {
-    [_h]: ["PUT", "/evaluation-forms/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/evaluation-forms/{InstanceId}", 200] },
   () => CreateEvaluationFormRequest,
   () => CreateEvaluationFormResponse,
 ];
@@ -11974,9 +10746,7 @@ export var CreateHoursOfOperation: StaticOperationSchema = [
   9,
   n0,
   _CHOO,
-  {
-    [_h]: ["PUT", "/hours-of-operations/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/hours-of-operations/{InstanceId}", 200] },
   () => CreateHoursOfOperationRequest,
   () => CreateHoursOfOperationResponse,
 ];
@@ -11984,9 +10754,7 @@ export var CreateHoursOfOperationOverride: StaticOperationSchema = [
   9,
   n0,
   _CHOOO,
-  {
-    [_h]: ["PUT", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides", 200],
-  },
+  { [_h]: ["PUT", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides", 200] },
   () => CreateHoursOfOperationOverrideRequest,
   () => CreateHoursOfOperationOverrideResponse,
 ];
@@ -11994,9 +10762,7 @@ export var CreateInstance: StaticOperationSchema = [
   9,
   n0,
   _CIr,
-  {
-    [_h]: ["PUT", "/instance", 200],
-  },
+  { [_h]: ["PUT", "/instance", 200] },
   () => CreateInstanceRequest,
   () => CreateInstanceResponse,
 ];
@@ -12004,9 +10770,7 @@ export var CreateIntegrationAssociation: StaticOperationSchema = [
   9,
   n0,
   _CIA,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/integration-associations", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/integration-associations", 200] },
   () => CreateIntegrationAssociationRequest,
   () => CreateIntegrationAssociationResponse,
 ];
@@ -12014,9 +10778,7 @@ export var CreateParticipant: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_h]: ["POST", "/contact/create-participant", 200],
-  },
+  { [_h]: ["POST", "/contact/create-participant", 200] },
   () => CreateParticipantRequest,
   () => CreateParticipantResponse,
 ];
@@ -12024,9 +10786,7 @@ export var CreatePersistentContactAssociation: StaticOperationSchema = [
   9,
   n0,
   _CPCA,
-  {
-    [_h]: ["POST", "/contact/persistent-contact-association/{InstanceId}/{InitialContactId}", 200],
-  },
+  { [_h]: ["POST", "/contact/persistent-contact-association/{InstanceId}/{InitialContactId}", 200] },
   () => CreatePersistentContactAssociationRequest,
   () => CreatePersistentContactAssociationResponse,
 ];
@@ -12034,9 +10794,7 @@ export var CreatePredefinedAttribute: StaticOperationSchema = [
   9,
   n0,
   _CPAr,
-  {
-    [_h]: ["PUT", "/predefined-attributes/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/predefined-attributes/{InstanceId}", 200] },
   () => CreatePredefinedAttributeRequest,
   () => __Unit,
 ];
@@ -12044,9 +10802,7 @@ export var CreatePrompt: StaticOperationSchema = [
   9,
   n0,
   _CPre,
-  {
-    [_h]: ["PUT", "/prompts/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/prompts/{InstanceId}", 200] },
   () => CreatePromptRequest,
   () => CreatePromptResponse,
 ];
@@ -12054,9 +10810,7 @@ export var CreatePushNotificationRegistration: StaticOperationSchema = [
   9,
   n0,
   _CPNRr,
-  {
-    [_h]: ["PUT", "/push-notification/{InstanceId}/registrations", 200],
-  },
+  { [_h]: ["PUT", "/push-notification/{InstanceId}/registrations", 200] },
   () => CreatePushNotificationRegistrationRequest,
   () => CreatePushNotificationRegistrationResponse,
 ];
@@ -12064,9 +10818,7 @@ export var CreateQueue: StaticOperationSchema = [
   9,
   n0,
   _CQ,
-  {
-    [_h]: ["PUT", "/queues/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/queues/{InstanceId}", 200] },
   () => CreateQueueRequest,
   () => CreateQueueResponse,
 ];
@@ -12074,9 +10826,7 @@ export var CreateQuickConnect: StaticOperationSchema = [
   9,
   n0,
   _CQC,
-  {
-    [_h]: ["PUT", "/quick-connects/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/quick-connects/{InstanceId}", 200] },
   () => CreateQuickConnectRequest,
   () => CreateQuickConnectResponse,
 ];
@@ -12084,9 +10834,7 @@ export var CreateRoutingProfile: StaticOperationSchema = [
   9,
   n0,
   _CRP,
-  {
-    [_h]: ["PUT", "/routing-profiles/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/routing-profiles/{InstanceId}", 200] },
   () => CreateRoutingProfileRequest,
   () => CreateRoutingProfileResponse,
 ];
@@ -12094,9 +10842,7 @@ export var CreateRule: StaticOperationSchema = [
   9,
   n0,
   _CRr,
-  {
-    [_h]: ["POST", "/rules/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/rules/{InstanceId}", 200] },
   () => CreateRuleRequest,
   () => CreateRuleResponse,
 ];
@@ -12104,9 +10850,7 @@ export var CreateSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  {
-    [_h]: ["PUT", "/security-profiles/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/security-profiles/{InstanceId}", 200] },
   () => CreateSecurityProfileRequest,
   () => CreateSecurityProfileResponse,
 ];
@@ -12114,9 +10858,7 @@ export var CreateTaskTemplate: StaticOperationSchema = [
   9,
   n0,
   _CTT,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/task/template", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/task/template", 200] },
   () => CreateTaskTemplateRequest,
   () => CreateTaskTemplateResponse,
 ];
@@ -12124,9 +10866,7 @@ export var CreateTrafficDistributionGroup: StaticOperationSchema = [
   9,
   n0,
   _CTDG,
-  {
-    [_h]: ["PUT", "/traffic-distribution-group", 200],
-  },
+  { [_h]: ["PUT", "/traffic-distribution-group", 200] },
   () => CreateTrafficDistributionGroupRequest,
   () => CreateTrafficDistributionGroupResponse,
 ];
@@ -12134,9 +10874,7 @@ export var CreateUseCase: StaticOperationSchema = [
   9,
   n0,
   _CUC,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases", 200] },
   () => CreateUseCaseRequest,
   () => CreateUseCaseResponse,
 ];
@@ -12144,9 +10882,7 @@ export var CreateUser: StaticOperationSchema = [
   9,
   n0,
   _CU,
-  {
-    [_h]: ["PUT", "/users/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/users/{InstanceId}", 200] },
   () => CreateUserRequest,
   () => CreateUserResponse,
 ];
@@ -12154,9 +10890,7 @@ export var CreateUserHierarchyGroup: StaticOperationSchema = [
   9,
   n0,
   _CUHG,
-  {
-    [_h]: ["PUT", "/user-hierarchy-groups/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/user-hierarchy-groups/{InstanceId}", 200] },
   () => CreateUserHierarchyGroupRequest,
   () => CreateUserHierarchyGroupResponse,
 ];
@@ -12164,9 +10898,7 @@ export var CreateView: StaticOperationSchema = [
   9,
   n0,
   _CV,
-  {
-    [_h]: ["PUT", "/views/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/views/{InstanceId}", 200] },
   () => CreateViewRequest,
   () => CreateViewResponse,
 ];
@@ -12174,9 +10906,7 @@ export var CreateViewVersion: StaticOperationSchema = [
   9,
   n0,
   _CVV,
-  {
-    [_h]: ["PUT", "/views/{InstanceId}/{ViewId}/versions", 200],
-  },
+  { [_h]: ["PUT", "/views/{InstanceId}/{ViewId}/versions", 200] },
   () => CreateViewVersionRequest,
   () => CreateViewVersionResponse,
 ];
@@ -12184,9 +10914,7 @@ export var CreateVocabulary: StaticOperationSchema = [
   9,
   n0,
   _CVr,
-  {
-    [_h]: ["POST", "/vocabulary/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/vocabulary/{InstanceId}", 200] },
   () => CreateVocabularyRequest,
   () => CreateVocabularyResponse,
 ];
@@ -12194,9 +10922,7 @@ export var CreateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_h]: ["PUT", "/workspaces/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/workspaces/{InstanceId}", 200] },
   () => CreateWorkspaceRequest,
   () => CreateWorkspaceResponse,
 ];
@@ -12204,9 +10930,7 @@ export var CreateWorkspacePage: StaticOperationSchema = [
   9,
   n0,
   _CWP,
-  {
-    [_h]: ["PUT", "/workspaces/{InstanceId}/{WorkspaceId}/pages", 200],
-  },
+  { [_h]: ["PUT", "/workspaces/{InstanceId}/{WorkspaceId}/pages", 200] },
   () => CreateWorkspacePageRequest,
   () => CreateWorkspacePageResponse,
 ];
@@ -12214,9 +10938,7 @@ export var DeactivateEvaluationForm: StaticOperationSchema = [
   9,
   n0,
   _DEF,
-  {
-    [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate", 200],
-  },
+  { [_h]: ["POST", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate", 200] },
   () => DeactivateEvaluationFormRequest,
   () => DeactivateEvaluationFormResponse,
 ];
@@ -12224,9 +10946,7 @@ export var DeleteAttachedFile: StaticOperationSchema = [
   9,
   n0,
   _DAF,
-  {
-    [_h]: ["DELETE", "/attached-files/{InstanceId}/{FileId}", 200],
-  },
+  { [_h]: ["DELETE", "/attached-files/{InstanceId}/{FileId}", 200] },
   () => DeleteAttachedFileRequest,
   () => DeleteAttachedFileResponse,
 ];
@@ -12234,9 +10954,7 @@ export var DeleteContactEvaluation: StaticOperationSchema = [
   9,
   n0,
   _DCE,
-  {
-    [_h]: ["DELETE", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200],
-  },
+  { [_h]: ["DELETE", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] },
   () => DeleteContactEvaluationRequest,
   () => __Unit,
 ];
@@ -12244,9 +10962,7 @@ export var DeleteContactFlow: StaticOperationSchema = [
   9,
   n0,
   _DCF,
-  {
-    [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}", 200],
-  },
+  { [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}", 200] },
   () => DeleteContactFlowRequest,
   () => DeleteContactFlowResponse,
 ];
@@ -12254,9 +10970,7 @@ export var DeleteContactFlowModule: StaticOperationSchema = [
   9,
   n0,
   _DCFM,
-  {
-    [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200],
-  },
+  { [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200] },
   () => DeleteContactFlowModuleRequest,
   () => DeleteContactFlowModuleResponse,
 ];
@@ -12264,9 +10978,7 @@ export var DeleteContactFlowModuleAlias: StaticOperationSchema = [
   9,
   n0,
   _DCFMA,
-  {
-    [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200],
-  },
+  { [_h]: ["DELETE", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200] },
   () => DeleteContactFlowModuleAliasRequest,
   () => DeleteContactFlowModuleAliasResponse,
 ];
@@ -12288,9 +11000,7 @@ export var DeleteContactFlowVersion: StaticOperationSchema = [
   9,
   n0,
   _DCFV,
-  {
-    [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}/version/{ContactFlowVersion}", 200],
-  },
+  { [_h]: ["DELETE", "/contact-flows/{InstanceId}/{ContactFlowId}/version/{ContactFlowVersion}", 200] },
   () => DeleteContactFlowVersionRequest,
   () => DeleteContactFlowVersionResponse,
 ];
@@ -12298,9 +11008,7 @@ export var DeleteDataTable: StaticOperationSchema = [
   9,
   n0,
   _DDT,
-  {
-    [_h]: ["DELETE", "/data-tables/{InstanceId}/{DataTableId}", 200],
-  },
+  { [_h]: ["DELETE", "/data-tables/{InstanceId}/{DataTableId}", 200] },
   () => DeleteDataTableRequest,
   () => DeleteDataTableResponse,
 ];
@@ -12308,9 +11016,7 @@ export var DeleteDataTableAttribute: StaticOperationSchema = [
   9,
   n0,
   _DDTA,
-  {
-    [_h]: ["DELETE", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200],
-  },
+  { [_h]: ["DELETE", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] },
   () => DeleteDataTableAttributeRequest,
   () => DeleteDataTableAttributeResponse,
 ];
@@ -12318,9 +11024,7 @@ export var DeleteEmailAddress: StaticOperationSchema = [
   9,
   n0,
   _DEAe,
-  {
-    [_h]: ["DELETE", "/email-addresses/{InstanceId}/{EmailAddressId}", 200],
-  },
+  { [_h]: ["DELETE", "/email-addresses/{InstanceId}/{EmailAddressId}", 200] },
   () => DeleteEmailAddressRequest,
   () => DeleteEmailAddressResponse,
 ];
@@ -12328,9 +11032,7 @@ export var DeleteEvaluationForm: StaticOperationSchema = [
   9,
   n0,
   _DEFe,
-  {
-    [_h]: ["DELETE", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200],
-  },
+  { [_h]: ["DELETE", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] },
   () => DeleteEvaluationFormRequest,
   () => __Unit,
 ];
@@ -12338,9 +11040,7 @@ export var DeleteHoursOfOperation: StaticOperationSchema = [
   9,
   n0,
   _DHOO,
-  {
-    [_h]: ["DELETE", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200],
-  },
+  { [_h]: ["DELETE", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
   () => DeleteHoursOfOperationRequest,
   () => __Unit,
 ];
@@ -12362,9 +11062,7 @@ export var DeleteInstance: StaticOperationSchema = [
   9,
   n0,
   _DIel,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}", 200] },
   () => DeleteInstanceRequest,
   () => __Unit,
 ];
@@ -12372,9 +11070,7 @@ export var DeleteIntegrationAssociation: StaticOperationSchema = [
   9,
   n0,
   _DIA,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}", 200] },
   () => DeleteIntegrationAssociationRequest,
   () => __Unit,
 ];
@@ -12382,9 +11078,7 @@ export var DeletePredefinedAttribute: StaticOperationSchema = [
   9,
   n0,
   _DPA,
-  {
-    [_h]: ["DELETE", "/predefined-attributes/{InstanceId}/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/predefined-attributes/{InstanceId}/{Name}", 200] },
   () => DeletePredefinedAttributeRequest,
   () => __Unit,
 ];
@@ -12392,9 +11086,7 @@ export var DeletePrompt: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/prompts/{InstanceId}/{PromptId}", 200],
-  },
+  { [_h]: ["DELETE", "/prompts/{InstanceId}/{PromptId}", 200] },
   () => DeletePromptRequest,
   () => __Unit,
 ];
@@ -12402,9 +11094,7 @@ export var DeletePushNotificationRegistration: StaticOperationSchema = [
   9,
   n0,
   _DPNRel,
-  {
-    [_h]: ["DELETE", "/push-notification/{InstanceId}/registrations/{RegistrationId}", 200],
-  },
+  { [_h]: ["DELETE", "/push-notification/{InstanceId}/registrations/{RegistrationId}", 200] },
   () => DeletePushNotificationRegistrationRequest,
   () => DeletePushNotificationRegistrationResponse,
 ];
@@ -12412,9 +11102,7 @@ export var DeleteQueue: StaticOperationSchema = [
   9,
   n0,
   _DQ,
-  {
-    [_h]: ["DELETE", "/queues/{InstanceId}/{QueueId}", 200],
-  },
+  { [_h]: ["DELETE", "/queues/{InstanceId}/{QueueId}", 200] },
   () => DeleteQueueRequest,
   () => __Unit,
 ];
@@ -12422,9 +11110,7 @@ export var DeleteQuickConnect: StaticOperationSchema = [
   9,
   n0,
   _DQC,
-  {
-    [_h]: ["DELETE", "/quick-connects/{InstanceId}/{QuickConnectId}", 200],
-  },
+  { [_h]: ["DELETE", "/quick-connects/{InstanceId}/{QuickConnectId}", 200] },
   () => DeleteQuickConnectRequest,
   () => __Unit,
 ];
@@ -12432,9 +11118,7 @@ export var DeleteRoutingProfile: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/routing-profiles/{InstanceId}/{RoutingProfileId}", 200],
-  },
+  { [_h]: ["DELETE", "/routing-profiles/{InstanceId}/{RoutingProfileId}", 200] },
   () => DeleteRoutingProfileRequest,
   () => __Unit,
 ];
@@ -12442,9 +11126,7 @@ export var DeleteRule: StaticOperationSchema = [
   9,
   n0,
   _DRel,
-  {
-    [_h]: ["DELETE", "/rules/{InstanceId}/{RuleId}", 200],
-  },
+  { [_h]: ["DELETE", "/rules/{InstanceId}/{RuleId}", 200] },
   () => DeleteRuleRequest,
   () => __Unit,
 ];
@@ -12452,9 +11134,7 @@ export var DeleteSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _DSP,
-  {
-    [_h]: ["DELETE", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200],
-  },
+  { [_h]: ["DELETE", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] },
   () => DeleteSecurityProfileRequest,
   () => __Unit,
 ];
@@ -12462,9 +11142,7 @@ export var DeleteTaskTemplate: StaticOperationSchema = [
   9,
   n0,
   _DTT,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] },
   () => DeleteTaskTemplateRequest,
   () => DeleteTaskTemplateResponse,
 ];
@@ -12472,9 +11150,7 @@ export var DeleteTrafficDistributionGroup: StaticOperationSchema = [
   9,
   n0,
   _DTDG,
-  {
-    [_h]: ["DELETE", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200],
-  },
+  { [_h]: ["DELETE", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200] },
   () => DeleteTrafficDistributionGroupRequest,
   () => DeleteTrafficDistributionGroupResponse,
 ];
@@ -12496,9 +11172,7 @@ export var DeleteUser: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_h]: ["DELETE", "/users/{InstanceId}/{UserId}", 200],
-  },
+  { [_h]: ["DELETE", "/users/{InstanceId}/{UserId}", 200] },
   () => DeleteUserRequest,
   () => __Unit,
 ];
@@ -12506,9 +11180,7 @@ export var DeleteUserHierarchyGroup: StaticOperationSchema = [
   9,
   n0,
   _DUHG,
-  {
-    [_h]: ["DELETE", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}", 200],
-  },
+  { [_h]: ["DELETE", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}", 200] },
   () => DeleteUserHierarchyGroupRequest,
   () => __Unit,
 ];
@@ -12516,9 +11188,7 @@ export var DeleteView: StaticOperationSchema = [
   9,
   n0,
   _DVel,
-  {
-    [_h]: ["DELETE", "/views/{InstanceId}/{ViewId}", 200],
-  },
+  { [_h]: ["DELETE", "/views/{InstanceId}/{ViewId}", 200] },
   () => DeleteViewRequest,
   () => DeleteViewResponse,
 ];
@@ -12526,9 +11196,7 @@ export var DeleteViewVersion: StaticOperationSchema = [
   9,
   n0,
   _DVV,
-  {
-    [_h]: ["DELETE", "/views/{InstanceId}/{ViewId}/versions/{ViewVersion}", 200],
-  },
+  { [_h]: ["DELETE", "/views/{InstanceId}/{ViewId}/versions/{ViewVersion}", 200] },
   () => DeleteViewVersionRequest,
   () => DeleteViewVersionResponse,
 ];
@@ -12536,9 +11204,7 @@ export var DeleteVocabulary: StaticOperationSchema = [
   9,
   n0,
   _DVele,
-  {
-    [_h]: ["POST", "/vocabulary-remove/{InstanceId}/{VocabularyId}", 200],
-  },
+  { [_h]: ["POST", "/vocabulary-remove/{InstanceId}/{VocabularyId}", 200] },
   () => DeleteVocabularyRequest,
   () => DeleteVocabularyResponse,
 ];
@@ -12546,9 +11212,7 @@ export var DeleteWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}", 200],
-  },
+  { [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}", 200] },
   () => DeleteWorkspaceRequest,
   () => DeleteWorkspaceResponse,
 ];
@@ -12556,9 +11220,7 @@ export var DeleteWorkspaceMedia: StaticOperationSchema = [
   9,
   n0,
   _DWM,
-  {
-    [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200],
-  },
+  { [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200] },
   () => DeleteWorkspaceMediaRequest,
   () => DeleteWorkspaceMediaResponse,
 ];
@@ -12566,9 +11228,7 @@ export var DeleteWorkspacePage: StaticOperationSchema = [
   9,
   n0,
   _DWP,
-  {
-    [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}/pages/{Page}", 200],
-  },
+  { [_h]: ["DELETE", "/workspaces/{InstanceId}/{WorkspaceId}/pages/{Page}", 200] },
   () => DeleteWorkspacePageRequest,
   () => DeleteWorkspacePageResponse,
 ];
@@ -12576,9 +11236,7 @@ export var DescribeAgentStatus: StaticOperationSchema = [
   9,
   n0,
   _DAS,
-  {
-    [_h]: ["GET", "/agent-status/{InstanceId}/{AgentStatusId}", 200],
-  },
+  { [_h]: ["GET", "/agent-status/{InstanceId}/{AgentStatusId}", 200] },
   () => DescribeAgentStatusRequest,
   () => DescribeAgentStatusResponse,
 ];
@@ -12586,9 +11244,7 @@ export var DescribeAuthenticationProfile: StaticOperationSchema = [
   9,
   n0,
   _DAP,
-  {
-    [_h]: ["GET", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200],
-  },
+  { [_h]: ["GET", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200] },
   () => DescribeAuthenticationProfileRequest,
   () => DescribeAuthenticationProfileResponse,
 ];
@@ -12596,9 +11252,7 @@ export var DescribeContact: StaticOperationSchema = [
   9,
   n0,
   _DCes,
-  {
-    [_h]: ["GET", "/contacts/{InstanceId}/{ContactId}", 200],
-  },
+  { [_h]: ["GET", "/contacts/{InstanceId}/{ContactId}", 200] },
   () => DescribeContactRequest,
   () => DescribeContactResponse,
 ];
@@ -12606,9 +11260,7 @@ export var DescribeContactEvaluation: StaticOperationSchema = [
   9,
   n0,
   _DCEe,
-  {
-    [_h]: ["GET", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200],
-  },
+  { [_h]: ["GET", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] },
   () => DescribeContactEvaluationRequest,
   () => DescribeContactEvaluationResponse,
 ];
@@ -12616,9 +11268,7 @@ export var DescribeContactFlow: StaticOperationSchema = [
   9,
   n0,
   _DCFe,
-  {
-    [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}", 200],
-  },
+  { [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}", 200] },
   () => DescribeContactFlowRequest,
   () => DescribeContactFlowResponse,
 ];
@@ -12626,9 +11276,7 @@ export var DescribeContactFlowModule: StaticOperationSchema = [
   9,
   n0,
   _DCFMe,
-  {
-    [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200],
-  },
+  { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}", 200] },
   () => DescribeContactFlowModuleRequest,
   () => DescribeContactFlowModuleResponse,
 ];
@@ -12636,9 +11284,7 @@ export var DescribeContactFlowModuleAlias: StaticOperationSchema = [
   9,
   n0,
   _DCFMAe,
-  {
-    [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200],
-  },
+  { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200] },
   () => DescribeContactFlowModuleAliasRequest,
   () => DescribeContactFlowModuleAliasResponse,
 ];
@@ -12646,9 +11292,7 @@ export var DescribeDataTable: StaticOperationSchema = [
   9,
   n0,
   _DDTe,
-  {
-    [_h]: ["GET", "/data-tables/{InstanceId}/{DataTableId}", 200],
-  },
+  { [_h]: ["GET", "/data-tables/{InstanceId}/{DataTableId}", 200] },
   () => DescribeDataTableRequest,
   () => DescribeDataTableResponse,
 ];
@@ -12656,9 +11300,7 @@ export var DescribeDataTableAttribute: StaticOperationSchema = [
   9,
   n0,
   _DDTAe,
-  {
-    [_h]: ["GET", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200],
-  },
+  { [_h]: ["GET", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] },
   () => DescribeDataTableAttributeRequest,
   () => DescribeDataTableAttributeResponse,
 ];
@@ -12666,9 +11308,7 @@ export var DescribeEmailAddress: StaticOperationSchema = [
   9,
   n0,
   _DEAes,
-  {
-    [_h]: ["GET", "/email-addresses/{InstanceId}/{EmailAddressId}", 200],
-  },
+  { [_h]: ["GET", "/email-addresses/{InstanceId}/{EmailAddressId}", 200] },
   () => DescribeEmailAddressRequest,
   () => DescribeEmailAddressResponse,
 ];
@@ -12676,9 +11316,7 @@ export var DescribeEvaluationForm: StaticOperationSchema = [
   9,
   n0,
   _DEFes,
-  {
-    [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200],
-  },
+  { [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] },
   () => DescribeEvaluationFormRequest,
   () => DescribeEvaluationFormResponse,
 ];
@@ -12686,9 +11324,7 @@ export var DescribeHoursOfOperation: StaticOperationSchema = [
   9,
   n0,
   _DHOOe,
-  {
-    [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200],
-  },
+  { [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
   () => DescribeHoursOfOperationRequest,
   () => DescribeHoursOfOperationResponse,
 ];
@@ -12706,9 +11342,7 @@ export var DescribeInstance: StaticOperationSchema = [
   9,
   n0,
   _DIes,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}", 200] },
   () => DescribeInstanceRequest,
   () => DescribeInstanceResponse,
 ];
@@ -12716,9 +11350,7 @@ export var DescribeInstanceAttribute: StaticOperationSchema = [
   9,
   n0,
   _DIAe,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/attribute/{AttributeType}", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/attribute/{AttributeType}", 200] },
   () => DescribeInstanceAttributeRequest,
   () => DescribeInstanceAttributeResponse,
 ];
@@ -12726,9 +11358,7 @@ export var DescribeInstanceStorageConfig: StaticOperationSchema = [
   9,
   n0,
   _DISC,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/storage-config/{AssociationId}", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] },
   () => DescribeInstanceStorageConfigRequest,
   () => DescribeInstanceStorageConfigResponse,
 ];
@@ -12736,9 +11366,7 @@ export var DescribePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _DPNes,
-  {
-    [_h]: ["GET", "/phone-number/{PhoneNumberId}", 200],
-  },
+  { [_h]: ["GET", "/phone-number/{PhoneNumberId}", 200] },
   () => DescribePhoneNumberRequest,
   () => DescribePhoneNumberResponse,
 ];
@@ -12746,9 +11374,7 @@ export var DescribePredefinedAttribute: StaticOperationSchema = [
   9,
   n0,
   _DPAe,
-  {
-    [_h]: ["GET", "/predefined-attributes/{InstanceId}/{Name}", 200],
-  },
+  { [_h]: ["GET", "/predefined-attributes/{InstanceId}/{Name}", 200] },
   () => DescribePredefinedAttributeRequest,
   () => DescribePredefinedAttributeResponse,
 ];
@@ -12756,9 +11382,7 @@ export var DescribePrompt: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["GET", "/prompts/{InstanceId}/{PromptId}", 200],
-  },
+  { [_h]: ["GET", "/prompts/{InstanceId}/{PromptId}", 200] },
   () => DescribePromptRequest,
   () => DescribePromptResponse,
 ];
@@ -12766,9 +11390,7 @@ export var DescribeQueue: StaticOperationSchema = [
   9,
   n0,
   _DQe,
-  {
-    [_h]: ["GET", "/queues/{InstanceId}/{QueueId}", 200],
-  },
+  { [_h]: ["GET", "/queues/{InstanceId}/{QueueId}", 200] },
   () => DescribeQueueRequest,
   () => DescribeQueueResponse,
 ];
@@ -12776,9 +11398,7 @@ export var DescribeQuickConnect: StaticOperationSchema = [
   9,
   n0,
   _DQCe,
-  {
-    [_h]: ["GET", "/quick-connects/{InstanceId}/{QuickConnectId}", 200],
-  },
+  { [_h]: ["GET", "/quick-connects/{InstanceId}/{QuickConnectId}", 200] },
   () => DescribeQuickConnectRequest,
   () => DescribeQuickConnectResponse,
 ];
@@ -12786,9 +11406,7 @@ export var DescribeRoutingProfile: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
-  {
-    [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}", 200],
-  },
+  { [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}", 200] },
   () => DescribeRoutingProfileRequest,
   () => DescribeRoutingProfileResponse,
 ];
@@ -12796,9 +11414,7 @@ export var DescribeRule: StaticOperationSchema = [
   9,
   n0,
   _DRes,
-  {
-    [_h]: ["GET", "/rules/{InstanceId}/{RuleId}", 200],
-  },
+  { [_h]: ["GET", "/rules/{InstanceId}/{RuleId}", 200] },
   () => DescribeRuleRequest,
   () => DescribeRuleResponse,
 ];
@@ -12806,9 +11422,7 @@ export var DescribeSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _DSPe,
-  {
-    [_h]: ["GET", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200],
-  },
+  { [_h]: ["GET", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] },
   () => DescribeSecurityProfileRequest,
   () => DescribeSecurityProfileResponse,
 ];
@@ -12816,9 +11430,7 @@ export var DescribeTrafficDistributionGroup: StaticOperationSchema = [
   9,
   n0,
   _DTDGe,
-  {
-    [_h]: ["GET", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200],
-  },
+  { [_h]: ["GET", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200] },
   () => DescribeTrafficDistributionGroupRequest,
   () => DescribeTrafficDistributionGroupResponse,
 ];
@@ -12826,9 +11438,7 @@ export var DescribeUser: StaticOperationSchema = [
   9,
   n0,
   _DUe,
-  {
-    [_h]: ["GET", "/users/{InstanceId}/{UserId}", 200],
-  },
+  { [_h]: ["GET", "/users/{InstanceId}/{UserId}", 200] },
   () => DescribeUserRequest,
   () => DescribeUserResponse,
 ];
@@ -12836,9 +11446,7 @@ export var DescribeUserHierarchyGroup: StaticOperationSchema = [
   9,
   n0,
   _DUHGe,
-  {
-    [_h]: ["GET", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}", 200],
-  },
+  { [_h]: ["GET", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}", 200] },
   () => DescribeUserHierarchyGroupRequest,
   () => DescribeUserHierarchyGroupResponse,
 ];
@@ -12846,9 +11454,7 @@ export var DescribeUserHierarchyStructure: StaticOperationSchema = [
   9,
   n0,
   _DUHS,
-  {
-    [_h]: ["GET", "/user-hierarchy-structure/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/user-hierarchy-structure/{InstanceId}", 200] },
   () => DescribeUserHierarchyStructureRequest,
   () => DescribeUserHierarchyStructureResponse,
 ];
@@ -12856,9 +11462,7 @@ export var DescribeView: StaticOperationSchema = [
   9,
   n0,
   _DVes,
-  {
-    [_h]: ["GET", "/views/{InstanceId}/{ViewId}", 200],
-  },
+  { [_h]: ["GET", "/views/{InstanceId}/{ViewId}", 200] },
   () => DescribeViewRequest,
   () => DescribeViewResponse,
 ];
@@ -12866,9 +11470,7 @@ export var DescribeVocabulary: StaticOperationSchema = [
   9,
   n0,
   _DVesc,
-  {
-    [_h]: ["GET", "/vocabulary/{InstanceId}/{VocabularyId}", 200],
-  },
+  { [_h]: ["GET", "/vocabulary/{InstanceId}/{VocabularyId}", 200] },
   () => DescribeVocabularyRequest,
   () => DescribeVocabularyResponse,
 ];
@@ -12876,9 +11478,7 @@ export var DescribeWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DWe,
-  {
-    [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}", 200] },
   () => DescribeWorkspaceRequest,
   () => DescribeWorkspaceResponse,
 ];
@@ -12886,9 +11486,7 @@ export var DisassociateAnalyticsDataSet: StaticOperationSchema = [
   9,
   n0,
   _DADS,
-  {
-    [_h]: ["POST", "/analytics-data/instance/{InstanceId}/association", 200],
-  },
+  { [_h]: ["POST", "/analytics-data/instance/{InstanceId}/association", 200] },
   () => DisassociateAnalyticsDataSetRequest,
   () => __Unit,
 ];
@@ -12896,9 +11494,7 @@ export var DisassociateApprovedOrigin: StaticOperationSchema = [
   9,
   n0,
   _DAO,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}/approved-origin", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}/approved-origin", 200] },
   () => DisassociateApprovedOriginRequest,
   () => __Unit,
 ];
@@ -12906,9 +11502,7 @@ export var DisassociateBot: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["POST", "/instance/{InstanceId}/bot", 200],
-  },
+  { [_h]: ["POST", "/instance/{InstanceId}/bot", 200] },
   () => DisassociateBotRequest,
   () => __Unit,
 ];
@@ -12916,9 +11510,7 @@ export var DisassociateEmailAddressAlias: StaticOperationSchema = [
   9,
   n0,
   _DEAA,
-  {
-    [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}/disassociate-alias", 200],
-  },
+  { [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}/disassociate-alias", 200] },
   () => DisassociateEmailAddressAliasRequest,
   () => DisassociateEmailAddressAliasResponse,
 ];
@@ -12926,9 +11518,7 @@ export var DisassociateFlow: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}", 200],
-  },
+  { [_h]: ["DELETE", "/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}", 200] },
   () => DisassociateFlowRequest,
   () => DisassociateFlowResponse,
 ];
@@ -12936,9 +11526,7 @@ export var DisassociateInstanceStorageConfig: StaticOperationSchema = [
   9,
   n0,
   _DISCi,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}/storage-config/{AssociationId}", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] },
   () => DisassociateInstanceStorageConfigRequest,
   () => __Unit,
 ];
@@ -12946,9 +11534,7 @@ export var DisassociateLambdaFunction: StaticOperationSchema = [
   9,
   n0,
   _DLF,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}/lambda-function", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}/lambda-function", 200] },
   () => DisassociateLambdaFunctionRequest,
   () => __Unit,
 ];
@@ -12956,9 +11542,7 @@ export var DisassociateLexBot: StaticOperationSchema = [
   9,
   n0,
   _DLB,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}/lex-bot", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}/lex-bot", 200] },
   () => DisassociateLexBotRequest,
   () => __Unit,
 ];
@@ -12966,9 +11550,7 @@ export var DisassociatePhoneNumberContactFlow: StaticOperationSchema = [
   9,
   n0,
   _DPNCF,
-  {
-    [_h]: ["DELETE", "/phone-number/{PhoneNumberId}/contact-flow", 200],
-  },
+  { [_h]: ["DELETE", "/phone-number/{PhoneNumberId}/contact-flow", 200] },
   () => DisassociatePhoneNumberContactFlowRequest,
   () => __Unit,
 ];
@@ -12976,9 +11558,7 @@ export var DisassociateQueueQuickConnects: StaticOperationSchema = [
   9,
   n0,
   _DQQC,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects", 200] },
   () => DisassociateQueueQuickConnectsRequest,
   () => __Unit,
 ];
@@ -12986,9 +11566,7 @@ export var DisassociateRoutingProfileQueues: StaticOperationSchema = [
   9,
   n0,
   _DRPQ,
-  {
-    [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues", 200],
-  },
+  { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues", 200] },
   () => DisassociateRoutingProfileQueuesRequest,
   () => __Unit,
 ];
@@ -12996,9 +11574,7 @@ export var DisassociateSecurityKey: StaticOperationSchema = [
   9,
   n0,
   _DSK,
-  {
-    [_h]: ["DELETE", "/instance/{InstanceId}/security-key/{AssociationId}", 200],
-  },
+  { [_h]: ["DELETE", "/instance/{InstanceId}/security-key/{AssociationId}", 200] },
   () => DisassociateSecurityKeyRequest,
   () => __Unit,
 ];
@@ -13006,9 +11582,7 @@ export var DisassociateSecurityProfiles: StaticOperationSchema = [
   9,
   n0,
   _DSPi,
-  {
-    [_h]: ["POST", "/disassociate-security-profiles/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/disassociate-security-profiles/{InstanceId}", 200] },
   () => DisassociateSecurityProfilesRequest,
   () => __Unit,
 ];
@@ -13016,9 +11590,7 @@ export var DisassociateTrafficDistributionGroupUser: StaticOperationSchema = [
   9,
   n0,
   _DTDGU,
-  {
-    [_h]: ["DELETE", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200],
-  },
+  { [_h]: ["DELETE", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200] },
   () => DisassociateTrafficDistributionGroupUserRequest,
   () => DisassociateTrafficDistributionGroupUserResponse,
 ];
@@ -13026,9 +11598,7 @@ export var DisassociateUserProficiencies: StaticOperationSchema = [
   9,
   n0,
   _DUP,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/disassociate-proficiencies", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/disassociate-proficiencies", 200] },
   () => DisassociateUserProficienciesRequest,
   () => __Unit,
 ];
@@ -13036,9 +11606,7 @@ export var DisassociateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DWi,
-  {
-    [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/disassociate", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/disassociate", 200] },
   () => DisassociateWorkspaceRequest,
   () => DisassociateWorkspaceResponse,
 ];
@@ -13046,9 +11614,7 @@ export var DismissUserContact: StaticOperationSchema = [
   9,
   n0,
   _DUCi,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/contact", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/contact", 200] },
   () => DismissUserContactRequest,
   () => DismissUserContactResponse,
 ];
@@ -13056,9 +11622,7 @@ export var EvaluateDataTableValues: StaticOperationSchema = [
   9,
   n0,
   _EDTV,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/evaluate", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/evaluate", 200] },
   () => EvaluateDataTableValuesRequest,
   () => EvaluateDataTableValuesResponse,
 ];
@@ -13066,9 +11630,7 @@ export var GetAttachedFile: StaticOperationSchema = [
   9,
   n0,
   _GAF,
-  {
-    [_h]: ["GET", "/attached-files/{InstanceId}/{FileId}", 200],
-  },
+  { [_h]: ["GET", "/attached-files/{InstanceId}/{FileId}", 200] },
   () => GetAttachedFileRequest,
   () => GetAttachedFileResponse,
 ];
@@ -13076,9 +11638,7 @@ export var GetContactAttributes: StaticOperationSchema = [
   9,
   n0,
   _GCA,
-  {
-    [_h]: ["GET", "/contact/attributes/{InstanceId}/{InitialContactId}", 200],
-  },
+  { [_h]: ["GET", "/contact/attributes/{InstanceId}/{InitialContactId}", 200] },
   () => GetContactAttributesRequest,
   () => GetContactAttributesResponse,
 ];
@@ -13086,9 +11646,7 @@ export var GetContactMetrics: StaticOperationSchema = [
   9,
   n0,
   _GCM,
-  {
-    [_h]: ["POST", "/metrics/contact", 200],
-  },
+  { [_h]: ["POST", "/metrics/contact", 200] },
   () => GetContactMetricsRequest,
   () => GetContactMetricsResponse,
 ];
@@ -13096,9 +11654,7 @@ export var GetCurrentMetricData: StaticOperationSchema = [
   9,
   n0,
   _GCMD,
-  {
-    [_h]: ["POST", "/metrics/current/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/metrics/current/{InstanceId}", 200] },
   () => GetCurrentMetricDataRequest,
   () => GetCurrentMetricDataResponse,
 ];
@@ -13106,9 +11662,7 @@ export var GetCurrentUserData: StaticOperationSchema = [
   9,
   n0,
   _GCUD,
-  {
-    [_h]: ["POST", "/metrics/userdata/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/metrics/userdata/{InstanceId}", 200] },
   () => GetCurrentUserDataRequest,
   () => GetCurrentUserDataResponse,
 ];
@@ -13116,9 +11670,7 @@ export var GetEffectiveHoursOfOperations: StaticOperationSchema = [
   9,
   n0,
   _GEHOO,
-  {
-    [_h]: ["GET", "/effective-hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200],
-  },
+  { [_h]: ["GET", "/effective-hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
   () => GetEffectiveHoursOfOperationsRequest,
   () => GetEffectiveHoursOfOperationsResponse,
 ];
@@ -13126,9 +11678,7 @@ export var GetFederationToken: StaticOperationSchema = [
   9,
   n0,
   _GFT,
-  {
-    [_h]: ["GET", "/user/federate/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/user/federate/{InstanceId}", 200] },
   () => GetFederationTokenRequest,
   () => GetFederationTokenResponse,
 ];
@@ -13136,9 +11686,7 @@ export var GetFlowAssociation: StaticOperationSchema = [
   9,
   n0,
   _GFA,
-  {
-    [_h]: ["GET", "/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}", 200],
-  },
+  { [_h]: ["GET", "/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}", 200] },
   () => GetFlowAssociationRequest,
   () => GetFlowAssociationResponse,
 ];
@@ -13146,9 +11694,7 @@ export var GetMetricData: StaticOperationSchema = [
   9,
   n0,
   _GMD,
-  {
-    [_h]: ["POST", "/metrics/historical/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/metrics/historical/{InstanceId}", 200] },
   () => GetMetricDataRequest,
   () => GetMetricDataResponse,
 ];
@@ -13156,9 +11702,7 @@ export var GetMetricDataV2: StaticOperationSchema = [
   9,
   n0,
   _GMDV,
-  {
-    [_h]: ["POST", "/metrics/data", 200],
-  },
+  { [_h]: ["POST", "/metrics/data", 200] },
   () => GetMetricDataV2Request,
   () => GetMetricDataV2Response,
 ];
@@ -13166,9 +11710,7 @@ export var GetPromptFile: StaticOperationSchema = [
   9,
   n0,
   _GPF,
-  {
-    [_h]: ["GET", "/prompts/{InstanceId}/{PromptId}/file", 200],
-  },
+  { [_h]: ["GET", "/prompts/{InstanceId}/{PromptId}/file", 200] },
   () => GetPromptFileRequest,
   () => GetPromptFileResponse,
 ];
@@ -13176,9 +11718,7 @@ export var GetTaskTemplate: StaticOperationSchema = [
   9,
   n0,
   _GTT,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] },
   () => GetTaskTemplateRequest,
   () => GetTaskTemplateResponse,
 ];
@@ -13186,9 +11726,7 @@ export var GetTrafficDistribution: StaticOperationSchema = [
   9,
   n0,
   _GTD,
-  {
-    [_h]: ["GET", "/traffic-distribution/{Id}", 200],
-  },
+  { [_h]: ["GET", "/traffic-distribution/{Id}", 200] },
   () => GetTrafficDistributionRequest,
   () => GetTrafficDistributionResponse,
 ];
@@ -13196,9 +11734,7 @@ export var ImportPhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _IPN,
-  {
-    [_h]: ["POST", "/phone-number/import", 200],
-  },
+  { [_h]: ["POST", "/phone-number/import", 200] },
   () => ImportPhoneNumberRequest,
   () => ImportPhoneNumberResponse,
 ];
@@ -13206,9 +11742,7 @@ export var ImportWorkspaceMedia: StaticOperationSchema = [
   9,
   n0,
   _IWM,
-  {
-    [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200] },
   () => ImportWorkspaceMediaRequest,
   () => ImportWorkspaceMediaResponse,
 ];
@@ -13216,9 +11750,7 @@ export var ListAgentStatuses: StaticOperationSchema = [
   9,
   n0,
   _LAS,
-  {
-    [_h]: ["GET", "/agent-status/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/agent-status/{InstanceId}", 200] },
   () => ListAgentStatusRequest,
   () => ListAgentStatusResponse,
 ];
@@ -13226,9 +11758,7 @@ export var ListAnalyticsDataAssociations: StaticOperationSchema = [
   9,
   n0,
   _LADA,
-  {
-    [_h]: ["GET", "/analytics-data/instance/{InstanceId}/association", 200],
-  },
+  { [_h]: ["GET", "/analytics-data/instance/{InstanceId}/association", 200] },
   () => ListAnalyticsDataAssociationsRequest,
   () => ListAnalyticsDataAssociationsResponse,
 ];
@@ -13236,9 +11766,7 @@ export var ListAnalyticsDataLakeDataSets: StaticOperationSchema = [
   9,
   n0,
   _LADLDS,
-  {
-    [_h]: ["GET", "/analytics-data/instance/{InstanceId}/datasets", 200],
-  },
+  { [_h]: ["GET", "/analytics-data/instance/{InstanceId}/datasets", 200] },
   () => ListAnalyticsDataLakeDataSetsRequest,
   () => ListAnalyticsDataLakeDataSetsResponse,
 ];
@@ -13246,9 +11774,7 @@ export var ListApprovedOrigins: StaticOperationSchema = [
   9,
   n0,
   _LAO,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/approved-origins", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/approved-origins", 200] },
   () => ListApprovedOriginsRequest,
   () => ListApprovedOriginsResponse,
 ];
@@ -13256,9 +11782,7 @@ export var ListAssociatedContacts: StaticOperationSchema = [
   9,
   n0,
   _LAC,
-  {
-    [_h]: ["GET", "/contact/associated/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/contact/associated/{InstanceId}", 200] },
   () => ListAssociatedContactsRequest,
   () => ListAssociatedContactsResponse,
 ];
@@ -13266,9 +11790,7 @@ export var ListAuthenticationProfiles: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_h]: ["GET", "/authentication-profiles-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/authentication-profiles-summary/{InstanceId}", 200] },
   () => ListAuthenticationProfilesRequest,
   () => ListAuthenticationProfilesResponse,
 ];
@@ -13276,9 +11798,7 @@ export var ListBots: StaticOperationSchema = [
   9,
   n0,
   _LBi,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/bots", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/bots", 200] },
   () => ListBotsRequest,
   () => ListBotsResponse,
 ];
@@ -13286,9 +11806,7 @@ export var ListContactEvaluations: StaticOperationSchema = [
   9,
   n0,
   _LCE,
-  {
-    [_h]: ["GET", "/contact-evaluations/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/contact-evaluations/{InstanceId}", 200] },
   () => ListContactEvaluationsRequest,
   () => ListContactEvaluationsResponse,
 ];
@@ -13296,9 +11814,7 @@ export var ListContactFlowModuleAliases: StaticOperationSchema = [
   9,
   n0,
   _LCFMA,
-  {
-    [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/aliases", 200],
-  },
+  { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/aliases", 200] },
   () => ListContactFlowModuleAliasesRequest,
   () => ListContactFlowModuleAliasesResponse,
 ];
@@ -13306,9 +11822,7 @@ export var ListContactFlowModules: StaticOperationSchema = [
   9,
   n0,
   _LCFM,
-  {
-    [_h]: ["GET", "/contact-flow-modules-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/contact-flow-modules-summary/{InstanceId}", 200] },
   () => ListContactFlowModulesRequest,
   () => ListContactFlowModulesResponse,
 ];
@@ -13316,9 +11830,7 @@ export var ListContactFlowModuleVersions: StaticOperationSchema = [
   9,
   n0,
   _LCFMV,
-  {
-    [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/versions", 200],
-  },
+  { [_h]: ["GET", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/versions", 200] },
   () => ListContactFlowModuleVersionsRequest,
   () => ListContactFlowModuleVersionsResponse,
 ];
@@ -13326,9 +11838,7 @@ export var ListContactFlows: StaticOperationSchema = [
   9,
   n0,
   _LCF,
-  {
-    [_h]: ["GET", "/contact-flows-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/contact-flows-summary/{InstanceId}", 200] },
   () => ListContactFlowsRequest,
   () => ListContactFlowsResponse,
 ];
@@ -13336,9 +11846,7 @@ export var ListContactFlowVersions: StaticOperationSchema = [
   9,
   n0,
   _LCFV,
-  {
-    [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}/versions", 200],
-  },
+  { [_h]: ["GET", "/contact-flows/{InstanceId}/{ContactFlowId}/versions", 200] },
   () => ListContactFlowVersionsRequest,
   () => ListContactFlowVersionsResponse,
 ];
@@ -13346,9 +11854,7 @@ export var ListContactReferences: StaticOperationSchema = [
   9,
   n0,
   _LCR,
-  {
-    [_h]: ["GET", "/contact/references/{InstanceId}/{ContactId}", 200],
-  },
+  { [_h]: ["GET", "/contact/references/{InstanceId}/{ContactId}", 200] },
   () => ListContactReferencesRequest,
   () => ListContactReferencesResponse,
 ];
@@ -13356,9 +11862,7 @@ export var ListDataTableAttributes: StaticOperationSchema = [
   9,
   n0,
   _LDTA,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes", 200] },
   () => ListDataTableAttributesRequest,
   () => ListDataTableAttributesResponse,
 ];
@@ -13366,9 +11870,7 @@ export var ListDataTablePrimaryValues: StaticOperationSchema = [
   9,
   n0,
   _LDTPV,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/list-primary", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/list-primary", 200] },
   () => ListDataTablePrimaryValuesRequest,
   () => ListDataTablePrimaryValuesResponse,
 ];
@@ -13376,9 +11878,7 @@ export var ListDataTables: StaticOperationSchema = [
   9,
   n0,
   _LDT,
-  {
-    [_h]: ["GET", "/data-tables/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/data-tables/{InstanceId}", 200] },
   () => ListDataTablesRequest,
   () => ListDataTablesResponse,
 ];
@@ -13386,9 +11886,7 @@ export var ListDataTableValues: StaticOperationSchema = [
   9,
   n0,
   _LDTV,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/list", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/list", 200] },
   () => ListDataTableValuesRequest,
   () => ListDataTableValuesResponse,
 ];
@@ -13396,9 +11894,7 @@ export var ListDefaultVocabularies: StaticOperationSchema = [
   9,
   n0,
   _LDV,
-  {
-    [_h]: ["POST", "/default-vocabulary-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/default-vocabulary-summary/{InstanceId}", 200] },
   () => ListDefaultVocabulariesRequest,
   () => ListDefaultVocabulariesResponse,
 ];
@@ -13406,9 +11902,7 @@ export var ListEntitySecurityProfiles: StaticOperationSchema = [
   9,
   n0,
   _LESP,
-  {
-    [_h]: ["POST", "/entity-security-profiles-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/entity-security-profiles-summary/{InstanceId}", 200] },
   () => ListEntitySecurityProfilesRequest,
   () => ListEntitySecurityProfilesResponse,
 ];
@@ -13416,9 +11910,7 @@ export var ListEvaluationForms: StaticOperationSchema = [
   9,
   n0,
   _LEF,
-  {
-    [_h]: ["GET", "/evaluation-forms/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/evaluation-forms/{InstanceId}", 200] },
   () => ListEvaluationFormsRequest,
   () => ListEvaluationFormsResponse,
 ];
@@ -13426,9 +11918,7 @@ export var ListEvaluationFormVersions: StaticOperationSchema = [
   9,
   n0,
   _LEFV,
-  {
-    [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/versions", 200],
-  },
+  { [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/versions", 200] },
   () => ListEvaluationFormVersionsRequest,
   () => ListEvaluationFormVersionsResponse,
 ];
@@ -13436,9 +11926,7 @@ export var ListFlowAssociations: StaticOperationSchema = [
   9,
   n0,
   _LFA,
-  {
-    [_h]: ["GET", "/flow-associations-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/flow-associations-summary/{InstanceId}", 200] },
   () => ListFlowAssociationsRequest,
   () => ListFlowAssociationsResponse,
 ];
@@ -13446,9 +11934,7 @@ export var ListHoursOfOperationOverrides: StaticOperationSchema = [
   9,
   n0,
   _LHOOO,
-  {
-    [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides", 200],
-  },
+  { [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides", 200] },
   () => ListHoursOfOperationOverridesRequest,
   () => ListHoursOfOperationOverridesResponse,
 ];
@@ -13456,9 +11942,7 @@ export var ListHoursOfOperations: StaticOperationSchema = [
   9,
   n0,
   _LHOO,
-  {
-    [_h]: ["GET", "/hours-of-operations-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/hours-of-operations-summary/{InstanceId}", 200] },
   () => ListHoursOfOperationsRequest,
   () => ListHoursOfOperationsResponse,
 ];
@@ -13466,9 +11950,7 @@ export var ListInstanceAttributes: StaticOperationSchema = [
   9,
   n0,
   _LIA,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/attributes", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/attributes", 200] },
   () => ListInstanceAttributesRequest,
   () => ListInstanceAttributesResponse,
 ];
@@ -13476,9 +11958,7 @@ export var ListInstances: StaticOperationSchema = [
   9,
   n0,
   _LIi,
-  {
-    [_h]: ["GET", "/instance", 200],
-  },
+  { [_h]: ["GET", "/instance", 200] },
   () => ListInstancesRequest,
   () => ListInstancesResponse,
 ];
@@ -13486,9 +11966,7 @@ export var ListInstanceStorageConfigs: StaticOperationSchema = [
   9,
   n0,
   _LISC,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/storage-configs", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/storage-configs", 200] },
   () => ListInstanceStorageConfigsRequest,
   () => ListInstanceStorageConfigsResponse,
 ];
@@ -13496,9 +11974,7 @@ export var ListIntegrationAssociations: StaticOperationSchema = [
   9,
   n0,
   _LIAi,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/integration-associations", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/integration-associations", 200] },
   () => ListIntegrationAssociationsRequest,
   () => ListIntegrationAssociationsResponse,
 ];
@@ -13506,9 +11982,7 @@ export var ListLambdaFunctions: StaticOperationSchema = [
   9,
   n0,
   _LLF,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/lambda-functions", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/lambda-functions", 200] },
   () => ListLambdaFunctionsRequest,
   () => ListLambdaFunctionsResponse,
 ];
@@ -13516,9 +11990,7 @@ export var ListLexBots: StaticOperationSchema = [
   9,
   n0,
   _LLB,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/lex-bots", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/lex-bots", 200] },
   () => ListLexBotsRequest,
   () => ListLexBotsResponse,
 ];
@@ -13526,9 +11998,7 @@ export var ListPhoneNumbers: StaticOperationSchema = [
   9,
   n0,
   _LPN,
-  {
-    [_h]: ["GET", "/phone-numbers-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/phone-numbers-summary/{InstanceId}", 200] },
   () => ListPhoneNumbersRequest,
   () => ListPhoneNumbersResponse,
 ];
@@ -13536,9 +12006,7 @@ export var ListPhoneNumbersV2: StaticOperationSchema = [
   9,
   n0,
   _LPNV,
-  {
-    [_h]: ["POST", "/phone-number/list", 200],
-  },
+  { [_h]: ["POST", "/phone-number/list", 200] },
   () => ListPhoneNumbersV2Request,
   () => ListPhoneNumbersV2Response,
 ];
@@ -13546,9 +12014,7 @@ export var ListPredefinedAttributes: StaticOperationSchema = [
   9,
   n0,
   _LPA,
-  {
-    [_h]: ["GET", "/predefined-attributes/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/predefined-attributes/{InstanceId}", 200] },
   () => ListPredefinedAttributesRequest,
   () => ListPredefinedAttributesResponse,
 ];
@@ -13556,9 +12022,7 @@ export var ListPrompts: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/prompts-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/prompts-summary/{InstanceId}", 200] },
   () => ListPromptsRequest,
   () => ListPromptsResponse,
 ];
@@ -13566,9 +12030,7 @@ export var ListQueueQuickConnects: StaticOperationSchema = [
   9,
   n0,
   _LQQC,
-  {
-    [_h]: ["GET", "/queues/{InstanceId}/{QueueId}/quick-connects", 200],
-  },
+  { [_h]: ["GET", "/queues/{InstanceId}/{QueueId}/quick-connects", 200] },
   () => ListQueueQuickConnectsRequest,
   () => ListQueueQuickConnectsResponse,
 ];
@@ -13576,9 +12038,7 @@ export var ListQueues: StaticOperationSchema = [
   9,
   n0,
   _LQ,
-  {
-    [_h]: ["GET", "/queues-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/queues-summary/{InstanceId}", 200] },
   () => ListQueuesRequest,
   () => ListQueuesResponse,
 ];
@@ -13586,9 +12046,7 @@ export var ListQuickConnects: StaticOperationSchema = [
   9,
   n0,
   _LQC,
-  {
-    [_h]: ["GET", "/quick-connects/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/quick-connects/{InstanceId}", 200] },
   () => ListQuickConnectsRequest,
   () => ListQuickConnectsResponse,
 ];
@@ -13596,9 +12054,7 @@ export var ListRealtimeContactAnalysisSegmentsV2: StaticOperationSchema = [
   9,
   n0,
   _LRCASV,
-  {
-    [_h]: ["POST", "/contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}", 200],
-  },
+  { [_h]: ["POST", "/contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}", 200] },
   () => ListRealtimeContactAnalysisSegmentsV2Request,
   () => ListRealtimeContactAnalysisSegmentsV2Response,
 ];
@@ -13606,9 +12062,7 @@ export var ListRoutingProfileManualAssignmentQueues: StaticOperationSchema = [
   9,
   n0,
   _LRPMAQ,
-  {
-    [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}/manual-assignment-queues", 200],
-  },
+  { [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}/manual-assignment-queues", 200] },
   () => ListRoutingProfileManualAssignmentQueuesRequest,
   () => ListRoutingProfileManualAssignmentQueuesResponse,
 ];
@@ -13616,9 +12070,7 @@ export var ListRoutingProfileQueues: StaticOperationSchema = [
   9,
   n0,
   _LRPQ,
-  {
-    [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues", 200],
-  },
+  { [_h]: ["GET", "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues", 200] },
   () => ListRoutingProfileQueuesRequest,
   () => ListRoutingProfileQueuesResponse,
 ];
@@ -13626,9 +12078,7 @@ export var ListRoutingProfiles: StaticOperationSchema = [
   9,
   n0,
   _LRP,
-  {
-    [_h]: ["GET", "/routing-profiles-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/routing-profiles-summary/{InstanceId}", 200] },
   () => ListRoutingProfilesRequest,
   () => ListRoutingProfilesResponse,
 ];
@@ -13636,9 +12086,7 @@ export var ListRules: StaticOperationSchema = [
   9,
   n0,
   _LRi,
-  {
-    [_h]: ["GET", "/rules/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/rules/{InstanceId}", 200] },
   () => ListRulesRequest,
   () => ListRulesResponse,
 ];
@@ -13646,9 +12094,7 @@ export var ListSecurityKeys: StaticOperationSchema = [
   9,
   n0,
   _LSK,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/security-keys", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/security-keys", 200] },
   () => ListSecurityKeysRequest,
   () => ListSecurityKeysResponse,
 ];
@@ -13656,9 +12102,7 @@ export var ListSecurityProfileApplications: StaticOperationSchema = [
   9,
   n0,
   _LSPA,
-  {
-    [_h]: ["GET", "/security-profiles-applications/{InstanceId}/{SecurityProfileId}", 200],
-  },
+  { [_h]: ["GET", "/security-profiles-applications/{InstanceId}/{SecurityProfileId}", 200] },
   () => ListSecurityProfileApplicationsRequest,
   () => ListSecurityProfileApplicationsResponse,
 ];
@@ -13666,9 +12110,7 @@ export var ListSecurityProfileFlowModules: StaticOperationSchema = [
   9,
   n0,
   _LSPFM,
-  {
-    [_h]: ["GET", "/security-profiles-flow-modules/{InstanceId}/{SecurityProfileId}", 200],
-  },
+  { [_h]: ["GET", "/security-profiles-flow-modules/{InstanceId}/{SecurityProfileId}", 200] },
   () => ListSecurityProfileFlowModulesRequest,
   () => ListSecurityProfileFlowModulesResponse,
 ];
@@ -13676,9 +12118,7 @@ export var ListSecurityProfilePermissions: StaticOperationSchema = [
   9,
   n0,
   _LSPP,
-  {
-    [_h]: ["GET", "/security-profiles-permissions/{InstanceId}/{SecurityProfileId}", 200],
-  },
+  { [_h]: ["GET", "/security-profiles-permissions/{InstanceId}/{SecurityProfileId}", 200] },
   () => ListSecurityProfilePermissionsRequest,
   () => ListSecurityProfilePermissionsResponse,
 ];
@@ -13686,9 +12126,7 @@ export var ListSecurityProfiles: StaticOperationSchema = [
   9,
   n0,
   _LSP,
-  {
-    [_h]: ["GET", "/security-profiles-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/security-profiles-summary/{InstanceId}", 200] },
   () => ListSecurityProfilesRequest,
   () => ListSecurityProfilesResponse,
 ];
@@ -13696,9 +12134,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -13706,9 +12142,7 @@ export var ListTaskTemplates: StaticOperationSchema = [
   9,
   n0,
   _LTT,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/task/template", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/task/template", 200] },
   () => ListTaskTemplatesRequest,
   () => ListTaskTemplatesResponse,
 ];
@@ -13716,9 +12150,7 @@ export var ListTrafficDistributionGroups: StaticOperationSchema = [
   9,
   n0,
   _LTDG,
-  {
-    [_h]: ["GET", "/traffic-distribution-groups", 200],
-  },
+  { [_h]: ["GET", "/traffic-distribution-groups", 200] },
   () => ListTrafficDistributionGroupsRequest,
   () => ListTrafficDistributionGroupsResponse,
 ];
@@ -13726,9 +12158,7 @@ export var ListTrafficDistributionGroupUsers: StaticOperationSchema = [
   9,
   n0,
   _LTDGU,
-  {
-    [_h]: ["GET", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200],
-  },
+  { [_h]: ["GET", "/traffic-distribution-group/{TrafficDistributionGroupId}/user", 200] },
   () => ListTrafficDistributionGroupUsersRequest,
   () => ListTrafficDistributionGroupUsersResponse,
 ];
@@ -13736,9 +12166,7 @@ export var ListUseCases: StaticOperationSchema = [
   9,
   n0,
   _LUC,
-  {
-    [_h]: ["GET", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases", 200],
-  },
+  { [_h]: ["GET", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases", 200] },
   () => ListUseCasesRequest,
   () => ListUseCasesResponse,
 ];
@@ -13746,9 +12174,7 @@ export var ListUserHierarchyGroups: StaticOperationSchema = [
   9,
   n0,
   _LUHG,
-  {
-    [_h]: ["GET", "/user-hierarchy-groups-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/user-hierarchy-groups-summary/{InstanceId}", 200] },
   () => ListUserHierarchyGroupsRequest,
   () => ListUserHierarchyGroupsResponse,
 ];
@@ -13756,9 +12182,7 @@ export var ListUserProficiencies: StaticOperationSchema = [
   9,
   n0,
   _LUP,
-  {
-    [_h]: ["GET", "/users/{InstanceId}/{UserId}/proficiencies", 200],
-  },
+  { [_h]: ["GET", "/users/{InstanceId}/{UserId}/proficiencies", 200] },
   () => ListUserProficienciesRequest,
   () => ListUserProficienciesResponse,
 ];
@@ -13766,9 +12190,7 @@ export var ListUsers: StaticOperationSchema = [
   9,
   n0,
   _LU,
-  {
-    [_h]: ["GET", "/users-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/users-summary/{InstanceId}", 200] },
   () => ListUsersRequest,
   () => ListUsersResponse,
 ];
@@ -13776,9 +12198,7 @@ export var ListViews: StaticOperationSchema = [
   9,
   n0,
   _LVi,
-  {
-    [_h]: ["GET", "/views/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/views/{InstanceId}", 200] },
   () => ListViewsRequest,
   () => ListViewsResponse,
 ];
@@ -13786,9 +12206,7 @@ export var ListViewVersions: StaticOperationSchema = [
   9,
   n0,
   _LVV,
-  {
-    [_h]: ["GET", "/views/{InstanceId}/{ViewId}/versions", 200],
-  },
+  { [_h]: ["GET", "/views/{InstanceId}/{ViewId}/versions", 200] },
   () => ListViewVersionsRequest,
   () => ListViewVersionsResponse,
 ];
@@ -13796,9 +12214,7 @@ export var ListWorkspaceMedia: StaticOperationSchema = [
   9,
   n0,
   _LWM,
-  {
-    [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}/media", 200] },
   () => ListWorkspaceMediaRequest,
   () => ListWorkspaceMediaResponse,
 ];
@@ -13806,9 +12222,7 @@ export var ListWorkspacePages: StaticOperationSchema = [
   9,
   n0,
   _LWP,
-  {
-    [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}/pages", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{InstanceId}/{WorkspaceId}/pages", 200] },
   () => ListWorkspacePagesRequest,
   () => ListWorkspacePagesResponse,
 ];
@@ -13816,9 +12230,7 @@ export var ListWorkspaces: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_h]: ["GET", "/workspaces/{InstanceId}", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{InstanceId}", 200] },
   () => ListWorkspacesRequest,
   () => ListWorkspacesResponse,
 ];
@@ -13826,9 +12238,7 @@ export var MonitorContact: StaticOperationSchema = [
   9,
   n0,
   _MCo,
-  {
-    [_h]: ["POST", "/contact/monitor", 200],
-  },
+  { [_h]: ["POST", "/contact/monitor", 200] },
   () => MonitorContactRequest,
   () => MonitorContactResponse,
 ];
@@ -13836,9 +12246,7 @@ export var PauseContact: StaticOperationSchema = [
   9,
   n0,
   _PCau,
-  {
-    [_h]: ["POST", "/contact/pause", 200],
-  },
+  { [_h]: ["POST", "/contact/pause", 200] },
   () => PauseContactRequest,
   () => PauseContactResponse,
 ];
@@ -13846,9 +12254,7 @@ export var PutUserStatus: StaticOperationSchema = [
   9,
   n0,
   _PUS,
-  {
-    [_h]: ["PUT", "/users/{InstanceId}/{UserId}/status", 200],
-  },
+  { [_h]: ["PUT", "/users/{InstanceId}/{UserId}/status", 200] },
   () => PutUserStatusRequest,
   () => PutUserStatusResponse,
 ];
@@ -13856,9 +12262,7 @@ export var ReleasePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _RPN,
-  {
-    [_h]: ["DELETE", "/phone-number/{PhoneNumberId}", 200],
-  },
+  { [_h]: ["DELETE", "/phone-number/{PhoneNumberId}", 200] },
   () => ReleasePhoneNumberRequest,
   () => __Unit,
 ];
@@ -13866,9 +12270,7 @@ export var ReplicateInstance: StaticOperationSchema = [
   9,
   n0,
   _RIep,
-  {
-    [_h]: ["POST", "/instance/{InstanceId}/replicate", 200],
-  },
+  { [_h]: ["POST", "/instance/{InstanceId}/replicate", 200] },
   () => ReplicateInstanceRequest,
   () => ReplicateInstanceResponse,
 ];
@@ -13876,9 +12278,7 @@ export var ResumeContact: StaticOperationSchema = [
   9,
   n0,
   _RCes,
-  {
-    [_h]: ["POST", "/contact/resume", 200],
-  },
+  { [_h]: ["POST", "/contact/resume", 200] },
   () => ResumeContactRequest,
   () => ResumeContactResponse,
 ];
@@ -13886,9 +12286,7 @@ export var ResumeContactRecording: StaticOperationSchema = [
   9,
   n0,
   _RCRes,
-  {
-    [_h]: ["POST", "/contact/resume-recording", 200],
-  },
+  { [_h]: ["POST", "/contact/resume-recording", 200] },
   () => ResumeContactRecordingRequest,
   () => ResumeContactRecordingResponse,
 ];
@@ -13896,9 +12294,7 @@ export var SearchAgentStatuses: StaticOperationSchema = [
   9,
   n0,
   _SAS,
-  {
-    [_h]: ["POST", "/search-agent-statuses", 200],
-  },
+  { [_h]: ["POST", "/search-agent-statuses", 200] },
   () => SearchAgentStatusesRequest,
   () => SearchAgentStatusesResponse,
 ];
@@ -13906,9 +12302,7 @@ export var SearchAvailablePhoneNumbers: StaticOperationSchema = [
   9,
   n0,
   _SAPN,
-  {
-    [_h]: ["POST", "/phone-number/search-available", 200],
-  },
+  { [_h]: ["POST", "/phone-number/search-available", 200] },
   () => SearchAvailablePhoneNumbersRequest,
   () => SearchAvailablePhoneNumbersResponse,
 ];
@@ -13916,9 +12310,7 @@ export var SearchContactEvaluations: StaticOperationSchema = [
   9,
   n0,
   _SCE,
-  {
-    [_h]: ["POST", "/search-contact-evaluations", 200],
-  },
+  { [_h]: ["POST", "/search-contact-evaluations", 200] },
   () => SearchContactEvaluationsRequest,
   () => SearchContactEvaluationsResponse,
 ];
@@ -13926,9 +12318,7 @@ export var SearchContactFlowModules: StaticOperationSchema = [
   9,
   n0,
   _SCFM,
-  {
-    [_h]: ["POST", "/search-contact-flow-modules", 200],
-  },
+  { [_h]: ["POST", "/search-contact-flow-modules", 200] },
   () => SearchContactFlowModulesRequest,
   () => SearchContactFlowModulesResponse,
 ];
@@ -13936,9 +12326,7 @@ export var SearchContactFlows: StaticOperationSchema = [
   9,
   n0,
   _SCF,
-  {
-    [_h]: ["POST", "/search-contact-flows", 200],
-  },
+  { [_h]: ["POST", "/search-contact-flows", 200] },
   () => SearchContactFlowsRequest,
   () => SearchContactFlowsResponse,
 ];
@@ -13946,9 +12334,7 @@ export var SearchContacts: StaticOperationSchema = [
   9,
   n0,
   _SCea,
-  {
-    [_h]: ["POST", "/search-contacts", 200],
-  },
+  { [_h]: ["POST", "/search-contacts", 200] },
   () => SearchContactsRequest,
   () => SearchContactsResponse,
 ];
@@ -13956,9 +12342,7 @@ export var SearchDataTables: StaticOperationSchema = [
   9,
   n0,
   _SDT,
-  {
-    [_h]: ["POST", "/search-data-tables", 200],
-  },
+  { [_h]: ["POST", "/search-data-tables", 200] },
   () => SearchDataTablesRequest,
   () => SearchDataTablesResponse,
 ];
@@ -13966,9 +12350,7 @@ export var SearchEmailAddresses: StaticOperationSchema = [
   9,
   n0,
   _SEAe,
-  {
-    [_h]: ["POST", "/search-email-addresses", 200],
-  },
+  { [_h]: ["POST", "/search-email-addresses", 200] },
   () => SearchEmailAddressesRequest,
   () => SearchEmailAddressesResponse,
 ];
@@ -13976,9 +12358,7 @@ export var SearchEvaluationForms: StaticOperationSchema = [
   9,
   n0,
   _SEF,
-  {
-    [_h]: ["POST", "/search-evaluation-forms", 200],
-  },
+  { [_h]: ["POST", "/search-evaluation-forms", 200] },
   () => SearchEvaluationFormsRequest,
   () => SearchEvaluationFormsResponse,
 ];
@@ -13986,9 +12366,7 @@ export var SearchHoursOfOperationOverrides: StaticOperationSchema = [
   9,
   n0,
   _SHOOO,
-  {
-    [_h]: ["POST", "/search-hours-of-operation-overrides", 200],
-  },
+  { [_h]: ["POST", "/search-hours-of-operation-overrides", 200] },
   () => SearchHoursOfOperationOverridesRequest,
   () => SearchHoursOfOperationOverridesResponse,
 ];
@@ -13996,9 +12374,7 @@ export var SearchHoursOfOperations: StaticOperationSchema = [
   9,
   n0,
   _SHOO,
-  {
-    [_h]: ["POST", "/search-hours-of-operations", 200],
-  },
+  { [_h]: ["POST", "/search-hours-of-operations", 200] },
   () => SearchHoursOfOperationsRequest,
   () => SearchHoursOfOperationsResponse,
 ];
@@ -14006,9 +12382,7 @@ export var SearchPredefinedAttributes: StaticOperationSchema = [
   9,
   n0,
   _SPAe,
-  {
-    [_h]: ["POST", "/search-predefined-attributes", 200],
-  },
+  { [_h]: ["POST", "/search-predefined-attributes", 200] },
   () => SearchPredefinedAttributesRequest,
   () => SearchPredefinedAttributesResponse,
 ];
@@ -14016,9 +12390,7 @@ export var SearchPrompts: StaticOperationSchema = [
   9,
   n0,
   _SPea,
-  {
-    [_h]: ["POST", "/search-prompts", 200],
-  },
+  { [_h]: ["POST", "/search-prompts", 200] },
   () => SearchPromptsRequest,
   () => SearchPromptsResponse,
 ];
@@ -14026,9 +12398,7 @@ export var SearchQueues: StaticOperationSchema = [
   9,
   n0,
   _SQ,
-  {
-    [_h]: ["POST", "/search-queues", 200],
-  },
+  { [_h]: ["POST", "/search-queues", 200] },
   () => SearchQueuesRequest,
   () => SearchQueuesResponse,
 ];
@@ -14036,9 +12406,7 @@ export var SearchQuickConnects: StaticOperationSchema = [
   9,
   n0,
   _SQC,
-  {
-    [_h]: ["POST", "/search-quick-connects", 200],
-  },
+  { [_h]: ["POST", "/search-quick-connects", 200] },
   () => SearchQuickConnectsRequest,
   () => SearchQuickConnectsResponse,
 ];
@@ -14046,9 +12414,7 @@ export var SearchResourceTags: StaticOperationSchema = [
   9,
   n0,
   _SRT,
-  {
-    [_h]: ["POST", "/search-resource-tags", 200],
-  },
+  { [_h]: ["POST", "/search-resource-tags", 200] },
   () => SearchResourceTagsRequest,
   () => SearchResourceTagsResponse,
 ];
@@ -14056,9 +12422,7 @@ export var SearchRoutingProfiles: StaticOperationSchema = [
   9,
   n0,
   _SRP,
-  {
-    [_h]: ["POST", "/search-routing-profiles", 200],
-  },
+  { [_h]: ["POST", "/search-routing-profiles", 200] },
   () => SearchRoutingProfilesRequest,
   () => SearchRoutingProfilesResponse,
 ];
@@ -14066,9 +12430,7 @@ export var SearchSecurityProfiles: StaticOperationSchema = [
   9,
   n0,
   _SSP,
-  {
-    [_h]: ["POST", "/search-security-profiles", 200],
-  },
+  { [_h]: ["POST", "/search-security-profiles", 200] },
   () => SearchSecurityProfilesRequest,
   () => SearchSecurityProfilesResponse,
 ];
@@ -14076,9 +12438,7 @@ export var SearchUserHierarchyGroups: StaticOperationSchema = [
   9,
   n0,
   _SUHG,
-  {
-    [_h]: ["POST", "/search-user-hierarchy-groups", 200],
-  },
+  { [_h]: ["POST", "/search-user-hierarchy-groups", 200] },
   () => SearchUserHierarchyGroupsRequest,
   () => SearchUserHierarchyGroupsResponse,
 ];
@@ -14086,9 +12446,7 @@ export var SearchUsers: StaticOperationSchema = [
   9,
   n0,
   _SUe,
-  {
-    [_h]: ["POST", "/search-users", 200],
-  },
+  { [_h]: ["POST", "/search-users", 200] },
   () => SearchUsersRequest,
   () => SearchUsersResponse,
 ];
@@ -14096,9 +12454,7 @@ export var SearchViews: StaticOperationSchema = [
   9,
   n0,
   _SVe,
-  {
-    [_h]: ["POST", "/search-views", 200],
-  },
+  { [_h]: ["POST", "/search-views", 200] },
   () => SearchViewsRequest,
   () => SearchViewsResponse,
 ];
@@ -14106,9 +12462,7 @@ export var SearchVocabularies: StaticOperationSchema = [
   9,
   n0,
   _SVea,
-  {
-    [_h]: ["POST", "/vocabulary-summary/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/vocabulary-summary/{InstanceId}", 200] },
   () => SearchVocabulariesRequest,
   () => SearchVocabulariesResponse,
 ];
@@ -14116,9 +12470,7 @@ export var SearchWorkspaceAssociations: StaticOperationSchema = [
   9,
   n0,
   _SWA,
-  {
-    [_h]: ["POST", "/search-workspace-associations", 200],
-  },
+  { [_h]: ["POST", "/search-workspace-associations", 200] },
   () => SearchWorkspaceAssociationsRequest,
   () => SearchWorkspaceAssociationsResponse,
 ];
@@ -14126,9 +12478,7 @@ export var SearchWorkspaces: StaticOperationSchema = [
   9,
   n0,
   _SW,
-  {
-    [_h]: ["POST", "/search-workspaces", 200],
-  },
+  { [_h]: ["POST", "/search-workspaces", 200] },
   () => SearchWorkspacesRequest,
   () => SearchWorkspacesResponse,
 ];
@@ -14136,9 +12486,7 @@ export var SendChatIntegrationEvent: StaticOperationSchema = [
   9,
   n0,
   _SCIE,
-  {
-    [_h]: ["POST", "/chat-integration-event", 200],
-  },
+  { [_h]: ["POST", "/chat-integration-event", 200] },
   () => SendChatIntegrationEventRequest,
   () => SendChatIntegrationEventResponse,
 ];
@@ -14146,9 +12494,7 @@ export var SendOutboundEmail: StaticOperationSchema = [
   9,
   n0,
   _SOE,
-  {
-    [_h]: ["PUT", "/instance/{InstanceId}/outbound-email", 200],
-  },
+  { [_h]: ["PUT", "/instance/{InstanceId}/outbound-email", 200] },
   () => SendOutboundEmailRequest,
   () => SendOutboundEmailResponse,
 ];
@@ -14156,9 +12502,7 @@ export var StartAttachedFileUpload: StaticOperationSchema = [
   9,
   n0,
   _SAFU,
-  {
-    [_h]: ["PUT", "/attached-files/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/attached-files/{InstanceId}", 200] },
   () => StartAttachedFileUploadRequest,
   () => StartAttachedFileUploadResponse,
 ];
@@ -14166,9 +12510,7 @@ export var StartChatContact: StaticOperationSchema = [
   9,
   n0,
   _SCC,
-  {
-    [_h]: ["PUT", "/contact/chat", 200],
-  },
+  { [_h]: ["PUT", "/contact/chat", 200] },
   () => StartChatContactRequest,
   () => StartChatContactResponse,
 ];
@@ -14176,9 +12518,7 @@ export var StartContactEvaluation: StaticOperationSchema = [
   9,
   n0,
   _SCEt,
-  {
-    [_h]: ["PUT", "/contact-evaluations/{InstanceId}", 200],
-  },
+  { [_h]: ["PUT", "/contact-evaluations/{InstanceId}", 200] },
   () => StartContactEvaluationRequest,
   () => StartContactEvaluationResponse,
 ];
@@ -14186,9 +12526,7 @@ export var StartContactMediaProcessing: StaticOperationSchema = [
   9,
   n0,
   _SCMP,
-  {
-    [_h]: ["POST", "/contact/start-contact-media-processing", 200],
-  },
+  { [_h]: ["POST", "/contact/start-contact-media-processing", 200] },
   () => StartContactMediaProcessingRequest,
   () => StartContactMediaProcessingResponse,
 ];
@@ -14196,9 +12534,7 @@ export var StartContactRecording: StaticOperationSchema = [
   9,
   n0,
   _SCRta,
-  {
-    [_h]: ["POST", "/contact/start-recording", 200],
-  },
+  { [_h]: ["POST", "/contact/start-recording", 200] },
   () => StartContactRecordingRequest,
   () => StartContactRecordingResponse,
 ];
@@ -14206,9 +12542,7 @@ export var StartContactStreaming: StaticOperationSchema = [
   9,
   n0,
   _SCS,
-  {
-    [_h]: ["POST", "/contact/start-streaming", 200],
-  },
+  { [_h]: ["POST", "/contact/start-streaming", 200] },
   () => StartContactStreamingRequest,
   () => StartContactStreamingResponse,
 ];
@@ -14216,9 +12550,7 @@ export var StartEmailContact: StaticOperationSchema = [
   9,
   n0,
   _SEC,
-  {
-    [_h]: ["PUT", "/contact/email", 200],
-  },
+  { [_h]: ["PUT", "/contact/email", 200] },
   () => StartEmailContactRequest,
   () => StartEmailContactResponse,
 ];
@@ -14226,9 +12558,7 @@ export var StartOutboundChatContact: StaticOperationSchema = [
   9,
   n0,
   _SOCC,
-  {
-    [_h]: ["PUT", "/contact/outbound-chat", 200],
-  },
+  { [_h]: ["PUT", "/contact/outbound-chat", 200] },
   () => StartOutboundChatContactRequest,
   () => StartOutboundChatContactResponse,
 ];
@@ -14236,9 +12566,7 @@ export var StartOutboundEmailContact: StaticOperationSchema = [
   9,
   n0,
   _SOEC,
-  {
-    [_h]: ["PUT", "/contact/outbound-email", 200],
-  },
+  { [_h]: ["PUT", "/contact/outbound-email", 200] },
   () => StartOutboundEmailContactRequest,
   () => StartOutboundEmailContactResponse,
 ];
@@ -14246,9 +12574,7 @@ export var StartOutboundVoiceContact: StaticOperationSchema = [
   9,
   n0,
   _SOVC,
-  {
-    [_h]: ["PUT", "/contact/outbound-voice", 200],
-  },
+  { [_h]: ["PUT", "/contact/outbound-voice", 200] },
   () => StartOutboundVoiceContactRequest,
   () => StartOutboundVoiceContactResponse,
 ];
@@ -14256,9 +12582,7 @@ export var StartScreenSharing: StaticOperationSchema = [
   9,
   n0,
   _SSS,
-  {
-    [_h]: ["PUT", "/contact/screen-sharing", 200],
-  },
+  { [_h]: ["PUT", "/contact/screen-sharing", 200] },
   () => StartScreenSharingRequest,
   () => StartScreenSharingResponse,
 ];
@@ -14266,9 +12590,7 @@ export var StartTaskContact: StaticOperationSchema = [
   9,
   n0,
   _STC,
-  {
-    [_h]: ["PUT", "/contact/task", 200],
-  },
+  { [_h]: ["PUT", "/contact/task", 200] },
   () => StartTaskContactRequest,
   () => StartTaskContactResponse,
 ];
@@ -14276,9 +12598,7 @@ export var StartWebRTCContact: StaticOperationSchema = [
   9,
   n0,
   _SWRTCC,
-  {
-    [_h]: ["PUT", "/contact/webrtc", 200],
-  },
+  { [_h]: ["PUT", "/contact/webrtc", 200] },
   () => StartWebRTCContactRequest,
   () => StartWebRTCContactResponse,
 ];
@@ -14286,9 +12606,7 @@ export var StopContact: StaticOperationSchema = [
   9,
   n0,
   _SCtop,
-  {
-    [_h]: ["POST", "/contact/stop", 200],
-  },
+  { [_h]: ["POST", "/contact/stop", 200] },
   () => StopContactRequest,
   () => StopContactResponse,
 ];
@@ -14296,9 +12614,7 @@ export var StopContactMediaProcessing: StaticOperationSchema = [
   9,
   n0,
   _SCMPt,
-  {
-    [_h]: ["POST", "/contact/stop-contact-media-processing", 200],
-  },
+  { [_h]: ["POST", "/contact/stop-contact-media-processing", 200] },
   () => StopContactMediaProcessingRequest,
   () => StopContactMediaProcessingResponse,
 ];
@@ -14306,9 +12622,7 @@ export var StopContactRecording: StaticOperationSchema = [
   9,
   n0,
   _SCRtop,
-  {
-    [_h]: ["POST", "/contact/stop-recording", 200],
-  },
+  { [_h]: ["POST", "/contact/stop-recording", 200] },
   () => StopContactRecordingRequest,
   () => StopContactRecordingResponse,
 ];
@@ -14316,9 +12630,7 @@ export var StopContactStreaming: StaticOperationSchema = [
   9,
   n0,
   _SCSt,
-  {
-    [_h]: ["POST", "/contact/stop-streaming", 200],
-  },
+  { [_h]: ["POST", "/contact/stop-streaming", 200] },
   () => StopContactStreamingRequest,
   () => StopContactStreamingResponse,
 ];
@@ -14326,9 +12638,7 @@ export var SubmitContactEvaluation: StaticOperationSchema = [
   9,
   n0,
   _SCEu,
-  {
-    [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}/submit", 200],
-  },
+  { [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}/submit", 200] },
   () => SubmitContactEvaluationRequest,
   () => SubmitContactEvaluationResponse,
 ];
@@ -14336,9 +12646,7 @@ export var SuspendContactRecording: StaticOperationSchema = [
   9,
   n0,
   _SCRu,
-  {
-    [_h]: ["POST", "/contact/suspend-recording", 200],
-  },
+  { [_h]: ["POST", "/contact/suspend-recording", 200] },
   () => SuspendContactRecordingRequest,
   () => SuspendContactRecordingResponse,
 ];
@@ -14346,9 +12654,7 @@ export var TagContact: StaticOperationSchema = [
   9,
   n0,
   _TCag,
-  {
-    [_h]: ["POST", "/contact/tags", 200],
-  },
+  { [_h]: ["POST", "/contact/tags", 200] },
   () => TagContactRequest,
   () => TagContactResponse,
 ];
@@ -14356,9 +12662,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -14366,9 +12670,7 @@ export var TransferContact: StaticOperationSchema = [
   9,
   n0,
   _TCra,
-  {
-    [_h]: ["POST", "/contact/transfer", 200],
-  },
+  { [_h]: ["POST", "/contact/transfer", 200] },
   () => TransferContactRequest,
   () => TransferContactResponse,
 ];
@@ -14376,9 +12678,7 @@ export var UntagContact: StaticOperationSchema = [
   9,
   n0,
   _UCn,
-  {
-    [_h]: ["DELETE", "/contact/tags/{InstanceId}/{ContactId}", 200],
-  },
+  { [_h]: ["DELETE", "/contact/tags/{InstanceId}/{ContactId}", 200] },
   () => UntagContactRequest,
   () => UntagContactResponse,
 ];
@@ -14386,9 +12686,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _URn,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -14396,9 +12694,7 @@ export var UpdateAgentStatus: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["POST", "/agent-status/{InstanceId}/{AgentStatusId}", 200],
-  },
+  { [_h]: ["POST", "/agent-status/{InstanceId}/{AgentStatusId}", 200] },
   () => UpdateAgentStatusRequest,
   () => __Unit,
 ];
@@ -14406,9 +12702,7 @@ export var UpdateAuthenticationProfile: StaticOperationSchema = [
   9,
   n0,
   _UAP,
-  {
-    [_h]: ["POST", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200],
-  },
+  { [_h]: ["POST", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200] },
   () => UpdateAuthenticationProfileRequest,
   () => __Unit,
 ];
@@ -14416,9 +12710,7 @@ export var UpdateContact: StaticOperationSchema = [
   9,
   n0,
   _UCp,
-  {
-    [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}", 200],
-  },
+  { [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}", 200] },
   () => UpdateContactRequest,
   () => UpdateContactResponse,
 ];
@@ -14426,9 +12718,7 @@ export var UpdateContactAttributes: StaticOperationSchema = [
   9,
   n0,
   _UCApd,
-  {
-    [_h]: ["POST", "/contact/attributes", 200],
-  },
+  { [_h]: ["POST", "/contact/attributes", 200] },
   () => UpdateContactAttributesRequest,
   () => UpdateContactAttributesResponse,
 ];
@@ -14436,9 +12726,7 @@ export var UpdateContactEvaluation: StaticOperationSchema = [
   9,
   n0,
   _UCE,
-  {
-    [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200],
-  },
+  { [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] },
   () => UpdateContactEvaluationRequest,
   () => UpdateContactEvaluationResponse,
 ];
@@ -14446,9 +12734,7 @@ export var UpdateContactFlowContent: StaticOperationSchema = [
   9,
   n0,
   _UCFC,
-  {
-    [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/content", 200],
-  },
+  { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/content", 200] },
   () => UpdateContactFlowContentRequest,
   () => UpdateContactFlowContentResponse,
 ];
@@ -14456,9 +12742,7 @@ export var UpdateContactFlowMetadata: StaticOperationSchema = [
   9,
   n0,
   _UCFM,
-  {
-    [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/metadata", 200],
-  },
+  { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/metadata", 200] },
   () => UpdateContactFlowMetadataRequest,
   () => UpdateContactFlowMetadataResponse,
 ];
@@ -14466,9 +12750,7 @@ export var UpdateContactFlowModuleAlias: StaticOperationSchema = [
   9,
   n0,
   _UCFMA,
-  {
-    [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200],
-  },
+  { [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/alias/{AliasId}", 200] },
   () => UpdateContactFlowModuleAliasRequest,
   () => UpdateContactFlowModuleAliasResponse,
 ];
@@ -14476,9 +12758,7 @@ export var UpdateContactFlowModuleContent: StaticOperationSchema = [
   9,
   n0,
   _UCFMC,
-  {
-    [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/content", 200],
-  },
+  { [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/content", 200] },
   () => UpdateContactFlowModuleContentRequest,
   () => UpdateContactFlowModuleContentResponse,
 ];
@@ -14486,9 +12766,7 @@ export var UpdateContactFlowModuleMetadata: StaticOperationSchema = [
   9,
   n0,
   _UCFMM,
-  {
-    [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/metadata", 200],
-  },
+  { [_h]: ["POST", "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/metadata", 200] },
   () => UpdateContactFlowModuleMetadataRequest,
   () => UpdateContactFlowModuleMetadataResponse,
 ];
@@ -14496,9 +12774,7 @@ export var UpdateContactFlowName: StaticOperationSchema = [
   9,
   n0,
   _UCFN,
-  {
-    [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/name", 200],
-  },
+  { [_h]: ["POST", "/contact-flows/{InstanceId}/{ContactFlowId}/name", 200] },
   () => UpdateContactFlowNameRequest,
   () => UpdateContactFlowNameResponse,
 ];
@@ -14506,9 +12782,7 @@ export var UpdateContactRoutingData: StaticOperationSchema = [
   9,
   n0,
   _UCRD,
-  {
-    [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}/routing-data", 200],
-  },
+  { [_h]: ["POST", "/contacts/{InstanceId}/{ContactId}/routing-data", 200] },
   () => UpdateContactRoutingDataRequest,
   () => UpdateContactRoutingDataResponse,
 ];
@@ -14516,9 +12790,7 @@ export var UpdateContactSchedule: StaticOperationSchema = [
   9,
   n0,
   _UCS,
-  {
-    [_h]: ["POST", "/contact/schedule", 200],
-  },
+  { [_h]: ["POST", "/contact/schedule", 200] },
   () => UpdateContactScheduleRequest,
   () => UpdateContactScheduleResponse,
 ];
@@ -14526,9 +12798,7 @@ export var UpdateDataTableAttribute: StaticOperationSchema = [
   9,
   n0,
   _UDTA,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] },
   () => UpdateDataTableAttributeRequest,
   () => UpdateDataTableAttributeResponse,
 ];
@@ -14536,9 +12806,7 @@ export var UpdateDataTableMetadata: StaticOperationSchema = [
   9,
   n0,
   _UDTM,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}", 200] },
   () => UpdateDataTableMetadataRequest,
   () => UpdateDataTableMetadataResponse,
 ];
@@ -14546,9 +12814,7 @@ export var UpdateDataTablePrimaryValues: StaticOperationSchema = [
   9,
   n0,
   _UDTPV,
-  {
-    [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/update-primary", 200],
-  },
+  { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/values/update-primary", 200] },
   () => UpdateDataTablePrimaryValuesRequest,
   () => UpdateDataTablePrimaryValuesResponse,
 ];
@@ -14556,9 +12822,7 @@ export var UpdateEmailAddressMetadata: StaticOperationSchema = [
   9,
   n0,
   _UEAM,
-  {
-    [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}", 200],
-  },
+  { [_h]: ["POST", "/email-addresses/{InstanceId}/{EmailAddressId}", 200] },
   () => UpdateEmailAddressMetadataRequest,
   () => UpdateEmailAddressMetadataResponse,
 ];
@@ -14566,9 +12830,7 @@ export var UpdateEvaluationForm: StaticOperationSchema = [
   9,
   n0,
   _UEF,
-  {
-    [_h]: ["PUT", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200],
-  },
+  { [_h]: ["PUT", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] },
   () => UpdateEvaluationFormRequest,
   () => UpdateEvaluationFormResponse,
 ];
@@ -14576,9 +12838,7 @@ export var UpdateHoursOfOperation: StaticOperationSchema = [
   9,
   n0,
   _UHOO,
-  {
-    [_h]: ["POST", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200],
-  },
+  { [_h]: ["POST", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] },
   () => UpdateHoursOfOperationRequest,
   () => __Unit,
 ];
@@ -14600,9 +12860,7 @@ export var UpdateInstanceAttribute: StaticOperationSchema = [
   9,
   n0,
   _UIA,
-  {
-    [_h]: ["POST", "/instance/{InstanceId}/attribute/{AttributeType}", 200],
-  },
+  { [_h]: ["POST", "/instance/{InstanceId}/attribute/{AttributeType}", 200] },
   () => UpdateInstanceAttributeRequest,
   () => __Unit,
 ];
@@ -14610,9 +12868,7 @@ export var UpdateInstanceStorageConfig: StaticOperationSchema = [
   9,
   n0,
   _UISC,
-  {
-    [_h]: ["POST", "/instance/{InstanceId}/storage-config/{AssociationId}", 200],
-  },
+  { [_h]: ["POST", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] },
   () => UpdateInstanceStorageConfigRequest,
   () => __Unit,
 ];
@@ -14620,9 +12876,7 @@ export var UpdateParticipantAuthentication: StaticOperationSchema = [
   9,
   n0,
   _UPA,
-  {
-    [_h]: ["POST", "/contact/update-participant-authentication", 200],
-  },
+  { [_h]: ["POST", "/contact/update-participant-authentication", 200] },
   () => UpdateParticipantAuthenticationRequest,
   () => UpdateParticipantAuthenticationResponse,
 ];
@@ -14630,9 +12884,7 @@ export var UpdateParticipantRoleConfig: StaticOperationSchema = [
   9,
   n0,
   _UPRC,
-  {
-    [_h]: ["PUT", "/contact/participant-role-config/{InstanceId}/{ContactId}", 200],
-  },
+  { [_h]: ["PUT", "/contact/participant-role-config/{InstanceId}/{ContactId}", 200] },
   () => UpdateParticipantRoleConfigRequest,
   () => UpdateParticipantRoleConfigResponse,
 ];
@@ -14640,9 +12892,7 @@ export var UpdatePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _UPN,
-  {
-    [_h]: ["PUT", "/phone-number/{PhoneNumberId}", 200],
-  },
+  { [_h]: ["PUT", "/phone-number/{PhoneNumberId}", 200] },
   () => UpdatePhoneNumberRequest,
   () => UpdatePhoneNumberResponse,
 ];
@@ -14650,9 +12900,7 @@ export var UpdatePhoneNumberMetadata: StaticOperationSchema = [
   9,
   n0,
   _UPNM,
-  {
-    [_h]: ["PUT", "/phone-number/{PhoneNumberId}/metadata", 200],
-  },
+  { [_h]: ["PUT", "/phone-number/{PhoneNumberId}/metadata", 200] },
   () => UpdatePhoneNumberMetadataRequest,
   () => __Unit,
 ];
@@ -14660,9 +12908,7 @@ export var UpdatePredefinedAttribute: StaticOperationSchema = [
   9,
   n0,
   _UPAp,
-  {
-    [_h]: ["POST", "/predefined-attributes/{InstanceId}/{Name}", 200],
-  },
+  { [_h]: ["POST", "/predefined-attributes/{InstanceId}/{Name}", 200] },
   () => UpdatePredefinedAttributeRequest,
   () => __Unit,
 ];
@@ -14670,9 +12916,7 @@ export var UpdatePrompt: StaticOperationSchema = [
   9,
   n0,
   _UPp,
-  {
-    [_h]: ["POST", "/prompts/{InstanceId}/{PromptId}", 200],
-  },
+  { [_h]: ["POST", "/prompts/{InstanceId}/{PromptId}", 200] },
   () => UpdatePromptRequest,
   () => UpdatePromptResponse,
 ];
@@ -14680,9 +12924,7 @@ export var UpdateQueueHoursOfOperation: StaticOperationSchema = [
   9,
   n0,
   _UQHOO,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/hours-of-operation", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/hours-of-operation", 200] },
   () => UpdateQueueHoursOfOperationRequest,
   () => __Unit,
 ];
@@ -14690,9 +12932,7 @@ export var UpdateQueueMaxContacts: StaticOperationSchema = [
   9,
   n0,
   _UQMC,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/max-contacts", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/max-contacts", 200] },
   () => UpdateQueueMaxContactsRequest,
   () => __Unit,
 ];
@@ -14700,9 +12940,7 @@ export var UpdateQueueName: StaticOperationSchema = [
   9,
   n0,
   _UQN,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/name", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/name", 200] },
   () => UpdateQueueNameRequest,
   () => __Unit,
 ];
@@ -14710,9 +12948,7 @@ export var UpdateQueueOutboundCallerConfig: StaticOperationSchema = [
   9,
   n0,
   _UQOCC,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/outbound-caller-config", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/outbound-caller-config", 200] },
   () => UpdateQueueOutboundCallerConfigRequest,
   () => __Unit,
 ];
@@ -14720,9 +12956,7 @@ export var UpdateQueueOutboundEmailConfig: StaticOperationSchema = [
   9,
   n0,
   _UQOEC,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/outbound-email-config", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/outbound-email-config", 200] },
   () => UpdateQueueOutboundEmailConfigRequest,
   () => __Unit,
 ];
@@ -14730,9 +12964,7 @@ export var UpdateQueueStatus: StaticOperationSchema = [
   9,
   n0,
   _UQS,
-  {
-    [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/status", 200],
-  },
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/status", 200] },
   () => UpdateQueueStatusRequest,
   () => __Unit,
 ];
@@ -14740,9 +12972,7 @@ export var UpdateQuickConnectConfig: StaticOperationSchema = [
   9,
   n0,
   _UQCCp,
-  {
-    [_h]: ["POST", "/quick-connects/{InstanceId}/{QuickConnectId}/config", 200],
-  },
+  { [_h]: ["POST", "/quick-connects/{InstanceId}/{QuickConnectId}/config", 200] },
   () => UpdateQuickConnectConfigRequest,
   () => __Unit,
 ];
@@ -14750,9 +12980,7 @@ export var UpdateQuickConnectName: StaticOperationSchema = [
   9,
   n0,
   _UQCN,
-  {
-    [_h]: ["POST", "/quick-connects/{InstanceId}/{QuickConnectId}/name", 200],
-  },
+  { [_h]: ["POST", "/quick-connects/{InstanceId}/{QuickConnectId}/name", 200] },
   () => UpdateQuickConnectNameRequest,
   () => __Unit,
 ];
@@ -14760,9 +12988,7 @@ export var UpdateRoutingProfileAgentAvailabilityTimer: StaticOperationSchema = [
   9,
   n0,
   _URPAAT,
-  {
-    [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer", 200],
-  },
+  { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer", 200] },
   () => UpdateRoutingProfileAgentAvailabilityTimerRequest,
   () => __Unit,
 ];
@@ -14770,9 +12996,7 @@ export var UpdateRoutingProfileConcurrency: StaticOperationSchema = [
   9,
   n0,
   _URPC,
-  {
-    [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency", 200],
-  },
+  { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency", 200] },
   () => UpdateRoutingProfileConcurrencyRequest,
   () => __Unit,
 ];
@@ -14780,9 +13004,7 @@ export var UpdateRoutingProfileDefaultOutboundQueue: StaticOperationSchema = [
   9,
   n0,
   _URPDOQ,
-  {
-    [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue", 200],
-  },
+  { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue", 200] },
   () => UpdateRoutingProfileDefaultOutboundQueueRequest,
   () => __Unit,
 ];
@@ -14790,9 +13012,7 @@ export var UpdateRoutingProfileName: StaticOperationSchema = [
   9,
   n0,
   _URPN,
-  {
-    [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/name", 200],
-  },
+  { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/name", 200] },
   () => UpdateRoutingProfileNameRequest,
   () => __Unit,
 ];
@@ -14800,9 +13020,7 @@ export var UpdateRoutingProfileQueues: StaticOperationSchema = [
   9,
   n0,
   _URPQ,
-  {
-    [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues", 200],
-  },
+  { [_h]: ["POST", "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues", 200] },
   () => UpdateRoutingProfileQueuesRequest,
   () => __Unit,
 ];
@@ -14810,9 +13028,7 @@ export var UpdateRule: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_h]: ["PUT", "/rules/{InstanceId}/{RuleId}", 200],
-  },
+  { [_h]: ["PUT", "/rules/{InstanceId}/{RuleId}", 200] },
   () => UpdateRuleRequest,
   () => __Unit,
 ];
@@ -14820,9 +13036,7 @@ export var UpdateSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _USP,
-  {
-    [_h]: ["POST", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200],
-  },
+  { [_h]: ["POST", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] },
   () => UpdateSecurityProfileRequest,
   () => __Unit,
 ];
@@ -14830,9 +13044,7 @@ export var UpdateTaskTemplate: StaticOperationSchema = [
   9,
   n0,
   _UTT,
-  {
-    [_h]: ["POST", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200],
-  },
+  { [_h]: ["POST", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] },
   () => UpdateTaskTemplateRequest,
   () => UpdateTaskTemplateResponse,
 ];
@@ -14840,9 +13052,7 @@ export var UpdateTrafficDistribution: StaticOperationSchema = [
   9,
   n0,
   _UTD,
-  {
-    [_h]: ["PUT", "/traffic-distribution/{Id}", 200],
-  },
+  { [_h]: ["PUT", "/traffic-distribution/{Id}", 200] },
   () => UpdateTrafficDistributionRequest,
   () => UpdateTrafficDistributionResponse,
 ];
@@ -14850,9 +13060,7 @@ export var UpdateUserHierarchy: StaticOperationSchema = [
   9,
   n0,
   _UUH,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/hierarchy", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/hierarchy", 200] },
   () => UpdateUserHierarchyRequest,
   () => __Unit,
 ];
@@ -14860,9 +13068,7 @@ export var UpdateUserHierarchyGroupName: StaticOperationSchema = [
   9,
   n0,
   _UUHGN,
-  {
-    [_h]: ["POST", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name", 200],
-  },
+  { [_h]: ["POST", "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name", 200] },
   () => UpdateUserHierarchyGroupNameRequest,
   () => __Unit,
 ];
@@ -14870,9 +13076,7 @@ export var UpdateUserHierarchyStructure: StaticOperationSchema = [
   9,
   n0,
   _UUHS,
-  {
-    [_h]: ["POST", "/user-hierarchy-structure/{InstanceId}", 200],
-  },
+  { [_h]: ["POST", "/user-hierarchy-structure/{InstanceId}", 200] },
   () => UpdateUserHierarchyStructureRequest,
   () => __Unit,
 ];
@@ -14880,9 +13084,7 @@ export var UpdateUserIdentityInfo: StaticOperationSchema = [
   9,
   n0,
   _UUII,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/identity-info", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/identity-info", 200] },
   () => UpdateUserIdentityInfoRequest,
   () => __Unit,
 ];
@@ -14890,9 +13092,7 @@ export var UpdateUserPhoneConfig: StaticOperationSchema = [
   9,
   n0,
   _UUPC,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/phone-config", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/phone-config", 200] },
   () => UpdateUserPhoneConfigRequest,
   () => __Unit,
 ];
@@ -14900,9 +13100,7 @@ export var UpdateUserProficiencies: StaticOperationSchema = [
   9,
   n0,
   _UUP,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/proficiencies", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/proficiencies", 200] },
   () => UpdateUserProficienciesRequest,
   () => __Unit,
 ];
@@ -14910,9 +13108,7 @@ export var UpdateUserRoutingProfile: StaticOperationSchema = [
   9,
   n0,
   _UURP,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/routing-profile", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/routing-profile", 200] },
   () => UpdateUserRoutingProfileRequest,
   () => __Unit,
 ];
@@ -14920,9 +13116,7 @@ export var UpdateUserSecurityProfiles: StaticOperationSchema = [
   9,
   n0,
   _UUSP,
-  {
-    [_h]: ["POST", "/users/{InstanceId}/{UserId}/security-profiles", 200],
-  },
+  { [_h]: ["POST", "/users/{InstanceId}/{UserId}/security-profiles", 200] },
   () => UpdateUserSecurityProfilesRequest,
   () => __Unit,
 ];
@@ -14930,9 +13124,7 @@ export var UpdateViewContent: StaticOperationSchema = [
   9,
   n0,
   _UVC,
-  {
-    [_h]: ["POST", "/views/{InstanceId}/{ViewId}", 200],
-  },
+  { [_h]: ["POST", "/views/{InstanceId}/{ViewId}", 200] },
   () => UpdateViewContentRequest,
   () => UpdateViewContentResponse,
 ];
@@ -14940,9 +13132,7 @@ export var UpdateViewMetadata: StaticOperationSchema = [
   9,
   n0,
   _UVM,
-  {
-    [_h]: ["POST", "/views/{InstanceId}/{ViewId}/metadata", 200],
-  },
+  { [_h]: ["POST", "/views/{InstanceId}/{ViewId}/metadata", 200] },
   () => UpdateViewMetadataRequest,
   () => UpdateViewMetadataResponse,
 ];
@@ -14950,9 +13140,7 @@ export var UpdateWorkspaceMetadata: StaticOperationSchema = [
   9,
   n0,
   _UWM,
-  {
-    [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/metadata", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/metadata", 200] },
   () => UpdateWorkspaceMetadataRequest,
   () => UpdateWorkspaceMetadataResponse,
 ];
@@ -14960,9 +13148,7 @@ export var UpdateWorkspacePage: StaticOperationSchema = [
   9,
   n0,
   _UWP,
-  {
-    [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/pages/{Page}", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/pages/{Page}", 200] },
   () => UpdateWorkspacePageRequest,
   () => UpdateWorkspacePageResponse,
 ];
@@ -14970,9 +13156,7 @@ export var UpdateWorkspaceTheme: StaticOperationSchema = [
   9,
   n0,
   _UWT,
-  {
-    [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/theme", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/theme", 200] },
   () => UpdateWorkspaceThemeRequest,
   () => UpdateWorkspaceThemeResponse,
 ];
@@ -14980,9 +13164,7 @@ export var UpdateWorkspaceVisibility: StaticOperationSchema = [
   9,
   n0,
   _UWV,
-  {
-    [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/visibility", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{InstanceId}/{WorkspaceId}/visibility", 200] },
   () => UpdateWorkspaceVisibilityRequest,
   () => UpdateWorkspaceVisibilityResponse,
 ];

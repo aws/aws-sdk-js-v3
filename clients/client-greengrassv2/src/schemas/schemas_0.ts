@@ -352,20 +352,8 @@ import {
 import { GreengrassV2ServiceException as __GreengrassV2ServiceException } from "../models/GreengrassV2ServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateClientDeviceWithCoreDeviceEntry: StaticStructureSchema = [3, n0, _ACDWCDE, 0, [_tN], [0]];
 export var AssociateClientDeviceWithCoreDeviceErrorEntry: StaticStructureSchema = [
   3,
@@ -382,14 +370,7 @@ export var AssociateServiceRoleToAccountRequest: StaticStructureSchema = [
   _ASRTAR,
   0,
   [_rA],
-  [
-    [
-      0,
-      {
-        [_jN]: _RA,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _RA }]],
 ];
 export var AssociateServiceRoleToAccountResponse: StaticStructureSchema = [
   3,
@@ -397,14 +378,7 @@ export var AssociateServiceRoleToAccountResponse: StaticStructureSchema = [
   _ASRTARs,
   0,
   [_aA],
-  [
-    [
-      0,
-      {
-        [_jN]: _AA,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _AA }]],
 ];
 export var BatchAssociateClientDeviceWithCoreDeviceRequest: StaticStructureSchema = [
   3,
@@ -478,19 +452,8 @@ export var ComponentRunWith: StaticStructureSchema = [
   [0, () => SystemResourceLimits, 0],
 ];
 export var ComponentVersionListItem: StaticStructureSchema = [3, n0, _CVLI, 0, [_cN, _cV, _a], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectivityInfo: StaticStructureSchema = [
   3,
   n0,
@@ -498,30 +461,10 @@ export var ConnectivityInfo: StaticStructureSchema = [
   0,
   [_i, _hA, _pN, _met],
   [
-    [
-      0,
-      {
-        [_jN]: _I,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _HA,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _PN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _M,
-      },
-    ],
+    [0, { [_jN]: _I }],
+    [0, { [_jN]: _HA }],
+    [1, { [_jN]: _PN }],
+    [0, { [_jN]: _M }],
   ],
 ];
 export var CoreDevice: StaticStructureSchema = [3, n0, _CD, 0, [_cDTN, _s, _lSUT, _pla, _ar, _ru], [0, 0, 4, 0, 0, 0]];
@@ -613,14 +556,7 @@ export var DisassociateServiceRoleFromAccountResponse: StaticStructureSchema = [
   _DSRFARi,
   0,
   [_dA],
-  [
-    [
-      0,
-      {
-        [_jN]: _DA,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _DA }]],
 ];
 export var EffectiveDeployment: StaticStructureSchema = [
   3,
@@ -638,12 +574,7 @@ export var GetComponentRequest: StaticStructureSchema = [
   0,
   [_rOF, _a],
   [
-    [
-      0,
-      {
-        [_hQ]: _rOF,
-      },
-    ],
+    [0, { [_hQ]: _rOF }],
     [0, 1],
   ],
 ];
@@ -657,18 +588,8 @@ export var GetComponentVersionArtifactRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sET,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaiet,
-      },
-    ],
+    [0, { [_hQ]: _sET }],
+    [0, { [_hH]: _xaiet }],
   ],
 ];
 export var GetComponentVersionArtifactResponse: StaticStructureSchema = [3, n0, _GCVARe, 0, [_pSU], [0]];
@@ -680,18 +601,8 @@ export var GetConnectivityInfoResponse: StaticStructureSchema = [
   0,
   [_cI, _m],
   [
-    [
-      () => connectivityInfoList,
-      {
-        [_jN]: _CI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _Me,
-      },
-    ],
+    [() => connectivityInfoList, { [_jN]: _CI }],
+    [0, { [_jN]: _Me }],
   ],
 ];
 export var GetCoreDeviceRequest: StaticStructureSchema = [3, n0, _GCDR, 0, [_cDTN], [[0, 1]]];
@@ -735,18 +646,8 @@ export var GetServiceRoleForAccountResponse: StaticStructureSchema = [
   0,
   [_aA, _rA],
   [
-    [
-      0,
-      {
-        [_jN]: _AA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _RA,
-      },
-    ],
+    [0, { [_jN]: _AA }],
+    [0, { [_jN]: _RA }],
   ],
 ];
 export var InstalledComponent: StaticStructureSchema = [
@@ -761,23 +662,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IoTJobAbortConfig: StaticStructureSchema = [3, n0, _ITJAC, 0, [_cL], [() => IoTJobAbortCriteriaList]];
 export var IoTJobAbortCriteria: StaticStructureSchema = [3, n0, _ITJACo, 0, [_fT, _ac, _tP, _mNOET], [0, 0, 1, 1]];
 export var IoTJobExecutionsRolloutConfig: StaticStructureSchema = [
@@ -841,18 +730,8 @@ export var ListClientDevicesAssociatedWithCoreDeviceRequest: StaticStructureSche
   [_cDTN, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListClientDevicesAssociatedWithCoreDeviceResponse: StaticStructureSchema = [
@@ -870,24 +749,9 @@ export var ListComponentsRequest: StaticStructureSchema = [
   0,
   [_sc, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sc }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListComponentsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_com, _nT], [() => ComponentList, 0]];
@@ -899,18 +763,8 @@ export var ListComponentVersionsRequest: StaticStructureSchema = [
   [_a, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListComponentVersionsResponse: StaticStructureSchema = [
@@ -928,36 +782,11 @@ export var ListCoreDevicesRequest: StaticStructureSchema = [
   0,
   [_tGA, _s, _mR, _nT, _ru],
   [
-    [
-      0,
-      {
-        [_hQ]: _tGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ru,
-      },
-    ],
+    [0, { [_hQ]: _tGA }],
+    [0, { [_hQ]: _s }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _ru }],
   ],
 ];
 export var ListCoreDevicesResponse: StaticStructureSchema = [3, n0, _LCDRi, 0, [_cDo, _nT], [() => CoreDevicesList, 0]];
@@ -968,36 +797,11 @@ export var ListDeploymentsRequest: StaticStructureSchema = [
   0,
   [_tA, _hF, _pTA, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _tA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _hF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pTA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _tA }],
+    [0, { [_hQ]: _hF }],
+    [0, { [_hQ]: _pTA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDeploymentsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_dep, _nT], [() => DeploymentList, 0]];
@@ -1009,18 +813,8 @@ export var ListEffectiveDeploymentsRequest: StaticStructureSchema = [
   [_cDTN, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListEffectiveDeploymentsResponse: StaticStructureSchema = [
@@ -1039,24 +833,9 @@ export var ListInstalledComponentsRequest: StaticStructureSchema = [
   [_cDTN, _mR, _nT, _tF],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tF,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _tF }],
   ],
 ];
 export var ListInstalledComponentsResponse: StaticStructureSchema = [
@@ -1069,19 +848,8 @@ export var ListInstalledComponentsResponse: StaticStructureSchema = [
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var RequestAlreadyInProgressException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAIPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var RequestAlreadyInProgressException: StaticErrorSchema = [-3, n0, _RAIPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestAlreadyInProgressException, __RequestAlreadyInProgressException);
-
 export var ResolveComponentCandidatesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1110,28 +878,20 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _qC, _sC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SystemResourceLimits: StaticStructureSchema = [3, n0, _SRL, 0, [_mem, _cp], [1, 1]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -1139,25 +899,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _qC, _sC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1166,12 +912,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1182,19 +923,8 @@ export var UpdateConnectivityInfoRequest: StaticStructureSchema = [
   0,
   [_tN, _cI],
   [
-    [
-      0,
-      {
-        [_jN]: _TN,
-        [_hL]: 1,
-      },
-    ],
-    [
-      () => connectivityInfoList,
-      {
-        [_jN]: _CI,
-      },
-    ],
+    [0, { [_jN]: _TN, [_hL]: 1 }],
+    [() => connectivityInfoList, { [_jN]: _CI }],
   ],
 ];
 export var UpdateConnectivityInfoResponse: StaticStructureSchema = [
@@ -1204,39 +934,23 @@ export var UpdateConnectivityInfoResponse: StaticStructureSchema = [
   0,
   [_ve, _m],
   [
-    [
-      0,
-      {
-        [_jN]: _V,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _Me,
-      },
-    ],
+    [0, { [_jN]: _V }],
+    [0, { [_jN]: _Me }],
   ],
 ];
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _f],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var GreengrassV2ServiceException: StaticErrorSchema = [-3, _sm, "GreengrassV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GreengrassV2ServiceException, __GreengrassV2ServiceException);
-
 export var AssociateClientDeviceWithCoreDeviceEntryList: StaticListSchema = [
   1,
   n0,
@@ -1254,7 +968,6 @@ export var AssociateClientDeviceWithCoreDeviceErrorList: StaticListSchema = [
 export var AssociatedClientDeviceList: StaticListSchema = [1, n0, _ACDL, 0, () => AssociatedClientDevice];
 export var ComponentCandidateList: StaticListSchema = [1, n0, _CCL, 0, () => ComponentCandidate];
 export var ComponentConfigurationPathList = 64 | 0;
-
 export var ComponentList: StaticListSchema = [1, n0, _CL, 0, () => Component];
 export var ComponentPlatformList: StaticListSchema = [1, n0, _CPL, 0, () => ComponentPlatform];
 export var ComponentVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ComponentVersionListItem];
@@ -1276,22 +989,17 @@ export var DisassociateClientDeviceFromCoreDeviceErrorList: StaticListSchema = [
   () => DisassociateClientDeviceFromCoreDeviceErrorEntry,
 ];
 export var EffectiveDeploymentErrorStack = 64 | 0;
-
 export var EffectiveDeploymentErrorTypeList = 64 | 0;
-
 export var EffectiveDeploymentsList: StaticListSchema = [1, n0, _EDL, 0, () => EffectiveDeployment];
 export var InstalledComponentLifecycleStatusCodeList = 64 | 0;
-
 export var InstalledComponentList: StaticListSchema = [1, n0, _ICL, 0, () => InstalledComponent];
 export var IoTJobAbortCriteriaList: StaticListSchema = [1, n0, _ITJACL, 0, () => IoTJobAbortCriteria];
 export var LambdaDeviceList: StaticListSchema = [1, n0, _LDL, 0, () => LambdaDeviceMount];
 export var LambdaEventSourceList: StaticListSchema = [1, n0, _LESL, 0, () => LambdaEventSource];
 export var LambdaExecArgsList = 64 | 0;
-
 export var LambdaVolumeList: StaticListSchema = [1, n0, _LVL, 0, () => LambdaVolumeMount];
 export var ResolvedComponentVersionsList: StaticListSchema = [1, n0, _RCVL, 0, () => ResolvedComponentVersion];
 export var TagKeyList = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var ComponentDependencyMap: StaticMapSchema = [2, n0, _CDM, 0, 0, () => ComponentDependencyRequirement];
 export var ComponentDeploymentSpecifications: StaticMapSchema = [
@@ -1303,22 +1011,15 @@ export var ComponentDeploymentSpecifications: StaticMapSchema = [
   () => ComponentDeploymentSpecification,
 ];
 export var ComponentVersionRequirementMap = 128 | 0;
-
 export var LambdaEnvironmentVariables = 128 | 0;
-
 export var PlatformAttributesMap = 128 | 0;
-
 export var StringMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AssociateServiceRoleToAccount: StaticOperationSchema = [
   9,
   n0,
   _ASRTA,
-  {
-    [_h]: ["PUT", "/greengrass/servicerole", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/servicerole", 200] },
   () => AssociateServiceRoleToAccountRequest,
   () => AssociateServiceRoleToAccountResponse,
 ];
@@ -1326,9 +1027,7 @@ export var BatchAssociateClientDeviceWithCoreDevice: StaticOperationSchema = [
   9,
   n0,
   _BACDWCD,
-  {
-    [_h]: ["POST", "/greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices", 200],
-  },
+  { [_h]: ["POST", "/greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices", 200] },
   () => BatchAssociateClientDeviceWithCoreDeviceRequest,
   () => BatchAssociateClientDeviceWithCoreDeviceResponse,
 ];
@@ -1336,9 +1035,7 @@ export var BatchDisassociateClientDeviceFromCoreDevice: StaticOperationSchema = 
   9,
   n0,
   _BDCDFCD,
-  {
-    [_h]: ["POST", "/greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices", 200],
-  },
+  { [_h]: ["POST", "/greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices", 200] },
   () => BatchDisassociateClientDeviceFromCoreDeviceRequest,
   () => BatchDisassociateClientDeviceFromCoreDeviceResponse,
 ];
@@ -1346,9 +1043,7 @@ export var CancelDeployment: StaticOperationSchema = [
   9,
   n0,
   _CDa,
-  {
-    [_h]: ["POST", "/greengrass/v2/deployments/{deploymentId}/cancel", 200],
-  },
+  { [_h]: ["POST", "/greengrass/v2/deployments/{deploymentId}/cancel", 200] },
   () => CancelDeploymentRequest,
   () => CancelDeploymentResponse,
 ];
@@ -1356,9 +1051,7 @@ export var CreateComponentVersion: StaticOperationSchema = [
   9,
   n0,
   _CCV,
-  {
-    [_h]: ["POST", "/greengrass/v2/createComponentVersion", 201],
-  },
+  { [_h]: ["POST", "/greengrass/v2/createComponentVersion", 201] },
   () => CreateComponentVersionRequest,
   () => CreateComponentVersionResponse,
 ];
@@ -1366,9 +1059,7 @@ export var CreateDeployment: StaticOperationSchema = [
   9,
   n0,
   _CDr,
-  {
-    [_h]: ["POST", "/greengrass/v2/deployments", 201],
-  },
+  { [_h]: ["POST", "/greengrass/v2/deployments", 201] },
   () => CreateDeploymentRequest,
   () => CreateDeploymentResponse,
 ];
@@ -1376,9 +1067,7 @@ export var DeleteComponent: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/greengrass/v2/components/{arn}", 204],
-  },
+  { [_h]: ["DELETE", "/greengrass/v2/components/{arn}", 204] },
   () => DeleteComponentRequest,
   () => __Unit,
 ];
@@ -1386,9 +1075,7 @@ export var DeleteCoreDevice: StaticOperationSchema = [
   9,
   n0,
   _DCD,
-  {
-    [_h]: ["DELETE", "/greengrass/v2/coreDevices/{coreDeviceThingName}", 204],
-  },
+  { [_h]: ["DELETE", "/greengrass/v2/coreDevices/{coreDeviceThingName}", 204] },
   () => DeleteCoreDeviceRequest,
   () => __Unit,
 ];
@@ -1396,9 +1083,7 @@ export var DeleteDeployment: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/greengrass/v2/deployments/{deploymentId}", 204],
-  },
+  { [_h]: ["DELETE", "/greengrass/v2/deployments/{deploymentId}", 204] },
   () => DeleteDeploymentRequest,
   () => __Unit,
 ];
@@ -1406,9 +1091,7 @@ export var DescribeComponent: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["GET", "/greengrass/v2/components/{arn}/metadata", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/components/{arn}/metadata", 200] },
   () => DescribeComponentRequest,
   () => DescribeComponentResponse,
 ];
@@ -1416,9 +1099,7 @@ export var DisassociateServiceRoleFromAccount: StaticOperationSchema = [
   9,
   n0,
   _DSRFA,
-  {
-    [_h]: ["DELETE", "/greengrass/servicerole", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/servicerole", 200] },
   () => DisassociateServiceRoleFromAccountRequest,
   () => DisassociateServiceRoleFromAccountResponse,
 ];
@@ -1426,9 +1107,7 @@ export var GetComponent: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/greengrass/v2/components/{arn}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/components/{arn}", 200] },
   () => GetComponentRequest,
   () => GetComponentResponse,
 ];
@@ -1436,9 +1115,7 @@ export var GetComponentVersionArtifact: StaticOperationSchema = [
   9,
   n0,
   _GCVA,
-  {
-    [_h]: ["GET", "/greengrass/v2/components/{arn}/artifacts/{artifactName+}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/components/{arn}/artifacts/{artifactName+}", 200] },
   () => GetComponentVersionArtifactRequest,
   () => GetComponentVersionArtifactResponse,
 ];
@@ -1446,9 +1123,7 @@ export var GetConnectivityInfo: StaticOperationSchema = [
   9,
   n0,
   _GCI,
-  {
-    [_h]: ["GET", "/greengrass/things/{thingName}/connectivityInfo", 200],
-  },
+  { [_h]: ["GET", "/greengrass/things/{thingName}/connectivityInfo", 200] },
   () => GetConnectivityInfoRequest,
   () => GetConnectivityInfoResponse,
 ];
@@ -1456,9 +1131,7 @@ export var GetCoreDevice: StaticOperationSchema = [
   9,
   n0,
   _GCD,
-  {
-    [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}", 200] },
   () => GetCoreDeviceRequest,
   () => GetCoreDeviceResponse,
 ];
@@ -1466,9 +1139,7 @@ export var GetDeployment: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/greengrass/v2/deployments/{deploymentId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/deployments/{deploymentId}", 200] },
   () => GetDeploymentRequest,
   () => GetDeploymentResponse,
 ];
@@ -1476,9 +1147,7 @@ export var GetServiceRoleForAccount: StaticOperationSchema = [
   9,
   n0,
   _GSRFA,
-  {
-    [_h]: ["GET", "/greengrass/servicerole", 200],
-  },
+  { [_h]: ["GET", "/greengrass/servicerole", 200] },
   () => GetServiceRoleForAccountRequest,
   () => GetServiceRoleForAccountResponse,
 ];
@@ -1486,9 +1155,7 @@ export var ListClientDevicesAssociatedWithCoreDevice: StaticOperationSchema = [
   9,
   n0,
   _LCDAWCD,
-  {
-    [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices", 200] },
   () => ListClientDevicesAssociatedWithCoreDeviceRequest,
   () => ListClientDevicesAssociatedWithCoreDeviceResponse,
 ];
@@ -1496,9 +1163,7 @@ export var ListComponents: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/greengrass/v2/components", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/components", 200] },
   () => ListComponentsRequest,
   () => ListComponentsResponse,
 ];
@@ -1506,9 +1171,7 @@ export var ListComponentVersions: StaticOperationSchema = [
   9,
   n0,
   _LCV,
-  {
-    [_h]: ["GET", "/greengrass/v2/components/{arn}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/components/{arn}/versions", 200] },
   () => ListComponentVersionsRequest,
   () => ListComponentVersionsResponse,
 ];
@@ -1516,9 +1179,7 @@ export var ListCoreDevices: StaticOperationSchema = [
   9,
   n0,
   _LCD,
-  {
-    [_h]: ["GET", "/greengrass/v2/coreDevices", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/coreDevices", 200] },
   () => ListCoreDevicesRequest,
   () => ListCoreDevicesResponse,
 ];
@@ -1526,9 +1187,7 @@ export var ListDeployments: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/greengrass/v2/deployments", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/deployments", 200] },
   () => ListDeploymentsRequest,
   () => ListDeploymentsResponse,
 ];
@@ -1536,9 +1195,7 @@ export var ListEffectiveDeployments: StaticOperationSchema = [
   9,
   n0,
   _LED,
-  {
-    [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments", 200] },
   () => ListEffectiveDeploymentsRequest,
   () => ListEffectiveDeploymentsResponse,
 ];
@@ -1546,9 +1203,7 @@ export var ListInstalledComponents: StaticOperationSchema = [
   9,
   n0,
   _LIC,
-  {
-    [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/installedComponents", 200],
-  },
+  { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/installedComponents", 200] },
   () => ListInstalledComponentsRequest,
   () => ListInstalledComponentsResponse,
 ];
@@ -1556,9 +1211,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1566,9 +1219,7 @@ export var ResolveComponentCandidates: StaticOperationSchema = [
   9,
   n0,
   _RCC,
-  {
-    [_h]: ["POST", "/greengrass/v2/resolveComponentCandidates", 200],
-  },
+  { [_h]: ["POST", "/greengrass/v2/resolveComponentCandidates", 200] },
   () => ResolveComponentCandidatesRequest,
   () => ResolveComponentCandidatesResponse,
 ];
@@ -1576,9 +1227,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1586,9 +1235,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1596,9 +1243,7 @@ export var UpdateConnectivityInfo: StaticOperationSchema = [
   9,
   n0,
   _UCI,
-  {
-    [_h]: ["PUT", "/greengrass/things/{thingName}/connectivityInfo", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/things/{thingName}/connectivityInfo", 200] },
   () => UpdateConnectivityInfoRequest,
   () => UpdateConnectivityInfoResponse,
 ];

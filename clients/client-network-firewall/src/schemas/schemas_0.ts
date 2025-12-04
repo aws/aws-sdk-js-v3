@@ -621,7 +621,6 @@ import {
 import { NetworkFirewallServiceException as __NetworkFirewallServiceException } from "../models/NetworkFirewallServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptNetworkFirewallTransitGatewayAttachmentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1275,93 +1274,23 @@ export var GetAnalysisReportResultsResponse: StaticStructureSchema = [
 ];
 export var Header: StaticStructureSchema = [3, n0, _He, 0, [_P, _So, _SP, _Dir, _Des, _DPe], [0, 0, 0, 0, 0, 0]];
 export var Hits: StaticStructureSchema = [3, n0, _H, 0, [_Co], [1]];
-export var InsufficientCapacityException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InsufficientCapacityException: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InsufficientCapacityException, __InsufficientCapacityException);
-
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
-export var InvalidOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidOperationException: StaticErrorSchema = [-3, n0, _IOE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidOperationException, __InvalidOperationException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var InvalidResourcePolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidResourcePolicyException: StaticErrorSchema = [-3, n0, _IRPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidResourcePolicyException, __InvalidResourcePolicyException);
-
-export var InvalidTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidTokenException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidTokenException, __InvalidTokenException);
-
 export var IPSet: StaticStructureSchema = [3, n0, _IPS, 0, [_Def], [64 | 0]];
 export var IPSetMetadata: StaticStructureSchema = [3, n0, _IPSM, 0, [_RCIDRC], [1]];
 export var IPSetReference: StaticStructureSchema = [3, n0, _IPSRe, 0, [_RAe], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAnalysisReportsRequest: StaticStructureSchema = [3, n0, _LARR, 0, [_FN, _FAi, _NT, _MR], [0, 0, 0, 1]];
 export var ListAnalysisReportsResponse: StaticStructureSchema = [
   3,
@@ -1466,18 +1395,8 @@ export var ListVpcEndpointAssociationsResponse: StaticStructureSchema = [
   [0, () => VpcEndpointAssociations],
 ];
 export var LogDestinationConfig: StaticStructureSchema = [3, n0, _LDC, 0, [_LT, _LDT, _LD], [0, 0, 128 | 0]];
-export var LogDestinationPermissionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LDPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var LogDestinationPermissionException: StaticErrorSchema = [-3, n0, _LDPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LogDestinationPermissionException, __LogDestinationPermissionException);
-
 export var LoggingConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_LDCo], [() => LogDestinationConfigs]];
 export var MatchAttributes: StaticStructureSchema = [
   3,
@@ -1568,30 +1487,10 @@ export var RejectNetworkFirewallTransitGatewayAttachmentResponse: StaticStructur
   [_TGAI, _TGAS],
   [0, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceOwnerCheckException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ROCE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceOwnerCheckException: StaticErrorSchema = [-3, n0, _ROCE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceOwnerCheckException, __ResourceOwnerCheckException);
-
 export var RuleDefinition: StaticStructureSchema = [3, n0, _RD, 0, [_MA, _Act], [() => MatchAttributes, 64 | 0]];
 export var RuleGroup: StaticStructureSchema = [
   3,
@@ -1721,18 +1620,8 @@ export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_Ke, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TCPFlagField: StaticStructureSchema = [3, n0, _TCPFF, 0, [_Fla, _Ma], [64 | 0, 64 | 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TlsCertificateData: StaticStructureSchema = [3, n0, _TCD, 0, [_CAe, _CS, _S, _SMt], [0, 0, 0, 0]];
 export var TLSInspectionConfiguration: StaticStructureSchema = [
   3,
@@ -1755,18 +1644,8 @@ export var TlsInterceptProperties: StaticStructureSchema = [3, n0, _TIP, 0, [_PA
 export var TlsInterceptPropertiesRequest: StaticStructureSchema = [3, n0, _TIPR, 0, [_PAc, _TIM], [0, 0]];
 export var TransitGatewayAttachmentSyncState: StaticStructureSchema = [3, n0, _TGASS, 0, [_AI, _TGAS, _SMt], [0, 0, 0]];
 export var UniqueSources: StaticStructureSchema = [3, n0, _US, 0, [_Co], [1]];
-export var UnsupportedOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UOE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var UnsupportedOperationException: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAvailabilityZoneChangeProtectionRequest: StaticStructureSchema = [
@@ -2049,27 +1928,22 @@ export var VpcEndpointAssociationStatus: StaticStructureSchema = [
   [0, () => AssociationSyncState],
 ];
 export var __Unit = "unit" as const;
-
 export var NetworkFirewallServiceException: StaticErrorSchema = [-3, _sm, "NetworkFirewallServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NetworkFirewallServiceException, __NetworkFirewallServiceException);
-
 export var Addresses: StaticListSchema = [1, n0, _Ad, 0, () => Address];
 export var AnalysisReportResults: StaticListSchema = [1, n0, _ARR, 0, () => AnalysisTypeReportResult];
 export var AnalysisReports: StaticListSchema = [1, n0, _ARna, 0, () => AnalysisReport];
 export var AnalysisResultList: StaticListSchema = [1, n0, _ARL, 0, () => AnalysisResult];
 export var AvailabilityZoneMappings: StaticListSchema = [1, n0, _AZM, 0, () => AvailabilityZoneMapping];
 export var AzSubnets = 64 | 0;
-
 export var Certificates: StaticListSchema = [1, n0, _Ce, 0, () => TlsCertificateData];
 export var CreateProxyRuleList: StaticListSchema = [1, n0, _CPRL, 0, () => CreateProxyRule];
 export var CustomActions: StaticListSchema = [1, n0, _CAu, 0, () => CustomAction];
 export var Dimensions: StaticListSchema = [1, n0, _Dim, 0, () => Dimension];
 export var EnabledAnalysisTypes = 64 | 0;
-
 export var FirewallPolicies: StaticListSchema = [1, n0, _FPi, 0, () => FirewallPolicyMetadata];
 export var Firewalls: StaticListSchema = [1, n0, _Fi, 0, () => FirewallMetadata];
 export var Flags = 64 | 0;
-
 export var FlowFilters: StaticListSchema = [1, n0, _FFl, 0, () => FlowFilter];
 export var FlowOperations: StaticListSchema = [1, n0, _FOl, 0, () => FlowOperationMetadata];
 export var Flows: StaticListSchema = [1, n0, _Flo, 0, () => Flow];
@@ -2078,12 +1952,9 @@ export var ListenerPropertiesRequest: StaticListSchema = [1, n0, _LPRist, 0, () 
 export var LogDestinationConfigs: StaticListSchema = [1, n0, _LDCo, 0, () => LogDestinationConfig];
 export var PortRanges: StaticListSchema = [1, n0, _PRor, 0, () => PortRange];
 export var ProtocolNumbers = 64 | 1;
-
 export var ProtocolStrings = 64 | 0;
-
 export var Proxies: StaticListSchema = [1, n0, _Prox, 0, () => ProxyMetadata];
 export var ProxyConditionValueList = 64 | 0;
-
 export var ProxyConfigRuleGroupSet: StaticListSchema = [1, n0, _PCRGS, 0, () => ProxyConfigRuleGroup];
 export var ProxyConfigurations: StaticListSchema = [1, n0, _PCr, 0, () => ProxyConfigurationMetadata];
 export var ProxyRuleConditionList: StaticListSchema = [1, n0, _PRCL, 0, () => ProxyRuleCondition];
@@ -2094,37 +1965,27 @@ export var ProxyRuleGroups: StaticListSchema = [1, n0, _PRGr, 0, () => ProxyRule
 export var ProxyRuleList: StaticListSchema = [1, n0, _PRL, 0, () => ProxyRule];
 export var ProxyRulePriorityList: StaticListSchema = [1, n0, _PRPL, 0, () => ProxyRulePriority];
 export var ResourceArnList = 64 | 0;
-
 export var ResourceNameList = 64 | 0;
-
 export var RuleGroups: StaticListSchema = [1, n0, _RG, 0, () => RuleGroupMetadata];
 export var RuleIdList = 64 | 0;
-
 export var RuleOptions: StaticListSchema = [1, n0, _ROul, 0, () => RuleOption];
 export var RuleSummaries: StaticListSchema = [1, n0, _RSuleu, 0, () => RuleSummary];
 export var RuleTargets = 64 | 0;
-
 export var ServerCertificateConfigurations: StaticListSchema = [1, n0, _SCCe, 0, () => ServerCertificateConfiguration];
 export var ServerCertificates: StaticListSchema = [1, n0, _SCer, 0, () => ServerCertificate];
 export var ServerCertificateScopes: StaticListSchema = [1, n0, _SCSe, 0, () => ServerCertificateScope];
 export var Settings = 64 | 0;
-
 export var StatefulActions = 64 | 0;
-
 export var StatefulRuleGroupReferences: StaticListSchema = [1, n0, _SRGRt, 0, () => StatefulRuleGroupReference];
 export var StatefulRules: StaticListSchema = [1, n0, _SR, 0, () => StatefulRule];
 export var StatelessActions = 64 | 0;
-
 export var StatelessRuleGroupReferences: StaticListSchema = [1, n0, _SRGR, 0, () => StatelessRuleGroupReference];
 export var StatelessRules: StaticListSchema = [1, n0, _SRtat, 0, () => StatelessRule];
 export var SubnetMappings: StaticListSchema = [1, n0, _SM, 0, () => SubnetMapping];
 export var SummaryRuleOptions = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetTypes = 64 | 0;
-
 export var TCPFlags: StaticListSchema = [1, n0, _TCPF, 0, () => TCPFlagField];
 export var TLSInspectionConfigurations: StaticListSchema = [
   1,
@@ -2134,16 +1995,13 @@ export var TLSInspectionConfigurations: StaticListSchema = [
   () => TLSInspectionConfigurationMetadata,
 ];
 export var VariableDefinitionList = 64 | 0;
-
 export var VpcEndpointAssociations: StaticListSchema = [1, n0, _VEAp, 0, () => VpcEndpointAssociationMetadata];
 export var VpcIds = 64 | 0;
-
 export var AssociationSyncState: StaticMapSchema = [2, n0, _ASS, 0, 0, () => AZSyncState];
 export var IPSetMetadataMap: StaticMapSchema = [2, n0, _IPSMM, 0, 0, () => IPSetMetadata];
 export var IPSetReferenceMap: StaticMapSchema = [2, n0, _IPSRM, 0, 0, () => IPSetReference];
 export var IPSets: StaticMapSchema = [2, n0, _IPSe, 0, 0, () => IPSet];
 export var LogDestinationMap = 128 | 0;
-
 export var PortSets: StaticMapSchema = [2, n0, _PSor, 0, 0, () => PortSet];
 export var SupportedAvailabilityZones: StaticMapSchema = [2, n0, _SAZ, 0, 0, () => AvailabilityZoneMetadata];
 export var SyncStateConfig: StaticMapSchema = [2, n0, _SSC, 0, 0, () => PerObjectStatus];

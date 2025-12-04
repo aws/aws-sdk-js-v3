@@ -171,19 +171,8 @@ import {
 import { LicenseManagerUserSubscriptionsServiceException as __LicenseManagerUserSubscriptionsServiceException } from "../models/LicenseManagerUserSubscriptionsServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActiveDirectoryIdentityProvider: StaticStructureSchema = [
   3,
   n0,
@@ -209,18 +198,8 @@ export var AssociateUserRequest: StaticStructureSchema = [
   [0, 0, () => IdentityProvider, 0, [() => Tags, 0]],
 ];
 export var AssociateUserResponse: StaticStructureSchema = [3, n0, _AURs, 0, [_IUS], [() => InstanceUserSummary]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _s,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _s }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateLicenseServerEndpointRequest: StaticStructureSchema = [
   3,
   n0,
@@ -290,19 +269,8 @@ export var InstanceUserSummary: StaticStructureSchema = [
   [_U, _II, _IP, _St, _IUA, _SM, _D, _AD, _DD],
   [0, 0, () => IdentityProvider, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LicenseServer: StaticStructureSchema = [3, n0, _LS, 0, [_PS, _HS, _IA, _IAp], [0, 0, 0, 0]];
 export var LicenseServerEndpoint: StaticStructureSchema = [
   3,
@@ -413,33 +381,12 @@ export var RegisterIdentityProviderResponse: StaticStructureSchema = [
   [_IPS],
   [() => IdentityProviderSummary],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SecretsManagerCredentialsProvider: StaticStructureSchema = [3, n0, _SMCP, 0, [_SI], [0]];
 export var ServerEndpoint: StaticStructureSchema = [3, n0, _SE, 0, [_E], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Settings: StaticStructureSchema = [3, n0, _Se, 0, [_S, _SGI], [64 | 0, 0]];
 export var StartProductSubscriptionRequest: StaticStructureSchema = [
   3,
@@ -485,18 +432,8 @@ export var TagResourceRequest: StaticStructureSchema = [
   ],
 ];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -505,12 +442,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      () => TagKeyList,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [() => TagKeyList, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -531,18 +463,8 @@ export var UpdateIdentityProviderSettingsResponse: StaticStructureSchema = [
   [() => IdentityProviderSummary],
 ];
 export var UpdateSettings: StaticStructureSchema = [3, n0, _US, 0, [_AS, _RS, _SGI], [64 | 0, 64 | 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var LicenseManagerUserSubscriptionsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -555,22 +477,17 @@ TypeRegistry.for(_sm).registerError(
   LicenseManagerUserSubscriptionsServiceException,
   __LicenseManagerUserSubscriptionsServiceException
 );
-
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var IdentityProviderSummaryList: StaticListSchema = [1, n0, _IPSL, 0, () => IdentityProviderSummary];
 export var InstanceSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => InstanceSummary];
 export var InstanceUserSummaryList: StaticListSchema = [1, n0, _IUSL, 0, () => InstanceUserSummary];
 export var IpV4List = 64 | 0;
-
 export var IpV6List = 64 | 0;
-
 export var LicenseServerEndpointList: StaticListSchema = [1, n0, _LSEL, 0, () => LicenseServerEndpoint];
 export var LicenseServerList: StaticListSchema = [1, n0, _LSL, 0, () => LicenseServer];
 export var ProductUserSummaryList: StaticListSchema = [1, n0, _PUSL, 0, () => ProductUserSummary];
 export var StringList = 64 | 0;
-
 export var Subnets = 64 | 0;
-
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
 export var Tags: StaticMapSchema = [2, n0, _T, 8, 0, 0];
 export var CredentialsProvider: StaticStructureSchema = [
@@ -587,9 +504,7 @@ export var AssociateUser: StaticOperationSchema = [
   9,
   n0,
   _AU,
-  {
-    [_h]: ["POST", "/user/AssociateUser", 200],
-  },
+  { [_h]: ["POST", "/user/AssociateUser", 200] },
   () => AssociateUserRequest,
   () => AssociateUserResponse,
 ];
@@ -597,9 +512,7 @@ export var CreateLicenseServerEndpoint: StaticOperationSchema = [
   9,
   n0,
   _CLSE,
-  {
-    [_h]: ["POST", "/license-server/CreateLicenseServerEndpoint", 200],
-  },
+  { [_h]: ["POST", "/license-server/CreateLicenseServerEndpoint", 200] },
   () => CreateLicenseServerEndpointRequest,
   () => CreateLicenseServerEndpointResponse,
 ];
@@ -607,9 +520,7 @@ export var DeleteLicenseServerEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DLSE,
-  {
-    [_h]: ["POST", "/license-server/DeleteLicenseServerEndpoint", 200],
-  },
+  { [_h]: ["POST", "/license-server/DeleteLicenseServerEndpoint", 200] },
   () => DeleteLicenseServerEndpointRequest,
   () => DeleteLicenseServerEndpointResponse,
 ];
@@ -617,9 +528,7 @@ export var DeregisterIdentityProvider: StaticOperationSchema = [
   9,
   n0,
   _DIP,
-  {
-    [_h]: ["POST", "/identity-provider/DeregisterIdentityProvider", 200],
-  },
+  { [_h]: ["POST", "/identity-provider/DeregisterIdentityProvider", 200] },
   () => DeregisterIdentityProviderRequest,
   () => DeregisterIdentityProviderResponse,
 ];
@@ -627,9 +536,7 @@ export var DisassociateUser: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_h]: ["POST", "/user/DisassociateUser", 200],
-  },
+  { [_h]: ["POST", "/user/DisassociateUser", 200] },
   () => DisassociateUserRequest,
   () => DisassociateUserResponse,
 ];
@@ -637,9 +544,7 @@ export var ListIdentityProviders: StaticOperationSchema = [
   9,
   n0,
   _LIP,
-  {
-    [_h]: ["POST", "/identity-provider/ListIdentityProviders", 200],
-  },
+  { [_h]: ["POST", "/identity-provider/ListIdentityProviders", 200] },
   () => ListIdentityProvidersRequest,
   () => ListIdentityProvidersResponse,
 ];
@@ -647,9 +552,7 @@ export var ListInstances: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["POST", "/instance/ListInstances", 200],
-  },
+  { [_h]: ["POST", "/instance/ListInstances", 200] },
   () => ListInstancesRequest,
   () => ListInstancesResponse,
 ];
@@ -657,9 +560,7 @@ export var ListLicenseServerEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LLSE,
-  {
-    [_h]: ["POST", "/license-server/ListLicenseServerEndpoints", 200],
-  },
+  { [_h]: ["POST", "/license-server/ListLicenseServerEndpoints", 200] },
   () => ListLicenseServerEndpointsRequest,
   () => ListLicenseServerEndpointsResponse,
 ];
@@ -667,9 +568,7 @@ export var ListProductSubscriptions: StaticOperationSchema = [
   9,
   n0,
   _LPS,
-  {
-    [_h]: ["POST", "/user/ListProductSubscriptions", 200],
-  },
+  { [_h]: ["POST", "/user/ListProductSubscriptions", 200] },
   () => ListProductSubscriptionsRequest,
   () => ListProductSubscriptionsResponse,
 ];
@@ -677,9 +576,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -687,9 +584,7 @@ export var ListUserAssociations: StaticOperationSchema = [
   9,
   n0,
   _LUA,
-  {
-    [_h]: ["POST", "/user/ListUserAssociations", 200],
-  },
+  { [_h]: ["POST", "/user/ListUserAssociations", 200] },
   () => ListUserAssociationsRequest,
   () => ListUserAssociationsResponse,
 ];
@@ -697,9 +592,7 @@ export var RegisterIdentityProvider: StaticOperationSchema = [
   9,
   n0,
   _RIP,
-  {
-    [_h]: ["POST", "/identity-provider/RegisterIdentityProvider", 200],
-  },
+  { [_h]: ["POST", "/identity-provider/RegisterIdentityProvider", 200] },
   () => RegisterIdentityProviderRequest,
   () => RegisterIdentityProviderResponse,
 ];
@@ -707,9 +600,7 @@ export var StartProductSubscription: StaticOperationSchema = [
   9,
   n0,
   _SPS,
-  {
-    [_h]: ["POST", "/user/StartProductSubscription", 200],
-  },
+  { [_h]: ["POST", "/user/StartProductSubscription", 200] },
   () => StartProductSubscriptionRequest,
   () => StartProductSubscriptionResponse,
 ];
@@ -717,9 +608,7 @@ export var StopProductSubscription: StaticOperationSchema = [
   9,
   n0,
   _SPSt,
-  {
-    [_h]: ["POST", "/user/StopProductSubscription", 200],
-  },
+  { [_h]: ["POST", "/user/StopProductSubscription", 200] },
   () => StopProductSubscriptionRequest,
   () => StopProductSubscriptionResponse,
 ];
@@ -727,9 +616,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["PUT", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -737,9 +624,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -747,9 +632,7 @@ export var UpdateIdentityProviderSettings: StaticOperationSchema = [
   9,
   n0,
   _UIPS,
-  {
-    [_h]: ["POST", "/identity-provider/UpdateIdentityProviderSettings", 200],
-  },
+  { [_h]: ["POST", "/identity-provider/UpdateIdentityProviderSettings", 200] },
   () => UpdateIdentityProviderSettingsRequest,
   () => UpdateIdentityProviderSettingsResponse,
 ];

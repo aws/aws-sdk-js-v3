@@ -591,7 +591,6 @@ import {
 import { WAFV2ServiceException as __WAFV2ServiceException } from "../models/WAFV2ServiceException";
 
 /* eslint no-var: 0 */
-
 export var ActionCondition: StaticStructureSchema = [3, n0, _AC, 0, [_A], [0]];
 export var AddressField: StaticStructureSchema = [3, n0, _AF, 0, [_I], [0]];
 export var All: StaticStructureSchema = [3, n0, _Al, 0, [], []];
@@ -1480,49 +1479,17 @@ export var UriPath: StaticStructureSchema = [3, n0, _UP, 0, [], []];
 export var UsernameField: StaticStructureSchema = [3, n0, _UFs, 0, [_I], [0]];
 export var VersionToPublish: StaticStructureSchema = [3, n0, _VTPe, 0, [_ARGA, _FL], [0, 1]];
 export var VisibilityConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SRE, _CWME, _MN], [2, 2, 0]];
-export var WAFAssociatedItemException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFAIE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFAssociatedItemException: StaticErrorSchema = [-3, n0, _WAFAIE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFAssociatedItemException, __WAFAssociatedItemException);
-
-export var WAFConfigurationWarningException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFCWE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFConfigurationWarningException: StaticErrorSchema = [-3, n0, _WAFCWE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFConfigurationWarningException, __WAFConfigurationWarningException);
-
-export var WAFDuplicateItemException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFDIE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFDuplicateItemException: StaticErrorSchema = [-3, n0, _WAFDIE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFDuplicateItemException, __WAFDuplicateItemException);
-
 export var WAFExpiredManagedRuleGroupVersionException: StaticErrorSchema = [
   -3,
   n0,
   _WAFEMRGVE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_Me],
   [0],
 ];
@@ -1530,14 +1497,11 @@ TypeRegistry.for(n0).registerError(
   WAFExpiredManagedRuleGroupVersionException,
   __WAFExpiredManagedRuleGroupVersionException
 );
-
 export var WAFFeatureNotIncludedInPricingPlanException: StaticErrorSchema = [
   -3,
   n0,
   _WAFFNIIPPE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_Me, _DFi],
   [0, () => DisallowedFeatures],
 ];
@@ -1545,190 +1509,46 @@ TypeRegistry.for(n0).registerError(
   WAFFeatureNotIncludedInPricingPlanException,
   __WAFFeatureNotIncludedInPricingPlanException
 );
-
-export var WAFInternalErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFIEE,
-  {
-    [_e]: _s,
-  },
-  [_Me],
-  [0],
-];
+export var WAFInternalErrorException: StaticErrorSchema = [-3, n0, _WAFIEE, { [_e]: _s }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFInternalErrorException, __WAFInternalErrorException);
-
-export var WAFInvalidOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFIOE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFInvalidOperationException: StaticErrorSchema = [-3, n0, _WAFIOE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFInvalidOperationException, __WAFInvalidOperationException);
-
 export var WAFInvalidParameterException: StaticErrorSchema = [
   -3,
   n0,
   _WAFIPE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_m, _F, _Pa, _Rea],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(WAFInvalidParameterException, __WAFInvalidParameterException);
-
-export var WAFInvalidPermissionPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFIPPE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFInvalidPermissionPolicyException: StaticErrorSchema = [-3, n0, _WAFIPPE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFInvalidPermissionPolicyException, __WAFInvalidPermissionPolicyException);
-
-export var WAFInvalidResourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFIRE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFInvalidResourceException: StaticErrorSchema = [-3, n0, _WAFIRE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFInvalidResourceException, __WAFInvalidResourceException);
-
-export var WAFLimitsExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFLEE,
-  {
-    [_e]: _c,
-  },
-  [_Me, _STo],
-  [0, 0],
-];
+export var WAFLimitsExceededException: StaticErrorSchema = [-3, n0, _WAFLEE, { [_e]: _c }, [_Me, _STo], [0, 0]];
 TypeRegistry.for(n0).registerError(WAFLimitsExceededException, __WAFLimitsExceededException);
-
-export var WAFLogDestinationPermissionIssueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFLDPIE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFLogDestinationPermissionIssueException: StaticErrorSchema = [-3, n0, _WAFLDPIE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(
   WAFLogDestinationPermissionIssueException,
   __WAFLogDestinationPermissionIssueException
 );
-
-export var WAFNonexistentItemException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFNIE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFNonexistentItemException: StaticErrorSchema = [-3, n0, _WAFNIE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFNonexistentItemException, __WAFNonexistentItemException);
-
-export var WAFOptimisticLockException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFOLE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFOptimisticLockException: StaticErrorSchema = [-3, n0, _WAFOLE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFOptimisticLockException, __WAFOptimisticLockException);
-
-export var WAFServiceLinkedRoleErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFSLREE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var WAFServiceLinkedRoleErrorException: StaticErrorSchema = [-3, n0, _WAFSLREE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(WAFServiceLinkedRoleErrorException, __WAFServiceLinkedRoleErrorException);
-
-export var WAFSubscriptionNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFSNFE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFSubscriptionNotFoundException: StaticErrorSchema = [-3, n0, _WAFSNFE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFSubscriptionNotFoundException, __WAFSubscriptionNotFoundException);
-
-export var WAFTagOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFTOE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFTagOperationException: StaticErrorSchema = [-3, n0, _WAFTOE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFTagOperationException, __WAFTagOperationException);
-
-export var WAFTagOperationInternalErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFTOIEE,
-  {
-    [_e]: _s,
-  },
-  [_Me],
-  [0],
-];
+export var WAFTagOperationInternalErrorException: StaticErrorSchema = [-3, n0, _WAFTOIEE, { [_e]: _s }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFTagOperationInternalErrorException, __WAFTagOperationInternalErrorException);
-
-export var WAFUnavailableEntityException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFUEE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFUnavailableEntityException: StaticErrorSchema = [-3, n0, _WAFUEE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFUnavailableEntityException, __WAFUnavailableEntityException);
-
-export var WAFUnsupportedAggregateKeyTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WAFUAKTE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var WAFUnsupportedAggregateKeyTypeException: StaticErrorSchema = [-3, n0, _WAFUAKTE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(WAFUnsupportedAggregateKeyTypeException, __WAFUnsupportedAggregateKeyTypeException);
-
 export var WebACL: StaticStructureSchema = [
   3,
   n0,
@@ -1791,44 +1611,32 @@ export var XssMatchStatement: StaticStructureSchema = [
   [() => FieldToMatch, () => TextTransformations],
 ];
 export var __Unit = "unit" as const;
-
 export var WAFV2ServiceException: StaticErrorSchema = [-3, _sm, "WAFV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WAFV2ServiceException, __WAFV2ServiceException);
-
 export var AddressFields: StaticListSchema = [1, n0, _AFd, 0, () => AddressField];
 export var APIKeySummaries: StaticListSchema = [1, n0, _APIKSe, 0, () => APIKeySummary];
 export var APIKeyTokenDomains = 64 | 0;
-
 export var ApplicationAttributes: StaticListSchema = [1, n0, _AApp, 0, () => ApplicationAttribute];
 export var AsnList = 64 | 1;
-
 export var AttributeValues = 64 | 0;
-
 export var Conditions: StaticListSchema = [1, n0, _Cond, 0, () => Condition];
 export var CookieNames = 64 | 0;
-
 export var CountryCodes = 64 | 0;
-
 export var CustomHTTPHeaders: StaticListSchema = [1, n0, _CHTTPHu, 0, () => CustomHTTPHeader];
 export var DataProtections: StaticListSchema = [1, n0, _DPa, 0, () => DataProtection];
 export var DisallowedFeatures: StaticListSchema = [1, n0, _DFi, 0, () => DisallowedFeature];
 export var ExcludedRules: StaticListSchema = [1, n0, _ERx, 0, () => ExcludedRule];
 export var FieldToProtectKeys = 64 | 0;
-
 export var Filters: StaticListSchema = [1, n0, _Fil, 0, () => Filter];
 export var FirewallManagerRuleGroups: StaticListSchema = [1, n0, _FMRGi, 0, () => FirewallManagerRuleGroup];
 export var HeaderNames = 64 | 0;
-
 export var HTTPHeaders: StaticListSchema = [1, n0, _HTTPHe, 0, () => HTTPHeader];
 export var IPAddresses = 64 | 0;
-
 export var IPSetSummaries: StaticListSchema = [1, n0, _IPSSe, 0, () => IPSetSummary];
 export var JsonPointerPaths = 64 | 0;
-
 export var Labels: StaticListSchema = [1, n0, _La, 0, () => Label];
 export var LabelSummaries: StaticListSchema = [1, n0, _LSab, 0, () => LabelSummary];
 export var LogDestinationConfigs = 64 | 0;
-
 export var LoggingConfigurations: StaticListSchema = [1, n0, _LCo, 0, () => LoggingConfiguration];
 export var ManagedProductDescriptors: StaticListSchema = [1, n0, _MPDa, 0, () => ManagedProductDescriptor];
 export var ManagedRuleGroupConfigs: StaticListSchema = [1, n0, _MRGCa, 0, () => ManagedRuleGroupConfig];
@@ -1842,23 +1650,14 @@ export var RegexPatternSetSummaries: StaticListSchema = [1, n0, _RPSSe, 0, () =>
 export var RegularExpressionList: StaticListSchema = [1, n0, _REL, 0, () => Regex];
 export var ReleaseSummaries: StaticListSchema = [1, n0, _RS, 0, () => ReleaseSummary];
 export var ResourceArns = 64 | 0;
-
 export var ResponseInspectionBodyContainsFailureStrings = 64 | 0;
-
 export var ResponseInspectionBodyContainsSuccessStrings = 64 | 0;
-
 export var ResponseInspectionHeaderFailureValues = 64 | 0;
-
 export var ResponseInspectionHeaderSuccessValues = 64 | 0;
-
 export var ResponseInspectionJsonFailureValues = 64 | 0;
-
 export var ResponseInspectionJsonSuccessValues = 64 | 0;
-
 export var ResponseInspectionStatusCodeFailureCodes = 64 | 1;
-
 export var ResponseInspectionStatusCodeSuccessCodes = 64 | 1;
-
 export var RuleActionOverrides: StaticListSchema = [1, n0, _RAO, 0, () => RuleActionOverride];
 export var RuleGroupSummaries: StaticListSchema = [1, n0, _RGSu, 0, () => RuleGroupSummary];
 export var Rules: StaticListSchema = [1, n0, _R, 0, () => Rule];
@@ -1866,11 +1665,9 @@ export var RuleSummaries: StaticListSchema = [1, n0, _RSul, 0, () => RuleSummary
 export var SampledHTTPRequests: StaticListSchema = [1, n0, _SHTTPRa, 0, () => SampledHTTPRequest];
 export var Statements: StaticListSchema = [1, n0, _S, 0, () => Statement];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TextTransformations: StaticListSchema = [1, n0, _TT, 0, () => TextTransformation];
 export var TokenDomains = 64 | 0;
-
 export var WebACLSummaries: StaticListSchema = [1, n0, _WACLSe, 0, () => WebACLSummary];
 export var CustomResponseBodies: StaticMapSchema = [2, n0, _CRB, 0, 0, () => CustomResponseBody];
 export var PublishedVersions: StaticMapSchema = [2, n0, _PV, 0, 0, () => ManagedRuleSetVersion];

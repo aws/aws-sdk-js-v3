@@ -658,7 +658,6 @@ import {
 import { GeoRoutesServiceException as __GeoRoutesServiceException } from "../models/GeoRoutesServiceException";
 
 /* eslint no-var: 0 */
-
 export var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 export var CountryCode: StaticSimpleSchema = [0, n0, _CC, 8, 0];
 export var CountryCode3: StaticSimpleSchema = [0, n0, _CCo, 8, 0];
@@ -724,22 +723,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CalculateIsolinesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -756,12 +744,7 @@ export var CalculateIsolinesRequest: StaticStructureSchema = [
     [() => IsolineDestinationOptions, 0],
     0,
     [() => IsolineGranularityOptions, 0],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
     0,
     0,
     [() => Position, 0],
@@ -783,12 +766,7 @@ export var CalculateIsolinesResponse: StaticStructureSchema = [
     [() => TimestampWithTimezoneOffset, 0],
     0,
     [() => IsolineList, 0],
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => Position, 0],
     [() => Position, 0],
   ],
@@ -806,12 +784,7 @@ export var CalculateRouteMatrixRequest: StaticStructureSchema = [
     [() => TimestampWithTimezoneOffset, 0],
     [() => RouteMatrixDestinationList, 0],
     [() => RouteMatrixExclusionOptions, 0],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
     0,
     [() => RouteMatrixOriginList, 0],
     [() => RouteMatrixBoundary, 0],
@@ -826,17 +799,7 @@ export var CalculateRouteMatrixResponse: StaticStructureSchema = [
   _CRMRa,
   0,
   [_EC, _PB, _RM, _RB],
-  [
-    1,
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
-    [() => RouteMatrix, 0],
-    [() => RouteMatrixBoundary, 0],
-  ],
+  [1, [0, { [_hH]: _xagpb }], [() => RouteMatrix, 0], [() => RouteMatrixBoundary, 0]],
 ];
 export var CalculateRoutesRequest: StaticStructureSchema = [
   3,
@@ -881,12 +844,7 @@ export var CalculateRoutesRequest: StaticStructureSchema = [
     [() => RouteDriverOptions, 0],
     [() => RouteExclusionOptions, 0],
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
     64 | 0,
     [() => RouteLegAdditionalFeatureList, 0],
     0,
@@ -909,17 +867,7 @@ export var CalculateRoutesResponse: StaticStructureSchema = [
   _CRRa,
   0,
   [_LGF, _N, _PB, _R],
-  [
-    0,
-    () => RouteResponseNoticeList,
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
-    [() => RouteList, 0],
-  ],
+  [0, () => RouteResponseNoticeList, [0, { [_hH]: _xagpb }], [() => RouteList, 0]],
 ];
 export var Circle: StaticStructureSchema = [
   3,
@@ -937,22 +885,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Isoline: StaticStructureSchema = [
   3,
   n0,
@@ -1216,12 +1153,7 @@ export var OptimizeWaypointsRequest: StaticStructureSchema = [
     [() => WaypointOptimizationDestinationOptions, 0],
     [() => WaypointOptimizationDriverOptions, 0],
     [() => WaypointOptimizationExclusionOptions, 0],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
     0,
     [() => Position, 0],
     () => WaypointOptimizationOriginOptions,
@@ -1243,12 +1175,7 @@ export var OptimizeWaypointsResponse: StaticStructureSchema = [
     [() => DurationSeconds, 0],
     [() => WaypointOptimizationImpedingWaypointList, 0],
     [() => WaypointOptimizationOptimizedWaypointList, 0],
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => WaypointOptimizationTimeBreakdown, 0],
   ],
 ];
@@ -2665,12 +2592,7 @@ export var SnapToRoadsRequest: StaticStructureSchema = [
   0,
   [_K, _SGF, _SR, _TP, _TM, _TMO],
   [
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
     0,
     [() => DistanceMeters, 0],
     [() => RoadSnapTracePointList, 0],
@@ -2686,69 +2608,27 @@ export var SnapToRoadsResponse: StaticStructureSchema = [
   [_N, _PB, _SG, _SGF, _STP],
   [
     [() => RoadSnapNoticeList, 0],
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => RoadSnapSnappedGeometry, 0],
     0,
     [() => RoadSnapSnappedTracePointList, 0],
   ],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _FL],
   [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      () => ValidationExceptionFieldList,
-      {
-        [_jN]: _fL,
-      },
-    ],
+    [0, { [_jN]: _m }],
+    [0, { [_jN]: _r }],
+    [() => ValidationExceptionFieldList, { [_jN]: _fL }],
   ],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [
   3,
   n0,
@@ -2756,18 +2636,8 @@ export var ValidationExceptionField: StaticStructureSchema = [
   0,
   [_Na, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _n }],
+    [0, { [_jN]: _m }],
   ],
 ];
 export var WaypointOptimizationAccessHours: StaticStructureSchema = [
@@ -3045,14 +2915,11 @@ export var WeightPerAxleGroup: StaticStructureSchema = [
 ];
 export var GeoRoutesServiceException: StaticErrorSchema = [-3, _sm, "GeoRoutesServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GeoRoutesServiceException, __GeoRoutesServiceException);
-
 export var BeforeWaypointsList = 64 | 1;
-
 export var BoundingBox: StaticListSchema = [1, n0, _BB, 8, 1];
 export var CountryCodeList: StaticListSchema = [1, n0, _CCL, 0, [() => CountryCode, 0]];
 export var DistanceThresholdList: StaticListSchema = [1, n0, _DTL, 0, [() => DistanceMeters, 0]];
 export var IndexList = 64 | 1;
-
 export var IsolineAvoidanceAreaGeometryList: StaticListSchema = [
   1,
   n0,
@@ -3067,7 +2934,6 @@ export var IsolineHazardousCargoTypeList: StaticListSchema = [1, n0, _IHCTL, 0, 
 export var IsolineList: StaticListSchema = [1, n0, _IL, 0, [() => Isoline, 0]];
 export var IsolineShapeGeometryList: StaticListSchema = [1, n0, _ISGL, 0, [() => IsolineShapeGeometry, 0]];
 export var LanguageTagList = 64 | 0;
-
 export var LinearRing: StaticListSchema = [1, n0, _LR, 0, [() => Position, 0]];
 export var LinearRings: StaticListSchema = [1, n0, _LRi, 0, [() => LinearRing, 0]];
 export var LineString: StaticListSchema = [1, n0, _LS, 0, [() => Position, 0]];
@@ -3139,7 +3005,6 @@ export var RoutePedestrianTravelStepList: StaticListSchema = [1, n0, _RPTSL, 0, 
 export var RouteResponseNoticeList: StaticListSchema = [1, n0, _RRNL, 0, () => RouteResponseNotice];
 export var RouteSignpostLabelList: StaticListSchema = [1, n0, _RSLL, 0, [() => RouteSignpostLabel, 0]];
 export var RouteSpanAdditionalFeatureList = 64 | 0;
-
 export var RouteSpanCarAccessAttributeList: StaticListSchema = [
   1,
   n0,
@@ -3238,9 +3103,7 @@ export var CalculateIsolines: StaticOperationSchema = [
   9,
   n0,
   _CIa,
-  {
-    [_h]: ["POST", "/isolines", 200],
-  },
+  { [_h]: ["POST", "/isolines", 200] },
   () => CalculateIsolinesRequest,
   () => CalculateIsolinesResponse,
 ];
@@ -3248,9 +3111,7 @@ export var CalculateRouteMatrix: StaticOperationSchema = [
   9,
   n0,
   _CRM,
-  {
-    [_h]: ["POST", "/route-matrix", 200],
-  },
+  { [_h]: ["POST", "/route-matrix", 200] },
   () => CalculateRouteMatrixRequest,
   () => CalculateRouteMatrixResponse,
 ];
@@ -3258,9 +3119,7 @@ export var CalculateRoutes: StaticOperationSchema = [
   9,
   n0,
   _CRa,
-  {
-    [_h]: ["POST", "/routes", 200],
-  },
+  { [_h]: ["POST", "/routes", 200] },
   () => CalculateRoutesRequest,
   () => CalculateRoutesResponse,
 ];
@@ -3268,9 +3127,7 @@ export var OptimizeWaypoints: StaticOperationSchema = [
   9,
   n0,
   _OWp,
-  {
-    [_h]: ["POST", "/optimize-waypoints", 200],
-  },
+  { [_h]: ["POST", "/optimize-waypoints", 200] },
   () => OptimizeWaypointsRequest,
   () => OptimizeWaypointsResponse,
 ];
@@ -3278,9 +3135,7 @@ export var SnapToRoads: StaticOperationSchema = [
   9,
   n0,
   _STR,
-  {
-    [_h]: ["POST", "/snap-to-roads", 200],
-  },
+  { [_h]: ["POST", "/snap-to-roads", 200] },
   () => SnapToRoadsRequest,
   () => SnapToRoadsResponse,
 ];

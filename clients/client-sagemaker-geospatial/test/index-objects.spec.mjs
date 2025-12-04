@@ -52,28 +52,28 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof SageMakerGeospatialClient === "function")
-assert(typeof SageMakerGeospatial === "function")
+assert(typeof SageMakerGeospatialClient === "function");
+assert(typeof SageMakerGeospatial === "function");
 // commands
-assert(typeof DeleteEarthObservationJobCommand === "function")
-assert(typeof DeleteVectorEnrichmentJobCommand === "function")
-assert(typeof ExportEarthObservationJobCommand === "function")
-assert(typeof ExportVectorEnrichmentJobCommand === "function")
-assert(typeof GetEarthObservationJobCommand === "function")
-assert(typeof GetRasterDataCollectionCommand === "function")
-assert(typeof GetTileCommand === "function")
-assert(typeof GetVectorEnrichmentJobCommand === "function")
-assert(typeof ListEarthObservationJobsCommand === "function")
-assert(typeof ListRasterDataCollectionsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ListVectorEnrichmentJobsCommand === "function")
-assert(typeof SearchRasterDataCollectionCommand === "function")
-assert(typeof StartEarthObservationJobCommand === "function")
-assert(typeof StartVectorEnrichmentJobCommand === "function")
-assert(typeof StopEarthObservationJobCommand === "function")
-assert(typeof StopVectorEnrichmentJobCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
+assert(typeof DeleteEarthObservationJobCommand === "function");
+assert(typeof DeleteVectorEnrichmentJobCommand === "function");
+assert(typeof ExportEarthObservationJobCommand === "function");
+assert(typeof ExportVectorEnrichmentJobCommand === "function");
+assert(typeof GetEarthObservationJobCommand === "function");
+assert(typeof GetRasterDataCollectionCommand === "function");
+assert(typeof GetTileCommand === "function");
+assert(typeof GetVectorEnrichmentJobCommand === "function");
+assert(typeof ListEarthObservationJobsCommand === "function");
+assert(typeof ListRasterDataCollectionsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListVectorEnrichmentJobsCommand === "function");
+assert(typeof SearchRasterDataCollectionCommand === "function");
+assert(typeof StartEarthObservationJobCommand === "function");
+assert(typeof StartVectorEnrichmentJobCommand === "function");
+assert(typeof StopEarthObservationJobCommand === "function");
+assert(typeof StopVectorEnrichmentJobCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
 // enums
 assert(typeof AlgorithmNameCloudRemoval === "object");
 assert(typeof AlgorithmNameGeoMosaic === "object");
@@ -100,10 +100,10 @@ assert(typeof VectorEnrichmentJobStatus === "object");
 assert(typeof VectorEnrichmentJobType === "object");
 assert(typeof ZonalStatistics === "object");
 // errors
-assert(SageMakerGeospatialServiceException.prototype instanceof Error)
+assert(SageMakerGeospatialServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListEarthObservationJobs === "function")
-assert(typeof paginateListRasterDataCollections === "function")
-assert(typeof paginateListVectorEnrichmentJobs === "function")
-assert(typeof paginateSearchRasterDataCollection === "function")
+assert(typeof paginateListEarthObservationJobs === "function");
+assert(typeof paginateListRasterDataCollections === "function");
+assert(typeof paginateListVectorEnrichmentJobs === "function");
+assert(typeof paginateSearchRasterDataCollection === "function");
 console.log(`SageMakerGeospatial index test passed.`);

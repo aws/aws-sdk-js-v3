@@ -18,7 +18,7 @@ import {
   Tier,
 } from "./enums";
 
-import {
+import type {
   CSVInput,
   GlacierJobParameters,
   JSONInput,

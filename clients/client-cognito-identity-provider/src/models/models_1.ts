@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { VerifySoftwareTokenResponseType } from "./enums";
 
-import { CustomDomainConfigType, UserPoolClientType } from "./models_0";
+import type { CustomDomainConfigType, UserPoolClientType } from "./models_0";
 
 /**
  * <p>Represents the response from the server to the request to update the user pool

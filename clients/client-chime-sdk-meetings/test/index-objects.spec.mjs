@@ -38,25 +38,25 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ChimeSDKMeetingsClient === "function")
-assert(typeof ChimeSDKMeetings === "function")
+assert(typeof ChimeSDKMeetingsClient === "function");
+assert(typeof ChimeSDKMeetings === "function");
 // commands
-assert(typeof BatchCreateAttendeeCommand === "function")
-assert(typeof BatchUpdateAttendeeCapabilitiesExceptCommand === "function")
-assert(typeof CreateAttendeeCommand === "function")
-assert(typeof CreateMeetingCommand === "function")
-assert(typeof CreateMeetingWithAttendeesCommand === "function")
-assert(typeof DeleteAttendeeCommand === "function")
-assert(typeof DeleteMeetingCommand === "function")
-assert(typeof GetAttendeeCommand === "function")
-assert(typeof GetMeetingCommand === "function")
-assert(typeof ListAttendeesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof StartMeetingTranscriptionCommand === "function")
-assert(typeof StopMeetingTranscriptionCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateAttendeeCapabilitiesCommand === "function")
+assert(typeof BatchCreateAttendeeCommand === "function");
+assert(typeof BatchUpdateAttendeeCapabilitiesExceptCommand === "function");
+assert(typeof CreateAttendeeCommand === "function");
+assert(typeof CreateMeetingCommand === "function");
+assert(typeof CreateMeetingWithAttendeesCommand === "function");
+assert(typeof DeleteAttendeeCommand === "function");
+assert(typeof DeleteMeetingCommand === "function");
+assert(typeof GetAttendeeCommand === "function");
+assert(typeof GetMeetingCommand === "function");
+assert(typeof ListAttendeesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof StartMeetingTranscriptionCommand === "function");
+assert(typeof StopMeetingTranscriptionCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateAttendeeCapabilitiesCommand === "function");
 // enums
 assert(typeof ContentResolution === "object");
 assert(typeof MediaCapabilities === "object");
@@ -75,7 +75,7 @@ assert(typeof TranscribeRegion === "object");
 assert(typeof TranscribeVocabularyFilterMethod === "object");
 assert(typeof VideoResolution === "object");
 // errors
-assert(ChimeSDKMeetingsServiceException.prototype instanceof Error)
+assert(ChimeSDKMeetingsServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListAttendees === "function")
+assert(typeof paginateListAttendees === "function");
 console.log(`ChimeSDKMeetings index test passed.`);

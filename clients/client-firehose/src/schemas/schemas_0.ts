@@ -360,7 +360,6 @@ import {
 import { FirehoseServiceException as __FirehoseServiceException } from "../models/FirehoseServiceException";
 
 /* eslint no-var: 0 */
-
 export var HttpEndpointAccessKey: StaticSimpleSchema = [0, n0, _HEAK, 8, 0];
 export var HttpEndpointAttributeName: StaticSimpleSchema = [0, n0, _HEAN, 8, 0];
 export var HttpEndpointAttributeValue: StaticSimpleSchema = [0, n0, _HEAV, 8, 0];
@@ -508,18 +507,8 @@ export var AuthenticationConfiguration: StaticStructureSchema = [3, n0, _AC, 0, 
 export var BufferingHints: StaticStructureSchema = [3, n0, _BH, 0, [_SIMB, _IIS], [1, 1]];
 export var CatalogConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_CARN, _WL], [0, 0]];
 export var CloudWatchLoggingOptions: StaticStructureSchema = [3, n0, _CWLO, 0, [_E, _LGN, _LSN], [2, 0, 0]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var CopyCommand: StaticStructureSchema = [3, n0, _CCo, 0, [_DTN, _DTC, _CO], [0, 0, 0]];
 export var CreateDeliveryStreamInput: StaticStructureSchema = [
   3,
@@ -1034,57 +1023,17 @@ export var IcebergDestinationUpdate: StaticStructureSchema = [
   ],
 ];
 export var InputFormatConfiguration: StaticStructureSchema = [3, n0, _IFC, 0, [_Des], [() => Deserializer]];
-export var InvalidArgumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-
-export var InvalidKMSResourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKMSRE,
-  {
-    [_e]: _c,
-  },
-  [_co, _m],
-  [0, 0],
-];
+export var InvalidKMSResourceException: StaticErrorSchema = [-3, n0, _IKMSRE, { [_e]: _c }, [_co, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidKMSResourceException, __InvalidKMSResourceException);
-
-export var InvalidSourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-  },
-  [_co, _m],
-  [0, 0],
-];
+export var InvalidSourceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_co, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidSourceException, __InvalidSourceException);
-
 export var KinesisStreamSourceConfiguration: StaticStructureSchema = [3, n0, _KSSC, 0, [_KSARN, _RARN], [0, 0]];
 export var KinesisStreamSourceDescription: StaticStructureSchema = [3, n0, _KSSD, 0, [_KSARN, _RARN, _DSTe], [0, 0, 4]];
 export var KMSEncryptionConfig: StaticStructureSchema = [3, n0, _KMSEC, 0, [_AWSKMSKARN], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListDeliveryStreamsInput: StaticStructureSchema = [3, n0, _LDSI, 0, [_L, _DST, _ESDSN], [1, 0, 0]];
 export var ListDeliveryStreamsOutput: StaticStructureSchema = [3, n0, _LDSO, 0, [_DSNe, _HMDS], [64 | 0, 2]];
 export var ListTagsForDeliveryStreamInput: StaticStructureSchema = [3, n0, _LTFDSI, 0, [_DSN, _ESTK, _L], [0, 0, 1]];
@@ -1218,30 +1167,10 @@ export var RedshiftDestinationUpdate: StaticStructureSchema = [
   ],
 ];
 export var RedshiftRetryOptions: StaticStructureSchema = [3, n0, _RRO, 0, [_DIS], [1]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetryOptions: StaticStructureSchema = [3, n0, _RO, 0, [_DIS], [1]];
 export var S3DestinationConfiguration: StaticStructureSchema = [
   3,
@@ -1278,19 +1207,8 @@ export var SchemaConfiguration: StaticStructureSchema = [
 export var SchemaEvolutionConfiguration: StaticStructureSchema = [3, n0, _SEC, 0, [_E], [2]];
 export var SecretsManagerConfiguration: StaticStructureSchema = [3, n0, _SMC, 0, [_SARN, _RARN, _E], [0, 0, 2]];
 export var Serializer: StaticStructureSchema = [3, n0, _Se, 0, [_PSD, _OSD], [() => ParquetSerDe, () => OrcSerDe]];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SnowflakeBufferingHints: StaticStructureSchema = [3, n0, _SBH, 0, [_SIMB, _IIS], [1, 1]];
 export var SnowflakeDestinationConfiguration: StaticStructureSchema = [
   3,
@@ -1525,21 +1443,14 @@ export var VpcConfigurationDescription: StaticStructureSchema = [
   [64 | 0, 0, 64 | 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var FirehoseServiceException: StaticErrorSchema = [-3, _sm, "FirehoseServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FirehoseServiceException, __FirehoseServiceException);
-
 export var DatabaseColumnIncludeOrExcludeList = 64 | 0;
-
 export var DatabaseIncludeOrExcludeList = 64 | 0;
-
 export var DatabaseSnapshotInfoList: StaticListSchema = [1, n0, _DSIL, 0, () => DatabaseSnapshotInfo];
 export var DatabaseSurrogateKeyList = 64 | 0;
-
 export var DatabaseTableIncludeOrExcludeList = 64 | 0;
-
 export var DeliveryStreamNameList = 64 | 0;
-
 export var DestinationDescriptionList: StaticListSchema = [1, n0, _DDL, 0, [() => DestinationDescription, 0]];
 export var DestinationTableConfigurationList: StaticListSchema = [1, n0, _DTCL, 0, () => DestinationTableConfiguration];
 export var HttpEndpointCommonAttributesList: StaticListSchema = [
@@ -1550,9 +1461,7 @@ export var HttpEndpointCommonAttributesList: StaticListSchema = [
   [() => HttpEndpointCommonAttribute, 0],
 ];
 export var ListOfNonEmptyStrings = 64 | 0;
-
 export var ListOfNonEmptyStringsWithoutWhitespace = 64 | 0;
-
 export var ListTagsForDeliveryStreamOutputTagList: StaticListSchema = [1, n0, _LTFDSOTL, 0, () => Tag];
 export var PartitionFields: StaticListSchema = [1, n0, _PFa, 0, () => PartitionField];
 export var ProcessorList: StaticListSchema = [1, n0, _PL, 0, () => Processor];
@@ -1560,14 +1469,10 @@ export var ProcessorParameterList: StaticListSchema = [1, n0, _PPL, 0, () => Pro
 export var PutRecordBatchRequestEntryList: StaticListSchema = [1, n0, _PRBREL, 0, () => _Record];
 export var PutRecordBatchResponseEntryList: StaticListSchema = [1, n0, _PRBRELu, 0, () => PutRecordBatchResponseEntry];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var TagDeliveryStreamInputTagList: StaticListSchema = [1, n0, _TDSITL, 0, () => Tag];
 export var TagKeyList = 64 | 0;
-
 export var ColumnToJsonKeyMappings = 128 | 0;
-
 export var CreateDeliveryStream: StaticOperationSchema = [
   9,
   n0,

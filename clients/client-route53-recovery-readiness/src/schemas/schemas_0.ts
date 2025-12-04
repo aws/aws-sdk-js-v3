@@ -242,27 +242,15 @@ import {
 import { Route53RecoveryReadinessServiceException as __Route53RecoveryReadinessServiceException } from "../models/Route53RecoveryReadinessServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CellOutput: StaticStructureSchema = [
   3,
   n0,
@@ -270,58 +258,15 @@ export var CellOutput: StaticStructureSchema = [
   0,
   [_CA, _CN, _C, _PRS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _pRS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _cN }],
+    [64 | 0, { [_jN]: _ce }],
+    [64 | 0, { [_jN]: _pRS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateCellRequest: StaticStructureSchema = [
   3,
   n0,
@@ -329,24 +274,9 @@ export var CreateCellRequest: StaticStructureSchema = [
   0,
   [_CN, _C, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _cN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _cN }],
+    [64 | 0, { [_jN]: _ce }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateCellResponse: StaticStructureSchema = [
@@ -356,36 +286,11 @@ export var CreateCellResponse: StaticStructureSchema = [
   0,
   [_CA, _CN, _C, _PRS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _pRS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _cN }],
+    [64 | 0, { [_jN]: _ce }],
+    [64 | 0, { [_jN]: _pRS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateCrossAccountAuthorizationRequest: StaticStructureSchema = [
@@ -394,14 +299,7 @@ export var CreateCrossAccountAuthorizationRequest: StaticStructureSchema = [
   _CCAAR,
   0,
   [_CAA],
-  [
-    [
-      0,
-      {
-        [_jN]: _cAA,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _cAA }]],
 ];
 export var CreateCrossAccountAuthorizationResponse: StaticStructureSchema = [
   3,
@@ -409,14 +307,7 @@ export var CreateCrossAccountAuthorizationResponse: StaticStructureSchema = [
   _CCAARr,
   0,
   [_CAA],
-  [
-    [
-      0,
-      {
-        [_jN]: _cAA,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _cAA }]],
 ];
 export var CreateReadinessCheckRequest: StaticStructureSchema = [
   3,
@@ -425,24 +316,9 @@ export var CreateReadinessCheckRequest: StaticStructureSchema = [
   0,
   [_RCN, _RSN, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rCN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSN,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rCN }],
+    [0, { [_jN]: _rSN }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateReadinessCheckResponse: StaticStructureSchema = [
@@ -452,30 +328,10 @@ export var CreateReadinessCheckResponse: StaticStructureSchema = [
   0,
   [_RCA, _RCN, _RS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rCN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rCA }],
+    [0, { [_jN]: _rCN }],
+    [0, { [_jN]: _rS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateRecoveryGroupRequest: StaticStructureSchema = [
@@ -485,24 +341,9 @@ export var CreateRecoveryGroupRequest: StaticStructureSchema = [
   0,
   [_C, _RGN, _T],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGN,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [64 | 0, { [_jN]: _ce }],
+    [0, { [_jN]: _rGN }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateRecoveryGroupResponse: StaticStructureSchema = [
@@ -512,30 +353,10 @@ export var CreateRecoveryGroupResponse: StaticStructureSchema = [
   0,
   [_C, _RGA, _RGN, _T],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGN,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [64 | 0, { [_jN]: _ce }],
+    [0, { [_jN]: _rGA }],
+    [0, { [_jN]: _rGN }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateResourceSetRequest: StaticStructureSchema = [
@@ -545,30 +366,10 @@ export var CreateResourceSetRequest: StaticStructureSchema = [
   0,
   [_RSN, _RST, _R, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rSN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rST,
-      },
-    ],
-    [
-      () => __listOfResource,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rSN }],
+    [0, { [_jN]: _rST }],
+    [() => __listOfResource, { [_jN]: _r }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateResourceSetResponse: StaticStructureSchema = [
@@ -578,36 +379,11 @@ export var CreateResourceSetResponse: StaticStructureSchema = [
   0,
   [_RSA, _RSN, _RST, _R, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rST,
-      },
-    ],
-    [
-      () => __listOfResource,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rSA }],
+    [0, { [_jN]: _rSN }],
+    [0, { [_jN]: _rST }],
+    [() => __listOfResource, { [_jN]: _r }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var DeleteCellRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CN], [[0, 1]]];
@@ -623,36 +399,11 @@ export var DNSTargetResource: StaticStructureSchema = [
   0,
   [_DN, _HZA, _RSI, _RT, _TR],
   [
-    [
-      0,
-      {
-        [_jN]: _dN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _hZA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rT,
-      },
-    ],
-    [
-      () => TargetResource,
-      {
-        [_jN]: _tR,
-      },
-    ],
+    [0, { [_jN]: _dN }],
+    [0, { [_jN]: _hZA }],
+    [0, { [_jN]: _rSI }],
+    [0, { [_jN]: _rT }],
+    [() => TargetResource, { [_jN]: _tR }],
   ],
 ];
 export var GetArchitectureRecommendationsRequest: StaticStructureSchema = [
@@ -662,18 +413,8 @@ export var GetArchitectureRecommendationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _RGN],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -684,24 +425,9 @@ export var GetArchitectureRecommendationsResponse: StaticStructureSchema = [
   0,
   [_LAT, _NT, _Re],
   [
-    [
-      5,
-      {
-        [_jN]: _lAT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfRecommendation,
-      {
-        [_jN]: _re,
-      },
-    ],
+    [5, { [_jN]: _lAT }],
+    [0, { [_jN]: _nT }],
+    [() => __listOfRecommendation, { [_jN]: _re }],
   ],
 ];
 export var GetCellReadinessSummaryRequest: StaticStructureSchema = [
@@ -712,18 +438,8 @@ export var GetCellReadinessSummaryRequest: StaticStructureSchema = [
   [_CN, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetCellReadinessSummaryResponse: StaticStructureSchema = [
@@ -733,24 +449,9 @@ export var GetCellReadinessSummaryResponse: StaticStructureSchema = [
   0,
   [_NT, _Rea, _RC],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
-    [
-      () => __listOfReadinessCheckSummary,
-      {
-        [_jN]: _rC,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [0, { [_jN]: _rea }],
+    [() => __listOfReadinessCheckSummary, { [_jN]: _rC }],
   ],
 ];
 export var GetCellRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_CN], [[0, 1]]];
@@ -761,36 +462,11 @@ export var GetCellResponse: StaticStructureSchema = [
   0,
   [_CA, _CN, _C, _PRS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _pRS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _cN }],
+    [64 | 0, { [_jN]: _ce }],
+    [64 | 0, { [_jN]: _pRS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var GetReadinessCheckRequest: StaticStructureSchema = [3, n0, _GRCR, 0, [_RCN], [[0, 1]]];
@@ -801,18 +477,8 @@ export var GetReadinessCheckResourceStatusRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _RCN, _RI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
     [0, 1],
   ],
@@ -824,24 +490,9 @@ export var GetReadinessCheckResourceStatusResponse: StaticStructureSchema = [
   0,
   [_NT, _Rea, _Ru],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
-    [
-      () => __listOfRuleResult,
-      {
-        [_jN]: _ru,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [0, { [_jN]: _rea }],
+    [() => __listOfRuleResult, { [_jN]: _ru }],
   ],
 ];
 export var GetReadinessCheckResponse: StaticStructureSchema = [
@@ -851,30 +502,10 @@ export var GetReadinessCheckResponse: StaticStructureSchema = [
   0,
   [_RCA, _RCN, _RS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rCN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rCA }],
+    [0, { [_jN]: _rCN }],
+    [0, { [_jN]: _rS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var GetReadinessCheckStatusRequest: StaticStructureSchema = [
@@ -884,18 +515,8 @@ export var GetReadinessCheckStatusRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _RCN],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -906,30 +527,10 @@ export var GetReadinessCheckStatusResponse: StaticStructureSchema = [
   0,
   [_Me, _NT, _Rea, _R],
   [
-    [
-      () => __listOfMessage,
-      {
-        [_jN]: _me,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
-    [
-      () => __listOfResourceResult,
-      {
-        [_jN]: _r,
-      },
-    ],
+    [() => __listOfMessage, { [_jN]: _me }],
+    [0, { [_jN]: _nT }],
+    [0, { [_jN]: _rea }],
+    [() => __listOfResourceResult, { [_jN]: _r }],
   ],
 ];
 export var GetRecoveryGroupReadinessSummaryRequest: StaticStructureSchema = [
@@ -939,18 +540,8 @@ export var GetRecoveryGroupReadinessSummaryRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _RGN],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -961,24 +552,9 @@ export var GetRecoveryGroupReadinessSummaryResponse: StaticStructureSchema = [
   0,
   [_NT, _Rea, _RC],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
-    [
-      () => __listOfReadinessCheckSummary,
-      {
-        [_jN]: _rC,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [0, { [_jN]: _rea }],
+    [() => __listOfReadinessCheckSummary, { [_jN]: _rC }],
   ],
 ];
 export var GetRecoveryGroupRequest: StaticStructureSchema = [3, n0, _GRGR, 0, [_RGN], [[0, 1]]];
@@ -989,30 +565,10 @@ export var GetRecoveryGroupResponse: StaticStructureSchema = [
   0,
   [_C, _RGA, _RGN, _T],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGN,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [64 | 0, { [_jN]: _ce }],
+    [0, { [_jN]: _rGA }],
+    [0, { [_jN]: _rGN }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var GetResourceSetRequest: StaticStructureSchema = [3, n0, _GRSR, 0, [_RSN], [[0, 1]]];
@@ -1023,58 +579,22 @@ export var GetResourceSetResponse: StaticStructureSchema = [
   0,
   [_RSA, _RSN, _RST, _R, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rST,
-      },
-    ],
-    [
-      () => __listOfResource,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rSA }],
+    [0, { [_jN]: _rSN }],
+    [0, { [_jN]: _rST }],
+    [() => __listOfResource, { [_jN]: _r }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListCellsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1082,18 +602,8 @@ export var ListCellsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCellsResponse: StaticStructureSchema = [
@@ -1103,18 +613,8 @@ export var ListCellsResponse: StaticStructureSchema = [
   0,
   [_C, _NT],
   [
-    [
-      () => __listOfCellOutput,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => __listOfCellOutput, { [_jN]: _ce }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var ListCrossAccountAuthorizationsRequest: StaticStructureSchema = [
@@ -1124,18 +624,8 @@ export var ListCrossAccountAuthorizationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCrossAccountAuthorizationsResponse: StaticStructureSchema = [
@@ -1145,18 +635,8 @@ export var ListCrossAccountAuthorizationsResponse: StaticStructureSchema = [
   0,
   [_CAAr, _NT],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _cAAr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [64 | 0, { [_jN]: _cAAr }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var ListReadinessChecksRequest: StaticStructureSchema = [
@@ -1166,18 +646,8 @@ export var ListReadinessChecksRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListReadinessChecksResponse: StaticStructureSchema = [
@@ -1187,18 +657,8 @@ export var ListReadinessChecksResponse: StaticStructureSchema = [
   0,
   [_NT, _RC],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfReadinessCheckOutput,
-      {
-        [_jN]: _rC,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [() => __listOfReadinessCheckOutput, { [_jN]: _rC }],
   ],
 ];
 export var ListRecoveryGroupsRequest: StaticStructureSchema = [
@@ -1208,18 +668,8 @@ export var ListRecoveryGroupsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListRecoveryGroupsResponse: StaticStructureSchema = [
@@ -1229,18 +679,8 @@ export var ListRecoveryGroupsResponse: StaticStructureSchema = [
   0,
   [_NT, _RG],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfRecoveryGroupOutput,
-      {
-        [_jN]: _rG,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [() => __listOfRecoveryGroupOutput, { [_jN]: _rG }],
   ],
 ];
 export var ListResourceSetsRequest: StaticStructureSchema = [
@@ -1250,18 +690,8 @@ export var ListResourceSetsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListResourceSetsResponse: StaticStructureSchema = [
@@ -1271,18 +701,8 @@ export var ListResourceSetsResponse: StaticStructureSchema = [
   0,
   [_NT, _RSe],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfResourceSetOutput,
-      {
-        [_jN]: _rSe,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [() => __listOfResourceSetOutput, { [_jN]: _rSe }],
   ],
 ];
 export var ListRulesOutput: StaticStructureSchema = [
@@ -1292,24 +712,9 @@ export var ListRulesOutput: StaticStructureSchema = [
   0,
   [_RTe, _RD, _RIu],
   [
-    [
-      0,
-      {
-        [_jN]: _rTe,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rD,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rI,
-      },
-    ],
+    [0, { [_jN]: _rTe }],
+    [0, { [_jN]: _rD }],
+    [0, { [_jN]: _rI }],
   ],
 ];
 export var ListRulesRequest: StaticStructureSchema = [
@@ -1319,24 +724,9 @@ export var ListRulesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _RTe],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rTe,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _rTe }],
   ],
 ];
 export var ListRulesResponse: StaticStructureSchema = [
@@ -1346,66 +736,14 @@ export var ListRulesResponse: StaticStructureSchema = [
   0,
   [_NT, _Ru],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfListRulesOutput,
-      {
-        [_jN]: _ru,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [() => __listOfListRulesOutput, { [_jN]: _ru }],
   ],
 ];
 export var ListTagsForResourcesRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
-export var ListTagsForResourcesResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRRi,
-  0,
-  [_T],
-  [
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
-export var Message: StaticStructureSchema = [
-  3,
-  n0,
-  _M,
-  0,
-  [_MT],
-  [
-    [
-      0,
-      {
-        [_jN]: _mT,
-      },
-    ],
-  ],
-];
-export var NLBResource: StaticStructureSchema = [
-  3,
-  n0,
-  _NLBR,
-  0,
-  [_A],
-  [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourcesResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
+export var Message: StaticStructureSchema = [3, n0, _M, 0, [_MT], [[0, { [_jN]: _mT }]]];
+export var NLBResource: StaticStructureSchema = [3, n0, _NLBR, 0, [_A], [[0, { [_jN]: _a }]]];
 export var R53ResourceRecord: StaticStructureSchema = [
   3,
   n0,
@@ -1413,18 +751,8 @@ export var R53ResourceRecord: StaticStructureSchema = [
   0,
   [_DN, _RSI],
   [
-    [
-      0,
-      {
-        [_jN]: _dN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSI,
-      },
-    ],
+    [0, { [_jN]: _dN }],
+    [0, { [_jN]: _rSI }],
   ],
 ];
 export var ReadinessCheckOutput: StaticStructureSchema = [
@@ -1434,30 +762,10 @@ export var ReadinessCheckOutput: StaticStructureSchema = [
   0,
   [_RCA, _RCN, _RS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rCN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rCA }],
+    [0, { [_jN]: _rCN }],
+    [0, { [_jN]: _rS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var ReadinessCheckSummary: StaticStructureSchema = [
@@ -1467,35 +775,11 @@ export var ReadinessCheckSummary: StaticStructureSchema = [
   0,
   [_Rea, _RCN],
   [
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rCN,
-      },
-    ],
+    [0, { [_jN]: _rea }],
+    [0, { [_jN]: _rCN }],
   ],
 ];
-export var Recommendation: StaticStructureSchema = [
-  3,
-  n0,
-  _Rec,
-  0,
-  [_RTec],
-  [
-    [
-      0,
-      {
-        [_jN]: _rTec,
-      },
-    ],
-  ],
-];
+export var Recommendation: StaticStructureSchema = [3, n0, _Rec, 0, [_RTec], [[0, { [_jN]: _rTec }]]];
 export var RecoveryGroupOutput: StaticStructureSchema = [
   3,
   n0,
@@ -1503,30 +787,10 @@ export var RecoveryGroupOutput: StaticStructureSchema = [
   0,
   [_C, _RGA, _RGN, _T],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGN,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [64 | 0, { [_jN]: _ce }],
+    [0, { [_jN]: _rGA }],
+    [0, { [_jN]: _rGN }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var Resource: StaticStructureSchema = [
@@ -1536,52 +800,21 @@ export var Resource: StaticStructureSchema = [
   0,
   [_CI, _DTR, _RSea, _RA],
   [
-    [
-      0,
-      {
-        [_jN]: _cI,
-      },
-    ],
-    [
-      () => DNSTargetResource,
-      {
-        [_jN]: _dTR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _rSea,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rA,
-      },
-    ],
+    [0, { [_jN]: _cI }],
+    [() => DNSTargetResource, { [_jN]: _dTR }],
+    [64 | 0, { [_jN]: _rSea }],
+    [0, { [_jN]: _rA }],
   ],
 ];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceResult: StaticStructureSchema = [
   3,
   n0,
@@ -1589,30 +822,10 @@ export var ResourceResult: StaticStructureSchema = [
   0,
   [_CI, _LCT, _Rea, _RA],
   [
-    [
-      0,
-      {
-        [_jN]: _cI,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _lCT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rA,
-      },
-    ],
+    [0, { [_jN]: _cI }],
+    [5, { [_jN]: _lCT }],
+    [0, { [_jN]: _rea }],
+    [0, { [_jN]: _rA }],
   ],
 ];
 export var ResourceSetOutput: StaticStructureSchema = [
@@ -1622,36 +835,11 @@ export var ResourceSetOutput: StaticStructureSchema = [
   0,
   [_RSA, _RSN, _RST, _R, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rST,
-      },
-    ],
-    [
-      () => __listOfResource,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rSA }],
+    [0, { [_jN]: _rSN }],
+    [0, { [_jN]: _rST }],
+    [() => __listOfResource, { [_jN]: _r }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var RuleResult: StaticStructureSchema = [
@@ -1661,30 +849,10 @@ export var RuleResult: StaticStructureSchema = [
   0,
   [_LCT, _Me, _Rea, _RIu],
   [
-    [
-      5,
-      {
-        [_jN]: _lCT,
-      },
-    ],
-    [
-      () => __listOfMessage,
-      {
-        [_jN]: _me,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rI,
-      },
-    ],
+    [5, { [_jN]: _lCT }],
+    [() => __listOfMessage, { [_jN]: _me }],
+    [0, { [_jN]: _rea }],
+    [0, { [_jN]: _rI }],
   ],
 ];
 export var TagResourceRequest: StaticStructureSchema = [
@@ -1695,12 +863,7 @@ export var TagResourceRequest: StaticStructureSchema = [
   [_RA, _T],
   [
     [0, 1],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -1711,40 +874,12 @@ export var TargetResource: StaticStructureSchema = [
   0,
   [_NLBR, _RRe],
   [
-    [
-      () => NLBResource,
-      {
-        [_jN]: _nLBR,
-      },
-    ],
-    [
-      () => R53ResourceRecord,
-      {
-        [_jN]: _rR,
-      },
-    ],
+    [() => NLBResource, { [_jN]: _nLBR }],
+    [() => R53ResourceRecord, { [_jN]: _rR }],
   ],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1753,12 +888,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateCellRequest: StaticStructureSchema = [
@@ -1769,12 +899,7 @@ export var UpdateCellRequest: StaticStructureSchema = [
   [_CN, _C],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
+    [64 | 0, { [_jN]: _ce }],
   ],
 ];
 export var UpdateCellResponse: StaticStructureSchema = [
@@ -1784,36 +909,11 @@ export var UpdateCellResponse: StaticStructureSchema = [
   0,
   [_CA, _CN, _C, _PRS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _pRS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _cN }],
+    [64 | 0, { [_jN]: _ce }],
+    [64 | 0, { [_jN]: _pRS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var UpdateReadinessCheckRequest: StaticStructureSchema = [
@@ -1824,12 +924,7 @@ export var UpdateReadinessCheckRequest: StaticStructureSchema = [
   [_RCN, _RSN],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rSN,
-      },
-    ],
+    [0, { [_jN]: _rSN }],
   ],
 ];
 export var UpdateReadinessCheckResponse: StaticStructureSchema = [
@@ -1839,30 +934,10 @@ export var UpdateReadinessCheckResponse: StaticStructureSchema = [
   0,
   [_RCA, _RCN, _RS, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rCN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rS,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rCA }],
+    [0, { [_jN]: _rCN }],
+    [0, { [_jN]: _rS }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var UpdateRecoveryGroupRequest: StaticStructureSchema = [
@@ -1872,12 +947,7 @@ export var UpdateRecoveryGroupRequest: StaticStructureSchema = [
   0,
   [_C, _RGN],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
+    [64 | 0, { [_jN]: _ce }],
     [0, 1],
   ],
 ];
@@ -1888,30 +958,10 @@ export var UpdateRecoveryGroupResponse: StaticStructureSchema = [
   0,
   [_C, _RGA, _RGN, _T],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ce,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rGN,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [64 | 0, { [_jN]: _ce }],
+    [0, { [_jN]: _rGA }],
+    [0, { [_jN]: _rGN }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var UpdateResourceSetRequest: StaticStructureSchema = [
@@ -1922,18 +972,8 @@ export var UpdateResourceSetRequest: StaticStructureSchema = [
   [_RSN, _RST, _R],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rST,
-      },
-    ],
-    [
-      () => __listOfResource,
-      {
-        [_jN]: _r,
-      },
-    ],
+    [0, { [_jN]: _rST }],
+    [() => __listOfResource, { [_jN]: _r }],
   ],
 ];
 export var UpdateResourceSetResponse: StaticStructureSchema = [
@@ -1943,60 +983,16 @@ export var UpdateResourceSetResponse: StaticStructureSchema = [
   0,
   [_RSA, _RSN, _RST, _R, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _rSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rST,
-      },
-    ],
-    [
-      () => __listOfResource,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _rSA }],
+    [0, { [_jN]: _rSN }],
+    [0, { [_jN]: _rST }],
+    [() => __listOfResource, { [_jN]: _r }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var Route53RecoveryReadinessServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -2009,12 +1005,9 @@ TypeRegistry.for(_sm).registerError(
   Route53RecoveryReadinessServiceException,
   __Route53RecoveryReadinessServiceException
 );
-
 export var __listOf__string = 64 | 0;
-
 export var __listOfCellOutput: StaticListSchema = [1, n0, _lOCO, 0, [() => CellOutput, 0]];
 export var __listOfCrossAccountAuthorization = 64 | 0;
-
 export var __listOfListRulesOutput: StaticListSchema = [1, n0, _lOLRO, 0, [() => ListRulesOutput, 0]];
 export var __listOfMessage: StaticListSchema = [1, n0, _lOM, 0, [() => Message, 0]];
 export var __listOfReadinessCheckOutput: StaticListSchema = [1, n0, _lORCO, 0, [() => ReadinessCheckOutput, 0]];
@@ -2026,14 +1019,11 @@ export var __listOfResourceResult: StaticListSchema = [1, n0, _lORR, 0, [() => R
 export var __listOfResourceSetOutput: StaticListSchema = [1, n0, _lORSO, 0, [() => ResourceSetOutput, 0]];
 export var __listOfRuleResult: StaticListSchema = [1, n0, _lORRi, 0, [() => RuleResult, 0]];
 export var Tags = 128 | 0;
-
 export var CreateCell: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/cells", 200],
-  },
+  { [_h]: ["POST", "/cells", 200] },
   () => CreateCellRequest,
   () => CreateCellResponse,
 ];
@@ -2041,9 +1031,7 @@ export var CreateCrossAccountAuthorization: StaticOperationSchema = [
   9,
   n0,
   _CCAA,
-  {
-    [_h]: ["POST", "/crossaccountauthorizations", 200],
-  },
+  { [_h]: ["POST", "/crossaccountauthorizations", 200] },
   () => CreateCrossAccountAuthorizationRequest,
   () => CreateCrossAccountAuthorizationResponse,
 ];
@@ -2051,9 +1039,7 @@ export var CreateReadinessCheck: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  {
-    [_h]: ["POST", "/readinesschecks", 200],
-  },
+  { [_h]: ["POST", "/readinesschecks", 200] },
   () => CreateReadinessCheckRequest,
   () => CreateReadinessCheckResponse,
 ];
@@ -2061,9 +1047,7 @@ export var CreateRecoveryGroup: StaticOperationSchema = [
   9,
   n0,
   _CRG,
-  {
-    [_h]: ["POST", "/recoverygroups", 200],
-  },
+  { [_h]: ["POST", "/recoverygroups", 200] },
   () => CreateRecoveryGroupRequest,
   () => CreateRecoveryGroupResponse,
 ];
@@ -2071,9 +1055,7 @@ export var CreateResourceSet: StaticOperationSchema = [
   9,
   n0,
   _CRS,
-  {
-    [_h]: ["POST", "/resourcesets", 200],
-  },
+  { [_h]: ["POST", "/resourcesets", 200] },
   () => CreateResourceSetRequest,
   () => CreateResourceSetResponse,
 ];
@@ -2081,9 +1063,7 @@ export var DeleteCell: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/cells/{CellName}", 204],
-  },
+  { [_h]: ["DELETE", "/cells/{CellName}", 204] },
   () => DeleteCellRequest,
   () => __Unit,
 ];
@@ -2091,9 +1071,7 @@ export var DeleteCrossAccountAuthorization: StaticOperationSchema = [
   9,
   n0,
   _DCAA,
-  {
-    [_h]: ["DELETE", "/crossaccountauthorizations/{CrossAccountAuthorization}", 200],
-  },
+  { [_h]: ["DELETE", "/crossaccountauthorizations/{CrossAccountAuthorization}", 200] },
   () => DeleteCrossAccountAuthorizationRequest,
   () => DeleteCrossAccountAuthorizationResponse,
 ];
@@ -2101,9 +1079,7 @@ export var DeleteReadinessCheck: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_h]: ["DELETE", "/readinesschecks/{ReadinessCheckName}", 204],
-  },
+  { [_h]: ["DELETE", "/readinesschecks/{ReadinessCheckName}", 204] },
   () => DeleteReadinessCheckRequest,
   () => __Unit,
 ];
@@ -2111,9 +1087,7 @@ export var DeleteRecoveryGroup: StaticOperationSchema = [
   9,
   n0,
   _DRG,
-  {
-    [_h]: ["DELETE", "/recoverygroups/{RecoveryGroupName}", 204],
-  },
+  { [_h]: ["DELETE", "/recoverygroups/{RecoveryGroupName}", 204] },
   () => DeleteRecoveryGroupRequest,
   () => __Unit,
 ];
@@ -2121,9 +1095,7 @@ export var DeleteResourceSet: StaticOperationSchema = [
   9,
   n0,
   _DRS,
-  {
-    [_h]: ["DELETE", "/resourcesets/{ResourceSetName}", 204],
-  },
+  { [_h]: ["DELETE", "/resourcesets/{ResourceSetName}", 204] },
   () => DeleteResourceSetRequest,
   () => __Unit,
 ];
@@ -2131,9 +1103,7 @@ export var GetArchitectureRecommendations: StaticOperationSchema = [
   9,
   n0,
   _GAR,
-  {
-    [_h]: ["GET", "/recoverygroups/{RecoveryGroupName}/architectureRecommendations", 200],
-  },
+  { [_h]: ["GET", "/recoverygroups/{RecoveryGroupName}/architectureRecommendations", 200] },
   () => GetArchitectureRecommendationsRequest,
   () => GetArchitectureRecommendationsResponse,
 ];
@@ -2141,9 +1111,7 @@ export var GetCell: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/cells/{CellName}", 200],
-  },
+  { [_h]: ["GET", "/cells/{CellName}", 200] },
   () => GetCellRequest,
   () => GetCellResponse,
 ];
@@ -2151,9 +1119,7 @@ export var GetCellReadinessSummary: StaticOperationSchema = [
   9,
   n0,
   _GCRS,
-  {
-    [_h]: ["GET", "/cellreadiness/{CellName}", 200],
-  },
+  { [_h]: ["GET", "/cellreadiness/{CellName}", 200] },
   () => GetCellReadinessSummaryRequest,
   () => GetCellReadinessSummaryResponse,
 ];
@@ -2161,9 +1127,7 @@ export var GetReadinessCheck: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  {
-    [_h]: ["GET", "/readinesschecks/{ReadinessCheckName}", 200],
-  },
+  { [_h]: ["GET", "/readinesschecks/{ReadinessCheckName}", 200] },
   () => GetReadinessCheckRequest,
   () => GetReadinessCheckResponse,
 ];
@@ -2171,9 +1135,7 @@ export var GetReadinessCheckResourceStatus: StaticOperationSchema = [
   9,
   n0,
   _GRCRS,
-  {
-    [_h]: ["GET", "/readinesschecks/{ReadinessCheckName}/resource/{ResourceIdentifier}/status", 200],
-  },
+  { [_h]: ["GET", "/readinesschecks/{ReadinessCheckName}/resource/{ResourceIdentifier}/status", 200] },
   () => GetReadinessCheckResourceStatusRequest,
   () => GetReadinessCheckResourceStatusResponse,
 ];
@@ -2181,9 +1143,7 @@ export var GetReadinessCheckStatus: StaticOperationSchema = [
   9,
   n0,
   _GRCS,
-  {
-    [_h]: ["GET", "/readinesschecks/{ReadinessCheckName}/status", 200],
-  },
+  { [_h]: ["GET", "/readinesschecks/{ReadinessCheckName}/status", 200] },
   () => GetReadinessCheckStatusRequest,
   () => GetReadinessCheckStatusResponse,
 ];
@@ -2191,9 +1151,7 @@ export var GetRecoveryGroup: StaticOperationSchema = [
   9,
   n0,
   _GRG,
-  {
-    [_h]: ["GET", "/recoverygroups/{RecoveryGroupName}", 200],
-  },
+  { [_h]: ["GET", "/recoverygroups/{RecoveryGroupName}", 200] },
   () => GetRecoveryGroupRequest,
   () => GetRecoveryGroupResponse,
 ];
@@ -2201,9 +1159,7 @@ export var GetRecoveryGroupReadinessSummary: StaticOperationSchema = [
   9,
   n0,
   _GRGRS,
-  {
-    [_h]: ["GET", "/recoverygroupreadiness/{RecoveryGroupName}", 200],
-  },
+  { [_h]: ["GET", "/recoverygroupreadiness/{RecoveryGroupName}", 200] },
   () => GetRecoveryGroupReadinessSummaryRequest,
   () => GetRecoveryGroupReadinessSummaryResponse,
 ];
@@ -2211,9 +1167,7 @@ export var GetResourceSet: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  {
-    [_h]: ["GET", "/resourcesets/{ResourceSetName}", 200],
-  },
+  { [_h]: ["GET", "/resourcesets/{ResourceSetName}", 200] },
   () => GetResourceSetRequest,
   () => GetResourceSetResponse,
 ];
@@ -2221,9 +1175,7 @@ export var ListCells: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/cells", 200],
-  },
+  { [_h]: ["GET", "/cells", 200] },
   () => ListCellsRequest,
   () => ListCellsResponse,
 ];
@@ -2231,9 +1183,7 @@ export var ListCrossAccountAuthorizations: StaticOperationSchema = [
   9,
   n0,
   _LCAA,
-  {
-    [_h]: ["GET", "/crossaccountauthorizations", 200],
-  },
+  { [_h]: ["GET", "/crossaccountauthorizations", 200] },
   () => ListCrossAccountAuthorizationsRequest,
   () => ListCrossAccountAuthorizationsResponse,
 ];
@@ -2241,9 +1191,7 @@ export var ListReadinessChecks: StaticOperationSchema = [
   9,
   n0,
   _LRC,
-  {
-    [_h]: ["GET", "/readinesschecks", 200],
-  },
+  { [_h]: ["GET", "/readinesschecks", 200] },
   () => ListReadinessChecksRequest,
   () => ListReadinessChecksResponse,
 ];
@@ -2251,9 +1199,7 @@ export var ListRecoveryGroups: StaticOperationSchema = [
   9,
   n0,
   _LRG,
-  {
-    [_h]: ["GET", "/recoverygroups", 200],
-  },
+  { [_h]: ["GET", "/recoverygroups", 200] },
   () => ListRecoveryGroupsRequest,
   () => ListRecoveryGroupsResponse,
 ];
@@ -2261,9 +1207,7 @@ export var ListResourceSets: StaticOperationSchema = [
   9,
   n0,
   _LRS,
-  {
-    [_h]: ["GET", "/resourcesets", 200],
-  },
+  { [_h]: ["GET", "/resourcesets", 200] },
   () => ListResourceSetsRequest,
   () => ListResourceSetsResponse,
 ];
@@ -2271,9 +1215,7 @@ export var ListRules: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/rules", 200],
-  },
+  { [_h]: ["GET", "/rules", 200] },
   () => ListRulesRequest,
   () => ListRulesResponse,
 ];
@@ -2281,9 +1223,7 @@ export var ListTagsForResources: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourcesRequest,
   () => ListTagsForResourcesResponse,
 ];
@@ -2291,9 +1231,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2301,9 +1239,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -2311,9 +1247,7 @@ export var UpdateCell: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/cells/{CellName}", 200],
-  },
+  { [_h]: ["PUT", "/cells/{CellName}", 200] },
   () => UpdateCellRequest,
   () => UpdateCellResponse,
 ];
@@ -2321,9 +1255,7 @@ export var UpdateReadinessCheck: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  {
-    [_h]: ["PUT", "/readinesschecks/{ReadinessCheckName}", 200],
-  },
+  { [_h]: ["PUT", "/readinesschecks/{ReadinessCheckName}", 200] },
   () => UpdateReadinessCheckRequest,
   () => UpdateReadinessCheckResponse,
 ];
@@ -2331,9 +1263,7 @@ export var UpdateRecoveryGroup: StaticOperationSchema = [
   9,
   n0,
   _URG,
-  {
-    [_h]: ["PUT", "/recoverygroups/{RecoveryGroupName}", 200],
-  },
+  { [_h]: ["PUT", "/recoverygroups/{RecoveryGroupName}", 200] },
   () => UpdateRecoveryGroupRequest,
   () => UpdateRecoveryGroupResponse,
 ];
@@ -2341,9 +1271,7 @@ export var UpdateResourceSet: StaticOperationSchema = [
   9,
   n0,
   _URS,
-  {
-    [_h]: ["PUT", "/resourcesets/{ResourceSetName}", 200],
-  },
+  { [_h]: ["PUT", "/resourcesets/{ResourceSetName}", 200] },
   () => UpdateResourceSetRequest,
   () => UpdateResourceSetResponse,
 ];

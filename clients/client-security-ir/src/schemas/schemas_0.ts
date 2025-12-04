@@ -262,7 +262,6 @@ import {
 import { SecurityIRServiceException as __SecurityIRServiceException } from "../models/SecurityIRServiceException";
 
 /* eslint no-var: 0 */
-
 export var CaseDescription: StaticSimpleSchema = [0, n0, _CD, 8, 0];
 export var CaseTitle: StaticSimpleSchema = [0, n0, _CT, 8, 0];
 export var CommentBody: StaticSimpleSchema = [0, n0, _CB, 8, 0];
@@ -274,19 +273,8 @@ export var JobTitle: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 export var MembershipName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
 export var PersonName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 export var Url: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BatchGetMemberAccountDetailsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -317,19 +305,8 @@ export var CaseEditItem: StaticStructureSchema = [3, n0, _CEI, 0, [_eT, _p, _a, 
 export var CaseMetadataEntry: StaticStructureSchema = [3, n0, _CME, 0, [_k, _v], [0, 0]];
 export var CloseCaseRequest: StaticStructureSchema = [3, n0, _CCR, 0, [_cI], [[0, 1]]];
 export var CloseCaseResponse: StaticStructureSchema = [3, n0, _CCRl, 0, [_cS, _cDl], [0, 4]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateCaseCommentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -463,36 +440,13 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-    [_hE]: 423,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTokenException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c, [_hE]: 423 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTokenException, __InvalidTokenException);
-
 export var InvestigationAction: StaticStructureSchema = [
   3,
   n0,
@@ -552,18 +506,8 @@ export var ListInvestigationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _cI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -597,27 +541,13 @@ export var MembershipAccountsConfigurationsUpdate: StaticStructureSchema = [
   [2, 64 | 0, 64 | 0],
 ];
 export var OptInFeature: StaticStructureSchema = [3, n0, _OIF, 0, [_fNe, _iE], [0, 2]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SecurityIncidentResponseNotActiveException: StaticErrorSchema = [
   -3,
   n0,
   _SIRNAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -625,22 +555,17 @@ TypeRegistry.for(n0).registerError(
   SecurityIncidentResponseNotActiveException,
   __SecurityIncidentResponseNotActiveException
 );
-
 export var SendFeedbackRequest: StaticStructureSchema = [3, n0, _SFR, 0, [_cI, _rIe, _u, _com], [[0, 1], [0, 1], 0, 0]];
 export var SendFeedbackResponse: StaticStructureSchema = [3, n0, _SFRe, 0, [], []];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var ThreatActorIp: StaticStructureSchema = [3, n0, _TAI, 0, [_iAp, _uA], [[() => IPAddress, 0], 0]];
@@ -648,25 +573,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -675,12 +586,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -755,15 +661,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var Watcher: StaticStructureSchema = [
   3,
@@ -778,17 +680,13 @@ export var Watcher: StaticStructureSchema = [
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var SecurityIRServiceException: StaticErrorSchema = [-3, _sm, "SecurityIRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SecurityIRServiceException, __SecurityIRServiceException);
-
 export var AWSAccountIds = 64 | 0;
-
 export var CaseAttachmentsList: StaticListSchema = [1, n0, _CAL, 0, [() => CaseAttachmentAttributes, 0]];
 export var CaseEditItems: StaticListSchema = [1, n0, _CEIa, 0, () => CaseEditItem];
 export var CaseMetadata: StaticListSchema = [1, n0, _CM, 0, () => CaseMetadataEntry];
 export var CommunicationPreferences = 64 | 0;
-
 export var GetMembershipAccountDetailErrors: StaticListSchema = [
   1,
   n0,
@@ -804,10 +702,8 @@ export var GetMembershipAccountDetailItems: StaticListSchema = [
   () => GetMembershipAccountDetailItem,
 ];
 export var ImpactedAccounts = 64 | 0;
-
 export var ImpactedAwsRegionList: StaticListSchema = [1, n0, _IARL, 0, () => ImpactedAwsRegion];
 export var ImpactedServicesList = 64 | 0;
-
 export var IncidentResponseTeam: StaticListSchema = [1, n0, _IRT, 0, [() => IncidentResponder, 0]];
 export var InvestigationActionList: StaticListSchema = [1, n0, _IAL, 0, () => InvestigationAction];
 export var ListCasesItems: StaticListSchema = [1, n0, _LCIis, 0, [() => ListCasesItem, 0]];
@@ -815,21 +711,16 @@ export var ListCommentsItems: StaticListSchema = [1, n0, _LCIist, 0, [() => List
 export var ListMembershipItems: StaticListSchema = [1, n0, _LMIi, 0, () => ListMembershipItem];
 export var OptInFeatures: StaticListSchema = [1, n0, _OIFp, 0, () => OptInFeature];
 export var OrganizationalUnits = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var ThreatActorIpList: StaticListSchema = [1, n0, _TAIL, 0, [() => ThreatActorIp, 0]];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var Watchers: StaticListSchema = [1, n0, _Wa, 0, [() => Watcher, 0]];
 export var TagMap = 128 | 0;
-
 export var BatchGetMemberAccountDetails: StaticOperationSchema = [
   9,
   n0,
   _BGMAD,
-  {
-    [_h]: ["POST", "/v1/membership/{membershipId}/batch-member-details", 200],
-  },
+  { [_h]: ["POST", "/v1/membership/{membershipId}/batch-member-details", 200] },
   () => BatchGetMemberAccountDetailsRequest,
   () => BatchGetMemberAccountDetailsResponse,
 ];
@@ -837,9 +728,7 @@ export var CancelMembership: StaticOperationSchema = [
   9,
   n0,
   _CMa,
-  {
-    [_h]: ["PUT", "/v1/membership/{membershipId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/membership/{membershipId}", 200] },
   () => CancelMembershipRequest,
   () => CancelMembershipResponse,
 ];
@@ -847,9 +736,7 @@ export var CloseCase: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/close-case", 200],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/close-case", 200] },
   () => CloseCaseRequest,
   () => CloseCaseResponse,
 ];
@@ -857,9 +744,7 @@ export var CreateCase: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/v1/create-case", 201],
-  },
+  { [_h]: ["POST", "/v1/create-case", 201] },
   () => CreateCaseRequest,
   () => CreateCaseResponse,
 ];
@@ -867,9 +752,7 @@ export var CreateCaseComment: StaticOperationSchema = [
   9,
   n0,
   _CCC,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/create-comment", 201],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/create-comment", 201] },
   () => CreateCaseCommentRequest,
   () => CreateCaseCommentResponse,
 ];
@@ -877,9 +760,7 @@ export var CreateMembership: StaticOperationSchema = [
   9,
   n0,
   _CMr,
-  {
-    [_h]: ["POST", "/v1/membership", 201],
-  },
+  { [_h]: ["POST", "/v1/membership", 201] },
   () => CreateMembershipRequest,
   () => CreateMembershipResponse,
 ];
@@ -887,9 +768,7 @@ export var GetCase: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/v1/cases/{caseId}/get-case", 200],
-  },
+  { [_h]: ["GET", "/v1/cases/{caseId}/get-case", 200] },
   () => GetCaseRequest,
   () => GetCaseResponse,
 ];
@@ -897,9 +776,7 @@ export var GetCaseAttachmentDownloadUrl: StaticOperationSchema = [
   9,
   n0,
   _GCADU,
-  {
-    [_h]: ["GET", "/v1/cases/{caseId}/get-presigned-url/{attachmentId}", 201],
-  },
+  { [_h]: ["GET", "/v1/cases/{caseId}/get-presigned-url/{attachmentId}", 201] },
   () => GetCaseAttachmentDownloadUrlRequest,
   () => GetCaseAttachmentDownloadUrlResponse,
 ];
@@ -907,9 +784,7 @@ export var GetCaseAttachmentUploadUrl: StaticOperationSchema = [
   9,
   n0,
   _GCAUU,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/get-presigned-url", 201],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/get-presigned-url", 201] },
   () => GetCaseAttachmentUploadUrlRequest,
   () => GetCaseAttachmentUploadUrlResponse,
 ];
@@ -917,9 +792,7 @@ export var GetMembership: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/v1/membership/{membershipId}", 200],
-  },
+  { [_h]: ["GET", "/v1/membership/{membershipId}", 200] },
   () => GetMembershipRequest,
   () => GetMembershipResponse,
 ];
@@ -927,9 +800,7 @@ export var ListCaseEdits: StaticOperationSchema = [
   9,
   n0,
   _LCE,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/list-case-edits", 200],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/list-case-edits", 200] },
   () => ListCaseEditsRequest,
   () => ListCaseEditsResponse,
 ];
@@ -937,9 +808,7 @@ export var ListCases: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["POST", "/v1/list-cases", 200],
-  },
+  { [_h]: ["POST", "/v1/list-cases", 200] },
   () => ListCasesRequest,
   () => ListCasesResponse,
 ];
@@ -947,9 +816,7 @@ export var ListComments: StaticOperationSchema = [
   9,
   n0,
   _LCi,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/list-comments", 200],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/list-comments", 200] },
   () => ListCommentsRequest,
   () => ListCommentsResponse,
 ];
@@ -957,9 +824,7 @@ export var ListInvestigations: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["GET", "/v1/cases/{caseId}/list-investigations", 200],
-  },
+  { [_h]: ["GET", "/v1/cases/{caseId}/list-investigations", 200] },
   () => ListInvestigationsRequest,
   () => ListInvestigationsResponse,
 ];
@@ -967,9 +832,7 @@ export var ListMemberships: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_h]: ["POST", "/v1/memberships", 200],
-  },
+  { [_h]: ["POST", "/v1/memberships", 200] },
   () => ListMembershipsRequest,
   () => ListMembershipsResponse,
 ];
@@ -977,9 +840,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -987,9 +848,7 @@ export var SendFeedback: StaticOperationSchema = [
   9,
   n0,
   _SF,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/feedback/{resultId}/send-feedback", 200],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/feedback/{resultId}/send-feedback", 200] },
   () => SendFeedbackRequest,
   () => SendFeedbackResponse,
 ];
@@ -997,9 +856,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/v1/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["POST", "/v1/tags/{resourceArn}", 204] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -1007,9 +864,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -1017,9 +872,7 @@ export var UpdateCase: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/update-case", 200],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/update-case", 200] },
   () => UpdateCaseRequest,
   () => UpdateCaseResponse,
 ];
@@ -1027,9 +880,7 @@ export var UpdateCaseComment: StaticOperationSchema = [
   9,
   n0,
   _UCC,
-  {
-    [_h]: ["PUT", "/v1/cases/{caseId}/update-case-comment/{commentId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/cases/{caseId}/update-case-comment/{commentId}", 200] },
   () => UpdateCaseCommentRequest,
   () => UpdateCaseCommentResponse,
 ];
@@ -1037,9 +888,7 @@ export var UpdateCaseStatus: StaticOperationSchema = [
   9,
   n0,
   _UCS,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/update-case-status", 201],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/update-case-status", 201] },
   () => UpdateCaseStatusRequest,
   () => UpdateCaseStatusResponse,
 ];
@@ -1047,9 +896,7 @@ export var UpdateMembership: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  {
-    [_h]: ["PUT", "/v1/membership/{membershipId}/update-membership", 200],
-  },
+  { [_h]: ["PUT", "/v1/membership/{membershipId}/update-membership", 200] },
   () => UpdateMembershipRequest,
   () => UpdateMembershipResponse,
 ];
@@ -1057,9 +904,7 @@ export var UpdateResolverType: StaticOperationSchema = [
   9,
   n0,
   _URT,
-  {
-    [_h]: ["POST", "/v1/cases/{caseId}/update-resolver-type", 200],
-  },
+  { [_h]: ["POST", "/v1/cases/{caseId}/update-resolver-type", 200] },
   () => UpdateResolverTypeRequest,
   () => UpdateResolverTypeResponse,
 ];

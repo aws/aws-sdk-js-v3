@@ -399,7 +399,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var ActionParameters: StaticStructureSchema = [
   3,
@@ -611,13 +610,7 @@ export var CreateComponentRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [() => CreateComponentData, 16],
   ],
 ];
@@ -650,13 +643,7 @@ export var CreateFormRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [() => CreateFormData, 16],
   ],
 ];
@@ -678,13 +665,7 @@ export var CreateThemeRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [() => CreateThemeData, 16],
   ],
 ];
@@ -762,12 +743,7 @@ export var ExportComponentsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ExportComponentsResponse: StaticStructureSchema = [3, n0, _ECRx, 0, [_ent, _nT], [() => ComponentList, 0]];
@@ -780,12 +756,7 @@ export var ExportFormsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ExportFormsResponse: StaticStructureSchema = [3, n0, _EFRx, 0, [_ent, _nT], [() => FormList, 0]];
@@ -798,12 +769,7 @@ export var ExportThemesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ExportThemesResponse: StaticStructureSchema = [3, n0, _ETRx, 0, [_ent, _nT], [() => ThemeList, 0]];
@@ -978,32 +944,10 @@ export var GraphQLRenderConfig: StaticStructureSchema = [
   [_tFP, _qFP, _mFP, _sFP, _fFP],
   [0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_er]: _se,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _se, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_er]: _cli,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_er]: _cli, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var ListCodegenJobsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1013,18 +957,8 @@ export var ListCodegenJobsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCodegenJobsResponse: StaticStructureSchema = [
@@ -1044,18 +978,8 @@ export var ListComponentsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListComponentsResponse: StaticStructureSchema = [
@@ -1075,18 +999,8 @@ export var ListFormsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFormsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_ent, _nT], [() => FormSummaryList, 0]];
@@ -1101,18 +1015,8 @@ export var ListThemesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListThemesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_ent, _nT], [() => ThemeSummaryList, 0]];
@@ -1178,32 +1082,10 @@ export var RefreshTokenRequestBody: StaticStructureSchema = [
   ],
 ];
 export var RefreshTokenResponse: StaticStructureSchema = [3, n0, _RTRe, 0, [_aT, _eI], [[() => SensitiveString, 0], 1]];
-export var ResourceConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCE,
-  {
-    [_er]: _cli,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var ResourceConflictException: StaticErrorSchema = [-3, n0, _RCE, { [_er]: _cli, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceConflictException, __ResourceConflictException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_er]: _cli,
-    [_hE]: 404,
-  },
-  [_me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _cli, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SectionalElement: StaticStructureSchema = [
   3,
   n0,
@@ -1212,19 +1094,8 @@ export var SectionalElement: StaticStructureSchema = [
   [_t, _po, _te, _le, _ori, _ex],
   [0, () => FieldPosition, 0, 1, 0, 2],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_er]: _cli,
-    [_hE]: 402,
-  },
-  [_me],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_er]: _cli, [_hE]: 402 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SortProperty: StaticStructureSchema = [3, n0, _SP, 0, [_fi, _di], [0, 0]];
 export var StartCodegenJobData: StaticStructureSchema = [
   3,
@@ -1243,13 +1114,7 @@ export var StartCodegenJobRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [() => StartCodegenJobData, 16],
   ],
 ];
@@ -1267,32 +1132,10 @@ export var Theme: StaticStructureSchema = [
 export var ThemeSummary: StaticStructureSchema = [3, n0, _TS, 0, [_aI, _eN, _i, _n], [0, 0, 0, 0]];
 export var ThemeValue: StaticStructureSchema = [3, n0, _TV, 0, [_val, _c], [0, () => ThemeValuesList]];
 export var ThemeValues: StaticStructureSchema = [3, n0, _TVh, 0, [_k, _val], [0, () => ThemeValue]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_er]: _cli,
-    [_hE]: 429,
-  },
-  [_me],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_er]: _cli, [_hE]: 429 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_er]: _cli,
-    [_hE]: 401,
-  },
-  [_me],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_er]: _cli, [_hE]: 401 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1301,12 +1144,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1341,13 +1179,7 @@ export var UpdateComponentRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [() => UpdateComponentData, 16],
   ],
 ];
@@ -1370,13 +1202,7 @@ export var UpdateFormRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [() => UpdateFormData, 16],
   ],
 ];
@@ -1399,13 +1225,7 @@ export var UpdateThemeRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [() => UpdateThemeData, 16],
   ],
 ];
@@ -1427,7 +1247,6 @@ export var ValueMappings: StaticStructureSchema = [
   [() => ValueMappingList, () => FormInputBindingProperties],
 ];
 export var __Unit = "unit" as const;
-
 export var AmplifyUIBuilderServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1437,15 +1256,11 @@ export var AmplifyUIBuilderServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(AmplifyUIBuilderServiceException, __AmplifyUIBuilderServiceException);
-
 export var AssociatedFieldsList = 64 | 0;
-
 export var CodegenDependencies: StaticListSchema = [1, n0, _CDo, 0, () => CodegenDependency];
 export var CodegenGenericDataEnumValuesList = 64 | 0;
-
 export var CodegenJobSummaryList: StaticListSchema = [1, n0, _CJSL, 0, () => CodegenJobSummary];
 export var CodegenPrimaryKeysList = 64 | 0;
-
 export var ComponentChildList: StaticListSchema = [1, n0, _CCL, 0, () => ComponentChild];
 export var ComponentList: StaticListSchema = [1, n0, _CL, 0, () => Component];
 export var ComponentPropertyList: StaticListSchema = [1, n0, _CPL, 0, () => ComponentProperty];
@@ -1455,17 +1270,12 @@ export var FormInputValuePropertyList: StaticListSchema = [1, n0, _FIVPL, 0, () 
 export var FormList: StaticListSchema = [1, n0, _FL, 0, () => Form];
 export var FormSummaryList: StaticListSchema = [1, n0, _FSL, 0, () => FormSummary];
 export var IdentifierList = 64 | 0;
-
 export var NumValues = 64 | 1;
-
 export var PredicateList: StaticListSchema = [1, n0, _PL, 0, () => Predicate];
 export var RelatedModelFieldsList = 64 | 0;
-
 export var SortPropertyList: StaticListSchema = [1, n0, _SPL, 0, () => SortProperty];
 export var StrValues = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var ThemeList: StaticListSchema = [1, n0, _TL, 0, () => Theme];
 export var ThemeSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => ThemeSummary];
 export var ThemeValuesList: StaticListSchema = [1, n0, _TVL, 0, () => ThemeValues];
@@ -1481,20 +1291,15 @@ export var ComponentCollectionProperties: StaticMapSchema = [2, n0, _CCPo, 0, 0,
 export var ComponentEvents: StaticMapSchema = [2, n0, _CEo, 0, 0, () => ComponentEvent];
 export var ComponentOverrides: StaticMapSchema = [2, n0, _CO, 0, 0, 128 | 0];
 export var ComponentOverridesValue = 128 | 0;
-
 export var ComponentProperties: StaticMapSchema = [2, n0, _CPo, 0, 0, () => ComponentProperty];
 export var ComponentVariantValues = 128 | 0;
-
 export var FeaturesMap = 128 | 0;
-
 export var FieldsMap: StaticMapSchema = [2, n0, _FM, 0, 0, () => FieldConfig];
 export var FormBindings: StaticMapSchema = [2, n0, _FBo, 0, 0, () => FormBindingElement];
 export var FormInputBindingProperties: StaticMapSchema = [2, n0, _FIBP, 0, 0, () => FormInputBindingPropertiesValue];
 export var ReactCodegenDependencies = 128 | 0;
-
 export var SectionalElementMap: StaticMapSchema = [2, n0, _SEM, 0, 0, () => SectionalElement];
 export var Tags = 128 | 0;
-
 export var ApiConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1510,9 +1315,7 @@ export var CreateComponent: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/app/{appId}/environment/{environmentName}/components", 200],
-  },
+  { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/components", 200] },
   () => CreateComponentRequest,
   () => CreateComponentResponse,
 ];
@@ -1520,9 +1323,7 @@ export var CreateForm: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["POST", "/app/{appId}/environment/{environmentName}/forms", 200],
-  },
+  { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/forms", 200] },
   () => CreateFormRequest,
   () => CreateFormResponse,
 ];
@@ -1530,9 +1331,7 @@ export var CreateTheme: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_h]: ["POST", "/app/{appId}/environment/{environmentName}/themes", 200],
-  },
+  { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/themes", 200] },
   () => CreateThemeRequest,
   () => CreateThemeResponse,
 ];
@@ -1540,9 +1339,7 @@ export var DeleteComponent: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/components/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/components/{id}", 200] },
   () => DeleteComponentRequest,
   () => __Unit,
 ];
@@ -1550,9 +1347,7 @@ export var DeleteForm: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/forms/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/forms/{id}", 200] },
   () => DeleteFormRequest,
   () => __Unit,
 ];
@@ -1560,9 +1355,7 @@ export var DeleteTheme: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/themes/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/app/{appId}/environment/{environmentName}/themes/{id}", 200] },
   () => DeleteThemeRequest,
   () => __Unit,
 ];
@@ -1570,9 +1363,7 @@ export var ExchangeCodeForToken: StaticOperationSchema = [
   9,
   n0,
   _ECFT,
-  {
-    [_h]: ["POST", "/tokens/{provider}", 200],
-  },
+  { [_h]: ["POST", "/tokens/{provider}", 200] },
   () => ExchangeCodeForTokenRequest,
   () => ExchangeCodeForTokenResponse,
 ];
@@ -1580,9 +1371,7 @@ export var ExportComponents: StaticOperationSchema = [
   9,
   n0,
   _EC,
-  {
-    [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/components", 200],
-  },
+  { [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/components", 200] },
   () => ExportComponentsRequest,
   () => ExportComponentsResponse,
 ];
@@ -1590,9 +1379,7 @@ export var ExportForms: StaticOperationSchema = [
   9,
   n0,
   _EF,
-  {
-    [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/forms", 200],
-  },
+  { [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/forms", 200] },
   () => ExportFormsRequest,
   () => ExportFormsResponse,
 ];
@@ -1600,9 +1387,7 @@ export var ExportThemes: StaticOperationSchema = [
   9,
   n0,
   _ET,
-  {
-    [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/themes", 200],
-  },
+  { [_h]: ["GET", "/export/app/{appId}/environment/{environmentName}/themes", 200] },
   () => ExportThemesRequest,
   () => ExportThemesResponse,
 ];
@@ -1610,9 +1395,7 @@ export var GetCodegenJob: StaticOperationSchema = [
   9,
   n0,
   _GCJ,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/codegen-jobs/{id}", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/codegen-jobs/{id}", 200] },
   () => GetCodegenJobRequest,
   () => GetCodegenJobResponse,
 ];
@@ -1620,9 +1403,7 @@ export var GetComponent: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/components/{id}", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/components/{id}", 200] },
   () => GetComponentRequest,
   () => GetComponentResponse,
 ];
@@ -1630,9 +1411,7 @@ export var GetForm: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/forms/{id}", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/forms/{id}", 200] },
   () => GetFormRequest,
   () => GetFormResponse,
 ];
@@ -1640,9 +1419,7 @@ export var GetMetadata: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/metadata", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/metadata", 200] },
   () => GetMetadataRequest,
   () => GetMetadataResponse,
 ];
@@ -1650,9 +1427,7 @@ export var GetTheme: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/themes/{id}", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/themes/{id}", 200] },
   () => GetThemeRequest,
   () => GetThemeResponse,
 ];
@@ -1660,9 +1435,7 @@ export var ListCodegenJobs: StaticOperationSchema = [
   9,
   n0,
   _LCJ,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/codegen-jobs", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/codegen-jobs", 200] },
   () => ListCodegenJobsRequest,
   () => ListCodegenJobsResponse,
 ];
@@ -1670,9 +1443,7 @@ export var ListComponents: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/components", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/components", 200] },
   () => ListComponentsRequest,
   () => ListComponentsResponse,
 ];
@@ -1680,9 +1451,7 @@ export var ListForms: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/forms", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/forms", 200] },
   () => ListFormsRequest,
   () => ListFormsResponse,
 ];
@@ -1690,9 +1459,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1700,9 +1467,7 @@ export var ListThemes: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["GET", "/app/{appId}/environment/{environmentName}/themes", 200],
-  },
+  { [_h]: ["GET", "/app/{appId}/environment/{environmentName}/themes", 200] },
   () => ListThemesRequest,
   () => ListThemesResponse,
 ];
@@ -1710,9 +1475,7 @@ export var PutMetadataFlag: StaticOperationSchema = [
   9,
   n0,
   _PMF,
-  {
-    [_h]: ["PUT", "/app/{appId}/environment/{environmentName}/metadata/features/{featureName}", 200],
-  },
+  { [_h]: ["PUT", "/app/{appId}/environment/{environmentName}/metadata/features/{featureName}", 200] },
   () => PutMetadataFlagRequest,
   () => __Unit,
 ];
@@ -1720,9 +1483,7 @@ export var RefreshToken: StaticOperationSchema = [
   9,
   n0,
   _RT,
-  {
-    [_h]: ["POST", "/tokens/{provider}/refresh", 200],
-  },
+  { [_h]: ["POST", "/tokens/{provider}/refresh", 200] },
   () => RefreshTokenRequest,
   () => RefreshTokenResponse,
 ];
@@ -1730,9 +1491,7 @@ export var StartCodegenJob: StaticOperationSchema = [
   9,
   n0,
   _SCJ,
-  {
-    [_h]: ["POST", "/app/{appId}/environment/{environmentName}/codegen-jobs", 200],
-  },
+  { [_h]: ["POST", "/app/{appId}/environment/{environmentName}/codegen-jobs", 200] },
   () => StartCodegenJobRequest,
   () => StartCodegenJobResponse,
 ];
@@ -1740,9 +1499,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1750,9 +1507,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1760,9 +1515,7 @@ export var UpdateComponent: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/components/{id}", 200],
-  },
+  { [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/components/{id}", 200] },
   () => UpdateComponentRequest,
   () => UpdateComponentResponse,
 ];
@@ -1770,9 +1523,7 @@ export var UpdateForm: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/forms/{id}", 200],
-  },
+  { [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/forms/{id}", 200] },
   () => UpdateFormRequest,
   () => UpdateFormResponse,
 ];
@@ -1780,9 +1531,7 @@ export var UpdateTheme: StaticOperationSchema = [
   9,
   n0,
   _UT,
-  {
-    [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/themes/{id}", 200],
-  },
+  { [_h]: ["PATCH", "/app/{appId}/environment/{environmentName}/themes/{id}", 200] },
   () => UpdateThemeRequest,
   () => UpdateThemeResponse,
 ];

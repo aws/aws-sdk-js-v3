@@ -68,69 +68,30 @@ import {
 import { Route53RecoveryClusterServiceException as __Route53RecoveryClusterServiceException } from "../models/Route53RecoveryClusterServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var EndpointTemporarilyUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _ETUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
+  { [_e]: _s, [_hE]: 503 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EndpointTemporarilyUnavailableException, __EndpointTemporarilyUnavailableException);
-
 export var GetRoutingControlStateRequest: StaticStructureSchema = [3, n0, _GRCSR, 0, [_RCA], [0]];
 export var GetRoutingControlStateResponse: StaticStructureSchema = [3, n0, _GRCSRe, 0, [_RCA, _RCS, _RCN], [0, 0, 0]];
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListRoutingControlsRequest: StaticStructureSchema = [3, n0, _LRCR, 0, [_CPA, _NT, _MR], [0, 0, 1]];
 export var ListRoutingControlsResponse: StaticStructureSchema = [
   3,
@@ -144,15 +105,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RoutingControl: StaticStructureSchema = [
   3,
   n0,
@@ -165,36 +122,20 @@ export var ServiceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _lC, _sC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UpdateRoutingControlStateEntry: StaticStructureSchema = [3, n0, _URCSE, 0, [_RCA, _RCS], [0, 0]];
 export var UpdateRoutingControlStateRequest: StaticStructureSchema = [
   3,
@@ -218,18 +159,13 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _f],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var Route53RecoveryClusterServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -239,9 +175,7 @@ export var Route53RecoveryClusterServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(Route53RecoveryClusterServiceException, __Route53RecoveryClusterServiceException);
-
 export var Arns = 64 | 0;
-
 export var RoutingControls: StaticListSchema = [1, n0, _RC, 0, () => RoutingControl];
 export var UpdateRoutingControlStateEntries: StaticListSchema = [
   1,

@@ -606,77 +606,51 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`ResourceAccessDenied`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`ResourceAccessDenied`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountHasOngoingImportException: StaticErrorSchema = [
   -3,
   n0,
   _AHOIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AccountHasOngoingImport`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountHasOngoingImport`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccountHasOngoingImportException, __AccountHasOngoingImportException);
-
 export var AccountNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _ANFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`AccountNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`AccountNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccountNotFoundException, __AccountNotFoundException);
-
 export var AccountNotRegisteredException: StaticErrorSchema = [
   -3,
   n0,
   _ANRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AccountNotRegistered`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountNotRegistered`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccountNotRegisteredException, __AccountNotRegisteredException);
-
 export var AccountRegisteredException: StaticErrorSchema = [
   -3,
   n0,
   _ARE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AccountRegistered`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountRegistered`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccountRegisteredException, __AccountRegisteredException);
-
 export var AddTagsRequest: StaticStructureSchema = [3, n0, _ATR, 0, [_RI, _TL], [0, () => TagsList]];
 export var AddTagsResponse: StaticStructureSchema = [3, n0, _ATRd, 0, [], []];
 export var AdvancedEventSelector: StaticStructureSchema = [
@@ -702,11 +676,7 @@ export var CannotDelegateManagementAccountException: StaticErrorSchema = [
   -3,
   n0,
   _CDMAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CannotDelegateManagementAccount`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CannotDelegateManagementAccount`, 400] },
   [_M],
   [0],
 ];
@@ -714,129 +684,84 @@ TypeRegistry.for(n0).registerError(
   CannotDelegateManagementAccountException,
   __CannotDelegateManagementAccountException
 );
-
 export var Channel: StaticStructureSchema = [3, n0, _C, 0, [_CA, _N], [0, 0]];
 export var ChannelAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _CAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ChannelAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelAlreadyExists`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ChannelAlreadyExistsException, __ChannelAlreadyExistsException);
-
 export var ChannelARNInvalidException: StaticErrorSchema = [
   -3,
   n0,
   _CARNIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ChannelARNInvalid`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelARNInvalid`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ChannelARNInvalidException, __ChannelARNInvalidException);
-
 export var ChannelExistsForEDSException: StaticErrorSchema = [
   -3,
   n0,
   _CEFEDSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ChannelExistsForEDS`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelExistsForEDS`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ChannelExistsForEDSException, __ChannelExistsForEDSException);
-
 export var ChannelMaxLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _CMLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ChannelMaxLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelMaxLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ChannelMaxLimitExceededException, __ChannelMaxLimitExceededException);
-
 export var ChannelNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _CNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ChannelNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ChannelNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ChannelNotFoundException, __ChannelNotFoundException);
-
 export var CloudTrailAccessNotEnabledException: StaticErrorSchema = [
   -3,
   n0,
   _CTANEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CloudTrailAccessNotEnabled`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudTrailAccessNotEnabled`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CloudTrailAccessNotEnabledException, __CloudTrailAccessNotEnabledException);
-
 export var CloudTrailARNInvalidException: StaticErrorSchema = [
   -3,
   n0,
   _CTARNIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CloudTrailARNInvalid`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudTrailARNInvalid`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CloudTrailARNInvalidException, __CloudTrailARNInvalidException);
-
 export var CloudTrailInvalidClientTokenIdException: StaticErrorSchema = [
   -3,
   n0,
   _CTICTIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CloudTrailInvalidClientTokenId`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudTrailInvalidClientTokenId`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CloudTrailInvalidClientTokenIdException, __CloudTrailInvalidClientTokenIdException);
-
 export var CloudWatchLogsDeliveryUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _CWLDUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CloudWatchLogsDeliveryUnavailable`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudWatchLogsDeliveryUnavailable`, 400] },
   [_M],
   [0],
 ];
@@ -844,35 +769,24 @@ TypeRegistry.for(n0).registerError(
   CloudWatchLogsDeliveryUnavailableException,
   __CloudWatchLogsDeliveryUnavailableException
 );
-
 export var ConcurrentModificationException: StaticErrorSchema = [
   -3,
   n0,
   _CME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ConcurrentModification`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConcurrentModification`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ConflictException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContextKeySelector: StaticStructureSchema = [3, n0, _CKS, 0, [_Ty, _E], [0, 64 | 0]];
 export var CreateChannelRequest: StaticStructureSchema = [
   3,
@@ -944,11 +858,7 @@ export var DelegatedAdminAccountLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _DAALEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`DelegatedAdminAccountLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`DelegatedAdminAccountLimitExceeded`, 400] },
   [_M],
   [0],
 ];
@@ -956,7 +866,6 @@ TypeRegistry.for(n0).registerError(
   DelegatedAdminAccountLimitExceededException,
   __DelegatedAdminAccountLimitExceededException
 );
-
 export var DeleteChannelRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_C], [0]];
 export var DeleteChannelResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
 export var DeleteDashboardRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_DI], [0]];
@@ -1012,39 +921,25 @@ export var EventDataStoreAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _EDSAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDataStoreAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreAlreadyExists`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EventDataStoreAlreadyExistsException, __EventDataStoreAlreadyExistsException);
-
 export var EventDataStoreARNInvalidException: StaticErrorSchema = [
   -3,
   n0,
   _EDSARNIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDataStoreARNInvalid`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreARNInvalid`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EventDataStoreARNInvalidException, __EventDataStoreARNInvalidException);
-
 export var EventDataStoreFederationEnabledException: StaticErrorSchema = [
   -3,
   n0,
   _EDSFEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDataStoreFederationEnabled`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreFederationEnabled`, 400] },
   [_M],
   [0],
 ];
@@ -1052,58 +947,38 @@ TypeRegistry.for(n0).registerError(
   EventDataStoreFederationEnabledException,
   __EventDataStoreFederationEnabledException
 );
-
 export var EventDataStoreHasOngoingImportException: StaticErrorSchema = [
   -3,
   n0,
   _EDSHOIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDataStoreHasOngoingImport`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreHasOngoingImport`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EventDataStoreHasOngoingImportException, __EventDataStoreHasOngoingImportException);
-
 export var EventDataStoreMaxLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _EDSMLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDataStoreMaxLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreMaxLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EventDataStoreMaxLimitExceededException, __EventDataStoreMaxLimitExceededException);
-
 export var EventDataStoreNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _EDSNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`EventDataStoreNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`EventDataStoreNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EventDataStoreNotFoundException, __EventDataStoreNotFoundException);
-
 export var EventDataStoreTerminationProtectedException: StaticErrorSchema = [
   -3,
   n0,
   _EDSTPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDataStoreTerminationProtectedException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreTerminationProtectedException`, 400] },
   [_M],
   [0],
 ];
@@ -1111,7 +986,6 @@ TypeRegistry.for(n0).registerError(
   EventDataStoreTerminationProtectedException,
   __EventDataStoreTerminationProtectedException
 );
-
 export var EventSelector: StaticStructureSchema = [
   3,
   n0,
@@ -1126,16 +1000,11 @@ export var GenerateResponseException: StaticErrorSchema = [
   -3,
   n0,
   _GRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`GenerateResponse`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`GenerateResponse`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(GenerateResponseException, __GenerateResponseException);
-
 export var GetChannelRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_C], [0]];
 export var GetChannelResponse: StaticStructureSchema = [
   3,
@@ -1240,16 +1109,11 @@ export var ImportNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _INFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ImportNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ImportNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ImportNotFoundException, __ImportNotFoundException);
-
 export var ImportsListItem: StaticStructureSchema = [3, n0, _ILI, 0, [_II, _ISmp, _D, _CT, _UT], [0, 0, 64 | 0, 4, 4]];
 export var ImportSource: StaticStructureSchema = [3, n0, _ISm, 0, [_S_], [() => S3ImportSource]];
 export var ImportStatistics: StaticStructureSchema = [3, n0, _ISmpo, 0, [_PF, _PC, _FC, _ECv, _FE], [1, 1, 1, 1, 1]];
@@ -1257,30 +1121,20 @@ export var InactiveEventDataStoreException: StaticErrorSchema = [
   -3,
   n0,
   _IEDSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InactiveEventDataStore`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InactiveEventDataStore`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InactiveEventDataStoreException, __InactiveEventDataStoreException);
-
 export var InactiveQueryException: StaticErrorSchema = [
   -3,
   n0,
   _IQE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InactiveQuery`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InactiveQuery`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InactiveQueryException, __InactiveQueryException);
-
 export var IngestionStatus: StaticStructureSchema = [
   3,
   n0,
@@ -1293,26 +1147,17 @@ export var InsightNotEnabledException: StaticErrorSchema = [
   -3,
   n0,
   _INEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsightNotEnabled`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsightNotEnabled`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsightNotEnabledException, __InsightNotEnabledException);
-
 export var InsightSelector: StaticStructureSchema = [3, n0, _ISns, 0, [_IT, _ECve], [0, 64 | 0]];
 export var InsufficientDependencyServiceAccessPermissionException: StaticErrorSchema = [
   -3,
   n0,
   _IDSAPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsufficientDependencyServiceAccessPermission`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientDependencyServiceAccessPermission`, 400] },
   [_M],
   [0],
 ];
@@ -1320,30 +1165,20 @@ TypeRegistry.for(n0).registerError(
   InsufficientDependencyServiceAccessPermissionException,
   __InsufficientDependencyServiceAccessPermissionException
 );
-
 export var InsufficientEncryptionPolicyException: StaticErrorSchema = [
   -3,
   n0,
   _IEPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsufficientEncryptionPolicy`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientEncryptionPolicy`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientEncryptionPolicyException, __InsufficientEncryptionPolicyException);
-
 export var InsufficientIAMAccessPermissionException: StaticErrorSchema = [
   -3,
   n0,
   _IIAMAPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsufficientIAMAccessPermission`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientIAMAccessPermission`, 400] },
   [_M],
   [0],
 ];
@@ -1351,44 +1186,29 @@ TypeRegistry.for(n0).registerError(
   InsufficientIAMAccessPermissionException,
   __InsufficientIAMAccessPermissionException
 );
-
 export var InsufficientS3BucketPolicyException: StaticErrorSchema = [
   -3,
   n0,
   _ISBPE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`InsufficientS3BucketPolicy`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientS3BucketPolicy`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientS3BucketPolicyException, __InsufficientS3BucketPolicyException);
-
 export var InsufficientSnsTopicPolicyException: StaticErrorSchema = [
   -3,
   n0,
   _ISTPE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`InsufficientSnsTopicPolicy`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientSnsTopicPolicy`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientSnsTopicPolicyException, __InsufficientSnsTopicPolicyException);
-
 export var InvalidCloudWatchLogsLogGroupArnException: StaticErrorSchema = [
   -3,
   n0,
   _ICWLLGAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidCloudWatchLogsLogGroupArn`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCloudWatchLogsLogGroupArn`, 400] },
   [_M],
   [0],
 ];
@@ -1396,399 +1216,258 @@ TypeRegistry.for(n0).registerError(
   InvalidCloudWatchLogsLogGroupArnException,
   __InvalidCloudWatchLogsLogGroupArnException
 );
-
 export var InvalidCloudWatchLogsRoleArnException: StaticErrorSchema = [
   -3,
   n0,
   _ICWLRAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidCloudWatchLogsRoleArn`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCloudWatchLogsRoleArn`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidCloudWatchLogsRoleArnException, __InvalidCloudWatchLogsRoleArnException);
-
 export var InvalidDateRangeException: StaticErrorSchema = [
   -3,
   n0,
   _IDRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDateRange`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDateRange`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDateRangeException, __InvalidDateRangeException);
-
 export var InvalidEventCategoryException: StaticErrorSchema = [
   -3,
   n0,
   _IECE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidEventCategory`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventCategory`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidEventCategoryException, __InvalidEventCategoryException);
-
 export var InvalidEventDataStoreCategoryException: StaticErrorSchema = [
   -3,
   n0,
   _IEDSCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidEventDataStoreCategory`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventDataStoreCategory`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidEventDataStoreCategoryException, __InvalidEventDataStoreCategoryException);
-
 export var InvalidEventDataStoreStatusException: StaticErrorSchema = [
   -3,
   n0,
   _IEDSSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidEventDataStoreStatus`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventDataStoreStatus`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidEventDataStoreStatusException, __InvalidEventDataStoreStatusException);
-
 export var InvalidEventSelectorsException: StaticErrorSchema = [
   -3,
   n0,
   _IESE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidEventSelectors`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventSelectors`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidEventSelectorsException, __InvalidEventSelectorsException);
-
 export var InvalidHomeRegionException: StaticErrorSchema = [
   -3,
   n0,
   _IHRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidHomeRegion`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidHomeRegion`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidHomeRegionException, __InvalidHomeRegionException);
-
 export var InvalidImportSourceException: StaticErrorSchema = [
   -3,
   n0,
   _IISE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidImportSource`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidImportSource`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidImportSourceException, __InvalidImportSourceException);
-
 export var InvalidInsightSelectorsException: StaticErrorSchema = [
   -3,
   n0,
   _IISEn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidInsightSelectors`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidInsightSelectors`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInsightSelectorsException, __InvalidInsightSelectorsException);
-
 export var InvalidKmsKeyIdException: StaticErrorSchema = [
   -3,
   n0,
   _IKKIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidKmsKeyId`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidKmsKeyId`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidKmsKeyIdException, __InvalidKmsKeyIdException);
-
 export var InvalidLookupAttributesException: StaticErrorSchema = [
   -3,
   n0,
   _ILAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidLookupAttributes`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidLookupAttributes`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidLookupAttributesException, __InvalidLookupAttributesException);
-
 export var InvalidMaxResultsException: StaticErrorSchema = [
   -3,
   n0,
   _IMRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidMaxResults`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidMaxResults`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidMaxResultsException, __InvalidMaxResultsException);
-
 export var InvalidNextTokenException: StaticErrorSchema = [
   -3,
   n0,
   _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidNextToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
 export var InvalidParameterCombinationException: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameterCombinationError`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombinationError`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-
 export var InvalidParameterException: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameter`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameter`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var InvalidQueryStatementException: StaticErrorSchema = [
   -3,
   n0,
   _IQSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidQueryStatement`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidQueryStatement`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidQueryStatementException, __InvalidQueryStatementException);
-
 export var InvalidQueryStatusException: StaticErrorSchema = [
   -3,
   n0,
   _IQSEn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidQueryStatus`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidQueryStatus`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidQueryStatusException, __InvalidQueryStatusException);
-
 export var InvalidS3BucketNameException: StaticErrorSchema = [
   -3,
   n0,
   _ISBNE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidS3BucketName`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidS3BucketName`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidS3BucketNameException, __InvalidS3BucketNameException);
-
 export var InvalidS3PrefixException: StaticErrorSchema = [
   -3,
   n0,
   _ISPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidS3Prefix`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidS3Prefix`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidS3PrefixException, __InvalidS3PrefixException);
-
 export var InvalidSnsTopicNameException: StaticErrorSchema = [
   -3,
   n0,
   _ISTNE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidSnsTopicName`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSnsTopicName`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSnsTopicNameException, __InvalidSnsTopicNameException);
-
 export var InvalidSourceException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidSource`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSource`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSourceException, __InvalidSourceException);
-
 export var InvalidTagParameterException: StaticErrorSchema = [
   -3,
   n0,
   _ITPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidTagParameter`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTagParameter`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTagParameterException, __InvalidTagParameterException);
-
 export var InvalidTimeRangeException: StaticErrorSchema = [
   -3,
   n0,
   _ITRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidTimeRange`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTimeRange`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTimeRangeException, __InvalidTimeRangeException);
-
 export var InvalidTokenException: StaticErrorSchema = [
   -3,
   n0,
   _ITE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidToken`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTokenException, __InvalidTokenException);
-
 export var InvalidTrailNameException: StaticErrorSchema = [
   -3,
   n0,
   _ITNE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidTrailName`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTrailName`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTrailNameException, __InvalidTrailNameException);
-
 export var KmsException: StaticErrorSchema = [
   -3,
   n0,
   _KE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KmsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KmsException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KmsException, __KmsException);
-
 export var KmsKeyDisabledException: StaticErrorSchema = [
   -3,
   n0,
   _KKDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KmsKeyDisabled`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KmsKeyDisabled`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KmsKeyDisabledException, __KmsKeyDisabledException);
-
 export var KmsKeyNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _KKNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`KmsKeyNotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`KmsKeyNotFound`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(KmsKeyNotFoundException, __KmsKeyNotFoundException);
-
 export var ListChannelsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_MR, _NT], [1, 0]];
 export var ListChannelsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_Ch, _NT], [() => Channels, 0]];
 export var ListDashboardsRequest: StaticStructureSchema = [3, n0, _LDR, 0, [_NP, _Ty, _NT, _MR], [0, 0, 0, 1]];
@@ -1867,53 +1546,34 @@ export var MaxConcurrentQueriesException: StaticErrorSchema = [
   -3,
   n0,
   _MCQE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`MaxConcurrentQueries`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`MaxConcurrentQueries`, 429] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MaxConcurrentQueriesException, __MaxConcurrentQueriesException);
-
 export var MaximumNumberOfTrailsExceededException: StaticErrorSchema = [
   -3,
   n0,
   _MNOTEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`MaximumNumberOfTrailsExceeded`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`MaximumNumberOfTrailsExceeded`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MaximumNumberOfTrailsExceededException, __MaximumNumberOfTrailsExceededException);
-
 export var NoManagementAccountSLRExistsException: StaticErrorSchema = [
   -3,
   n0,
   _NMASLREE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`NoManagementAccountSLRExists`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`NoManagementAccountSLRExists`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NoManagementAccountSLRExistsException, __NoManagementAccountSLRExistsException);
-
 export var NotOrganizationManagementAccountException: StaticErrorSchema = [
   -3,
   n0,
   _NOMAE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`NotOrganizationManagementAccount`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`NotOrganizationManagementAccount`, 403] },
   [_M],
   [0],
 ];
@@ -1921,44 +1581,29 @@ TypeRegistry.for(n0).registerError(
   NotOrganizationManagementAccountException,
   __NotOrganizationManagementAccountException
 );
-
 export var NotOrganizationMasterAccountException: StaticErrorSchema = [
   -3,
   n0,
   _NOMAEo,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`NotOrganizationMasterAccount`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`NotOrganizationMasterAccount`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NotOrganizationMasterAccountException, __NotOrganizationMasterAccountException);
-
 export var OperationNotPermittedException: StaticErrorSchema = [
   -3,
   n0,
   _ONPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`OperationNotPermitted`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`OperationNotPermitted`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OperationNotPermittedException, __OperationNotPermittedException);
-
 export var OrganizationNotInAllFeaturesModeException: StaticErrorSchema = [
   -3,
   n0,
   _ONIAFME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`OrganizationNotInAllFeaturesMode`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`OrganizationNotInAllFeaturesMode`, 400] },
   [_M],
   [0],
 ];
@@ -1966,21 +1611,15 @@ TypeRegistry.for(n0).registerError(
   OrganizationNotInAllFeaturesModeException,
   __OrganizationNotInAllFeaturesModeException
 );
-
 export var OrganizationsNotInUseException: StaticErrorSchema = [
   -3,
   n0,
   _ONIUE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`OrganizationsNotInUse`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`OrganizationsNotInUse`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OrganizationsNotInUseException, __OrganizationsNotInUseException);
-
 export var PartitionKey: StaticStructureSchema = [3, n0, _PKa, 0, [_N, _Ty], [0, 0]];
 export var PublicKey: StaticStructureSchema = [3, n0, _PKu, 0, [_Va, _VST, _VET, _Fi], [21, 4, 4, 0]];
 export var PutEventConfigurationRequest: StaticStructureSchema = [
@@ -2038,16 +1677,11 @@ export var QueryIdNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _QINFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`QueryIdNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`QueryIdNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(QueryIdNotFoundException, __QueryIdNotFoundException);
-
 export var QueryStatistics: StaticStructureSchema = [3, n0, _QSue, 0, [_RC, _TRC, _BS], [1, 1, 1]];
 export var QueryStatisticsForDescribeQuery: StaticStructureSchema = [
   3,
@@ -2076,73 +1710,48 @@ export var ResourceARNNotValidException: StaticErrorSchema = [
   -3,
   n0,
   _RARNNVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceARNNotValid`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceARNNotValid`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceARNNotValidException, __ResourceARNNotValidException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceNotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceNotFound`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePolicyNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RPNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourcePolicyNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourcePolicyNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourcePolicyNotFoundException, __ResourcePolicyNotFoundException);
-
 export var ResourcePolicyNotValidException: StaticErrorSchema = [
   -3,
   n0,
   _RPNVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourcePolicyNotValid`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourcePolicyNotValid`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourcePolicyNotValidException, __ResourcePolicyNotValidException);
-
 export var ResourceTag: StaticStructureSchema = [3, n0, _RTe, 0, [_RI, _TL], [0, () => TagsList]];
 export var ResourceTypeNotSupportedException: StaticErrorSchema = [
   -3,
   n0,
   _RTNSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceTypeNotSupported`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceTypeNotSupported`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceTypeNotSupportedException, __ResourceTypeNotSupportedException);
-
 export var RestoreEventDataStoreRequest: StaticStructureSchema = [3, n0, _REDSR, 0, [_EDS], [0]];
 export var RestoreEventDataStoreResponse: StaticStructureSchema = [
   3,
@@ -2156,16 +1765,11 @@ export var S3BucketDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _SBDNEE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`S3BucketDoesNotExist`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`S3BucketDoesNotExist`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(S3BucketDoesNotExistException, __S3BucketDoesNotExistException);
-
 export var S3ImportSource: StaticStructureSchema = [3, n0, _SIS, 0, [_SLU, _SBR, _SBARA], [0, 0, 0]];
 export var SearchSampleQueriesRequest: StaticStructureSchema = [3, n0, _SSQR, 0, [_SP, _MR, _NT], [0, 1, 0]];
 export var SearchSampleQueriesResponse: StaticStructureSchema = [
@@ -2188,16 +1792,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ServiceQuotaExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServiceQuotaExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SourceConfig: StaticStructureSchema = [3, n0, _SC, 0, [_ATAR, _AESd], [2, () => AdvancedEventSelectors]];
 export var StartDashboardRefreshRequest: StaticStructureSchema = [3, n0, _SDRR, 0, [_DI, _QPV], [0, 128 | 0]];
 export var StartDashboardRefreshResponse: StaticStructureSchema = [3, n0, _SDRRt, 0, [_RIe], [0]];
@@ -2248,30 +1847,20 @@ export var TagsLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _TLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TagsLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagsLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagsLimitExceededException, __TagsLimitExceededException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ThrottlingException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Trail: StaticStructureSchema = [
   3,
   n0,
@@ -2284,59 +1873,39 @@ export var TrailAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _TAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TrailAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrailAlreadyExists`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TrailAlreadyExistsException, __TrailAlreadyExistsException);
-
 export var TrailInfo: StaticStructureSchema = [3, n0, _TI, 0, [_TARN, _N, _HR], [0, 0, 0]];
 export var TrailNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _TNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`TrailNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`TrailNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TrailNotFoundException, __TrailNotFoundException);
-
 export var TrailNotProvidedException: StaticErrorSchema = [
   -3,
   n0,
   _TNPE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`TrailNotProvided`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`TrailNotProvided`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TrailNotProvidedException, __TrailNotProvidedException);
-
 export var UnsupportedOperationException: StaticErrorSchema = [
   -3,
   n0,
   _UOE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`UnsupportedOperation`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnsupportedOperation`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-
 export var UpdateChannelRequest: StaticStructureSchema = [3, n0, _UCR, 0, [_C, _D, _N], [0, () => Destinations, 0]];
 export var UpdateChannelResponse: StaticStructureSchema = [
   3,
@@ -2396,10 +1965,8 @@ export var UpdateTrailResponse: StaticStructureSchema = [
 ];
 export var Widget: StaticStructureSchema = [3, n0, _Wi, 0, [_QA, _QSuer, _QP, _VP], [0, 0, 64 | 0, 128 | 0]];
 export var __Unit = "unit" as const;
-
 export var CloudTrailServiceException: StaticErrorSchema = [-3, _s, "CloudTrailServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(CloudTrailServiceException, __CloudTrailServiceException);
-
 export var AdvancedEventSelectors: StaticListSchema = [1, n0, _AESd, 0, () => AdvancedEventSelector];
 export var AdvancedFieldSelectors: StaticListSchema = [1, n0, _AFSd, 0, () => AdvancedFieldSelector];
 export var AggregationConfigurations: StaticListSchema = [1, n0, _ACg, 0, () => AggregationConfiguration];
@@ -2408,37 +1975,28 @@ export var ContextKeySelectors: StaticListSchema = [1, n0, _CKSo, 0, () => Conte
 export var Dashboards: StaticListSchema = [1, n0, _Da, 0, () => DashboardDetail];
 export var DataResources: StaticListSchema = [1, n0, _DRa, 0, () => DataResource];
 export var DataResourceValues = 64 | 0;
-
 export var Destinations: StaticListSchema = [1, n0, _D, 0, () => Destination];
 export var EventDataStoreList = 64 | 0;
-
 export var EventDataStores: StaticListSchema = [1, n0, _EDSv, 0, () => EventDataStore];
 export var EventSelectors: StaticListSchema = [1, n0, _ESve, 0, () => EventSelector];
 export var EventsList: StaticListSchema = [1, n0, _EL, 0, () => Event];
 export var ExcludeManagementEventSources = 64 | 0;
-
 export var ImportDestinations = 64 | 0;
-
 export var ImportFailureList: StaticListSchema = [1, n0, _IFL, 0, () => ImportFailureListItem];
 export var ImportsList: StaticListSchema = [1, n0, _ILm, 0, () => ImportsListItem];
 export var InsightSelectors: StaticListSchema = [1, n0, _ISn, 0, () => InsightSelector];
 export var InsightsMetricValues = 64 | 1;
-
 export var LookupAttributesList: StaticListSchema = [1, n0, _LAL, 0, () => LookupAttribute];
 export var Operator = 64 | 0;
-
 export var OperatorTargetList = 64 | 0;
-
 export var PartitionKeyList: StaticListSchema = [1, n0, _PKLa, 0, () => PartitionKey];
 export var PublicKeyList: StaticListSchema = [1, n0, _PKL, 0, () => PublicKey];
 export var Queries: StaticListSchema = [1, n0, _Q, 0, () => Query];
 export var QueryParameters = 64 | 0;
-
 export var QueryResultRow: StaticListSchema = [1, n0, _QRRu, 0, 128 | 0];
 export var QueryResultRows: StaticListSchema = [1, n0, _QRR, 0, [1, n0, _QRRu, 0, 128 | 0]];
 export var RequestWidgetList: StaticListSchema = [1, n0, _RWL, 0, () => RequestWidget];
 export var ResourceIdList = 64 | 0;
-
 export var ResourceList: StaticListSchema = [1, n0, _RL, 0, () => Resource];
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
 export var SearchSampleQueriesSearchResults: StaticListSchema = [
@@ -2449,25 +2007,17 @@ export var SearchSampleQueriesSearchResults: StaticListSchema = [
   () => SearchSampleQueriesSearchResult,
 ];
 export var SourceEventCategories = 64 | 0;
-
 export var TagsList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var Templates = 64 | 0;
-
 export var Timestamps = 64 | 4;
-
 export var TrailList: StaticListSchema = [1, n0, _TLr, 0, () => Trail];
 export var TrailNameList = 64 | 0;
-
 export var Trails: StaticListSchema = [1, n0, _Tra, 0, () => TrailInfo];
 export var WidgetList: StaticListSchema = [1, n0, _WL, 0, () => Widget];
 export var ListInsightsDataDimensions = 128 | 0;
-
 export var QueryParameterValues = 128 | 0;
-
 export var QueryResultColumn = 128 | 0;
-
 export var ViewPropertiesMap = 128 | 0;
-
 export var AddTags: StaticOperationSchema = [9, n0, _AT, 2, () => AddTagsRequest, () => AddTagsResponse];
 export var CancelQuery: StaticOperationSchema = [9, n0, _CQ, 2, () => CancelQueryRequest, () => CancelQueryResponse];
 export var CreateChannel: StaticOperationSchema = [

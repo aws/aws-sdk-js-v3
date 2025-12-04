@@ -64,36 +64,36 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof SsmSapClient === "function")
-assert(typeof SsmSap === "function")
+assert(typeof SsmSapClient === "function");
+assert(typeof SsmSap === "function");
 // commands
-assert(typeof DeleteResourcePermissionCommand === "function")
-assert(typeof DeregisterApplicationCommand === "function")
-assert(typeof GetApplicationCommand === "function")
-assert(typeof GetComponentCommand === "function")
-assert(typeof GetConfigurationCheckOperationCommand === "function")
-assert(typeof GetDatabaseCommand === "function")
-assert(typeof GetOperationCommand === "function")
-assert(typeof GetResourcePermissionCommand === "function")
-assert(typeof ListApplicationsCommand === "function")
-assert(typeof ListComponentsCommand === "function")
-assert(typeof ListConfigurationCheckDefinitionsCommand === "function")
-assert(typeof ListConfigurationCheckOperationsCommand === "function")
-assert(typeof ListDatabasesCommand === "function")
-assert(typeof ListOperationEventsCommand === "function")
-assert(typeof ListOperationsCommand === "function")
-assert(typeof ListSubCheckResultsCommand === "function")
-assert(typeof ListSubCheckRuleResultsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutResourcePermissionCommand === "function")
-assert(typeof RegisterApplicationCommand === "function")
-assert(typeof StartApplicationCommand === "function")
-assert(typeof StartApplicationRefreshCommand === "function")
-assert(typeof StartConfigurationChecksCommand === "function")
-assert(typeof StopApplicationCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateApplicationSettingsCommand === "function")
+assert(typeof DeleteResourcePermissionCommand === "function");
+assert(typeof DeregisterApplicationCommand === "function");
+assert(typeof GetApplicationCommand === "function");
+assert(typeof GetComponentCommand === "function");
+assert(typeof GetConfigurationCheckOperationCommand === "function");
+assert(typeof GetDatabaseCommand === "function");
+assert(typeof GetOperationCommand === "function");
+assert(typeof GetResourcePermissionCommand === "function");
+assert(typeof ListApplicationsCommand === "function");
+assert(typeof ListComponentsCommand === "function");
+assert(typeof ListConfigurationCheckDefinitionsCommand === "function");
+assert(typeof ListConfigurationCheckOperationsCommand === "function");
+assert(typeof ListDatabasesCommand === "function");
+assert(typeof ListOperationEventsCommand === "function");
+assert(typeof ListOperationsCommand === "function");
+assert(typeof ListSubCheckResultsCommand === "function");
+assert(typeof ListSubCheckRuleResultsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutResourcePermissionCommand === "function");
+assert(typeof RegisterApplicationCommand === "function");
+assert(typeof StartApplicationCommand === "function");
+assert(typeof StartApplicationRefreshCommand === "function");
+assert(typeof StartConfigurationChecksCommand === "function");
+assert(typeof StopApplicationCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateApplicationSettingsCommand === "function");
 // enums
 assert(typeof AllocationType === "object");
 assert(typeof ApplicationDiscoveryStatus === "object");
@@ -119,15 +119,15 @@ assert(typeof PermissionActionType === "object");
 assert(typeof ReplicationMode === "object");
 assert(typeof RuleResultStatus === "object");
 // errors
-assert(SsmSapServiceException.prototype instanceof Error)
+assert(SsmSapServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListApplications === "function")
-assert(typeof paginateListComponents === "function")
-assert(typeof paginateListConfigurationCheckDefinitions === "function")
-assert(typeof paginateListConfigurationCheckOperations === "function")
-assert(typeof paginateListDatabases === "function")
-assert(typeof paginateListOperationEvents === "function")
-assert(typeof paginateListOperations === "function")
-assert(typeof paginateListSubCheckResults === "function")
-assert(typeof paginateListSubCheckRuleResults === "function")
+assert(typeof paginateListApplications === "function");
+assert(typeof paginateListComponents === "function");
+assert(typeof paginateListConfigurationCheckDefinitions === "function");
+assert(typeof paginateListConfigurationCheckOperations === "function");
+assert(typeof paginateListDatabases === "function");
+assert(typeof paginateListOperationEvents === "function");
+assert(typeof paginateListOperations === "function");
+assert(typeof paginateListSubCheckResults === "function");
+assert(typeof paginateListSubCheckRuleResults === "function");
 console.log(`SsmSap index test passed.`);

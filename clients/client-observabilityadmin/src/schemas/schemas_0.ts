@@ -294,28 +294,15 @@ import {
 import { ObservabilityAdminServiceException as __ObservabilityAdminServiceException } from "../models/ObservabilityAdminServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _aET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActionCondition: StaticStructureSchema = [3, n0, _AC, 0, [_A], [0]];
 export var AdvancedEventSelector: StaticStructureSchema = [3, n0, _AES, 0, [_N, _FS], [0, () => FieldSelectors]];
 export var AdvancedFieldSelector: StaticStructureSchema = [
@@ -375,19 +362,8 @@ export var ConfigurationSummary: StaticStructureSchema = [
   [_So, _DS, _P, _PC, _Si],
   [() => Sources, () => DataSources, 64 | 0, 1, 64 | 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateCentralizationRuleForOrganizationInput: StaticStructureSchema = [
   3,
   n0,
@@ -505,42 +481,13 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _aET, _rAS],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }], [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidStateException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
 export var LabelNameCondition: StaticStructureSchema = [3, n0, _LNC, 0, [_LN], [0]];
 export var ListCentralizationRulesForOrganizationInput: StaticStructureSchema = [
   3,
@@ -653,40 +600,20 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _SC, _QC, _aET],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, 0, 0, 0, 0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SingleHeader: StaticStructureSchema = [3, n0, _SH, 0, [_N], [0]];
 export var Source: StaticStructureSchema = [3, n0, _S, 0, [_Ty], [0]];
 export var SourceLogsConfiguration: StaticStructureSchema = [3, n0, _SLC, 0, [_LGSC, _ELGS], [0, 0]];
@@ -761,19 +688,8 @@ export var TestTelemetryPipelineInput: StaticStructureSchema = [
   [() => Records, () => TelemetryPipelineConfiguration],
 ];
 export var TestTelemetryPipelineOutput: StaticStructureSchema = [3, n0, _TTPO, 0, [_Res], [() => PipelineOutputs]];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UpdateCentralizationRuleForOrganizationInput: StaticStructureSchema = [
   3,
@@ -825,15 +741,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VEa,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Err],
   [0, () => ValidationErrors],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VPCFlowLogParameters: StaticStructureSchema = [3, n0, _VPCFLP, 0, [_LFo, _TTr, _MAI], [0, 0, 1]];
 export var WAFLoggingParameters: StaticStructureSchema = [
   3,
@@ -844,7 +756,6 @@ export var WAFLoggingParameters: StaticStructureSchema = [
   [() => RedactedFields, () => LoggingFilter, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var ObservabilityAdminServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -854,9 +765,7 @@ export var ObservabilityAdminServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ObservabilityAdminServiceException, __ObservabilityAdminServiceException);
-
 export var AccountIdentifiers = 64 | 0;
-
 export var AdvancedEventSelectors: StaticListSchema = [1, n0, _AESd, 0, () => AdvancedEventSelector];
 export var CentralizationRuleSummaries: StaticListSchema = [1, n0, _CRSen, 0, () => CentralizationRuleSummary];
 export var Conditions: StaticListSchema = [1, n0, _Con, 0, () => Condition];
@@ -865,46 +774,31 @@ export var FieldSelectors: StaticListSchema = [1, n0, _FS, 0, () => AdvancedFiel
 export var Filters: StaticListSchema = [1, n0, _Fil, 0, () => Filter];
 export var IntegrationSummaries: StaticListSchema = [1, n0, _ISn, 0, () => IntegrationSummary];
 export var LogTypes = 64 | 0;
-
 export var OrganizationUnitIdentifiers = 64 | 0;
-
 export var PipelineOutputs: StaticListSchema = [1, n0, _POi, 0, () => PipelineOutput];
 export var Processors = 64 | 0;
-
 export var Records: StaticListSchema = [1, n0, _Reco, 0, () => _Record];
 export var RedactedFields: StaticListSchema = [1, n0, _RF, 0, () => FieldToMatch];
 export var Regions = 64 | 0;
-
 export var ResourceTypes = 64 | 0;
-
 export var Sinks = 64 | 0;
-
 export var Sources: StaticListSchema = [1, n0, _So, 0, () => Source];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TelemetryConfigurations: StaticListSchema = [1, n0, _TC, 0, () => TelemetryConfiguration];
 export var TelemetryPipelineSummaries: StaticListSchema = [1, n0, _TPSe, 0, () => TelemetryPipelineSummary];
 export var TelemetryRuleSummaries: StaticListSchema = [1, n0, _TRS, 0, () => TelemetryRuleSummary];
 export var TelemetrySourceTypes = 64 | 0;
-
 export var ValidationErrors: StaticListSchema = [1, n0, _VEal, 0, () => ValidationError];
 export var FieldMap = 128 | 0;
-
 export var TagMapInput = 128 | 0;
-
 export var TagMapOutput = 128 | 0;
-
 export var TelemetryConfigurationState = 128 | 0;
-
 export var CreateCentralizationRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _CCRFO,
-  {
-    [_h]: ["POST", "/CreateCentralizationRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/CreateCentralizationRuleForOrganization", 200] },
   () => CreateCentralizationRuleForOrganizationInput,
   () => CreateCentralizationRuleForOrganizationOutput,
 ];
@@ -912,9 +806,7 @@ export var CreateS3TableIntegration: StaticOperationSchema = [
   9,
   n0,
   _CSTI,
-  {
-    [_h]: ["POST", "/CreateS3TableIntegration", 200],
-  },
+  { [_h]: ["POST", "/CreateS3TableIntegration", 200] },
   () => CreateS3TableIntegrationInput,
   () => CreateS3TableIntegrationOutput,
 ];
@@ -922,9 +814,7 @@ export var CreateTelemetryPipeline: StaticOperationSchema = [
   9,
   n0,
   _CTP,
-  {
-    [_h]: ["POST", "/CreateTelemetryPipeline", 200],
-  },
+  { [_h]: ["POST", "/CreateTelemetryPipeline", 200] },
   () => CreateTelemetryPipelineInput,
   () => CreateTelemetryPipelineOutput,
 ];
@@ -932,9 +822,7 @@ export var CreateTelemetryRule: StaticOperationSchema = [
   9,
   n0,
   _CTR,
-  {
-    [_h]: ["POST", "/CreateTelemetryRule", 200],
-  },
+  { [_h]: ["POST", "/CreateTelemetryRule", 200] },
   () => CreateTelemetryRuleInput,
   () => CreateTelemetryRuleOutput,
 ];
@@ -942,9 +830,7 @@ export var CreateTelemetryRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _CTRFO,
-  {
-    [_h]: ["POST", "/CreateTelemetryRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/CreateTelemetryRuleForOrganization", 200] },
   () => CreateTelemetryRuleForOrganizationInput,
   () => CreateTelemetryRuleForOrganizationOutput,
 ];
@@ -952,9 +838,7 @@ export var DeleteCentralizationRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _DCRFO,
-  {
-    [_h]: ["POST", "/DeleteCentralizationRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/DeleteCentralizationRuleForOrganization", 200] },
   () => DeleteCentralizationRuleForOrganizationInput,
   () => __Unit,
 ];
@@ -962,9 +846,7 @@ export var DeleteS3TableIntegration: StaticOperationSchema = [
   9,
   n0,
   _DSTI,
-  {
-    [_h]: ["POST", "/DeleteS3TableIntegration", 204],
-  },
+  { [_h]: ["POST", "/DeleteS3TableIntegration", 204] },
   () => DeleteS3TableIntegrationInput,
   () => __Unit,
 ];
@@ -972,9 +854,7 @@ export var DeleteTelemetryPipeline: StaticOperationSchema = [
   9,
   n0,
   _DTP,
-  {
-    [_h]: ["POST", "/DeleteTelemetryPipeline", 200],
-  },
+  { [_h]: ["POST", "/DeleteTelemetryPipeline", 200] },
   () => DeleteTelemetryPipelineInput,
   () => DeleteTelemetryPipelineOutput,
 ];
@@ -982,9 +862,7 @@ export var DeleteTelemetryRule: StaticOperationSchema = [
   9,
   n0,
   _DTR,
-  {
-    [_h]: ["POST", "/DeleteTelemetryRule", 200],
-  },
+  { [_h]: ["POST", "/DeleteTelemetryRule", 200] },
   () => DeleteTelemetryRuleInput,
   () => __Unit,
 ];
@@ -992,9 +870,7 @@ export var DeleteTelemetryRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _DTRFO,
-  {
-    [_h]: ["POST", "/DeleteTelemetryRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/DeleteTelemetryRuleForOrganization", 200] },
   () => DeleteTelemetryRuleForOrganizationInput,
   () => __Unit,
 ];
@@ -1002,9 +878,7 @@ export var GetCentralizationRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _GCRFO,
-  {
-    [_h]: ["POST", "/GetCentralizationRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/GetCentralizationRuleForOrganization", 200] },
   () => GetCentralizationRuleForOrganizationInput,
   () => GetCentralizationRuleForOrganizationOutput,
 ];
@@ -1012,9 +886,7 @@ export var GetS3TableIntegration: StaticOperationSchema = [
   9,
   n0,
   _GSTI,
-  {
-    [_h]: ["POST", "/GetS3TableIntegration", 200],
-  },
+  { [_h]: ["POST", "/GetS3TableIntegration", 200] },
   () => GetS3TableIntegrationInput,
   () => GetS3TableIntegrationOutput,
 ];
@@ -1022,9 +894,7 @@ export var GetTelemetryEnrichmentStatus: StaticOperationSchema = [
   9,
   n0,
   _GTES,
-  {
-    [_h]: ["POST", "/GetTelemetryEnrichmentStatus", 200],
-  },
+  { [_h]: ["POST", "/GetTelemetryEnrichmentStatus", 200] },
   () => __Unit,
   () => GetTelemetryEnrichmentStatusOutput,
 ];
@@ -1032,9 +902,7 @@ export var GetTelemetryEvaluationStatus: StaticOperationSchema = [
   9,
   n0,
   _GTESe,
-  {
-    [_h]: ["POST", "/GetTelemetryEvaluationStatus", 200],
-  },
+  { [_h]: ["POST", "/GetTelemetryEvaluationStatus", 200] },
   () => __Unit,
   () => GetTelemetryEvaluationStatusOutput,
 ];
@@ -1042,9 +910,7 @@ export var GetTelemetryEvaluationStatusForOrganization: StaticOperationSchema = 
   9,
   n0,
   _GTESFO,
-  {
-    [_h]: ["POST", "/GetTelemetryEvaluationStatusForOrganization", 200],
-  },
+  { [_h]: ["POST", "/GetTelemetryEvaluationStatusForOrganization", 200] },
   () => __Unit,
   () => GetTelemetryEvaluationStatusForOrganizationOutput,
 ];
@@ -1052,9 +918,7 @@ export var GetTelemetryPipeline: StaticOperationSchema = [
   9,
   n0,
   _GTP,
-  {
-    [_h]: ["POST", "/GetTelemetryPipeline", 200],
-  },
+  { [_h]: ["POST", "/GetTelemetryPipeline", 200] },
   () => GetTelemetryPipelineInput,
   () => GetTelemetryPipelineOutput,
 ];
@@ -1062,9 +926,7 @@ export var GetTelemetryRule: StaticOperationSchema = [
   9,
   n0,
   _GTR,
-  {
-    [_h]: ["POST", "/GetTelemetryRule", 200],
-  },
+  { [_h]: ["POST", "/GetTelemetryRule", 200] },
   () => GetTelemetryRuleInput,
   () => GetTelemetryRuleOutput,
 ];
@@ -1072,9 +934,7 @@ export var GetTelemetryRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _GTRFO,
-  {
-    [_h]: ["POST", "/GetTelemetryRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/GetTelemetryRuleForOrganization", 200] },
   () => GetTelemetryRuleForOrganizationInput,
   () => GetTelemetryRuleForOrganizationOutput,
 ];
@@ -1082,9 +942,7 @@ export var ListCentralizationRulesForOrganization: StaticOperationSchema = [
   9,
   n0,
   _LCRFO,
-  {
-    [_h]: ["POST", "/ListCentralizationRulesForOrganization", 200],
-  },
+  { [_h]: ["POST", "/ListCentralizationRulesForOrganization", 200] },
   () => ListCentralizationRulesForOrganizationInput,
   () => ListCentralizationRulesForOrganizationOutput,
 ];
@@ -1092,9 +950,7 @@ export var ListResourceTelemetry: StaticOperationSchema = [
   9,
   n0,
   _LRT,
-  {
-    [_h]: ["POST", "/ListResourceTelemetry", 200],
-  },
+  { [_h]: ["POST", "/ListResourceTelemetry", 200] },
   () => ListResourceTelemetryInput,
   () => ListResourceTelemetryOutput,
 ];
@@ -1102,9 +958,7 @@ export var ListResourceTelemetryForOrganization: StaticOperationSchema = [
   9,
   n0,
   _LRTFO,
-  {
-    [_h]: ["POST", "/ListResourceTelemetryForOrganization", 200],
-  },
+  { [_h]: ["POST", "/ListResourceTelemetryForOrganization", 200] },
   () => ListResourceTelemetryForOrganizationInput,
   () => ListResourceTelemetryForOrganizationOutput,
 ];
@@ -1112,9 +966,7 @@ export var ListS3TableIntegrations: StaticOperationSchema = [
   9,
   n0,
   _LSTI,
-  {
-    [_h]: ["POST", "/ListS3TableIntegrations", 200],
-  },
+  { [_h]: ["POST", "/ListS3TableIntegrations", 200] },
   () => ListS3TableIntegrationsInput,
   () => ListS3TableIntegrationsOutput,
 ];
@@ -1122,9 +974,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -1132,9 +982,7 @@ export var ListTelemetryPipelines: StaticOperationSchema = [
   9,
   n0,
   _LTP,
-  {
-    [_h]: ["POST", "/ListTelemetryPipelines", 200],
-  },
+  { [_h]: ["POST", "/ListTelemetryPipelines", 200] },
   () => ListTelemetryPipelinesInput,
   () => ListTelemetryPipelinesOutput,
 ];
@@ -1142,9 +990,7 @@ export var ListTelemetryRules: StaticOperationSchema = [
   9,
   n0,
   _LTR,
-  {
-    [_h]: ["POST", "/ListTelemetryRules", 200],
-  },
+  { [_h]: ["POST", "/ListTelemetryRules", 200] },
   () => ListTelemetryRulesInput,
   () => ListTelemetryRulesOutput,
 ];
@@ -1152,9 +998,7 @@ export var ListTelemetryRulesForOrganization: StaticOperationSchema = [
   9,
   n0,
   _LTRFO,
-  {
-    [_h]: ["POST", "/ListTelemetryRulesForOrganization", 200],
-  },
+  { [_h]: ["POST", "/ListTelemetryRulesForOrganization", 200] },
   () => ListTelemetryRulesForOrganizationInput,
   () => ListTelemetryRulesForOrganizationOutput,
 ];
@@ -1162,9 +1006,7 @@ export var StartTelemetryEnrichment: StaticOperationSchema = [
   9,
   n0,
   _STE,
-  {
-    [_h]: ["POST", "/StartTelemetryEnrichment", 202],
-  },
+  { [_h]: ["POST", "/StartTelemetryEnrichment", 202] },
   () => __Unit,
   () => StartTelemetryEnrichmentOutput,
 ];
@@ -1172,9 +1014,7 @@ export var StartTelemetryEvaluation: StaticOperationSchema = [
   9,
   n0,
   _STEt,
-  {
-    [_h]: ["POST", "/StartTelemetryEvaluation", 200],
-  },
+  { [_h]: ["POST", "/StartTelemetryEvaluation", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -1182,9 +1022,7 @@ export var StartTelemetryEvaluationForOrganization: StaticOperationSchema = [
   9,
   n0,
   _STEFO,
-  {
-    [_h]: ["POST", "/StartTelemetryEvaluationForOrganization", 200],
-  },
+  { [_h]: ["POST", "/StartTelemetryEvaluationForOrganization", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -1192,9 +1030,7 @@ export var StopTelemetryEnrichment: StaticOperationSchema = [
   9,
   n0,
   _STEto,
-  {
-    [_h]: ["POST", "/StopTelemetryEnrichment", 202],
-  },
+  { [_h]: ["POST", "/StopTelemetryEnrichment", 202] },
   () => __Unit,
   () => StopTelemetryEnrichmentOutput,
 ];
@@ -1202,9 +1038,7 @@ export var StopTelemetryEvaluation: StaticOperationSchema = [
   9,
   n0,
   _STEtop,
-  {
-    [_h]: ["POST", "/StopTelemetryEvaluation", 200],
-  },
+  { [_h]: ["POST", "/StopTelemetryEvaluation", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -1212,9 +1046,7 @@ export var StopTelemetryEvaluationForOrganization: StaticOperationSchema = [
   9,
   n0,
   _STEFOt,
-  {
-    [_h]: ["POST", "/StopTelemetryEvaluationForOrganization", 200],
-  },
+  { [_h]: ["POST", "/StopTelemetryEvaluationForOrganization", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -1222,9 +1054,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceInput,
   () => __Unit,
 ];
@@ -1232,9 +1062,7 @@ export var TestTelemetryPipeline: StaticOperationSchema = [
   9,
   n0,
   _TTP,
-  {
-    [_h]: ["POST", "/TestTelemetryPipeline", 200],
-  },
+  { [_h]: ["POST", "/TestTelemetryPipeline", 200] },
   () => TestTelemetryPipelineInput,
   () => TestTelemetryPipelineOutput,
 ];
@@ -1242,9 +1070,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceInput,
   () => __Unit,
 ];
@@ -1252,9 +1078,7 @@ export var UpdateCentralizationRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _UCRFO,
-  {
-    [_h]: ["POST", "/UpdateCentralizationRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/UpdateCentralizationRuleForOrganization", 200] },
   () => UpdateCentralizationRuleForOrganizationInput,
   () => UpdateCentralizationRuleForOrganizationOutput,
 ];
@@ -1262,9 +1086,7 @@ export var UpdateTelemetryPipeline: StaticOperationSchema = [
   9,
   n0,
   _UTP,
-  {
-    [_h]: ["POST", "/UpdateTelemetryPipeline", 200],
-  },
+  { [_h]: ["POST", "/UpdateTelemetryPipeline", 200] },
   () => UpdateTelemetryPipelineInput,
   () => UpdateTelemetryPipelineOutput,
 ];
@@ -1272,9 +1094,7 @@ export var UpdateTelemetryRule: StaticOperationSchema = [
   9,
   n0,
   _UTR,
-  {
-    [_h]: ["POST", "/UpdateTelemetryRule", 200],
-  },
+  { [_h]: ["POST", "/UpdateTelemetryRule", 200] },
   () => UpdateTelemetryRuleInput,
   () => UpdateTelemetryRuleOutput,
 ];
@@ -1282,9 +1102,7 @@ export var UpdateTelemetryRuleForOrganization: StaticOperationSchema = [
   9,
   n0,
   _UTRFO,
-  {
-    [_h]: ["POST", "/UpdateTelemetryRuleForOrganization", 200],
-  },
+  { [_h]: ["POST", "/UpdateTelemetryRuleForOrganization", 200] },
   () => UpdateTelemetryRuleForOrganizationInput,
   () => UpdateTelemetryRuleForOrganizationOutput,
 ];
@@ -1292,9 +1110,7 @@ export var ValidateTelemetryPipelineConfiguration: StaticOperationSchema = [
   9,
   n0,
   _VTPC,
-  {
-    [_h]: ["POST", "/ValidateTelemetryPipelineConfiguration", 200],
-  },
+  { [_h]: ["POST", "/ValidateTelemetryPipelineConfiguration", 200] },
   () => ValidateTelemetryPipelineConfigurationInput,
   () => ValidateTelemetryPipelineConfigurationOutput,
 ];

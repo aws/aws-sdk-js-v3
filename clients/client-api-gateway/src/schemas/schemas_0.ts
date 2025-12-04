@@ -606,7 +606,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessLogSettings: StaticStructureSchema = [3, n0, _ALS, 0, [_f, _dA], [0, 0]];
 export var Account: StaticStructureSchema = [
   3,
@@ -631,21 +630,7 @@ export var ApiKeys: StaticStructureSchema = [
   _AKp,
   0,
   [_w, _it, _p],
-  [
-    64 | 0,
-    [
-      () => ListOfApiKey,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-  ],
+  [64 | 0, [() => ListOfApiKey, { [_jN]: _ite }], [0, { [_hQ]: _p }]],
 ];
 export var ApiStage: StaticStructureSchema = [
   3,
@@ -670,33 +655,12 @@ export var Authorizers: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfAuthorizer,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfAuthorizer, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_er]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BasePathMapping: StaticStructureSchema = [3, n0, _BPM, 0, [_bP, _rAI, _s], [0, 0, 0]];
 export var BasePathMappings: StaticStructureSchema = [
   3,
@@ -705,18 +669,8 @@ export var BasePathMappings: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfBasePathMapping,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfBasePathMapping, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var CanarySettings: StaticStructureSchema = [3, n0, _CS, 0, [_pT, _dI, _sVO, _uSC], [1, 0, 128 | 0, 2]];
@@ -735,33 +689,12 @@ export var ClientCertificates: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfClientCertificate,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfClientCertificate, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_er]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_er]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateApiKeyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -784,18 +717,7 @@ export var CreateBasePathMappingRequest: StaticStructureSchema = [
   _CBPMR,
   0,
   [_dN, _dNI, _bP, _rAI, _s],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
-    0,
-    0,
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _dNI }], 0, 0, 0],
 ];
 export var CreateDeploymentRequest: StaticStructureSchema = [
   3,
@@ -893,12 +815,7 @@ export var DeleteBasePathMappingRequest: StaticStructureSchema = [
   [_dN, _dNI, _bP],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
+    [0, { [_hQ]: _dNI }],
     [0, 1],
   ],
 ];
@@ -945,12 +862,7 @@ export var DeleteDomainNameRequest: StaticStructureSchema = [
   [_dN, _dNI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
+    [0, { [_hQ]: _dNI }],
   ],
 ];
 export var DeleteGatewayResponseRequest: StaticStructureSchema = [
@@ -1088,18 +1000,8 @@ export var Deployments: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfDeployment,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfDeployment, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var DocumentationPart: StaticStructureSchema = [
@@ -1126,18 +1028,8 @@ export var DocumentationParts: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfDocumentationPart,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfDocumentationPart, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var DocumentationVersion: StaticStructureSchema = [3, n0, _DV, 0, [_ve, _cD, _d], [0, 4, 0]];
@@ -1148,18 +1040,8 @@ export var DocumentationVersions: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfDocumentationVersion,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfDocumentationVersion, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var DomainName: StaticStructureSchema = [
@@ -1233,18 +1115,8 @@ export var DomainNameAccessAssociations: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfDomainNameAccessAssociation,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfDomainNameAccessAssociation, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var DomainNames: StaticStructureSchema = [
@@ -1254,18 +1126,8 @@ export var DomainNames: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfDomainName,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfDomainName, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var EndpointConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_typ, _iAT, _vEI], [64 | 0, 0, 64 | 0]];
@@ -1276,18 +1138,8 @@ export var ExportResponse: StaticStructureSchema = [
   0,
   [_cT, _cDo, _b],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CD,
-      },
-    ],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _CD }],
     [21, 16],
   ],
 ];
@@ -1328,18 +1180,8 @@ export var GatewayResponses: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfGatewayResponse,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfGatewayResponse, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var GenerateClientCertificateRequest: StaticStructureSchema = [3, n0, _GCCR, 0, [_d, _t], [0, 128 | 0]];
@@ -1352,12 +1194,7 @@ export var GetApiKeyRequest: StaticStructureSchema = [
   [_aK, _iV],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iV,
-      },
-    ],
+    [2, { [_hQ]: _iV }],
   ],
 ];
 export var GetApiKeysRequest: StaticStructureSchema = [
@@ -1367,36 +1204,11 @@ export var GetApiKeysRequest: StaticStructureSchema = [
   0,
   [_p, _li, _nQ, _cI, _iVn],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iVn,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _cI }],
+    [2, { [_hQ]: _iVn }],
   ],
 ];
 export var GetAuthorizerRequest: StaticStructureSchema = [
@@ -1418,18 +1230,8 @@ export var GetAuthorizersRequest: StaticStructureSchema = [
   [_rAI, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetBasePathMappingRequest: StaticStructureSchema = [
@@ -1440,12 +1242,7 @@ export var GetBasePathMappingRequest: StaticStructureSchema = [
   [_dN, _dNI, _bP],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
+    [0, { [_hQ]: _dNI }],
     [0, 1],
   ],
 ];
@@ -1457,24 +1254,9 @@ export var GetBasePathMappingsRequest: StaticStructureSchema = [
   [_dN, _dNI, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _dNI }],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetClientCertificateRequest: StaticStructureSchema = [3, n0, _GCCRe, 0, [_cCI], [[0, 1]]];
@@ -1485,18 +1267,8 @@ export var GetClientCertificatesRequest: StaticStructureSchema = [
   0,
   [_p, _li],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetDeploymentRequest: StaticStructureSchema = [
@@ -1508,12 +1280,7 @@ export var GetDeploymentRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _em,
-      },
-    ],
+    [64 | 0, { [_hQ]: _em }],
   ],
 ];
 export var GetDeploymentsRequest: StaticStructureSchema = [
@@ -1524,18 +1291,8 @@ export var GetDeploymentsRequest: StaticStructureSchema = [
   [_rAI, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetDocumentationPartRequest: StaticStructureSchema = [
@@ -1557,42 +1314,12 @@ export var GetDocumentationPartsRequest: StaticStructureSchema = [
   [_rAI, _ty, _nQ, _pa, _p, _li, _lS],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _lS,
-      },
-    ],
+    [0, { [_hQ]: _ty }],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _pa }],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
+    [0, { [_hQ]: _lS }],
   ],
 ];
 export var GetDocumentationVersionRequest: StaticStructureSchema = [
@@ -1614,18 +1341,8 @@ export var GetDocumentationVersionsRequest: StaticStructureSchema = [
   [_rAI, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetDomainNameAccessAssociationsRequest: StaticStructureSchema = [
@@ -1635,24 +1352,9 @@ export var GetDomainNameAccessAssociationsRequest: StaticStructureSchema = [
   0,
   [_p, _li, _rO],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rO,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
+    [0, { [_hQ]: _rO }],
   ],
 ];
 export var GetDomainNameRequest: StaticStructureSchema = [
@@ -1663,12 +1365,7 @@ export var GetDomainNameRequest: StaticStructureSchema = [
   [_dN, _dNI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
+    [0, { [_hQ]: _dNI }],
   ],
 ];
 export var GetDomainNamesRequest: StaticStructureSchema = [
@@ -1678,24 +1375,9 @@ export var GetDomainNamesRequest: StaticStructureSchema = [
   0,
   [_p, _li, _rO],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rO,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
+    [0, { [_hQ]: _rO }],
   ],
 ];
 export var GetExportRequest: StaticStructureSchema = [
@@ -1709,12 +1391,7 @@ export var GetExportRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [128 | 0, 64],
-    [
-      0,
-      {
-        [_hH]: _Ac,
-      },
-    ],
+    [0, { [_hH]: _Ac }],
   ],
 ];
 export var GetGatewayResponseRequest: StaticStructureSchema = [
@@ -1736,18 +1413,8 @@ export var GetGatewayResponsesRequest: StaticStructureSchema = [
   [_rAI, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetIntegrationRequest: StaticStructureSchema = [
@@ -1809,12 +1476,7 @@ export var GetModelRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _fl,
-      },
-    ],
+    [2, { [_hQ]: _fl }],
   ],
 ];
 export var GetModelsRequest: StaticStructureSchema = [
@@ -1825,18 +1487,8 @@ export var GetModelsRequest: StaticStructureSchema = [
   [_rAI, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetModelTemplateRequest: StaticStructureSchema = [
@@ -1869,18 +1521,8 @@ export var GetRequestValidatorsRequest: StaticStructureSchema = [
   [_rAI, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetResourceRequest: StaticStructureSchema = [
@@ -1892,12 +1534,7 @@ export var GetResourceRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _em,
-      },
-    ],
+    [64 | 0, { [_hQ]: _em }],
   ],
 ];
 export var GetResourcesRequest: StaticStructureSchema = [
@@ -1908,24 +1545,9 @@ export var GetResourcesRequest: StaticStructureSchema = [
   [_rAI, _p, _li, _em],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _em,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
+    [64 | 0, { [_hQ]: _em }],
   ],
 ];
 export var GetRestApiRequest: StaticStructureSchema = [3, n0, _GRAR, 0, [_rAI], [[0, 1]]];
@@ -1936,18 +1558,8 @@ export var GetRestApisRequest: StaticStructureSchema = [
   0,
   [_p, _li],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetSdkRequest: StaticStructureSchema = [
@@ -1971,18 +1583,8 @@ export var GetSdkTypesRequest: StaticStructureSchema = [
   0,
   [_p, _li],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetStageRequest: StaticStructureSchema = [
@@ -2004,12 +1606,7 @@ export var GetStagesRequest: StaticStructureSchema = [
   [_rAI, _dI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dI,
-      },
-    ],
+    [0, { [_hQ]: _dI }],
   ],
 ];
 export var GetTagsRequest: StaticStructureSchema = [
@@ -2020,18 +1617,8 @@ export var GetTagsRequest: StaticStructureSchema = [
   [_rA, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetUsagePlanKeyRequest: StaticStructureSchema = [
@@ -2053,24 +1640,9 @@ export var GetUsagePlanKeysRequest: StaticStructureSchema = [
   [_uPI, _p, _li, _nQ],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var GetUsagePlanRequest: StaticStructureSchema = [3, n0, _GUPR, 0, [_uPI], [[0, 1]]];
@@ -2081,24 +1653,9 @@ export var GetUsagePlansRequest: StaticStructureSchema = [
   0,
   [_p, _kI, _li],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _kI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _kI }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetUsageRequest: StaticStructureSchema = [
@@ -2109,36 +1666,11 @@ export var GetUsageRequest: StaticStructureSchema = [
   [_uPI, _kI, _sDt, _eDn, _p, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _kI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sDt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eDn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _kI }],
+    [0, { [_hQ]: _sDt }],
+    [0, { [_hQ]: _eDn }],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var GetVpcLinkRequest: StaticStructureSchema = [3, n0, _GVLR, 0, [_vLI], [[0, 1]]];
@@ -2149,18 +1681,8 @@ export var GetVpcLinksRequest: StaticStructureSchema = [
   0,
   [_p, _li],
   [
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var ImportApiKeysRequest: StaticStructureSchema = [
@@ -2171,18 +1693,8 @@ export var ImportApiKeysRequest: StaticStructureSchema = [
   [_b, _f, _fOW],
   [
     [21, 16],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _fa,
-      },
-    ],
+    [0, { [_hQ]: _f }],
+    [2, { [_hQ]: _fa }],
   ],
 ];
 export var ImportDocumentationPartsRequest: StaticStructureSchema = [
@@ -2193,18 +1705,8 @@ export var ImportDocumentationPartsRequest: StaticStructureSchema = [
   [_rAI, _mo, _fOW, _b],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mo,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _fa,
-      },
-    ],
+    [0, { [_hQ]: _mo }],
+    [2, { [_hQ]: _fa }],
     [21, 16],
   ],
 ];
@@ -2215,12 +1717,7 @@ export var ImportRestApiRequest: StaticStructureSchema = [
   0,
   [_fOW, _par, _b],
   [
-    [
-      2,
-      {
-        [_hQ]: _fa,
-      },
-    ],
+    [2, { [_hQ]: _fa }],
     [128 | 0, 64],
     [21, 16],
   ],
@@ -2245,23 +1742,11 @@ export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_er]: _c,
-    [_hE]: 429,
-  },
+  { [_er]: _c, [_hE]: 429 },
   [_rAS, _m],
-  [
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var Method: StaticStructureSchema = [
   3,
   n0,
@@ -2288,35 +1773,14 @@ export var Models: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfModel,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfModel, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var MutualTlsAuthentication: StaticStructureSchema = [3, n0, _MTA, 0, [_tU, _tV, _tW], [0, 0, 64 | 0]];
 export var MutualTlsAuthenticationInput: StaticStructureSchema = [3, n0, _MTAI, 0, [_tU, _tV], [0, 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_er]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_er]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PatchOperation: StaticStructureSchema = [3, n0, _PO, 0, [_o, _pa, _v, _fr], [0, 0, 0, 0]];
 export var PutGatewayResponseRequest: StaticStructureSchema = [
   3,
@@ -2335,20 +1799,9 @@ export var PutIntegrationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rHM,
-        [_hL]: 1,
-      },
-    ],
+    [0, { [_jN]: _rHM, [_hL]: 1 }],
     0,
-    [
-      0,
-      {
-        [_jN]: _hM,
-      },
-    ],
+    [0, { [_jN]: _hM }],
     0,
     0,
     0,
@@ -2397,18 +1850,8 @@ export var PutRestApiRequest: StaticStructureSchema = [
   [_rAI, _mo, _fOW, _par, _b],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mo,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _fa,
-      },
-    ],
+    [0, { [_hQ]: _mo }],
+    [2, { [_hQ]: _fa }],
     [128 | 0, 64],
     [21, 16],
   ],
@@ -2421,18 +1864,8 @@ export var RejectDomainNameAccessAssociationRequest: StaticStructureSchema = [
   0,
   [_dNAAA, _dNA],
   [
-    [
-      0,
-      {
-        [_hQ]: _dNAAA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dNA,
-      },
-    ],
+    [0, { [_hQ]: _dNAAA }],
+    [0, { [_hQ]: _dNA }],
   ],
 ];
 export var RequestValidator: StaticStructureSchema = [3, n0, _RV, 0, [_i, _n, _vRB, _vRP], [0, 0, 2, 2]];
@@ -2443,18 +1876,8 @@ export var RequestValidators: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfRequestValidator,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfRequestValidator, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var Resource: StaticStructureSchema = [
@@ -2472,18 +1895,8 @@ export var Resources: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfResource,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfResource, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var RestApi: StaticStructureSchema = [
@@ -2501,18 +1914,8 @@ export var RestApis: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfRestApi,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfRestApi, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var SdkConfigurationProperty: StaticStructureSchema = [3, n0, _SCP, 0, [_n, _fN, _d, _r, _dVe], [0, 0, 0, 2, 0]];
@@ -2523,18 +1926,8 @@ export var SdkResponse: StaticStructureSchema = [
   0,
   [_cT, _cDo, _b],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CD,
-      },
-    ],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _CD }],
     [21, 16],
   ],
 ];
@@ -2546,42 +1939,16 @@ export var SdkType: StaticStructureSchema = [
   [_i, _fN, _d, _cP],
   [0, 0, 0, () => ListOfSdkConfigurationProperty],
 ];
-export var SdkTypes: StaticStructureSchema = [
-  3,
-  n0,
-  _STd,
-  0,
-  [_it],
-  [
-    [
-      () => ListOfSdkType,
-      {
-        [_jN]: _ite,
-      },
-    ],
-  ],
-];
+export var SdkTypes: StaticStructureSchema = [3, n0, _STd, 0, [_it], [[() => ListOfSdkType, { [_jN]: _ite }]]];
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_er]: _se,
-    [_hE]: 503,
-  },
+  { [_er]: _se, [_hE]: 503 },
   [_rAS, _m],
-  [
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var Stage: StaticStructureSchema = [
   3,
   n0,
@@ -2651,36 +2018,13 @@ export var TooManyRequestsException: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
-  {
-    [_er]: _c,
-    [_hE]: 429,
-  },
+  { [_er]: _c, [_hE]: 429 },
   [_rAS, _m],
-  [
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_er]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_er]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2689,12 +2033,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateAccountRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_pO], [() => ListOfPatchOperation]];
@@ -2720,17 +2059,7 @@ export var UpdateBasePathMappingRequest: StaticStructureSchema = [
   _UBPMR,
   0,
   [_dN, _dNI, _bP, _pO],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
-    [0, 1],
-    () => ListOfPatchOperation,
-  ],
+  [[0, 1], [0, { [_hQ]: _dNI }], [0, 1], () => ListOfPatchOperation],
 ];
 export var UpdateClientCertificateRequest: StaticStructureSchema = [
   3,
@@ -2770,16 +2099,7 @@ export var UpdateDomainNameRequest: StaticStructureSchema = [
   _UDNR,
   0,
   [_dN, _dNI, _pO],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dNI,
-      },
-    ],
-    () => ListOfPatchOperation,
-  ],
+  [[0, 1], [0, { [_hQ]: _dNI }], () => ListOfPatchOperation],
 ];
 export var UpdateGatewayResponseRequest: StaticStructureSchema = [
   3,
@@ -2891,23 +2211,7 @@ export var Usage: StaticStructureSchema = [
   _U,
   0,
   [_uPI, _sDt, _eDn, _it, _p],
-  [
-    0,
-    0,
-    0,
-    [
-      [2, n0, _MOKU, 0, 0, [1, n0, _LOU, 0, 64 | 1]],
-      {
-        [_jN]: _val,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-  ],
+  [0, 0, 0, [[2, n0, _MOKU, 0, 0, [1, n0, _LOU, 0, 64 | 1]], { [_jN]: _val }], [0, { [_hQ]: _p }]],
 ];
 export var UsagePlan: StaticStructureSchema = [
   3,
@@ -2925,18 +2229,8 @@ export var UsagePlanKeys: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfUsagePlanKey,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfUsagePlanKey, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var UsagePlans: StaticStructureSchema = [
@@ -2946,18 +2240,8 @@ export var UsagePlans: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfUsagePlan,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfUsagePlan, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var VpcLink: StaticStructureSchema = [
@@ -2975,29 +2259,16 @@ export var VpcLinks: StaticStructureSchema = [
   0,
   [_it, _p],
   [
-    [
-      () => ListOfVpcLink,
-      {
-        [_jN]: _ite,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [() => ListOfVpcLink, { [_jN]: _ite }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var APIGatewayServiceException: StaticErrorSchema = [-3, _sm, "APIGatewayServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(APIGatewayServiceException, __APIGatewayServiceException);
-
 export var ListOfApiKey: StaticListSchema = [1, n0, _LOAK, 0, () => ApiKey];
 export var ListOfApiStage: StaticListSchema = [1, n0, _LOAS, 0, () => ApiStage];
 export var ListOfARNs = 64 | 0;
-
 export var ListOfAuthorizer: StaticListSchema = [1, n0, _LOA, 0, () => Authorizer];
 export var ListOfBasePathMapping: StaticListSchema = [1, n0, _LOBPM, 0, () => BasePathMapping];
 export var ListOfClientCertificate: StaticListSchema = [1, n0, _LOCC, 0, () => ClientCertificate];
@@ -3007,10 +2278,8 @@ export var ListOfDocumentationVersion: StaticListSchema = [1, n0, _LODV, 0, () =
 export var ListOfDomainName: StaticListSchema = [1, n0, _LODN, 0, () => DomainName];
 export var ListOfDomainNameAccessAssociation: StaticListSchema = [1, n0, _LODNAA, 0, () => DomainNameAccessAssociation];
 export var ListOfEndpointType = 64 | 0;
-
 export var ListOfGatewayResponse: StaticListSchema = [1, n0, _LOGR, 0, () => GatewayResponse];
 export var ListOfLong = 64 | 1;
-
 export var ListOfModel: StaticListSchema = [1, n0, _LOM, 0, () => Model];
 export var ListOfPatchOperation: StaticListSchema = [1, n0, _LOPO, 0, () => PatchOperation];
 export var ListOfRequestValidator: StaticListSchema = [1, n0, _LORV, 0, () => RequestValidator];
@@ -3021,7 +2290,6 @@ export var ListOfSdkType: StaticListSchema = [1, n0, _LOST, 0, () => SdkType];
 export var ListOfStage: StaticListSchema = [1, n0, _LOS, 0, () => Stage];
 export var ListOfStageKeys: StaticListSchema = [1, n0, _LOSK, 0, () => StageKey];
 export var ListOfString = 64 | 0;
-
 export var ListOfUsage: StaticListSchema = [1, n0, _LOU, 0, 64 | 1];
 export var ListOfUsagePlan: StaticListSchema = [1, n0, _LOUP, 0, () => UsagePlan];
 export var ListOfUsagePlanKey: StaticListSchema = [1, n0, _LOUPK, 0, () => UsagePlanKey];
@@ -3034,18 +2302,14 @@ export var MapOfMethodResponse: StaticMapSchema = [2, n0, _MOMR, 0, 0, () => Met
 export var MapOfMethodSettings: StaticMapSchema = [2, n0, _MOMS, 0, 0, () => MethodSetting];
 export var MapOfMethodSnapshot: StaticMapSchema = [2, n0, _MOMSa, 0, 0, () => MethodSnapshot];
 export var MapOfStringToBoolean = 128 | 2;
-
 export var MapOfStringToList: StaticMapSchema = [2, n0, _MOSTL, 0, 0, 64 | 0];
 export var MapOfStringToString = 128 | 0;
-
 export var PathToMapOfMethodSnapshot: StaticMapSchema = [2, n0, _PTMOMS, 0, 0, () => MapOfMethodSnapshot];
 export var CreateApiKey: StaticOperationSchema = [
   9,
   n0,
   _CAK,
-  {
-    [_ht]: ["POST", "/apikeys", 201],
-  },
+  { [_ht]: ["POST", "/apikeys", 201] },
   () => CreateApiKeyRequest,
   () => ApiKey,
 ];
@@ -3053,9 +2317,7 @@ export var CreateAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/authorizers", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/authorizers", 201] },
   () => CreateAuthorizerRequest,
   () => Authorizer,
 ];
@@ -3063,9 +2325,7 @@ export var CreateBasePathMapping: StaticOperationSchema = [
   9,
   n0,
   _CBPM,
-  {
-    [_ht]: ["POST", "/domainnames/{domainName}/basepathmappings", 201],
-  },
+  { [_ht]: ["POST", "/domainnames/{domainName}/basepathmappings", 201] },
   () => CreateBasePathMappingRequest,
   () => BasePathMapping,
 ];
@@ -3073,9 +2333,7 @@ export var CreateDeployment: StaticOperationSchema = [
   9,
   n0,
   _CDr,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/deployments", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/deployments", 201] },
   () => CreateDeploymentRequest,
   () => Deployment,
 ];
@@ -3083,9 +2341,7 @@ export var CreateDocumentationPart: StaticOperationSchema = [
   9,
   n0,
   _CDP,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/documentation/parts", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/documentation/parts", 201] },
   () => CreateDocumentationPartRequest,
   () => DocumentationPart,
 ];
@@ -3093,9 +2349,7 @@ export var CreateDocumentationVersion: StaticOperationSchema = [
   9,
   n0,
   _CDV,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/documentation/versions", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/documentation/versions", 201] },
   () => CreateDocumentationVersionRequest,
   () => DocumentationVersion,
 ];
@@ -3103,9 +2357,7 @@ export var CreateDomainName: StaticOperationSchema = [
   9,
   n0,
   _CDN,
-  {
-    [_ht]: ["POST", "/domainnames", 201],
-  },
+  { [_ht]: ["POST", "/domainnames", 201] },
   () => CreateDomainNameRequest,
   () => DomainName,
 ];
@@ -3113,9 +2365,7 @@ export var CreateDomainNameAccessAssociation: StaticOperationSchema = [
   9,
   n0,
   _CDNAA,
-  {
-    [_ht]: ["POST", "/domainnameaccessassociations", 201],
-  },
+  { [_ht]: ["POST", "/domainnameaccessassociations", 201] },
   () => CreateDomainNameAccessAssociationRequest,
   () => DomainNameAccessAssociation,
 ];
@@ -3123,9 +2373,7 @@ export var CreateModel: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/models", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/models", 201] },
   () => CreateModelRequest,
   () => Model,
 ];
@@ -3133,9 +2381,7 @@ export var CreateRequestValidator: StaticOperationSchema = [
   9,
   n0,
   _CRV,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/requestvalidators", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/requestvalidators", 201] },
   () => CreateRequestValidatorRequest,
   () => RequestValidator,
 ];
@@ -3143,9 +2389,7 @@ export var CreateResource: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/resources/{parentId}", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/resources/{parentId}", 201] },
   () => CreateResourceRequest,
   () => Resource,
 ];
@@ -3153,9 +2397,7 @@ export var CreateRestApi: StaticOperationSchema = [
   9,
   n0,
   _CRA,
-  {
-    [_ht]: ["POST", "/restapis", 201],
-  },
+  { [_ht]: ["POST", "/restapis", 201] },
   () => CreateRestApiRequest,
   () => RestApi,
 ];
@@ -3163,9 +2405,7 @@ export var CreateStage: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/stages", 201],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/stages", 201] },
   () => CreateStageRequest,
   () => Stage,
 ];
@@ -3173,9 +2413,7 @@ export var CreateUsagePlan: StaticOperationSchema = [
   9,
   n0,
   _CUP,
-  {
-    [_ht]: ["POST", "/usageplans", 201],
-  },
+  { [_ht]: ["POST", "/usageplans", 201] },
   () => CreateUsagePlanRequest,
   () => UsagePlan,
 ];
@@ -3183,9 +2421,7 @@ export var CreateUsagePlanKey: StaticOperationSchema = [
   9,
   n0,
   _CUPK,
-  {
-    [_ht]: ["POST", "/usageplans/{usagePlanId}/keys", 201],
-  },
+  { [_ht]: ["POST", "/usageplans/{usagePlanId}/keys", 201] },
   () => CreateUsagePlanKeyRequest,
   () => UsagePlanKey,
 ];
@@ -3193,9 +2429,7 @@ export var CreateVpcLink: StaticOperationSchema = [
   9,
   n0,
   _CVL,
-  {
-    [_ht]: ["POST", "/vpclinks", 202],
-  },
+  { [_ht]: ["POST", "/vpclinks", 202] },
   () => CreateVpcLinkRequest,
   () => VpcLink,
 ];
@@ -3203,9 +2437,7 @@ export var DeleteApiKey: StaticOperationSchema = [
   9,
   n0,
   _DAK,
-  {
-    [_ht]: ["DELETE", "/apikeys/{apiKey}", 202],
-  },
+  { [_ht]: ["DELETE", "/apikeys/{apiKey}", 202] },
   () => DeleteApiKeyRequest,
   () => __Unit,
 ];
@@ -3213,9 +2445,7 @@ export var DeleteAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/authorizers/{authorizerId}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/authorizers/{authorizerId}", 202] },
   () => DeleteAuthorizerRequest,
   () => __Unit,
 ];
@@ -3223,9 +2453,7 @@ export var DeleteBasePathMapping: StaticOperationSchema = [
   9,
   n0,
   _DBPM,
-  {
-    [_ht]: ["DELETE", "/domainnames/{domainName}/basepathmappings/{basePath}", 202],
-  },
+  { [_ht]: ["DELETE", "/domainnames/{domainName}/basepathmappings/{basePath}", 202] },
   () => DeleteBasePathMappingRequest,
   () => __Unit,
 ];
@@ -3233,9 +2461,7 @@ export var DeleteClientCertificate: StaticOperationSchema = [
   9,
   n0,
   _DCC,
-  {
-    [_ht]: ["DELETE", "/clientcertificates/{clientCertificateId}", 202],
-  },
+  { [_ht]: ["DELETE", "/clientcertificates/{clientCertificateId}", 202] },
   () => DeleteClientCertificateRequest,
   () => __Unit,
 ];
@@ -3243,9 +2469,7 @@ export var DeleteDeployment: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/deployments/{deploymentId}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/deployments/{deploymentId}", 202] },
   () => DeleteDeploymentRequest,
   () => __Unit,
 ];
@@ -3253,9 +2477,7 @@ export var DeleteDocumentationPart: StaticOperationSchema = [
   9,
   n0,
   _DDP,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 202] },
   () => DeleteDocumentationPartRequest,
   () => __Unit,
 ];
@@ -3263,9 +2485,7 @@ export var DeleteDocumentationVersion: StaticOperationSchema = [
   9,
   n0,
   _DDV,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 202] },
   () => DeleteDocumentationVersionRequest,
   () => __Unit,
 ];
@@ -3273,9 +2493,7 @@ export var DeleteDomainName: StaticOperationSchema = [
   9,
   n0,
   _DDN,
-  {
-    [_ht]: ["DELETE", "/domainnames/{domainName}", 202],
-  },
+  { [_ht]: ["DELETE", "/domainnames/{domainName}", 202] },
   () => DeleteDomainNameRequest,
   () => __Unit,
 ];
@@ -3283,9 +2501,7 @@ export var DeleteDomainNameAccessAssociation: StaticOperationSchema = [
   9,
   n0,
   _DDNAA,
-  {
-    [_ht]: ["DELETE", "/domainnameaccessassociations/{domainNameAccessAssociationArn}", 202],
-  },
+  { [_ht]: ["DELETE", "/domainnameaccessassociations/{domainNameAccessAssociationArn}", 202] },
   () => DeleteDomainNameAccessAssociationRequest,
   () => __Unit,
 ];
@@ -3293,9 +2509,7 @@ export var DeleteGatewayResponse: StaticOperationSchema = [
   9,
   n0,
   _DGR,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/gatewayresponses/{responseType}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/gatewayresponses/{responseType}", 202] },
   () => DeleteGatewayResponseRequest,
   () => __Unit,
 ];
@@ -3303,9 +2517,7 @@ export var DeleteIntegration: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 204],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 204] },
   () => DeleteIntegrationRequest,
   () => __Unit,
 ];
@@ -3327,9 +2539,7 @@ export var DeleteMethod: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 204],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 204] },
   () => DeleteMethodRequest,
   () => __Unit,
 ];
@@ -3347,9 +2557,7 @@ export var DeleteModel: StaticOperationSchema = [
   9,
   n0,
   _DMe,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/models/{modelName}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/models/{modelName}", 202] },
   () => DeleteModelRequest,
   () => __Unit,
 ];
@@ -3357,9 +2565,7 @@ export var DeleteRequestValidator: StaticOperationSchema = [
   9,
   n0,
   _DRV,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 202] },
   () => DeleteRequestValidatorRequest,
   () => __Unit,
 ];
@@ -3367,9 +2573,7 @@ export var DeleteResource: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/resources/{resourceId}", 202] },
   () => DeleteResourceRequest,
   () => __Unit,
 ];
@@ -3377,9 +2581,7 @@ export var DeleteRestApi: StaticOperationSchema = [
   9,
   n0,
   _DRA,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}", 202] },
   () => DeleteRestApiRequest,
   () => __Unit,
 ];
@@ -3387,9 +2589,7 @@ export var DeleteStage: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}", 202] },
   () => DeleteStageRequest,
   () => __Unit,
 ];
@@ -3397,9 +2597,7 @@ export var DeleteUsagePlan: StaticOperationSchema = [
   9,
   n0,
   _DUP,
-  {
-    [_ht]: ["DELETE", "/usageplans/{usagePlanId}", 202],
-  },
+  { [_ht]: ["DELETE", "/usageplans/{usagePlanId}", 202] },
   () => DeleteUsagePlanRequest,
   () => __Unit,
 ];
@@ -3407,9 +2605,7 @@ export var DeleteUsagePlanKey: StaticOperationSchema = [
   9,
   n0,
   _DUPK,
-  {
-    [_ht]: ["DELETE", "/usageplans/{usagePlanId}/keys/{keyId}", 202],
-  },
+  { [_ht]: ["DELETE", "/usageplans/{usagePlanId}/keys/{keyId}", 202] },
   () => DeleteUsagePlanKeyRequest,
   () => __Unit,
 ];
@@ -3417,9 +2613,7 @@ export var DeleteVpcLink: StaticOperationSchema = [
   9,
   n0,
   _DVL,
-  {
-    [_ht]: ["DELETE", "/vpclinks/{vpcLinkId}", 202],
-  },
+  { [_ht]: ["DELETE", "/vpclinks/{vpcLinkId}", 202] },
   () => DeleteVpcLinkRequest,
   () => __Unit,
 ];
@@ -3427,9 +2621,7 @@ export var FlushStageAuthorizersCache: StaticOperationSchema = [
   9,
   n0,
   _FSAC,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}/cache/authorizers", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}/cache/authorizers", 202] },
   () => FlushStageAuthorizersCacheRequest,
   () => __Unit,
 ];
@@ -3437,9 +2629,7 @@ export var FlushStageCache: StaticOperationSchema = [
   9,
   n0,
   _FSC,
-  {
-    [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}/cache/data", 202],
-  },
+  { [_ht]: ["DELETE", "/restapis/{restApiId}/stages/{stageName}/cache/data", 202] },
   () => FlushStageCacheRequest,
   () => __Unit,
 ];
@@ -3447,9 +2637,7 @@ export var GenerateClientCertificate: StaticOperationSchema = [
   9,
   n0,
   _GCC,
-  {
-    [_ht]: ["POST", "/clientcertificates", 201],
-  },
+  { [_ht]: ["POST", "/clientcertificates", 201] },
   () => GenerateClientCertificateRequest,
   () => ClientCertificate,
 ];
@@ -3457,9 +2645,7 @@ export var GetAccount: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_ht]: ["GET", "/account", 200],
-  },
+  { [_ht]: ["GET", "/account", 200] },
   () => GetAccountRequest,
   () => Account,
 ];
@@ -3467,9 +2653,7 @@ export var GetApiKey: StaticOperationSchema = [
   9,
   n0,
   _GAK,
-  {
-    [_ht]: ["GET", "/apikeys/{apiKey}", 200],
-  },
+  { [_ht]: ["GET", "/apikeys/{apiKey}", 200] },
   () => GetApiKeyRequest,
   () => ApiKey,
 ];
@@ -3477,9 +2661,7 @@ export var GetApiKeys: StaticOperationSchema = [
   9,
   n0,
   _GAKe,
-  {
-    [_ht]: ["GET", "/apikeys", 200],
-  },
+  { [_ht]: ["GET", "/apikeys", 200] },
   () => GetApiKeysRequest,
   () => ApiKeys,
 ];
@@ -3487,9 +2669,7 @@ export var GetAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _GAe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/authorizers/{authorizerId}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/authorizers/{authorizerId}", 200] },
   () => GetAuthorizerRequest,
   () => Authorizer,
 ];
@@ -3497,9 +2677,7 @@ export var GetAuthorizers: StaticOperationSchema = [
   9,
   n0,
   _GAet,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/authorizers", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/authorizers", 200] },
   () => GetAuthorizersRequest,
   () => Authorizers,
 ];
@@ -3507,9 +2685,7 @@ export var GetBasePathMapping: StaticOperationSchema = [
   9,
   n0,
   _GBPM,
-  {
-    [_ht]: ["GET", "/domainnames/{domainName}/basepathmappings/{basePath}", 200],
-  },
+  { [_ht]: ["GET", "/domainnames/{domainName}/basepathmappings/{basePath}", 200] },
   () => GetBasePathMappingRequest,
   () => BasePathMapping,
 ];
@@ -3517,9 +2693,7 @@ export var GetBasePathMappings: StaticOperationSchema = [
   9,
   n0,
   _GBPMe,
-  {
-    [_ht]: ["GET", "/domainnames/{domainName}/basepathmappings", 200],
-  },
+  { [_ht]: ["GET", "/domainnames/{domainName}/basepathmappings", 200] },
   () => GetBasePathMappingsRequest,
   () => BasePathMappings,
 ];
@@ -3527,9 +2701,7 @@ export var GetClientCertificate: StaticOperationSchema = [
   9,
   n0,
   _GCCe,
-  {
-    [_ht]: ["GET", "/clientcertificates/{clientCertificateId}", 200],
-  },
+  { [_ht]: ["GET", "/clientcertificates/{clientCertificateId}", 200] },
   () => GetClientCertificateRequest,
   () => ClientCertificate,
 ];
@@ -3537,9 +2709,7 @@ export var GetClientCertificates: StaticOperationSchema = [
   9,
   n0,
   _GCCet,
-  {
-    [_ht]: ["GET", "/clientcertificates", 200],
-  },
+  { [_ht]: ["GET", "/clientcertificates", 200] },
   () => GetClientCertificatesRequest,
   () => ClientCertificates,
 ];
@@ -3547,9 +2717,7 @@ export var GetDeployment: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/deployments/{deploymentId}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/deployments/{deploymentId}", 200] },
   () => GetDeploymentRequest,
   () => Deployment,
 ];
@@ -3557,9 +2725,7 @@ export var GetDeployments: StaticOperationSchema = [
   9,
   n0,
   _GDe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/deployments", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/deployments", 200] },
   () => GetDeploymentsRequest,
   () => Deployments,
 ];
@@ -3567,9 +2733,7 @@ export var GetDocumentationPart: StaticOperationSchema = [
   9,
   n0,
   _GDP,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 200] },
   () => GetDocumentationPartRequest,
   () => DocumentationPart,
 ];
@@ -3577,9 +2741,7 @@ export var GetDocumentationParts: StaticOperationSchema = [
   9,
   n0,
   _GDPe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/documentation/parts", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/documentation/parts", 200] },
   () => GetDocumentationPartsRequest,
   () => DocumentationParts,
 ];
@@ -3587,9 +2749,7 @@ export var GetDocumentationVersion: StaticOperationSchema = [
   9,
   n0,
   _GDV,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 200] },
   () => GetDocumentationVersionRequest,
   () => DocumentationVersion,
 ];
@@ -3597,9 +2757,7 @@ export var GetDocumentationVersions: StaticOperationSchema = [
   9,
   n0,
   _GDVe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/documentation/versions", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/documentation/versions", 200] },
   () => GetDocumentationVersionsRequest,
   () => DocumentationVersions,
 ];
@@ -3607,9 +2765,7 @@ export var GetDomainName: StaticOperationSchema = [
   9,
   n0,
   _GDN,
-  {
-    [_ht]: ["GET", "/domainnames/{domainName}", 200],
-  },
+  { [_ht]: ["GET", "/domainnames/{domainName}", 200] },
   () => GetDomainNameRequest,
   () => DomainName,
 ];
@@ -3617,9 +2773,7 @@ export var GetDomainNameAccessAssociations: StaticOperationSchema = [
   9,
   n0,
   _GDNAA,
-  {
-    [_ht]: ["GET", "/domainnameaccessassociations", 200],
-  },
+  { [_ht]: ["GET", "/domainnameaccessassociations", 200] },
   () => GetDomainNameAccessAssociationsRequest,
   () => DomainNameAccessAssociations,
 ];
@@ -3627,9 +2781,7 @@ export var GetDomainNames: StaticOperationSchema = [
   9,
   n0,
   _GDNe,
-  {
-    [_ht]: ["GET", "/domainnames", 200],
-  },
+  { [_ht]: ["GET", "/domainnames", 200] },
   () => GetDomainNamesRequest,
   () => DomainNames,
 ];
@@ -3637,9 +2789,7 @@ export var GetExport: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}/exports/{exportType}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}/exports/{exportType}", 200] },
   () => GetExportRequest,
   () => ExportResponse,
 ];
@@ -3647,9 +2797,7 @@ export var GetGatewayResponse: StaticOperationSchema = [
   9,
   n0,
   _GGR,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/gatewayresponses/{responseType}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/gatewayresponses/{responseType}", 200] },
   () => GetGatewayResponseRequest,
   () => GatewayResponse,
 ];
@@ -3657,9 +2805,7 @@ export var GetGatewayResponses: StaticOperationSchema = [
   9,
   n0,
   _GGRe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/gatewayresponses", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/gatewayresponses", 200] },
   () => GetGatewayResponsesRequest,
   () => GatewayResponses,
 ];
@@ -3667,9 +2813,7 @@ export var GetIntegration: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 200] },
   () => GetIntegrationRequest,
   () => Integration,
 ];
@@ -3691,9 +2835,7 @@ export var GetMethod: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200] },
   () => GetMethodRequest,
   () => Method,
 ];
@@ -3701,9 +2843,7 @@ export var GetMethodResponse: StaticOperationSchema = [
   9,
   n0,
   _GMRete,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 200] },
   () => GetMethodResponseRequest,
   () => MethodResponse,
 ];
@@ -3711,9 +2851,7 @@ export var GetModel: StaticOperationSchema = [
   9,
   n0,
   _GMe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/models/{modelName}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/models/{modelName}", 200] },
   () => GetModelRequest,
   () => Model,
 ];
@@ -3721,9 +2859,7 @@ export var GetModels: StaticOperationSchema = [
   9,
   n0,
   _GMet,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/models", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/models", 200] },
   () => GetModelsRequest,
   () => Models,
 ];
@@ -3731,9 +2867,7 @@ export var GetModelTemplate: StaticOperationSchema = [
   9,
   n0,
   _GMT,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/models/{modelName}/default_template", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/models/{modelName}/default_template", 200] },
   () => GetModelTemplateRequest,
   () => Template,
 ];
@@ -3741,9 +2875,7 @@ export var GetRequestValidator: StaticOperationSchema = [
   9,
   n0,
   _GRV,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 200] },
   () => GetRequestValidatorRequest,
   () => RequestValidator,
 ];
@@ -3751,9 +2883,7 @@ export var GetRequestValidators: StaticOperationSchema = [
   9,
   n0,
   _GRVe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/requestvalidators", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/requestvalidators", 200] },
   () => GetRequestValidatorsRequest,
   () => RequestValidators,
 ];
@@ -3761,9 +2891,7 @@ export var GetResource: StaticOperationSchema = [
   9,
   n0,
   _GRe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/resources/{resourceId}", 200] },
   () => GetResourceRequest,
   () => Resource,
 ];
@@ -3771,9 +2899,7 @@ export var GetResources: StaticOperationSchema = [
   9,
   n0,
   _GRet,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/resources", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/resources", 200] },
   () => GetResourcesRequest,
   () => Resources,
 ];
@@ -3781,9 +2907,7 @@ export var GetRestApi: StaticOperationSchema = [
   9,
   n0,
   _GRA,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}", 200] },
   () => GetRestApiRequest,
   () => RestApi,
 ];
@@ -3791,9 +2915,7 @@ export var GetRestApis: StaticOperationSchema = [
   9,
   n0,
   _GRAe,
-  {
-    [_ht]: ["GET", "/restapis", 200],
-  },
+  { [_ht]: ["GET", "/restapis", 200] },
   () => GetRestApisRequest,
   () => RestApis,
 ];
@@ -3801,9 +2923,7 @@ export var GetSdk: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}/sdks/{sdkType}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}/sdks/{sdkType}", 200] },
   () => GetSdkRequest,
   () => SdkResponse,
 ];
@@ -3811,9 +2931,7 @@ export var GetSdkType: StaticOperationSchema = [
   9,
   n0,
   _GST,
-  {
-    [_ht]: ["GET", "/sdktypes/{id}", 200],
-  },
+  { [_ht]: ["GET", "/sdktypes/{id}", 200] },
   () => GetSdkTypeRequest,
   () => SdkType,
 ];
@@ -3821,9 +2939,7 @@ export var GetSdkTypes: StaticOperationSchema = [
   9,
   n0,
   _GSTe,
-  {
-    [_ht]: ["GET", "/sdktypes", 200],
-  },
+  { [_ht]: ["GET", "/sdktypes", 200] },
   () => GetSdkTypesRequest,
   () => SdkTypes,
 ];
@@ -3831,9 +2947,7 @@ export var GetStage: StaticOperationSchema = [
   9,
   n0,
   _GSe,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/stages/{stageName}", 200] },
   () => GetStageRequest,
   () => Stage,
 ];
@@ -3841,9 +2955,7 @@ export var GetStages: StaticOperationSchema = [
   9,
   n0,
   _GSet,
-  {
-    [_ht]: ["GET", "/restapis/{restApiId}/stages", 200],
-  },
+  { [_ht]: ["GET", "/restapis/{restApiId}/stages", 200] },
   () => GetStagesRequest,
   () => Stages,
 ];
@@ -3851,9 +2963,7 @@ export var GetTags: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => GetTagsRequest,
   () => Tags,
 ];
@@ -3861,9 +2971,7 @@ export var GetUsage: StaticOperationSchema = [
   9,
   n0,
   _GU,
-  {
-    [_ht]: ["GET", "/usageplans/{usagePlanId}/usage", 200],
-  },
+  { [_ht]: ["GET", "/usageplans/{usagePlanId}/usage", 200] },
   () => GetUsageRequest,
   () => Usage,
 ];
@@ -3871,9 +2979,7 @@ export var GetUsagePlan: StaticOperationSchema = [
   9,
   n0,
   _GUP,
-  {
-    [_ht]: ["GET", "/usageplans/{usagePlanId}", 200],
-  },
+  { [_ht]: ["GET", "/usageplans/{usagePlanId}", 200] },
   () => GetUsagePlanRequest,
   () => UsagePlan,
 ];
@@ -3881,9 +2987,7 @@ export var GetUsagePlanKey: StaticOperationSchema = [
   9,
   n0,
   _GUPK,
-  {
-    [_ht]: ["GET", "/usageplans/{usagePlanId}/keys/{keyId}", 200],
-  },
+  { [_ht]: ["GET", "/usageplans/{usagePlanId}/keys/{keyId}", 200] },
   () => GetUsagePlanKeyRequest,
   () => UsagePlanKey,
 ];
@@ -3891,9 +2995,7 @@ export var GetUsagePlanKeys: StaticOperationSchema = [
   9,
   n0,
   _GUPKe,
-  {
-    [_ht]: ["GET", "/usageplans/{usagePlanId}/keys", 200],
-  },
+  { [_ht]: ["GET", "/usageplans/{usagePlanId}/keys", 200] },
   () => GetUsagePlanKeysRequest,
   () => UsagePlanKeys,
 ];
@@ -3901,9 +3003,7 @@ export var GetUsagePlans: StaticOperationSchema = [
   9,
   n0,
   _GUPe,
-  {
-    [_ht]: ["GET", "/usageplans", 200],
-  },
+  { [_ht]: ["GET", "/usageplans", 200] },
   () => GetUsagePlansRequest,
   () => UsagePlans,
 ];
@@ -3911,9 +3011,7 @@ export var GetVpcLink: StaticOperationSchema = [
   9,
   n0,
   _GVL,
-  {
-    [_ht]: ["GET", "/vpclinks/{vpcLinkId}", 200],
-  },
+  { [_ht]: ["GET", "/vpclinks/{vpcLinkId}", 200] },
   () => GetVpcLinkRequest,
   () => VpcLink,
 ];
@@ -3921,9 +3019,7 @@ export var GetVpcLinks: StaticOperationSchema = [
   9,
   n0,
   _GVLe,
-  {
-    [_ht]: ["GET", "/vpclinks", 200],
-  },
+  { [_ht]: ["GET", "/vpclinks", 200] },
   () => GetVpcLinksRequest,
   () => VpcLinks,
 ];
@@ -3931,9 +3027,7 @@ export var ImportApiKeys: StaticOperationSchema = [
   9,
   n0,
   _IAK,
-  {
-    [_ht]: ["POST", "/apikeys?mode=import", 201],
-  },
+  { [_ht]: ["POST", "/apikeys?mode=import", 201] },
   () => ImportApiKeysRequest,
   () => ApiKeyIds,
 ];
@@ -3941,9 +3035,7 @@ export var ImportDocumentationParts: StaticOperationSchema = [
   9,
   n0,
   _IDP,
-  {
-    [_ht]: ["PUT", "/restapis/{restApiId}/documentation/parts", 200],
-  },
+  { [_ht]: ["PUT", "/restapis/{restApiId}/documentation/parts", 200] },
   () => ImportDocumentationPartsRequest,
   () => DocumentationPartIds,
 ];
@@ -3951,9 +3043,7 @@ export var ImportRestApi: StaticOperationSchema = [
   9,
   n0,
   _IRA,
-  {
-    [_ht]: ["POST", "/restapis?mode=import", 201],
-  },
+  { [_ht]: ["POST", "/restapis?mode=import", 201] },
   () => ImportRestApiRequest,
   () => RestApi,
 ];
@@ -3961,9 +3051,7 @@ export var PutGatewayResponse: StaticOperationSchema = [
   9,
   n0,
   _PGR,
-  {
-    [_ht]: ["PUT", "/restapis/{restApiId}/gatewayresponses/{responseType}", 201],
-  },
+  { [_ht]: ["PUT", "/restapis/{restApiId}/gatewayresponses/{responseType}", 201] },
   () => PutGatewayResponseRequest,
   () => GatewayResponse,
 ];
@@ -3971,9 +3059,7 @@ export var PutIntegration: StaticOperationSchema = [
   9,
   n0,
   _PI,
-  {
-    [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 201],
-  },
+  { [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 201] },
   () => PutIntegrationRequest,
   () => Integration,
 ];
@@ -3995,9 +3081,7 @@ export var PutMethod: StaticOperationSchema = [
   9,
   n0,
   _PM,
-  {
-    [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 201],
-  },
+  { [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 201] },
   () => PutMethodRequest,
   () => Method,
 ];
@@ -4005,9 +3089,7 @@ export var PutMethodResponse: StaticOperationSchema = [
   9,
   n0,
   _PMRu,
-  {
-    [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 201],
-  },
+  { [_ht]: ["PUT", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 201] },
   () => PutMethodResponseRequest,
   () => MethodResponse,
 ];
@@ -4015,9 +3097,7 @@ export var PutRestApi: StaticOperationSchema = [
   9,
   n0,
   _PRA,
-  {
-    [_ht]: ["PUT", "/restapis/{restApiId}", 200],
-  },
+  { [_ht]: ["PUT", "/restapis/{restApiId}", 200] },
   () => PutRestApiRequest,
   () => RestApi,
 ];
@@ -4025,9 +3105,7 @@ export var RejectDomainNameAccessAssociation: StaticOperationSchema = [
   9,
   n0,
   _RDNAA,
-  {
-    [_ht]: ["POST", "/rejectdomainnameaccessassociations", 202],
-  },
+  { [_ht]: ["POST", "/rejectdomainnameaccessassociations", 202] },
   () => RejectDomainNameAccessAssociationRequest,
   () => __Unit,
 ];
@@ -4035,9 +3113,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["PUT", "/tags/{resourceArn}", 204],
-  },
+  { [_ht]: ["PUT", "/tags/{resourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -4045,9 +3121,7 @@ export var TestInvokeAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _TIA,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/authorizers/{authorizerId}", 200],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/authorizers/{authorizerId}", 200] },
   () => TestInvokeAuthorizerRequest,
   () => TestInvokeAuthorizerResponse,
 ];
@@ -4055,9 +3129,7 @@ export var TestInvokeMethod: StaticOperationSchema = [
   9,
   n0,
   _TIM,
-  {
-    [_ht]: ["POST", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200],
-  },
+  { [_ht]: ["POST", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200] },
   () => TestInvokeMethodRequest,
   () => TestInvokeMethodResponse,
 ];
@@ -4065,9 +3137,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 204],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -4075,9 +3145,7 @@ export var UpdateAccount: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_ht]: ["PATCH", "/account", 200],
-  },
+  { [_ht]: ["PATCH", "/account", 200] },
   () => UpdateAccountRequest,
   () => Account,
 ];
@@ -4085,9 +3153,7 @@ export var UpdateApiKey: StaticOperationSchema = [
   9,
   n0,
   _UAK,
-  {
-    [_ht]: ["PATCH", "/apikeys/{apiKey}", 200],
-  },
+  { [_ht]: ["PATCH", "/apikeys/{apiKey}", 200] },
   () => UpdateApiKeyRequest,
   () => ApiKey,
 ];
@@ -4095,9 +3161,7 @@ export var UpdateAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _UAp,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/authorizers/{authorizerId}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/authorizers/{authorizerId}", 200] },
   () => UpdateAuthorizerRequest,
   () => Authorizer,
 ];
@@ -4105,9 +3169,7 @@ export var UpdateBasePathMapping: StaticOperationSchema = [
   9,
   n0,
   _UBPM,
-  {
-    [_ht]: ["PATCH", "/domainnames/{domainName}/basepathmappings/{basePath}", 200],
-  },
+  { [_ht]: ["PATCH", "/domainnames/{domainName}/basepathmappings/{basePath}", 200] },
   () => UpdateBasePathMappingRequest,
   () => BasePathMapping,
 ];
@@ -4115,9 +3177,7 @@ export var UpdateClientCertificate: StaticOperationSchema = [
   9,
   n0,
   _UCC,
-  {
-    [_ht]: ["PATCH", "/clientcertificates/{clientCertificateId}", 200],
-  },
+  { [_ht]: ["PATCH", "/clientcertificates/{clientCertificateId}", 200] },
   () => UpdateClientCertificateRequest,
   () => ClientCertificate,
 ];
@@ -4125,9 +3185,7 @@ export var UpdateDeployment: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/deployments/{deploymentId}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/deployments/{deploymentId}", 200] },
   () => UpdateDeploymentRequest,
   () => Deployment,
 ];
@@ -4135,9 +3193,7 @@ export var UpdateDocumentationPart: StaticOperationSchema = [
   9,
   n0,
   _UDP,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/documentation/parts/{documentationPartId}", 200] },
   () => UpdateDocumentationPartRequest,
   () => DocumentationPart,
 ];
@@ -4145,9 +3201,7 @@ export var UpdateDocumentationVersion: StaticOperationSchema = [
   9,
   n0,
   _UDV,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/documentation/versions/{documentationVersion}", 200] },
   () => UpdateDocumentationVersionRequest,
   () => DocumentationVersion,
 ];
@@ -4155,9 +3209,7 @@ export var UpdateDomainName: StaticOperationSchema = [
   9,
   n0,
   _UDN,
-  {
-    [_ht]: ["PATCH", "/domainnames/{domainName}", 200],
-  },
+  { [_ht]: ["PATCH", "/domainnames/{domainName}", 200] },
   () => UpdateDomainNameRequest,
   () => DomainName,
 ];
@@ -4165,9 +3217,7 @@ export var UpdateGatewayResponse: StaticOperationSchema = [
   9,
   n0,
   _UGR,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/gatewayresponses/{responseType}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/gatewayresponses/{responseType}", 200] },
   () => UpdateGatewayResponseRequest,
   () => GatewayResponse,
 ];
@@ -4175,9 +3225,7 @@ export var UpdateIntegration: StaticOperationSchema = [
   9,
   n0,
   _UI,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration", 200] },
   () => UpdateIntegrationRequest,
   () => Integration,
 ];
@@ -4199,9 +3247,7 @@ export var UpdateMethod: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}", 200] },
   () => UpdateMethodRequest,
   () => Method,
 ];
@@ -4209,9 +3255,7 @@ export var UpdateMethodResponse: StaticOperationSchema = [
   9,
   n0,
   _UMRpd,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 201],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}", 201] },
   () => UpdateMethodResponseRequest,
   () => MethodResponse,
 ];
@@ -4219,9 +3263,7 @@ export var UpdateModel: StaticOperationSchema = [
   9,
   n0,
   _UMp,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/models/{modelName}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/models/{modelName}", 200] },
   () => UpdateModelRequest,
   () => Model,
 ];
@@ -4229,9 +3271,7 @@ export var UpdateRequestValidator: StaticOperationSchema = [
   9,
   n0,
   _URV,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/requestvalidators/{requestValidatorId}", 200] },
   () => UpdateRequestValidatorRequest,
   () => RequestValidator,
 ];
@@ -4239,9 +3279,7 @@ export var UpdateResource: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/resources/{resourceId}", 200] },
   () => UpdateResourceRequest,
   () => Resource,
 ];
@@ -4249,9 +3287,7 @@ export var UpdateRestApi: StaticOperationSchema = [
   9,
   n0,
   _URA,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}", 200] },
   () => UpdateRestApiRequest,
   () => RestApi,
 ];
@@ -4259,9 +3295,7 @@ export var UpdateStage: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_ht]: ["PATCH", "/restapis/{restApiId}/stages/{stageName}", 200],
-  },
+  { [_ht]: ["PATCH", "/restapis/{restApiId}/stages/{stageName}", 200] },
   () => UpdateStageRequest,
   () => Stage,
 ];
@@ -4269,9 +3303,7 @@ export var UpdateUsage: StaticOperationSchema = [
   9,
   n0,
   _UU,
-  {
-    [_ht]: ["PATCH", "/usageplans/{usagePlanId}/keys/{keyId}/usage", 200],
-  },
+  { [_ht]: ["PATCH", "/usageplans/{usagePlanId}/keys/{keyId}/usage", 200] },
   () => UpdateUsageRequest,
   () => Usage,
 ];
@@ -4279,9 +3311,7 @@ export var UpdateUsagePlan: StaticOperationSchema = [
   9,
   n0,
   _UUP,
-  {
-    [_ht]: ["PATCH", "/usageplans/{usagePlanId}", 200],
-  },
+  { [_ht]: ["PATCH", "/usageplans/{usagePlanId}", 200] },
   () => UpdateUsagePlanRequest,
   () => UsagePlan,
 ];
@@ -4289,9 +3319,7 @@ export var UpdateVpcLink: StaticOperationSchema = [
   9,
   n0,
   _UVL,
-  {
-    [_ht]: ["PATCH", "/vpclinks/{vpcLinkId}", 200],
-  },
+  { [_ht]: ["PATCH", "/vpclinks/{vpcLinkId}", 200] },
   () => UpdateVpcLinkRequest,
   () => VpcLink,
 ];

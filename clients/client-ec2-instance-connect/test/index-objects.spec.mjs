@@ -7,11 +7,11 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof EC2InstanceConnectClient === "function")
-assert(typeof EC2InstanceConnect === "function")
+assert(typeof EC2InstanceConnectClient === "function");
+assert(typeof EC2InstanceConnect === "function");
 // commands
-assert(typeof SendSerialConsoleSSHPublicKeyCommand === "function")
-assert(typeof SendSSHPublicKeyCommand === "function")
+assert(typeof SendSerialConsoleSSHPublicKeyCommand === "function");
+assert(typeof SendSSHPublicKeyCommand === "function");
 // errors
-assert(EC2InstanceConnectServiceException.prototype instanceof Error)
+assert(EC2InstanceConnectServiceException.prototype instanceof Error);
 console.log(`EC2InstanceConnect index test passed.`);

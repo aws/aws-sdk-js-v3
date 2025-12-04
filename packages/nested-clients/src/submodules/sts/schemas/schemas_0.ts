@@ -80,7 +80,6 @@ import {
 import { STSServiceException as __STSServiceException } from "../models/STSServiceException";
 
 /* eslint no-var: 0 */
-
 export var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 export var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
 export var AssumedRoleUser: StaticStructureSchema = [3, n0, _ARU, 0, [_ARI, _A], [0, 0]];
@@ -128,110 +127,73 @@ export var ExpiredTokenException: StaticErrorSchema = [
   -3,
   n0,
   _ETE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ExpiredTokenException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ExpiredTokenException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ExpiredTokenException, __ExpiredTokenException);
-
 export var IDPCommunicationErrorException: StaticErrorSchema = [
   -3,
   n0,
   _IDPCEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`IDPCommunicationError`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`IDPCommunicationError`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IDPCommunicationErrorException, __IDPCommunicationErrorException);
-
 export var IDPRejectedClaimException: StaticErrorSchema = [
   -3,
   n0,
   _IDPRCE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`IDPRejectedClaim`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`IDPRejectedClaim`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IDPRejectedClaimException, __IDPRejectedClaimException);
-
 export var InvalidIdentityTokenException: StaticErrorSchema = [
   -3,
   n0,
   _IITE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidIdentityToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidIdentityToken`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidIdentityTokenException, __InvalidIdentityTokenException);
-
 export var MalformedPolicyDocumentException: StaticErrorSchema = [
   -3,
   n0,
   _MPDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MalformedPolicyDocument`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedPolicyDocument`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException, __MalformedPolicyDocumentException);
-
 export var PackedPolicyTooLargeException: StaticErrorSchema = [
   -3,
   n0,
   _PPTLE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`PackedPolicyTooLarge`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`PackedPolicyTooLarge`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PackedPolicyTooLargeException, __PackedPolicyTooLargeException);
-
 export var PolicyDescriptorType: StaticStructureSchema = [3, n0, _PDT, 0, [_a], [0]];
 export var ProvidedContext: StaticStructureSchema = [3, n0, _PCr, 0, [_PAr, _CA], [0, 0]];
 export var RegionDisabledException: StaticErrorSchema = [
   -3,
   n0,
   _RDE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`RegionDisabledException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`RegionDisabledException`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RegionDisabledException, __RegionDisabledException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var STSServiceException: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(STSServiceException, __STSServiceException);
-
 export var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT, 0, () => PolicyDescriptorType];
 export var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT, 0, () => ProvidedContext];
 export var tagKeyListType = 64 | 0;
-
 export var tagListType: StaticListSchema = [1, n0, _tLT, 0, () => Tag];
 export var AssumeRole: StaticOperationSchema = [9, n0, _AR, 0, () => AssumeRoleRequest, () => AssumeRoleResponse];
 export var AssumeRoleWithWebIdentity: StaticOperationSchema = [

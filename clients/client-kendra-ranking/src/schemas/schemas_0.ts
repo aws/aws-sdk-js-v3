@@ -101,34 +101,11 @@ import {
 import { KendraRankingServiceException as __KendraRankingServiceException } from "../models/KendraRankingServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CapacityUnitsConfiguration: StaticStructureSchema = [3, n0, _CUC, 0, [_RCU], [1]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateRescoreExecutionPlanRequest: StaticStructureSchema = [
   3,
   n0,
@@ -156,19 +133,8 @@ export var Document: StaticStructureSchema = [
   [_I, _GI, _Ti, _B, _TT, _TB, _OS],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 1],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListRescoreExecutionPlansRequest: StaticStructureSchema = [
   3,
   n0,
@@ -176,18 +142,8 @@ export var ListRescoreExecutionPlansRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRescoreExecutionPlansResponse: StaticStructureSchema = [
@@ -211,61 +167,17 @@ export var RescoreExecutionPlanSummary: StaticStructureSchema = [
 export var RescoreRequest: StaticStructureSchema = [3, n0, _RR, 0, [_REPI, _SQ, _Doc], [[0, 1], 0, () => DocumentList]];
 export var RescoreResult: StaticStructureSchema = [3, n0, _RRe, 0, [_RI, _RIe], [0, () => RescoreResultItemList]];
 export var RescoreResultItem: StaticStructureSchema = [3, n0, _RRI, 0, [_DI, _Sc], [0, 1]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RUE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceUnavailableException: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateRescoreExecutionPlanRequest: StaticStructureSchema = [
@@ -276,41 +188,23 @@ export var UpdateRescoreExecutionPlanRequest: StaticStructureSchema = [
   [_I, _N, _D, _CU],
   [[0, 1], 0, 0, () => CapacityUnitsConfiguration],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var KendraRankingServiceException: StaticErrorSchema = [-3, _sm, "KendraRankingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KendraRankingServiceException, __KendraRankingServiceException);
-
 export var BodyTokensList = 64 | 0;
-
 export var DocumentList: StaticListSchema = [1, n0, _DL, 0, () => Document];
 export var RescoreExecutionPlanSummaryList: StaticListSchema = [1, n0, _REPSL, 0, () => RescoreExecutionPlanSummary];
 export var RescoreResultItemList: StaticListSchema = [1, n0, _RRIL, 0, () => RescoreResultItem];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TitleTokensList = 64 | 0;
-
 export var CreateRescoreExecutionPlan: StaticOperationSchema = [
   9,
   n0,
   _CREP,
-  {
-    [_h]: ["POST", "/rescore-execution-plans", 200],
-  },
+  { [_h]: ["POST", "/rescore-execution-plans", 200] },
   () => CreateRescoreExecutionPlanRequest,
   () => CreateRescoreExecutionPlanResponse,
 ];
@@ -318,9 +212,7 @@ export var DeleteRescoreExecutionPlan: StaticOperationSchema = [
   9,
   n0,
   _DREP,
-  {
-    [_h]: ["DELETE", "/rescore-execution-plans/{Id}", 200],
-  },
+  { [_h]: ["DELETE", "/rescore-execution-plans/{Id}", 200] },
   () => DeleteRescoreExecutionPlanRequest,
   () => __Unit,
 ];
@@ -328,9 +220,7 @@ export var DescribeRescoreExecutionPlan: StaticOperationSchema = [
   9,
   n0,
   _DREPe,
-  {
-    [_h]: ["GET", "/rescore-execution-plans/{Id}", 200],
-  },
+  { [_h]: ["GET", "/rescore-execution-plans/{Id}", 200] },
   () => DescribeRescoreExecutionPlanRequest,
   () => DescribeRescoreExecutionPlanResponse,
 ];
@@ -338,9 +228,7 @@ export var ListRescoreExecutionPlans: StaticOperationSchema = [
   9,
   n0,
   _LREP,
-  {
-    [_h]: ["GET", "/rescore-execution-plans", 200],
-  },
+  { [_h]: ["GET", "/rescore-execution-plans", 200] },
   () => ListRescoreExecutionPlansRequest,
   () => ListRescoreExecutionPlansResponse,
 ];
@@ -356,9 +244,7 @@ export var Rescore: StaticOperationSchema = [
   9,
   n0,
   _R,
-  {
-    [_h]: ["POST", "/rescore-execution-plans/{RescoreExecutionPlanId}/rescore", 200],
-  },
+  { [_h]: ["POST", "/rescore-execution-plans/{RescoreExecutionPlanId}/rescore", 200] },
   () => RescoreRequest,
   () => RescoreResult,
 ];
@@ -375,9 +261,7 @@ export var UpdateRescoreExecutionPlan: StaticOperationSchema = [
   9,
   n0,
   _UREP,
-  {
-    [_h]: ["PUT", "/rescore-execution-plans/{Id}", 200],
-  },
+  { [_h]: ["PUT", "/rescore-execution-plans/{Id}", 200] },
   () => UpdateRescoreExecutionPlanRequest,
   () => __Unit,
 ];
