@@ -4,6 +4,15 @@ import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { MetadataService } from "./MetadataService";
 
+// Type declaration (declaration merging) for process.getActiveResourcesInfo()
+declare global {
+  namespace NodeJS {
+    interface Process {
+      getActiveResourcesInfo(): string[];
+    }
+  }
+}
+
 vi.mock("@smithy/node-http-handler");
 
 // gh#7538
