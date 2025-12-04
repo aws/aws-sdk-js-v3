@@ -173,38 +173,15 @@ import {
 import { WorkSpacesThinClientServiceException as __WorkSpacesThinClientServiceException } from "../models/WorkSpacesThinClientServiceException";
 
 /* eslint no-var: 0 */
-
 export var ActivationCode: StaticSimpleSchema = [0, n0, _AC, 8, 0];
 export var DesktopEndpoint: StaticSimpleSchema = [0, n0, _DE, 8, 0];
 export var DeviceName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
 export var EnvironmentName: StaticSimpleSchema = [0, n0, _EN, 8, 0];
 export var UserId: StaticSimpleSchema = [0, n0, _UI, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateEnvironmentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -234,13 +211,7 @@ export var DeleteDeviceRequest: StaticStructureSchema = [
   [_i, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteDeviceResponse: StaticStructureSchema = [3, n0, _DDRe, 0, [], []];
@@ -252,13 +223,7 @@ export var DeleteEnvironmentRequest: StaticStructureSchema = [
   [_i, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteEnvironmentResponse: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
@@ -363,23 +328,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListDevicesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -387,18 +340,8 @@ export var ListDevicesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDevicesResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_de, _nT], [[() => DeviceList, 0], 0]];
@@ -409,18 +352,8 @@ export var ListEnvironmentsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListEnvironmentsResponse: StaticStructureSchema = [
@@ -438,18 +371,8 @@ export var ListSoftwareSetsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSoftwareSetsResponse: StaticStructureSchema = [
@@ -474,28 +397,20 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Software: StaticStructureSchema = [3, n0, _S, 0, [_n, _v], [0, 0]];
 export var SoftwareSet: StaticStructureSchema = [
   3,
@@ -529,25 +444,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -556,12 +457,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      () => TagKeys,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [() => TagKeys, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -599,18 +495,13 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var WorkSpacesThinClientServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -620,9 +511,7 @@ export var WorkSpacesThinClientServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(WorkSpacesThinClientServiceException, __WorkSpacesThinClientServiceException);
-
 export var DayOfWeekList = 64 | 0;
-
 export var DeviceList: StaticListSchema = [1, n0, _DL, 0, [() => DeviceSummary, 0]];
 export var EnvironmentList: StaticListSchema = [1, n0, _EL, 0, [() => EnvironmentSummary, 0]];
 export var SoftwareList: StaticListSchema = [1, n0, _SL, 0, () => Software];
@@ -635,10 +524,7 @@ export var CreateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/environments", 201],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/environments", 201], [_end]: ["api."] },
   () => CreateEnvironmentRequest,
   () => CreateEnvironmentResponse,
 ];
@@ -646,10 +532,7 @@ export var DeleteDevice: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/devices/{id}", 204],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/devices/{id}", 204], [_end]: ["api."] },
   () => DeleteDeviceRequest,
   () => DeleteDeviceResponse,
 ];
@@ -657,10 +540,7 @@ export var DeleteEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DEe,
-  {
-    [_h]: ["DELETE", "/environments/{id}", 204],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/environments/{id}", 204], [_end]: ["api."] },
   () => DeleteEnvironmentRequest,
   () => DeleteEnvironmentResponse,
 ];
@@ -668,10 +548,7 @@ export var DeregisterDevice: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["POST", "/deregister-device/{id}", 202],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/deregister-device/{id}", 202], [_end]: ["api."] },
   () => DeregisterDeviceRequest,
   () => DeregisterDeviceResponse,
 ];
@@ -679,10 +556,7 @@ export var GetDevice: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/devices/{id}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/devices/{id}", 200], [_end]: ["api."] },
   () => GetDeviceRequest,
   () => GetDeviceResponse,
 ];
@@ -690,10 +564,7 @@ export var GetEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/environments/{id}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/environments/{id}", 200], [_end]: ["api."] },
   () => GetEnvironmentRequest,
   () => GetEnvironmentResponse,
 ];
@@ -701,10 +572,7 @@ export var GetSoftwareSet: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  {
-    [_h]: ["GET", "/softwaresets/{id}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/softwaresets/{id}", 200], [_end]: ["api."] },
   () => GetSoftwareSetRequest,
   () => GetSoftwareSetResponse,
 ];
@@ -712,10 +580,7 @@ export var ListDevices: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/devices", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/devices", 200], [_end]: ["api."] },
   () => ListDevicesRequest,
   () => ListDevicesResponse,
 ];
@@ -723,10 +588,7 @@ export var ListEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["GET", "/environments", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/environments", 200], [_end]: ["api."] },
   () => ListEnvironmentsRequest,
   () => ListEnvironmentsResponse,
 ];
@@ -734,10 +596,7 @@ export var ListSoftwareSets: StaticOperationSchema = [
   9,
   n0,
   _LSS,
-  {
-    [_h]: ["GET", "/softwaresets", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/softwaresets", 200], [_end]: ["api."] },
   () => ListSoftwareSetsRequest,
   () => ListSoftwareSetsResponse,
 ];
@@ -745,10 +604,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200], [_end]: ["api."] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -756,10 +612,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200], [_end]: ["api."] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -767,10 +620,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200], [_end]: ["api."] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -778,10 +628,7 @@ export var UpdateDevice: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PATCH", "/devices/{id}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PATCH", "/devices/{id}", 200], [_end]: ["api."] },
   () => UpdateDeviceRequest,
   () => UpdateDeviceResponse,
 ];
@@ -789,10 +636,7 @@ export var UpdateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PATCH", "/environments/{id}", 200],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PATCH", "/environments/{id}", 200], [_end]: ["api."] },
   () => UpdateEnvironmentRequest,
   () => UpdateEnvironmentResponse,
 ];
@@ -800,10 +644,7 @@ export var UpdateSoftwareSet: StaticOperationSchema = [
   9,
   n0,
   _USS,
-  {
-    [_h]: ["PATCH", "/softwaresets/{id}", 204],
-    [_end]: ["api."],
-  },
+  { [_h]: ["PATCH", "/softwaresets/{id}", 204], [_end]: ["api."] },
   () => UpdateSoftwareSetRequest,
   () => UpdateSoftwareSetResponse,
 ];

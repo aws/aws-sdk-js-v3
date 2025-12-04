@@ -600,7 +600,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessKeyId: StaticSimpleSchema = [0, n0, _AKI, 8, 0];
 export var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
 export var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
@@ -612,19 +611,8 @@ export var CredentialsMapValue: StaticSimpleSchema = [0, n0, _CMV, 8, 0];
 export var JwtToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 export var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var SecretKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AggregationConfig: StaticStructureSchema = [3, n0, _AC, 0, [_aT, _tFS], [0, 1]];
 export var AmplitudeConnectorProfileCredentials: StaticStructureSchema = [
   3,
@@ -670,32 +658,10 @@ export var AuthParameter: StaticStructureSchema = [
 export var BasicAuthCredentials: StaticStructureSchema = [3, n0, _BAC, 0, [_u, _p], [0, [() => Password, 0]]];
 export var CancelFlowExecutionsRequest: StaticStructureSchema = [3, n0, _CFER, 0, [_fN, _eI], [0, 64 | 0]];
 export var CancelFlowExecutionsResponse: StaticStructureSchema = [3, n0, _CFERa, 0, [_iE], [64 | 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
-export var ConnectorAuthenticationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CAE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var ConnectorAuthenticationException: StaticErrorSchema = [-3, n0, _CAE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConnectorAuthenticationException, __ConnectorAuthenticationException);
-
 export var ConnectorConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -919,19 +885,8 @@ export var ConnectorRuntimeSetting: StaticStructureSchema = [
   [_k, _dT, _iR, _l, _d, _s, _cSVO],
   [0, 0, 2, 0, 0, 0, 64 | 0],
 ];
-export var ConnectorServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ConnectorServerException: StaticErrorSchema = [-3, n0, _CSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConnectorServerException, __ConnectorServerException);
-
 export var CreateConnectorProfileRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1235,19 +1190,8 @@ export var InforNexusConnectorProfileCredentials: StaticStructureSchema = [
 export var InforNexusConnectorProfileProperties: StaticStructureSchema = [3, n0, _INCPP, 0, [_iU], [0]];
 export var InforNexusMetadata: StaticStructureSchema = [3, n0, _INM, 0, [], []];
 export var InforNexusSourceProperties: StaticStructureSchema = [3, n0, _INSP, 0, [_o], [0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LambdaConnectorProvisioningConfig: StaticStructureSchema = [3, n0, _LCPC, 0, [_lA], [0]];
 export var ListConnectorEntitiesRequest: StaticStructureSchema = [
   3,
@@ -1392,19 +1336,8 @@ export var ResetConnectorMetadataCacheRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 0],
 ];
 export var ResetConnectorMetadataCacheResponse: StaticStructureSchema = [3, n0, _RCMCRe, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3DestinationProperties: StaticStructureSchema = [
   3,
   n0,
@@ -1514,19 +1447,8 @@ export var ServiceNowConnectorProfileCredentials: StaticStructureSchema = [
 export var ServiceNowConnectorProfileProperties: StaticStructureSchema = [3, n0, _SNCPP, 0, [_iU], [0]];
 export var ServiceNowMetadata: StaticStructureSchema = [3, n0, _SNM, 0, [], []];
 export var ServiceNowSourceProperties: StaticStructureSchema = [3, n0, _SNSP, 0, [_o], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SingularConnectorProfileCredentials: StaticStructureSchema = [3, n0, _SCPCi, 0, [_aK], [[() => ApiKey, 0]]];
 export var SingularConnectorProfileProperties: StaticStructureSchema = [3, n0, _SCPPi, 0, [], []];
 export var SingularMetadata: StaticStructureSchema = [3, n0, _SMi, 0, [], []];
@@ -1618,19 +1540,8 @@ export var Task: StaticStructureSchema = [
   [_sF, _cOo, _dF, _tTa, _tPa],
   [64 | 0, () => ConnectorOperator, 0, 0, 128 | 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrendmicroConnectorProfileCredentials: StaticStructureSchema = [
   3,
   n0,
@@ -1646,19 +1557,8 @@ export var TriggerConfig: StaticStructureSchema = [3, n0, _TC, 0, [_tT, _tPr], [
 export var TriggerProperties: StaticStructureSchema = [3, n0, _TP, 0, [_Sc], [() => ScheduledTriggerProperties]];
 export var UnregisterConnectorRequest: StaticStructureSchema = [3, n0, _UCR, 0, [_cL, _fD], [0, 2]];
 export var UnregisterConnectorResponse: StaticStructureSchema = [3, n0, _UCRn, 0, [], []];
-export var UnsupportedOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UOE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedOperationException: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1667,12 +1567,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1729,19 +1624,8 @@ export var UpsolverS3OutputFormatConfig: StaticStructureSchema = [
   [_fTi, _pC, _aCg],
   [0, () => PrefixConfig, () => AggregationConfig],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VeevaConnectorProfileCredentials: StaticStructureSchema = [
   3,
   n0,
@@ -1780,72 +1664,46 @@ export var ZendeskDestinationProperties: StaticStructureSchema = [
 export var ZendeskMetadata: StaticStructureSchema = [3, n0, _ZM, 0, [_oAS], [64 | 0]];
 export var ZendeskSourceProperties: StaticStructureSchema = [3, n0, _ZSP, 0, [_o], [0]];
 export var __Unit = "unit" as const;
-
 export var AppflowServiceException: StaticErrorSchema = [-3, _sm, "AppflowServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppflowServiceException, __AppflowServiceException);
-
 export var AuthCodeUrlList = 64 | 0;
-
 export var AuthParameterList: StaticListSchema = [1, n0, _APL, 0, () => AuthParameter];
 export var ConnectorEntityFieldList: StaticListSchema = [1, n0, _CEFL, 0, () => ConnectorEntityField];
 export var ConnectorEntityList: StaticListSchema = [1, n0, _CEL, 0, () => ConnectorEntity];
 export var ConnectorList: StaticListSchema = [1, n0, _CL, 0, () => ConnectorDetail];
 export var ConnectorModeList = 64 | 0;
-
 export var ConnectorProfileDetailList: StaticListSchema = [1, n0, _CPDL, 0, () => ConnectorProfile];
 export var ConnectorProfileNameList = 64 | 0;
-
 export var ConnectorRuntimeSettingList: StaticListSchema = [1, n0, _CRSL, 0, () => ConnectorRuntimeSetting];
 export var ConnectorSuppliedValueList = 64 | 0;
-
 export var ConnectorSuppliedValueOptionList = 64 | 0;
-
 export var ConnectorTypeList = 64 | 0;
-
 export var CustomAuthConfigList: StaticListSchema = [1, n0, _CACL, 0, () => CustomAuthConfig];
 export var DestinationFlowConfigList: StaticListSchema = [1, n0, _DFCL, 0, () => DestinationFlowConfig];
 export var ExecutionIds = 64 | 0;
-
 export var FilterOperatorList = 64 | 0;
-
 export var FlowExecutionList: StaticListSchema = [1, n0, _FEL, 0, () => ExecutionRecord];
 export var FlowList: StaticListSchema = [1, n0, _FL, 0, () => FlowDefinition];
 export var IdFieldNameList = 64 | 0;
-
 export var MetadataCatalogDetails: StaticListSchema = [1, n0, _MCDe, 0, () => MetadataCatalogDetail];
 export var OAuth2CustomPropertiesList: StaticListSchema = [1, n0, _OACPL, 0, () => OAuth2CustomParameter];
 export var OAuth2GrantTypeSupportedList = 64 | 0;
-
 export var OAuthScopeList = 64 | 0;
-
 export var PathPrefixHierarchy = 64 | 0;
-
 export var RegionList = 64 | 0;
-
 export var SalesforceDataTransferApiList = 64 | 0;
-
 export var SchedulingFrequencyTypeList = 64 | 0;
-
 export var SourceFields = 64 | 0;
-
 export var SupportedApiVersionList = 64 | 0;
-
 export var SupportedDataTransferApis: StaticListSchema = [1, n0, _SDTA, 0, () => DataTransferApi];
 export var SupportedDataTransferTypeList = 64 | 0;
-
 export var SupportedOperatorList = 64 | 0;
-
 export var SupportedValueList = 64 | 0;
-
 export var SupportedWriteOperationList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var Tasks: StaticListSchema = [1, n0, _Tas, 0, () => Task];
 export var TokenUrlList = 64 | 0;
-
 export var TriggerTypeList = 64 | 0;
-
 export var ConnectorConfigurationsMap: StaticMapSchema = [2, n0, _CCM, 0, 0, () => ConnectorConfiguration];
 export var ConnectorEntityMap: StaticMapSchema = [2, n0, _CEM, 0, 0, () => ConnectorEntityList];
 export var CredentialsMap: StaticMapSchema = [
@@ -1857,22 +1715,15 @@ export var CredentialsMap: StaticMapSchema = [
   [() => CredentialsMapValue, 0],
 ];
 export var CustomProperties = 128 | 0;
-
 export var ProfilePropertiesMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var TaskPropertiesMap = 128 | 0;
-
 export var TokenUrlCustomProperties = 128 | 0;
-
 export var CancelFlowExecutions: StaticOperationSchema = [
   9,
   n0,
   _CFE,
-  {
-    [_h]: ["POST", "/cancel-flow-executions", 200],
-  },
+  { [_h]: ["POST", "/cancel-flow-executions", 200] },
   () => CancelFlowExecutionsRequest,
   () => CancelFlowExecutionsResponse,
 ];
@@ -1880,9 +1731,7 @@ export var CreateConnectorProfile: StaticOperationSchema = [
   9,
   n0,
   _CCP,
-  {
-    [_h]: ["POST", "/create-connector-profile", 200],
-  },
+  { [_h]: ["POST", "/create-connector-profile", 200] },
   () => CreateConnectorProfileRequest,
   () => CreateConnectorProfileResponse,
 ];
@@ -1890,9 +1739,7 @@ export var CreateFlow: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["POST", "/create-flow", 200],
-  },
+  { [_h]: ["POST", "/create-flow", 200] },
   () => CreateFlowRequest,
   () => CreateFlowResponse,
 ];
@@ -1900,9 +1747,7 @@ export var DeleteConnectorProfile: StaticOperationSchema = [
   9,
   n0,
   _DCPe,
-  {
-    [_h]: ["POST", "/delete-connector-profile", 200],
-  },
+  { [_h]: ["POST", "/delete-connector-profile", 200] },
   () => DeleteConnectorProfileRequest,
   () => DeleteConnectorProfileResponse,
 ];
@@ -1910,9 +1755,7 @@ export var DeleteFlow: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["POST", "/delete-flow", 200],
-  },
+  { [_h]: ["POST", "/delete-flow", 200] },
   () => DeleteFlowRequest,
   () => DeleteFlowResponse,
 ];
@@ -1920,9 +1763,7 @@ export var DescribeConnector: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["POST", "/describe-connector", 200],
-  },
+  { [_h]: ["POST", "/describe-connector", 200] },
   () => DescribeConnectorRequest,
   () => DescribeConnectorResponse,
 ];
@@ -1930,9 +1771,7 @@ export var DescribeConnectorEntity: StaticOperationSchema = [
   9,
   n0,
   _DCE,
-  {
-    [_h]: ["POST", "/describe-connector-entity", 200],
-  },
+  { [_h]: ["POST", "/describe-connector-entity", 200] },
   () => DescribeConnectorEntityRequest,
   () => DescribeConnectorEntityResponse,
 ];
@@ -1940,9 +1779,7 @@ export var DescribeConnectorProfiles: StaticOperationSchema = [
   9,
   n0,
   _DCPes,
-  {
-    [_h]: ["POST", "/describe-connector-profiles", 200],
-  },
+  { [_h]: ["POST", "/describe-connector-profiles", 200] },
   () => DescribeConnectorProfilesRequest,
   () => DescribeConnectorProfilesResponse,
 ];
@@ -1950,9 +1787,7 @@ export var DescribeConnectors: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["POST", "/describe-connectors", 200],
-  },
+  { [_h]: ["POST", "/describe-connectors", 200] },
   () => DescribeConnectorsRequest,
   () => DescribeConnectorsResponse,
 ];
@@ -1960,9 +1795,7 @@ export var DescribeFlow: StaticOperationSchema = [
   9,
   n0,
   _DFe,
-  {
-    [_h]: ["POST", "/describe-flow", 200],
-  },
+  { [_h]: ["POST", "/describe-flow", 200] },
   () => DescribeFlowRequest,
   () => DescribeFlowResponse,
 ];
@@ -1970,9 +1803,7 @@ export var DescribeFlowExecutionRecords: StaticOperationSchema = [
   9,
   n0,
   _DFER,
-  {
-    [_h]: ["POST", "/describe-flow-execution-records", 200],
-  },
+  { [_h]: ["POST", "/describe-flow-execution-records", 200] },
   () => DescribeFlowExecutionRecordsRequest,
   () => DescribeFlowExecutionRecordsResponse,
 ];
@@ -1980,9 +1811,7 @@ export var ListConnectorEntities: StaticOperationSchema = [
   9,
   n0,
   _LCE,
-  {
-    [_h]: ["POST", "/list-connector-entities", 200],
-  },
+  { [_h]: ["POST", "/list-connector-entities", 200] },
   () => ListConnectorEntitiesRequest,
   () => ListConnectorEntitiesResponse,
 ];
@@ -1990,9 +1819,7 @@ export var ListConnectors: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["POST", "/list-connectors", 200],
-  },
+  { [_h]: ["POST", "/list-connectors", 200] },
   () => ListConnectorsRequest,
   () => ListConnectorsResponse,
 ];
@@ -2000,9 +1827,7 @@ export var ListFlows: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["POST", "/list-flows", 200],
-  },
+  { [_h]: ["POST", "/list-flows", 200] },
   () => ListFlowsRequest,
   () => ListFlowsResponse,
 ];
@@ -2010,9 +1835,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2020,9 +1843,7 @@ export var RegisterConnector: StaticOperationSchema = [
   9,
   n0,
   _RC,
-  {
-    [_h]: ["POST", "/register-connector", 200],
-  },
+  { [_h]: ["POST", "/register-connector", 200] },
   () => RegisterConnectorRequest,
   () => RegisterConnectorResponse,
 ];
@@ -2030,9 +1851,7 @@ export var ResetConnectorMetadataCache: StaticOperationSchema = [
   9,
   n0,
   _RCMC,
-  {
-    [_h]: ["POST", "/reset-connector-metadata-cache", 200],
-  },
+  { [_h]: ["POST", "/reset-connector-metadata-cache", 200] },
   () => ResetConnectorMetadataCacheRequest,
   () => ResetConnectorMetadataCacheResponse,
 ];
@@ -2040,9 +1859,7 @@ export var StartFlow: StaticOperationSchema = [
   9,
   n0,
   _SF,
-  {
-    [_h]: ["POST", "/start-flow", 200],
-  },
+  { [_h]: ["POST", "/start-flow", 200] },
   () => StartFlowRequest,
   () => StartFlowResponse,
 ];
@@ -2050,9 +1867,7 @@ export var StopFlow: StaticOperationSchema = [
   9,
   n0,
   _SFt,
-  {
-    [_h]: ["POST", "/stop-flow", 200],
-  },
+  { [_h]: ["POST", "/stop-flow", 200] },
   () => StopFlowRequest,
   () => StopFlowResponse,
 ];
@@ -2060,9 +1875,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2070,9 +1883,7 @@ export var UnregisterConnector: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["POST", "/unregister-connector", 200],
-  },
+  { [_h]: ["POST", "/unregister-connector", 200] },
   () => UnregisterConnectorRequest,
   () => UnregisterConnectorResponse,
 ];
@@ -2080,9 +1891,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2090,9 +1899,7 @@ export var UpdateConnectorProfile: StaticOperationSchema = [
   9,
   n0,
   _UCP,
-  {
-    [_h]: ["POST", "/update-connector-profile", 200],
-  },
+  { [_h]: ["POST", "/update-connector-profile", 200] },
   () => UpdateConnectorProfileRequest,
   () => UpdateConnectorProfileResponse,
 ];
@@ -2100,9 +1907,7 @@ export var UpdateConnectorRegistration: StaticOperationSchema = [
   9,
   n0,
   _UCRp,
-  {
-    [_h]: ["POST", "/update-connector-registration", 200],
-  },
+  { [_h]: ["POST", "/update-connector-registration", 200] },
   () => UpdateConnectorRegistrationRequest,
   () => UpdateConnectorRegistrationResponse,
 ];
@@ -2110,9 +1915,7 @@ export var UpdateFlow: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["POST", "/update-flow", 200],
-  },
+  { [_h]: ["POST", "/update-flow", 200] },
   () => UpdateFlowRequest,
   () => UpdateFlowResponse,
 ];

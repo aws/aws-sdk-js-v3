@@ -15,21 +15,21 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof IoTDataPlaneClient === "function")
-assert(typeof IoTDataPlane === "function")
+assert(typeof IoTDataPlaneClient === "function");
+assert(typeof IoTDataPlane === "function");
 // commands
-assert(typeof DeleteConnectionCommand === "function")
-assert(typeof DeleteThingShadowCommand === "function")
-assert(typeof GetRetainedMessageCommand === "function")
-assert(typeof GetThingShadowCommand === "function")
-assert(typeof ListNamedShadowsForThingCommand === "function")
-assert(typeof ListRetainedMessagesCommand === "function")
-assert(typeof PublishCommand === "function")
-assert(typeof UpdateThingShadowCommand === "function")
+assert(typeof DeleteConnectionCommand === "function");
+assert(typeof DeleteThingShadowCommand === "function");
+assert(typeof GetRetainedMessageCommand === "function");
+assert(typeof GetThingShadowCommand === "function");
+assert(typeof ListNamedShadowsForThingCommand === "function");
+assert(typeof ListRetainedMessagesCommand === "function");
+assert(typeof PublishCommand === "function");
+assert(typeof UpdateThingShadowCommand === "function");
 // enums
 assert(typeof PayloadFormatIndicator === "object");
 // errors
-assert(IoTDataPlaneServiceException.prototype instanceof Error)
+assert(IoTDataPlaneServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListRetainedMessages === "function")
+assert(typeof paginateListRetainedMessages === "function");
 console.log(`IoTDataPlane index test passed.`);

@@ -164,20 +164,8 @@ import {
 import { ManagedBlockchainQueryServiceException as __ManagedBlockchainQueryServiceException } from "../models/ManagedBlockchainQueryServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddressIdentifierFilter: StaticStructureSchema = [3, n0, _AIF, 0, [_tETA], [64 | 0]];
 export var AssetContract: StaticStructureSchema = [3, n0, _AC, 0, [_cI, _tS, _dA], [() => ContractIdentifier, 0, 0]];
 export var BatchGetTokenBalanceErrorItem: StaticStructureSchema = [
@@ -256,23 +244,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAssetContractsInput: StaticStructureSchema = [
   3,
   n0,
@@ -372,51 +348,29 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeFilter: StaticStructureSchema = [
   3,
   n0,
@@ -456,15 +410,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_na, _m], [0, 0]];
 export var VoutFilter: StaticStructureSchema = [3, n0, _VF, 0, [_vS], [2]];
 export var ManagedBlockchainQueryServiceException: StaticErrorSchema = [
@@ -476,14 +426,11 @@ export var ManagedBlockchainQueryServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ManagedBlockchainQueryServiceException, __ManagedBlockchainQueryServiceException);
-
 export var AssetContractList: StaticListSchema = [1, n0, _ACL, 0, () => AssetContract];
 export var BatchGetTokenBalanceErrors: StaticListSchema = [1, n0, _BGTBE, 0, () => BatchGetTokenBalanceErrorItem];
 export var BatchGetTokenBalanceOutputList: StaticListSchema = [1, n0, _BGTBOL, 0, () => BatchGetTokenBalanceOutputItem];
 export var ChainAddresses = 64 | 0;
-
 export var ConfirmationStatusIncludeList = 64 | 0;
-
 export var GetTokenBalanceInputList: StaticListSchema = [1, n0, _GTBIL, 0, () => BatchGetTokenBalanceInputItem];
 export var TokenBalanceList: StaticListSchema = [1, n0, _TBL, 0, () => TokenBalance];
 export var TransactionEventList: StaticListSchema = [1, n0, _TEL, 0, () => TransactionEvent];
@@ -493,9 +440,7 @@ export var BatchGetTokenBalance: StaticOperationSchema = [
   9,
   n0,
   _BGTB,
-  {
-    [_h]: ["POST", "/batch-get-token-balance", 200],
-  },
+  { [_h]: ["POST", "/batch-get-token-balance", 200] },
   () => BatchGetTokenBalanceInput,
   () => BatchGetTokenBalanceOutput,
 ];
@@ -503,9 +448,7 @@ export var GetAssetContract: StaticOperationSchema = [
   9,
   n0,
   _GAC,
-  {
-    [_h]: ["POST", "/get-asset-contract", 200],
-  },
+  { [_h]: ["POST", "/get-asset-contract", 200] },
   () => GetAssetContractInput,
   () => GetAssetContractOutput,
 ];
@@ -513,9 +456,7 @@ export var GetTokenBalance: StaticOperationSchema = [
   9,
   n0,
   _GTB,
-  {
-    [_h]: ["POST", "/get-token-balance", 200],
-  },
+  { [_h]: ["POST", "/get-token-balance", 200] },
   () => GetTokenBalanceInput,
   () => GetTokenBalanceOutput,
 ];
@@ -523,9 +464,7 @@ export var GetTransaction: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["POST", "/get-transaction", 200],
-  },
+  { [_h]: ["POST", "/get-transaction", 200] },
   () => GetTransactionInput,
   () => GetTransactionOutput,
 ];
@@ -533,9 +472,7 @@ export var ListAssetContracts: StaticOperationSchema = [
   9,
   n0,
   _LAC,
-  {
-    [_h]: ["POST", "/list-asset-contracts", 200],
-  },
+  { [_h]: ["POST", "/list-asset-contracts", 200] },
   () => ListAssetContractsInput,
   () => ListAssetContractsOutput,
 ];
@@ -543,9 +480,7 @@ export var ListFilteredTransactionEvents: StaticOperationSchema = [
   9,
   n0,
   _LFTE,
-  {
-    [_h]: ["POST", "/list-filtered-transaction-events", 200],
-  },
+  { [_h]: ["POST", "/list-filtered-transaction-events", 200] },
   () => ListFilteredTransactionEventsInput,
   () => ListFilteredTransactionEventsOutput,
 ];
@@ -553,9 +488,7 @@ export var ListTokenBalances: StaticOperationSchema = [
   9,
   n0,
   _LTB,
-  {
-    [_h]: ["POST", "/list-token-balances", 200],
-  },
+  { [_h]: ["POST", "/list-token-balances", 200] },
   () => ListTokenBalancesInput,
   () => ListTokenBalancesOutput,
 ];
@@ -563,9 +496,7 @@ export var ListTransactionEvents: StaticOperationSchema = [
   9,
   n0,
   _LTE,
-  {
-    [_h]: ["POST", "/list-transaction-events", 200],
-  },
+  { [_h]: ["POST", "/list-transaction-events", 200] },
   () => ListTransactionEventsInput,
   () => ListTransactionEventsOutput,
 ];
@@ -573,9 +504,7 @@ export var ListTransactions: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["POST", "/list-transactions", 200],
-  },
+  { [_h]: ["POST", "/list-transactions", 200] },
   () => ListTransactionsInput,
   () => ListTransactionsOutput,
 ];

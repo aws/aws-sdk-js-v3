@@ -380,7 +380,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AlarmContributor: StaticStructureSchema = [3, n0, _AC, 0, [_CI, _CA, _SR, _STT], [0, 128 | 0, 0, 4]];
 export var AlarmHistoryItem: StaticStructureSchema = [
   3,
@@ -428,58 +427,32 @@ export var ConcurrentModificationException: StaticErrorSchema = [
   -3,
   n0,
   _CME,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ConcurrentModificationException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ConcurrentModificationException`, 429] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DashboardEntry: StaticStructureSchema = [3, n0, _DE, 0, [_DN, _DA, _LM, _Si], [0, 0, 4, 1]];
 export var DashboardInvalidInputError: StaticErrorSchema = [
   -3,
   n0,
   _DIIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameterInput`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterInput`, 400] },
   [_m, _dVM],
   [0, () => DashboardValidationMessages],
 ];
 TypeRegistry.for(n0).registerError(DashboardInvalidInputError, __DashboardInvalidInputError);
-
 export var DashboardNotFoundError: StaticErrorSchema = [
   -3,
   n0,
   _DNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DashboardNotFoundError, __DashboardNotFoundError);
-
 export var DashboardValidationMessage: StaticStructureSchema = [3, n0, _DVM, 0, [_DP, _M], [0, 0]];
 export var Datapoint: StaticStructureSchema = [
   3,
@@ -679,101 +652,66 @@ export var InternalServiceFault: StaticErrorSchema = [
   -3,
   n0,
   _ISF,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InternalServiceError`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServiceError`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServiceFault, __InternalServiceFault);
-
 export var InvalidFormatFault: StaticErrorSchema = [
   -3,
   n0,
   _IFF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidFormat`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidFormat`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidFormatFault, __InvalidFormatFault);
-
 export var InvalidNextToken: StaticErrorSchema = [
   -3,
   n0,
   _INT,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidNextToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNextToken, __InvalidNextToken);
-
 export var InvalidParameterCombinationException: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameterCombination`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombination`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-
 export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameterValue`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterValue`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
 export var LabelOptions: StaticStructureSchema = [3, n0, _LO, 0, [_Ti], [0]];
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`LimitExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var LimitExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _LEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`LimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededFault, __LimitExceededFault);
-
 export var ListDashboardsInput: StaticStructureSchema = [3, n0, _LDI, 0, [_DNP, _NT], [0, 0]];
 export var ListDashboardsOutput: StaticStructureSchema = [3, n0, _LDO, 0, [_DEa, _NT], [() => DashboardEntries, 0]];
 export var ListManagedInsightRulesInput: StaticStructureSchema = [3, n0, _LMIRI, 0, [_RARN, _NT, _MRa], [0, 0, 1]];
@@ -934,16 +872,11 @@ export var MissingRequiredParameterException: StaticErrorSchema = [
   -3,
   n0,
   _MRPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MissingParameter`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MissingParameter`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MissingRequiredParameterException, __MissingRequiredParameterException);
-
 export var PartialFailure: StaticStructureSchema = [3, n0, _PF, 0, [_FR, _ETx, _FC, _FD], [0, 0, 0, 0]];
 export var PutAnomalyDetectorInput: StaticStructureSchema = [
   3,
@@ -1047,30 +980,20 @@ export var ResourceNotFound: StaticErrorSchema = [
   -3,
   n0,
   _RNF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFound, __ResourceNotFound);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_RT, _RI, _M],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SetAlarmStateInput: StaticStructureSchema = [3, n0, _SASI, 0, [_AN, _SV, _SR, _SRD], [0, 0, 0, 0]];
 export var SingleMetricAnomalyDetector: StaticStructureSchema = [
   3,
@@ -1091,36 +1014,27 @@ export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
 export var __Unit = "unit" as const;
-
 export var CloudWatchServiceException: StaticErrorSchema = [-3, _sm, "CloudWatchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudWatchServiceException, __CloudWatchServiceException);
-
 export var AlarmContributors: StaticListSchema = [1, n0, _ACl, 0, () => AlarmContributor];
 export var AlarmHistoryItems: StaticListSchema = [1, n0, _AHIl, 0, () => AlarmHistoryItem];
 export var AlarmNames = 64 | 0;
-
 export var AlarmTypes = 64 | 0;
-
 export var AnomalyDetectorExcludedTimeRanges: StaticListSchema = [1, n0, _ADETR, 0, () => Range];
 export var AnomalyDetectors: StaticListSchema = [1, n0, _ADn, 0, () => AnomalyDetector];
 export var AnomalyDetectorTypes = 64 | 0;
-
 export var BatchFailures: StaticListSchema = [1, n0, _BF, 0, () => PartialFailure];
 export var CompositeAlarms: StaticListSchema = [1, n0, _CAom, 0, () => CompositeAlarm];
 export var Counts = 64 | 1;
-
 export var DashboardEntries: StaticListSchema = [1, n0, _DEa, 0, () => DashboardEntry];
 export var DashboardNames = 64 | 0;
-
 export var DashboardValidationMessages: StaticListSchema = [1, n0, _DVMa, 0, () => DashboardValidationMessage];
 export var Datapoints: StaticListSchema = [1, n0, _Dat, 0, () => Datapoint];
 export var DatapointValues = 64 | 1;
-
 export var DimensionFilters: StaticListSchema = [1, n0, _DFi, 0, () => DimensionFilter];
 export var Dimensions: StaticListSchema = [1, n0, _D, 0, () => Dimension];
 export var EntityMetricDataList: StaticListSchema = [1, n0, _EMDL, 0, () => EntityMetricData];
 export var ExtendedStatistics = 64 | 0;
-
 export var InsightRuleContributorDatapoints: StaticListSchema = [
   1,
   n0,
@@ -1129,15 +1043,11 @@ export var InsightRuleContributorDatapoints: StaticListSchema = [
   () => InsightRuleContributorDatapoint,
 ];
 export var InsightRuleContributorKeyLabels = 64 | 0;
-
 export var InsightRuleContributorKeys = 64 | 0;
-
 export var InsightRuleContributors: StaticListSchema = [1, n0, _IRCn, 0, () => InsightRuleContributor];
 export var InsightRuleMetricDatapoints: StaticListSchema = [1, n0, _IRMDn, 0, () => InsightRuleMetricDatapoint];
 export var InsightRuleMetricList = 64 | 0;
-
 export var InsightRuleNames = 64 | 0;
-
 export var InsightRules: StaticListSchema = [1, n0, _IR, 0, () => InsightRule];
 export var ManagedRuleDescriptions: StaticListSchema = [1, n0, _MRDa, 0, () => ManagedRuleDescription];
 export var ManagedRules: StaticListSchema = [1, n0, _MRana, 0, () => ManagedRule];
@@ -1149,12 +1059,9 @@ export var MetricDataResults: StaticListSchema = [1, n0, _MDR, 0, () => MetricDa
 export var Metrics: StaticListSchema = [1, n0, _Me, 0, () => Metric];
 export var MetricStreamEntries: StaticListSchema = [1, n0, _MSEe, 0, () => MetricStreamEntry];
 export var MetricStreamFilterMetricNames = 64 | 0;
-
 export var MetricStreamFilters: StaticListSchema = [1, n0, _MSFe, 0, () => MetricStreamFilter];
 export var MetricStreamNames = 64 | 0;
-
 export var MetricStreamStatisticsAdditionalStatistics = 64 | 0;
-
 export var MetricStreamStatisticsConfigurations: StaticListSchema = [
   1,
   n0,
@@ -1170,26 +1077,16 @@ export var MetricStreamStatisticsIncludeMetrics: StaticListSchema = [
   () => MetricStreamStatisticsMetric,
 ];
 export var OwningAccounts = 64 | 0;
-
 export var ResourceList = 64 | 0;
-
 export var Statistics = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var Timestamps = 64 | 4;
-
 export var Values = 64 | 1;
-
 export var ContributorAttributes = 128 | 0;
-
 export var DatapointValueMap = 128 | 1;
-
 export var EntityAttributesMap = 128 | 0;
-
 export var EntityKeyAttributesMap = 128 | 0;
-
 export var DeleteAlarms: StaticOperationSchema = [9, n0, _DAe, 0, () => DeleteAlarmsInput, () => __Unit];
 export var DeleteAnomalyDetector: StaticOperationSchema = [
   9,

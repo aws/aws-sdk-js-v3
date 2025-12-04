@@ -4,10 +4,10 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smith
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import { ResourceType } from "./enums";
 import {
-  InvalidRequestExceptionReason,
+  type InvalidRequestExceptionReason,
+  type ServiceQuotaExceededExceptionReason,
   ProblemDetail,
   PropertyValidationExceptionProperty,
-  ServiceQuotaExceededExceptionReason,
 } from "./models_0";
 
 /**

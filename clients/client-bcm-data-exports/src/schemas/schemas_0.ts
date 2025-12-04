@@ -132,7 +132,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Column: StaticStructureSchema = [3, n0, _C, 0, [_N, _T, _D], [0, 0, 0]];
 export var CreateExportRequest: StaticStructureSchema = [
   3,
@@ -186,19 +185,8 @@ export var GetTableResponse: StaticStructureSchema = [
   [_TN, _D, _TP, _S],
   [0, 0, 128 | 0, () => ColumnList],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListExecutionsRequest: StaticStructureSchema = [3, n0, _LER, 0, [_EA, _MR, _NT], [0, 1, 0]];
 export var ListExecutionsResponse: StaticStructureSchema = [
   3,
@@ -233,15 +221,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RTe],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTag: StaticStructureSchema = [3, n0, _RTes, 0, [_K, _V], [0, 0]];
 export var S3Destination: StaticStructureSchema = [
   3,
@@ -256,32 +240,17 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RTe, _QC, _SCe],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Table: StaticStructureSchema = [3, n0, _Tab, 0, [_TN, _D, _TP], [0, 0, () => TablePropertyDescriptionList]];
 export var TablePropertyDescription: StaticStructureSchema = [3, n0, _TPD, 0, [_N, _VV, _DV, _D], [0, 64 | 0, 0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _RT], [0, () => ResourceTagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M, _QC, _SCe],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _QC, _SCe], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _RTK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateExportRequest: StaticStructureSchema = [3, n0, _UER, 0, [_EA, _E], [0, () => Export]];
@@ -290,35 +259,26 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _R, _Fi],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var BCMDataExportsServiceException: StaticErrorSchema = [-3, _sm, "BCMDataExportsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BCMDataExportsServiceException, __BCMDataExportsServiceException);
-
 export var ColumnList: StaticListSchema = [1, n0, _CL, 0, () => Column];
 export var ExecutionReferenceList: StaticListSchema = [1, n0, _ERL, 0, () => ExecutionReference];
 export var ExportReferenceList: StaticListSchema = [1, n0, _ERLx, 0, () => ExportReference];
 export var GenericStringList = 64 | 0;
-
 export var ResourceTagKeyList = 64 | 0;
-
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
 export var TableList: StaticListSchema = [1, n0, _TL, 0, () => Table];
 export var TablePropertyDescriptionList: StaticListSchema = [1, n0, _TPDL, 0, () => TablePropertyDescription];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var TableConfigurations: StaticMapSchema = [2, n0, _TC, 0, 0, 128 | 0];
 export var TableProperties = 128 | 0;
-
 export var CreateExport: StaticOperationSchema = [9, n0, _CE, 0, () => CreateExportRequest, () => CreateExportResponse];
 export var DeleteExport: StaticOperationSchema = [9, n0, _DE, 2, () => DeleteExportRequest, () => DeleteExportResponse];
 export var GetExecution: StaticOperationSchema = [9, n0, _GE, 0, () => GetExecutionRequest, () => GetExecutionResponse];

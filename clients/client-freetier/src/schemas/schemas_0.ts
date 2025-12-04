@@ -89,20 +89,8 @@ import {
 import { FreeTierServiceException as __FreeTierServiceException } from "../models/FreeTierServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActivitySummary: StaticStructureSchema = [3, n0, _AS, 0, [_aI, _t, _r, _s], [0, 0, () => ActivityReward, 0]];
 export var DimensionValues: StaticStructureSchema = [3, n0, _DV, 0, [_K, _V, _MO], [0, 64 | 0, 64 | 0]];
 export var Expression: StaticStructureSchema = [
@@ -155,19 +143,8 @@ export var GetFreeTierUsageResponse: StaticStructureSchema = [
   [_fTU, _nT],
   [() => FreeTierUsages, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAccountActivitiesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -178,61 +155,23 @@ export var ListAccountActivitiesRequest: StaticStructureSchema = [
 ];
 export var ListAccountActivitiesResponse: StaticStructureSchema = [3, n0, _LAARi, 0, [_a, _nT], [() => Activities, 0]];
 export var MonetaryAmount: StaticStructureSchema = [3, n0, _MA, 0, [_am, _u], [1, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UpgradeAccountPlanRequest: StaticStructureSchema = [3, n0, _UAPR, 0, [_aPT], [0]];
 export var UpgradeAccountPlanResponse: StaticStructureSchema = [3, n0, _UAPRp, 0, [_aIc, _aPT, _aPS], [0, 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var FreeTierServiceException: StaticErrorSchema = [-3, _sm, "FreeTierServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FreeTierServiceException, __FreeTierServiceException);
-
 export var Activities: StaticListSchema = [1, n0, _Ac, 0, () => ActivitySummary];
 export var Expressions: StaticListSchema = [1, n0, _Ex, 0, () => Expression];
 export var FilterActivityStatuses = 64 | 0;
-
 export var FreeTierUsages: StaticListSchema = [1, n0, _FTUr, 0, () => FreeTierUsage];
 export var MatchOptions = 64 | 0;
-
 export var Values = 64 | 0;
-
 export var ActivityReward: StaticStructureSchema = [3, n0, _AR, 0, [_cr], [() => MonetaryAmount]];
 export var GetAccountActivity: StaticOperationSchema = [
   9,

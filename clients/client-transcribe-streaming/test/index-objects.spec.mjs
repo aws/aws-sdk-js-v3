@@ -39,14 +39,14 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof TranscribeStreamingClient === "function")
-assert(typeof TranscribeStreaming === "function")
+assert(typeof TranscribeStreamingClient === "function");
+assert(typeof TranscribeStreaming === "function");
 // commands
-assert(typeof GetMedicalScribeStreamCommand === "function")
-assert(typeof StartCallAnalyticsStreamTranscriptionCommand === "function")
-assert(typeof StartMedicalScribeStreamCommand === "function")
-assert(typeof StartMedicalStreamTranscriptionCommand === "function")
-assert(typeof StartStreamTranscriptionCommand === "function")
+assert(typeof GetMedicalScribeStreamCommand === "function");
+assert(typeof StartCallAnalyticsStreamTranscriptionCommand === "function");
+assert(typeof StartMedicalScribeStreamCommand === "function");
+assert(typeof StartMedicalStreamTranscriptionCommand === "function");
+assert(typeof StartStreamTranscriptionCommand === "function");
 // enums
 assert(typeof CallAnalyticsLanguageCode === "object");
 assert(typeof ClinicalNoteGenerationStatus === "object");
@@ -73,10 +73,10 @@ assert(typeof Specialty === "object");
 assert(typeof Type === "object");
 assert(typeof VocabularyFilterMethod === "object");
 // errors
-assert(BadRequestException.prototype instanceof TranscribeStreamingServiceException)
-assert(ConflictException.prototype instanceof TranscribeStreamingServiceException)
-assert(InternalFailureException.prototype instanceof TranscribeStreamingServiceException)
-assert(LimitExceededException.prototype instanceof TranscribeStreamingServiceException)
-assert(ServiceUnavailableException.prototype instanceof TranscribeStreamingServiceException)
-assert(TranscribeStreamingServiceException.prototype instanceof Error)
+assert(BadRequestException.prototype instanceof TranscribeStreamingServiceException);
+assert(ConflictException.prototype instanceof TranscribeStreamingServiceException);
+assert(InternalFailureException.prototype instanceof TranscribeStreamingServiceException);
+assert(LimitExceededException.prototype instanceof TranscribeStreamingServiceException);
+assert(ServiceUnavailableException.prototype instanceof TranscribeStreamingServiceException);
+assert(TranscribeStreamingServiceException.prototype instanceof Error);
 console.log(`TranscribeStreaming index test passed.`);

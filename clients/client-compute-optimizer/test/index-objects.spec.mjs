@@ -126,37 +126,37 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ComputeOptimizerClient === "function")
-assert(typeof ComputeOptimizer === "function")
+assert(typeof ComputeOptimizerClient === "function");
+assert(typeof ComputeOptimizer === "function");
 // commands
-assert(typeof DeleteRecommendationPreferencesCommand === "function")
-assert(typeof DescribeRecommendationExportJobsCommand === "function")
-assert(typeof ExportAutoScalingGroupRecommendationsCommand === "function")
-assert(typeof ExportEBSVolumeRecommendationsCommand === "function")
-assert(typeof ExportEC2InstanceRecommendationsCommand === "function")
-assert(typeof ExportECSServiceRecommendationsCommand === "function")
-assert(typeof ExportIdleRecommendationsCommand === "function")
-assert(typeof ExportLambdaFunctionRecommendationsCommand === "function")
-assert(typeof ExportLicenseRecommendationsCommand === "function")
-assert(typeof ExportRDSDatabaseRecommendationsCommand === "function")
-assert(typeof GetAutoScalingGroupRecommendationsCommand === "function")
-assert(typeof GetEBSVolumeRecommendationsCommand === "function")
-assert(typeof GetEC2InstanceRecommendationsCommand === "function")
-assert(typeof GetEC2RecommendationProjectedMetricsCommand === "function")
-assert(typeof GetECSServiceRecommendationProjectedMetricsCommand === "function")
-assert(typeof GetECSServiceRecommendationsCommand === "function")
-assert(typeof GetEffectiveRecommendationPreferencesCommand === "function")
-assert(typeof GetEnrollmentStatusCommand === "function")
-assert(typeof GetEnrollmentStatusesForOrganizationCommand === "function")
-assert(typeof GetIdleRecommendationsCommand === "function")
-assert(typeof GetLambdaFunctionRecommendationsCommand === "function")
-assert(typeof GetLicenseRecommendationsCommand === "function")
-assert(typeof GetRDSDatabaseRecommendationProjectedMetricsCommand === "function")
-assert(typeof GetRDSDatabaseRecommendationsCommand === "function")
-assert(typeof GetRecommendationPreferencesCommand === "function")
-assert(typeof GetRecommendationSummariesCommand === "function")
-assert(typeof PutRecommendationPreferencesCommand === "function")
-assert(typeof UpdateEnrollmentStatusCommand === "function")
+assert(typeof DeleteRecommendationPreferencesCommand === "function");
+assert(typeof DescribeRecommendationExportJobsCommand === "function");
+assert(typeof ExportAutoScalingGroupRecommendationsCommand === "function");
+assert(typeof ExportEBSVolumeRecommendationsCommand === "function");
+assert(typeof ExportEC2InstanceRecommendationsCommand === "function");
+assert(typeof ExportECSServiceRecommendationsCommand === "function");
+assert(typeof ExportIdleRecommendationsCommand === "function");
+assert(typeof ExportLambdaFunctionRecommendationsCommand === "function");
+assert(typeof ExportLicenseRecommendationsCommand === "function");
+assert(typeof ExportRDSDatabaseRecommendationsCommand === "function");
+assert(typeof GetAutoScalingGroupRecommendationsCommand === "function");
+assert(typeof GetEBSVolumeRecommendationsCommand === "function");
+assert(typeof GetEC2InstanceRecommendationsCommand === "function");
+assert(typeof GetEC2RecommendationProjectedMetricsCommand === "function");
+assert(typeof GetECSServiceRecommendationProjectedMetricsCommand === "function");
+assert(typeof GetECSServiceRecommendationsCommand === "function");
+assert(typeof GetEffectiveRecommendationPreferencesCommand === "function");
+assert(typeof GetEnrollmentStatusCommand === "function");
+assert(typeof GetEnrollmentStatusesForOrganizationCommand === "function");
+assert(typeof GetIdleRecommendationsCommand === "function");
+assert(typeof GetLambdaFunctionRecommendationsCommand === "function");
+assert(typeof GetLicenseRecommendationsCommand === "function");
+assert(typeof GetRDSDatabaseRecommendationProjectedMetricsCommand === "function");
+assert(typeof GetRDSDatabaseRecommendationsCommand === "function");
+assert(typeof GetRecommendationPreferencesCommand === "function");
+assert(typeof GetRecommendationSummariesCommand === "function");
+assert(typeof PutRecommendationPreferencesCommand === "function");
+assert(typeof UpdateEnrollmentStatusCommand === "function");
 // enums
 assert(typeof AllocationStrategy === "object");
 assert(typeof AsgType === "object");
@@ -247,11 +247,11 @@ assert(typeof SavingsEstimationMode === "object");
 assert(typeof ScopeName === "object");
 assert(typeof Status === "object");
 // errors
-assert(ComputeOptimizerServiceException.prototype instanceof Error)
+assert(ComputeOptimizerServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateDescribeRecommendationExportJobs === "function")
-assert(typeof paginateGetEnrollmentStatusesForOrganization === "function")
-assert(typeof paginateGetLambdaFunctionRecommendations === "function")
-assert(typeof paginateGetRecommendationPreferences === "function")
-assert(typeof paginateGetRecommendationSummaries === "function")
+assert(typeof paginateDescribeRecommendationExportJobs === "function");
+assert(typeof paginateGetEnrollmentStatusesForOrganization === "function");
+assert(typeof paginateGetLambdaFunctionRecommendations === "function");
+assert(typeof paginateGetRecommendationPreferences === "function");
+assert(typeof paginateGetRecommendationSummaries === "function");
 console.log(`ComputeOptimizer index test passed.`);

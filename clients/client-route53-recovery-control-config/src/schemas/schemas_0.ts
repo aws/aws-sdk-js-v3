@@ -168,27 +168,15 @@ import {
 import { Route53RecoveryControlConfigServiceException as __Route53RecoveryControlConfigServiceException } from "../models/Route53RecoveryControlConfigServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssertionRule: StaticStructureSchema = [
   3,
   n0,
@@ -207,26 +195,8 @@ export var Cluster: StaticStructureSchema = [
   [0, () => __listOfClusterEndpoint, 0, 0, 0, 0],
 ];
 export var ClusterEndpoint: StaticStructureSchema = [3, n0, _CEl, 0, [_E, _R], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ControlPanel: StaticStructureSchema = [
   3,
   n0,
@@ -309,22 +279,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAssociatedRoute53HealthChecksRequest: StaticStructureSchema = [
   3,
   n0,
@@ -332,18 +291,8 @@ export var ListAssociatedRoute53HealthChecksRequest: StaticStructureSchema = [
   0,
   [_MR, _NTe, _RCA],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NTe }],
     [0, 1],
   ],
 ];
@@ -362,18 +311,8 @@ export var ListClustersRequest: StaticStructureSchema = [
   0,
   [_MR, _NTe],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NTe }],
   ],
 ];
 export var ListClustersResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_Cl, _NTe], [() => __listOfCluster, 0]];
@@ -384,24 +323,9 @@ export var ListControlPanelsRequest: StaticStructureSchema = [
   0,
   [_CA, _MR, _NTe],
   [
-    [
-      0,
-      {
-        [_hQ]: _CA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
+    [0, { [_hQ]: _CA }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NTe }],
   ],
 ];
 export var ListControlPanelsResponse: StaticStructureSchema = [
@@ -420,18 +344,8 @@ export var ListRoutingControlsRequest: StaticStructureSchema = [
   [_CPA, _MR, _NTe],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NTe }],
   ],
 ];
 export var ListRoutingControlsResponse: StaticStructureSchema = [
@@ -450,18 +364,8 @@ export var ListSafetyRulesRequest: StaticStructureSchema = [
   [_CPA, _MR, _NTe],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NTe }],
   ],
 ];
 export var ListSafetyRulesResponse: StaticStructureSchema = [3, n0, _LSRRi, 0, [_NTe, _SR], [0, () => __listOfRule]];
@@ -487,22 +391,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RoutingControl: StaticStructureSchema = [3, n0, _RCo, 0, [_CPA, _N, _RCA, _S, _O], [0, 0, 0, 0, 0]];
 export var Rule: StaticStructureSchema = [
   3,
@@ -517,44 +410,15 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -563,12 +427,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _TK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _TK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -594,28 +453,9 @@ export var UpdateSafetyRuleResponse: StaticStructureSchema = [
   [_AR, _GR],
   [() => AssertionRule, () => GatingRule],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var Route53RecoveryControlConfigServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -628,27 +468,20 @@ TypeRegistry.for(_sm).registerError(
   Route53RecoveryControlConfigServiceException,
   __Route53RecoveryControlConfigServiceException
 );
-
 export var __listOf__string = 64 | 0;
-
 export var __listOf__stringMax36PatternS = 64 | 0;
-
 export var __listOf__stringMin1Max256PatternAZaZ09 = 64 | 0;
-
 export var __listOfCluster: StaticListSchema = [1, n0, _lOC, 0, () => Cluster];
 export var __listOfClusterEndpoint: StaticListSchema = [1, n0, _lOCE, 0, () => ClusterEndpoint];
 export var __listOfControlPanel: StaticListSchema = [1, n0, _lOCP, 0, () => ControlPanel];
 export var __listOfRoutingControl: StaticListSchema = [1, n0, _lORC, 0, () => RoutingControl];
 export var __listOfRule: StaticListSchema = [1, n0, _lOR, 0, () => Rule];
 export var __mapOf__stringMin0Max256PatternS = 128 | 0;
-
 export var CreateCluster: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/cluster", 200],
-  },
+  { [_h]: ["POST", "/cluster", 200] },
   () => CreateClusterRequest,
   () => CreateClusterResponse,
 ];
@@ -656,9 +489,7 @@ export var CreateControlPanel: StaticOperationSchema = [
   9,
   n0,
   _CCP,
-  {
-    [_h]: ["POST", "/controlpanel", 200],
-  },
+  { [_h]: ["POST", "/controlpanel", 200] },
   () => CreateControlPanelRequest,
   () => CreateControlPanelResponse,
 ];
@@ -666,9 +497,7 @@ export var CreateRoutingControl: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  {
-    [_h]: ["POST", "/routingcontrol", 200],
-  },
+  { [_h]: ["POST", "/routingcontrol", 200] },
   () => CreateRoutingControlRequest,
   () => CreateRoutingControlResponse,
 ];
@@ -676,9 +505,7 @@ export var CreateSafetyRule: StaticOperationSchema = [
   9,
   n0,
   _CSR,
-  {
-    [_h]: ["POST", "/safetyrule", 200],
-  },
+  { [_h]: ["POST", "/safetyrule", 200] },
   () => CreateSafetyRuleRequest,
   () => CreateSafetyRuleResponse,
 ];
@@ -686,9 +513,7 @@ export var DeleteCluster: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/cluster/{ClusterArn}", 200],
-  },
+  { [_h]: ["DELETE", "/cluster/{ClusterArn}", 200] },
   () => DeleteClusterRequest,
   () => DeleteClusterResponse,
 ];
@@ -696,9 +521,7 @@ export var DeleteControlPanel: StaticOperationSchema = [
   9,
   n0,
   _DCPe,
-  {
-    [_h]: ["DELETE", "/controlpanel/{ControlPanelArn}", 200],
-  },
+  { [_h]: ["DELETE", "/controlpanel/{ControlPanelArn}", 200] },
   () => DeleteControlPanelRequest,
   () => DeleteControlPanelResponse,
 ];
@@ -706,9 +529,7 @@ export var DeleteRoutingControl: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_h]: ["DELETE", "/routingcontrol/{RoutingControlArn}", 200],
-  },
+  { [_h]: ["DELETE", "/routingcontrol/{RoutingControlArn}", 200] },
   () => DeleteRoutingControlRequest,
   () => DeleteRoutingControlResponse,
 ];
@@ -716,9 +537,7 @@ export var DeleteSafetyRule: StaticOperationSchema = [
   9,
   n0,
   _DSR,
-  {
-    [_h]: ["DELETE", "/safetyrule/{SafetyRuleArn}", 200],
-  },
+  { [_h]: ["DELETE", "/safetyrule/{SafetyRuleArn}", 200] },
   () => DeleteSafetyRuleRequest,
   () => DeleteSafetyRuleResponse,
 ];
@@ -726,9 +545,7 @@ export var DescribeCluster: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["GET", "/cluster/{ClusterArn}", 200],
-  },
+  { [_h]: ["GET", "/cluster/{ClusterArn}", 200] },
   () => DescribeClusterRequest,
   () => DescribeClusterResponse,
 ];
@@ -736,9 +553,7 @@ export var DescribeControlPanel: StaticOperationSchema = [
   9,
   n0,
   _DCPes,
-  {
-    [_h]: ["GET", "/controlpanel/{ControlPanelArn}", 200],
-  },
+  { [_h]: ["GET", "/controlpanel/{ControlPanelArn}", 200] },
   () => DescribeControlPanelRequest,
   () => DescribeControlPanelResponse,
 ];
@@ -746,9 +561,7 @@ export var DescribeRoutingControl: StaticOperationSchema = [
   9,
   n0,
   _DRCe,
-  {
-    [_h]: ["GET", "/routingcontrol/{RoutingControlArn}", 200],
-  },
+  { [_h]: ["GET", "/routingcontrol/{RoutingControlArn}", 200] },
   () => DescribeRoutingControlRequest,
   () => DescribeRoutingControlResponse,
 ];
@@ -756,9 +569,7 @@ export var DescribeSafetyRule: StaticOperationSchema = [
   9,
   n0,
   _DSRe,
-  {
-    [_h]: ["GET", "/safetyrule/{SafetyRuleArn}", 200],
-  },
+  { [_h]: ["GET", "/safetyrule/{SafetyRuleArn}", 200] },
   () => DescribeSafetyRuleRequest,
   () => DescribeSafetyRuleResponse,
 ];
@@ -766,9 +577,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/resourcePolicy/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/resourcePolicy/{ResourceArn}", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -776,9 +585,7 @@ export var ListAssociatedRoute53HealthChecks: StaticOperationSchema = [
   9,
   n0,
   _LARHC,
-  {
-    [_h]: ["GET", "/routingcontrol/{RoutingControlArn}/associatedRoute53HealthChecks", 200],
-  },
+  { [_h]: ["GET", "/routingcontrol/{RoutingControlArn}/associatedRoute53HealthChecks", 200] },
   () => ListAssociatedRoute53HealthChecksRequest,
   () => ListAssociatedRoute53HealthChecksResponse,
 ];
@@ -786,9 +593,7 @@ export var ListClusters: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/cluster", 200],
-  },
+  { [_h]: ["GET", "/cluster", 200] },
   () => ListClustersRequest,
   () => ListClustersResponse,
 ];
@@ -796,9 +601,7 @@ export var ListControlPanels: StaticOperationSchema = [
   9,
   n0,
   _LCP,
-  {
-    [_h]: ["GET", "/controlpanels", 200],
-  },
+  { [_h]: ["GET", "/controlpanels", 200] },
   () => ListControlPanelsRequest,
   () => ListControlPanelsResponse,
 ];
@@ -806,9 +609,7 @@ export var ListRoutingControls: StaticOperationSchema = [
   9,
   n0,
   _LRC,
-  {
-    [_h]: ["GET", "/controlpanel/{ControlPanelArn}/routingcontrols", 200],
-  },
+  { [_h]: ["GET", "/controlpanel/{ControlPanelArn}/routingcontrols", 200] },
   () => ListRoutingControlsRequest,
   () => ListRoutingControlsResponse,
 ];
@@ -816,9 +617,7 @@ export var ListSafetyRules: StaticOperationSchema = [
   9,
   n0,
   _LSR,
-  {
-    [_h]: ["GET", "/controlpanel/{ControlPanelArn}/safetyrules", 200],
-  },
+  { [_h]: ["GET", "/controlpanel/{ControlPanelArn}/safetyrules", 200] },
   () => ListSafetyRulesRequest,
   () => ListSafetyRulesResponse,
 ];
@@ -826,9 +625,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -836,9 +633,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -846,9 +641,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -856,9 +649,7 @@ export var UpdateCluster: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/cluster", 200],
-  },
+  { [_h]: ["PUT", "/cluster", 200] },
   () => UpdateClusterRequest,
   () => UpdateClusterResponse,
 ];
@@ -866,9 +657,7 @@ export var UpdateControlPanel: StaticOperationSchema = [
   9,
   n0,
   _UCP,
-  {
-    [_h]: ["PUT", "/controlpanel", 200],
-  },
+  { [_h]: ["PUT", "/controlpanel", 200] },
   () => UpdateControlPanelRequest,
   () => UpdateControlPanelResponse,
 ];
@@ -876,9 +665,7 @@ export var UpdateRoutingControl: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  {
-    [_h]: ["PUT", "/routingcontrol", 200],
-  },
+  { [_h]: ["PUT", "/routingcontrol", 200] },
   () => UpdateRoutingControlRequest,
   () => UpdateRoutingControlResponse,
 ];
@@ -886,9 +673,7 @@ export var UpdateSafetyRule: StaticOperationSchema = [
   9,
   n0,
   _USR,
-  {
-    [_h]: ["PUT", "/safetyrule", 200],
-  },
+  { [_h]: ["PUT", "/safetyrule", 200] },
   () => UpdateSafetyRuleRequest,
   () => UpdateSafetyRuleResponse,
 ];

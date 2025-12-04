@@ -543,20 +543,8 @@ import {
 import { MgnServiceException as __MgnServiceException } from "../models/MgnServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m, _co],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m, _co], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Application: StaticStructureSchema = [
   3,
   n0,
@@ -599,15 +587,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m, _co, _rI, _rT, _er],
   [0, 0, 0, 0, () => ConflictExceptionErrors],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Connector: StaticStructureSchema = [
   3,
   n0,
@@ -802,18 +786,8 @@ export var DescribeVcenterClientsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var DescribeVcenterClientsResponse: StaticStructureSchema = [
@@ -894,23 +868,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
+  { [_e]: _ser, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Job: StaticStructureSchema = [
   3,
   n0,
@@ -1191,15 +1153,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _co, _rI, _rT],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResumeReplicationRequest: StaticStructureSchema = [3, n0, _RRR, 0, [_sSIDo, _aIDc], [0, 0]];
 export var RetryDataReplicationRequest: StaticStructureSchema = [3, n0, _RDRR, 0, [_sSIDo, _aIDc], [0, 0]];
 export var S3BucketSource: StaticStructureSchema = [3, n0, _SBS, 0, [_sB, _sK, _sBO], [0, 0, 0]];
@@ -1207,15 +1165,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _co, _rI, _rT, _sCe, _qC, _qV],
   [0, 0, 0, 0, 0, 0, 1],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SourceProperties: StaticStructureSchema = [
   3,
   n0,
@@ -1323,40 +1277,22 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [0, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UnarchiveApplicationRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_aID, _aIDc], [0, 0]];
 export var UnarchiveWaveRequest: StaticStructureSchema = [3, n0, _UWR, 0, [_wID, _aIDc], [0, 0]];
 export var UninitializedAccountException: StaticErrorSchema = [
   -3,
   n0,
   _UAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _co],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UninitializedAccountException, __UninitializedAccountException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1365,12 +1301,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      () => TagKeys,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [() => TagKeys, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateApplicationRequest: StaticStructureSchema = [3, n0, _UARp, 0, [_aID, _n, _d, _aIDc], [0, 0, 0, 0]];
@@ -1450,15 +1381,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _co, _re, _fL],
   [0, 0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VcenterClient: StaticStructureSchema = [
   3,
@@ -1485,22 +1412,15 @@ export var WaveAggregatedStatus: StaticStructureSchema = [
   [0, 0, 0, 0, 1],
 ];
 export var __Unit = "unit" as const;
-
 export var MgnServiceException: StaticErrorSchema = [-3, _sm, "MgnServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MgnServiceException, __MgnServiceException);
-
 export var ActionIDs = 64 | 0;
-
 export var ApplicationIDs = 64 | 0;
-
 export var ApplicationIDsFilter = 64 | 0;
-
 export var ApplicationsList: StaticListSchema = [1, n0, _AL, 0, [() => Application, 0]];
 export var AssociateSourceServersRequestSourceServerIDs = 64 | 0;
-
 export var ConflictExceptionErrors: StaticListSchema = [1, n0, _CEE, 0, () => ErrorDetails];
 export var ConnectorIDsFilter = 64 | 0;
-
 export var ConnectorsList: StaticListSchema = [1, n0, _CL, 0, [() => Connector, 0]];
 export var Cpus: StaticListSchema = [1, n0, _Cp, 0, () => CPU];
 export var DataReplicationInfoReplicatedDisks: StaticListSchema = [
@@ -1512,31 +1432,22 @@ export var DataReplicationInfoReplicatedDisks: StaticListSchema = [
 ];
 export var DataReplicationInitiationSteps: StaticListSchema = [1, n0, _DRISa, 0, () => DataReplicationInitiationStep];
 export var DescribeJobsRequestFiltersJobIDs = 64 | 0;
-
 export var DescribeSourceServersRequestApplicationIDs = 64 | 0;
-
 export var DescribeSourceServersRequestFiltersIDs = 64 | 0;
-
 export var DisassociateSourceServersRequestSourceServerIDs = 64 | 0;
-
 export var Disks: StaticListSchema = [1, n0, _Di, 0, () => Disk];
 export var ExportErrors: StaticListSchema = [1, n0, _EE, 0, () => ExportTaskError];
 export var ExportsList: StaticListSchema = [1, n0, _EL, 0, () => ExportTask];
 export var ImportErrors: StaticListSchema = [1, n0, _IE, 0, () => ImportTaskError];
 export var ImportIDsFilter = 64 | 0;
-
 export var ImportList: StaticListSchema = [1, n0, _IL, 0, () => ImportTask];
 export var IPsList = 64 | 0;
-
 export var JobLogs: StaticListSchema = [1, n0, _JLo, 0, () => JobLog];
 export var JobsList: StaticListSchema = [1, n0, _JLob, 0, [() => Job, 0]];
 export var LaunchConfigurationTemplateIDs = 64 | 0;
-
 export var LaunchConfigurationTemplates: StaticListSchema = [1, n0, _LCTa, 0, [() => LaunchConfigurationTemplate, 0]];
 export var LifeCycleStates = 64 | 0;
-
 export var ListExportsRequestFiltersExportIDs = 64 | 0;
-
 export var ManagedAccounts: StaticListSchema = [1, n0, _MAa, 0, () => ManagedAccount];
 export var NetworkInterfaces: StaticListSchema = [1, n0, _NIe, 0, () => NetworkInterface];
 export var ParticipatingServers: StaticListSchema = [1, n0, _PSa, 0, () => ParticipatingServer];
@@ -1555,7 +1466,6 @@ export var ReplicationConfigurationReplicatedDisks: StaticListSchema = [
   () => ReplicationConfigurationReplicatedDisk,
 ];
 export var ReplicationConfigurationTemplateIDs = 64 | 0;
-
 export var ReplicationConfigurationTemplates: StaticListSchema = [
   1,
   n0,
@@ -1564,25 +1474,19 @@ export var ReplicationConfigurationTemplates: StaticListSchema = [
   [() => ReplicationConfigurationTemplate, 0],
 ];
 export var ReplicationServersSecurityGroupsIDs = 64 | 0;
-
 export var ReplicationTypes = 64 | 0;
-
 export var SourceServerActionDocuments: StaticListSchema = [1, n0, _SSADo, 0, () => SourceServerActionDocument];
 export var SourceServersList: StaticListSchema = [1, n0, _SSL, 0, [() => SourceServer, 0]];
 export var SsmDocuments: StaticListSchema = [1, n0, _SDs, 0, () => SsmDocument];
 export var SsmParameterStoreParameters: StaticListSchema = [1, n0, _SPSPs, 0, () => SsmParameterStoreParameter];
 export var StartCutoverRequestSourceServerIDs = 64 | 0;
-
 export var StartTestRequestSourceServerIDs = 64 | 0;
-
 export var TagKeys: StaticListSchema = [1, n0, _TK, 8, 0];
 export var TemplateActionDocuments: StaticListSchema = [1, n0, _TADe, 0, () => TemplateActionDocument];
 export var TerminateTargetInstancesRequestSourceServerIDs = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var VcenterClientList: StaticListSchema = [1, n0, _VCL, 0, [() => VcenterClient, 0]];
 export var WaveIDsFilter = 64 | 0;
-
 export var WavesList: StaticListSchema = [1, n0, _WL, 0, [() => Wave, 0]];
 export var SsmDocumentExternalParameters: StaticMapSchema = [2, n0, _SDEP, 0, 0, () => SsmExternalParameter];
 export var SsmDocumentParameters: StaticMapSchema = [2, n0, _SDP, 0, 0, () => SsmParameterStoreParameters];
@@ -1592,9 +1496,7 @@ export var ArchiveApplication: StaticOperationSchema = [
   9,
   n0,
   _AA,
-  {
-    [_ht]: ["POST", "/ArchiveApplication", 200],
-  },
+  { [_ht]: ["POST", "/ArchiveApplication", 200] },
   () => ArchiveApplicationRequest,
   () => Application,
 ];
@@ -1602,9 +1504,7 @@ export var ArchiveWave: StaticOperationSchema = [
   9,
   n0,
   _AW,
-  {
-    [_ht]: ["POST", "/ArchiveWave", 200],
-  },
+  { [_ht]: ["POST", "/ArchiveWave", 200] },
   () => ArchiveWaveRequest,
   () => Wave,
 ];
@@ -1612,9 +1512,7 @@ export var AssociateApplications: StaticOperationSchema = [
   9,
   n0,
   _AAs,
-  {
-    [_ht]: ["POST", "/AssociateApplications", 200],
-  },
+  { [_ht]: ["POST", "/AssociateApplications", 200] },
   () => AssociateApplicationsRequest,
   () => AssociateApplicationsResponse,
 ];
@@ -1622,9 +1520,7 @@ export var AssociateSourceServers: StaticOperationSchema = [
   9,
   n0,
   _ASS,
-  {
-    [_ht]: ["POST", "/AssociateSourceServers", 200],
-  },
+  { [_ht]: ["POST", "/AssociateSourceServers", 200] },
   () => AssociateSourceServersRequest,
   () => AssociateSourceServersResponse,
 ];
@@ -1632,9 +1528,7 @@ export var ChangeServerLifeCycleState: StaticOperationSchema = [
   9,
   n0,
   _CSLCS,
-  {
-    [_ht]: ["POST", "/ChangeServerLifeCycleState", 200],
-  },
+  { [_ht]: ["POST", "/ChangeServerLifeCycleState", 200] },
   () => ChangeServerLifeCycleStateRequest,
   () => SourceServer,
 ];
@@ -1642,9 +1536,7 @@ export var CreateApplication: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_ht]: ["POST", "/CreateApplication", 201],
-  },
+  { [_ht]: ["POST", "/CreateApplication", 201] },
   () => CreateApplicationRequest,
   () => Application,
 ];
@@ -1652,9 +1544,7 @@ export var CreateConnector: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_ht]: ["POST", "/CreateConnector", 201],
-  },
+  { [_ht]: ["POST", "/CreateConnector", 201] },
   () => CreateConnectorRequest,
   () => Connector,
 ];
@@ -1662,9 +1552,7 @@ export var CreateLaunchConfigurationTemplate: StaticOperationSchema = [
   9,
   n0,
   _CLCT,
-  {
-    [_ht]: ["POST", "/CreateLaunchConfigurationTemplate", 201],
-  },
+  { [_ht]: ["POST", "/CreateLaunchConfigurationTemplate", 201] },
   () => CreateLaunchConfigurationTemplateRequest,
   () => LaunchConfigurationTemplate,
 ];
@@ -1672,9 +1560,7 @@ export var CreateReplicationConfigurationTemplate: StaticOperationSchema = [
   9,
   n0,
   _CRCT,
-  {
-    [_ht]: ["POST", "/CreateReplicationConfigurationTemplate", 201],
-  },
+  { [_ht]: ["POST", "/CreateReplicationConfigurationTemplate", 201] },
   () => CreateReplicationConfigurationTemplateRequest,
   () => ReplicationConfigurationTemplate,
 ];
@@ -1682,9 +1568,7 @@ export var CreateWave: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_ht]: ["POST", "/CreateWave", 201],
-  },
+  { [_ht]: ["POST", "/CreateWave", 201] },
   () => CreateWaveRequest,
   () => Wave,
 ];
@@ -1692,9 +1576,7 @@ export var DeleteApplication: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_ht]: ["POST", "/DeleteApplication", 204],
-  },
+  { [_ht]: ["POST", "/DeleteApplication", 204] },
   () => DeleteApplicationRequest,
   () => DeleteApplicationResponse,
 ];
@@ -1702,9 +1584,7 @@ export var DeleteConnector: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_ht]: ["POST", "/DeleteConnector", 204],
-  },
+  { [_ht]: ["POST", "/DeleteConnector", 204] },
   () => DeleteConnectorRequest,
   () => __Unit,
 ];
@@ -1712,9 +1592,7 @@ export var DeleteJob: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_ht]: ["POST", "/DeleteJob", 204],
-  },
+  { [_ht]: ["POST", "/DeleteJob", 204] },
   () => DeleteJobRequest,
   () => DeleteJobResponse,
 ];
@@ -1722,9 +1600,7 @@ export var DeleteLaunchConfigurationTemplate: StaticOperationSchema = [
   9,
   n0,
   _DLCT,
-  {
-    [_ht]: ["POST", "/DeleteLaunchConfigurationTemplate", 204],
-  },
+  { [_ht]: ["POST", "/DeleteLaunchConfigurationTemplate", 204] },
   () => DeleteLaunchConfigurationTemplateRequest,
   () => DeleteLaunchConfigurationTemplateResponse,
 ];
@@ -1732,9 +1608,7 @@ export var DeleteReplicationConfigurationTemplate: StaticOperationSchema = [
   9,
   n0,
   _DRCT,
-  {
-    [_ht]: ["POST", "/DeleteReplicationConfigurationTemplate", 204],
-  },
+  { [_ht]: ["POST", "/DeleteReplicationConfigurationTemplate", 204] },
   () => DeleteReplicationConfigurationTemplateRequest,
   () => DeleteReplicationConfigurationTemplateResponse,
 ];
@@ -1742,9 +1616,7 @@ export var DeleteSourceServer: StaticOperationSchema = [
   9,
   n0,
   _DSS,
-  {
-    [_ht]: ["POST", "/DeleteSourceServer", 204],
-  },
+  { [_ht]: ["POST", "/DeleteSourceServer", 204] },
   () => DeleteSourceServerRequest,
   () => DeleteSourceServerResponse,
 ];
@@ -1752,9 +1624,7 @@ export var DeleteVcenterClient: StaticOperationSchema = [
   9,
   n0,
   _DVC,
-  {
-    [_ht]: ["POST", "/DeleteVcenterClient", 204],
-  },
+  { [_ht]: ["POST", "/DeleteVcenterClient", 204] },
   () => DeleteVcenterClientRequest,
   () => __Unit,
 ];
@@ -1762,9 +1632,7 @@ export var DeleteWave: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_ht]: ["POST", "/DeleteWave", 204],
-  },
+  { [_ht]: ["POST", "/DeleteWave", 204] },
   () => DeleteWaveRequest,
   () => DeleteWaveResponse,
 ];
@@ -1772,9 +1640,7 @@ export var DescribeJobLogItems: StaticOperationSchema = [
   9,
   n0,
   _DJLI,
-  {
-    [_ht]: ["POST", "/DescribeJobLogItems", 200],
-  },
+  { [_ht]: ["POST", "/DescribeJobLogItems", 200] },
   () => DescribeJobLogItemsRequest,
   () => DescribeJobLogItemsResponse,
 ];
@@ -1782,9 +1648,7 @@ export var DescribeJobs: StaticOperationSchema = [
   9,
   n0,
   _DJe,
-  {
-    [_ht]: ["POST", "/DescribeJobs", 200],
-  },
+  { [_ht]: ["POST", "/DescribeJobs", 200] },
   () => DescribeJobsRequest,
   () => DescribeJobsResponse,
 ];
@@ -1792,9 +1656,7 @@ export var DescribeLaunchConfigurationTemplates: StaticOperationSchema = [
   9,
   n0,
   _DLCTe,
-  {
-    [_ht]: ["POST", "/DescribeLaunchConfigurationTemplates", 200],
-  },
+  { [_ht]: ["POST", "/DescribeLaunchConfigurationTemplates", 200] },
   () => DescribeLaunchConfigurationTemplatesRequest,
   () => DescribeLaunchConfigurationTemplatesResponse,
 ];
@@ -1802,9 +1664,7 @@ export var DescribeReplicationConfigurationTemplates: StaticOperationSchema = [
   9,
   n0,
   _DRCTe,
-  {
-    [_ht]: ["POST", "/DescribeReplicationConfigurationTemplates", 200],
-  },
+  { [_ht]: ["POST", "/DescribeReplicationConfigurationTemplates", 200] },
   () => DescribeReplicationConfigurationTemplatesRequest,
   () => DescribeReplicationConfigurationTemplatesResponse,
 ];
@@ -1812,9 +1672,7 @@ export var DescribeSourceServers: StaticOperationSchema = [
   9,
   n0,
   _DSSe,
-  {
-    [_ht]: ["POST", "/DescribeSourceServers", 200],
-  },
+  { [_ht]: ["POST", "/DescribeSourceServers", 200] },
   () => DescribeSourceServersRequest,
   () => DescribeSourceServersResponse,
 ];
@@ -1822,9 +1680,7 @@ export var DescribeVcenterClients: StaticOperationSchema = [
   9,
   n0,
   _DVCe,
-  {
-    [_ht]: ["GET", "/DescribeVcenterClients", 200],
-  },
+  { [_ht]: ["GET", "/DescribeVcenterClients", 200] },
   () => DescribeVcenterClientsRequest,
   () => DescribeVcenterClientsResponse,
 ];
@@ -1832,9 +1688,7 @@ export var DisassociateApplications: StaticOperationSchema = [
   9,
   n0,
   _DAi,
-  {
-    [_ht]: ["POST", "/DisassociateApplications", 200],
-  },
+  { [_ht]: ["POST", "/DisassociateApplications", 200] },
   () => DisassociateApplicationsRequest,
   () => DisassociateApplicationsResponse,
 ];
@@ -1842,9 +1696,7 @@ export var DisassociateSourceServers: StaticOperationSchema = [
   9,
   n0,
   _DSSi,
-  {
-    [_ht]: ["POST", "/DisassociateSourceServers", 200],
-  },
+  { [_ht]: ["POST", "/DisassociateSourceServers", 200] },
   () => DisassociateSourceServersRequest,
   () => DisassociateSourceServersResponse,
 ];
@@ -1852,9 +1704,7 @@ export var DisconnectFromService: StaticOperationSchema = [
   9,
   n0,
   _DFS,
-  {
-    [_ht]: ["POST", "/DisconnectFromService", 200],
-  },
+  { [_ht]: ["POST", "/DisconnectFromService", 200] },
   () => DisconnectFromServiceRequest,
   () => SourceServer,
 ];
@@ -1862,9 +1712,7 @@ export var FinalizeCutover: StaticOperationSchema = [
   9,
   n0,
   _FC,
-  {
-    [_ht]: ["POST", "/FinalizeCutover", 200],
-  },
+  { [_ht]: ["POST", "/FinalizeCutover", 200] },
   () => FinalizeCutoverRequest,
   () => SourceServer,
 ];
@@ -1872,9 +1720,7 @@ export var GetLaunchConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GLC,
-  {
-    [_ht]: ["POST", "/GetLaunchConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/GetLaunchConfiguration", 200] },
   () => GetLaunchConfigurationRequest,
   () => LaunchConfiguration,
 ];
@@ -1882,9 +1728,7 @@ export var GetReplicationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  {
-    [_ht]: ["POST", "/GetReplicationConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/GetReplicationConfiguration", 200] },
   () => GetReplicationConfigurationRequest,
   () => ReplicationConfiguration,
 ];
@@ -1892,9 +1736,7 @@ export var InitializeService: StaticOperationSchema = [
   9,
   n0,
   _IS,
-  {
-    [_ht]: ["POST", "/InitializeService", 204],
-  },
+  { [_ht]: ["POST", "/InitializeService", 204] },
   () => InitializeServiceRequest,
   () => InitializeServiceResponse,
 ];
@@ -1902,9 +1744,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_ht]: ["POST", "/ListApplications", 200],
-  },
+  { [_ht]: ["POST", "/ListApplications", 200] },
   () => ListApplicationsRequest,
   () => ListApplicationsResponse,
 ];
@@ -1912,9 +1752,7 @@ export var ListConnectors: StaticOperationSchema = [
   9,
   n0,
   _LCis,
-  {
-    [_ht]: ["POST", "/ListConnectors", 200],
-  },
+  { [_ht]: ["POST", "/ListConnectors", 200] },
   () => ListConnectorsRequest,
   () => ListConnectorsResponse,
 ];
@@ -1922,9 +1760,7 @@ export var ListExportErrors: StaticOperationSchema = [
   9,
   n0,
   _LEE,
-  {
-    [_ht]: ["POST", "/ListExportErrors", 200],
-  },
+  { [_ht]: ["POST", "/ListExportErrors", 200] },
   () => ListExportErrorsRequest,
   () => ListExportErrorsResponse,
 ];
@@ -1932,9 +1768,7 @@ export var ListExports: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_ht]: ["POST", "/ListExports", 200],
-  },
+  { [_ht]: ["POST", "/ListExports", 200] },
   () => ListExportsRequest,
   () => ListExportsResponse,
 ];
@@ -1942,9 +1776,7 @@ export var ListImportErrors: StaticOperationSchema = [
   9,
   n0,
   _LIE,
-  {
-    [_ht]: ["POST", "/ListImportErrors", 200],
-  },
+  { [_ht]: ["POST", "/ListImportErrors", 200] },
   () => ListImportErrorsRequest,
   () => ListImportErrorsResponse,
 ];
@@ -1952,9 +1784,7 @@ export var ListImports: StaticOperationSchema = [
   9,
   n0,
   _LIi,
-  {
-    [_ht]: ["POST", "/ListImports", 200],
-  },
+  { [_ht]: ["POST", "/ListImports", 200] },
   () => ListImportsRequest,
   () => ListImportsResponse,
 ];
@@ -1962,9 +1792,7 @@ export var ListManagedAccounts: StaticOperationSchema = [
   9,
   n0,
   _LMA,
-  {
-    [_ht]: ["POST", "/ListManagedAccounts", 200],
-  },
+  { [_ht]: ["POST", "/ListManagedAccounts", 200] },
   () => ListManagedAccountsRequest,
   () => ListManagedAccountsResponse,
 ];
@@ -1972,9 +1800,7 @@ export var ListSourceServerActions: StaticOperationSchema = [
   9,
   n0,
   _LSSA,
-  {
-    [_ht]: ["POST", "/ListSourceServerActions", 200],
-  },
+  { [_ht]: ["POST", "/ListSourceServerActions", 200] },
   () => ListSourceServerActionsRequest,
   () => ListSourceServerActionsResponse,
 ];
@@ -1982,9 +1808,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1992,9 +1816,7 @@ export var ListTemplateActions: StaticOperationSchema = [
   9,
   n0,
   _LTA,
-  {
-    [_ht]: ["POST", "/ListTemplateActions", 200],
-  },
+  { [_ht]: ["POST", "/ListTemplateActions", 200] },
   () => ListTemplateActionsRequest,
   () => ListTemplateActionsResponse,
 ];
@@ -2002,9 +1824,7 @@ export var ListWaves: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_ht]: ["POST", "/ListWaves", 200],
-  },
+  { [_ht]: ["POST", "/ListWaves", 200] },
   () => ListWavesRequest,
   () => ListWavesResponse,
 ];
@@ -2012,9 +1832,7 @@ export var MarkAsArchived: StaticOperationSchema = [
   9,
   n0,
   _MAA,
-  {
-    [_ht]: ["POST", "/MarkAsArchived", 200],
-  },
+  { [_ht]: ["POST", "/MarkAsArchived", 200] },
   () => MarkAsArchivedRequest,
   () => SourceServer,
 ];
@@ -2022,9 +1840,7 @@ export var PauseReplication: StaticOperationSchema = [
   9,
   n0,
   _PR,
-  {
-    [_ht]: ["POST", "/PauseReplication", 200],
-  },
+  { [_ht]: ["POST", "/PauseReplication", 200] },
   () => PauseReplicationRequest,
   () => SourceServer,
 ];
@@ -2032,9 +1848,7 @@ export var PutSourceServerAction: StaticOperationSchema = [
   9,
   n0,
   _PSSA,
-  {
-    [_ht]: ["POST", "/PutSourceServerAction", 200],
-  },
+  { [_ht]: ["POST", "/PutSourceServerAction", 200] },
   () => PutSourceServerActionRequest,
   () => SourceServerActionDocument,
 ];
@@ -2042,9 +1856,7 @@ export var PutTemplateAction: StaticOperationSchema = [
   9,
   n0,
   _PTA,
-  {
-    [_ht]: ["POST", "/PutTemplateAction", 200],
-  },
+  { [_ht]: ["POST", "/PutTemplateAction", 200] },
   () => PutTemplateActionRequest,
   () => TemplateActionDocument,
 ];
@@ -2052,9 +1864,7 @@ export var RemoveSourceServerAction: StaticOperationSchema = [
   9,
   n0,
   _RSSA,
-  {
-    [_ht]: ["POST", "/RemoveSourceServerAction", 204],
-  },
+  { [_ht]: ["POST", "/RemoveSourceServerAction", 204] },
   () => RemoveSourceServerActionRequest,
   () => RemoveSourceServerActionResponse,
 ];
@@ -2062,9 +1872,7 @@ export var RemoveTemplateAction: StaticOperationSchema = [
   9,
   n0,
   _RTA,
-  {
-    [_ht]: ["POST", "/RemoveTemplateAction", 204],
-  },
+  { [_ht]: ["POST", "/RemoveTemplateAction", 204] },
   () => RemoveTemplateActionRequest,
   () => RemoveTemplateActionResponse,
 ];
@@ -2072,9 +1880,7 @@ export var ResumeReplication: StaticOperationSchema = [
   9,
   n0,
   _RR,
-  {
-    [_ht]: ["POST", "/ResumeReplication", 200],
-  },
+  { [_ht]: ["POST", "/ResumeReplication", 200] },
   () => ResumeReplicationRequest,
   () => SourceServer,
 ];
@@ -2082,9 +1888,7 @@ export var RetryDataReplication: StaticOperationSchema = [
   9,
   n0,
   _RDR,
-  {
-    [_ht]: ["POST", "/RetryDataReplication", 200],
-  },
+  { [_ht]: ["POST", "/RetryDataReplication", 200] },
   () => RetryDataReplicationRequest,
   () => SourceServer,
 ];
@@ -2092,9 +1896,7 @@ export var StartCutover: StaticOperationSchema = [
   9,
   n0,
   _SC,
-  {
-    [_ht]: ["POST", "/StartCutover", 202],
-  },
+  { [_ht]: ["POST", "/StartCutover", 202] },
   () => StartCutoverRequest,
   () => StartCutoverResponse,
 ];
@@ -2102,9 +1904,7 @@ export var StartExport: StaticOperationSchema = [
   9,
   n0,
   _SE,
-  {
-    [_ht]: ["POST", "/StartExport", 202],
-  },
+  { [_ht]: ["POST", "/StartExport", 202] },
   () => StartExportRequest,
   () => StartExportResponse,
 ];
@@ -2112,9 +1912,7 @@ export var StartImport: StaticOperationSchema = [
   9,
   n0,
   _SI,
-  {
-    [_ht]: ["POST", "/StartImport", 202],
-  },
+  { [_ht]: ["POST", "/StartImport", 202] },
   () => StartImportRequest,
   () => StartImportResponse,
 ];
@@ -2122,9 +1920,7 @@ export var StartReplication: StaticOperationSchema = [
   9,
   n0,
   _SR,
-  {
-    [_ht]: ["POST", "/StartReplication", 200],
-  },
+  { [_ht]: ["POST", "/StartReplication", 200] },
   () => StartReplicationRequest,
   () => SourceServer,
 ];
@@ -2132,9 +1928,7 @@ export var StartTest: StaticOperationSchema = [
   9,
   n0,
   _ST,
-  {
-    [_ht]: ["POST", "/StartTest", 202],
-  },
+  { [_ht]: ["POST", "/StartTest", 202] },
   () => StartTestRequest,
   () => StartTestResponse,
 ];
@@ -2142,9 +1936,7 @@ export var StopReplication: StaticOperationSchema = [
   9,
   n0,
   _SRt,
-  {
-    [_ht]: ["POST", "/StopReplication", 200],
-  },
+  { [_ht]: ["POST", "/StopReplication", 200] },
   () => StopReplicationRequest,
   () => SourceServer,
 ];
@@ -2152,9 +1944,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -2162,9 +1952,7 @@ export var TerminateTargetInstances: StaticOperationSchema = [
   9,
   n0,
   _TTI,
-  {
-    [_ht]: ["POST", "/TerminateTargetInstances", 202],
-  },
+  { [_ht]: ["POST", "/TerminateTargetInstances", 202] },
   () => TerminateTargetInstancesRequest,
   () => TerminateTargetInstancesResponse,
 ];
@@ -2172,9 +1960,7 @@ export var UnarchiveApplication: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_ht]: ["POST", "/UnarchiveApplication", 200],
-  },
+  { [_ht]: ["POST", "/UnarchiveApplication", 200] },
   () => UnarchiveApplicationRequest,
   () => Application,
 ];
@@ -2182,9 +1968,7 @@ export var UnarchiveWave: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_ht]: ["POST", "/UnarchiveWave", 200],
-  },
+  { [_ht]: ["POST", "/UnarchiveWave", 200] },
   () => UnarchiveWaveRequest,
   () => Wave,
 ];
@@ -2192,9 +1976,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -2202,9 +1984,7 @@ export var UpdateApplication: StaticOperationSchema = [
   9,
   n0,
   _UAp,
-  {
-    [_ht]: ["POST", "/UpdateApplication", 200],
-  },
+  { [_ht]: ["POST", "/UpdateApplication", 200] },
   () => UpdateApplicationRequest,
   () => Application,
 ];
@@ -2212,9 +1992,7 @@ export var UpdateConnector: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["POST", "/UpdateConnector", 200],
-  },
+  { [_ht]: ["POST", "/UpdateConnector", 200] },
   () => UpdateConnectorRequest,
   () => Connector,
 ];
@@ -2222,9 +2000,7 @@ export var UpdateLaunchConfiguration: StaticOperationSchema = [
   9,
   n0,
   _ULC,
-  {
-    [_ht]: ["POST", "/UpdateLaunchConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/UpdateLaunchConfiguration", 200] },
   () => UpdateLaunchConfigurationRequest,
   () => LaunchConfiguration,
 ];
@@ -2232,9 +2008,7 @@ export var UpdateLaunchConfigurationTemplate: StaticOperationSchema = [
   9,
   n0,
   _ULCT,
-  {
-    [_ht]: ["POST", "/UpdateLaunchConfigurationTemplate", 200],
-  },
+  { [_ht]: ["POST", "/UpdateLaunchConfigurationTemplate", 200] },
   () => UpdateLaunchConfigurationTemplateRequest,
   () => LaunchConfigurationTemplate,
 ];
@@ -2242,9 +2016,7 @@ export var UpdateReplicationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  {
-    [_ht]: ["POST", "/UpdateReplicationConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/UpdateReplicationConfiguration", 200] },
   () => UpdateReplicationConfigurationRequest,
   () => ReplicationConfiguration,
 ];
@@ -2252,9 +2024,7 @@ export var UpdateReplicationConfigurationTemplate: StaticOperationSchema = [
   9,
   n0,
   _URCT,
-  {
-    [_ht]: ["POST", "/UpdateReplicationConfigurationTemplate", 200],
-  },
+  { [_ht]: ["POST", "/UpdateReplicationConfigurationTemplate", 200] },
   () => UpdateReplicationConfigurationTemplateRequest,
   () => ReplicationConfigurationTemplate,
 ];
@@ -2262,9 +2032,7 @@ export var UpdateSourceServer: StaticOperationSchema = [
   9,
   n0,
   _USS,
-  {
-    [_ht]: ["POST", "/UpdateSourceServer", 200],
-  },
+  { [_ht]: ["POST", "/UpdateSourceServer", 200] },
   () => UpdateSourceServerRequest,
   () => SourceServer,
 ];
@@ -2272,9 +2040,7 @@ export var UpdateSourceServerReplicationType: StaticOperationSchema = [
   9,
   n0,
   _USSRT,
-  {
-    [_ht]: ["POST", "/UpdateSourceServerReplicationType", 200],
-  },
+  { [_ht]: ["POST", "/UpdateSourceServerReplicationType", 200] },
   () => UpdateSourceServerReplicationTypeRequest,
   () => SourceServer,
 ];
@@ -2282,9 +2048,7 @@ export var UpdateWave: StaticOperationSchema = [
   9,
   n0,
   _UWp,
-  {
-    [_ht]: ["POST", "/UpdateWave", 200],
-  },
+  { [_ht]: ["POST", "/UpdateWave", 200] },
   () => UpdateWaveRequest,
   () => Wave,
 ];

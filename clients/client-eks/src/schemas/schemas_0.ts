@@ -667,21 +667,9 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessConfigResponse: StaticStructureSchema = [3, n0, _ACR, 0, [_bCCAP, _aM], [2, 0]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessEntry: StaticStructureSchema = [
   3,
   n0,
@@ -811,19 +799,8 @@ export var AssociateIdentityProviderConfigResponse: StaticStructureSchema = [
   [() => Update, 128 | 0],
 ];
 export var AutoScalingGroup: StaticStructureSchema = [3, n0, _ASG, 0, [_n], [0]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BlockStorage: StaticStructureSchema = [3, n0, _BS, 0, [_en], [2]];
 export var Capability: StaticStructureSchema = [
   3,
@@ -857,15 +834,11 @@ export var ClientException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_cN, _nN, _aN, _sI, _m],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ClientException, __ClientException);
-
 export var ClientStat: StaticStructureSchema = [3, n0, _CSl, 0, [_uA, _nORLD, _lRT], [0, 1, 4]];
 export var Cluster: StaticStructureSchema = [
   3,
@@ -1106,12 +1079,7 @@ export var DeleteAddonRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _pre,
-      },
-    ],
+    [2, { [_hQ]: _pre }],
   ],
 ];
 export var DeleteAddonResponse: StaticStructureSchema = [3, n0, _DARe, 0, [_ad], [() => Addon]];
@@ -1210,18 +1178,8 @@ export var DescribeAddonConfigurationRequest: StaticStructureSchema = [
   0,
   [_aN, _aV],
   [
-    [
-      0,
-      {
-        [_hQ]: _aN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aV,
-      },
-    ],
+    [0, { [_hQ]: _aN }],
+    [0, { [_hQ]: _aV }],
   ],
 ];
 export var DescribeAddonConfigurationResponse: StaticStructureSchema = [
@@ -1251,48 +1209,13 @@ export var DescribeAddonVersionsRequest: StaticStructureSchema = [
   0,
   [_kV, _mR, _nT, _aN, _typ, _pu, _ow],
   [
-    [
-      0,
-      {
-        [_hQ]: _kV,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _typ,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _pu,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _ow,
-      },
-    ],
+    [0, { [_hQ]: _kV }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _aN }],
+    [64 | 0, { [_hQ]: _typ }],
+    [64 | 0, { [_hQ]: _pu }],
+    [64 | 0, { [_hQ]: _ow }],
   ],
 ];
 export var DescribeAddonVersionsResponse: StaticStructureSchema = [3, n0, _DAVRe, 0, [_add, _nT], [() => Addons, 0]];
@@ -1317,54 +1240,14 @@ export var DescribeClusterVersionsRequest: StaticStructureSchema = [
   0,
   [_cTl, _mR, _nT, _dO, _iA, _cVlu, _s, _vS],
   [
-    [
-      0,
-      {
-        [_hQ]: _cTl,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _dO,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _cVlu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vS,
-      },
-    ],
+    [0, { [_hQ]: _cTl }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [2, { [_hQ]: _dO }],
+    [2, { [_hQ]: _iA }],
+    [64 | 0, { [_hQ]: _cVlu }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _vS }],
   ],
 ];
 export var DescribeClusterVersionsResponse: StaticStructureSchema = [
@@ -1473,24 +1356,9 @@ export var DescribeUpdateRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cNa,
-      },
-    ],
+    [0, { [_hQ]: _nN }],
+    [0, { [_hQ]: _aN }],
+    [0, { [_hQ]: _cNa }],
   ],
 ];
 export var DescribeUpdateResponse: StaticStructureSchema = [3, n0, _DURe, 0, [_up], [() => Update]];
@@ -1607,41 +1475,22 @@ export var InvalidParameterException: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_cN, _nN, _fPN, _aN, _sI, _m],
   [0, 0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var InvalidRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_cN, _nN, _aN, _sI, _m],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var InvalidStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_cN, _m],
-  [0, 0],
-];
+export var InvalidStateException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c, [_hE]: 400 }, [_cN, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
 export var Issue: StaticStructureSchema = [3, n0, _Is, 0, [_co, _m, _rI], [0, 0, 64 | 0]];
 export var KubernetesNetworkConfigRequest: StaticStructureSchema = [
   3,
@@ -1669,24 +1518,9 @@ export var ListAccessEntriesRequest: StaticStructureSchema = [
   [_cN, _aPA, _mR, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aPA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _aPA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAccessEntriesResponse: StaticStructureSchema = [3, n0, _LAERi, 0, [_aEcc, _nT], [64 | 0, 0]];
@@ -1697,18 +1531,8 @@ export var ListAccessPoliciesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAccessPoliciesResponse: StaticStructureSchema = [
@@ -1727,18 +1551,8 @@ export var ListAddonsRequest: StaticStructureSchema = [
   [_cN, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAddonsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_add, _nT], [64 | 0, 0]];
@@ -1751,18 +1565,8 @@ export var ListAssociatedAccessPoliciesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAssociatedAccessPoliciesResponse: StaticStructureSchema = [
@@ -1781,18 +1585,8 @@ export var ListCapabilitiesRequest: StaticStructureSchema = [
   [_cN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCapabilitiesResponse: StaticStructureSchema = [
@@ -1810,24 +1604,9 @@ export var ListClustersRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _inc],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _inc,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [64 | 0, { [_hQ]: _inc }],
   ],
 ];
 export var ListClustersResponse: StaticStructureSchema = [3, n0, _LCRist, 0, [_clu, _nT], [64 | 0, 0]];
@@ -1838,24 +1617,9 @@ export var ListEksAnywhereSubscriptionsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _iSn],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _iSn,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [64 | 0, { [_hQ]: _iSn }],
   ],
 ];
 export var ListEksAnywhereSubscriptionsResponse: StaticStructureSchema = [
@@ -1874,18 +1638,8 @@ export var ListFargateProfilesRequest: StaticStructureSchema = [
   [_cN, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListFargateProfilesResponse: StaticStructureSchema = [3, n0, _LFPRi, 0, [_fPNa, _nT], [64 | 0, 0]];
@@ -1897,18 +1651,8 @@ export var ListIdentityProviderConfigsRequest: StaticStructureSchema = [
   [_cN, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListIdentityProviderConfigsResponse: StaticStructureSchema = [
@@ -1936,18 +1680,8 @@ export var ListNodegroupsRequest: StaticStructureSchema = [
   [_cN, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListNodegroupsResponse: StaticStructureSchema = [3, n0, _LNRi, 0, [_nod, _nT], [64 | 0, 0]];
@@ -1959,30 +1693,10 @@ export var ListPodIdentityAssociationsRequest: StaticStructureSchema = [
   [_cN, _nam, _sA, _mR, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nam,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nam }],
+    [0, { [_hQ]: _sA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPodIdentityAssociationsResponse: StaticStructureSchema = [
@@ -2003,36 +1717,11 @@ export var ListUpdatesRequest: StaticStructureSchema = [
   [_n, _nN, _aN, _cNa, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cNa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nN }],
+    [0, { [_hQ]: _aN }],
+    [0, { [_hQ]: _cNa }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListUpdatesResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_uIp, _nT], [64 | 0, 0]];
@@ -2117,19 +1806,8 @@ export var NodeRepairConfigOverrides: StaticStructureSchema = [
   [_nMC, _nUR, _mRWTM, _rAep],
   [0, 0, 1, 0],
 ];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OIDC: StaticStructureSchema = [3, n0, _OIDC, 0, [_is], [0]];
 export var OidcIdentityProviderConfig: StaticStructureSchema = [
   3,
@@ -2212,80 +1890,42 @@ export var ResourceInUseException: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_cN, _nN, _aN, _m],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
 export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_cN, _nN, _sI, _m],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_cN, _nN, _fPN, _aN, _sI, _m],
   [0, 0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourcePropagationDelayException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RPDE,
-  {
-    [_e]: _c,
-    [_hE]: 428,
-  },
-  [_m],
-  [0],
-];
+export var ResourcePropagationDelayException: StaticErrorSchema = [-3, n0, _RPDE, { [_e]: _c, [_hE]: 428 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourcePropagationDelayException, __ResourcePropagationDelayException);
-
 export var ServerException: StaticErrorSchema = [
   -3,
   n0,
   _SE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
+  { [_e]: _ser, [_hE]: 500 },
   [_cN, _nN, _aN, _sI, _m],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServerException, __ServerException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _ser,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _ser, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SsoIdentity: StaticStructureSchema = [3, n0, _SI, 0, [_id_, _ty], [0, 0]];
 export var StartInsightsRefreshRequest: StaticStructureSchema = [3, n0, _SIRR, 0, [_cN], [[0, 1]]];
 export var StartInsightsRefreshResponse: StaticStructureSchema = [3, n0, _SIRRt, 0, [_m, _s], [0, 0]];
@@ -2294,32 +1934,17 @@ export var StorageConfigResponse: StaticStructureSchema = [3, n0, _SCRt, 0, [_bS
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAes, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var Taint: StaticStructureSchema = [3, n0, _T, 0, [_k, _va, _ef], [0, 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_cN, _m],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_cN, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UnsupportedAvailabilityZoneException: StaticErrorSchema = [
   -3,
   n0,
   _UAZE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _cN, _nN, _vZ],
   [0, 0, 0, 64 | 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedAvailabilityZoneException, __UnsupportedAvailabilityZoneException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2328,12 +1953,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAes, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2512,10 +2132,8 @@ export var VpcConfigResponse: StaticStructureSchema = [
 export var ZonalShiftConfigRequest: StaticStructureSchema = [3, n0, _ZSCR, 0, [_en], [2]];
 export var ZonalShiftConfigResponse: StaticStructureSchema = [3, n0, _ZSCRo, 0, [_en], [2]];
 export var __Unit = "unit" as const;
-
 export var EKSServiceException: StaticErrorSchema = [-3, _sm, "EKSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EKSServiceException, __EKSServiceException);
-
 export var AccessPoliciesList: StaticListSchema = [1, n0, _APL, 0, () => AccessPolicy];
 export var AddonCompatibilityDetails: StaticListSchema = [1, n0, _ACDd, 0, () => AddonCompatibilityDetail];
 export var AddonIssueList: StaticListSchema = [1, n0, _AIL, 0, () => AddonIssue];
@@ -2535,7 +2153,6 @@ export var AutoScalingGroupList: StaticListSchema = [1, n0, _ASGL, 0, () => Auto
 export var CapabilityIssueList: StaticListSchema = [1, n0, _CIL, 0, () => CapabilityIssue];
 export var CapabilitySummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CapabilitySummary];
 export var CategoryList = 64 | 0;
-
 export var ClientStats: StaticListSchema = [1, n0, _CSli, 0, () => ClientStat];
 export var ClusterIssueList: StaticListSchema = [1, n0, _CILl, 0, () => ClusterIssue];
 export var ClusterVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ClusterVersionInformation];
@@ -2543,53 +2160,39 @@ export var Compatibilities: StaticListSchema = [1, n0, _Com, 0, () => Compatibil
 export var DeprecationDetails: StaticListSchema = [1, n0, _DDe, 0, () => DeprecationDetail];
 export var EksAnywhereSubscriptionList: StaticListSchema = [1, n0, _EASL, 0, () => EksAnywhereSubscription];
 export var EksAnywhereSubscriptionStatusValues = 64 | 0;
-
 export var EncryptionConfigList: StaticListSchema = [1, n0, _ECL, 0, () => EncryptionConfig];
 export var ErrorDetails: StaticListSchema = [1, n0, _EDr, 0, () => ErrorDetail];
 export var FargateProfileIssueList: StaticListSchema = [1, n0, _FPIL, 0, () => FargateProfileIssue];
 export var FargateProfileSelectors: StaticListSchema = [1, n0, _FPSa, 0, () => FargateProfileSelector];
 export var IdentityProviderConfigs: StaticListSchema = [1, n0, _IPCd, 0, () => IdentityProviderConfig];
 export var IncludeClustersList = 64 | 0;
-
 export var InsightResourceDetails: StaticListSchema = [1, n0, _IRDn, 0, () => InsightResourceDetail];
 export var InsightStatusValueList = 64 | 0;
-
 export var InsightSummaries: StaticListSchema = [1, n0, _ISns, 0, () => InsightSummary];
 export var IssueList: StaticListSchema = [1, n0, _IL, 0, () => Issue];
 export var labelsKeyList = 64 | 0;
-
 export var LicenseList: StaticListSchema = [1, n0, _LL, 0, () => License];
 export var LogSetups: StaticListSchema = [1, n0, _LSo, 0, () => LogSetup];
 export var LogTypes = 64 | 0;
-
 export var NodeRepairConfigOverridesList: StaticListSchema = [1, n0, _NRCOL, 0, () => NodeRepairConfigOverrides];
 export var PodIdentityAssociationSummaries: StaticListSchema = [1, n0, _PIASo, 0, () => PodIdentityAssociationSummary];
 export var RemoteNodeNetworkList: StaticListSchema = [1, n0, _RNNL, 0, () => RemoteNodeNetwork];
 export var RemotePodNetworkList: StaticListSchema = [1, n0, _RPNL, 0, () => RemotePodNetwork];
 export var SsoIdentityList: StaticListSchema = [1, n0, _SIL, 0, () => SsoIdentity];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var taintsList: StaticListSchema = [1, n0, _tL, 0, () => Taint];
 export var UpdateParams: StaticListSchema = [1, n0, _UPp, 0, () => UpdateParam];
 export var AdditionalInfoMap = 128 | 0;
-
 export var FargateProfileLabel = 128 | 0;
-
 export var labelsMap = 128 | 0;
-
 export var requiredClaimsMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AssociateAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _AAPs,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/access-entries/{principalArn}/access-policies", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/access-entries/{principalArn}/access-policies", 200] },
   () => AssociateAccessPolicyRequest,
   () => AssociateAccessPolicyResponse,
 ];
@@ -2597,9 +2200,7 @@ export var AssociateEncryptionConfig: StaticOperationSchema = [
   9,
   n0,
   _AEC,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/encryption-config/associate", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/encryption-config/associate", 200] },
   () => AssociateEncryptionConfigRequest,
   () => AssociateEncryptionConfigResponse,
 ];
@@ -2607,9 +2208,7 @@ export var AssociateIdentityProviderConfig: StaticOperationSchema = [
   9,
   n0,
   _AIPC,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/identity-provider-configs/associate", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/identity-provider-configs/associate", 200] },
   () => AssociateIdentityProviderConfigRequest,
   () => AssociateIdentityProviderConfigResponse,
 ];
@@ -2617,9 +2216,7 @@ export var CreateAccessEntry: StaticOperationSchema = [
   9,
   n0,
   _CAE,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/access-entries", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/access-entries", 200] },
   () => CreateAccessEntryRequest,
   () => CreateAccessEntryResponse,
 ];
@@ -2627,9 +2224,7 @@ export var CreateAddon: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/addons", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/addons", 200] },
   () => CreateAddonRequest,
   () => CreateAddonResponse,
 ];
@@ -2637,9 +2232,7 @@ export var CreateCapability: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/capabilities", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/capabilities", 200] },
   () => CreateCapabilityRequest,
   () => CreateCapabilityResponse,
 ];
@@ -2647,9 +2240,7 @@ export var CreateCluster: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_ht]: ["POST", "/clusters", 200],
-  },
+  { [_ht]: ["POST", "/clusters", 200] },
   () => CreateClusterRequest,
   () => CreateClusterResponse,
 ];
@@ -2657,9 +2248,7 @@ export var CreateEksAnywhereSubscription: StaticOperationSchema = [
   9,
   n0,
   _CEAS,
-  {
-    [_ht]: ["POST", "/eks-anywhere-subscriptions", 200],
-  },
+  { [_ht]: ["POST", "/eks-anywhere-subscriptions", 200] },
   () => CreateEksAnywhereSubscriptionRequest,
   () => CreateEksAnywhereSubscriptionResponse,
 ];
@@ -2667,9 +2256,7 @@ export var CreateFargateProfile: StaticOperationSchema = [
   9,
   n0,
   _CFP,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/fargate-profiles", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/fargate-profiles", 200] },
   () => CreateFargateProfileRequest,
   () => CreateFargateProfileResponse,
 ];
@@ -2677,9 +2264,7 @@ export var CreateNodegroup: StaticOperationSchema = [
   9,
   n0,
   _CN,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/node-groups", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/node-groups", 200] },
   () => CreateNodegroupRequest,
   () => CreateNodegroupResponse,
 ];
@@ -2687,9 +2272,7 @@ export var CreatePodIdentityAssociation: StaticOperationSchema = [
   9,
   n0,
   _CPIA,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/pod-identity-associations", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/pod-identity-associations", 200] },
   () => CreatePodIdentityAssociationRequest,
   () => CreatePodIdentityAssociationResponse,
 ];
@@ -2697,9 +2280,7 @@ export var DeleteAccessEntry: StaticOperationSchema = [
   9,
   n0,
   _DAE,
-  {
-    [_ht]: ["DELETE", "/clusters/{clusterName}/access-entries/{principalArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{clusterName}/access-entries/{principalArn}", 200] },
   () => DeleteAccessEntryRequest,
   () => DeleteAccessEntryResponse,
 ];
@@ -2707,9 +2288,7 @@ export var DeleteAddon: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_ht]: ["DELETE", "/clusters/{clusterName}/addons/{addonName}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{clusterName}/addons/{addonName}", 200] },
   () => DeleteAddonRequest,
   () => DeleteAddonResponse,
 ];
@@ -2717,9 +2296,7 @@ export var DeleteCapability: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_ht]: ["DELETE", "/clusters/{clusterName}/capabilities/{capabilityName}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{clusterName}/capabilities/{capabilityName}", 200] },
   () => DeleteCapabilityRequest,
   () => DeleteCapabilityResponse,
 ];
@@ -2727,9 +2304,7 @@ export var DeleteCluster: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_ht]: ["DELETE", "/clusters/{name}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{name}", 200] },
   () => DeleteClusterRequest,
   () => DeleteClusterResponse,
 ];
@@ -2737,9 +2312,7 @@ export var DeleteEksAnywhereSubscription: StaticOperationSchema = [
   9,
   n0,
   _DEAS,
-  {
-    [_ht]: ["DELETE", "/eks-anywhere-subscriptions/{id}", 200],
-  },
+  { [_ht]: ["DELETE", "/eks-anywhere-subscriptions/{id}", 200] },
   () => DeleteEksAnywhereSubscriptionRequest,
   () => DeleteEksAnywhereSubscriptionResponse,
 ];
@@ -2747,9 +2320,7 @@ export var DeleteFargateProfile: StaticOperationSchema = [
   9,
   n0,
   _DFP,
-  {
-    [_ht]: ["DELETE", "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}", 200] },
   () => DeleteFargateProfileRequest,
   () => DeleteFargateProfileResponse,
 ];
@@ -2757,9 +2328,7 @@ export var DeleteNodegroup: StaticOperationSchema = [
   9,
   n0,
   _DN,
-  {
-    [_ht]: ["DELETE", "/clusters/{clusterName}/node-groups/{nodegroupName}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{clusterName}/node-groups/{nodegroupName}", 200] },
   () => DeleteNodegroupRequest,
   () => DeleteNodegroupResponse,
 ];
@@ -2767,9 +2336,7 @@ export var DeletePodIdentityAssociation: StaticOperationSchema = [
   9,
   n0,
   _DPIA,
-  {
-    [_ht]: ["DELETE", "/clusters/{clusterName}/pod-identity-associations/{associationId}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{clusterName}/pod-identity-associations/{associationId}", 200] },
   () => DeletePodIdentityAssociationRequest,
   () => DeletePodIdentityAssociationResponse,
 ];
@@ -2777,9 +2344,7 @@ export var DeregisterCluster: StaticOperationSchema = [
   9,
   n0,
   _DCer,
-  {
-    [_ht]: ["DELETE", "/cluster-registrations/{name}", 200],
-  },
+  { [_ht]: ["DELETE", "/cluster-registrations/{name}", 200] },
   () => DeregisterClusterRequest,
   () => DeregisterClusterResponse,
 ];
@@ -2787,9 +2352,7 @@ export var DescribeAccessEntry: StaticOperationSchema = [
   9,
   n0,
   _DAEe,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/access-entries/{principalArn}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/access-entries/{principalArn}", 200] },
   () => DescribeAccessEntryRequest,
   () => DescribeAccessEntryResponse,
 ];
@@ -2797,9 +2360,7 @@ export var DescribeAddon: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/addons/{addonName}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/addons/{addonName}", 200] },
   () => DescribeAddonRequest,
   () => DescribeAddonResponse,
 ];
@@ -2807,9 +2368,7 @@ export var DescribeAddonConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DAC,
-  {
-    [_ht]: ["GET", "/addons/configuration-schemas", 200],
-  },
+  { [_ht]: ["GET", "/addons/configuration-schemas", 200] },
   () => DescribeAddonConfigurationRequest,
   () => DescribeAddonConfigurationResponse,
 ];
@@ -2817,9 +2376,7 @@ export var DescribeAddonVersions: StaticOperationSchema = [
   9,
   n0,
   _DAV,
-  {
-    [_ht]: ["GET", "/addons/supported-versions", 200],
-  },
+  { [_ht]: ["GET", "/addons/supported-versions", 200] },
   () => DescribeAddonVersionsRequest,
   () => DescribeAddonVersionsResponse,
 ];
@@ -2827,9 +2384,7 @@ export var DescribeCapability: StaticOperationSchema = [
   9,
   n0,
   _DCes,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/capabilities/{capabilityName}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/capabilities/{capabilityName}", 200] },
   () => DescribeCapabilityRequest,
   () => DescribeCapabilityResponse,
 ];
@@ -2837,9 +2392,7 @@ export var DescribeCluster: StaticOperationSchema = [
   9,
   n0,
   _DCesc,
-  {
-    [_ht]: ["GET", "/clusters/{name}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{name}", 200] },
   () => DescribeClusterRequest,
   () => DescribeClusterResponse,
 ];
@@ -2847,9 +2400,7 @@ export var DescribeClusterVersions: StaticOperationSchema = [
   9,
   n0,
   _DCV,
-  {
-    [_ht]: ["GET", "/cluster-versions", 200],
-  },
+  { [_ht]: ["GET", "/cluster-versions", 200] },
   () => DescribeClusterVersionsRequest,
   () => DescribeClusterVersionsResponse,
 ];
@@ -2857,9 +2408,7 @@ export var DescribeEksAnywhereSubscription: StaticOperationSchema = [
   9,
   n0,
   _DEASe,
-  {
-    [_ht]: ["GET", "/eks-anywhere-subscriptions/{id}", 200],
-  },
+  { [_ht]: ["GET", "/eks-anywhere-subscriptions/{id}", 200] },
   () => DescribeEksAnywhereSubscriptionRequest,
   () => DescribeEksAnywhereSubscriptionResponse,
 ];
@@ -2867,9 +2416,7 @@ export var DescribeFargateProfile: StaticOperationSchema = [
   9,
   n0,
   _DFPe,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}", 200] },
   () => DescribeFargateProfileRequest,
   () => DescribeFargateProfileResponse,
 ];
@@ -2877,9 +2424,7 @@ export var DescribeIdentityProviderConfig: StaticOperationSchema = [
   9,
   n0,
   _DIPC,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/identity-provider-configs/describe", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/identity-provider-configs/describe", 200] },
   () => DescribeIdentityProviderConfigRequest,
   () => DescribeIdentityProviderConfigResponse,
 ];
@@ -2887,9 +2432,7 @@ export var DescribeInsight: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/insights/{id}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/insights/{id}", 200] },
   () => DescribeInsightRequest,
   () => DescribeInsightResponse,
 ];
@@ -2897,9 +2440,7 @@ export var DescribeInsightsRefresh: StaticOperationSchema = [
   9,
   n0,
   _DIRes,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/insights-refresh", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/insights-refresh", 200] },
   () => DescribeInsightsRefreshRequest,
   () => DescribeInsightsRefreshResponse,
 ];
@@ -2907,9 +2448,7 @@ export var DescribeNodegroup: StaticOperationSchema = [
   9,
   n0,
   _DNe,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/node-groups/{nodegroupName}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/node-groups/{nodegroupName}", 200] },
   () => DescribeNodegroupRequest,
   () => DescribeNodegroupResponse,
 ];
@@ -2917,9 +2456,7 @@ export var DescribePodIdentityAssociation: StaticOperationSchema = [
   9,
   n0,
   _DPIAe,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/pod-identity-associations/{associationId}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/pod-identity-associations/{associationId}", 200] },
   () => DescribePodIdentityAssociationRequest,
   () => DescribePodIdentityAssociationResponse,
 ];
@@ -2927,9 +2464,7 @@ export var DescribeUpdate: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_ht]: ["GET", "/clusters/{name}/updates/{updateId}", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{name}/updates/{updateId}", 200] },
   () => DescribeUpdateRequest,
   () => DescribeUpdateResponse,
 ];
@@ -2937,9 +2472,7 @@ export var DisassociateAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _DAP,
-  {
-    [_ht]: ["DELETE", "/clusters/{clusterName}/access-entries/{principalArn}/access-policies/{policyArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/clusters/{clusterName}/access-entries/{principalArn}/access-policies/{policyArn}", 200] },
   () => DisassociateAccessPolicyRequest,
   () => DisassociateAccessPolicyResponse,
 ];
@@ -2947,9 +2480,7 @@ export var DisassociateIdentityProviderConfig: StaticOperationSchema = [
   9,
   n0,
   _DIPCi,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/identity-provider-configs/disassociate", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/identity-provider-configs/disassociate", 200] },
   () => DisassociateIdentityProviderConfigRequest,
   () => DisassociateIdentityProviderConfigResponse,
 ];
@@ -2957,9 +2488,7 @@ export var ListAccessEntries: StaticOperationSchema = [
   9,
   n0,
   _LAE,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/access-entries", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/access-entries", 200] },
   () => ListAccessEntriesRequest,
   () => ListAccessEntriesResponse,
 ];
@@ -2967,9 +2496,7 @@ export var ListAccessPolicies: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_ht]: ["GET", "/access-policies", 200],
-  },
+  { [_ht]: ["GET", "/access-policies", 200] },
   () => ListAccessPoliciesRequest,
   () => ListAccessPoliciesResponse,
 ];
@@ -2977,9 +2504,7 @@ export var ListAddons: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/addons", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/addons", 200] },
   () => ListAddonsRequest,
   () => ListAddonsResponse,
 ];
@@ -2987,9 +2512,7 @@ export var ListAssociatedAccessPolicies: StaticOperationSchema = [
   9,
   n0,
   _LAAP,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/access-entries/{principalArn}/access-policies", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/access-entries/{principalArn}/access-policies", 200] },
   () => ListAssociatedAccessPoliciesRequest,
   () => ListAssociatedAccessPoliciesResponse,
 ];
@@ -2997,9 +2520,7 @@ export var ListCapabilities: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/capabilities", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/capabilities", 200] },
   () => ListCapabilitiesRequest,
   () => ListCapabilitiesResponse,
 ];
@@ -3007,9 +2528,7 @@ export var ListClusters: StaticOperationSchema = [
   9,
   n0,
   _LCi,
-  {
-    [_ht]: ["GET", "/clusters", 200],
-  },
+  { [_ht]: ["GET", "/clusters", 200] },
   () => ListClustersRequest,
   () => ListClustersResponse,
 ];
@@ -3017,9 +2536,7 @@ export var ListEksAnywhereSubscriptions: StaticOperationSchema = [
   9,
   n0,
   _LEAS,
-  {
-    [_ht]: ["GET", "/eks-anywhere-subscriptions", 200],
-  },
+  { [_ht]: ["GET", "/eks-anywhere-subscriptions", 200] },
   () => ListEksAnywhereSubscriptionsRequest,
   () => ListEksAnywhereSubscriptionsResponse,
 ];
@@ -3027,9 +2544,7 @@ export var ListFargateProfiles: StaticOperationSchema = [
   9,
   n0,
   _LFP,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/fargate-profiles", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/fargate-profiles", 200] },
   () => ListFargateProfilesRequest,
   () => ListFargateProfilesResponse,
 ];
@@ -3037,9 +2552,7 @@ export var ListIdentityProviderConfigs: StaticOperationSchema = [
   9,
   n0,
   _LIPC,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/identity-provider-configs", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/identity-provider-configs", 200] },
   () => ListIdentityProviderConfigsRequest,
   () => ListIdentityProviderConfigsResponse,
 ];
@@ -3047,9 +2560,7 @@ export var ListInsights: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/insights", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/insights", 200] },
   () => ListInsightsRequest,
   () => ListInsightsResponse,
 ];
@@ -3057,9 +2568,7 @@ export var ListNodegroups: StaticOperationSchema = [
   9,
   n0,
   _LN,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/node-groups", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/node-groups", 200] },
   () => ListNodegroupsRequest,
   () => ListNodegroupsResponse,
 ];
@@ -3067,9 +2576,7 @@ export var ListPodIdentityAssociations: StaticOperationSchema = [
   9,
   n0,
   _LPIA,
-  {
-    [_ht]: ["GET", "/clusters/{clusterName}/pod-identity-associations", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{clusterName}/pod-identity-associations", 200] },
   () => ListPodIdentityAssociationsRequest,
   () => ListPodIdentityAssociationsResponse,
 ];
@@ -3077,9 +2584,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3087,9 +2592,7 @@ export var ListUpdates: StaticOperationSchema = [
   9,
   n0,
   _LU,
-  {
-    [_ht]: ["GET", "/clusters/{name}/updates", 200],
-  },
+  { [_ht]: ["GET", "/clusters/{name}/updates", 200] },
   () => ListUpdatesRequest,
   () => ListUpdatesResponse,
 ];
@@ -3097,9 +2600,7 @@ export var RegisterCluster: StaticOperationSchema = [
   9,
   n0,
   _RC,
-  {
-    [_ht]: ["POST", "/cluster-registrations", 200],
-  },
+  { [_ht]: ["POST", "/cluster-registrations", 200] },
   () => RegisterClusterRequest,
   () => RegisterClusterResponse,
 ];
@@ -3107,9 +2608,7 @@ export var StartInsightsRefresh: StaticOperationSchema = [
   9,
   n0,
   _SIR,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/insights-refresh", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/insights-refresh", 200] },
   () => StartInsightsRefreshRequest,
   () => StartInsightsRefreshResponse,
 ];
@@ -3117,9 +2616,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -3127,9 +2624,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -3137,9 +2632,7 @@ export var UpdateAccessEntry: StaticOperationSchema = [
   9,
   n0,
   _UAE,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/access-entries/{principalArn}", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/access-entries/{principalArn}", 200] },
   () => UpdateAccessEntryRequest,
   () => UpdateAccessEntryResponse,
 ];
@@ -3147,9 +2640,7 @@ export var UpdateAddon: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/addons/{addonName}/update", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/addons/{addonName}/update", 200] },
   () => UpdateAddonRequest,
   () => UpdateAddonResponse,
 ];
@@ -3157,9 +2648,7 @@ export var UpdateCapability: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/capabilities/{capabilityName}", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/capabilities/{capabilityName}", 200] },
   () => UpdateCapabilityRequest,
   () => UpdateCapabilityResponse,
 ];
@@ -3167,9 +2656,7 @@ export var UpdateClusterConfig: StaticOperationSchema = [
   9,
   n0,
   _UCCp,
-  {
-    [_ht]: ["POST", "/clusters/{name}/update-config", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{name}/update-config", 200] },
   () => UpdateClusterConfigRequest,
   () => UpdateClusterConfigResponse,
 ];
@@ -3177,9 +2664,7 @@ export var UpdateClusterVersion: StaticOperationSchema = [
   9,
   n0,
   _UCV,
-  {
-    [_ht]: ["POST", "/clusters/{name}/updates", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{name}/updates", 200] },
   () => UpdateClusterVersionRequest,
   () => UpdateClusterVersionResponse,
 ];
@@ -3187,9 +2672,7 @@ export var UpdateEksAnywhereSubscription: StaticOperationSchema = [
   9,
   n0,
   _UEAS,
-  {
-    [_ht]: ["POST", "/eks-anywhere-subscriptions/{id}", 200],
-  },
+  { [_ht]: ["POST", "/eks-anywhere-subscriptions/{id}", 200] },
   () => UpdateEksAnywhereSubscriptionRequest,
   () => UpdateEksAnywhereSubscriptionResponse,
 ];
@@ -3197,9 +2680,7 @@ export var UpdateNodegroupConfig: StaticOperationSchema = [
   9,
   n0,
   _UNC,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config", 200] },
   () => UpdateNodegroupConfigRequest,
   () => UpdateNodegroupConfigResponse,
 ];
@@ -3207,9 +2688,7 @@ export var UpdateNodegroupVersion: StaticOperationSchema = [
   9,
   n0,
   _UNV,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version", 200] },
   () => UpdateNodegroupVersionRequest,
   () => UpdateNodegroupVersionResponse,
 ];
@@ -3217,9 +2696,7 @@ export var UpdatePodIdentityAssociation: StaticOperationSchema = [
   9,
   n0,
   _UPIA,
-  {
-    [_ht]: ["POST", "/clusters/{clusterName}/pod-identity-associations/{associationId}", 200],
-  },
+  { [_ht]: ["POST", "/clusters/{clusterName}/pod-identity-associations/{associationId}", 200] },
   () => UpdatePodIdentityAssociationRequest,
   () => UpdatePodIdentityAssociationResponse,
 ];

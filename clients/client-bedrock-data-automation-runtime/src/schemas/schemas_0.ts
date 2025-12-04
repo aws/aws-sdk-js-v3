@@ -111,20 +111,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssetProcessingConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -154,19 +142,8 @@ export var InputConfiguration: StaticStructureSchema = [
   [_sU, _aPC],
   [0, () => AssetProcessingConfiguration],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvokeDataAutomationAsyncRequest: StaticStructureSchema = [
   3,
   n0,
@@ -213,78 +190,23 @@ export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi,
 export var NotificationConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_eBC], [() => EventBridgeConfiguration]];
 export var OutputConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_sU], [0]];
 export var OutputSegment: StaticStructureSchema = [3, n0, _OS, 0, [_cOS, _cO, _sO], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SyncInputConfiguration: StaticStructureSchema = [3, n0, _SIC, 0, [_by, _sU], [21, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimestampSegment: StaticStructureSchema = [3, n0, _TS, 0, [_sTM, _eTM], [1, 1]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rARN, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VideoAssetProcessingConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -294,7 +216,6 @@ export var VideoAssetProcessingConfiguration: StaticStructureSchema = [
   [() => VideoSegmentConfiguration],
 ];
 export var __Unit = "unit" as const;
-
 export var BedrockDataAutomationRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -307,14 +228,11 @@ TypeRegistry.for(_sm).registerError(
   BedrockDataAutomationRuntimeServiceException,
   __BedrockDataAutomationRuntimeServiceException
 );
-
 export var BlueprintList: StaticListSchema = [1, n0, _BL, 0, () => Blueprint];
 export var OutputSegmentList: StaticListSchema = [1, n0, _OSL, 0, () => OutputSegment];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var EncryptionContextMap = 128 | 0;
-
 export var VideoSegmentConfiguration: StaticStructureSchema = [3, n0, _VSC, 0, [_tS], [() => TimestampSegment]];
 export var GetDataAutomationStatus: StaticOperationSchema = [
   9,

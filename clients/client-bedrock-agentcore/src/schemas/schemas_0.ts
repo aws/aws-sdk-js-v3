@@ -418,7 +418,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessTokenType: StaticSimpleSchema = [0, n0, _ATT, 8, 0];
 export var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 export var AuthorizationUrlType: StaticSimpleSchema = [0, n0, _AUT, 8, 0];
@@ -426,33 +425,13 @@ export var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 export var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
 export var Document: StaticSimpleSchema = [0, n0, _D, 8, 15];
 export var EvaluationExplanation: StaticSimpleSchema = [0, n0, _EE, 8, 0];
-export var ResponseStream: StaticSimpleSchema = [
-  0,
-  n0,
-  _RS,
-  {
-    [_s]: 1,
-    [_se]: 1,
-  },
-  42,
-];
+export var ResponseStream: StaticSimpleSchema = [0, n0, _RS, { [_s]: 1, [_se]: 1 }, 42];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var State: StaticSimpleSchema = [0, n0, _S, 8, 0];
 export var UserTokenType: StaticSimpleSchema = [0, n0, _UTT, 8, 0];
 export var WorkloadIdentityTokenType: StaticSimpleSchema = [0, n0, _WITT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActorSummary: StaticStructureSchema = [3, n0, _AS, 0, [_aI], [0]];
 export var AutomationStream: StaticStructureSchema = [3, n0, _ASu, 0, [_sE, _sS], [0, 0]];
 export var AutomationStreamUpdate: StaticStructureSchema = [3, n0, _ASU, 0, [_sS], [0]];
@@ -554,19 +533,8 @@ export var CompleteResourceTokenAuthRequest: StaticStructureSchema = [
   [[() => UserIdentifier, 0], 0],
 ];
 export var CompleteResourceTokenAuthResponse: StaticStructureSchema = [3, n0, _CRTARo, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContentBlock: StaticStructureSchema = [
   3,
   n0,
@@ -611,19 +579,8 @@ export var DeleteMemoryRecordInput: StaticStructureSchema = [
   ],
 ];
 export var DeleteMemoryRecordOutput: StaticStructureSchema = [3, n0, _DMRO, 0, [_mRI], [0]];
-export var DuplicateIdException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DIE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var DuplicateIdException: StaticErrorSchema = [-3, n0, _DIE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DuplicateIdException, __DuplicateIdException);
-
 export var EvaluateRequest: StaticStructureSchema = [
   3,
   n0,
@@ -682,20 +639,9 @@ export var GetAgentCardRequest: StaticStructureSchema = [
   0,
   [_rSI, _aRA, _q],
   [
-    [
-      0,
-      {
-        [_hH]: _XABARSI,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XABARSI, [_iT]: 1 }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _q,
-      },
-    ],
+    [0, { [_hQ]: _q }],
   ],
 ];
 export var GetAgentCardResponse: StaticStructureSchema = [
@@ -705,12 +651,7 @@ export var GetAgentCardResponse: StaticStructureSchema = [
   0,
   [_rSI, _aC, _sCt],
   [
-    [
-      0,
-      {
-        [_hH]: _XABARSI,
-      },
-    ],
+    [0, { [_hH]: _XABARSI }],
     [15, 16],
     [1, 32],
   ],
@@ -723,12 +664,7 @@ export var GetBrowserSessionRequest: StaticStructureSchema = [
   [_bI, _sI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
+    [0, { [_hQ]: _sI }],
   ],
 ];
 export var GetBrowserSessionResponse: StaticStructureSchema = [
@@ -747,12 +683,7 @@ export var GetCodeInterpreterSessionRequest: StaticStructureSchema = [
   [_cII, _sI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
+    [0, { [_hQ]: _sI }],
   ],
 ];
 export var GetCodeInterpreterSessionResponse: StaticStructureSchema = [
@@ -859,32 +790,10 @@ export var GetWorkloadAccessTokenResponse: StaticStructureSchema = [
   [[() => WorkloadIdentityTokenType, 0]],
 ];
 export var InputContentBlock: StaticStructureSchema = [3, n0, _ICB, 0, [_pa, _te, _bl], [0, 0, [() => Body, 0]]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var InvokeAgentRuntimeRequest: StaticStructureSchema = [
   3,
   n0,
@@ -892,80 +801,19 @@ export var InvokeAgentRuntimeRequest: StaticStructureSchema = [
   0,
   [_cTo, _a, _mSI, _rSI, _mPV, _rUI, _tI, _tP, _tS, _ba, _aRA, _q, _aIc, _p],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _MSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABARSI,
-        [_iT]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _MPV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABARUI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ba,
-      },
-    ],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _A }],
+    [0, { [_hH]: _MSI }],
+    [0, { [_hH]: _XABARSI, [_iT]: 1 }],
+    [0, { [_hH]: _MPV }],
+    [0, { [_hH]: _XABARUI }],
+    [0, { [_hH]: _XATI }],
+    [0, { [_hH]: _tr }],
+    [0, { [_hH]: _tra }],
+    [0, { [_hH]: _ba }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _q,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aIc,
-      },
-    ],
+    [0, { [_hQ]: _q }],
+    [0, { [_hQ]: _aIc }],
     [() => Body, 16],
   ],
 ];
@@ -976,54 +824,14 @@ export var InvokeAgentRuntimeResponse: StaticStructureSchema = [
   0,
   [_rSI, _mSI, _mPV, _tI, _tP, _tS, _ba, _cTo, _res, _sCt],
   [
-    [
-      0,
-      {
-        [_hH]: _XABARSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _MSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _MPV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ba,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _XABARSI }],
+    [0, { [_hH]: _MSI }],
+    [0, { [_hH]: _MPV }],
+    [0, { [_hH]: _XATI }],
+    [0, { [_hH]: _tr }],
+    [0, { [_hH]: _tra }],
+    [0, { [_hH]: _ba }],
+    [0, { [_hH]: _CT }],
     [() => ResponseStream, 16],
     [1, 32],
   ],
@@ -1034,29 +842,7 @@ export var InvokeCodeInterpreterRequest: StaticStructureSchema = [
   _ICIR,
   0,
   [_cII, _sI, _tI, _tP, _n, _ar],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xacisi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tr,
-      },
-    ],
-    0,
-    [() => ToolArguments, 0],
-  ],
+  [[0, 1], [0, { [_hH]: _xacisi }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, [() => ToolArguments, 0]],
 ];
 export var InvokeCodeInterpreterResponse: StaticStructureSchema = [
   3,
@@ -1065,12 +851,7 @@ export var InvokeCodeInterpreterResponse: StaticStructureSchema = [
   0,
   [_sI, _stre],
   [
-    [
-      0,
-      {
-        [_hH]: _xacisi,
-      },
-    ],
+    [0, { [_hH]: _xacisi }],
     [() => CodeInterpreterStreamOutput, 16],
   ],
 ];
@@ -1196,19 +977,8 @@ export var MemoryRecordUpdateInput: StaticStructureSchema = [
 ];
 export var MessageMetadata: StaticStructureSchema = [3, n0, _MM, 0, [_eI, _mIe], [0, 1]];
 export var ResourceContent: StaticStructureSchema = [3, n0, _RC, 0, [_t, _u, _mT, _te, _bl], [0, 0, 0, 0, 21]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetrieveMemoryRecordsInput: StaticStructureSchema = [
   3,
   n0,
@@ -1225,19 +995,8 @@ export var RetrieveMemoryRecordsOutput: StaticStructureSchema = [
   [_mRS, _nT],
   [[() => MemoryRecordSummaryList, 0], 0],
 ];
-export var RuntimeClientError: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_m],
-  [0],
-];
+export var RuntimeClientError: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RuntimeClientError, __RuntimeClientError);
-
 export var SearchCriteria: StaticStructureSchema = [
   3,
   n0,
@@ -1246,32 +1005,10 @@ export var SearchCriteria: StaticStructureSchema = [
   [_sQ, _mSIe, _tK, _mF],
   [[() => SensitiveString, 0], 0, 1, () => MemoryMetadataFilterList],
 ];
-export var ServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var ServiceException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionSummary: StaticStructureSchema = [3, n0, _SSe, 0, [_sI, _aI, _cA], [0, 0, 4]];
 export var SpanContext: StaticStructureSchema = [3, n0, _SCp, 0, [_sI, _tI, _sIp], [0, 0, 0]];
 export var StartBrowserSessionRequest: StaticStructureSchema = [
@@ -1280,25 +1017,7 @@ export var StartBrowserSessionRequest: StaticStructureSchema = [
   _SBSR,
   0,
   [_tI, _tP, _bI, _n, _sTS, _vP, _cT],
-  [
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tr,
-      },
-    ],
-    [0, 1],
-    0,
-    1,
-    () => ViewPort,
-    [0, 4],
-  ],
+  [[0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 1], 0, 1, () => ViewPort, [0, 4]],
 ];
 export var StartBrowserSessionResponse: StaticStructureSchema = [
   3,
@@ -1314,24 +1033,7 @@ export var StartCodeInterpreterSessionRequest: StaticStructureSchema = [
   _SCISR,
   0,
   [_tI, _tP, _cII, _n, _sTS, _cT],
-  [
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tr,
-      },
-    ],
-    [0, 1],
-    0,
-    1,
-    [0, 4],
-  ],
+  [[0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 1], 0, 1, [0, 4]],
 ];
 export var StartCodeInterpreterSessionResponse: StaticStructureSchema = [
   3,
@@ -1357,25 +1059,10 @@ export var StopBrowserSessionRequest: StaticStructureSchema = [
   0,
   [_tI, _tP, _bI, _sI, _cT],
   [
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tr,
-      },
-    ],
+    [0, { [_hH]: _XATI }],
+    [0, { [_hH]: _tr }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
+    [0, { [_hQ]: _sI }],
     [0, 4],
   ],
 ];
@@ -1387,25 +1074,10 @@ export var StopCodeInterpreterSessionRequest: StaticStructureSchema = [
   0,
   [_tI, _tP, _cII, _sI, _cT],
   [
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _tr,
-      },
-    ],
+    [0, { [_hH]: _XATI }],
+    [0, { [_hH]: _tr }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
+    [0, { [_hQ]: _sI }],
     [0, 4],
   ],
 ];
@@ -1424,19 +1096,9 @@ export var StopRuntimeSessionRequest: StaticStructureSchema = [
   0,
   [_rSI, _aRA, _q, _cT],
   [
-    [
-      0,
-      {
-        [_hH]: _XABARSI,
-      },
-    ],
+    [0, { [_hH]: _XABARSI }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _q,
-      },
-    ],
+    [0, { [_hQ]: _q }],
     [0, 4],
   ],
 ];
@@ -1447,41 +1109,14 @@ export var StopRuntimeSessionResponse: StaticStructureSchema = [
   0,
   [_rSI, _sCt],
   [
-    [
-      0,
-      {
-        [_hH]: _XABARSI,
-      },
-    ],
+    [0, { [_hH]: _XABARSI }],
     [1, 32],
   ],
 ];
-export var ThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottledException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TEh,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEh, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TokenUsage: StaticStructureSchema = [3, n0, _TU, 0, [_iTn, _oT, _tT], [1, 1, 1]];
 export var ToolArguments: StaticStructureSchema = [
   3,
@@ -1499,36 +1134,15 @@ export var ToolResultStructuredContent: StaticStructureSchema = [
   [_tIa, _tSa, _std, _stde, _eCx, _eTx],
   [0, 0, 0, 0, 1, 1],
 ];
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UpdateBrowserStreamRequest: StaticStructureSchema = [
   3,
   n0,
   _UBSR,
   0,
   [_bI, _sI, _sUt, _cT],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
-    () => StreamUpdate,
-    [0, 4],
-  ],
+  [[0, 1], [0, { [_hQ]: _sI }], () => StreamUpdate, [0, 4]],
 ];
 export var UpdateBrowserStreamResponse: StaticStructureSchema = [
   3,
@@ -1542,19 +1156,14 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var ViewPort: StaticStructureSchema = [3, n0, _VP, 0, [_w, _h], [1, 1]];
 export var __Unit = "unit" as const;
-
 export var BedrockAgentCoreServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1564,7 +1173,6 @@ export var BedrockAgentCoreServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(BedrockAgentCoreServiceException, __BedrockAgentCoreServiceException);
-
 export var ActorSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ActorSummary];
 export var BrowserSessionSummaries: StaticListSchema = [1, n0, _BSSro, 0, () => BrowserSessionSummary];
 export var CodeInterpreterSessionSummaries: StaticListSchema = [1, n0, _CISSo, 0, () => CodeInterpreterSessionSummary];
@@ -1582,18 +1190,13 @@ export var MemoryRecordSummaryList: StaticListSchema = [1, n0, _MRSL, 0, [() => 
 export var MemoryRecordsUpdateInputList: StaticListSchema = [1, n0, _MRUIL, 0, [() => MemoryRecordUpdateInput, 0]];
 export var MessagesList: StaticListSchema = [1, n0, _ML, 0, () => MessageMetadata];
 export var NamespacesList = 64 | 0;
-
 export var PayloadTypeList: StaticListSchema = [1, n0, _PTL, 0, [() => PayloadType, 0]];
 export var ScopesListType = 64 | 0;
-
 export var SessionSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => SessionSummary];
 export var SpanIds = 64 | 0;
-
 export var Spans: StaticListSchema = [1, n0, _Sp, 8, 15];
 export var StringList = 64 | 0;
-
 export var TraceIds = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT, 0, [0, 0], [() => CustomRequestValueType, 0]];
 export var MetadataMap: StaticMapSchema = [2, n0, _MMe, 0, 0, () => MetadataValue];
@@ -1601,9 +1204,7 @@ export var CodeInterpreterStreamOutput: StaticStructureSchema = [
   3,
   n0,
   _CISO,
-  {
-    [_s]: 1,
-  },
+  { [_s]: 1 },
   [_resu, _aDE, _cE, _iSE, _rNFE, _sQEE, _tE, _vE],
   [
     () => CodeInterpreterResult,
@@ -1642,9 +1243,7 @@ export var BatchCreateMemoryRecords: StaticOperationSchema = [
   9,
   n0,
   _BCMR,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/memoryRecords/batchCreate", 201],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/memoryRecords/batchCreate", 201] },
   () => BatchCreateMemoryRecordsInput,
   () => BatchCreateMemoryRecordsOutput,
 ];
@@ -1652,9 +1251,7 @@ export var BatchDeleteMemoryRecords: StaticOperationSchema = [
   9,
   n0,
   _BDMR,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/memoryRecords/batchDelete", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/memoryRecords/batchDelete", 200] },
   () => BatchDeleteMemoryRecordsInput,
   () => BatchDeleteMemoryRecordsOutput,
 ];
@@ -1662,9 +1259,7 @@ export var BatchUpdateMemoryRecords: StaticOperationSchema = [
   9,
   n0,
   _BUMR,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/memoryRecords/batchUpdate", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/memoryRecords/batchUpdate", 200] },
   () => BatchUpdateMemoryRecordsInput,
   () => BatchUpdateMemoryRecordsOutput,
 ];
@@ -1672,9 +1267,7 @@ export var CompleteResourceTokenAuth: StaticOperationSchema = [
   9,
   n0,
   _CRTA,
-  {
-    [_ht]: ["POST", "/identities/CompleteResourceTokenAuth", 200],
-  },
+  { [_ht]: ["POST", "/identities/CompleteResourceTokenAuth", 200] },
   () => CompleteResourceTokenAuthRequest,
   () => CompleteResourceTokenAuthResponse,
 ];
@@ -1682,9 +1275,7 @@ export var CreateEvent: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/events", 201],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/events", 201] },
   () => CreateEventInput,
   () => CreateEventOutput,
 ];
@@ -1692,9 +1283,7 @@ export var DeleteEvent: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_ht]: ["DELETE", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}", 200],
-  },
+  { [_ht]: ["DELETE", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}", 200] },
   () => DeleteEventInput,
   () => DeleteEventOutput,
 ];
@@ -1702,9 +1291,7 @@ export var DeleteMemoryRecord: StaticOperationSchema = [
   9,
   n0,
   _DMR,
-  {
-    [_ht]: ["DELETE", "/memories/{memoryId}/memoryRecords/{memoryRecordId}", 200],
-  },
+  { [_ht]: ["DELETE", "/memories/{memoryId}/memoryRecords/{memoryRecordId}", 200] },
   () => DeleteMemoryRecordInput,
   () => DeleteMemoryRecordOutput,
 ];
@@ -1712,9 +1299,7 @@ export var Evaluate: StaticOperationSchema = [
   9,
   n0,
   _Ev,
-  {
-    [_ht]: ["POST", "/evaluations/evaluate/{evaluatorId}", 200],
-  },
+  { [_ht]: ["POST", "/evaluations/evaluate/{evaluatorId}", 200] },
   () => EvaluateRequest,
   () => EvaluateResponse,
 ];
@@ -1722,9 +1307,7 @@ export var GetAgentCard: StaticOperationSchema = [
   9,
   n0,
   _GAC,
-  {
-    [_ht]: ["GET", "/runtimes/{agentRuntimeArn}/invocations/.well-known/agent-card.json", 200],
-  },
+  { [_ht]: ["GET", "/runtimes/{agentRuntimeArn}/invocations/.well-known/agent-card.json", 200] },
   () => GetAgentCardRequest,
   () => GetAgentCardResponse,
 ];
@@ -1732,9 +1315,7 @@ export var GetBrowserSession: StaticOperationSchema = [
   9,
   n0,
   _GBS,
-  {
-    [_ht]: ["GET", "/browsers/{browserIdentifier}/sessions/get", 200],
-  },
+  { [_ht]: ["GET", "/browsers/{browserIdentifier}/sessions/get", 200] },
   () => GetBrowserSessionRequest,
   () => GetBrowserSessionResponse,
 ];
@@ -1742,9 +1323,7 @@ export var GetCodeInterpreterSession: StaticOperationSchema = [
   9,
   n0,
   _GCIS,
-  {
-    [_ht]: ["GET", "/code-interpreters/{codeInterpreterIdentifier}/sessions/get", 200],
-  },
+  { [_ht]: ["GET", "/code-interpreters/{codeInterpreterIdentifier}/sessions/get", 200] },
   () => GetCodeInterpreterSessionRequest,
   () => GetCodeInterpreterSessionResponse,
 ];
@@ -1752,9 +1331,7 @@ export var GetEvent: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_ht]: ["GET", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}", 200],
-  },
+  { [_ht]: ["GET", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}", 200] },
   () => GetEventInput,
   () => GetEventOutput,
 ];
@@ -1762,9 +1339,7 @@ export var GetMemoryRecord: StaticOperationSchema = [
   9,
   n0,
   _GMR,
-  {
-    [_ht]: ["GET", "/memories/{memoryId}/memoryRecord/{memoryRecordId}", 200],
-  },
+  { [_ht]: ["GET", "/memories/{memoryId}/memoryRecord/{memoryRecordId}", 200] },
   () => GetMemoryRecordInput,
   () => GetMemoryRecordOutput,
 ];
@@ -1772,9 +1347,7 @@ export var GetResourceApiKey: StaticOperationSchema = [
   9,
   n0,
   _GRAK,
-  {
-    [_ht]: ["POST", "/identities/api-key", 200],
-  },
+  { [_ht]: ["POST", "/identities/api-key", 200] },
   () => GetResourceApiKeyRequest,
   () => GetResourceApiKeyResponse,
 ];
@@ -1782,9 +1355,7 @@ export var GetResourceOauth2Token: StaticOperationSchema = [
   9,
   n0,
   _GROT,
-  {
-    [_ht]: ["POST", "/identities/oauth2/token", 200],
-  },
+  { [_ht]: ["POST", "/identities/oauth2/token", 200] },
   () => GetResourceOauth2TokenRequest,
   () => GetResourceOauth2TokenResponse,
 ];
@@ -1792,9 +1363,7 @@ export var GetWorkloadAccessToken: StaticOperationSchema = [
   9,
   n0,
   _GWAT,
-  {
-    [_ht]: ["POST", "/identities/GetWorkloadAccessToken", 200],
-  },
+  { [_ht]: ["POST", "/identities/GetWorkloadAccessToken", 200] },
   () => GetWorkloadAccessTokenRequest,
   () => GetWorkloadAccessTokenResponse,
 ];
@@ -1802,9 +1371,7 @@ export var GetWorkloadAccessTokenForJWT: StaticOperationSchema = [
   9,
   n0,
   _GWATFJWT,
-  {
-    [_ht]: ["POST", "/identities/GetWorkloadAccessTokenForJWT", 200],
-  },
+  { [_ht]: ["POST", "/identities/GetWorkloadAccessTokenForJWT", 200] },
   () => GetWorkloadAccessTokenForJWTRequest,
   () => GetWorkloadAccessTokenForJWTResponse,
 ];
@@ -1812,9 +1379,7 @@ export var GetWorkloadAccessTokenForUserId: StaticOperationSchema = [
   9,
   n0,
   _GWATFUI,
-  {
-    [_ht]: ["POST", "/identities/GetWorkloadAccessTokenForUserId", 200],
-  },
+  { [_ht]: ["POST", "/identities/GetWorkloadAccessTokenForUserId", 200] },
   () => GetWorkloadAccessTokenForUserIdRequest,
   () => GetWorkloadAccessTokenForUserIdResponse,
 ];
@@ -1822,9 +1387,7 @@ export var InvokeAgentRuntime: StaticOperationSchema = [
   9,
   n0,
   _IAR,
-  {
-    [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/invocations", 200],
-  },
+  { [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/invocations", 200] },
   () => InvokeAgentRuntimeRequest,
   () => InvokeAgentRuntimeResponse,
 ];
@@ -1832,9 +1395,7 @@ export var InvokeCodeInterpreter: StaticOperationSchema = [
   9,
   n0,
   _ICI,
-  {
-    [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/tools/invoke", 200],
-  },
+  { [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/tools/invoke", 200] },
   () => InvokeCodeInterpreterRequest,
   () => InvokeCodeInterpreterResponse,
 ];
@@ -1842,9 +1403,7 @@ export var ListActors: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/actors", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/actors", 200] },
   () => ListActorsInput,
   () => ListActorsOutput,
 ];
@@ -1852,9 +1411,7 @@ export var ListBrowserSessions: StaticOperationSchema = [
   9,
   n0,
   _LBS,
-  {
-    [_ht]: ["POST", "/browsers/{browserIdentifier}/sessions/list", 200],
-  },
+  { [_ht]: ["POST", "/browsers/{browserIdentifier}/sessions/list", 200] },
   () => ListBrowserSessionsRequest,
   () => ListBrowserSessionsResponse,
 ];
@@ -1862,9 +1419,7 @@ export var ListCodeInterpreterSessions: StaticOperationSchema = [
   9,
   n0,
   _LCIS,
-  {
-    [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/sessions/list", 200],
-  },
+  { [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/sessions/list", 200] },
   () => ListCodeInterpreterSessionsRequest,
   () => ListCodeInterpreterSessionsResponse,
 ];
@@ -1872,9 +1427,7 @@ export var ListEvents: StaticOperationSchema = [
   9,
   n0,
   _LEi,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}", 200] },
   () => ListEventsInput,
   () => ListEventsOutput,
 ];
@@ -1882,9 +1435,7 @@ export var ListMemoryExtractionJobs: StaticOperationSchema = [
   9,
   n0,
   _LMEJ,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/extractionJobs", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/extractionJobs", 200] },
   () => ListMemoryExtractionJobsInput,
   () => ListMemoryExtractionJobsOutput,
 ];
@@ -1892,9 +1443,7 @@ export var ListMemoryRecords: StaticOperationSchema = [
   9,
   n0,
   _LMR,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/memoryRecords", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/memoryRecords", 200] },
   () => ListMemoryRecordsInput,
   () => ListMemoryRecordsOutput,
 ];
@@ -1902,9 +1451,7 @@ export var ListSessions: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/actor/{actorId}/sessions", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/actor/{actorId}/sessions", 200] },
   () => ListSessionsInput,
   () => ListSessionsOutput,
 ];
@@ -1912,9 +1459,7 @@ export var RetrieveMemoryRecords: StaticOperationSchema = [
   9,
   n0,
   _RMR,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/retrieve", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/retrieve", 200] },
   () => RetrieveMemoryRecordsInput,
   () => RetrieveMemoryRecordsOutput,
 ];
@@ -1922,9 +1467,7 @@ export var StartBrowserSession: StaticOperationSchema = [
   9,
   n0,
   _SBS,
-  {
-    [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/start", 200],
-  },
+  { [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/start", 200] },
   () => StartBrowserSessionRequest,
   () => StartBrowserSessionResponse,
 ];
@@ -1932,9 +1475,7 @@ export var StartCodeInterpreterSession: StaticOperationSchema = [
   9,
   n0,
   _SCIS,
-  {
-    [_ht]: ["PUT", "/code-interpreters/{codeInterpreterIdentifier}/sessions/start", 200],
-  },
+  { [_ht]: ["PUT", "/code-interpreters/{codeInterpreterIdentifier}/sessions/start", 200] },
   () => StartCodeInterpreterSessionRequest,
   () => StartCodeInterpreterSessionResponse,
 ];
@@ -1942,9 +1483,7 @@ export var StartMemoryExtractionJob: StaticOperationSchema = [
   9,
   n0,
   _SMEJ,
-  {
-    [_ht]: ["POST", "/memories/{memoryId}/extractionJobs/start", 200],
-  },
+  { [_ht]: ["POST", "/memories/{memoryId}/extractionJobs/start", 200] },
   () => StartMemoryExtractionJobInput,
   () => StartMemoryExtractionJobOutput,
 ];
@@ -1952,9 +1491,7 @@ export var StopBrowserSession: StaticOperationSchema = [
   9,
   n0,
   _SBSt,
-  {
-    [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/stop", 200],
-  },
+  { [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/stop", 200] },
   () => StopBrowserSessionRequest,
   () => StopBrowserSessionResponse,
 ];
@@ -1962,9 +1499,7 @@ export var StopCodeInterpreterSession: StaticOperationSchema = [
   9,
   n0,
   _SCISt,
-  {
-    [_ht]: ["PUT", "/code-interpreters/{codeInterpreterIdentifier}/sessions/stop", 200],
-  },
+  { [_ht]: ["PUT", "/code-interpreters/{codeInterpreterIdentifier}/sessions/stop", 200] },
   () => StopCodeInterpreterSessionRequest,
   () => StopCodeInterpreterSessionResponse,
 ];
@@ -1972,9 +1507,7 @@ export var StopRuntimeSession: StaticOperationSchema = [
   9,
   n0,
   _SRS,
-  {
-    [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/stopruntimesession", 200],
-  },
+  { [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/stopruntimesession", 200] },
   () => StopRuntimeSessionRequest,
   () => StopRuntimeSessionResponse,
 ];
@@ -1982,9 +1515,7 @@ export var UpdateBrowserStream: StaticOperationSchema = [
   9,
   n0,
   _UBS,
-  {
-    [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/streams/update", 200],
-  },
+  { [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/streams/update", 200] },
   () => UpdateBrowserStreamRequest,
   () => UpdateBrowserStreamResponse,
 ];

@@ -357,38 +357,10 @@ import {
 import { EvidentlyServiceException as __EvidentlyServiceException } from "../models/EvidentlyServiceException";
 
 /* eslint no-var: 0 */
-
-export var JsonValue: StaticSimpleSchema = [
-  0,
-  n0,
-  _JV,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var SegmentPattern: StaticSimpleSchema = [
-  0,
-  n0,
-  _SP,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
+export var SegmentPattern: StaticSimpleSchema = [0, n0, _SP, { [_mT]: _a }, 0];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BatchEvaluateFeatureRequest: StaticStructureSchema = [
   3,
   n0,
@@ -410,19 +382,8 @@ export var BatchEvaluateFeatureResponse: StaticStructureSchema = [
 ];
 export var CloudWatchLogsDestination: StaticStructureSchema = [3, n0, _CWLD, 0, [_lG], [0]];
 export var CloudWatchLogsDestinationConfig: StaticStructureSchema = [3, n0, _CWLDC, 0, [_lG], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateExperimentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -654,19 +615,8 @@ export var GetProjectRequest: StaticStructureSchema = [3, n0, _GPR, 0, [_p], [[0
 export var GetProjectResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_p], [() => Project]];
 export var GetSegmentRequest: StaticStructureSchema = [3, n0, _GSR, 0, [_s], [[0, 1]]];
 export var GetSegmentResponse: StaticStructureSchema = [3, n0, _GSRe, 0, [_s], [[() => Segment, 0]]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Launch: StaticStructureSchema = [
   3,
   n0,
@@ -702,24 +652,9 @@ export var ListExperimentsRequest: StaticStructureSchema = [
   [_p, _mR, _nT, _st],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListExperimentsResponse: StaticStructureSchema = [
@@ -738,18 +673,8 @@ export var ListFeaturesRequest: StaticStructureSchema = [
   [_p, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListFeaturesResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_fe, _nT], [() => FeatureSummariesList, 0]];
@@ -761,24 +686,9 @@ export var ListLaunchesRequest: StaticStructureSchema = [
   [_p, _mR, _nT, _st],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListLaunchesResponse: StaticStructureSchema = [3, n0, _LLRi, 0, [_la, _nT], [[() => LaunchesList, 0], 0]];
@@ -789,18 +699,8 @@ export var ListProjectsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProjectsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pr, _nT], [() => ProjectSummariesList, 0]];
@@ -812,24 +712,9 @@ export var ListSegmentReferencesRequest: StaticStructureSchema = [
   [_s, _mR, _nT, _ty],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var ListSegmentReferencesResponse: StaticStructureSchema = [
@@ -847,18 +732,8 @@ export var ListSegmentsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSegmentsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_seg, _nT], [[() => SegmentList, 0], 0]];
@@ -959,15 +834,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Destination: StaticStructureSchema = [3, n0, _SD, 0, [_b, _pre], [0, 0]];
 export var S3DestinationConfig: StaticStructureSchema = [3, n0, _SDC, 0, [_b, _pre], [0, 0]];
 export var ScheduledSplit: StaticStructureSchema = [
@@ -1015,28 +886,13 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartExperimentRequest: StaticStructureSchema = [3, n0, _SER, 0, [_p, _ex, _aCT], [[0, 1], [0, 1], 4]];
 export var StartExperimentResponse: StaticStructureSchema = [3, n0, _SERt, 0, [_sT], [4]];
 export var StartLaunchRequest: StaticStructureSchema = [
@@ -1076,19 +932,8 @@ export var TestSegmentPatternRequest: StaticStructureSchema = [
   ],
 ];
 export var TestSegmentPatternResponse: StaticStructureSchema = [3, n0, _TSPRe, 0, [_ma], [2]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m, _sC, _qC],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m, _sC, _qC], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Treatment: StaticStructureSchema = [3, n0, _T, 0, [_n, _d, _fV], [0, 0, 128 | 0]];
 export var TreatmentConfig: StaticStructureSchema = [3, n0, _TC, 0, [_n, _d, _f, _va], [0, 0, 0, 0]];
 export var UntagResourceRequest: StaticStructureSchema = [
@@ -1099,12 +944,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1165,23 +1005,17 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var Variation: StaticStructureSchema = [3, n0, _V, 0, [_n, _val], [0, () => VariableValue]];
 export var VariationConfig: StaticStructureSchema = [3, n0, _VC, 0, [_n, _val], [0, () => VariableValue]];
 export var EvidentlyServiceException: StaticErrorSchema = [-3, _sm, "EvidentlyServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EvidentlyServiceException, __EvidentlyServiceException);
-
 export var DoubleValueList = 64 | 1;
-
 export var EvaluationRequestsList: StaticListSchema = [1, n0, _ERL, 0, [() => EvaluationRequest, 0]];
 export var EvaluationResultsList: StaticListSchema = [1, n0, _ERLv, 0, [() => EvaluationResult, 0]];
 export var EvaluationRulesList: StaticListSchema = [1, n0, _ERLva, 0, () => EvaluationRule];
@@ -1189,9 +1023,7 @@ export var EventList: StaticListSchema = [1, n0, _EL, 0, [() => Event, 0]];
 export var ExperimentList: StaticListSchema = [1, n0, _ELx, 0, [() => Experiment, 0]];
 export var ExperimentReportList: StaticListSchema = [1, n0, _ERLx, 0, [() => ExperimentReport, 0]];
 export var ExperimentReportNameList = 64 | 0;
-
 export var ExperimentResultRequestTypeList = 64 | 0;
-
 export var ExperimentResultsDataList: StaticListSchema = [1, n0, _ERDL, 0, () => ExperimentResultsData];
 export var FeatureSummariesList: StaticListSchema = [1, n0, _FSL, 0, () => FeatureSummary];
 export var LaunchesList: StaticListSchema = [1, n0, _LL, 0, [() => Launch, 0]];
@@ -1202,7 +1034,6 @@ export var MetricGoalsList: StaticListSchema = [1, n0, _MGL, 0, [() => MetricGoa
 export var MetricMonitorConfigList: StaticListSchema = [1, n0, _MMCL, 0, [() => MetricMonitorConfig, 0]];
 export var MetricMonitorList: StaticListSchema = [1, n0, _MML, 0, [() => MetricMonitor, 0]];
 export var MetricNameList = 64 | 0;
-
 export var ProjectSummariesList: StaticListSchema = [1, n0, _PSL, 0, () => ProjectSummary];
 export var PutProjectEventsResultEntryList: StaticListSchema = [1, n0, _PPEREL, 0, () => PutProjectEventsResultEntry];
 export var RefResourceList: StaticListSchema = [1, n0, _RRL, 0, () => RefResource];
@@ -1211,37 +1042,25 @@ export var ScheduledStepList: StaticListSchema = [1, n0, _SSL, 0, () => Schedule
 export var SegmentList: StaticListSchema = [1, n0, _SL, 0, [() => Segment, 0]];
 export var SegmentOverridesList: StaticListSchema = [1, n0, _SOL, 0, () => SegmentOverride];
 export var TagKeyList = 64 | 0;
-
 export var TimestampList = 64 | 4;
-
 export var TreatmentConfigList: StaticListSchema = [1, n0, _TCL, 0, () => TreatmentConfig];
 export var TreatmentList: StaticListSchema = [1, n0, _TL, 0, () => Treatment];
 export var TreatmentNameList = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var VariationConfigsList: StaticListSchema = [1, n0, _VCL, 0, () => VariationConfig];
 export var VariationNameList = 64 | 0;
-
 export var VariationsList: StaticListSchema = [1, n0, _VL, 0, () => Variation];
 export var EntityOverrideMap = 128 | 0;
-
 export var FeatureToVariationMap = 128 | 0;
-
 export var GroupToWeightMap = 128 | 1;
-
 export var TagMap = 128 | 0;
-
 export var TreatmentToWeightMap = 128 | 1;
-
 export var VariableValue: StaticStructureSchema = [3, n0, _VV, 0, [_bV, _sV, _lV, _dVo], [2, 0, 1, 1]];
 export var BatchEvaluateFeature: StaticOperationSchema = [
   9,
   n0,
   _BEF,
-  {
-    [_h]: ["POST", "/projects/{project}/evaluations", 200],
-    [_en]: ["dataplane."],
-  },
+  { [_h]: ["POST", "/projects/{project}/evaluations", 200], [_en]: ["dataplane."] },
   () => BatchEvaluateFeatureRequest,
   () => BatchEvaluateFeatureResponse,
 ];
@@ -1249,9 +1068,7 @@ export var CreateExperiment: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/projects/{project}/experiments", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/experiments", 200] },
   () => CreateExperimentRequest,
   () => CreateExperimentResponse,
 ];
@@ -1259,9 +1076,7 @@ export var CreateFeature: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["POST", "/projects/{project}/features", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/features", 200] },
   () => CreateFeatureRequest,
   () => CreateFeatureResponse,
 ];
@@ -1269,9 +1084,7 @@ export var CreateLaunch: StaticOperationSchema = [
   9,
   n0,
   _CL,
-  {
-    [_h]: ["POST", "/projects/{project}/launches", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/launches", 200] },
   () => CreateLaunchRequest,
   () => CreateLaunchResponse,
 ];
@@ -1279,9 +1092,7 @@ export var CreateProject: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/projects", 200],
-  },
+  { [_h]: ["POST", "/projects", 200] },
   () => CreateProjectRequest,
   () => CreateProjectResponse,
 ];
@@ -1289,9 +1100,7 @@ export var CreateSegment: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/segments", 200],
-  },
+  { [_h]: ["POST", "/segments", 200] },
   () => CreateSegmentRequest,
   () => CreateSegmentResponse,
 ];
@@ -1299,9 +1108,7 @@ export var DeleteExperiment: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/projects/{project}/experiments/{experiment}", 200],
-  },
+  { [_h]: ["DELETE", "/projects/{project}/experiments/{experiment}", 200] },
   () => DeleteExperimentRequest,
   () => DeleteExperimentResponse,
 ];
@@ -1309,9 +1116,7 @@ export var DeleteFeature: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/projects/{project}/features/{feature}", 200],
-  },
+  { [_h]: ["DELETE", "/projects/{project}/features/{feature}", 200] },
   () => DeleteFeatureRequest,
   () => DeleteFeatureResponse,
 ];
@@ -1319,9 +1124,7 @@ export var DeleteLaunch: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_h]: ["DELETE", "/projects/{project}/launches/{launch}", 200],
-  },
+  { [_h]: ["DELETE", "/projects/{project}/launches/{launch}", 200] },
   () => DeleteLaunchRequest,
   () => DeleteLaunchResponse,
 ];
@@ -1329,9 +1132,7 @@ export var DeleteProject: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/projects/{project}", 200],
-  },
+  { [_h]: ["DELETE", "/projects/{project}", 200] },
   () => DeleteProjectRequest,
   () => DeleteProjectResponse,
 ];
@@ -1339,9 +1140,7 @@ export var DeleteSegment: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/segments/{segment}", 200],
-  },
+  { [_h]: ["DELETE", "/segments/{segment}", 200] },
   () => DeleteSegmentRequest,
   () => DeleteSegmentResponse,
 ];
@@ -1349,10 +1148,7 @@ export var EvaluateFeature: StaticOperationSchema = [
   9,
   n0,
   _EF,
-  {
-    [_h]: ["POST", "/projects/{project}/evaluations/{feature}", 200],
-    [_en]: ["dataplane."],
-  },
+  { [_h]: ["POST", "/projects/{project}/evaluations/{feature}", 200], [_en]: ["dataplane."] },
   () => EvaluateFeatureRequest,
   () => EvaluateFeatureResponse,
 ];
@@ -1360,9 +1156,7 @@ export var GetExperiment: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/projects/{project}/experiments/{experiment}", 200],
-  },
+  { [_h]: ["GET", "/projects/{project}/experiments/{experiment}", 200] },
   () => GetExperimentRequest,
   () => GetExperimentResponse,
 ];
@@ -1370,9 +1164,7 @@ export var GetExperimentResults: StaticOperationSchema = [
   9,
   n0,
   _GERet,
-  {
-    [_h]: ["POST", "/projects/{project}/experiments/{experiment}/results", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/experiments/{experiment}/results", 200] },
   () => GetExperimentResultsRequest,
   () => GetExperimentResultsResponse,
 ];
@@ -1380,9 +1172,7 @@ export var GetFeature: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["GET", "/projects/{project}/features/{feature}", 200],
-  },
+  { [_h]: ["GET", "/projects/{project}/features/{feature}", 200] },
   () => GetFeatureRequest,
   () => GetFeatureResponse,
 ];
@@ -1390,9 +1180,7 @@ export var GetLaunch: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_h]: ["GET", "/projects/{project}/launches/{launch}", 200],
-  },
+  { [_h]: ["GET", "/projects/{project}/launches/{launch}", 200] },
   () => GetLaunchRequest,
   () => GetLaunchResponse,
 ];
@@ -1400,9 +1188,7 @@ export var GetProject: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/projects/{project}", 200],
-  },
+  { [_h]: ["GET", "/projects/{project}", 200] },
   () => GetProjectRequest,
   () => GetProjectResponse,
 ];
@@ -1410,9 +1196,7 @@ export var GetSegment: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/segments/{segment}", 200],
-  },
+  { [_h]: ["GET", "/segments/{segment}", 200] },
   () => GetSegmentRequest,
   () => GetSegmentResponse,
 ];
@@ -1420,9 +1204,7 @@ export var ListExperiments: StaticOperationSchema = [
   9,
   n0,
   _LEi,
-  {
-    [_h]: ["GET", "/projects/{project}/experiments", 200],
-  },
+  { [_h]: ["GET", "/projects/{project}/experiments", 200] },
   () => ListExperimentsRequest,
   () => ListExperimentsResponse,
 ];
@@ -1430,9 +1212,7 @@ export var ListFeatures: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["GET", "/projects/{project}/features", 200],
-  },
+  { [_h]: ["GET", "/projects/{project}/features", 200] },
   () => ListFeaturesRequest,
   () => ListFeaturesResponse,
 ];
@@ -1440,9 +1220,7 @@ export var ListLaunches: StaticOperationSchema = [
   9,
   n0,
   _LLi,
-  {
-    [_h]: ["GET", "/projects/{project}/launches", 200],
-  },
+  { [_h]: ["GET", "/projects/{project}/launches", 200] },
   () => ListLaunchesRequest,
   () => ListLaunchesResponse,
 ];
@@ -1450,9 +1228,7 @@ export var ListProjects: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/projects", 200],
-  },
+  { [_h]: ["GET", "/projects", 200] },
   () => ListProjectsRequest,
   () => ListProjectsResponse,
 ];
@@ -1460,9 +1236,7 @@ export var ListSegmentReferences: StaticOperationSchema = [
   9,
   n0,
   _LSRis,
-  {
-    [_h]: ["GET", "/segments/{segment}/references", 200],
-  },
+  { [_h]: ["GET", "/segments/{segment}/references", 200] },
   () => ListSegmentReferencesRequest,
   () => ListSegmentReferencesResponse,
 ];
@@ -1470,9 +1244,7 @@ export var ListSegments: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/segments", 200],
-  },
+  { [_h]: ["GET", "/segments", 200] },
   () => ListSegmentsRequest,
   () => ListSegmentsResponse,
 ];
@@ -1480,9 +1252,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1490,10 +1260,7 @@ export var PutProjectEvents: StaticOperationSchema = [
   9,
   n0,
   _PPE,
-  {
-    [_h]: ["POST", "/events/projects/{project}", 200],
-    [_en]: ["dataplane."],
-  },
+  { [_h]: ["POST", "/events/projects/{project}", 200], [_en]: ["dataplane."] },
   () => PutProjectEventsRequest,
   () => PutProjectEventsResponse,
 ];
@@ -1501,9 +1268,7 @@ export var StartExperiment: StaticOperationSchema = [
   9,
   n0,
   _SE,
-  {
-    [_h]: ["POST", "/projects/{project}/experiments/{experiment}/start", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/experiments/{experiment}/start", 200] },
   () => StartExperimentRequest,
   () => StartExperimentResponse,
 ];
@@ -1511,9 +1276,7 @@ export var StartLaunch: StaticOperationSchema = [
   9,
   n0,
   _SLt,
-  {
-    [_h]: ["POST", "/projects/{project}/launches/{launch}/start", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/launches/{launch}/start", 200] },
   () => StartLaunchRequest,
   () => StartLaunchResponse,
 ];
@@ -1521,9 +1284,7 @@ export var StopExperiment: StaticOperationSchema = [
   9,
   n0,
   _SEt,
-  {
-    [_h]: ["POST", "/projects/{project}/experiments/{experiment}/cancel", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/experiments/{experiment}/cancel", 200] },
   () => StopExperimentRequest,
   () => StopExperimentResponse,
 ];
@@ -1531,9 +1292,7 @@ export var StopLaunch: StaticOperationSchema = [
   9,
   n0,
   _SLto,
-  {
-    [_h]: ["POST", "/projects/{project}/launches/{launch}/cancel", 200],
-  },
+  { [_h]: ["POST", "/projects/{project}/launches/{launch}/cancel", 200] },
   () => StopLaunchRequest,
   () => StopLaunchResponse,
 ];
@@ -1541,9 +1300,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1551,9 +1308,7 @@ export var TestSegmentPattern: StaticOperationSchema = [
   9,
   n0,
   _TSP,
-  {
-    [_h]: ["POST", "/test-segment-pattern", 200],
-  },
+  { [_h]: ["POST", "/test-segment-pattern", 200] },
   () => TestSegmentPatternRequest,
   () => TestSegmentPatternResponse,
 ];
@@ -1561,9 +1316,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1571,9 +1324,7 @@ export var UpdateExperiment: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PATCH", "/projects/{project}/experiments/{experiment}", 200],
-  },
+  { [_h]: ["PATCH", "/projects/{project}/experiments/{experiment}", 200] },
   () => UpdateExperimentRequest,
   () => UpdateExperimentResponse,
 ];
@@ -1581,9 +1332,7 @@ export var UpdateFeature: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["PATCH", "/projects/{project}/features/{feature}", 200],
-  },
+  { [_h]: ["PATCH", "/projects/{project}/features/{feature}", 200] },
   () => UpdateFeatureRequest,
   () => UpdateFeatureResponse,
 ];
@@ -1591,9 +1340,7 @@ export var UpdateLaunch: StaticOperationSchema = [
   9,
   n0,
   _UL,
-  {
-    [_h]: ["PATCH", "/projects/{project}/launches/{launch}", 200],
-  },
+  { [_h]: ["PATCH", "/projects/{project}/launches/{launch}", 200] },
   () => UpdateLaunchRequest,
   () => UpdateLaunchResponse,
 ];
@@ -1601,9 +1348,7 @@ export var UpdateProject: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PATCH", "/projects/{project}", 200],
-  },
+  { [_h]: ["PATCH", "/projects/{project}", 200] },
   () => UpdateProjectRequest,
   () => UpdateProjectResponse,
 ];
@@ -1611,9 +1356,7 @@ export var UpdateProjectDataDelivery: StaticOperationSchema = [
   9,
   n0,
   _UPDD,
-  {
-    [_h]: ["PATCH", "/projects/{project}/data-delivery", 200],
-  },
+  { [_h]: ["PATCH", "/projects/{project}/data-delivery", 200] },
   () => UpdateProjectDataDeliveryRequest,
   () => UpdateProjectDataDeliveryResponse,
 ];

@@ -44,33 +44,33 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ServiceQuotasClient === "function")
-assert(typeof ServiceQuotas === "function")
+assert(typeof ServiceQuotasClient === "function");
+assert(typeof ServiceQuotas === "function");
 // commands
-assert(typeof AssociateServiceQuotaTemplateCommand === "function")
-assert(typeof CreateSupportCaseCommand === "function")
-assert(typeof DeleteServiceQuotaIncreaseRequestFromTemplateCommand === "function")
-assert(typeof DisassociateServiceQuotaTemplateCommand === "function")
-assert(typeof GetAssociationForServiceQuotaTemplateCommand === "function")
-assert(typeof GetAutoManagementConfigurationCommand === "function")
-assert(typeof GetAWSDefaultServiceQuotaCommand === "function")
-assert(typeof GetRequestedServiceQuotaChangeCommand === "function")
-assert(typeof GetServiceQuotaCommand === "function")
-assert(typeof GetServiceQuotaIncreaseRequestFromTemplateCommand === "function")
-assert(typeof ListAWSDefaultServiceQuotasCommand === "function")
-assert(typeof ListRequestedServiceQuotaChangeHistoryCommand === "function")
-assert(typeof ListRequestedServiceQuotaChangeHistoryByQuotaCommand === "function")
-assert(typeof ListServiceQuotaIncreaseRequestsInTemplateCommand === "function")
-assert(typeof ListServiceQuotasCommand === "function")
-assert(typeof ListServicesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutServiceQuotaIncreaseRequestIntoTemplateCommand === "function")
-assert(typeof RequestServiceQuotaIncreaseCommand === "function")
-assert(typeof StartAutoManagementCommand === "function")
-assert(typeof StopAutoManagementCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateAutoManagementCommand === "function")
+assert(typeof AssociateServiceQuotaTemplateCommand === "function");
+assert(typeof CreateSupportCaseCommand === "function");
+assert(typeof DeleteServiceQuotaIncreaseRequestFromTemplateCommand === "function");
+assert(typeof DisassociateServiceQuotaTemplateCommand === "function");
+assert(typeof GetAssociationForServiceQuotaTemplateCommand === "function");
+assert(typeof GetAutoManagementConfigurationCommand === "function");
+assert(typeof GetAWSDefaultServiceQuotaCommand === "function");
+assert(typeof GetRequestedServiceQuotaChangeCommand === "function");
+assert(typeof GetServiceQuotaCommand === "function");
+assert(typeof GetServiceQuotaIncreaseRequestFromTemplateCommand === "function");
+assert(typeof ListAWSDefaultServiceQuotasCommand === "function");
+assert(typeof ListRequestedServiceQuotaChangeHistoryCommand === "function");
+assert(typeof ListRequestedServiceQuotaChangeHistoryByQuotaCommand === "function");
+assert(typeof ListServiceQuotaIncreaseRequestsInTemplateCommand === "function");
+assert(typeof ListServiceQuotasCommand === "function");
+assert(typeof ListServicesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutServiceQuotaIncreaseRequestIntoTemplateCommand === "function");
+assert(typeof RequestServiceQuotaIncreaseCommand === "function");
+assert(typeof StartAutoManagementCommand === "function");
+assert(typeof StopAutoManagementCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateAutoManagementCommand === "function");
 // enums
 assert(typeof AppliedLevelEnum === "object");
 assert(typeof ErrorCode === "object");
@@ -82,12 +82,12 @@ assert(typeof QuotaContextScope === "object");
 assert(typeof RequestStatus === "object");
 assert(typeof ServiceQuotaTemplateAssociationStatus === "object");
 // errors
-assert(ServiceQuotasServiceException.prototype instanceof Error)
+assert(ServiceQuotasServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListAWSDefaultServiceQuotas === "function")
-assert(typeof paginateListRequestedServiceQuotaChangeHistory === "function")
-assert(typeof paginateListRequestedServiceQuotaChangeHistoryByQuota === "function")
-assert(typeof paginateListServiceQuotaIncreaseRequestsInTemplate === "function")
-assert(typeof paginateListServiceQuotas === "function")
-assert(typeof paginateListServices === "function")
+assert(typeof paginateListAWSDefaultServiceQuotas === "function");
+assert(typeof paginateListRequestedServiceQuotaChangeHistory === "function");
+assert(typeof paginateListRequestedServiceQuotaChangeHistoryByQuota === "function");
+assert(typeof paginateListServiceQuotaIncreaseRequestsInTemplate === "function");
+assert(typeof paginateListServiceQuotas === "function");
+assert(typeof paginateListServices === "function");
 console.log(`ServiceQuotas index test passed.`);

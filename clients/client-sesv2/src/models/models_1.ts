@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { ReputationEntityType, SendingStatus } from "./enums";
 
-import { EmailTemplateContent, EventDestinationDefinition, Tag, Topic, TopicPreference } from "./models_0";
+import { type EmailTemplateContent, type EventDestinationDefinition, Tag, Topic, TopicPreference } from "./models_0";
 
 /**
  * <p>A unique message ID that you receive when an email is accepted for sending.</p>

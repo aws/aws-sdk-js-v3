@@ -76,14 +76,14 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof GeoRoutesClient === "function")
-assert(typeof GeoRoutes === "function")
+assert(typeof GeoRoutesClient === "function");
+assert(typeof GeoRoutes === "function");
 // commands
-assert(typeof CalculateIsolinesCommand === "function")
-assert(typeof CalculateRouteMatrixCommand === "function")
-assert(typeof CalculateRoutesCommand === "function")
-assert(typeof OptimizeWaypointsCommand === "function")
-assert(typeof SnapToRoadsCommand === "function")
+assert(typeof CalculateIsolinesCommand === "function");
+assert(typeof CalculateRouteMatrixCommand === "function");
+assert(typeof CalculateRoutesCommand === "function");
+assert(typeof OptimizeWaypointsCommand === "function");
+assert(typeof SnapToRoadsCommand === "function");
 // enums
 assert(typeof DayOfWeek === "object");
 assert(typeof GeometryFormat === "object");
@@ -152,5 +152,5 @@ assert(typeof WaypointOptimizationServiceTimeTreatment === "object");
 assert(typeof WaypointOptimizationTravelMode === "object");
 assert(typeof WaypointOptimizationTruckType === "object");
 // errors
-assert(GeoRoutesServiceException.prototype instanceof Error)
+assert(GeoRoutesServiceException.prototype instanceof Error);
 console.log(`GeoRoutes index test passed.`);

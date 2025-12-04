@@ -735,20 +735,8 @@ import {
 import { ImagebuilderServiceException as __ImagebuilderServiceException } from "../models/ImagebuilderServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountAggregation: StaticStructureSchema = [3, n0, _AA, 0, [_aI, _sC], [0, () => SeverityCounts]];
 export var AdditionalInstanceConfiguration: StaticStructureSchema = [
   3,
@@ -768,36 +756,14 @@ export var AmiDistributionConfiguration: StaticStructureSchema = [
   [0, 0, 64 | 0, 128 | 0, 0, () => LaunchPermissionConfiguration],
 ];
 export var AutoDisablePolicy: StaticStructureSchema = [3, n0, _ADP, 0, [_fC], [1]];
-export var CallRateLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CRLEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var CallRateLimitExceededException: StaticErrorSchema = [-3, n0, _CRLEE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(CallRateLimitExceededException, __CallRateLimitExceededException);
-
 export var CancelImageCreationRequest: StaticStructureSchema = [3, n0, _CICR, 0, [_iBVA, _cT], [0, [0, 4]]];
 export var CancelImageCreationResponse: StaticStructureSchema = [3, n0, _CICRa, 0, [_rI, _cT, _iBVA], [0, 0, 0]];
 export var CancelLifecycleExecutionRequest: StaticStructureSchema = [3, n0, _CLER, 0, [_lEI, _cT], [0, [0, 4]]];
 export var CancelLifecycleExecutionResponse: StaticStructureSchema = [3, n0, _CLERa, 0, [_lEI], [0]];
-export var ClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ClientException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ClientException, __ClientException);
-
 export var Component: StaticStructureSchema = [
   3,
   n0,
@@ -1111,37 +1077,9 @@ export var CvssScoreDetails: StaticStructureSchema = [
   [_sS, _cS, _v, _sco, _sVc, _ad],
   [0, 0, 0, 1, 0, () => CvssScoreAdjustmentList],
 ];
-export var DeleteComponentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCR,
-  0,
-  [_cBVA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _cBVA,
-      },
-    ],
-  ],
-];
+export var DeleteComponentRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_cBVA], [[0, { [_hQ]: _cBVA }]]];
 export var DeleteComponentResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [_rI, _cBVA], [0, 0]];
-export var DeleteContainerRecipeRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DCRR,
-  0,
-  [_cRA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _cRA,
-      },
-    ],
-  ],
-];
+export var DeleteContainerRecipeRequest: StaticStructureSchema = [3, n0, _DCRR, 0, [_cRA], [[0, { [_hQ]: _cRA }]]];
 export var DeleteContainerRecipeResponse: StaticStructureSchema = [3, n0, _DCRRe, 0, [_rI, _cRA], [0, 0]];
 export var DeleteDistributionConfigurationRequest: StaticStructureSchema = [
   3,
@@ -1149,63 +1087,14 @@ export var DeleteDistributionConfigurationRequest: StaticStructureSchema = [
   _DDCR,
   0,
   [_dCA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _dCA,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _dCA }]],
 ];
 export var DeleteDistributionConfigurationResponse: StaticStructureSchema = [3, n0, _DDCRe, 0, [_rI, _dCA], [0, 0]];
-export var DeleteImagePipelineRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DIPR,
-  0,
-  [_iPA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iPA,
-      },
-    ],
-  ],
-];
+export var DeleteImagePipelineRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_iPA], [[0, { [_hQ]: _iPA }]]];
 export var DeleteImagePipelineResponse: StaticStructureSchema = [3, n0, _DIPRe, 0, [_rI, _iPA], [0, 0]];
-export var DeleteImageRecipeRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DIRR,
-  0,
-  [_iRA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iRA,
-      },
-    ],
-  ],
-];
+export var DeleteImageRecipeRequest: StaticStructureSchema = [3, n0, _DIRR, 0, [_iRA], [[0, { [_hQ]: _iRA }]]];
 export var DeleteImageRecipeResponse: StaticStructureSchema = [3, n0, _DIRRe, 0, [_rI, _iRA], [0, 0]];
-export var DeleteImageRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DIR,
-  0,
-  [_iBVA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iBVA,
-      },
-    ],
-  ],
-];
+export var DeleteImageRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_iBVA], [[0, { [_hQ]: _iBVA }]]];
 export var DeleteImageResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [_rI, _iBVA], [0, 0]];
 export var DeleteInfrastructureConfigurationRequest: StaticStructureSchema = [
   3,
@@ -1213,47 +1102,12 @@ export var DeleteInfrastructureConfigurationRequest: StaticStructureSchema = [
   _DICR,
   0,
   [_iCA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iCA,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _iCA }]],
 ];
 export var DeleteInfrastructureConfigurationResponse: StaticStructureSchema = [3, n0, _DICRe, 0, [_rI, _iCA], [0, 0]];
-export var DeleteLifecyclePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DLPR,
-  0,
-  [_lPA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _lPA,
-      },
-    ],
-  ],
-];
+export var DeleteLifecyclePolicyRequest: StaticStructureSchema = [3, n0, _DLPR, 0, [_lPA], [[0, { [_hQ]: _lPA }]]];
 export var DeleteLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _DLPRe, 0, [_lPA], [0]];
-export var DeleteWorkflowRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DWR,
-  0,
-  [_wBVA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _wBVA,
-      },
-    ],
-  ],
-];
+export var DeleteWorkflowRequest: StaticStructureSchema = [3, n0, _DWR, 0, [_wBVA], [[0, { [_hQ]: _wBVA }]]];
 export var DeleteWorkflowResponse: StaticStructureSchema = [3, n0, _DWRe, 0, [_wBVA], [0]];
 export var DistributeImageRequest: StaticStructureSchema = [
   3,
@@ -1297,19 +1151,8 @@ export var DistributionConfigurationSummary: StaticStructureSchema = [
   [_a, _n, _d, _dC, _dU, _ta, _reg],
   [0, 0, 0, 0, 0, 128 | 0, 64 | 0],
 ];
-export var DryRunOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DROE,
-  {
-    [_e]: _c,
-    [_hE]: 412,
-  },
-  [_m],
-  [0],
-];
+export var DryRunOperationException: StaticErrorSchema = [-3, n0, _DROE, { [_e]: _c, [_hE]: 412 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DryRunOperationException, __DryRunOperationException);
-
 export var EbsInstanceBlockDeviceSpecification: StaticStructureSchema = [
   3,
   n0,
@@ -1337,50 +1180,11 @@ export var FastLaunchLaunchTemplateSpecification: StaticStructureSchema = [
 ];
 export var FastLaunchSnapshotConfiguration: StaticStructureSchema = [3, n0, _FLSC, 0, [_tRC], [1]];
 export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_n, _val], [0, 64 | 0]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
-export var GetComponentPolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCPR,
-  0,
-  [_cA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _cA,
-      },
-    ],
-  ],
-];
+export var GetComponentPolicyRequest: StaticStructureSchema = [3, n0, _GCPR, 0, [_cA], [[0, { [_hQ]: _cA }]]];
 export var GetComponentPolicyResponse: StaticStructureSchema = [3, n0, _GCPRe, 0, [_rI, _po], [0, 0]];
-export var GetComponentRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCR,
-  0,
-  [_cBVA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _cBVA,
-      },
-    ],
-  ],
-];
+export var GetComponentRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_cBVA], [[0, { [_hQ]: _cBVA }]]];
 export var GetComponentResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1389,37 +1193,9 @@ export var GetComponentResponse: StaticStructureSchema = [
   [_rI, _com, _lVR],
   [0, () => Component, () => LatestVersionReferences],
 ];
-export var GetContainerRecipePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCRPR,
-  0,
-  [_cRA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _cRA,
-      },
-    ],
-  ],
-];
+export var GetContainerRecipePolicyRequest: StaticStructureSchema = [3, n0, _GCRPR, 0, [_cRA], [[0, { [_hQ]: _cRA }]]];
 export var GetContainerRecipePolicyResponse: StaticStructureSchema = [3, n0, _GCRPRe, 0, [_rI, _po], [0, 0]];
-export var GetContainerRecipeRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCRR,
-  0,
-  [_cRA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _cRA,
-      },
-    ],
-  ],
-];
+export var GetContainerRecipeRequest: StaticStructureSchema = [3, n0, _GCRR, 0, [_cRA], [[0, { [_hQ]: _cRA }]]];
 export var GetContainerRecipeResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1434,14 +1210,7 @@ export var GetDistributionConfigurationRequest: StaticStructureSchema = [
   _GDCR,
   0,
   [_dCA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _dCA,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _dCA }]],
 ];
 export var GetDistributionConfigurationResponse: StaticStructureSchema = [
   3,
@@ -1451,69 +1220,13 @@ export var GetDistributionConfigurationResponse: StaticStructureSchema = [
   [_rI, _dCi],
   [0, () => DistributionConfiguration],
 ];
-export var GetImagePipelineRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIPR,
-  0,
-  [_iPA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iPA,
-      },
-    ],
-  ],
-];
+export var GetImagePipelineRequest: StaticStructureSchema = [3, n0, _GIPR, 0, [_iPA], [[0, { [_hQ]: _iPA }]]];
 export var GetImagePipelineResponse: StaticStructureSchema = [3, n0, _GIPRe, 0, [_rI, _iP], [0, () => ImagePipeline]];
-export var GetImagePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIPRet,
-  0,
-  [_iA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iA,
-      },
-    ],
-  ],
-];
+export var GetImagePolicyRequest: StaticStructureSchema = [3, n0, _GIPRet, 0, [_iA], [[0, { [_hQ]: _iA }]]];
 export var GetImagePolicyResponse: StaticStructureSchema = [3, n0, _GIPRetm, 0, [_rI, _po], [0, 0]];
-export var GetImageRecipePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIRPR,
-  0,
-  [_iRA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iRA,
-      },
-    ],
-  ],
-];
+export var GetImageRecipePolicyRequest: StaticStructureSchema = [3, n0, _GIRPR, 0, [_iRA], [[0, { [_hQ]: _iRA }]]];
 export var GetImageRecipePolicyResponse: StaticStructureSchema = [3, n0, _GIRPRe, 0, [_rI, _po], [0, 0]];
-export var GetImageRecipeRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIRR,
-  0,
-  [_iRA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iRA,
-      },
-    ],
-  ],
-];
+export var GetImageRecipeRequest: StaticStructureSchema = [3, n0, _GIRR, 0, [_iRA], [[0, { [_hQ]: _iRA }]]];
 export var GetImageRecipeResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1522,21 +1235,7 @@ export var GetImageRecipeResponse: StaticStructureSchema = [
   [_rI, _iR, _lVR],
   [0, () => ImageRecipe, () => LatestVersionReferences],
 ];
-export var GetImageRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GIR,
-  0,
-  [_iBVA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iBVA,
-      },
-    ],
-  ],
-];
+export var GetImageRequest: StaticStructureSchema = [3, n0, _GIR, 0, [_iBVA], [[0, { [_hQ]: _iBVA }]]];
 export var GetImageResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1551,14 +1250,7 @@ export var GetInfrastructureConfigurationRequest: StaticStructureSchema = [
   _GICR,
   0,
   [_iCA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _iCA,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _iCA }]],
 ];
 export var GetInfrastructureConfigurationResponse: StaticStructureSchema = [
   3,
@@ -1568,55 +1260,13 @@ export var GetInfrastructureConfigurationResponse: StaticStructureSchema = [
   [_rI, _iCn],
   [0, () => InfrastructureConfiguration],
 ];
-export var GetLifecycleExecutionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GLER,
-  0,
-  [_lEI],
-  [
-    [
-      0,
-      {
-        [_hQ]: _lEI,
-      },
-    ],
-  ],
-];
+export var GetLifecycleExecutionRequest: StaticStructureSchema = [3, n0, _GLER, 0, [_lEI], [[0, { [_hQ]: _lEI }]]];
 export var GetLifecycleExecutionResponse: StaticStructureSchema = [3, n0, _GLERe, 0, [_lE], [() => LifecycleExecution]];
-export var GetLifecyclePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GLPR,
-  0,
-  [_lPA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _lPA,
-      },
-    ],
-  ],
-];
+export var GetLifecyclePolicyRequest: StaticStructureSchema = [3, n0, _GLPR, 0, [_lPA], [[0, { [_hQ]: _lPA }]]];
 export var GetLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _GLPRe, 0, [_lPi], [() => LifecyclePolicy]];
 export var GetMarketplaceResourceRequest: StaticStructureSchema = [3, n0, _GMRR, 0, [_rTe, _rA, _rL], [0, 0, 0]];
 export var GetMarketplaceResourceResponse: StaticStructureSchema = [3, n0, _GMRRe, 0, [_rA, _ur, _da], [0, 0, 0]];
-export var GetWorkflowExecutionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GWER,
-  0,
-  [_wEI],
-  [
-    [
-      0,
-      {
-        [_hQ]: _wEI,
-      },
-    ],
-  ],
-];
+export var GetWorkflowExecutionRequest: StaticStructureSchema = [3, n0, _GWER, 0, [_wEI], [[0, { [_hQ]: _wEI }]]];
 export var GetWorkflowExecutionResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1625,21 +1275,7 @@ export var GetWorkflowExecutionResponse: StaticStructureSchema = [
   [_rI, _wBVA, _wEI, _iBVA, _t, _st, _m, _tSC, _tSS, _tSF, _tSSo, _sT, _eT, _pG],
   [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
 ];
-export var GetWorkflowRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GWR,
-  0,
-  [_wBVA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _wBVA,
-      },
-    ],
-  ],
-];
+export var GetWorkflowRequest: StaticStructureSchema = [3, n0, _GWR, 0, [_wBVA], [[0, { [_hQ]: _wBVA }]]];
 export var GetWorkflowResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1648,21 +1284,7 @@ export var GetWorkflowResponse: StaticStructureSchema = [
   [_wo, _lVR],
   [() => Workflow, () => LatestVersionReferences],
 ];
-export var GetWorkflowStepExecutionRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GWSER,
-  0,
-  [_sEI],
-  [
-    [
-      0,
-      {
-        [_hQ]: _sEI,
-      },
-    ],
-  ],
-];
+export var GetWorkflowStepExecutionRequest: StaticStructureSchema = [3, n0, _GWSER, 0, [_sEI], [[0, { [_hQ]: _sEI }]]];
 export var GetWorkflowStepExecutionResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1675,15 +1297,11 @@ export var IdempotentParameterMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-
 export var Image: StaticStructureSchema = [
   3,
   n0,
@@ -1980,84 +1598,25 @@ export var InstanceConfiguration: StaticStructureSchema = [
   [0, () => InstanceBlockDeviceMappings],
 ];
 export var InstanceMetadataOptions: StaticStructureSchema = [3, n0, _IMO, 0, [_hT, _hPRHL], [0, 1]];
-export var InvalidPaginationTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidPaginationTokenException: StaticErrorSchema = [-3, n0, _IPTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidPaginationTokenException, __InvalidPaginationTokenException);
-
 export var InvalidParameterCombinationException: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidParameterValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterValueException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var InvalidVersionNumberException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IVNE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidVersionNumberException: StaticErrorSchema = [-3, n0, _IVNE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidVersionNumberException, __InvalidVersionNumberException);
-
 export var LatestVersionReferences: StaticStructureSchema = [
   3,
   n0,
@@ -2499,58 +2058,14 @@ export var PutImageRecipePolicyRequest: StaticStructureSchema = [3, n0, _PIRPR, 
 export var PutImageRecipePolicyResponse: StaticStructureSchema = [3, n0, _PIRPRu, 0, [_rI, _iRA], [0, 0]];
 export var Remediation: StaticStructureSchema = [3, n0, _R, 0, [_reco], [() => RemediationRecommendation]];
 export var RemediationRecommendation: StaticStructureSchema = [3, n0, _RR, 0, [_tex, _ur], [0, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceDependencyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceDependencyException: StaticErrorSchema = [-3, n0, _RDE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceDependencyException, __ResourceDependencyException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceState: StaticStructureSchema = [3, n0, _RS, 0, [_st], [0]];
 export var ResourceStateUpdateExclusionRules: StaticStructureSchema = [
   3,
@@ -2582,45 +2097,12 @@ export var SendWorkflowStepActionRequest: StaticStructureSchema = [
   [0, 0, 0, 0, [0, 4]],
 ];
 export var SendWorkflowStepActionResponse: StaticStructureSchema = [3, n0, _SWSARe, 0, [_sEI, _iBVA, _cT], [0, 0, 0]];
-export var ServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var ServiceException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _ser,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _ser, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SeverityCounts: StaticStructureSchema = [3, n0, _SC, 0, [_al, _cr, _h, _med], [1, 1, 1, 1]];
 export var SsmParameterConfiguration: StaticStructureSchema = [3, n0, _SPC, 0, [_aAIm, _pNa, _dTa], [0, 0, 0]];
 export var StartImagePipelineExecutionRequest: StaticStructureSchema = [
@@ -2660,19 +2142,8 @@ export var SystemsManagerAgent: StaticStructureSchema = [3, n0, _SMA, 0, [_uAB],
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TargetContainerRepository: StaticStructureSchema = [3, n0, _TCR, 0, [_serv, _rN], [0, 0]];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2681,12 +2152,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2825,18 +2291,14 @@ export var WorkflowVersion: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var ImagebuilderServiceException: StaticErrorSchema = [-3, _sm, "ImagebuilderServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ImagebuilderServiceException, __ImagebuilderServiceException);
-
 export var AccountList = 64 | 0;
-
 export var AmiList: StaticListSchema = [1, n0, _AL, 0, () => Ami];
 export var ComponentConfigurationList: StaticListSchema = [1, n0, _CCL, 0, () => ComponentConfiguration];
 export var ComponentParameterDetailList: StaticListSchema = [1, n0, _CPDL, 0, () => ComponentParameterDetail];
 export var ComponentParameterList: StaticListSchema = [1, n0, _CPL, 0, () => ComponentParameter];
 export var ComponentParameterValueList = 64 | 0;
-
 export var ComponentSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ComponentSummary];
 export var ComponentVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ComponentVersion];
 export var ContainerList: StaticListSchema = [1, n0, _CL, 0, () => Container];
@@ -2854,14 +2316,12 @@ export var DistributionList: StaticListSchema = [1, n0, _DL, 0, () => Distributi
 export var FastLaunchConfigurationList: StaticListSchema = [1, n0, _FLCL, 0, () => FastLaunchConfiguration];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FilterValues = 64 | 0;
-
 export var ImagePackageList: StaticListSchema = [1, n0, _IPL, 0, () => ImagePackage];
 export var ImagePipelineList: StaticListSchema = [1, n0, _IPLm, 0, () => ImagePipeline];
 export var ImageRecipeSummaryList: StaticListSchema = [1, n0, _IRSL, 0, () => ImageRecipeSummary];
 export var ImageScanFindingAggregationsList: StaticListSchema = [1, n0, _ISFAL, 0, () => ImageScanFindingAggregation];
 export var ImageScanFindingsFilterList: StaticListSchema = [1, n0, _ISFFL, 0, () => ImageScanFindingsFilter];
 export var ImageScanFindingsFilterValues = 64 | 0;
-
 export var ImageScanFindingsList: StaticListSchema = [1, n0, _ISFL, 0, () => ImageScanFinding];
 export var ImageSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => ImageSummary];
 export var ImageVersionList: StaticListSchema = [1, n0, _IVL, 0, () => ImageVersion];
@@ -2874,10 +2334,8 @@ export var InfrastructureConfigurationSummaryList: StaticListSchema = [
 ];
 export var InstanceBlockDeviceMappings: StaticListSchema = [1, n0, _IBDMn, 0, () => InstanceBlockDeviceMapping];
 export var InstanceTypeList = 64 | 0;
-
 export var LaunchTemplateConfigurationList: StaticListSchema = [1, n0, _LTCL, 0, () => LaunchTemplateConfiguration];
 export var LicenseConfigurationArnList = 64 | 0;
-
 export var LifecycleExecutionResourceList: StaticListSchema = [1, n0, _LERL, 0, () => LifecycleExecutionResource];
 export var LifecycleExecutionsList: StaticListSchema = [1, n0, _LEL, 0, () => LifecycleExecution];
 export var LifecycleExecutionSnapshotResourceList: StaticListSchema = [
@@ -2897,47 +2355,33 @@ export var LifecyclePolicyResourceSelectionRecipes: StaticListSchema = [
 ];
 export var LifecyclePolicySummaryList: StaticListSchema = [1, n0, _LPSL, 0, () => LifecyclePolicySummary];
 export var NonEmptyStringList = 64 | 0;
-
 export var OrganizationalUnitArnList = 64 | 0;
-
 export var OrganizationArnList = 64 | 0;
-
 export var OsVersionList = 64 | 0;
-
 export var ProductCodeList: StaticListSchema = [1, n0, _PCL, 0, () => ProductCodeListItem];
 export var RegionList = 64 | 0;
-
 export var SecurityGroupIds = 64 | 0;
-
 export var SsmParameterConfigurationList: StaticListSchema = [1, n0, _SPCL, 0, () => SsmParameterConfiguration];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var VulnerabilityIdList = 64 | 0;
-
 export var VulnerablePackageList: StaticListSchema = [1, n0, _VPL, 0, () => VulnerablePackage];
 export var WorkflowConfigurationList: StaticListSchema = [1, n0, _WCL, 0, () => WorkflowConfiguration];
 export var WorkflowExecutionsList: StaticListSchema = [1, n0, _WEL, 0, () => WorkflowExecutionMetadata];
 export var WorkflowParameterDetailList: StaticListSchema = [1, n0, _WPDL, 0, () => WorkflowParameterDetail];
 export var WorkflowParameterList: StaticListSchema = [1, n0, _WPL, 0, () => WorkflowParameter];
 export var WorkflowParameterValueList = 64 | 0;
-
 export var WorkflowStepExecutionList: StaticListSchema = [1, n0, _WSEL, 0, () => WorkflowStepExecution];
 export var WorkflowStepExecutionsList: StaticListSchema = [1, n0, _WSELo, 0, () => WorkflowStepMetadata];
 export var WorkflowSummaryList: StaticListSchema = [1, n0, _WSL, 0, () => WorkflowSummary];
 export var WorkflowVersionList: StaticListSchema = [1, n0, _WVL, 0, () => WorkflowVersion];
 export var ResourceTagMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var CancelImageCreation: StaticOperationSchema = [
   9,
   n0,
   _CIC,
-  {
-    [_ht]: ["PUT", "/CancelImageCreation", 200],
-  },
+  { [_ht]: ["PUT", "/CancelImageCreation", 200] },
   () => CancelImageCreationRequest,
   () => CancelImageCreationResponse,
 ];
@@ -2945,9 +2389,7 @@ export var CancelLifecycleExecution: StaticOperationSchema = [
   9,
   n0,
   _CLE,
-  {
-    [_ht]: ["PUT", "/CancelLifecycleExecution", 200],
-  },
+  { [_ht]: ["PUT", "/CancelLifecycleExecution", 200] },
   () => CancelLifecycleExecutionRequest,
   () => CancelLifecycleExecutionResponse,
 ];
@@ -2955,9 +2397,7 @@ export var CreateComponent: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_ht]: ["PUT", "/CreateComponent", 200],
-  },
+  { [_ht]: ["PUT", "/CreateComponent", 200] },
   () => CreateComponentRequest,
   () => CreateComponentResponse,
 ];
@@ -2965,9 +2405,7 @@ export var CreateContainerRecipe: StaticOperationSchema = [
   9,
   n0,
   _CCRre,
-  {
-    [_ht]: ["PUT", "/CreateContainerRecipe", 200],
-  },
+  { [_ht]: ["PUT", "/CreateContainerRecipe", 200] },
   () => CreateContainerRecipeRequest,
   () => CreateContainerRecipeResponse,
 ];
@@ -2975,9 +2413,7 @@ export var CreateDistributionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CDCr,
-  {
-    [_ht]: ["PUT", "/CreateDistributionConfiguration", 200],
-  },
+  { [_ht]: ["PUT", "/CreateDistributionConfiguration", 200] },
   () => CreateDistributionConfigurationRequest,
   () => CreateDistributionConfigurationResponse,
 ];
@@ -2985,9 +2421,7 @@ export var CreateImage: StaticOperationSchema = [
   9,
   n0,
   _CI,
-  {
-    [_ht]: ["PUT", "/CreateImage", 200],
-  },
+  { [_ht]: ["PUT", "/CreateImage", 200] },
   () => CreateImageRequest,
   () => CreateImageResponse,
 ];
@@ -2995,9 +2429,7 @@ export var CreateImagePipeline: StaticOperationSchema = [
   9,
   n0,
   _CIP,
-  {
-    [_ht]: ["PUT", "/CreateImagePipeline", 200],
-  },
+  { [_ht]: ["PUT", "/CreateImagePipeline", 200] },
   () => CreateImagePipelineRequest,
   () => CreateImagePipelineResponse,
 ];
@@ -3005,9 +2437,7 @@ export var CreateImageRecipe: StaticOperationSchema = [
   9,
   n0,
   _CIRre,
-  {
-    [_ht]: ["PUT", "/CreateImageRecipe", 200],
-  },
+  { [_ht]: ["PUT", "/CreateImageRecipe", 200] },
   () => CreateImageRecipeRequest,
   () => CreateImageRecipeResponse,
 ];
@@ -3015,9 +2445,7 @@ export var CreateInfrastructureConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CICr,
-  {
-    [_ht]: ["PUT", "/CreateInfrastructureConfiguration", 200],
-  },
+  { [_ht]: ["PUT", "/CreateInfrastructureConfiguration", 200] },
   () => CreateInfrastructureConfigurationRequest,
   () => CreateInfrastructureConfigurationResponse,
 ];
@@ -3025,9 +2453,7 @@ export var CreateLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _CLP,
-  {
-    [_ht]: ["PUT", "/CreateLifecyclePolicy", 200],
-  },
+  { [_ht]: ["PUT", "/CreateLifecyclePolicy", 200] },
   () => CreateLifecyclePolicyRequest,
   () => CreateLifecyclePolicyResponse,
 ];
@@ -3035,9 +2461,7 @@ export var CreateWorkflow: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_ht]: ["PUT", "/CreateWorkflow", 200],
-  },
+  { [_ht]: ["PUT", "/CreateWorkflow", 200] },
   () => CreateWorkflowRequest,
   () => CreateWorkflowResponse,
 ];
@@ -3045,9 +2469,7 @@ export var DeleteComponent: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_ht]: ["DELETE", "/DeleteComponent", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteComponent", 200] },
   () => DeleteComponentRequest,
   () => DeleteComponentResponse,
 ];
@@ -3055,9 +2477,7 @@ export var DeleteContainerRecipe: StaticOperationSchema = [
   9,
   n0,
   _DCRel,
-  {
-    [_ht]: ["DELETE", "/DeleteContainerRecipe", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteContainerRecipe", 200] },
   () => DeleteContainerRecipeRequest,
   () => DeleteContainerRecipeResponse,
 ];
@@ -3065,9 +2485,7 @@ export var DeleteDistributionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DDC,
-  {
-    [_ht]: ["DELETE", "/DeleteDistributionConfiguration", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteDistributionConfiguration", 200] },
   () => DeleteDistributionConfigurationRequest,
   () => DeleteDistributionConfigurationResponse,
 ];
@@ -3075,9 +2493,7 @@ export var DeleteImage: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_ht]: ["DELETE", "/DeleteImage", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteImage", 200] },
   () => DeleteImageRequest,
   () => DeleteImageResponse,
 ];
@@ -3085,9 +2501,7 @@ export var DeleteImagePipeline: StaticOperationSchema = [
   9,
   n0,
   _DIP,
-  {
-    [_ht]: ["DELETE", "/DeleteImagePipeline", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteImagePipeline", 200] },
   () => DeleteImagePipelineRequest,
   () => DeleteImagePipelineResponse,
 ];
@@ -3095,9 +2509,7 @@ export var DeleteImageRecipe: StaticOperationSchema = [
   9,
   n0,
   _DIRel,
-  {
-    [_ht]: ["DELETE", "/DeleteImageRecipe", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteImageRecipe", 200] },
   () => DeleteImageRecipeRequest,
   () => DeleteImageRecipeResponse,
 ];
@@ -3105,9 +2517,7 @@ export var DeleteInfrastructureConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DIC,
-  {
-    [_ht]: ["DELETE", "/DeleteInfrastructureConfiguration", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteInfrastructureConfiguration", 200] },
   () => DeleteInfrastructureConfigurationRequest,
   () => DeleteInfrastructureConfigurationResponse,
 ];
@@ -3115,9 +2525,7 @@ export var DeleteLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _DLP,
-  {
-    [_ht]: ["DELETE", "/DeleteLifecyclePolicy", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteLifecyclePolicy", 200] },
   () => DeleteLifecyclePolicyRequest,
   () => DeleteLifecyclePolicyResponse,
 ];
@@ -3125,9 +2533,7 @@ export var DeleteWorkflow: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_ht]: ["DELETE", "/DeleteWorkflow", 200],
-  },
+  { [_ht]: ["DELETE", "/DeleteWorkflow", 200] },
   () => DeleteWorkflowRequest,
   () => DeleteWorkflowResponse,
 ];
@@ -3135,9 +2541,7 @@ export var DistributeImage: StaticOperationSchema = [
   9,
   n0,
   _DIi,
-  {
-    [_ht]: ["PUT", "/DistributeImage", 200],
-  },
+  { [_ht]: ["PUT", "/DistributeImage", 200] },
   () => DistributeImageRequest,
   () => DistributeImageResponse,
 ];
@@ -3145,9 +2549,7 @@ export var GetComponent: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_ht]: ["GET", "/GetComponent", 200],
-  },
+  { [_ht]: ["GET", "/GetComponent", 200] },
   () => GetComponentRequest,
   () => GetComponentResponse,
 ];
@@ -3155,9 +2557,7 @@ export var GetComponentPolicy: StaticOperationSchema = [
   9,
   n0,
   _GCP,
-  {
-    [_ht]: ["GET", "/GetComponentPolicy", 200],
-  },
+  { [_ht]: ["GET", "/GetComponentPolicy", 200] },
   () => GetComponentPolicyRequest,
   () => GetComponentPolicyResponse,
 ];
@@ -3165,9 +2565,7 @@ export var GetContainerRecipe: StaticOperationSchema = [
   9,
   n0,
   _GCRet,
-  {
-    [_ht]: ["GET", "/GetContainerRecipe", 200],
-  },
+  { [_ht]: ["GET", "/GetContainerRecipe", 200] },
   () => GetContainerRecipeRequest,
   () => GetContainerRecipeResponse,
 ];
@@ -3175,9 +2573,7 @@ export var GetContainerRecipePolicy: StaticOperationSchema = [
   9,
   n0,
   _GCRP,
-  {
-    [_ht]: ["GET", "/GetContainerRecipePolicy", 200],
-  },
+  { [_ht]: ["GET", "/GetContainerRecipePolicy", 200] },
   () => GetContainerRecipePolicyRequest,
   () => GetContainerRecipePolicyResponse,
 ];
@@ -3185,9 +2581,7 @@ export var GetDistributionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GDC,
-  {
-    [_ht]: ["GET", "/GetDistributionConfiguration", 200],
-  },
+  { [_ht]: ["GET", "/GetDistributionConfiguration", 200] },
   () => GetDistributionConfigurationRequest,
   () => GetDistributionConfigurationResponse,
 ];
@@ -3195,9 +2589,7 @@ export var GetImage: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_ht]: ["GET", "/GetImage", 200],
-  },
+  { [_ht]: ["GET", "/GetImage", 200] },
   () => GetImageRequest,
   () => GetImageResponse,
 ];
@@ -3205,9 +2597,7 @@ export var GetImagePipeline: StaticOperationSchema = [
   9,
   n0,
   _GIP,
-  {
-    [_ht]: ["GET", "/GetImagePipeline", 200],
-  },
+  { [_ht]: ["GET", "/GetImagePipeline", 200] },
   () => GetImagePipelineRequest,
   () => GetImagePipelineResponse,
 ];
@@ -3215,9 +2605,7 @@ export var GetImagePolicy: StaticOperationSchema = [
   9,
   n0,
   _GIPe,
-  {
-    [_ht]: ["GET", "/GetImagePolicy", 200],
-  },
+  { [_ht]: ["GET", "/GetImagePolicy", 200] },
   () => GetImagePolicyRequest,
   () => GetImagePolicyResponse,
 ];
@@ -3225,9 +2613,7 @@ export var GetImageRecipe: StaticOperationSchema = [
   9,
   n0,
   _GIRet,
-  {
-    [_ht]: ["GET", "/GetImageRecipe", 200],
-  },
+  { [_ht]: ["GET", "/GetImageRecipe", 200] },
   () => GetImageRecipeRequest,
   () => GetImageRecipeResponse,
 ];
@@ -3235,9 +2621,7 @@ export var GetImageRecipePolicy: StaticOperationSchema = [
   9,
   n0,
   _GIRP,
-  {
-    [_ht]: ["GET", "/GetImageRecipePolicy", 200],
-  },
+  { [_ht]: ["GET", "/GetImageRecipePolicy", 200] },
   () => GetImageRecipePolicyRequest,
   () => GetImageRecipePolicyResponse,
 ];
@@ -3245,9 +2629,7 @@ export var GetInfrastructureConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GIC,
-  {
-    [_ht]: ["GET", "/GetInfrastructureConfiguration", 200],
-  },
+  { [_ht]: ["GET", "/GetInfrastructureConfiguration", 200] },
   () => GetInfrastructureConfigurationRequest,
   () => GetInfrastructureConfigurationResponse,
 ];
@@ -3255,9 +2637,7 @@ export var GetLifecycleExecution: StaticOperationSchema = [
   9,
   n0,
   _GLE,
-  {
-    [_ht]: ["GET", "/GetLifecycleExecution", 200],
-  },
+  { [_ht]: ["GET", "/GetLifecycleExecution", 200] },
   () => GetLifecycleExecutionRequest,
   () => GetLifecycleExecutionResponse,
 ];
@@ -3265,9 +2645,7 @@ export var GetLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _GLP,
-  {
-    [_ht]: ["GET", "/GetLifecyclePolicy", 200],
-  },
+  { [_ht]: ["GET", "/GetLifecyclePolicy", 200] },
   () => GetLifecyclePolicyRequest,
   () => GetLifecyclePolicyResponse,
 ];
@@ -3275,9 +2653,7 @@ export var GetMarketplaceResource: StaticOperationSchema = [
   9,
   n0,
   _GMR,
-  {
-    [_ht]: ["POST", "/GetMarketplaceResource", 200],
-  },
+  { [_ht]: ["POST", "/GetMarketplaceResource", 200] },
   () => GetMarketplaceResourceRequest,
   () => GetMarketplaceResourceResponse,
 ];
@@ -3285,9 +2661,7 @@ export var GetWorkflow: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_ht]: ["GET", "/GetWorkflow", 200],
-  },
+  { [_ht]: ["GET", "/GetWorkflow", 200] },
   () => GetWorkflowRequest,
   () => GetWorkflowResponse,
 ];
@@ -3295,9 +2669,7 @@ export var GetWorkflowExecution: StaticOperationSchema = [
   9,
   n0,
   _GWE,
-  {
-    [_ht]: ["GET", "/GetWorkflowExecution", 200],
-  },
+  { [_ht]: ["GET", "/GetWorkflowExecution", 200] },
   () => GetWorkflowExecutionRequest,
   () => GetWorkflowExecutionResponse,
 ];
@@ -3305,9 +2677,7 @@ export var GetWorkflowStepExecution: StaticOperationSchema = [
   9,
   n0,
   _GWSE,
-  {
-    [_ht]: ["GET", "/GetWorkflowStepExecution", 200],
-  },
+  { [_ht]: ["GET", "/GetWorkflowStepExecution", 200] },
   () => GetWorkflowStepExecutionRequest,
   () => GetWorkflowStepExecutionResponse,
 ];
@@ -3315,9 +2685,7 @@ export var ImportComponent: StaticOperationSchema = [
   9,
   n0,
   _ICm,
-  {
-    [_ht]: ["PUT", "/ImportComponent", 200],
-  },
+  { [_ht]: ["PUT", "/ImportComponent", 200] },
   () => ImportComponentRequest,
   () => ImportComponentResponse,
 ];
@@ -3325,9 +2693,7 @@ export var ImportDiskImage: StaticOperationSchema = [
   9,
   n0,
   _IDI,
-  {
-    [_ht]: ["PUT", "/ImportDiskImage", 200],
-  },
+  { [_ht]: ["PUT", "/ImportDiskImage", 200] },
   () => ImportDiskImageRequest,
   () => ImportDiskImageResponse,
 ];
@@ -3335,9 +2701,7 @@ export var ImportVmImage: StaticOperationSchema = [
   9,
   n0,
   _IVI,
-  {
-    [_ht]: ["PUT", "/ImportVmImage", 200],
-  },
+  { [_ht]: ["PUT", "/ImportVmImage", 200] },
   () => ImportVmImageRequest,
   () => ImportVmImageResponse,
 ];
@@ -3345,9 +2709,7 @@ export var ListComponentBuildVersions: StaticOperationSchema = [
   9,
   n0,
   _LCBV,
-  {
-    [_ht]: ["POST", "/ListComponentBuildVersions", 200],
-  },
+  { [_ht]: ["POST", "/ListComponentBuildVersions", 200] },
   () => ListComponentBuildVersionsRequest,
   () => ListComponentBuildVersionsResponse,
 ];
@@ -3355,9 +2717,7 @@ export var ListComponents: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["POST", "/ListComponents", 200],
-  },
+  { [_ht]: ["POST", "/ListComponents", 200] },
   () => ListComponentsRequest,
   () => ListComponentsResponse,
 ];
@@ -3365,9 +2725,7 @@ export var ListContainerRecipes: StaticOperationSchema = [
   9,
   n0,
   _LCRis,
-  {
-    [_ht]: ["POST", "/ListContainerRecipes", 200],
-  },
+  { [_ht]: ["POST", "/ListContainerRecipes", 200] },
   () => ListContainerRecipesRequest,
   () => ListContainerRecipesResponse,
 ];
@@ -3375,9 +2733,7 @@ export var ListDistributionConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LDC,
-  {
-    [_ht]: ["POST", "/ListDistributionConfigurations", 200],
-  },
+  { [_ht]: ["POST", "/ListDistributionConfigurations", 200] },
   () => ListDistributionConfigurationsRequest,
   () => ListDistributionConfigurationsResponse,
 ];
@@ -3385,9 +2741,7 @@ export var ListImageBuildVersions: StaticOperationSchema = [
   9,
   n0,
   _LIBV,
-  {
-    [_ht]: ["POST", "/ListImageBuildVersions", 200],
-  },
+  { [_ht]: ["POST", "/ListImageBuildVersions", 200] },
   () => ListImageBuildVersionsRequest,
   () => ListImageBuildVersionsResponse,
 ];
@@ -3395,9 +2749,7 @@ export var ListImagePackages: StaticOperationSchema = [
   9,
   n0,
   _LIP,
-  {
-    [_ht]: ["POST", "/ListImagePackages", 200],
-  },
+  { [_ht]: ["POST", "/ListImagePackages", 200] },
   () => ListImagePackagesRequest,
   () => ListImagePackagesResponse,
 ];
@@ -3405,9 +2757,7 @@ export var ListImagePipelineImages: StaticOperationSchema = [
   9,
   n0,
   _LIPI,
-  {
-    [_ht]: ["POST", "/ListImagePipelineImages", 200],
-  },
+  { [_ht]: ["POST", "/ListImagePipelineImages", 200] },
   () => ListImagePipelineImagesRequest,
   () => ListImagePipelineImagesResponse,
 ];
@@ -3415,9 +2765,7 @@ export var ListImagePipelines: StaticOperationSchema = [
   9,
   n0,
   _LIPi,
-  {
-    [_ht]: ["POST", "/ListImagePipelines", 200],
-  },
+  { [_ht]: ["POST", "/ListImagePipelines", 200] },
   () => ListImagePipelinesRequest,
   () => ListImagePipelinesResponse,
 ];
@@ -3425,9 +2773,7 @@ export var ListImageRecipes: StaticOperationSchema = [
   9,
   n0,
   _LIRis,
-  {
-    [_ht]: ["POST", "/ListImageRecipes", 200],
-  },
+  { [_ht]: ["POST", "/ListImageRecipes", 200] },
   () => ListImageRecipesRequest,
   () => ListImageRecipesResponse,
 ];
@@ -3435,9 +2781,7 @@ export var ListImages: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_ht]: ["POST", "/ListImages", 200],
-  },
+  { [_ht]: ["POST", "/ListImages", 200] },
   () => ListImagesRequest,
   () => ListImagesResponse,
 ];
@@ -3445,9 +2789,7 @@ export var ListImageScanFindingAggregations: StaticOperationSchema = [
   9,
   n0,
   _LISFA,
-  {
-    [_ht]: ["POST", "/ListImageScanFindingAggregations", 200],
-  },
+  { [_ht]: ["POST", "/ListImageScanFindingAggregations", 200] },
   () => ListImageScanFindingAggregationsRequest,
   () => ListImageScanFindingAggregationsResponse,
 ];
@@ -3455,9 +2797,7 @@ export var ListImageScanFindings: StaticOperationSchema = [
   9,
   n0,
   _LISF,
-  {
-    [_ht]: ["POST", "/ListImageScanFindings", 200],
-  },
+  { [_ht]: ["POST", "/ListImageScanFindings", 200] },
   () => ListImageScanFindingsRequest,
   () => ListImageScanFindingsResponse,
 ];
@@ -3465,9 +2805,7 @@ export var ListInfrastructureConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LIC,
-  {
-    [_ht]: ["POST", "/ListInfrastructureConfigurations", 200],
-  },
+  { [_ht]: ["POST", "/ListInfrastructureConfigurations", 200] },
   () => ListInfrastructureConfigurationsRequest,
   () => ListInfrastructureConfigurationsResponse,
 ];
@@ -3475,9 +2813,7 @@ export var ListLifecycleExecutionResources: StaticOperationSchema = [
   9,
   n0,
   _LLERis,
-  {
-    [_ht]: ["POST", "/ListLifecycleExecutionResources", 200],
-  },
+  { [_ht]: ["POST", "/ListLifecycleExecutionResources", 200] },
   () => ListLifecycleExecutionResourcesRequest,
   () => ListLifecycleExecutionResourcesResponse,
 ];
@@ -3485,9 +2821,7 @@ export var ListLifecycleExecutions: StaticOperationSchema = [
   9,
   n0,
   _LLE,
-  {
-    [_ht]: ["POST", "/ListLifecycleExecutions", 200],
-  },
+  { [_ht]: ["POST", "/ListLifecycleExecutions", 200] },
   () => ListLifecycleExecutionsRequest,
   () => ListLifecycleExecutionsResponse,
 ];
@@ -3495,9 +2829,7 @@ export var ListLifecyclePolicies: StaticOperationSchema = [
   9,
   n0,
   _LLP,
-  {
-    [_ht]: ["POST", "/ListLifecyclePolicies", 200],
-  },
+  { [_ht]: ["POST", "/ListLifecyclePolicies", 200] },
   () => ListLifecyclePoliciesRequest,
   () => ListLifecyclePoliciesResponse,
 ];
@@ -3505,9 +2837,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3515,9 +2845,7 @@ export var ListWaitingWorkflowSteps: StaticOperationSchema = [
   9,
   n0,
   _LWWS,
-  {
-    [_ht]: ["POST", "/ListWaitingWorkflowSteps", 200],
-  },
+  { [_ht]: ["POST", "/ListWaitingWorkflowSteps", 200] },
   () => ListWaitingWorkflowStepsRequest,
   () => ListWaitingWorkflowStepsResponse,
 ];
@@ -3525,9 +2853,7 @@ export var ListWorkflowBuildVersions: StaticOperationSchema = [
   9,
   n0,
   _LWBV,
-  {
-    [_ht]: ["POST", "/ListWorkflowBuildVersions", 200],
-  },
+  { [_ht]: ["POST", "/ListWorkflowBuildVersions", 200] },
   () => ListWorkflowBuildVersionsRequest,
   () => ListWorkflowBuildVersionsResponse,
 ];
@@ -3535,9 +2861,7 @@ export var ListWorkflowExecutions: StaticOperationSchema = [
   9,
   n0,
   _LWE,
-  {
-    [_ht]: ["POST", "/ListWorkflowExecutions", 200],
-  },
+  { [_ht]: ["POST", "/ListWorkflowExecutions", 200] },
   () => ListWorkflowExecutionsRequest,
   () => ListWorkflowExecutionsResponse,
 ];
@@ -3545,9 +2869,7 @@ export var ListWorkflows: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_ht]: ["POST", "/ListWorkflows", 200],
-  },
+  { [_ht]: ["POST", "/ListWorkflows", 200] },
   () => ListWorkflowsRequest,
   () => ListWorkflowsResponse,
 ];
@@ -3555,9 +2877,7 @@ export var ListWorkflowStepExecutions: StaticOperationSchema = [
   9,
   n0,
   _LWSE,
-  {
-    [_ht]: ["POST", "/ListWorkflowStepExecutions", 200],
-  },
+  { [_ht]: ["POST", "/ListWorkflowStepExecutions", 200] },
   () => ListWorkflowStepExecutionsRequest,
   () => ListWorkflowStepExecutionsResponse,
 ];
@@ -3565,9 +2885,7 @@ export var PutComponentPolicy: StaticOperationSchema = [
   9,
   n0,
   _PCP,
-  {
-    [_ht]: ["PUT", "/PutComponentPolicy", 200],
-  },
+  { [_ht]: ["PUT", "/PutComponentPolicy", 200] },
   () => PutComponentPolicyRequest,
   () => PutComponentPolicyResponse,
 ];
@@ -3575,9 +2893,7 @@ export var PutContainerRecipePolicy: StaticOperationSchema = [
   9,
   n0,
   _PCRP,
-  {
-    [_ht]: ["PUT", "/PutContainerRecipePolicy", 200],
-  },
+  { [_ht]: ["PUT", "/PutContainerRecipePolicy", 200] },
   () => PutContainerRecipePolicyRequest,
   () => PutContainerRecipePolicyResponse,
 ];
@@ -3585,9 +2901,7 @@ export var PutImagePolicy: StaticOperationSchema = [
   9,
   n0,
   _PIP,
-  {
-    [_ht]: ["PUT", "/PutImagePolicy", 200],
-  },
+  { [_ht]: ["PUT", "/PutImagePolicy", 200] },
   () => PutImagePolicyRequest,
   () => PutImagePolicyResponse,
 ];
@@ -3595,9 +2909,7 @@ export var PutImageRecipePolicy: StaticOperationSchema = [
   9,
   n0,
   _PIRP,
-  {
-    [_ht]: ["PUT", "/PutImageRecipePolicy", 200],
-  },
+  { [_ht]: ["PUT", "/PutImageRecipePolicy", 200] },
   () => PutImageRecipePolicyRequest,
   () => PutImageRecipePolicyResponse,
 ];
@@ -3605,9 +2917,7 @@ export var RetryImage: StaticOperationSchema = [
   9,
   n0,
   _RI,
-  {
-    [_ht]: ["PUT", "/RetryImage", 200],
-  },
+  { [_ht]: ["PUT", "/RetryImage", 200] },
   () => RetryImageRequest,
   () => RetryImageResponse,
 ];
@@ -3615,9 +2925,7 @@ export var SendWorkflowStepAction: StaticOperationSchema = [
   9,
   n0,
   _SWSA,
-  {
-    [_ht]: ["PUT", "/SendWorkflowStepAction", 200],
-  },
+  { [_ht]: ["PUT", "/SendWorkflowStepAction", 200] },
   () => SendWorkflowStepActionRequest,
   () => SendWorkflowStepActionResponse,
 ];
@@ -3625,9 +2933,7 @@ export var StartImagePipelineExecution: StaticOperationSchema = [
   9,
   n0,
   _SIPE,
-  {
-    [_ht]: ["PUT", "/StartImagePipelineExecution", 200],
-  },
+  { [_ht]: ["PUT", "/StartImagePipelineExecution", 200] },
   () => StartImagePipelineExecutionRequest,
   () => StartImagePipelineExecutionResponse,
 ];
@@ -3635,9 +2941,7 @@ export var StartResourceStateUpdate: StaticOperationSchema = [
   9,
   n0,
   _SRSU,
-  {
-    [_ht]: ["PUT", "/StartResourceStateUpdate", 200],
-  },
+  { [_ht]: ["PUT", "/StartResourceStateUpdate", 200] },
   () => StartResourceStateUpdateRequest,
   () => StartResourceStateUpdateResponse,
 ];
@@ -3645,9 +2949,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -3655,9 +2957,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -3665,9 +2965,7 @@ export var UpdateDistributionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UDC,
-  {
-    [_ht]: ["PUT", "/UpdateDistributionConfiguration", 200],
-  },
+  { [_ht]: ["PUT", "/UpdateDistributionConfiguration", 200] },
   () => UpdateDistributionConfigurationRequest,
   () => UpdateDistributionConfigurationResponse,
 ];
@@ -3675,9 +2973,7 @@ export var UpdateImagePipeline: StaticOperationSchema = [
   9,
   n0,
   _UIP,
-  {
-    [_ht]: ["PUT", "/UpdateImagePipeline", 200],
-  },
+  { [_ht]: ["PUT", "/UpdateImagePipeline", 200] },
   () => UpdateImagePipelineRequest,
   () => UpdateImagePipelineResponse,
 ];
@@ -3685,9 +2981,7 @@ export var UpdateInfrastructureConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UIC,
-  {
-    [_ht]: ["PUT", "/UpdateInfrastructureConfiguration", 200],
-  },
+  { [_ht]: ["PUT", "/UpdateInfrastructureConfiguration", 200] },
   () => UpdateInfrastructureConfigurationRequest,
   () => UpdateInfrastructureConfigurationResponse,
 ];
@@ -3695,9 +2989,7 @@ export var UpdateLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _ULP,
-  {
-    [_ht]: ["PUT", "/UpdateLifecyclePolicy", 200],
-  },
+  { [_ht]: ["PUT", "/UpdateLifecyclePolicy", 200] },
   () => UpdateLifecyclePolicyRequest,
   () => UpdateLifecyclePolicyResponse,
 ];

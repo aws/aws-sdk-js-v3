@@ -41,19 +41,19 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof PipesClient === "function")
-assert(typeof Pipes === "function")
+assert(typeof PipesClient === "function");
+assert(typeof Pipes === "function");
 // commands
-assert(typeof CreatePipeCommand === "function")
-assert(typeof DeletePipeCommand === "function")
-assert(typeof DescribePipeCommand === "function")
-assert(typeof ListPipesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof StartPipeCommand === "function")
-assert(typeof StopPipeCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdatePipeCommand === "function")
+assert(typeof CreatePipeCommand === "function");
+assert(typeof DeletePipeCommand === "function");
+assert(typeof DescribePipeCommand === "function");
+assert(typeof ListPipesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof StartPipeCommand === "function");
+assert(typeof StopPipeCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdatePipeCommand === "function");
 // enums
 assert(typeof AssignPublicIp === "object");
 assert(typeof BatchJobDependencyType === "object");
@@ -81,7 +81,7 @@ assert(typeof S3OutputFormat === "object");
 assert(typeof SelfManagedKafkaStartPosition === "object");
 assert(typeof TimeFieldType === "object");
 // errors
-assert(PipesServiceException.prototype instanceof Error)
+assert(PipesServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListPipes === "function")
+assert(typeof paginateListPipes === "function");
 console.log(`Pipes index test passed.`);

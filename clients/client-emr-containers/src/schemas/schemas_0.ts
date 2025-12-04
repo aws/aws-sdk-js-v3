@@ -258,7 +258,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var EntryPointArgument: StaticSimpleSchema = [0, n0, _EPA, 8, 0];
 export var EntryPointPath: StaticSimpleSchema = [0, n0, _EPP, 8, 0];
 export var SparkSqlParameters: StaticSimpleSchema = [0, n0, _SSP, 8, 0];
@@ -394,19 +393,8 @@ export var DescribeSecurityConfigurationResponse: StaticStructureSchema = [
 export var DescribeVirtualClusterRequest: StaticStructureSchema = [3, n0, _DVCRes, 0, [_i], [[0, 1]]];
 export var DescribeVirtualClusterResponse: StaticStructureSchema = [3, n0, _DVCResc, 0, [_vC], [() => VirtualCluster]];
 export var EksInfo: StaticStructureSchema = [3, n0, _EI, 0, [_na, _nL], [0, 0]];
-export var EKSRequestThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EKSRTE,
-  {
-    [_er]: _cl,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var EKSRequestThrottledException: StaticErrorSchema = [-3, n0, _EKSRTE, { [_er]: _cl, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(EKSRequestThrottledException, __EKSRequestThrottledException);
-
 export var EncryptionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -439,19 +427,8 @@ export var GetManagedEndpointSessionCredentialsResponse: StaticStructureSchema =
   [_i, _cr, _eA],
   [0, [() => Credentials, 0], 5],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_er]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InTransitEncryptionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -537,42 +514,12 @@ export var ListJobRunsRequest: StaticStructureSchema = [
   [_vCI, _cBr, _cAre, _n, _st, _mR, _nT],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _cBr,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cAre,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [5, { [_hQ]: _cBr }],
+    [5, { [_hQ]: _cAre }],
+    [0, { [_hQ]: _n }],
+    [64 | 0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListJobRunsResponse: StaticStructureSchema = [3, n0, _LJRRi, 0, [_jRo, _nT], [[() => JobRuns, 0], 0]];
@@ -583,30 +530,10 @@ export var ListJobTemplatesRequest: StaticStructureSchema = [
   0,
   [_cAre, _cBr, _mR, _nT],
   [
-    [
-      5,
-      {
-        [_hQ]: _cAre,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cBr,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [5, { [_hQ]: _cAre }],
+    [5, { [_hQ]: _cBr }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListJobTemplatesResponse: StaticStructureSchema = [
@@ -625,42 +552,12 @@ export var ListManagedEndpointsRequest: StaticStructureSchema = [
   [_vCI, _cBr, _cAre, _ty, _st, _mR, _nT],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _cBr,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cAre,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [5, { [_hQ]: _cBr }],
+    [5, { [_hQ]: _cAre }],
+    [64 | 0, { [_hQ]: _ty }],
+    [64 | 0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListManagedEndpointsResponse: StaticStructureSchema = [
@@ -678,30 +575,10 @@ export var ListSecurityConfigurationsRequest: StaticStructureSchema = [
   0,
   [_cAre, _cBr, _mR, _nT],
   [
-    [
-      5,
-      {
-        [_hQ]: _cAre,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cBr,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [5, { [_hQ]: _cAre }],
+    [5, { [_hQ]: _cBr }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSecurityConfigurationsResponse: StaticStructureSchema = [
@@ -721,54 +598,14 @@ export var ListVirtualClustersRequest: StaticStructureSchema = [
   0,
   [_cPI, _cPT, _cAre, _cBr, _st, _mR, _nT, _eAEI],
   [
-    [
-      0,
-      {
-        [_hQ]: _cPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cPT,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cAre,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _cBr,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _eAEI,
-      },
-    ],
+    [0, { [_hQ]: _cPI }],
+    [0, { [_hQ]: _cPT }],
+    [5, { [_hQ]: _cAre }],
+    [5, { [_hQ]: _cBr }],
+    [64 | 0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [2, { [_hQ]: _eAEI }],
   ],
 ];
 export var ListVirtualClustersResponse: StaticStructureSchema = [
@@ -819,32 +656,10 @@ export var ParametricMonitoringConfiguration: StaticStructureSchema = [
   [0, () => ParametricCloudWatchMonitoringConfiguration, () => ParametricS3MonitoringConfiguration],
 ];
 export var ParametricS3MonitoringConfiguration: StaticStructureSchema = [3, n0, _PSMC, 0, [_lU], [0]];
-export var RequestThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RTE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var RequestThrottledException: StaticErrorSchema = [-3, n0, _RTE, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestThrottledException, __RequestThrottledException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetryPolicyConfiguration: StaticStructureSchema = [3, n0, _RPC, 0, [_mA], [1]];
 export var RetryPolicyExecution: StaticStructureSchema = [3, n0, _RPE, 0, [_cAC], [1]];
 export var S3MonitoringConfiguration: StaticStructureSchema = [3, n0, _SMC, 0, [_lU], [0]];
@@ -921,28 +736,12 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VirtualCluster: StaticStructureSchema = [
   3,
   n0,
@@ -952,32 +751,23 @@ export var VirtualCluster: StaticStructureSchema = [
   [0, 0, 0, 0, () => ContainerProvider, 5, 128 | 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var EMRContainersServiceException: StaticErrorSchema = [-3, _sm, "EMRContainersServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EMRContainersServiceException, __EMRContainersServiceException);
-
 export var ConfigurationList: StaticListSchema = [1, n0, _CL, 0, [() => Configuration, 0]];
 export var Endpoints: StaticListSchema = [1, n0, _En, 0, [() => Endpoint, 0]];
 export var EndpointStates = 64 | 0;
-
 export var EndpointTypes = 64 | 0;
-
 export var EntryPointArguments: StaticListSchema = [1, n0, _EPAn, 0, [() => EntryPointArgument, 0]];
 export var JobRuns: StaticListSchema = [1, n0, _JRo, 0, [() => JobRun, 0]];
 export var JobRunStates = 64 | 0;
-
 export var JobTemplates: StaticListSchema = [1, n0, _JTo, 0, [() => JobTemplate, 0]];
 export var SecurityConfigurations: StaticListSchema = [1, n0, _SCe, 0, () => SecurityConfiguration];
 export var SubnetIds = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var VirtualClusters: StaticListSchema = [1, n0, _VCi, 0, () => VirtualCluster];
 export var VirtualClusterStates = 64 | 0;
-
 export var SensitivePropertiesMap: StaticMapSchema = [2, n0, _SPM, 8, 0, 0];
 export var TagMap = 128 | 0;
-
 export var TemplateParameterConfigurationMap: StaticMapSchema = [
   2,
   n0,
@@ -987,16 +777,13 @@ export var TemplateParameterConfigurationMap: StaticMapSchema = [
   () => TemplateParameterConfiguration,
 ];
 export var TemplateParameterInputMap = 128 | 0;
-
 export var ContainerInfo: StaticStructureSchema = [3, n0, _CI, 0, [_eIk], [() => EksInfo]];
 export var Credentials: StaticStructureSchema = [3, n0, _Cr, 0, [_to], [[() => Token, 0]]];
 export var CancelJobRun: StaticOperationSchema = [
   9,
   n0,
   _CJR,
-  {
-    [_h]: ["DELETE", "/virtualclusters/{virtualClusterId}/jobruns/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/virtualclusters/{virtualClusterId}/jobruns/{id}", 200] },
   () => CancelJobRunRequest,
   () => CancelJobRunResponse,
 ];
@@ -1004,9 +791,7 @@ export var CreateJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _CJT,
-  {
-    [_h]: ["POST", "/jobtemplates", 200],
-  },
+  { [_h]: ["POST", "/jobtemplates", 200] },
   () => CreateJobTemplateRequest,
   () => CreateJobTemplateResponse,
 ];
@@ -1014,9 +799,7 @@ export var CreateManagedEndpoint: StaticOperationSchema = [
   9,
   n0,
   _CME,
-  {
-    [_h]: ["POST", "/virtualclusters/{virtualClusterId}/endpoints", 200],
-  },
+  { [_h]: ["POST", "/virtualclusters/{virtualClusterId}/endpoints", 200] },
   () => CreateManagedEndpointRequest,
   () => CreateManagedEndpointResponse,
 ];
@@ -1024,9 +807,7 @@ export var CreateSecurityConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CSC,
-  {
-    [_h]: ["POST", "/securityconfigurations", 200],
-  },
+  { [_h]: ["POST", "/securityconfigurations", 200] },
   () => CreateSecurityConfigurationRequest,
   () => CreateSecurityConfigurationResponse,
 ];
@@ -1034,9 +815,7 @@ export var CreateVirtualCluster: StaticOperationSchema = [
   9,
   n0,
   _CVC,
-  {
-    [_h]: ["POST", "/virtualclusters", 200],
-  },
+  { [_h]: ["POST", "/virtualclusters", 200] },
   () => CreateVirtualClusterRequest,
   () => CreateVirtualClusterResponse,
 ];
@@ -1044,9 +823,7 @@ export var DeleteJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _DJT,
-  {
-    [_h]: ["DELETE", "/jobtemplates/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/jobtemplates/{id}", 200] },
   () => DeleteJobTemplateRequest,
   () => DeleteJobTemplateResponse,
 ];
@@ -1054,9 +831,7 @@ export var DeleteManagedEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DME,
-  {
-    [_h]: ["DELETE", "/virtualclusters/{virtualClusterId}/endpoints/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/virtualclusters/{virtualClusterId}/endpoints/{id}", 200] },
   () => DeleteManagedEndpointRequest,
   () => DeleteManagedEndpointResponse,
 ];
@@ -1064,9 +839,7 @@ export var DeleteVirtualCluster: StaticOperationSchema = [
   9,
   n0,
   _DVC,
-  {
-    [_h]: ["DELETE", "/virtualclusters/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/virtualclusters/{id}", 200] },
   () => DeleteVirtualClusterRequest,
   () => DeleteVirtualClusterResponse,
 ];
@@ -1074,9 +847,7 @@ export var DescribeJobRun: StaticOperationSchema = [
   9,
   n0,
   _DJR,
-  {
-    [_h]: ["GET", "/virtualclusters/{virtualClusterId}/jobruns/{id}", 200],
-  },
+  { [_h]: ["GET", "/virtualclusters/{virtualClusterId}/jobruns/{id}", 200] },
   () => DescribeJobRunRequest,
   () => DescribeJobRunResponse,
 ];
@@ -1084,9 +855,7 @@ export var DescribeJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _DJTe,
-  {
-    [_h]: ["GET", "/jobtemplates/{id}", 200],
-  },
+  { [_h]: ["GET", "/jobtemplates/{id}", 200] },
   () => DescribeJobTemplateRequest,
   () => DescribeJobTemplateResponse,
 ];
@@ -1094,9 +863,7 @@ export var DescribeManagedEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DMEe,
-  {
-    [_h]: ["GET", "/virtualclusters/{virtualClusterId}/endpoints/{id}", 200],
-  },
+  { [_h]: ["GET", "/virtualclusters/{virtualClusterId}/endpoints/{id}", 200] },
   () => DescribeManagedEndpointRequest,
   () => DescribeManagedEndpointResponse,
 ];
@@ -1104,9 +871,7 @@ export var DescribeSecurityConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DSC,
-  {
-    [_h]: ["GET", "/securityconfigurations/{id}", 200],
-  },
+  { [_h]: ["GET", "/securityconfigurations/{id}", 200] },
   () => DescribeSecurityConfigurationRequest,
   () => DescribeSecurityConfigurationResponse,
 ];
@@ -1114,9 +879,7 @@ export var DescribeVirtualCluster: StaticOperationSchema = [
   9,
   n0,
   _DVCe,
-  {
-    [_h]: ["GET", "/virtualclusters/{id}", 200],
-  },
+  { [_h]: ["GET", "/virtualclusters/{id}", 200] },
   () => DescribeVirtualClusterRequest,
   () => DescribeVirtualClusterResponse,
 ];
@@ -1124,9 +887,7 @@ export var GetManagedEndpointSessionCredentials: StaticOperationSchema = [
   9,
   n0,
   _GMESC,
-  {
-    [_h]: ["POST", "/virtualclusters/{virtualClusterIdentifier}/endpoints/{endpointIdentifier}/credentials", 200],
-  },
+  { [_h]: ["POST", "/virtualclusters/{virtualClusterIdentifier}/endpoints/{endpointIdentifier}/credentials", 200] },
   () => GetManagedEndpointSessionCredentialsRequest,
   () => GetManagedEndpointSessionCredentialsResponse,
 ];
@@ -1134,9 +895,7 @@ export var ListJobRuns: StaticOperationSchema = [
   9,
   n0,
   _LJR,
-  {
-    [_h]: ["GET", "/virtualclusters/{virtualClusterId}/jobruns", 200],
-  },
+  { [_h]: ["GET", "/virtualclusters/{virtualClusterId}/jobruns", 200] },
   () => ListJobRunsRequest,
   () => ListJobRunsResponse,
 ];
@@ -1144,9 +903,7 @@ export var ListJobTemplates: StaticOperationSchema = [
   9,
   n0,
   _LJT,
-  {
-    [_h]: ["GET", "/jobtemplates", 200],
-  },
+  { [_h]: ["GET", "/jobtemplates", 200] },
   () => ListJobTemplatesRequest,
   () => ListJobTemplatesResponse,
 ];
@@ -1154,9 +911,7 @@ export var ListManagedEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LME,
-  {
-    [_h]: ["GET", "/virtualclusters/{virtualClusterId}/endpoints", 200],
-  },
+  { [_h]: ["GET", "/virtualclusters/{virtualClusterId}/endpoints", 200] },
   () => ListManagedEndpointsRequest,
   () => ListManagedEndpointsResponse,
 ];
@@ -1164,9 +919,7 @@ export var ListSecurityConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LSC,
-  {
-    [_h]: ["GET", "/securityconfigurations", 200],
-  },
+  { [_h]: ["GET", "/securityconfigurations", 200] },
   () => ListSecurityConfigurationsRequest,
   () => ListSecurityConfigurationsResponse,
 ];
@@ -1174,9 +927,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1184,9 +935,7 @@ export var ListVirtualClusters: StaticOperationSchema = [
   9,
   n0,
   _LVC,
-  {
-    [_h]: ["GET", "/virtualclusters", 200],
-  },
+  { [_h]: ["GET", "/virtualclusters", 200] },
   () => ListVirtualClustersRequest,
   () => ListVirtualClustersResponse,
 ];
@@ -1194,9 +943,7 @@ export var StartJobRun: StaticOperationSchema = [
   9,
   n0,
   _SJR,
-  {
-    [_h]: ["POST", "/virtualclusters/{virtualClusterId}/jobruns", 200],
-  },
+  { [_h]: ["POST", "/virtualclusters/{virtualClusterId}/jobruns", 200] },
   () => StartJobRunRequest,
   () => StartJobRunResponse,
 ];
@@ -1204,9 +951,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1214,9 +959,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

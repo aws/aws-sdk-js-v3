@@ -1192,20 +1192,9 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var SecretString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedFault: StaticErrorSchema = [-3, n0, _ADF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedFault, __AccessDeniedFault);
-
 export var AccountQuota: StaticStructureSchema = [3, n0, _AQ, 0, [_AQN, _U, _M], [0, 1, 1]];
 export var AddTagsToResourceMessage: StaticStructureSchema = [3, n0, _ATTRM, 0, [_RA, _T], [0, [() => TagList, 0]]];
 export var AddTagsToResourceResponse: StaticStructureSchema = [3, n0, _ATTRR, 0, [], []];
@@ -1279,19 +1268,8 @@ export var Certificate: StaticStructureSchema = [
   [0, 4, 0, 21, 0, 0, 4, 4, 0, 1, 0],
 ];
 export var CollectorHealthCheck: StaticStructureSchema = [3, n0, _CHC, 0, [_CS, _LCSA, _WCSA, _WCGRBA], [0, 2, 2, 2]];
-export var CollectorNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _CNFF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var CollectorNotFoundFault: StaticErrorSchema = [-3, n0, _CNFF, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(CollectorNotFoundFault, __CollectorNotFoundFault);
-
 export var CollectorResponse: StaticStructureSchema = [
   3,
   n0,
@@ -2501,18 +2479,8 @@ export var ExportMetadataModelAssessmentResponse: StaticStructureSchema = [
 ];
 export var ExportMetadataModelAssessmentResultEntry: StaticStructureSchema = [3, n0, _EMMARE, 0, [_SOK, _OURL], [0, 0]];
 export var ExportSqlDetails: StaticStructureSchema = [3, n0, _ESD, 0, [_SOK, _OURL], [0, 0]];
-export var FailedDependencyFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _FDF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var FailedDependencyFault: StaticErrorSchema = [-3, n0, _FDF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(FailedDependencyFault, __FailedDependencyFault);
-
 export var Filter: StaticStructureSchema = [3, n0, _Fi, 0, [_N, _Va], [0, [() => FilterValueList, 0]]];
 export var FleetAdvisorLsaAnalysisResponse: StaticStructureSchema = [3, n0, _FALAR, 0, [_LAI, _S], [0, 0]];
 export var FleetAdvisorSchemaObjectResponse: StaticStructureSchema = [
@@ -2574,66 +2542,16 @@ export var InstanceProfile: StaticStructureSchema = [
   [_IPA, _AZ, _KKA, _PA, _NT, _IPN, _De, _IPCT, _SGI, _VSG],
   [0, 0, 0, 2, 0, 0, 0, 5, 0, 64 | 0],
 ];
-export var InsufficientResourceCapacityFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRCF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InsufficientResourceCapacityFault: StaticErrorSchema = [-3, n0, _IRCF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InsufficientResourceCapacityFault, __InsufficientResourceCapacityFault);
-
-export var InvalidCertificateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidCertificateFault: StaticErrorSchema = [-3, n0, _ICF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidCertificateFault, __InvalidCertificateFault);
-
-export var InvalidOperationFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidOperationFault: StaticErrorSchema = [-3, n0, _IOF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidOperationFault, __InvalidOperationFault);
-
-export var InvalidResourceStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRSF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidResourceStateFault: StaticErrorSchema = [-3, n0, _IRSF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidResourceStateFault, __InvalidResourceStateFault);
-
-export var InvalidSubnet: StaticErrorSchema = [
-  -3,
-  n0,
-  _IS,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidSubnet: StaticErrorSchema = [-3, n0, _IS, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidSubnet, __InvalidSubnet);
-
 export var InventoryData: StaticStructureSchema = [3, n0, _ID, 0, [_NOD, _NOS], [1, 1]];
 export var KafkaSettings: StaticStructureSchema = [
   3,
@@ -2674,90 +2592,20 @@ export var KinesisSettings: StaticStructureSchema = [
   [_SAt, _MF, _SARA, _ITD, _IPV, _PIST, _ITAO, _ICD, _INAE, _NHP, _ULIV],
   [0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2],
 ];
-export var KMSAccessDeniedFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSADF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KMSAccessDeniedFault: StaticErrorSchema = [-3, n0, _KMSADF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KMSAccessDeniedFault, __KMSAccessDeniedFault);
-
-export var KMSDisabledFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSDF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KMSDisabledFault: StaticErrorSchema = [-3, n0, _KMSDF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KMSDisabledFault, __KMSDisabledFault);
-
-export var KMSFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KMSFault: StaticErrorSchema = [-3, n0, _KMSF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KMSFault, __KMSFault);
-
-export var KMSInvalidStateFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSISF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KMSInvalidStateFault: StaticErrorSchema = [-3, n0, _KMSISF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KMSInvalidStateFault, __KMSInvalidStateFault);
-
-export var KMSKeyNotAccessibleFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSKNAF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KMSKeyNotAccessibleFault: StaticErrorSchema = [-3, n0, _KMSKNAF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KMSKeyNotAccessibleFault, __KMSKeyNotAccessibleFault);
-
-export var KMSNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSNFF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KMSNotFoundFault: StaticErrorSchema = [-3, n0, _KMSNFF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KMSNotFoundFault, __KMSNotFoundFault);
-
-export var KMSThrottlingFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSTF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KMSThrottlingFault: StaticErrorSchema = [-3, n0, _KMSTF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KMSThrottlingFault, __KMSThrottlingFault);
-
 export var LakehouseSettings: StaticStructureSchema = [3, n0, _LS, 0, [_Ar], [0]];
 export var Limitation: StaticStructureSchema = [3, n0, _Lim, 0, [_DI, _EN, _N, _De, _I, _Ty], [0, 0, 0, 0, 0, 0]];
 export var ListTagsForResourceMessage: StaticStructureSchema = [3, n0, _LTFRM, 0, [_RA, _RAL], [0, 64 | 0]];
@@ -3509,9 +3357,7 @@ export var ReplicationSubnetGroupDoesNotCoverEnoughAZs: StaticErrorSchema = [
   -3,
   n0,
   _RSGDNCEAZ,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_m],
   [0],
 ];
@@ -3519,7 +3365,6 @@ TypeRegistry.for(n0).registerError(
   ReplicationSubnetGroupDoesNotCoverEnoughAZs,
   __ReplicationSubnetGroupDoesNotCoverEnoughAZs
 );
-
 export var ReplicationTask: StaticStructureSchema = [
   3,
   n0,
@@ -3584,30 +3429,10 @@ export var ReplicationTaskStats: StaticStructureSchema = [
   [_FLPP, _ETM, _TL, _TLa, _TQ, _TE, _FSD, _SDt, _SDto, _FLSD, _FLFD],
   [1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4],
 ];
-export var ResourceAlreadyExistsFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEF,
-  {
-    [_e]: _c,
-  },
-  [_m, _rA],
-  [0, 0],
-];
+export var ResourceAlreadyExistsFault: StaticErrorSchema = [-3, n0, _RAEF, { [_e]: _c }, [_m, _rA], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsFault, __ResourceAlreadyExistsFault);
-
-export var ResourceNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundFault: StaticErrorSchema = [-3, n0, _RNFF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundFault, __ResourceNotFoundFault);
-
 export var ResourcePendingMaintenanceActions: StaticStructureSchema = [
   3,
   n0,
@@ -3616,43 +3441,13 @@ export var ResourcePendingMaintenanceActions: StaticStructureSchema = [
   [_RIe, _PMAD],
   [0, [() => PendingMaintenanceActionDetails, 0]],
 ];
-export var ResourceQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _RQEF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceQuotaExceededFault: StaticErrorSchema = [-3, n0, _RQEF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceQuotaExceededFault, __ResourceQuotaExceededFault);
-
 export var RunFleetAdvisorLsaAnalysisResponse: StaticStructureSchema = [3, n0, _RFALAR, 0, [_LAI, _S], [0, 0]];
-export var S3AccessDeniedFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SADF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var S3AccessDeniedFault: StaticErrorSchema = [-3, n0, _SADF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(S3AccessDeniedFault, __S3AccessDeniedFault);
-
-export var S3ResourceNotFoundFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SRNFF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var S3ResourceNotFoundFault: StaticErrorSchema = [-3, n0, _SRNFF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(S3ResourceNotFoundFault, __S3ResourceNotFoundFault);
-
 export var S3Settings: StaticStructureSchema = [
   3,
   n0,
@@ -3732,30 +3527,10 @@ export var SchemaShortInfoResponse: StaticStructureSchema = [
   [0, 0, 0, 0, 0],
 ];
 export var ServerShortInfoResponse: StaticStructureSchema = [3, n0, _SSIRe, 0, [_SIe, _IA, _SN], [0, 0, 0]];
-export var SNSInvalidTopicFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNSITF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var SNSInvalidTopicFault: StaticErrorSchema = [-3, n0, _SNSITF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SNSInvalidTopicFault, __SNSInvalidTopicFault);
-
-export var SNSNoAuthorizationFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNSNAF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var SNSNoAuthorizationFault: StaticErrorSchema = [-3, n0, _SNSNAF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault, __SNSNoAuthorizationFault);
-
 export var SourceDataSetting: StaticStructureSchema = [3, n0, _SDSo, 0, [_CDCSP, _CDCST, _CDCSTt, _SNl], [0, 5, 5, 0]];
 export var StartDataMigrationMessage: StaticStructureSchema = [3, n0, _SDMM, 0, [_DMI, _STta], [0, 0]];
 export var StartDataMigrationResponse: StaticStructureSchema = [3, n0, _SDMR, 0, [_DM], [[() => DataMigration, 0]]];
@@ -3867,31 +3642,11 @@ export var StopReplicationMessage: StaticStructureSchema = [3, n0, _SRMt, 0, [_R
 export var StopReplicationResponse: StaticStructureSchema = [3, n0, _SRRto, 0, [_Repl], [() => Replication]];
 export var StopReplicationTaskMessage: StaticStructureSchema = [3, n0, _SRTMt, 0, [_RTA], [0]];
 export var StopReplicationTaskResponse: StaticStructureSchema = [3, n0, _SRTRt, 0, [_RTe], [() => ReplicationTask]];
-export var StorageQuotaExceededFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var StorageQuotaExceededFault: StaticErrorSchema = [-3, n0, _SQEF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(StorageQuotaExceededFault, __StorageQuotaExceededFault);
-
 export var Subnet: StaticStructureSchema = [3, n0, _Sub, 0, [_SIub, _SAZu, _SSub], [0, () => AvailabilityZone, 0]];
-export var SubnetAlreadyInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAIU,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var SubnetAlreadyInUse: StaticErrorSchema = [-3, n0, _SAIU, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SubnetAlreadyInUse, __SubnetAlreadyInUse);
-
 export var SupportedEndpointType: StaticStructureSchema = [
   3,
   n0,
@@ -3968,21 +3723,10 @@ export var TimestreamSettings: StaticStructureSchema = [
 ];
 export var UpdateSubscriptionsToEventBridgeMessage: StaticStructureSchema = [3, n0, _USTEBM, 0, [_FMo], [2]];
 export var UpdateSubscriptionsToEventBridgeResponse: StaticStructureSchema = [3, n0, _USTEBR, 0, [_Res], [0]];
-export var UpgradeDependencyFailureFault: StaticErrorSchema = [
-  -3,
-  n0,
-  _UDFF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UpgradeDependencyFailureFault: StaticErrorSchema = [-3, n0, _UDFF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UpgradeDependencyFailureFault, __UpgradeDependencyFailureFault);
-
 export var VpcSecurityGroupMembership: StaticStructureSchema = [3, n0, _VSGM, 0, [_VSGIp, _S], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var DatabaseMigrationServiceServiceException: StaticErrorSchema = [
   -3,
   _s,
@@ -3995,27 +3739,11 @@ TypeRegistry.for(_s).registerError(
   DatabaseMigrationServiceServiceException,
   __DatabaseMigrationServiceServiceException
 );
-
-export var AccountQuotaList: StaticListSchema = [
-  1,
-  n0,
-  _AQL,
-  0,
-  [
-    () => AccountQuota,
-    {
-      [_xN]: _AQ,
-    },
-  ],
-];
+export var AccountQuotaList: StaticListSchema = [1, n0, _AQL, 0, [() => AccountQuota, { [_xN]: _AQ }]];
 export var ArnList = 64 | 0;
-
 export var AssessmentReportTypesList = 64 | 0;
-
 export var AvailabilityZonesList = 64 | 0;
-
 export var AvailableUpgradesList = 64 | 0;
-
 export var BatchStartRecommendationsErrorEntryList: StaticListSchema = [
   1,
   n0,
@@ -4023,35 +3751,12 @@ export var BatchStartRecommendationsErrorEntryList: StaticListSchema = [
   0,
   () => BatchStartRecommendationsErrorEntry,
 ];
-export var CertificateList: StaticListSchema = [
-  1,
-  n0,
-  _CLe,
-  0,
-  [
-    () => Certificate,
-    {
-      [_xN]: _Ce,
-    },
-  ],
-];
+export var CertificateList: StaticListSchema = [1, n0, _CLe, 0, [() => Certificate, { [_xN]: _Ce }]];
 export var CollectorResponses: StaticListSchema = [1, n0, _CRo, 0, () => CollectorResponse];
 export var CollectorsList: StaticListSchema = [1, n0, _CLo, 0, () => CollectorShortInfoResponse];
-export var ConnectionList: StaticListSchema = [
-  1,
-  n0,
-  _CLon,
-  0,
-  [
-    () => Connection,
-    {
-      [_xN]: _Co,
-    },
-  ],
-];
+export var ConnectionList: StaticListSchema = [1, n0, _CLon, 0, [() => Connection, { [_xN]: _Co }]];
 export var DatabaseList: StaticListSchema = [1, n0, _DL, 0, () => DatabaseResponse];
 export var DataMigrationCidrBlock = 64 | 0;
-
 export var DataMigrations: StaticListSchema = [1, n0, _DMa, 0, [() => DataMigration, 0]];
 export var DataProviderDescriptorDefinitionList: StaticListSchema = [
   1,
@@ -4061,119 +3766,18 @@ export var DataProviderDescriptorDefinitionList: StaticListSchema = [
   () => DataProviderDescriptorDefinition,
 ];
 export var DataProviderDescriptorList: StaticListSchema = [1, n0, _DPDL, 0, () => DataProviderDescriptor];
-export var DataProviderList: StaticListSchema = [
-  1,
-  n0,
-  _DPL,
-  0,
-  [
-    () => DataProvider,
-    {
-      [_xN]: _DP,
-    },
-  ],
-];
-export var EndpointList: StaticListSchema = [
-  1,
-  n0,
-  _EL,
-  0,
-  [
-    () => Endpoint,
-    {
-      [_xN]: _En,
-    },
-  ],
-];
+export var DataProviderList: StaticListSchema = [1, n0, _DPL, 0, [() => DataProvider, { [_xN]: _DP }]];
+export var EndpointList: StaticListSchema = [1, n0, _EL, 0, [() => Endpoint, { [_xN]: _En }]];
 export var EndpointSettingEnumValues = 64 | 0;
-
 export var EndpointSettingsList: StaticListSchema = [1, n0, _ESLn, 0, () => EndpointSetting];
-export var EngineVersionList: StaticListSchema = [
-  1,
-  n0,
-  _EVL,
-  0,
-  [
-    () => EngineVersion,
-    {
-      [_xN]: _EV,
-    },
-  ],
-];
-export var EventCategoriesList: StaticListSchema = [
-  1,
-  n0,
-  _ECLv,
-  0,
-  [
-    0,
-    {
-      [_xN]: _ECv,
-    },
-  ],
-];
-export var EventCategoryGroupList: StaticListSchema = [
-  1,
-  n0,
-  _ECGL,
-  0,
-  [
-    () => EventCategoryGroup,
-    {
-      [_xN]: _ECG,
-    },
-  ],
-];
-export var EventList: StaticListSchema = [
-  1,
-  n0,
-  _ELv,
-  0,
-  [
-    () => Event,
-    {
-      [_xN]: _Eve,
-    },
-  ],
-];
-export var EventSubscriptionsList: StaticListSchema = [
-  1,
-  n0,
-  _ESL,
-  0,
-  [
-    () => EventSubscription,
-    {
-      [_xN]: _ESv,
-    },
-  ],
-];
+export var EngineVersionList: StaticListSchema = [1, n0, _EVL, 0, [() => EngineVersion, { [_xN]: _EV }]];
+export var EventCategoriesList: StaticListSchema = [1, n0, _ECLv, 0, [0, { [_xN]: _ECv }]];
+export var EventCategoryGroupList: StaticListSchema = [1, n0, _ECGL, 0, [() => EventCategoryGroup, { [_xN]: _ECG }]];
+export var EventList: StaticListSchema = [1, n0, _ELv, 0, [() => Event, { [_xN]: _Eve }]];
+export var EventSubscriptionsList: StaticListSchema = [1, n0, _ESL, 0, [() => EventSubscription, { [_xN]: _ESv }]];
 export var ExcludeTestList = 64 | 0;
-
-export var FilterList: StaticListSchema = [
-  1,
-  n0,
-  _FL,
-  0,
-  [
-    () => Filter,
-    {
-      [_xN]: _Fi,
-    },
-  ],
-];
-export var FilterValueList: StaticListSchema = [
-  1,
-  n0,
-  _FVL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Val,
-    },
-  ],
-];
+export var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter, { [_xN]: _Fi }]];
+export var FilterValueList: StaticListSchema = [1, n0, _FVL, 0, [0, { [_xN]: _Val }]];
 export var FleetAdvisorLsaAnalysisResponseList: StaticListSchema = [
   1,
   n0,
@@ -4184,132 +3788,50 @@ export var FleetAdvisorLsaAnalysisResponseList: StaticListSchema = [
 export var FleetAdvisorSchemaList: StaticListSchema = [1, n0, _FASL, 0, () => SchemaResponse];
 export var FleetAdvisorSchemaObjectList: StaticListSchema = [1, n0, _FASOL, 0, () => FleetAdvisorSchemaObjectResponse];
 export var IncludeTestList = 64 | 0;
-
 export var IndividualAssessmentNameList = 64 | 0;
-
-export var InstanceProfileList: StaticListSchema = [
-  1,
-  n0,
-  _IPL,
-  0,
-  [
-    () => InstanceProfile,
-    {
-      [_xN]: _IP,
-    },
-  ],
-];
+export var InstanceProfileList: StaticListSchema = [1, n0, _IPL, 0, [() => InstanceProfile, { [_xN]: _IP }]];
 export var IntegerList = 64 | 1;
-
 export var KeyList = 64 | 0;
-
 export var LimitationList: StaticListSchema = [1, n0, _LL, 0, () => Limitation];
 export var MetadataModelReferenceList: StaticListSchema = [1, n0, _MMRL, 0, () => MetadataModelReference];
-export var MigrationProjectList: StaticListSchema = [
-  1,
-  n0,
-  _MPL,
-  0,
-  [
-    () => MigrationProject,
-    {
-      [_xN]: _MP,
-    },
-  ],
-];
+export var MigrationProjectList: StaticListSchema = [1, n0, _MPL, 0, [() => MigrationProject, { [_xN]: _MP }]];
 export var OrderableReplicationInstanceList: StaticListSchema = [
   1,
   n0,
   _ORIL,
   0,
-  [
-    () => OrderableReplicationInstance,
-    {
-      [_xN]: _ORIr,
-    },
-  ],
+  [() => OrderableReplicationInstance, { [_xN]: _ORIr }],
 ];
 export var PendingMaintenanceActionDetails: StaticListSchema = [
   1,
   n0,
   _PMAD,
   0,
-  [
-    () => PendingMaintenanceAction,
-    {
-      [_xN]: _PMAe,
-    },
-  ],
+  [() => PendingMaintenanceAction, { [_xN]: _PMAe }],
 ];
 export var PendingMaintenanceActions: StaticListSchema = [
   1,
   n0,
   _PMA,
   0,
-  [
-    () => ResourcePendingMaintenanceActions,
-    {
-      [_xN]: _RPMA,
-    },
-  ],
+  [() => ResourcePendingMaintenanceActions, { [_xN]: _RPMA }],
 ];
 export var PremigrationAssessmentStatusList: StaticListSchema = [1, n0, _PASL, 0, () => PremigrationAssessmentStatus];
 export var PublicIpAddressList: StaticListSchema = [1, n0, _PIAL, 8, 0];
 export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, () => Recommendation];
-export var ReplicationConfigList: StaticListSchema = [
-  1,
-  n0,
-  _RCL,
-  0,
-  [
-    () => ReplicationConfig,
-    {
-      [_xN]: _RC,
-    },
-  ],
-];
+export var ReplicationConfigList: StaticListSchema = [1, n0, _RCL, 0, [() => ReplicationConfig, { [_xN]: _RC }]];
 export var ReplicationInstanceIpv6AddressList = 64 | 0;
-
-export var ReplicationInstanceList: StaticListSchema = [
-  1,
-  n0,
-  _RIL,
-  0,
-  [
-    () => ReplicationInstance,
-    {
-      [_xN]: _RIep,
-    },
-  ],
-];
+export var ReplicationInstanceList: StaticListSchema = [1, n0, _RIL, 0, [() => ReplicationInstance, { [_xN]: _RIep }]];
 export var ReplicationInstancePrivateIpAddressList = 64 | 0;
-
 export var ReplicationInstancePublicIpAddressList = 64 | 0;
-
 export var ReplicationInstanceTaskLogsList: StaticListSchema = [1, n0, _RITLL, 0, () => ReplicationInstanceTaskLog];
-export var ReplicationList: StaticListSchema = [
-  1,
-  n0,
-  _RLe,
-  0,
-  [
-    () => Replication,
-    {
-      [_xN]: _Repl,
-    },
-  ],
-];
+export var ReplicationList: StaticListSchema = [1, n0, _RLe, 0, [() => Replication, { [_xN]: _Repl }]];
 export var ReplicationSubnetGroups: StaticListSchema = [
   1,
   n0,
   _RSGe,
   0,
-  [
-    () => ReplicationSubnetGroup,
-    {
-      [_xN]: _RSG,
-    },
-  ],
+  [() => ReplicationSubnetGroup, { [_xN]: _RSG }],
 ];
 export var ReplicationTableStatisticsList: StaticListSchema = [1, n0, _RTSL, 0, () => TableStatistics];
 export var ReplicationTaskAssessmentResultList: StaticListSchema = [
@@ -4317,12 +3839,7 @@ export var ReplicationTaskAssessmentResultList: StaticListSchema = [
   n0,
   _RTARL,
   0,
-  [
-    () => ReplicationTaskAssessmentResult,
-    {
-      [_xN]: _RTARepl,
-    },
-  ],
+  [() => ReplicationTaskAssessmentResult, { [_xN]: _RTARepl }],
 ];
 export var ReplicationTaskAssessmentRunList: StaticListSchema = [1, n0, _RTARLe, 0, () => ReplicationTaskAssessmentRun];
 export var ReplicationTaskIndividualAssessmentList: StaticListSchema = [
@@ -4332,34 +3849,11 @@ export var ReplicationTaskIndividualAssessmentList: StaticListSchema = [
   0,
   () => ReplicationTaskIndividualAssessment,
 ];
-export var ReplicationTaskList: StaticListSchema = [
-  1,
-  n0,
-  _RTL,
-  0,
-  [
-    () => ReplicationTask,
-    {
-      [_xN]: _RTe,
-    },
-  ],
-];
+export var ReplicationTaskList: StaticListSchema = [1, n0, _RTL, 0, [() => ReplicationTask, { [_xN]: _RTe }]];
 export var SchemaConversionRequestList: StaticListSchema = [1, n0, _SCRL, 0, () => SchemaConversionRequest];
 export var SchemaList = 64 | 0;
-
 export var SourceDataSettings: StaticListSchema = [1, n0, _SDS, 0, () => SourceDataSetting];
-export var SourceIdsList: StaticListSchema = [
-  1,
-  n0,
-  _SIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _SIou,
-    },
-  ],
-];
+export var SourceIdsList: StaticListSchema = [1, n0, _SIL, 0, [0, { [_xN]: _SIou }]];
 export var StartRecommendationsRequestEntryList: StaticListSchema = [
   1,
   n0,
@@ -4368,81 +3862,26 @@ export var StartRecommendationsRequestEntryList: StaticListSchema = [
   () => StartRecommendationsRequestEntry,
 ];
 export var StringList = 64 | 0;
-
-export var SubnetIdentifierList: StaticListSchema = [
-  1,
-  n0,
-  _SILu,
-  0,
-  [
-    0,
-    {
-      [_xN]: _SIub,
-    },
-  ],
-];
-export var SubnetList: StaticListSchema = [
-  1,
-  n0,
-  _SLu,
-  0,
-  [
-    () => Subnet,
-    {
-      [_xN]: _Sub,
-    },
-  ],
-];
+export var SubnetIdentifierList: StaticListSchema = [1, n0, _SILu, 0, [0, { [_xN]: _SIub }]];
+export var SubnetList: StaticListSchema = [1, n0, _SLu, 0, [() => Subnet, { [_xN]: _Sub }]];
 export var SupportedEndpointTypeList: StaticListSchema = [
   1,
   n0,
   _SETL,
   0,
-  [
-    () => SupportedEndpointType,
-    {
-      [_xN]: _SETu,
-    },
-  ],
+  [() => SupportedEndpointType, { [_xN]: _SETu }],
 ];
 export var TableListToReload: StaticListSchema = [1, n0, _TLTR, 0, () => TableToReload];
 export var TableStatisticsList: StaticListSchema = [1, n0, _TSL, 0, () => TableStatistics];
-export var TagList: StaticListSchema = [
-  1,
-  n0,
-  _TLag,
-  0,
-  [
-    () => Tag,
-    {
-      [_xN]: _Ta,
-    },
-  ],
-];
+export var TagList: StaticListSchema = [1, n0, _TLag, 0, [() => Tag, { [_xN]: _Ta }]];
 export var TargetDataSettings: StaticListSchema = [1, n0, _TDS, 0, () => TargetDataSetting];
-export var VpcSecurityGroupIdList: StaticListSchema = [
-  1,
-  n0,
-  _VSGIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _VSGIp,
-    },
-  ],
-];
+export var VpcSecurityGroupIdList: StaticListSchema = [1, n0, _VSGIL, 0, [0, { [_xN]: _VSGIp }]];
 export var VpcSecurityGroupMembershipList: StaticListSchema = [
   1,
   n0,
   _VSGML,
   0,
-  [
-    () => VpcSecurityGroupMembership,
-    {
-      [_xN]: _VSGM,
-    },
-  ],
+  [() => VpcSecurityGroupMembership, { [_xN]: _VSGM }],
 ];
 export var DataProviderSettings: StaticStructureSchema = [
   3,

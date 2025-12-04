@@ -205,20 +205,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ApplicationAssociationSummary: StaticStructureSchema = [3, n0, _AAS, 0, [_AAA, _AA, _CI], [0, 0, 0]];
 export var ApplicationConfig: StaticStructureSchema = [3, n0, _AC, 0, [_CH], [() => ContactHandling]];
 export var ApplicationSourceConfig: StaticStructureSchema = [3, n0, _ASC, 0, [_EUC], [() => ExternalUrlConfig]];
@@ -326,19 +314,8 @@ export var DeleteDataIntegrationRequest: StaticStructureSchema = [3, n0, _DDIR, 
 export var DeleteDataIntegrationResponse: StaticStructureSchema = [3, n0, _DDIRe, 0, [], []];
 export var DeleteEventIntegrationRequest: StaticStructureSchema = [3, n0, _DEIR, 0, [_N], [[0, 1]]];
 export var DeleteEventIntegrationResponse: StaticStructureSchema = [3, n0, _DEIRe, 0, [], []];
-export var DuplicateResourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var DuplicateResourceException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicateResourceException, __DuplicateResourceException);
-
 export var EventFilter: StaticStructureSchema = [3, n0, _EF, 0, [_So], [0]];
 export var EventIntegration: StaticStructureSchema = [
   3,
@@ -423,32 +400,10 @@ export var GetEventIntegrationResponse: StaticStructureSchema = [
   [0, 0, 0, 0, () => EventFilter, 128 | 0],
 ];
 export var IframeConfig: StaticStructureSchema = [3, n0, _IC, 0, [_Al, _Sa], [64 | 0, 64 | 0]];
-export var InternalServiceError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceError, __InternalServiceError);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var LastExecutionStatus: StaticStructureSchema = [3, n0, _LES, 0, [_ES, _SM], [0, 0]];
 export var ListApplicationAssociationsRequest: StaticStructureSchema = [
   3,
@@ -458,18 +413,8 @@ export var ListApplicationAssociationsRequest: StaticStructureSchema = [
   [_AI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListApplicationAssociationsResponse: StaticStructureSchema = [
@@ -487,24 +432,9 @@ export var ListApplicationsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR, _AT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _aT }],
   ],
 ];
 export var ListApplicationsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Ap, _NT], [() => ApplicationsList, 0]];
@@ -516,18 +446,8 @@ export var ListDataIntegrationAssociationsRequest: StaticStructureSchema = [
   [_DII, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataIntegrationAssociationsResponse: StaticStructureSchema = [
@@ -545,18 +465,8 @@ export var ListDataIntegrationsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataIntegrationsResponse: StaticStructureSchema = [
@@ -575,18 +485,8 @@ export var ListEventIntegrationAssociationsRequest: StaticStructureSchema = [
   [_EIN, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListEventIntegrationAssociationsResponse: StaticStructureSchema = [
@@ -604,18 +504,8 @@ export var ListEventIntegrationsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListEventIntegrationsResponse: StaticStructureSchema = [
@@ -630,62 +520,18 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
 export var OnDemandConfiguration: StaticStructureSchema = [3, n0, _ODC, 0, [_ST, _ET], [0, 0]];
 export var Publication: StaticStructureSchema = [3, n0, _Pu, 0, [_E, _Sc, _D], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RQEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ResourceQuotaExceededException: StaticErrorSchema = [-3, n0, _RQEE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceQuotaExceededException, __ResourceQuotaExceededException);
-
 export var ScheduleConfiguration: StaticStructureSchema = [3, n0, _SCc, 0, [_FEF, _O, _SE], [0, 0, 0]];
 export var Subscription: StaticStructureSchema = [3, n0, _Sub, 0, [_E, _D], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UnsupportedOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UOE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var UnsupportedOperationException: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -694,12 +540,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -739,12 +580,9 @@ export var UpdateDataIntegrationResponse: StaticStructureSchema = [3, n0, _UDIRp
 export var UpdateEventIntegrationRequest: StaticStructureSchema = [3, n0, _UEIR, 0, [_N, _D], [[0, 1], 0]];
 export var UpdateEventIntegrationResponse: StaticStructureSchema = [3, n0, _UEIRp, 0, [], []];
 export var __Unit = "unit" as const;
-
 export var AppIntegrationsServiceException: StaticErrorSchema = [-3, _sm, "AppIntegrationsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppIntegrationsServiceException, __AppIntegrationsServiceException);
-
 export var ApplicationApprovedOrigins = 64 | 0;
-
 export var ApplicationAssociationsList: StaticListSchema = [1, n0, _AAL, 0, () => ApplicationAssociationSummary];
 export var ApplicationsList: StaticListSchema = [1, n0, _AL, 0, () => ApplicationSummary];
 export var DataIntegrationAssociationsList: StaticListSchema = [
@@ -758,30 +596,21 @@ export var DataIntegrationsList: StaticListSchema = [1, n0, _DIL, 0, () => DataI
 export var EventIntegrationAssociationsList: StaticListSchema = [1, n0, _EIAL, 0, () => EventIntegrationAssociation];
 export var EventIntegrationsList: StaticListSchema = [1, n0, _EIL, 0, () => EventIntegration];
 export var FieldsList = 64 | 0;
-
 export var FolderList = 64 | 0;
-
 export var IframePermissionList = 64 | 0;
-
 export var PermissionList = 64 | 0;
-
 export var PublicationList: StaticListSchema = [1, n0, _PL, 0, () => Publication];
 export var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription];
 export var TagKeyList = 64 | 0;
-
 export var ClientAssociationMetadata = 128 | 0;
-
 export var FieldsMap: StaticMapSchema = [2, n0, _FM, 0, 0, 64 | 0];
 export var ObjectConfiguration: StaticMapSchema = [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]];
 export var TagMap = 128 | 0;
-
 export var CreateApplication: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/applications", 200],
-  },
+  { [_h]: ["POST", "/applications", 200] },
   () => CreateApplicationRequest,
   () => CreateApplicationResponse,
 ];
@@ -789,9 +618,7 @@ export var CreateDataIntegration: StaticOperationSchema = [
   9,
   n0,
   _CDI,
-  {
-    [_h]: ["POST", "/dataIntegrations", 200],
-  },
+  { [_h]: ["POST", "/dataIntegrations", 200] },
   () => CreateDataIntegrationRequest,
   () => CreateDataIntegrationResponse,
 ];
@@ -799,9 +626,7 @@ export var CreateDataIntegrationAssociation: StaticOperationSchema = [
   9,
   n0,
   _CDIA,
-  {
-    [_h]: ["POST", "/dataIntegrations/{DataIntegrationIdentifier}/associations", 200],
-  },
+  { [_h]: ["POST", "/dataIntegrations/{DataIntegrationIdentifier}/associations", 200] },
   () => CreateDataIntegrationAssociationRequest,
   () => CreateDataIntegrationAssociationResponse,
 ];
@@ -809,9 +634,7 @@ export var CreateEventIntegration: StaticOperationSchema = [
   9,
   n0,
   _CEI,
-  {
-    [_h]: ["POST", "/eventIntegrations", 200],
-  },
+  { [_h]: ["POST", "/eventIntegrations", 200] },
   () => CreateEventIntegrationRequest,
   () => CreateEventIntegrationResponse,
 ];
@@ -819,9 +642,7 @@ export var DeleteApplication: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/applications/{Arn}", 200],
-  },
+  { [_h]: ["DELETE", "/applications/{Arn}", 200] },
   () => DeleteApplicationRequest,
   () => DeleteApplicationResponse,
 ];
@@ -829,9 +650,7 @@ export var DeleteDataIntegration: StaticOperationSchema = [
   9,
   n0,
   _DDI,
-  {
-    [_h]: ["DELETE", "/dataIntegrations/{DataIntegrationIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/dataIntegrations/{DataIntegrationIdentifier}", 200] },
   () => DeleteDataIntegrationRequest,
   () => DeleteDataIntegrationResponse,
 ];
@@ -839,9 +658,7 @@ export var DeleteEventIntegration: StaticOperationSchema = [
   9,
   n0,
   _DEI,
-  {
-    [_h]: ["DELETE", "/eventIntegrations/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/eventIntegrations/{Name}", 200] },
   () => DeleteEventIntegrationRequest,
   () => DeleteEventIntegrationResponse,
 ];
@@ -849,9 +666,7 @@ export var GetApplication: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/applications/{Arn}", 200],
-  },
+  { [_h]: ["GET", "/applications/{Arn}", 200] },
   () => GetApplicationRequest,
   () => GetApplicationResponse,
 ];
@@ -859,9 +674,7 @@ export var GetDataIntegration: StaticOperationSchema = [
   9,
   n0,
   _GDI,
-  {
-    [_h]: ["GET", "/dataIntegrations/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/dataIntegrations/{Identifier}", 200] },
   () => GetDataIntegrationRequest,
   () => GetDataIntegrationResponse,
 ];
@@ -869,9 +682,7 @@ export var GetEventIntegration: StaticOperationSchema = [
   9,
   n0,
   _GEI,
-  {
-    [_h]: ["GET", "/eventIntegrations/{Name}", 200],
-  },
+  { [_h]: ["GET", "/eventIntegrations/{Name}", 200] },
   () => GetEventIntegrationRequest,
   () => GetEventIntegrationResponse,
 ];
@@ -879,9 +690,7 @@ export var ListApplicationAssociations: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}/associations", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}/associations", 200] },
   () => ListApplicationAssociationsRequest,
   () => ListApplicationAssociationsResponse,
 ];
@@ -889,9 +698,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/applications", 200],
-  },
+  { [_h]: ["GET", "/applications", 200] },
   () => ListApplicationsRequest,
   () => ListApplicationsResponse,
 ];
@@ -899,9 +706,7 @@ export var ListDataIntegrationAssociations: StaticOperationSchema = [
   9,
   n0,
   _LDIA,
-  {
-    [_h]: ["GET", "/dataIntegrations/{DataIntegrationIdentifier}/associations", 200],
-  },
+  { [_h]: ["GET", "/dataIntegrations/{DataIntegrationIdentifier}/associations", 200] },
   () => ListDataIntegrationAssociationsRequest,
   () => ListDataIntegrationAssociationsResponse,
 ];
@@ -909,9 +714,7 @@ export var ListDataIntegrations: StaticOperationSchema = [
   9,
   n0,
   _LDI,
-  {
-    [_h]: ["GET", "/dataIntegrations", 200],
-  },
+  { [_h]: ["GET", "/dataIntegrations", 200] },
   () => ListDataIntegrationsRequest,
   () => ListDataIntegrationsResponse,
 ];
@@ -919,9 +722,7 @@ export var ListEventIntegrationAssociations: StaticOperationSchema = [
   9,
   n0,
   _LEIA,
-  {
-    [_h]: ["GET", "/eventIntegrations/{EventIntegrationName}/associations", 200],
-  },
+  { [_h]: ["GET", "/eventIntegrations/{EventIntegrationName}/associations", 200] },
   () => ListEventIntegrationAssociationsRequest,
   () => ListEventIntegrationAssociationsResponse,
 ];
@@ -929,9 +730,7 @@ export var ListEventIntegrations: StaticOperationSchema = [
   9,
   n0,
   _LEI,
-  {
-    [_h]: ["GET", "/eventIntegrations", 200],
-  },
+  { [_h]: ["GET", "/eventIntegrations", 200] },
   () => ListEventIntegrationsRequest,
   () => ListEventIntegrationsResponse,
 ];
@@ -939,9 +738,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -949,9 +746,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -959,9 +754,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -969,9 +762,7 @@ export var UpdateApplication: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PATCH", "/applications/{Arn}", 200],
-  },
+  { [_h]: ["PATCH", "/applications/{Arn}", 200] },
   () => UpdateApplicationRequest,
   () => UpdateApplicationResponse,
 ];
@@ -979,9 +770,7 @@ export var UpdateDataIntegration: StaticOperationSchema = [
   9,
   n0,
   _UDI,
-  {
-    [_h]: ["PATCH", "/dataIntegrations/{Identifier}", 200],
-  },
+  { [_h]: ["PATCH", "/dataIntegrations/{Identifier}", 200] },
   () => UpdateDataIntegrationRequest,
   () => UpdateDataIntegrationResponse,
 ];
@@ -1003,9 +792,7 @@ export var UpdateEventIntegration: StaticOperationSchema = [
   9,
   n0,
   _UEI,
-  {
-    [_h]: ["PATCH", "/eventIntegrations/{Name}", 200],
-  },
+  { [_h]: ["PATCH", "/eventIntegrations/{Name}", 200] },
   () => UpdateEventIntegrationRequest,
   () => UpdateEventIntegrationResponse,
 ];

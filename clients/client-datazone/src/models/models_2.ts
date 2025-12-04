@@ -19,27 +19,28 @@ import {
 } from "./enums";
 
 import {
-  AccountSource,
-  ActionParameters,
+  type AccountSource,
+  type ActionParameters,
+  type AwsLocation,
+  type ConnectionPropertiesOutput,
+  type ConnectionPropertiesPatch,
+  type Deployment,
+  type DeploymentProperties,
+  type EnvironmentDeploymentDetails,
+  type FailureCause,
+  type GrantedEntity,
+  type ProvisioningProperties,
+  type UserProfileDetails,
   AggregationListItem,
-  AwsLocation,
   ColumnFilterConfiguration,
   ConfigurableEnvironmentAction,
-  ConnectionPropertiesOutput,
-  ConnectionPropertiesPatch,
   CustomParameter,
-  Deployment,
-  DeploymentProperties,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
-  EnvironmentDeploymentDetails,
   EnvironmentParameter,
-  FailureCause,
   FormOutput,
-  GrantedEntity,
   PhysicalEndpoint,
   ProjectDeletionError,
-  ProvisioningProperties,
   Resource,
   ResourceTag,
   ResourceTagParameter,
@@ -48,10 +49,9 @@ import {
   SubscribedListing,
   SubscribedPrincipal,
   SubscriptionTargetForm,
-  UserProfileDetails,
 } from "./models_0";
 
-import { Filter, SearchInItem, SearchSort } from "./models_1";
+import { type SearchSort, Filter, SearchInItem } from "./models_1";
 
 /**
  * @public

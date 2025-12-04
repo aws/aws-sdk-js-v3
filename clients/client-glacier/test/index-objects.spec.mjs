@@ -56,42 +56,42 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof GlacierClient === "function")
-assert(typeof Glacier === "function")
+assert(typeof GlacierClient === "function");
+assert(typeof Glacier === "function");
 // commands
-assert(typeof AbortMultipartUploadCommand === "function")
-assert(typeof AbortVaultLockCommand === "function")
-assert(typeof AddTagsToVaultCommand === "function")
-assert(typeof CompleteMultipartUploadCommand === "function")
-assert(typeof CompleteVaultLockCommand === "function")
-assert(typeof CreateVaultCommand === "function")
-assert(typeof DeleteArchiveCommand === "function")
-assert(typeof DeleteVaultCommand === "function")
-assert(typeof DeleteVaultAccessPolicyCommand === "function")
-assert(typeof DeleteVaultNotificationsCommand === "function")
-assert(typeof DescribeJobCommand === "function")
-assert(typeof DescribeVaultCommand === "function")
-assert(typeof GetDataRetrievalPolicyCommand === "function")
-assert(typeof GetJobOutputCommand === "function")
-assert(typeof GetVaultAccessPolicyCommand === "function")
-assert(typeof GetVaultLockCommand === "function")
-assert(typeof GetVaultNotificationsCommand === "function")
-assert(typeof InitiateJobCommand === "function")
-assert(typeof InitiateMultipartUploadCommand === "function")
-assert(typeof InitiateVaultLockCommand === "function")
-assert(typeof ListJobsCommand === "function")
-assert(typeof ListMultipartUploadsCommand === "function")
-assert(typeof ListPartsCommand === "function")
-assert(typeof ListProvisionedCapacityCommand === "function")
-assert(typeof ListTagsForVaultCommand === "function")
-assert(typeof ListVaultsCommand === "function")
-assert(typeof PurchaseProvisionedCapacityCommand === "function")
-assert(typeof RemoveTagsFromVaultCommand === "function")
-assert(typeof SetDataRetrievalPolicyCommand === "function")
-assert(typeof SetVaultAccessPolicyCommand === "function")
-assert(typeof SetVaultNotificationsCommand === "function")
-assert(typeof UploadArchiveCommand === "function")
-assert(typeof UploadMultipartPartCommand === "function")
+assert(typeof AbortMultipartUploadCommand === "function");
+assert(typeof AbortVaultLockCommand === "function");
+assert(typeof AddTagsToVaultCommand === "function");
+assert(typeof CompleteMultipartUploadCommand === "function");
+assert(typeof CompleteVaultLockCommand === "function");
+assert(typeof CreateVaultCommand === "function");
+assert(typeof DeleteArchiveCommand === "function");
+assert(typeof DeleteVaultCommand === "function");
+assert(typeof DeleteVaultAccessPolicyCommand === "function");
+assert(typeof DeleteVaultNotificationsCommand === "function");
+assert(typeof DescribeJobCommand === "function");
+assert(typeof DescribeVaultCommand === "function");
+assert(typeof GetDataRetrievalPolicyCommand === "function");
+assert(typeof GetJobOutputCommand === "function");
+assert(typeof GetVaultAccessPolicyCommand === "function");
+assert(typeof GetVaultLockCommand === "function");
+assert(typeof GetVaultNotificationsCommand === "function");
+assert(typeof InitiateJobCommand === "function");
+assert(typeof InitiateMultipartUploadCommand === "function");
+assert(typeof InitiateVaultLockCommand === "function");
+assert(typeof ListJobsCommand === "function");
+assert(typeof ListMultipartUploadsCommand === "function");
+assert(typeof ListPartsCommand === "function");
+assert(typeof ListProvisionedCapacityCommand === "function");
+assert(typeof ListTagsForVaultCommand === "function");
+assert(typeof ListVaultsCommand === "function");
+assert(typeof PurchaseProvisionedCapacityCommand === "function");
+assert(typeof RemoveTagsFromVaultCommand === "function");
+assert(typeof SetDataRetrievalPolicyCommand === "function");
+assert(typeof SetVaultAccessPolicyCommand === "function");
+assert(typeof SetVaultNotificationsCommand === "function");
+assert(typeof UploadArchiveCommand === "function");
+assert(typeof UploadMultipartPartCommand === "function");
 // enums
 assert(typeof ActionCode === "object");
 assert(typeof CannedACL === "object");
@@ -104,15 +104,15 @@ assert(typeof StatusCode === "object");
 assert(typeof StorageClass === "object");
 assert(typeof Type === "object");
 // errors
-assert(GlacierServiceException.prototype instanceof Error)
+assert(GlacierServiceException.prototype instanceof Error);
 // waiters
-assert(typeof waitForVaultExists === "function")
-assert(typeof waitForVaultNotExists === "function")
-assert(typeof waitUntilVaultExists === "function")
-assert(typeof waitUntilVaultNotExists === "function")
+assert(typeof waitForVaultExists === "function");
+assert(typeof waitForVaultNotExists === "function");
+assert(typeof waitUntilVaultExists === "function");
+assert(typeof waitUntilVaultNotExists === "function");
 // paginators
-assert(typeof paginateListJobs === "function")
-assert(typeof paginateListMultipartUploads === "function")
-assert(typeof paginateListParts === "function")
-assert(typeof paginateListVaults === "function")
+assert(typeof paginateListJobs === "function");
+assert(typeof paginateListMultipartUploads === "function");
+assert(typeof paginateListParts === "function");
+assert(typeof paginateListVaults === "function");
 console.log(`Glacier index test passed.`);

@@ -21,10 +21,10 @@ import {
 } from "./enums";
 
 import {
+  type HostPropertiesResponse,
+  type ParameterSpace,
   DateTimeFilterExpression,
-  HostPropertiesResponse,
   JobParameter,
-  ParameterSpace,
   TaskParameterValue,
 } from "./models_0";
 

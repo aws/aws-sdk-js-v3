@@ -324,7 +324,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
-
   /**
    * The provider which populates default for endpointDiscoveryEnabled configuration, if it's
    * not passed during client creation.

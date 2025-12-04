@@ -109,7 +109,6 @@ export interface HttpAuthSchemeInputConfig {
    * @internal
    */
   httpAuthSchemeProvider?: CodeCatalystHttpAuthSchemeProvider;
-
   /**
    * The token used to authenticate requests.
    */
@@ -139,7 +138,6 @@ export interface HttpAuthSchemeResolvedConfig {
    * @internal
    */
   readonly httpAuthSchemeProvider: CodeCatalystHttpAuthSchemeProvider;
-
   /**
    * The token used to authenticate requests.
    */

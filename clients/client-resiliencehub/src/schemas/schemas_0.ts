@@ -548,7 +548,6 @@ import {
 import { ResiliencehubServiceException as __ResiliencehubServiceException } from "../models/ResiliencehubServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptGroupingRecommendationEntry: StaticStructureSchema = [3, n0, _AGRE, 0, [_gRI], [0]];
 export var AcceptResourceGroupingRecommendationsRequest: StaticStructureSchema = [
   3,
@@ -566,19 +565,8 @@ export var AcceptResourceGroupingRecommendationsResponse: StaticStructureSchema 
   [_aA, _fE],
   [0, () => FailedGroupingRecommendationEntries],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_er]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_er]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddDraftAppVersionResourceMappingsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -760,19 +748,8 @@ export var ConfigRecommendation: StaticStructureSchema = [
   [_co, _aCN, _com, _rCe, _oT, _n, _d, _sC, _hA, _rIe],
   [() => Cost, 0, () => AssessmentCompliance, () => RecommendationCompliance, 0, 0, 0, 64 | 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_er]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rIes, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_er]: _c, [_hE]: 409 }, [_m, _rIes, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Cost: StaticStructureSchema = [3, n0, _Co, 0, [_a, _cu, _fr], [1, 0, 0]];
 export var CreateAppRequest: StaticStructureSchema = [
   3,
@@ -1072,19 +1049,8 @@ export var ImportResourcesToDraftAppVersionResponse: StaticStructureSchema = [
   [_aA, _aV, _sAo, _st, _tSe, _eSk],
   [0, 0, 64 | 0, 0, () => TerraformSourceList, () => EksSourceList],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_er]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAlarmRecommendationsRequest: StaticStructureSchema = [3, n0, _LARR, 0, [_aAs, _nT, _mR], [0, 0, 1]];
 export var ListAlarmRecommendationsResponse: StaticStructureSchema = [
   3,
@@ -1133,54 +1099,14 @@ export var ListAppAssessmentsRequest: StaticStructureSchema = [
   0,
   [_aA, _aN, _aSs, _cS, _in, _rO, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aN,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _aSs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _in,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _rO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
+    [0, { [_hQ]: _aN }],
+    [64 | 0, { [_hQ]: _aSs }],
+    [0, { [_hQ]: _cS }],
+    [0, { [_hQ]: _in }],
+    [2, { [_hQ]: _rO }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAppAssessmentsResponse: StaticStructureSchema = [
@@ -1232,54 +1158,14 @@ export var ListAppsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _n, _aA, _fLAT, _tLAT, _rO, _aAA],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _fLAT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _tLAT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _rO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aAA,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _aA }],
+    [4, { [_hQ]: _fLAT }],
+    [4, { [_hQ]: _tLAT }],
+    [2, { [_hQ]: _rO }],
+    [0, { [_hQ]: _aAA }],
   ],
 ];
 export var ListAppsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_aSp, _nT], [() => AppSummaryList, 0]];
@@ -1356,48 +1242,13 @@ export var ListRecommendationTemplatesRequest: StaticStructureSchema = [
   0,
   [_aAs, _rO, _st, _rTA, _n, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _aAs,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _rO,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rTA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _aAs }],
+    [2, { [_hQ]: _rO }],
+    [64 | 0, { [_hQ]: _st }],
+    [0, { [_hQ]: _rTA }],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRecommendationTemplatesResponse: StaticStructureSchema = [
@@ -1415,24 +1266,9 @@ export var ListResiliencyPoliciesRequest: StaticStructureSchema = [
   0,
   [_pN, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _pN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _pN }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListResiliencyPoliciesResponse: StaticStructureSchema = [
@@ -1450,24 +1286,9 @@ export var ListResourceGroupingRecommendationsRequest: StaticStructureSchema = [
   0,
   [_aA, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListResourceGroupingRecommendationsResponse: StaticStructureSchema = [
@@ -1494,18 +1315,8 @@ export var ListSuggestedResiliencyPoliciesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSuggestedResiliencyPoliciesResponse: StaticStructureSchema = [
@@ -1673,15 +1484,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_er]: _c,
-    [_hE]: 404,
-  },
+  { [_er]: _c, [_hE]: 404 },
   [_m, _rIes, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_b, _pr], [0, 0]];
 export var ScoringComponentResiliencyScore: StaticStructureSchema = [
   3,
@@ -1691,19 +1498,8 @@ export var ScoringComponentResiliencyScore: StaticStructureSchema = [
   [_sc, _pS, _oC, _eC],
   [1, 1, 1, 1],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_er]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_er]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SopRecommendation: StaticStructureSchema = [
   3,
   n0,
@@ -1754,19 +1550,8 @@ export var TestRecommendation: StaticStructureSchema = [
   [_rI, _rIe, _aCI, _aCN, _n, _int, _r, _t, _d, _i, _p, _dOA, _rS],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 64 | 0, 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_er]: _c,
-    [_hE]: 429,
-  },
-  [_m, _rAS],
-  [0, 1],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_er]: _c, [_hE]: 429 }, [_m, _rAS], [0, 1]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UnsupportedResource: StaticStructureSchema = [
   3,
   n0,
@@ -1783,12 +1568,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      () => TagKeyList,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [() => TagKeyList, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1874,24 +1654,11 @@ export var UpdateResiliencyPolicyResponse: StaticStructureSchema = [
   [_po],
   [[() => ResiliencyPolicy, 0]],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_er]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var ResiliencehubServiceException: StaticErrorSchema = [-3, _sm, "ResiliencehubServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ResiliencehubServiceException, __ResiliencehubServiceException);
-
 export var AcceptGroupingRecommendationEntries: StaticListSchema = [
   1,
   n0,
@@ -1900,22 +1667,17 @@ export var AcceptGroupingRecommendationEntries: StaticListSchema = [
   () => AcceptGroupingRecommendationEntry,
 ];
 export var AdditionalInfoValueList = 64 | 0;
-
 export var AlarmRecommendationList: StaticListSchema = [1, n0, _ARL, 0, () => AlarmRecommendation];
 export var AlarmReferenceIdList = 64 | 0;
-
 export var AppAssessmentSummaryList: StaticListSchema = [1, n0, _AASL, 0, () => AppAssessmentSummary];
 export var AppComponentList: StaticListSchema = [1, n0, _ACL, 0, () => AppComponent];
 export var AppComponentNameList = 64 | 0;
-
 export var AppInputSourceList: StaticListSchema = [1, n0, _AISL, 0, () => AppInputSource];
 export var AppSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AppSummary];
 export var AppVersionList: StaticListSchema = [1, n0, _AVL, 0, () => AppVersionSummary];
 export var ArnList = 64 | 0;
-
 export var AssessmentRiskRecommendationList: StaticListSchema = [1, n0, _ARRL, 0, () => AssessmentRiskRecommendation];
 export var AssessmentStatusList = 64 | 0;
-
 export var BatchUpdateRecommendationStatusFailedEntries: StaticListSchema = [
   1,
   n0,
@@ -1936,10 +1698,8 @@ export var ComponentRecommendationList: StaticListSchema = [1, n0, _CRL, 0, () =
 export var ConditionList: StaticListSchema = [1, n0, _CL, 0, () => Condition];
 export var ConfigRecommendationList: StaticListSchema = [1, n0, _CRLo, 0, () => ConfigRecommendation];
 export var EksNamespaceList = 64 | 0;
-
 export var EksSourceList: StaticListSchema = [1, n0, _ESL, 0, () => EksSource];
 export var EntityNameList = 64 | 0;
-
 export var ErrorDetailList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetail];
 export var EventSubscriptionList: StaticListSchema = [1, n0, _ESLv, 0, () => EventSubscription];
 export var FailedGroupingRecommendationEntries: StaticListSchema = [
@@ -1953,14 +1713,11 @@ export var FieldList: StaticListSchema = [1, n0, _FL, 0, () => Field];
 export var GroupingRecommendationList: StaticListSchema = [1, n0, _GRL, 0, () => GroupingRecommendation];
 export var GroupingResourceList: StaticListSchema = [1, n0, _GRLr, 0, () => GroupingResource];
 export var IamRoleArnList = 64 | 0;
-
 export var PhysicalResourceList: StaticListSchema = [1, n0, _PRL, 0, () => PhysicalResource];
 export var RecommendationIdList = 64 | 0;
-
 export var RecommendationItemList: StaticListSchema = [1, n0, _RIL, 0, () => RecommendationItem];
 export var RecommendationTemplateList: StaticListSchema = [1, n0, _RTL, 0, [() => RecommendationTemplate, 0]];
 export var RecommendationTemplateStatusList = 64 | 0;
-
 export var RejectGroupingRecommendationEntries: StaticListSchema = [
   1,
   n0,
@@ -1969,20 +1726,16 @@ export var RejectGroupingRecommendationEntries: StaticListSchema = [
   () => RejectGroupingRecommendationEntry,
 ];
 export var RenderRecommendationTypeList = 64 | 0;
-
 export var ResiliencyPolicies: StaticListSchema = [1, n0, _RPe, 0, [() => ResiliencyPolicy, 0]];
 export var ResourceDriftList: StaticListSchema = [1, n0, _RDL, 0, () => ResourceDrift];
 export var ResourceErrorList: StaticListSchema = [1, n0, _REL, 0, () => ResourceError];
 export var ResourceMappingList: StaticListSchema = [1, n0, _RML, 0, () => ResourceMapping];
 export var Row = 64 | 0;
-
 export var RowList: StaticListSchema = [1, n0, _RL, 0, 64 | 0];
 export var SopRecommendationList: StaticListSchema = [1, n0, _SRL, 0, () => SopRecommendation];
 export var SortList: StaticListSchema = [1, n0, _SLo, 0, () => Sort];
 export var String255List = 64 | 0;
-
 export var SuggestedChangesList = 64 | 0;
-
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
 export var TerraformSourceList: StaticListSchema = [1, n0, _TSL, 0, () => TerraformSource];
 export var TestRecommendationList: StaticListSchema = [1, n0, _TRL, 0, () => TestRecommendation];
@@ -1998,7 +1751,6 @@ export var AdditionalInfoMap: StaticMapSchema = [2, n0, _AIM, 0, 0, 64 | 0];
 export var AssessmentCompliance: StaticMapSchema = [2, n0, _ACs, 0, 0, () => DisruptionCompliance];
 export var DisruptionPolicy: StaticMapSchema = [2, n0, _DP, 0, 0, () => FailurePolicy];
 export var DisruptionResiliencyScore = 128 | 1;
-
 export var RecommendationCompliance: StaticMapSchema = [2, n0, _RC, 0, 0, () => RecommendationDisruptionCompliance];
 export var ScoringComponentResiliencyScores: StaticMapSchema = [
   2,
@@ -2013,9 +1765,7 @@ export var AcceptResourceGroupingRecommendations: StaticOperationSchema = [
   9,
   n0,
   _ARGR,
-  {
-    [_h]: ["POST", "/accept-resource-grouping-recommendations", 200],
-  },
+  { [_h]: ["POST", "/accept-resource-grouping-recommendations", 200] },
   () => AcceptResourceGroupingRecommendationsRequest,
   () => AcceptResourceGroupingRecommendationsResponse,
 ];
@@ -2023,9 +1773,7 @@ export var AddDraftAppVersionResourceMappings: StaticOperationSchema = [
   9,
   n0,
   _ADAVRM,
-  {
-    [_h]: ["POST", "/add-draft-app-version-resource-mappings", 200],
-  },
+  { [_h]: ["POST", "/add-draft-app-version-resource-mappings", 200] },
   () => AddDraftAppVersionResourceMappingsRequest,
   () => AddDraftAppVersionResourceMappingsResponse,
 ];
@@ -2033,9 +1781,7 @@ export var BatchUpdateRecommendationStatus: StaticOperationSchema = [
   9,
   n0,
   _BURS,
-  {
-    [_h]: ["POST", "/batch-update-recommendation-status", 200],
-  },
+  { [_h]: ["POST", "/batch-update-recommendation-status", 200] },
   () => BatchUpdateRecommendationStatusRequest,
   () => BatchUpdateRecommendationStatusResponse,
 ];
@@ -2043,9 +1789,7 @@ export var CreateApp: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/create-app", 200],
-  },
+  { [_h]: ["POST", "/create-app", 200] },
   () => CreateAppRequest,
   () => CreateAppResponse,
 ];
@@ -2053,9 +1797,7 @@ export var CreateAppVersionAppComponent: StaticOperationSchema = [
   9,
   n0,
   _CAVAC,
-  {
-    [_h]: ["POST", "/create-app-version-app-component", 200],
-  },
+  { [_h]: ["POST", "/create-app-version-app-component", 200] },
   () => CreateAppVersionAppComponentRequest,
   () => CreateAppVersionAppComponentResponse,
 ];
@@ -2063,9 +1805,7 @@ export var CreateAppVersionResource: StaticOperationSchema = [
   9,
   n0,
   _CAVR,
-  {
-    [_h]: ["POST", "/create-app-version-resource", 200],
-  },
+  { [_h]: ["POST", "/create-app-version-resource", 200] },
   () => CreateAppVersionResourceRequest,
   () => CreateAppVersionResourceResponse,
 ];
@@ -2073,9 +1813,7 @@ export var CreateRecommendationTemplate: StaticOperationSchema = [
   9,
   n0,
   _CRT,
-  {
-    [_h]: ["POST", "/create-recommendation-template", 200],
-  },
+  { [_h]: ["POST", "/create-recommendation-template", 200] },
   () => CreateRecommendationTemplateRequest,
   () => CreateRecommendationTemplateResponse,
 ];
@@ -2083,9 +1821,7 @@ export var CreateResiliencyPolicy: StaticOperationSchema = [
   9,
   n0,
   _CRP,
-  {
-    [_h]: ["POST", "/create-resiliency-policy", 200],
-  },
+  { [_h]: ["POST", "/create-resiliency-policy", 200] },
   () => CreateResiliencyPolicyRequest,
   () => CreateResiliencyPolicyResponse,
 ];
@@ -2093,9 +1829,7 @@ export var DeleteApp: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["POST", "/delete-app", 200],
-  },
+  { [_h]: ["POST", "/delete-app", 200] },
   () => DeleteAppRequest,
   () => DeleteAppResponse,
 ];
@@ -2103,9 +1837,7 @@ export var DeleteAppAssessment: StaticOperationSchema = [
   9,
   n0,
   _DAA,
-  {
-    [_h]: ["POST", "/delete-app-assessment", 200],
-  },
+  { [_h]: ["POST", "/delete-app-assessment", 200] },
   () => DeleteAppAssessmentRequest,
   () => DeleteAppAssessmentResponse,
 ];
@@ -2113,9 +1845,7 @@ export var DeleteAppInputSource: StaticOperationSchema = [
   9,
   n0,
   _DAIS,
-  {
-    [_h]: ["POST", "/delete-app-input-source", 200],
-  },
+  { [_h]: ["POST", "/delete-app-input-source", 200] },
   () => DeleteAppInputSourceRequest,
   () => DeleteAppInputSourceResponse,
 ];
@@ -2123,9 +1853,7 @@ export var DeleteAppVersionAppComponent: StaticOperationSchema = [
   9,
   n0,
   _DAVAC,
-  {
-    [_h]: ["POST", "/delete-app-version-app-component", 200],
-  },
+  { [_h]: ["POST", "/delete-app-version-app-component", 200] },
   () => DeleteAppVersionAppComponentRequest,
   () => DeleteAppVersionAppComponentResponse,
 ];
@@ -2133,9 +1861,7 @@ export var DeleteAppVersionResource: StaticOperationSchema = [
   9,
   n0,
   _DAVRel,
-  {
-    [_h]: ["POST", "/delete-app-version-resource", 200],
-  },
+  { [_h]: ["POST", "/delete-app-version-resource", 200] },
   () => DeleteAppVersionResourceRequest,
   () => DeleteAppVersionResourceResponse,
 ];
@@ -2143,9 +1869,7 @@ export var DeleteRecommendationTemplate: StaticOperationSchema = [
   9,
   n0,
   _DRT,
-  {
-    [_h]: ["POST", "/delete-recommendation-template", 200],
-  },
+  { [_h]: ["POST", "/delete-recommendation-template", 200] },
   () => DeleteRecommendationTemplateRequest,
   () => DeleteRecommendationTemplateResponse,
 ];
@@ -2153,9 +1877,7 @@ export var DeleteResiliencyPolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["POST", "/delete-resiliency-policy", 200],
-  },
+  { [_h]: ["POST", "/delete-resiliency-policy", 200] },
   () => DeleteResiliencyPolicyRequest,
   () => DeleteResiliencyPolicyResponse,
 ];
@@ -2163,9 +1885,7 @@ export var DescribeApp: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["POST", "/describe-app", 200],
-  },
+  { [_h]: ["POST", "/describe-app", 200] },
   () => DescribeAppRequest,
   () => DescribeAppResponse,
 ];
@@ -2173,9 +1893,7 @@ export var DescribeAppAssessment: StaticOperationSchema = [
   9,
   n0,
   _DAAe,
-  {
-    [_h]: ["POST", "/describe-app-assessment", 200],
-  },
+  { [_h]: ["POST", "/describe-app-assessment", 200] },
   () => DescribeAppAssessmentRequest,
   () => DescribeAppAssessmentResponse,
 ];
@@ -2183,9 +1901,7 @@ export var DescribeAppVersion: StaticOperationSchema = [
   9,
   n0,
   _DAV,
-  {
-    [_h]: ["POST", "/describe-app-version", 200],
-  },
+  { [_h]: ["POST", "/describe-app-version", 200] },
   () => DescribeAppVersionRequest,
   () => DescribeAppVersionResponse,
 ];
@@ -2193,9 +1909,7 @@ export var DescribeAppVersionAppComponent: StaticOperationSchema = [
   9,
   n0,
   _DAVACe,
-  {
-    [_h]: ["POST", "/describe-app-version-app-component", 200],
-  },
+  { [_h]: ["POST", "/describe-app-version-app-component", 200] },
   () => DescribeAppVersionAppComponentRequest,
   () => DescribeAppVersionAppComponentResponse,
 ];
@@ -2203,9 +1917,7 @@ export var DescribeAppVersionResource: StaticOperationSchema = [
   9,
   n0,
   _DAVRes,
-  {
-    [_h]: ["POST", "/describe-app-version-resource", 200],
-  },
+  { [_h]: ["POST", "/describe-app-version-resource", 200] },
   () => DescribeAppVersionResourceRequest,
   () => DescribeAppVersionResourceResponse,
 ];
@@ -2213,9 +1925,7 @@ export var DescribeAppVersionResourcesResolutionStatus: StaticOperationSchema = 
   9,
   n0,
   _DAVRRS,
-  {
-    [_h]: ["POST", "/describe-app-version-resources-resolution-status", 200],
-  },
+  { [_h]: ["POST", "/describe-app-version-resources-resolution-status", 200] },
   () => DescribeAppVersionResourcesResolutionStatusRequest,
   () => DescribeAppVersionResourcesResolutionStatusResponse,
 ];
@@ -2223,9 +1933,7 @@ export var DescribeAppVersionTemplate: StaticOperationSchema = [
   9,
   n0,
   _DAVT,
-  {
-    [_h]: ["POST", "/describe-app-version-template", 200],
-  },
+  { [_h]: ["POST", "/describe-app-version-template", 200] },
   () => DescribeAppVersionTemplateRequest,
   () => DescribeAppVersionTemplateResponse,
 ];
@@ -2233,9 +1941,7 @@ export var DescribeDraftAppVersionResourcesImportStatus: StaticOperationSchema =
   9,
   n0,
   _DDAVRIS,
-  {
-    [_h]: ["POST", "/describe-draft-app-version-resources-import-status", 200],
-  },
+  { [_h]: ["POST", "/describe-draft-app-version-resources-import-status", 200] },
   () => DescribeDraftAppVersionResourcesImportStatusRequest,
   () => DescribeDraftAppVersionResourcesImportStatusResponse,
 ];
@@ -2243,9 +1949,7 @@ export var DescribeMetricsExport: StaticOperationSchema = [
   9,
   n0,
   _DME,
-  {
-    [_h]: ["POST", "/describe-metrics-export", 200],
-  },
+  { [_h]: ["POST", "/describe-metrics-export", 200] },
   () => DescribeMetricsExportRequest,
   () => DescribeMetricsExportResponse,
 ];
@@ -2253,9 +1957,7 @@ export var DescribeResiliencyPolicy: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
-  {
-    [_h]: ["POST", "/describe-resiliency-policy", 200],
-  },
+  { [_h]: ["POST", "/describe-resiliency-policy", 200] },
   () => DescribeResiliencyPolicyRequest,
   () => DescribeResiliencyPolicyResponse,
 ];
@@ -2263,9 +1965,7 @@ export var DescribeResourceGroupingRecommendationTask: StaticOperationSchema = [
   9,
   n0,
   _DRGRT,
-  {
-    [_h]: ["POST", "/describe-resource-grouping-recommendation-task", 200],
-  },
+  { [_h]: ["POST", "/describe-resource-grouping-recommendation-task", 200] },
   () => DescribeResourceGroupingRecommendationTaskRequest,
   () => DescribeResourceGroupingRecommendationTaskResponse,
 ];
@@ -2273,9 +1973,7 @@ export var ImportResourcesToDraftAppVersion: StaticOperationSchema = [
   9,
   n0,
   _IRTDAV,
-  {
-    [_h]: ["POST", "/import-resources-to-draft-app-version", 200],
-  },
+  { [_h]: ["POST", "/import-resources-to-draft-app-version", 200] },
   () => ImportResourcesToDraftAppVersionRequest,
   () => ImportResourcesToDraftAppVersionResponse,
 ];
@@ -2283,9 +1981,7 @@ export var ListAlarmRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LARis,
-  {
-    [_h]: ["POST", "/list-alarm-recommendations", 200],
-  },
+  { [_h]: ["POST", "/list-alarm-recommendations", 200] },
   () => ListAlarmRecommendationsRequest,
   () => ListAlarmRecommendationsResponse,
 ];
@@ -2293,9 +1989,7 @@ export var ListAppAssessmentComplianceDrifts: StaticOperationSchema = [
   9,
   n0,
   _LAACD,
-  {
-    [_h]: ["POST", "/list-app-assessment-compliance-drifts", 200],
-  },
+  { [_h]: ["POST", "/list-app-assessment-compliance-drifts", 200] },
   () => ListAppAssessmentComplianceDriftsRequest,
   () => ListAppAssessmentComplianceDriftsResponse,
 ];
@@ -2303,9 +1997,7 @@ export var ListAppAssessmentResourceDrifts: StaticOperationSchema = [
   9,
   n0,
   _LAARD,
-  {
-    [_h]: ["POST", "/list-app-assessment-resource-drifts", 200],
-  },
+  { [_h]: ["POST", "/list-app-assessment-resource-drifts", 200] },
   () => ListAppAssessmentResourceDriftsRequest,
   () => ListAppAssessmentResourceDriftsResponse,
 ];
@@ -2313,9 +2005,7 @@ export var ListAppAssessments: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  {
-    [_h]: ["GET", "/list-app-assessments", 200],
-  },
+  { [_h]: ["GET", "/list-app-assessments", 200] },
   () => ListAppAssessmentsRequest,
   () => ListAppAssessmentsResponse,
 ];
@@ -2323,9 +2013,7 @@ export var ListAppComponentCompliances: StaticOperationSchema = [
   9,
   n0,
   _LACC,
-  {
-    [_h]: ["POST", "/list-app-component-compliances", 200],
-  },
+  { [_h]: ["POST", "/list-app-component-compliances", 200] },
   () => ListAppComponentCompliancesRequest,
   () => ListAppComponentCompliancesResponse,
 ];
@@ -2333,9 +2021,7 @@ export var ListAppComponentRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LACR,
-  {
-    [_h]: ["POST", "/list-app-component-recommendations", 200],
-  },
+  { [_h]: ["POST", "/list-app-component-recommendations", 200] },
   () => ListAppComponentRecommendationsRequest,
   () => ListAppComponentRecommendationsResponse,
 ];
@@ -2343,9 +2029,7 @@ export var ListAppInputSources: StaticOperationSchema = [
   9,
   n0,
   _LAIS,
-  {
-    [_h]: ["POST", "/list-app-input-sources", 200],
-  },
+  { [_h]: ["POST", "/list-app-input-sources", 200] },
   () => ListAppInputSourcesRequest,
   () => ListAppInputSourcesResponse,
 ];
@@ -2353,9 +2037,7 @@ export var ListApps: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/list-apps", 200],
-  },
+  { [_h]: ["GET", "/list-apps", 200] },
   () => ListAppsRequest,
   () => ListAppsResponse,
 ];
@@ -2363,9 +2045,7 @@ export var ListAppVersionAppComponents: StaticOperationSchema = [
   9,
   n0,
   _LAVAC,
-  {
-    [_h]: ["POST", "/list-app-version-app-components", 200],
-  },
+  { [_h]: ["POST", "/list-app-version-app-components", 200] },
   () => ListAppVersionAppComponentsRequest,
   () => ListAppVersionAppComponentsResponse,
 ];
@@ -2373,9 +2053,7 @@ export var ListAppVersionResourceMappings: StaticOperationSchema = [
   9,
   n0,
   _LAVRM,
-  {
-    [_h]: ["POST", "/list-app-version-resource-mappings", 200],
-  },
+  { [_h]: ["POST", "/list-app-version-resource-mappings", 200] },
   () => ListAppVersionResourceMappingsRequest,
   () => ListAppVersionResourceMappingsResponse,
 ];
@@ -2383,9 +2061,7 @@ export var ListAppVersionResources: StaticOperationSchema = [
   9,
   n0,
   _LAVRis,
-  {
-    [_h]: ["POST", "/list-app-version-resources", 200],
-  },
+  { [_h]: ["POST", "/list-app-version-resources", 200] },
   () => ListAppVersionResourcesRequest,
   () => ListAppVersionResourcesResponse,
 ];
@@ -2393,9 +2069,7 @@ export var ListAppVersions: StaticOperationSchema = [
   9,
   n0,
   _LAV,
-  {
-    [_h]: ["POST", "/list-app-versions", 200],
-  },
+  { [_h]: ["POST", "/list-app-versions", 200] },
   () => ListAppVersionsRequest,
   () => ListAppVersionsResponse,
 ];
@@ -2403,9 +2077,7 @@ export var ListMetrics: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_h]: ["POST", "/list-metrics", 200],
-  },
+  { [_h]: ["POST", "/list-metrics", 200] },
   () => ListMetricsRequest,
   () => ListMetricsResponse,
 ];
@@ -2413,9 +2085,7 @@ export var ListRecommendationTemplates: StaticOperationSchema = [
   9,
   n0,
   _LRT,
-  {
-    [_h]: ["GET", "/list-recommendation-templates", 200],
-  },
+  { [_h]: ["GET", "/list-recommendation-templates", 200] },
   () => ListRecommendationTemplatesRequest,
   () => ListRecommendationTemplatesResponse,
 ];
@@ -2423,9 +2093,7 @@ export var ListResiliencyPolicies: StaticOperationSchema = [
   9,
   n0,
   _LRP,
-  {
-    [_h]: ["GET", "/list-resiliency-policies", 200],
-  },
+  { [_h]: ["GET", "/list-resiliency-policies", 200] },
   () => ListResiliencyPoliciesRequest,
   () => ListResiliencyPoliciesResponse,
 ];
@@ -2433,9 +2101,7 @@ export var ListResourceGroupingRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LRGR,
-  {
-    [_h]: ["GET", "/list-resource-grouping-recommendations", 200],
-  },
+  { [_h]: ["GET", "/list-resource-grouping-recommendations", 200] },
   () => ListResourceGroupingRecommendationsRequest,
   () => ListResourceGroupingRecommendationsResponse,
 ];
@@ -2443,9 +2109,7 @@ export var ListSopRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LSR,
-  {
-    [_h]: ["POST", "/list-sop-recommendations", 200],
-  },
+  { [_h]: ["POST", "/list-sop-recommendations", 200] },
   () => ListSopRecommendationsRequest,
   () => ListSopRecommendationsResponse,
 ];
@@ -2453,9 +2117,7 @@ export var ListSuggestedResiliencyPolicies: StaticOperationSchema = [
   9,
   n0,
   _LSRP,
-  {
-    [_h]: ["GET", "/list-suggested-resiliency-policies", 200],
-  },
+  { [_h]: ["GET", "/list-suggested-resiliency-policies", 200] },
   () => ListSuggestedResiliencyPoliciesRequest,
   () => ListSuggestedResiliencyPoliciesResponse,
 ];
@@ -2463,9 +2125,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2473,9 +2133,7 @@ export var ListTestRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LTR,
-  {
-    [_h]: ["POST", "/list-test-recommendations", 200],
-  },
+  { [_h]: ["POST", "/list-test-recommendations", 200] },
   () => ListTestRecommendationsRequest,
   () => ListTestRecommendationsResponse,
 ];
@@ -2483,9 +2141,7 @@ export var ListUnsupportedAppVersionResources: StaticOperationSchema = [
   9,
   n0,
   _LUAVR,
-  {
-    [_h]: ["POST", "/list-unsupported-app-version-resources", 200],
-  },
+  { [_h]: ["POST", "/list-unsupported-app-version-resources", 200] },
   () => ListUnsupportedAppVersionResourcesRequest,
   () => ListUnsupportedAppVersionResourcesResponse,
 ];
@@ -2493,9 +2149,7 @@ export var PublishAppVersion: StaticOperationSchema = [
   9,
   n0,
   _PAV,
-  {
-    [_h]: ["POST", "/publish-app-version", 200],
-  },
+  { [_h]: ["POST", "/publish-app-version", 200] },
   () => PublishAppVersionRequest,
   () => PublishAppVersionResponse,
 ];
@@ -2503,9 +2157,7 @@ export var PutDraftAppVersionTemplate: StaticOperationSchema = [
   9,
   n0,
   _PDAVT,
-  {
-    [_h]: ["POST", "/put-draft-app-version-template", 200],
-  },
+  { [_h]: ["POST", "/put-draft-app-version-template", 200] },
   () => PutDraftAppVersionTemplateRequest,
   () => PutDraftAppVersionTemplateResponse,
 ];
@@ -2513,9 +2165,7 @@ export var RejectResourceGroupingRecommendations: StaticOperationSchema = [
   9,
   n0,
   _RRGR,
-  {
-    [_h]: ["POST", "/reject-resource-grouping-recommendations", 200],
-  },
+  { [_h]: ["POST", "/reject-resource-grouping-recommendations", 200] },
   () => RejectResourceGroupingRecommendationsRequest,
   () => RejectResourceGroupingRecommendationsResponse,
 ];
@@ -2523,9 +2173,7 @@ export var RemoveDraftAppVersionResourceMappings: StaticOperationSchema = [
   9,
   n0,
   _RDAVRM,
-  {
-    [_h]: ["POST", "/remove-draft-app-version-resource-mappings", 200],
-  },
+  { [_h]: ["POST", "/remove-draft-app-version-resource-mappings", 200] },
   () => RemoveDraftAppVersionResourceMappingsRequest,
   () => RemoveDraftAppVersionResourceMappingsResponse,
 ];
@@ -2533,9 +2181,7 @@ export var ResolveAppVersionResources: StaticOperationSchema = [
   9,
   n0,
   _RAVR,
-  {
-    [_h]: ["POST", "/resolve-app-version-resources", 200],
-  },
+  { [_h]: ["POST", "/resolve-app-version-resources", 200] },
   () => ResolveAppVersionResourcesRequest,
   () => ResolveAppVersionResourcesResponse,
 ];
@@ -2543,9 +2189,7 @@ export var StartAppAssessment: StaticOperationSchema = [
   9,
   n0,
   _SAA,
-  {
-    [_h]: ["POST", "/start-app-assessment", 200],
-  },
+  { [_h]: ["POST", "/start-app-assessment", 200] },
   () => StartAppAssessmentRequest,
   () => StartAppAssessmentResponse,
 ];
@@ -2553,9 +2197,7 @@ export var StartMetricsExport: StaticOperationSchema = [
   9,
   n0,
   _SME,
-  {
-    [_h]: ["POST", "/start-metrics-export", 200],
-  },
+  { [_h]: ["POST", "/start-metrics-export", 200] },
   () => StartMetricsExportRequest,
   () => StartMetricsExportResponse,
 ];
@@ -2563,9 +2205,7 @@ export var StartResourceGroupingRecommendationTask: StaticOperationSchema = [
   9,
   n0,
   _SRGRT,
-  {
-    [_h]: ["POST", "/start-resource-grouping-recommendation-task", 200],
-  },
+  { [_h]: ["POST", "/start-resource-grouping-recommendation-task", 200] },
   () => StartResourceGroupingRecommendationTaskRequest,
   () => StartResourceGroupingRecommendationTaskResponse,
 ];
@@ -2573,9 +2213,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2583,9 +2221,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _URn,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2593,9 +2229,7 @@ export var UpdateApp: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["POST", "/update-app", 200],
-  },
+  { [_h]: ["POST", "/update-app", 200] },
   () => UpdateAppRequest,
   () => UpdateAppResponse,
 ];
@@ -2603,9 +2237,7 @@ export var UpdateAppVersion: StaticOperationSchema = [
   9,
   n0,
   _UAV,
-  {
-    [_h]: ["POST", "/update-app-version", 200],
-  },
+  { [_h]: ["POST", "/update-app-version", 200] },
   () => UpdateAppVersionRequest,
   () => UpdateAppVersionResponse,
 ];
@@ -2613,9 +2245,7 @@ export var UpdateAppVersionAppComponent: StaticOperationSchema = [
   9,
   n0,
   _UAVAC,
-  {
-    [_h]: ["POST", "/update-app-version-app-component", 200],
-  },
+  { [_h]: ["POST", "/update-app-version-app-component", 200] },
   () => UpdateAppVersionAppComponentRequest,
   () => UpdateAppVersionAppComponentResponse,
 ];
@@ -2623,9 +2253,7 @@ export var UpdateAppVersionResource: StaticOperationSchema = [
   9,
   n0,
   _UAVRpd,
-  {
-    [_h]: ["POST", "/update-app-version-resource", 200],
-  },
+  { [_h]: ["POST", "/update-app-version-resource", 200] },
   () => UpdateAppVersionResourceRequest,
   () => UpdateAppVersionResourceResponse,
 ];
@@ -2633,9 +2261,7 @@ export var UpdateResiliencyPolicy: StaticOperationSchema = [
   9,
   n0,
   _URP,
-  {
-    [_h]: ["POST", "/update-resiliency-policy", 200],
-  },
+  { [_h]: ["POST", "/update-resiliency-policy", 200] },
   () => UpdateResiliencyPolicyRequest,
   () => UpdateResiliencyPolicyResponse,
 ];

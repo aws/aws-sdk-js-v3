@@ -3,7 +3,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smith
 
 import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
 import { InvalidRequestReason } from "./enums";
-import { InvalidRequestDetail } from "./models_0";
+import type { InvalidRequestDetail } from "./models_0";
 
 /**
  * <p>The number of documents in the request exceeds the limit of 25. Try your request again

@@ -44,21 +44,9 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var DeleteConnectionRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CI], [[0, 1]]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [],
-  [],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [], []];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GetConnectionRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_CI], [[0, 1]]];
 export var GetConnectionResponse: StaticStructureSchema = [
   3,
@@ -67,39 +55,13 @@ export var GetConnectionResponse: StaticStructureSchema = [
   0,
   [_CA, _I, _LAA],
   [
-    [
-      5,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      () => Identity,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _lAA,
-      },
-    ],
+    [5, { [_jN]: _cA }],
+    [() => Identity, { [_jN]: _i }],
+    [5, { [_jN]: _lAA }],
   ],
 ];
-export var GoneException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [],
-  [],
-];
+export var GoneException: StaticErrorSchema = [-3, n0, _GE, { [_e]: _c, [_hE]: 410 }, [], []];
 TypeRegistry.for(n0).registerError(GoneException, __GoneException);
-
 export var Identity: StaticStructureSchema = [
   3,
   n0,
@@ -107,53 +69,21 @@ export var Identity: StaticStructureSchema = [
   0,
   [_SI, _UA],
   [
-    [
-      0,
-      {
-        [_jN]: _sI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uA,
-      },
-    ],
+    [0, { [_jN]: _sI }],
+    [0, { [_jN]: _uA }],
   ],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [],
-  [],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [], []];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var PayloadTooLargeException: StaticErrorSchema = [
   -3,
   n0,
   _PTLE,
-  {
-    [_e]: _c,
-    [_hE]: 413,
-  },
+  { [_e]: _c, [_hE]: 413 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(PayloadTooLargeException, __PayloadTooLargeException);
-
 export var PostToConnectionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -166,7 +96,6 @@ export var PostToConnectionRequest: StaticStructureSchema = [
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var ApiGatewayManagementApiServiceException: StaticErrorSchema = [
   -3,
   _s,
@@ -176,14 +105,11 @@ export var ApiGatewayManagementApiServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_s).registerError(ApiGatewayManagementApiServiceException, __ApiGatewayManagementApiServiceException);
-
 export var DeleteConnection: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/@connections/{ConnectionId}", 204],
-  },
+  { [_h]: ["DELETE", "/@connections/{ConnectionId}", 204] },
   () => DeleteConnectionRequest,
   () => __Unit,
 ];
@@ -191,9 +117,7 @@ export var GetConnection: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/@connections/{ConnectionId}", 200],
-  },
+  { [_h]: ["GET", "/@connections/{ConnectionId}", 200] },
   () => GetConnectionRequest,
   () => GetConnectionResponse,
 ];
@@ -201,9 +125,7 @@ export var PostToConnection: StaticOperationSchema = [
   9,
   n0,
   _PTC,
-  {
-    [_h]: ["POST", "/@connections/{ConnectionId}", 200],
-  },
+  { [_h]: ["POST", "/@connections/{ConnectionId}", 200] },
   () => PostToConnectionRequest,
   () => __Unit,
 ];

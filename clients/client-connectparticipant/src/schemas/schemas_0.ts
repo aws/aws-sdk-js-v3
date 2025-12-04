@@ -157,25 +157,13 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var JoinToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 export var ViewAction: StaticSimpleSchema = [0, n0, _VA, 8, 0];
 export var ViewInputSchema: StaticSimpleSchema = [0, n0, _VIS, 8, 0];
 export var ViewName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
 export var ViewTemplate: StaticSimpleSchema = [0, n0, _VT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AttachmentItem: StaticStructureSchema = [3, n0, _AI, 0, [_CT, _AIt, _AN, _S], [0, 0, 0, 0]];
 export var Attendee: StaticStructureSchema = [3, n0, _A, 0, [_AItt, _JT], [0, [() => JoinToken, 0]]];
 export var AudioFeatures: StaticStructureSchema = [3, n0, _AF, 0, [_ER], [0]];
@@ -185,15 +173,7 @@ export var CancelParticipantAuthenticationRequest: StaticStructureSchema = [
   _CPAR,
   0,
   [_SI, _CTo],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _XAB }]],
 ];
 export var CancelParticipantAuthenticationResponse: StaticStructureSchema = [3, n0, _CPARa, 0, [], []];
 export var CompleteAttachmentUploadRequest: StaticStructureSchema = [
@@ -202,31 +182,11 @@ export var CompleteAttachmentUploadRequest: StaticStructureSchema = [
   _CAUR,
   0,
   [_AItta, _CTl, _CTo],
-  [
-    64 | 0,
-    [0, 4],
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-  ],
+  [64 | 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
 export var CompleteAttachmentUploadResponse: StaticStructureSchema = [3, n0, _CAURo, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectionCredentials: StaticStructureSchema = [3, n0, _CC, 0, [_CTo, _E], [0, 0]];
 export var CreateParticipantConnectionRequest: StaticStructureSchema = [
   3,
@@ -234,16 +194,7 @@ export var CreateParticipantConnectionRequest: StaticStructureSchema = [
   _CPCR,
   0,
   [_T, _PT, _CP],
-  [
-    64 | 0,
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-    2,
-  ],
+  [64 | 0, [0, { [_hH]: _XAB }], 2],
 ];
 export var CreateParticipantConnectionResponse: StaticStructureSchema = [
   3,
@@ -261,12 +212,7 @@ export var DescribeViewRequest: StaticStructureSchema = [
   [_VTi, _CTo],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
+    [0, { [_hH]: _XAB }],
   ],
 ];
 export var DescribeViewResponse: StaticStructureSchema = [3, n0, _DVRe, 0, [_V], [[() => View, 0]]];
@@ -278,12 +224,7 @@ export var DisconnectParticipantRequest: StaticStructureSchema = [
   [_CTl, _CTo],
   [
     [0, 4],
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
+    [0, { [_hH]: _XAB }],
   ],
 ];
 export var DisconnectParticipantResponse: StaticStructureSchema = [3, n0, _DPRi, 0, [], []];
@@ -293,16 +234,7 @@ export var GetAttachmentRequest: StaticStructureSchema = [
   _GAR,
   0,
   [_AIt, _CTo, _UEIS],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-    1,
-  ],
+  [0, [0, { [_hH]: _XAB }], 1],
 ];
 export var GetAttachmentResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_U, _UE, _ASIB], [0, 0, 1]];
 export var GetAuthenticationUrlRequest: StaticStructureSchema = [
@@ -311,16 +243,7 @@ export var GetAuthenticationUrlRequest: StaticStructureSchema = [
   _GAUR,
   0,
   [_SI, _RU, _CTo],
-  [
-    0,
-    0,
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-  ],
+  [0, 0, [0, { [_hH]: _XAB }]],
 ];
 export var GetAuthenticationUrlResponse: StaticStructureSchema = [3, n0, _GAURe, 0, [_AU], [0]];
 export var GetTranscriptRequest: StaticStructureSchema = [
@@ -329,35 +252,11 @@ export var GetTranscriptRequest: StaticStructureSchema = [
   _GTR,
   0,
   [_CI, _MR, _NT, _SD, _SO, _SP, _CTo],
-  [
-    0,
-    1,
-    0,
-    0,
-    0,
-    () => StartPosition,
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-  ],
+  [0, 1, 0, 0, 0, () => StartPosition, [0, { [_hH]: _XAB }]],
 ];
 export var GetTranscriptResponse: StaticStructureSchema = [3, n0, _GTRe, 0, [_ICI, _Tr, _NT], [0, () => Transcript, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Item: StaticStructureSchema = [
   3,
   n0,
@@ -374,32 +273,18 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RTe],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SendEventRequest: StaticStructureSchema = [
   3,
   n0,
   _SER,
   0,
   [_CT, _C, _CTl, _CTo],
-  [
-    0,
-    0,
-    [0, 4],
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-  ],
+  [0, 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
 export var SendEventResponse: StaticStructureSchema = [3, n0, _SERe, 0, [_Id, _AT], [0, 0]];
 export var SendMessageRequest: StaticStructureSchema = [
@@ -408,17 +293,7 @@ export var SendMessageRequest: StaticStructureSchema = [
   _SMR,
   0,
   [_CT, _C, _CTl, _CTo],
-  [
-    0,
-    0,
-    [0, 4],
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-  ],
+  [0, 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
 export var SendMessageResponse: StaticStructureSchema = [
   3,
@@ -428,37 +303,15 @@ export var SendMessageResponse: StaticStructureSchema = [
   [_Id, _AT, _MM],
   [0, 0, () => MessageProcessingMetadata],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartAttachmentUploadRequest: StaticStructureSchema = [
   3,
   n0,
   _SAUR,
   0,
   [_CT, _ASIB, _AN, _CTl, _CTo],
-  [
-    0,
-    1,
-    0,
-    [0, 4],
-    [
-      0,
-      {
-        [_hH]: _XAB,
-      },
-    ],
-  ],
+  [0, 1, 0, [0, 4], [0, { [_hH]: _XAB }]],
 ];
 export var StartAttachmentUploadResponse: StaticStructureSchema = [
   3,
@@ -469,33 +322,11 @@ export var StartAttachmentUploadResponse: StaticStructureSchema = [
   [0, () => UploadMetadata],
 ];
 export var StartPosition: StaticStructureSchema = [3, n0, _SP, 0, [_Id, _AT, _MRo], [0, 0, 1]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UploadMetadata: StaticStructureSchema = [3, n0, _UM, 0, [_U, _UE, _HTI], [0, 0, 128 | 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var View: StaticStructureSchema = [
   3,
   n0,
@@ -535,7 +366,6 @@ export var WebRTCMeeting: StaticStructureSchema = [
 ];
 export var Websocket: StaticStructureSchema = [3, n0, _W, 0, [_U, _CEo], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var ConnectParticipantServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -545,24 +375,18 @@ export var ConnectParticipantServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ConnectParticipantServiceException, __ConnectParticipantServiceException);
-
 export var AttachmentIdList = 64 | 0;
-
 export var Attachments: StaticListSchema = [1, n0, _At, 0, () => AttachmentItem];
 export var ConnectionTypeList = 64 | 0;
-
 export var Receipts: StaticListSchema = [1, n0, _R, 0, () => Receipt];
 export var Transcript: StaticListSchema = [1, n0, _Tr, 0, () => Item];
 export var ViewActions: StaticListSchema = [1, n0, _VAi, 0, [() => ViewAction, 0]];
 export var UploadMetadataSignedHeaders = 128 | 0;
-
 export var CancelParticipantAuthentication: StaticOperationSchema = [
   9,
   n0,
   _CPA,
-  {
-    [_h]: ["POST", "/participant/cancel-authentication", 200],
-  },
+  { [_h]: ["POST", "/participant/cancel-authentication", 200] },
   () => CancelParticipantAuthenticationRequest,
   () => CancelParticipantAuthenticationResponse,
 ];
@@ -570,9 +394,7 @@ export var CompleteAttachmentUpload: StaticOperationSchema = [
   9,
   n0,
   _CAU,
-  {
-    [_h]: ["POST", "/participant/complete-attachment-upload", 200],
-  },
+  { [_h]: ["POST", "/participant/complete-attachment-upload", 200] },
   () => CompleteAttachmentUploadRequest,
   () => CompleteAttachmentUploadResponse,
 ];
@@ -580,9 +402,7 @@ export var CreateParticipantConnection: StaticOperationSchema = [
   9,
   n0,
   _CPC,
-  {
-    [_h]: ["POST", "/participant/connection", 200],
-  },
+  { [_h]: ["POST", "/participant/connection", 200] },
   () => CreateParticipantConnectionRequest,
   () => CreateParticipantConnectionResponse,
 ];
@@ -590,9 +410,7 @@ export var DescribeView: StaticOperationSchema = [
   9,
   n0,
   _DV,
-  {
-    [_h]: ["GET", "/participant/views/{ViewToken}", 200],
-  },
+  { [_h]: ["GET", "/participant/views/{ViewToken}", 200] },
   () => DescribeViewRequest,
   () => DescribeViewResponse,
 ];
@@ -600,9 +418,7 @@ export var DisconnectParticipant: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["POST", "/participant/disconnect", 200],
-  },
+  { [_h]: ["POST", "/participant/disconnect", 200] },
   () => DisconnectParticipantRequest,
   () => DisconnectParticipantResponse,
 ];
@@ -610,9 +426,7 @@ export var GetAttachment: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["POST", "/participant/attachment", 200],
-  },
+  { [_h]: ["POST", "/participant/attachment", 200] },
   () => GetAttachmentRequest,
   () => GetAttachmentResponse,
 ];
@@ -620,9 +434,7 @@ export var GetAuthenticationUrl: StaticOperationSchema = [
   9,
   n0,
   _GAU,
-  {
-    [_h]: ["POST", "/participant/authentication-url", 200],
-  },
+  { [_h]: ["POST", "/participant/authentication-url", 200] },
   () => GetAuthenticationUrlRequest,
   () => GetAuthenticationUrlResponse,
 ];
@@ -630,9 +442,7 @@ export var GetTranscript: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["POST", "/participant/transcript", 200],
-  },
+  { [_h]: ["POST", "/participant/transcript", 200] },
   () => GetTranscriptRequest,
   () => GetTranscriptResponse,
 ];
@@ -640,9 +450,7 @@ export var SendEvent: StaticOperationSchema = [
   9,
   n0,
   _SE,
-  {
-    [_h]: ["POST", "/participant/event", 200],
-  },
+  { [_h]: ["POST", "/participant/event", 200] },
   () => SendEventRequest,
   () => SendEventResponse,
 ];
@@ -650,9 +458,7 @@ export var SendMessage: StaticOperationSchema = [
   9,
   n0,
   _SM,
-  {
-    [_h]: ["POST", "/participant/message", 200],
-  },
+  { [_h]: ["POST", "/participant/message", 200] },
   () => SendMessageRequest,
   () => SendMessageResponse,
 ];
@@ -660,9 +466,7 @@ export var StartAttachmentUpload: StaticOperationSchema = [
   9,
   n0,
   _SAU,
-  {
-    [_h]: ["POST", "/participant/start-attachment-upload", 200],
-  },
+  { [_h]: ["POST", "/participant/start-attachment-upload", 200] },
   () => StartAttachmentUploadRequest,
   () => StartAttachmentUploadResponse,
 ];

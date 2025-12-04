@@ -28,19 +28,19 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof SavingsplansClient === "function")
-assert(typeof Savingsplans === "function")
+assert(typeof SavingsplansClient === "function");
+assert(typeof Savingsplans === "function");
 // commands
-assert(typeof CreateSavingsPlanCommand === "function")
-assert(typeof DeleteQueuedSavingsPlanCommand === "function")
-assert(typeof DescribeSavingsPlanRatesCommand === "function")
-assert(typeof DescribeSavingsPlansCommand === "function")
-assert(typeof DescribeSavingsPlansOfferingRatesCommand === "function")
-assert(typeof DescribeSavingsPlansOfferingsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ReturnSavingsPlanCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
+assert(typeof CreateSavingsPlanCommand === "function");
+assert(typeof DeleteQueuedSavingsPlanCommand === "function");
+assert(typeof DescribeSavingsPlanRatesCommand === "function");
+assert(typeof DescribeSavingsPlansCommand === "function");
+assert(typeof DescribeSavingsPlansOfferingRatesCommand === "function");
+assert(typeof DescribeSavingsPlansOfferingsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ReturnSavingsPlanCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
 // enums
 assert(typeof CurrencyCode === "object");
 assert(typeof SavingsPlanOfferingFilterAttribute === "object");
@@ -56,5 +56,5 @@ assert(typeof SavingsPlansFilterName === "object");
 assert(typeof SavingsPlanState === "object");
 assert(typeof SavingsPlanType === "object");
 // errors
-assert(SavingsplansServiceException.prototype instanceof Error)
+assert(SavingsplansServiceException.prototype instanceof Error);
 console.log(`Savingsplans index test passed.`);

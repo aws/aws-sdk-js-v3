@@ -265,7 +265,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AbbreviatedExecution: StaticStructureSchema = [
   3,
   n0,
@@ -282,19 +281,8 @@ export var AbbreviatedPlan: StaticStructureSchema = [
   [_a, _o, _n, _r, _rA, _pR, _v, _uA, _d, _eRx, _aPE, _rTOM],
   [0, 0, 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 1],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _cl,
-    [_hE]: 403,
-  },
-  [_me],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _cl, [_hE]: 403 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ApprovePlanExecutionStepRequest: StaticStructureSchema = [
   3,
   n0,
@@ -412,45 +400,12 @@ export var GlobalAuroraConfiguration: StaticStructureSchema = [
   [1, 0, 0, 0, () => GlobalAuroraUngraceful, 0, 64 | 0],
 ];
 export var GlobalAuroraUngraceful: StaticStructureSchema = [3, n0, _GAU, 0, [_u], [0]];
-export var IllegalArgumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var IllegalArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(IllegalArgumentException, __IllegalArgumentException);
-
-export var IllegalStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var IllegalStateException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(IllegalStateException, __IllegalStateException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEn,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _ser, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KubernetesResourceType: StaticStructureSchema = [3, n0, _KRT, 0, [_aV, _k], [0, 0]];
 export var KubernetesScalingResource: StaticStructureSchema = [3, n0, _KSR, 0, [_na, _n, _hN], [0, 0, 0]];
 export var Lambdas: StaticStructureSchema = [3, n0, _L, 0, [_cAR, _eIx, _a], [0, 0, 0]];
@@ -513,19 +468,8 @@ export var Plan: StaticStructureSchema = [
   [0, 0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList, 0, 64 | 0, 0, 0, 0, 0, 4],
 ];
 export var RegionSwitchPlanConfiguration: StaticStructureSchema = [3, n0, _RSPC, 0, [_cAR, _eIx, _a], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-  },
-  [_me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceWarning: StaticStructureSchema = [
   3,
   n0,
@@ -605,15 +549,12 @@ export var UpdatePlanRequest: StaticStructureSchema = [
 export var UpdatePlanResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_p], [() => Plan]];
 export var Workflow: StaticStructureSchema = [3, n0, _W, 0, [_st, _wTA, _wTR, _wD], [() => Steps, 0, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var ARCRegionSwitchServiceException: StaticErrorSchema = [-3, _sm, "ARCRegionSwitchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ARCRegionSwitchServiceException, __ARCRegionSwitchServiceException);
-
 export var AbbreviatedExecutionsList: StaticListSchema = [1, n0, _AEL, 0, () => AbbreviatedExecution];
 export var ArcRoutingControlStates: StaticListSchema = [1, n0, _ARCSr, 0, () => ArcRoutingControlState];
 export var AsgList: StaticListSchema = [1, n0, _AL, 0, () => Asg];
 export var AuroraClusterArns = 64 | 0;
-
 export var EksClusters: StaticListSchema = [1, n0, _ECk, 0, () => EksCluster];
 export var ExecutionEventList: StaticListSchema = [1, n0, _EEL, 0, () => ExecutionEvent];
 export var KubernetesScalingApps: StaticListSchema = [1, n0, _KSA, 0, () => KubernetesScalingApplication];
@@ -621,16 +562,13 @@ export var LambdaList: StaticListSchema = [1, n0, _LL, 0, () => Lambdas];
 export var PlanList: StaticListSchema = [1, n0, _PL, 0, () => AbbreviatedPlan];
 export var PlanWarnings: StaticListSchema = [1, n0, _PW, 0, () => ResourceWarning];
 export var RegionList = 64 | 0;
-
 export var Resources = 64 | 0;
-
 export var Route53HealthCheckList: StaticListSchema = [1, n0, _RHCL, 0, () => Route53HealthCheck];
 export var Route53ResourceRecordSetList: StaticListSchema = [1, n0, _RRRSL, 0, () => Route53ResourceRecordSet];
 export var ServiceList: StaticListSchema = [1, n0, _SL, 0, () => Service];
 export var Steps: StaticListSchema = [1, n0, _Ste, 0, () => Step];
 export var StepStates: StaticListSchema = [1, n0, _SSt, 0, () => StepState];
 export var TagKeys = 64 | 0;
-
 export var TriggerConditionList: StaticListSchema = [1, n0, _TCL, 0, () => TriggerCondition];
 export var TriggerList: StaticListSchema = [1, n0, _TL, 0, () => Trigger];
 export var WorkflowList: StaticListSchema = [1, n0, _WL, 0, () => Workflow];
@@ -639,7 +577,6 @@ export var KubernetesScalingApplication: StaticMapSchema = [2, n0, _KSAu, 0, 0, 
 export var RegionalScalingResource: StaticMapSchema = [2, n0, _RSR, 0, 0, () => KubernetesScalingResource];
 export var RegionAndRoutingControls: StaticMapSchema = [2, n0, _RARC, 0, 0, () => ArcRoutingControlStates];
 export var Tags = 128 | 0;
-
 export var ExecutionBlockConfiguration: StaticStructureSchema = [
   3,
   n0,

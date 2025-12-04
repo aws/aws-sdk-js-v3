@@ -601,7 +601,6 @@ import {
 import { IoTManagedIntegrationsServiceException as __IoTManagedIntegrationsServiceException } from "../models/IoTManagedIntegrationsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AuthMaterialString: StaticSimpleSchema = [0, n0, _AMS, 8, 0];
 export var Brand: StaticSimpleSchema = [0, n0, _B, 8, 0];
 export var CaCertificate: StaticSimpleSchema = [0, n0, _CC, 8, 0];
@@ -629,19 +628,8 @@ export var SerialNumber: StaticSimpleSchema = [0, n0, _SN, 8, 0];
 export var ThirdPartyUserId: StaticSimpleSchema = [0, n0, _TPUI, 8, 0];
 export var UniversalProductCode: StaticSimpleSchema = [0, n0, _UPC, 8, 0];
 export var AbortConfigCriteria: StaticStructureSchema = [3, n0, _ACC, 0, [_A, _FT, _MNOET, _TP], [0, 0, 1, 1]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_Me],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountAssociationItem: StaticStructureSchema = [
   3,
   n0,
@@ -696,19 +684,8 @@ export var CommandCapability: StaticStructureSchema = [
 export var CommandEndpoint: StaticStructureSchema = [3, n0, _CE, 0, [_eI, _ca], [0, [() => CommandCapabilities, 0]]];
 export var ConfigurationError: StaticStructureSchema = [3, n0, _CEo, 0, [_co, _m], [0, 0]];
 export var ConfigurationStatus: StaticStructureSchema = [3, n0, _CS, 0, [_e, _s], [() => ConfigurationError, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEon,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_Me],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEon, { [_e]: _c, [_hE]: 409 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectorDestinationSummary: StaticStructureSchema = [3, n0, _CDS, 0, [_N, _D, _CCI, _I], [0, 0, 0, 0]];
 export var ConnectorItem: StaticStructureSchema = [
   3,
@@ -887,12 +864,7 @@ export var DeleteManagedThingRequest: StaticStructureSchema = [
   [_Id, _Fo],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _Fo,
-      },
-    ],
+    [2, { [_hQ]: _Fo }],
   ],
 ];
 export var DeleteNotificationConfigurationRequest: StaticStructureSchema = [3, n0, _DNCR, 0, [_ETv], [[0, 1]]];
@@ -1179,12 +1151,7 @@ export var GetSchemaVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _F,
-      },
-    ],
+    [0, { [_hQ]: _F }],
   ],
 ];
 export var GetSchemaVersionResponse: StaticStructureSchema = [
@@ -1195,59 +1162,15 @@ export var GetSchemaVersionResponse: StaticStructureSchema = [
   [_SI, _T, _D, _Na, _SV, _V, _S],
   [0, 0, 0, 0, 0, 0, 15],
 ];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_Me],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_Me],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Me],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var LambdaConfig: StaticStructureSchema = [3, n0, _LC, 0, [_ar], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [_Me],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 410 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAccountAssociationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1255,24 +1178,9 @@ export var ListAccountAssociationsRequest: StaticStructureSchema = [
   0,
   [_CDIo, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _CDIo,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _CDIo }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListAccountAssociationsResponse: StaticStructureSchema = [
@@ -1290,30 +1198,10 @@ export var ListCloudConnectorsRequest: StaticStructureSchema = [
   0,
   [_T, _LA, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _T,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _LA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _T }],
+    [0, { [_hQ]: _LA }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListCloudConnectorsResponse: StaticStructureSchema = [
@@ -1331,24 +1219,9 @@ export var ListConnectorDestinationsRequest: StaticStructureSchema = [
   0,
   [_CCI, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _CCI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _CCI }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListConnectorDestinationsResponse: StaticStructureSchema = [
@@ -1366,18 +1239,8 @@ export var ListCredentialLockersRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListCredentialLockersResponse: StaticStructureSchema = [
@@ -1395,18 +1258,8 @@ export var ListDestinationsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListDestinationsResponse: StaticStructureSchema = [
@@ -1424,30 +1277,10 @@ export var ListDeviceDiscoveriesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR, _TF, _SF],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _TF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SF,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _TF }],
+    [0, { [_hQ]: _SF }],
   ],
 ];
 export var ListDeviceDiscoveriesResponse: StaticStructureSchema = [
@@ -1466,18 +1299,8 @@ export var ListDiscoveredDevicesRequest: StaticStructureSchema = [
   [_Id, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListDiscoveredDevicesResponse: StaticStructureSchema = [
@@ -1495,18 +1318,8 @@ export var ListEventLogConfigurationsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListEventLogConfigurationsResponse: StaticStructureSchema = [
@@ -1524,30 +1337,10 @@ export var ListManagedThingAccountAssociationsRequest: StaticStructureSchema = [
   0,
   [_MTI, _AAIc, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MTI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AAIc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MTI }],
+    [0, { [_hQ]: _AAIc }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListManagedThingAccountAssociationsResponse: StaticStructureSchema = [
@@ -1566,30 +1359,10 @@ export var ListManagedThingSchemasRequest: StaticStructureSchema = [
   [_Id, _EIF, _CIF, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _EIF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CIF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _EIF }],
+    [0, { [_hQ]: _CIF }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListManagedThingSchemasResponse: StaticStructureSchema = [
@@ -1607,72 +1380,17 @@ export var ListManagedThingsRequest: StaticStructureSchema = [
   0,
   [_OF, _CLF, _RF, _PCIF, _CPIF, _CDIF, _CDIFo, _SNF, _PSF, _NT, _MR],
   [
-    [
-      () => Owner,
-      {
-        [_hQ]: _OF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CLF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _RF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PCIF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CPIF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CDIF,
-      },
-    ],
-    [
-      () => ConnectorDeviceId,
-      {
-        [_hQ]: _CDIFo,
-      },
-    ],
-    [
-      () => SerialNumber,
-      {
-        [_hQ]: _SNF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PSF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [() => Owner, { [_hQ]: _OF }],
+    [0, { [_hQ]: _CLF }],
+    [0, { [_hQ]: _RF }],
+    [0, { [_hQ]: _PCIF }],
+    [0, { [_hQ]: _CPIF }],
+    [0, { [_hQ]: _CDIF }],
+    [() => ConnectorDeviceId, { [_hQ]: _CDIFo }],
+    [() => SerialNumber, { [_hQ]: _SNF }],
+    [0, { [_hQ]: _PSF }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListManagedThingsResponse: StaticStructureSchema = [
@@ -1690,18 +1408,8 @@ export var ListNotificationConfigurationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListNotificationConfigurationsResponse: StaticStructureSchema = [
@@ -1719,18 +1427,8 @@ export var ListOtaTaskConfigurationsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListOtaTaskConfigurationsResponse: StaticStructureSchema = [
@@ -1749,18 +1447,8 @@ export var ListOtaTaskExecutionsRequest: StaticStructureSchema = [
   [_Id, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListOtaTaskExecutionsResponse: StaticStructureSchema = [
@@ -1778,18 +1466,8 @@ export var ListOtaTasksRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListOtaTasksResponse: StaticStructureSchema = [
@@ -1807,18 +1485,8 @@ export var ListProvisioningProfilesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListProvisioningProfilesResponse: StaticStructureSchema = [
@@ -1837,42 +1505,12 @@ export var ListSchemaVersionsRequest: StaticStructureSchema = [
   [_T, _MR, _NT, _SI, _Na, _V, _SV],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SIF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _VF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SVF,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
+    [0, { [_hQ]: _SIF }],
+    [0, { [_hQ]: _NF }],
+    [0, { [_hQ]: _VF }],
+    [0, { [_hQ]: _SVF }],
   ],
 ];
 export var ListSchemaVersionsResponse: StaticStructureSchema = [
@@ -2069,15 +1707,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_Me, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetryConfigCriteria: StaticStructureSchema = [3, n0, _RCC, 0, [_FT, _MNOR], [0, 1]];
 export var RolloutRateIncreaseCriteria: StaticStructureSchema = [3, n0, _RRIC, 0, [_nONT, _nOST], [1, 1]];
 export var RuntimeLogConfigurations: StaticStructureSchema = [
@@ -2128,32 +1762,10 @@ export var SendManagedThingCommandRequest: StaticStructureSchema = [
   [[0, 1], [() => CommandEndpoints, 0], 0, 0],
 ];
 export var SendManagedThingCommandResponse: StaticStructureSchema = [3, n0, _SMTCRe, 0, [_TIr], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_Me],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_Me],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartAccountAssociationRefreshRequest: StaticStructureSchema = [3, n0, _SAARR, 0, [_AAIc], [[0, 1]]];
 export var StartAccountAssociationRefreshResponse: StaticStructureSchema = [
   3,
@@ -2201,32 +1813,10 @@ export var TaskProcessingDetails: StaticStructureSchema = [
   [_NOCT, _NOFT, _NOIPT, _nOQT, _nORT, _nORTu, _nOST, _nOTOT, _pT],
   [1, 1, 1, 1, 1, 1, 1, 1, 64 | 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_Me],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_Me],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2235,12 +1825,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2287,21 +1872,9 @@ export var UpdateManagedThingRequest: StaticStructureSchema = [
 ];
 export var UpdateNotificationConfigurationRequest: StaticStructureSchema = [3, n0, _UNCR, 0, [_ETv, _DN], [[0, 1], 0]];
 export var UpdateOtaTaskRequest: StaticStructureSchema = [3, n0, _UOTR, 0, [_Id, _D, _TCI], [[0, 1], 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Me],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var IoTManagedIntegrationsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -2311,18 +1884,14 @@ export var IoTManagedIntegrationsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(IoTManagedIntegrationsServiceException, __IoTManagedIntegrationsServiceException);
-
 export var AbortConfigCriteriaList: StaticListSchema = [1, n0, _ACCL, 0, () => AbortConfigCriteria];
 export var AccountAssociationListDefinition: StaticListSchema = [1, n0, _AALD, 0, () => AccountAssociationItem];
 export var CapabilityActions: StaticListSchema = [1, n0, _CAa, 0, [() => CapabilityAction, 0]];
 export var CapabilityReportActions = 64 | 0;
-
 export var CapabilityReportCapabilities: StaticListSchema = [1, n0, _CRCa, 0, () => CapabilityReportCapability];
 export var CapabilityReportEndpoints: StaticListSchema = [1, n0, _CREa, 0, () => CapabilityReportEndpoint];
 export var CapabilityReportEvents = 64 | 0;
-
 export var CapabilityReportProperties = 64 | 0;
-
 export var CapabilitySchemas: StaticListSchema = [1, n0, _CSa, 0, () => CapabilitySchemaItem];
 export var CommandCapabilities: StaticListSchema = [1, n0, _CCom, 0, [() => CommandCapability, 0]];
 export var CommandEndpoints: StaticListSchema = [1, n0, _CEom, 0, [() => CommandEndpoint, 0]];
@@ -2333,9 +1902,7 @@ export var DestinationListDefinition: StaticListSchema = [1, n0, _DLD, 0, () => 
 export var DeviceDiscoveryListDefinition: StaticListSchema = [1, n0, _DDLD, 0, () => DeviceDiscoverySummary];
 export var Devices: StaticListSchema = [1, n0, _Dev, 0, [() => Device, 0]];
 export var DeviceTypeList = 64 | 0;
-
 export var DeviceTypes = 64 | 0;
-
 export var DiscoveredDeviceListDefinition: StaticListSchema = [1, n0, _DDLDi, 0, [() => DiscoveredDeviceSummary, 0]];
 export var EventLogConfigurationListDefinition: StaticListSchema = [
   1,
@@ -2356,18 +1923,12 @@ export var MatterCapabilityReportAttributes: StaticListSchema = [
 ];
 export var MatterCapabilityReportClusters: StaticListSchema = [1, n0, _MCRCa, 0, () => MatterCapabilityReportCluster];
 export var MatterCapabilityReportCommands = 64 | 0;
-
 export var MatterCapabilityReportEndpointClientClusters = 64 | 0;
-
 export var MatterCapabilityReportEndpointParts = 64 | 0;
-
 export var MatterCapabilityReportEndpoints: StaticListSchema = [1, n0, _MCREa, 0, () => MatterCapabilityReportEndpoint];
 export var MatterCapabilityReportEndpointSemanticTags = 64 | 0;
-
 export var MatterCapabilityReportEvents = 64 | 0;
-
 export var MatterCapabilityReportGeneratedCommands = 64 | 0;
-
 export var MatterClusters: StaticListSchema = [1, n0, _MCa, 0, [() => MatterCluster, 0]];
 export var NotificationConfigurationListDefinition: StaticListSchema = [
   1,
@@ -2398,23 +1959,17 @@ export var SchemaVersionList: StaticListSchema = [1, n0, _SVL, 0, () => SchemaVe
 export var StateCapabilities: StaticListSchema = [1, n0, _SCta, 0, [() => StateCapability, 0]];
 export var StateEndpoints: StaticListSchema = [1, n0, _SEt, 0, [() => StateEndpoint, 0]];
 export var TagKeyList = 64 | 0;
-
 export var Target = 64 | 0;
-
 export var CustomProtocolDetail = 128 | 0;
-
 export var MatterCommands: StaticMapSchema = [2, n0, _MCat, 0, [0, 0], [() => MatterFields, 0]];
 export var MatterEvents: StaticMapSchema = [2, n0, _MEa, 0, [0, 0], [() => MatterFields, 0]];
 export var MetaData = 128 | 0;
-
 export var TagsMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
 export var CreateAccountAssociation: StaticOperationSchema = [
   9,
   n0,
   _CAA,
-  {
-    [_h]: ["POST", "/account-associations", 201],
-  },
+  { [_h]: ["POST", "/account-associations", 201] },
   () => CreateAccountAssociationRequest,
   () => CreateAccountAssociationResponse,
 ];
@@ -2422,9 +1977,7 @@ export var CreateCloudConnector: StaticOperationSchema = [
   9,
   n0,
   _CCC,
-  {
-    [_h]: ["POST", "/cloud-connectors", 201],
-  },
+  { [_h]: ["POST", "/cloud-connectors", 201] },
   () => CreateCloudConnectorRequest,
   () => CreateCloudConnectorResponse,
 ];
@@ -2432,9 +1985,7 @@ export var CreateConnectorDestination: StaticOperationSchema = [
   9,
   n0,
   _CCD,
-  {
-    [_h]: ["POST", "/connector-destinations", 201],
-  },
+  { [_h]: ["POST", "/connector-destinations", 201] },
   () => CreateConnectorDestinationRequest,
   () => CreateConnectorDestinationResponse,
 ];
@@ -2442,9 +1993,7 @@ export var CreateCredentialLocker: StaticOperationSchema = [
   9,
   n0,
   _CCL,
-  {
-    [_h]: ["POST", "/credential-lockers", 201],
-  },
+  { [_h]: ["POST", "/credential-lockers", 201] },
   () => CreateCredentialLockerRequest,
   () => CreateCredentialLockerResponse,
 ];
@@ -2452,9 +2001,7 @@ export var CreateDestination: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["POST", "/destinations", 201],
-  },
+  { [_h]: ["POST", "/destinations", 201] },
   () => CreateDestinationRequest,
   () => CreateDestinationResponse,
 ];
@@ -2462,9 +2009,7 @@ export var CreateEventLogConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CELC,
-  {
-    [_h]: ["POST", "/event-log-configurations", 201],
-  },
+  { [_h]: ["POST", "/event-log-configurations", 201] },
   () => CreateEventLogConfigurationRequest,
   () => CreateEventLogConfigurationResponse,
 ];
@@ -2472,9 +2017,7 @@ export var CreateManagedThing: StaticOperationSchema = [
   9,
   n0,
   _CMT,
-  {
-    [_h]: ["POST", "/managed-things", 201],
-  },
+  { [_h]: ["POST", "/managed-things", 201] },
   () => CreateManagedThingRequest,
   () => CreateManagedThingResponse,
 ];
@@ -2482,9 +2025,7 @@ export var CreateNotificationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CNC,
-  {
-    [_h]: ["POST", "/notification-configurations", 201],
-  },
+  { [_h]: ["POST", "/notification-configurations", 201] },
   () => CreateNotificationConfigurationRequest,
   () => CreateNotificationConfigurationResponse,
 ];
@@ -2492,9 +2033,7 @@ export var CreateOtaTask: StaticOperationSchema = [
   9,
   n0,
   _COT,
-  {
-    [_h]: ["POST", "/ota-tasks", 201],
-  },
+  { [_h]: ["POST", "/ota-tasks", 201] },
   () => CreateOtaTaskRequest,
   () => CreateOtaTaskResponse,
 ];
@@ -2502,9 +2041,7 @@ export var CreateOtaTaskConfiguration: StaticOperationSchema = [
   9,
   n0,
   _COTC,
-  {
-    [_h]: ["POST", "/ota-task-configurations", 201],
-  },
+  { [_h]: ["POST", "/ota-task-configurations", 201] },
   () => CreateOtaTaskConfigurationRequest,
   () => CreateOtaTaskConfigurationResponse,
 ];
@@ -2512,9 +2049,7 @@ export var CreateProvisioningProfile: StaticOperationSchema = [
   9,
   n0,
   _CPP,
-  {
-    [_h]: ["POST", "/provisioning-profiles", 201],
-  },
+  { [_h]: ["POST", "/provisioning-profiles", 201] },
   () => CreateProvisioningProfileRequest,
   () => CreateProvisioningProfileResponse,
 ];
@@ -2522,9 +2057,7 @@ export var DeleteAccountAssociation: StaticOperationSchema = [
   9,
   n0,
   _DAA,
-  {
-    [_h]: ["DELETE", "/account-associations/{AccountAssociationId}", 200],
-  },
+  { [_h]: ["DELETE", "/account-associations/{AccountAssociationId}", 200] },
   () => DeleteAccountAssociationRequest,
   () => __Unit,
 ];
@@ -2532,9 +2065,7 @@ export var DeleteCloudConnector: StaticOperationSchema = [
   9,
   n0,
   _DCC,
-  {
-    [_h]: ["DELETE", "/cloud-connectors/{Identifier}", 200],
-  },
+  { [_h]: ["DELETE", "/cloud-connectors/{Identifier}", 200] },
   () => DeleteCloudConnectorRequest,
   () => __Unit,
 ];
@@ -2542,9 +2073,7 @@ export var DeleteConnectorDestination: StaticOperationSchema = [
   9,
   n0,
   _DCD,
-  {
-    [_h]: ["DELETE", "/connector-destinations/{Identifier}", 200],
-  },
+  { [_h]: ["DELETE", "/connector-destinations/{Identifier}", 200] },
   () => DeleteConnectorDestinationRequest,
   () => __Unit,
 ];
@@ -2552,9 +2081,7 @@ export var DeleteCredentialLocker: StaticOperationSchema = [
   9,
   n0,
   _DCL,
-  {
-    [_h]: ["DELETE", "/credential-lockers/{Identifier}", 200],
-  },
+  { [_h]: ["DELETE", "/credential-lockers/{Identifier}", 200] },
   () => DeleteCredentialLockerRequest,
   () => __Unit,
 ];
@@ -2562,9 +2089,7 @@ export var DeleteDestination: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/destinations/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/destinations/{Name}", 200] },
   () => DeleteDestinationRequest,
   () => __Unit,
 ];
@@ -2572,9 +2097,7 @@ export var DeleteEventLogConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DELC,
-  {
-    [_h]: ["DELETE", "/event-log-configurations/{Id}", 200],
-  },
+  { [_h]: ["DELETE", "/event-log-configurations/{Id}", 200] },
   () => DeleteEventLogConfigurationRequest,
   () => __Unit,
 ];
@@ -2582,9 +2105,7 @@ export var DeleteManagedThing: StaticOperationSchema = [
   9,
   n0,
   _DMT,
-  {
-    [_h]: ["DELETE", "/managed-things/{Identifier}", 204],
-  },
+  { [_h]: ["DELETE", "/managed-things/{Identifier}", 204] },
   () => DeleteManagedThingRequest,
   () => __Unit,
 ];
@@ -2592,9 +2113,7 @@ export var DeleteNotificationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DNC,
-  {
-    [_h]: ["DELETE", "/notification-configurations/{EventType}", 200],
-  },
+  { [_h]: ["DELETE", "/notification-configurations/{EventType}", 200] },
   () => DeleteNotificationConfigurationRequest,
   () => __Unit,
 ];
@@ -2602,9 +2121,7 @@ export var DeleteOtaTask: StaticOperationSchema = [
   9,
   n0,
   _DOT,
-  {
-    [_h]: ["DELETE", "/ota-tasks/{Identifier}", 200],
-  },
+  { [_h]: ["DELETE", "/ota-tasks/{Identifier}", 200] },
   () => DeleteOtaTaskRequest,
   () => __Unit,
 ];
@@ -2612,9 +2129,7 @@ export var DeleteOtaTaskConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DOTC,
-  {
-    [_h]: ["DELETE", "/ota-task-configurations/{Identifier}", 204],
-  },
+  { [_h]: ["DELETE", "/ota-task-configurations/{Identifier}", 204] },
   () => DeleteOtaTaskConfigurationRequest,
   () => __Unit,
 ];
@@ -2622,9 +2137,7 @@ export var DeleteProvisioningProfile: StaticOperationSchema = [
   9,
   n0,
   _DPP,
-  {
-    [_h]: ["DELETE", "/provisioning-profiles/{Identifier}", 200],
-  },
+  { [_h]: ["DELETE", "/provisioning-profiles/{Identifier}", 200] },
   () => DeleteProvisioningProfileRequest,
   () => __Unit,
 ];
@@ -2632,9 +2145,7 @@ export var DeregisterAccountAssociation: StaticOperationSchema = [
   9,
   n0,
   _DAAe,
-  {
-    [_h]: ["PUT", "/managed-thing-associations/deregister", 200],
-  },
+  { [_h]: ["PUT", "/managed-thing-associations/deregister", 200] },
   () => DeregisterAccountAssociationRequest,
   () => __Unit,
 ];
@@ -2642,9 +2153,7 @@ export var GetAccountAssociation: StaticOperationSchema = [
   9,
   n0,
   _GAA,
-  {
-    [_h]: ["GET", "/account-associations/{AccountAssociationId}", 200],
-  },
+  { [_h]: ["GET", "/account-associations/{AccountAssociationId}", 200] },
   () => GetAccountAssociationRequest,
   () => GetAccountAssociationResponse,
 ];
@@ -2652,9 +2161,7 @@ export var GetCloudConnector: StaticOperationSchema = [
   9,
   n0,
   _GCC,
-  {
-    [_h]: ["GET", "/cloud-connectors/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/cloud-connectors/{Identifier}", 200] },
   () => GetCloudConnectorRequest,
   () => GetCloudConnectorResponse,
 ];
@@ -2662,9 +2169,7 @@ export var GetConnectorDestination: StaticOperationSchema = [
   9,
   n0,
   _GCD,
-  {
-    [_h]: ["GET", "/connector-destinations/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/connector-destinations/{Identifier}", 200] },
   () => GetConnectorDestinationRequest,
   () => GetConnectorDestinationResponse,
 ];
@@ -2672,9 +2177,7 @@ export var GetCredentialLocker: StaticOperationSchema = [
   9,
   n0,
   _GCL,
-  {
-    [_h]: ["GET", "/credential-lockers/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/credential-lockers/{Identifier}", 200] },
   () => GetCredentialLockerRequest,
   () => GetCredentialLockerResponse,
 ];
@@ -2682,9 +2185,7 @@ export var GetCustomEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GCE,
-  {
-    [_h]: ["GET", "/custom-endpoint", 200],
-  },
+  { [_h]: ["GET", "/custom-endpoint", 200] },
   () => GetCustomEndpointRequest,
   () => GetCustomEndpointResponse,
 ];
@@ -2692,9 +2193,7 @@ export var GetDefaultEncryptionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GDEC,
-  {
-    [_h]: ["GET", "/configuration/account/encryption", 200],
-  },
+  { [_h]: ["GET", "/configuration/account/encryption", 200] },
   () => GetDefaultEncryptionConfigurationRequest,
   () => GetDefaultEncryptionConfigurationResponse,
 ];
@@ -2702,9 +2201,7 @@ export var GetDestination: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/destinations/{Name}", 200],
-  },
+  { [_h]: ["GET", "/destinations/{Name}", 200] },
   () => GetDestinationRequest,
   () => GetDestinationResponse,
 ];
@@ -2712,9 +2209,7 @@ export var GetDeviceDiscovery: StaticOperationSchema = [
   9,
   n0,
   _GDD,
-  {
-    [_h]: ["GET", "/device-discoveries/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/device-discoveries/{Identifier}", 200] },
   () => GetDeviceDiscoveryRequest,
   () => GetDeviceDiscoveryResponse,
 ];
@@ -2722,9 +2217,7 @@ export var GetEventLogConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GELC,
-  {
-    [_h]: ["GET", "/event-log-configurations/{Id}", 200],
-  },
+  { [_h]: ["GET", "/event-log-configurations/{Id}", 200] },
   () => GetEventLogConfigurationRequest,
   () => GetEventLogConfigurationResponse,
 ];
@@ -2732,9 +2225,7 @@ export var GetHubConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GHC,
-  {
-    [_h]: ["GET", "/hub-configuration", 200],
-  },
+  { [_h]: ["GET", "/hub-configuration", 200] },
   () => GetHubConfigurationRequest,
   () => GetHubConfigurationResponse,
 ];
@@ -2742,9 +2233,7 @@ export var GetManagedThing: StaticOperationSchema = [
   9,
   n0,
   _GMT,
-  {
-    [_h]: ["GET", "/managed-things/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/managed-things/{Identifier}", 200] },
   () => GetManagedThingRequest,
   () => GetManagedThingResponse,
 ];
@@ -2752,9 +2241,7 @@ export var GetManagedThingCapabilities: StaticOperationSchema = [
   9,
   n0,
   _GMTC,
-  {
-    [_h]: ["GET", "/managed-things-capabilities/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/managed-things-capabilities/{Identifier}", 200] },
   () => GetManagedThingCapabilitiesRequest,
   () => GetManagedThingCapabilitiesResponse,
 ];
@@ -2762,9 +2249,7 @@ export var GetManagedThingCertificate: StaticOperationSchema = [
   9,
   n0,
   _GMTCe,
-  {
-    [_h]: ["GET", "/managed-things-certificate/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/managed-things-certificate/{Identifier}", 200] },
   () => GetManagedThingCertificateRequest,
   () => GetManagedThingCertificateResponse,
 ];
@@ -2772,9 +2257,7 @@ export var GetManagedThingConnectivityData: StaticOperationSchema = [
   9,
   n0,
   _GMTCD,
-  {
-    [_h]: ["POST", "/managed-things-connectivity-data/{Identifier}", 200],
-  },
+  { [_h]: ["POST", "/managed-things-connectivity-data/{Identifier}", 200] },
   () => GetManagedThingConnectivityDataRequest,
   () => GetManagedThingConnectivityDataResponse,
 ];
@@ -2782,9 +2265,7 @@ export var GetManagedThingMetaData: StaticOperationSchema = [
   9,
   n0,
   _GMTMD,
-  {
-    [_h]: ["GET", "/managed-things-metadata/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/managed-things-metadata/{Identifier}", 200] },
   () => GetManagedThingMetaDataRequest,
   () => GetManagedThingMetaDataResponse,
 ];
@@ -2792,9 +2273,7 @@ export var GetManagedThingState: StaticOperationSchema = [
   9,
   n0,
   _GMTS,
-  {
-    [_h]: ["GET", "/managed-thing-states/{ManagedThingId}", 200],
-  },
+  { [_h]: ["GET", "/managed-thing-states/{ManagedThingId}", 200] },
   () => GetManagedThingStateRequest,
   () => GetManagedThingStateResponse,
 ];
@@ -2802,9 +2281,7 @@ export var GetNotificationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GNC,
-  {
-    [_h]: ["GET", "/notification-configurations/{EventType}", 200],
-  },
+  { [_h]: ["GET", "/notification-configurations/{EventType}", 200] },
   () => GetNotificationConfigurationRequest,
   () => GetNotificationConfigurationResponse,
 ];
@@ -2812,9 +2289,7 @@ export var GetOtaTask: StaticOperationSchema = [
   9,
   n0,
   _GOT,
-  {
-    [_h]: ["GET", "/ota-tasks/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/ota-tasks/{Identifier}", 200] },
   () => GetOtaTaskRequest,
   () => GetOtaTaskResponse,
 ];
@@ -2822,9 +2297,7 @@ export var GetOtaTaskConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GOTC,
-  {
-    [_h]: ["GET", "/ota-task-configurations/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/ota-task-configurations/{Identifier}", 200] },
   () => GetOtaTaskConfigurationRequest,
   () => GetOtaTaskConfigurationResponse,
 ];
@@ -2832,9 +2305,7 @@ export var GetProvisioningProfile: StaticOperationSchema = [
   9,
   n0,
   _GPP,
-  {
-    [_h]: ["GET", "/provisioning-profiles/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/provisioning-profiles/{Identifier}", 200] },
   () => GetProvisioningProfileRequest,
   () => GetProvisioningProfileResponse,
 ];
@@ -2842,9 +2313,7 @@ export var GetRuntimeLogConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GRLC,
-  {
-    [_h]: ["GET", "/runtime-log-configurations/{ManagedThingId}", 200],
-  },
+  { [_h]: ["GET", "/runtime-log-configurations/{ManagedThingId}", 200] },
   () => GetRuntimeLogConfigurationRequest,
   () => GetRuntimeLogConfigurationResponse,
 ];
@@ -2852,9 +2321,7 @@ export var GetSchemaVersion: StaticOperationSchema = [
   9,
   n0,
   _GSV,
-  {
-    [_h]: ["GET", "/schema-versions/{Type}/{SchemaVersionedId}", 200],
-  },
+  { [_h]: ["GET", "/schema-versions/{Type}/{SchemaVersionedId}", 200] },
   () => GetSchemaVersionRequest,
   () => GetSchemaVersionResponse,
 ];
@@ -2862,9 +2329,7 @@ export var ListAccountAssociations: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  {
-    [_h]: ["GET", "/account-associations", 200],
-  },
+  { [_h]: ["GET", "/account-associations", 200] },
   () => ListAccountAssociationsRequest,
   () => ListAccountAssociationsResponse,
 ];
@@ -2872,9 +2337,7 @@ export var ListCloudConnectors: StaticOperationSchema = [
   9,
   n0,
   _LCC,
-  {
-    [_h]: ["GET", "/cloud-connectors", 200],
-  },
+  { [_h]: ["GET", "/cloud-connectors", 200] },
   () => ListCloudConnectorsRequest,
   () => ListCloudConnectorsResponse,
 ];
@@ -2882,9 +2345,7 @@ export var ListConnectorDestinations: StaticOperationSchema = [
   9,
   n0,
   _LCD,
-  {
-    [_h]: ["GET", "/connector-destinations", 200],
-  },
+  { [_h]: ["GET", "/connector-destinations", 200] },
   () => ListConnectorDestinationsRequest,
   () => ListConnectorDestinationsResponse,
 ];
@@ -2892,9 +2353,7 @@ export var ListCredentialLockers: StaticOperationSchema = [
   9,
   n0,
   _LCL,
-  {
-    [_h]: ["GET", "/credential-lockers", 200],
-  },
+  { [_h]: ["GET", "/credential-lockers", 200] },
   () => ListCredentialLockersRequest,
   () => ListCredentialLockersResponse,
 ];
@@ -2902,9 +2361,7 @@ export var ListDestinations: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/destinations", 200],
-  },
+  { [_h]: ["GET", "/destinations", 200] },
   () => ListDestinationsRequest,
   () => ListDestinationsResponse,
 ];
@@ -2912,9 +2369,7 @@ export var ListDeviceDiscoveries: StaticOperationSchema = [
   9,
   n0,
   _LDD,
-  {
-    [_h]: ["GET", "/device-discoveries", 200],
-  },
+  { [_h]: ["GET", "/device-discoveries", 200] },
   () => ListDeviceDiscoveriesRequest,
   () => ListDeviceDiscoveriesResponse,
 ];
@@ -2922,9 +2377,7 @@ export var ListDiscoveredDevices: StaticOperationSchema = [
   9,
   n0,
   _LDDi,
-  {
-    [_h]: ["GET", "/device-discoveries/{Identifier}/devices", 200],
-  },
+  { [_h]: ["GET", "/device-discoveries/{Identifier}/devices", 200] },
   () => ListDiscoveredDevicesRequest,
   () => ListDiscoveredDevicesResponse,
 ];
@@ -2932,9 +2385,7 @@ export var ListEventLogConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LELC,
-  {
-    [_h]: ["GET", "/event-log-configurations", 200],
-  },
+  { [_h]: ["GET", "/event-log-configurations", 200] },
   () => ListEventLogConfigurationsRequest,
   () => ListEventLogConfigurationsResponse,
 ];
@@ -2942,9 +2393,7 @@ export var ListManagedThingAccountAssociations: StaticOperationSchema = [
   9,
   n0,
   _LMTAA,
-  {
-    [_h]: ["GET", "/managed-thing-associations", 200],
-  },
+  { [_h]: ["GET", "/managed-thing-associations", 200] },
   () => ListManagedThingAccountAssociationsRequest,
   () => ListManagedThingAccountAssociationsResponse,
 ];
@@ -2952,9 +2401,7 @@ export var ListManagedThings: StaticOperationSchema = [
   9,
   n0,
   _LMT,
-  {
-    [_h]: ["GET", "/managed-things", 200],
-  },
+  { [_h]: ["GET", "/managed-things", 200] },
   () => ListManagedThingsRequest,
   () => ListManagedThingsResponse,
 ];
@@ -2962,9 +2409,7 @@ export var ListManagedThingSchemas: StaticOperationSchema = [
   9,
   n0,
   _LMTS,
-  {
-    [_h]: ["GET", "/managed-thing-schemas/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/managed-thing-schemas/{Identifier}", 200] },
   () => ListManagedThingSchemasRequest,
   () => ListManagedThingSchemasResponse,
 ];
@@ -2972,9 +2417,7 @@ export var ListNotificationConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LNC,
-  {
-    [_h]: ["GET", "/notification-configurations", 200],
-  },
+  { [_h]: ["GET", "/notification-configurations", 200] },
   () => ListNotificationConfigurationsRequest,
   () => ListNotificationConfigurationsResponse,
 ];
@@ -2982,9 +2425,7 @@ export var ListOtaTaskConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LOTC,
-  {
-    [_h]: ["GET", "/ota-task-configurations", 200],
-  },
+  { [_h]: ["GET", "/ota-task-configurations", 200] },
   () => ListOtaTaskConfigurationsRequest,
   () => ListOtaTaskConfigurationsResponse,
 ];
@@ -2992,9 +2433,7 @@ export var ListOtaTaskExecutions: StaticOperationSchema = [
   9,
   n0,
   _LOTE,
-  {
-    [_h]: ["GET", "/ota-tasks/{Identifier}/devices", 200],
-  },
+  { [_h]: ["GET", "/ota-tasks/{Identifier}/devices", 200] },
   () => ListOtaTaskExecutionsRequest,
   () => ListOtaTaskExecutionsResponse,
 ];
@@ -3002,9 +2441,7 @@ export var ListOtaTasks: StaticOperationSchema = [
   9,
   n0,
   _LOT,
-  {
-    [_h]: ["GET", "/ota-tasks", 200],
-  },
+  { [_h]: ["GET", "/ota-tasks", 200] },
   () => ListOtaTasksRequest,
   () => ListOtaTasksResponse,
 ];
@@ -3012,9 +2449,7 @@ export var ListProvisioningProfiles: StaticOperationSchema = [
   9,
   n0,
   _LPP,
-  {
-    [_h]: ["GET", "/provisioning-profiles", 200],
-  },
+  { [_h]: ["GET", "/provisioning-profiles", 200] },
   () => ListProvisioningProfilesRequest,
   () => ListProvisioningProfilesResponse,
 ];
@@ -3022,9 +2457,7 @@ export var ListSchemaVersions: StaticOperationSchema = [
   9,
   n0,
   _LSV,
-  {
-    [_h]: ["GET", "/schema-versions/{Type}", 200],
-  },
+  { [_h]: ["GET", "/schema-versions/{Type}", 200] },
   () => ListSchemaVersionsRequest,
   () => ListSchemaVersionsResponse,
 ];
@@ -3032,9 +2465,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3042,9 +2473,7 @@ export var PutDefaultEncryptionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PDEC,
-  {
-    [_h]: ["POST", "/configuration/account/encryption", 201],
-  },
+  { [_h]: ["POST", "/configuration/account/encryption", 201] },
   () => PutDefaultEncryptionConfigurationRequest,
   () => PutDefaultEncryptionConfigurationResponse,
 ];
@@ -3052,9 +2481,7 @@ export var PutHubConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PHC,
-  {
-    [_h]: ["PUT", "/hub-configuration", 201],
-  },
+  { [_h]: ["PUT", "/hub-configuration", 201] },
   () => PutHubConfigurationRequest,
   () => PutHubConfigurationResponse,
 ];
@@ -3062,9 +2489,7 @@ export var PutRuntimeLogConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PRLC,
-  {
-    [_h]: ["PUT", "/runtime-log-configurations/{ManagedThingId}", 200],
-  },
+  { [_h]: ["PUT", "/runtime-log-configurations/{ManagedThingId}", 200] },
   () => PutRuntimeLogConfigurationRequest,
   () => __Unit,
 ];
@@ -3072,9 +2497,7 @@ export var RegisterAccountAssociation: StaticOperationSchema = [
   9,
   n0,
   _RAA,
-  {
-    [_h]: ["PUT", "/managed-thing-associations/register", 201],
-  },
+  { [_h]: ["PUT", "/managed-thing-associations/register", 201] },
   () => RegisterAccountAssociationRequest,
   () => RegisterAccountAssociationResponse,
 ];
@@ -3082,9 +2505,7 @@ export var RegisterCustomEndpoint: StaticOperationSchema = [
   9,
   n0,
   _RCE,
-  {
-    [_h]: ["POST", "/custom-endpoint", 201],
-  },
+  { [_h]: ["POST", "/custom-endpoint", 201] },
   () => RegisterCustomEndpointRequest,
   () => RegisterCustomEndpointResponse,
 ];
@@ -3092,9 +2513,7 @@ export var ResetRuntimeLogConfiguration: StaticOperationSchema = [
   9,
   n0,
   _RRLC,
-  {
-    [_h]: ["DELETE", "/runtime-log-configurations/{ManagedThingId}", 200],
-  },
+  { [_h]: ["DELETE", "/runtime-log-configurations/{ManagedThingId}", 200] },
   () => ResetRuntimeLogConfigurationRequest,
   () => __Unit,
 ];
@@ -3102,9 +2521,7 @@ export var SendConnectorEvent: StaticOperationSchema = [
   9,
   n0,
   _SCE,
-  {
-    [_h]: ["POST", "/connector-event/{ConnectorId}", 202],
-  },
+  { [_h]: ["POST", "/connector-event/{ConnectorId}", 202] },
   () => SendConnectorEventRequest,
   () => SendConnectorEventResponse,
 ];
@@ -3112,9 +2529,7 @@ export var SendManagedThingCommand: StaticOperationSchema = [
   9,
   n0,
   _SMTC,
-  {
-    [_h]: ["POST", "/managed-things-command/{ManagedThingId}", 202],
-  },
+  { [_h]: ["POST", "/managed-things-command/{ManagedThingId}", 202] },
   () => SendManagedThingCommandRequest,
   () => SendManagedThingCommandResponse,
 ];
@@ -3122,9 +2537,7 @@ export var StartAccountAssociationRefresh: StaticOperationSchema = [
   9,
   n0,
   _SAAR,
-  {
-    [_h]: ["POST", "/account-associations/{AccountAssociationId}/refresh", 200],
-  },
+  { [_h]: ["POST", "/account-associations/{AccountAssociationId}/refresh", 200] },
   () => StartAccountAssociationRefreshRequest,
   () => StartAccountAssociationRefreshResponse,
 ];
@@ -3132,9 +2545,7 @@ export var StartDeviceDiscovery: StaticOperationSchema = [
   9,
   n0,
   _SDD,
-  {
-    [_h]: ["POST", "/device-discoveries", 201],
-  },
+  { [_h]: ["POST", "/device-discoveries", 201] },
   () => StartDeviceDiscoveryRequest,
   () => StartDeviceDiscoveryResponse,
 ];
@@ -3142,9 +2553,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -3152,9 +2561,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -3162,9 +2569,7 @@ export var UpdateAccountAssociation: StaticOperationSchema = [
   9,
   n0,
   _UAA,
-  {
-    [_h]: ["PUT", "/account-associations/{AccountAssociationId}", 204],
-  },
+  { [_h]: ["PUT", "/account-associations/{AccountAssociationId}", 204] },
   () => UpdateAccountAssociationRequest,
   () => __Unit,
 ];
@@ -3172,9 +2577,7 @@ export var UpdateCloudConnector: StaticOperationSchema = [
   9,
   n0,
   _UCC,
-  {
-    [_h]: ["PUT", "/cloud-connectors/{Identifier}", 200],
-  },
+  { [_h]: ["PUT", "/cloud-connectors/{Identifier}", 200] },
   () => UpdateCloudConnectorRequest,
   () => __Unit,
 ];
@@ -3182,9 +2585,7 @@ export var UpdateConnectorDestination: StaticOperationSchema = [
   9,
   n0,
   _UCD,
-  {
-    [_h]: ["PUT", "/connector-destinations/{Identifier}", 204],
-  },
+  { [_h]: ["PUT", "/connector-destinations/{Identifier}", 204] },
   () => UpdateConnectorDestinationRequest,
   () => __Unit,
 ];
@@ -3192,9 +2593,7 @@ export var UpdateDestination: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PUT", "/destinations/{Name}", 201],
-  },
+  { [_h]: ["PUT", "/destinations/{Name}", 201] },
   () => UpdateDestinationRequest,
   () => __Unit,
 ];
@@ -3202,9 +2601,7 @@ export var UpdateEventLogConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UELC,
-  {
-    [_h]: ["PATCH", "/event-log-configurations/{Id}", 200],
-  },
+  { [_h]: ["PATCH", "/event-log-configurations/{Id}", 200] },
   () => UpdateEventLogConfigurationRequest,
   () => __Unit,
 ];
@@ -3212,9 +2609,7 @@ export var UpdateManagedThing: StaticOperationSchema = [
   9,
   n0,
   _UMT,
-  {
-    [_h]: ["PUT", "/managed-things/{Identifier}", 204],
-  },
+  { [_h]: ["PUT", "/managed-things/{Identifier}", 204] },
   () => UpdateManagedThingRequest,
   () => __Unit,
 ];
@@ -3222,9 +2617,7 @@ export var UpdateNotificationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UNC,
-  {
-    [_h]: ["PUT", "/notification-configurations/{EventType}", 201],
-  },
+  { [_h]: ["PUT", "/notification-configurations/{EventType}", 201] },
   () => UpdateNotificationConfigurationRequest,
   () => __Unit,
 ];
@@ -3232,9 +2625,7 @@ export var UpdateOtaTask: StaticOperationSchema = [
   9,
   n0,
   _UOT,
-  {
-    [_h]: ["PUT", "/ota-tasks/{Identifier}", 204],
-  },
+  { [_h]: ["PUT", "/ota-tasks/{Identifier}", 204] },
   () => UpdateOtaTaskRequest,
   () => __Unit,
 ];

@@ -44,7 +44,6 @@ import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, Static
 import { SageMakerMetricsServiceException as __SageMakerMetricsServiceException } from "../models/SageMakerMetricsServiceException";
 
 /* eslint no-var: 0 */
-
 export var BatchGetMetricsRequest: StaticStructureSchema = [3, n0, _BGMR, 0, [_MQ], [() => MetricQueryList]];
 export var BatchGetMetricsResponse: StaticStructureSchema = [3, n0, _BGMRa, 0, [_MQR], [() => MetricQueryResultList]];
 export var BatchPutMetricsError: StaticStructureSchema = [3, n0, _BPME, 0, [_C, _MI], [0, 1]];
@@ -61,7 +60,6 @@ export var MetricQuery: StaticStructureSchema = [
 export var MetricQueryResult: StaticStructureSchema = [3, n0, _MQRe, 0, [_St, _M, _XAV, _MV], [0, 0, 64 | 1, 64 | 1]];
 export var RawMetricData: StaticStructureSchema = [3, n0, _RMD, 0, [_MN, _T, _Ste, _V], [0, 4, 1, 1]];
 export var __Unit = "unit" as const;
-
 export var SageMakerMetricsServiceException: StaticErrorSchema = [
   -3,
   _s,
@@ -71,22 +69,17 @@ export var SageMakerMetricsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_s).registerError(SageMakerMetricsServiceException, __SageMakerMetricsServiceException);
-
 export var BatchPutMetricsErrorList: StaticListSchema = [1, n0, _BPMEL, 0, () => BatchPutMetricsError];
 export var MetricQueryList: StaticListSchema = [1, n0, _MQL, 0, () => MetricQuery];
 export var MetricQueryResultList: StaticListSchema = [1, n0, _MQRL, 0, () => MetricQueryResult];
 export var MetricValues = 64 | 1;
-
 export var RawMetricDataList: StaticListSchema = [1, n0, _RMDL, 0, () => RawMetricData];
 export var XAxisValues = 64 | 1;
-
 export var BatchGetMetrics: StaticOperationSchema = [
   9,
   n0,
   _BGM,
-  {
-    [_h]: ["POST", "/BatchGetMetrics", 200],
-  },
+  { [_h]: ["POST", "/BatchGetMetrics", 200] },
   () => BatchGetMetricsRequest,
   () => BatchGetMetricsResponse,
 ];
@@ -94,9 +87,7 @@ export var BatchPutMetrics: StaticOperationSchema = [
   9,
   n0,
   _BPM,
-  {
-    [_h]: ["PUT", "/BatchPutMetrics", 200],
-  },
+  { [_h]: ["PUT", "/BatchPutMetrics", 200] },
   () => BatchPutMetricsRequest,
   () => BatchPutMetricsResponse,
 ];

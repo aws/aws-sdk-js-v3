@@ -225,7 +225,6 @@ import {
 import { MediaPackageVodServiceException as __MediaPackageVodServiceException } from "../models/MediaPackageVodServiceException";
 
 /* eslint no-var: 0 */
-
 export var AssetShallow: StaticStructureSchema = [
   3,
   n0,
@@ -233,54 +232,14 @@ export var AssetShallow: StaticStructureSchema = [
   0,
   [_A, _CA, _I, _PGI, _RI, _SA, _SRA, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sRA,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _i }],
+    [0, { [_jN]: _pGI }],
+    [0, { [_jN]: _rI }],
+    [0, { [_jN]: _sA }],
+    [0, { [_jN]: _sRA }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var Authorization: StaticStructureSchema = [
@@ -290,18 +249,8 @@ export var Authorization: StaticStructureSchema = [
   0,
   [_CIS, _SRAe],
   [
-    [
-      0,
-      {
-        [_jN]: _cIS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sRAe,
-      },
-    ],
+    [0, { [_jN]: _cIS }],
+    [0, { [_jN]: _sRAe }],
   ],
 ];
 export var CmafEncryption: StaticStructureSchema = [
@@ -311,18 +260,8 @@ export var CmafEncryption: StaticStructureSchema = [
   0,
   [_CIV, _SKP],
   [
-    [
-      0,
-      {
-        [_jN]: _cIV,
-      },
-    ],
-    [
-      () => SpekeKeyProvider,
-      {
-        [_jN]: _sKP,
-      },
-    ],
+    [0, { [_jN]: _cIV }],
+    [() => SpekeKeyProvider, { [_jN]: _sKP }],
   ],
 ];
 export var CmafPackage: StaticStructureSchema = [
@@ -332,30 +271,10 @@ export var CmafPackage: StaticStructureSchema = [
   0,
   [_E, _HM, _IECIS, _SDS],
   [
-    [
-      () => CmafEncryption,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      () => __listOfHlsManifest,
-      {
-        [_jN]: _hM,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _iECIS,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _sDS,
-      },
-    ],
+    [() => CmafEncryption, { [_jN]: _e }],
+    [() => __listOfHlsManifest, { [_jN]: _hM }],
+    [2, { [_jN]: _iECIS }],
+    [1, { [_jN]: _sDS }],
   ],
 ];
 export var ConfigureLogsRequest: StaticStructureSchema = [
@@ -365,12 +284,7 @@ export var ConfigureLogsRequest: StaticStructureSchema = [
   0,
   [_EAL, _I],
   [
-    [
-      () => EgressAccessLogs,
-      {
-        [_jN]: _eAL,
-      },
-    ],
+    [() => EgressAccessLogs, { [_jN]: _eAL }],
     [0, 1],
   ],
 ];
@@ -381,48 +295,13 @@ export var ConfigureLogsResponse: StaticStructureSchema = [
   0,
   [_A, _Au, _CA, _DN, _EAL, _I, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => Authorization,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dN,
-      },
-    ],
-    [
-      () => EgressAccessLogs,
-      {
-        [_jN]: _eAL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [() => Authorization, { [_jN]: _au }],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _dN }],
+    [() => EgressAccessLogs, { [_jN]: _eAL }],
+    [0, { [_jN]: _i }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateAssetRequest: StaticStructureSchema = [
@@ -432,42 +311,12 @@ export var CreateAssetRequest: StaticStructureSchema = [
   0,
   [_I, _PGI, _RI, _SA, _SRA, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sRA,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _i }],
+    [0, { [_jN]: _pGI }],
+    [0, { [_jN]: _rI }],
+    [0, { [_jN]: _sA }],
+    [0, { [_jN]: _sRA }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateAssetResponse: StaticStructureSchema = [
@@ -477,60 +326,15 @@ export var CreateAssetResponse: StaticStructureSchema = [
   0,
   [_A, _CA, _EE, _I, _PGI, _RI, _SA, _SRA, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      () => __listOfEgressEndpoint,
-      {
-        [_jN]: _eE,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sRA,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [0, { [_jN]: _cA }],
+    [() => __listOfEgressEndpoint, { [_jN]: _eE }],
+    [0, { [_jN]: _i }],
+    [0, { [_jN]: _pGI }],
+    [0, { [_jN]: _rI }],
+    [0, { [_jN]: _sA }],
+    [0, { [_jN]: _sRA }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreatePackagingConfigurationRequest: StaticStructureSchema = [
@@ -540,48 +344,13 @@ export var CreatePackagingConfigurationRequest: StaticStructureSchema = [
   0,
   [_CP, _DP, _HP, _I, _MP, _PGI, _T],
   [
-    [
-      () => CmafPackage,
-      {
-        [_jN]: _cP,
-      },
-    ],
-    [
-      () => DashPackage,
-      {
-        [_jN]: _dP,
-      },
-    ],
-    [
-      () => HlsPackage,
-      {
-        [_jN]: _hP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => MssPackage,
-      {
-        [_jN]: _mP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [() => CmafPackage, { [_jN]: _cP }],
+    [() => DashPackage, { [_jN]: _dP }],
+    [() => HlsPackage, { [_jN]: _hP }],
+    [0, { [_jN]: _i }],
+    [() => MssPackage, { [_jN]: _mP }],
+    [0, { [_jN]: _pGI }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreatePackagingConfigurationResponse: StaticStructureSchema = [
@@ -591,60 +360,15 @@ export var CreatePackagingConfigurationResponse: StaticStructureSchema = [
   0,
   [_A, _CP, _CA, _DP, _HP, _I, _MP, _PGI, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => CmafPackage,
-      {
-        [_jN]: _cP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      () => DashPackage,
-      {
-        [_jN]: _dP,
-      },
-    ],
-    [
-      () => HlsPackage,
-      {
-        [_jN]: _hP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => MssPackage,
-      {
-        [_jN]: _mP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [() => CmafPackage, { [_jN]: _cP }],
+    [0, { [_jN]: _cA }],
+    [() => DashPackage, { [_jN]: _dP }],
+    [() => HlsPackage, { [_jN]: _hP }],
+    [0, { [_jN]: _i }],
+    [() => MssPackage, { [_jN]: _mP }],
+    [0, { [_jN]: _pGI }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreatePackagingGroupRequest: StaticStructureSchema = [
@@ -654,30 +378,10 @@ export var CreatePackagingGroupRequest: StaticStructureSchema = [
   0,
   [_Au, _EAL, _I, _T],
   [
-    [
-      () => Authorization,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      () => EgressAccessLogs,
-      {
-        [_jN]: _eAL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [() => Authorization, { [_jN]: _au }],
+    [() => EgressAccessLogs, { [_jN]: _eAL }],
+    [0, { [_jN]: _i }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreatePackagingGroupResponse: StaticStructureSchema = [
@@ -687,65 +391,16 @@ export var CreatePackagingGroupResponse: StaticStructureSchema = [
   0,
   [_A, _Au, _CA, _DN, _EAL, _I, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => Authorization,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dN,
-      },
-    ],
-    [
-      () => EgressAccessLogs,
-      {
-        [_jN]: _eAL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [() => Authorization, { [_jN]: _au }],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _dN }],
+    [() => EgressAccessLogs, { [_jN]: _eAL }],
+    [0, { [_jN]: _i }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var DashEncryption: StaticStructureSchema = [
-  3,
-  n0,
-  _DE,
-  0,
-  [_SKP],
-  [
-    [
-      () => SpekeKeyProvider,
-      {
-        [_jN]: _sKP,
-      },
-    ],
-  ],
-];
+export var DashEncryption: StaticStructureSchema = [3, n0, _DE, 0, [_SKP], [[() => SpekeKeyProvider, { [_jN]: _sKP }]]];
 export var DashManifest: StaticStructureSchema = [
   3,
   n0,
@@ -753,42 +408,12 @@ export var DashManifest: StaticStructureSchema = [
   0,
   [_ML, _MN, _MBTS, _P, _SMS, _SS],
   [
-    [
-      0,
-      {
-        [_jN]: _mL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _mN,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mBTS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sMS,
-      },
-    ],
-    [
-      () => StreamSelection,
-      {
-        [_jN]: _sS,
-      },
-    ],
+    [0, { [_jN]: _mL }],
+    [0, { [_jN]: _mN }],
+    [1, { [_jN]: _mBTS }],
+    [0, { [_jN]: _p }],
+    [0, { [_jN]: _sMS }],
+    [() => StreamSelection, { [_jN]: _sS }],
   ],
 ];
 export var DashPackage: StaticStructureSchema = [
@@ -798,48 +423,13 @@ export var DashPackage: StaticStructureSchema = [
   0,
   [_DMa, _E, _IECIS, _IIOS, _PT, _SDS, _STF],
   [
-    [
-      () => __listOfDashManifest,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      () => DashEncryption,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _iECIS,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _iIOS,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _pT,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _sDS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sTF,
-      },
-    ],
+    [() => __listOfDashManifest, { [_jN]: _dM }],
+    [() => DashEncryption, { [_jN]: _e }],
+    [2, { [_jN]: _iECIS }],
+    [2, { [_jN]: _iIOS }],
+    [64 | 0, { [_jN]: _pT }],
+    [1, { [_jN]: _sDS }],
+    [0, { [_jN]: _sTF }],
   ],
 ];
 export var DeleteAssetRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_I], [[0, 1]]];
@@ -856,60 +446,15 @@ export var DescribeAssetResponse: StaticStructureSchema = [
   0,
   [_A, _CA, _EE, _I, _PGI, _RI, _SA, _SRA, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      () => __listOfEgressEndpoint,
-      {
-        [_jN]: _eE,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sRA,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [0, { [_jN]: _cA }],
+    [() => __listOfEgressEndpoint, { [_jN]: _eE }],
+    [0, { [_jN]: _i }],
+    [0, { [_jN]: _pGI }],
+    [0, { [_jN]: _rI }],
+    [0, { [_jN]: _sA }],
+    [0, { [_jN]: _sRA }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var DescribePackagingConfigurationRequest: StaticStructureSchema = [3, n0, _DPCRes, 0, [_I], [[0, 1]]];
@@ -920,60 +465,15 @@ export var DescribePackagingConfigurationResponse: StaticStructureSchema = [
   0,
   [_A, _CP, _CA, _DP, _HP, _I, _MP, _PGI, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => CmafPackage,
-      {
-        [_jN]: _cP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      () => DashPackage,
-      {
-        [_jN]: _dP,
-      },
-    ],
-    [
-      () => HlsPackage,
-      {
-        [_jN]: _hP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => MssPackage,
-      {
-        [_jN]: _mP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [() => CmafPackage, { [_jN]: _cP }],
+    [0, { [_jN]: _cA }],
+    [() => DashPackage, { [_jN]: _dP }],
+    [() => HlsPackage, { [_jN]: _hP }],
+    [0, { [_jN]: _i }],
+    [() => MssPackage, { [_jN]: _mP }],
+    [0, { [_jN]: _pGI }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var DescribePackagingGroupRequest: StaticStructureSchema = [3, n0, _DPGRes, 0, [_I], [[0, 1]]];
@@ -984,71 +484,17 @@ export var DescribePackagingGroupResponse: StaticStructureSchema = [
   0,
   [_AAC, _A, _Au, _CA, _DN, _EAL, _I, _T],
   [
-    [
-      1,
-      {
-        [_jN]: _aAC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => Authorization,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dN,
-      },
-    ],
-    [
-      () => EgressAccessLogs,
-      {
-        [_jN]: _eAL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [1, { [_jN]: _aAC }],
+    [0, { [_jN]: _a }],
+    [() => Authorization, { [_jN]: _au }],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _dN }],
+    [() => EgressAccessLogs, { [_jN]: _eAL }],
+    [0, { [_jN]: _i }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var EgressAccessLogs: StaticStructureSchema = [
-  3,
-  n0,
-  _EAL,
-  0,
-  [_LGN],
-  [
-    [
-      0,
-      {
-        [_jN]: _lGN,
-      },
-    ],
-  ],
-];
+export var EgressAccessLogs: StaticStructureSchema = [3, n0, _EAL, 0, [_LGN], [[0, { [_jN]: _lGN }]]];
 export var EgressEndpoint: StaticStructureSchema = [
   3,
   n0,
@@ -1056,24 +502,9 @@ export var EgressEndpoint: StaticStructureSchema = [
   0,
   [_PCI, _S, _U],
   [
-    [
-      0,
-      {
-        [_jN]: _pCI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _u,
-      },
-    ],
+    [0, { [_jN]: _pCI }],
+    [0, { [_jN]: _s }],
+    [0, { [_jN]: _u }],
   ],
 ];
 export var EncryptionContractConfiguration: StaticStructureSchema = [
@@ -1083,40 +514,12 @@ export var EncryptionContractConfiguration: StaticStructureSchema = [
   0,
   [_PSA, _PSV],
   [
-    [
-      0,
-      {
-        [_jN]: _pSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pSV,
-      },
-    ],
+    [0, { [_jN]: _pSA }],
+    [0, { [_jN]: _pSV }],
   ],
 ];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_er]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_er]: _c, [_hE]: 403 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var HlsEncryption: StaticStructureSchema = [
   3,
   n0,
@@ -1124,24 +527,9 @@ export var HlsEncryption: StaticStructureSchema = [
   0,
   [_CIV, _EM, _SKP],
   [
-    [
-      0,
-      {
-        [_jN]: _cIV,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eM,
-      },
-    ],
-    [
-      () => SpekeKeyProvider,
-      {
-        [_jN]: _sKP,
-      },
-    ],
+    [0, { [_jN]: _cIV }],
+    [0, { [_jN]: _eM }],
+    [() => SpekeKeyProvider, { [_jN]: _sKP }],
   ],
 ];
 export var HlsManifest: StaticStructureSchema = [
@@ -1151,42 +539,12 @@ export var HlsManifest: StaticStructureSchema = [
   0,
   [_AM, _IIOS, _MN, _PDTIS, _REXK, _SS],
   [
-    [
-      0,
-      {
-        [_jN]: _aM,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _iIOS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _mN,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _pDTIS,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _rEXK,
-      },
-    ],
-    [
-      () => StreamSelection,
-      {
-        [_jN]: _sS,
-      },
-    ],
+    [0, { [_jN]: _aM }],
+    [2, { [_jN]: _iIOS }],
+    [0, { [_jN]: _mN }],
+    [1, { [_jN]: _pDTIS }],
+    [2, { [_jN]: _rEXK }],
+    [() => StreamSelection, { [_jN]: _sS }],
   ],
 ];
 export var HlsPackage: StaticStructureSchema = [
@@ -1196,58 +554,22 @@ export var HlsPackage: StaticStructureSchema = [
   0,
   [_E, _HM, _IDS, _SDS, _UARG],
   [
-    [
-      () => HlsEncryption,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      () => __listOfHlsManifest,
-      {
-        [_jN]: _hM,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _iDS,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _sDS,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _uARG,
-      },
-    ],
+    [() => HlsEncryption, { [_jN]: _e }],
+    [() => __listOfHlsManifest, { [_jN]: _hM }],
+    [2, { [_jN]: _iDS }],
+    [1, { [_jN]: _sDS }],
+    [2, { [_jN]: _uARG }],
   ],
 ];
 export var InternalServerErrorException: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  {
-    [_er]: _se,
-    [_hE]: 500,
-  },
+  { [_er]: _se, [_hE]: 500 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var ListAssetsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1255,24 +577,9 @@ export var ListAssetsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _PGI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pGI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _pGI }],
   ],
 ];
 export var ListAssetsResponse: StaticStructureSchema = [
@@ -1282,18 +589,8 @@ export var ListAssetsResponse: StaticStructureSchema = [
   0,
   [_As, _NT],
   [
-    [
-      () => __listOfAssetShallow,
-      {
-        [_jN]: _as,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => __listOfAssetShallow, { [_jN]: _as }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var ListPackagingConfigurationsRequest: StaticStructureSchema = [
@@ -1303,24 +600,9 @@ export var ListPackagingConfigurationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _PGI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pGI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _pGI }],
   ],
 ];
 export var ListPackagingConfigurationsResponse: StaticStructureSchema = [
@@ -1330,18 +612,8 @@ export var ListPackagingConfigurationsResponse: StaticStructureSchema = [
   0,
   [_NT, _PC],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfPackagingConfiguration,
-      {
-        [_jN]: _pC,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [() => __listOfPackagingConfiguration, { [_jN]: _pC }],
   ],
 ];
 export var ListPackagingGroupsRequest: StaticStructureSchema = [
@@ -1351,18 +623,8 @@ export var ListPackagingGroupsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPackagingGroupsResponse: StaticStructureSchema = [
@@ -1372,51 +634,13 @@ export var ListPackagingGroupsResponse: StaticStructureSchema = [
   0,
   [_NT, _PG],
   [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfPackagingGroup,
-      {
-        [_jN]: _pG,
-      },
-    ],
+    [0, { [_jN]: _nT }],
+    [() => __listOfPackagingGroup, { [_jN]: _pG }],
   ],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRRi,
-  0,
-  [_T],
-  [
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
-export var MssEncryption: StaticStructureSchema = [
-  3,
-  n0,
-  _ME,
-  0,
-  [_SKP],
-  [
-    [
-      () => SpekeKeyProvider,
-      {
-        [_jN]: _sKP,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
+export var MssEncryption: StaticStructureSchema = [3, n0, _ME, 0, [_SKP], [[() => SpekeKeyProvider, { [_jN]: _sKP }]]];
 export var MssManifest: StaticStructureSchema = [
   3,
   n0,
@@ -1424,18 +648,8 @@ export var MssManifest: StaticStructureSchema = [
   0,
   [_MN, _SS],
   [
-    [
-      0,
-      {
-        [_jN]: _mN,
-      },
-    ],
-    [
-      () => StreamSelection,
-      {
-        [_jN]: _sS,
-      },
-    ],
+    [0, { [_jN]: _mN }],
+    [() => StreamSelection, { [_jN]: _sS }],
   ],
 ];
 export var MssPackage: StaticStructureSchema = [
@@ -1445,46 +659,13 @@ export var MssPackage: StaticStructureSchema = [
   0,
   [_E, _MMs, _SDS],
   [
-    [
-      () => MssEncryption,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      () => __listOfMssManifest,
-      {
-        [_jN]: _mM,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _sDS,
-      },
-    ],
+    [() => MssEncryption, { [_jN]: _e }],
+    [() => __listOfMssManifest, { [_jN]: _mM }],
+    [1, { [_jN]: _sDS }],
   ],
 ];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_er]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_er]: _c, [_hE]: 404 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PackagingConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1492,60 +673,15 @@ export var PackagingConfiguration: StaticStructureSchema = [
   0,
   [_A, _CP, _CA, _DP, _HP, _I, _MP, _PGI, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => CmafPackage,
-      {
-        [_jN]: _cP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      () => DashPackage,
-      {
-        [_jN]: _dP,
-      },
-    ],
-    [
-      () => HlsPackage,
-      {
-        [_jN]: _hP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => MssPackage,
-      {
-        [_jN]: _mP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pGI,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [() => CmafPackage, { [_jN]: _cP }],
+    [0, { [_jN]: _cA }],
+    [() => DashPackage, { [_jN]: _dP }],
+    [() => HlsPackage, { [_jN]: _hP }],
+    [0, { [_jN]: _i }],
+    [() => MssPackage, { [_jN]: _mP }],
+    [0, { [_jN]: _pGI }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var PackagingGroup: StaticStructureSchema = [
@@ -1555,76 +691,25 @@ export var PackagingGroup: StaticStructureSchema = [
   0,
   [_AAC, _A, _Au, _CA, _DN, _EAL, _I, _T],
   [
-    [
-      1,
-      {
-        [_jN]: _aAC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => Authorization,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dN,
-      },
-    ],
-    [
-      () => EgressAccessLogs,
-      {
-        [_jN]: _eAL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [1, { [_jN]: _aAC }],
+    [0, { [_jN]: _a }],
+    [() => Authorization, { [_jN]: _au }],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _dN }],
+    [() => EgressAccessLogs, { [_jN]: _eAL }],
+    [0, { [_jN]: _i }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_er]: _se,
-    [_hE]: 503,
-  },
+  { [_er]: _se, [_hE]: 503 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SpekeKeyProvider: StaticStructureSchema = [
   3,
   n0,
@@ -1632,30 +717,10 @@ export var SpekeKeyProvider: StaticStructureSchema = [
   0,
   [_ECC, _RAo, _SI, _U],
   [
-    [
-      () => EncryptionContractConfiguration,
-      {
-        [_jN]: _eCC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _u,
-      },
-    ],
+    [() => EncryptionContractConfiguration, { [_jN]: _eCC }],
+    [0, { [_jN]: _rA }],
+    [64 | 0, { [_jN]: _sI }],
+    [0, { [_jN]: _u }],
   ],
 ];
 export var StreamSelection: StaticStructureSchema = [
@@ -1665,24 +730,9 @@ export var StreamSelection: StaticStructureSchema = [
   0,
   [_MVBPS, _MVBPSi, _SO],
   [
-    [
-      1,
-      {
-        [_jN]: _mVBPS,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mVBPSi,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sO,
-      },
-    ],
+    [1, { [_jN]: _mVBPS }],
+    [1, { [_jN]: _mVBPSi }],
+    [0, { [_jN]: _sO }],
   ],
 ];
 export var TagResourceRequest: StaticStructureSchema = [
@@ -1693,54 +743,27 @@ export var TagResourceRequest: StaticStructureSchema = [
   [_RA, _T],
   [
     [0, 1],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var TooManyRequestsException: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
-  {
-    [_er]: _c,
-    [_hE]: 429,
-  },
+  { [_er]: _c, [_hE]: 429 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UnprocessableEntityException: StaticErrorSchema = [
   -3,
   n0,
   _UEE,
-  {
-    [_er]: _c,
-    [_hE]: 422,
-  },
+  { [_er]: _c, [_hE]: 422 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(UnprocessableEntityException, __UnprocessableEntityException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1749,12 +772,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdatePackagingGroupRequest: StaticStructureSchema = [
@@ -1764,12 +782,7 @@ export var UpdatePackagingGroupRequest: StaticStructureSchema = [
   0,
   [_Au, _I],
   [
-    [
-      () => Authorization,
-      {
-        [_jN]: _au,
-      },
-    ],
+    [() => Authorization, { [_jN]: _au }],
     [0, 1],
   ],
 ];
@@ -1780,65 +793,21 @@ export var UpdatePackagingGroupResponse: StaticStructureSchema = [
   0,
   [_AAC, _A, _Au, _CA, _DN, _EAL, _I, _T],
   [
-    [
-      1,
-      {
-        [_jN]: _aAC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      () => Authorization,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dN,
-      },
-    ],
-    [
-      () => EgressAccessLogs,
-      {
-        [_jN]: _eAL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [1, { [_jN]: _aAC }],
+    [0, { [_jN]: _a }],
+    [() => Authorization, { [_jN]: _au }],
+    [0, { [_jN]: _cA }],
+    [0, { [_jN]: _dN }],
+    [() => EgressAccessLogs, { [_jN]: _eAL }],
+    [0, { [_jN]: _i }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var MediaPackageVodServiceException: StaticErrorSchema = [-3, _sm, "MediaPackageVodServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MediaPackageVodServiceException, __MediaPackageVodServiceException);
-
 export var __listOf__PeriodTriggersElement = 64 | 0;
-
 export var __listOf__string = 64 | 0;
-
 export var __listOfAssetShallow: StaticListSchema = [1, n0, _lOAS, 0, [() => AssetShallow, 0]];
 export var __listOfDashManifest: StaticListSchema = [1, n0, _lODM, 0, [() => DashManifest, 0]];
 export var __listOfEgressEndpoint: StaticListSchema = [1, n0, _lOEE, 0, [() => EgressEndpoint, 0]];
@@ -1847,16 +816,12 @@ export var __listOfMssManifest: StaticListSchema = [1, n0, _lOMM, 0, [() => MssM
 export var __listOfPackagingConfiguration: StaticListSchema = [1, n0, _lOPC, 0, [() => PackagingConfiguration, 0]];
 export var __listOfPackagingGroup: StaticListSchema = [1, n0, _lOPG, 0, [() => PackagingGroup, 0]];
 export var __mapOf__string = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var ConfigureLogs: StaticOperationSchema = [
   9,
   n0,
   _CL,
-  {
-    [_h]: ["PUT", "/packaging_groups/{Id}/configure_logs", 200],
-  },
+  { [_h]: ["PUT", "/packaging_groups/{Id}/configure_logs", 200] },
   () => ConfigureLogsRequest,
   () => ConfigureLogsResponse,
 ];
@@ -1864,9 +829,7 @@ export var CreateAsset: StaticOperationSchema = [
   9,
   n0,
   _CAr,
-  {
-    [_h]: ["POST", "/assets", 200],
-  },
+  { [_h]: ["POST", "/assets", 200] },
   () => CreateAssetRequest,
   () => CreateAssetResponse,
 ];
@@ -1874,9 +837,7 @@ export var CreatePackagingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CPC,
-  {
-    [_h]: ["POST", "/packaging_configurations", 200],
-  },
+  { [_h]: ["POST", "/packaging_configurations", 200] },
   () => CreatePackagingConfigurationRequest,
   () => CreatePackagingConfigurationResponse,
 ];
@@ -1884,9 +845,7 @@ export var CreatePackagingGroup: StaticOperationSchema = [
   9,
   n0,
   _CPG,
-  {
-    [_h]: ["POST", "/packaging_groups", 200],
-  },
+  { [_h]: ["POST", "/packaging_groups", 200] },
   () => CreatePackagingGroupRequest,
   () => CreatePackagingGroupResponse,
 ];
@@ -1894,9 +853,7 @@ export var DeleteAsset: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/assets/{Id}", 202],
-  },
+  { [_h]: ["DELETE", "/assets/{Id}", 202] },
   () => DeleteAssetRequest,
   () => DeleteAssetResponse,
 ];
@@ -1904,9 +861,7 @@ export var DeletePackagingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DPC,
-  {
-    [_h]: ["DELETE", "/packaging_configurations/{Id}", 202],
-  },
+  { [_h]: ["DELETE", "/packaging_configurations/{Id}", 202] },
   () => DeletePackagingConfigurationRequest,
   () => DeletePackagingConfigurationResponse,
 ];
@@ -1914,9 +869,7 @@ export var DeletePackagingGroup: StaticOperationSchema = [
   9,
   n0,
   _DPG,
-  {
-    [_h]: ["DELETE", "/packaging_groups/{Id}", 202],
-  },
+  { [_h]: ["DELETE", "/packaging_groups/{Id}", 202] },
   () => DeletePackagingGroupRequest,
   () => DeletePackagingGroupResponse,
 ];
@@ -1924,9 +877,7 @@ export var DescribeAsset: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["GET", "/assets/{Id}", 200],
-  },
+  { [_h]: ["GET", "/assets/{Id}", 200] },
   () => DescribeAssetRequest,
   () => DescribeAssetResponse,
 ];
@@ -1934,9 +885,7 @@ export var DescribePackagingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DPCe,
-  {
-    [_h]: ["GET", "/packaging_configurations/{Id}", 200],
-  },
+  { [_h]: ["GET", "/packaging_configurations/{Id}", 200] },
   () => DescribePackagingConfigurationRequest,
   () => DescribePackagingConfigurationResponse,
 ];
@@ -1944,9 +893,7 @@ export var DescribePackagingGroup: StaticOperationSchema = [
   9,
   n0,
   _DPGe,
-  {
-    [_h]: ["GET", "/packaging_groups/{Id}", 200],
-  },
+  { [_h]: ["GET", "/packaging_groups/{Id}", 200] },
   () => DescribePackagingGroupRequest,
   () => DescribePackagingGroupResponse,
 ];
@@ -1954,9 +901,7 @@ export var ListAssets: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/assets", 200],
-  },
+  { [_h]: ["GET", "/assets", 200] },
   () => ListAssetsRequest,
   () => ListAssetsResponse,
 ];
@@ -1964,9 +909,7 @@ export var ListPackagingConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LPC,
-  {
-    [_h]: ["GET", "/packaging_configurations", 200],
-  },
+  { [_h]: ["GET", "/packaging_configurations", 200] },
   () => ListPackagingConfigurationsRequest,
   () => ListPackagingConfigurationsResponse,
 ];
@@ -1974,9 +917,7 @@ export var ListPackagingGroups: StaticOperationSchema = [
   9,
   n0,
   _LPG,
-  {
-    [_h]: ["GET", "/packaging_groups", 200],
-  },
+  { [_h]: ["GET", "/packaging_groups", 200] },
   () => ListPackagingGroupsRequest,
   () => ListPackagingGroupsResponse,
 ];
@@ -1984,9 +925,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1994,9 +933,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -2004,9 +941,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -2014,9 +949,7 @@ export var UpdatePackagingGroup: StaticOperationSchema = [
   9,
   n0,
   _UPG,
-  {
-    [_h]: ["PUT", "/packaging_groups/{Id}", 200],
-  },
+  { [_h]: ["PUT", "/packaging_groups/{Id}", 200] },
   () => UpdatePackagingGroupRequest,
   () => UpdatePackagingGroupResponse,
 ];

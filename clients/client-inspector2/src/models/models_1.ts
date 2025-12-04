@@ -10,7 +10,7 @@ import {
   StopCisSessionStatus,
 } from "./enums";
 
-import {
+import type {
   AutoEnable,
   CodeSecurityResource,
   CodeSecurityScanConfiguration,

@@ -556,25 +556,13 @@ import {
 import { FraudDetectorServiceException as __FraudDetectorServiceException } from "../models/FraudDetectorServiceException";
 
 /* eslint no-var: 0 */
-
 export var attributeValue: StaticSimpleSchema = [0, n0, _aV, 8, 0];
 export var Elements: StaticSimpleSchema = [0, n0, _E, 8, 0];
 export var ruleExpression: StaticSimpleSchema = [0, n0, _rE, 8, 0];
 export var sensitiveString: StaticSimpleSchema = [0, n0, _sS, 8, 0];
 export var variableValue: StaticSimpleSchema = [0, n0, _vV, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AggregatedLogOddsMetric: StaticStructureSchema = [3, n0, _ALOM, 0, [_vN, _aVI], [64 | 0, 1]];
 export var AggregatedVariablesImpactExplanation: StaticStructureSchema = [
   3,
@@ -650,19 +638,8 @@ export var CancelBatchImportJobRequest: StaticStructureSchema = [3, n0, _CBIJR, 
 export var CancelBatchImportJobResult: StaticStructureSchema = [3, n0, _CBIJRa, 0, [], []];
 export var CancelBatchPredictionJobRequest: StaticStructureSchema = [3, n0, _CBPJR, 0, [_jI], [0]];
 export var CancelBatchPredictionJobResult: StaticStructureSchema = [3, n0, _CBPJRa, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateBatchImportJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1021,19 +998,8 @@ export var IngestedEventStatistics: StaticStructureSchema = [
   [1, 1, 0, 0, 0],
 ];
 export var IngestedEventsTimeWindow: StaticStructureSchema = [3, n0, _IETW, 0, [_sT, _eTnd], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KMSKey: StaticStructureSchema = [3, n0, _KMSK, 0, [_kEKA], [0]];
 export var Label: StaticStructureSchema = [3, n0, _L, 0, [_n, _d, _lUT, _cT, _a], [0, 0, 0, 0, 0]];
 export var LabelSchema: StaticStructureSchema = [3, n0, _LS, 0, [_lM, _uET], [[2, n0, _lM, 0, 0, 64 | 0], 0]];
@@ -1163,32 +1129,10 @@ export var PutLabelRequest: StaticStructureSchema = [3, n0, _PLR, 0, [_n, _d, _t
 export var PutLabelResult: StaticStructureSchema = [3, n0, _PLRu, 0, [], []];
 export var PutOutcomeRequest: StaticStructureSchema = [3, n0, _POR, 0, [_n, _d, _ta], [0, 0, () => tagList]];
 export var PutOutcomeResult: StaticStructureSchema = [3, n0, _PORu, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceUnavailableException: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-
 export var Rule: StaticStructureSchema = [3, n0, _R, 0, [_dI, _rIu, _rV], [0, 0, 0]];
 export var RuleDetail: StaticStructureSchema = [
   3,
@@ -1221,19 +1165,8 @@ export var TFITrainingMetricsValue: StaticStructureSchema = [
   [_mDP, _mP],
   [() => TFIMetricDataPointsList, () => TFIModelPerformance],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrainingDataSchema: StaticStructureSchema = [3, n0, _TDS, 0, [_mVod, _lS], [64 | 0, () => LabelSchema]];
 export var TrainingMetrics: StaticStructureSchema = [3, n0, _TM, 0, [_au, _mDP], [1, () => metricDataPointsList]];
 export var TrainingMetricsV2: StaticStructureSchema = [
@@ -1325,19 +1258,8 @@ export var UpdateRuleVersionRequest: StaticStructureSchema = [
 export var UpdateRuleVersionResult: StaticStructureSchema = [3, n0, _URVRp, 0, [_ru], [() => Rule]];
 export var UpdateVariableRequest: StaticStructureSchema = [3, n0, _UVR, 0, [_n, _dVe, _d, _vT], [0, 0, 0, 0]];
 export var UpdateVariableResult: StaticStructureSchema = [3, n0, _UVRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Variable: StaticStructureSchema = [
   3,
   n0,
@@ -1350,10 +1272,8 @@ export var VariableEntry: StaticStructureSchema = [3, n0, _VEa, 0, [_n, _dT, _dS
 export var VariableImpactExplanation: StaticStructureSchema = [3, n0, _VIE, 0, [_eVNv, _rI, _lOI], [0, 0, 1]];
 export var VariableImportanceMetrics: StaticStructureSchema = [3, n0, _VIM, 0, [_lOM], [() => ListOfLogOddsMetrics]];
 export var __Unit = "unit" as const;
-
 export var FraudDetectorServiceException: StaticErrorSchema = [-3, _sm, "FraudDetectorServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FraudDetectorServiceException, __FraudDetectorServiceException);
-
 export var AllowDenyLists: StaticListSchema = [1, n0, _ADLl, 0, () => AllowDenyList];
 export var ATIMetricDataPointsList: StaticListSchema = [1, n0, _ATIMDPL, 0, () => ATIMetricDataPoint];
 export var BatchCreateVariableErrorList: StaticListSchema = [1, n0, _BCVEL, 0, () => BatchCreateVariableError];
@@ -1390,38 +1310,30 @@ export var ListOfModelVersionEvaluations: StaticListSchema = [1, n0, _LOMVE, 0, 
 export var ListOfModelVersions: StaticListSchema = [1, n0, _LOMV, 0, () => ModelVersion];
 export var ListOfRuleResults: StaticListSchema = [1, n0, _LORR, 0, () => RuleResult];
 export var ListOfStrings = 64 | 0;
-
 export var listOfVariableImpactExplanations: StaticListSchema = [1, n0, _lOVIE, 0, () => VariableImpactExplanation];
 export var metricDataPointsList: StaticListSchema = [1, n0, _mDPL, 0, () => MetricDataPoint];
 export var modelList: StaticListSchema = [1, n0, _mL, 0, () => Model];
 export var modelVersionDetailList: StaticListSchema = [1, n0, _mVDL, 0, () => ModelVersionDetail];
 export var NameList = 64 | 0;
-
 export var NonEmptyListOfStrings = 64 | 0;
-
 export var OFIMetricDataPointsList: StaticListSchema = [1, n0, _OFIMDPL, 0, () => OFIMetricDataPoint];
 export var OutcomeList: StaticListSchema = [1, n0, _OL, 0, () => Outcome];
 export var RuleDetailList: StaticListSchema = [1, n0, _RDL, 0, [() => RuleDetail, 0]];
 export var RuleList: StaticListSchema = [1, n0, _RL, 0, () => Rule];
 export var tagKeyList = 64 | 0;
-
 export var tagList: StaticListSchema = [1, n0, _tL, 0, () => Tag];
 export var TFIMetricDataPointsList: StaticListSchema = [1, n0, _TFIMDPL, 0, () => TFIMetricDataPoint];
 export var VariableEntryList: StaticListSchema = [1, n0, _VEL, 0, () => VariableEntry];
 export var VariableList: StaticListSchema = [1, n0, _VL, 0, () => Variable];
 export var CsvIndexToVariableMap = 128 | 0;
-
 export var EventAttributeMap: StaticMapSchema = [2, n0, _EAM, 0, [0, 0], [() => attributeValue, 0]];
 export var EventVariableMap: StaticMapSchema = [2, n0, _EVM, 0, [0, 0], [() => variableValue, 0]];
 export var ExternalModelEndpointDataBlobMap: StaticMapSchema = [2, n0, _EMEDBM, 8, 0, () => ModelEndpointDataBlob];
 export var ExternalModelPredictionMap = 128 | 0;
-
 export var JsonKeyToVariableMap = 128 | 0;
-
 export var labelMapper: StaticMapSchema = [2, n0, _lM, 0, 0, 64 | 0];
 export var MapOfStrings: StaticMapSchema = [2, n0, _MOS, 8, 0, 0];
 export var ModelPredictionMap = 128 | 1;
-
 export var BatchCreateVariable: StaticOperationSchema = [
   9,
   n0,

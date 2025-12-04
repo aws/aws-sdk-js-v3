@@ -184,22 +184,10 @@ import {
 import { RolesAnywhereServiceException as __RolesAnywhereServiceException } from "../models/RolesAnywhereServiceException";
 
 /* eslint no-var: 0 */
-
 export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AttributeMapping: StaticStructureSchema = [3, n0, _AM, 0, [_cF, _mR], [0, () => MappingRules]];
 export var CreateProfileRequest: StaticStructureSchema = [
   3,
@@ -242,18 +230,8 @@ export var DeleteAttributeMappingRequest: StaticStructureSchema = [
   [_pI, _cF, _sp],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _sp,
-      },
-    ],
+    [0, { [_hQ]: _cF }],
+    [64 | 0, { [_hQ]: _sp }],
   ],
 ];
 export var DeleteAttributeMappingResponse: StaticStructureSchema = [3, n0, _DAMRe, 0, [_p], [() => ProfileDetail]];
@@ -275,36 +253,12 @@ export var ListRequest: StaticStructureSchema = [
   0,
   [_nT, _pS],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _pS }],
   ],
 ];
 export var ListSubjectsResponse: StaticStructureSchema = [3, n0, _LSR, 0, [_su, _nT], [() => SubjectSummaries, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_rAe],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rAe,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, { [_hQ]: _rAe }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [[() => TagList, 0]]];
 export var ListTrustAnchorsResponse: StaticStructureSchema = [
   3,
@@ -375,19 +329,8 @@ export var ResetNotificationSettingsResponse: StaticStructureSchema = [
   [_tAr],
   [() => TrustAnchorDetail],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ScalarCrlRequest: StaticStructureSchema = [3, n0, _SCR, 0, [_cI], [[0, 1]]];
 export var ScalarProfileRequest: StaticStructureSchema = [3, n0, _SPR, 0, [_pI], [[0, 1]]];
 export var ScalarSubjectRequest: StaticStructureSchema = [3, n0, _SSR, 0, [_sI], [[0, 1]]];
@@ -423,19 +366,8 @@ export var Tag: StaticStructureSchema = [
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [0, [() => TagList, 0]]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TrustAnchorDetail: StaticStructureSchema = [
   3,
   n0,
@@ -464,51 +396,33 @@ export var UpdateTrustAnchorRequest: StaticStructureSchema = [
   [_tAI, _n, _s],
   [[0, 1], 0, () => Source],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var RolesAnywhereServiceException: StaticErrorSchema = [-3, _sm, "RolesAnywhereServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RolesAnywhereServiceException, __RolesAnywhereServiceException);
-
 export var AttributeMappings: StaticListSchema = [1, n0, _AMt, 0, () => AttributeMapping];
 export var CredentialSummaries: StaticListSchema = [1, n0, _CSr, 0, () => CredentialSummary];
 export var CrlDetails: StaticListSchema = [1, n0, _CDr, 0, () => CrlDetail];
 export var InstanceProperties: StaticListSchema = [1, n0, _IPn, 0, () => InstanceProperty];
 export var ManagedPolicyList = 64 | 0;
-
 export var MappingRules: StaticListSchema = [1, n0, _MRa, 0, () => MappingRule];
 export var NotificationSettingDetails: StaticListSchema = [1, n0, _NSDo, 0, () => NotificationSettingDetail];
 export var NotificationSettingKeys: StaticListSchema = [1, n0, _NSKo, 0, () => NotificationSettingKey];
 export var NotificationSettings: StaticListSchema = [1, n0, _NSo, 0, () => NotificationSetting];
 export var ProfileDetails: StaticListSchema = [1, n0, _PDr, 0, () => ProfileDetail];
 export var RoleArnList = 64 | 0;
-
 export var SpecifierList = 64 | 0;
-
 export var SubjectSummaries: StaticListSchema = [1, n0, _SSu, 0, () => SubjectSummary];
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, 0]];
 export var TrustAnchorDetails: StaticListSchema = [1, n0, _TADr, 0, () => TrustAnchorDetail];
 export var InstancePropertyMap = 128 | 0;
-
 export var SourceData: StaticStructureSchema = [3, n0, _SDo, 0, [_xCD, _aPA], [0, 0]];
 export var CreateProfile: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/profiles", 201],
-  },
+  { [_h]: ["POST", "/profiles", 201] },
   () => CreateProfileRequest,
   () => ProfileDetailResponse,
 ];
@@ -516,9 +430,7 @@ export var CreateTrustAnchor: StaticOperationSchema = [
   9,
   n0,
   _CTA,
-  {
-    [_h]: ["POST", "/trustanchors", 201],
-  },
+  { [_h]: ["POST", "/trustanchors", 201] },
   () => CreateTrustAnchorRequest,
   () => TrustAnchorDetailResponse,
 ];
@@ -526,9 +438,7 @@ export var DeleteAttributeMapping: StaticOperationSchema = [
   9,
   n0,
   _DAM,
-  {
-    [_h]: ["DELETE", "/profiles/{profileId}/mappings", 200],
-  },
+  { [_h]: ["DELETE", "/profiles/{profileId}/mappings", 200] },
   () => DeleteAttributeMappingRequest,
   () => DeleteAttributeMappingResponse,
 ];
@@ -536,9 +446,7 @@ export var DeleteCrl: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/crl/{crlId}", 200],
-  },
+  { [_h]: ["DELETE", "/crl/{crlId}", 200] },
   () => ScalarCrlRequest,
   () => CrlDetailResponse,
 ];
@@ -546,9 +454,7 @@ export var DeleteProfile: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/profile/{profileId}", 200],
-  },
+  { [_h]: ["DELETE", "/profile/{profileId}", 200] },
   () => ScalarProfileRequest,
   () => ProfileDetailResponse,
 ];
@@ -556,9 +462,7 @@ export var DeleteTrustAnchor: StaticOperationSchema = [
   9,
   n0,
   _DTA,
-  {
-    [_h]: ["DELETE", "/trustanchor/{trustAnchorId}", 200],
-  },
+  { [_h]: ["DELETE", "/trustanchor/{trustAnchorId}", 200] },
   () => ScalarTrustAnchorRequest,
   () => TrustAnchorDetailResponse,
 ];
@@ -566,9 +470,7 @@ export var DisableCrl: StaticOperationSchema = [
   9,
   n0,
   _DCi,
-  {
-    [_h]: ["POST", "/crl/{crlId}/disable", 200],
-  },
+  { [_h]: ["POST", "/crl/{crlId}/disable", 200] },
   () => ScalarCrlRequest,
   () => CrlDetailResponse,
 ];
@@ -576,9 +478,7 @@ export var DisableProfile: StaticOperationSchema = [
   9,
   n0,
   _DPi,
-  {
-    [_h]: ["POST", "/profile/{profileId}/disable", 200],
-  },
+  { [_h]: ["POST", "/profile/{profileId}/disable", 200] },
   () => ScalarProfileRequest,
   () => ProfileDetailResponse,
 ];
@@ -586,9 +486,7 @@ export var DisableTrustAnchor: StaticOperationSchema = [
   9,
   n0,
   _DTAi,
-  {
-    [_h]: ["POST", "/trustanchor/{trustAnchorId}/disable", 200],
-  },
+  { [_h]: ["POST", "/trustanchor/{trustAnchorId}/disable", 200] },
   () => ScalarTrustAnchorRequest,
   () => TrustAnchorDetailResponse,
 ];
@@ -596,9 +494,7 @@ export var EnableCrl: StaticOperationSchema = [
   9,
   n0,
   _EC,
-  {
-    [_h]: ["POST", "/crl/{crlId}/enable", 200],
-  },
+  { [_h]: ["POST", "/crl/{crlId}/enable", 200] },
   () => ScalarCrlRequest,
   () => CrlDetailResponse,
 ];
@@ -606,9 +502,7 @@ export var EnableProfile: StaticOperationSchema = [
   9,
   n0,
   _EP,
-  {
-    [_h]: ["POST", "/profile/{profileId}/enable", 200],
-  },
+  { [_h]: ["POST", "/profile/{profileId}/enable", 200] },
   () => ScalarProfileRequest,
   () => ProfileDetailResponse,
 ];
@@ -616,9 +510,7 @@ export var EnableTrustAnchor: StaticOperationSchema = [
   9,
   n0,
   _ETA,
-  {
-    [_h]: ["POST", "/trustanchor/{trustAnchorId}/enable", 200],
-  },
+  { [_h]: ["POST", "/trustanchor/{trustAnchorId}/enable", 200] },
   () => ScalarTrustAnchorRequest,
   () => TrustAnchorDetailResponse,
 ];
@@ -626,9 +518,7 @@ export var GetCrl: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/crl/{crlId}", 200],
-  },
+  { [_h]: ["GET", "/crl/{crlId}", 200] },
   () => ScalarCrlRequest,
   () => CrlDetailResponse,
 ];
@@ -636,9 +526,7 @@ export var GetProfile: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/profile/{profileId}", 200],
-  },
+  { [_h]: ["GET", "/profile/{profileId}", 200] },
   () => ScalarProfileRequest,
   () => ProfileDetailResponse,
 ];
@@ -646,9 +534,7 @@ export var GetSubject: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/subject/{subjectId}", 200],
-  },
+  { [_h]: ["GET", "/subject/{subjectId}", 200] },
   () => ScalarSubjectRequest,
   () => SubjectDetailResponse,
 ];
@@ -656,9 +542,7 @@ export var GetTrustAnchor: StaticOperationSchema = [
   9,
   n0,
   _GTA,
-  {
-    [_h]: ["GET", "/trustanchor/{trustAnchorId}", 200],
-  },
+  { [_h]: ["GET", "/trustanchor/{trustAnchorId}", 200] },
   () => ScalarTrustAnchorRequest,
   () => TrustAnchorDetailResponse,
 ];
@@ -666,9 +550,7 @@ export var ImportCrl: StaticOperationSchema = [
   9,
   n0,
   _IC,
-  {
-    [_h]: ["POST", "/crls", 201],
-  },
+  { [_h]: ["POST", "/crls", 201] },
   () => ImportCrlRequest,
   () => CrlDetailResponse,
 ];
@@ -676,9 +558,7 @@ export var ListCrls: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/crls", 200],
-  },
+  { [_h]: ["GET", "/crls", 200] },
   () => ListRequest,
   () => ListCrlsResponse,
 ];
@@ -686,9 +566,7 @@ export var ListProfiles: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/profiles", 200],
-  },
+  { [_h]: ["GET", "/profiles", 200] },
   () => ListRequest,
   () => ListProfilesResponse,
 ];
@@ -696,9 +574,7 @@ export var ListSubjects: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/subjects", 200],
-  },
+  { [_h]: ["GET", "/subjects", 200] },
   () => ListRequest,
   () => ListSubjectsResponse,
 ];
@@ -706,9 +582,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["GET", "/ListTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -716,9 +590,7 @@ export var ListTrustAnchors: StaticOperationSchema = [
   9,
   n0,
   _LTA,
-  {
-    [_h]: ["GET", "/trustanchors", 200],
-  },
+  { [_h]: ["GET", "/trustanchors", 200] },
   () => ListRequest,
   () => ListTrustAnchorsResponse,
 ];
@@ -726,9 +598,7 @@ export var PutAttributeMapping: StaticOperationSchema = [
   9,
   n0,
   _PAM,
-  {
-    [_h]: ["PUT", "/profiles/{profileId}/mappings", 200],
-  },
+  { [_h]: ["PUT", "/profiles/{profileId}/mappings", 200] },
   () => PutAttributeMappingRequest,
   () => PutAttributeMappingResponse,
 ];
@@ -736,9 +606,7 @@ export var PutNotificationSettings: StaticOperationSchema = [
   9,
   n0,
   _PNS,
-  {
-    [_h]: ["PATCH", "/put-notifications-settings", 200],
-  },
+  { [_h]: ["PATCH", "/put-notifications-settings", 200] },
   () => PutNotificationSettingsRequest,
   () => PutNotificationSettingsResponse,
 ];
@@ -746,9 +614,7 @@ export var ResetNotificationSettings: StaticOperationSchema = [
   9,
   n0,
   _RNS,
-  {
-    [_h]: ["PATCH", "/reset-notifications-settings", 200],
-  },
+  { [_h]: ["PATCH", "/reset-notifications-settings", 200] },
   () => ResetNotificationSettingsRequest,
   () => ResetNotificationSettingsResponse,
 ];
@@ -756,9 +622,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResource", 201],
-  },
+  { [_h]: ["POST", "/TagResource", 201] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -766,9 +630,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -776,9 +638,7 @@ export var UpdateCrl: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PATCH", "/crl/{crlId}", 200],
-  },
+  { [_h]: ["PATCH", "/crl/{crlId}", 200] },
   () => UpdateCrlRequest,
   () => CrlDetailResponse,
 ];
@@ -786,9 +646,7 @@ export var UpdateProfile: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PATCH", "/profile/{profileId}", 200],
-  },
+  { [_h]: ["PATCH", "/profile/{profileId}", 200] },
   () => UpdateProfileRequest,
   () => ProfileDetailResponse,
 ];
@@ -796,9 +654,7 @@ export var UpdateTrustAnchor: StaticOperationSchema = [
   9,
   n0,
   _UTA,
-  {
-    [_h]: ["PATCH", "/trustanchor/{trustAnchorId}", 200],
-  },
+  { [_h]: ["PATCH", "/trustanchor/{trustAnchorId}", 200] },
   () => UpdateTrustAnchorRequest,
   () => TrustAnchorDetailResponse,
 ];

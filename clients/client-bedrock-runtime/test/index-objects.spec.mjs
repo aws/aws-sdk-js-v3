@@ -61,19 +61,19 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof BedrockRuntimeClient === "function")
-assert(typeof BedrockRuntime === "function")
+assert(typeof BedrockRuntimeClient === "function");
+assert(typeof BedrockRuntime === "function");
 // commands
-assert(typeof ApplyGuardrailCommand === "function")
-assert(typeof ConverseCommand === "function")
-assert(typeof ConverseStreamCommand === "function")
-assert(typeof CountTokensCommand === "function")
-assert(typeof GetAsyncInvokeCommand === "function")
-assert(typeof InvokeModelCommand === "function")
-assert(typeof InvokeModelWithBidirectionalStreamCommand === "function")
-assert(typeof InvokeModelWithResponseStreamCommand === "function")
-assert(typeof ListAsyncInvokesCommand === "function")
-assert(typeof StartAsyncInvokeCommand === "function")
+assert(typeof ApplyGuardrailCommand === "function");
+assert(typeof ConverseCommand === "function");
+assert(typeof ConverseStreamCommand === "function");
+assert(typeof CountTokensCommand === "function");
+assert(typeof GetAsyncInvokeCommand === "function");
+assert(typeof InvokeModelCommand === "function");
+assert(typeof InvokeModelWithBidirectionalStreamCommand === "function");
+assert(typeof InvokeModelWithResponseStreamCommand === "function");
+assert(typeof ListAsyncInvokesCommand === "function");
+assert(typeof StartAsyncInvokeCommand === "function");
 // enums
 assert(typeof AsyncInvokeStatus === "object");
 assert(typeof AudioFormat === "object");
@@ -115,13 +115,13 @@ assert(typeof ToolUseType === "object");
 assert(typeof Trace === "object");
 assert(typeof VideoFormat === "object");
 // errors
-assert(InternalServerException.prototype instanceof BedrockRuntimeServiceException)
-assert(ModelStreamErrorException.prototype instanceof BedrockRuntimeServiceException)
-assert(ModelTimeoutException.prototype instanceof BedrockRuntimeServiceException)
-assert(ServiceUnavailableException.prototype instanceof BedrockRuntimeServiceException)
-assert(ThrottlingException.prototype instanceof BedrockRuntimeServiceException)
-assert(ValidationException.prototype instanceof BedrockRuntimeServiceException)
-assert(BedrockRuntimeServiceException.prototype instanceof Error)
+assert(InternalServerException.prototype instanceof BedrockRuntimeServiceException);
+assert(ModelStreamErrorException.prototype instanceof BedrockRuntimeServiceException);
+assert(ModelTimeoutException.prototype instanceof BedrockRuntimeServiceException);
+assert(ServiceUnavailableException.prototype instanceof BedrockRuntimeServiceException);
+assert(ThrottlingException.prototype instanceof BedrockRuntimeServiceException);
+assert(ValidationException.prototype instanceof BedrockRuntimeServiceException);
+assert(BedrockRuntimeServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListAsyncInvokes === "function")
+assert(typeof paginateListAsyncInvokes === "function");
 console.log(`BedrockRuntime index test passed.`);

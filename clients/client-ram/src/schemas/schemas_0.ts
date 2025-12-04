@@ -283,7 +283,6 @@ import {
 import { RAMServiceException as __RAMServiceException } from "../models/RAMServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptResourceShareInvitationRequest: StaticStructureSchema = [3, n0, _ARSIR, 0, [_rSIA, _cT], [0, 0]];
 export var AcceptResourceShareInvitationResponse: StaticStructureSchema = [
   3,
@@ -383,18 +382,8 @@ export var DeletePermissionRequest: StaticStructureSchema = [
   0,
   [_pA, _cT],
   [
-    [
-      0,
-      {
-        [_hQ]: _pA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _pA }],
+    [0, { [_hQ]: _cT }],
   ],
 ];
 export var DeletePermissionResponse: StaticStructureSchema = [
@@ -403,16 +392,7 @@ export var DeletePermissionResponse: StaticStructureSchema = [
   _DPRe,
   0,
   [_rV, _cT, _pS],
-  [
-    [
-      2,
-      {
-        [_xN]: _re,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[2, { [_xN]: _re }], 0, 0],
 ];
 export var DeletePermissionVersionRequest: StaticStructureSchema = [
   3,
@@ -421,24 +401,9 @@ export var DeletePermissionVersionRequest: StaticStructureSchema = [
   0,
   [_pA, _pV, _cT],
   [
-    [
-      0,
-      {
-        [_hQ]: _pA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _pA }],
+    [1, { [_hQ]: _pV }],
+    [0, { [_hQ]: _cT }],
   ],
 ];
 export var DeletePermissionVersionResponse: StaticStructureSchema = [
@@ -447,16 +412,7 @@ export var DeletePermissionVersionResponse: StaticStructureSchema = [
   _DPVRe,
   0,
   [_rV, _cT, _pS],
-  [
-    [
-      2,
-      {
-        [_xN]: _re,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[2, { [_xN]: _re }], 0, 0],
 ];
 export var DeleteResourceShareRequest: StaticStructureSchema = [
   3,
@@ -465,18 +421,8 @@ export var DeleteResourceShareRequest: StaticStructureSchema = [
   0,
   [_rSA, _cT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_hQ]: _rSA }],
+    [0, { [_hQ]: _cT }],
   ],
 ];
 export var DeleteResourceShareResponse: StaticStructureSchema = [
@@ -485,15 +431,7 @@ export var DeleteResourceShareResponse: StaticStructureSchema = [
   _DRSRe,
   0,
   [_rV, _cT],
-  [
-    [
-      2,
-      {
-        [_xN]: _re,
-      },
-    ],
-    0,
-  ],
+  [[2, { [_xN]: _re }], 0],
 ];
 export var DisassociateResourceSharePermissionRequest: StaticStructureSchema = [
   3,
@@ -527,14 +465,7 @@ export var EnableSharingWithAwsOrganizationResponse: StaticStructureSchema = [
   _ESWAORn,
   0,
   [_rV],
-  [
-    [
-      2,
-      {
-        [_xN]: _re,
-      },
-    ],
-  ],
+  [[2, { [_xN]: _re }]],
 ];
 export var GetPermissionRequest: StaticStructureSchema = [3, n0, _GPR, 0, [_pA, _pV], [0, 1]];
 export var GetPermissionResponse: StaticStructureSchema = [
@@ -613,114 +544,74 @@ export var IdempotentParameterMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`IdempotentParameterMismatch`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`IdempotentParameterMismatch`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-
 export var InvalidClientTokenException: StaticErrorSchema = [
   -3,
   n0,
   _ICTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidClientToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidClientToken`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidClientTokenException, __InvalidClientTokenException);
-
 export var InvalidMaxResultsException: StaticErrorSchema = [
   -3,
   n0,
   _IMRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidMaxResults`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidMaxResults`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidMaxResultsException, __InvalidMaxResultsException);
-
 export var InvalidNextTokenException: StaticErrorSchema = [
   -3,
   n0,
   _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidNextToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
 export var InvalidParameterException: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidParameter`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameter`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var InvalidPolicyException: StaticErrorSchema = [
   -3,
   n0,
   _IPEn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidPolicy`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidPolicy`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyException, __InvalidPolicyException);
-
 export var InvalidResourceTypeException: StaticErrorSchema = [
   -3,
   n0,
   _IRTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidResourceType.Unknown`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceType.Unknown`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidResourceTypeException, __InvalidResourceTypeException);
-
 export var InvalidStateTransitionException: StaticErrorSchema = [
   -3,
   n0,
   _ISTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidStateTransitionException.Unknown`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidStateTransitionException.Unknown`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidStateTransitionException, __InvalidStateTransitionException);
-
 export var ListPendingInvitationResourcesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -834,95 +725,61 @@ export var MalformedArnException: StaticErrorSchema = [
   -3,
   n0,
   _MAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidArn.Malformed`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidArn.Malformed`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MalformedArnException, __MalformedArnException);
-
 export var MalformedPolicyTemplateException: StaticErrorSchema = [
   -3,
   n0,
   _MPTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MalformedPolicyTemplateException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedPolicyTemplateException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MalformedPolicyTemplateException, __MalformedPolicyTemplateException);
-
 export var MissingRequiredParameterException: StaticErrorSchema = [
   -3,
   n0,
   _MRPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MissingRequiredParameter`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MissingRequiredParameter`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MissingRequiredParameterException, __MissingRequiredParameterException);
-
 export var OperationNotPermittedException: StaticErrorSchema = [
   -3,
   n0,
   _ONPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`OperationNotPermitted`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`OperationNotPermitted`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OperationNotPermittedException, __OperationNotPermittedException);
-
 export var PermissionAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _PAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`PermissionAlreadyExistsException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`PermissionAlreadyExistsException`, 409] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PermissionAlreadyExistsException, __PermissionAlreadyExistsException);
-
 export var PermissionLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _PLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`PermissionLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`PermissionLimitExceededException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PermissionLimitExceededException, __PermissionLimitExceededException);
-
 export var PermissionVersionsLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _PVLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`PermissionVersionsLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`PermissionVersionsLimitExceededException`, 400] },
   [_m],
   [0],
 ];
@@ -930,7 +787,6 @@ TypeRegistry.for(n0).registerError(
   PermissionVersionsLimitExceededException,
   __PermissionVersionsLimitExceededException
 );
-
 export var Principal: StaticStructureSchema = [3, n0, _P, 0, [_i, _rSA, _cTr, _lUT, _ex], [0, 0, 4, 4, 2]];
 export var PromotePermissionCreatedFromPolicyRequest: StaticStructureSchema = [
   3,
@@ -954,14 +810,7 @@ export var PromoteResourceShareCreatedFromPolicyRequest: StaticStructureSchema =
   _PRSCFPR,
   0,
   [_rSA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rSA,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _rSA }]],
 ];
 export var PromoteResourceShareCreatedFromPolicyResponse: StaticStructureSchema = [
   3,
@@ -969,14 +818,7 @@ export var PromoteResourceShareCreatedFromPolicyResponse: StaticStructureSchema 
   _PRSCFPRr,
   0,
   [_rV],
-  [
-    [
-      2,
-      {
-        [_xN]: _re,
-      },
-    ],
-  ],
+  [[2, { [_xN]: _re }]],
 ];
 export var RejectResourceShareInvitationRequest: StaticStructureSchema = [3, n0, _RRSIR, 0, [_rSIA, _cT], [0, 0]];
 export var RejectResourceShareInvitationResponse: StaticStructureSchema = [
@@ -1023,16 +865,11 @@ export var ResourceArnNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RANFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidResourceArn.NotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceArn.NotFound`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceArnNotFoundException, __ResourceArnNotFoundException);
-
 export var ResourceShare: StaticStructureSchema = [
   3,
   n0,
@@ -1061,11 +898,7 @@ export var ResourceShareInvitationAlreadyAcceptedException: StaticErrorSchema = 
   -3,
   n0,
   _RSIAAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyAccepted`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyAccepted`, 400] },
   [_m],
   [0],
 ];
@@ -1073,16 +906,11 @@ TypeRegistry.for(n0).registerError(
   ResourceShareInvitationAlreadyAcceptedException,
   __ResourceShareInvitationAlreadyAcceptedException
 );
-
 export var ResourceShareInvitationAlreadyRejectedException: StaticErrorSchema = [
   -3,
   n0,
   _RSIARE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyRejected`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyRejected`, 400] },
   [_m],
   [0],
 ];
@@ -1090,16 +918,11 @@ TypeRegistry.for(n0).registerError(
   ResourceShareInvitationAlreadyRejectedException,
   __ResourceShareInvitationAlreadyRejectedException
 );
-
 export var ResourceShareInvitationArnNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RSIANFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidResourceShareInvitationArn.NotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.NotFound`, 400] },
   [_m],
   [0],
 ];
@@ -1107,35 +930,24 @@ TypeRegistry.for(n0).registerError(
   ResourceShareInvitationArnNotFoundException,
   __ResourceShareInvitationArnNotFoundException
 );
-
 export var ResourceShareInvitationExpiredException: StaticErrorSchema = [
   -3,
   n0,
   _RSIEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidResourceShareInvitationArn.Expired`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.Expired`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceShareInvitationExpiredException, __ResourceShareInvitationExpiredException);
-
 export var ResourceShareLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceShareLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceShareLimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceShareLimitExceededException, __ResourceShareLimitExceededException);
-
 export var ResourceSharePermissionDetail: StaticStructureSchema = [
   3,
   n0,
@@ -1156,31 +968,21 @@ export var ServerInternalException: StaticErrorSchema = [
   -3,
   n0,
   _SIE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-    [_aQE]: [`InternalError`, 500],
-  },
+  { [_e]: _se, [_hE]: 500, [_aQE]: [`InternalError`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServerInternalException, __ServerInternalException);
-
 export var ServiceNameAndResourceType: StaticStructureSchema = [3, n0, _SNART, 0, [_rT, _sN, _rRS], [0, 0, 0]];
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-    [_aQE]: [`Unavailable`, 503],
-  },
+  { [_e]: _se, [_hE]: 503, [_aQE]: [`Unavailable`, 503] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SetDefaultPermissionVersionRequest: StaticStructureSchema = [3, n0, _SDPVR, 0, [_pA, _pV, _cT], [0, 1, 0]];
 export var SetDefaultPermissionVersionResponse: StaticStructureSchema = [
   3,
@@ -1188,15 +990,7 @@ export var SetDefaultPermissionVersionResponse: StaticStructureSchema = [
   _SDPVRe,
   0,
   [_rV, _cT],
-  [
-    [
-      2,
-      {
-        [_xN]: _re,
-      },
-    ],
-    0,
-  ],
+  [[2, { [_xN]: _re }], 0],
 ];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
 export var TagFilter: StaticStructureSchema = [3, n0, _TF, 0, [_tK, _tV], [0, 64 | 0]];
@@ -1204,74 +998,49 @@ export var TagLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _TLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TagLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagLimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagLimitExceededException, __TagLimitExceededException);
-
 export var TagPolicyViolationException: StaticErrorSchema = [
   -3,
   n0,
   _TPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TagPolicyViolation`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagPolicyViolation`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagPolicyViolationException, __TagPolicyViolationException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rSA, _t, _rAe], [0, () => TagList, 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ThrottlingException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UnknownResourceException: StaticErrorSchema = [
   -3,
   n0,
   _URE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidResourceShareArn.NotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareArn.NotFound`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnknownResourceException, __UnknownResourceException);
-
 export var UnmatchedPolicyPermissionException: StaticErrorSchema = [
   -3,
   n0,
   _UPPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`UnmatchedPolicyPermissionException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnmatchedPolicyPermissionException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnmatchedPolicyPermissionException, __UnmatchedPolicyPermissionException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rSA, _tKa, _rAe], [0, 64 | 0, 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateResourceShareRequest: StaticStructureSchema = [3, n0, _URSR, 0, [_rSA, _n, _aEP, _cT], [0, 0, 2, 0]];
@@ -1284,227 +1053,64 @@ export var UpdateResourceShareResponse: StaticStructureSchema = [
   [() => ResourceShare, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var RAMServiceException: StaticErrorSchema = [-3, _sm, "RAMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RAMServiceException, __RAMServiceException);
-
-export var AssociatedPermissionList: StaticListSchema = [
-  1,
-  n0,
-  _APL,
-  0,
-  [
-    () => AssociatedPermission,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
-export var PermissionArnList: StaticListSchema = [
-  1,
-  n0,
-  _PAL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
-export var PolicyList: StaticListSchema = [
-  1,
-  n0,
-  _PL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
-export var PrincipalArnOrIdList: StaticListSchema = [
-  1,
-  n0,
-  _PAOIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
-export var PrincipalList: StaticListSchema = [
-  1,
-  n0,
-  _PLr,
-  0,
-  [
-    () => Principal,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
-export var ReplacePermissionAssociationsWorkIdList: StaticListSchema = [
-  1,
-  n0,
-  _RPAWIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
+export var AssociatedPermissionList: StaticListSchema = [1, n0, _APL, 0, [() => AssociatedPermission, { [_xN]: _it }]];
+export var PermissionArnList: StaticListSchema = [1, n0, _PAL, 0, [0, { [_xN]: _it }]];
+export var PolicyList: StaticListSchema = [1, n0, _PL, 0, [0, { [_xN]: _it }]];
+export var PrincipalArnOrIdList: StaticListSchema = [1, n0, _PAOIL, 0, [0, { [_xN]: _it }]];
+export var PrincipalList: StaticListSchema = [1, n0, _PLr, 0, [() => Principal, { [_xN]: _it }]];
+export var ReplacePermissionAssociationsWorkIdList: StaticListSchema = [1, n0, _RPAWIL, 0, [0, { [_xN]: _it }]];
 export var ReplacePermissionAssociationsWorkList: StaticListSchema = [
   1,
   n0,
   _RPAWL,
   0,
-  [
-    () => ReplacePermissionAssociationsWork,
-    {
-      [_xN]: _it,
-    },
-  ],
+  [() => ReplacePermissionAssociationsWork, { [_xN]: _it }],
 ];
-export var ResourceArnList: StaticListSchema = [
-  1,
-  n0,
-  _RAL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
-export var ResourceList: StaticListSchema = [
-  1,
-  n0,
-  _RL,
-  0,
-  [
-    () => Resource,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
-export var ResourceShareArnList: StaticListSchema = [
-  1,
-  n0,
-  _RSAL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
+export var ResourceArnList: StaticListSchema = [1, n0, _RAL, 0, [0, { [_xN]: _it }]];
+export var ResourceList: StaticListSchema = [1, n0, _RL, 0, [() => Resource, { [_xN]: _it }]];
+export var ResourceShareArnList: StaticListSchema = [1, n0, _RSAL, 0, [0, { [_xN]: _it }]];
 export var ResourceShareAssociationList: StaticListSchema = [
   1,
   n0,
   _RSALe,
   0,
-  [
-    () => ResourceShareAssociation,
-    {
-      [_xN]: _it,
-    },
-  ],
+  [() => ResourceShareAssociation, { [_xN]: _it }],
 ];
-export var ResourceShareInvitationArnList: StaticListSchema = [
-  1,
-  n0,
-  _RSIAL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
+export var ResourceShareInvitationArnList: StaticListSchema = [1, n0, _RSIAL, 0, [0, { [_xN]: _it }]];
 export var ResourceShareInvitationList: StaticListSchema = [
   1,
   n0,
   _RSIL,
   0,
-  [
-    () => ResourceShareInvitation,
-    {
-      [_xN]: _it,
-    },
-  ],
+  [() => ResourceShareInvitation, { [_xN]: _it }],
 ];
-export var ResourceShareList: StaticListSchema = [
-  1,
-  n0,
-  _RSL,
-  0,
-  [
-    () => ResourceShare,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
+export var ResourceShareList: StaticListSchema = [1, n0, _RSL, 0, [() => ResourceShare, { [_xN]: _it }]];
 export var ResourceSharePermissionList: StaticListSchema = [
   1,
   n0,
   _RSPL,
   0,
-  [
-    () => ResourceSharePermissionSummary,
-    {
-      [_xN]: _it,
-    },
-  ],
+  [() => ResourceSharePermissionSummary, { [_xN]: _it }],
 ];
 export var ServiceNameAndResourceTypeList: StaticListSchema = [
   1,
   n0,
   _SNARTL,
   0,
-  [
-    () => ServiceNameAndResourceType,
-    {
-      [_xN]: _it,
-    },
-  ],
+  [() => ServiceNameAndResourceType, { [_xN]: _it }],
 ];
-export var SourceArnOrAccountList: StaticListSchema = [
-  1,
-  n0,
-  _SAOAL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _it,
-    },
-  ],
-];
+export var SourceArnOrAccountList: StaticListSchema = [1, n0, _SAOAL, 0, [0, { [_xN]: _it }]];
 export var TagFilters: StaticListSchema = [1, n0, _TFa, 0, () => TagFilter];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TagValueList = 64 | 0;
-
 export var AcceptResourceShareInvitation: StaticOperationSchema = [
   9,
   n0,
   _ARSI,
-  {
-    [_h]: ["POST", "/acceptresourceshareinvitation", 200],
-  },
+  { [_h]: ["POST", "/acceptresourceshareinvitation", 200] },
   () => AcceptResourceShareInvitationRequest,
   () => AcceptResourceShareInvitationResponse,
 ];
@@ -1512,9 +1118,7 @@ export var AssociateResourceShare: StaticOperationSchema = [
   9,
   n0,
   _ARS,
-  {
-    [_h]: ["POST", "/associateresourceshare", 200],
-  },
+  { [_h]: ["POST", "/associateresourceshare", 200] },
   () => AssociateResourceShareRequest,
   () => AssociateResourceShareResponse,
 ];
@@ -1522,9 +1126,7 @@ export var AssociateResourceSharePermission: StaticOperationSchema = [
   9,
   n0,
   _ARSP,
-  {
-    [_h]: ["POST", "/associateresourcesharepermission", 200],
-  },
+  { [_h]: ["POST", "/associateresourcesharepermission", 200] },
   () => AssociateResourceSharePermissionRequest,
   () => AssociateResourceSharePermissionResponse,
 ];
@@ -1532,9 +1134,7 @@ export var CreatePermission: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/createpermission", 200],
-  },
+  { [_h]: ["POST", "/createpermission", 200] },
   () => CreatePermissionRequest,
   () => CreatePermissionResponse,
 ];
@@ -1542,9 +1142,7 @@ export var CreatePermissionVersion: StaticOperationSchema = [
   9,
   n0,
   _CPV,
-  {
-    [_h]: ["POST", "/createpermissionversion", 200],
-  },
+  { [_h]: ["POST", "/createpermissionversion", 200] },
   () => CreatePermissionVersionRequest,
   () => CreatePermissionVersionResponse,
 ];
@@ -1552,9 +1150,7 @@ export var CreateResourceShare: StaticOperationSchema = [
   9,
   n0,
   _CRS,
-  {
-    [_h]: ["POST", "/createresourceshare", 200],
-  },
+  { [_h]: ["POST", "/createresourceshare", 200] },
   () => CreateResourceShareRequest,
   () => CreateResourceShareResponse,
 ];
@@ -1562,9 +1158,7 @@ export var DeletePermission: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/deletepermission", 200],
-  },
+  { [_h]: ["DELETE", "/deletepermission", 200] },
   () => DeletePermissionRequest,
   () => DeletePermissionResponse,
 ];
@@ -1572,9 +1166,7 @@ export var DeletePermissionVersion: StaticOperationSchema = [
   9,
   n0,
   _DPV,
-  {
-    [_h]: ["DELETE", "/deletepermissionversion", 200],
-  },
+  { [_h]: ["DELETE", "/deletepermissionversion", 200] },
   () => DeletePermissionVersionRequest,
   () => DeletePermissionVersionResponse,
 ];
@@ -1582,9 +1174,7 @@ export var DeleteResourceShare: StaticOperationSchema = [
   9,
   n0,
   _DRS,
-  {
-    [_h]: ["DELETE", "/deleteresourceshare", 200],
-  },
+  { [_h]: ["DELETE", "/deleteresourceshare", 200] },
   () => DeleteResourceShareRequest,
   () => DeleteResourceShareResponse,
 ];
@@ -1592,9 +1182,7 @@ export var DisassociateResourceShare: StaticOperationSchema = [
   9,
   n0,
   _DRSi,
-  {
-    [_h]: ["POST", "/disassociateresourceshare", 200],
-  },
+  { [_h]: ["POST", "/disassociateresourceshare", 200] },
   () => DisassociateResourceShareRequest,
   () => DisassociateResourceShareResponse,
 ];
@@ -1602,9 +1190,7 @@ export var DisassociateResourceSharePermission: StaticOperationSchema = [
   9,
   n0,
   _DRSP,
-  {
-    [_h]: ["POST", "/disassociateresourcesharepermission", 200],
-  },
+  { [_h]: ["POST", "/disassociateresourcesharepermission", 200] },
   () => DisassociateResourceSharePermissionRequest,
   () => DisassociateResourceSharePermissionResponse,
 ];
@@ -1612,9 +1198,7 @@ export var EnableSharingWithAwsOrganization: StaticOperationSchema = [
   9,
   n0,
   _ESWAO,
-  {
-    [_h]: ["POST", "/enablesharingwithawsorganization", 200],
-  },
+  { [_h]: ["POST", "/enablesharingwithawsorganization", 200] },
   () => EnableSharingWithAwsOrganizationRequest,
   () => EnableSharingWithAwsOrganizationResponse,
 ];
@@ -1622,9 +1206,7 @@ export var GetPermission: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["POST", "/getpermission", 200],
-  },
+  { [_h]: ["POST", "/getpermission", 200] },
   () => GetPermissionRequest,
   () => GetPermissionResponse,
 ];
@@ -1632,9 +1214,7 @@ export var GetResourcePolicies: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["POST", "/getresourcepolicies", 200],
-  },
+  { [_h]: ["POST", "/getresourcepolicies", 200] },
   () => GetResourcePoliciesRequest,
   () => GetResourcePoliciesResponse,
 ];
@@ -1642,9 +1222,7 @@ export var GetResourceShareAssociations: StaticOperationSchema = [
   9,
   n0,
   _GRSA,
-  {
-    [_h]: ["POST", "/getresourceshareassociations", 200],
-  },
+  { [_h]: ["POST", "/getresourceshareassociations", 200] },
   () => GetResourceShareAssociationsRequest,
   () => GetResourceShareAssociationsResponse,
 ];
@@ -1652,9 +1230,7 @@ export var GetResourceShareInvitations: StaticOperationSchema = [
   9,
   n0,
   _GRSI,
-  {
-    [_h]: ["POST", "/getresourceshareinvitations", 200],
-  },
+  { [_h]: ["POST", "/getresourceshareinvitations", 200] },
   () => GetResourceShareInvitationsRequest,
   () => GetResourceShareInvitationsResponse,
 ];
@@ -1662,9 +1238,7 @@ export var GetResourceShares: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  {
-    [_h]: ["POST", "/getresourceshares", 200],
-  },
+  { [_h]: ["POST", "/getresourceshares", 200] },
   () => GetResourceSharesRequest,
   () => GetResourceSharesResponse,
 ];
@@ -1672,9 +1246,7 @@ export var ListPendingInvitationResources: StaticOperationSchema = [
   9,
   n0,
   _LPIR,
-  {
-    [_h]: ["POST", "/listpendinginvitationresources", 200],
-  },
+  { [_h]: ["POST", "/listpendinginvitationresources", 200] },
   () => ListPendingInvitationResourcesRequest,
   () => ListPendingInvitationResourcesResponse,
 ];
@@ -1682,9 +1254,7 @@ export var ListPermissionAssociations: StaticOperationSchema = [
   9,
   n0,
   _LPA,
-  {
-    [_h]: ["POST", "/listpermissionassociations", 200],
-  },
+  { [_h]: ["POST", "/listpermissionassociations", 200] },
   () => ListPermissionAssociationsRequest,
   () => ListPermissionAssociationsResponse,
 ];
@@ -1692,9 +1262,7 @@ export var ListPermissions: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["POST", "/listpermissions", 200],
-  },
+  { [_h]: ["POST", "/listpermissions", 200] },
   () => ListPermissionsRequest,
   () => ListPermissionsResponse,
 ];
@@ -1702,9 +1270,7 @@ export var ListPermissionVersions: StaticOperationSchema = [
   9,
   n0,
   _LPV,
-  {
-    [_h]: ["POST", "/listpermissionversions", 200],
-  },
+  { [_h]: ["POST", "/listpermissionversions", 200] },
   () => ListPermissionVersionsRequest,
   () => ListPermissionVersionsResponse,
 ];
@@ -1712,9 +1278,7 @@ export var ListPrincipals: StaticOperationSchema = [
   9,
   n0,
   _LPi,
-  {
-    [_h]: ["POST", "/listprincipals", 200],
-  },
+  { [_h]: ["POST", "/listprincipals", 200] },
   () => ListPrincipalsRequest,
   () => ListPrincipalsResponse,
 ];
@@ -1722,9 +1286,7 @@ export var ListReplacePermissionAssociationsWork: StaticOperationSchema = [
   9,
   n0,
   _LRPAW,
-  {
-    [_h]: ["POST", "/listreplacepermissionassociationswork", 200],
-  },
+  { [_h]: ["POST", "/listreplacepermissionassociationswork", 200] },
   () => ListReplacePermissionAssociationsWorkRequest,
   () => ListReplacePermissionAssociationsWorkResponse,
 ];
@@ -1732,9 +1294,7 @@ export var ListResources: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["POST", "/listresources", 200],
-  },
+  { [_h]: ["POST", "/listresources", 200] },
   () => ListResourcesRequest,
   () => ListResourcesResponse,
 ];
@@ -1742,9 +1302,7 @@ export var ListResourceSharePermissions: StaticOperationSchema = [
   9,
   n0,
   _LRSP,
-  {
-    [_h]: ["POST", "/listresourcesharepermissions", 200],
-  },
+  { [_h]: ["POST", "/listresourcesharepermissions", 200] },
   () => ListResourceSharePermissionsRequest,
   () => ListResourceSharePermissionsResponse,
 ];
@@ -1752,9 +1310,7 @@ export var ListResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _LRT,
-  {
-    [_h]: ["POST", "/listresourcetypes", 200],
-  },
+  { [_h]: ["POST", "/listresourcetypes", 200] },
   () => ListResourceTypesRequest,
   () => ListResourceTypesResponse,
 ];
@@ -1762,9 +1318,7 @@ export var PromotePermissionCreatedFromPolicy: StaticOperationSchema = [
   9,
   n0,
   _PPCFP,
-  {
-    [_h]: ["POST", "/promotepermissioncreatedfrompolicy", 200],
-  },
+  { [_h]: ["POST", "/promotepermissioncreatedfrompolicy", 200] },
   () => PromotePermissionCreatedFromPolicyRequest,
   () => PromotePermissionCreatedFromPolicyResponse,
 ];
@@ -1772,9 +1326,7 @@ export var PromoteResourceShareCreatedFromPolicy: StaticOperationSchema = [
   9,
   n0,
   _PRSCFP,
-  {
-    [_h]: ["POST", "/promoteresourcesharecreatedfrompolicy", 200],
-  },
+  { [_h]: ["POST", "/promoteresourcesharecreatedfrompolicy", 200] },
   () => PromoteResourceShareCreatedFromPolicyRequest,
   () => PromoteResourceShareCreatedFromPolicyResponse,
 ];
@@ -1782,9 +1334,7 @@ export var RejectResourceShareInvitation: StaticOperationSchema = [
   9,
   n0,
   _RRSI,
-  {
-    [_h]: ["POST", "/rejectresourceshareinvitation", 200],
-  },
+  { [_h]: ["POST", "/rejectresourceshareinvitation", 200] },
   () => RejectResourceShareInvitationRequest,
   () => RejectResourceShareInvitationResponse,
 ];
@@ -1792,9 +1342,7 @@ export var ReplacePermissionAssociations: StaticOperationSchema = [
   9,
   n0,
   _RPA,
-  {
-    [_h]: ["POST", "/replacepermissionassociations", 200],
-  },
+  { [_h]: ["POST", "/replacepermissionassociations", 200] },
   () => ReplacePermissionAssociationsRequest,
   () => ReplacePermissionAssociationsResponse,
 ];
@@ -1802,9 +1350,7 @@ export var SetDefaultPermissionVersion: StaticOperationSchema = [
   9,
   n0,
   _SDPV,
-  {
-    [_h]: ["POST", "/setdefaultpermissionversion", 200],
-  },
+  { [_h]: ["POST", "/setdefaultpermissionversion", 200] },
   () => SetDefaultPermissionVersionRequest,
   () => SetDefaultPermissionVersionResponse,
 ];
@@ -1812,9 +1358,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tagresource", 200],
-  },
+  { [_h]: ["POST", "/tagresource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1822,9 +1366,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/untagresource", 200],
-  },
+  { [_h]: ["POST", "/untagresource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1832,9 +1374,7 @@ export var UpdateResourceShare: StaticOperationSchema = [
   9,
   n0,
   _URS,
-  {
-    [_h]: ["POST", "/updateresourceshare", 200],
-  },
+  { [_h]: ["POST", "/updateresourceshare", 200] },
   () => UpdateResourceShareRequest,
   () => UpdateResourceShareResponse,
 ];

@@ -347,7 +347,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var BackendAPIAppSyncAuthSettings: StaticStructureSchema = [
   3,
   n0,
@@ -355,54 +354,14 @@ export var BackendAPIAppSyncAuthSettings: StaticStructureSchema = [
   0,
   [_CUPI, _D, _ET, _OIDATTL, _OIDCI, _OIDITTL, _OIDIURL, _OIDPN],
   [
-    [
-      0,
-      {
-        [_jN]: _cUPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _d,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _oIDATTL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _oIDCI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _oIDITTL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _oIDIURL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _oIDPN,
-      },
-    ],
+    [0, { [_jN]: _cUPI }],
+    [0, { [_jN]: _d }],
+    [1, { [_jN]: _eT }],
+    [0, { [_jN]: _oIDATTL }],
+    [0, { [_jN]: _oIDCI }],
+    [0, { [_jN]: _oIDITTL }],
+    [0, { [_jN]: _oIDIURL }],
+    [0, { [_jN]: _oIDPN }],
   ],
 ];
 export var BackendAPIAuthType: StaticStructureSchema = [
@@ -412,35 +371,11 @@ export var BackendAPIAuthType: StaticStructureSchema = [
   0,
   [_M, _S],
   [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-    [
-      () => BackendAPIAppSyncAuthSettings,
-      {
-        [_jN]: _s,
-      },
-    ],
+    [0, { [_jN]: _m }],
+    [() => BackendAPIAppSyncAuthSettings, { [_jN]: _s }],
   ],
 ];
-export var BackendAPIConflictResolution: StaticStructureSchema = [
-  3,
-  n0,
-  _BAPICR,
-  0,
-  [_RS],
-  [
-    [
-      0,
-      {
-        [_jN]: _rS,
-      },
-    ],
-  ],
-];
+export var BackendAPIConflictResolution: StaticStructureSchema = [3, n0, _BAPICR, 0, [_RS], [[0, { [_jN]: _rS }]]];
 export var BackendAPIResourceConfig: StaticStructureSchema = [
   3,
   n0,
@@ -448,42 +383,12 @@ export var BackendAPIResourceConfig: StaticStructureSchema = [
   0,
   [_AAT, _AN, _CR, _DAT, _Se, _TS],
   [
-    [
-      () => ListOfBackendAPIAuthType,
-      {
-        [_jN]: _aAT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aN,
-      },
-    ],
-    [
-      () => BackendAPIConflictResolution,
-      {
-        [_jN]: _cR,
-      },
-    ],
-    [
-      () => BackendAPIAuthType,
-      {
-        [_jN]: _dAT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _se,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _tS,
-      },
-    ],
+    [() => ListOfBackendAPIAuthType, { [_jN]: _aAT }],
+    [0, { [_jN]: _aN }],
+    [() => BackendAPIConflictResolution, { [_jN]: _cR }],
+    [() => BackendAPIAuthType, { [_jN]: _dAT }],
+    [0, { [_jN]: _se }],
+    [0, { [_jN]: _tS }],
   ],
 ];
 export var BackendAuthAppleProviderConfig: StaticStructureSchema = [
@@ -493,30 +398,10 @@ export var BackendAuthAppleProviderConfig: StaticStructureSchema = [
   8,
   [_CI, _KI, _PK, _TI],
   [
-    [
-      0,
-      {
-        [_jN]: _ci,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _ki,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pk,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _ti,
-      },
-    ],
+    [0, { [_jN]: _ci }],
+    [0, { [_jN]: _ki }],
+    [0, { [_jN]: _pk }],
+    [0, { [_jN]: _ti }],
   ],
 ];
 export var BackendAuthSocialProviderConfig: StaticStructureSchema = [
@@ -526,18 +411,8 @@ export var BackendAuthSocialProviderConfig: StaticStructureSchema = [
   8,
   [_CI, _CS],
   [
-    [
-      0,
-      {
-        [_jN]: _ci,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cs,
-      },
-    ],
+    [0, { [_jN]: _ci }],
+    [0, { [_jN]: _cs }],
   ],
 ];
 export var BackendJobRespObj: StaticStructureSchema = [
@@ -547,54 +422,14 @@ export var BackendJobRespObj: StaticStructureSchema = [
   0,
   [_AI, _BEN, _CT, _E, _JI, _O, _St, _UT],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uT,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _cT }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
+    [0, { [_jN]: _uT }],
   ],
 ];
 export var BackendStoragePermissions: StaticStructureSchema = [
@@ -604,40 +439,19 @@ export var BackendStoragePermissions: StaticStructureSchema = [
   0,
   [_A, _UA],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _uA,
-      },
-    ],
+    [64 | 0, { [_jN]: _a }],
+    [64 | 0, { [_jN]: _uA }],
   ],
 ];
 export var BadRequestException: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Me],
-  [
-    [
-      0,
-      {
-        [_jN]: _me,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _me }]],
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var CloneBackendRequest: StaticStructureSchema = [
   3,
   n0,
@@ -647,12 +461,7 @@ export var CloneBackendRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _tEN,
-      },
-    ],
+    [0, { [_jN]: _tEN }],
   ],
 ];
 export var CloneBackendResponse: StaticStructureSchema = [
@@ -662,42 +471,12 @@ export var CloneBackendResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var CreateBackendAPIRequest: StaticStructureSchema = [
@@ -708,24 +487,9 @@ export var CreateBackendAPIRequest: StaticStructureSchema = [
   [_AI, _BEN, _RC, _RN],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      () => BackendAPIResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _bEN }],
+    [() => BackendAPIResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var CreateBackendAPIResponse: StaticStructureSchema = [
@@ -735,42 +499,12 @@ export var CreateBackendAPIResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var CreateBackendAuthForgotPasswordConfig: StaticStructureSchema = [
@@ -780,24 +514,9 @@ export var CreateBackendAuthForgotPasswordConfig: StaticStructureSchema = [
   0,
   [_DM, _ES, _SS],
   [
-    [
-      0,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      () => EmailSettings,
-      {
-        [_jN]: _eS,
-      },
-    ],
-    [
-      () => SmsSettings,
-      {
-        [_jN]: _sS,
-      },
-    ],
+    [0, { [_jN]: _dM }],
+    [() => EmailSettings, { [_jN]: _eS }],
+    [() => SmsSettings, { [_jN]: _sS }],
   ],
 ];
 export var CreateBackendAuthIdentityPoolConfig: StaticStructureSchema = [
@@ -807,18 +526,8 @@ export var CreateBackendAuthIdentityPoolConfig: StaticStructureSchema = [
   0,
   [_IPN, _UL],
   [
-    [
-      0,
-      {
-        [_jN]: _iPN,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _uL,
-      },
-    ],
+    [0, { [_jN]: _iPN }],
+    [2, { [_jN]: _uL }],
   ],
 ];
 export var CreateBackendAuthMFAConfig: StaticStructureSchema = [
@@ -827,15 +536,7 @@ export var CreateBackendAuthMFAConfig: StaticStructureSchema = [
   _CBAMFAC,
   0,
   [_MFAM, _S],
-  [
-    0,
-    [
-      () => Settings,
-      {
-        [_jN]: _s,
-      },
-    ],
-  ],
+  [0, [() => Settings, { [_jN]: _s }]],
 ];
 export var CreateBackendAuthOAuthConfig: StaticStructureSchema = [
   3,
@@ -844,42 +545,12 @@ export var CreateBackendAuthOAuthConfig: StaticStructureSchema = [
   0,
   [_DP, _OAGT, _OAS, _RSIURI, _RSOURI, _SPS],
   [
-    [
-      0,
-      {
-        [_jN]: _dP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _oAGT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _oAS,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _rSIURI,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _rSOURI,
-      },
-    ],
-    [
-      () => SocialProviderSettings,
-      {
-        [_jN]: _sPS,
-      },
-    ],
+    [0, { [_jN]: _dP }],
+    [0, { [_jN]: _oAGT }],
+    [64 | 0, { [_jN]: _oAS }],
+    [64 | 0, { [_jN]: _rSIURI }],
+    [64 | 0, { [_jN]: _rSOURI }],
+    [() => SocialProviderSettings, { [_jN]: _sPS }],
   ],
 ];
 export var CreateBackendAuthPasswordPolicyConfig: StaticStructureSchema = [
@@ -889,18 +560,8 @@ export var CreateBackendAuthPasswordPolicyConfig: StaticStructureSchema = [
   0,
   [_AC, _ML],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _aC,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mL,
-      },
-    ],
+    [64 | 0, { [_jN]: _aC }],
+    [1, { [_jN]: _mL }],
   ],
 ];
 export var CreateBackendAuthRequest: StaticStructureSchema = [
@@ -911,24 +572,9 @@ export var CreateBackendAuthRequest: StaticStructureSchema = [
   [_AI, _BEN, _RC, _RN],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      () => CreateBackendAuthResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _bEN }],
+    [() => CreateBackendAuthResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var CreateBackendAuthResourceConfig: StaticStructureSchema = [
@@ -938,30 +584,10 @@ export var CreateBackendAuthResourceConfig: StaticStructureSchema = [
   0,
   [_AR, _IPC, _Se, _UPC],
   [
-    [
-      0,
-      {
-        [_jN]: _aR,
-      },
-    ],
-    [
-      () => CreateBackendAuthIdentityPoolConfig,
-      {
-        [_jN]: _iPC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _se,
-      },
-    ],
-    [
-      () => CreateBackendAuthUserPoolConfig,
-      {
-        [_jN]: _uPC,
-      },
-    ],
+    [0, { [_jN]: _aR }],
+    [() => CreateBackendAuthIdentityPoolConfig, { [_jN]: _iPC }],
+    [0, { [_jN]: _se }],
+    [() => CreateBackendAuthUserPoolConfig, { [_jN]: _uPC }],
   ],
 ];
 export var CreateBackendAuthResponse: StaticStructureSchema = [
@@ -971,42 +597,12 @@ export var CreateBackendAuthResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var CreateBackendAuthUserPoolConfig: StaticStructureSchema = [
@@ -1016,54 +612,14 @@ export var CreateBackendAuthUserPoolConfig: StaticStructureSchema = [
   0,
   [_FP, _Mf, _OA, _PP, _RSUA, _SIM, _UPN, _VM],
   [
-    [
-      () => CreateBackendAuthForgotPasswordConfig,
-      {
-        [_jN]: _fP,
-      },
-    ],
-    [
-      () => CreateBackendAuthMFAConfig,
-      {
-        [_jN]: _mf,
-      },
-    ],
-    [
-      () => CreateBackendAuthOAuthConfig,
-      {
-        [_jN]: _oA,
-      },
-    ],
-    [
-      () => CreateBackendAuthPasswordPolicyConfig,
-      {
-        [_jN]: _pP,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _rSUA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sIM,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uPN,
-      },
-    ],
-    [
-      () => CreateBackendAuthVerificationMessageConfig,
-      {
-        [_jN]: _vM,
-      },
-    ],
+    [() => CreateBackendAuthForgotPasswordConfig, { [_jN]: _fP }],
+    [() => CreateBackendAuthMFAConfig, { [_jN]: _mf }],
+    [() => CreateBackendAuthOAuthConfig, { [_jN]: _oA }],
+    [() => CreateBackendAuthPasswordPolicyConfig, { [_jN]: _pP }],
+    [64 | 0, { [_jN]: _rSUA }],
+    [0, { [_jN]: _sIM }],
+    [0, { [_jN]: _uPN }],
+    [() => CreateBackendAuthVerificationMessageConfig, { [_jN]: _vM }],
   ],
 ];
 export var CreateBackendAuthVerificationMessageConfig: StaticStructureSchema = [
@@ -1073,24 +629,9 @@ export var CreateBackendAuthVerificationMessageConfig: StaticStructureSchema = [
   0,
   [_DM, _ES, _SS],
   [
-    [
-      0,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      () => EmailSettings,
-      {
-        [_jN]: _eS,
-      },
-    ],
-    [
-      () => SmsSettings,
-      {
-        [_jN]: _sS,
-      },
-    ],
+    [0, { [_jN]: _dM }],
+    [() => EmailSettings, { [_jN]: _eS }],
+    [() => SmsSettings, { [_jN]: _sS }],
   ],
 ];
 export var CreateBackendConfigRequest: StaticStructureSchema = [
@@ -1101,12 +642,7 @@ export var CreateBackendConfigRequest: StaticStructureSchema = [
   [_AI, _BMAI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _bMAI,
-      },
-    ],
+    [0, { [_jN]: _bMAI }],
   ],
 ];
 export var CreateBackendConfigResponse: StaticStructureSchema = [
@@ -1116,30 +652,10 @@ export var CreateBackendConfigResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _JI, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var CreateBackendRequest: StaticStructureSchema = [
@@ -1149,36 +665,11 @@ export var CreateBackendRequest: StaticStructureSchema = [
   0,
   [_AI, _ANp, _BEN, _RC, _RN],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aNp,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      () => ResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _aNp }],
+    [0, { [_jN]: _bEN }],
+    [() => ResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var CreateBackendResponse: StaticStructureSchema = [
@@ -1188,42 +679,12 @@ export var CreateBackendResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var CreateBackendStorageRequest: StaticStructureSchema = [
@@ -1234,24 +695,9 @@ export var CreateBackendStorageRequest: StaticStructureSchema = [
   [_AI, _BEN, _RC, _RN],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      () => CreateBackendStorageResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _bEN }],
+    [() => CreateBackendStorageResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var CreateBackendStorageResourceConfig: StaticStructureSchema = [
@@ -1261,24 +707,9 @@ export var CreateBackendStorageResourceConfig: StaticStructureSchema = [
   0,
   [_BN, _P, _SN],
   [
-    [
-      0,
-      {
-        [_jN]: _bN,
-      },
-    ],
-    [
-      () => BackendStoragePermissions,
-      {
-        [_jN]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sN,
-      },
-    ],
+    [0, { [_jN]: _bN }],
+    [() => BackendStoragePermissions, { [_jN]: _p }],
+    [0, { [_jN]: _sN }],
   ],
 ];
 export var CreateBackendStorageResponse: StaticStructureSchema = [
@@ -1288,30 +719,10 @@ export var CreateBackendStorageResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _JI, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var CreateTokenRequest: StaticStructureSchema = [3, n0, _CTR, 0, [_AI], [[0, 1]]];
@@ -1322,30 +733,10 @@ export var CreateTokenResponse: StaticStructureSchema = [
   0,
   [_AI, _CC, _SI, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _cC }],
+    [0, { [_jN]: _sI }],
+    [0, { [_jN]: _t }],
   ],
 ];
 export var DeleteBackendAPIRequest: StaticStructureSchema = [
@@ -1357,18 +748,8 @@ export var DeleteBackendAPIRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      () => BackendAPIResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [() => BackendAPIResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var DeleteBackendAPIResponse: StaticStructureSchema = [
@@ -1378,42 +759,12 @@ export var DeleteBackendAPIResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var DeleteBackendAuthRequest: StaticStructureSchema = [
@@ -1425,12 +776,7 @@ export var DeleteBackendAuthRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var DeleteBackendAuthResponse: StaticStructureSchema = [
@@ -1440,42 +786,12 @@ export var DeleteBackendAuthResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var DeleteBackendRequest: StaticStructureSchema = [
@@ -1496,42 +812,12 @@ export var DeleteBackendResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var DeleteBackendStorageRequest: StaticStructureSchema = [
@@ -1543,18 +829,8 @@ export var DeleteBackendStorageRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sN,
-      },
-    ],
+    [0, { [_jN]: _rN }],
+    [0, { [_jN]: _sN }],
   ],
 ];
 export var DeleteBackendStorageResponse: StaticStructureSchema = [
@@ -1564,30 +840,10 @@ export var DeleteBackendStorageResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _JI, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var DeleteTokenRequest: StaticStructureSchema = [
@@ -1601,21 +857,7 @@ export var DeleteTokenRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTokenResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DTRe,
-  0,
-  [_IS],
-  [
-    [
-      2,
-      {
-        [_jN]: _iS,
-      },
-    ],
-  ],
-];
+export var DeleteTokenResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [_IS], [[2, { [_jN]: _iS }]]];
 export var EmailSettings: StaticStructureSchema = [
   3,
   n0,
@@ -1623,40 +865,19 @@ export var EmailSettings: StaticStructureSchema = [
   8,
   [_EM, _ESm],
   [
-    [
-      0,
-      {
-        [_jN]: _eM,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eSm,
-      },
-    ],
+    [0, { [_jN]: _eM }],
+    [0, { [_jN]: _eSm }],
   ],
 ];
 export var GatewayTimeoutException: StaticErrorSchema = [
   -3,
   n0,
   _GTE,
-  {
-    [_e]: _ser,
-    [_hE]: 504,
-  },
+  { [_e]: _ser, [_hE]: 504 },
   [_Me],
-  [
-    [
-      0,
-      {
-        [_jN]: _me,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _me }]],
 ];
 TypeRegistry.for(n0).registerError(GatewayTimeoutException, __GatewayTimeoutException);
-
 export var GenerateBackendAPIModelsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1666,12 +887,7 @@ export var GenerateBackendAPIModelsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GenerateBackendAPIModelsResponse: StaticStructureSchema = [
@@ -1681,42 +897,12 @@ export var GenerateBackendAPIModelsResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var GetBackendAPIModelsRequest: StaticStructureSchema = [
@@ -1728,12 +914,7 @@ export var GetBackendAPIModelsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GetBackendAPIModelsResponse: StaticStructureSchema = [
@@ -1743,24 +924,9 @@ export var GetBackendAPIModelsResponse: StaticStructureSchema = [
   0,
   [_Mo, _St, _MIS],
   [
-    [
-      0,
-      {
-        [_jN]: _mo,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _mIS,
-      },
-    ],
+    [0, { [_jN]: _mo }],
+    [0, { [_jN]: _st }],
+    [0, { [_jN]: _mIS }],
   ],
 ];
 export var GetBackendAPIRequest: StaticStructureSchema = [
@@ -1772,18 +938,8 @@ export var GetBackendAPIRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      () => BackendAPIResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [() => BackendAPIResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GetBackendAPIResponse: StaticStructureSchema = [
@@ -1793,36 +949,11 @@ export var GetBackendAPIResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _RC, _RN],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      () => BackendAPIResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [() => BackendAPIResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GetBackendAuthRequest: StaticStructureSchema = [
@@ -1834,12 +965,7 @@ export var GetBackendAuthRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GetBackendAuthResponse: StaticStructureSchema = [
@@ -1849,36 +975,11 @@ export var GetBackendAuthResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _RC, _RN],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      () => CreateBackendAuthResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [() => CreateBackendAuthResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GetBackendJobRequest: StaticStructureSchema = [
@@ -1900,54 +1001,14 @@ export var GetBackendJobResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _CT, _E, _JI, _O, _St, _UT],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uT,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _cT }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
+    [0, { [_jN]: _uT }],
   ],
 ];
 export var GetBackendRequest: StaticStructureSchema = [
@@ -1958,12 +1019,7 @@ export var GetBackendRequest: StaticStructureSchema = [
   [_AI, _BEN],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
+    [0, { [_jN]: _bEN }],
   ],
 ];
 export var GetBackendResponse: StaticStructureSchema = [
@@ -1973,48 +1029,13 @@ export var GetBackendResponse: StaticStructureSchema = [
   0,
   [_AFF, _AMC, _AI, _ANp, _BEL, _BEN, _E],
   [
-    [
-      0,
-      {
-        [_jN]: _aFF,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aMC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aNp,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _bEL,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
+    [0, { [_jN]: _aFF }],
+    [0, { [_jN]: _aMC }],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _aNp }],
+    [64 | 0, { [_jN]: _bEL }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
   ],
 ];
 export var GetBackendStorageRequest: StaticStructureSchema = [
@@ -2026,12 +1047,7 @@ export var GetBackendStorageRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GetBackendStorageResourceConfig: StaticStructureSchema = [
@@ -2041,30 +1057,10 @@ export var GetBackendStorageResourceConfig: StaticStructureSchema = [
   0,
   [_BN, _I, _P, _SN],
   [
-    [
-      0,
-      {
-        [_jN]: _bN,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => BackendStoragePermissions,
-      {
-        [_jN]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sN,
-      },
-    ],
+    [0, { [_jN]: _bN }],
+    [2, { [_jN]: _i }],
+    [() => BackendStoragePermissions, { [_jN]: _p }],
+    [0, { [_jN]: _sN }],
   ],
 ];
 export var GetBackendStorageResponse: StaticStructureSchema = [
@@ -2074,30 +1070,10 @@ export var GetBackendStorageResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _RC, _RN],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      () => GetBackendStorageResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [() => GetBackendStorageResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var GetTokenRequest: StaticStructureSchema = [
@@ -2118,30 +1094,10 @@ export var GetTokenResponse: StaticStructureSchema = [
   0,
   [_AI, _CC, _SI, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _cC }],
+    [0, { [_jN]: _sI }],
+    [0, { [_jN]: _t }],
   ],
 ];
 export var ImportBackendAuthRequest: StaticStructureSchema = [
@@ -2153,30 +1109,10 @@ export var ImportBackendAuthRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _iPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nCI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _wCI,
-      },
-    ],
+    [0, { [_jN]: _iPI }],
+    [0, { [_jN]: _nCI }],
+    [0, { [_jN]: _uPI }],
+    [0, { [_jN]: _wCI }],
   ],
 ];
 export var ImportBackendAuthResponse: StaticStructureSchema = [
@@ -2186,42 +1122,12 @@ export var ImportBackendAuthResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var ImportBackendStorageRequest: StaticStructureSchema = [
@@ -2233,18 +1139,8 @@ export var ImportBackendStorageRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _bN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sN,
-      },
-    ],
+    [0, { [_jN]: _bN }],
+    [0, { [_jN]: _sN }],
   ],
 ];
 export var ImportBackendStorageResponse: StaticStructureSchema = [
@@ -2254,30 +1150,10 @@ export var ImportBackendStorageResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _JI, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var ListBackendJobsRequest: StaticStructureSchema = [
@@ -2289,36 +1165,11 @@ export var ListBackendJobsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _jI }],
+    [1, { [_jN]: _mR }],
+    [0, { [_jN]: _nT }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var ListBackendJobsResponse: StaticStructureSchema = [
@@ -2328,35 +1179,11 @@ export var ListBackendJobsResponse: StaticStructureSchema = [
   0,
   [_J, _NT],
   [
-    [
-      () => ListOfBackendJobRespObj,
-      {
-        [_jN]: _j,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => ListOfBackendJobRespObj, { [_jN]: _j }],
+    [0, { [_jN]: _nT }],
   ],
 ];
-export var ListS3BucketsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LSBR,
-  0,
-  [_NT],
-  [
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-  ],
-];
+export var ListS3BucketsRequest: StaticStructureSchema = [3, n0, _LSBR, 0, [_NT], [[0, { [_jN]: _nT }]]];
 export var ListS3BucketsResponse: StaticStructureSchema = [
   3,
   n0,
@@ -2364,18 +1191,8 @@ export var ListS3BucketsResponse: StaticStructureSchema = [
   0,
   [_B, _NT],
   [
-    [
-      () => ListOfS3BucketInfo,
-      {
-        [_jN]: _b,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => ListOfS3BucketInfo, { [_jN]: _b }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var LoginAuthConfigReqObj: StaticStructureSchema = [
@@ -2385,58 +1202,24 @@ export var LoginAuthConfigReqObj: StaticStructureSchema = [
   0,
   [_ACIPI, _ACR, _AUPI, _AUPWCI],
   [
-    [
-      0,
-      {
-        [_jN]: _acipi,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _acr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aupi,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aupwci,
-      },
-    ],
+    [0, { [_jN]: _acipi }],
+    [0, { [_jN]: _acr }],
+    [0, { [_jN]: _aupi }],
+    [0, { [_jN]: _aupwci }],
   ],
 ];
 export var NotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_Me, _RT],
   [
-    [
-      0,
-      {
-        [_jN]: _me,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rT,
-      },
-    ],
+    [0, { [_jN]: _me }],
+    [0, { [_jN]: _rT }],
   ],
 ];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var RemoveAllBackendsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2445,12 +1228,7 @@ export var RemoveAllBackendsRequest: StaticStructureSchema = [
   [_AI, _CAA],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_jN]: _cAA,
-      },
-    ],
+    [2, { [_jN]: _cAA }],
   ],
 ];
 export var RemoveAllBackendsResponse: StaticStructureSchema = [
@@ -2460,54 +1238,15 @@ export var RemoveAllBackendsResponse: StaticStructureSchema = [
   0,
   [_AI, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var RemoveBackendConfigRequest: StaticStructureSchema = [3, n0, _RBCR, 0, [_AI], [[0, 1]]];
-export var RemoveBackendConfigResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _RBCRe,
-  0,
-  [_E],
-  [
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-  ],
-];
+export var RemoveBackendConfigResponse: StaticStructureSchema = [3, n0, _RBCRe, 0, [_E], [[0, { [_jN]: _e }]]];
 export var ResourceConfig: StaticStructureSchema = [3, n0, _RC, 0, [], []];
 export var S3BucketInfo: StaticStructureSchema = [
   3,
@@ -2516,18 +1255,8 @@ export var S3BucketInfo: StaticStructureSchema = [
   0,
   [_CD, _N],
   [
-    [
-      0,
-      {
-        [_jN]: _cD,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
+    [0, { [_jN]: _cD }],
+    [0, { [_jN]: _n }],
   ],
 ];
 export var Settings: StaticStructureSchema = [
@@ -2537,35 +1266,11 @@ export var Settings: StaticStructureSchema = [
   0,
   [_MT, _SM],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _mT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sM,
-      },
-    ],
+    [64 | 0, { [_jN]: _mT }],
+    [0, { [_jN]: _sM }],
   ],
 ];
-export var SmsSettings: StaticStructureSchema = [
-  3,
-  n0,
-  _SS,
-  8,
-  [_SM],
-  [
-    [
-      0,
-      {
-        [_jN]: _sM,
-      },
-    ],
-  ],
-];
+export var SmsSettings: StaticStructureSchema = [3, n0, _SS, 8, [_SM], [[0, { [_jN]: _sM }]]];
 export var SocialProviderSettings: StaticStructureSchema = [
   3,
   n0,
@@ -2583,28 +1288,14 @@ export var TooManyRequestsException: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_LT, _Me],
   [
-    [
-      0,
-      {
-        [_jN]: _lT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _me,
-      },
-    ],
+    [0, { [_jN]: _lT }],
+    [0, { [_jN]: _me }],
   ],
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UpdateBackendAPIRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2614,18 +1305,8 @@ export var UpdateBackendAPIRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      () => BackendAPIResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [() => BackendAPIResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var UpdateBackendAPIResponse: StaticStructureSchema = [
@@ -2635,42 +1316,12 @@ export var UpdateBackendAPIResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var UpdateBackendAuthForgotPasswordConfig: StaticStructureSchema = [
@@ -2680,24 +1331,9 @@ export var UpdateBackendAuthForgotPasswordConfig: StaticStructureSchema = [
   0,
   [_DM, _ES, _SS],
   [
-    [
-      0,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      () => EmailSettings,
-      {
-        [_jN]: _eS,
-      },
-    ],
-    [
-      () => SmsSettings,
-      {
-        [_jN]: _sS,
-      },
-    ],
+    [0, { [_jN]: _dM }],
+    [() => EmailSettings, { [_jN]: _eS }],
+    [() => SmsSettings, { [_jN]: _sS }],
   ],
 ];
 export var UpdateBackendAuthIdentityPoolConfig: StaticStructureSchema = [
@@ -2706,14 +1342,7 @@ export var UpdateBackendAuthIdentityPoolConfig: StaticStructureSchema = [
   _UBAIPC,
   0,
   [_UL],
-  [
-    [
-      2,
-      {
-        [_jN]: _uL,
-      },
-    ],
-  ],
+  [[2, { [_jN]: _uL }]],
 ];
 export var UpdateBackendAuthMFAConfig: StaticStructureSchema = [
   3,
@@ -2721,15 +1350,7 @@ export var UpdateBackendAuthMFAConfig: StaticStructureSchema = [
   _UBAMFAC,
   0,
   [_MFAM, _S],
-  [
-    0,
-    [
-      () => Settings,
-      {
-        [_jN]: _s,
-      },
-    ],
-  ],
+  [0, [() => Settings, { [_jN]: _s }]],
 ];
 export var UpdateBackendAuthOAuthConfig: StaticStructureSchema = [
   3,
@@ -2738,42 +1359,12 @@ export var UpdateBackendAuthOAuthConfig: StaticStructureSchema = [
   0,
   [_DP, _OAGT, _OAS, _RSIURI, _RSOURI, _SPS],
   [
-    [
-      0,
-      {
-        [_jN]: _dP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _oAGT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _oAS,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _rSIURI,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _rSOURI,
-      },
-    ],
-    [
-      () => SocialProviderSettings,
-      {
-        [_jN]: _sPS,
-      },
-    ],
+    [0, { [_jN]: _dP }],
+    [0, { [_jN]: _oAGT }],
+    [64 | 0, { [_jN]: _oAS }],
+    [64 | 0, { [_jN]: _rSIURI }],
+    [64 | 0, { [_jN]: _rSOURI }],
+    [() => SocialProviderSettings, { [_jN]: _sPS }],
   ],
 ];
 export var UpdateBackendAuthPasswordPolicyConfig: StaticStructureSchema = [
@@ -2783,18 +1374,8 @@ export var UpdateBackendAuthPasswordPolicyConfig: StaticStructureSchema = [
   0,
   [_AC, _ML],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _aC,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mL,
-      },
-    ],
+    [64 | 0, { [_jN]: _aC }],
+    [1, { [_jN]: _mL }],
   ],
 ];
 export var UpdateBackendAuthRequest: StaticStructureSchema = [
@@ -2806,18 +1387,8 @@ export var UpdateBackendAuthRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      () => UpdateBackendAuthResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [() => UpdateBackendAuthResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var UpdateBackendAuthResourceConfig: StaticStructureSchema = [
@@ -2827,30 +1398,10 @@ export var UpdateBackendAuthResourceConfig: StaticStructureSchema = [
   0,
   [_AR, _IPC, _Se, _UPC],
   [
-    [
-      0,
-      {
-        [_jN]: _aR,
-      },
-    ],
-    [
-      () => UpdateBackendAuthIdentityPoolConfig,
-      {
-        [_jN]: _iPC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _se,
-      },
-    ],
-    [
-      () => UpdateBackendAuthUserPoolConfig,
-      {
-        [_jN]: _uPC,
-      },
-    ],
+    [0, { [_jN]: _aR }],
+    [() => UpdateBackendAuthIdentityPoolConfig, { [_jN]: _iPC }],
+    [0, { [_jN]: _se }],
+    [() => UpdateBackendAuthUserPoolConfig, { [_jN]: _uPC }],
   ],
 ];
 export var UpdateBackendAuthResponse: StaticStructureSchema = [
@@ -2860,42 +1411,12 @@ export var UpdateBackendAuthResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _E, _JI, _O, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var UpdateBackendAuthUserPoolConfig: StaticStructureSchema = [
@@ -2905,36 +1426,11 @@ export var UpdateBackendAuthUserPoolConfig: StaticStructureSchema = [
   0,
   [_FP, _Mf, _OA, _PP, _VM],
   [
-    [
-      () => UpdateBackendAuthForgotPasswordConfig,
-      {
-        [_jN]: _fP,
-      },
-    ],
-    [
-      () => UpdateBackendAuthMFAConfig,
-      {
-        [_jN]: _mf,
-      },
-    ],
-    [
-      () => UpdateBackendAuthOAuthConfig,
-      {
-        [_jN]: _oA,
-      },
-    ],
-    [
-      () => UpdateBackendAuthPasswordPolicyConfig,
-      {
-        [_jN]: _pP,
-      },
-    ],
-    [
-      () => UpdateBackendAuthVerificationMessageConfig,
-      {
-        [_jN]: _vM,
-      },
-    ],
+    [() => UpdateBackendAuthForgotPasswordConfig, { [_jN]: _fP }],
+    [() => UpdateBackendAuthMFAConfig, { [_jN]: _mf }],
+    [() => UpdateBackendAuthOAuthConfig, { [_jN]: _oA }],
+    [() => UpdateBackendAuthPasswordPolicyConfig, { [_jN]: _pP }],
+    [() => UpdateBackendAuthVerificationMessageConfig, { [_jN]: _vM }],
   ],
 ];
 export var UpdateBackendAuthVerificationMessageConfig: StaticStructureSchema = [
@@ -2944,24 +1440,9 @@ export var UpdateBackendAuthVerificationMessageConfig: StaticStructureSchema = [
   0,
   [_DM, _ES, _SS],
   [
-    [
-      0,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      () => EmailSettings,
-      {
-        [_jN]: _eS,
-      },
-    ],
-    [
-      () => SmsSettings,
-      {
-        [_jN]: _sS,
-      },
-    ],
+    [0, { [_jN]: _dM }],
+    [() => EmailSettings, { [_jN]: _eS }],
+    [() => SmsSettings, { [_jN]: _sS }],
   ],
 ];
 export var UpdateBackendConfigRequest: StaticStructureSchema = [
@@ -2972,12 +1453,7 @@ export var UpdateBackendConfigRequest: StaticStructureSchema = [
   [_AI, _LAC],
   [
     [0, 1],
-    [
-      () => LoginAuthConfigReqObj,
-      {
-        [_jN]: _lAC,
-      },
-    ],
+    [() => LoginAuthConfigReqObj, { [_jN]: _lAC }],
   ],
 ];
 export var UpdateBackendConfigResponse: StaticStructureSchema = [
@@ -2987,30 +1463,10 @@ export var UpdateBackendConfigResponse: StaticStructureSchema = [
   0,
   [_AI, _BMAI, _E, _LAC],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bMAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      () => LoginAuthConfigReqObj,
-      {
-        [_jN]: _lAC,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bMAI }],
+    [0, { [_jN]: _e }],
+    [() => LoginAuthConfigReqObj, { [_jN]: _lAC }],
   ],
 ];
 export var UpdateBackendJobRequest: StaticStructureSchema = [
@@ -3023,18 +1479,8 @@ export var UpdateBackendJobRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var UpdateBackendJobResponse: StaticStructureSchema = [
@@ -3044,54 +1490,14 @@ export var UpdateBackendJobResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _CT, _E, _JI, _O, _St, _UT],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _e,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uT,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _cT }],
+    [0, { [_jN]: _e }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _o }],
+    [0, { [_jN]: _st }],
+    [0, { [_jN]: _uT }],
   ],
 ];
 export var UpdateBackendStorageRequest: StaticStructureSchema = [
@@ -3103,18 +1509,8 @@ export var UpdateBackendStorageRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      () => UpdateBackendStorageResourceConfig,
-      {
-        [_jN]: _rC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
+    [() => UpdateBackendStorageResourceConfig, { [_jN]: _rC }],
+    [0, { [_jN]: _rN }],
   ],
 ];
 export var UpdateBackendStorageResourceConfig: StaticStructureSchema = [
@@ -3124,18 +1520,8 @@ export var UpdateBackendStorageResourceConfig: StaticStructureSchema = [
   0,
   [_P, _SN],
   [
-    [
-      () => BackendStoragePermissions,
-      {
-        [_jN]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sN,
-      },
-    ],
+    [() => BackendStoragePermissions, { [_jN]: _p }],
+    [0, { [_jN]: _sN }],
   ],
 ];
 export var UpdateBackendStorageResponse: StaticStructureSchema = [
@@ -3145,61 +1531,30 @@ export var UpdateBackendStorageResponse: StaticStructureSchema = [
   0,
   [_AI, _BEN, _JI, _St],
   [
-    [
-      0,
-      {
-        [_jN]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _jI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _st,
-      },
-    ],
+    [0, { [_jN]: _aI }],
+    [0, { [_jN]: _bEN }],
+    [0, { [_jN]: _jI }],
+    [0, { [_jN]: _st }],
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var AmplifyBackendServiceException: StaticErrorSchema = [-3, _sm, "AmplifyBackendServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AmplifyBackendServiceException, __AmplifyBackendServiceException);
-
 export var ListOf__string = 64 | 0;
-
 export var ListOfAdditionalConstraintsElement = 64 | 0;
-
 export var ListOfAuthenticatedElement = 64 | 0;
-
 export var ListOfBackendAPIAuthType: StaticListSchema = [1, n0, _LOBAPIAT, 0, [() => BackendAPIAuthType, 0]];
 export var ListOfBackendJobRespObj: StaticListSchema = [1, n0, _LOBJRO, 0, [() => BackendJobRespObj, 0]];
 export var ListOfMfaTypesElement = 64 | 0;
-
 export var ListOfOAuthScopesElement = 64 | 0;
-
 export var ListOfRequiredSignUpAttributesElement = 64 | 0;
-
 export var ListOfS3BucketInfo: StaticListSchema = [1, n0, _LOSBI, 0, [() => S3BucketInfo, 0]];
 export var ListOfUnAuthenticatedElement = 64 | 0;
-
 export var CloneBackend: StaticOperationSchema = [
   9,
   n0,
   _CB,
-  {
-    [_h]: ["POST", "/backend/{AppId}/environments/{BackendEnvironmentName}/clone", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/environments/{BackendEnvironmentName}/clone", 200] },
   () => CloneBackendRequest,
   () => CloneBackendResponse,
 ];
@@ -3207,9 +1562,7 @@ export var CreateBackend: StaticOperationSchema = [
   9,
   n0,
   _CBr,
-  {
-    [_h]: ["POST", "/backend", 200],
-  },
+  { [_h]: ["POST", "/backend", 200] },
   () => CreateBackendRequest,
   () => CreateBackendResponse,
 ];
@@ -3217,9 +1570,7 @@ export var CreateBackendAPI: StaticOperationSchema = [
   9,
   n0,
   _CBAPI,
-  {
-    [_h]: ["POST", "/backend/{AppId}/api", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/api", 200] },
   () => CreateBackendAPIRequest,
   () => CreateBackendAPIResponse,
 ];
@@ -3227,9 +1578,7 @@ export var CreateBackendAuth: StaticOperationSchema = [
   9,
   n0,
   _CBA,
-  {
-    [_h]: ["POST", "/backend/{AppId}/auth", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/auth", 200] },
   () => CreateBackendAuthRequest,
   () => CreateBackendAuthResponse,
 ];
@@ -3237,9 +1586,7 @@ export var CreateBackendConfig: StaticOperationSchema = [
   9,
   n0,
   _CBC,
-  {
-    [_h]: ["POST", "/backend/{AppId}/config", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/config", 200] },
   () => CreateBackendConfigRequest,
   () => CreateBackendConfigResponse,
 ];
@@ -3247,9 +1594,7 @@ export var CreateBackendStorage: StaticOperationSchema = [
   9,
   n0,
   _CBS,
-  {
-    [_h]: ["POST", "/backend/{AppId}/storage", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/storage", 200] },
   () => CreateBackendStorageRequest,
   () => CreateBackendStorageResponse,
 ];
@@ -3257,9 +1602,7 @@ export var CreateToken: StaticOperationSchema = [
   9,
   n0,
   _CTr,
-  {
-    [_h]: ["POST", "/backend/{AppId}/challenge", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/challenge", 200] },
   () => CreateTokenRequest,
   () => CreateTokenResponse,
 ];
@@ -3267,9 +1610,7 @@ export var DeleteBackend: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["POST", "/backend/{AppId}/environments/{BackendEnvironmentName}/remove", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/environments/{BackendEnvironmentName}/remove", 200] },
   () => DeleteBackendRequest,
   () => DeleteBackendResponse,
 ];
@@ -3277,9 +1618,7 @@ export var DeleteBackendAPI: StaticOperationSchema = [
   9,
   n0,
   _DBAPI,
-  {
-    [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/remove", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/remove", 200] },
   () => DeleteBackendAPIRequest,
   () => DeleteBackendAPIResponse,
 ];
@@ -3287,9 +1626,7 @@ export var DeleteBackendAuth: StaticOperationSchema = [
   9,
   n0,
   _DBA,
-  {
-    [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}/remove", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}/remove", 200] },
   () => DeleteBackendAuthRequest,
   () => DeleteBackendAuthResponse,
 ];
@@ -3297,9 +1634,7 @@ export var DeleteBackendStorage: StaticOperationSchema = [
   9,
   n0,
   _DBS,
-  {
-    [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}/remove", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}/remove", 200] },
   () => DeleteBackendStorageRequest,
   () => DeleteBackendStorageResponse,
 ];
@@ -3307,9 +1642,7 @@ export var DeleteToken: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["POST", "/backend/{AppId}/challenge/{SessionId}/remove", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/challenge/{SessionId}/remove", 200] },
   () => DeleteTokenRequest,
   () => DeleteTokenResponse,
 ];
@@ -3317,9 +1650,7 @@ export var GenerateBackendAPIModels: StaticOperationSchema = [
   9,
   n0,
   _GBAPIM,
-  {
-    [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/generateModels", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/generateModels", 200] },
   () => GenerateBackendAPIModelsRequest,
   () => GenerateBackendAPIModelsResponse,
 ];
@@ -3327,9 +1658,7 @@ export var GetBackend: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["POST", "/backend/{AppId}/details", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/details", 200] },
   () => GetBackendRequest,
   () => GetBackendResponse,
 ];
@@ -3337,9 +1666,7 @@ export var GetBackendAPI: StaticOperationSchema = [
   9,
   n0,
   _GBAPI,
-  {
-    [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/details", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/details", 200] },
   () => GetBackendAPIRequest,
   () => GetBackendAPIResponse,
 ];
@@ -3347,9 +1674,7 @@ export var GetBackendAPIModels: StaticOperationSchema = [
   9,
   n0,
   _GBAPIMe,
-  {
-    [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/getModels", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}/getModels", 200] },
   () => GetBackendAPIModelsRequest,
   () => GetBackendAPIModelsResponse,
 ];
@@ -3357,9 +1682,7 @@ export var GetBackendAuth: StaticOperationSchema = [
   9,
   n0,
   _GBA,
-  {
-    [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}/details", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}/details", 200] },
   () => GetBackendAuthRequest,
   () => GetBackendAuthResponse,
 ];
@@ -3367,9 +1690,7 @@ export var GetBackendJob: StaticOperationSchema = [
   9,
   n0,
   _GBJ,
-  {
-    [_h]: ["GET", "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}", 200],
-  },
+  { [_h]: ["GET", "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}", 200] },
   () => GetBackendJobRequest,
   () => GetBackendJobResponse,
 ];
@@ -3377,9 +1698,7 @@ export var GetBackendStorage: StaticOperationSchema = [
   9,
   n0,
   _GBS,
-  {
-    [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}/details", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}/details", 200] },
   () => GetBackendStorageRequest,
   () => GetBackendStorageResponse,
 ];
@@ -3387,9 +1706,7 @@ export var GetToken: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["GET", "/backend/{AppId}/challenge/{SessionId}", 200],
-  },
+  { [_h]: ["GET", "/backend/{AppId}/challenge/{SessionId}", 200] },
   () => GetTokenRequest,
   () => GetTokenResponse,
 ];
@@ -3397,9 +1714,7 @@ export var ImportBackendAuth: StaticOperationSchema = [
   9,
   n0,
   _IBA,
-  {
-    [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}/import", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}/import", 200] },
   () => ImportBackendAuthRequest,
   () => ImportBackendAuthResponse,
 ];
@@ -3407,9 +1722,7 @@ export var ImportBackendStorage: StaticOperationSchema = [
   9,
   n0,
   _IBS,
-  {
-    [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}/import", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}/import", 200] },
   () => ImportBackendStorageRequest,
   () => ImportBackendStorageResponse,
 ];
@@ -3417,9 +1730,7 @@ export var ListBackendJobs: StaticOperationSchema = [
   9,
   n0,
   _LBJ,
-  {
-    [_h]: ["POST", "/backend/{AppId}/job/{BackendEnvironmentName}", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/job/{BackendEnvironmentName}", 200] },
   () => ListBackendJobsRequest,
   () => ListBackendJobsResponse,
 ];
@@ -3427,9 +1738,7 @@ export var ListS3Buckets: StaticOperationSchema = [
   9,
   n0,
   _LSB,
-  {
-    [_h]: ["POST", "/s3Buckets", 200],
-  },
+  { [_h]: ["POST", "/s3Buckets", 200] },
   () => ListS3BucketsRequest,
   () => ListS3BucketsResponse,
 ];
@@ -3437,9 +1746,7 @@ export var RemoveAllBackends: StaticOperationSchema = [
   9,
   n0,
   _RAB,
-  {
-    [_h]: ["POST", "/backend/{AppId}/remove", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/remove", 200] },
   () => RemoveAllBackendsRequest,
   () => RemoveAllBackendsResponse,
 ];
@@ -3447,9 +1754,7 @@ export var RemoveBackendConfig: StaticOperationSchema = [
   9,
   n0,
   _RBC,
-  {
-    [_h]: ["POST", "/backend/{AppId}/config/remove", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/config/remove", 200] },
   () => RemoveBackendConfigRequest,
   () => RemoveBackendConfigResponse,
 ];
@@ -3457,9 +1762,7 @@ export var UpdateBackendAPI: StaticOperationSchema = [
   9,
   n0,
   _UBAPI,
-  {
-    [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/api/{BackendEnvironmentName}", 200] },
   () => UpdateBackendAPIRequest,
   () => UpdateBackendAPIResponse,
 ];
@@ -3467,9 +1770,7 @@ export var UpdateBackendAuth: StaticOperationSchema = [
   9,
   n0,
   _UBA,
-  {
-    [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/auth/{BackendEnvironmentName}", 200] },
   () => UpdateBackendAuthRequest,
   () => UpdateBackendAuthResponse,
 ];
@@ -3477,9 +1778,7 @@ export var UpdateBackendConfig: StaticOperationSchema = [
   9,
   n0,
   _UBC,
-  {
-    [_h]: ["POST", "/backend/{AppId}/config/update", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/config/update", 200] },
   () => UpdateBackendConfigRequest,
   () => UpdateBackendConfigResponse,
 ];
@@ -3487,9 +1786,7 @@ export var UpdateBackendJob: StaticOperationSchema = [
   9,
   n0,
   _UBJ,
-  {
-    [_h]: ["POST", "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}", 200] },
   () => UpdateBackendJobRequest,
   () => UpdateBackendJobResponse,
 ];
@@ -3497,9 +1794,7 @@ export var UpdateBackendStorage: StaticOperationSchema = [
   9,
   n0,
   _UBS,
-  {
-    [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}", 200],
-  },
+  { [_h]: ["POST", "/backend/{AppId}/storage/{BackendEnvironmentName}", 200] },
   () => UpdateBackendStorageRequest,
   () => UpdateBackendStorageResponse,
 ];

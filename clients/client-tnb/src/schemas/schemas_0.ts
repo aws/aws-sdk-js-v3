@@ -264,21 +264,9 @@ import {
 import { TnbServiceException as __TnbServiceException } from "../models/TnbServiceException";
 
 /* eslint no-var: 0 */
-
 export var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CancelSolNetworkOperationInput: StaticStructureSchema = [3, n0, _CSNOI, 0, [_nLOOI], [[0, 1]]];
 export var CreateSolFunctionPackageInput: StaticStructureSchema = [3, n0, _CSFPI, 0, [_t], [[() => TagMap, 0]]];
 export var CreateSolFunctionPackageOutput: StaticStructureSchema = [
@@ -337,12 +325,7 @@ export var GetSolFunctionPackageContentInput: StaticStructureSchema = [
   [_vPI, _ac],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
+    [0, { [_hH]: _A }],
   ],
 ];
 export var GetSolFunctionPackageContentOutput: StaticStructureSchema = [
@@ -352,12 +335,7 @@ export var GetSolFunctionPackageContentOutput: StaticStructureSchema = [
   0,
   [_cT, _pC],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [21, 16],
   ],
 ];
@@ -369,12 +347,7 @@ export var GetSolFunctionPackageDescriptorInput: StaticStructureSchema = [
   [_vPI, _ac],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
+    [0, { [_hH]: _A }],
   ],
 ];
 export var GetSolFunctionPackageDescriptorOutput: StaticStructureSchema = [
@@ -384,12 +357,7 @@ export var GetSolFunctionPackageDescriptorOutput: StaticStructureSchema = [
   0,
   [_cT, _v],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [21, 16],
   ],
 ];
@@ -465,12 +433,7 @@ export var GetSolNetworkPackageContentInput: StaticStructureSchema = [
   [_nII, _ac],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
+    [0, { [_hH]: _A }],
   ],
 ];
 export var GetSolNetworkPackageContentOutput: StaticStructureSchema = [
@@ -480,12 +443,7 @@ export var GetSolNetworkPackageContentOutput: StaticStructureSchema = [
   0,
   [_cT, _nC],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [21, 16],
   ],
 ];
@@ -497,12 +455,7 @@ export var GetSolNetworkPackageDescriptorOutput: StaticStructureSchema = [
   0,
   [_cT, _n],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [21, 16],
   ],
 ];
@@ -540,17 +493,7 @@ export var InstantiateSolNetworkInstanceInput: StaticStructureSchema = [
   _ISNII,
   0,
   [_nIIs, _dR, _aPFN, _t],
-  [
-    [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _dr,
-      },
-    ],
-    15,
-    [() => TagMap, 0],
-  ],
+  [[0, 1], [2, { [_hQ]: _dr }], 15, [() => TagMap, 0]],
 ];
 export var InstantiateSolNetworkInstanceOutput: StaticStructureSchema = [
   3,
@@ -560,19 +503,8 @@ export var InstantiateSolNetworkInstanceOutput: StaticStructureSchema = [
   [_nLOOI, _t],
   [0, [() => TagMap, 0]],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LcmOperationInfo: StaticStructureSchema = [3, n0, _LOI, 0, [_nLOOI], [0]];
 export var ListSolFunctionInstanceInfo: StaticStructureSchema = [
   3,
@@ -590,18 +522,8 @@ export var ListSolFunctionInstancesInput: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nom,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nom }],
   ],
 ];
 export var ListSolFunctionInstancesOutput: StaticStructureSchema = [
@@ -628,18 +550,8 @@ export var ListSolFunctionPackagesInput: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nom,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nom }],
   ],
 ];
 export var ListSolFunctionPackagesOutput: StaticStructureSchema = [
@@ -666,18 +578,8 @@ export var ListSolNetworkInstancesInput: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nom,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nom }],
   ],
 ];
 export var ListSolNetworkInstancesOutput: StaticStructureSchema = [
@@ -703,24 +605,9 @@ export var ListSolNetworkOperationsInput: StaticStructureSchema = [
   0,
   [_nIIs, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nIIs,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nom,
-      },
-    ],
+    [0, { [_hQ]: _nIIs }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nom }],
   ],
 ];
 export var ListSolNetworkOperationsMetadata: StaticStructureSchema = [
@@ -755,18 +642,8 @@ export var ListSolNetworkPackagesInput: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nom,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nom }],
   ],
 ];
 export var ListSolNetworkPackagesOutput: StaticStructureSchema = [
@@ -790,12 +667,7 @@ export var PutSolFunctionPackageContentInput: StaticStructureSchema = [
   [_vPI, _cT, _f],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [() => SensitiveBlob, 16],
   ],
 ];
@@ -823,12 +695,7 @@ export var PutSolNetworkPackageContentInput: StaticStructureSchema = [
   [_nII, _cT, _f],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [() => SensitiveBlob, 16],
   ],
 ];
@@ -848,32 +715,10 @@ export var PutSolNetworkPackageContentOutput: StaticStructureSchema = [
   [_i, _a, _nI, _nNs, _nV, _vPIn, _me],
   [0, 0, 0, 0, 0, 64 | 0, () => PutSolNetworkPackageContentMetadata],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -905,19 +750,8 @@ export var TerminateSolNetworkInstanceOutput: StaticStructureSchema = [
   [_nLOOI, _t],
   [0, [() => TagMap, 0]],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ToscaOverride: StaticStructureSchema = [3, n0, _TO, 0, [_na, _dV], [0, 0]];
 export var UntagResourceInput: StaticStructureSchema = [
   3,
@@ -927,12 +761,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -967,12 +796,7 @@ export var ValidateSolFunctionPackageContentInput: StaticStructureSchema = [
   [_vPI, _cT, _f],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [() => SensitiveBlob, 16],
   ],
 ];
@@ -1000,12 +824,7 @@ export var ValidateSolNetworkPackageContentInput: StaticStructureSchema = [
   [_nII, _cT, _f],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [() => SensitiveBlob, 16],
   ],
 ];
@@ -1025,24 +844,11 @@ export var ValidateSolNetworkPackageContentOutput: StaticStructureSchema = [
   [_i, _a, _nI, _nNs, _nV, _vPIn, _me],
   [0, 0, 0, 0, 0, 64 | 0, () => ValidateSolNetworkPackageContentMetadata],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var TnbServiceException: StaticErrorSchema = [-3, _sm, "TnbServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TnbServiceException, __TnbServiceException);
-
 export var GetSolNetworkOperationTasksList: StaticListSchema = [
   1,
   n0,
@@ -1058,19 +864,14 @@ export var ListSolNetworkOperationsResources: StaticListSchema = [1, n0, _LSNOR,
 export var ListSolNetworkPackageResources: StaticListSchema = [1, n0, _LSNPR, 0, () => ListSolNetworkPackageInfo];
 export var OverrideList: StaticListSchema = [1, n0, _OL, 0, () => ToscaOverride];
 export var TagKeys = 64 | 0;
-
 export var VnfPkgIdList = 64 | 0;
-
 export var StringMap = 128 | 0;
-
 export var TagMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
 export var CancelSolNetworkOperation: StaticOperationSchema = [
   9,
   n0,
   _CSNO,
-  {
-    [_h]: ["POST", "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel", 202],
-  },
+  { [_h]: ["POST", "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel", 202] },
   () => CancelSolNetworkOperationInput,
   () => __Unit,
 ];
@@ -1078,9 +879,7 @@ export var CreateSolFunctionPackage: StaticOperationSchema = [
   9,
   n0,
   _CSFP,
-  {
-    [_h]: ["POST", "/sol/vnfpkgm/v1/vnf_packages", 201],
-  },
+  { [_h]: ["POST", "/sol/vnfpkgm/v1/vnf_packages", 201] },
   () => CreateSolFunctionPackageInput,
   () => CreateSolFunctionPackageOutput,
 ];
@@ -1088,9 +887,7 @@ export var CreateSolNetworkInstance: StaticOperationSchema = [
   9,
   n0,
   _CSNI,
-  {
-    [_h]: ["POST", "/sol/nslcm/v1/ns_instances", 201],
-  },
+  { [_h]: ["POST", "/sol/nslcm/v1/ns_instances", 201] },
   () => CreateSolNetworkInstanceInput,
   () => CreateSolNetworkInstanceOutput,
 ];
@@ -1098,9 +895,7 @@ export var CreateSolNetworkPackage: StaticOperationSchema = [
   9,
   n0,
   _CSNP,
-  {
-    [_h]: ["POST", "/sol/nsd/v1/ns_descriptors", 201],
-  },
+  { [_h]: ["POST", "/sol/nsd/v1/ns_descriptors", 201] },
   () => CreateSolNetworkPackageInput,
   () => CreateSolNetworkPackageOutput,
 ];
@@ -1108,9 +903,7 @@ export var DeleteSolFunctionPackage: StaticOperationSchema = [
   9,
   n0,
   _DSFP,
-  {
-    [_h]: ["DELETE", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}", 204],
-  },
+  { [_h]: ["DELETE", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}", 204] },
   () => DeleteSolFunctionPackageInput,
   () => __Unit,
 ];
@@ -1118,9 +911,7 @@ export var DeleteSolNetworkInstance: StaticOperationSchema = [
   9,
   n0,
   _DSNI,
-  {
-    [_h]: ["DELETE", "/sol/nslcm/v1/ns_instances/{nsInstanceId}", 204],
-  },
+  { [_h]: ["DELETE", "/sol/nslcm/v1/ns_instances/{nsInstanceId}", 204] },
   () => DeleteSolNetworkInstanceInput,
   () => __Unit,
 ];
@@ -1128,9 +919,7 @@ export var DeleteSolNetworkPackage: StaticOperationSchema = [
   9,
   n0,
   _DSNP,
-  {
-    [_h]: ["DELETE", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}", 204],
-  },
+  { [_h]: ["DELETE", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}", 204] },
   () => DeleteSolNetworkPackageInput,
   () => __Unit,
 ];
@@ -1138,9 +927,7 @@ export var GetSolFunctionInstance: StaticOperationSchema = [
   9,
   n0,
   _GSFI,
-  {
-    [_h]: ["GET", "/sol/vnflcm/v1/vnf_instances/{vnfInstanceId}", 200],
-  },
+  { [_h]: ["GET", "/sol/vnflcm/v1/vnf_instances/{vnfInstanceId}", 200] },
   () => GetSolFunctionInstanceInput,
   () => GetSolFunctionInstanceOutput,
 ];
@@ -1148,9 +935,7 @@ export var GetSolFunctionPackage: StaticOperationSchema = [
   9,
   n0,
   _GSFP,
-  {
-    [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}", 200],
-  },
+  { [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}", 200] },
   () => GetSolFunctionPackageInput,
   () => GetSolFunctionPackageOutput,
 ];
@@ -1158,9 +943,7 @@ export var GetSolFunctionPackageContent: StaticOperationSchema = [
   9,
   n0,
   _GSFPC,
-  {
-    [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content", 200],
-  },
+  { [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content", 200] },
   () => GetSolFunctionPackageContentInput,
   () => GetSolFunctionPackageContentOutput,
 ];
@@ -1168,9 +951,7 @@ export var GetSolFunctionPackageDescriptor: StaticOperationSchema = [
   9,
   n0,
   _GSFPD,
-  {
-    [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd", 200],
-  },
+  { [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd", 200] },
   () => GetSolFunctionPackageDescriptorInput,
   () => GetSolFunctionPackageDescriptorOutput,
 ];
@@ -1178,9 +959,7 @@ export var GetSolNetworkInstance: StaticOperationSchema = [
   9,
   n0,
   _GSNI,
-  {
-    [_h]: ["GET", "/sol/nslcm/v1/ns_instances/{nsInstanceId}", 200],
-  },
+  { [_h]: ["GET", "/sol/nslcm/v1/ns_instances/{nsInstanceId}", 200] },
   () => GetSolNetworkInstanceInput,
   () => GetSolNetworkInstanceOutput,
 ];
@@ -1188,9 +967,7 @@ export var GetSolNetworkOperation: StaticOperationSchema = [
   9,
   n0,
   _GSNO,
-  {
-    [_h]: ["GET", "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}", 200],
-  },
+  { [_h]: ["GET", "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}", 200] },
   () => GetSolNetworkOperationInput,
   () => GetSolNetworkOperationOutput,
 ];
@@ -1198,9 +975,7 @@ export var GetSolNetworkPackage: StaticOperationSchema = [
   9,
   n0,
   _GSNP,
-  {
-    [_h]: ["GET", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}", 200],
-  },
+  { [_h]: ["GET", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}", 200] },
   () => GetSolNetworkPackageInput,
   () => GetSolNetworkPackageOutput,
 ];
@@ -1208,9 +983,7 @@ export var GetSolNetworkPackageContent: StaticOperationSchema = [
   9,
   n0,
   _GSNPC,
-  {
-    [_h]: ["GET", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content", 200],
-  },
+  { [_h]: ["GET", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content", 200] },
   () => GetSolNetworkPackageContentInput,
   () => GetSolNetworkPackageContentOutput,
 ];
@@ -1218,9 +991,7 @@ export var GetSolNetworkPackageDescriptor: StaticOperationSchema = [
   9,
   n0,
   _GSNPD,
-  {
-    [_h]: ["GET", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd", 200],
-  },
+  { [_h]: ["GET", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd", 200] },
   () => GetSolNetworkPackageDescriptorInput,
   () => GetSolNetworkPackageDescriptorOutput,
 ];
@@ -1228,9 +999,7 @@ export var InstantiateSolNetworkInstance: StaticOperationSchema = [
   9,
   n0,
   _ISNI,
-  {
-    [_h]: ["POST", "/sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate", 201],
-  },
+  { [_h]: ["POST", "/sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate", 201] },
   () => InstantiateSolNetworkInstanceInput,
   () => InstantiateSolNetworkInstanceOutput,
 ];
@@ -1238,9 +1007,7 @@ export var ListSolFunctionInstances: StaticOperationSchema = [
   9,
   n0,
   _LSFI,
-  {
-    [_h]: ["GET", "/sol/vnflcm/v1/vnf_instances", 200],
-  },
+  { [_h]: ["GET", "/sol/vnflcm/v1/vnf_instances", 200] },
   () => ListSolFunctionInstancesInput,
   () => ListSolFunctionInstancesOutput,
 ];
@@ -1248,9 +1015,7 @@ export var ListSolFunctionPackages: StaticOperationSchema = [
   9,
   n0,
   _LSFP,
-  {
-    [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages", 200],
-  },
+  { [_h]: ["GET", "/sol/vnfpkgm/v1/vnf_packages", 200] },
   () => ListSolFunctionPackagesInput,
   () => ListSolFunctionPackagesOutput,
 ];
@@ -1258,9 +1023,7 @@ export var ListSolNetworkInstances: StaticOperationSchema = [
   9,
   n0,
   _LSNI,
-  {
-    [_h]: ["GET", "/sol/nslcm/v1/ns_instances", 200],
-  },
+  { [_h]: ["GET", "/sol/nslcm/v1/ns_instances", 200] },
   () => ListSolNetworkInstancesInput,
   () => ListSolNetworkInstancesOutput,
 ];
@@ -1268,9 +1031,7 @@ export var ListSolNetworkOperations: StaticOperationSchema = [
   9,
   n0,
   _LSNO,
-  {
-    [_h]: ["GET", "/sol/nslcm/v1/ns_lcm_op_occs", 200],
-  },
+  { [_h]: ["GET", "/sol/nslcm/v1/ns_lcm_op_occs", 200] },
   () => ListSolNetworkOperationsInput,
   () => ListSolNetworkOperationsOutput,
 ];
@@ -1278,9 +1039,7 @@ export var ListSolNetworkPackages: StaticOperationSchema = [
   9,
   n0,
   _LSNP,
-  {
-    [_h]: ["GET", "/sol/nsd/v1/ns_descriptors", 200],
-  },
+  { [_h]: ["GET", "/sol/nsd/v1/ns_descriptors", 200] },
   () => ListSolNetworkPackagesInput,
   () => ListSolNetworkPackagesOutput,
 ];
@@ -1288,9 +1047,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -1298,9 +1055,7 @@ export var PutSolFunctionPackageContent: StaticOperationSchema = [
   9,
   n0,
   _PSFPC,
-  {
-    [_h]: ["PUT", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content", 202],
-  },
+  { [_h]: ["PUT", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content", 202] },
   () => PutSolFunctionPackageContentInput,
   () => PutSolFunctionPackageContentOutput,
 ];
@@ -1308,9 +1063,7 @@ export var PutSolNetworkPackageContent: StaticOperationSchema = [
   9,
   n0,
   _PSNPC,
-  {
-    [_h]: ["PUT", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content", 200],
-  },
+  { [_h]: ["PUT", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content", 200] },
   () => PutSolNetworkPackageContentInput,
   () => PutSolNetworkPackageContentOutput,
 ];
@@ -1318,9 +1071,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -1328,9 +1079,7 @@ export var TerminateSolNetworkInstance: StaticOperationSchema = [
   9,
   n0,
   _TSNI,
-  {
-    [_h]: ["POST", "/sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate", 201],
-  },
+  { [_h]: ["POST", "/sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate", 201] },
   () => TerminateSolNetworkInstanceInput,
   () => TerminateSolNetworkInstanceOutput,
 ];
@@ -1338,9 +1087,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -1348,9 +1095,7 @@ export var UpdateSolFunctionPackage: StaticOperationSchema = [
   9,
   n0,
   _USFP,
-  {
-    [_h]: ["PATCH", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}", 200],
-  },
+  { [_h]: ["PATCH", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}", 200] },
   () => UpdateSolFunctionPackageInput,
   () => UpdateSolFunctionPackageOutput,
 ];
@@ -1358,9 +1103,7 @@ export var UpdateSolNetworkInstance: StaticOperationSchema = [
   9,
   n0,
   _USNI,
-  {
-    [_h]: ["POST", "/sol/nslcm/v1/ns_instances/{nsInstanceId}/update", 201],
-  },
+  { [_h]: ["POST", "/sol/nslcm/v1/ns_instances/{nsInstanceId}/update", 201] },
   () => UpdateSolNetworkInstanceInput,
   () => UpdateSolNetworkInstanceOutput,
 ];
@@ -1368,9 +1111,7 @@ export var UpdateSolNetworkPackage: StaticOperationSchema = [
   9,
   n0,
   _USNP,
-  {
-    [_h]: ["PATCH", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}", 200],
-  },
+  { [_h]: ["PATCH", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}", 200] },
   () => UpdateSolNetworkPackageInput,
   () => UpdateSolNetworkPackageOutput,
 ];
@@ -1378,9 +1119,7 @@ export var ValidateSolFunctionPackageContent: StaticOperationSchema = [
   9,
   n0,
   _VSFPC,
-  {
-    [_h]: ["PUT", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content/validate", 202],
-  },
+  { [_h]: ["PUT", "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content/validate", 202] },
   () => ValidateSolFunctionPackageContentInput,
   () => ValidateSolFunctionPackageContentOutput,
 ];
@@ -1388,9 +1127,7 @@ export var ValidateSolNetworkPackageContent: StaticOperationSchema = [
   9,
   n0,
   _VSNPC,
-  {
-    [_h]: ["PUT", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content/validate", 200],
-  },
+  { [_h]: ["PUT", "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content/validate", 200] },
   () => ValidateSolNetworkPackageContentInput,
   () => ValidateSolNetworkPackageContentOutput,
 ];

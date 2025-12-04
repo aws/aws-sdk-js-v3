@@ -208,37 +208,14 @@ import {
 import { TranslateServiceException as __TranslateServiceException } from "../models/TranslateServiceException";
 
 /* eslint no-var: 0 */
-
 export var DocumentContent: StaticSimpleSchema = [0, n0, _DC, 8, 21];
 export var TerminologyFile: StaticSimpleSchema = [0, n0, _TF, 8, 21];
 export var TranslatedDocumentContent: StaticSimpleSchema = [0, n0, _TDC, 8, 21];
 export var AppliedTerminology: StaticStructureSchema = [3, n0, _AT, 0, [_N, _T], [0, () => TermList]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateParallelDataRequest: StaticStructureSchema = [
   3,
   n0,
@@ -264,15 +241,11 @@ export var DetectedLanguageLowConfidenceException: StaticErrorSchema = [
   -3,
   n0,
   _DLLCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _DLC],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(DetectedLanguageLowConfidenceException, __DetectedLanguageLowConfidenceException);
-
 export var Document: StaticStructureSchema = [3, n0, _Do, 0, [_C, _CTo], [[() => DocumentContent, 0], 0]];
 export var EncryptionKey: StaticStructureSchema = [3, n0, _EK, 0, [_Ty, _I], [0, 0]];
 export var GetParallelDataRequest: StaticStructureSchema = [3, n0, _GPDR, 0, [_N], [0]];
@@ -315,73 +288,18 @@ export var ImportTerminologyResponse: StaticStructureSchema = [
   [() => TerminologyProperties, () => TerminologyDataLocation],
 ];
 export var InputDataConfig: StaticStructureSchema = [3, n0, _IDC, 0, [_SU, _CTo], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidFilterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidFilterException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidFilterException, __InvalidFilterException);
-
-export var InvalidParameterValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParameterValueException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var JobDetails: StaticStructureSchema = [3, n0, _JD, 0, [_TDCr, _DWEC, _IDCn], [1, 1, 1]];
 export var Language: StaticStructureSchema = [3, n0, _L, 0, [_LN, _LC], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListLanguagesRequest: StaticStructureSchema = [3, n0, _LLR, 0, [_DLCi, _NT, _MR], [0, 0, 1]];
 export var ListLanguagesResponse: StaticStructureSchema = [
   3,
@@ -438,32 +356,10 @@ export var ParallelDataProperties: StaticStructureSchema = [
   [_N, _A, _D, _S, _SLC, _TLC, _PDC, _M, _IDS, _IRC, _FRC, _SRC, _EK, _CA, _LUA, _LUAS, _LUAA],
   [0, 0, 0, 0, 0, 64 | 0, () => ParallelDataConfig, 0, 1, 1, 1, 1, () => EncryptionKey, 4, 4, 0, 4],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartTextTranslationJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -496,19 +392,8 @@ export var TerminologyProperties: StaticStructureSchema = [
   [_N, _D, _A, _SLC, _TLC, _EK, _SB, _TC, _CA, _LUA, _Di, _M, _STC, _Fo],
   [0, 0, 0, 0, 64 | 0, () => EncryptionKey, 1, 1, 4, 4, 0, 0, 1, 0],
 ];
-export var TextSizeLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TextSizeLimitExceededException: StaticErrorSchema = [-3, n0, _TSLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TextSizeLimitExceededException, __TextSizeLimitExceededException);
-
 export var TextTranslationJobFilter: StaticStructureSchema = [3, n0, _TTJF, 0, [_JN, _JS, _SBT, _SAT], [0, 0, 4, 4]];
 export var TextTranslationJobProperties: StaticStructureSchema = [
   3,
@@ -534,32 +419,10 @@ export var TextTranslationJobProperties: StaticStructureSchema = [
     () => TranslationSettings,
   ],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _RA],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _RA], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TranslatedDocument: StaticStructureSchema = [3, n0, _TDr, 0, [_C], [[() => TranslatedDocumentContent, 0]]];
 export var TranslateDocumentRequest: StaticStructureSchema = [
   3,
@@ -598,28 +461,20 @@ export var UnsupportedDisplayLanguageCodeException: StaticErrorSchema = [
   -3,
   n0,
   _UDLCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _DLCi],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedDisplayLanguageCodeException, __UnsupportedDisplayLanguageCodeException);
-
 export var UnsupportedLanguagePairException: StaticErrorSchema = [
   -3,
   n0,
   _ULPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _SLC, _TLCa],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedLanguagePairException, __UnsupportedLanguagePairException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateParallelDataRequest: StaticStructureSchema = [
@@ -632,22 +487,16 @@ export var UpdateParallelDataRequest: StaticStructureSchema = [
 ];
 export var UpdateParallelDataResponse: StaticStructureSchema = [3, n0, _UPDRp, 0, [_N, _S, _LUAS, _LUAA], [0, 0, 0, 4]];
 export var __Unit = "unit" as const;
-
 export var TranslateServiceException: StaticErrorSchema = [-3, _sm, "TranslateServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TranslateServiceException, __TranslateServiceException);
-
 export var AppliedTerminologyList: StaticListSchema = [1, n0, _ATL, 0, () => AppliedTerminology];
 export var LanguageCodeStringList = 64 | 0;
-
 export var LanguagesList: StaticListSchema = [1, n0, _LL, 0, () => Language];
 export var ParallelDataPropertiesList: StaticListSchema = [1, n0, _PDPL, 0, () => ParallelDataProperties];
 export var ResourceNameList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetLanguageCodeStringList = 64 | 0;
-
 export var TerminologyPropertiesList: StaticListSchema = [1, n0, _TPL, 0, () => TerminologyProperties];
 export var TermList: StaticListSchema = [1, n0, _TLe, 0, () => Term];
 export var TextTranslationJobPropertiesList: StaticListSchema = [1, n0, _TTJPL, 0, () => TextTranslationJobProperties];

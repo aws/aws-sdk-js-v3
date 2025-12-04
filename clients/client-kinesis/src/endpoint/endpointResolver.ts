@@ -11,6 +11,9 @@ const cache = new EndpointCache({
   params: ["ConsumerARN", "Endpoint", "OperationType", "Region", "ResourceARN", "StreamARN", "UseDualStack", "UseFIPS"],
 });
 
+/**
+ * @internal
+ */
 export const defaultEndpointResolver = (
   endpointParams: EndpointParameters,
   context: { logger?: Logger } = {}

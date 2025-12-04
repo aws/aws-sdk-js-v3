@@ -41,26 +41,26 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof TimestreamInfluxDBClient === "function")
-assert(typeof TimestreamInfluxDB === "function")
+assert(typeof TimestreamInfluxDBClient === "function");
+assert(typeof TimestreamInfluxDB === "function");
 // commands
-assert(typeof CreateDbClusterCommand === "function")
-assert(typeof CreateDbInstanceCommand === "function")
-assert(typeof CreateDbParameterGroupCommand === "function")
-assert(typeof DeleteDbClusterCommand === "function")
-assert(typeof DeleteDbInstanceCommand === "function")
-assert(typeof GetDbClusterCommand === "function")
-assert(typeof GetDbInstanceCommand === "function")
-assert(typeof GetDbParameterGroupCommand === "function")
-assert(typeof ListDbClustersCommand === "function")
-assert(typeof ListDbInstancesCommand === "function")
-assert(typeof ListDbInstancesForClusterCommand === "function")
-assert(typeof ListDbParameterGroupsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateDbClusterCommand === "function")
-assert(typeof UpdateDbInstanceCommand === "function")
+assert(typeof CreateDbClusterCommand === "function");
+assert(typeof CreateDbInstanceCommand === "function");
+assert(typeof CreateDbParameterGroupCommand === "function");
+assert(typeof DeleteDbClusterCommand === "function");
+assert(typeof DeleteDbInstanceCommand === "function");
+assert(typeof GetDbClusterCommand === "function");
+assert(typeof GetDbInstanceCommand === "function");
+assert(typeof GetDbParameterGroupCommand === "function");
+assert(typeof ListDbClustersCommand === "function");
+assert(typeof ListDbInstancesCommand === "function");
+assert(typeof ListDbInstancesForClusterCommand === "function");
+assert(typeof ListDbParameterGroupsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateDbClusterCommand === "function");
+assert(typeof UpdateDbInstanceCommand === "function");
 // enums
 assert(typeof ClusterDeploymentType === "object");
 assert(typeof ClusterStatus === "object");
@@ -78,10 +78,10 @@ assert(typeof NetworkType === "object");
 assert(typeof Status === "object");
 assert(typeof TracingType === "object");
 // errors
-assert(TimestreamInfluxDBServiceException.prototype instanceof Error)
+assert(TimestreamInfluxDBServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListDbClusters === "function")
-assert(typeof paginateListDbInstances === "function")
-assert(typeof paginateListDbInstancesForCluster === "function")
-assert(typeof paginateListDbParameterGroups === "function")
+assert(typeof paginateListDbClusters === "function");
+assert(typeof paginateListDbInstances === "function");
+assert(typeof paginateListDbInstancesForCluster === "function");
+assert(typeof paginateListDbParameterGroups === "function");
 console.log(`TimestreamInfluxDB index test passed.`);

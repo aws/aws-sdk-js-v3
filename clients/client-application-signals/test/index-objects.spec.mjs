@@ -47,32 +47,32 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ApplicationSignalsClient === "function")
-assert(typeof ApplicationSignals === "function")
+assert(typeof ApplicationSignalsClient === "function");
+assert(typeof ApplicationSignals === "function");
 // commands
-assert(typeof BatchGetServiceLevelObjectiveBudgetReportCommand === "function")
-assert(typeof BatchUpdateExclusionWindowsCommand === "function")
-assert(typeof CreateServiceLevelObjectiveCommand === "function")
-assert(typeof DeleteGroupingConfigurationCommand === "function")
-assert(typeof DeleteServiceLevelObjectiveCommand === "function")
-assert(typeof GetServiceCommand === "function")
-assert(typeof GetServiceLevelObjectiveCommand === "function")
-assert(typeof ListAuditFindingsCommand === "function")
-assert(typeof ListEntityEventsCommand === "function")
-assert(typeof ListGroupingAttributeDefinitionsCommand === "function")
-assert(typeof ListServiceDependenciesCommand === "function")
-assert(typeof ListServiceDependentsCommand === "function")
-assert(typeof ListServiceLevelObjectiveExclusionWindowsCommand === "function")
-assert(typeof ListServiceLevelObjectivesCommand === "function")
-assert(typeof ListServiceOperationsCommand === "function")
-assert(typeof ListServicesCommand === "function")
-assert(typeof ListServiceStatesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutGroupingConfigurationCommand === "function")
-assert(typeof StartDiscoveryCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateServiceLevelObjectiveCommand === "function")
+assert(typeof BatchGetServiceLevelObjectiveBudgetReportCommand === "function");
+assert(typeof BatchUpdateExclusionWindowsCommand === "function");
+assert(typeof CreateServiceLevelObjectiveCommand === "function");
+assert(typeof DeleteGroupingConfigurationCommand === "function");
+assert(typeof DeleteServiceLevelObjectiveCommand === "function");
+assert(typeof GetServiceCommand === "function");
+assert(typeof GetServiceLevelObjectiveCommand === "function");
+assert(typeof ListAuditFindingsCommand === "function");
+assert(typeof ListEntityEventsCommand === "function");
+assert(typeof ListGroupingAttributeDefinitionsCommand === "function");
+assert(typeof ListServiceDependenciesCommand === "function");
+assert(typeof ListServiceDependentsCommand === "function");
+assert(typeof ListServiceLevelObjectiveExclusionWindowsCommand === "function");
+assert(typeof ListServiceLevelObjectivesCommand === "function");
+assert(typeof ListServiceOperationsCommand === "function");
+assert(typeof ListServicesCommand === "function");
+assert(typeof ListServiceStatesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutGroupingConfigurationCommand === "function");
+assert(typeof StartDiscoveryCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateServiceLevelObjectiveCommand === "function");
 // enums
 assert(typeof ChangeEventType === "object");
 assert(typeof ConnectionType === "object");
@@ -86,14 +86,14 @@ assert(typeof ServiceLevelObjectiveBudgetStatus === "object");
 assert(typeof Severity === "object");
 assert(typeof StandardUnit === "object");
 // errors
-assert(ApplicationSignalsServiceException.prototype instanceof Error)
+assert(ApplicationSignalsServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListEntityEvents === "function")
-assert(typeof paginateListServiceDependencies === "function")
-assert(typeof paginateListServiceDependents === "function")
-assert(typeof paginateListServiceLevelObjectiveExclusionWindows === "function")
-assert(typeof paginateListServiceLevelObjectives === "function")
-assert(typeof paginateListServiceOperations === "function")
-assert(typeof paginateListServiceStates === "function")
-assert(typeof paginateListServices === "function")
+assert(typeof paginateListEntityEvents === "function");
+assert(typeof paginateListServiceDependencies === "function");
+assert(typeof paginateListServiceDependents === "function");
+assert(typeof paginateListServiceLevelObjectiveExclusionWindows === "function");
+assert(typeof paginateListServiceLevelObjectives === "function");
+assert(typeof paginateListServiceOperations === "function");
+assert(typeof paginateListServiceStates === "function");
+assert(typeof paginateListServices === "function");
 console.log(`ApplicationSignals index test passed.`);

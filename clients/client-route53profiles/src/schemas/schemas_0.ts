@@ -129,19 +129,8 @@ import {
 import { Route53ProfilesServiceException as __Route53ProfilesServiceException } from "../models/Route53ProfilesServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateProfileRequest: StaticStructureSchema = [
   3,
   n0,
@@ -167,18 +156,8 @@ export var AssociateResourceToProfileResponse: StaticStructureSchema = [
   [_PRA],
   [() => ProfileResourceAssociation],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateProfileRequest: StaticStructureSchema = [3, n0, _CPR, 0, [_N, _CT, _T], [0, [0, 4], () => TagList]];
 export var CreateProfileResponse: StaticStructureSchema = [3, n0, _CPRr, 0, [_P], [() => Profile]];
 export var DeleteProfileRequest: StaticStructureSchema = [3, n0, _DPR, 0, [_PI], [[0, 1]]];
@@ -227,54 +206,14 @@ export var GetProfileResourceAssociationResponse: StaticStructureSchema = [
   [() => ProfileResourceAssociation],
 ];
 export var GetProfileResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_P], [() => Profile]];
-export var InternalServiceErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException, __InternalServiceErrorException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M, _FN],
-  [0, 0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M, _FN], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RT],
-  [0, 0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M, _RT], [0, 0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListProfileAssociationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -282,30 +221,10 @@ export var ListProfileAssociationsRequest: StaticStructureSchema = [
   0,
   [_RI, _PI, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rI }],
+    [0, { [_hQ]: _pI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProfileAssociationsResponse: StaticStructureSchema = [
@@ -324,24 +243,9 @@ export var ListProfileResourceAssociationsRequest: StaticStructureSchema = [
   [_PI, _RT, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProfileResourceAssociationsResponse: StaticStructureSchema = [
@@ -359,18 +263,8 @@ export var ListProfilesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProfilesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_PS, _NT], [() => ProfileSummaryList, 0]];
@@ -401,45 +295,15 @@ export var ProfileResourceAssociation: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4],
 ];
 export var ProfileSummary: StaticStructureSchema = [3, n0, _PSr, 0, [_I, _A, _N, _SS], [0, 0, 0, 0]];
-export var ResourceExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _REE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RT],
-  [0, 0],
-];
+export var ResourceExistsException: StaticErrorSchema = [-3, n0, _REE, { [_e]: _c }, [_M, _RT], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceExistsException, __ResourceExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RT],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _RT], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -448,12 +312,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -473,38 +332,22 @@ export var UpdateProfileResourceAssociationResponse: StaticStructureSchema = [
   [_PRA],
   [() => ProfileResourceAssociation],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var Route53ProfilesServiceException: StaticErrorSchema = [-3, _s, "Route53ProfilesServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(Route53ProfilesServiceException, __Route53ProfilesServiceException);
-
 export var ProfileAssociations: StaticListSchema = [1, n0, _PAr, 0, () => ProfileAssociation];
 export var ProfileResourceAssociations: StaticListSchema = [1, n0, _PRAr, 0, () => ProfileResourceAssociation];
 export var ProfileSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => ProfileSummary];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TagMap = 128 | 0;
-
 export var AssociateProfile: StaticOperationSchema = [
   9,
   n0,
   _AP,
-  {
-    [_h]: ["POST", "/profileassociation", 200],
-  },
+  { [_h]: ["POST", "/profileassociation", 200] },
   () => AssociateProfileRequest,
   () => AssociateProfileResponse,
 ];
@@ -512,9 +355,7 @@ export var AssociateResourceToProfile: StaticOperationSchema = [
   9,
   n0,
   _ARTP,
-  {
-    [_h]: ["POST", "/profileresourceassociation", 200],
-  },
+  { [_h]: ["POST", "/profileresourceassociation", 200] },
   () => AssociateResourceToProfileRequest,
   () => AssociateResourceToProfileResponse,
 ];
@@ -522,9 +363,7 @@ export var CreateProfile: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/profile", 200],
-  },
+  { [_h]: ["POST", "/profile", 200] },
   () => CreateProfileRequest,
   () => CreateProfileResponse,
 ];
@@ -532,9 +371,7 @@ export var DeleteProfile: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/profile/{ProfileId}", 200],
-  },
+  { [_h]: ["DELETE", "/profile/{ProfileId}", 200] },
   () => DeleteProfileRequest,
   () => DeleteProfileResponse,
 ];
@@ -542,9 +379,7 @@ export var DisassociateProfile: StaticOperationSchema = [
   9,
   n0,
   _DPi,
-  {
-    [_h]: ["DELETE", "/profileassociation/Profileid/{ProfileId}/resourceid/{ResourceId}", 200],
-  },
+  { [_h]: ["DELETE", "/profileassociation/Profileid/{ProfileId}/resourceid/{ResourceId}", 200] },
   () => DisassociateProfileRequest,
   () => DisassociateProfileResponse,
 ];
@@ -552,9 +387,7 @@ export var DisassociateResourceFromProfile: StaticOperationSchema = [
   9,
   n0,
   _DRFP,
-  {
-    [_h]: ["DELETE", "/profileresourceassociation/profileid/{ProfileId}/resourcearn/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/profileresourceassociation/profileid/{ProfileId}/resourcearn/{ResourceArn}", 200] },
   () => DisassociateResourceFromProfileRequest,
   () => DisassociateResourceFromProfileResponse,
 ];
@@ -562,9 +395,7 @@ export var GetProfile: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/profile/{ProfileId}", 200],
-  },
+  { [_h]: ["GET", "/profile/{ProfileId}", 200] },
   () => GetProfileRequest,
   () => GetProfileResponse,
 ];
@@ -572,9 +403,7 @@ export var GetProfileAssociation: StaticOperationSchema = [
   9,
   n0,
   _GPA,
-  {
-    [_h]: ["GET", "/profileassociation/{ProfileAssociationId}", 200],
-  },
+  { [_h]: ["GET", "/profileassociation/{ProfileAssociationId}", 200] },
   () => GetProfileAssociationRequest,
   () => GetProfileAssociationResponse,
 ];
@@ -582,9 +411,7 @@ export var GetProfileResourceAssociation: StaticOperationSchema = [
   9,
   n0,
   _GPRA,
-  {
-    [_h]: ["GET", "/profileresourceassociation/{ProfileResourceAssociationId}", 200],
-  },
+  { [_h]: ["GET", "/profileresourceassociation/{ProfileResourceAssociationId}", 200] },
   () => GetProfileResourceAssociationRequest,
   () => GetProfileResourceAssociationResponse,
 ];
@@ -592,9 +419,7 @@ export var ListProfileAssociations: StaticOperationSchema = [
   9,
   n0,
   _LPA,
-  {
-    [_h]: ["GET", "/profileassociations", 200],
-  },
+  { [_h]: ["GET", "/profileassociations", 200] },
   () => ListProfileAssociationsRequest,
   () => ListProfileAssociationsResponse,
 ];
@@ -602,9 +427,7 @@ export var ListProfileResourceAssociations: StaticOperationSchema = [
   9,
   n0,
   _LPRA,
-  {
-    [_h]: ["GET", "/profileresourceassociations/profileid/{ProfileId}", 200],
-  },
+  { [_h]: ["GET", "/profileresourceassociations/profileid/{ProfileId}", 200] },
   () => ListProfileResourceAssociationsRequest,
   () => ListProfileResourceAssociationsResponse,
 ];
@@ -612,9 +435,7 @@ export var ListProfiles: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/profiles", 200],
-  },
+  { [_h]: ["GET", "/profiles", 200] },
   () => ListProfilesRequest,
   () => ListProfilesResponse,
 ];
@@ -622,9 +443,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -632,9 +451,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -642,9 +459,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -652,9 +467,7 @@ export var UpdateProfileResourceAssociation: StaticOperationSchema = [
   9,
   n0,
   _UPRA,
-  {
-    [_h]: ["PATCH", "/profileresourceassociation/{ProfileResourceAssociationId}", 200],
-  },
+  { [_h]: ["PATCH", "/profileresourceassociation/{ProfileResourceAssociationId}", 200] },
   () => UpdateProfileResourceAssociationRequest,
   () => UpdateProfileResourceAssociationResponse,
 ];

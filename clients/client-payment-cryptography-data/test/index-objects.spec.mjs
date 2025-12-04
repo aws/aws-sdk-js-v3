@@ -37,22 +37,22 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof PaymentCryptographyDataClient === "function")
-assert(typeof PaymentCryptographyData === "function")
+assert(typeof PaymentCryptographyDataClient === "function");
+assert(typeof PaymentCryptographyData === "function");
 // commands
-assert(typeof DecryptDataCommand === "function")
-assert(typeof EncryptDataCommand === "function")
-assert(typeof GenerateCardValidationDataCommand === "function")
-assert(typeof GenerateMacCommand === "function")
-assert(typeof GenerateMacEmvPinChangeCommand === "function")
-assert(typeof GeneratePinDataCommand === "function")
-assert(typeof ReEncryptDataCommand === "function")
-assert(typeof TranslateKeyMaterialCommand === "function")
-assert(typeof TranslatePinDataCommand === "function")
-assert(typeof VerifyAuthRequestCryptogramCommand === "function")
-assert(typeof VerifyCardValidationDataCommand === "function")
-assert(typeof VerifyMacCommand === "function")
-assert(typeof VerifyPinDataCommand === "function")
+assert(typeof DecryptDataCommand === "function");
+assert(typeof EncryptDataCommand === "function");
+assert(typeof GenerateCardValidationDataCommand === "function");
+assert(typeof GenerateMacCommand === "function");
+assert(typeof GenerateMacEmvPinChangeCommand === "function");
+assert(typeof GeneratePinDataCommand === "function");
+assert(typeof ReEncryptDataCommand === "function");
+assert(typeof TranslateKeyMaterialCommand === "function");
+assert(typeof TranslatePinDataCommand === "function");
+assert(typeof VerifyAuthRequestCryptogramCommand === "function");
+assert(typeof VerifyCardValidationDataCommand === "function");
+assert(typeof VerifyMacCommand === "function");
+assert(typeof VerifyPinDataCommand === "function");
 // enums
 assert(typeof DukptDerivationType === "object");
 assert(typeof DukptEncryptionMode === "object");
@@ -74,5 +74,5 @@ assert(typeof SessionKeyDerivationMode === "object");
 assert(typeof SymmetricKeyAlgorithm === "object");
 assert(typeof WrappedKeyMaterialFormat === "object");
 // errors
-assert(PaymentCryptographyDataServiceException.prototype instanceof Error)
+assert(PaymentCryptographyDataServiceException.prototype instanceof Error);
 console.log(`PaymentCryptographyData index test passed.`);

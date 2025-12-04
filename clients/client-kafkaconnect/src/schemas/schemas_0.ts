@@ -245,7 +245,6 @@ import {
 import { KafkaConnectServiceException as __KafkaConnectServiceException } from "../models/KafkaConnectServiceException";
 
 /* eslint no-var: 0 */
-
 export var __sensitiveString: StaticSimpleSchema = [0, n0, _sS, 8, 0];
 export var ApacheKafkaCluster: StaticStructureSchema = [3, n0, _AKC, 0, [_bS, _v], [0, () => Vpc]];
 export var ApacheKafkaClusterDescription: StaticStructureSchema = [
@@ -280,19 +279,8 @@ export var AutoScalingUpdate: StaticStructureSchema = [
   [_mWC, _mC, _mWCi, _sIP, _sOP],
   [1, 1, 1, () => ScaleInPolicyUpdate, () => ScaleOutPolicyUpdate],
 ];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var Capacity: StaticStructureSchema = [3, n0, _C, 0, [_aS, _pC], [() => AutoScaling, () => ProvisionedCapacity]];
 export var CapacityDescription: StaticStructureSchema = [
   3,
@@ -312,19 +300,8 @@ export var CapacityUpdate: StaticStructureSchema = [
 ];
 export var CloudWatchLogsLogDelivery: StaticStructureSchema = [3, n0, _CWLLD, 0, [_en, _lG], [2, 0]];
 export var CloudWatchLogsLogDeliveryDescription: StaticStructureSchema = [3, n0, _CWLLDD, 0, [_en, _lG], [2, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectorOperationStep: StaticStructureSchema = [3, n0, _COS, 0, [_sT, _sSt], [0, 0]];
 export var ConnectorOperationSummary: StaticStructureSchema = [
   3,
@@ -442,12 +419,7 @@ export var DeleteConnectorRequest: StaticStructureSchema = [
   [_cA, _cV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cV,
-      },
-    ],
+    [0, { [_hQ]: _cV }],
   ],
 ];
 export var DeleteConnectorResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [_cA, _cS], [0, 0]];
@@ -524,32 +496,10 @@ export var DescribeWorkerConfigurationResponse: StaticStructureSchema = [
 ];
 export var FirehoseLogDelivery: StaticStructureSchema = [3, n0, _FLD, 0, [_dS, _en], [0, 2]];
 export var FirehoseLogDeliveryDescription: StaticStructureSchema = [3, n0, _FLDD, 0, [_dS, _en], [0, 2]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
-export var InternalServerErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var KafkaCluster: StaticStructureSchema = [3, n0, _KC, 0, [_aKC], [() => ApacheKafkaCluster]];
 export var KafkaClusterClientAuthentication: StaticStructureSchema = [3, n0, _KCCA, 0, [_aT], [0]];
 export var KafkaClusterClientAuthenticationDescription: StaticStructureSchema = [3, n0, _KCCAD, 0, [_aT], [0]];
@@ -571,18 +521,8 @@ export var ListConnectorOperationsRequest: StaticStructureSchema = [
   [_cA, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListConnectorOperationsResponse: StaticStructureSchema = [
@@ -600,24 +540,9 @@ export var ListConnectorsRequest: StaticStructureSchema = [
   0,
   [_cNP, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _cNP,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cNP }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListConnectorsResponse: StaticStructureSchema = [
@@ -635,24 +560,9 @@ export var ListCustomPluginsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _nP],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nP,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _nP }],
   ],
 ];
 export var ListCustomPluginsResponse: StaticStructureSchema = [
@@ -672,24 +582,9 @@ export var ListWorkerConfigurationsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _nP],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nP,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _nP }],
   ],
 ];
 export var ListWorkerConfigurationsResponse: StaticStructureSchema = [
@@ -709,19 +604,8 @@ export var LogDeliveryDescription: StaticStructureSchema = [
   [_wLD],
   [() => WorkerLogDeliveryDescription],
 ];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var Plugin: StaticStructureSchema = [3, n0, _P, 0, [_cPu], [() => CustomPlugin]];
 export var PluginDescription: StaticStructureSchema = [3, n0, _PD, 0, [_cPu], [() => CustomPluginDescription]];
 export var ProvisionedCapacity: StaticStructureSchema = [3, n0, _PC, 0, [_mC, _wCor], [1, 1]];
@@ -737,48 +621,15 @@ export var ScaleInPolicyUpdate: StaticStructureSchema = [3, n0, _SIPU, 0, [_cUP]
 export var ScaleOutPolicy: StaticStructureSchema = [3, n0, _SOP, 0, [_cUP], [1]];
 export var ScaleOutPolicyDescription: StaticStructureSchema = [3, n0, _SOPD, 0, [_cUP], [1]];
 export var ScaleOutPolicyUpdate: StaticStructureSchema = [3, n0, _SOPU, 0, [_cUP], [1]];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StateDescription: StaticStructureSchema = [3, n0, _SD, 0, [_cod, _m], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -787,12 +638,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -802,17 +648,7 @@ export var UpdateConnectorRequest: StaticStructureSchema = [
   _UCR,
   0,
   [_ca, _cC, _cA, _cV],
-  [
-    () => CapacityUpdate,
-    [() => ConnectorConfigurationUpdate, 0],
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cV,
-      },
-    ],
-  ],
+  [() => CapacityUpdate, [() => ConnectorConfigurationUpdate, 0], [0, 1], [0, { [_hQ]: _cV }]],
 ];
 export var UpdateConnectorResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [_cA, _cS, _cOA], [0, 0, 0]];
 export var Vpc: StaticStructureSchema = [3, n0, _V, 0, [_sG, _su], [64 | 0, 64 | 0]];
@@ -855,9 +691,7 @@ export var WorkerLogDeliveryDescription: StaticStructureSchema = [
 export var WorkerSetting: StaticStructureSchema = [3, n0, _WS, 0, [_ca], [() => CapacityDescription]];
 export var KafkaConnectServiceException: StaticErrorSchema = [-3, _sm, "KafkaConnectServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KafkaConnectServiceException, __KafkaConnectServiceException);
-
 export var __listOf__string = 64 | 0;
-
 export var __listOfConnectorOperationStep: StaticListSchema = [1, n0, _lOCOS, 0, () => ConnectorOperationStep];
 export var __listOfConnectorOperationSummary: StaticListSchema = [1, n0, _lOCOSi, 0, () => ConnectorOperationSummary];
 export var __listOfConnectorSummary: StaticListSchema = [1, n0, _lOCS, 0, () => ConnectorSummary];
@@ -866,18 +700,14 @@ export var __listOfPlugin: StaticListSchema = [1, n0, _lOP, 0, () => Plugin];
 export var __listOfPluginDescription: StaticListSchema = [1, n0, _lOPD, 0, () => PluginDescription];
 export var __listOfWorkerConfigurationSummary: StaticListSchema = [1, n0, _lOWCS, 0, () => WorkerConfigurationSummary];
 export var TagKeyList = 64 | 0;
-
 export var ConnectorConfiguration: StaticMapSchema = [2, n0, _CC, 8, 0, 0];
 export var ConnectorConfigurationUpdate: StaticMapSchema = [2, n0, _CCU, 8, 0, 0];
 export var Tags = 128 | 0;
-
 export var CreateConnector: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/v1/connectors", 200],
-  },
+  { [_h]: ["POST", "/v1/connectors", 200] },
   () => CreateConnectorRequest,
   () => CreateConnectorResponse,
 ];
@@ -885,9 +715,7 @@ export var CreateCustomPlugin: StaticOperationSchema = [
   9,
   n0,
   _CCP,
-  {
-    [_h]: ["POST", "/v1/custom-plugins", 200],
-  },
+  { [_h]: ["POST", "/v1/custom-plugins", 200] },
   () => CreateCustomPluginRequest,
   () => CreateCustomPluginResponse,
 ];
@@ -895,9 +723,7 @@ export var CreateWorkerConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CWC,
-  {
-    [_h]: ["POST", "/v1/worker-configurations", 200],
-  },
+  { [_h]: ["POST", "/v1/worker-configurations", 200] },
   () => CreateWorkerConfigurationRequest,
   () => CreateWorkerConfigurationResponse,
 ];
@@ -905,9 +731,7 @@ export var DeleteConnector: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/v1/connectors/{connectorArn}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/connectors/{connectorArn}", 200] },
   () => DeleteConnectorRequest,
   () => DeleteConnectorResponse,
 ];
@@ -915,9 +739,7 @@ export var DeleteCustomPlugin: StaticOperationSchema = [
   9,
   n0,
   _DCP,
-  {
-    [_h]: ["DELETE", "/v1/custom-plugins/{customPluginArn}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/custom-plugins/{customPluginArn}", 200] },
   () => DeleteCustomPluginRequest,
   () => DeleteCustomPluginResponse,
 ];
@@ -925,9 +747,7 @@ export var DeleteWorkerConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DWC,
-  {
-    [_h]: ["DELETE", "/v1/worker-configurations/{workerConfigurationArn}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/worker-configurations/{workerConfigurationArn}", 200] },
   () => DeleteWorkerConfigurationRequest,
   () => DeleteWorkerConfigurationResponse,
 ];
@@ -935,9 +755,7 @@ export var DescribeConnector: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["GET", "/v1/connectors/{connectorArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/connectors/{connectorArn}", 200] },
   () => DescribeConnectorRequest,
   () => DescribeConnectorResponse,
 ];
@@ -945,9 +763,7 @@ export var DescribeConnectorOperation: StaticOperationSchema = [
   9,
   n0,
   _DCO,
-  {
-    [_h]: ["GET", "/v1/connectorOperations/{connectorOperationArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/connectorOperations/{connectorOperationArn}", 200] },
   () => DescribeConnectorOperationRequest,
   () => DescribeConnectorOperationResponse,
 ];
@@ -955,9 +771,7 @@ export var DescribeCustomPlugin: StaticOperationSchema = [
   9,
   n0,
   _DCPe,
-  {
-    [_h]: ["GET", "/v1/custom-plugins/{customPluginArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/custom-plugins/{customPluginArn}", 200] },
   () => DescribeCustomPluginRequest,
   () => DescribeCustomPluginResponse,
 ];
@@ -965,9 +779,7 @@ export var DescribeWorkerConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DWCe,
-  {
-    [_h]: ["GET", "/v1/worker-configurations/{workerConfigurationArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/worker-configurations/{workerConfigurationArn}", 200] },
   () => DescribeWorkerConfigurationRequest,
   () => DescribeWorkerConfigurationResponse,
 ];
@@ -975,9 +787,7 @@ export var ListConnectorOperations: StaticOperationSchema = [
   9,
   n0,
   _LCO,
-  {
-    [_h]: ["GET", "/v1/connectors/{connectorArn}/operations", 200],
-  },
+  { [_h]: ["GET", "/v1/connectors/{connectorArn}/operations", 200] },
   () => ListConnectorOperationsRequest,
   () => ListConnectorOperationsResponse,
 ];
@@ -985,9 +795,7 @@ export var ListConnectors: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/v1/connectors", 200],
-  },
+  { [_h]: ["GET", "/v1/connectors", 200] },
   () => ListConnectorsRequest,
   () => ListConnectorsResponse,
 ];
@@ -995,9 +803,7 @@ export var ListCustomPlugins: StaticOperationSchema = [
   9,
   n0,
   _LCP,
-  {
-    [_h]: ["GET", "/v1/custom-plugins", 200],
-  },
+  { [_h]: ["GET", "/v1/custom-plugins", 200] },
   () => ListCustomPluginsRequest,
   () => ListCustomPluginsResponse,
 ];
@@ -1005,9 +811,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1015,9 +819,7 @@ export var ListWorkerConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LWC,
-  {
-    [_h]: ["GET", "/v1/worker-configurations", 200],
-  },
+  { [_h]: ["GET", "/v1/worker-configurations", 200] },
   () => ListWorkerConfigurationsRequest,
   () => ListWorkerConfigurationsResponse,
 ];
@@ -1025,9 +827,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/v1/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1035,9 +835,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1045,9 +843,7 @@ export var UpdateConnector: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/v1/connectors/{connectorArn}", 200],
-  },
+  { [_h]: ["PUT", "/v1/connectors/{connectorArn}", 200] },
   () => UpdateConnectorRequest,
   () => UpdateConnectorResponse,
 ];

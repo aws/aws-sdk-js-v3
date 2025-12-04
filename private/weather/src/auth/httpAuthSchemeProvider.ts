@@ -190,7 +190,6 @@ export interface HttpAuthSchemeInputConfig {
    * @internal
    */
   httpAuthSchemeProvider?: WeatherHttpAuthSchemeProvider;
-
   /**
    * The API key to use when making requests.
    */
@@ -232,7 +231,6 @@ export interface HttpAuthSchemeResolvedConfig {
    * @internal
    */
   readonly httpAuthSchemeProvider: WeatherHttpAuthSchemeProvider;
-
   /**
    * The API key to use when making requests.
    */

@@ -7,14 +7,14 @@ import {
 } from "./enums";
 
 import {
-  Connection,
-  DataMigration,
-  RecommendationSettings,
-  RefreshSchemasStatus,
-  Replication,
-  ReplicationInstance,
-  ReplicationTask,
-  ReplicationTaskAssessmentRun,
+  type Connection,
+  type DataMigration,
+  type RecommendationSettings,
+  type RefreshSchemasStatus,
+  type Replication,
+  type ReplicationInstance,
+  type ReplicationTask,
+  type ReplicationTaskAssessmentRun,
   Tag,
 } from "./models_0";
 

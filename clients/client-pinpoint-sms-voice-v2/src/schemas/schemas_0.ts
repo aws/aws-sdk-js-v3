@@ -602,19 +602,8 @@ import {
 import { PinpointSMSVoiceV2ServiceException as __PinpointSMSVoiceV2ServiceException } from "../models/PinpointSMSVoiceV2ServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountAttribute: StaticStructureSchema = [3, n0, _AA, 0, [_N, _V], [0, 0]];
 export var AccountLimit: StaticStructureSchema = [3, n0, _AL, 0, [_N, _U, _Ma], [0, 1, 1]];
 export var AssociateOriginationIdentityRequest: StaticStructureSchema = [
@@ -661,18 +650,8 @@ export var ConfigurationSetInformation: StaticStructureSchema = [
   [_CSA, _CSN, _ED, _DMT, _DSI, _DMFE, _CTr, _PCI],
   [0, 0, () => EventDestinationList, 0, 0, 2, 4, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_M, _R, _RT, _RI],
-  [0, 0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M, _R, _RT, _RI], [0, 0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateConfigurationSetRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1270,18 +1249,8 @@ export var GetProtectConfigurationCountryRuleSetResult: StaticStructureSchema = 
 ];
 export var GetResourcePolicyRequest: StaticStructureSchema = [3, n0, _GRPR, 0, [_RAe], [0]];
 export var GetResourcePolicyResult: StaticStructureSchema = [3, n0, _GRPRe, 0, [_RAe, _P, _CTr], [0, 0, 4]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M, _RIeq],
-  [0, 0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M, _RIeq], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KeywordFilter: StaticStructureSchema = [3, n0, _KF, 0, [_N, _Va], [0, 64 | 0]];
 export var KeywordInformation: StaticStructureSchema = [3, n0, _KI, 0, [_K, _KM, _KA], [0, 0, 0]];
 export var KinesisFirehoseDestination: StaticStructureSchema = [3, n0, _KFD, 0, [_IRA, _DSA], [0, 0]];
@@ -1618,18 +1587,8 @@ export var RequestSenderIdResult: StaticStructureSchema = [
   [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _T],
   [0, 0, 0, 64 | 0, 0, 2, 2, () => TagList],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RT, _RI],
-  [0, 0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _RT, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SelectOptionDescription: StaticStructureSchema = [3, n0, _SODe, 0, [_Op, _Ti, _D], [0, 0, 0]];
 export var SelectValidation: StaticStructureSchema = [3, n0, _SV, 0, [_MC, _MCa, _Opt], [1, 1, 64 | 0]];
 export var SendDestinationNumberVerificationCodeRequest: StaticStructureSchema = [
@@ -1678,18 +1637,8 @@ export var SendVoiceMessageRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 1, 128 | 0, 2, 0, 2],
 ];
 export var SendVoiceMessageResult: StaticStructureSchema = [3, n0, _SVMRe, 0, [_MI], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SetAccountDefaultProtectConfigurationRequest: StaticStructureSchema = [3, n0, _SADPCR, 0, [_PCI], [0]];
 export var SetAccountDefaultProtectConfigurationResult: StaticStructureSchema = [
   3,
@@ -1734,18 +1683,8 @@ export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_Key, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [0, () => NonEmptyTagList]];
 export var TagResourceResult: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TextValidation: StaticStructureSchema = [3, n0, _TVe, 0, [_MLi, _MLax, _Pa], [1, 1, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RAe, _TK], [0, 64 | 0]];
 export var UntagResourceResult: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateEventDestinationRequest: StaticStructureSchema = [
@@ -1834,14 +1773,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_M, _R, _Fi],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
 export var VerifiedDestinationNumberFilter: StaticStructureSchema = [3, n0, _VDNF, 0, [_N, _Va], [0, 64 | 0]];
 export var VerifiedDestinationNumberInformation: StaticStructureSchema = [
@@ -1870,26 +1806,19 @@ export var PinpointSMSVoiceV2ServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PinpointSMSVoiceV2ServiceException, __PinpointSMSVoiceV2ServiceException);
-
 export var AccountAttributeList: StaticListSchema = [1, n0, _AAL, 0, () => AccountAttribute];
 export var AccountLimitList: StaticListSchema = [1, n0, _ALL, 0, () => AccountLimit];
 export var ConfigurationSetFilterList: StaticListSchema = [1, n0, _CSFL, 0, () => ConfigurationSetFilter];
 export var ConfigurationSetInformationList: StaticListSchema = [1, n0, _CSIL, 0, () => ConfigurationSetInformation];
 export var ConfigurationSetNameList = 64 | 0;
-
 export var DestinationPhoneNumberList = 64 | 0;
-
 export var EventDestinationList: StaticListSchema = [1, n0, _EDL, 0, () => EventDestination];
 export var EventTypeList = 64 | 0;
-
 export var FieldPathList = 64 | 0;
-
 export var FilterValueList = 64 | 0;
-
 export var KeywordFilterList: StaticListSchema = [1, n0, _KFL, 0, () => KeywordFilter];
 export var KeywordInformationList: StaticListSchema = [1, n0, _KIL, 0, () => KeywordInformation];
 export var KeywordList = 64 | 0;
-
 export var ListProtectConfigurationRuleSetNumberOverrideFilter: StaticListSchema = [
   1,
   n0,
@@ -1898,27 +1827,20 @@ export var ListProtectConfigurationRuleSetNumberOverrideFilter: StaticListSchema
   () => ProtectConfigurationRuleSetNumberOverrideFilterItem,
 ];
 export var MediaUrlList = 64 | 0;
-
 export var MessageTypeList = 64 | 0;
-
 export var NonEmptyTagList: StaticListSchema = [1, n0, _NETL, 0, () => Tag];
 export var NumberCapabilityList = 64 | 0;
-
 export var OptedOutFilterList: StaticListSchema = [1, n0, _OOFL, 0, () => OptedOutFilter];
 export var OptedOutNumberInformationList: StaticListSchema = [1, n0, _OONIL, 0, () => OptedOutNumberInformation];
 export var OptedOutNumberList = 64 | 0;
-
 export var OptOutListInformationList: StaticListSchema = [1, n0, _OOLIL, 0, () => OptOutListInformation];
 export var OptOutListNameList = 64 | 0;
-
 export var OriginationIdentityMetadataList: StaticListSchema = [1, n0, _OIML, 0, () => OriginationIdentityMetadata];
 export var PhoneNumberFilterList: StaticListSchema = [1, n0, _PNFL, 0, () => PhoneNumberFilter];
 export var PhoneNumberIdList = 64 | 0;
-
 export var PhoneNumberInformationList: StaticListSchema = [1, n0, _PNIL, 0, () => PhoneNumberInformation];
 export var PoolFilterList: StaticListSchema = [1, n0, _PFL, 0, () => PoolFilter];
 export var PoolIdList = 64 | 0;
-
 export var PoolInformationList: StaticListSchema = [1, n0, _PIL, 0, () => PoolInformation];
 export var PoolOriginationIdentitiesFilterList: StaticListSchema = [
   1,
@@ -1929,7 +1851,6 @@ export var PoolOriginationIdentitiesFilterList: StaticListSchema = [
 ];
 export var ProtectConfigurationFilterList: StaticListSchema = [1, n0, _PCFL, 0, () => ProtectConfigurationFilter];
 export var ProtectConfigurationIdList = 64 | 0;
-
 export var ProtectConfigurationInformationList: StaticListSchema = [
   1,
   n0,
@@ -1954,7 +1875,6 @@ export var RegistrationAssociationMetadataList: StaticListSchema = [
 ];
 export var RegistrationAttachmentFilterList: StaticListSchema = [1, n0, _RAFLe, 0, () => RegistrationAttachmentFilter];
 export var RegistrationAttachmentIdList = 64 | 0;
-
 export var RegistrationAttachmentsInformationList: StaticListSchema = [
   1,
   n0,
@@ -1979,13 +1899,11 @@ export var RegistrationFieldValueInformationList: StaticListSchema = [
 ];
 export var RegistrationFilterList: StaticListSchema = [1, n0, _RFL, 0, () => RegistrationFilter];
 export var RegistrationIdList = 64 | 0;
-
 export var RegistrationInformationList: StaticListSchema = [1, n0, _RIL, 0, () => RegistrationInformation];
 export var RegistrationSectionDefinitionList: StaticListSchema = [1, n0, _RSDL, 0, () => RegistrationSectionDefinition];
 export var RegistrationTypeDefinitionList: StaticListSchema = [1, n0, _RTDL, 0, () => RegistrationTypeDefinition];
 export var RegistrationTypeFilterList: StaticListSchema = [1, n0, _RTFL, 0, () => RegistrationTypeFilter];
 export var RegistrationTypeList = 64 | 0;
-
 export var RegistrationVersionFilterList: StaticListSchema = [1, n0, _RVFL, 0, () => RegistrationVersionFilter];
 export var RegistrationVersionInformationList: StaticListSchema = [
   1,
@@ -1995,21 +1913,16 @@ export var RegistrationVersionInformationList: StaticListSchema = [
   () => RegistrationVersionInformation,
 ];
 export var RegistrationVersionNumberList = 64 | 1;
-
 export var SectionPathList = 64 | 0;
-
 export var SelectChoiceList = 64 | 0;
-
 export var SelectOptionDescriptionsList: StaticListSchema = [1, n0, _SODL, 0, () => SelectOptionDescription];
 export var SenderIdFilterList: StaticListSchema = [1, n0, _SIFL, 0, () => SenderIdFilter];
 export var SenderIdInformationList: StaticListSchema = [1, n0, _SIIL, 0, () => SenderIdInformation];
 export var SenderIdList: StaticListSchema = [1, n0, _SIL, 0, () => SenderIdAndCountry];
 export var SpendLimitList: StaticListSchema = [1, n0, _SLL, 0, () => SpendLimit];
 export var StringList = 64 | 0;
-
 export var SupportedAssociationList: StaticListSchema = [1, n0, _SAL, 0, () => SupportedAssociation];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var VerifiedDestinationNumberFilterList: StaticListSchema = [
@@ -2020,7 +1933,6 @@ export var VerifiedDestinationNumberFilterList: StaticListSchema = [
   () => VerifiedDestinationNumberFilter,
 ];
 export var VerifiedDestinationNumberIdList = 64 | 0;
-
 export var VerifiedDestinationNumberInformationList: StaticListSchema = [
   1,
   n0,
@@ -2029,9 +1941,7 @@ export var VerifiedDestinationNumberInformationList: StaticListSchema = [
   () => VerifiedDestinationNumberInformation,
 ];
 export var ContextMap = 128 | 0;
-
 export var DestinationCountryParameters = 128 | 0;
-
 export var ProtectConfigurationCountryRuleSet: StaticMapSchema = [
   2,
   n0,
@@ -2041,7 +1951,6 @@ export var ProtectConfigurationCountryRuleSet: StaticMapSchema = [
   () => ProtectConfigurationCountryRuleSetInformation,
 ];
 export var StringMap = 128 | 0;
-
 export var AssociateOriginationIdentity: StaticOperationSchema = [
   9,
   n0,

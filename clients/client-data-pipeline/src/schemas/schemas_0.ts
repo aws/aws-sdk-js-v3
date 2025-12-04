@@ -172,7 +172,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var ActivatePipelineInput: StaticStructureSchema = [
   3,
   n0,
@@ -213,48 +212,18 @@ export var GetPipelineDefinitionOutput: StaticStructureSchema = [
   [() => PipelineObjectList, () => ParameterObjectList, () => ParameterValueList],
 ];
 export var InstanceIdentity: StaticStructureSchema = [3, n0, _II, 0, [_do, _s], [0, 0]];
-export var InternalServiceError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_er]: _se,
-  },
-  [_me],
-  [0],
-];
+export var InternalServiceError: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _se }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceError, __InternalServiceError);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_er]: _c,
-  },
-  [_me],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_er]: _c }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListPipelinesInput: StaticStructureSchema = [3, n0, _LPI, 0, [_m], [0]];
 export var ListPipelinesOutput: StaticStructureSchema = [3, n0, _LPO, 0, [_pIL, _m, _hMR], [() => pipelineList, 0, 2]];
 export var Operator: StaticStructureSchema = [3, n0, _O, 0, [_ty, _va], [0, 64 | 0]];
 export var ParameterAttribute: StaticStructureSchema = [3, n0, _PA, 0, [_k, _sV], [0, 0]];
 export var ParameterObject: StaticStructureSchema = [3, n0, _PO, 0, [_i, _a], [0, () => ParameterAttributeList]];
 export var ParameterValue: StaticStructureSchema = [3, n0, _PV, 0, [_i, _sV], [0, 0]];
-export var PipelineDeletedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PDE,
-  {
-    [_er]: _c,
-  },
-  [_me],
-  [0],
-];
+export var PipelineDeletedException: StaticErrorSchema = [-3, n0, _PDE, { [_er]: _c }, [_me], [0]];
 TypeRegistry.for(n0).registerError(PipelineDeletedException, __PipelineDeletedException);
-
 export var PipelineDescription: StaticStructureSchema = [
   3,
   n0,
@@ -264,18 +233,8 @@ export var PipelineDescription: StaticStructureSchema = [
   [0, 0, () => fieldList, 0, () => tagList],
 ];
 export var PipelineIdName: StaticStructureSchema = [3, n0, _PIN, 0, [_i, _n], [0, 0]];
-export var PipelineNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PNFE,
-  {
-    [_er]: _c,
-  },
-  [_me],
-  [0],
-];
+export var PipelineNotFoundException: StaticErrorSchema = [-3, n0, _PNFE, { [_er]: _c }, [_me], [0]];
 TypeRegistry.for(n0).registerError(PipelineNotFoundException, __PipelineNotFoundException);
-
 export var PipelineObject: StaticStructureSchema = [3, n0, _POi, 0, [_i, _n, _f], [0, 0, () => fieldList]];
 export var PollForTaskInput: StaticStructureSchema = [3, n0, _PFTI, 0, [_wG, _h, _iI], [0, 0, () => InstanceIdentity]];
 export var PollForTaskOutput: StaticStructureSchema = [3, n0, _PFTO, 0, [_tO], [() => TaskObject]];
@@ -316,18 +275,8 @@ export var SetStatusInput: StaticStructureSchema = [3, n0, _SSI, 0, [_pI, _oI, _
 export var SetTaskStatusInput: StaticStructureSchema = [3, n0, _STSI, 0, [_tI, _tS, _eI, _eM, _eST], [0, 0, 0, 0, 0]];
 export var SetTaskStatusOutput: StaticStructureSchema = [3, n0, _STSO, 0, [], []];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _val], [0, 0]];
-export var TaskNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TNFE,
-  {
-    [_er]: _c,
-  },
-  [_me],
-  [0],
-];
+export var TaskNotFoundException: StaticErrorSchema = [-3, n0, _TNFE, { [_er]: _c }, [_me], [0]];
 TypeRegistry.for(n0).registerError(TaskNotFoundException, __TaskNotFoundException);
-
 export var TaskObject: StaticStructureSchema = [
   3,
   n0,
@@ -355,13 +304,10 @@ export var ValidatePipelineDefinitionOutput: StaticStructureSchema = [
 export var ValidationError: StaticStructureSchema = [3, n0, _VE, 0, [_i, _erro], [0, 64 | 0]];
 export var ValidationWarning: StaticStructureSchema = [3, n0, _VW, 0, [_i, _w], [0, 64 | 0]];
 export var __Unit = "unit" as const;
-
 export var DataPipelineServiceException: StaticErrorSchema = [-3, _sm, "DataPipelineServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DataPipelineServiceException, __DataPipelineServiceException);
-
 export var fieldList: StaticListSchema = [1, n0, _fL, 0, () => Field];
 export var idList = 64 | 0;
-
 export var ParameterAttributeList: StaticListSchema = [1, n0, _PAL, 0, () => ParameterAttribute];
 export var ParameterObjectList: StaticListSchema = [1, n0, _POL, 0, () => ParameterObject];
 export var ParameterValueList: StaticListSchema = [1, n0, _PVL, 0, () => ParameterValue];
@@ -370,11 +316,9 @@ export var pipelineList: StaticListSchema = [1, n0, _pL, 0, () => PipelineIdName
 export var PipelineObjectList: StaticListSchema = [1, n0, _POLi, 0, () => PipelineObject];
 export var SelectorList: StaticListSchema = [1, n0, _SL, 0, () => Selector];
 export var stringList = 64 | 0;
-
 export var tagList: StaticListSchema = [1, n0, _tL, 0, () => Tag];
 export var ValidationErrors: StaticListSchema = [1, n0, _VEa, 0, () => ValidationError];
 export var validationMessages = 64 | 0;
-
 export var ValidationWarnings: StaticListSchema = [1, n0, _VWa, 0, () => ValidationWarning];
 export var PipelineObjectMap: StaticMapSchema = [2, n0, _POM, 0, 0, () => PipelineObject];
 export var ActivatePipeline: StaticOperationSchema = [

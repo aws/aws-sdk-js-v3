@@ -171,7 +171,6 @@ import {
 import { RepostspaceServiceException as __RepostspaceServiceException } from "../models/RepostspaceServiceException";
 
 /* eslint no-var: 0 */
-
 export var ChannelDescription: StaticSimpleSchema = [0, n0, _CD, 8, 0];
 export var ChannelName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
 export var EmailDomain: StaticSimpleSchema = [0, n0, _ED, 8, 0];
@@ -179,19 +178,8 @@ export var InviteBody: StaticSimpleSchema = [0, n0, _IB, 8, 0];
 export var InviteTitle: StaticSimpleSchema = [0, n0, _IT, 8, 0];
 export var SpaceDescription: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 export var SpaceName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BatchAddChannelRoleToAccessorsInput: StaticStructureSchema = [
   3,
   n0,
@@ -244,19 +232,8 @@ export var ChannelData: StaticStructureSchema = [
   [_sI, _cI, _cN, _cD, _cDT, _dDT, _cS, _uC, _gC],
   [0, 0, [() => ChannelName, 0], [() => ChannelDescription, 0], 5, 5, 0, 1, 1],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateChannelInput: StaticStructureSchema = [
   3,
   n0,
@@ -382,23 +359,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListChannelsInput: StaticStructureSchema = [
   3,
   n0,
@@ -407,18 +372,8 @@ export var ListChannelsInput: StaticStructureSchema = [
   [_sI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListChannelsOutput: StaticStructureSchema = [3, n0, _LCO, 0, [_ch, _nT], [[() => ChannelsList, 0], 0]];
@@ -429,18 +384,8 @@ export var ListSpacesInput: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSpacesOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_sp, _nT], [[() => SpacesList, 0], 0]];
@@ -461,15 +406,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SendInvitesInput: StaticStructureSchema = [
   3,
   n0,
@@ -482,15 +423,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SpaceData: StaticStructureSchema = [
   3,
   n0,
@@ -549,25 +486,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -576,12 +499,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -611,37 +529,25 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var RepostspaceServiceException: StaticErrorSchema = [-3, _sm, "RepostspaceServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RepostspaceServiceException, __RepostspaceServiceException);
-
 export var AccessorIdList = 64 | 0;
-
 export var AllowedDomainsList: StaticListSchema = [1, n0, _ADL, 0, [() => EmailDomain, 0]];
 export var BatchErrorList: StaticListSchema = [1, n0, _BEL, 0, () => BatchError];
 export var ChannelRoleList = 64 | 0;
-
 export var ChannelsList: StaticListSchema = [1, n0, _CL, 0, [() => ChannelData, 0]];
 export var GroupAdmins = 64 | 0;
-
 export var RoleList = 64 | 0;
-
 export var SpacesList: StaticListSchema = [1, n0, _SL, 0, [() => SpaceData, 0]];
 export var TagKeyList = 64 | 0;
-
 export var UserAdmins = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var ChannelRoles: StaticMapSchema = [2, n0, _CR, 0, 0, 64 | 0];
 export var Roles: StaticMapSchema = [2, n0, _R, 0, 0, 64 | 0];
@@ -650,9 +556,7 @@ export var BatchAddChannelRoleToAccessors: StaticOperationSchema = [
   9,
   n0,
   _BACRTA,
-  {
-    [_h]: ["POST", "/spaces/{spaceId}/channels/{channelId}/roles", 200],
-  },
+  { [_h]: ["POST", "/spaces/{spaceId}/channels/{channelId}/roles", 200] },
   () => BatchAddChannelRoleToAccessorsInput,
   () => BatchAddChannelRoleToAccessorsOutput,
 ];
@@ -660,9 +564,7 @@ export var BatchAddRole: StaticOperationSchema = [
   9,
   n0,
   _BAR,
-  {
-    [_h]: ["POST", "/spaces/{spaceId}/roles", 200],
-  },
+  { [_h]: ["POST", "/spaces/{spaceId}/roles", 200] },
   () => BatchAddRoleInput,
   () => BatchAddRoleOutput,
 ];
@@ -670,9 +572,7 @@ export var BatchRemoveChannelRoleFromAccessors: StaticOperationSchema = [
   9,
   n0,
   _BRCRFA,
-  {
-    [_h]: ["PATCH", "/spaces/{spaceId}/channels/{channelId}/roles", 200],
-  },
+  { [_h]: ["PATCH", "/spaces/{spaceId}/channels/{channelId}/roles", 200] },
   () => BatchRemoveChannelRoleFromAccessorsInput,
   () => BatchRemoveChannelRoleFromAccessorsOutput,
 ];
@@ -680,9 +580,7 @@ export var BatchRemoveRole: StaticOperationSchema = [
   9,
   n0,
   _BRR,
-  {
-    [_h]: ["PATCH", "/spaces/{spaceId}/roles", 200],
-  },
+  { [_h]: ["PATCH", "/spaces/{spaceId}/roles", 200] },
   () => BatchRemoveRoleInput,
   () => BatchRemoveRoleOutput,
 ];
@@ -690,9 +588,7 @@ export var CreateChannel: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/spaces/{spaceId}/channels", 200],
-  },
+  { [_h]: ["POST", "/spaces/{spaceId}/channels", 200] },
   () => CreateChannelInput,
   () => CreateChannelOutput,
 ];
@@ -700,9 +596,7 @@ export var CreateSpace: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/spaces", 200],
-  },
+  { [_h]: ["POST", "/spaces", 200] },
   () => CreateSpaceInput,
   () => CreateSpaceOutput,
 ];
@@ -710,9 +604,7 @@ export var DeleteSpace: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/spaces/{spaceId}", 200],
-  },
+  { [_h]: ["DELETE", "/spaces/{spaceId}", 200] },
   () => DeleteSpaceInput,
   () => __Unit,
 ];
@@ -720,9 +612,7 @@ export var DeregisterAdmin: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/spaces/{spaceId}/admins/{adminId}", 200],
-  },
+  { [_h]: ["DELETE", "/spaces/{spaceId}/admins/{adminId}", 200] },
   () => DeregisterAdminInput,
   () => __Unit,
 ];
@@ -730,9 +620,7 @@ export var GetChannel: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/spaces/{spaceId}/channels/{channelId}", 200],
-  },
+  { [_h]: ["GET", "/spaces/{spaceId}/channels/{channelId}", 200] },
   () => GetChannelInput,
   () => GetChannelOutput,
 ];
@@ -740,9 +628,7 @@ export var GetSpace: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/spaces/{spaceId}", 200],
-  },
+  { [_h]: ["GET", "/spaces/{spaceId}", 200] },
   () => GetSpaceInput,
   () => GetSpaceOutput,
 ];
@@ -750,9 +636,7 @@ export var ListChannels: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/spaces/{spaceId}/channels", 200],
-  },
+  { [_h]: ["GET", "/spaces/{spaceId}/channels", 200] },
   () => ListChannelsInput,
   () => ListChannelsOutput,
 ];
@@ -760,9 +644,7 @@ export var ListSpaces: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/spaces", 200],
-  },
+  { [_h]: ["GET", "/spaces", 200] },
   () => ListSpacesInput,
   () => ListSpacesOutput,
 ];
@@ -770,9 +652,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -780,9 +660,7 @@ export var RegisterAdmin: StaticOperationSchema = [
   9,
   n0,
   _RAe,
-  {
-    [_h]: ["POST", "/spaces/{spaceId}/admins/{adminId}", 200],
-  },
+  { [_h]: ["POST", "/spaces/{spaceId}/admins/{adminId}", 200] },
   () => RegisterAdminInput,
   () => __Unit,
 ];
@@ -790,9 +668,7 @@ export var SendInvites: StaticOperationSchema = [
   9,
   n0,
   _SI,
-  {
-    [_h]: ["POST", "/spaces/{spaceId}/invite", 200],
-  },
+  { [_h]: ["POST", "/spaces/{spaceId}/invite", 200] },
   () => SendInvitesInput,
   () => __Unit,
 ];
@@ -800,9 +676,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -810,9 +684,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -820,9 +692,7 @@ export var UpdateChannel: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/spaces/{spaceId}/channels/{channelId}", 200],
-  },
+  { [_h]: ["PUT", "/spaces/{spaceId}/channels/{channelId}", 200] },
   () => UpdateChannelInput,
   () => UpdateChannelOutput,
 ];
@@ -830,9 +700,7 @@ export var UpdateSpace: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/spaces/{spaceId}", 200],
-  },
+  { [_h]: ["PUT", "/spaces/{spaceId}", 200] },
   () => UpdateSpaceInput,
   () => __Unit,
 ];

@@ -502,7 +502,6 @@ import {
 import { GreengrassServiceException as __GreengrassServiceException } from "../models/GreengrassServiceException";
 
 /* eslint no-var: 0 */
-
 export var AssociateRoleToGroupRequest: StaticStructureSchema = [3, n0, _ARTGR, 0, [_GI, _RA], [[0, 1], 0]];
 export var AssociateRoleToGroupResponse: StaticStructureSchema = [3, n0, _ARTGRs, 0, [_AA], [0]];
 export var AssociateServiceRoleToAccountRequest: StaticStructureSchema = [3, n0, _ASRTAR, 0, [_RA], [0]];
@@ -511,15 +510,11 @@ export var BadRequestException: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_ED, _M],
   [() => ErrorDetails, 0],
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BulkDeployment: StaticStructureSchema = [3, n0, _BD, 0, [_BDA, _BDI, _CA], [0, 0, 0]];
 export var BulkDeploymentMetrics: StaticStructureSchema = [3, n0, _BDM, 0, [_IIR, _RP, _RAe], [1, 1, 1]];
 export var BulkDeploymentResult: StaticStructureSchema = [
@@ -541,17 +536,7 @@ export var CreateConnectorDefinitionRequest: StaticStructureSchema = [
   _CCDR,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => ConnectorDefinitionVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => ConnectorDefinitionVersion, 0, 128 | 0],
 ];
 export var CreateConnectorDefinitionResponse: StaticStructureSchema = [
   3,
@@ -567,16 +552,7 @@ export var CreateConnectorDefinitionVersionRequest: StaticStructureSchema = [
   _CCDVR,
   0,
   [_ACT, _CDI, _Co],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    [0, 1],
-    () => __listOfConnector,
-  ],
+  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfConnector],
 ];
 export var CreateConnectorDefinitionVersionResponse: StaticStructureSchema = [
   3,
@@ -592,17 +568,7 @@ export var CreateCoreDefinitionRequest: StaticStructureSchema = [
   _CCDRre,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => CoreDefinitionVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => CoreDefinitionVersion, 0, 128 | 0],
 ];
 export var CreateCoreDefinitionResponse: StaticStructureSchema = [
   3,
@@ -618,16 +584,7 @@ export var CreateCoreDefinitionVersionRequest: StaticStructureSchema = [
   _CCDVRre,
   0,
   [_ACT, _CDIo, _Core],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    [0, 1],
-    () => __listOfCore,
-  ],
+  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfCore],
 ];
 export var CreateCoreDefinitionVersionResponse: StaticStructureSchema = [
   3,
@@ -643,18 +600,7 @@ export var CreateDeploymentRequest: StaticStructureSchema = [
   _CDR,
   0,
   [_ACT, _DI, _DT, _GI, _GVI],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    0,
-    0,
-    [0, 1],
-    0,
-  ],
+  [[0, { [_hH]: _XACT }], 0, 0, [0, 1], 0],
 ];
 export var CreateDeploymentResponse: StaticStructureSchema = [3, n0, _CDRr, 0, [_DA, _DI], [0, 0]];
 export var CreateDeviceDefinitionRequest: StaticStructureSchema = [
@@ -663,17 +609,7 @@ export var CreateDeviceDefinitionRequest: StaticStructureSchema = [
   _CDDR,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => DeviceDefinitionVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => DeviceDefinitionVersion, 0, 128 | 0],
 ];
 export var CreateDeviceDefinitionResponse: StaticStructureSchema = [
   3,
@@ -689,16 +625,7 @@ export var CreateDeviceDefinitionVersionRequest: StaticStructureSchema = [
   _CDDVR,
   0,
   [_ACT, _DDI, _D],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    [0, 1],
-    () => __listOfDevice,
-  ],
+  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfDevice],
 ];
 export var CreateDeviceDefinitionVersionResponse: StaticStructureSchema = [
   3,
@@ -714,17 +641,7 @@ export var CreateFunctionDefinitionRequest: StaticStructureSchema = [
   _CFDR,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => FunctionDefinitionVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => FunctionDefinitionVersion, 0, 128 | 0],
 ];
 export var CreateFunctionDefinitionResponse: StaticStructureSchema = [
   3,
@@ -740,17 +657,7 @@ export var CreateFunctionDefinitionVersionRequest: StaticStructureSchema = [
   _CFDVR,
   0,
   [_ACT, _DC, _FDI, _F],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => FunctionDefaultConfig,
-    [0, 1],
-    () => __listOfFunction,
-  ],
+  [[0, { [_hH]: _XACT }], () => FunctionDefaultConfig, [0, 1], () => __listOfFunction],
 ];
 export var CreateFunctionDefinitionVersionResponse: StaticStructureSchema = [
   3,
@@ -767,12 +674,7 @@ export var CreateGroupCertificateAuthorityRequest: StaticStructureSchema = [
   0,
   [_ACT, _GI],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
+    [0, { [_hH]: _XACT }],
     [0, 1],
   ],
 ];
@@ -783,17 +685,7 @@ export var CreateGroupRequest: StaticStructureSchema = [
   _CGR,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => GroupVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => GroupVersion, 0, 128 | 0],
 ];
 export var CreateGroupResponse: StaticStructureSchema = [
   3,
@@ -809,22 +701,7 @@ export var CreateGroupVersionRequest: StaticStructureSchema = [
   _CGVR,
   0,
   [_ACT, _CDVA, _CDVAo, _DDVA, _FDVA, _GI, _LDVA, _RDVA, _SDVA],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    0,
-    0,
-    0,
-    0,
-    [0, 1],
-    0,
-    0,
-    0,
-  ],
+  [[0, { [_hH]: _XACT }], 0, 0, 0, 0, [0, 1], 0, 0, 0],
 ];
 export var CreateGroupVersionResponse: StaticStructureSchema = [3, n0, _CGVRr, 0, [_A, _CT, _I, _V], [0, 0, 0, 0]];
 export var CreateLoggerDefinitionRequest: StaticStructureSchema = [
@@ -833,17 +710,7 @@ export var CreateLoggerDefinitionRequest: StaticStructureSchema = [
   _CLDR,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => LoggerDefinitionVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => LoggerDefinitionVersion, 0, 128 | 0],
 ];
 export var CreateLoggerDefinitionResponse: StaticStructureSchema = [
   3,
@@ -859,16 +726,7 @@ export var CreateLoggerDefinitionVersionRequest: StaticStructureSchema = [
   _CLDVR,
   0,
   [_ACT, _LDI, _L],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    [0, 1],
-    () => __listOfLogger,
-  ],
+  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfLogger],
 ];
 export var CreateLoggerDefinitionVersionResponse: StaticStructureSchema = [
   3,
@@ -884,17 +742,7 @@ export var CreateResourceDefinitionRequest: StaticStructureSchema = [
   _CRDR,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => ResourceDefinitionVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => ResourceDefinitionVersion, 0, 128 | 0],
 ];
 export var CreateResourceDefinitionResponse: StaticStructureSchema = [
   3,
@@ -910,16 +758,7 @@ export var CreateResourceDefinitionVersionRequest: StaticStructureSchema = [
   _CRDVR,
   0,
   [_ACT, _RDI, _R],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    [0, 1],
-    () => __listOfResource,
-  ],
+  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfResource],
 ];
 export var CreateResourceDefinitionVersionResponse: StaticStructureSchema = [
   3,
@@ -935,20 +774,7 @@ export var CreateSoftwareUpdateJobRequest: StaticStructureSchema = [
   _CSUJR,
   0,
   [_ACT, _SUSR, _STU, _UALL, _UT, _UTA, _UTOS],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    0,
-    0,
-    0,
-    64 | 0,
-    0,
-    0,
-  ],
+  [[0, { [_hH]: _XACT }], 0, 0, 0, 64 | 0, 0, 0],
 ];
 export var CreateSoftwareUpdateJobResponse: StaticStructureSchema = [3, n0, _CSUJRr, 0, [_IJA, _IJI, _PSV], [0, 0, 0]];
 export var CreateSubscriptionDefinitionRequest: StaticStructureSchema = [
@@ -957,17 +783,7 @@ export var CreateSubscriptionDefinitionRequest: StaticStructureSchema = [
   _CSDR,
   0,
   [_ACT, _IV, _N, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    () => SubscriptionDefinitionVersion,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], () => SubscriptionDefinitionVersion, 0, 128 | 0],
 ];
 export var CreateSubscriptionDefinitionResponse: StaticStructureSchema = [
   3,
@@ -983,16 +799,7 @@ export var CreateSubscriptionDefinitionVersionRequest: StaticStructureSchema = [
   _CSDVR,
   0,
   [_ACT, _SDI, _S],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    [0, 1],
-    () => __listOfSubscription,
-  ],
+  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfSubscription],
 ];
 export var CreateSubscriptionDefinitionVersionResponse: StaticStructureSchema = [
   3,
@@ -1008,21 +815,7 @@ export var DefinitionInformation: StaticStructureSchema = [
   _DIe,
   0,
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _T],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
 export var DeleteConnectorDefinitionRequest: StaticStructureSchema = [3, n0, _DCDR, 0, [_CDI], [[0, 1]]];
 export var DeleteConnectorDefinitionResponse: StaticStructureSchema = [3, n0, _DCDRe, 0, [], []];
@@ -1116,15 +909,7 @@ export var GetConnectivityInfoResponse: StaticStructureSchema = [
   _GCIRe,
   0,
   [_CI, _M],
-  [
-    () => __listOfConnectivityInfo,
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [() => __listOfConnectivityInfo, [0, { [_jN]: _m }]],
 ];
 export var GetConnectorDefinitionRequest: StaticStructureSchema = [3, n0, _GCDR, 0, [_CDI], [[0, 1]]];
 export var GetConnectorDefinitionResponse: StaticStructureSchema = [
@@ -1144,12 +929,7 @@ export var GetConnectorDefinitionVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var GetConnectorDefinitionVersionResponse: StaticStructureSchema = [
@@ -1225,12 +1005,7 @@ export var GetDeviceDefinitionVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var GetDeviceDefinitionVersionResponse: StaticStructureSchema = [
@@ -1259,12 +1034,7 @@ export var GetFunctionDefinitionVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var GetFunctionDefinitionVersionResponse: StaticStructureSchema = [
@@ -1349,12 +1119,7 @@ export var GetLoggerDefinitionVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var GetLoggerDefinitionVersionResponse: StaticStructureSchema = [
@@ -1411,12 +1176,7 @@ export var GetSubscriptionDefinitionVersionRequest: StaticStructureSchema = [
   0,
   [_NT, _SDI, _SDVI],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
     [0, 1],
     [0, 1],
   ],
@@ -1460,15 +1220,11 @@ export var InternalServerErrorException: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_ED, _M],
   [() => ErrorDetails, 0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var ListBulkDeploymentDetailedReportsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1477,18 +1233,8 @@ export var ListBulkDeploymentDetailedReportsRequest: StaticStructureSchema = [
   [_BDI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListBulkDeploymentDetailedReportsResponse: StaticStructureSchema = [
@@ -1506,18 +1252,8 @@ export var ListBulkDeploymentsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListBulkDeploymentsResponse: StaticStructureSchema = [
@@ -1535,18 +1271,8 @@ export var ListConnectorDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListConnectorDefinitionsResponse: StaticStructureSchema = [
@@ -1565,18 +1291,8 @@ export var ListConnectorDefinitionVersionsRequest: StaticStructureSchema = [
   [_CDI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListConnectorDefinitionVersionsResponse: StaticStructureSchema = [
@@ -1594,18 +1310,8 @@ export var ListCoreDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListCoreDefinitionsResponse: StaticStructureSchema = [
@@ -1624,18 +1330,8 @@ export var ListCoreDefinitionVersionsRequest: StaticStructureSchema = [
   [_CDIo, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListCoreDefinitionVersionsResponse: StaticStructureSchema = [
@@ -1654,18 +1350,8 @@ export var ListDeploymentsRequest: StaticStructureSchema = [
   [_GI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListDeploymentsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dep, _NT], [() => Deployments, 0]];
@@ -1676,18 +1362,8 @@ export var ListDeviceDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListDeviceDefinitionsResponse: StaticStructureSchema = [
@@ -1706,18 +1382,8 @@ export var ListDeviceDefinitionVersionsRequest: StaticStructureSchema = [
   [_DDI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListDeviceDefinitionVersionsResponse: StaticStructureSchema = [
@@ -1735,18 +1401,8 @@ export var ListFunctionDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListFunctionDefinitionsResponse: StaticStructureSchema = [
@@ -1765,18 +1421,8 @@ export var ListFunctionDefinitionVersionsRequest: StaticStructureSchema = [
   [_FDI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListFunctionDefinitionVersionsResponse: StaticStructureSchema = [
@@ -1803,18 +1449,8 @@ export var ListGroupsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListGroupsResponse: StaticStructureSchema = [
@@ -1833,18 +1469,8 @@ export var ListGroupVersionsRequest: StaticStructureSchema = [
   [_GI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListGroupVersionsResponse: StaticStructureSchema = [
@@ -1862,18 +1488,8 @@ export var ListLoggerDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListLoggerDefinitionsResponse: StaticStructureSchema = [
@@ -1892,18 +1508,8 @@ export var ListLoggerDefinitionVersionsRequest: StaticStructureSchema = [
   [_LDI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListLoggerDefinitionVersionsResponse: StaticStructureSchema = [
@@ -1921,18 +1527,8 @@ export var ListResourceDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListResourceDefinitionsResponse: StaticStructureSchema = [
@@ -1950,18 +1546,8 @@ export var ListResourceDefinitionVersionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _RDI],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
     [0, 1],
   ],
 ];
@@ -1980,18 +1566,8 @@ export var ListSubscriptionDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListSubscriptionDefinitionsResponse: StaticStructureSchema = [
@@ -2009,18 +1585,8 @@ export var ListSubscriptionDefinitionVersionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _SDI],
   [
-    [
-      0,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
     [0, 1],
   ],
 ];
@@ -2058,16 +1624,7 @@ export var ResetDeploymentsRequest: StaticStructureSchema = [
   _RDR,
   0,
   [_ACT, _Fo, _GI],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    2,
-    [0, 1],
-  ],
+  [[0, { [_hH]: _XACT }], 2, [0, 1]],
 ];
 export var ResetDeploymentsResponse: StaticStructureSchema = [3, n0, _RDRe, 0, [_DA, _DI], [0, 0]];
 export var Resource: StaticStructureSchema = [3, n0, _Re, 0, [_I, _N, _RDC], [0, 0, () => ResourceDataContainer]];
@@ -2112,17 +1669,7 @@ export var StartBulkDeploymentRequest: StaticStructureSchema = [
   _SBDR,
   0,
   [_ACT, _ERA, _IFU, _t],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-      },
-    ],
-    0,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT }], 0, 0, 128 | 0],
 ];
 export var StartBulkDeploymentResponse: StaticStructureSchema = [3, n0, _SBDRt, 0, [_BDA, _BDI], [0, 0]];
 export var StopBulkDeploymentRequest: StaticStructureSchema = [3, n0, _SBDRto, 0, [_BDI], [[0, 1]]];
@@ -2140,12 +1687,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAes, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateConnectivityInfoRequest: StaticStructureSchema = [
@@ -2162,15 +1704,7 @@ export var UpdateConnectivityInfoResponse: StaticStructureSchema = [
   _UCIRp,
   0,
   [_M, _V],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_jN]: _m }], 0],
 ];
 export var UpdateConnectorDefinitionRequest: StaticStructureSchema = [3, n0, _UCDR, 0, [_CDI, _N], [[0, 1], 0]];
 export var UpdateConnectorDefinitionResponse: StaticStructureSchema = [3, n0, _UCDRp, 0, [], []];
@@ -2215,12 +1749,9 @@ export var UpdateThingRuntimeConfigurationRequest: StaticStructureSchema = [
 export var UpdateThingRuntimeConfigurationResponse: StaticStructureSchema = [3, n0, _UTRCRp, 0, [], []];
 export var VersionInformation: StaticStructureSchema = [3, n0, _VI, 0, [_A, _CT, _I, _V], [0, 0, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var GreengrassServiceException: StaticErrorSchema = [-3, _sm, "GreengrassServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GreengrassServiceException, __GreengrassServiceException);
-
 export var __listOf__string = 64 | 0;
-
 export var __listOfConnectivityInfo: StaticListSchema = [1, n0, _lOCI, 0, () => ConnectivityInfo];
 export var __listOfConnector: StaticListSchema = [1, n0, _lOC, 0, () => Connector];
 export var __listOfCore: StaticListSchema = [1, n0, _lOCi, 0, () => Core];
@@ -2245,18 +1776,13 @@ export var BulkDeployments: StaticListSchema = [1, n0, _BDu, 0, () => BulkDeploy
 export var Deployments: StaticListSchema = [1, n0, _Dep, 0, () => Deployment];
 export var ErrorDetails: StaticListSchema = [1, n0, _ED, 0, () => ErrorDetail];
 export var UpdateTargets = 64 | 0;
-
 export var __mapOf__string = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var AssociateRoleToGroup: StaticOperationSchema = [
   9,
   n0,
   _ARTG,
-  {
-    [_h]: ["PUT", "/greengrass/groups/{GroupId}/role", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/groups/{GroupId}/role", 200] },
   () => AssociateRoleToGroupRequest,
   () => AssociateRoleToGroupResponse,
 ];
@@ -2264,9 +1790,7 @@ export var AssociateServiceRoleToAccount: StaticOperationSchema = [
   9,
   n0,
   _ASRTA,
-  {
-    [_h]: ["PUT", "/greengrass/servicerole", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/servicerole", 200] },
   () => AssociateServiceRoleToAccountRequest,
   () => AssociateServiceRoleToAccountResponse,
 ];
@@ -2274,9 +1798,7 @@ export var CreateConnectorDefinition: StaticOperationSchema = [
   9,
   n0,
   _CCD,
-  {
-    [_h]: ["POST", "/greengrass/definition/connectors", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/connectors", 200] },
   () => CreateConnectorDefinitionRequest,
   () => CreateConnectorDefinitionResponse,
 ];
@@ -2284,9 +1806,7 @@ export var CreateConnectorDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _CCDV,
-  {
-    [_h]: ["POST", "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions", 200] },
   () => CreateConnectorDefinitionVersionRequest,
   () => CreateConnectorDefinitionVersionResponse,
 ];
@@ -2294,9 +1814,7 @@ export var CreateCoreDefinition: StaticOperationSchema = [
   9,
   n0,
   _CCDr,
-  {
-    [_h]: ["POST", "/greengrass/definition/cores", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/cores", 200] },
   () => CreateCoreDefinitionRequest,
   () => CreateCoreDefinitionResponse,
 ];
@@ -2304,9 +1822,7 @@ export var CreateCoreDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _CCDVr,
-  {
-    [_h]: ["POST", "/greengrass/definition/cores/{CoreDefinitionId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/cores/{CoreDefinitionId}/versions", 200] },
   () => CreateCoreDefinitionVersionRequest,
   () => CreateCoreDefinitionVersionResponse,
 ];
@@ -2314,9 +1830,7 @@ export var CreateDeployment: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["POST", "/greengrass/groups/{GroupId}/deployments", 200],
-  },
+  { [_h]: ["POST", "/greengrass/groups/{GroupId}/deployments", 200] },
   () => CreateDeploymentRequest,
   () => CreateDeploymentResponse,
 ];
@@ -2324,9 +1838,7 @@ export var CreateDeviceDefinition: StaticOperationSchema = [
   9,
   n0,
   _CDD,
-  {
-    [_h]: ["POST", "/greengrass/definition/devices", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/devices", 200] },
   () => CreateDeviceDefinitionRequest,
   () => CreateDeviceDefinitionResponse,
 ];
@@ -2334,9 +1846,7 @@ export var CreateDeviceDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _CDDV,
-  {
-    [_h]: ["POST", "/greengrass/definition/devices/{DeviceDefinitionId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/devices/{DeviceDefinitionId}/versions", 200] },
   () => CreateDeviceDefinitionVersionRequest,
   () => CreateDeviceDefinitionVersionResponse,
 ];
@@ -2344,9 +1854,7 @@ export var CreateFunctionDefinition: StaticOperationSchema = [
   9,
   n0,
   _CFD,
-  {
-    [_h]: ["POST", "/greengrass/definition/functions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/functions", 200] },
   () => CreateFunctionDefinitionRequest,
   () => CreateFunctionDefinitionResponse,
 ];
@@ -2354,9 +1862,7 @@ export var CreateFunctionDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _CFDV,
-  {
-    [_h]: ["POST", "/greengrass/definition/functions/{FunctionDefinitionId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/functions/{FunctionDefinitionId}/versions", 200] },
   () => CreateFunctionDefinitionVersionRequest,
   () => CreateFunctionDefinitionVersionResponse,
 ];
@@ -2364,9 +1870,7 @@ export var CreateGroup: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  {
-    [_h]: ["POST", "/greengrass/groups", 200],
-  },
+  { [_h]: ["POST", "/greengrass/groups", 200] },
   () => CreateGroupRequest,
   () => CreateGroupResponse,
 ];
@@ -2374,9 +1878,7 @@ export var CreateGroupCertificateAuthority: StaticOperationSchema = [
   9,
   n0,
   _CGCA,
-  {
-    [_h]: ["POST", "/greengrass/groups/{GroupId}/certificateauthorities", 200],
-  },
+  { [_h]: ["POST", "/greengrass/groups/{GroupId}/certificateauthorities", 200] },
   () => CreateGroupCertificateAuthorityRequest,
   () => CreateGroupCertificateAuthorityResponse,
 ];
@@ -2384,9 +1886,7 @@ export var CreateGroupVersion: StaticOperationSchema = [
   9,
   n0,
   _CGV,
-  {
-    [_h]: ["POST", "/greengrass/groups/{GroupId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/groups/{GroupId}/versions", 200] },
   () => CreateGroupVersionRequest,
   () => CreateGroupVersionResponse,
 ];
@@ -2394,9 +1894,7 @@ export var CreateLoggerDefinition: StaticOperationSchema = [
   9,
   n0,
   _CLD,
-  {
-    [_h]: ["POST", "/greengrass/definition/loggers", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/loggers", 200] },
   () => CreateLoggerDefinitionRequest,
   () => CreateLoggerDefinitionResponse,
 ];
@@ -2404,9 +1902,7 @@ export var CreateLoggerDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _CLDV,
-  {
-    [_h]: ["POST", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions", 200] },
   () => CreateLoggerDefinitionVersionRequest,
   () => CreateLoggerDefinitionVersionResponse,
 ];
@@ -2414,9 +1910,7 @@ export var CreateResourceDefinition: StaticOperationSchema = [
   9,
   n0,
   _CRD,
-  {
-    [_h]: ["POST", "/greengrass/definition/resources", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/resources", 200] },
   () => CreateResourceDefinitionRequest,
   () => CreateResourceDefinitionResponse,
 ];
@@ -2424,9 +1918,7 @@ export var CreateResourceDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _CRDV,
-  {
-    [_h]: ["POST", "/greengrass/definition/resources/{ResourceDefinitionId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/resources/{ResourceDefinitionId}/versions", 200] },
   () => CreateResourceDefinitionVersionRequest,
   () => CreateResourceDefinitionVersionResponse,
 ];
@@ -2434,9 +1926,7 @@ export var CreateSoftwareUpdateJob: StaticOperationSchema = [
   9,
   n0,
   _CSUJ,
-  {
-    [_h]: ["POST", "/greengrass/updates", 200],
-  },
+  { [_h]: ["POST", "/greengrass/updates", 200] },
   () => CreateSoftwareUpdateJobRequest,
   () => CreateSoftwareUpdateJobResponse,
 ];
@@ -2444,9 +1934,7 @@ export var CreateSubscriptionDefinition: StaticOperationSchema = [
   9,
   n0,
   _CSD,
-  {
-    [_h]: ["POST", "/greengrass/definition/subscriptions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/subscriptions", 200] },
   () => CreateSubscriptionDefinitionRequest,
   () => CreateSubscriptionDefinitionResponse,
 ];
@@ -2454,9 +1942,7 @@ export var CreateSubscriptionDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _CSDV,
-  {
-    [_h]: ["POST", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions", 200],
-  },
+  { [_h]: ["POST", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions", 200] },
   () => CreateSubscriptionDefinitionVersionRequest,
   () => CreateSubscriptionDefinitionVersionResponse,
 ];
@@ -2464,9 +1950,7 @@ export var DeleteConnectorDefinition: StaticOperationSchema = [
   9,
   n0,
   _DCD,
-  {
-    [_h]: ["DELETE", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200] },
   () => DeleteConnectorDefinitionRequest,
   () => DeleteConnectorDefinitionResponse,
 ];
@@ -2474,9 +1958,7 @@ export var DeleteCoreDefinition: StaticOperationSchema = [
   9,
   n0,
   _DCDe,
-  {
-    [_h]: ["DELETE", "/greengrass/definition/cores/{CoreDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/definition/cores/{CoreDefinitionId}", 200] },
   () => DeleteCoreDefinitionRequest,
   () => DeleteCoreDefinitionResponse,
 ];
@@ -2484,9 +1966,7 @@ export var DeleteDeviceDefinition: StaticOperationSchema = [
   9,
   n0,
   _DDD,
-  {
-    [_h]: ["DELETE", "/greengrass/definition/devices/{DeviceDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/definition/devices/{DeviceDefinitionId}", 200] },
   () => DeleteDeviceDefinitionRequest,
   () => DeleteDeviceDefinitionResponse,
 ];
@@ -2494,9 +1974,7 @@ export var DeleteFunctionDefinition: StaticOperationSchema = [
   9,
   n0,
   _DFD,
-  {
-    [_h]: ["DELETE", "/greengrass/definition/functions/{FunctionDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/definition/functions/{FunctionDefinitionId}", 200] },
   () => DeleteFunctionDefinitionRequest,
   () => DeleteFunctionDefinitionResponse,
 ];
@@ -2504,9 +1982,7 @@ export var DeleteGroup: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_h]: ["DELETE", "/greengrass/groups/{GroupId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/groups/{GroupId}", 200] },
   () => DeleteGroupRequest,
   () => DeleteGroupResponse,
 ];
@@ -2514,9 +1990,7 @@ export var DeleteLoggerDefinition: StaticOperationSchema = [
   9,
   n0,
   _DLD,
-  {
-    [_h]: ["DELETE", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200] },
   () => DeleteLoggerDefinitionRequest,
   () => DeleteLoggerDefinitionResponse,
 ];
@@ -2524,9 +1998,7 @@ export var DeleteResourceDefinition: StaticOperationSchema = [
   9,
   n0,
   _DRD,
-  {
-    [_h]: ["DELETE", "/greengrass/definition/resources/{ResourceDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/definition/resources/{ResourceDefinitionId}", 200] },
   () => DeleteResourceDefinitionRequest,
   () => DeleteResourceDefinitionResponse,
 ];
@@ -2534,9 +2006,7 @@ export var DeleteSubscriptionDefinition: StaticOperationSchema = [
   9,
   n0,
   _DSD,
-  {
-    [_h]: ["DELETE", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200] },
   () => DeleteSubscriptionDefinitionRequest,
   () => DeleteSubscriptionDefinitionResponse,
 ];
@@ -2544,9 +2014,7 @@ export var DisassociateRoleFromGroup: StaticOperationSchema = [
   9,
   n0,
   _DRFG,
-  {
-    [_h]: ["DELETE", "/greengrass/groups/{GroupId}/role", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/groups/{GroupId}/role", 200] },
   () => DisassociateRoleFromGroupRequest,
   () => DisassociateRoleFromGroupResponse,
 ];
@@ -2554,9 +2022,7 @@ export var DisassociateServiceRoleFromAccount: StaticOperationSchema = [
   9,
   n0,
   _DSRFA,
-  {
-    [_h]: ["DELETE", "/greengrass/servicerole", 200],
-  },
+  { [_h]: ["DELETE", "/greengrass/servicerole", 200] },
   () => DisassociateServiceRoleFromAccountRequest,
   () => DisassociateServiceRoleFromAccountResponse,
 ];
@@ -2564,9 +2030,7 @@ export var GetAssociatedRole: StaticOperationSchema = [
   9,
   n0,
   _GAR,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/role", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/role", 200] },
   () => GetAssociatedRoleRequest,
   () => GetAssociatedRoleResponse,
 ];
@@ -2574,9 +2038,7 @@ export var GetBulkDeploymentStatus: StaticOperationSchema = [
   9,
   n0,
   _GBDS,
-  {
-    [_h]: ["GET", "/greengrass/bulk/deployments/{BulkDeploymentId}/status", 200],
-  },
+  { [_h]: ["GET", "/greengrass/bulk/deployments/{BulkDeploymentId}/status", 200] },
   () => GetBulkDeploymentStatusRequest,
   () => GetBulkDeploymentStatusResponse,
 ];
@@ -2584,9 +2046,7 @@ export var GetConnectivityInfo: StaticOperationSchema = [
   9,
   n0,
   _GCI,
-  {
-    [_h]: ["GET", "/greengrass/things/{ThingName}/connectivityInfo", 200],
-  },
+  { [_h]: ["GET", "/greengrass/things/{ThingName}/connectivityInfo", 200] },
   () => GetConnectivityInfoRequest,
   () => GetConnectivityInfoResponse,
 ];
@@ -2594,9 +2054,7 @@ export var GetConnectorDefinition: StaticOperationSchema = [
   9,
   n0,
   _GCD,
-  {
-    [_h]: ["GET", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200] },
   () => GetConnectorDefinitionRequest,
   () => GetConnectorDefinitionResponse,
 ];
@@ -2618,9 +2076,7 @@ export var GetCoreDefinition: StaticOperationSchema = [
   9,
   n0,
   _GCDe,
-  {
-    [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}", 200] },
   () => GetCoreDefinitionRequest,
   () => GetCoreDefinitionResponse,
 ];
@@ -2628,9 +2084,7 @@ export var GetCoreDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _GCDVe,
-  {
-    [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}", 200] },
   () => GetCoreDefinitionVersionRequest,
   () => GetCoreDefinitionVersionResponse,
 ];
@@ -2638,9 +2092,7 @@ export var GetDeploymentStatus: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status", 200] },
   () => GetDeploymentStatusRequest,
   () => GetDeploymentStatusResponse,
 ];
@@ -2648,9 +2100,7 @@ export var GetDeviceDefinition: StaticOperationSchema = [
   9,
   n0,
   _GDD,
-  {
-    [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}", 200] },
   () => GetDeviceDefinitionRequest,
   () => GetDeviceDefinitionResponse,
 ];
@@ -2658,9 +2108,7 @@ export var GetDeviceDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _GDDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}", 200] },
   () => GetDeviceDefinitionVersionRequest,
   () => GetDeviceDefinitionVersionResponse,
 ];
@@ -2668,9 +2116,7 @@ export var GetFunctionDefinition: StaticOperationSchema = [
   9,
   n0,
   _GFD,
-  {
-    [_h]: ["GET", "/greengrass/definition/functions/{FunctionDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/functions/{FunctionDefinitionId}", 200] },
   () => GetFunctionDefinitionRequest,
   () => GetFunctionDefinitionResponse,
 ];
@@ -2692,9 +2138,7 @@ export var GetGroup: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}", 200] },
   () => GetGroupRequest,
   () => GetGroupResponse,
 ];
@@ -2702,9 +2146,7 @@ export var GetGroupCertificateAuthority: StaticOperationSchema = [
   9,
   n0,
   _GGCA,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}", 200] },
   () => GetGroupCertificateAuthorityRequest,
   () => GetGroupCertificateAuthorityResponse,
 ];
@@ -2712,9 +2154,7 @@ export var GetGroupCertificateConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GGCC,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry", 200] },
   () => GetGroupCertificateConfigurationRequest,
   () => GetGroupCertificateConfigurationResponse,
 ];
@@ -2722,9 +2162,7 @@ export var GetGroupVersion: StaticOperationSchema = [
   9,
   n0,
   _GGV,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/versions/{GroupVersionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/versions/{GroupVersionId}", 200] },
   () => GetGroupVersionRequest,
   () => GetGroupVersionResponse,
 ];
@@ -2732,9 +2170,7 @@ export var GetLoggerDefinition: StaticOperationSchema = [
   9,
   n0,
   _GLD,
-  {
-    [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200] },
   () => GetLoggerDefinitionRequest,
   () => GetLoggerDefinitionResponse,
 ];
@@ -2742,9 +2178,7 @@ export var GetLoggerDefinitionVersion: StaticOperationSchema = [
   9,
   n0,
   _GLDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}", 200] },
   () => GetLoggerDefinitionVersionRequest,
   () => GetLoggerDefinitionVersionResponse,
 ];
@@ -2752,9 +2186,7 @@ export var GetResourceDefinition: StaticOperationSchema = [
   9,
   n0,
   _GRD,
-  {
-    [_h]: ["GET", "/greengrass/definition/resources/{ResourceDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/resources/{ResourceDefinitionId}", 200] },
   () => GetResourceDefinitionRequest,
   () => GetResourceDefinitionResponse,
 ];
@@ -2776,9 +2208,7 @@ export var GetServiceRoleForAccount: StaticOperationSchema = [
   9,
   n0,
   _GSRFA,
-  {
-    [_h]: ["GET", "/greengrass/servicerole", 200],
-  },
+  { [_h]: ["GET", "/greengrass/servicerole", 200] },
   () => GetServiceRoleForAccountRequest,
   () => GetServiceRoleForAccountResponse,
 ];
@@ -2786,9 +2216,7 @@ export var GetSubscriptionDefinition: StaticOperationSchema = [
   9,
   n0,
   _GSD,
-  {
-    [_h]: ["GET", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200] },
   () => GetSubscriptionDefinitionRequest,
   () => GetSubscriptionDefinitionResponse,
 ];
@@ -2810,9 +2238,7 @@ export var GetThingRuntimeConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GTRC,
-  {
-    [_h]: ["GET", "/greengrass/things/{ThingName}/runtimeconfig", 200],
-  },
+  { [_h]: ["GET", "/greengrass/things/{ThingName}/runtimeconfig", 200] },
   () => GetThingRuntimeConfigurationRequest,
   () => GetThingRuntimeConfigurationResponse,
 ];
@@ -2820,9 +2246,7 @@ export var ListBulkDeploymentDetailedReports: StaticOperationSchema = [
   9,
   n0,
   _LBDDR,
-  {
-    [_h]: ["GET", "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports", 200],
-  },
+  { [_h]: ["GET", "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports", 200] },
   () => ListBulkDeploymentDetailedReportsRequest,
   () => ListBulkDeploymentDetailedReportsResponse,
 ];
@@ -2830,9 +2254,7 @@ export var ListBulkDeployments: StaticOperationSchema = [
   9,
   n0,
   _LBD,
-  {
-    [_h]: ["GET", "/greengrass/bulk/deployments", 200],
-  },
+  { [_h]: ["GET", "/greengrass/bulk/deployments", 200] },
   () => ListBulkDeploymentsRequest,
   () => ListBulkDeploymentsResponse,
 ];
@@ -2840,9 +2262,7 @@ export var ListConnectorDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LCD,
-  {
-    [_h]: ["GET", "/greengrass/definition/connectors", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/connectors", 200] },
   () => ListConnectorDefinitionsRequest,
   () => ListConnectorDefinitionsResponse,
 ];
@@ -2850,9 +2270,7 @@ export var ListConnectorDefinitionVersions: StaticOperationSchema = [
   9,
   n0,
   _LCDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions", 200] },
   () => ListConnectorDefinitionVersionsRequest,
   () => ListConnectorDefinitionVersionsResponse,
 ];
@@ -2860,9 +2278,7 @@ export var ListCoreDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LCDi,
-  {
-    [_h]: ["GET", "/greengrass/definition/cores", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/cores", 200] },
   () => ListCoreDefinitionsRequest,
   () => ListCoreDefinitionsResponse,
 ];
@@ -2870,9 +2286,7 @@ export var ListCoreDefinitionVersions: StaticOperationSchema = [
   9,
   n0,
   _LCDVi,
-  {
-    [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}/versions", 200] },
   () => ListCoreDefinitionVersionsRequest,
   () => ListCoreDefinitionVersionsResponse,
 ];
@@ -2880,9 +2294,7 @@ export var ListDeployments: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/deployments", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/deployments", 200] },
   () => ListDeploymentsRequest,
   () => ListDeploymentsResponse,
 ];
@@ -2890,9 +2302,7 @@ export var ListDeviceDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LDD,
-  {
-    [_h]: ["GET", "/greengrass/definition/devices", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/devices", 200] },
   () => ListDeviceDefinitionsRequest,
   () => ListDeviceDefinitionsResponse,
 ];
@@ -2900,9 +2310,7 @@ export var ListDeviceDefinitionVersions: StaticOperationSchema = [
   9,
   n0,
   _LDDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}/versions", 200] },
   () => ListDeviceDefinitionVersionsRequest,
   () => ListDeviceDefinitionVersionsResponse,
 ];
@@ -2910,9 +2318,7 @@ export var ListFunctionDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LFD,
-  {
-    [_h]: ["GET", "/greengrass/definition/functions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/functions", 200] },
   () => ListFunctionDefinitionsRequest,
   () => ListFunctionDefinitionsResponse,
 ];
@@ -2920,9 +2326,7 @@ export var ListFunctionDefinitionVersions: StaticOperationSchema = [
   9,
   n0,
   _LFDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/functions/{FunctionDefinitionId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/functions/{FunctionDefinitionId}/versions", 200] },
   () => ListFunctionDefinitionVersionsRequest,
   () => ListFunctionDefinitionVersionsResponse,
 ];
@@ -2930,9 +2334,7 @@ export var ListGroupCertificateAuthorities: StaticOperationSchema = [
   9,
   n0,
   _LGCA,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities", 200] },
   () => ListGroupCertificateAuthoritiesRequest,
   () => ListGroupCertificateAuthoritiesResponse,
 ];
@@ -2940,9 +2342,7 @@ export var ListGroups: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  {
-    [_h]: ["GET", "/greengrass/groups", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups", 200] },
   () => ListGroupsRequest,
   () => ListGroupsResponse,
 ];
@@ -2950,9 +2350,7 @@ export var ListGroupVersions: StaticOperationSchema = [
   9,
   n0,
   _LGV,
-  {
-    [_h]: ["GET", "/greengrass/groups/{GroupId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/groups/{GroupId}/versions", 200] },
   () => ListGroupVersionsRequest,
   () => ListGroupVersionsResponse,
 ];
@@ -2960,9 +2358,7 @@ export var ListLoggerDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LLD,
-  {
-    [_h]: ["GET", "/greengrass/definition/loggers", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/loggers", 200] },
   () => ListLoggerDefinitionsRequest,
   () => ListLoggerDefinitionsResponse,
 ];
@@ -2970,9 +2366,7 @@ export var ListLoggerDefinitionVersions: StaticOperationSchema = [
   9,
   n0,
   _LLDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions", 200] },
   () => ListLoggerDefinitionVersionsRequest,
   () => ListLoggerDefinitionVersionsResponse,
 ];
@@ -2980,9 +2374,7 @@ export var ListResourceDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LRD,
-  {
-    [_h]: ["GET", "/greengrass/definition/resources", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/resources", 200] },
   () => ListResourceDefinitionsRequest,
   () => ListResourceDefinitionsResponse,
 ];
@@ -2990,9 +2382,7 @@ export var ListResourceDefinitionVersions: StaticOperationSchema = [
   9,
   n0,
   _LRDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/resources/{ResourceDefinitionId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/resources/{ResourceDefinitionId}/versions", 200] },
   () => ListResourceDefinitionVersionsRequest,
   () => ListResourceDefinitionVersionsResponse,
 ];
@@ -3000,9 +2390,7 @@ export var ListSubscriptionDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LSD,
-  {
-    [_h]: ["GET", "/greengrass/definition/subscriptions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/subscriptions", 200] },
   () => ListSubscriptionDefinitionsRequest,
   () => ListSubscriptionDefinitionsResponse,
 ];
@@ -3010,9 +2398,7 @@ export var ListSubscriptionDefinitionVersions: StaticOperationSchema = [
   9,
   n0,
   _LSDV,
-  {
-    [_h]: ["GET", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions", 200],
-  },
+  { [_h]: ["GET", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions", 200] },
   () => ListSubscriptionDefinitionVersionsRequest,
   () => ListSubscriptionDefinitionVersionsResponse,
 ];
@@ -3020,9 +2406,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3030,9 +2414,7 @@ export var ResetDeployments: StaticOperationSchema = [
   9,
   n0,
   _RD,
-  {
-    [_h]: ["POST", "/greengrass/groups/{GroupId}/deployments/$reset", 200],
-  },
+  { [_h]: ["POST", "/greengrass/groups/{GroupId}/deployments/$reset", 200] },
   () => ResetDeploymentsRequest,
   () => ResetDeploymentsResponse,
 ];
@@ -3040,9 +2422,7 @@ export var StartBulkDeployment: StaticOperationSchema = [
   9,
   n0,
   _SBD,
-  {
-    [_h]: ["POST", "/greengrass/bulk/deployments", 200],
-  },
+  { [_h]: ["POST", "/greengrass/bulk/deployments", 200] },
   () => StartBulkDeploymentRequest,
   () => StartBulkDeploymentResponse,
 ];
@@ -3050,9 +2430,7 @@ export var StopBulkDeployment: StaticOperationSchema = [
   9,
   n0,
   _SBDt,
-  {
-    [_h]: ["PUT", "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop", 200] },
   () => StopBulkDeploymentRequest,
   () => StopBulkDeploymentResponse,
 ];
@@ -3060,9 +2438,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -3070,9 +2446,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -3080,9 +2454,7 @@ export var UpdateConnectivityInfo: StaticOperationSchema = [
   9,
   n0,
   _UCI,
-  {
-    [_h]: ["PUT", "/greengrass/things/{ThingName}/connectivityInfo", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/things/{ThingName}/connectivityInfo", 200] },
   () => UpdateConnectivityInfoRequest,
   () => UpdateConnectivityInfoResponse,
 ];
@@ -3090,9 +2462,7 @@ export var UpdateConnectorDefinition: StaticOperationSchema = [
   9,
   n0,
   _UCD,
-  {
-    [_h]: ["PUT", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200] },
   () => UpdateConnectorDefinitionRequest,
   () => UpdateConnectorDefinitionResponse,
 ];
@@ -3100,9 +2470,7 @@ export var UpdateCoreDefinition: StaticOperationSchema = [
   9,
   n0,
   _UCDp,
-  {
-    [_h]: ["PUT", "/greengrass/definition/cores/{CoreDefinitionId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/definition/cores/{CoreDefinitionId}", 200] },
   () => UpdateCoreDefinitionRequest,
   () => UpdateCoreDefinitionResponse,
 ];
@@ -3110,9 +2478,7 @@ export var UpdateDeviceDefinition: StaticOperationSchema = [
   9,
   n0,
   _UDD,
-  {
-    [_h]: ["PUT", "/greengrass/definition/devices/{DeviceDefinitionId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/definition/devices/{DeviceDefinitionId}", 200] },
   () => UpdateDeviceDefinitionRequest,
   () => UpdateDeviceDefinitionResponse,
 ];
@@ -3120,9 +2486,7 @@ export var UpdateFunctionDefinition: StaticOperationSchema = [
   9,
   n0,
   _UFD,
-  {
-    [_h]: ["PUT", "/greengrass/definition/functions/{FunctionDefinitionId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/definition/functions/{FunctionDefinitionId}", 200] },
   () => UpdateFunctionDefinitionRequest,
   () => UpdateFunctionDefinitionResponse,
 ];
@@ -3130,9 +2494,7 @@ export var UpdateGroup: StaticOperationSchema = [
   9,
   n0,
   _UG,
-  {
-    [_h]: ["PUT", "/greengrass/groups/{GroupId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/groups/{GroupId}", 200] },
   () => UpdateGroupRequest,
   () => UpdateGroupResponse,
 ];
@@ -3140,9 +2502,7 @@ export var UpdateGroupCertificateConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UGCC,
-  {
-    [_h]: ["PUT", "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry", 200] },
   () => UpdateGroupCertificateConfigurationRequest,
   () => UpdateGroupCertificateConfigurationResponse,
 ];
@@ -3150,9 +2510,7 @@ export var UpdateLoggerDefinition: StaticOperationSchema = [
   9,
   n0,
   _ULD,
-  {
-    [_h]: ["PUT", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200] },
   () => UpdateLoggerDefinitionRequest,
   () => UpdateLoggerDefinitionResponse,
 ];
@@ -3160,9 +2518,7 @@ export var UpdateResourceDefinition: StaticOperationSchema = [
   9,
   n0,
   _URD,
-  {
-    [_h]: ["PUT", "/greengrass/definition/resources/{ResourceDefinitionId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/definition/resources/{ResourceDefinitionId}", 200] },
   () => UpdateResourceDefinitionRequest,
   () => UpdateResourceDefinitionResponse,
 ];
@@ -3170,9 +2526,7 @@ export var UpdateSubscriptionDefinition: StaticOperationSchema = [
   9,
   n0,
   _USD,
-  {
-    [_h]: ["PUT", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200] },
   () => UpdateSubscriptionDefinitionRequest,
   () => UpdateSubscriptionDefinitionResponse,
 ];
@@ -3180,9 +2534,7 @@ export var UpdateThingRuntimeConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UTRC,
-  {
-    [_h]: ["PUT", "/greengrass/things/{ThingName}/runtimeconfig", 200],
-  },
+  { [_h]: ["PUT", "/greengrass/things/{ThingName}/runtimeconfig", 200] },
   () => UpdateThingRuntimeConfigurationRequest,
   () => UpdateThingRuntimeConfigurationResponse,
 ];

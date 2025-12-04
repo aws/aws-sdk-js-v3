@@ -283,7 +283,6 @@ import {
 import { FisServiceException as __FisServiceException } from "../models/FisServiceException";
 
 /* eslint no-var: 0 */
-
 export var Action: StaticStructureSchema = [
   3,
   n0,
@@ -306,16 +305,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ConflictException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateExperimentTemplateActionInput: StaticStructureSchema = [
   3,
   n0,
@@ -739,18 +733,8 @@ export var ListActionsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListActionsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_ac, _nT], [() => ActionSummaryList, 0]];
@@ -762,24 +746,9 @@ export var ListExperimentResolvedTargetsRequest: StaticStructureSchema = [
   [_eI, _mR, _nT, _tN],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tN,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _tN }],
   ],
 ];
 export var ListExperimentResolvedTargetsResponse: StaticStructureSchema = [
@@ -797,24 +766,9 @@ export var ListExperimentsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _eTI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eTI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _eTI }],
   ],
 ];
 export var ListExperimentsResponse: StaticStructureSchema = [
@@ -833,12 +787,7 @@ export var ListExperimentTargetAccountConfigurationsRequest: StaticStructureSche
   [_eI, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListExperimentTargetAccountConfigurationsResponse: StaticStructureSchema = [
@@ -856,18 +805,8 @@ export var ListExperimentTemplatesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListExperimentTemplatesResponse: StaticStructureSchema = [
@@ -888,18 +827,8 @@ export var ListTargetAccountConfigurationsRequest: StaticStructureSchema = [
   [_eTI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTargetAccountConfigurationsResponse: StaticStructureSchema = [
@@ -917,18 +846,8 @@ export var ListTargetResourceTypesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTargetResourceTypesResponse: StaticStructureSchema = [
@@ -947,32 +866,22 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SafetyLever: StaticStructureSchema = [3, n0, _SL, 0, [_i, _a, _st], [0, 0, () => SafetyLeverState]];
 export var SafetyLeverState: StaticStructureSchema = [3, n0, _SLS, 0, [_sta, _re], [0, 0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-    [_aQE]: [`ServiceQuotaExceededException`, 402],
-  },
+  { [_e]: _c, [_hE]: 402, [_aQE]: [`ServiceQuotaExceededException`, 402] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartExperimentExperimentOptionsInput: StaticStructureSchema = [3, n0, _SEEOI, 0, [_aM], [0]];
 export var StartExperimentRequest: StaticStructureSchema = [
   3,
@@ -1007,12 +916,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAes, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1111,21 +1015,14 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var FisServiceException: StaticErrorSchema = [-3, _sm, "FisServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FisServiceException, __FisServiceException);
-
 export var ActionSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ActionSummary];
 export var CreateExperimentTemplateStopConditionInputList: StaticListSchema = [
   1,
@@ -1135,7 +1032,6 @@ export var CreateExperimentTemplateStopConditionInputList: StaticListSchema = [
   () => CreateExperimentTemplateStopConditionInput,
 ];
 export var ExperimentActionStartAfterList = 64 | 0;
-
 export var ExperimentReportConfigurationCloudWatchDashboardList: StaticListSchema = [
   1,
   n0,
@@ -1155,9 +1051,7 @@ export var ExperimentTargetAccountConfigurationList: StaticListSchema = [
 ];
 export var ExperimentTargetFilterList: StaticListSchema = [1, n0, _ETFL, 0, () => ExperimentTargetFilter];
 export var ExperimentTargetFilterValues = 64 | 0;
-
 export var ExperimentTemplateActionStartAfterList = 64 | 0;
-
 export var ExperimentTemplateReportConfigurationCloudWatchDashboardList: StaticListSchema = [
   1,
   n0,
@@ -1188,7 +1082,6 @@ export var ExperimentTemplateTargetFilterList: StaticListSchema = [
   () => ExperimentTemplateTargetFilter,
 ];
 export var ExperimentTemplateTargetFilterValues = 64 | 0;
-
 export var ReportConfigurationCloudWatchDashboardInputList: StaticListSchema = [
   1,
   n0,
@@ -1198,9 +1091,7 @@ export var ReportConfigurationCloudWatchDashboardInputList: StaticListSchema = [
 ];
 export var ResolvedTargetList: StaticListSchema = [1, n0, _RTL, 0, () => ResolvedTarget];
 export var ResourceArnList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TargetAccountConfigurationList: StaticListSchema = [
   1,
   n0,
@@ -1236,24 +1127,16 @@ export var CreateExperimentTemplateTargetInputMap: StaticMapSchema = [
 ];
 export var ExperimentActionMap: StaticMapSchema = [2, n0, _EAM, 0, 0, () => ExperimentAction];
 export var ExperimentActionParameterMap = 128 | 0;
-
 export var ExperimentActionTargetMap = 128 | 0;
-
 export var ExperimentTargetMap: StaticMapSchema = [2, n0, _ETM, 0, 0, () => ExperimentTarget];
 export var ExperimentTargetParameterMap = 128 | 0;
-
 export var ExperimentTemplateActionMap: StaticMapSchema = [2, n0, _ETAM, 0, 0, () => ExperimentTemplateAction];
 export var ExperimentTemplateActionParameterMap = 128 | 0;
-
 export var ExperimentTemplateActionTargetMap = 128 | 0;
-
 export var ExperimentTemplateTargetMap: StaticMapSchema = [2, n0, _ETTM, 0, 0, () => ExperimentTemplateTarget];
 export var ExperimentTemplateTargetParameterMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var TargetInformationMap = 128 | 0;
-
 export var TargetResourceTypeParameterMap: StaticMapSchema = [2, n0, _TRTPM, 0, 0, () => TargetResourceTypeParameter];
 export var UpdateExperimentTemplateActionInputMap: StaticMapSchema = [
   2,
@@ -1275,9 +1158,7 @@ export var CreateExperimentTemplate: StaticOperationSchema = [
   9,
   n0,
   _CET,
-  {
-    [_h]: ["POST", "/experimentTemplates", 200],
-  },
+  { [_h]: ["POST", "/experimentTemplates", 200] },
   () => CreateExperimentTemplateRequest,
   () => CreateExperimentTemplateResponse,
 ];
@@ -1285,9 +1166,7 @@ export var CreateTargetAccountConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CTAC,
-  {
-    [_h]: ["POST", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200],
-  },
+  { [_h]: ["POST", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200] },
   () => CreateTargetAccountConfigurationRequest,
   () => CreateTargetAccountConfigurationResponse,
 ];
@@ -1295,9 +1174,7 @@ export var DeleteExperimentTemplate: StaticOperationSchema = [
   9,
   n0,
   _DET,
-  {
-    [_h]: ["DELETE", "/experimentTemplates/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/experimentTemplates/{id}", 200] },
   () => DeleteExperimentTemplateRequest,
   () => DeleteExperimentTemplateResponse,
 ];
@@ -1305,9 +1182,7 @@ export var DeleteTargetAccountConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DTAC,
-  {
-    [_h]: ["DELETE", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200],
-  },
+  { [_h]: ["DELETE", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200] },
   () => DeleteTargetAccountConfigurationRequest,
   () => DeleteTargetAccountConfigurationResponse,
 ];
@@ -1315,9 +1190,7 @@ export var GetAction: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/actions/{id}", 200],
-  },
+  { [_h]: ["GET", "/actions/{id}", 200] },
   () => GetActionRequest,
   () => GetActionResponse,
 ];
@@ -1325,9 +1198,7 @@ export var GetExperiment: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/experiments/{id}", 200],
-  },
+  { [_h]: ["GET", "/experiments/{id}", 200] },
   () => GetExperimentRequest,
   () => GetExperimentResponse,
 ];
@@ -1335,9 +1206,7 @@ export var GetExperimentTargetAccountConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GETAC,
-  {
-    [_h]: ["GET", "/experiments/{experimentId}/targetAccountConfigurations/{accountId}", 200],
-  },
+  { [_h]: ["GET", "/experiments/{experimentId}/targetAccountConfigurations/{accountId}", 200] },
   () => GetExperimentTargetAccountConfigurationRequest,
   () => GetExperimentTargetAccountConfigurationResponse,
 ];
@@ -1345,9 +1214,7 @@ export var GetExperimentTemplate: StaticOperationSchema = [
   9,
   n0,
   _GET,
-  {
-    [_h]: ["GET", "/experimentTemplates/{id}", 200],
-  },
+  { [_h]: ["GET", "/experimentTemplates/{id}", 200] },
   () => GetExperimentTemplateRequest,
   () => GetExperimentTemplateResponse,
 ];
@@ -1355,9 +1222,7 @@ export var GetSafetyLever: StaticOperationSchema = [
   9,
   n0,
   _GSL,
-  {
-    [_h]: ["GET", "/safetyLevers/{id}", 200],
-  },
+  { [_h]: ["GET", "/safetyLevers/{id}", 200] },
   () => GetSafetyLeverRequest,
   () => GetSafetyLeverResponse,
 ];
@@ -1365,9 +1230,7 @@ export var GetTargetAccountConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GTAC,
-  {
-    [_h]: ["GET", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200],
-  },
+  { [_h]: ["GET", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200] },
   () => GetTargetAccountConfigurationRequest,
   () => GetTargetAccountConfigurationResponse,
 ];
@@ -1375,9 +1238,7 @@ export var GetTargetResourceType: StaticOperationSchema = [
   9,
   n0,
   _GTRT,
-  {
-    [_h]: ["GET", "/targetResourceTypes/{resourceType}", 200],
-  },
+  { [_h]: ["GET", "/targetResourceTypes/{resourceType}", 200] },
   () => GetTargetResourceTypeRequest,
   () => GetTargetResourceTypeResponse,
 ];
@@ -1385,9 +1246,7 @@ export var ListActions: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/actions", 200],
-  },
+  { [_h]: ["GET", "/actions", 200] },
   () => ListActionsRequest,
   () => ListActionsResponse,
 ];
@@ -1395,9 +1254,7 @@ export var ListExperimentResolvedTargets: StaticOperationSchema = [
   9,
   n0,
   _LERT,
-  {
-    [_h]: ["GET", "/experiments/{experimentId}/resolvedTargets", 200],
-  },
+  { [_h]: ["GET", "/experiments/{experimentId}/resolvedTargets", 200] },
   () => ListExperimentResolvedTargetsRequest,
   () => ListExperimentResolvedTargetsResponse,
 ];
@@ -1405,9 +1262,7 @@ export var ListExperiments: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["GET", "/experiments", 200],
-  },
+  { [_h]: ["GET", "/experiments", 200] },
   () => ListExperimentsRequest,
   () => ListExperimentsResponse,
 ];
@@ -1415,9 +1270,7 @@ export var ListExperimentTargetAccountConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LETAC,
-  {
-    [_h]: ["GET", "/experiments/{experimentId}/targetAccountConfigurations", 200],
-  },
+  { [_h]: ["GET", "/experiments/{experimentId}/targetAccountConfigurations", 200] },
   () => ListExperimentTargetAccountConfigurationsRequest,
   () => ListExperimentTargetAccountConfigurationsResponse,
 ];
@@ -1425,9 +1278,7 @@ export var ListExperimentTemplates: StaticOperationSchema = [
   9,
   n0,
   _LET,
-  {
-    [_h]: ["GET", "/experimentTemplates", 200],
-  },
+  { [_h]: ["GET", "/experimentTemplates", 200] },
   () => ListExperimentTemplatesRequest,
   () => ListExperimentTemplatesResponse,
 ];
@@ -1435,9 +1286,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1445,9 +1294,7 @@ export var ListTargetAccountConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LTAC,
-  {
-    [_h]: ["GET", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations", 200],
-  },
+  { [_h]: ["GET", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations", 200] },
   () => ListTargetAccountConfigurationsRequest,
   () => ListTargetAccountConfigurationsResponse,
 ];
@@ -1455,9 +1302,7 @@ export var ListTargetResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _LTRT,
-  {
-    [_h]: ["GET", "/targetResourceTypes", 200],
-  },
+  { [_h]: ["GET", "/targetResourceTypes", 200] },
   () => ListTargetResourceTypesRequest,
   () => ListTargetResourceTypesResponse,
 ];
@@ -1465,9 +1310,7 @@ export var StartExperiment: StaticOperationSchema = [
   9,
   n0,
   _SE,
-  {
-    [_h]: ["POST", "/experiments", 200],
-  },
+  { [_h]: ["POST", "/experiments", 200] },
   () => StartExperimentRequest,
   () => StartExperimentResponse,
 ];
@@ -1475,9 +1318,7 @@ export var StopExperiment: StaticOperationSchema = [
   9,
   n0,
   _SEt,
-  {
-    [_h]: ["DELETE", "/experiments/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/experiments/{id}", 200] },
   () => StopExperimentRequest,
   () => StopExperimentResponse,
 ];
@@ -1485,9 +1326,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1495,9 +1334,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1505,9 +1342,7 @@ export var UpdateExperimentTemplate: StaticOperationSchema = [
   9,
   n0,
   _UET,
-  {
-    [_h]: ["PATCH", "/experimentTemplates/{id}", 200],
-  },
+  { [_h]: ["PATCH", "/experimentTemplates/{id}", 200] },
   () => UpdateExperimentTemplateRequest,
   () => UpdateExperimentTemplateResponse,
 ];
@@ -1515,9 +1350,7 @@ export var UpdateSafetyLeverState: StaticOperationSchema = [
   9,
   n0,
   _USLS,
-  {
-    [_h]: ["PATCH", "/safetyLevers/{id}/state", 200],
-  },
+  { [_h]: ["PATCH", "/safetyLevers/{id}/state", 200] },
   () => UpdateSafetyLeverStateRequest,
   () => UpdateSafetyLeverStateResponse,
 ];
@@ -1525,9 +1358,7 @@ export var UpdateTargetAccountConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UTAC,
-  {
-    [_h]: ["PATCH", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200],
-  },
+  { [_h]: ["PATCH", "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", 200] },
   () => UpdateTargetAccountConfigurationRequest,
   () => UpdateTargetAccountConfigurationResponse,
 ];

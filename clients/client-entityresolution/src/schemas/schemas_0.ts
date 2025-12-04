@@ -359,20 +359,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddPolicyStatementInput: StaticStructureSchema = [
   3,
   n0,
@@ -390,18 +378,8 @@ export var BatchDeleteUniqueIdInput: StaticStructureSchema = [
   [_wN, _iS, _uI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _iS,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hH]: _uI,
-      },
-    ],
+    [0, { [_hH]: _iS }],
+    [64 | 0, { [_hH]: _uI }],
   ],
 ];
 export var BatchDeleteUniqueIdOutput: StaticStructureSchema = [
@@ -412,19 +390,8 @@ export var BatchDeleteUniqueIdOutput: StaticStructureSchema = [
   [_s, _er, _d, _dUI],
   [0, () => DeleteUniqueIdErrorsList, () => DeletedUniqueIdList, 64 | 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateIdMappingWorkflowInput: StaticStructureSchema = [
   3,
   n0,
@@ -552,15 +519,11 @@ export var ExceedsLimitException: StaticErrorSchema = [
   -3,
   n0,
   _ELE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _qN, _qV],
   [0, 0, 1],
 ];
 TypeRegistry.for(n0).registerError(ExceedsLimitException, __ExceedsLimitException);
-
 export var FailedRecord: StaticStructureSchema = [3, n0, _FR, 0, [_iSARN, _uIn, _eM], [0, 0, 0]];
 export var GenerateMatchIdInput: StaticStructureSchema = [
   3,
@@ -770,19 +733,8 @@ export var IdNamespaceSummary: StaticStructureSchema = [
 export var IncrementalRunConfig: StaticStructureSchema = [3, n0, _IRC, 0, [_iRT], [0]];
 export var InputSource: StaticStructureSchema = [3, n0, _IS, 0, [_iSARN, _sN, _aN], [0, 0, 2]];
 export var IntermediateSourceConfiguration: StaticStructureSchema = [3, n0, _ISC, 0, [_iSP], [0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JobMetrics: StaticStructureSchema = [3, n0, _JM, 0, [_iR, _tRP, _rNP, _dRP, _mID], [1, 1, 1, 1, 1]];
 export var JobOutputSource: StaticStructureSchema = [3, n0, _JOS, 0, [_rA, _oSP, _KMSA], [0, 0, 0]];
 export var JobSummary: StaticStructureSchema = [3, n0, _JS, 0, [_jI, _s, _sT, _eTn], [0, 0, 4, 4]];
@@ -794,18 +746,8 @@ export var ListIdMappingJobsInput: StaticStructureSchema = [
   [_wN, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListIdMappingJobsOutput: StaticStructureSchema = [3, n0, _LIMJO, 0, [_j, _nT], [() => JobList, 0]];
@@ -816,18 +758,8 @@ export var ListIdMappingWorkflowsInput: StaticStructureSchema = [
   0,
   [_nT, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListIdMappingWorkflowsOutput: StaticStructureSchema = [
@@ -845,18 +777,8 @@ export var ListIdNamespacesInput: StaticStructureSchema = [
   0,
   [_nT, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListIdNamespacesOutput: StaticStructureSchema = [3, n0, _LINO, 0, [_iNS, _nT], [() => IdNamespaceList, 0]];
@@ -868,18 +790,8 @@ export var ListMatchingJobsInput: StaticStructureSchema = [
   [_wN, _nT, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListMatchingJobsOutput: StaticStructureSchema = [3, n0, _LMJO, 0, [_j, _nT], [() => JobList, 0]];
@@ -890,18 +802,8 @@ export var ListMatchingWorkflowsInput: StaticStructureSchema = [
   0,
   [_nT, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListMatchingWorkflowsOutput: StaticStructureSchema = [
@@ -919,24 +821,9 @@ export var ListProviderServicesInput: StaticStructureSchema = [
   0,
   [_nT, _mRa, _pN],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pN,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _pN }],
   ],
 ];
 export var ListProviderServicesOutput: StaticStructureSchema = [
@@ -954,18 +841,8 @@ export var ListSchemaMappingsInput: StaticStructureSchema = [
   0,
   [_nT, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListSchemaMappingsOutput: StaticStructureSchema = [
@@ -1073,19 +950,8 @@ export var ResolutionTechniques: StaticStructureSchema = [
   [_rTe, _rBP, _rCP, _pP],
   [0, () => RuleBasedProperties, () => RuleConditionProperties, () => ProviderProperties],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Rule: StaticStructureSchema = [3, n0, _Ru, 0, [_rN, _mK], [0, 64 | 0]];
 export var RuleBasedProperties: StaticStructureSchema = [3, n0, _RBP, 0, [_ru, _aMM, _mP], [() => RuleList, 0, 0]];
 export var RuleCondition: StaticStructureSchema = [3, n0, _RC, 0, [_rN, _co], [0, 0]];
@@ -1119,19 +985,8 @@ export var StartMatchingJobInput: StaticStructureSchema = [3, n0, _SMJI, 0, [_wN
 export var StartMatchingJobOutput: StaticStructureSchema = [3, n0, _SMJO, 0, [_jI], [0]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rAe, _ta], [[0, 1], 128 | 0]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -1140,12 +995,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -1238,21 +1088,9 @@ export var UpdateSchemaMappingOutput: StaticStructureSchema = [
   [_sN, _sA, _de, _mIF],
   [0, 0, 0, () => SchemaInputAttributes],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var EntityResolutionServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1262,13 +1100,10 @@ export var EntityResolutionServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(EntityResolutionServiceException, __EntityResolutionServiceException);
-
 export var AwsAccountIdList = 64 | 0;
-
 export var DeletedUniqueIdList: StaticListSchema = [1, n0, _DUIL, 0, () => DeletedUniqueId];
 export var DeleteUniqueIdErrorsList: StaticListSchema = [1, n0, _DUIEL, 0, () => DeleteUniqueIdError];
 export var DisconnectedUniqueIdsList = 64 | 0;
-
 export var FailedRecordsList: StaticListSchema = [1, n0, _FRL, 0, () => FailedRecord];
 export var IdMappingJobOutputSourceConfig: StaticListSchema = [1, n0, _IMJOSC, 0, () => IdMappingJobOutputSource];
 export var IdMappingWorkflowInputSourceConfig: StaticListSchema = [
@@ -1287,7 +1122,6 @@ export var IdMappingWorkflowOutputSourceConfig: StaticListSchema = [
   () => IdMappingWorkflowOutputSource,
 ];
 export var IdMappingWorkflowRuleDefinitionTypeList = 64 | 0;
-
 export var IdNamespaceIdMappingWorkflowMetadataList: StaticListSchema = [
   1,
   n0,
@@ -1310,7 +1144,6 @@ export var JobOutputSourceConfig: StaticListSchema = [1, n0, _JOSC, 0, () => Job
 export var MatchedRecordsList: StaticListSchema = [1, n0, _MRL, 0, () => MatchedRecord];
 export var MatchGroupsList: StaticListSchema = [1, n0, _MGL, 0, () => MatchGroup];
 export var MatchingKeys = 64 | 0;
-
 export var MatchingWorkflowList: StaticListSchema = [1, n0, _MWL, 0, () => MatchingWorkflowSummary];
 export var OutputAttributes: StaticListSchema = [1, n0, _OAu, 0, () => OutputAttribute];
 export var OutputSourceConfig: StaticListSchema = [1, n0, _OSC, 0, () => OutputSource];
@@ -1318,28 +1151,20 @@ export var ProviderSchemaAttributes: StaticListSchema = [1, n0, _PSAr, 0, () => 
 export var ProviderServiceList: StaticListSchema = [1, n0, _PSL, 0, () => ProviderServiceSummary];
 export var RecordList: StaticListSchema = [1, n0, _RL, 0, [() => _Record, 0]];
 export var RecordMatchingModelList = 64 | 0;
-
 export var RequiredBucketActionsList = 64 | 0;
-
 export var RuleConditionList: StaticListSchema = [1, n0, _RCL, 0, () => RuleCondition];
 export var RuleList: StaticListSchema = [1, n0, _RLu, 0, () => Rule];
 export var SchemaInputAttributes: StaticListSchema = [1, n0, _SIAc, 0, () => SchemaInputAttribute];
 export var SchemaList = 64 | 0;
-
 export var SchemaMappingList: StaticListSchema = [1, n0, _SML, 0, () => SchemaMappingSummary];
 export var Schemas: StaticListSchema = [1, n0, _S, 0, 64 | 0];
 export var StatementActionList = 64 | 0;
-
 export var StatementPrincipalList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var UniqueIdList = 64 | 0;
-
 export var RecordAttributeMap: StaticMapSchema = [2, n0, _RAM, 8, 0, 0];
 export var RecordAttributeMapString255: StaticMapSchema = [2, n0, _RAMS, 8, 0, 0];
 export var TagMap = 128 | 0;
-
 export var ProviderEndpointConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1352,9 +1177,7 @@ export var AddPolicyStatement: StaticOperationSchema = [
   9,
   n0,
   _APS,
-  {
-    [_ht]: ["POST", "/policies/{arn}/{statementId}", 200],
-  },
+  { [_ht]: ["POST", "/policies/{arn}/{statementId}", 200] },
   () => AddPolicyStatementInput,
   () => AddPolicyStatementOutput,
 ];
@@ -1362,9 +1185,7 @@ export var BatchDeleteUniqueId: StaticOperationSchema = [
   9,
   n0,
   _BDUI,
-  {
-    [_ht]: ["DELETE", "/matchingworkflows/{workflowName}/uniqueids", 200],
-  },
+  { [_ht]: ["DELETE", "/matchingworkflows/{workflowName}/uniqueids", 200] },
   () => BatchDeleteUniqueIdInput,
   () => BatchDeleteUniqueIdOutput,
 ];
@@ -1372,9 +1193,7 @@ export var CreateIdMappingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _CIMW,
-  {
-    [_ht]: ["POST", "/idmappingworkflows", 200],
-  },
+  { [_ht]: ["POST", "/idmappingworkflows", 200] },
   () => CreateIdMappingWorkflowInput,
   () => CreateIdMappingWorkflowOutput,
 ];
@@ -1382,9 +1201,7 @@ export var CreateIdNamespace: StaticOperationSchema = [
   9,
   n0,
   _CIN,
-  {
-    [_ht]: ["POST", "/idnamespaces", 200],
-  },
+  { [_ht]: ["POST", "/idnamespaces", 200] },
   () => CreateIdNamespaceInput,
   () => CreateIdNamespaceOutput,
 ];
@@ -1392,9 +1209,7 @@ export var CreateMatchingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _CMW,
-  {
-    [_ht]: ["POST", "/matchingworkflows", 200],
-  },
+  { [_ht]: ["POST", "/matchingworkflows", 200] },
   () => CreateMatchingWorkflowInput,
   () => CreateMatchingWorkflowOutput,
 ];
@@ -1402,9 +1217,7 @@ export var CreateSchemaMapping: StaticOperationSchema = [
   9,
   n0,
   _CSM,
-  {
-    [_ht]: ["POST", "/schemas", 200],
-  },
+  { [_ht]: ["POST", "/schemas", 200] },
   () => CreateSchemaMappingInput,
   () => CreateSchemaMappingOutput,
 ];
@@ -1412,9 +1225,7 @@ export var DeleteIdMappingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _DIMW,
-  {
-    [_ht]: ["DELETE", "/idmappingworkflows/{workflowName}", 200],
-  },
+  { [_ht]: ["DELETE", "/idmappingworkflows/{workflowName}", 200] },
   () => DeleteIdMappingWorkflowInput,
   () => DeleteIdMappingWorkflowOutput,
 ];
@@ -1422,9 +1233,7 @@ export var DeleteIdNamespace: StaticOperationSchema = [
   9,
   n0,
   _DIN,
-  {
-    [_ht]: ["DELETE", "/idnamespaces/{idNamespaceName}", 200],
-  },
+  { [_ht]: ["DELETE", "/idnamespaces/{idNamespaceName}", 200] },
   () => DeleteIdNamespaceInput,
   () => DeleteIdNamespaceOutput,
 ];
@@ -1432,9 +1241,7 @@ export var DeleteMatchingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _DMW,
-  {
-    [_ht]: ["DELETE", "/matchingworkflows/{workflowName}", 200],
-  },
+  { [_ht]: ["DELETE", "/matchingworkflows/{workflowName}", 200] },
   () => DeleteMatchingWorkflowInput,
   () => DeleteMatchingWorkflowOutput,
 ];
@@ -1442,9 +1249,7 @@ export var DeletePolicyStatement: StaticOperationSchema = [
   9,
   n0,
   _DPS,
-  {
-    [_ht]: ["DELETE", "/policies/{arn}/{statementId}", 200],
-  },
+  { [_ht]: ["DELETE", "/policies/{arn}/{statementId}", 200] },
   () => DeletePolicyStatementInput,
   () => DeletePolicyStatementOutput,
 ];
@@ -1452,9 +1257,7 @@ export var DeleteSchemaMapping: StaticOperationSchema = [
   9,
   n0,
   _DSM,
-  {
-    [_ht]: ["DELETE", "/schemas/{schemaName}", 200],
-  },
+  { [_ht]: ["DELETE", "/schemas/{schemaName}", 200] },
   () => DeleteSchemaMappingInput,
   () => DeleteSchemaMappingOutput,
 ];
@@ -1462,9 +1265,7 @@ export var GenerateMatchId: StaticOperationSchema = [
   9,
   n0,
   _GMI,
-  {
-    [_ht]: ["POST", "/matchingworkflows/{workflowName}/generateMatches", 200],
-  },
+  { [_ht]: ["POST", "/matchingworkflows/{workflowName}/generateMatches", 200] },
   () => GenerateMatchIdInput,
   () => GenerateMatchIdOutput,
 ];
@@ -1472,9 +1273,7 @@ export var GetIdMappingJob: StaticOperationSchema = [
   9,
   n0,
   _GIMJ,
-  {
-    [_ht]: ["GET", "/idmappingworkflows/{workflowName}/jobs/{jobId}", 200],
-  },
+  { [_ht]: ["GET", "/idmappingworkflows/{workflowName}/jobs/{jobId}", 200] },
   () => GetIdMappingJobInput,
   () => GetIdMappingJobOutput,
 ];
@@ -1482,9 +1281,7 @@ export var GetIdMappingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _GIMW,
-  {
-    [_ht]: ["GET", "/idmappingworkflows/{workflowName}", 200],
-  },
+  { [_ht]: ["GET", "/idmappingworkflows/{workflowName}", 200] },
   () => GetIdMappingWorkflowInput,
   () => GetIdMappingWorkflowOutput,
 ];
@@ -1492,9 +1289,7 @@ export var GetIdNamespace: StaticOperationSchema = [
   9,
   n0,
   _GIN,
-  {
-    [_ht]: ["GET", "/idnamespaces/{idNamespaceName}", 200],
-  },
+  { [_ht]: ["GET", "/idnamespaces/{idNamespaceName}", 200] },
   () => GetIdNamespaceInput,
   () => GetIdNamespaceOutput,
 ];
@@ -1502,9 +1297,7 @@ export var GetMatchId: StaticOperationSchema = [
   9,
   n0,
   _GMIe,
-  {
-    [_ht]: ["POST", "/matchingworkflows/{workflowName}/matches", 200],
-  },
+  { [_ht]: ["POST", "/matchingworkflows/{workflowName}/matches", 200] },
   () => GetMatchIdInput,
   () => GetMatchIdOutput,
 ];
@@ -1512,9 +1305,7 @@ export var GetMatchingJob: StaticOperationSchema = [
   9,
   n0,
   _GMJ,
-  {
-    [_ht]: ["GET", "/matchingworkflows/{workflowName}/jobs/{jobId}", 200],
-  },
+  { [_ht]: ["GET", "/matchingworkflows/{workflowName}/jobs/{jobId}", 200] },
   () => GetMatchingJobInput,
   () => GetMatchingJobOutput,
 ];
@@ -1522,9 +1313,7 @@ export var GetMatchingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _GMW,
-  {
-    [_ht]: ["GET", "/matchingworkflows/{workflowName}", 200],
-  },
+  { [_ht]: ["GET", "/matchingworkflows/{workflowName}", 200] },
   () => GetMatchingWorkflowInput,
   () => GetMatchingWorkflowOutput,
 ];
@@ -1532,9 +1321,7 @@ export var GetPolicy: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_ht]: ["GET", "/policies/{arn}", 200],
-  },
+  { [_ht]: ["GET", "/policies/{arn}", 200] },
   () => GetPolicyInput,
   () => GetPolicyOutput,
 ];
@@ -1542,9 +1329,7 @@ export var GetProviderService: StaticOperationSchema = [
   9,
   n0,
   _GPS,
-  {
-    [_ht]: ["GET", "/providerservices/{providerName}/{providerServiceName}", 200],
-  },
+  { [_ht]: ["GET", "/providerservices/{providerName}/{providerServiceName}", 200] },
   () => GetProviderServiceInput,
   () => GetProviderServiceOutput,
 ];
@@ -1552,9 +1337,7 @@ export var GetSchemaMapping: StaticOperationSchema = [
   9,
   n0,
   _GSM,
-  {
-    [_ht]: ["GET", "/schemas/{schemaName}", 200],
-  },
+  { [_ht]: ["GET", "/schemas/{schemaName}", 200] },
   () => GetSchemaMappingInput,
   () => GetSchemaMappingOutput,
 ];
@@ -1562,9 +1345,7 @@ export var ListIdMappingJobs: StaticOperationSchema = [
   9,
   n0,
   _LIMJ,
-  {
-    [_ht]: ["GET", "/idmappingworkflows/{workflowName}/jobs", 200],
-  },
+  { [_ht]: ["GET", "/idmappingworkflows/{workflowName}/jobs", 200] },
   () => ListIdMappingJobsInput,
   () => ListIdMappingJobsOutput,
 ];
@@ -1572,9 +1353,7 @@ export var ListIdMappingWorkflows: StaticOperationSchema = [
   9,
   n0,
   _LIMW,
-  {
-    [_ht]: ["GET", "/idmappingworkflows", 200],
-  },
+  { [_ht]: ["GET", "/idmappingworkflows", 200] },
   () => ListIdMappingWorkflowsInput,
   () => ListIdMappingWorkflowsOutput,
 ];
@@ -1582,9 +1361,7 @@ export var ListIdNamespaces: StaticOperationSchema = [
   9,
   n0,
   _LIN,
-  {
-    [_ht]: ["GET", "/idnamespaces", 200],
-  },
+  { [_ht]: ["GET", "/idnamespaces", 200] },
   () => ListIdNamespacesInput,
   () => ListIdNamespacesOutput,
 ];
@@ -1592,9 +1369,7 @@ export var ListMatchingJobs: StaticOperationSchema = [
   9,
   n0,
   _LMJ,
-  {
-    [_ht]: ["GET", "/matchingworkflows/{workflowName}/jobs", 200],
-  },
+  { [_ht]: ["GET", "/matchingworkflows/{workflowName}/jobs", 200] },
   () => ListMatchingJobsInput,
   () => ListMatchingJobsOutput,
 ];
@@ -1602,9 +1377,7 @@ export var ListMatchingWorkflows: StaticOperationSchema = [
   9,
   n0,
   _LMW,
-  {
-    [_ht]: ["GET", "/matchingworkflows", 200],
-  },
+  { [_ht]: ["GET", "/matchingworkflows", 200] },
   () => ListMatchingWorkflowsInput,
   () => ListMatchingWorkflowsOutput,
 ];
@@ -1612,9 +1385,7 @@ export var ListProviderServices: StaticOperationSchema = [
   9,
   n0,
   _LPS,
-  {
-    [_ht]: ["GET", "/providerservices", 200],
-  },
+  { [_ht]: ["GET", "/providerservices", 200] },
   () => ListProviderServicesInput,
   () => ListProviderServicesOutput,
 ];
@@ -1622,9 +1393,7 @@ export var ListSchemaMappings: StaticOperationSchema = [
   9,
   n0,
   _LSM,
-  {
-    [_ht]: ["GET", "/schemas", 200],
-  },
+  { [_ht]: ["GET", "/schemas", 200] },
   () => ListSchemaMappingsInput,
   () => ListSchemaMappingsOutput,
 ];
@@ -1632,9 +1401,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -1642,9 +1409,7 @@ export var PutPolicy: StaticOperationSchema = [
   9,
   n0,
   _PPu,
-  {
-    [_ht]: ["PUT", "/policies/{arn}", 200],
-  },
+  { [_ht]: ["PUT", "/policies/{arn}", 200] },
   () => PutPolicyInput,
   () => PutPolicyOutput,
 ];
@@ -1652,9 +1417,7 @@ export var StartIdMappingJob: StaticOperationSchema = [
   9,
   n0,
   _SIMJ,
-  {
-    [_ht]: ["POST", "/idmappingworkflows/{workflowName}/jobs", 200],
-  },
+  { [_ht]: ["POST", "/idmappingworkflows/{workflowName}/jobs", 200] },
   () => StartIdMappingJobInput,
   () => StartIdMappingJobOutput,
 ];
@@ -1662,9 +1425,7 @@ export var StartMatchingJob: StaticOperationSchema = [
   9,
   n0,
   _SMJ,
-  {
-    [_ht]: ["POST", "/matchingworkflows/{workflowName}/jobs", 200],
-  },
+  { [_ht]: ["POST", "/matchingworkflows/{workflowName}/jobs", 200] },
   () => StartMatchingJobInput,
   () => StartMatchingJobOutput,
 ];
@@ -1672,9 +1433,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -1682,9 +1441,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -1692,9 +1449,7 @@ export var UpdateIdMappingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _UIMW,
-  {
-    [_ht]: ["PUT", "/idmappingworkflows/{workflowName}", 200],
-  },
+  { [_ht]: ["PUT", "/idmappingworkflows/{workflowName}", 200] },
   () => UpdateIdMappingWorkflowInput,
   () => UpdateIdMappingWorkflowOutput,
 ];
@@ -1702,9 +1457,7 @@ export var UpdateIdNamespace: StaticOperationSchema = [
   9,
   n0,
   _UIN,
-  {
-    [_ht]: ["PUT", "/idnamespaces/{idNamespaceName}", 200],
-  },
+  { [_ht]: ["PUT", "/idnamespaces/{idNamespaceName}", 200] },
   () => UpdateIdNamespaceInput,
   () => UpdateIdNamespaceOutput,
 ];
@@ -1712,9 +1465,7 @@ export var UpdateMatchingWorkflow: StaticOperationSchema = [
   9,
   n0,
   _UMW,
-  {
-    [_ht]: ["PUT", "/matchingworkflows/{workflowName}", 200],
-  },
+  { [_ht]: ["PUT", "/matchingworkflows/{workflowName}", 200] },
   () => UpdateMatchingWorkflowInput,
   () => UpdateMatchingWorkflowOutput,
 ];
@@ -1722,9 +1473,7 @@ export var UpdateSchemaMapping: StaticOperationSchema = [
   9,
   n0,
   _USM,
-  {
-    [_ht]: ["PUT", "/schemas/{schemaName}", 200],
-  },
+  { [_ht]: ["PUT", "/schemas/{schemaName}", 200] },
   () => UpdateSchemaMappingInput,
   () => UpdateSchemaMappingOutput,
 ];

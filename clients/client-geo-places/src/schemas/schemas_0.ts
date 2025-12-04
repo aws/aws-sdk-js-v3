@@ -274,7 +274,6 @@ import {
 import { GeoPlacesServiceException as __GeoPlacesServiceException } from "../models/GeoPlacesServiceException";
 
 /* eslint no-var: 0 */
-
 export var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 export var CountryCode: StaticSimpleSchema = [0, n0, _CC, 8, 0];
 export var CountryCode2: StaticSimpleSchema = [0, n0, _CCo, 8, 0];
@@ -294,22 +293,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessPoint: StaticStructureSchema = [3, n0, _AP, 0, [_P], [[() => Position, 0]]];
 export var AccessRestriction: StaticStructureSchema = [
   3,
@@ -431,12 +419,7 @@ export var AutocompleteRequest: StaticStructureSchema = [
     0,
     [() => CountryCode, 0],
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var AutocompleteResponse: StaticStructureSchema = [
@@ -446,12 +429,7 @@ export var AutocompleteResponse: StaticStructureSchema = [
   0,
   [_PB, _RI],
   [
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => AutocompleteResultItemList, 0],
   ],
 ];
@@ -652,12 +630,7 @@ export var GeocodeRequest: StaticStructureSchema = [
     0,
     [() => CountryCode, 0],
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var GeocodeResponse: StaticStructureSchema = [
@@ -667,12 +640,7 @@ export var GeocodeResponse: StaticStructureSchema = [
   0,
   [_PB, _RI],
   [
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => GeocodeResultItemList, 0],
   ],
 ];
@@ -712,36 +680,11 @@ export var GetPlaceRequest: StaticStructureSchema = [
   [_PI, _AFd, _La, _PV, _IU, _K],
   [
     [() => SensitiveString, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _af,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      () => CountryCode,
-      {
-        [_hQ]: _pv,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _iu,
-      },
-    ],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [64 | 0, { [_hQ]: _af }],
+    [0, { [_hQ]: _l }],
+    [() => CountryCode, { [_hQ]: _pv }],
+    [0, { [_hQ]: _iu }],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var GetPlaceResponse: StaticStructureSchema = [
@@ -754,12 +697,7 @@ export var GetPlaceResponse: StaticStructureSchema = [
     [() => SensitiveString, 0],
     [() => PlaceType, 0],
     [() => SensitiveString, 0],
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => Address, 0],
     [() => SensitiveBoolean, 0],
     [() => PostalCodeDetailsList, 0],
@@ -784,22 +722,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Intersection: StaticStructureSchema = [
   3,
   n0,
@@ -953,12 +880,7 @@ export var ReverseGeocodeRequest: StaticStructureSchema = [
     0,
     [() => CountryCode, 0],
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var ReverseGeocodeResponse: StaticStructureSchema = [
@@ -968,12 +890,7 @@ export var ReverseGeocodeResponse: StaticStructureSchema = [
   0,
   [_PB, _RI],
   [
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => ReverseGeocodeResultItemList, 0],
   ],
 ];
@@ -1034,12 +951,7 @@ export var SearchNearbyRequest: StaticStructureSchema = [
     [() => CountryCode, 0],
     0,
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var SearchNearbyResponse: StaticStructureSchema = [
@@ -1048,16 +960,7 @@ export var SearchNearbyResponse: StaticStructureSchema = [
   _SNRe,
   0,
   [_PB, _RI, _NT],
-  [
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
-    [() => SearchNearbyResultItemList, 0],
-    0,
-  ],
+  [[0, { [_hH]: _xagpb }], [() => SearchNearbyResultItemList, 0], 0],
 ];
 export var SearchNearbyResultItem: StaticStructureSchema = [
   3,
@@ -1115,12 +1018,7 @@ export var SearchTextRequest: StaticStructureSchema = [
     [() => CountryCode, 0],
     0,
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var SearchTextResponse: StaticStructureSchema = [
@@ -1129,16 +1027,7 @@ export var SearchTextResponse: StaticStructureSchema = [
   _STRe,
   0,
   [_PB, _RI, _NT],
-  [
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
-    [() => SearchTextResultItemList, 0],
-    0,
-  ],
+  [[0, { [_hH]: _xagpb }], [() => SearchTextResultItemList, 0], 0],
 ];
 export var SearchTextResultItem: StaticStructureSchema = [
   3,
@@ -1272,12 +1161,7 @@ export var SuggestRequest: StaticStructureSchema = [
     0,
     [() => CountryCode, 0],
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var SuggestResponse: StaticStructureSchema = [
@@ -1287,12 +1171,7 @@ export var SuggestResponse: StaticStructureSchema = [
   0,
   [_PB, _RI, _QRue],
   [
-    [
-      0,
-      {
-        [_hH]: _xagpb,
-      },
-    ],
+    [0, { [_hH]: _xagpb }],
     [() => SuggestResultItemList, 0],
     [() => QueryRefinementList, 0],
   ],
@@ -1311,26 +1190,8 @@ export var SuggestResultItem: StaticStructureSchema = [
     [() => SuggestHighlights, 0],
   ],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeZone: StaticStructureSchema = [
   3,
   n0,
@@ -1349,34 +1210,15 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _FL],
   [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      () => ValidationExceptionFieldList,
-      {
-        [_jN]: _fL,
-      },
-    ],
+    [0, { [_jN]: _m }],
+    [0, { [_jN]: _r }],
+    [() => ValidationExceptionFieldList, { [_jN]: _fL }],
   ],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [
   3,
   n0,
@@ -1384,29 +1226,16 @@ export var ValidationExceptionField: StaticStructureSchema = [
   0,
   [_N, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _n }],
+    [0, { [_jN]: _m }],
   ],
 ];
 export var GeoPlacesServiceException: StaticErrorSchema = [-3, _sm, "GeoPlacesServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GeoPlacesServiceException, __GeoPlacesServiceException);
-
 export var AccessPointList: StaticListSchema = [1, n0, _APL, 0, [() => AccessPoint, 0]];
 export var AccessRestrictionList: StaticListSchema = [1, n0, _ARL, 0, [() => AccessRestriction, 0]];
 export var AutocompleteAdditionalFeatureList = 64 | 0;
-
 export var AutocompleteFilterPlaceTypeList = 64 | 0;
-
 export var AutocompleteResultItemList: StaticListSchema = [1, n0, _ARIL, 0, [() => AutocompleteResultItem, 0]];
 export var BoundingBox: StaticListSchema = [1, n0, _BB, 8, 1];
 export var BusinessChainList: StaticListSchema = [1, n0, _BCL, 0, [() => BusinessChain, 0]];
@@ -1418,18 +1247,14 @@ export var FilterCategoryList: StaticListSchema = [1, n0, _FCL, 0, [() => Sensit
 export var FilterFoodTypeList: StaticListSchema = [1, n0, _FFTL, 0, [() => SensitiveString, 0]];
 export var FoodTypeList: StaticListSchema = [1, n0, _FTL, 0, [() => FoodType, 0]];
 export var GeocodeAdditionalFeatureList = 64 | 0;
-
 export var GeocodeFilterPlaceTypeList: StaticListSchema = [1, n0, _GFPTL, 0, [() => GeocodeFilterPlaceType, 0]];
 export var GeocodeResultItemList: StaticListSchema = [1, n0, _GRIL, 0, [() => GeocodeResultItem, 0]];
 export var GetPlaceAdditionalFeatureList = 64 | 0;
-
 export var HighlightList: StaticListSchema = [1, n0, _HL, 0, [() => Highlight, 0]];
 export var IntersectionHighlightsList: StaticListSchema = [1, n0, _IHL, 0, [() => HighlightList, 0]];
 export var IntersectionList: StaticListSchema = [1, n0, _IL, 0, [() => Intersection, 0]];
 export var IntersectionStreetList = 64 | 0;
-
 export var MatchScoreList = 64 | 1;
-
 export var OpeningHoursComponentsList: StaticListSchema = [1, n0, _OHCL, 0, [() => OpeningHoursComponents, 0]];
 export var OpeningHoursDisplayList: StaticListSchema = [1, n0, _OHDL, 0, [() => OpeningHoursDisplay, 0]];
 export var OpeningHoursList: StaticListSchema = [1, n0, _OHL, 0, [() => OpeningHours, 0]];
@@ -1447,15 +1272,11 @@ export var PostalCodeDetailsList: StaticListSchema = [1, n0, _PCDL, 0, [() => Po
 export var QueryRefinementList: StaticListSchema = [1, n0, _QRL, 0, [() => QueryRefinement, 0]];
 export var RelatedPlaceList: StaticListSchema = [1, n0, _RPL, 0, [() => RelatedPlace, 0]];
 export var ReverseGeocodeAdditionalFeatureList = 64 | 0;
-
 export var ReverseGeocodeFilterPlaceTypeList = 64 | 0;
-
 export var ReverseGeocodeResultItemList: StaticListSchema = [1, n0, _RGRIL, 0, [() => ReverseGeocodeResultItem, 0]];
 export var SearchNearbyAdditionalFeatureList = 64 | 0;
-
 export var SearchNearbyResultItemList: StaticListSchema = [1, n0, _SNRIL, 0, [() => SearchNearbyResultItem, 0]];
 export var SearchTextAdditionalFeatureList = 64 | 0;
-
 export var SearchTextResultItemList: StaticListSchema = [1, n0, _STRIL, 0, [() => SearchTextResultItem, 0]];
 export var SecondaryAddressComponentList: StaticListSchema = [1, n0, _SACL, 0, [() => SecondaryAddressComponent, 0]];
 export var SecondaryAddressComponentMatchScoreList: StaticListSchema = [
@@ -1467,16 +1288,13 @@ export var SecondaryAddressComponentMatchScoreList: StaticListSchema = [
 ];
 export var StreetComponentsList: StaticListSchema = [1, n0, _SCL, 0, [() => StreetComponents, 0]];
 export var SuggestAdditionalFeatureList = 64 | 0;
-
 export var SuggestResultItemList: StaticListSchema = [1, n0, _SRIL, 0, [() => SuggestResultItem, 0]];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, [() => ValidationExceptionField, 0]];
 export var Autocomplete: StaticOperationSchema = [
   9,
   n0,
   _Au,
-  {
-    [_h]: ["POST", "/autocomplete", 200],
-  },
+  { [_h]: ["POST", "/autocomplete", 200] },
   () => AutocompleteRequest,
   () => AutocompleteResponse,
 ];
@@ -1484,9 +1302,7 @@ export var Geocode: StaticOperationSchema = [
   9,
   n0,
   _G,
-  {
-    [_h]: ["POST", "/geocode", 200],
-  },
+  { [_h]: ["POST", "/geocode", 200] },
   () => GeocodeRequest,
   () => GeocodeResponse,
 ];
@@ -1494,9 +1310,7 @@ export var GetPlace: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/place/{PlaceId}", 200],
-  },
+  { [_h]: ["GET", "/place/{PlaceId}", 200] },
   () => GetPlaceRequest,
   () => GetPlaceResponse,
 ];
@@ -1504,9 +1318,7 @@ export var ReverseGeocode: StaticOperationSchema = [
   9,
   n0,
   _RG,
-  {
-    [_h]: ["POST", "/reverse-geocode", 200],
-  },
+  { [_h]: ["POST", "/reverse-geocode", 200] },
   () => ReverseGeocodeRequest,
   () => ReverseGeocodeResponse,
 ];
@@ -1514,9 +1326,7 @@ export var SearchNearby: StaticOperationSchema = [
   9,
   n0,
   _SN,
-  {
-    [_h]: ["POST", "/search-nearby", 200],
-  },
+  { [_h]: ["POST", "/search-nearby", 200] },
   () => SearchNearbyRequest,
   () => SearchNearbyResponse,
 ];
@@ -1524,9 +1334,7 @@ export var SearchText: StaticOperationSchema = [
   9,
   n0,
   _ST,
-  {
-    [_h]: ["POST", "/search-text", 200],
-  },
+  { [_h]: ["POST", "/search-text", 200] },
   () => SearchTextRequest,
   () => SearchTextResponse,
 ];
@@ -1534,9 +1342,7 @@ export var Suggest: StaticOperationSchema = [
   9,
   n0,
   _Sug,
-  {
-    [_h]: ["POST", "/suggest", 200],
-  },
+  { [_h]: ["POST", "/suggest", 200] },
   () => SuggestRequest,
   () => SuggestResponse,
 ];

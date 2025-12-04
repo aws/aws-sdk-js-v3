@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchLogsServiceException";
-import { QueryCompileError } from "./models_0";
+import type { QueryCompileError } from "./models_0";
 
 /**
  * <p>You don't have sufficient permissions to perform this action.</p>

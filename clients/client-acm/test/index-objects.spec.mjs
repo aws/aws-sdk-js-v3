@@ -41,25 +41,25 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ACMClient === "function")
-assert(typeof ACM === "function")
+assert(typeof ACMClient === "function");
+assert(typeof ACM === "function");
 // commands
-assert(typeof AddTagsToCertificateCommand === "function")
-assert(typeof DeleteCertificateCommand === "function")
-assert(typeof DescribeCertificateCommand === "function")
-assert(typeof ExportCertificateCommand === "function")
-assert(typeof GetAccountConfigurationCommand === "function")
-assert(typeof GetCertificateCommand === "function")
-assert(typeof ImportCertificateCommand === "function")
-assert(typeof ListCertificatesCommand === "function")
-assert(typeof ListTagsForCertificateCommand === "function")
-assert(typeof PutAccountConfigurationCommand === "function")
-assert(typeof RemoveTagsFromCertificateCommand === "function")
-assert(typeof RenewCertificateCommand === "function")
-assert(typeof RequestCertificateCommand === "function")
-assert(typeof ResendValidationEmailCommand === "function")
-assert(typeof RevokeCertificateCommand === "function")
-assert(typeof UpdateCertificateOptionsCommand === "function")
+assert(typeof AddTagsToCertificateCommand === "function");
+assert(typeof DeleteCertificateCommand === "function");
+assert(typeof DescribeCertificateCommand === "function");
+assert(typeof ExportCertificateCommand === "function");
+assert(typeof GetAccountConfigurationCommand === "function");
+assert(typeof GetCertificateCommand === "function");
+assert(typeof ImportCertificateCommand === "function");
+assert(typeof ListCertificatesCommand === "function");
+assert(typeof ListTagsForCertificateCommand === "function");
+assert(typeof PutAccountConfigurationCommand === "function");
+assert(typeof RemoveTagsFromCertificateCommand === "function");
+assert(typeof RenewCertificateCommand === "function");
+assert(typeof RequestCertificateCommand === "function");
+assert(typeof ResendValidationEmailCommand === "function");
+assert(typeof RevokeCertificateCommand === "function");
+assert(typeof UpdateCertificateOptionsCommand === "function");
 // enums
 assert(typeof CertificateExport === "object");
 assert(typeof CertificateManagedBy === "object");
@@ -79,10 +79,10 @@ assert(typeof SortBy === "object");
 assert(typeof SortOrder === "object");
 assert(typeof ValidationMethod === "object");
 // errors
-assert(ACMServiceException.prototype instanceof Error)
+assert(ACMServiceException.prototype instanceof Error);
 // waiters
-assert(typeof waitForCertificateValidated === "function")
-assert(typeof waitUntilCertificateValidated === "function")
+assert(typeof waitForCertificateValidated === "function");
+assert(typeof waitUntilCertificateValidated === "function");
 // paginators
-assert(typeof paginateListCertificates === "function")
+assert(typeof paginateListCertificates === "function");
 console.log(`ACM index test passed.`);

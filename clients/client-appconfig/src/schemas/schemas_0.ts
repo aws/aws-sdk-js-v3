@@ -282,7 +282,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var _Blob: StaticSimpleSchema = [0, n0, _B, 8, 21];
 export var StringWithLengthBetween0And32768: StaticSimpleSchema = [0, n0, _SWLBA, 8, 0];
 export var AccountSettings: StaticStructureSchema = [3, n0, _AS, 0, [_DP], [() => DeletionProtectionSettings]];
@@ -302,15 +301,11 @@ export var BadRequestException: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _R, _De],
   [0, 0, () => BadRequestDetails],
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var Configuration: StaticStructureSchema = [
   3,
   n0,
@@ -319,18 +314,8 @@ export var Configuration: StaticStructureSchema = [
   [_Co, _CV, _CT],
   [
     [() => _Blob, 16],
-    [
-      0,
-      {
-        [_hH]: _CV_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
+    [0, { [_hH]: _CV_ }],
+    [0, { [_hH]: _CT_ }],
   ],
 ];
 export var ConfigurationProfile: StaticStructureSchema = [
@@ -357,19 +342,8 @@ export var ConfigurationProfileSummary: StaticStructureSchema = [
   [_AIp, _I, _N, _LU, _VT, _T],
   [0, 0, 0, 0, 64 | 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateApplicationRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_N, _D, _Ta], [0, 0, 128 | 0]];
 export var CreateConfigurationProfileRequest: StaticStructureSchema = [
   3,
@@ -409,19 +383,7 @@ export var CreateExtensionRequest: StaticStructureSchema = [
   _CERr,
   0,
   [_N, _D, _Ac, _P, _Ta, _LVN],
-  [
-    0,
-    0,
-    () => ActionsMap,
-    () => ParameterMap,
-    128 | 0,
-    [
-      1,
-      {
-        [_hH]: _LVN_,
-      },
-    ],
-  ],
+  [0, 0, () => ActionsMap, () => ParameterMap, 128 | 0, [1, { [_hH]: _LVN_ }]],
 ];
 export var CreateHostedConfigurationVersionRequest: StaticStructureSchema = [
   3,
@@ -432,31 +394,11 @@ export var CreateHostedConfigurationVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _D,
-      },
-    ],
+    [0, { [_hH]: _D }],
     [() => _Blob, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _LVN_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _VL,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [1, { [_hH]: _LVN_ }],
+    [0, { [_hH]: _VL }],
   ],
 ];
 export var DeleteApplicationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_AIp], [[0, 1]]];
@@ -469,12 +411,7 @@ export var DeleteConfigurationProfileRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xadpc,
-      },
-    ],
+    [0, { [_hH]: _xadpc }],
   ],
 ];
 export var DeleteDeploymentStrategyRequest: StaticStructureSchema = [3, n0, _DDSR, 0, [_DSI], [[0, 1]]];
@@ -487,12 +424,7 @@ export var DeleteEnvironmentRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xadpc,
-      },
-    ],
+    [0, { [_hH]: _xadpc }],
   ],
 ];
 export var DeleteExtensionAssociationRequest: StaticStructureSchema = [3, n0, _DEAR, 0, [_EAI], [[0, 1]]];
@@ -504,12 +436,7 @@ export var DeleteExtensionRequest: StaticStructureSchema = [
   [_EI, _VN],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [1, { [_hQ]: _v }],
   ],
 ];
 export var DeleteHostedConfigurationVersionRequest: StaticStructureSchema = [
@@ -640,18 +567,8 @@ export var GetConfigurationRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ci,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ccv,
-      },
-    ],
+    [0, { [_hQ]: _ci }],
+    [0, { [_hQ]: _ccv }],
   ],
 ];
 export var GetDeploymentRequest: StaticStructureSchema = [
@@ -687,12 +604,7 @@ export var GetExtensionRequest: StaticStructureSchema = [
   [_EI, _VN],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
   ],
 ];
 export var GetHostedConfigurationVersionRequest: StaticStructureSchema = [
@@ -714,49 +626,14 @@ export var HostedConfigurationVersion: StaticStructureSchema = [
   0,
   [_AIp, _CPI, _VN, _D, _Co, _CT, _VL, _KKA],
   [
-    [
-      0,
-      {
-        [_hH]: _AI_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CPI_,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _VN_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _D,
-      },
-    ],
+    [0, { [_hH]: _AI_ }],
+    [0, { [_hH]: _CPI_ }],
+    [1, { [_hH]: _VN_ }],
+    [0, { [_hH]: _D }],
     [() => _Blob, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _VL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _KKA,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _VL }],
+    [0, { [_hH]: _KKA }],
   ],
 ];
 export var HostedConfigurationVersions: StaticStructureSchema = [
@@ -775,19 +652,8 @@ export var HostedConfigurationVersionSummary: StaticStructureSchema = [
   [_AIp, _CPI, _VN, _D, _CT, _VL, _KKA],
   [0, 0, 1, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvalidConfigurationDetail: StaticStructureSchema = [
   3,
   n0,
@@ -803,18 +669,8 @@ export var ListApplicationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListConfigurationProfilesRequest: StaticStructureSchema = [
@@ -825,24 +681,9 @@ export var ListConfigurationProfilesRequest: StaticStructureSchema = [
   [_AIp, _MR, _NT, _T],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _t }],
   ],
 ];
 export var ListDeploymentsRequest: StaticStructureSchema = [
@@ -854,18 +695,8 @@ export var ListDeploymentsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListDeploymentStrategiesRequest: StaticStructureSchema = [
@@ -875,18 +706,8 @@ export var ListDeploymentStrategiesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListEnvironmentsRequest: StaticStructureSchema = [
@@ -897,18 +718,8 @@ export var ListEnvironmentsRequest: StaticStructureSchema = [
   [_AIp, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListExtensionAssociationsRequest: StaticStructureSchema = [
@@ -918,36 +729,11 @@ export var ListExtensionAssociationsRequest: StaticStructureSchema = [
   0,
   [_RI, _EI, _EVN, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _ri,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ei,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _evn,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _ri }],
+    [0, { [_hQ]: _ei }],
+    [1, { [_hQ]: _evn }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListExtensionsRequest: StaticStructureSchema = [
@@ -957,24 +743,9 @@ export var ListExtensionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _N],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var ListHostedConfigurationVersionsRequest: StaticStructureSchema = [
@@ -986,24 +757,9 @@ export var ListHostedConfigurationVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vl,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _vl }],
   ],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
@@ -1013,42 +769,16 @@ export var PayloadTooLargeException: StaticErrorSchema = [
   -3,
   n0,
   _PTLE,
-  {
-    [_e]: _c,
-    [_hE]: 413,
-  },
+  { [_e]: _c, [_hE]: 413 },
   [_M, _Me, _Li, _Si],
   [0, 0, 1, 1],
 ];
 TypeRegistry.for(n0).registerError(PayloadTooLargeException, __PayloadTooLargeException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTags: StaticStructureSchema = [3, n0, _RTe, 0, [_Ta], [128 | 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartDeploymentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1067,12 +797,7 @@ export var StopDeploymentRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [1, 1],
-    [
-      2,
-      {
-        [_hH]: _AR_,
-      },
-    ],
+    [2, { [_hH]: _AR_ }],
   ],
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _Ta], [[0, 1], 128 | 0]];
@@ -1084,12 +809,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateAccountSettingsRequest: StaticStructureSchema = [
@@ -1143,12 +863,7 @@ export var ValidateConfigurationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cv,
-      },
-    ],
+    [0, { [_hQ]: _cv }],
   ],
 ];
 export var Validator: StaticStructureSchema = [
@@ -1160,10 +875,8 @@ export var Validator: StaticStructureSchema = [
   [0, [() => StringWithLengthBetween0And32768, 0]],
 ];
 export var __Unit = "unit" as const;
-
 export var AppConfigServiceException: StaticErrorSchema = [-3, _sm, "AppConfigServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppConfigServiceException, __AppConfigServiceException);
-
 export var ActionInvocations: StaticListSchema = [1, n0, _AIc, 0, () => ActionInvocation];
 export var ActionList: StaticListSchema = [1, n0, _AL, 0, () => Action];
 export var ApplicationList: StaticListSchema = [1, n0, _ALp, 0, () => Application];
@@ -1185,25 +898,19 @@ export var HostedConfigurationVersionSummaryList: StaticListSchema = [
 export var InvalidConfigurationDetailList: StaticListSchema = [1, n0, _ICDL, 0, () => InvalidConfigurationDetail];
 export var MonitorList: StaticListSchema = [1, n0, _ML, 0, () => Monitor];
 export var TagKeyList = 64 | 0;
-
 export var ValidatorList: StaticListSchema = [1, n0, _VLa, 0, [() => Validator, 0]];
 export var ValidatorTypeList = 64 | 0;
-
 export var ActionsMap: StaticMapSchema = [2, n0, _AM, 0, 0, () => ActionList];
 export var DynamicParameterMap: StaticMapSchema = [2, n0, _DPM, 8, 0, 0];
 export var ParameterMap: StaticMapSchema = [2, n0, _PM, 0, 0, () => Parameter];
 export var ParameterValueMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var BadRequestDetails: StaticStructureSchema = [3, n0, _BRD, 0, [_IC], [() => InvalidConfigurationDetailList]];
 export var CreateApplication: StaticOperationSchema = [
   9,
   n0,
   _CAr,
-  {
-    [_h]: ["POST", "/applications", 201],
-  },
+  { [_h]: ["POST", "/applications", 201] },
   () => CreateApplicationRequest,
   () => Application,
 ];
@@ -1211,9 +918,7 @@ export var CreateConfigurationProfile: StaticOperationSchema = [
   9,
   n0,
   _CCP,
-  {
-    [_h]: ["POST", "/applications/{ApplicationId}/configurationprofiles", 201],
-  },
+  { [_h]: ["POST", "/applications/{ApplicationId}/configurationprofiles", 201] },
   () => CreateConfigurationProfileRequest,
   () => ConfigurationProfile,
 ];
@@ -1221,9 +926,7 @@ export var CreateDeploymentStrategy: StaticOperationSchema = [
   9,
   n0,
   _CDS,
-  {
-    [_h]: ["POST", "/deploymentstrategies", 201],
-  },
+  { [_h]: ["POST", "/deploymentstrategies", 201] },
   () => CreateDeploymentStrategyRequest,
   () => DeploymentStrategy,
 ];
@@ -1231,9 +934,7 @@ export var CreateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/applications/{ApplicationId}/environments", 201],
-  },
+  { [_h]: ["POST", "/applications/{ApplicationId}/environments", 201] },
   () => CreateEnvironmentRequest,
   () => Environment,
 ];
@@ -1241,9 +942,7 @@ export var CreateExtension: StaticOperationSchema = [
   9,
   n0,
   _CEre,
-  {
-    [_h]: ["POST", "/extensions", 201],
-  },
+  { [_h]: ["POST", "/extensions", 201] },
   () => CreateExtensionRequest,
   () => Extension,
 ];
@@ -1251,9 +950,7 @@ export var CreateExtensionAssociation: StaticOperationSchema = [
   9,
   n0,
   _CEA,
-  {
-    [_h]: ["POST", "/extensionassociations", 201],
-  },
+  { [_h]: ["POST", "/extensionassociations", 201] },
   () => CreateExtensionAssociationRequest,
   () => ExtensionAssociation,
 ];
@@ -1275,9 +972,7 @@ export var DeleteApplication: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/applications/{ApplicationId}", 204],
-  },
+  { [_h]: ["DELETE", "/applications/{ApplicationId}", 204] },
   () => DeleteApplicationRequest,
   () => __Unit,
 ];
@@ -1285,9 +980,7 @@ export var DeleteConfigurationProfile: StaticOperationSchema = [
   9,
   n0,
   _DCP,
-  {
-    [_h]: ["DELETE", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", 204],
-  },
+  { [_h]: ["DELETE", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", 204] },
   () => DeleteConfigurationProfileRequest,
   () => __Unit,
 ];
@@ -1295,9 +988,7 @@ export var DeleteDeploymentStrategy: StaticOperationSchema = [
   9,
   n0,
   _DDS,
-  {
-    [_h]: ["DELETE", "/deployementstrategies/{DeploymentStrategyId}", 204],
-  },
+  { [_h]: ["DELETE", "/deployementstrategies/{DeploymentStrategyId}", 204] },
   () => DeleteDeploymentStrategyRequest,
   () => __Unit,
 ];
@@ -1305,9 +996,7 @@ export var DeleteEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DEel,
-  {
-    [_h]: ["DELETE", "/applications/{ApplicationId}/environments/{EnvironmentId}", 204],
-  },
+  { [_h]: ["DELETE", "/applications/{ApplicationId}/environments/{EnvironmentId}", 204] },
   () => DeleteEnvironmentRequest,
   () => __Unit,
 ];
@@ -1315,9 +1004,7 @@ export var DeleteExtension: StaticOperationSchema = [
   9,
   n0,
   _DEele,
-  {
-    [_h]: ["DELETE", "/extensions/{ExtensionIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/extensions/{ExtensionIdentifier}", 204] },
   () => DeleteExtensionRequest,
   () => __Unit,
 ];
@@ -1325,9 +1012,7 @@ export var DeleteExtensionAssociation: StaticOperationSchema = [
   9,
   n0,
   _DEA,
-  {
-    [_h]: ["DELETE", "/extensionassociations/{ExtensionAssociationId}", 204],
-  },
+  { [_h]: ["DELETE", "/extensionassociations/{ExtensionAssociationId}", 204] },
   () => DeleteExtensionAssociationRequest,
   () => __Unit,
 ];
@@ -1349,9 +1034,7 @@ export var GetAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_h]: ["GET", "/settings", 200],
-  },
+  { [_h]: ["GET", "/settings", 200] },
   () => __Unit,
   () => AccountSettings,
 ];
@@ -1359,9 +1042,7 @@ export var GetApplication: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}", 200] },
   () => GetApplicationRequest,
   () => Application,
 ];
@@ -1369,9 +1050,7 @@ export var GetConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/applications/{Application}/environments/{Environment}/configurations/{Configuration}", 200],
-  },
+  { [_h]: ["GET", "/applications/{Application}/environments/{Environment}/configurations/{Configuration}", 200] },
   () => GetConfigurationRequest,
   () => Configuration,
 ];
@@ -1379,9 +1058,7 @@ export var GetConfigurationProfile: StaticOperationSchema = [
   9,
   n0,
   _GCP,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", 200] },
   () => GetConfigurationProfileRequest,
   () => ConfigurationProfile,
 ];
@@ -1389,9 +1066,7 @@ export var GetDeployment: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}", 200] },
   () => GetDeploymentRequest,
   () => Deployment,
 ];
@@ -1399,9 +1074,7 @@ export var GetDeploymentStrategy: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_h]: ["GET", "/deploymentstrategies/{DeploymentStrategyId}", 200],
-  },
+  { [_h]: ["GET", "/deploymentstrategies/{DeploymentStrategyId}", 200] },
   () => GetDeploymentStrategyRequest,
   () => DeploymentStrategy,
 ];
@@ -1409,9 +1082,7 @@ export var GetEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}/environments/{EnvironmentId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}/environments/{EnvironmentId}", 200] },
   () => GetEnvironmentRequest,
   () => Environment,
 ];
@@ -1419,9 +1090,7 @@ export var GetExtension: StaticOperationSchema = [
   9,
   n0,
   _GEe,
-  {
-    [_h]: ["GET", "/extensions/{ExtensionIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/extensions/{ExtensionIdentifier}", 200] },
   () => GetExtensionRequest,
   () => Extension,
 ];
@@ -1429,9 +1098,7 @@ export var GetExtensionAssociation: StaticOperationSchema = [
   9,
   n0,
   _GEA,
-  {
-    [_h]: ["GET", "/extensionassociations/{ExtensionAssociationId}", 200],
-  },
+  { [_h]: ["GET", "/extensionassociations/{ExtensionAssociationId}", 200] },
   () => GetExtensionAssociationRequest,
   () => ExtensionAssociation,
 ];
@@ -1453,9 +1120,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/applications", 200],
-  },
+  { [_h]: ["GET", "/applications", 200] },
   () => ListApplicationsRequest,
   () => Applications,
 ];
@@ -1463,9 +1128,7 @@ export var ListConfigurationProfiles: StaticOperationSchema = [
   9,
   n0,
   _LCP,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}/configurationprofiles", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}/configurationprofiles", 200] },
   () => ListConfigurationProfilesRequest,
   () => ConfigurationProfiles,
 ];
@@ -1473,9 +1136,7 @@ export var ListDeployments: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", 200] },
   () => ListDeploymentsRequest,
   () => Deployments,
 ];
@@ -1483,9 +1144,7 @@ export var ListDeploymentStrategies: StaticOperationSchema = [
   9,
   n0,
   _LDS,
-  {
-    [_h]: ["GET", "/deploymentstrategies", 200],
-  },
+  { [_h]: ["GET", "/deploymentstrategies", 200] },
   () => ListDeploymentStrategiesRequest,
   () => DeploymentStrategies,
 ];
@@ -1493,9 +1152,7 @@ export var ListEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["GET", "/applications/{ApplicationId}/environments", 200],
-  },
+  { [_h]: ["GET", "/applications/{ApplicationId}/environments", 200] },
   () => ListEnvironmentsRequest,
   () => Environments,
 ];
@@ -1503,9 +1160,7 @@ export var ListExtensionAssociations: StaticOperationSchema = [
   9,
   n0,
   _LEA,
-  {
-    [_h]: ["GET", "/extensionassociations", 200],
-  },
+  { [_h]: ["GET", "/extensionassociations", 200] },
   () => ListExtensionAssociationsRequest,
   () => ExtensionAssociations,
 ];
@@ -1513,9 +1168,7 @@ export var ListExtensions: StaticOperationSchema = [
   9,
   n0,
   _LEi,
-  {
-    [_h]: ["GET", "/extensions", 200],
-  },
+  { [_h]: ["GET", "/extensions", 200] },
   () => ListExtensionsRequest,
   () => Extensions,
 ];
@@ -1537,9 +1190,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ResourceTags,
 ];
@@ -1547,9 +1198,7 @@ export var StartDeployment: StaticOperationSchema = [
   9,
   n0,
   _SD,
-  {
-    [_h]: ["POST", "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", 201],
-  },
+  { [_h]: ["POST", "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments", 201] },
   () => StartDeploymentRequest,
   () => Deployment,
 ];
@@ -1567,9 +1216,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -1577,9 +1224,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -1587,9 +1232,7 @@ export var UpdateAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PATCH", "/settings", 200],
-  },
+  { [_h]: ["PATCH", "/settings", 200] },
   () => UpdateAccountSettingsRequest,
   () => AccountSettings,
 ];
@@ -1597,9 +1240,7 @@ export var UpdateApplication: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PATCH", "/applications/{ApplicationId}", 200],
-  },
+  { [_h]: ["PATCH", "/applications/{ApplicationId}", 200] },
   () => UpdateApplicationRequest,
   () => Application,
 ];
@@ -1607,9 +1248,7 @@ export var UpdateConfigurationProfile: StaticOperationSchema = [
   9,
   n0,
   _UCP,
-  {
-    [_h]: ["PATCH", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", 200],
-  },
+  { [_h]: ["PATCH", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}", 200] },
   () => UpdateConfigurationProfileRequest,
   () => ConfigurationProfile,
 ];
@@ -1617,9 +1256,7 @@ export var UpdateDeploymentStrategy: StaticOperationSchema = [
   9,
   n0,
   _UDS,
-  {
-    [_h]: ["PATCH", "/deploymentstrategies/{DeploymentStrategyId}", 200],
-  },
+  { [_h]: ["PATCH", "/deploymentstrategies/{DeploymentStrategyId}", 200] },
   () => UpdateDeploymentStrategyRequest,
   () => DeploymentStrategy,
 ];
@@ -1627,9 +1264,7 @@ export var UpdateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PATCH", "/applications/{ApplicationId}/environments/{EnvironmentId}", 200],
-  },
+  { [_h]: ["PATCH", "/applications/{ApplicationId}/environments/{EnvironmentId}", 200] },
   () => UpdateEnvironmentRequest,
   () => Environment,
 ];
@@ -1637,9 +1272,7 @@ export var UpdateExtension: StaticOperationSchema = [
   9,
   n0,
   _UEp,
-  {
-    [_h]: ["PATCH", "/extensions/{ExtensionIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/extensions/{ExtensionIdentifier}", 200] },
   () => UpdateExtensionRequest,
   () => Extension,
 ];
@@ -1647,9 +1280,7 @@ export var UpdateExtensionAssociation: StaticOperationSchema = [
   9,
   n0,
   _UEA,
-  {
-    [_h]: ["PATCH", "/extensionassociations/{ExtensionAssociationId}", 200],
-  },
+  { [_h]: ["PATCH", "/extensionassociations/{ExtensionAssociationId}", 200] },
   () => UpdateExtensionAssociationRequest,
   () => ExtensionAssociation,
 ];
@@ -1657,9 +1288,7 @@ export var ValidateConfiguration: StaticOperationSchema = [
   9,
   n0,
   _VC,
-  {
-    [_h]: ["POST", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", 204],
-  },
+  { [_h]: ["POST", "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators", 204] },
   () => ValidateConfigurationRequest,
   () => __Unit,
 ];

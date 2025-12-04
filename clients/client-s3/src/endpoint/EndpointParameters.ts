@@ -17,10 +17,16 @@ export interface ClientInputEndpointParameters {
   disableS3ExpressSessionAuth?: boolean | undefined | Provider<boolean | undefined>;
 }
 
+/**
+ * @public
+ */
 export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
+/**
+ * @internal
+ */
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
@@ -35,6 +41,9 @@ export const resolveClientEndpointParameters = <T>(
   });
 };
 
+/**
+ * @internal
+ */
 export const commonParams = {
   ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
   UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
@@ -48,6 +57,9 @@ export const commonParams = {
   UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 } as const;
 
+/**
+ * @internal
+ */
 export interface EndpointParameters extends __EndpointParameters {
   Bucket?: string | undefined;
   Region?: string | undefined;

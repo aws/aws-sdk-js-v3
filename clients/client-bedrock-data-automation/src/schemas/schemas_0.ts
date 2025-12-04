@@ -212,24 +212,12 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var BlueprintName: StaticSimpleSchema = [0, n0, _BN, 8, 0];
 export var BlueprintSchema: StaticSimpleSchema = [0, n0, _BS, 8, 0];
 export var DataAutomationProjectDescription: StaticSimpleSchema = [0, n0, _DAPD, 8, 0];
 export var DataAutomationProjectName: StaticSimpleSchema = [0, n0, _DAPN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AudioExtractionCategory: StaticStructureSchema = [
   3,
   n0,
@@ -284,19 +272,8 @@ export var BlueprintSummary: StaticStructureSchema = [
   [0, 0, 0, [() => BlueprintName, 0], 5, 5],
 ];
 export var ChannelLabelingConfiguration: StaticStructureSchema = [3, n0, _CLC, 0, [_s], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateBlueprintRequest: StaticStructureSchema = [
   3,
   n0,
@@ -378,12 +355,7 @@ export var DeleteBlueprintRequest: StaticStructureSchema = [
   [_bA, _bV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bV,
-      },
-    ],
+    [0, { [_hQ]: _bV }],
   ],
 ];
 export var DeleteBlueprintResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [], []];
@@ -465,19 +437,8 @@ export var ImageStandardOutputConfiguration: StaticStructureSchema = [
   [_ex, _gF],
   [() => ImageStandardExtraction, () => ImageStandardGenerativeField],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEn,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListBlueprintsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -522,19 +483,8 @@ export var OverrideConfiguration: StaticStructureSchema = [
   ],
 ];
 export var PIIEntitiesConfiguration: StaticStructureSchema = [3, n0, _PIIEC, 0, [_pET, _rMM], [64 | 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SensitiveDataConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -543,19 +493,8 @@ export var SensitiveDataConfiguration: StaticStructureSchema = [
   [_dM, _dS, _pEC],
   [0, 64 | 0, () => PIIEntitiesConfiguration],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SpeakerLabelingConfiguration: StaticStructureSchema = [3, n0, _SLC, 0, [_s], [0]];
 export var SplitterConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_s], [0]];
 export var StandardOutputConfiguration: StaticStructureSchema = [
@@ -574,19 +513,8 @@ export var StandardOutputConfiguration: StaticStructureSchema = [
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TranscriptConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -627,15 +555,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _fL],
   [0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VideoBoundingBox: StaticStructureSchema = [3, n0, _VBB, 0, [_s], [0]];
 export var VideoExtractionCategory: StaticStructureSchema = [3, n0, _VEC, 0, [_s, _t], [0, 64 | 0]];
@@ -665,7 +589,6 @@ export var VideoStandardOutputConfiguration: StaticStructureSchema = [
   [() => VideoStandardExtraction, () => VideoStandardGenerativeField],
 ];
 export var __Unit = "unit" as const;
-
 export var BedrockDataAutomationServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -675,13 +598,9 @@ export var BedrockDataAutomationServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(BedrockDataAutomationServiceException, __BedrockDataAutomationServiceException);
-
 export var AudioExtractionCategoryTypes = 64 | 0;
-
 export var AudioInputLanguages = 64 | 0;
-
 export var AudioStandardGenerativeFieldTypes = 64 | 0;
-
 export var BlueprintItems: StaticListSchema = [1, n0, _BIl, 0, () => BlueprintItem];
 export var Blueprints: StaticListSchema = [1, n0, _Bl, 0, [() => BlueprintSummary, 0]];
 export var DataAutomationProjectSummaries: StaticListSchema = [
@@ -692,34 +611,22 @@ export var DataAutomationProjectSummaries: StaticListSchema = [
   [() => DataAutomationProjectSummary, 0],
 ];
 export var DocumentExtractionGranularityTypes = 64 | 0;
-
 export var DocumentOutputTextFormatTypes = 64 | 0;
-
 export var ImageExtractionCategoryTypes = 64 | 0;
-
 export var ImageStandardGenerativeFieldTypes = 64 | 0;
-
 export var PIIEntityTypes = 64 | 0;
-
 export var SensitiveDataDetectionScope = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var VideoExtractionCategoryTypes = 64 | 0;
-
 export var VideoStandardGenerativeFieldTypes = 64 | 0;
-
 export var KmsEncryptionContext = 128 | 0;
-
 export var CreateBlueprint: StaticOperationSchema = [
   9,
   n0,
   _CB,
-  {
-    [_h]: ["PUT", "/blueprints/", 201],
-  },
+  { [_h]: ["PUT", "/blueprints/", 201] },
   () => CreateBlueprintRequest,
   () => CreateBlueprintResponse,
 ];
@@ -727,9 +634,7 @@ export var CreateBlueprintVersion: StaticOperationSchema = [
   9,
   n0,
   _CBV,
-  {
-    [_h]: ["POST", "/blueprints/{blueprintArn}/versions/", 201],
-  },
+  { [_h]: ["POST", "/blueprints/{blueprintArn}/versions/", 201] },
   () => CreateBlueprintVersionRequest,
   () => CreateBlueprintVersionResponse,
 ];
@@ -737,9 +642,7 @@ export var CreateDataAutomationProject: StaticOperationSchema = [
   9,
   n0,
   _CDAP,
-  {
-    [_h]: ["PUT", "/data-automation-projects/", 201],
-  },
+  { [_h]: ["PUT", "/data-automation-projects/", 201] },
   () => CreateDataAutomationProjectRequest,
   () => CreateDataAutomationProjectResponse,
 ];
@@ -747,9 +650,7 @@ export var DeleteBlueprint: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["DELETE", "/blueprints/{blueprintArn}/", 200],
-  },
+  { [_h]: ["DELETE", "/blueprints/{blueprintArn}/", 200] },
   () => DeleteBlueprintRequest,
   () => DeleteBlueprintResponse,
 ];
@@ -757,9 +658,7 @@ export var DeleteDataAutomationProject: StaticOperationSchema = [
   9,
   n0,
   _DDAP,
-  {
-    [_h]: ["DELETE", "/data-automation-projects/{projectArn}/", 200],
-  },
+  { [_h]: ["DELETE", "/data-automation-projects/{projectArn}/", 200] },
   () => DeleteDataAutomationProjectRequest,
   () => DeleteDataAutomationProjectResponse,
 ];
@@ -767,9 +666,7 @@ export var GetBlueprint: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["POST", "/blueprints/{blueprintArn}/", 200],
-  },
+  { [_h]: ["POST", "/blueprints/{blueprintArn}/", 200] },
   () => GetBlueprintRequest,
   () => GetBlueprintResponse,
 ];
@@ -777,9 +674,7 @@ export var GetDataAutomationProject: StaticOperationSchema = [
   9,
   n0,
   _GDAP,
-  {
-    [_h]: ["POST", "/data-automation-projects/{projectArn}/", 200],
-  },
+  { [_h]: ["POST", "/data-automation-projects/{projectArn}/", 200] },
   () => GetDataAutomationProjectRequest,
   () => GetDataAutomationProjectResponse,
 ];
@@ -787,9 +682,7 @@ export var ListBlueprints: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_h]: ["POST", "/blueprints/", 200],
-  },
+  { [_h]: ["POST", "/blueprints/", 200] },
   () => ListBlueprintsRequest,
   () => ListBlueprintsResponse,
 ];
@@ -797,9 +690,7 @@ export var ListDataAutomationProjects: StaticOperationSchema = [
   9,
   n0,
   _LDAP,
-  {
-    [_h]: ["POST", "/data-automation-projects/", 200],
-  },
+  { [_h]: ["POST", "/data-automation-projects/", 200] },
   () => ListDataAutomationProjectsRequest,
   () => ListDataAutomationProjectsResponse,
 ];
@@ -807,9 +698,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/listTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/listTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -817,9 +706,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tagResource", 200],
-  },
+  { [_h]: ["POST", "/tagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -827,9 +714,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/untagResource", 200],
-  },
+  { [_h]: ["POST", "/untagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -837,9 +722,7 @@ export var UpdateBlueprint: StaticOperationSchema = [
   9,
   n0,
   _UB,
-  {
-    [_h]: ["PUT", "/blueprints/{blueprintArn}/", 200],
-  },
+  { [_h]: ["PUT", "/blueprints/{blueprintArn}/", 200] },
   () => UpdateBlueprintRequest,
   () => UpdateBlueprintResponse,
 ];
@@ -847,9 +730,7 @@ export var UpdateDataAutomationProject: StaticOperationSchema = [
   9,
   n0,
   _UDAP,
-  {
-    [_h]: ["PUT", "/data-automation-projects/{projectArn}/", 200],
-  },
+  { [_h]: ["PUT", "/data-automation-projects/{projectArn}/", 200] },
   () => UpdateDataAutomationProjectRequest,
   () => UpdateDataAutomationProjectResponse,
 ];

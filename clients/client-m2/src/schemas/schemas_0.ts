@@ -389,20 +389,8 @@ import {
 import { M2ServiceException as __M2ServiceException } from "../models/M2ServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AlternateKey: StaticStructureSchema = [3, n0, _AK, 0, [_n, _o, _l, _aD], [0, 1, 1, 2]];
 export var ApplicationSummary: StaticStructureSchema = [
   3,
@@ -430,19 +418,8 @@ export var CancelBatchJobExecutionRequest: StaticStructureSchema = [
   [[0, 1], [0, 1], 0],
 ];
 export var CancelBatchJobExecutionResponse: StaticStructureSchema = [3, n0, _CBJERa, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateApplicationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -579,18 +556,8 @@ export var EfsStorageConfiguration: StaticStructureSchema = [
   0,
   [_fSI, _mP],
   [
-    [
-      0,
-      {
-        [_jNs]: _fsi,
-      },
-    ],
-    [
-      0,
-      {
-        [_jNs]: _mp,
-      },
-    ],
+    [0, { [_jNs]: _fsi }],
+    [0, { [_jNs]: _mp }],
   ],
 ];
 export var EngineVersionsSummary: StaticStructureSchema = [3, n0, _EVS, 0, [_eT, _eV], [0, 0]];
@@ -602,19 +569,8 @@ export var EnvironmentSummary: StaticStructureSchema = [
   [_n, _eA, _eI, _iT, _s, _eT, _eV, _cT, _nT],
   [0, 0, 0, 0, 0, 0, 0, 4, 0],
 ];
-export var ExecutionTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETE,
-  {
-    [_e]: _se,
-    [_hE]: 504,
-  },
-  [_m],
-  [0],
-];
+export var ExecutionTimeoutException: StaticErrorSchema = [-3, n0, _ETE, { [_e]: _se, [_hE]: 504 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExecutionTimeoutException, __ExecutionTimeoutException);
-
 export var FileBatchJobDefinition: StaticStructureSchema = [3, n0, _FBJD, 0, [_fN, _fP], [0, 0]];
 export var FileBatchJobIdentifier: StaticStructureSchema = [3, n0, _FBJI, 0, [_fN, _fP], [0, 0]];
 export var FsxStorageConfiguration: StaticStructureSchema = [
@@ -624,18 +580,8 @@ export var FsxStorageConfiguration: StaticStructureSchema = [
   0,
   [_fSI, _mP],
   [
-    [
-      0,
-      {
-        [_jNs]: _fsi,
-      },
-    ],
-    [
-      0,
-      {
-        [_jNs]: _mp,
-      },
-    ],
+    [0, { [_jNs]: _fsi }],
+    [0, { [_jNs]: _mp }],
   ],
 ];
 export var GdgAttributes: StaticStructureSchema = [3, n0, _GA, 0, [_li, _rD], [1, 0]];
@@ -823,23 +769,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JobStep: StaticStructureSchema = [
   3,
   n0,
@@ -863,30 +797,10 @@ export var ListApplicationsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _na, _eI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eI,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
+    [64 | 0, { [_hQ]: _na }],
+    [0, { [_hQ]: _eI }],
   ],
 ];
 export var ListApplicationsResponse: StaticStructureSchema = [
@@ -904,18 +818,8 @@ export var ListApplicationVersionsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _aI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -934,25 +838,10 @@ export var ListBatchJobDefinitionsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _aI, _pr],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pr,
-      },
-    ],
+    [0, { [_hQ]: _pr }],
   ],
 ];
 export var ListBatchJobDefinitionsResponse: StaticStructureSchema = [
@@ -970,49 +859,14 @@ export var ListBatchJobExecutionsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _aI, _eIxe, _jN, _s, _sA, _sB],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _eIxe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _jN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sB,
-      },
-    ],
+    [64 | 0, { [_hQ]: _eIxe }],
+    [0, { [_hQ]: _jN }],
+    [0, { [_hQ]: _s }],
+    [4, { [_hQ]: _sA }],
+    [4, { [_hQ]: _sB }],
   ],
 ];
 export var ListBatchJobExecutionsResponse: StaticStructureSchema = [
@@ -1032,12 +886,7 @@ export var ListBatchJobRestartPointsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aSMA,
-      },
-    ],
+    [0, { [_hQ]: _aSMA }],
   ],
 ];
 export var ListBatchJobRestartPointsResponse: StaticStructureSchema = [
@@ -1055,18 +904,8 @@ export var ListDataSetExportHistoryRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _aI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1085,18 +924,8 @@ export var ListDataSetImportHistoryRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _aI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1116,30 +945,10 @@ export var ListDataSetsRequest: StaticStructureSchema = [
   [_aI, _nTe, _mR, _pr, _nF],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nF,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _pr }],
+    [0, { [_hQ]: _nF }],
   ],
 ];
 export var ListDataSetsResponse: StaticStructureSchema = [
@@ -1157,18 +966,8 @@ export var ListDeploymentsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _aI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1180,24 +979,9 @@ export var ListEngineVersionsRequest: StaticStructureSchema = [
   0,
   [_eT, _nTe, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _eT }],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListEngineVersionsResponse: StaticStructureSchema = [
@@ -1215,30 +999,10 @@ export var ListEnvironmentsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _na, _eT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
+    [64 | 0, { [_hQ]: _na }],
+    [0, { [_hQ]: _eT }],
   ],
 ];
 export var ListEnvironmentsResponse: StaticStructureSchema = [
@@ -1264,15 +1028,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RestartBatchJobIdentifier: StaticStructureSchema = [
   3,
   n0,
@@ -1288,28 +1048,13 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sCe, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartApplicationRequest: StaticStructureSchema = [3, n0, _SAR, 0, [_aI], [[0, 1]]];
 export var StartApplicationResponse: StaticStructureSchema = [3, n0, _SARt, 0, [], []];
 export var StartBatchJobRequest: StaticStructureSchema = [
@@ -1329,25 +1074,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1356,12 +1087,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1387,15 +1113,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VsamAttributes: StaticStructureSchema = [
   3,
@@ -1414,15 +1136,12 @@ export var VsamDetailAttributes: StaticStructureSchema = [
   [0, 0, 2, 2, () => PrimaryKey, () => AlternateKeyList],
 ];
 export var __Unit = "unit" as const;
-
 export var M2ServiceException: StaticErrorSchema = [-3, _sm, "M2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(M2ServiceException, __M2ServiceException);
-
 export var AlternateKeyList: StaticListSchema = [1, n0, _AKL, 0, () => AlternateKey];
 export var ApplicationSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ApplicationSummary];
 export var ApplicationVersionSummaryList: StaticListSchema = [1, n0, _AVSL, 0, () => ApplicationVersionSummary];
 export var ArnList = 64 | 0;
-
 export var BatchJobDefinitions: StaticListSchema = [1, n0, _BJD, 0, () => BatchJobDefinition];
 export var BatchJobExecutionSummaryList: StaticListSchema = [1, n0, _BJESL, 0, () => BatchJobExecutionSummary];
 export var BatchJobStepList: StaticListSchema = [1, n0, _BJSL, 0, () => JobStep];
@@ -1434,25 +1153,17 @@ export var DataSetsSummaryList: StaticListSchema = [1, n0, _DSSL, 0, () => DataS
 export var DeploymentList: StaticListSchema = [1, n0, _DL, 0, () => DeploymentSummary];
 export var EngineVersionsSummaryList: StaticListSchema = [1, n0, _EVSL, 0, () => EngineVersionsSummary];
 export var EntityNameList = 64 | 0;
-
 export var EnvironmentSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EnvironmentSummary];
 export var IdentifierList = 64 | 0;
-
 export var LogGroupSummaries: StaticListSchema = [1, n0, _LGSo, 0, () => LogGroupSummary];
 export var PortList = 64 | 1;
-
 export var StorageConfigurationList: StaticListSchema = [1, n0, _SCL, 0, [() => StorageConfiguration, 0]];
 export var String20List = 64 | 0;
-
 export var String50List = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var BatchJobParametersMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var BatchJobDefinition: StaticStructureSchema = [
   3,
   n0,
@@ -1510,9 +1221,7 @@ export var CancelBatchJobExecution: StaticOperationSchema = [
   9,
   n0,
   _CBJE,
-  {
-    [_h]: ["POST", "/applications/{applicationId}/batch-job-executions/{executionId}/cancel", 200],
-  },
+  { [_h]: ["POST", "/applications/{applicationId}/batch-job-executions/{executionId}/cancel", 200] },
   () => CancelBatchJobExecutionRequest,
   () => CancelBatchJobExecutionResponse,
 ];
@@ -1520,9 +1229,7 @@ export var CreateApplication: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/applications", 200],
-  },
+  { [_h]: ["POST", "/applications", 200] },
   () => CreateApplicationRequest,
   () => CreateApplicationResponse,
 ];
@@ -1530,9 +1237,7 @@ export var CreateDataSetExportTask: StaticOperationSchema = [
   9,
   n0,
   _CDSET,
-  {
-    [_h]: ["POST", "/applications/{applicationId}/dataset-export-task", 200],
-  },
+  { [_h]: ["POST", "/applications/{applicationId}/dataset-export-task", 200] },
   () => CreateDataSetExportTaskRequest,
   () => CreateDataSetExportTaskResponse,
 ];
@@ -1540,9 +1245,7 @@ export var CreateDataSetImportTask: StaticOperationSchema = [
   9,
   n0,
   _CDSIT,
-  {
-    [_h]: ["POST", "/applications/{applicationId}/dataset-import-task", 200],
-  },
+  { [_h]: ["POST", "/applications/{applicationId}/dataset-import-task", 200] },
   () => CreateDataSetImportTaskRequest,
   () => CreateDataSetImportTaskResponse,
 ];
@@ -1550,9 +1253,7 @@ export var CreateDeployment: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["POST", "/applications/{applicationId}/deployments", 200],
-  },
+  { [_h]: ["POST", "/applications/{applicationId}/deployments", 200] },
   () => CreateDeploymentRequest,
   () => CreateDeploymentResponse,
 ];
@@ -1560,9 +1261,7 @@ export var CreateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/environments", 200],
-  },
+  { [_h]: ["POST", "/environments", 200] },
   () => CreateEnvironmentRequest,
   () => CreateEnvironmentResponse,
 ];
@@ -1570,9 +1269,7 @@ export var DeleteApplication: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/applications/{applicationId}", 200],
-  },
+  { [_h]: ["DELETE", "/applications/{applicationId}", 200] },
   () => DeleteApplicationRequest,
   () => DeleteApplicationResponse,
 ];
@@ -1580,9 +1277,7 @@ export var DeleteApplicationFromEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DAFE,
-  {
-    [_h]: ["DELETE", "/applications/{applicationId}/environment/{environmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/applications/{applicationId}/environment/{environmentId}", 200] },
   () => DeleteApplicationFromEnvironmentRequest,
   () => DeleteApplicationFromEnvironmentResponse,
 ];
@@ -1590,9 +1285,7 @@ export var DeleteEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/environments/{environmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/environments/{environmentId}", 200] },
   () => DeleteEnvironmentRequest,
   () => DeleteEnvironmentResponse,
 ];
@@ -1600,9 +1293,7 @@ export var GetApplication: StaticOperationSchema = [
   9,
   n0,
   _GAe,
-  {
-    [_h]: ["GET", "/applications/{applicationId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}", 200] },
   () => GetApplicationRequest,
   () => GetApplicationResponse,
 ];
@@ -1610,9 +1301,7 @@ export var GetApplicationVersion: StaticOperationSchema = [
   9,
   n0,
   _GAV,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/versions/{applicationVersion}", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/versions/{applicationVersion}", 200] },
   () => GetApplicationVersionRequest,
   () => GetApplicationVersionResponse,
 ];
@@ -1620,9 +1309,7 @@ export var GetBatchJobExecution: StaticOperationSchema = [
   9,
   n0,
   _GBJE,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/batch-job-executions/{executionId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/batch-job-executions/{executionId}", 200] },
   () => GetBatchJobExecutionRequest,
   () => GetBatchJobExecutionResponse,
 ];
@@ -1630,9 +1317,7 @@ export var GetDataSetDetails: StaticOperationSchema = [
   9,
   n0,
   _GDSD,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/datasets/{dataSetName}", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/datasets/{dataSetName}", 200] },
   () => GetDataSetDetailsRequest,
   () => GetDataSetDetailsResponse,
 ];
@@ -1640,9 +1325,7 @@ export var GetDataSetExportTask: StaticOperationSchema = [
   9,
   n0,
   _GDSET,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/dataset-export-tasks/{taskId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/dataset-export-tasks/{taskId}", 200] },
   () => GetDataSetExportTaskRequest,
   () => GetDataSetExportTaskResponse,
 ];
@@ -1650,9 +1333,7 @@ export var GetDataSetImportTask: StaticOperationSchema = [
   9,
   n0,
   _GDSIT,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/dataset-import-tasks/{taskId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/dataset-import-tasks/{taskId}", 200] },
   () => GetDataSetImportTaskRequest,
   () => GetDataSetImportTaskResponse,
 ];
@@ -1660,9 +1341,7 @@ export var GetDeployment: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/deployments/{deploymentId}", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/deployments/{deploymentId}", 200] },
   () => GetDeploymentRequest,
   () => GetDeploymentResponse,
 ];
@@ -1670,9 +1349,7 @@ export var GetEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/environments/{environmentId}", 200],
-  },
+  { [_h]: ["GET", "/environments/{environmentId}", 200] },
   () => GetEnvironmentRequest,
   () => GetEnvironmentResponse,
 ];
@@ -1680,9 +1357,7 @@ export var GetSignedBluinsightsUrl: StaticOperationSchema = [
   9,
   n0,
   _GSBU,
-  {
-    [_h]: ["GET", "/signed-bi-url", 200],
-  },
+  { [_h]: ["GET", "/signed-bi-url", 200] },
   () => __Unit,
   () => GetSignedBluinsightsUrlResponse,
 ];
@@ -1690,9 +1365,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/applications", 200],
-  },
+  { [_h]: ["GET", "/applications", 200] },
   () => ListApplicationsRequest,
   () => ListApplicationsResponse,
 ];
@@ -1700,9 +1373,7 @@ export var ListApplicationVersions: StaticOperationSchema = [
   9,
   n0,
   _LAV,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/versions", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/versions", 200] },
   () => ListApplicationVersionsRequest,
   () => ListApplicationVersionsResponse,
 ];
@@ -1710,9 +1381,7 @@ export var ListBatchJobDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LBJD,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/batch-job-definitions", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/batch-job-definitions", 200] },
   () => ListBatchJobDefinitionsRequest,
   () => ListBatchJobDefinitionsResponse,
 ];
@@ -1720,9 +1389,7 @@ export var ListBatchJobExecutions: StaticOperationSchema = [
   9,
   n0,
   _LBJE,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/batch-job-executions", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/batch-job-executions", 200] },
   () => ListBatchJobExecutionsRequest,
   () => ListBatchJobExecutionsResponse,
 ];
@@ -1730,9 +1397,7 @@ export var ListBatchJobRestartPoints: StaticOperationSchema = [
   9,
   n0,
   _LBJRP,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/batch-job-executions/{executionId}/steps", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/batch-job-executions/{executionId}/steps", 200] },
   () => ListBatchJobRestartPointsRequest,
   () => ListBatchJobRestartPointsResponse,
 ];
@@ -1740,9 +1405,7 @@ export var ListDataSetExportHistory: StaticOperationSchema = [
   9,
   n0,
   _LDSEH,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/dataset-export-tasks", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/dataset-export-tasks", 200] },
   () => ListDataSetExportHistoryRequest,
   () => ListDataSetExportHistoryResponse,
 ];
@@ -1750,9 +1413,7 @@ export var ListDataSetImportHistory: StaticOperationSchema = [
   9,
   n0,
   _LDSIH,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/dataset-import-tasks", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/dataset-import-tasks", 200] },
   () => ListDataSetImportHistoryRequest,
   () => ListDataSetImportHistoryResponse,
 ];
@@ -1760,9 +1421,7 @@ export var ListDataSets: StaticOperationSchema = [
   9,
   n0,
   _LDS,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/datasets", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/datasets", 200] },
   () => ListDataSetsRequest,
   () => ListDataSetsResponse,
 ];
@@ -1770,9 +1429,7 @@ export var ListDeployments: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/applications/{applicationId}/deployments", 200],
-  },
+  { [_h]: ["GET", "/applications/{applicationId}/deployments", 200] },
   () => ListDeploymentsRequest,
   () => ListDeploymentsResponse,
 ];
@@ -1780,9 +1437,7 @@ export var ListEngineVersions: StaticOperationSchema = [
   9,
   n0,
   _LEV,
-  {
-    [_h]: ["GET", "/engine-versions", 200],
-  },
+  { [_h]: ["GET", "/engine-versions", 200] },
   () => ListEngineVersionsRequest,
   () => ListEngineVersionsResponse,
 ];
@@ -1790,9 +1445,7 @@ export var ListEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["GET", "/environments", 200],
-  },
+  { [_h]: ["GET", "/environments", 200] },
   () => ListEnvironmentsRequest,
   () => ListEnvironmentsResponse,
 ];
@@ -1800,9 +1453,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1810,9 +1461,7 @@ export var StartApplication: StaticOperationSchema = [
   9,
   n0,
   _SA,
-  {
-    [_h]: ["POST", "/applications/{applicationId}/start", 200],
-  },
+  { [_h]: ["POST", "/applications/{applicationId}/start", 200] },
   () => StartApplicationRequest,
   () => StartApplicationResponse,
 ];
@@ -1820,9 +1469,7 @@ export var StartBatchJob: StaticOperationSchema = [
   9,
   n0,
   _SBJ,
-  {
-    [_h]: ["POST", "/applications/{applicationId}/batch-job", 200],
-  },
+  { [_h]: ["POST", "/applications/{applicationId}/batch-job", 200] },
   () => StartBatchJobRequest,
   () => StartBatchJobResponse,
 ];
@@ -1830,9 +1477,7 @@ export var StopApplication: StaticOperationSchema = [
   9,
   n0,
   _SAt,
-  {
-    [_h]: ["POST", "/applications/{applicationId}/stop", 200],
-  },
+  { [_h]: ["POST", "/applications/{applicationId}/stop", 200] },
   () => StopApplicationRequest,
   () => StopApplicationResponse,
 ];
@@ -1840,9 +1485,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1850,9 +1493,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1860,9 +1501,7 @@ export var UpdateApplication: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PATCH", "/applications/{applicationId}", 200],
-  },
+  { [_h]: ["PATCH", "/applications/{applicationId}", 200] },
   () => UpdateApplicationRequest,
   () => UpdateApplicationResponse,
 ];
@@ -1870,9 +1509,7 @@ export var UpdateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PATCH", "/environments/{environmentId}", 200],
-  },
+  { [_h]: ["PATCH", "/environments/{environmentId}", 200] },
   () => UpdateEnvironmentRequest,
   () => UpdateEnvironmentResponse,
 ];

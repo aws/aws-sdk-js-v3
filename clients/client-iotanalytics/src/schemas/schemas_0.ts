@@ -377,7 +377,6 @@ import {
 import { IoTAnalyticsServiceException as __IoTAnalyticsServiceException } from "../models/IoTAnalyticsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AddAttributesActivity: StaticStructureSchema = [3, n0, _AAA, 0, [_n, _a, _ne], [0, 128 | 0, 0]];
 export var BatchPutMessageErrorEntry: StaticStructureSchema = [3, n0, _BPMEE, 0, [_mI, _eC, _eM], [0, 0, 0]];
 export var BatchPutMessageRequest: StaticStructureSchema = [3, n0, _BPMR, 0, [_cN, _m], [0, () => Messages]];
@@ -685,12 +684,7 @@ export var DeleteDatasetContentRequest: StaticStructureSchema = [
   [_dN, _vI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
   ],
 ];
 export var DeleteDatasetRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_dN], [[0, 1]]];
@@ -706,12 +700,7 @@ export var DescribeChannelRequest: StaticStructureSchema = [
   [_cN, _iS],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iS,
-      },
-    ],
+    [2, { [_hQ]: _iS }],
   ],
 ];
 export var DescribeChannelResponse: StaticStructureSchema = [
@@ -732,12 +721,7 @@ export var DescribeDatastoreRequest: StaticStructureSchema = [
   [_dNa, _iS],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iS,
-      },
-    ],
+    [2, { [_hQ]: _iS }],
   ],
 ];
 export var DescribeDatastoreResponse: StaticStructureSchema = [
@@ -786,12 +770,7 @@ export var GetDatasetContentRequest: StaticStructureSchema = [
   [_dN, _vI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
   ],
 ];
 export var GetDatasetContentResponse: StaticStructureSchema = [
@@ -803,32 +782,10 @@ export var GetDatasetContentResponse: StaticStructureSchema = [
   [() => DatasetEntries, 4, () => DatasetContentStatus],
 ];
 export var GlueConfiguration: StaticStructureSchema = [3, n0, _GC, 0, [_tNa, _dNat], [0, 0]];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_er]: _se,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_er]: _se, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var IotEventsDestinationConfiguration: StaticStructureSchema = [3, n0, _IEDC, 0, [_iN, _rA], [0, 0]];
 export var IotSiteWiseCustomerManagedDatastoreS3Storage: StaticStructureSchema = [
   3,
@@ -857,19 +814,8 @@ export var LateDataRuleConfiguration: StaticStructureSchema = [
   [_dTSWC],
   [() => DeltaTimeSessionWindowConfiguration],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_er]: _cl,
-    [_hE]: 410,
-  },
-  [_me],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_er]: _cl, [_hE]: 410 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListChannelsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -877,18 +823,8 @@ export var ListChannelsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListChannelsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_cSh, _nT], [() => ChannelSummaries, 0]];
@@ -900,30 +836,10 @@ export var ListDatasetContentsRequest: StaticStructureSchema = [
   [_dN, _nT, _mR, _sOOA, _sB],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sOOA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sB,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [4, { [_hQ]: _sOOA }],
+    [4, { [_hQ]: _sB }],
   ],
 ];
 export var ListDatasetContentsResponse: StaticStructureSchema = [
@@ -941,18 +857,8 @@ export var ListDatasetsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDatasetsResponse: StaticStructureSchema = [3, n0, _LDRis, 0, [_dSa, _nT], [() => DatasetSummaries, 0]];
@@ -963,18 +869,8 @@ export var ListDatastoresRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDatastoresResponse: StaticStructureSchema = [
@@ -992,36 +888,12 @@ export var ListPipelinesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPipelinesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pS, _nT], [() => PipelineSummaries, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_rAe],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rAe,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, { [_hQ]: _rAe }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
 export var LoggingOptions: StaticStructureSchema = [3, n0, _LO, 0, [_rA, _l, _en], [0, 0, 2]];
 export var MathActivity: StaticStructureSchema = [3, n0, _MA, 0, [_n, _at, _ma, _ne], [0, 0, 0, 0]];
@@ -1072,29 +944,14 @@ export var ResourceAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _RAEE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
+  { [_er]: _cl, [_hE]: 409 },
   [_me, _rIe, _rAe],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
 export var ResourceConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_cTom, _vSIGB], [0, 1]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_er]: _cl,
-    [_hE]: 404,
-  },
-  [_me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _cl, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetentionPeriod: StaticStructureSchema = [3, n0, _RP, 0, [_u, _nOD], [2, 1]];
 export var RunPipelineActivityRequest: StaticStructureSchema = [
   3,
@@ -1121,24 +978,9 @@ export var SampleChannelDataRequest: StaticStructureSchema = [
   [_cN, _mM, _sTt, _eT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mM,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sTt,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
+    [1, { [_hQ]: _mM }],
+    [4, { [_hQ]: _sTt }],
+    [4, { [_hQ]: _eT }],
   ],
 ];
 export var SampleChannelDataResponse: StaticStructureSchema = [3, n0, _SCDRa, 0, [_pay], [64 | 21]];
@@ -1149,19 +991,8 @@ export var ServiceManagedChannelS3Storage: StaticStructureSchema = [3, n0, _SMCS
 export var ServiceManagedChannelS3StorageSummary: StaticStructureSchema = [3, n0, _SMCSSS, 0, [], []];
 export var ServiceManagedDatastoreS3Storage: StaticStructureSchema = [3, n0, _SMDSS, 0, [], []];
 export var ServiceManagedDatastoreS3StorageSummary: StaticStructureSchema = [3, n0, _SMDSSS, 0, [], []];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_er]: _se,
-    [_hE]: 503,
-  },
-  [_me],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_er]: _se, [_hE]: 503 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SqlQueryDatasetAction: StaticStructureSchema = [3, n0, _SQDA, 0, [_sQ, _fi], [0, () => QueryFilters]];
 export var StartPipelineReprocessingRequest: StaticStructureSchema = [
   3,
@@ -1179,30 +1010,11 @@ export var TagResourceRequest: StaticStructureSchema = [
   _TRR,
   0,
   [_rAe, _ta],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rAe,
-      },
-    ],
-    () => TagList,
-  ],
+  [[0, { [_hQ]: _rAe }], () => TagList],
 ];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_er]: _cl,
-    [_hE]: 429,
-  },
-  [_me],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_er]: _cl, [_hE]: 429 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimestampPartition: StaticStructureSchema = [3, n0, _TP, 0, [_aNt, _tF], [0, 0]];
 export var TriggeringDataset: StaticStructureSchema = [3, n0, _TD, 0, [_n], [0]];
 export var UntagResourceRequest: StaticStructureSchema = [
@@ -1212,18 +1024,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
   0,
   [_rAe, _tK],
   [
-    [
-      0,
-      {
-        [_hQ]: _rAe,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [0, { [_hQ]: _rAe }],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1277,12 +1079,9 @@ export var Variable: StaticStructureSchema = [
 ];
 export var VersioningConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_u, _mV], [2, 1]];
 export var __Unit = "unit" as const;
-
 export var IoTAnalyticsServiceException: StaticErrorSchema = [-3, _sm, "IoTAnalyticsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTAnalyticsServiceException, __IoTAnalyticsServiceException);
-
 export var AttributeNames = 64 | 0;
-
 export var BatchPutMessageErrorEntries: StaticListSchema = [1, n0, _BPMEEa, 0, () => BatchPutMessageErrorEntry];
 export var ChannelSummaries: StaticListSchema = [1, n0, _CShan, 0, () => ChannelSummary];
 export var Columns: StaticListSchema = [1, n0, _Col, 0, () => Column];
@@ -1296,7 +1095,6 @@ export var DatasetTriggers: StaticListSchema = [1, n0, _DTa, 0, () => DatasetTri
 export var DatastoreSummaries: StaticListSchema = [1, n0, _DSatas, 0, () => DatastoreSummary];
 export var LateDataRules: StaticListSchema = [1, n0, _LDRa, 0, () => LateDataRule];
 export var MessagePayloads = 64 | 21;
-
 export var Messages: StaticListSchema = [1, n0, _Me, 0, () => Message];
 export var Partitions: StaticListSchema = [1, n0, _Pa, 0, () => DatastorePartition];
 export var PipelineActivities: StaticListSchema = [1, n0, _PAi, 0, () => PipelineActivity];
@@ -1304,13 +1102,10 @@ export var PipelineSummaries: StaticListSchema = [1, n0, _PSi, 0, () => Pipeline
 export var QueryFilters: StaticListSchema = [1, n0, _QFu, 0, () => QueryFilter];
 export var ReprocessingSummaries: StaticListSchema = [1, n0, _RSe, 0, () => ReprocessingSummary];
 export var S3PathChannelMessages = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var Variables: StaticListSchema = [1, n0, _Va, 0, () => Variable];
 export var AttributeNameMapping = 128 | 0;
-
 export var DatastoreStorage: StaticStructureSchema = [
   3,
   n0,
@@ -1327,9 +1122,7 @@ export var BatchPutMessage: StaticOperationSchema = [
   9,
   n0,
   _BPM,
-  {
-    [_h]: ["POST", "/messages/batch", 200],
-  },
+  { [_h]: ["POST", "/messages/batch", 200] },
   () => BatchPutMessageRequest,
   () => BatchPutMessageResponse,
 ];
@@ -1337,9 +1130,7 @@ export var CancelPipelineReprocessing: StaticOperationSchema = [
   9,
   n0,
   _CPRa,
-  {
-    [_h]: ["DELETE", "/pipelines/{pipelineName}/reprocessing/{reprocessingId}", 200],
-  },
+  { [_h]: ["DELETE", "/pipelines/{pipelineName}/reprocessing/{reprocessingId}", 200] },
   () => CancelPipelineReprocessingRequest,
   () => CancelPipelineReprocessingResponse,
 ];
@@ -1347,9 +1138,7 @@ export var CreateChannel: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/channels", 201],
-  },
+  { [_h]: ["POST", "/channels", 201] },
   () => CreateChannelRequest,
   () => CreateChannelResponse,
 ];
@@ -1357,9 +1146,7 @@ export var CreateDataset: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["POST", "/datasets", 201],
-  },
+  { [_h]: ["POST", "/datasets", 201] },
   () => CreateDatasetRequest,
   () => CreateDatasetResponse,
 ];
@@ -1367,9 +1154,7 @@ export var CreateDatasetContent: StaticOperationSchema = [
   9,
   n0,
   _CDC,
-  {
-    [_h]: ["POST", "/datasets/{datasetName}/content", 200],
-  },
+  { [_h]: ["POST", "/datasets/{datasetName}/content", 200] },
   () => CreateDatasetContentRequest,
   () => CreateDatasetContentResponse,
 ];
@@ -1377,9 +1162,7 @@ export var CreateDatastore: StaticOperationSchema = [
   9,
   n0,
   _CDr,
-  {
-    [_h]: ["POST", "/datastores", 201],
-  },
+  { [_h]: ["POST", "/datastores", 201] },
   () => CreateDatastoreRequest,
   () => CreateDatastoreResponse,
 ];
@@ -1387,9 +1170,7 @@ export var CreatePipeline: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/pipelines", 201],
-  },
+  { [_h]: ["POST", "/pipelines", 201] },
   () => CreatePipelineRequest,
   () => CreatePipelineResponse,
 ];
@@ -1397,9 +1178,7 @@ export var DeleteChannel: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/channels/{channelName}", 204],
-  },
+  { [_h]: ["DELETE", "/channels/{channelName}", 204] },
   () => DeleteChannelRequest,
   () => __Unit,
 ];
@@ -1407,9 +1186,7 @@ export var DeleteDataset: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/datasets/{datasetName}", 204],
-  },
+  { [_h]: ["DELETE", "/datasets/{datasetName}", 204] },
   () => DeleteDatasetRequest,
   () => __Unit,
 ];
@@ -1417,9 +1194,7 @@ export var DeleteDatasetContent: StaticOperationSchema = [
   9,
   n0,
   _DDC,
-  {
-    [_h]: ["DELETE", "/datasets/{datasetName}/content", 204],
-  },
+  { [_h]: ["DELETE", "/datasets/{datasetName}/content", 204] },
   () => DeleteDatasetContentRequest,
   () => __Unit,
 ];
@@ -1427,9 +1202,7 @@ export var DeleteDatastore: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["DELETE", "/datastores/{datastoreName}", 204],
-  },
+  { [_h]: ["DELETE", "/datastores/{datastoreName}", 204] },
   () => DeleteDatastoreRequest,
   () => __Unit,
 ];
@@ -1437,9 +1210,7 @@ export var DeletePipeline: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["DELETE", "/pipelines/{pipelineName}", 204],
-  },
+  { [_h]: ["DELETE", "/pipelines/{pipelineName}", 204] },
   () => DeletePipelineRequest,
   () => __Unit,
 ];
@@ -1447,9 +1218,7 @@ export var DescribeChannel: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["GET", "/channels/{channelName}", 200],
-  },
+  { [_h]: ["GET", "/channels/{channelName}", 200] },
   () => DescribeChannelRequest,
   () => DescribeChannelResponse,
 ];
@@ -1457,9 +1226,7 @@ export var DescribeDataset: StaticOperationSchema = [
   9,
   n0,
   _DDes,
-  {
-    [_h]: ["GET", "/datasets/{datasetName}", 200],
-  },
+  { [_h]: ["GET", "/datasets/{datasetName}", 200] },
   () => DescribeDatasetRequest,
   () => DescribeDatasetResponse,
 ];
@@ -1467,9 +1234,7 @@ export var DescribeDatastore: StaticOperationSchema = [
   9,
   n0,
   _DDesc,
-  {
-    [_h]: ["GET", "/datastores/{datastoreName}", 200],
-  },
+  { [_h]: ["GET", "/datastores/{datastoreName}", 200] },
   () => DescribeDatastoreRequest,
   () => DescribeDatastoreResponse,
 ];
@@ -1477,9 +1242,7 @@ export var DescribeLoggingOptions: StaticOperationSchema = [
   9,
   n0,
   _DLO,
-  {
-    [_h]: ["GET", "/logging", 200],
-  },
+  { [_h]: ["GET", "/logging", 200] },
   () => DescribeLoggingOptionsRequest,
   () => DescribeLoggingOptionsResponse,
 ];
@@ -1487,9 +1250,7 @@ export var DescribePipeline: StaticOperationSchema = [
   9,
   n0,
   _DPes,
-  {
-    [_h]: ["GET", "/pipelines/{pipelineName}", 200],
-  },
+  { [_h]: ["GET", "/pipelines/{pipelineName}", 200] },
   () => DescribePipelineRequest,
   () => DescribePipelineResponse,
 ];
@@ -1497,9 +1258,7 @@ export var GetDatasetContent: StaticOperationSchema = [
   9,
   n0,
   _GDC,
-  {
-    [_h]: ["GET", "/datasets/{datasetName}/content", 200],
-  },
+  { [_h]: ["GET", "/datasets/{datasetName}/content", 200] },
   () => GetDatasetContentRequest,
   () => GetDatasetContentResponse,
 ];
@@ -1507,9 +1266,7 @@ export var ListChannels: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/channels", 200],
-  },
+  { [_h]: ["GET", "/channels", 200] },
   () => ListChannelsRequest,
   () => ListChannelsResponse,
 ];
@@ -1517,9 +1274,7 @@ export var ListDatasetContents: StaticOperationSchema = [
   9,
   n0,
   _LDC,
-  {
-    [_h]: ["GET", "/datasets/{datasetName}/contents", 200],
-  },
+  { [_h]: ["GET", "/datasets/{datasetName}/contents", 200] },
   () => ListDatasetContentsRequest,
   () => ListDatasetContentsResponse,
 ];
@@ -1527,9 +1282,7 @@ export var ListDatasets: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/datasets", 200],
-  },
+  { [_h]: ["GET", "/datasets", 200] },
   () => ListDatasetsRequest,
   () => ListDatasetsResponse,
 ];
@@ -1537,9 +1290,7 @@ export var ListDatastores: StaticOperationSchema = [
   9,
   n0,
   _LDi,
-  {
-    [_h]: ["GET", "/datastores", 200],
-  },
+  { [_h]: ["GET", "/datastores", 200] },
   () => ListDatastoresRequest,
   () => ListDatastoresResponse,
 ];
@@ -1547,9 +1298,7 @@ export var ListPipelines: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/pipelines", 200],
-  },
+  { [_h]: ["GET", "/pipelines", 200] },
   () => ListPipelinesRequest,
   () => ListPipelinesResponse,
 ];
@@ -1557,9 +1306,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1567,9 +1314,7 @@ export var PutLoggingOptions: StaticOperationSchema = [
   9,
   n0,
   _PLO,
-  {
-    [_h]: ["PUT", "/logging", 200],
-  },
+  { [_h]: ["PUT", "/logging", 200] },
   () => PutLoggingOptionsRequest,
   () => __Unit,
 ];
@@ -1577,9 +1322,7 @@ export var RunPipelineActivity: StaticOperationSchema = [
   9,
   n0,
   _RPA,
-  {
-    [_h]: ["POST", "/pipelineactivities/run", 200],
-  },
+  { [_h]: ["POST", "/pipelineactivities/run", 200] },
   () => RunPipelineActivityRequest,
   () => RunPipelineActivityResponse,
 ];
@@ -1587,9 +1330,7 @@ export var SampleChannelData: StaticOperationSchema = [
   9,
   n0,
   _SCD,
-  {
-    [_h]: ["GET", "/channels/{channelName}/sample", 200],
-  },
+  { [_h]: ["GET", "/channels/{channelName}/sample", 200] },
   () => SampleChannelDataRequest,
   () => SampleChannelDataResponse,
 ];
@@ -1597,9 +1338,7 @@ export var StartPipelineReprocessing: StaticOperationSchema = [
   9,
   n0,
   _SPR,
-  {
-    [_h]: ["POST", "/pipelines/{pipelineName}/reprocessing", 200],
-  },
+  { [_h]: ["POST", "/pipelines/{pipelineName}/reprocessing", 200] },
   () => StartPipelineReprocessingRequest,
   () => StartPipelineReprocessingResponse,
 ];
@@ -1607,9 +1346,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags", 204],
-  },
+  { [_h]: ["POST", "/tags", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1617,9 +1354,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags", 204],
-  },
+  { [_h]: ["DELETE", "/tags", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1627,9 +1362,7 @@ export var UpdateChannel: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/channels/{channelName}", 200],
-  },
+  { [_h]: ["PUT", "/channels/{channelName}", 200] },
   () => UpdateChannelRequest,
   () => __Unit,
 ];
@@ -1637,9 +1370,7 @@ export var UpdateDataset: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PUT", "/datasets/{datasetName}", 200],
-  },
+  { [_h]: ["PUT", "/datasets/{datasetName}", 200] },
   () => UpdateDatasetRequest,
   () => __Unit,
 ];
@@ -1647,9 +1378,7 @@ export var UpdateDatastore: StaticOperationSchema = [
   9,
   n0,
   _UDp,
-  {
-    [_h]: ["PUT", "/datastores/{datastoreName}", 200],
-  },
+  { [_h]: ["PUT", "/datastores/{datastoreName}", 200] },
   () => UpdateDatastoreRequest,
   () => __Unit,
 ];
@@ -1657,9 +1386,7 @@ export var UpdatePipeline: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PUT", "/pipelines/{pipelineName}", 200],
-  },
+  { [_h]: ["PUT", "/pipelines/{pipelineName}", 200] },
   () => UpdatePipelineRequest,
   () => __Unit,
 ];

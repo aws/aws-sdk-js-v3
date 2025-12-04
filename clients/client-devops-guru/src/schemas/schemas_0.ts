@@ -399,20 +399,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountHealth: StaticStructureSchema = [3, n0, _AH, 0, [_AI, _I], [0, () => AccountInsightHealth]];
 export var AccountInsightHealth: StaticStructureSchema = [3, n0, _AIH, 0, [_OPI, _ORI], [1, 1]];
 export var AddNotificationChannelRequest: StaticStructureSchema = [
@@ -480,19 +468,8 @@ export var CloudWatchMetricsDetail: StaticStructureSchema = [
   [0, 0, () => CloudWatchMetricsDimensions, 0, 0, 1, () => CloudWatchMetricsDataSummary],
 ];
 export var CloudWatchMetricsDimension: StaticStructureSchema = [3, n0, _CWMDl, 0, [_N, _V], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CostEstimationResourceCollectionFilter: StaticStructureSchema = [
   3,
   n0,
@@ -523,12 +500,7 @@ export var DescribeAnomalyRequest: StaticStructureSchema = [
   [_Id, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _AI,
-      },
-    ],
+    [0, { [_hQ]: _AI }],
   ],
 ];
 export var DescribeAnomalyResponse: StaticStructureSchema = [
@@ -558,12 +530,7 @@ export var DescribeInsightRequest: StaticStructureSchema = [
   [_Id, _AI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _AI,
-      },
-    ],
+    [0, { [_hQ]: _AI }],
   ],
 ];
 export var DescribeInsightResponse: StaticStructureSchema = [
@@ -616,12 +583,7 @@ export var DescribeResourceCollectionHealthRequest: StaticStructureSchema = [
   [_RCT, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var DescribeResourceCollectionHealthResponse: StaticStructureSchema = [
@@ -660,21 +622,7 @@ export var EventSourcesConfig: StaticStructureSchema = [
   [() => AmazonCodeGuruProfilerIntegration],
 ];
 export var EventTimeRange: StaticStructureSchema = [3, n0, _ETRv, 0, [_FT, _TT], [4, 4]];
-export var GetCostEstimationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCER,
-  0,
-  [_NT],
-  [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-  ],
-];
+export var GetCostEstimationRequest: StaticStructureSchema = [3, n0, _GCER, 0, [_NT], [[0, { [_hQ]: _NT }]]];
 export var GetCostEstimationResponse: StaticStructureSchema = [
   3,
   n0,
@@ -691,12 +639,7 @@ export var GetResourceCollectionRequest: StaticStructureSchema = [
   [_RCT, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var GetResourceCollectionResponse: StaticStructureSchema = [
@@ -714,23 +657,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KMSServerSideEncryptionIntegration: StaticStructureSchema = [
   3,
   n0,
@@ -1210,15 +1141,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SearchInsightsFilters: StaticStructureSchema = [
   3,
   n0,
@@ -1285,19 +1212,8 @@ export var ServiceIntegrationConfig: StaticStructureSchema = [
   [_OC, _LAD, _KMSSSE],
   [() => OpsCenterIntegration, () => LogsAnomalyDetectionIntegration, () => KMSServerSideEncryptionIntegration],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceResourceCost: StaticStructureSchema = [3, n0, _SRC, 0, [_T, _Stat, _Cou, _UC, _Cos], [0, 0, 1, 1, 1]];
 export var SnsChannelConfig: StaticStructureSchema = [3, n0, _SCC, 0, [_TA], [0]];
 export var StartCostEstimationRequest: StaticStructureSchema = [
@@ -1325,25 +1241,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _QC, _SCer, _RAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimestampMetricValuePair: StaticStructureSchema = [3, n0, _TMVP, 0, [_Tim, _MV], [4, 1]];
 export var UpdateCloudFormationCollectionFilter: StaticStructureSchema = [3, n0, _UCFCF, 0, [_SN], [64 | 0]];
 export var UpdateEventSourcesConfigRequest: StaticStructureSchema = [
@@ -1398,55 +1300,38 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _Fie],
   [0, 0, () => ValidationExceptionFields],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var DevOpsGuruServiceException: StaticErrorSchema = [-3, _sm, "DevOpsGuruServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DevOpsGuruServiceException, __DevOpsGuruServiceException);
-
 export var AccountHealths: StaticListSchema = [1, n0, _AHc, 0, () => AccountHealth];
 export var AccountIdList = 64 | 0;
-
 export var AnomalousLogGroups: StaticListSchema = [1, n0, _ALGn, 0, () => AnomalousLogGroup];
 export var AnomalyResources: StaticListSchema = [1, n0, _ARn, 0, () => AnomalyResource];
 export var AssociatedResourceArns = 64 | 0;
-
 export var Channels: StaticListSchema = [1, n0, _Ch, 0, () => NotificationChannel];
 export var CloudFormationHealths: StaticListSchema = [1, n0, _CFHl, 0, () => CloudFormationHealth];
 export var CloudWatchMetricsDetails: StaticListSchema = [1, n0, _CWMDlo, 0, () => CloudWatchMetricsDetail];
 export var CloudWatchMetricsDimensions: StaticListSchema = [1, n0, _CWMDlou, 0, () => CloudWatchMetricsDimension];
 export var CostEstimationStackNames = 64 | 0;
-
 export var CostEstimationTagValues = 64 | 0;
-
 export var EventResources: StaticListSchema = [1, n0, _ERv, 0, () => EventResource];
 export var Events: StaticListSchema = [1, n0, _Ev, 0, () => Event];
 export var InsightSeverities = 64 | 0;
-
 export var InsightStatuses = 64 | 0;
-
 export var ListInsightsAccountIdList = 64 | 0;
-
 export var ListInsightsOrganizationalUnitIdList = 64 | 0;
-
 export var LogAnomalyClasses: StaticListSchema = [1, n0, _LACo, 0, () => LogAnomalyClass];
 export var LogAnomalyShowcases: StaticListSchema = [1, n0, _LAS, 0, () => LogAnomalyShowcase];
 export var MonitoredResourceIdentifiers: StaticListSchema = [1, n0, _MRI, 0, () => MonitoredResourceIdentifier];
 export var NotificationMessageTypes = 64 | 0;
-
 export var OrganizationalUnitIdList = 64 | 0;
-
 export var PerformanceInsightsMetricDimensions = 64 | 0;
-
 export var PerformanceInsightsMetricsDetails: StaticListSchema = [
   1,
   n0,
@@ -1506,15 +1391,11 @@ export var RelatedAnomalySourceDetails: StaticListSchema = [
   () => RecommendationRelatedAnomalySourceDetail,
 ];
 export var ResourceTypeFilters = 64 | 0;
-
 export var SearchInsightsAccountIdList = 64 | 0;
-
 export var ServiceHealths: StaticListSchema = [1, n0, _SHe, 0, () => ServiceHealth];
 export var ServiceNames = 64 | 0;
-
 export var ServiceResourceCosts: StaticListSchema = [1, n0, _SRCe, 0, () => ServiceResourceCost];
 export var StackNames = 64 | 0;
-
 export var TagCollectionFilters: StaticListSchema = [1, n0, _TCFa, 0, () => TagCollectionFilter];
 export var TagCollections: StaticListSchema = [1, n0, _TCag, 0, () => TagCollection];
 export var TagCostEstimationResourceCollectionFilters: StaticListSchema = [
@@ -1526,23 +1407,17 @@ export var TagCostEstimationResourceCollectionFilters: StaticListSchema = [
 ];
 export var TagHealths: StaticListSchema = [1, n0, _THa, 0, () => TagHealth];
 export var TagValues = 64 | 0;
-
 export var TimestampMetricValuePairList: StaticListSchema = [1, n0, _TMVPL, 0, () => TimestampMetricValuePair];
 export var UpdateStackNames = 64 | 0;
-
 export var UpdateTagCollectionFilters: StaticListSchema = [1, n0, _UTCFp, 0, () => UpdateTagCollectionFilter];
 export var UpdateTagValues = 64 | 0;
-
 export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
 export var PerformanceInsightsMetricFilterMap = 128 | 0;
-
 export var AddNotificationChannel: StaticOperationSchema = [
   9,
   n0,
   _ANC,
-  {
-    [_h]: ["PUT", "/channels", 200],
-  },
+  { [_h]: ["PUT", "/channels", 200] },
   () => AddNotificationChannelRequest,
   () => AddNotificationChannelResponse,
 ];
@@ -1550,9 +1425,7 @@ export var DeleteInsight: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_h]: ["DELETE", "/insights/{Id}", 200],
-  },
+  { [_h]: ["DELETE", "/insights/{Id}", 200] },
   () => DeleteInsightRequest,
   () => DeleteInsightResponse,
 ];
@@ -1560,9 +1433,7 @@ export var DescribeAccountHealth: StaticOperationSchema = [
   9,
   n0,
   _DAH,
-  {
-    [_h]: ["GET", "/accounts/health", 200],
-  },
+  { [_h]: ["GET", "/accounts/health", 200] },
   () => DescribeAccountHealthRequest,
   () => DescribeAccountHealthResponse,
 ];
@@ -1570,9 +1441,7 @@ export var DescribeAccountOverview: StaticOperationSchema = [
   9,
   n0,
   _DAO,
-  {
-    [_h]: ["POST", "/accounts/overview", 200],
-  },
+  { [_h]: ["POST", "/accounts/overview", 200] },
   () => DescribeAccountOverviewRequest,
   () => DescribeAccountOverviewResponse,
 ];
@@ -1580,9 +1449,7 @@ export var DescribeAnomaly: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["GET", "/anomalies/{Id}", 200],
-  },
+  { [_h]: ["GET", "/anomalies/{Id}", 200] },
   () => DescribeAnomalyRequest,
   () => DescribeAnomalyResponse,
 ];
@@ -1590,9 +1457,7 @@ export var DescribeEventSourcesConfig: StaticOperationSchema = [
   9,
   n0,
   _DESC,
-  {
-    [_h]: ["POST", "/event-sources", 200],
-  },
+  { [_h]: ["POST", "/event-sources", 200] },
   () => DescribeEventSourcesConfigRequest,
   () => DescribeEventSourcesConfigResponse,
 ];
@@ -1600,9 +1465,7 @@ export var DescribeFeedback: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["POST", "/feedback", 200],
-  },
+  { [_h]: ["POST", "/feedback", 200] },
   () => DescribeFeedbackRequest,
   () => DescribeFeedbackResponse,
 ];
@@ -1610,9 +1473,7 @@ export var DescribeInsight: StaticOperationSchema = [
   9,
   n0,
   _DIe,
-  {
-    [_h]: ["GET", "/insights/{Id}", 200],
-  },
+  { [_h]: ["GET", "/insights/{Id}", 200] },
   () => DescribeInsightRequest,
   () => DescribeInsightResponse,
 ];
@@ -1620,9 +1481,7 @@ export var DescribeOrganizationHealth: StaticOperationSchema = [
   9,
   n0,
   _DOH,
-  {
-    [_h]: ["POST", "/organization/health", 200],
-  },
+  { [_h]: ["POST", "/organization/health", 200] },
   () => DescribeOrganizationHealthRequest,
   () => DescribeOrganizationHealthResponse,
 ];
@@ -1630,9 +1489,7 @@ export var DescribeOrganizationOverview: StaticOperationSchema = [
   9,
   n0,
   _DOO,
-  {
-    [_h]: ["POST", "/organization/overview", 200],
-  },
+  { [_h]: ["POST", "/organization/overview", 200] },
   () => DescribeOrganizationOverviewRequest,
   () => DescribeOrganizationOverviewResponse,
 ];
@@ -1640,9 +1497,7 @@ export var DescribeOrganizationResourceCollectionHealth: StaticOperationSchema =
   9,
   n0,
   _DORCH,
-  {
-    [_h]: ["POST", "/organization/health/resource-collection", 200],
-  },
+  { [_h]: ["POST", "/organization/health/resource-collection", 200] },
   () => DescribeOrganizationResourceCollectionHealthRequest,
   () => DescribeOrganizationResourceCollectionHealthResponse,
 ];
@@ -1650,9 +1505,7 @@ export var DescribeResourceCollectionHealth: StaticOperationSchema = [
   9,
   n0,
   _DRCH,
-  {
-    [_h]: ["GET", "/accounts/health/resource-collection/{ResourceCollectionType}", 200],
-  },
+  { [_h]: ["GET", "/accounts/health/resource-collection/{ResourceCollectionType}", 200] },
   () => DescribeResourceCollectionHealthRequest,
   () => DescribeResourceCollectionHealthResponse,
 ];
@@ -1660,9 +1513,7 @@ export var DescribeServiceIntegration: StaticOperationSchema = [
   9,
   n0,
   _DSI,
-  {
-    [_h]: ["GET", "/service-integrations", 200],
-  },
+  { [_h]: ["GET", "/service-integrations", 200] },
   () => DescribeServiceIntegrationRequest,
   () => DescribeServiceIntegrationResponse,
 ];
@@ -1670,9 +1521,7 @@ export var GetCostEstimation: StaticOperationSchema = [
   9,
   n0,
   _GCE,
-  {
-    [_h]: ["GET", "/cost-estimation", 200],
-  },
+  { [_h]: ["GET", "/cost-estimation", 200] },
   () => GetCostEstimationRequest,
   () => GetCostEstimationResponse,
 ];
@@ -1680,9 +1529,7 @@ export var GetResourceCollection: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  {
-    [_h]: ["GET", "/resource-collections/{ResourceCollectionType}", 200],
-  },
+  { [_h]: ["GET", "/resource-collections/{ResourceCollectionType}", 200] },
   () => GetResourceCollectionRequest,
   () => GetResourceCollectionResponse,
 ];
@@ -1690,9 +1537,7 @@ export var ListAnomaliesForInsight: StaticOperationSchema = [
   9,
   n0,
   _LAFI,
-  {
-    [_h]: ["POST", "/anomalies/insight/{InsightId}", 200],
-  },
+  { [_h]: ["POST", "/anomalies/insight/{InsightId}", 200] },
   () => ListAnomaliesForInsightRequest,
   () => ListAnomaliesForInsightResponse,
 ];
@@ -1700,9 +1545,7 @@ export var ListAnomalousLogGroups: StaticOperationSchema = [
   9,
   n0,
   _LALG,
-  {
-    [_h]: ["POST", "/list-log-anomalies", 200],
-  },
+  { [_h]: ["POST", "/list-log-anomalies", 200] },
   () => ListAnomalousLogGroupsRequest,
   () => ListAnomalousLogGroupsResponse,
 ];
@@ -1710,9 +1553,7 @@ export var ListEvents: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["POST", "/events", 200],
-  },
+  { [_h]: ["POST", "/events", 200] },
   () => ListEventsRequest,
   () => ListEventsResponse,
 ];
@@ -1720,9 +1561,7 @@ export var ListInsights: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["POST", "/insights", 200],
-  },
+  { [_h]: ["POST", "/insights", 200] },
   () => ListInsightsRequest,
   () => ListInsightsResponse,
 ];
@@ -1730,9 +1569,7 @@ export var ListMonitoredResources: StaticOperationSchema = [
   9,
   n0,
   _LMR,
-  {
-    [_h]: ["POST", "/monitoredResources", 200],
-  },
+  { [_h]: ["POST", "/monitoredResources", 200] },
   () => ListMonitoredResourcesRequest,
   () => ListMonitoredResourcesResponse,
 ];
@@ -1740,9 +1577,7 @@ export var ListNotificationChannels: StaticOperationSchema = [
   9,
   n0,
   _LNC,
-  {
-    [_h]: ["POST", "/channels", 200],
-  },
+  { [_h]: ["POST", "/channels", 200] },
   () => ListNotificationChannelsRequest,
   () => ListNotificationChannelsResponse,
 ];
@@ -1750,9 +1585,7 @@ export var ListOrganizationInsights: StaticOperationSchema = [
   9,
   n0,
   _LOI,
-  {
-    [_h]: ["POST", "/organization/insights", 200],
-  },
+  { [_h]: ["POST", "/organization/insights", 200] },
   () => ListOrganizationInsightsRequest,
   () => ListOrganizationInsightsResponse,
 ];
@@ -1760,9 +1593,7 @@ export var ListRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["POST", "/recommendations", 200],
-  },
+  { [_h]: ["POST", "/recommendations", 200] },
   () => ListRecommendationsRequest,
   () => ListRecommendationsResponse,
 ];
@@ -1770,9 +1601,7 @@ export var PutFeedback: StaticOperationSchema = [
   9,
   n0,
   _PF,
-  {
-    [_h]: ["PUT", "/feedback", 200],
-  },
+  { [_h]: ["PUT", "/feedback", 200] },
   () => PutFeedbackRequest,
   () => PutFeedbackResponse,
 ];
@@ -1780,9 +1609,7 @@ export var RemoveNotificationChannel: StaticOperationSchema = [
   9,
   n0,
   _RNC,
-  {
-    [_h]: ["DELETE", "/channels/{Id}", 200],
-  },
+  { [_h]: ["DELETE", "/channels/{Id}", 200] },
   () => RemoveNotificationChannelRequest,
   () => RemoveNotificationChannelResponse,
 ];
@@ -1790,9 +1617,7 @@ export var SearchInsights: StaticOperationSchema = [
   9,
   n0,
   _SIe,
-  {
-    [_h]: ["POST", "/insights/search", 200],
-  },
+  { [_h]: ["POST", "/insights/search", 200] },
   () => SearchInsightsRequest,
   () => SearchInsightsResponse,
 ];
@@ -1800,9 +1625,7 @@ export var SearchOrganizationInsights: StaticOperationSchema = [
   9,
   n0,
   _SOI,
-  {
-    [_h]: ["POST", "/organization/insights/search", 200],
-  },
+  { [_h]: ["POST", "/organization/insights/search", 200] },
   () => SearchOrganizationInsightsRequest,
   () => SearchOrganizationInsightsResponse,
 ];
@@ -1810,9 +1633,7 @@ export var StartCostEstimation: StaticOperationSchema = [
   9,
   n0,
   _SCE,
-  {
-    [_h]: ["PUT", "/cost-estimation", 200],
-  },
+  { [_h]: ["PUT", "/cost-estimation", 200] },
   () => StartCostEstimationRequest,
   () => StartCostEstimationResponse,
 ];
@@ -1820,9 +1641,7 @@ export var UpdateEventSourcesConfig: StaticOperationSchema = [
   9,
   n0,
   _UESC,
-  {
-    [_h]: ["PUT", "/event-sources", 200],
-  },
+  { [_h]: ["PUT", "/event-sources", 200] },
   () => UpdateEventSourcesConfigRequest,
   () => UpdateEventSourcesConfigResponse,
 ];
@@ -1830,9 +1649,7 @@ export var UpdateResourceCollection: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  {
-    [_h]: ["PUT", "/resource-collections", 200],
-  },
+  { [_h]: ["PUT", "/resource-collections", 200] },
   () => UpdateResourceCollectionRequest,
   () => UpdateResourceCollectionResponse,
 ];
@@ -1840,9 +1657,7 @@ export var UpdateServiceIntegration: StaticOperationSchema = [
   9,
   n0,
   _USI,
-  {
-    [_h]: ["PUT", "/service-integrations", 200],
-  },
+  { [_h]: ["PUT", "/service-integrations", 200] },
   () => UpdateServiceIntegrationRequest,
   () => UpdateServiceIntegrationResponse,
 ];

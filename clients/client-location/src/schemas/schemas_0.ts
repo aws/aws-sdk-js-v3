@@ -532,7 +532,6 @@ import {
 import { LocationServiceException as __LocationServiceException } from "../models/LocationServiceException";
 
 /* eslint no-var: 0 */
-
 export var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 export var Base64EncodedGeobuf: StaticSimpleSchema = [0, n0, _BEG, 8, 21];
 export var CountryCode3: StaticSimpleSchema = [0, n0, _CC, 8, 0];
@@ -550,22 +549,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AndroidApp: StaticStructureSchema = [3, n0, _AA, 0, [_P, _CF], [0, 0]];
 export var ApiKeyFilter: StaticStructureSchema = [3, n0, _AKF, 0, [_KS], [0]];
 export var ApiKeyRestrictions: StaticStructureSchema = [
@@ -748,12 +736,7 @@ export var CalculateRouteMatrixRequest: StaticStructureSchema = [
     0,
     [() => CalculateRouteCarModeOptions, 0],
     [() => CalculateRouteTruckModeOptions, 0],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var CalculateRouteMatrixResponse: StaticStructureSchema = [
@@ -785,12 +768,7 @@ export var CalculateRouteRequest: StaticStructureSchema = [
     [() => CalculateRouteTruckModeOptions, 0],
     [() => Timestamp, 0],
     0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var CalculateRouteResponse: StaticStructureSchema = [
@@ -837,26 +815,8 @@ export var Circle: StaticStructureSchema = [
     [() => SensitiveDouble, 0],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateGeofenceCollectionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -957,12 +917,7 @@ export var DeleteKeyRequest: StaticStructureSchema = [
   [_KN, _FD],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _fD,
-      },
-    ],
+    [2, { [_hQ]: _fD }],
   ],
 ];
 export var DeleteKeyResponse: StaticStructureSchema = [3, n0, _DKRe, 0, [], []];
@@ -1205,12 +1160,7 @@ export var GetMapGlyphsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var GetMapGlyphsResponse: StaticStructureSchema = [
@@ -1221,18 +1171,8 @@ export var GetMapGlyphsResponse: StaticStructureSchema = [
   [_B, _CTo, _CCa],
   [
     [21, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC_,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _CC_ }],
   ],
 ];
 export var GetMapSpritesRequest: StaticStructureSchema = [
@@ -1244,12 +1184,7 @@ export var GetMapSpritesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var GetMapSpritesResponse: StaticStructureSchema = [
@@ -1260,18 +1195,8 @@ export var GetMapSpritesResponse: StaticStructureSchema = [
   [_B, _CTo, _CCa],
   [
     [21, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC_,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _CC_ }],
   ],
 ];
 export var GetMapStyleDescriptorRequest: StaticStructureSchema = [
@@ -1282,12 +1207,7 @@ export var GetMapStyleDescriptorRequest: StaticStructureSchema = [
   [_MN, _K],
   [
     [0, 1],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var GetMapStyleDescriptorResponse: StaticStructureSchema = [
@@ -1298,18 +1218,8 @@ export var GetMapStyleDescriptorResponse: StaticStructureSchema = [
   [_B, _CTo, _CCa],
   [
     [21, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC_,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _CC_ }],
   ],
 ];
 export var GetMapTileRequest: StaticStructureSchema = [
@@ -1323,12 +1233,7 @@ export var GetMapTileRequest: StaticStructureSchema = [
     [() => SensitiveString, 1],
     [() => SensitiveString, 1],
     [() => SensitiveString, 1],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var GetMapTileResponse: StaticStructureSchema = [
@@ -1339,18 +1244,8 @@ export var GetMapTileResponse: StaticStructureSchema = [
   [_B, _CTo, _CCa],
   [
     [21, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC_,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _CC_ }],
   ],
 ];
 export var GetPlaceRequest: StaticStructureSchema = [
@@ -1362,18 +1257,8 @@ export var GetPlaceRequest: StaticStructureSchema = [
   [
     [0, 1],
     [() => PlaceId, 1],
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [0, { [_hQ]: _l }],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var GetPlaceResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_Pl], [[() => Place, 0]]];
@@ -1389,22 +1274,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Leg: StaticStructureSchema = [
   3,
   n0,
@@ -1654,22 +1528,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RouteMatrixEntry: StaticStructureSchema = [
   3,
   n0,
@@ -1723,18 +1586,7 @@ export var SearchPlaceIndexForPositionRequest: StaticStructureSchema = [
   _SPIFPR,
   0,
   [_IN, _Po, _MR, _La, _K],
-  [
-    [0, 1],
-    [() => Position, 0],
-    1,
-    0,
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
-  ],
+  [[0, 1], [() => Position, 0], 1, 0, [() => ApiKey, { [_hQ]: _k }]],
 ];
 export var SearchPlaceIndexForPositionResponse: StaticStructureSchema = [
   3,
@@ -1770,12 +1622,7 @@ export var SearchPlaceIndexForSuggestionsRequest: StaticStructureSchema = [
     1,
     0,
     [() => FilterPlaceCategoryList, 0],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var SearchPlaceIndexForSuggestionsResponse: StaticStructureSchema = [
@@ -1821,12 +1668,7 @@ export var SearchPlaceIndexForTextRequest: StaticStructureSchema = [
     1,
     0,
     [() => FilterPlaceCategoryList, 0],
-    [
-      () => ApiKey,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [() => ApiKey, { [_hQ]: _k }],
   ],
 ];
 export var SearchPlaceIndexForTextResponse: StaticStructureSchema = [
@@ -1862,22 +1704,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Step: StaticStructureSchema = [
   3,
   n0,
@@ -1888,26 +1719,8 @@ export var Step: StaticStructureSchema = [
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-  ],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeZone: StaticStructureSchema = [
   3,
   n0,
@@ -1937,12 +1750,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2025,34 +1833,15 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _FL],
   [
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _r,
-      },
-    ],
-    [
-      () => ValidationExceptionFieldList,
-      {
-        [_jN]: _fL,
-      },
-    ],
+    [0, { [_jN]: _m }],
+    [0, { [_jN]: _r }],
+    [() => ValidationExceptionFieldList, { [_jN]: _fL }],
   ],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [
   3,
   n0,
@@ -2060,18 +1849,8 @@ export var ValidationExceptionField: StaticStructureSchema = [
   0,
   [_Na, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _n }],
+    [0, { [_jN]: _m }],
   ],
 ];
 export var VerifyDevicePositionRequest: StaticStructureSchema = [
@@ -2093,13 +1872,10 @@ export var VerifyDevicePositionResponse: StaticStructureSchema = [
 export var WiFiAccessPoint: StaticStructureSchema = [3, n0, _WFAPi, 0, [_MAa, _Rss], [0, 1]];
 export var LocationServiceException: StaticErrorSchema = [-3, _sm, "LocationServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LocationServiceException, __LocationServiceException);
-
 export var AndroidAppList: StaticListSchema = [1, n0, _AAL, 0, () => AndroidApp];
 export var ApiKeyActionList = 64 | 0;
-
 export var AppleAppList: StaticListSchema = [1, n0, _AALp, 0, () => AppleApp];
 export var ArnList = 64 | 0;
-
 export var BatchDeleteDevicePositionHistoryErrorList: StaticListSchema = [
   1,
   n0,
@@ -2135,17 +1911,13 @@ export var BatchUpdateDevicePositionErrorList: StaticListSchema = [
 export var BoundingBox: StaticListSchema = [1, n0, _BB, 8, 1];
 export var CountryCodeList: StaticListSchema = [1, n0, _CCL, 0, [() => CountryCode3, 0]];
 export var CustomLayerList = 64 | 0;
-
 export var DeviceIdsList = 64 | 0;
-
 export var DevicePositionList: StaticListSchema = [1, n0, _DPL, 0, [() => DevicePosition, 0]];
 export var DevicePositionUpdateList: StaticListSchema = [1, n0, _DPUL, 0, [() => DevicePositionUpdate, 0]];
 export var FilterPlaceCategoryList: StaticListSchema = [1, n0, _FPCL, 0, [() => PlaceCategory, 0]];
 export var ForecastedEventsList: StaticListSchema = [1, n0, _FEL, 0, [() => ForecastedEvent, 0]];
 export var GeoArnList = 64 | 0;
-
 export var IdList = 64 | 0;
-
 export var LegList: StaticListSchema = [1, n0, _LL, 0, [() => Leg, 0]];
 export var LinearRing: StaticListSchema = [1, n0, _LR, 0, [() => Position, 0]];
 export var LinearRings: StaticListSchema = [1, n0, _LRi, 0, [() => LinearRing, 0]];
@@ -2197,22 +1969,17 @@ export var SearchForSuggestionsResultList: StaticListSchema = [1, n0, _SFSRL, 0,
 export var SearchForTextResultList: StaticListSchema = [1, n0, _SFTRL, 0, [() => SearchForTextResult, 0]];
 export var StepList: StaticListSchema = [1, n0, _SL, 0, [() => Step, 0]];
 export var TagKeys = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, [() => ValidationExceptionField, 0]];
 export var WaypointPositionList: StaticListSchema = [1, n0, _WPL, 0, [() => Position, 0]];
 export var WiFiAccessPointList: StaticListSchema = [1, n0, _WFAPL, 0, () => WiFiAccessPoint];
 export var PositionPropertyMap: StaticMapSchema = [2, n0, _PPM, 8, 0, 0];
 export var PropertyMap: StaticMapSchema = [2, n0, _PM, 8, 0, 0];
 export var TagMap = 128 | 0;
-
 export var AssociateTrackerConsumer: StaticOperationSchema = [
   9,
   n0,
   _ATC,
-  {
-    [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/consumers", 200],
-    [_en]: ["cp.tracking."],
-  },
+  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/consumers", 200], [_en]: ["cp.tracking."] },
   () => AssociateTrackerConsumerRequest,
   () => AssociateTrackerConsumerResponse,
 ];
@@ -2220,10 +1987,7 @@ export var BatchDeleteDevicePositionHistory: StaticOperationSchema = [
   9,
   n0,
   _BDDPH,
-  {
-    [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/delete-positions", 200],
-    [_en]: ["tracking."],
-  },
+  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/delete-positions", 200], [_en]: ["tracking."] },
   () => BatchDeleteDevicePositionHistoryRequest,
   () => BatchDeleteDevicePositionHistoryResponse,
 ];
@@ -2231,10 +1995,7 @@ export var BatchDeleteGeofence: StaticOperationSchema = [
   9,
   n0,
   _BDG,
-  {
-    [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/delete-geofences", 200],
-    [_en]: ["geofencing."],
-  },
+  { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/delete-geofences", 200], [_en]: ["geofencing."] },
   () => BatchDeleteGeofenceRequest,
   () => BatchDeleteGeofenceResponse,
 ];
@@ -2242,10 +2003,7 @@ export var BatchEvaluateGeofences: StaticOperationSchema = [
   9,
   n0,
   _BEGa,
-  {
-    [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/positions", 200],
-    [_en]: ["geofencing."],
-  },
+  { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/positions", 200], [_en]: ["geofencing."] },
   () => BatchEvaluateGeofencesRequest,
   () => BatchEvaluateGeofencesResponse,
 ];
@@ -2253,10 +2011,7 @@ export var BatchGetDevicePosition: StaticOperationSchema = [
   9,
   n0,
   _BGDP,
-  {
-    [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/get-positions", 200],
-    [_en]: ["tracking."],
-  },
+  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/get-positions", 200], [_en]: ["tracking."] },
   () => BatchGetDevicePositionRequest,
   () => BatchGetDevicePositionResponse,
 ];
@@ -2264,10 +2019,7 @@ export var BatchPutGeofence: StaticOperationSchema = [
   9,
   n0,
   _BPG,
-  {
-    [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/put-geofences", 200],
-    [_en]: ["geofencing."],
-  },
+  { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/put-geofences", 200], [_en]: ["geofencing."] },
   () => BatchPutGeofenceRequest,
   () => BatchPutGeofenceResponse,
 ];
@@ -2275,10 +2027,7 @@ export var BatchUpdateDevicePosition: StaticOperationSchema = [
   9,
   n0,
   _BUDP,
-  {
-    [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions", 200],
-    [_en]: ["tracking."],
-  },
+  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions", 200], [_en]: ["tracking."] },
   () => BatchUpdateDevicePositionRequest,
   () => BatchUpdateDevicePositionResponse,
 ];
@@ -2286,10 +2035,7 @@ export var CalculateRoute: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route", 200],
-    [_en]: ["routes."],
-  },
+  { [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route", 200], [_en]: ["routes."] },
   () => CalculateRouteRequest,
   () => CalculateRouteResponse,
 ];
@@ -2297,10 +2043,7 @@ export var CalculateRouteMatrix: StaticOperationSchema = [
   9,
   n0,
   _CRM,
-  {
-    [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix", 200],
-    [_en]: ["routes."],
-  },
+  { [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix", 200], [_en]: ["routes."] },
   () => CalculateRouteMatrixRequest,
   () => CalculateRouteMatrixResponse,
 ];
@@ -2308,10 +2051,7 @@ export var CreateGeofenceCollection: StaticOperationSchema = [
   9,
   n0,
   _CGC,
-  {
-    [_h]: ["POST", "/geofencing/v0/collections", 200],
-    [_en]: ["cp.geofencing."],
-  },
+  { [_h]: ["POST", "/geofencing/v0/collections", 200], [_en]: ["cp.geofencing."] },
   () => CreateGeofenceCollectionRequest,
   () => CreateGeofenceCollectionResponse,
 ];
@@ -2319,10 +2059,7 @@ export var CreateKey: StaticOperationSchema = [
   9,
   n0,
   _CK,
-  {
-    [_h]: ["POST", "/metadata/v0/keys", 200],
-    [_en]: ["cp.metadata."],
-  },
+  { [_h]: ["POST", "/metadata/v0/keys", 200], [_en]: ["cp.metadata."] },
   () => CreateKeyRequest,
   () => CreateKeyResponse,
 ];
@@ -2330,10 +2067,7 @@ export var CreateMap: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_h]: ["POST", "/maps/v0/maps", 200],
-    [_en]: ["cp.maps."],
-  },
+  { [_h]: ["POST", "/maps/v0/maps", 200], [_en]: ["cp.maps."] },
   () => CreateMapRequest,
   () => CreateMapResponse,
 ];
@@ -2341,10 +2075,7 @@ export var CreatePlaceIndex: StaticOperationSchema = [
   9,
   n0,
   _CPI,
-  {
-    [_h]: ["POST", "/places/v0/indexes", 200],
-    [_en]: ["cp.places."],
-  },
+  { [_h]: ["POST", "/places/v0/indexes", 200], [_en]: ["cp.places."] },
   () => CreatePlaceIndexRequest,
   () => CreatePlaceIndexResponse,
 ];
@@ -2352,10 +2083,7 @@ export var CreateRouteCalculator: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  {
-    [_h]: ["POST", "/routes/v0/calculators", 200],
-    [_en]: ["cp.routes."],
-  },
+  { [_h]: ["POST", "/routes/v0/calculators", 200], [_en]: ["cp.routes."] },
   () => CreateRouteCalculatorRequest,
   () => CreateRouteCalculatorResponse,
 ];
@@ -2363,10 +2091,7 @@ export var CreateTracker: StaticOperationSchema = [
   9,
   n0,
   _CTr,
-  {
-    [_h]: ["POST", "/tracking/v0/trackers", 200],
-    [_en]: ["cp.tracking."],
-  },
+  { [_h]: ["POST", "/tracking/v0/trackers", 200], [_en]: ["cp.tracking."] },
   () => CreateTrackerRequest,
   () => CreateTrackerResponse,
 ];
@@ -2374,10 +2099,7 @@ export var DeleteGeofenceCollection: StaticOperationSchema = [
   9,
   n0,
   _DGC,
-  {
-    [_h]: ["DELETE", "/geofencing/v0/collections/{CollectionName}", 200],
-    [_en]: ["cp.geofencing."],
-  },
+  { [_h]: ["DELETE", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
   () => DeleteGeofenceCollectionRequest,
   () => DeleteGeofenceCollectionResponse,
 ];
@@ -2385,10 +2107,7 @@ export var DeleteKey: StaticOperationSchema = [
   9,
   n0,
   _DK,
-  {
-    [_h]: ["DELETE", "/metadata/v0/keys/{KeyName}", 200],
-    [_en]: ["cp.metadata."],
-  },
+  { [_h]: ["DELETE", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
   () => DeleteKeyRequest,
   () => DeleteKeyResponse,
 ];
@@ -2396,10 +2115,7 @@ export var DeleteMap: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_h]: ["DELETE", "/maps/v0/maps/{MapName}", 200],
-    [_en]: ["cp.maps."],
-  },
+  { [_h]: ["DELETE", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
   () => DeleteMapRequest,
   () => DeleteMapResponse,
 ];
@@ -2407,10 +2123,7 @@ export var DeletePlaceIndex: StaticOperationSchema = [
   9,
   n0,
   _DPI,
-  {
-    [_h]: ["DELETE", "/places/v0/indexes/{IndexName}", 200],
-    [_en]: ["cp.places."],
-  },
+  { [_h]: ["DELETE", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
   () => DeletePlaceIndexRequest,
   () => DeletePlaceIndexResponse,
 ];
@@ -2418,10 +2131,7 @@ export var DeleteRouteCalculator: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_h]: ["DELETE", "/routes/v0/calculators/{CalculatorName}", 200],
-    [_en]: ["cp.routes."],
-  },
+  { [_h]: ["DELETE", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
   () => DeleteRouteCalculatorRequest,
   () => DeleteRouteCalculatorResponse,
 ];
@@ -2429,10 +2139,7 @@ export var DeleteTracker: StaticOperationSchema = [
   9,
   n0,
   _DTe,
-  {
-    [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}", 200],
-    [_en]: ["cp.tracking."],
-  },
+  { [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
   () => DeleteTrackerRequest,
   () => DeleteTrackerResponse,
 ];
@@ -2440,10 +2147,7 @@ export var DescribeGeofenceCollection: StaticOperationSchema = [
   9,
   n0,
   _DGCe,
-  {
-    [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}", 200],
-    [_en]: ["cp.geofencing."],
-  },
+  { [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
   () => DescribeGeofenceCollectionRequest,
   () => DescribeGeofenceCollectionResponse,
 ];
@@ -2451,10 +2155,7 @@ export var DescribeKey: StaticOperationSchema = [
   9,
   n0,
   _DKe,
-  {
-    [_h]: ["GET", "/metadata/v0/keys/{KeyName}", 200],
-    [_en]: ["cp.metadata."],
-  },
+  { [_h]: ["GET", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
   () => DescribeKeyRequest,
   () => DescribeKeyResponse,
 ];
@@ -2462,10 +2163,7 @@ export var DescribeMap: StaticOperationSchema = [
   9,
   n0,
   _DMe,
-  {
-    [_h]: ["GET", "/maps/v0/maps/{MapName}", 200],
-    [_en]: ["cp.maps."],
-  },
+  { [_h]: ["GET", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
   () => DescribeMapRequest,
   () => DescribeMapResponse,
 ];
@@ -2473,10 +2171,7 @@ export var DescribePlaceIndex: StaticOperationSchema = [
   9,
   n0,
   _DPIe,
-  {
-    [_h]: ["GET", "/places/v0/indexes/{IndexName}", 200],
-    [_en]: ["cp.places."],
-  },
+  { [_h]: ["GET", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
   () => DescribePlaceIndexRequest,
   () => DescribePlaceIndexResponse,
 ];
@@ -2484,10 +2179,7 @@ export var DescribeRouteCalculator: StaticOperationSchema = [
   9,
   n0,
   _DRCe,
-  {
-    [_h]: ["GET", "/routes/v0/calculators/{CalculatorName}", 200],
-    [_en]: ["cp.routes."],
-  },
+  { [_h]: ["GET", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
   () => DescribeRouteCalculatorRequest,
   () => DescribeRouteCalculatorResponse,
 ];
@@ -2495,10 +2187,7 @@ export var DescribeTracker: StaticOperationSchema = [
   9,
   n0,
   _DTes,
-  {
-    [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}", 200],
-    [_en]: ["cp.tracking."],
-  },
+  { [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
   () => DescribeTrackerRequest,
   () => DescribeTrackerResponse,
 ];
@@ -2506,10 +2195,7 @@ export var DisassociateTrackerConsumer: StaticOperationSchema = [
   9,
   n0,
   _DTC,
-  {
-    [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}", 200],
-    [_en]: ["cp.tracking."],
-  },
+  { [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}", 200], [_en]: ["cp.tracking."] },
   () => DisassociateTrackerConsumerRequest,
   () => DisassociateTrackerConsumerResponse,
 ];
@@ -2550,10 +2236,7 @@ export var GetGeofence: StaticOperationSchema = [
   9,
   n0,
   _GGe,
-  {
-    [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200],
-    [_en]: ["geofencing."],
-  },
+  { [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200], [_en]: ["geofencing."] },
   () => GetGeofenceRequest,
   () => GetGeofenceResponse,
 ];
@@ -2561,10 +2244,7 @@ export var GetMapGlyphs: StaticOperationSchema = [
   9,
   n0,
   _GMG,
-  {
-    [_h]: ["GET", "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}", 200],
-    [_en]: ["maps."],
-  },
+  { [_h]: ["GET", "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}", 200], [_en]: ["maps."] },
   () => GetMapGlyphsRequest,
   () => GetMapGlyphsResponse,
 ];
@@ -2572,10 +2252,7 @@ export var GetMapSprites: StaticOperationSchema = [
   9,
   n0,
   _GMS,
-  {
-    [_h]: ["GET", "/maps/v0/maps/{MapName}/sprites/{FileName}", 200],
-    [_en]: ["maps."],
-  },
+  { [_h]: ["GET", "/maps/v0/maps/{MapName}/sprites/{FileName}", 200], [_en]: ["maps."] },
   () => GetMapSpritesRequest,
   () => GetMapSpritesResponse,
 ];
@@ -2583,10 +2260,7 @@ export var GetMapStyleDescriptor: StaticOperationSchema = [
   9,
   n0,
   _GMSD,
-  {
-    [_h]: ["GET", "/maps/v0/maps/{MapName}/style-descriptor", 200],
-    [_en]: ["maps."],
-  },
+  { [_h]: ["GET", "/maps/v0/maps/{MapName}/style-descriptor", 200], [_en]: ["maps."] },
   () => GetMapStyleDescriptorRequest,
   () => GetMapStyleDescriptorResponse,
 ];
@@ -2594,10 +2268,7 @@ export var GetMapTile: StaticOperationSchema = [
   9,
   n0,
   _GMT,
-  {
-    [_h]: ["GET", "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}", 200],
-    [_en]: ["maps."],
-  },
+  { [_h]: ["GET", "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}", 200], [_en]: ["maps."] },
   () => GetMapTileRequest,
   () => GetMapTileResponse,
 ];
@@ -2605,10 +2276,7 @@ export var GetPlace: StaticOperationSchema = [
   9,
   n0,
   _GPe,
-  {
-    [_h]: ["GET", "/places/v0/indexes/{IndexName}/places/{PlaceId}", 200],
-    [_en]: ["places."],
-  },
+  { [_h]: ["GET", "/places/v0/indexes/{IndexName}/places/{PlaceId}", 200], [_en]: ["places."] },
   () => GetPlaceRequest,
   () => GetPlaceResponse,
 ];
@@ -2616,10 +2284,7 @@ export var ListDevicePositions: StaticOperationSchema = [
   9,
   n0,
   _LDP,
-  {
-    [_en]: ["tracking."],
-    [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/list-positions", 200],
-  },
+  { [_en]: ["tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/list-positions", 200] },
   () => ListDevicePositionsRequest,
   () => ListDevicePositionsResponse,
 ];
@@ -2627,10 +2292,7 @@ export var ListGeofenceCollections: StaticOperationSchema = [
   9,
   n0,
   _LGC,
-  {
-    [_en]: ["cp.geofencing."],
-    [_h]: ["POST", "/geofencing/v0/list-collections", 200],
-  },
+  { [_en]: ["cp.geofencing."], [_h]: ["POST", "/geofencing/v0/list-collections", 200] },
   () => ListGeofenceCollectionsRequest,
   () => ListGeofenceCollectionsResponse,
 ];
@@ -2638,10 +2300,7 @@ export var ListGeofences: StaticOperationSchema = [
   9,
   n0,
   _LGi,
-  {
-    [_en]: ["geofencing."],
-    [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/list-geofences", 200],
-  },
+  { [_en]: ["geofencing."], [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/list-geofences", 200] },
   () => ListGeofencesRequest,
   () => ListGeofencesResponse,
 ];
@@ -2649,10 +2308,7 @@ export var ListKeys: StaticOperationSchema = [
   9,
   n0,
   _LK,
-  {
-    [_en]: ["cp.metadata."],
-    [_h]: ["POST", "/metadata/v0/list-keys", 200],
-  },
+  { [_en]: ["cp.metadata."], [_h]: ["POST", "/metadata/v0/list-keys", 200] },
   () => ListKeysRequest,
   () => ListKeysResponse,
 ];
@@ -2660,10 +2316,7 @@ export var ListMaps: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_h]: ["POST", "/maps/v0/list-maps", 200],
-    [_en]: ["cp.maps."],
-  },
+  { [_h]: ["POST", "/maps/v0/list-maps", 200], [_en]: ["cp.maps."] },
   () => ListMapsRequest,
   () => ListMapsResponse,
 ];
@@ -2671,10 +2324,7 @@ export var ListPlaceIndexes: StaticOperationSchema = [
   9,
   n0,
   _LPI,
-  {
-    [_h]: ["POST", "/places/v0/list-indexes", 200],
-    [_en]: ["cp.places."],
-  },
+  { [_h]: ["POST", "/places/v0/list-indexes", 200], [_en]: ["cp.places."] },
   () => ListPlaceIndexesRequest,
   () => ListPlaceIndexesResponse,
 ];
@@ -2682,10 +2332,7 @@ export var ListRouteCalculators: StaticOperationSchema = [
   9,
   n0,
   _LRC,
-  {
-    [_h]: ["POST", "/routes/v0/list-calculators", 200],
-    [_en]: ["cp.routes."],
-  },
+  { [_h]: ["POST", "/routes/v0/list-calculators", 200], [_en]: ["cp.routes."] },
   () => ListRouteCalculatorsRequest,
   () => ListRouteCalculatorsResponse,
 ];
@@ -2693,10 +2340,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-    [_en]: ["cp.metadata."],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2704,10 +2348,7 @@ export var ListTrackerConsumers: StaticOperationSchema = [
   9,
   n0,
   _LTC,
-  {
-    [_en]: ["cp.tracking."],
-    [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/list-consumers", 200],
-  },
+  { [_en]: ["cp.tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/list-consumers", 200] },
   () => ListTrackerConsumersRequest,
   () => ListTrackerConsumersResponse,
 ];
@@ -2715,10 +2356,7 @@ export var ListTrackers: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_en]: ["cp.tracking."],
-    [_h]: ["POST", "/tracking/v0/list-trackers", 200],
-  },
+  { [_en]: ["cp.tracking."], [_h]: ["POST", "/tracking/v0/list-trackers", 200] },
   () => ListTrackersRequest,
   () => ListTrackersResponse,
 ];
@@ -2726,10 +2364,7 @@ export var PutGeofence: StaticOperationSchema = [
   9,
   n0,
   _PGu,
-  {
-    [_h]: ["PUT", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200],
-    [_en]: ["geofencing."],
-  },
+  { [_h]: ["PUT", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200], [_en]: ["geofencing."] },
   () => PutGeofenceRequest,
   () => PutGeofenceResponse,
 ];
@@ -2737,10 +2372,7 @@ export var SearchPlaceIndexForPosition: StaticOperationSchema = [
   9,
   n0,
   _SPIFP,
-  {
-    [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/position", 200],
-    [_en]: ["places."],
-  },
+  { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/position", 200], [_en]: ["places."] },
   () => SearchPlaceIndexForPositionRequest,
   () => SearchPlaceIndexForPositionResponse,
 ];
@@ -2748,10 +2380,7 @@ export var SearchPlaceIndexForSuggestions: StaticOperationSchema = [
   9,
   n0,
   _SPIFS,
-  {
-    [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/suggestions", 200],
-    [_en]: ["places."],
-  },
+  { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/suggestions", 200], [_en]: ["places."] },
   () => SearchPlaceIndexForSuggestionsRequest,
   () => SearchPlaceIndexForSuggestionsResponse,
 ];
@@ -2759,10 +2388,7 @@ export var SearchPlaceIndexForText: StaticOperationSchema = [
   9,
   n0,
   _SPIFT,
-  {
-    [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/text", 200],
-    [_en]: ["places."],
-  },
+  { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/text", 200], [_en]: ["places."] },
   () => SearchPlaceIndexForTextRequest,
   () => SearchPlaceIndexForTextResponse,
 ];
@@ -2770,10 +2396,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-    [_en]: ["cp.metadata."],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2781,10 +2404,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-    [_en]: ["cp.metadata."],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2792,10 +2412,7 @@ export var UpdateGeofenceCollection: StaticOperationSchema = [
   9,
   n0,
   _UGC,
-  {
-    [_h]: ["PATCH", "/geofencing/v0/collections/{CollectionName}", 200],
-    [_en]: ["cp.geofencing."],
-  },
+  { [_h]: ["PATCH", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
   () => UpdateGeofenceCollectionRequest,
   () => UpdateGeofenceCollectionResponse,
 ];
@@ -2803,10 +2420,7 @@ export var UpdateKey: StaticOperationSchema = [
   9,
   n0,
   _UK,
-  {
-    [_h]: ["PATCH", "/metadata/v0/keys/{KeyName}", 200],
-    [_en]: ["cp.metadata."],
-  },
+  { [_h]: ["PATCH", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
   () => UpdateKeyRequest,
   () => UpdateKeyResponse,
 ];
@@ -2814,10 +2428,7 @@ export var UpdateMap: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  {
-    [_h]: ["PATCH", "/maps/v0/maps/{MapName}", 200],
-    [_en]: ["cp.maps."],
-  },
+  { [_h]: ["PATCH", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
   () => UpdateMapRequest,
   () => UpdateMapResponse,
 ];
@@ -2825,10 +2436,7 @@ export var UpdatePlaceIndex: StaticOperationSchema = [
   9,
   n0,
   _UPI,
-  {
-    [_h]: ["PATCH", "/places/v0/indexes/{IndexName}", 200],
-    [_en]: ["cp.places."],
-  },
+  { [_h]: ["PATCH", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
   () => UpdatePlaceIndexRequest,
   () => UpdatePlaceIndexResponse,
 ];
@@ -2836,10 +2444,7 @@ export var UpdateRouteCalculator: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  {
-    [_h]: ["PATCH", "/routes/v0/calculators/{CalculatorName}", 200],
-    [_en]: ["cp.routes."],
-  },
+  { [_h]: ["PATCH", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
   () => UpdateRouteCalculatorRequest,
   () => UpdateRouteCalculatorResponse,
 ];
@@ -2847,10 +2452,7 @@ export var UpdateTracker: StaticOperationSchema = [
   9,
   n0,
   _UTp,
-  {
-    [_h]: ["PATCH", "/tracking/v0/trackers/{TrackerName}", 200],
-    [_en]: ["cp.tracking."],
-  },
+  { [_h]: ["PATCH", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
   () => UpdateTrackerRequest,
   () => UpdateTrackerResponse,
 ];
@@ -2858,10 +2460,7 @@ export var VerifyDevicePosition: StaticOperationSchema = [
   9,
   n0,
   _VDP,
-  {
-    [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions/verify", 200],
-    [_en]: ["tracking."],
-  },
+  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions/verify", 200], [_en]: ["tracking."] },
   () => VerifyDevicePositionRequest,
   () => VerifyDevicePositionResponse,
 ];

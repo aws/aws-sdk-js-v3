@@ -189,21 +189,9 @@ import {
 import { ResourceGroupsServiceException as __ResourceGroupsServiceException } from "../models/ResourceGroupsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccountSettings: StaticStructureSchema = [3, n0, _AS, 0, [_GLEDS, _GLES, _GLESM], [0, 0, 0]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var CancelTagSyncTaskInput: StaticStructureSchema = [3, n0, _CTSTI, 0, [_TA], [0]];
 export var CreateGroupInput: StaticStructureSchema = [
   3,
@@ -224,19 +212,8 @@ export var CreateGroupOutput: StaticStructureSchema = [
 export var DeleteGroupInput: StaticStructureSchema = [3, n0, _DGI, 0, [_GN, _G], [0, 0]];
 export var DeleteGroupOutput: StaticStructureSchema = [3, n0, _DGO, 0, [_G], [() => Group]];
 export var FailedResource: StaticStructureSchema = [3, n0, _FR, 0, [_RA, _EM, _EC], [0, 0, 0]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GetAccountSettingsOutput: StaticStructureSchema = [3, n0, _GASO, 0, [_AS], [() => AccountSettings]];
 export var GetGroupConfigurationInput: StaticStructureSchema = [3, n0, _GGCI, 0, [_G], [0]];
 export var GetGroupConfigurationOutput: StaticStructureSchema = [3, n0, _GGCO, 0, [_GC], [() => GroupConfiguration]];
@@ -286,19 +263,8 @@ export var GroupResourcesOutput: StaticStructureSchema = [
   [_Su, _F, _Pe],
   [64 | 0, () => FailedResourceList, () => PendingResourceList],
 ];
-export var InternalServerErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var ListGroupingStatusesFilter: StaticStructureSchema = [3, n0, _LGSF, 0, [_N, _V], [0, 64 | 0]];
 export var ListGroupingStatusesInput: StaticStructureSchema = [
   3,
@@ -346,21 +312,7 @@ export var ListGroupsInput: StaticStructureSchema = [
   _LGI,
   0,
   [_Fi, _MR, _NT],
-  [
-    () => GroupFilterList,
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-  ],
+  [() => GroupFilterList, [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]],
 ];
 export var ListGroupsOutput: StaticStructureSchema = [
   3,
@@ -380,32 +332,10 @@ export var ListTagSyncTasksInput: StaticStructureSchema = [
   [() => ListTagSyncTasksFilterList, 1, 0],
 ];
 export var ListTagSyncTasksOutput: StaticStructureSchema = [3, n0, _LTSTO, 0, [_TST, _NT], [() => TagSyncTaskList, 0]];
-export var MethodNotAllowedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MNAE,
-  {
-    [_e]: _c,
-    [_hE]: 405,
-  },
-  [_M],
-  [0],
-];
+export var MethodNotAllowedException: StaticErrorSchema = [-3, n0, _MNAE, { [_e]: _c, [_hE]: 405 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MethodNotAllowedException, __MethodNotAllowedException);
-
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PendingResource: StaticStructureSchema = [3, n0, _PR, 0, [_RA], [0]];
 export var PutGroupConfigurationInput: StaticStructureSchema = [
   3,
@@ -456,32 +386,10 @@ export var TagSyncTaskItem: StaticStructureSchema = [
   [_GA, _GN, _TA, _TK, _TV, _RQ, _RAo, _S, _EM, _CA],
   [0, 0, 0, 0, 0, () => ResourceQuery, 0, 0, 0, 4],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_M],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UngroupResourcesInput: StaticStructureSchema = [3, n0, _URI, 0, [_G, _RAe], [0, 64 | 0]];
 export var UngroupResourcesOutput: StaticStructureSchema = [
   3,
@@ -507,48 +415,36 @@ export var UpdateGroupQueryInput: StaticStructureSchema = [
 ];
 export var UpdateGroupQueryOutput: StaticStructureSchema = [3, n0, _UGQO, 0, [_GQ], [() => GroupQuery]];
 export var __Unit = "unit" as const;
-
 export var ResourceGroupsServiceException: StaticErrorSchema = [-3, _sm, "ResourceGroupsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ResourceGroupsServiceException, __ResourceGroupsServiceException);
-
 export var FailedResourceList: StaticListSchema = [1, n0, _FRL, 0, () => FailedResource];
 export var GroupConfigurationList: StaticListSchema = [1, n0, _GCL, 0, () => GroupConfigurationItem];
 export var GroupConfigurationParameterValueList = 64 | 0;
-
 export var GroupFilterList: StaticListSchema = [1, n0, _GFL, 0, () => GroupFilter];
 export var GroupFilterValues = 64 | 0;
-
 export var GroupIdentifierList: StaticListSchema = [1, n0, _GIL, 0, () => GroupIdentifier];
 export var GroupingStatusesList: StaticListSchema = [1, n0, _GSL, 0, () => GroupingStatusesItem];
 export var GroupList: StaticListSchema = [1, n0, _GL, 0, () => Group];
 export var GroupParameterList: StaticListSchema = [1, n0, _GPL, 0, () => GroupConfigurationParameter];
 export var ListGroupingStatusesFilterList: StaticListSchema = [1, n0, _LGSFL, 0, () => ListGroupingStatusesFilter];
 export var ListGroupingStatusesFilterValues = 64 | 0;
-
 export var ListGroupResourcesItemList: StaticListSchema = [1, n0, _LGRIL, 0, () => ListGroupResourcesItem];
 export var ListTagSyncTasksFilterList: StaticListSchema = [1, n0, _LTSTFL, 0, () => ListTagSyncTasksFilter];
 export var PendingResourceList: StaticListSchema = [1, n0, _PRL, 0, () => PendingResource];
 export var QueryErrorList: StaticListSchema = [1, n0, _QEL, 0, () => QueryError];
 export var ResourceArnList = 64 | 0;
-
 export var ResourceFilterList: StaticListSchema = [1, n0, _RFL, 0, () => ResourceFilter];
 export var ResourceFilterValues = 64 | 0;
-
 export var ResourceIdentifierList: StaticListSchema = [1, n0, _RIL, 0, () => ResourceIdentifier];
 export var TagKeyList = 64 | 0;
-
 export var TagSyncTaskList: StaticListSchema = [1, n0, _TSTL, 0, () => TagSyncTaskItem];
 export var ApplicationTag = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var CancelTagSyncTask: StaticOperationSchema = [
   9,
   n0,
   _CTST,
-  {
-    [_h]: ["POST", "/cancel-tag-sync-task", 200],
-  },
+  { [_h]: ["POST", "/cancel-tag-sync-task", 200] },
   () => CancelTagSyncTaskInput,
   () => __Unit,
 ];
@@ -556,9 +452,7 @@ export var CreateGroup: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  {
-    [_h]: ["POST", "/groups", 200],
-  },
+  { [_h]: ["POST", "/groups", 200] },
   () => CreateGroupInput,
   () => CreateGroupOutput,
 ];
@@ -566,9 +460,7 @@ export var DeleteGroup: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_h]: ["POST", "/delete-group", 200],
-  },
+  { [_h]: ["POST", "/delete-group", 200] },
   () => DeleteGroupInput,
   () => DeleteGroupOutput,
 ];
@@ -576,9 +468,7 @@ export var GetAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_h]: ["POST", "/get-account-settings", 200],
-  },
+  { [_h]: ["POST", "/get-account-settings", 200] },
   () => __Unit,
   () => GetAccountSettingsOutput,
 ];
@@ -586,9 +476,7 @@ export var GetGroup: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_h]: ["POST", "/get-group", 200],
-  },
+  { [_h]: ["POST", "/get-group", 200] },
   () => GetGroupInput,
   () => GetGroupOutput,
 ];
@@ -596,9 +484,7 @@ export var GetGroupConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GGC,
-  {
-    [_h]: ["POST", "/get-group-configuration", 200],
-  },
+  { [_h]: ["POST", "/get-group-configuration", 200] },
   () => GetGroupConfigurationInput,
   () => GetGroupConfigurationOutput,
 ];
@@ -606,9 +492,7 @@ export var GetGroupQuery: StaticOperationSchema = [
   9,
   n0,
   _GGQ,
-  {
-    [_h]: ["POST", "/get-group-query", 200],
-  },
+  { [_h]: ["POST", "/get-group-query", 200] },
   () => GetGroupQueryInput,
   () => GetGroupQueryOutput,
 ];
@@ -616,9 +500,7 @@ export var GetTags: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["GET", "/resources/{Arn}/tags", 200],
-  },
+  { [_h]: ["GET", "/resources/{Arn}/tags", 200] },
   () => GetTagsInput,
   () => GetTagsOutput,
 ];
@@ -626,9 +508,7 @@ export var GetTagSyncTask: StaticOperationSchema = [
   9,
   n0,
   _GTST,
-  {
-    [_h]: ["POST", "/get-tag-sync-task", 200],
-  },
+  { [_h]: ["POST", "/get-tag-sync-task", 200] },
   () => GetTagSyncTaskInput,
   () => GetTagSyncTaskOutput,
 ];
@@ -636,9 +516,7 @@ export var GroupResources: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["POST", "/group-resources", 200],
-  },
+  { [_h]: ["POST", "/group-resources", 200] },
   () => GroupResourcesInput,
   () => GroupResourcesOutput,
 ];
@@ -646,9 +524,7 @@ export var ListGroupingStatuses: StaticOperationSchema = [
   9,
   n0,
   _LGS,
-  {
-    [_h]: ["POST", "/list-grouping-statuses", 200],
-  },
+  { [_h]: ["POST", "/list-grouping-statuses", 200] },
   () => ListGroupingStatusesInput,
   () => ListGroupingStatusesOutput,
 ];
@@ -656,9 +532,7 @@ export var ListGroupResources: StaticOperationSchema = [
   9,
   n0,
   _LGR,
-  {
-    [_h]: ["POST", "/list-group-resources", 200],
-  },
+  { [_h]: ["POST", "/list-group-resources", 200] },
   () => ListGroupResourcesInput,
   () => ListGroupResourcesOutput,
 ];
@@ -666,9 +540,7 @@ export var ListGroups: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  {
-    [_h]: ["POST", "/groups-list", 200],
-  },
+  { [_h]: ["POST", "/groups-list", 200] },
   () => ListGroupsInput,
   () => ListGroupsOutput,
 ];
@@ -676,9 +548,7 @@ export var ListTagSyncTasks: StaticOperationSchema = [
   9,
   n0,
   _LTST,
-  {
-    [_h]: ["POST", "/list-tag-sync-tasks", 200],
-  },
+  { [_h]: ["POST", "/list-tag-sync-tasks", 200] },
   () => ListTagSyncTasksInput,
   () => ListTagSyncTasksOutput,
 ];
@@ -686,9 +556,7 @@ export var PutGroupConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PGC,
-  {
-    [_h]: ["POST", "/put-group-configuration", 202],
-  },
+  { [_h]: ["POST", "/put-group-configuration", 202] },
   () => PutGroupConfigurationInput,
   () => PutGroupConfigurationOutput,
 ];
@@ -696,9 +564,7 @@ export var SearchResources: StaticOperationSchema = [
   9,
   n0,
   _SR,
-  {
-    [_h]: ["POST", "/resources/search", 200],
-  },
+  { [_h]: ["POST", "/resources/search", 200] },
   () => SearchResourcesInput,
   () => SearchResourcesOutput,
 ];
@@ -706,9 +572,7 @@ export var StartTagSyncTask: StaticOperationSchema = [
   9,
   n0,
   _STST,
-  {
-    [_h]: ["POST", "/start-tag-sync-task", 200],
-  },
+  { [_h]: ["POST", "/start-tag-sync-task", 200] },
   () => StartTagSyncTaskInput,
   () => StartTagSyncTaskOutput,
 ];
@@ -716,9 +580,7 @@ export var Tag: StaticOperationSchema = [
   9,
   n0,
   _Ta,
-  {
-    [_h]: ["PUT", "/resources/{Arn}/tags", 200],
-  },
+  { [_h]: ["PUT", "/resources/{Arn}/tags", 200] },
   () => TagInput,
   () => TagOutput,
 ];
@@ -726,9 +588,7 @@ export var UngroupResources: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/ungroup-resources", 200],
-  },
+  { [_h]: ["POST", "/ungroup-resources", 200] },
   () => UngroupResourcesInput,
   () => UngroupResourcesOutput,
 ];
@@ -736,9 +596,7 @@ export var Untag: StaticOperationSchema = [
   9,
   n0,
   _U,
-  {
-    [_h]: ["PATCH", "/resources/{Arn}/tags", 200],
-  },
+  { [_h]: ["PATCH", "/resources/{Arn}/tags", 200] },
   () => UntagInput,
   () => UntagOutput,
 ];
@@ -746,9 +604,7 @@ export var UpdateAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["POST", "/update-account-settings", 200],
-  },
+  { [_h]: ["POST", "/update-account-settings", 200] },
   () => UpdateAccountSettingsInput,
   () => UpdateAccountSettingsOutput,
 ];
@@ -756,9 +612,7 @@ export var UpdateGroup: StaticOperationSchema = [
   9,
   n0,
   _UG,
-  {
-    [_h]: ["POST", "/update-group", 200],
-  },
+  { [_h]: ["POST", "/update-group", 200] },
   () => UpdateGroupInput,
   () => UpdateGroupOutput,
 ];
@@ -766,9 +620,7 @@ export var UpdateGroupQuery: StaticOperationSchema = [
   9,
   n0,
   _UGQ,
-  {
-    [_h]: ["POST", "/update-group-query", 200],
-  },
+  { [_h]: ["POST", "/update-group-query", 200] },
   () => UpdateGroupQueryInput,
   () => UpdateGroupQueryOutput,
 ];

@@ -38,16 +38,16 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof GeoPlacesClient === "function")
-assert(typeof GeoPlaces === "function")
+assert(typeof GeoPlacesClient === "function");
+assert(typeof GeoPlaces === "function");
 // commands
-assert(typeof AutocompleteCommand === "function")
-assert(typeof GeocodeCommand === "function")
-assert(typeof GetPlaceCommand === "function")
-assert(typeof ReverseGeocodeCommand === "function")
-assert(typeof SearchNearbyCommand === "function")
-assert(typeof SearchTextCommand === "function")
-assert(typeof SuggestCommand === "function")
+assert(typeof AutocompleteCommand === "function");
+assert(typeof GeocodeCommand === "function");
+assert(typeof GetPlaceCommand === "function");
+assert(typeof ReverseGeocodeCommand === "function");
+assert(typeof SearchNearbyCommand === "function");
+assert(typeof SearchTextCommand === "function");
+assert(typeof SuggestCommand === "function");
 // enums
 assert(typeof AutocompleteAdditionalFeature === "object");
 assert(typeof AutocompleteFilterPlaceType === "object");
@@ -76,5 +76,5 @@ assert(typeof SuggestResultItemType === "object");
 assert(typeof TypePlacement === "object");
 assert(typeof ZipClassificationCode === "object");
 // errors
-assert(GeoPlacesServiceException.prototype instanceof Error)
+assert(GeoPlacesServiceException.prototype instanceof Error);
 console.log(`GeoPlaces index test passed.`);

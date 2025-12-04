@@ -502,43 +502,43 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof MediaConvertClient === "function")
-assert(typeof MediaConvert === "function")
+assert(typeof MediaConvertClient === "function");
+assert(typeof MediaConvert === "function");
 // commands
-assert(typeof AssociateCertificateCommand === "function")
-assert(typeof CancelJobCommand === "function")
-assert(typeof CreateJobCommand === "function")
-assert(typeof CreateJobTemplateCommand === "function")
-assert(typeof CreatePresetCommand === "function")
-assert(typeof CreateQueueCommand === "function")
-assert(typeof CreateResourceShareCommand === "function")
-assert(typeof DeleteJobTemplateCommand === "function")
-assert(typeof DeletePolicyCommand === "function")
-assert(typeof DeletePresetCommand === "function")
-assert(typeof DeleteQueueCommand === "function")
-assert(typeof DescribeEndpointsCommand === "function")
-assert(typeof DisassociateCertificateCommand === "function")
-assert(typeof GetJobCommand === "function")
-assert(typeof GetJobsQueryResultsCommand === "function")
-assert(typeof GetJobTemplateCommand === "function")
-assert(typeof GetPolicyCommand === "function")
-assert(typeof GetPresetCommand === "function")
-assert(typeof GetQueueCommand === "function")
-assert(typeof ListJobsCommand === "function")
-assert(typeof ListJobTemplatesCommand === "function")
-assert(typeof ListPresetsCommand === "function")
-assert(typeof ListQueuesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ListVersionsCommand === "function")
-assert(typeof ProbeCommand === "function")
-assert(typeof PutPolicyCommand === "function")
-assert(typeof SearchJobsCommand === "function")
-assert(typeof StartJobsQueryCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateJobTemplateCommand === "function")
-assert(typeof UpdatePresetCommand === "function")
-assert(typeof UpdateQueueCommand === "function")
+assert(typeof AssociateCertificateCommand === "function");
+assert(typeof CancelJobCommand === "function");
+assert(typeof CreateJobCommand === "function");
+assert(typeof CreateJobTemplateCommand === "function");
+assert(typeof CreatePresetCommand === "function");
+assert(typeof CreateQueueCommand === "function");
+assert(typeof CreateResourceShareCommand === "function");
+assert(typeof DeleteJobTemplateCommand === "function");
+assert(typeof DeletePolicyCommand === "function");
+assert(typeof DeletePresetCommand === "function");
+assert(typeof DeleteQueueCommand === "function");
+assert(typeof DescribeEndpointsCommand === "function");
+assert(typeof DisassociateCertificateCommand === "function");
+assert(typeof GetJobCommand === "function");
+assert(typeof GetJobsQueryResultsCommand === "function");
+assert(typeof GetJobTemplateCommand === "function");
+assert(typeof GetPolicyCommand === "function");
+assert(typeof GetPresetCommand === "function");
+assert(typeof GetQueueCommand === "function");
+assert(typeof ListJobsCommand === "function");
+assert(typeof ListJobTemplatesCommand === "function");
+assert(typeof ListPresetsCommand === "function");
+assert(typeof ListQueuesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListVersionsCommand === "function");
+assert(typeof ProbeCommand === "function");
+assert(typeof PutPolicyCommand === "function");
+assert(typeof SearchJobsCommand === "function");
+assert(typeof StartJobsQueryCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateJobTemplateCommand === "function");
+assert(typeof UpdatePresetCommand === "function");
+assert(typeof UpdateQueueCommand === "function");
 // enums
 assert(typeof AacAudioDescriptionBroadcasterMix === "object");
 assert(typeof AacCodecProfile === "object");
@@ -997,13 +997,13 @@ assert(typeof XavcSlowPal === "object");
 assert(typeof XavcSpatialAdaptiveQuantization === "object");
 assert(typeof XavcTemporalAdaptiveQuantization === "object");
 // errors
-assert(MediaConvertServiceException.prototype instanceof Error)
+assert(MediaConvertServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateDescribeEndpoints === "function")
-assert(typeof paginateListJobTemplates === "function")
-assert(typeof paginateListJobs === "function")
-assert(typeof paginateListPresets === "function")
-assert(typeof paginateListQueues === "function")
-assert(typeof paginateListVersions === "function")
-assert(typeof paginateSearchJobs === "function")
+assert(typeof paginateDescribeEndpoints === "function");
+assert(typeof paginateListJobTemplates === "function");
+assert(typeof paginateListJobs === "function");
+assert(typeof paginateListPresets === "function");
+assert(typeof paginateListQueues === "function");
+assert(typeof paginateListVersions === "function");
+assert(typeof paginateSearchJobs === "function");
 console.log(`MediaConvert index test passed.`);

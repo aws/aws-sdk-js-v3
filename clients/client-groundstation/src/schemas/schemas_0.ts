@@ -411,7 +411,6 @@ import {
 import { GroundStationServiceException as __GroundStationServiceException } from "../models/GroundStationServiceException";
 
 /* eslint no-var: 0 */
-
 export var AgentDetails: StaticStructureSchema = [
   3,
   n0,
@@ -550,19 +549,8 @@ export var DeleteDataflowEndpointGroupRequest: StaticStructureSchema = [3, n0, _
 export var DeleteEphemerisRequest: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
 export var DeleteMissionProfileRequest: StaticStructureSchema = [3, n0, _DMPR, 0, [_mPI], [[0, 1]]];
 export var DemodulationConfig: StaticStructureSchema = [3, n0, _DCe, 0, [_uJSON], [0]];
-export var DependencyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DEe,
-  {
-    [_er]: _se,
-    [_hE]: 531,
-  },
-  [_me, _pN],
-  [0, 0],
-];
+export var DependencyException: StaticErrorSchema = [-3, n0, _DEe, { [_er]: _se, [_hE]: 531 }, [_me, _pN], [0, 0]];
 TypeRegistry.for(n0).registerError(DependencyException, __DependencyException);
-
 export var DescribeContactRequest: StaticStructureSchema = [3, n0, _DCRe, 0, [_cI], [[0, 1]]];
 export var DescribeContactResponse: StaticStructureSchema = [
   3,
@@ -737,19 +725,8 @@ export var GetSatelliteResponse: StaticStructureSchema = [
 ];
 export var GroundStationData: StaticStructureSchema = [3, n0, _GSD, 0, [_gSI, _gSN, _r], [0, 0, 0]];
 export var IntegerRange: StaticStructureSchema = [3, n0, _IR, 0, [_mi, _ma], [1, 1]];
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_er]: _c,
-    [_hE]: 431,
-  },
-  [_me, _pN],
-  [0, 0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_er]: _c, [_hE]: 431 }, [_me, _pN], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var ISO8601TimeRange: StaticStructureSchema = [3, n0, _ISOTR, 0, [_sT, _eT], [5, 5]];
 export var ListConfigsRequest: StaticStructureSchema = [
   3,
@@ -758,18 +735,8 @@ export var ListConfigsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListConfigsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _cL], [0, () => ConfigList]];
@@ -789,18 +756,8 @@ export var ListDataflowEndpointGroupsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDataflowEndpointGroupsResponse: StaticStructureSchema = [
@@ -817,25 +774,7 @@ export var ListEphemeridesRequest: StaticStructureSchema = [
   _LER,
   0,
   [_sI, _eTp, _sT, _eT, _sL, _mR, _nT],
-  [
-    0,
-    0,
-    4,
-    4,
-    64 | 0,
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-  ],
+  [0, 0, 4, 4, 64 | 0, [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]],
 ];
 export var ListEphemeridesResponse: StaticStructureSchema = [3, n0, _LERi, 0, [_nT, _eph], [0, () => EphemeridesList]];
 export var ListGroundStationsRequest: StaticStructureSchema = [
@@ -845,24 +784,9 @@ export var ListGroundStationsRequest: StaticStructureSchema = [
   0,
   [_sI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListGroundStationsResponse: StaticStructureSchema = [
@@ -880,18 +804,8 @@ export var ListMissionProfilesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListMissionProfilesResponse: StaticStructureSchema = [
@@ -909,18 +823,8 @@ export var ListSatellitesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSatellitesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_nT, _sa], [0, () => SatelliteList]];
@@ -948,45 +852,19 @@ export var ReserveContactRequest: StaticStructureSchema = [
   [_mPA, _sAa, _sT, _eT, _gS, _t, _tO],
   [0, 0, 4, 4, 0, 128 | 0, () => TrackingOverrides],
 ];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_er]: _c,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_er]: _c, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
 export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_er]: _c,
-    [_hE]: 429,
-  },
+  { [_er]: _c, [_hE]: 429 },
   [_me, _pN],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_er]: _c,
-    [_hE]: 434,
-  },
-  [_me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _c, [_hE]: 434 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Object: StaticStructureSchema = [3, n0, _SO, 0, [_b, _k, _ve], [0, 0, 0]];
 export var S3RecordingConfig: StaticStructureSchema = [3, n0, _SRC, 0, [_bA, _rAo, _pr], [0, 0, 0]];
 export var S3RecordingDetails: StaticStructureSchema = [3, n0, _SRD, 0, [_bA, _kT], [0, 0]];
@@ -1003,15 +881,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_er]: _c,
-    [_hE]: 402,
-  },
+  { [_er]: _c, [_hE]: 402 },
   [_me, _pN],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SocketAddress: StaticStructureSchema = [3, n0, _SA, 0, [_n, _po], [0, 1]];
 export var Source: StaticStructureSchema = [3, n0, _S, 0, [_cTo, _cIo, _cDo, _dSR], [0, 0, () => ConfigDetails, 0]];
 export var SpectrumConfig: StaticStructureSchema = [
@@ -1038,12 +912,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1100,24 +969,18 @@ export var UplinkConnectionDetails: StaticStructureSchema = [
 export var UplinkEchoConfig: StaticStructureSchema = [3, n0, _UEC, 0, [_ena, _aUCA], [2, 0]];
 export var UplinkSpectrumConfig: StaticStructureSchema = [3, n0, _USC, 0, [_cF, _pol], [() => Frequency, 0]];
 export var __Unit = "unit" as const;
-
 export var GroundStationServiceException: StaticErrorSchema = [-3, _sm, "GroundStationServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GroundStationServiceException, __GroundStationServiceException);
-
 export var AgentCpuCoresList = 64 | 1;
-
 export var AzElSegmentList: StaticListSchema = [1, n0, _AESL, 0, () => AzElSegment];
 export var CapabilityArnList = 64 | 0;
-
 export var CapabilityHealthReasonList = 64 | 0;
-
 export var ComponentStatusList: StaticListSchema = [1, n0, _CSL, 0, () => ComponentStatusData];
 export var ComponentVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ComponentVersion];
 export var ConfigList: StaticListSchema = [1, n0, _CL, 0, () => ConfigListItem];
 export var ContactList: StaticListSchema = [1, n0, _CLo, 0, () => ContactData];
 export var CreateEndpointDetailsList: StaticListSchema = [1, n0, _CEDL, 0, () => CreateEndpointDetails];
 export var DataflowEdge = 64 | 0;
-
 export var DataflowEdgeList: StaticListSchema = [1, n0, _DEL, 0, 64 | 0];
 export var DataflowEndpointGroupList: StaticListSchema = [1, n0, _DEGL, 0, () => DataflowEndpointListItem];
 export var DataflowList: StaticListSchema = [1, n0, _DL, 0, () => DataflowDetail];
@@ -1125,30 +988,20 @@ export var EndpointDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => Endpoi
 export var EphemeridesList: StaticListSchema = [1, n0, _EL, 0, () => EphemerisItem];
 export var EphemerisErrorReasonList: StaticListSchema = [1, n0, _EERL, 0, () => EphemerisErrorReason];
 export var EphemerisStatusList = 64 | 0;
-
 export var GroundStationIdList = 64 | 0;
-
 export var GroundStationList: StaticListSchema = [1, n0, _GSL, 0, () => GroundStationData];
 export var IpAddressList = 64 | 0;
-
 export var MissionProfileList: StaticListSchema = [1, n0, _MPL, 0, () => MissionProfileListItem];
 export var SatelliteList: StaticListSchema = [1, n0, _SL, 0, () => SatelliteListItem];
 export var SecurityGroupIdList = 64 | 0;
-
 export var StatusList = 64 | 0;
-
 export var SubnetList = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var TimeAzElList: StaticListSchema = [1, n0, _TAEL, 0, () => TimeAzEl];
 export var TLEDataList: StaticListSchema = [1, n0, _TLEDL, 0, () => TLEData];
 export var VersionStringList = 64 | 0;
-
 export var SignatureMap = 128 | 2;
-
 export var TagsMap = 128 | 0;
-
 export var AzElSegmentsData: StaticStructureSchema = [
   3,
   n0,
@@ -1214,9 +1067,7 @@ export var CancelContact: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["DELETE", "/contact/{contactId}", 200],
-  },
+  { [_h]: ["DELETE", "/contact/{contactId}", 200] },
   () => CancelContactRequest,
   () => ContactIdResponse,
 ];
@@ -1224,9 +1075,7 @@ export var CreateConfig: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/config", 200],
-  },
+  { [_h]: ["POST", "/config", 200] },
   () => CreateConfigRequest,
   () => ConfigIdResponse,
 ];
@@ -1234,9 +1083,7 @@ export var CreateDataflowEndpointGroup: StaticOperationSchema = [
   9,
   n0,
   _CDEG,
-  {
-    [_h]: ["POST", "/dataflowEndpointGroup", 200],
-  },
+  { [_h]: ["POST", "/dataflowEndpointGroup", 200] },
   () => CreateDataflowEndpointGroupRequest,
   () => DataflowEndpointGroupIdResponse,
 ];
@@ -1244,9 +1091,7 @@ export var CreateDataflowEndpointGroupV2: StaticOperationSchema = [
   9,
   n0,
   _CDEGV,
-  {
-    [_h]: ["POST", "/dataflowEndpointGroupV2", 200],
-  },
+  { [_h]: ["POST", "/dataflowEndpointGroupV2", 200] },
   () => CreateDataflowEndpointGroupV2Request,
   () => CreateDataflowEndpointGroupV2Response,
 ];
@@ -1254,9 +1099,7 @@ export var CreateEphemeris: StaticOperationSchema = [
   9,
   n0,
   _CE,
-  {
-    [_h]: ["POST", "/ephemeris", 200],
-  },
+  { [_h]: ["POST", "/ephemeris", 200] },
   () => CreateEphemerisRequest,
   () => EphemerisIdResponse,
 ];
@@ -1264,9 +1107,7 @@ export var CreateMissionProfile: StaticOperationSchema = [
   9,
   n0,
   _CMP,
-  {
-    [_h]: ["POST", "/missionprofile", 200],
-  },
+  { [_h]: ["POST", "/missionprofile", 200] },
   () => CreateMissionProfileRequest,
   () => MissionProfileIdResponse,
 ];
@@ -1274,9 +1115,7 @@ export var DeleteConfig: StaticOperationSchema = [
   9,
   n0,
   _DCel,
-  {
-    [_h]: ["DELETE", "/config/{configType}/{configId}", 200],
-  },
+  { [_h]: ["DELETE", "/config/{configType}/{configId}", 200] },
   () => DeleteConfigRequest,
   () => ConfigIdResponse,
 ];
@@ -1284,9 +1123,7 @@ export var DeleteDataflowEndpointGroup: StaticOperationSchema = [
   9,
   n0,
   _DDEG,
-  {
-    [_h]: ["DELETE", "/dataflowEndpointGroup/{dataflowEndpointGroupId}", 200],
-  },
+  { [_h]: ["DELETE", "/dataflowEndpointGroup/{dataflowEndpointGroupId}", 200] },
   () => DeleteDataflowEndpointGroupRequest,
   () => DataflowEndpointGroupIdResponse,
 ];
@@ -1294,9 +1131,7 @@ export var DeleteEphemeris: StaticOperationSchema = [
   9,
   n0,
   _DEel,
-  {
-    [_h]: ["DELETE", "/ephemeris/{ephemerisId}", 200],
-  },
+  { [_h]: ["DELETE", "/ephemeris/{ephemerisId}", 200] },
   () => DeleteEphemerisRequest,
   () => EphemerisIdResponse,
 ];
@@ -1304,9 +1139,7 @@ export var DeleteMissionProfile: StaticOperationSchema = [
   9,
   n0,
   _DMP,
-  {
-    [_h]: ["DELETE", "/missionprofile/{missionProfileId}", 200],
-  },
+  { [_h]: ["DELETE", "/missionprofile/{missionProfileId}", 200] },
   () => DeleteMissionProfileRequest,
   () => MissionProfileIdResponse,
 ];
@@ -1314,9 +1147,7 @@ export var DescribeContact: StaticOperationSchema = [
   9,
   n0,
   _DCes,
-  {
-    [_h]: ["GET", "/contact/{contactId}", 200],
-  },
+  { [_h]: ["GET", "/contact/{contactId}", 200] },
   () => DescribeContactRequest,
   () => DescribeContactResponse,
 ];
@@ -1324,9 +1155,7 @@ export var DescribeEphemeris: StaticOperationSchema = [
   9,
   n0,
   _DEes,
-  {
-    [_h]: ["GET", "/ephemeris/{ephemerisId}", 200],
-  },
+  { [_h]: ["GET", "/ephemeris/{ephemerisId}", 200] },
   () => DescribeEphemerisRequest,
   () => DescribeEphemerisResponse,
 ];
@@ -1334,9 +1163,7 @@ export var GetAgentConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GAC,
-  {
-    [_h]: ["GET", "/agent/{agentId}/configuration", 200],
-  },
+  { [_h]: ["GET", "/agent/{agentId}/configuration", 200] },
   () => GetAgentConfigurationRequest,
   () => GetAgentConfigurationResponse,
 ];
@@ -1344,9 +1171,7 @@ export var GetAgentTaskResponseUrl: StaticOperationSchema = [
   9,
   n0,
   _GATRU,
-  {
-    [_h]: ["GET", "/agentResponseUrl/{agentId}/{taskId}", 200],
-  },
+  { [_h]: ["GET", "/agentResponseUrl/{agentId}/{taskId}", 200] },
   () => GetAgentTaskResponseUrlRequest,
   () => GetAgentTaskResponseUrlResponse,
 ];
@@ -1354,9 +1179,7 @@ export var GetConfig: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/config/{configType}/{configId}", 200],
-  },
+  { [_h]: ["GET", "/config/{configType}/{configId}", 200] },
   () => GetConfigRequest,
   () => GetConfigResponse,
 ];
@@ -1364,9 +1187,7 @@ export var GetDataflowEndpointGroup: StaticOperationSchema = [
   9,
   n0,
   _GDEG,
-  {
-    [_h]: ["GET", "/dataflowEndpointGroup/{dataflowEndpointGroupId}", 200],
-  },
+  { [_h]: ["GET", "/dataflowEndpointGroup/{dataflowEndpointGroupId}", 200] },
   () => GetDataflowEndpointGroupRequest,
   () => GetDataflowEndpointGroupResponse,
 ];
@@ -1374,9 +1195,7 @@ export var GetMinuteUsage: StaticOperationSchema = [
   9,
   n0,
   _GMU,
-  {
-    [_h]: ["POST", "/minute-usage", 200],
-  },
+  { [_h]: ["POST", "/minute-usage", 200] },
   () => GetMinuteUsageRequest,
   () => GetMinuteUsageResponse,
 ];
@@ -1384,9 +1203,7 @@ export var GetMissionProfile: StaticOperationSchema = [
   9,
   n0,
   _GMP,
-  {
-    [_h]: ["GET", "/missionprofile/{missionProfileId}", 200],
-  },
+  { [_h]: ["GET", "/missionprofile/{missionProfileId}", 200] },
   () => GetMissionProfileRequest,
   () => GetMissionProfileResponse,
 ];
@@ -1394,9 +1211,7 @@ export var GetSatellite: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/satellite/{satelliteId}", 200],
-  },
+  { [_h]: ["GET", "/satellite/{satelliteId}", 200] },
   () => GetSatelliteRequest,
   () => GetSatelliteResponse,
 ];
@@ -1404,9 +1219,7 @@ export var ListConfigs: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/config", 200],
-  },
+  { [_h]: ["GET", "/config", 200] },
   () => ListConfigsRequest,
   () => ListConfigsResponse,
 ];
@@ -1414,9 +1227,7 @@ export var ListContacts: StaticOperationSchema = [
   9,
   n0,
   _LCi,
-  {
-    [_h]: ["POST", "/contacts", 200],
-  },
+  { [_h]: ["POST", "/contacts", 200] },
   () => ListContactsRequest,
   () => ListContactsResponse,
 ];
@@ -1424,9 +1235,7 @@ export var ListDataflowEndpointGroups: StaticOperationSchema = [
   9,
   n0,
   _LDEG,
-  {
-    [_h]: ["GET", "/dataflowEndpointGroup", 200],
-  },
+  { [_h]: ["GET", "/dataflowEndpointGroup", 200] },
   () => ListDataflowEndpointGroupsRequest,
   () => ListDataflowEndpointGroupsResponse,
 ];
@@ -1434,9 +1243,7 @@ export var ListEphemerides: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["POST", "/ephemerides", 200],
-  },
+  { [_h]: ["POST", "/ephemerides", 200] },
   () => ListEphemeridesRequest,
   () => ListEphemeridesResponse,
 ];
@@ -1444,9 +1251,7 @@ export var ListGroundStations: StaticOperationSchema = [
   9,
   n0,
   _LGS,
-  {
-    [_h]: ["GET", "/groundstation", 200],
-  },
+  { [_h]: ["GET", "/groundstation", 200] },
   () => ListGroundStationsRequest,
   () => ListGroundStationsResponse,
 ];
@@ -1454,9 +1259,7 @@ export var ListMissionProfiles: StaticOperationSchema = [
   9,
   n0,
   _LMP,
-  {
-    [_h]: ["GET", "/missionprofile", 200],
-  },
+  { [_h]: ["GET", "/missionprofile", 200] },
   () => ListMissionProfilesRequest,
   () => ListMissionProfilesResponse,
 ];
@@ -1464,9 +1267,7 @@ export var ListSatellites: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/satellite", 200],
-  },
+  { [_h]: ["GET", "/satellite", 200] },
   () => ListSatellitesRequest,
   () => ListSatellitesResponse,
 ];
@@ -1474,9 +1275,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1484,9 +1283,7 @@ export var RegisterAgent: StaticOperationSchema = [
   9,
   n0,
   _RA,
-  {
-    [_h]: ["POST", "/agent", 200],
-  },
+  { [_h]: ["POST", "/agent", 200] },
   () => RegisterAgentRequest,
   () => RegisterAgentResponse,
 ];
@@ -1494,9 +1291,7 @@ export var ReserveContact: StaticOperationSchema = [
   9,
   n0,
   _RC,
-  {
-    [_h]: ["POST", "/contact", 200],
-  },
+  { [_h]: ["POST", "/contact", 200] },
   () => ReserveContactRequest,
   () => ContactIdResponse,
 ];
@@ -1504,9 +1299,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1514,9 +1307,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1524,9 +1315,7 @@ export var UpdateAgentStatus: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PUT", "/agent/{agentId}", 200],
-  },
+  { [_h]: ["PUT", "/agent/{agentId}", 200] },
   () => UpdateAgentStatusRequest,
   () => UpdateAgentStatusResponse,
 ];
@@ -1534,9 +1323,7 @@ export var UpdateConfig: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/config/{configType}/{configId}", 200],
-  },
+  { [_h]: ["PUT", "/config/{configType}/{configId}", 200] },
   () => UpdateConfigRequest,
   () => ConfigIdResponse,
 ];
@@ -1544,9 +1331,7 @@ export var UpdateEphemeris: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PUT", "/ephemeris/{ephemerisId}", 200],
-  },
+  { [_h]: ["PUT", "/ephemeris/{ephemerisId}", 200] },
   () => UpdateEphemerisRequest,
   () => EphemerisIdResponse,
 ];
@@ -1554,9 +1339,7 @@ export var UpdateMissionProfile: StaticOperationSchema = [
   9,
   n0,
   _UMP,
-  {
-    [_h]: ["PUT", "/missionprofile/{missionProfileId}", 200],
-  },
+  { [_h]: ["PUT", "/missionprofile/{missionProfileId}", 200] },
   () => UpdateMissionProfileRequest,
   () => MissionProfileIdResponse,
 ];

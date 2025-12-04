@@ -33,23 +33,23 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ApplicationAutoScalingClient === "function")
-assert(typeof ApplicationAutoScaling === "function")
+assert(typeof ApplicationAutoScalingClient === "function");
+assert(typeof ApplicationAutoScaling === "function");
 // commands
-assert(typeof DeleteScalingPolicyCommand === "function")
-assert(typeof DeleteScheduledActionCommand === "function")
-assert(typeof DeregisterScalableTargetCommand === "function")
-assert(typeof DescribeScalableTargetsCommand === "function")
-assert(typeof DescribeScalingActivitiesCommand === "function")
-assert(typeof DescribeScalingPoliciesCommand === "function")
-assert(typeof DescribeScheduledActionsCommand === "function")
-assert(typeof GetPredictiveScalingForecastCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutScalingPolicyCommand === "function")
-assert(typeof PutScheduledActionCommand === "function")
-assert(typeof RegisterScalableTargetCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
+assert(typeof DeleteScalingPolicyCommand === "function");
+assert(typeof DeleteScheduledActionCommand === "function");
+assert(typeof DeregisterScalableTargetCommand === "function");
+assert(typeof DescribeScalableTargetsCommand === "function");
+assert(typeof DescribeScalingActivitiesCommand === "function");
+assert(typeof DescribeScalingPoliciesCommand === "function");
+assert(typeof DescribeScheduledActionsCommand === "function");
+assert(typeof GetPredictiveScalingForecastCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutScalingPolicyCommand === "function");
+assert(typeof PutScheduledActionCommand === "function");
+assert(typeof RegisterScalableTargetCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
 // enums
 assert(typeof AdjustmentType === "object");
 assert(typeof MetricAggregationType === "object");
@@ -62,10 +62,10 @@ assert(typeof ScalableDimension === "object");
 assert(typeof ScalingActivityStatusCode === "object");
 assert(typeof ServiceNamespace === "object");
 // errors
-assert(ApplicationAutoScalingServiceException.prototype instanceof Error)
+assert(ApplicationAutoScalingServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateDescribeScalableTargets === "function")
-assert(typeof paginateDescribeScalingActivities === "function")
-assert(typeof paginateDescribeScalingPolicies === "function")
-assert(typeof paginateDescribeScheduledActions === "function")
+assert(typeof paginateDescribeScalableTargets === "function");
+assert(typeof paginateDescribeScalingActivities === "function");
+assert(typeof paginateDescribeScalingPolicies === "function");
+assert(typeof paginateDescribeScheduledActions === "function");
 console.log(`ApplicationAutoScaling index test passed.`);
