@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateTrackerConsumerCommand,
@@ -242,7 +242,7 @@ import {
   VerifyDevicePositionCommandInput,
   VerifyDevicePositionCommandOutput,
 } from "./commands/VerifyDevicePositionCommand";
-import { LocationClient, LocationClientConfig } from "./LocationClient";
+import { LocationClient } from "./LocationClient";
 
 const commands = {
   AssociateTrackerConsumerCommand,

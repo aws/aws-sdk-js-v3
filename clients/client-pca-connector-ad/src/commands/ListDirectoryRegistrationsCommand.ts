@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDirectoryRegistrationsRequest, ListDirectoryRegistrationsResponse } from "../models/models_0";
-import { PcaConnectorAdClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PcaConnectorAdClient";
+import type { ListDirectoryRegistrationsRequest, ListDirectoryRegistrationsResponse } from "../models/models_0";
+import type {
+  PcaConnectorAdClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../PcaConnectorAdClient";
 import { ListDirectoryRegistrations } from "../schemas/schemas_0";
 
 /**

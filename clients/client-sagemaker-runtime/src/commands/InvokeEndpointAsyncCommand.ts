@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput } from "../models/models_0";
-import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
+import type { InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput } from "../models/models_0";
+import type {
+  SageMakerRuntimeClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../SageMakerRuntimeClient";
 import { InvokeEndpointAsync } from "../schemas/schemas_0";
 
 /**

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { EKSClientConfig } from "./EKSClient";
+import type { EKSClientConfig } from "./EKSClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

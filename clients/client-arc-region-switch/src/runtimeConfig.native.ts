@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ARCRegionSwitchClientConfig } from "./ARCRegionSwitchClient";
+import type { ARCRegionSwitchClientConfig } from "./ARCRegionSwitchClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

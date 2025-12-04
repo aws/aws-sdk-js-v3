@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateEnvironmentCommand,
@@ -236,7 +236,7 @@ import {
   UpdateKxVolumeCommandInput,
   UpdateKxVolumeCommandOutput,
 } from "./commands/UpdateKxVolumeCommand";
-import { FinspaceClient, FinspaceClientConfig } from "./FinspaceClient";
+import { FinspaceClient } from "./FinspaceClient";
 
 const commands = {
   CreateEnvironmentCommand,

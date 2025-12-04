@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetRecordCommand,
@@ -14,10 +14,7 @@ import {
 } from "./commands/DeleteRecordCommand";
 import { GetRecordCommand, GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
 import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
-import {
-  SageMakerFeatureStoreRuntimeClient,
-  SageMakerFeatureStoreRuntimeClientConfig,
-} from "./SageMakerFeatureStoreRuntimeClient";
+import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 
 const commands = {
   BatchGetRecordCommand,

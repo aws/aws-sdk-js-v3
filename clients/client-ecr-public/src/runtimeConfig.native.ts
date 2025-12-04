@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ECRPUBLICClientConfig } from "./ECRPUBLICClient";
+import type { ECRPUBLICClientConfig } from "./ECRPUBLICClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

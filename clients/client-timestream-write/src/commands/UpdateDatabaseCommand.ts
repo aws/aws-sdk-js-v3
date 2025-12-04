@@ -2,12 +2,16 @@
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_0";
+import type { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_0";
 import { UpdateDatabase } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
+import type {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  TimestreamWriteClientResolvedConfig,
+} from "../TimestreamWriteClient";
 
 /**
  * @public

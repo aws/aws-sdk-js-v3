@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteSessionCommand,
@@ -24,7 +24,7 @@ import {
   StartConversationCommandInput,
   StartConversationCommandOutput,
 } from "./commands/StartConversationCommand";
-import { LexRuntimeV2Client, LexRuntimeV2ClientConfig } from "./LexRuntimeV2Client";
+import { LexRuntimeV2Client } from "./LexRuntimeV2Client";
 
 const commands = {
   DeleteSessionCommand,

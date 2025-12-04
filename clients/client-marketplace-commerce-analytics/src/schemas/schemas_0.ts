@@ -22,7 +22,7 @@ const n0 = "com.amazonaws.marketplacecommerceanalytics";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticMapSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticMapSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { MarketplaceCommerceAnalyticsException as __MarketplaceCommerceAnalyticsException } from "../models/errors";
 import { MarketplaceCommerceAnalyticsServiceException as __MarketplaceCommerceAnalyticsServiceException } from "../models/MarketplaceCommerceAnalyticsServiceException";

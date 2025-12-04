@@ -171,7 +171,7 @@ const n0 = "com.amazonaws.lexruntimev2";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,

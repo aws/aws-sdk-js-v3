@@ -1,5 +1,5 @@
 // @ts-check
-const { join } = require("path");
+const { join, basename } = require("path");
 const { copySync, removeSync } = require("fs-extra");
 const prettier = require("prettier");
 const semver = require("semver");
@@ -138,6 +138,18 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           copySync(docClientArtifactPath, docClientDestPath, { overwrite: true });
           removeSync(docClientArtifactPath);
         }
+      }
+    }
+
+    // copy and merge generated index tests
+    for (const test of [
+      join(artifactPath, "test", "index-objects.spec.mjs"),
+      join(artifactPath, "test", "index-types.ts"),
+    ]) {
+      if (existsSync(test)) {
+        copySync(test, join(destPath, "test", basename(test)), {
+          overwrite: true,
+        });
       }
     }
 

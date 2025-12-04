@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { LexRuntimeV2ExtensionConfiguration } from "./extensionConfiguration";
+import type { LexRuntimeV2ExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

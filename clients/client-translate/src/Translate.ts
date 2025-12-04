@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateParallelDataCommand,
@@ -93,7 +93,7 @@ import {
   UpdateParallelDataCommandInput,
   UpdateParallelDataCommandOutput,
 } from "./commands/UpdateParallelDataCommand";
-import { TranslateClient, TranslateClientConfig } from "./TranslateClient";
+import { TranslateClient } from "./TranslateClient";
 
 const commands = {
   CreateParallelDataCommand,

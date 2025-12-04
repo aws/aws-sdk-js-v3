@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAccessorCommand,
@@ -93,7 +93,7 @@ import {
   VoteOnProposalCommandInput,
   VoteOnProposalCommandOutput,
 } from "./commands/VoteOnProposalCommand";
-import { ManagedBlockchainClient, ManagedBlockchainClientConfig } from "./ManagedBlockchainClient";
+import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
 
 const commands = {
   CreateAccessorCommand,

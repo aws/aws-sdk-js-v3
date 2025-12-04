@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ServiceException as __BaseException } from "@aws-smithy/server-common";
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ValidationExceptionField } from "./models_0";
 

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
+import type {
+  DirectoryServiceClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableDirectoryDataAccessRequest, DisableDirectoryDataAccessResult } from "../models/models_0";
+import type { DisableDirectoryDataAccessRequest, DisableDirectoryDataAccessResult } from "../models/models_0";
 import { DisableDirectoryDataAccess } from "../schemas/schemas_0";
 
 /**

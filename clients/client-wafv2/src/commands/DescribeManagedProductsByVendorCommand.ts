@@ -1,12 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeManagedProductsByVendorRequest, DescribeManagedProductsByVendorResponse } from "../models/models_0";
+import type {
+  DescribeManagedProductsByVendorRequest,
+  DescribeManagedProductsByVendorResponse,
+} from "../models/models_0";
 import { DescribeManagedProductsByVendor } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public

@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateApprovalRuleTemplateContentInput, UpdateApprovalRuleTemplateContentOutput } from "../models/models_0";
+import type {
+  UpdateApprovalRuleTemplateContentInput,
+  UpdateApprovalRuleTemplateContentOutput,
+} from "../models/models_0";
 import { UpdateApprovalRuleTemplateContent } from "../schemas/schemas_0";
 
 /**

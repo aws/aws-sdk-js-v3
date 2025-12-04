@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
+import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSlackWorkspaceAuthorizationRequest, DeleteSlackWorkspaceAuthorizationResult } from "../models/models_0";
+import type {
+  DeleteSlackWorkspaceAuthorizationRequest,
+  DeleteSlackWorkspaceAuthorizationResult,
+} from "../models/models_0";
 import { DeleteSlackWorkspaceAuthorization } from "../schemas/schemas_0";
 
 /**

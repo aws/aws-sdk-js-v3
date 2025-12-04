@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateS3TableIntegrationInput, CreateS3TableIntegrationOutput } from "../models/models_0";
-import {
+import type { CreateS3TableIntegrationInput, CreateS3TableIntegrationOutput } from "../models/models_0";
+import type {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,

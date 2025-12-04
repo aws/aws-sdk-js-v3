@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateFileSystemAliasesCommand,
@@ -234,7 +234,7 @@ import {
   UpdateVolumeCommandInput,
   UpdateVolumeCommandOutput,
 } from "./commands/UpdateVolumeCommand";
-import { FSxClient, FSxClientConfig } from "./FSxClient";
+import { FSxClient } from "./FSxClient";
 
 const commands = {
   AssociateFileSystemAliasesCommand,

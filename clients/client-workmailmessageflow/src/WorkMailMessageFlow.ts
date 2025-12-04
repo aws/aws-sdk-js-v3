@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetRawMessageContentCommand,
@@ -12,7 +12,7 @@ import {
   PutRawMessageContentCommandInput,
   PutRawMessageContentCommandOutput,
 } from "./commands/PutRawMessageContentCommand";
-import { WorkMailMessageFlowClient, WorkMailMessageFlowClientConfig } from "./WorkMailMessageFlowClient";
+import { WorkMailMessageFlowClient } from "./WorkMailMessageFlowClient";
 
 const commands = {
   GetRawMessageContentCommand,

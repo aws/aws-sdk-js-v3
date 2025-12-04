@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateLensesCommand,
@@ -322,7 +322,7 @@ import {
   UpgradeReviewTemplateLensReviewCommandInput,
   UpgradeReviewTemplateLensReviewCommandOutput,
 } from "./commands/UpgradeReviewTemplateLensReviewCommand";
-import { WellArchitectedClient, WellArchitectedClientConfig } from "./WellArchitectedClient";
+import { WellArchitectedClient } from "./WellArchitectedClient";
 
 const commands = {
   AssociateLensesCommand,

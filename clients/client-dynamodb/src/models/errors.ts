@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceException";
 import { AttributeValue, CancellationReason, ThrottlingReason } from "./models_0";

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { GlobalAcceleratorClientConfig } from "./GlobalAcceleratorClient";
+import type { GlobalAcceleratorClientConfig } from "./GlobalAcceleratorClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

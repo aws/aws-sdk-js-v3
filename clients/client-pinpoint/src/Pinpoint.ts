@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
@@ -564,7 +564,7 @@ import {
   VerifyOTPMessageCommandInput,
   VerifyOTPMessageCommandOutput,
 } from "./commands/VerifyOTPMessageCommand";
-import { PinpointClient, PinpointClientConfig } from "./PinpointClient";
+import { PinpointClient } from "./PinpointClient";
 
 const commands = {
   CreateAppCommand,

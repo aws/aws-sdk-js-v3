@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
@@ -139,7 +139,7 @@ import {
   SetLoadBalancerPoliciesOfListenerCommandInput,
   SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
-import { ElasticLoadBalancingClient, ElasticLoadBalancingClientConfig } from "./ElasticLoadBalancingClient";
+import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
 
 const commands = {
   AddTagsCommand,

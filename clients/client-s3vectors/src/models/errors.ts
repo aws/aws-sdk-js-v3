@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ValidationExceptionField } from "./models_0";
 import { S3VectorsServiceException as __BaseException } from "./S3VectorsServiceException";

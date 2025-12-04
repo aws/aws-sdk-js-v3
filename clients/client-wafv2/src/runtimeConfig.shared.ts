@@ -2,14 +2,14 @@
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { AwsJson1_1Protocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWAFV2HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
-import { WAFV2ClientConfig } from "./WAFV2Client";
+import type { WAFV2ClientConfig } from "./WAFV2Client";
 
 /**
  * @internal

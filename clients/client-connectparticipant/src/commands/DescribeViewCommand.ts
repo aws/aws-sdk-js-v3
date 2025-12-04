@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ConnectParticipantClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeViewRequest, DescribeViewResponse } from "../models/models_0";
+import type { DescribeViewRequest, DescribeViewResponse } from "../models/models_0";
 import { DescribeView } from "../schemas/schemas_0";
 
 /**

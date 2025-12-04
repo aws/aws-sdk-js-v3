@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
+import type { ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
 import { ListOpenWorkflowExecutions } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public

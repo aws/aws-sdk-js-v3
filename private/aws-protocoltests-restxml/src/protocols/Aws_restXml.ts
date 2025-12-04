@@ -37,7 +37,7 @@ import {
   strictParseShort as __strictParseShort,
   withBaseException,
 } from "@smithy/smithy-client";
-import {
+import type {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListBrokersRequest, ListBrokersResponse } from "../models/models_0";
-import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
+import type { ListBrokersRequest, ListBrokersResponse } from "../models/models_0";
+import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { ListBrokers } from "../schemas/schemas_0";
 
 /**

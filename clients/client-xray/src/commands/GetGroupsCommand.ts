@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetGroupsRequest, GetGroupsResult } from "../models/models_0";
+import type { GetGroupsRequest, GetGroupsResult } from "../models/models_0";
 import { GetGroups } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public

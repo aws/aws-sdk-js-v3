@@ -1,14 +1,15 @@
 // smithy-typescript generated code
-import { defaultWeatherHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner } from "@smithy/core";
 import { SigV4Signer } from "@smithy/experimental-identity-and-auth";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
-import { WeatherClientConfig } from "./WeatherClient";
+
+import { defaultWeatherHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import type { WeatherClientConfig } from "./WeatherClient";
 
 /**
  * @internal

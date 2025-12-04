@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelGremlinQueryCommand,
@@ -217,7 +217,7 @@ import {
   StartMLModelTransformJobCommandInput,
   StartMLModelTransformJobCommandOutput,
 } from "./commands/StartMLModelTransformJobCommand";
-import { NeptunedataClient, NeptunedataClientConfig } from "./NeptunedataClient";
+import { NeptunedataClient } from "./NeptunedataClient";
 
 const commands = {
   CancelGremlinQueryCommand,

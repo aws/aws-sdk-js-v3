@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetCollectionCommand,
@@ -187,7 +187,7 @@ import {
   UpdateVpcEndpointCommandInput,
   UpdateVpcEndpointCommandOutput,
 } from "./commands/UpdateVpcEndpointCommand";
-import { OpenSearchServerlessClient, OpenSearchServerlessClientConfig } from "./OpenSearchServerlessClient";
+import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
 
 const commands = {
   BatchGetCollectionCommand,

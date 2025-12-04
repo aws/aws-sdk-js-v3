@@ -218,7 +218,7 @@ const n0 = "com.amazonaws.iotthingsgraph";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   InternalFailureException as __InternalFailureException,

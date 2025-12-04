@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
 import { QuickSightClient } from "../QuickSightClient";

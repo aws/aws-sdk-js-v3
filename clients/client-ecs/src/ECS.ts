@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateCapacityProviderCommand,
@@ -302,7 +302,7 @@ import {
   UpdateTaskSetCommandInput,
   UpdateTaskSetCommandOutput,
 } from "./commands/UpdateTaskSetCommand";
-import { ECSClient, ECSClientConfig } from "./ECSClient";
+import { ECSClient } from "./ECSClient";
 
 const commands = {
   CreateCapacityProviderCommand,

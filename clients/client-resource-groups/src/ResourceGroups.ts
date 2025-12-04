@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelTagSyncTaskCommand,
@@ -85,7 +85,7 @@ import {
   UpdateGroupQueryCommandInput,
   UpdateGroupQueryCommandOutput,
 } from "./commands/UpdateGroupQueryCommand";
-import { ResourceGroupsClient, ResourceGroupsClientConfig } from "./ResourceGroupsClient";
+import { ResourceGroupsClient } from "./ResourceGroupsClient";
 
 const commands = {
   CancelTagSyncTaskCommand,

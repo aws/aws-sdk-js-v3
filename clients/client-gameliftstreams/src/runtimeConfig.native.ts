@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { GameLiftStreamsClientConfig } from "./GameLiftStreamsClient";
+import type { GameLiftStreamsClientConfig } from "./GameLiftStreamsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

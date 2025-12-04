@@ -2,11 +2,15 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { ArchiveCreationOutput, UploadArchiveInput, UploadArchiveInputFilterSensitiveLog } from "../models/models_0";
+import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import {
+  type ArchiveCreationOutput,
+  UploadArchiveInput,
+  UploadArchiveInputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UploadArchiveCommand, se_UploadArchiveCommand } from "../protocols/Aws_restJson1";
 
 /**

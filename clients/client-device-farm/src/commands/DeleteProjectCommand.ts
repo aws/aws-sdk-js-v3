@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0";
+import type { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0";
 import { DeleteProject } from "../schemas/schemas_0";
 
 /**

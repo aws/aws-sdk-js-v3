@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTaxExemptionTypesRequest, GetTaxExemptionTypesResponse } from "../models/models_0";
+import type { GetTaxExemptionTypesRequest, GetTaxExemptionTypesResponse } from "../models/models_0";
 import { GetTaxExemptionTypes } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
+import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
  * @public

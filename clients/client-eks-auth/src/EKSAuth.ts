@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssumeRoleForPodIdentityCommand,
   AssumeRoleForPodIdentityCommandInput,
   AssumeRoleForPodIdentityCommandOutput,
 } from "./commands/AssumeRoleForPodIdentityCommand";
-import { EKSAuthClient, EKSAuthClientConfig } from "./EKSAuthClient";
+import { EKSAuthClient } from "./EKSAuthClient";
 
 const commands = {
   AssumeRoleForPodIdentityCommand,

@@ -8,7 +8,7 @@ import {
   parseCborBody as parseBody,
   parseCborErrorBody as parseErrorBody,
 } from "@smithy/core/cbor";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import type { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
@@ -27,10 +27,10 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
-  Endpoint as __Endpoint,
+  type Endpoint as __Endpoint,
+  type ResponseMetadata as __ResponseMetadata,
+  type SerdeContext as __SerdeContext,
   HeaderBag as __HeaderBag,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
 import { EmptyInputOutputCommandInput, EmptyInputOutputCommandOutput } from "../commands/EmptyInputOutputCommand";

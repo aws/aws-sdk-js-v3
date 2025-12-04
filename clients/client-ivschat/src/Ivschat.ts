@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateChatTokenCommand,
@@ -59,7 +59,7 @@ import {
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
 import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
-import { IvschatClient, IvschatClientConfig } from "./IvschatClient";
+import { IvschatClient } from "./IvschatClient";
 
 const commands = {
   CreateChatTokenCommand,

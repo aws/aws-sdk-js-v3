@@ -2,11 +2,11 @@
 import { getCompressionPlugin } from "@smithy/middleware-compression";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { PutWithContentEncodingInput } from "../models/models_0";
+import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import type { PutWithContentEncodingInput } from "../models/models_0";
 import { PutWithContentEncoding } from "../schemas/schemas_0";
 
 /**

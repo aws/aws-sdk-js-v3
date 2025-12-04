@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
+import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAlternateContactRequest, GetAlternateContactResponse } from "../models/models_0";
+import type { GetAlternateContactRequest, GetAlternateContactResponse } from "../models/models_0";
 import { GetAlternateContact } from "../schemas/schemas_0";
 
 /**

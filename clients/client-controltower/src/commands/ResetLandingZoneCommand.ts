@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
+import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResetLandingZoneInput, ResetLandingZoneOutput } from "../models/models_0";
+import type { ResetLandingZoneInput, ResetLandingZoneOutput } from "../models/models_0";
 import { ResetLandingZone } from "../schemas/schemas_0";
 
 /**

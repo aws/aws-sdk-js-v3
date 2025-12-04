@@ -444,7 +444,7 @@ const n0 = "com.amazonaws.elasticbeanstalk";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ElasticBeanstalkSyntheticServiceException as __ElasticBeanstalkSyntheticServiceException } from "../models/ElasticBeanstalkSyntheticServiceException";
 import {

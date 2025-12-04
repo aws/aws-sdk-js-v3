@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateServiceQuotaTemplateCommand,
@@ -118,7 +118,7 @@ import {
   UpdateAutoManagementCommandInput,
   UpdateAutoManagementCommandOutput,
 } from "./commands/UpdateAutoManagementCommand";
-import { ServiceQuotasClient, ServiceQuotasClientConfig } from "./ServiceQuotasClient";
+import { ServiceQuotasClient } from "./ServiceQuotasClient";
 
 const commands = {
   AssociateServiceQuotaTemplateCommand,

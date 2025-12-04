@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
+import type { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutAccountSettingsRequest, PutAccountSettingsResponse } from "../models/models_0";
+import type { PutAccountSettingsRequest, PutAccountSettingsResponse } from "../models/models_0";
 import { PutAccountSettings } from "../schemas/schemas_0";
 
 /**

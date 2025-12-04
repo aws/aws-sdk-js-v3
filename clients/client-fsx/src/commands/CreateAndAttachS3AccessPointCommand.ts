@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateAndAttachS3AccessPointRequest, CreateAndAttachS3AccessPointResponse } from "../models/models_0";
+import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import type { CreateAndAttachS3AccessPointRequest, CreateAndAttachS3AccessPointResponse } from "../models/models_0";
 import { CreateAndAttachS3AccessPoint } from "../schemas/schemas_0";
 
 /**

@@ -99,7 +99,7 @@ const n0 = "com.amazonaws.codestarnotifications";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,

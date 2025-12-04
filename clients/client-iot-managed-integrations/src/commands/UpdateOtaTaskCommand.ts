@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   IoTManagedIntegrationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import { UpdateOtaTaskRequest } from "../models/models_0";
+import type { UpdateOtaTaskRequest } from "../models/models_0";
 import { UpdateOtaTask } from "../schemas/schemas_0";
 
 /**

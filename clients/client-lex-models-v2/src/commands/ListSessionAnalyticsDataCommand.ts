@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListSessionAnalyticsDataRequest, ListSessionAnalyticsDataResponse } from "../models/models_1";
+import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import type { ListSessionAnalyticsDataRequest, ListSessionAnalyticsDataResponse } from "../models/models_1";
 import { ListSessionAnalyticsData } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCreateRumMetricDefinitionsCommand,
@@ -98,7 +98,7 @@ import {
   UpdateRumMetricDefinitionCommandInput,
   UpdateRumMetricDefinitionCommandOutput,
 } from "./commands/UpdateRumMetricDefinitionCommand";
-import { RUMClient, RUMClientConfig } from "./RUMClient";
+import { RUMClient } from "./RUMClient";
 
 const commands = {
   BatchCreateRumMetricDefinitionsCommand,

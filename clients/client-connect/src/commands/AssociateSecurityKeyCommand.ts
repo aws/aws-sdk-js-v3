@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateSecurityKeyRequest, AssociateSecurityKeyResponse } from "../models/models_0";
+import type { AssociateSecurityKeyRequest, AssociateSecurityKeyResponse } from "../models/models_0";
 import { AssociateSecurityKey } from "../schemas/schemas_0";
 
 /**

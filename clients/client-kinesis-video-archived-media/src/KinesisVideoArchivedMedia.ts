@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { GetClipCommand, GetClipCommandInput, GetClipCommandOutput } from "./commands/GetClipCommand";
 import {
@@ -24,10 +24,7 @@ import {
   ListFragmentsCommandInput,
   ListFragmentsCommandOutput,
 } from "./commands/ListFragmentsCommand";
-import {
-  KinesisVideoArchivedMediaClient,
-  KinesisVideoArchivedMediaClientConfig,
-} from "./KinesisVideoArchivedMediaClient";
+import { KinesisVideoArchivedMediaClient } from "./KinesisVideoArchivedMediaClient";
 
 const commands = {
   GetClipCommand,

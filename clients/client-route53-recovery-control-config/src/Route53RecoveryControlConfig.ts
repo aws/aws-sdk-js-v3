@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateClusterCommand,
@@ -123,10 +123,7 @@ import {
   UpdateSafetyRuleCommandInput,
   UpdateSafetyRuleCommandOutput,
 } from "./commands/UpdateSafetyRuleCommand";
-import {
-  Route53RecoveryControlConfigClient,
-  Route53RecoveryControlConfigClientConfig,
-} from "./Route53RecoveryControlConfigClient";
+import { Route53RecoveryControlConfigClient } from "./Route53RecoveryControlConfigClient";
 
 const commands = {
   CreateClusterCommand,

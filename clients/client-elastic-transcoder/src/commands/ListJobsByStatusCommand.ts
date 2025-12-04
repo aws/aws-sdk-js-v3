@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ElasticTranscoderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/models_0";
+import type { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/models_0";
 import { ListJobsByStatus } from "../schemas/schemas_0";
 
 /**

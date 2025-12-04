@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { DataPipelineClientConfig } from "./DataPipelineClient";
+import type { DataPipelineClientConfig } from "./DataPipelineClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

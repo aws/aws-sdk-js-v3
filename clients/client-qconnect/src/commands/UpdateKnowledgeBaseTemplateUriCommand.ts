@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_1";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_1";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { UpdateKnowledgeBaseTemplateUri } from "../schemas/schemas_0";
 
 /**

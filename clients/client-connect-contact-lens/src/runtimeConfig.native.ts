@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ConnectContactLensClientConfig } from "./ConnectContactLensClient";
+import type { ConnectContactLensClientConfig } from "./ConnectContactLensClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

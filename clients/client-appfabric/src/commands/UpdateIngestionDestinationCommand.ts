@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
+import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateIngestionDestinationRequest, UpdateIngestionDestinationResponse } from "../models/models_0";
+import type { UpdateIngestionDestinationRequest, UpdateIngestionDestinationResponse } from "../models/models_0";
 import { UpdateIngestionDestination } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetIceServerConfigCommand,
@@ -12,7 +12,7 @@ import {
   SendAlexaOfferToMasterCommandInput,
   SendAlexaOfferToMasterCommandOutput,
 } from "./commands/SendAlexaOfferToMasterCommand";
-import { KinesisVideoSignalingClient, KinesisVideoSignalingClientConfig } from "./KinesisVideoSignalingClient";
+import { KinesisVideoSignalingClient } from "./KinesisVideoSignalingClient";
 
 const commands = {
   GetIceServerConfigCommand,

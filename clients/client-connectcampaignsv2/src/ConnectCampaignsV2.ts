@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateCampaignCommand,
@@ -173,7 +173,7 @@ import {
   UpdateCampaignSourceCommandInput,
   UpdateCampaignSourceCommandOutput,
 } from "./commands/UpdateCampaignSourceCommand";
-import { ConnectCampaignsV2Client, ConnectCampaignsV2ClientConfig } from "./ConnectCampaignsV2Client";
+import { ConnectCampaignsV2Client } from "./ConnectCampaignsV2Client";
 
 const commands = {
   CreateCampaignCommand,

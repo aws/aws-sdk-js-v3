@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { ChimeSDKMessagingClient, ChimeSDKMessagingClientConfig } from "./ChimeSDKMessagingClient";
+import { ChimeSDKMessagingClient } from "./ChimeSDKMessagingClient";
 import {
   AssociateChannelFlowCommand,
   AssociateChannelFlowCommandInput,

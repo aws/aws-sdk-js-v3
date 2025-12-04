@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import { GetSafetyLeverRequest, GetSafetyLeverResponse } from "../models/models_0";
+import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
+import type { GetSafetyLeverRequest, GetSafetyLeverResponse } from "../models/models_0";
 import { GetSafetyLever } from "../schemas/schemas_0";
 
 /**

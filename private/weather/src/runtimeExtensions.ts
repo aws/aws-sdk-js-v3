@@ -1,12 +1,13 @@
 // smithy-typescript generated code
-import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
 import {
   getAwsRegionExtensionConfiguration,
   resolveAwsRegionExtensionConfiguration,
 } from "@aws-sdk/region-config-resolver";
 import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
-import { WeatherExtensionConfiguration } from "./extensionConfiguration";
+
+import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
+import type { WeatherExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
+import type {
+  AmplifyUIBuilderClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import type { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import { TagResource } from "../schemas/schemas_0";
 
 /**

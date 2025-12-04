@@ -2,11 +2,11 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
+import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { XmlNamespacesOutput } from "../models/models_0";
+import type { XmlNamespacesOutput } from "../models/models_0";
 import { de_XmlNamespacesCommand, se_XmlNamespacesCommand } from "../protocols/Aws_ec2";
 
 /**

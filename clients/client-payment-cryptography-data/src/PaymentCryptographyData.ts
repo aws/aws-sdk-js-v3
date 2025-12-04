@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { DecryptDataCommand, DecryptDataCommandInput, DecryptDataCommandOutput } from "./commands/DecryptDataCommand";
 import { EncryptDataCommand, EncryptDataCommandInput, EncryptDataCommandOutput } from "./commands/EncryptDataCommand";
@@ -51,7 +51,7 @@ import {
   VerifyPinDataCommandInput,
   VerifyPinDataCommandOutput,
 } from "./commands/VerifyPinDataCommand";
-import { PaymentCryptographyDataClient, PaymentCryptographyDataClientConfig } from "./PaymentCryptographyDataClient";
+import { PaymentCryptographyDataClient } from "./PaymentCryptographyDataClient";
 
 const commands = {
   DecryptDataCommand,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
+import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIndicatorsRequest, ListIndicatorsResponse } from "../models/models_0";
+import type { ListIndicatorsRequest, ListIndicatorsResponse } from "../models/models_0";
 import { ListIndicators } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptEngagementInvitationCommand,
@@ -208,7 +208,7 @@ import {
   UpdateOpportunityCommandInput,
   UpdateOpportunityCommandOutput,
 } from "./commands/UpdateOpportunityCommand";
-import { PartnerCentralSellingClient, PartnerCentralSellingClientConfig } from "./PartnerCentralSellingClient";
+import { PartnerCentralSellingClient } from "./PartnerCentralSellingClient";
 
 const commands = {
   AcceptEngagementInvitationCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateKeyspaceCommand,
@@ -53,7 +53,7 @@ import {
   UpdateKeyspaceCommandOutput,
 } from "./commands/UpdateKeyspaceCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
-import { KeyspacesClient, KeyspacesClientConfig } from "./KeyspacesClient";
+import { KeyspacesClient } from "./KeyspacesClient";
 
 const commands = {
   CreateKeyspaceCommand,

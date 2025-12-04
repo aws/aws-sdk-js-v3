@@ -1,0 +1,20 @@
+// smithy-typescript generated code
+export type {
+  ApiGatewayManagementApiClient,
+  ApiGatewayManagementApi,
+  DeleteConnectionCommand,
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput,
+  GetConnectionCommand,
+  GetConnectionCommandInput,
+  GetConnectionCommandOutput,
+  PostToConnectionCommand,
+  PostToConnectionCommandInput,
+  PostToConnectionCommandOutput,
+  DeleteConnectionRequest,
+  GetConnectionRequest,
+  GetConnectionResponse,
+  Identity,
+  PostToConnectionRequest,
+  ApiGatewayManagementApiServiceException,
+} from "../dist-types/index.d";

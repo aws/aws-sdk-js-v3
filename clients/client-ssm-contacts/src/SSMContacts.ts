@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AcceptPageCommand, AcceptPageCommandInput, AcceptPageCommandOutput } from "./commands/AcceptPageCommand";
 import {
@@ -181,7 +181,7 @@ import {
   UpdateRotationCommandInput,
   UpdateRotationCommandOutput,
 } from "./commands/UpdateRotationCommand";
-import { SSMContactsClient, SSMContactsClientConfig } from "./SSMContactsClient";
+import { SSMContactsClient } from "./SSMContactsClient";
 
 const commands = {
   AcceptPageCommand,

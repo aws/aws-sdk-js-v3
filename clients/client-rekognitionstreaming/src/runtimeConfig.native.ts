@@ -2,7 +2,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@smithy/invalid-dependency";
 
-import { RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
+import type { RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

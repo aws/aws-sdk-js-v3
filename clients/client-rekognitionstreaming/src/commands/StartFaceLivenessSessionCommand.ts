@@ -3,11 +3,11 @@ import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartFaceLivenessSessionRequest, StartFaceLivenessSessionResponse } from "../models/models_0";
-import {
+import type { StartFaceLivenessSessionRequest, StartFaceLivenessSessionResponse } from "../models/models_0";
+import type {
   RekognitionStreamingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,

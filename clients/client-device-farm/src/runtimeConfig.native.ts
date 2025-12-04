@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { DeviceFarmClientConfig } from "./DeviceFarmClient";
+import type { DeviceFarmClientConfig } from "./DeviceFarmClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/models_0";
+import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import type { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/models_0";
 import { UpdateBrokerCount } from "../schemas/schemas_0";
 
 /**

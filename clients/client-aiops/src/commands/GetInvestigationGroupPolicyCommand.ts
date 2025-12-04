@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
+import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetInvestigationGroupPolicyRequest, GetInvestigationGroupPolicyResponse } from "../models/models_0";
+import type { GetInvestigationGroupPolicyRequest, GetInvestigationGroupPolicyResponse } from "../models/models_0";
 import { GetInvestigationGroupPolicy } from "../schemas/schemas_0";
 
 /**

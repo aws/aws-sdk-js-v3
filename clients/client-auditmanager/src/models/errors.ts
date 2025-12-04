@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AuditManagerServiceException as __BaseException } from "./AuditManagerServiceException";
 import { ValidationExceptionReason } from "./enums";

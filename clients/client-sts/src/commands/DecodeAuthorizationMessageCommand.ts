@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/models_0";
+import type { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/models_0";
 import { DecodeAuthorizationMessage } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
+import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
  * @public

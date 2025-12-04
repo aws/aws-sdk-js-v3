@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CodeartifactClientConfig } from "./CodeartifactClient";
+import type { CodeartifactClientConfig } from "./CodeartifactClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

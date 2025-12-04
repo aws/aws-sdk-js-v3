@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RenewDomainRequest, RenewDomainResponse } from "../models/models_0";
-import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import type { RenewDomainRequest, RenewDomainResponse } from "../models/models_0";
+import type {
+  Route53DomainsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../Route53DomainsClient";
 import { RenewDomain } from "../schemas/schemas_0";
 
 /**

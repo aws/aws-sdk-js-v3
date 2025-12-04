@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   GlobalAcceleratorClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { CreateCustomRoutingListenerRequest, CreateCustomRoutingListenerResponse } from "../models/models_0";
+import type { CreateCustomRoutingListenerRequest, CreateCustomRoutingListenerResponse } from "../models/models_0";
 import { CreateCustomRoutingListener } from "../schemas/schemas_0";
 
 /**

@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { KeyspacesExtensionConfiguration } from "./extensionConfiguration";
+import type { KeyspacesExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

@@ -396,7 +396,7 @@ const n0 = "com.amazonaws.cloudwatchevents";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,

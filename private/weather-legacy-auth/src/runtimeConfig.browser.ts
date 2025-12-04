@@ -6,12 +6,13 @@ import { Sha256 } from "@aws-crypto/sha256-browser";
 import { createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-browser";
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
 import { invalidProvider } from "@smithy/invalid-dependency";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { WeatherClientConfig } from "./WeatherClient";
-import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
+
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import type { WeatherClientConfig } from "./WeatherClient";
 
 /**
  * @internal

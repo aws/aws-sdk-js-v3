@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { PaginationConfiguration } from "@smithy/types";
+import type { PaginationConfiguration } from "@smithy/types";
 
 import { Inspector2Client } from "../Inspector2Client";
 

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateGroupInput, UpdateGroupOutput } from "../models/models_0";
-import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
+import type { UpdateGroupInput, UpdateGroupOutput } from "../models/models_0";
+import type {
+  ResourceGroupsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ResourceGroupsClient";
 import { UpdateGroup } from "../schemas/schemas_0";
 
 /**

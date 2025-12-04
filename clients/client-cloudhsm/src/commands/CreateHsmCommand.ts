@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
+import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateHsmRequest, CreateHsmResponse } from "../models/models_0";
+import type { CreateHsmRequest, CreateHsmResponse } from "../models/models_0";
 import { CreateHsm } from "../schemas/schemas_0";
 
 /**

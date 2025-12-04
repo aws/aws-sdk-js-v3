@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { cbor } from "@smithy/core/cbor";
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "stream";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { EmptyInputOutputCommand } from "../../src/commands/EmptyInputOutputCommand";

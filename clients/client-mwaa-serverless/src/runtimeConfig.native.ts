@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { MWAAServerlessClientConfig } from "./MWAAServerlessClient";
+import type { MWAAServerlessClientConfig } from "./MWAAServerlessClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

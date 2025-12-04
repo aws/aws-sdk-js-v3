@@ -2,18 +2,22 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  OutputStreamWithInitialResponseOutput,
+  type OutputStreamWithInitialResponseOutput,
   OutputStreamWithInitialResponseOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_OutputStreamWithInitialResponseCommand,
   se_OutputStreamWithInitialResponseCommand,
 } from "../protocols/Aws_restJson1";
-import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import type {
+  RestJsonProtocolClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../RestJsonProtocolClient";
 
 /**
  * @public

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AllQueryStringTypesCommand,
@@ -298,7 +298,7 @@ import {
   XmlTimestampsCommandOutput,
 } from "./commands/XmlTimestampsCommand";
 import { XmlUnionsCommand, XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
-import { RestXmlProtocolClient, RestXmlProtocolClientConfig } from "./RestXmlProtocolClient";
+import { RestXmlProtocolClient } from "./RestXmlProtocolClient";
 
 const commands = {
   AllQueryStringTypesCommand,

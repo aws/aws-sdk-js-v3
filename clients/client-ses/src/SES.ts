@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CloneReceiptRuleSetCommand,
@@ -345,7 +345,7 @@ import {
   VerifyEmailIdentityCommandInput,
   VerifyEmailIdentityCommandOutput,
 } from "./commands/VerifyEmailIdentityCommand";
-import { SESClient, SESClientConfig } from "./SESClient";
+import { SESClient } from "./SESClient";
 
 const commands = {
   CloneReceiptRuleSetCommand,

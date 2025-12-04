@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AbortMultipartReadSetUploadCommand,
@@ -418,7 +418,7 @@ import {
   UploadReadSetPartCommandInput,
   UploadReadSetPartCommandOutput,
 } from "./commands/UploadReadSetPartCommand";
-import { OmicsClient, OmicsClientConfig } from "./OmicsClient";
+import { OmicsClient } from "./OmicsClient";
 
 const commands = {
   AbortMultipartReadSetUploadCommand,

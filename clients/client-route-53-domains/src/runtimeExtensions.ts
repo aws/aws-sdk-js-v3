@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { Route53DomainsExtensionConfiguration } from "./extensionConfiguration";
+import type { Route53DomainsExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

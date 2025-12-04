@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { JSONRPC10ServiceException as __BaseException } from "./JSONRPC10ServiceException";
-import { ComplexNestedErrorData } from "./models_0";
+import type { ComplexNestedErrorData } from "./models_0";
 
 /**
  * This error is thrown when a request is invalid.

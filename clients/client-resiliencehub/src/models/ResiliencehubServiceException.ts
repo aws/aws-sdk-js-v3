@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  type ServiceExceptionOptions as __ServiceExceptionOptions,
   ServiceException as __ServiceException,
-  ServiceExceptionOptions as __ServiceExceptionOptions,
 } from "@smithy/smithy-client";
 
 export type { __ServiceExceptionOptions };

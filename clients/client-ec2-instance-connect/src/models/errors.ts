@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { EC2InstanceConnectServiceException as __BaseException } from "./EC2InstanceConnectServiceException";
 

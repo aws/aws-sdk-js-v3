@@ -7,11 +7,11 @@ import {
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
 import { streamCollector as __streamCollector } from "@smithy/node-http-handler";
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Encoder as __Encoder } from "@smithy/types";
-import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { Encoder as __Encoder } from "@smithy/types";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { ComplexError, InvalidGreeting } from "../../src/models/errors";

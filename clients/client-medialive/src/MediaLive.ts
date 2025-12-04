@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptInputDeviceTransferCommand,
@@ -553,7 +553,7 @@ import {
   UpdateSdiSourceCommandInput,
   UpdateSdiSourceCommandOutput,
 } from "./commands/UpdateSdiSourceCommand";
-import { MediaLiveClient, MediaLiveClientConfig } from "./MediaLiveClient";
+import { MediaLiveClient } from "./MediaLiveClient";
 
 const commands = {
   AcceptInputDeviceTransferCommand,

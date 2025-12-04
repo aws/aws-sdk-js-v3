@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ConfigureLogsForChannelCommand,
@@ -210,7 +210,7 @@ import {
   UpdateVodSourceCommandInput,
   UpdateVodSourceCommandOutput,
 } from "./commands/UpdateVodSourceCommand";
-import { MediaTailorClient, MediaTailorClientConfig } from "./MediaTailorClient";
+import { MediaTailorClient } from "./MediaTailorClient";
 
 const commands = {
   ConfigureLogsForChannelCommand,

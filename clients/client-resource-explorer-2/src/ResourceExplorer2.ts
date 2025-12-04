@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateDefaultViewCommand,
@@ -118,7 +118,7 @@ import {
   UpdateIndexTypeCommandOutput,
 } from "./commands/UpdateIndexTypeCommand";
 import { UpdateViewCommand, UpdateViewCommandInput, UpdateViewCommandOutput } from "./commands/UpdateViewCommand";
-import { ResourceExplorer2Client, ResourceExplorer2ClientConfig } from "./ResourceExplorer2Client";
+import { ResourceExplorer2Client } from "./ResourceExplorer2Client";
 
 const commands = {
   AssociateDefaultViewCommand,

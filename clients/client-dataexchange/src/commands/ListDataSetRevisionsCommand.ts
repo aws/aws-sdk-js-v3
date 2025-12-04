@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
+import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/models_0";
+import type { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/models_0";
 import { ListDataSetRevisions } from "../schemas/schemas_0";
 
 /**

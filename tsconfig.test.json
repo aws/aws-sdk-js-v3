@@ -5,7 +5,13 @@
     "noCheck": false
   },
   "extends": "./tsconfig.cjs.json",
-  "include": ["packages/**/*.spec.ts", "lib/**/*.spec.ts", "clients/**/*.spec.ts", "private/**/*.spec.ts"],
+  "include": [
+    "packages/**/*.spec.ts",
+    "lib/**/*.spec.ts",
+    "clients/**/*.spec.ts",
+    "private/**/*.spec.ts",
+    "clients/**/test/index-types.ts"
+  ],
   "exclude": [
     "node_modules/",
     "vitest.*.ts",

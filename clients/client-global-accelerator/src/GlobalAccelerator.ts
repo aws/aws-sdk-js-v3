@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddCustomRoutingEndpointsCommand,
@@ -278,7 +278,7 @@ import {
   WithdrawByoipCidrCommandInput,
   WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
-import { GlobalAcceleratorClient, GlobalAcceleratorClientConfig } from "./GlobalAcceleratorClient";
+import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
 
 const commands = {
   AddCustomRoutingEndpointsCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateHostedZoneCommand,
@@ -229,7 +229,7 @@ import {
   UpdateHostedZoneAssociationCommandInput,
   UpdateHostedZoneAssociationCommandOutput,
 } from "./commands/UpdateHostedZoneAssociationCommand";
-import { Route53GlobalResolverClient, Route53GlobalResolverClientConfig } from "./Route53GlobalResolverClient";
+import { Route53GlobalResolverClient } from "./Route53GlobalResolverClient";
 
 const commands = {
   AssociateHostedZoneCommand,

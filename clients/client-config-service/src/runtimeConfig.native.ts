@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ConfigServiceClientConfig } from "./ConfigServiceClient";
+import type { ConfigServiceClientConfig } from "./ConfigServiceClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

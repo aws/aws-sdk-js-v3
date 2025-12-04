@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateEmailContactCommand,
@@ -43,7 +43,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { NotificationsContactsClient, NotificationsContactsClientConfig } from "./NotificationsContactsClient";
+import { NotificationsContactsClient } from "./NotificationsContactsClient";
 
 const commands = {
   ActivateEmailContactCommand,

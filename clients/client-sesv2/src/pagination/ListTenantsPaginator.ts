@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { ListTenantsCommand, ListTenantsCommandInput, ListTenantsCommandOutput } from "../commands/ListTenantsCommand";
 import { SESv2Client } from "../SESv2Client";

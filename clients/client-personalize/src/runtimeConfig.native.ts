@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { PersonalizeClientConfig } from "./PersonalizeClient";
+import type { PersonalizeClientConfig } from "./PersonalizeClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

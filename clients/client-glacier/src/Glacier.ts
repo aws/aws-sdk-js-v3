@@ -1,145 +1,165 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type AbortMultipartUploadCommandInput,
+  type AbortMultipartUploadCommandOutput,
   AbortMultipartUploadCommand,
-  AbortMultipartUploadCommandInput,
-  AbortMultipartUploadCommandOutput,
 } from "./commands/AbortMultipartUploadCommand";
 import {
+  type AbortVaultLockCommandInput,
+  type AbortVaultLockCommandOutput,
   AbortVaultLockCommand,
-  AbortVaultLockCommandInput,
-  AbortVaultLockCommandOutput,
 } from "./commands/AbortVaultLockCommand";
 import {
+  type AddTagsToVaultCommandInput,
+  type AddTagsToVaultCommandOutput,
   AddTagsToVaultCommand,
-  AddTagsToVaultCommandInput,
-  AddTagsToVaultCommandOutput,
 } from "./commands/AddTagsToVaultCommand";
 import {
+  type CompleteMultipartUploadCommandInput,
+  type CompleteMultipartUploadCommandOutput,
   CompleteMultipartUploadCommand,
-  CompleteMultipartUploadCommandInput,
-  CompleteMultipartUploadCommandOutput,
 } from "./commands/CompleteMultipartUploadCommand";
 import {
+  type CompleteVaultLockCommandInput,
+  type CompleteVaultLockCommandOutput,
   CompleteVaultLockCommand,
-  CompleteVaultLockCommandInput,
-  CompleteVaultLockCommandOutput,
 } from "./commands/CompleteVaultLockCommand";
-import { CreateVaultCommand, CreateVaultCommandInput, CreateVaultCommandOutput } from "./commands/CreateVaultCommand";
 import {
+  type CreateVaultCommandInput,
+  type CreateVaultCommandOutput,
+  CreateVaultCommand,
+} from "./commands/CreateVaultCommand";
+import {
+  type DeleteArchiveCommandInput,
+  type DeleteArchiveCommandOutput,
   DeleteArchiveCommand,
-  DeleteArchiveCommandInput,
-  DeleteArchiveCommandOutput,
 } from "./commands/DeleteArchiveCommand";
 import {
+  type DeleteVaultAccessPolicyCommandInput,
+  type DeleteVaultAccessPolicyCommandOutput,
   DeleteVaultAccessPolicyCommand,
-  DeleteVaultAccessPolicyCommandInput,
-  DeleteVaultAccessPolicyCommandOutput,
 } from "./commands/DeleteVaultAccessPolicyCommand";
-import { DeleteVaultCommand, DeleteVaultCommandInput, DeleteVaultCommandOutput } from "./commands/DeleteVaultCommand";
 import {
+  type DeleteVaultCommandInput,
+  type DeleteVaultCommandOutput,
+  DeleteVaultCommand,
+} from "./commands/DeleteVaultCommand";
+import {
+  type DeleteVaultNotificationsCommandInput,
+  type DeleteVaultNotificationsCommandOutput,
   DeleteVaultNotificationsCommand,
-  DeleteVaultNotificationsCommandInput,
-  DeleteVaultNotificationsCommandOutput,
 } from "./commands/DeleteVaultNotificationsCommand";
-import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
+  type DescribeJobCommandInput,
+  type DescribeJobCommandOutput,
+  DescribeJobCommand,
+} from "./commands/DescribeJobCommand";
+import {
+  type DescribeVaultCommandInput,
+  type DescribeVaultCommandOutput,
   DescribeVaultCommand,
-  DescribeVaultCommandInput,
-  DescribeVaultCommandOutput,
 } from "./commands/DescribeVaultCommand";
 import {
+  type GetDataRetrievalPolicyCommandInput,
+  type GetDataRetrievalPolicyCommandOutput,
   GetDataRetrievalPolicyCommand,
-  GetDataRetrievalPolicyCommandInput,
-  GetDataRetrievalPolicyCommandOutput,
 } from "./commands/GetDataRetrievalPolicyCommand";
 import {
+  type GetJobOutputCommandInput,
+  type GetJobOutputCommandOutput,
   GetJobOutputCommand,
-  GetJobOutputCommandInput,
-  GetJobOutputCommandOutput,
 } from "./commands/GetJobOutputCommand";
 import {
+  type GetVaultAccessPolicyCommandInput,
+  type GetVaultAccessPolicyCommandOutput,
   GetVaultAccessPolicyCommand,
-  GetVaultAccessPolicyCommandInput,
-  GetVaultAccessPolicyCommandOutput,
 } from "./commands/GetVaultAccessPolicyCommand";
 import {
+  type GetVaultLockCommandInput,
+  type GetVaultLockCommandOutput,
   GetVaultLockCommand,
-  GetVaultLockCommandInput,
-  GetVaultLockCommandOutput,
 } from "./commands/GetVaultLockCommand";
 import {
+  type GetVaultNotificationsCommandInput,
+  type GetVaultNotificationsCommandOutput,
   GetVaultNotificationsCommand,
-  GetVaultNotificationsCommandInput,
-  GetVaultNotificationsCommandOutput,
 } from "./commands/GetVaultNotificationsCommand";
-import { InitiateJobCommand, InitiateJobCommandInput, InitiateJobCommandOutput } from "./commands/InitiateJobCommand";
 import {
+  type InitiateJobCommandInput,
+  type InitiateJobCommandOutput,
+  InitiateJobCommand,
+} from "./commands/InitiateJobCommand";
+import {
+  type InitiateMultipartUploadCommandInput,
+  type InitiateMultipartUploadCommandOutput,
   InitiateMultipartUploadCommand,
-  InitiateMultipartUploadCommandInput,
-  InitiateMultipartUploadCommandOutput,
 } from "./commands/InitiateMultipartUploadCommand";
 import {
+  type InitiateVaultLockCommandInput,
+  type InitiateVaultLockCommandOutput,
   InitiateVaultLockCommand,
-  InitiateVaultLockCommandInput,
-  InitiateVaultLockCommandOutput,
 } from "./commands/InitiateVaultLockCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import {
+  type ListMultipartUploadsCommandInput,
+  type ListMultipartUploadsCommandOutput,
   ListMultipartUploadsCommand,
-  ListMultipartUploadsCommandInput,
-  ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand";
-import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
+import { type ListPartsCommandInput, type ListPartsCommandOutput, ListPartsCommand } from "./commands/ListPartsCommand";
 import {
+  type ListProvisionedCapacityCommandInput,
+  type ListProvisionedCapacityCommandOutput,
   ListProvisionedCapacityCommand,
-  ListProvisionedCapacityCommandInput,
-  ListProvisionedCapacityCommandOutput,
 } from "./commands/ListProvisionedCapacityCommand";
 import {
+  type ListTagsForVaultCommandInput,
+  type ListTagsForVaultCommandOutput,
   ListTagsForVaultCommand,
-  ListTagsForVaultCommandInput,
-  ListTagsForVaultCommandOutput,
 } from "./commands/ListTagsForVaultCommand";
-import { ListVaultsCommand, ListVaultsCommandInput, ListVaultsCommandOutput } from "./commands/ListVaultsCommand";
 import {
+  type ListVaultsCommandInput,
+  type ListVaultsCommandOutput,
+  ListVaultsCommand,
+} from "./commands/ListVaultsCommand";
+import {
+  type PurchaseProvisionedCapacityCommandInput,
+  type PurchaseProvisionedCapacityCommandOutput,
   PurchaseProvisionedCapacityCommand,
-  PurchaseProvisionedCapacityCommandInput,
-  PurchaseProvisionedCapacityCommandOutput,
 } from "./commands/PurchaseProvisionedCapacityCommand";
 import {
+  type RemoveTagsFromVaultCommandInput,
+  type RemoveTagsFromVaultCommandOutput,
   RemoveTagsFromVaultCommand,
-  RemoveTagsFromVaultCommandInput,
-  RemoveTagsFromVaultCommandOutput,
 } from "./commands/RemoveTagsFromVaultCommand";
 import {
+  type SetDataRetrievalPolicyCommandInput,
+  type SetDataRetrievalPolicyCommandOutput,
   SetDataRetrievalPolicyCommand,
-  SetDataRetrievalPolicyCommandInput,
-  SetDataRetrievalPolicyCommandOutput,
 } from "./commands/SetDataRetrievalPolicyCommand";
 import {
+  type SetVaultAccessPolicyCommandInput,
+  type SetVaultAccessPolicyCommandOutput,
   SetVaultAccessPolicyCommand,
-  SetVaultAccessPolicyCommandInput,
-  SetVaultAccessPolicyCommandOutput,
 } from "./commands/SetVaultAccessPolicyCommand";
 import {
+  type SetVaultNotificationsCommandInput,
+  type SetVaultNotificationsCommandOutput,
   SetVaultNotificationsCommand,
-  SetVaultNotificationsCommandInput,
-  SetVaultNotificationsCommandOutput,
 } from "./commands/SetVaultNotificationsCommand";
 import {
+  type UploadArchiveCommandInput,
+  type UploadArchiveCommandOutput,
   UploadArchiveCommand,
-  UploadArchiveCommandInput,
-  UploadArchiveCommandOutput,
 } from "./commands/UploadArchiveCommand";
 import {
+  type UploadMultipartPartCommandInput,
+  type UploadMultipartPartCommandOutput,
   UploadMultipartPartCommand,
-  UploadMultipartPartCommandInput,
-  UploadMultipartPartCommandOutput,
 } from "./commands/UploadMultipartPartCommand";
-import { GlacierClient, GlacierClientConfig } from "./GlacierClient";
+import { GlacierClient } from "./GlacierClient";
 
 const commands = {
   AbortMultipartUploadCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateHomeRegionControlCommand,
@@ -22,7 +22,7 @@ import {
   GetHomeRegionCommandInput,
   GetHomeRegionCommandOutput,
 } from "./commands/GetHomeRegionCommand";
-import { MigrationHubConfigClient, MigrationHubConfigClientConfig } from "./MigrationHubConfigClient";
+import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
 
 const commands = {
   CreateHomeRegionControlCommand,

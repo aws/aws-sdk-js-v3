@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
+import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/models_0";
 import { UpdateThingShadow } from "../schemas/schemas_0";
 

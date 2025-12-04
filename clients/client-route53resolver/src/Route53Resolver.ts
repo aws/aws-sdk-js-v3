@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateFirewallRuleGroupCommand,
@@ -338,7 +338,7 @@ import {
   UpdateResolverRuleCommandInput,
   UpdateResolverRuleCommandOutput,
 } from "./commands/UpdateResolverRuleCommand";
-import { Route53ResolverClient, Route53ResolverClientConfig } from "./Route53ResolverClient";
+import { Route53ResolverClient } from "./Route53ResolverClient";
 
 const commands = {
   AssociateFirewallRuleGroupCommand,

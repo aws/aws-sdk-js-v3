@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
+import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateFromConfigurationRequest, DisassociateFromConfigurationResult } from "../models/models_0";
+import type { DisassociateFromConfigurationRequest, DisassociateFromConfigurationResult } from "../models/models_0";
 import { DisassociateFromConfiguration } from "../schemas/schemas_0";
 
 /**

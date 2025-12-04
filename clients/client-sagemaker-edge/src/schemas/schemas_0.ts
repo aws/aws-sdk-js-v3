@@ -59,7 +59,7 @@ const n0 = "com.amazonaws.sagemakeredge";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { InternalServiceException as __InternalServiceException } from "../models/errors";
 import { SagemakerEdgeServiceException as __SagemakerEdgeServiceException } from "../models/SagemakerEdgeServiceException";

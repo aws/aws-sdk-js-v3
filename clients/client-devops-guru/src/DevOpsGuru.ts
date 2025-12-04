@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddNotificationChannelCommand,
@@ -149,7 +149,7 @@ import {
   UpdateServiceIntegrationCommandInput,
   UpdateServiceIntegrationCommandOutput,
 } from "./commands/UpdateServiceIntegrationCommand";
-import { DevOpsGuruClient, DevOpsGuruClientConfig } from "./DevOpsGuruClient";
+import { DevOpsGuruClient } from "./DevOpsGuruClient";
 
 const commands = {
   AddNotificationChannelCommand,

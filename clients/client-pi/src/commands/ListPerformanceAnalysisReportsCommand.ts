@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPerformanceAnalysisReportsRequest, ListPerformanceAnalysisReportsResponse } from "../models/models_0";
-import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
+import type { ListPerformanceAnalysisReportsRequest, ListPerformanceAnalysisReportsResponse } from "../models/models_0";
+import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import { ListPerformanceAnalysisReports } from "../schemas/schemas_0";
 
 /**

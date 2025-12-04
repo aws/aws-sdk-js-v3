@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { GetTriggersCommand, GetTriggersCommandInput, GetTriggersCommandOutput } from "../commands/GetTriggersCommand";
 import { GlueClient } from "../GlueClient";

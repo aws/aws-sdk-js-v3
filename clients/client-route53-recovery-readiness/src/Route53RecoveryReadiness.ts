@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CreateCellCommand, CreateCellCommandInput, CreateCellCommandOutput } from "./commands/CreateCellCommand";
 import {
@@ -134,7 +134,7 @@ import {
   UpdateResourceSetCommandInput,
   UpdateResourceSetCommandOutput,
 } from "./commands/UpdateResourceSetCommand";
-import { Route53RecoveryReadinessClient, Route53RecoveryReadinessClientConfig } from "./Route53RecoveryReadinessClient";
+import { Route53RecoveryReadinessClient } from "./Route53RecoveryReadinessClient";
 
 const commands = {
   CreateCellCommand,

@@ -1,0 +1,23 @@
+// smithy-typescript generated code
+export type {
+  SSMGuiConnectClient,
+  SSMGuiConnect,
+  DeleteConnectionRecordingPreferencesCommand,
+  DeleteConnectionRecordingPreferencesCommandInput,
+  DeleteConnectionRecordingPreferencesCommandOutput,
+  GetConnectionRecordingPreferencesCommand,
+  GetConnectionRecordingPreferencesCommandInput,
+  GetConnectionRecordingPreferencesCommandOutput,
+  UpdateConnectionRecordingPreferencesCommand,
+  UpdateConnectionRecordingPreferencesCommandInput,
+  UpdateConnectionRecordingPreferencesCommandOutput,
+  ConnectionRecordingPreferences,
+  DeleteConnectionRecordingPreferencesRequest,
+  DeleteConnectionRecordingPreferencesResponse,
+  GetConnectionRecordingPreferencesResponse,
+  RecordingDestinations,
+  S3Bucket,
+  UpdateConnectionRecordingPreferencesRequest,
+  UpdateConnectionRecordingPreferencesResponse,
+  SSMGuiConnectServiceException,
+} from "../dist-types/index.d";

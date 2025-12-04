@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { HttpAuthScheme, TokenIdentity, TokenIdentityProvider } from "@smithy/types";
+import { type HttpAuthScheme, TokenIdentity, TokenIdentityProvider } from "@smithy/types";
 
-import { CodeCatalystHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
+import type { CodeCatalystHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal

@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_0";
+import type { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_0";
 import { GetKnowledgeBase } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
+import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public

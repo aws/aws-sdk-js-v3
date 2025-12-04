@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateRoleToGroupCommand,
@@ -438,7 +438,7 @@ import {
   UpdateThingRuntimeConfigurationCommandInput,
   UpdateThingRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateThingRuntimeConfigurationCommand";
-import { GreengrassClient, GreengrassClientConfig } from "./GreengrassClient";
+import { GreengrassClient } from "./GreengrassClient";
 
 const commands = {
   AssociateRoleToGroupCommand,

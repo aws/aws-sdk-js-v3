@@ -1,132 +1,140 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
+  type CreateBatchPredictionCommandInput,
+  type CreateBatchPredictionCommandOutput,
   CreateBatchPredictionCommand,
-  CreateBatchPredictionCommandInput,
-  CreateBatchPredictionCommandOutput,
 } from "./commands/CreateBatchPredictionCommand";
 import {
+  type CreateDataSourceFromRDSCommandInput,
+  type CreateDataSourceFromRDSCommandOutput,
   CreateDataSourceFromRDSCommand,
-  CreateDataSourceFromRDSCommandInput,
-  CreateDataSourceFromRDSCommandOutput,
 } from "./commands/CreateDataSourceFromRDSCommand";
 import {
+  type CreateDataSourceFromRedshiftCommandInput,
+  type CreateDataSourceFromRedshiftCommandOutput,
   CreateDataSourceFromRedshiftCommand,
-  CreateDataSourceFromRedshiftCommandInput,
-  CreateDataSourceFromRedshiftCommandOutput,
 } from "./commands/CreateDataSourceFromRedshiftCommand";
 import {
+  type CreateDataSourceFromS3CommandInput,
+  type CreateDataSourceFromS3CommandOutput,
   CreateDataSourceFromS3Command,
-  CreateDataSourceFromS3CommandInput,
-  CreateDataSourceFromS3CommandOutput,
 } from "./commands/CreateDataSourceFromS3Command";
 import {
+  type CreateEvaluationCommandInput,
+  type CreateEvaluationCommandOutput,
   CreateEvaluationCommand,
-  CreateEvaluationCommandInput,
-  CreateEvaluationCommandOutput,
 } from "./commands/CreateEvaluationCommand";
 import {
+  type CreateMLModelCommandInput,
+  type CreateMLModelCommandOutput,
   CreateMLModelCommand,
-  CreateMLModelCommandInput,
-  CreateMLModelCommandOutput,
 } from "./commands/CreateMLModelCommand";
 import {
+  type CreateRealtimeEndpointCommandInput,
+  type CreateRealtimeEndpointCommandOutput,
   CreateRealtimeEndpointCommand,
-  CreateRealtimeEndpointCommandInput,
-  CreateRealtimeEndpointCommandOutput,
 } from "./commands/CreateRealtimeEndpointCommand";
 import {
+  type DeleteBatchPredictionCommandInput,
+  type DeleteBatchPredictionCommandOutput,
   DeleteBatchPredictionCommand,
-  DeleteBatchPredictionCommandInput,
-  DeleteBatchPredictionCommandOutput,
 } from "./commands/DeleteBatchPredictionCommand";
 import {
+  type DeleteDataSourceCommandInput,
+  type DeleteDataSourceCommandOutput,
   DeleteDataSourceCommand,
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  type DeleteEvaluationCommandInput,
+  type DeleteEvaluationCommandOutput,
   DeleteEvaluationCommand,
-  DeleteEvaluationCommandInput,
-  DeleteEvaluationCommandOutput,
 } from "./commands/DeleteEvaluationCommand";
 import {
+  type DeleteMLModelCommandInput,
+  type DeleteMLModelCommandOutput,
   DeleteMLModelCommand,
-  DeleteMLModelCommandInput,
-  DeleteMLModelCommandOutput,
 } from "./commands/DeleteMLModelCommand";
 import {
+  type DeleteRealtimeEndpointCommandInput,
+  type DeleteRealtimeEndpointCommandOutput,
   DeleteRealtimeEndpointCommand,
-  DeleteRealtimeEndpointCommandInput,
-  DeleteRealtimeEndpointCommandOutput,
 } from "./commands/DeleteRealtimeEndpointCommand";
-import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  type DeleteTagsCommandInput,
+  type DeleteTagsCommandOutput,
+  DeleteTagsCommand,
+} from "./commands/DeleteTagsCommand";
+import {
+  type DescribeBatchPredictionsCommandInput,
+  type DescribeBatchPredictionsCommandOutput,
   DescribeBatchPredictionsCommand,
-  DescribeBatchPredictionsCommandInput,
-  DescribeBatchPredictionsCommandOutput,
 } from "./commands/DescribeBatchPredictionsCommand";
 import {
+  type DescribeDataSourcesCommandInput,
+  type DescribeDataSourcesCommandOutput,
   DescribeDataSourcesCommand,
-  DescribeDataSourcesCommandInput,
-  DescribeDataSourcesCommandOutput,
 } from "./commands/DescribeDataSourcesCommand";
 import {
+  type DescribeEvaluationsCommandInput,
+  type DescribeEvaluationsCommandOutput,
   DescribeEvaluationsCommand,
-  DescribeEvaluationsCommandInput,
-  DescribeEvaluationsCommandOutput,
 } from "./commands/DescribeEvaluationsCommand";
 import {
+  type DescribeMLModelsCommandInput,
+  type DescribeMLModelsCommandOutput,
   DescribeMLModelsCommand,
-  DescribeMLModelsCommandInput,
-  DescribeMLModelsCommandOutput,
 } from "./commands/DescribeMLModelsCommand";
 import {
+  type DescribeTagsCommandInput,
+  type DescribeTagsCommandOutput,
   DescribeTagsCommand,
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  type GetBatchPredictionCommandInput,
+  type GetBatchPredictionCommandOutput,
   GetBatchPredictionCommand,
-  GetBatchPredictionCommandInput,
-  GetBatchPredictionCommandOutput,
 } from "./commands/GetBatchPredictionCommand";
 import {
+  type GetDataSourceCommandInput,
+  type GetDataSourceCommandOutput,
   GetDataSourceCommand,
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import {
+  type GetEvaluationCommandInput,
+  type GetEvaluationCommandOutput,
   GetEvaluationCommand,
-  GetEvaluationCommandInput,
-  GetEvaluationCommandOutput,
 } from "./commands/GetEvaluationCommand";
-import { GetMLModelCommand, GetMLModelCommandInput, GetMLModelCommandOutput } from "./commands/GetMLModelCommand";
-import { PredictCommand, PredictCommandInput, PredictCommandOutput } from "./commands/PredictCommand";
 import {
+  type GetMLModelCommandInput,
+  type GetMLModelCommandOutput,
+  GetMLModelCommand,
+} from "./commands/GetMLModelCommand";
+import { type PredictCommandInput, type PredictCommandOutput, PredictCommand } from "./commands/PredictCommand";
+import {
+  type UpdateBatchPredictionCommandInput,
+  type UpdateBatchPredictionCommandOutput,
   UpdateBatchPredictionCommand,
-  UpdateBatchPredictionCommandInput,
-  UpdateBatchPredictionCommandOutput,
 } from "./commands/UpdateBatchPredictionCommand";
 import {
+  type UpdateDataSourceCommandInput,
+  type UpdateDataSourceCommandOutput,
   UpdateDataSourceCommand,
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  type UpdateEvaluationCommandInput,
+  type UpdateEvaluationCommandOutput,
   UpdateEvaluationCommand,
-  UpdateEvaluationCommandInput,
-  UpdateEvaluationCommandOutput,
 } from "./commands/UpdateEvaluationCommand";
 import {
+  type UpdateMLModelCommandInput,
+  type UpdateMLModelCommandOutput,
   UpdateMLModelCommand,
-  UpdateMLModelCommandInput,
-  UpdateMLModelCommandOutput,
 } from "./commands/UpdateMLModelCommand";
-import { MachineLearningClient, MachineLearningClientConfig } from "./MachineLearningClient";
+import { MachineLearningClient } from "./MachineLearningClient";
 
 const commands = {
   AddTagsCommand,

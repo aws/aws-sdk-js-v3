@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteReportDefinitionCommand,
@@ -33,10 +33,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import {
-  CostAndUsageReportServiceClient,
-  CostAndUsageReportServiceClientConfig,
-} from "./CostAndUsageReportServiceClient";
+import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
 
 const commands = {
   DeleteReportDefinitionCommand,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutScheduledUpdateGroupActionType } from "../models/models_0";
+import type { PutScheduledUpdateGroupActionType } from "../models/models_0";
 import { PutScheduledUpdateGroupAction } from "../schemas/schemas_0";
 
 /**

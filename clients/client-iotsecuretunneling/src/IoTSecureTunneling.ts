@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CloseTunnelCommand, CloseTunnelCommandInput, CloseTunnelCommandOutput } from "./commands/CloseTunnelCommand";
 import {
@@ -26,7 +26,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { IoTSecureTunnelingClient, IoTSecureTunnelingClientConfig } from "./IoTSecureTunnelingClient";
+import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
 
 const commands = {
   CloseTunnelCommand,

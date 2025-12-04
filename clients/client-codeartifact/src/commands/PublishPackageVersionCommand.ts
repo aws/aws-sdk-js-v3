@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PublishPackageVersionRequest, PublishPackageVersionResult } from "../models/models_0";
+import { type PublishPackageVersionResult, PublishPackageVersionRequest } from "../models/models_0";
 import { PublishPackageVersion } from "../schemas/schemas_0";
 
 /**

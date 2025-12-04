@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptHandshakeCommand,
@@ -301,7 +301,7 @@ import {
   UpdateResponsibilityTransferCommandInput,
   UpdateResponsibilityTransferCommandOutput,
 } from "./commands/UpdateResponsibilityTransferCommand";
-import { OrganizationsClient, OrganizationsClientConfig } from "./OrganizationsClient";
+import { OrganizationsClient } from "./OrganizationsClient";
 
 const commands = {
   AcceptHandshakeCommand,

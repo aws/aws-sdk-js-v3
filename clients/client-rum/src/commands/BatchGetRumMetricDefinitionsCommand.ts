@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchGetRumMetricDefinitionsRequest, BatchGetRumMetricDefinitionsResponse } from "../models/models_0";
-import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
+import type { BatchGetRumMetricDefinitionsRequest, BatchGetRumMetricDefinitionsResponse } from "../models/models_0";
+import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { BatchGetRumMetricDefinitions } from "../schemas/schemas_0";
 
 /**

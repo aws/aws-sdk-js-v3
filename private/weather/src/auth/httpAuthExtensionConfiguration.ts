@@ -1,14 +1,15 @@
 // smithy-typescript generated code
-import { WeatherHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 import {
+  type HttpAuthScheme,
   ApiKeyIdentity,
   ApiKeyIdentityProvider,
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
-  HttpAuthScheme,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";
+
+import type { WeatherHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal

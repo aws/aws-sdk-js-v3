@@ -2,14 +2,14 @@
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ListTrafficPolicyInstancesByHostedZoneRequest,
   ListTrafficPolicyInstancesByHostedZoneResponse,
 } from "../models/models_0";
-import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ListTrafficPolicyInstancesByHostedZone } from "../schemas/schemas_0";
 
 /**

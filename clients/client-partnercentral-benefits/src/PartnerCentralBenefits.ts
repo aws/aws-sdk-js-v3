@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AmendBenefitApplicationCommand,
@@ -79,7 +79,7 @@ import {
   UpdateBenefitApplicationCommandInput,
   UpdateBenefitApplicationCommandOutput,
 } from "./commands/UpdateBenefitApplicationCommand";
-import { PartnerCentralBenefitsClient, PartnerCentralBenefitsClientConfig } from "./PartnerCentralBenefitsClient";
+import { PartnerCentralBenefitsClient } from "./PartnerCentralBenefitsClient";
 
 const commands = {
   AmendBenefitApplicationCommand,

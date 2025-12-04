@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
+import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import type { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
 import { OpenInstancePublicPorts } from "../schemas/schemas_0";
 
 /**

@@ -1,0 +1,20 @@
+// smithy-typescript generated code
+export type {
+  BCMRecommendedActionsClient,
+  BCMRecommendedActions,
+  ListRecommendedActionsCommand,
+  ListRecommendedActionsCommandInput,
+  ListRecommendedActionsCommandOutput,
+  ActionType,
+  Feature,
+  FilterName,
+  MatchOption,
+  Severity,
+  ActionFilter,
+  ListRecommendedActionsRequest,
+  ListRecommendedActionsResponse,
+  RecommendedAction,
+  RequestFilter,
+  BCMRecommendedActionsServiceException,
+  paginateListRecommendedActions,
+} from "../dist-types/index.d";

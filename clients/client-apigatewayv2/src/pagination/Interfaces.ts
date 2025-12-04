@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { PaginationConfiguration } from "@smithy/types";
+import type { PaginationConfiguration } from "@smithy/types";
 
 import { ApiGatewayV2Client } from "../ApiGatewayV2Client";
 

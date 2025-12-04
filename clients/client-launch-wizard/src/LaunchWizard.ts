@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateDeploymentCommand,
@@ -54,7 +54,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { LaunchWizardClient, LaunchWizardClientConfig } from "./LaunchWizardClient";
+import { LaunchWizardClient } from "./LaunchWizardClient";
 
 const commands = {
   CreateDeploymentCommand,

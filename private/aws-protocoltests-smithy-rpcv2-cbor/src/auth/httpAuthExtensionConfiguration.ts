@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { HttpAuthScheme } from "@smithy/types";
+import type { HttpAuthScheme } from "@smithy/types";
 
-import { RpcV2ProtocolHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
+import type { RpcV2ProtocolHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal

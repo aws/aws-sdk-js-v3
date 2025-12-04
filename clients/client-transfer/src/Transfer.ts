@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAccessCommand,
@@ -321,7 +321,7 @@ import {
   UpdateWebAppCustomizationCommandInput,
   UpdateWebAppCustomizationCommandOutput,
 } from "./commands/UpdateWebAppCustomizationCommand";
-import { TransferClient, TransferClientConfig } from "./TransferClient";
+import { TransferClient } from "./TransferClient";
 
 const commands = {
   CreateAccessCommand,

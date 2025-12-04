@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { IoTFleetWiseClientConfig } from "./IoTFleetWiseClient";
+import type { IoTFleetWiseClientConfig } from "./IoTFleetWiseClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

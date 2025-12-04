@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateEntitiesToExperienceCommand,
@@ -288,7 +288,7 @@ import {
   UpdateThesaurusCommandInput,
   UpdateThesaurusCommandOutput,
 } from "./commands/UpdateThesaurusCommand";
-import { KendraClient, KendraClientConfig } from "./KendraClient";
+import { KendraClient } from "./KendraClient";
 
 const commands = {
   AssociateEntitiesToExperienceCommand,

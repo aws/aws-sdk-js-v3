@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { Cloud9ClientConfig, Cloud9ClientResolvedConfig } from "../Cloud9Client";
+import { type Cloud9ClientResolvedConfig, Cloud9ClientConfig } from "../Cloud9Client";
 
 /**
  * @internal

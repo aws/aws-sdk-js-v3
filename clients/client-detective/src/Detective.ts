@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptInvitationCommand,
@@ -123,7 +123,7 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
-import { DetectiveClient, DetectiveClientConfig } from "./DetectiveClient";
+import { DetectiveClient } from "./DetectiveClient";
 
 const commands = {
   AcceptInvitationCommand,

@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { CloudSearchDomainClient, CloudSearchDomainClientConfig } from "./CloudSearchDomainClient";
+import { CloudSearchDomainClient } from "./CloudSearchDomainClient";
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import { SuggestCommand, SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
 import {

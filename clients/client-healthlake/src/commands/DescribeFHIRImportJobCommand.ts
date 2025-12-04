@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import { DescribeFHIRImportJobRequest, DescribeFHIRImportJobResponse } from "../models/models_0";
+import type { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
+import type { DescribeFHIRImportJobRequest, DescribeFHIRImportJobResponse } from "../models/models_0";
 import { DescribeFHIRImportJob } from "../schemas/schemas_0";
 
 /**

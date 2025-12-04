@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/models_1";
+import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import type { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/models_1";
 import { CreateUserDefinedFunction } from "../schemas/schemas_0";
 
 /**

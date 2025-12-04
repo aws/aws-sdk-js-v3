@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { MigrationHubConfigClientConfig } from "./MigrationHubConfigClient";
+import type { MigrationHubConfigClientConfig } from "./MigrationHubConfigClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

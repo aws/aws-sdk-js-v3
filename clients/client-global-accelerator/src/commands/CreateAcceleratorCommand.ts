@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   GlobalAcceleratorClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { CreateAcceleratorRequest, CreateAcceleratorResponse } from "../models/models_0";
+import type { CreateAcceleratorRequest, CreateAcceleratorResponse } from "../models/models_0";
 import { CreateAccelerator } from "../schemas/schemas_0";
 
 /**

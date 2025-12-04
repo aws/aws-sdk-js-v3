@@ -2,7 +2,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
-import { SFNClientConfig } from "./SFNClient";
+import type { SFNClientConfig } from "./SFNClient";
 
 /**
  * @internal

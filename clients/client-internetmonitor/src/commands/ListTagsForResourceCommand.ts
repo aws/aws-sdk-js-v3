@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
+import type {
+  InternetMonitorClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../InternetMonitorClient";
+import type { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
 import { ListTagsForResource } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptResourceShareInvitationCommand,
@@ -168,7 +168,7 @@ import {
   UpdateResourceShareCommandInput,
   UpdateResourceShareCommandOutput,
 } from "./commands/UpdateResourceShareCommand";
-import { RAMClient, RAMClientConfig } from "./RAMClient";
+import { RAMClient } from "./RAMClient";
 
 const commands = {
   AcceptResourceShareInvitationCommand,

@@ -2,7 +2,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@smithy/invalid-dependency";
 
-import { QBusinessClientConfig } from "./QBusinessClient";
+import type { QBusinessClientConfig } from "./QBusinessClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

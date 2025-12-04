@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { BCMDataExportsClientConfig } from "./BCMDataExportsClient";
+import type { BCMDataExportsClientConfig } from "./BCMDataExportsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

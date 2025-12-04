@@ -43,7 +43,12 @@ const n0 = "com.amazonaws.eksauth";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticOperationSchema, StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticOperationSchema,
+  StaticSimpleSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
 
 import { EKSAuthServiceException as __EKSAuthServiceException } from "../models/EKSAuthServiceException";
 import {

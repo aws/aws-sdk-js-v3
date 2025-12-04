@@ -145,7 +145,7 @@ const n0 = "com.amazonaws.docdbelastic";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,

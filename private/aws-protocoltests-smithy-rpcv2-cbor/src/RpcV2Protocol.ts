@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   EmptyInputOutputCommand,
@@ -63,7 +63,7 @@ import {
   SparseNullsOperationCommandInput,
   SparseNullsOperationCommandOutput,
 } from "./commands/SparseNullsOperationCommand";
-import { RpcV2ProtocolClient, RpcV2ProtocolClientConfig } from "./RpcV2ProtocolClient";
+import { RpcV2ProtocolClient } from "./RpcV2ProtocolClient";
 
 const commands = {
   EmptyInputOutputCommand,

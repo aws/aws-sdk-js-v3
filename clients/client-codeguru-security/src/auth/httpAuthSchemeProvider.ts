@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { CodeGuruSecurityClientConfig, CodeGuruSecurityClientResolvedConfig } from "../CodeGuruSecurityClient";
+import { type CodeGuruSecurityClientResolvedConfig, CodeGuruSecurityClientConfig } from "../CodeGuruSecurityClient";
 
 /**
  * @internal

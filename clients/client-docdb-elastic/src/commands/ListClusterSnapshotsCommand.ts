@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
+import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListClusterSnapshotsInput, ListClusterSnapshotsOutput } from "../models/models_0";
+import type { ListClusterSnapshotsInput, ListClusterSnapshotsOutput } from "../models/models_0";
 import { ListClusterSnapshots } from "../schemas/schemas_0";
 
 /**

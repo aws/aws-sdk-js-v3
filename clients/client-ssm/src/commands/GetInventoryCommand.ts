@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetInventoryResult } from "../models/models_0";
-import { GetInventoryRequest } from "../models/models_1";
+import type { GetInventoryResult } from "../models/models_0";
+import type { GetInventoryRequest } from "../models/models_1";
 import { GetInventory } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
