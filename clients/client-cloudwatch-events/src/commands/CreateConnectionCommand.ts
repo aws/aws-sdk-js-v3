@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
+import type {
+  CloudWatchEventsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
+import type { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
 import { CreateConnection } from "../schemas/schemas_0";
 
 /**

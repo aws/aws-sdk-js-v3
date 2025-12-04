@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { RedshiftDataExtensionConfiguration } from "./extensionConfiguration";
+import type { RedshiftDataExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelClusterCommand,
@@ -117,7 +117,7 @@ import {
   UpdateLongTermPricingCommandInput,
   UpdateLongTermPricingCommandOutput,
 } from "./commands/UpdateLongTermPricingCommand";
-import { SnowballClient, SnowballClientConfig } from "./SnowballClient";
+import { SnowballClient } from "./SnowballClient";
 
 const commands = {
   CancelClusterCommand,

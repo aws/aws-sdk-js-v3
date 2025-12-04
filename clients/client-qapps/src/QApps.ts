@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateLibraryItemReviewCommand,
@@ -149,7 +149,7 @@ import {
   UpdateQAppSessionMetadataCommandInput,
   UpdateQAppSessionMetadataCommandOutput,
 } from "./commands/UpdateQAppSessionMetadataCommand";
-import { QAppsClient, QAppsClientConfig } from "./QAppsClient";
+import { QAppsClient } from "./QAppsClient";
 
 const commands = {
   AssociateLibraryItemReviewCommand,

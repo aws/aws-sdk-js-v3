@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { GetPlaybackConfigurationRequest, GetPlaybackConfigurationResponse } from "../models/models_0";
+import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import type { GetPlaybackConfigurationRequest, GetPlaybackConfigurationResponse } from "../models/models_0";
 import { GetPlaybackConfiguration } from "../schemas/schemas_0";
 
 /**

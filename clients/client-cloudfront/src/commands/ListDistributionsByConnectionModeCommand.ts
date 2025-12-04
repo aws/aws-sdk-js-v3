@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDistributionsByConnectionModeRequest, ListDistributionsByConnectionModeResult } from "../models/models_1";
+import type {
+  ListDistributionsByConnectionModeRequest,
+  ListDistributionsByConnectionModeResult,
+} from "../models/models_1";
 import { ListDistributionsByConnectionMode } from "../schemas/schemas_0";
 
 /**

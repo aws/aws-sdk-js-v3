@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
+import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
+import type { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
 import { DescribeDataset } from "../schemas/schemas_0";
 
 /**

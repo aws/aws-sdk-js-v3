@@ -1,4 +1,23 @@
 // smithy-typescript generated code
+import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import {
+  _json,
+  collectBody,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  map,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
+import type {
+  Endpoint as __Endpoint,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
+
 import { OnlyCustomAuthCommandInput, OnlyCustomAuthCommandOutput } from "../commands/OnlyCustomAuthCommand";
 import {
   OnlyCustomAuthOptionalCommandInput,
@@ -29,24 +48,6 @@ import {
 } from "../commands/OnlySigv4AuthOptionalCommand";
 import { SameAsServiceCommandInput, SameAsServiceCommandOutput } from "../commands/SameAsServiceCommand";
 import { WeatherServiceException as __BaseException } from "../models/WeatherServiceException";
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
-import { requestBuilder as rb } from "@smithy/core";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  _json,
-  collectBody,
-  map,
-  take,
-  withBaseException,
-} from "@smithy/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
 
 /**
  * serializeAws_restJson1OnlyCustomAuthCommand

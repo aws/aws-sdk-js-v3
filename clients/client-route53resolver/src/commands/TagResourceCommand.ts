@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import type { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import type {
+  Route53ResolverClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../Route53ResolverClient";
 import { TagResource } from "../schemas/schemas_0";
 
 /**

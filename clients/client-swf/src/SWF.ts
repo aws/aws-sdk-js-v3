@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CountClosedWorkflowExecutionsCommand,
@@ -189,7 +189,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { SWFClient, SWFClientConfig } from "./SWFClient";
+import { SWFClient } from "./SWFClient";
 
 const commands = {
   CountClosedWorkflowExecutionsCommand,

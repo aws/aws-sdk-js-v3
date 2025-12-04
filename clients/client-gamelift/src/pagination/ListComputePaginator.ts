@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { ListComputeCommand, ListComputeCommandInput, ListComputeCommandOutput } from "../commands/ListComputeCommand";
 import { GameLiftClient } from "../GameLiftClient";

@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,10 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { KinesisAnalyticsV2ClientConfig, KinesisAnalyticsV2ClientResolvedConfig } from "../KinesisAnalyticsV2Client";
+import {
+  type KinesisAnalyticsV2ClientResolvedConfig,
+  KinesisAnalyticsV2ClientConfig,
+} from "../KinesisAnalyticsV2Client";
 
 /**
  * @internal

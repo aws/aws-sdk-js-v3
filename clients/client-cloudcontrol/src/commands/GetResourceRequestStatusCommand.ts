@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
+import type { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetResourceRequestStatusInput, GetResourceRequestStatusOutput } from "../models/models_0";
+import type { GetResourceRequestStatusInput, GetResourceRequestStatusOutput } from "../models/models_0";
 import { GetResourceRequestStatus } from "../schemas/schemas_0";
 
 /**

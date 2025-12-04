@@ -8,12 +8,13 @@ import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smit
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
 import { invalidProvider } from "@smithy/invalid-dependency";
 import { Md5 } from "@smithy/md5-js";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { SQSClientConfig } from "./SQSClient";
-import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
+
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import type { SQSClientConfig } from "./SQSClient";
 
 /**
  * @internal

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
+import type {
+  CognitoIdentityClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPrincipalTagAttributeMapInput, GetPrincipalTagAttributeMapResponse } from "../models/models_0";
+import type { GetPrincipalTagAttributeMapInput, GetPrincipalTagAttributeMapResponse } from "../models/models_0";
 import { GetPrincipalTagAttributeMap } from "../schemas/schemas_0";
 
 /**

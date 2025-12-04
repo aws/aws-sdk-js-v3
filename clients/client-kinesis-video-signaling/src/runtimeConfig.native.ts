@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { KinesisVideoSignalingClientConfig } from "./KinesisVideoSignalingClient";
+import type { KinesisVideoSignalingClientConfig } from "./KinesisVideoSignalingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

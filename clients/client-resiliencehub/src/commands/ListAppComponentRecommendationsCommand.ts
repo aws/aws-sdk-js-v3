@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAppComponentRecommendationsRequest, ListAppComponentRecommendationsResponse } from "../models/models_0";
-import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import type {
+  ListAppComponentRecommendationsRequest,
+  ListAppComponentRecommendationsResponse,
+} from "../models/models_0";
+import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ListAppComponentRecommendations } from "../schemas/schemas_0";
 
 /**

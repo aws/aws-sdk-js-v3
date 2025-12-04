@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { NeptunedataExtensionConfiguration } from "./extensionConfiguration";
+import type { NeptunedataExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

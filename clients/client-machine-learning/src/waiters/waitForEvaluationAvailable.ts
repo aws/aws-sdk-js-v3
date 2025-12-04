@@ -1,7 +1,10 @@
 // smithy-typescript generated code
 import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
-import { DescribeEvaluationsCommand, DescribeEvaluationsCommandInput } from "../commands/DescribeEvaluationsCommand";
+import {
+  type DescribeEvaluationsCommandInput,
+  DescribeEvaluationsCommand,
+} from "../commands/DescribeEvaluationsCommand";
 import { MachineLearningClient } from "../MachineLearningClient";
 
 const checkState = async (

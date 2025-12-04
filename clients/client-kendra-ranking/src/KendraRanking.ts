@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateRescoreExecutionPlanCommand,
@@ -39,7 +39,7 @@ import {
   UpdateRescoreExecutionPlanCommandInput,
   UpdateRescoreExecutionPlanCommandOutput,
 } from "./commands/UpdateRescoreExecutionPlanCommand";
-import { KendraRankingClient, KendraRankingClientConfig } from "./KendraRankingClient";
+import { KendraRankingClient } from "./KendraRankingClient";
 
 const commands = {
   CreateRescoreExecutionPlanCommand,

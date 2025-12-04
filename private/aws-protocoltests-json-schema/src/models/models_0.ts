@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
-import { DocumentType as __DocumentType } from "@smithy/types";
+import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import { FooEnum, IntegerEnum } from "./enums";
+import type { FooEnum, IntegerEnum } from "./enums";
 
 /**
  * @public

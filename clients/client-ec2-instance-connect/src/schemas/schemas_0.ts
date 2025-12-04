@@ -34,7 +34,7 @@ const n0 = "com.amazonaws.ec2instanceconnect";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { EC2InstanceConnectServiceException as __EC2InstanceConnectServiceException } from "../models/EC2InstanceConnectServiceException";
 import {

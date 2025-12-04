@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateEntityToThingCommand,
@@ -169,7 +169,7 @@ import {
   UploadEntityDefinitionsCommandInput,
   UploadEntityDefinitionsCommandOutput,
 } from "./commands/UploadEntityDefinitionsCommand";
-import { IoTThingsGraphClient, IoTThingsGraphClientConfig } from "./IoTThingsGraphClient";
+import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
 
 const commands = {
   AssociateEntityToThingCommand,

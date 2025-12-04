@@ -1,84 +1,88 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type ContentTypeParametersCommandInput,
+  type ContentTypeParametersCommandOutput,
   ContentTypeParametersCommand,
-  ContentTypeParametersCommandInput,
-  ContentTypeParametersCommandOutput,
 } from "./commands/ContentTypeParametersCommand";
 import {
+  type EmptyInputAndEmptyOutputCommandInput,
+  type EmptyInputAndEmptyOutputCommandOutput,
   EmptyInputAndEmptyOutputCommand,
-  EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
 import {
+  type EndpointOperationCommandInput,
+  type EndpointOperationCommandOutput,
   EndpointOperationCommand,
-  EndpointOperationCommandInput,
-  EndpointOperationCommandOutput,
 } from "./commands/EndpointOperationCommand";
 import {
+  type EndpointWithHostLabelOperationCommandInput,
+  type EndpointWithHostLabelOperationCommandOutput,
   EndpointWithHostLabelOperationCommand,
-  EndpointWithHostLabelOperationCommandInput,
-  EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import {
+  type GreetingWithErrorsCommandInput,
+  type GreetingWithErrorsCommandOutput,
   GreetingWithErrorsCommand,
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  type HostWithPathOperationCommandInput,
+  type HostWithPathOperationCommandOutput,
   HostWithPathOperationCommand,
-  HostWithPathOperationCommandInput,
-  HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
-import { JsonUnionsCommand, JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
+  type JsonUnionsCommandInput,
+  type JsonUnionsCommandOutput,
+  JsonUnionsCommand,
+} from "./commands/JsonUnionsCommand";
+import {
+  type NoInputAndNoOutputCommandInput,
+  type NoInputAndNoOutputCommandOutput,
   NoInputAndNoOutputCommand,
-  NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput,
 } from "./commands/NoInputAndNoOutputCommand";
 import {
+  type NoInputAndOutputCommandInput,
+  type NoInputAndOutputCommandOutput,
   NoInputAndOutputCommand,
-  NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput,
 } from "./commands/NoInputAndOutputCommand";
 import {
+  type OperationWithDefaultsCommandInput,
+  type OperationWithDefaultsCommandOutput,
   OperationWithDefaultsCommand,
-  OperationWithDefaultsCommandInput,
-  OperationWithDefaultsCommandOutput,
 } from "./commands/OperationWithDefaultsCommand";
 import {
+  type OperationWithNestedStructureCommandInput,
+  type OperationWithNestedStructureCommandOutput,
   OperationWithNestedStructureCommand,
-  OperationWithNestedStructureCommandInput,
-  OperationWithNestedStructureCommandOutput,
 } from "./commands/OperationWithNestedStructureCommand";
 import {
+  type OperationWithRequiredMembersCommandInput,
+  type OperationWithRequiredMembersCommandOutput,
   OperationWithRequiredMembersCommand,
-  OperationWithRequiredMembersCommandInput,
-  OperationWithRequiredMembersCommandOutput,
 } from "./commands/OperationWithRequiredMembersCommand";
 import {
+  type OperationWithRequiredMembersWithDefaultsCommandInput,
+  type OperationWithRequiredMembersWithDefaultsCommandOutput,
   OperationWithRequiredMembersWithDefaultsCommand,
-  OperationWithRequiredMembersWithDefaultsCommandInput,
-  OperationWithRequiredMembersWithDefaultsCommandOutput,
 } from "./commands/OperationWithRequiredMembersWithDefaultsCommand";
 import {
+  type PutWithContentEncodingCommandInput,
+  type PutWithContentEncodingCommandOutput,
   PutWithContentEncodingCommand,
-  PutWithContentEncodingCommandInput,
-  PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
 import {
+  type QueryIncompatibleOperationCommandInput,
+  type QueryIncompatibleOperationCommandOutput,
   QueryIncompatibleOperationCommand,
-  QueryIncompatibleOperationCommandInput,
-  QueryIncompatibleOperationCommandOutput,
 } from "./commands/QueryIncompatibleOperationCommand";
 import {
+  type SimpleScalarPropertiesCommandInput,
+  type SimpleScalarPropertiesCommandOutput,
   SimpleScalarPropertiesCommand,
-  SimpleScalarPropertiesCommandInput,
-  SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
-import { JSONRPC10Client, JSONRPC10ClientConfig } from "./JSONRPC10Client";
+import { JSONRPC10Client } from "./JSONRPC10Client";
 
 const commands = {
   ContentTypeParametersCommand,

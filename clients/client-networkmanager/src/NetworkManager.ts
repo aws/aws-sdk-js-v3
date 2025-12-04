@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptAttachmentCommand,
@@ -437,7 +437,7 @@ import {
   UpdateVpcAttachmentCommandInput,
   UpdateVpcAttachmentCommandOutput,
 } from "./commands/UpdateVpcAttachmentCommand";
-import { NetworkManagerClient, NetworkManagerClientConfig } from "./NetworkManagerClient";
+import { NetworkManagerClient } from "./NetworkManagerClient";
 
 const commands = {
   AcceptAttachmentCommand,

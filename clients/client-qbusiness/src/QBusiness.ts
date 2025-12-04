@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociatePermissionCommand,
@@ -333,7 +333,7 @@ import {
   UpdateWebExperienceCommandInput,
   UpdateWebExperienceCommandOutput,
 } from "./commands/UpdateWebExperienceCommand";
-import { QBusinessClient, QBusinessClientConfig } from "./QBusinessClient";
+import { QBusinessClient } from "./QBusinessClient";
 
 const commands = {
   AssociatePermissionCommand,

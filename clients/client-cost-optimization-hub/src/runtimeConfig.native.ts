@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CostOptimizationHubClientConfig } from "./CostOptimizationHubClient";
+import type { CostOptimizationHubClientConfig } from "./CostOptimizationHubClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

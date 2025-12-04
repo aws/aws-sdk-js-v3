@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
+import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateBillingViewRequest, CreateBillingViewResponse } from "../models/models_0";
+import type { CreateBillingViewRequest, CreateBillingViewResponse } from "../models/models_0";
 import { CreateBillingView } from "../schemas/schemas_0";
 
 /**

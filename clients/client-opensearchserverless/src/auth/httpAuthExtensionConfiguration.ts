@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider, HttpAuthScheme } from "@smithy/types";
+import { type HttpAuthScheme, AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
-import { OpenSearchServerlessHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
+import type { OpenSearchServerlessHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal

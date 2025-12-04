@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetCaseRuleCommand,
@@ -152,7 +152,7 @@ import {
   UpdateTemplateCommandInput,
   UpdateTemplateCommandOutput,
 } from "./commands/UpdateTemplateCommand";
-import { ConnectCasesClient, ConnectCasesClientConfig } from "./ConnectCasesClient";
+import { ConnectCasesClient } from "./ConnectCasesClient";
 
 const commands = {
   BatchGetCaseRuleCommand,

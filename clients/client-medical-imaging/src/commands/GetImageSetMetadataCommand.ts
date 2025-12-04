@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
-import { GetImageSetMetadataRequest, GetImageSetMetadataResponse } from "../models/models_0";
+import type {
+  MedicalImagingClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../MedicalImagingClient";
+import { type GetImageSetMetadataRequest, GetImageSetMetadataResponse } from "../models/models_0";
 import { GetImageSetMetadata } from "../schemas/schemas_0";
 
 /**

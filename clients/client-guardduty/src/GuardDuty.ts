@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptAdministratorInvitationCommand,
@@ -389,7 +389,7 @@ import {
   UpdateTrustedEntitySetCommandInput,
   UpdateTrustedEntitySetCommandOutput,
 } from "./commands/UpdateTrustedEntitySetCommand";
-import { GuardDutyClient, GuardDutyClientConfig } from "./GuardDutyClient";
+import { GuardDutyClient } from "./GuardDutyClient";
 
 const commands = {
   AcceptAdministratorInvitationCommand,

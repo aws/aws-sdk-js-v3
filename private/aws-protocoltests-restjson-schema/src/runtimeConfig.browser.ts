@@ -14,12 +14,13 @@ import {
   DEFAULT_DISABLE_REQUEST_COMPRESSION,
   DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
 } from "@smithy/middleware-compression";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
-import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
+
+import type { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 
 /**
  * @internal

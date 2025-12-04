@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptSharedDirectoryCommand,
@@ -362,7 +362,7 @@ import {
 } from "./commands/UpdateSettingsCommand";
 import { UpdateTrustCommand, UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
 import { VerifyTrustCommand, VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
-import { DirectoryServiceClient, DirectoryServiceClientConfig } from "./DirectoryServiceClient";
+import { DirectoryServiceClient } from "./DirectoryServiceClient";
 
 const commands = {
   AcceptSharedDirectoryCommand,

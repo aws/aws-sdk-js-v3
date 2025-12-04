@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { PinpointSMSVoiceExtensionConfiguration } from "./extensionConfiguration";
+import type { PinpointSMSVoiceExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

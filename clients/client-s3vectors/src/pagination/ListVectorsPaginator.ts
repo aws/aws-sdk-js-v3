@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { ListVectorsCommand, ListVectorsCommandInput, ListVectorsCommandOutput } from "../commands/ListVectorsCommand";
 import { S3VectorsClient } from "../S3VectorsClient";

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelJobRunCommand,
@@ -105,7 +105,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { EMRContainersClient, EMRContainersClientConfig } from "./EMRContainersClient";
+import { EMRContainersClient } from "./EMRContainersClient";
 
 const commands = {
   CancelJobRunCommand,

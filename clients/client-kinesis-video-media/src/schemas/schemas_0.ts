@@ -29,7 +29,12 @@ const n0 = "com.amazonaws.kinesisvideomedia";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticOperationSchema, StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticOperationSchema,
+  StaticSimpleSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
 
 import {
   ClientLimitExceededException as __ClientLimitExceededException,

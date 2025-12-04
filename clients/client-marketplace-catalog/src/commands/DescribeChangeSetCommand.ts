@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   MarketplaceCatalogClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/models_0";
+import type { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/models_0";
 import { DescribeChangeSet } from "../schemas/schemas_0";
 
 /**

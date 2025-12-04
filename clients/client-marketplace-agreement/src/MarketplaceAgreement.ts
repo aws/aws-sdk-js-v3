@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DescribeAgreementCommand,
@@ -17,7 +17,7 @@ import {
   SearchAgreementsCommandInput,
   SearchAgreementsCommandOutput,
 } from "./commands/SearchAgreementsCommand";
-import { MarketplaceAgreementClient, MarketplaceAgreementClientConfig } from "./MarketplaceAgreementClient";
+import { MarketplaceAgreementClient } from "./MarketplaceAgreementClient";
 
 const commands = {
   DescribeAgreementCommand,

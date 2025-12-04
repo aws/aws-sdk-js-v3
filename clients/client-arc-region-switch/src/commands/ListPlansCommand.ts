@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ARCRegionSwitchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCRegionSwitchClient";
+import type {
+  ARCRegionSwitchClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPlansRequest, ListPlansResponse } from "../models/models_0";
+import type { ListPlansRequest, ListPlansResponse } from "../models/models_0";
 import { ListPlans } from "../schemas/schemas_0";
 
 /**

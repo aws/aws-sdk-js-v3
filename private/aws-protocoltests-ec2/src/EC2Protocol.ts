@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DatetimeOffsetsCommand,
@@ -107,7 +107,7 @@ import {
   XmlTimestampsCommandInput,
   XmlTimestampsCommandOutput,
 } from "./commands/XmlTimestampsCommand";
-import { EC2ProtocolClient, EC2ProtocolClientConfig } from "./EC2ProtocolClient";
+import { EC2ProtocolClient } from "./EC2ProtocolClient";
 
 const commands = {
   DatetimeOffsetsCommand,

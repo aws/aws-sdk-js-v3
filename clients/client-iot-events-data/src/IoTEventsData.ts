@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchAcknowledgeAlarmCommand,
@@ -58,7 +58,7 @@ import {
   ListDetectorsCommandInput,
   ListDetectorsCommandOutput,
 } from "./commands/ListDetectorsCommand";
-import { IoTEventsDataClient, IoTEventsDataClientConfig } from "./IoTEventsDataClient";
+import { IoTEventsDataClient } from "./IoTEventsDataClient";
 
 const commands = {
   BatchAcknowledgeAlarmCommand,

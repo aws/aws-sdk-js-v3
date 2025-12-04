@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,10 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { SageMakerA2IRuntimeClientConfig, SageMakerA2IRuntimeClientResolvedConfig } from "../SageMakerA2IRuntimeClient";
+import {
+  type SageMakerA2IRuntimeClientResolvedConfig,
+  SageMakerA2IRuntimeClientConfig,
+} from "../SageMakerA2IRuntimeClient";
 
 /**
  * @internal

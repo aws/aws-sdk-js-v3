@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptPredictionsCommand,
@@ -796,7 +796,7 @@ import {
   UpdateUserProfileCommandInput,
   UpdateUserProfileCommandOutput,
 } from "./commands/UpdateUserProfileCommand";
-import { DataZoneClient, DataZoneClientConfig } from "./DataZoneClient";
+import { DataZoneClient } from "./DataZoneClient";
 
 const commands = {
   AcceptPredictionsCommand,

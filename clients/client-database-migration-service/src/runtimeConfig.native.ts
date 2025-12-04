@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { DatabaseMigrationServiceClientConfig } from "./DatabaseMigrationServiceClient";
+import type { DatabaseMigrationServiceClientConfig } from "./DatabaseMigrationServiceClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

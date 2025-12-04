@@ -1,6 +1,7 @@
 // smithy-typescript generated code
-import { EchoServiceHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
-import { HttpAuthScheme } from "@smithy/types";
+import type { HttpAuthScheme } from "@smithy/types";
+
+import type { EchoServiceHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal

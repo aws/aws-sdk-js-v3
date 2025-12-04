@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddLayerVersionPermissionCommand,
@@ -379,7 +379,7 @@ import {
   UpdateFunctionUrlConfigCommandInput,
   UpdateFunctionUrlConfigCommandOutput,
 } from "./commands/UpdateFunctionUrlConfigCommand";
-import { LambdaClient, LambdaClientConfig } from "./LambdaClient";
+import { LambdaClient } from "./LambdaClient";
 
 const commands = {
   AddLayerVersionPermissionCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelTaskExecutionCommand,
@@ -231,7 +231,7 @@ import {
   UpdateTaskExecutionCommandInput,
   UpdateTaskExecutionCommandOutput,
 } from "./commands/UpdateTaskExecutionCommand";
-import { DataSyncClient, DataSyncClientConfig } from "./DataSyncClient";
+import { DataSyncClient } from "./DataSyncClient";
 
 const commands = {
   CancelTaskExecutionCommand,

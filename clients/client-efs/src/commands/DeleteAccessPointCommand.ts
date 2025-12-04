@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAccessPointRequest } from "../models/models_0";
+import type { DeleteAccessPointRequest } from "../models/models_0";
 import { DeleteAccessPoint } from "../schemas/schemas_0";
 
 /**

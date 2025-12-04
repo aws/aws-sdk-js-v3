@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_0";
+import type { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_0";
 import { UpdateAccountSettings } from "../schemas/schemas_0";
 
 /**

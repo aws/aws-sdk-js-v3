@@ -35,7 +35,7 @@ import {
   parseRfc7231DateTime as __parseRfc7231DateTime,
   take,
 } from "@smithy/smithy-client";
-import {
+import type {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,

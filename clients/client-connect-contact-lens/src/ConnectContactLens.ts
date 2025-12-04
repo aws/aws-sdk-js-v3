@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ListRealtimeContactAnalysisSegmentsCommand,
   ListRealtimeContactAnalysisSegmentsCommandInput,
   ListRealtimeContactAnalysisSegmentsCommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsCommand";
-import { ConnectContactLensClient, ConnectContactLensClientConfig } from "./ConnectContactLensClient";
+import { ConnectContactLensClient } from "./ConnectContactLensClient";
 
 const commands = {
   ListRealtimeContactAnalysisSegmentsCommand,

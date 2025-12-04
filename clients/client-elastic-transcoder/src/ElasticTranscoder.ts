@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
@@ -63,7 +63,7 @@ import {
   UpdatePipelineStatusCommandInput,
   UpdatePipelineStatusCommandOutput,
 } from "./commands/UpdatePipelineStatusCommand";
-import { ElasticTranscoderClient, ElasticTranscoderClientConfig } from "./ElasticTranscoderClient";
+import { ElasticTranscoderClient } from "./ElasticTranscoderClient";
 
 const commands = {
   CancelJobCommand,

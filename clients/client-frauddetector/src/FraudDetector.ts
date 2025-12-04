@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCreateVariableCommand,
@@ -287,7 +287,7 @@ import {
   UpdateVariableCommandInput,
   UpdateVariableCommandOutput,
 } from "./commands/UpdateVariableCommand";
-import { FraudDetectorClient, FraudDetectorClientConfig } from "./FraudDetectorClient";
+import { FraudDetectorClient } from "./FraudDetectorClient";
 
 const commands = {
   BatchCreateVariableCommand,

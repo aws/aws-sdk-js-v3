@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/models_0";
+import type { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/models_0";
 import { StopPipelineExecution } from "../schemas/schemas_0";
 
 /**

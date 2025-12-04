@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ElasticTranscoderClientConfig } from "./ElasticTranscoderClient";
+import type { ElasticTranscoderClientConfig } from "./ElasticTranscoderClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

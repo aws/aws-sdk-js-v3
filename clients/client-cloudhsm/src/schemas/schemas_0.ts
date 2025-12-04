@@ -125,7 +125,7 @@ const n0 = "com.amazonaws.cloudhsm";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { CloudHSMServiceException as __CloudHSMServiceException } from "../models/CloudHSMServiceException";
 import {

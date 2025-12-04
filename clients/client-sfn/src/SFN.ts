@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateActivityCommand,
@@ -175,7 +175,7 @@ import {
   ValidateStateMachineDefinitionCommandInput,
   ValidateStateMachineDefinitionCommandOutput,
 } from "./commands/ValidateStateMachineDefinitionCommand";
-import { SFNClient, SFNClientConfig } from "./SFNClient";
+import { SFNClient } from "./SFNClient";
 
 const commands = {
   CreateActivityCommand,

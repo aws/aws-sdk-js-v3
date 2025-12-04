@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddTagsToResourceCommand,
@@ -597,7 +597,7 @@ import {
   UpdateSubscriptionsToEventBridgeCommandInput,
   UpdateSubscriptionsToEventBridgeCommandOutput,
 } from "./commands/UpdateSubscriptionsToEventBridgeCommand";
-import { DatabaseMigrationServiceClient, DatabaseMigrationServiceClientConfig } from "./DatabaseMigrationServiceClient";
+import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
 
 const commands = {
   AddTagsToResourceCommand,

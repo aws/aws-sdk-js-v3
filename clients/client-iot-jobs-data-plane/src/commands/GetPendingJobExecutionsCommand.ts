@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
+import type {
+  IoTJobsDataPlaneClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../IoTJobsDataPlaneClient";
+import type { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
 import { GetPendingJobExecutions } from "../schemas/schemas_0";
 
 /**

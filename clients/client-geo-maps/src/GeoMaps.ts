@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { GetGlyphsCommand, GetGlyphsCommandInput, GetGlyphsCommandOutput } from "./commands/GetGlyphsCommand";
 import { GetSpritesCommand, GetSpritesCommandInput, GetSpritesCommandOutput } from "./commands/GetSpritesCommand";
@@ -15,7 +15,7 @@ import {
   GetStyleDescriptorCommandOutput,
 } from "./commands/GetStyleDescriptorCommand";
 import { GetTileCommand, GetTileCommandInput, GetTileCommandOutput } from "./commands/GetTileCommand";
-import { GeoMapsClient, GeoMapsClientConfig } from "./GeoMapsClient";
+import { GeoMapsClient } from "./GeoMapsClient";
 
 const commands = {
   GetGlyphsCommand,

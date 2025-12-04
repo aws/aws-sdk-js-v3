@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
 import { CreateSinkCommand, CreateSinkCommandInput, CreateSinkCommandOutput } from "./commands/CreateSinkCommand";
@@ -37,7 +37,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
-import { OAMClient, OAMClientConfig } from "./OAMClient";
+import { OAMClient } from "./OAMClient";
 
 const commands = {
   CreateLinkCommand,

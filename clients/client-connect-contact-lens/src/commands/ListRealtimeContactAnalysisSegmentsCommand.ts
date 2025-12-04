@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ConnectContactLensClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectContactLensClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ListRealtimeContactAnalysisSegmentsRequest,
   ListRealtimeContactAnalysisSegmentsResponse,
 } from "../models/models_0";

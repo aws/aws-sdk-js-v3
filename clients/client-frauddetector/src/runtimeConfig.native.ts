@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { FraudDetectorClientConfig } from "./FraudDetectorClient";
+import type { FraudDetectorClientConfig } from "./FraudDetectorClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

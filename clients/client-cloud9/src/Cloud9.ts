@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { Cloud9Client, Cloud9ClientConfig } from "./Cloud9Client";
+import { Cloud9Client } from "./Cloud9Client";
 import {
   CreateEnvironmentEC2Command,
   CreateEnvironmentEC2CommandInput,

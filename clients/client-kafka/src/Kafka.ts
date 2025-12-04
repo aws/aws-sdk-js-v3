@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchAssociateScramSecretCommand,
@@ -270,7 +270,7 @@ import {
   UpdateStorageCommandInput,
   UpdateStorageCommandOutput,
 } from "./commands/UpdateStorageCommand";
-import { KafkaClient, KafkaClientConfig } from "./KafkaClient";
+import { KafkaClient } from "./KafkaClient";
 
 const commands = {
   BatchAssociateScramSecretCommand,

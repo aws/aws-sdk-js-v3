@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { DeleteObjectsOnCancelRequest, DeleteObjectsOnCancelResponse } from "../models/models_0";
+import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import type { DeleteObjectsOnCancelRequest, DeleteObjectsOnCancelResponse } from "../models/models_0";
 import { DeleteObjectsOnCancel } from "../schemas/schemas_0";
 
 /**

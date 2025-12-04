@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DescribeAffectedAccountsForOrganizationCommand,
@@ -72,7 +72,7 @@ import {
   EnableHealthServiceAccessForOrganizationCommandInput,
   EnableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/EnableHealthServiceAccessForOrganizationCommand";
-import { HealthClient, HealthClientConfig } from "./HealthClient";
+import { HealthClient } from "./HealthClient";
 
 const commands = {
   DescribeAffectedAccountsForOrganizationCommand,

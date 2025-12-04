@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/models_0";
-import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
+import type { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/models_0";
+import type {
+  NetworkManagerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../NetworkManagerClient";
 import { AssociateCustomerGateway } from "../schemas/schemas_0";
 
 /**

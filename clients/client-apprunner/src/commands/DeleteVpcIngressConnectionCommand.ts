@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteVpcIngressConnectionRequest, DeleteVpcIngressConnectionResponse } from "../models/models_0";
+import type { DeleteVpcIngressConnectionRequest, DeleteVpcIngressConnectionResponse } from "../models/models_0";
 import { DeleteVpcIngressConnection } from "../schemas/schemas_0";
 
 /**

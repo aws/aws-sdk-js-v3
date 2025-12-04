@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateBillOfMaterialsImportJobCommand,
@@ -144,7 +144,7 @@ import {
   UpdateInstanceCommandInput,
   UpdateInstanceCommandOutput,
 } from "./commands/UpdateInstanceCommand";
-import { SupplyChainClient, SupplyChainClientConfig } from "./SupplyChainClient";
+import { SupplyChainClient } from "./SupplyChainClient";
 
 const commands = {
   CreateBillOfMaterialsImportJobCommand,

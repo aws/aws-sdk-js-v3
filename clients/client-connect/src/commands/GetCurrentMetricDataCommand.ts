@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCurrentMetricDataRequest, GetCurrentMetricDataResponse } from "../models/models_1";
+import type { GetCurrentMetricDataRequest, GetCurrentMetricDataResponse } from "../models/models_1";
 import { GetCurrentMetricData } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateContainerCommand,
@@ -103,7 +103,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { MediaStoreClient, MediaStoreClientConfig } from "./MediaStoreClient";
+import { MediaStoreClient } from "./MediaStoreClient";
 
 const commands = {
   CreateContainerCommand,

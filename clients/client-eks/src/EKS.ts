@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateAccessPolicyCommand,
@@ -298,7 +298,7 @@ import {
   UpdatePodIdentityAssociationCommandInput,
   UpdatePodIdentityAssociationCommandOutput,
 } from "./commands/UpdatePodIdentityAssociationCommand";
-import { EKSClient, EKSClientConfig } from "./EKSClient";
+import { EKSClient } from "./EKSClient";
 
 const commands = {
   AssociateAccessPolicyCommand,

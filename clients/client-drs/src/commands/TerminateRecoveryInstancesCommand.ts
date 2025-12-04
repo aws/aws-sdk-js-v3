@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
+import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TerminateRecoveryInstancesRequest, TerminateRecoveryInstancesResponse } from "../models/models_0";
+import type { TerminateRecoveryInstancesRequest, TerminateRecoveryInstancesResponse } from "../models/models_0";
 import { TerminateRecoveryInstances } from "../schemas/schemas_0";
 
 /**

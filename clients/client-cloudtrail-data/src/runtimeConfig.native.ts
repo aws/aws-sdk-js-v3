@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CloudTrailDataClientConfig } from "./CloudTrailDataClient";
+import type { CloudTrailDataClientConfig } from "./CloudTrailDataClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

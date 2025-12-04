@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CancelTaskCommand, CancelTaskCommandInput, CancelTaskCommandOutput } from "./commands/CancelTaskCommand";
 import { CreateTaskCommand, CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
@@ -47,7 +47,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { SnowDeviceManagementClient, SnowDeviceManagementClientConfig } from "./SnowDeviceManagementClient";
+import { SnowDeviceManagementClient } from "./SnowDeviceManagementClient";
 
 const commands = {
   CancelTaskCommand,

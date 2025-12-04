@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createPaginator } from "@smithy/core";
-import { Paginator } from "@smithy/types";
+import type { Paginator } from "@smithy/types";
 
 import { ListSharesCommand, ListSharesCommandInput, ListSharesCommandOutput } from "../commands/ListSharesCommand";
 import { OmicsClient } from "../OmicsClient";

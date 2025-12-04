@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExecuteGremlinExplainQueryInput, ExecuteGremlinExplainQueryOutput } from "../models/models_0";
-import { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
+import { type ExecuteGremlinExplainQueryInput, ExecuteGremlinExplainQueryOutput } from "../models/models_0";
+import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ExecuteGremlinExplainQuery } from "../schemas/schemas_0";
 
 /**

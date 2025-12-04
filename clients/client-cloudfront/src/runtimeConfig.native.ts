@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CloudFrontClientConfig } from "./CloudFrontClient";
+import type { CloudFrontClientConfig } from "./CloudFrontClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

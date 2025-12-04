@@ -1,12 +1,13 @@
 // smithy-typescript generated code
-import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
-import { EchoInput, EchoOutput } from "../models/models_0";
-import { de_EchoCommand, se_EchoCommand } from "../protocols/Aws_restJson1";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import type { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import type { EchoInput, EchoOutput } from "../models/models_0";
+import { de_EchoCommand, se_EchoCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public

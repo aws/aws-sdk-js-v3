@@ -2,13 +2,13 @@
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultBedrockDataAutomationHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { BedrockDataAutomationClientConfig } from "./BedrockDataAutomationClient";
+import type { BedrockDataAutomationClientConfig } from "./BedrockDataAutomationClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
 /**

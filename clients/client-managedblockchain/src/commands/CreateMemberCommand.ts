@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ManagedBlockchainClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { CreateMemberInput, CreateMemberOutput } from "../models/models_0";
+import type { CreateMemberInput, CreateMemberOutput } from "../models/models_0";
 import { CreateMember } from "../schemas/schemas_0";
 
 /**

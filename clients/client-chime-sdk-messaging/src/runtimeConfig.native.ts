@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ChimeSDKMessagingClientConfig } from "./ChimeSDKMessagingClient";
+import type { ChimeSDKMessagingClientConfig } from "./ChimeSDKMessagingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

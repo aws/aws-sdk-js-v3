@@ -6,18 +6,18 @@ import {
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
 import {
+  type HandlerExecutionContext,
+  type HttpAuthOption,
+  type HttpAuthScheme,
+  type HttpAuthSchemeParameters,
+  type HttpAuthSchemeParametersProvider,
+  type HttpAuthSchemeProvider,
+  type Provider,
   Client,
-  HandlerExecutionContext,
-  HttpAuthOption,
-  HttpAuthScheme,
-  HttpAuthSchemeParameters,
-  HttpAuthSchemeParametersProvider,
-  HttpAuthSchemeProvider,
-  Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { STSClient, STSClientConfig, STSClientResolvedConfig } from "../STSClient";
+import { type STSClientResolvedConfig, STSClient, STSClientConfig } from "../STSClient";
 
 /**
  * @internal

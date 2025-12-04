@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CleanRoomsClientConfig } from "./CleanRoomsClient";
+import type { CleanRoomsClientConfig } from "./CleanRoomsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

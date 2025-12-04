@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { KmsKeyState, ValidationExceptionReason } from "./enums";
 import { SFNServiceException as __BaseException } from "./SFNServiceException";

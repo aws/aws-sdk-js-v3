@@ -513,7 +513,7 @@ const n0 = "com.amazonaws.docdb";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { DocDBServiceException as __DocDBServiceException } from "../models/DocDBServiceException";
 import {

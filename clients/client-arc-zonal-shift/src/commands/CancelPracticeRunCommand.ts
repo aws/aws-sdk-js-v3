@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
+import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CancelPracticeRunRequest, CancelPracticeRunResponse } from "../models/models_0";
+import type { CancelPracticeRunRequest, CancelPracticeRunResponse } from "../models/models_0";
 import { CancelPracticeRun } from "../schemas/schemas_0";
 
 /**

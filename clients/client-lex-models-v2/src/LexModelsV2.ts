@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCreateCustomVocabularyItemCommand,
@@ -456,7 +456,7 @@ import {
   UpdateTestSetCommandInput,
   UpdateTestSetCommandOutput,
 } from "./commands/UpdateTestSetCommand";
-import { LexModelsV2Client, LexModelsV2ClientConfig } from "./LexModelsV2Client";
+import { LexModelsV2Client } from "./LexModelsV2Client";
 
 const commands = {
   BatchCreateCustomVocabularyItemCommand,

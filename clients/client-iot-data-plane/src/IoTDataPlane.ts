@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteConnectionCommand,
@@ -38,7 +38,7 @@ import {
   UpdateThingShadowCommandInput,
   UpdateThingShadowCommandOutput,
 } from "./commands/UpdateThingShadowCommand";
-import { IoTDataPlaneClient, IoTDataPlaneClientConfig } from "./IoTDataPlaneClient";
+import { IoTDataPlaneClient } from "./IoTDataPlaneClient";
 
 const commands = {
   DeleteConnectionCommand,

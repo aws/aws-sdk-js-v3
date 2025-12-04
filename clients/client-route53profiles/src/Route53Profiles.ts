@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateProfileCommand,
@@ -74,7 +74,7 @@ import {
   UpdateProfileResourceAssociationCommandInput,
   UpdateProfileResourceAssociationCommandOutput,
 } from "./commands/UpdateProfileResourceAssociationCommand";
-import { Route53ProfilesClient, Route53ProfilesClientConfig } from "./Route53ProfilesClient";
+import { Route53ProfilesClient } from "./Route53ProfilesClient";
 
 const commands = {
   AssociateProfileCommand,

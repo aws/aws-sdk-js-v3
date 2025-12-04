@@ -7,7 +7,7 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 import { Client as __Client } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchExecuteStatementCommandInput,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetTracesCommand,
@@ -164,7 +164,7 @@ import {
   UpdateTraceSegmentDestinationCommandInput,
   UpdateTraceSegmentDestinationCommandOutput,
 } from "./commands/UpdateTraceSegmentDestinationCommand";
-import { XRayClient, XRayClientConfig } from "./XRayClient";
+import { XRayClient } from "./XRayClient";
 
 const commands = {
   BatchGetTracesCommand,

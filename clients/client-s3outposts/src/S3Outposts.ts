@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateEndpointCommand,
@@ -27,7 +27,7 @@ import {
   ListSharedEndpointsCommandInput,
   ListSharedEndpointsCommandOutput,
 } from "./commands/ListSharedEndpointsCommand";
-import { S3OutpostsClient, S3OutpostsClientConfig } from "./S3OutpostsClient";
+import { S3OutpostsClient } from "./S3OutpostsClient";
 
 const commands = {
   CreateEndpointCommand,

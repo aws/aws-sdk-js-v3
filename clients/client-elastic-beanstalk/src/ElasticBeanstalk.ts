@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AbortEnvironmentUpdateCommand,
@@ -237,7 +237,7 @@ import {
   ValidateConfigurationSettingsCommandInput,
   ValidateConfigurationSettingsCommandOutput,
 } from "./commands/ValidateConfigurationSettingsCommand";
-import { ElasticBeanstalkClient, ElasticBeanstalkClientConfig } from "./ElasticBeanstalkClient";
+import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
 
 const commands = {
   AbortEnvironmentUpdateCommand,

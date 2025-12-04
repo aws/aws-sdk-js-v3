@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DescribeStreamCommand,
@@ -14,7 +14,7 @@ import {
   GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand";
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
-import { DynamoDBStreamsClient, DynamoDBStreamsClientConfig } from "./DynamoDBStreamsClient";
+import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient";
 
 const commands = {
   DescribeStreamCommand,

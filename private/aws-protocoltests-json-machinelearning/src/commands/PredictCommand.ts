@@ -3,11 +3,15 @@ import { getPredictEndpointPlugin } from "@aws-sdk/middleware-sdk-machinelearnin
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { PredictInput, PredictOutput } from "../models/models_0";
+import type {
+  MachineLearningClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../MachineLearningClient";
+import type { PredictInput, PredictOutput } from "../models/models_0";
 import { de_PredictCommand, se_PredictCommand } from "../protocols/Aws_json1_1";
 
 /**

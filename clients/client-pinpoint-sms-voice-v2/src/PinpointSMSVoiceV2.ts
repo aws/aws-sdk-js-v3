@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateOriginationIdentityCommand,
@@ -437,7 +437,7 @@ import {
   VerifyDestinationNumberCommandInput,
   VerifyDestinationNumberCommandOutput,
 } from "./commands/VerifyDestinationNumberCommand";
-import { PinpointSMSVoiceV2Client, PinpointSMSVoiceV2ClientConfig } from "./PinpointSMSVoiceV2Client";
+import { PinpointSMSVoiceV2Client } from "./PinpointSMSVoiceV2Client";
 
 const commands = {
   AssociateOriginationIdentityCommand,

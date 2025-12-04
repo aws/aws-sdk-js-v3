@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddTagsToStreamCommand,
@@ -165,7 +165,7 @@ import {
   UpdateStreamWarmThroughputCommandInput,
   UpdateStreamWarmThroughputCommandOutput,
 } from "./commands/UpdateStreamWarmThroughputCommand";
-import { KinesisClient, KinesisClientConfig } from "./KinesisClient";
+import { KinesisClient } from "./KinesisClient";
 
 const commands = {
   AddTagsToStreamCommand,

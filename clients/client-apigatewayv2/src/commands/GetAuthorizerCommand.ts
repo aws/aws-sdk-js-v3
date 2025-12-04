@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
+import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAuthorizerRequest, GetAuthorizerResponse } from "../models/models_0";
+import type { GetAuthorizerRequest, GetAuthorizerResponse } from "../models/models_0";
 import { GetAuthorizer } from "../schemas/schemas_0";
 
 /**

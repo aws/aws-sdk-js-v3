@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EKSAuthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSAuthClient";
+import type { EKSAuthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSAuthClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssumeRoleForPodIdentityRequest, AssumeRoleForPodIdentityResponse } from "../models/models_0";
+import type { AssumeRoleForPodIdentityRequest, AssumeRoleForPodIdentityResponse } from "../models/models_0";
 import { AssumeRoleForPodIdentity } from "../schemas/schemas_0";
 
 /**

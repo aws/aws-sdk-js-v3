@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
+  type SendDurableExecutionCallbackSuccessResponse,
   SendDurableExecutionCallbackSuccessRequest,
-  SendDurableExecutionCallbackSuccessResponse,
 } from "../models/models_0";
 import { SendDurableExecutionCallbackSuccess } from "../schemas/schemas_0";
 

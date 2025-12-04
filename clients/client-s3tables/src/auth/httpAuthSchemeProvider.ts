@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { S3TablesClientConfig, S3TablesClientResolvedConfig } from "../S3TablesClient";
+import { type S3TablesClientResolvedConfig, S3TablesClientConfig } from "../S3TablesClient";
 
 /**
  * @internal

@@ -2,6 +2,7 @@
 import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core";
 import {
   HttpRequest as __HttpRequest,
+  HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@smithy/protocol-http";
@@ -25,7 +26,7 @@ import {
   strictParseShort as __strictParseShort,
   withBaseException,
 } from "@smithy/smithy-client";
-import {
+import type {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
@@ -1935,7 +1936,7 @@ const buildHttpRpcRequest = async (
   if (body !== undefined) {
     contents.body = body;
   }
-  return new __HttpRequest(contents);
+  return new HttpRequest(contents);
 };
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",

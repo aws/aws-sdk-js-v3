@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddGroupMemberCommand,
@@ -47,7 +47,7 @@ import {
 import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { DirectoryServiceDataClient, DirectoryServiceDataClientConfig } from "./DirectoryServiceDataClient";
+import { DirectoryServiceDataClient } from "./DirectoryServiceDataClient";
 
 const commands = {
   AddGroupMemberCommand,

@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { Inspector2ExtensionConfiguration } from "./extensionConfiguration";
+import type { Inspector2ExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

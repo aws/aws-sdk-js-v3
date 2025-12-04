@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ObservabilityAdminClientConfig } from "./ObservabilityAdminClient";
+import type { ObservabilityAdminClientConfig } from "./ObservabilityAdminClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

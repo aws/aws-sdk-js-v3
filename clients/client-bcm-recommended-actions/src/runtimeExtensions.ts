@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { BCMRecommendedActionsExtensionConfiguration } from "./extensionConfiguration";
+import type { BCMRecommendedActionsExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

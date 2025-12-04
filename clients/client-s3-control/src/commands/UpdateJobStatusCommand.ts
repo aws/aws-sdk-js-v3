@@ -2,12 +2,12 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateJobStatusRequest } from "../models/models_0";
-import { UpdateJobStatusResult } from "../models/models_1";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { UpdateJobStatusRequest } from "../models/models_0";
+import type { UpdateJobStatusResult } from "../models/models_1";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { UpdateJobStatus } from "../schemas/schemas_0";
 
 /**

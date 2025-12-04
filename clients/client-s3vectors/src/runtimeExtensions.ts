@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { S3VectorsExtensionConfiguration } from "./extensionConfiguration";
+import type { S3VectorsExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

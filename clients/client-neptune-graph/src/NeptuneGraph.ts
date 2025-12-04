@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelExportTaskCommand,
@@ -124,7 +124,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateGraphCommand, UpdateGraphCommandInput, UpdateGraphCommandOutput } from "./commands/UpdateGraphCommand";
-import { NeptuneGraphClient, NeptuneGraphClientConfig } from "./NeptuneGraphClient";
+import { NeptuneGraphClient } from "./NeptuneGraphClient";
 
 const commands = {
   CancelExportTaskCommand,

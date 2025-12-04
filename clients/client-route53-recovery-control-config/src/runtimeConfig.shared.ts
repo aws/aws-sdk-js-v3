@@ -2,14 +2,14 @@
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultRoute53RecoveryControlConfigHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
-import { Route53RecoveryControlConfigClientConfig } from "./Route53RecoveryControlConfigClient";
+import type { Route53RecoveryControlConfigClientConfig } from "./Route53RecoveryControlConfigClient";
 
 /**
  * @internal

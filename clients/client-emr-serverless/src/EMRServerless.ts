@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelJobRunCommand,
@@ -66,7 +66,7 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import { EMRServerlessClient, EMRServerlessClientConfig } from "./EMRServerlessClient";
+import { EMRServerlessClient } from "./EMRServerlessClient";
 
 const commands = {
   CancelJobRunCommand,

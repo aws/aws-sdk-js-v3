@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ApplicationSignalsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateServiceLevelObjectiveInput, CreateServiceLevelObjectiveOutput } from "../models/models_0";
+import type { CreateServiceLevelObjectiveInput, CreateServiceLevelObjectiveOutput } from "../models/models_0";
 import { CreateServiceLevelObjective } from "../schemas/schemas_0";
 
 /**

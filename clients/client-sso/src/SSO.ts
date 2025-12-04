@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetRoleCredentialsCommand,
@@ -18,7 +18,7 @@ import {
   ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import { LogoutCommand, LogoutCommandInput, LogoutCommandOutput } from "./commands/LogoutCommand";
-import { SSOClient, SSOClientConfig } from "./SSOClient";
+import { SSOClient } from "./SSOClient";
 
 const commands = {
   GetRoleCredentialsCommand,

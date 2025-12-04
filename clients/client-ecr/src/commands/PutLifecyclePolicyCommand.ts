@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutLifecyclePolicyRequest, PutLifecyclePolicyResponse } from "../models/models_0";
+import type { PutLifecyclePolicyRequest, PutLifecyclePolicyResponse } from "../models/models_0";
 import { PutLifecyclePolicy } from "../schemas/schemas_0";
 
 /**

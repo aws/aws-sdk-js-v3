@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { PredictCommand, PredictCommandInput, PredictCommandOutput } from "./commands/PredictCommand";
-import { MachineLearningClient, MachineLearningClientConfig } from "./MachineLearningClient";
+import { MachineLearningClient } from "./MachineLearningClient";
 
 const commands = {
   PredictCommand,

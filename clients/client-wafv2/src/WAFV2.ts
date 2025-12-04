@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateWebACLCommand,
@@ -236,7 +236,7 @@ import {
   UpdateWebACLCommandInput,
   UpdateWebACLCommandOutput,
 } from "./commands/UpdateWebACLCommand";
-import { WAFV2Client, WAFV2ClientConfig } from "./WAFV2Client";
+import { WAFV2Client } from "./WAFV2Client";
 
 const commands = {
   AssociateWebACLCommand,

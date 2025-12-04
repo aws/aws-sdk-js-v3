@@ -46,7 +46,12 @@ const n0 = "com.amazonaws.sagemakerruntimehttp2";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticOperationSchema, StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticOperationSchema,
+  StaticSimpleSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
 
 import {
   InputValidationError as __InputValidationError,

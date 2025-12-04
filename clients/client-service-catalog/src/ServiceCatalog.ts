@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptPortfolioShareCommand,
@@ -448,7 +448,7 @@ import {
   UpdateTagOptionCommandInput,
   UpdateTagOptionCommandOutput,
 } from "./commands/UpdateTagOptionCommand";
-import { ServiceCatalogClient, ServiceCatalogClientConfig } from "./ServiceCatalogClient";
+import { ServiceCatalogClient } from "./ServiceCatalogClient";
 
 const commands = {
   AcceptPortfolioShareCommand,

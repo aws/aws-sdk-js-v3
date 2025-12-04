@@ -226,7 +226,7 @@ const n0 = "com.amazonaws.computeoptimizerautomation";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ComputeOptimizerAutomationServiceException as __ComputeOptimizerAutomationServiceException } from "../models/ComputeOptimizerAutomationServiceException";
 import {

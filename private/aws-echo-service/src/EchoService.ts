@@ -1,9 +1,10 @@
 // smithy-typescript generated code
-import { EchoServiceClient, EchoServiceClientConfig } from "./EchoServiceClient";
+import { createAggregatedClient } from "@smithy/smithy-client";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+
 import { EchoCommand, EchoCommandInput, EchoCommandOutput } from "./commands/EchoCommand";
 import { LengthCommand, LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";
-import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import { EchoServiceClient } from "./EchoServiceClient";
 
 const commands = {
   EchoCommand,

@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateOAuth2TokenRequest, CreateOAuth2TokenResponse } from "../models/models_0";
+import type { CreateOAuth2TokenRequest, CreateOAuth2TokenResponse } from "../models/models_0";
 import { CreateOAuth2Token } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SigninClientResolvedConfig } from "../SigninClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SigninClientResolvedConfig } from "../SigninClient";
 
 /**
  * @public

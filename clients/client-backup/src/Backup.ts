@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { BackupClient, BackupClientConfig } from "./BackupClient";
+import { BackupClient } from "./BackupClient";
 import {
   AssociateBackupVaultMpaApprovalTeamCommand,
   AssociateBackupVaultMpaApprovalTeamCommandInput,

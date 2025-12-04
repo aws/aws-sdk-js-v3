@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CloudHSMClientConfig } from "./CloudHSMClient";
+import type { CloudHSMClientConfig } from "./CloudHSMClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

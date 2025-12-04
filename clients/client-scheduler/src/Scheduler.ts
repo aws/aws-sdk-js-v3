@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateScheduleCommand,
@@ -54,7 +54,7 @@ import {
   UpdateScheduleCommandInput,
   UpdateScheduleCommandOutput,
 } from "./commands/UpdateScheduleCommand";
-import { SchedulerClient, SchedulerClientConfig } from "./SchedulerClient";
+import { SchedulerClient } from "./SchedulerClient";
 
 const commands = {
   CreateScheduleCommand,

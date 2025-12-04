@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateSourceNetworkStackCommand,
@@ -244,7 +244,7 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
-import { DrsClient, DrsClientConfig } from "./DrsClient";
+import { DrsClient } from "./DrsClient";
 
 const commands = {
   AssociateSourceNetworkStackCommand,

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BCMDataExportsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDataExportsClient";
+import type {
+  BCMDataExportsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BCMDataExportsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateExportRequest, UpdateExportResponse } from "../models/models_0";
+import type { UpdateExportRequest, UpdateExportResponse } from "../models/models_0";
 import { UpdateExport } from "../schemas/schemas_0";
 
 /**
