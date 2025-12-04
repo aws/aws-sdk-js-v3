@@ -477,6 +477,7 @@ export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdate
 export const LastUpdateStatusReasonCode = {
   CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   DisabledKMSKey: "DisabledKMSKey",
+  DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
   EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
   EFSIOError: "EFSIOError",
   EFSMountConnectivityError: "EFSMountConnectivityError",
@@ -536,6 +537,7 @@ export const StateReasonCode = {
   CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   Creating: "Creating",
   DisabledKMSKey: "DisabledKMSKey",
+  DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
   DrainingDurableExecutions: "DrainingDurableExecutions",
   EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
   EFSIOError: "EFSIOError",
