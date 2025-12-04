@@ -28,15 +28,15 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof KinesisVideoArchivedMediaClient === "function")
-assert(typeof KinesisVideoArchivedMedia === "function")
+assert(typeof KinesisVideoArchivedMediaClient === "function");
+assert(typeof KinesisVideoArchivedMedia === "function");
 // commands
-assert(typeof GetClipCommand === "function")
-assert(typeof GetDASHStreamingSessionURLCommand === "function")
-assert(typeof GetHLSStreamingSessionURLCommand === "function")
-assert(typeof GetImagesCommand === "function")
-assert(typeof GetMediaForFragmentListCommand === "function")
-assert(typeof ListFragmentsCommand === "function")
+assert(typeof GetClipCommand === "function");
+assert(typeof GetDASHStreamingSessionURLCommand === "function");
+assert(typeof GetHLSStreamingSessionURLCommand === "function");
+assert(typeof GetImagesCommand === "function");
+assert(typeof GetMediaForFragmentListCommand === "function");
+assert(typeof ListFragmentsCommand === "function");
 // enums
 assert(typeof ClipFragmentSelectorType === "object");
 assert(typeof ContainerFormat === "object");
@@ -54,8 +54,8 @@ assert(typeof HLSPlaybackMode === "object");
 assert(typeof ImageError === "object");
 assert(typeof ImageSelectorType === "object");
 // errors
-assert(KinesisVideoArchivedMediaServiceException.prototype instanceof Error)
+assert(KinesisVideoArchivedMediaServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateGetImages === "function")
-assert(typeof paginateListFragments === "function")
+assert(typeof paginateGetImages === "function");
+assert(typeof paginateListFragments === "function");
 console.log(`KinesisVideoArchivedMedia index test passed.`);

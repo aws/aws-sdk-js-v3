@@ -5,11 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse } from "../models/models_2";
-=======
-import type { ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse } from "../models/models_1";
->>>>>>> 60efd81940b (chore: codegen)
+import type { ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse } from "../models/models_2";
 import { ListQueueQuickConnects } from "../schemas/schemas_0";
 
 /**

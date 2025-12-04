@@ -241,7 +241,6 @@ import {
 import { PaymentCryptographyServiceException as __PaymentCryptographyServiceException } from "../models/PaymentCryptographyServiceException";
 
 /* eslint no-var: 0 */
-
 export var CertificateSigningRequestType: StaticSimpleSchema = [0, n0, _CSRT, 8, 0];
 export var KeyMaterial: StaticSimpleSchema = [0, n0, _KM, 8, 0];
 export var OptionalBlockId: StaticSimpleSchema = [0, n0, _OBI, 8, 0];
@@ -249,19 +248,8 @@ export var OptionalBlockValue: StaticSimpleSchema = [0, n0, _OBV, 8, 0];
 export var Tr31WrappedKeyBlock: StaticSimpleSchema = [0, n0, _TWKB, 8, 0];
 export var Tr34WrappedKeyBlock: StaticSimpleSchema = [0, n0, _TWKBr, 8, 0];
 export var WrappedKeyCryptogram: StaticSimpleSchema = [0, n0, _WKC, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddKeyReplicationRegionsInput: StaticStructureSchema = [3, n0, _AKRRI, 0, [_KI, _RR], [0, 64 | 0]];
 export var AddKeyReplicationRegionsOutput: StaticStructureSchema = [3, n0, _AKRRO, 0, [_K], [() => Key]];
 export var Alias: StaticStructureSchema = [3, n0, _A, 0, [_AN, _KA], [0, 0]];
@@ -273,19 +261,8 @@ export var CertificateSubjectType: StaticStructureSchema = [
   [_CN, _OU, _O, _C, _Co, _SOP, _EA],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAliasInput: StaticStructureSchema = [3, n0, _CAI, 0, [_AN, _KA], [0, 0]];
 export var CreateAliasOutput: StaticStructureSchema = [3, n0, _CAO, 0, [_A], [() => Alias]];
 export var CreateKeyInput: StaticStructureSchema = [
@@ -417,19 +394,8 @@ export var ImportTr34KeyBlock: StaticStructureSchema = [
   [_CAPKI, _SKC, _IT, _WKI, _WKCr, _WKB, _KBF, _RN],
   [0, 0, 0, 0, 0, [() => Tr34WrappedKeyBlock, 0], 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Key: StaticStructureSchema = [
   3,
   n0,
@@ -479,48 +445,15 @@ export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0,
 export var RemoveKeyReplicationRegionsInput: StaticStructureSchema = [3, n0, _RKRRI, 0, [_KI, _RR], [0, 64 | 0]];
 export var RemoveKeyReplicationRegionsOutput: StaticStructureSchema = [3, n0, _RKRRO, 0, [_K], [() => Key]];
 export var ReplicationStatusType: StaticStructureSchema = [3, n0, _RST, 0, [_St, _SM], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_RI],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_RI], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RestoreKeyInput: StaticStructureSchema = [3, n0, _RKI, 0, [_KI], [0]];
 export var RestoreKeyOutput: StaticStructureSchema = [3, n0, _RKO, 0, [_K], [() => Key]];
 export var RootCertificatePublicKey: StaticStructureSchema = [3, n0, _RCPK, 0, [_KAe, _PKC], [() => KeyAttributes, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartKeyUsageInput: StaticStructureSchema = [3, n0, _SKUI, 0, [_KI], [0]];
 export var StartKeyUsageOutput: StaticStructureSchema = [3, n0, _SKUO, 0, [_K], [() => Key]];
 export var StopKeyUsageInput: StaticStructureSchema = [3, n0, _SKUIt, 0, [_KI], [0]];
@@ -528,19 +461,8 @@ export var StopKeyUsageOutput: StaticStructureSchema = [3, n0, _SKUOt, 0, [_K], 
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RA, _T], [0, () => Tags]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrustedCertificatePublicKey: StaticStructureSchema = [
   3,
   n0,
@@ -553,19 +475,8 @@ export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RA, _T
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
 export var UpdateAliasInput: StaticStructureSchema = [3, n0, _UAI, 0, [_AN, _KA], [0, 0]];
 export var UpdateAliasOutput: StaticStructureSchema = [3, n0, _UAO, 0, [_A], [() => Alias]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WrappedKey: StaticStructureSchema = [
   3,
   n0,
@@ -575,7 +486,6 @@ export var WrappedKey: StaticStructureSchema = [
   [0, 0, [() => KeyMaterial, 0], 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var PaymentCryptographyServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -585,13 +495,10 @@ export var PaymentCryptographyServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PaymentCryptographyServiceException, __PaymentCryptographyServiceException);
-
 export var Aliases: StaticListSchema = [1, n0, _Al, 0, () => Alias];
 export var KeySummaryList: StaticListSchema = [1, n0, _KSL, 0, () => KeySummary];
 export var Regions = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
 export var OptionalBlocks: StaticMapSchema = [2, n0, _OB, 0, [() => OptionalBlockId, 0], [() => OptionalBlockValue, 0]];
 export var ReplicationStatus: StaticMapSchema = [2, n0, _RS, 0, 0, () => ReplicationStatusType];

@@ -171,29 +171,16 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var DestinationPhoneNumber: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AgentlessDialerConfig: StaticStructureSchema = [3, n0, _ADC, 0, [_dC], [1]];
 export var AnswerMachineDetectionConfig: StaticStructureSchema = [3, n0, _AMDC, 0, [_eAMD, _aAMP], [2, 2]];
 export var Campaign: StaticStructureSchema = [
@@ -210,23 +197,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateCampaignRequest: StaticStructureSchema = [
   3,
   n0,
@@ -288,66 +263,29 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvalidCampaignStateException: StaticErrorSchema = [
   -3,
   n0,
   _ICSE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_s, _m, _xAET],
-  [
-    0,
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, 0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(InvalidCampaignStateException, __InvalidCampaignStateException);
-
 export var InvalidStateException: StaticErrorSchema = [
   -3,
   n0,
   _ISEn,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
 export var ListCampaignsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -400,45 +338,21 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResumeCampaignRequest: StaticStructureSchema = [3, n0, _RCR, 0, [_i], [[0, 1]]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartCampaignRequest: StaticStructureSchema = [3, n0, _SCR, 0, [_i], [[0, 1]]];
 export var StartInstanceOnboardingJobRequest: StaticStructureSchema = [
   3,
@@ -464,23 +378,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -489,12 +391,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_a, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateCampaignDialerConfigRequest: StaticStructureSchema = [
@@ -518,25 +415,12 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _xAET],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var ConnectCampaignsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -546,9 +430,7 @@ export var ConnectCampaignsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ConnectCampaignsServiceException, __ConnectCampaignsServiceException);
-
 export var CampaignIdList = 64 | 0;
-
 export var CampaignSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CampaignSummary];
 export var DialRequestList: StaticListSchema = [1, n0, _DRL, 0, [() => DialRequest, 0]];
 export var FailedCampaignStateResponseList: StaticListSchema = [1, n0, _FCSRL, 0, () => FailedCampaignStateResponse];
@@ -562,10 +444,8 @@ export var SuccessfulCampaignStateResponseList: StaticListSchema = [
 ];
 export var SuccessfulRequestList: StaticListSchema = [1, n0, _SRL, 0, () => SuccessfulRequest];
 export var TagKeyList = 64 | 0;
-
 export var Attributes: StaticMapSchema = [2, n0, _A, 8, 0, 0];
 export var TagMap = 128 | 0;
-
 export var DialerConfig: StaticStructureSchema = [
   3,
   n0,
@@ -578,9 +458,7 @@ export var CreateCampaign: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["PUT", "/campaigns", 200],
-  },
+  { [_h]: ["PUT", "/campaigns", 200] },
   () => CreateCampaignRequest,
   () => CreateCampaignResponse,
 ];
@@ -588,9 +466,7 @@ export var DeleteCampaign: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["DELETE", "/campaigns/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/campaigns/{id}", 200] },
   () => DeleteCampaignRequest,
   () => __Unit,
 ];
@@ -598,9 +474,7 @@ export var DeleteConnectInstanceConfig: StaticOperationSchema = [
   9,
   n0,
   _DCIC,
-  {
-    [_h]: ["DELETE", "/connect-instance/{connectInstanceId}/config", 200],
-  },
+  { [_h]: ["DELETE", "/connect-instance/{connectInstanceId}/config", 200] },
   () => DeleteConnectInstanceConfigRequest,
   () => __Unit,
 ];
@@ -608,9 +482,7 @@ export var DeleteInstanceOnboardingJob: StaticOperationSchema = [
   9,
   n0,
   _DIOJ,
-  {
-    [_h]: ["DELETE", "/connect-instance/{connectInstanceId}/onboarding", 200],
-  },
+  { [_h]: ["DELETE", "/connect-instance/{connectInstanceId}/onboarding", 200] },
   () => DeleteInstanceOnboardingJobRequest,
   () => __Unit,
 ];
@@ -618,9 +490,7 @@ export var DescribeCampaign: StaticOperationSchema = [
   9,
   n0,
   _DCes,
-  {
-    [_h]: ["GET", "/campaigns/{id}", 200],
-  },
+  { [_h]: ["GET", "/campaigns/{id}", 200] },
   () => DescribeCampaignRequest,
   () => DescribeCampaignResponse,
 ];
@@ -628,9 +498,7 @@ export var GetCampaignState: StaticOperationSchema = [
   9,
   n0,
   _GCS,
-  {
-    [_h]: ["GET", "/campaigns/{id}/state", 200],
-  },
+  { [_h]: ["GET", "/campaigns/{id}/state", 200] },
   () => GetCampaignStateRequest,
   () => GetCampaignStateResponse,
 ];
@@ -638,9 +506,7 @@ export var GetCampaignStateBatch: StaticOperationSchema = [
   9,
   n0,
   _GCSB,
-  {
-    [_h]: ["POST", "/campaigns-state", 200],
-  },
+  { [_h]: ["POST", "/campaigns-state", 200] },
   () => GetCampaignStateBatchRequest,
   () => GetCampaignStateBatchResponse,
 ];
@@ -648,9 +514,7 @@ export var GetConnectInstanceConfig: StaticOperationSchema = [
   9,
   n0,
   _GCIC,
-  {
-    [_h]: ["GET", "/connect-instance/{connectInstanceId}/config", 200],
-  },
+  { [_h]: ["GET", "/connect-instance/{connectInstanceId}/config", 200] },
   () => GetConnectInstanceConfigRequest,
   () => GetConnectInstanceConfigResponse,
 ];
@@ -658,9 +522,7 @@ export var GetInstanceOnboardingJobStatus: StaticOperationSchema = [
   9,
   n0,
   _GIOJS,
-  {
-    [_h]: ["GET", "/connect-instance/{connectInstanceId}/onboarding", 200],
-  },
+  { [_h]: ["GET", "/connect-instance/{connectInstanceId}/onboarding", 200] },
   () => GetInstanceOnboardingJobStatusRequest,
   () => GetInstanceOnboardingJobStatusResponse,
 ];
@@ -668,9 +530,7 @@ export var ListCampaigns: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["POST", "/campaigns-summary", 200],
-  },
+  { [_h]: ["POST", "/campaigns-summary", 200] },
   () => ListCampaignsRequest,
   () => ListCampaignsResponse,
 ];
@@ -678,9 +538,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{arn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{arn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -688,9 +546,7 @@ export var PauseCampaign: StaticOperationSchema = [
   9,
   n0,
   _PC,
-  {
-    [_h]: ["POST", "/campaigns/{id}/pause", 200],
-  },
+  { [_h]: ["POST", "/campaigns/{id}/pause", 200] },
   () => PauseCampaignRequest,
   () => __Unit,
 ];
@@ -698,9 +554,7 @@ export var PutDialRequestBatch: StaticOperationSchema = [
   9,
   n0,
   _PDRB,
-  {
-    [_h]: ["PUT", "/campaigns/{id}/dial-requests", 200],
-  },
+  { [_h]: ["PUT", "/campaigns/{id}/dial-requests", 200] },
   () => PutDialRequestBatchRequest,
   () => PutDialRequestBatchResponse,
 ];
@@ -708,9 +562,7 @@ export var ResumeCampaign: StaticOperationSchema = [
   9,
   n0,
   _RC,
-  {
-    [_h]: ["POST", "/campaigns/{id}/resume", 200],
-  },
+  { [_h]: ["POST", "/campaigns/{id}/resume", 200] },
   () => ResumeCampaignRequest,
   () => __Unit,
 ];
@@ -718,9 +570,7 @@ export var StartCampaign: StaticOperationSchema = [
   9,
   n0,
   _SC,
-  {
-    [_h]: ["POST", "/campaigns/{id}/start", 200],
-  },
+  { [_h]: ["POST", "/campaigns/{id}/start", 200] },
   () => StartCampaignRequest,
   () => __Unit,
 ];
@@ -728,9 +578,7 @@ export var StartInstanceOnboardingJob: StaticOperationSchema = [
   9,
   n0,
   _SIOJ,
-  {
-    [_h]: ["PUT", "/connect-instance/{connectInstanceId}/onboarding", 200],
-  },
+  { [_h]: ["PUT", "/connect-instance/{connectInstanceId}/onboarding", 200] },
   () => StartInstanceOnboardingJobRequest,
   () => StartInstanceOnboardingJobResponse,
 ];
@@ -738,9 +586,7 @@ export var StopCampaign: StaticOperationSchema = [
   9,
   n0,
   _SCt,
-  {
-    [_h]: ["POST", "/campaigns/{id}/stop", 200],
-  },
+  { [_h]: ["POST", "/campaigns/{id}/stop", 200] },
   () => StopCampaignRequest,
   () => __Unit,
 ];
@@ -748,9 +594,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{arn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{arn}", 200] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -758,9 +602,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{arn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{arn}", 200] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -768,9 +610,7 @@ export var UpdateCampaignDialerConfig: StaticOperationSchema = [
   9,
   n0,
   _UCDC,
-  {
-    [_h]: ["POST", "/campaigns/{id}/dialer-config", 200],
-  },
+  { [_h]: ["POST", "/campaigns/{id}/dialer-config", 200] },
   () => UpdateCampaignDialerConfigRequest,
   () => __Unit,
 ];
@@ -778,9 +618,7 @@ export var UpdateCampaignName: StaticOperationSchema = [
   9,
   n0,
   _UCN,
-  {
-    [_h]: ["POST", "/campaigns/{id}/name", 200],
-  },
+  { [_h]: ["POST", "/campaigns/{id}/name", 200] },
   () => UpdateCampaignNameRequest,
   () => __Unit,
 ];
@@ -788,9 +626,7 @@ export var UpdateCampaignOutboundCallConfig: StaticOperationSchema = [
   9,
   n0,
   _UCOCC,
-  {
-    [_h]: ["POST", "/campaigns/{id}/outbound-call-config", 200],
-  },
+  { [_h]: ["POST", "/campaigns/{id}/outbound-call-config", 200] },
   () => UpdateCampaignOutboundCallConfigRequest,
   () => __Unit,
 ];

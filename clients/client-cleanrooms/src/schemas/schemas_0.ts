@@ -830,7 +830,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AnalysisTemplateText: StaticSimpleSchema = [0, n0, _ATT, 8, 0];
 export var AccessBudget: StaticStructureSchema = [
   3,
@@ -872,19 +871,8 @@ export var AccessBudgetsPrivacyTemplateUpdateParameters: StaticStructureSchema =
   [_bP],
   [() => BudgetParameters],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m, _r],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m, _r], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AggregateColumn: StaticStructureSchema = [3, n0, _AC, 0, [_cN, _f], [64 | 0, 0]];
 export var AggregationConstraint: StaticStructureSchema = [3, n0, _ACg, 0, [_cNo, _mi, _t], [0, 1, 0]];
 export var AnalysisParameter: StaticStructureSchema = [3, n0, _AP, 8, [_n, _t, _dV], [0, 0, 0]];
@@ -1304,15 +1292,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rTe, _r],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConsolidatedPolicyAggregation: StaticStructureSchema = [
   3,
   n0,
@@ -2128,19 +2112,8 @@ export var IdNamespaceAssociationSummary: StaticStructureSchema = [
     () => IdNamespaceAssociationInputReferencePropertiesSummary,
   ],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JobComputePaymentConfig: StaticStructureSchema = [3, n0, _JCPC, 0, [_iR], [2]];
 export var ListAnalysisTemplatesInput: StaticStructureSchema = [
   3,
@@ -2150,18 +2123,8 @@ export var ListAnalysisTemplatesInput: StaticStructureSchema = [
   [_mIe, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAnalysisTemplatesOutput: StaticStructureSchema = [
@@ -2180,18 +2143,8 @@ export var ListCollaborationAnalysisTemplatesInput: StaticStructureSchema = [
   [_cIo, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCollaborationAnalysisTemplatesOutput: StaticStructureSchema = [
@@ -2210,24 +2163,9 @@ export var ListCollaborationChangeRequestsInput: StaticStructureSchema = [
   [_cIo, _st, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCollaborationChangeRequestsOutput: StaticStructureSchema = [
@@ -2246,18 +2184,8 @@ export var ListCollaborationConfiguredAudienceModelAssociationsInput: StaticStru
   [_cIo, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCollaborationConfiguredAudienceModelAssociationsOutput: StaticStructureSchema = [
@@ -2276,18 +2204,8 @@ export var ListCollaborationIdNamespaceAssociationsInput: StaticStructureSchema 
   [_cIo, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCollaborationIdNamespaceAssociationsOutput: StaticStructureSchema = [
@@ -2306,30 +2224,10 @@ export var ListCollaborationPrivacyBudgetsInput: StaticStructureSchema = [
   [_cIo, _pBT, _mR, _nT, _aBRA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pBT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aBRA,
-      },
-    ],
+    [0, { [_hQ]: _pBT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _aBRA }],
   ],
 ];
 export var ListCollaborationPrivacyBudgetsOutput: StaticStructureSchema = [
@@ -2348,18 +2246,8 @@ export var ListCollaborationPrivacyBudgetTemplatesInput: StaticStructureSchema =
   [_cIo, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCollaborationPrivacyBudgetTemplatesOutput: StaticStructureSchema = [
@@ -2377,24 +2265,9 @@ export var ListCollaborationsInput: StaticStructureSchema = [
   0,
   [_nT, _mR, _mS],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mS,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _mS }],
   ],
 ];
 export var ListCollaborationsOutput: StaticStructureSchema = [
@@ -2413,18 +2286,8 @@ export var ListConfiguredAudienceModelAssociationsInput: StaticStructureSchema =
   [_mIe, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListConfiguredAudienceModelAssociationsOutput: StaticStructureSchema = [
@@ -2443,18 +2306,8 @@ export var ListConfiguredTableAssociationsInput: StaticStructureSchema = [
   [_mIe, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListConfiguredTableAssociationsOutput: StaticStructureSchema = [
@@ -2472,18 +2325,8 @@ export var ListConfiguredTablesInput: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListConfiguredTablesOutput: StaticStructureSchema = [
@@ -2502,18 +2345,8 @@ export var ListIdMappingTablesInput: StaticStructureSchema = [
   [_mIe, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListIdMappingTablesOutput: StaticStructureSchema = [
@@ -2532,18 +2365,8 @@ export var ListIdNamespaceAssociationsInput: StaticStructureSchema = [
   [_mIe, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListIdNamespaceAssociationsOutput: StaticStructureSchema = [
@@ -2561,24 +2384,9 @@ export var ListMembershipsInput: StaticStructureSchema = [
   0,
   [_nT, _mR, _st],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListMembershipsOutput: StaticStructureSchema = [
@@ -2597,18 +2405,8 @@ export var ListMembersInput: StaticStructureSchema = [
   [_cIo, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListMembersOutput: StaticStructureSchema = [3, n0, _LMOi, 0, [_nT, _mSem], [0, () => MemberSummaryList]];
@@ -2620,30 +2418,10 @@ export var ListPrivacyBudgetsInput: StaticStructureSchema = [
   [_mIe, _pBT, _nT, _mR, _aBRA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pBT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aBRA,
-      },
-    ],
+    [0, { [_hQ]: _pBT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _aBRA }],
   ],
 ];
 export var ListPrivacyBudgetsOutput: StaticStructureSchema = [
@@ -2662,18 +2440,8 @@ export var ListPrivacyBudgetTemplatesInput: StaticStructureSchema = [
   [_mIe, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPrivacyBudgetTemplatesOutput: StaticStructureSchema = [
@@ -2692,24 +2460,9 @@ export var ListProtectedJobsInput: StaticStructureSchema = [
   [_mIe, _st, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListProtectedJobsOutput: StaticStructureSchema = [
@@ -2728,24 +2481,9 @@ export var ListProtectedQueriesInput: StaticStructureSchema = [
   [_mIe, _st, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListProtectedQueriesOutput: StaticStructureSchema = [
@@ -2764,24 +2502,9 @@ export var ListSchemasInput: StaticStructureSchema = [
   [_cIo, _sTc, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sTc,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _sTc }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSchemasOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_sS, _nT], [() => SchemaSummaryList, 0]];
@@ -3108,15 +2831,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rTe],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_bu, _k], [0, 0]];
 export var Schema: StaticStructureSchema = [
   3,
@@ -3165,15 +2884,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _qN, _qV],
   [0, 0, 1],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SnowflakeTableReference: StaticStructureSchema = [
   3,
   n0,
@@ -3217,19 +2932,8 @@ export var SyntheticDataColumnProperties: StaticStructureSchema = [3, n0, _SDCP,
 export var SyntheticDataGenerationPaymentConfig: StaticStructureSchema = [3, n0, _SDGPC, 0, [_iR], [2]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -3238,12 +2942,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -3403,15 +3102,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var WorkerComputeConfiguration: StaticStructureSchema = [
   3,
@@ -3422,34 +3117,22 @@ export var WorkerComputeConfiguration: StaticStructureSchema = [
   [0, 1, () => WorkerComputeConfigurationProperties],
 ];
 export var __Unit = "unit" as const;
-
 export var CleanRoomsServiceException: StaticErrorSchema = [-3, _sm, "CleanRoomsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CleanRoomsServiceException, __CleanRoomsServiceException);
-
 export var AccessBudgetDetailsList: StaticListSchema = [1, n0, _ABDL, 0, () => AccessBudgetDetails];
 export var AggregateColumnList: StaticListSchema = [1, n0, _ACL, 0, () => AggregateColumn];
 export var AggregationConstraints: StaticListSchema = [1, n0, _ACgg, 0, () => AggregationConstraint];
 export var AllowedAdditionalAnalyses = 64 | 0;
-
 export var AllowedAnalysesList = 64 | 0;
-
 export var AllowedAnalysisProviderList = 64 | 0;
-
 export var AllowedColumnList = 64 | 0;
-
 export var AllowedResultReceivers = 64 | 0;
-
 export var AllowedResultRegions = 64 | 0;
-
 export var AnalysisParameterList: StaticListSchema = [1, n0, _APL, 0, [() => AnalysisParameter, 0]];
 export var AnalysisRuleColumnList = 64 | 0;
-
 export var AnalysisRuleColumnNameList = 64 | 0;
-
 export var AnalysisRuleTypeList = 64 | 0;
-
 export var AnalysisTemplateArnList = 64 | 0;
-
 export var AnalysisTemplateArtifactList: StaticListSchema = [1, n0, _ATAL, 0, () => AnalysisTemplateArtifact];
 export var AnalysisTemplateSummaryList: StaticListSchema = [1, n0, _ATSL, 0, () => AnalysisTemplateSummary];
 export var AnalysisTemplateValidationStatusDetailList: StaticListSchema = [
@@ -3467,7 +3150,6 @@ export var AnalysisTemplateValidationStatusReasonList: StaticListSchema = [
   () => AnalysisTemplateValidationStatusReason,
 ];
 export var AutoApprovedChangeTypeList = 64 | 0;
-
 export var BatchGetCollaborationAnalysisTemplateErrorList: StaticListSchema = [
   1,
   n0,
@@ -3487,7 +3169,6 @@ export var BudgetParameters: StaticListSchema = [1, n0, _BPu, 0, () => BudgetPar
 export var ChangeInputList: StaticListSchema = [1, n0, _CIL, 0, () => ChangeInput];
 export var ChangeList: StaticListSchema = [1, n0, _CL, 0, () => Change];
 export var ChangeTypeList = 64 | 0;
-
 export var CollaborationAnalysisTemplateList: StaticListSchema = [
   1,
   n0,
@@ -3548,9 +3229,7 @@ export var ConfiguredAudienceModelAssociationSummaryList: StaticListSchema = [
   () => ConfiguredAudienceModelAssociationSummary,
 ];
 export var ConfiguredTableAnalysisRuleTypeList = 64 | 0;
-
 export var ConfiguredTableAssociationAnalysisRuleTypeList = 64 | 0;
-
 export var ConfiguredTableAssociationSummaryList: StaticListSchema = [
   1,
   n0,
@@ -3560,7 +3239,6 @@ export var ConfiguredTableAssociationSummaryList: StaticListSchema = [
 ];
 export var ConfiguredTableSummaryList: StaticListSchema = [1, n0, _CTSL, 0, () => ConfiguredTableSummary];
 export var CustomMLMemberAbilities = 64 | 0;
-
 export var DifferentialPrivacyColumnList: StaticListSchema = [1, n0, _DPCL, 0, () => DifferentialPrivacyColumn];
 export var DifferentialPrivacyPreviewAggregationList: StaticListSchema = [
   1,
@@ -3587,7 +3265,6 @@ export var HashList: StaticListSchema = [1, n0, _HL, 0, () => Hash];
 export var IdMappingTableInputSourceList: StaticListSchema = [1, n0, _IMTISL, 0, () => IdMappingTableInputSource];
 export var IdMappingTableSummaryList: StaticListSchema = [1, n0, _IMTSL, 0, () => IdMappingTableSummary];
 export var IdMappingWorkflowsSupported = 64 | 15;
-
 export var IdNamespaceAssociationSummaryList: StaticListSchema = [
   1,
   n0,
@@ -3596,9 +3273,7 @@ export var IdNamespaceAssociationSummaryList: StaticListSchema = [
   () => IdNamespaceAssociationSummary,
 ];
 export var JoinOperatorsList = 64 | 0;
-
 export var MemberAbilities = 64 | 0;
-
 export var MemberList: StaticListSchema = [1, n0, _ML, 0, () => MemberSpecification];
 export var MembershipSummaryList: StaticListSchema = [1, n0, _MSL, 0, () => MembershipSummary];
 export var MemberSummaryList: StaticListSchema = [1, n0, _MSLe, 0, () => MemberSummary];
@@ -3606,7 +3281,6 @@ export var PrivacyBudgetSummaryList: StaticListSchema = [1, n0, _PBSL, 0, () => 
 export var PrivacyBudgetTemplateSummaryList: StaticListSchema = [1, n0, _PBTSL, 0, () => PrivacyBudgetTemplateSummary];
 export var ProtectedJobMemberOutputList: StaticListSchema = [1, n0, _PJMOL, 0, () => ProtectedJobSingleMemberOutput];
 export var ProtectedJobReceiverAccountIds = 64 | 0;
-
 export var ProtectedJobReceiverConfigurations: StaticListSchema = [
   1,
   n0,
@@ -3632,34 +3306,24 @@ export var ProtectedQueryMemberOutputList: StaticListSchema = [
 export var ProtectedQuerySummaryList: StaticListSchema = [1, n0, _PQSL, 0, () => ProtectedQuerySummary];
 export var QueryConstraintList: StaticListSchema = [1, n0, _QCL, 0, () => QueryConstraint];
 export var QueryTables = 64 | 0;
-
 export var ReceiverAccountIds = 64 | 0;
-
 export var ReceiverConfigurationsList: StaticListSchema = [1, n0, _RCL, 0, () => ReceiverConfiguration];
 export var ScalarFunctionsList = 64 | 0;
-
 export var SchemaAnalysisRuleList: StaticListSchema = [1, n0, _SARL, 0, () => AnalysisRule];
 export var SchemaAnalysisRuleRequestList: StaticListSchema = [1, n0, _SARRL, 0, () => SchemaAnalysisRuleRequest];
 export var SchemaConfigurationList = 64 | 0;
-
 export var SchemaList: StaticListSchema = [1, n0, _SLc, 0, () => Schema];
 export var SchemaStatusDetailList: StaticListSchema = [1, n0, _SSDL, 0, () => SchemaStatusDetail];
 export var SchemaStatusReasonList: StaticListSchema = [1, n0, _SSRL, 0, () => SchemaStatusReason];
 export var SchemaSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => SchemaSummary];
 export var SelectedAnalysisMethods = 64 | 0;
-
 export var SnowflakeTableSchemaList: StaticListSchema = [1, n0, _STSL, 0, () => SnowflakeTableSchemaV1];
 export var TableAliasList = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var ParameterMap = 128 | 0;
-
 export var SparkProperties = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AnalysisRulePolicy: StaticStructureSchema = [3, n0, _ARP, 0, [_v_], [() => AnalysisRulePolicyV1]];
 export var AnalysisRulePolicyV1: StaticStructureSchema = [
   3,
@@ -3896,9 +3560,7 @@ export var BatchGetCollaborationAnalysisTemplate: StaticOperationSchema = [
   9,
   n0,
   _BGCAT,
-  {
-    [_h]: ["POST", "/collaborations/{collaborationIdentifier}/batch-analysistemplates", 200],
-  },
+  { [_h]: ["POST", "/collaborations/{collaborationIdentifier}/batch-analysistemplates", 200] },
   () => BatchGetCollaborationAnalysisTemplateInput,
   () => BatchGetCollaborationAnalysisTemplateOutput,
 ];
@@ -3906,9 +3568,7 @@ export var BatchGetSchema: StaticOperationSchema = [
   9,
   n0,
   _BGS,
-  {
-    [_h]: ["POST", "/collaborations/{collaborationIdentifier}/batch-schema", 200],
-  },
+  { [_h]: ["POST", "/collaborations/{collaborationIdentifier}/batch-schema", 200] },
   () => BatchGetSchemaInput,
   () => BatchGetSchemaOutput,
 ];
@@ -3916,9 +3576,7 @@ export var BatchGetSchemaAnalysisRule: StaticOperationSchema = [
   9,
   n0,
   _BGSAR,
-  {
-    [_h]: ["POST", "/collaborations/{collaborationIdentifier}/batch-schema-analysis-rule", 200],
-  },
+  { [_h]: ["POST", "/collaborations/{collaborationIdentifier}/batch-schema-analysis-rule", 200] },
   () => BatchGetSchemaAnalysisRuleInput,
   () => BatchGetSchemaAnalysisRuleOutput,
 ];
@@ -3926,9 +3584,7 @@ export var CreateAnalysisTemplate: StaticOperationSchema = [
   9,
   n0,
   _CATr,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/analysistemplates", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/analysistemplates", 200] },
   () => CreateAnalysisTemplateInput,
   () => CreateAnalysisTemplateOutput,
 ];
@@ -3936,9 +3592,7 @@ export var CreateCollaboration: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/collaborations", 200],
-  },
+  { [_h]: ["POST", "/collaborations", 200] },
   () => CreateCollaborationInput,
   () => CreateCollaborationOutput,
 ];
@@ -3946,9 +3600,7 @@ export var CreateCollaborationChangeRequest: StaticOperationSchema = [
   9,
   n0,
   _CCCR,
-  {
-    [_h]: ["POST", "/collaborations/{collaborationIdentifier}/changeRequests", 200],
-  },
+  { [_h]: ["POST", "/collaborations/{collaborationIdentifier}/changeRequests", 200] },
   () => CreateCollaborationChangeRequestInput,
   () => CreateCollaborationChangeRequestOutput,
 ];
@@ -3956,9 +3608,7 @@ export var CreateConfiguredAudienceModelAssociation: StaticOperationSchema = [
   9,
   n0,
   _CCAMAr,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations", 200] },
   () => CreateConfiguredAudienceModelAssociationInput,
   () => CreateConfiguredAudienceModelAssociationOutput,
 ];
@@ -3966,9 +3616,7 @@ export var CreateConfiguredTable: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  {
-    [_h]: ["POST", "/configuredTables", 200],
-  },
+  { [_h]: ["POST", "/configuredTables", 200] },
   () => CreateConfiguredTableInput,
   () => CreateConfiguredTableOutput,
 ];
@@ -3976,9 +3624,7 @@ export var CreateConfiguredTableAnalysisRule: StaticOperationSchema = [
   9,
   n0,
   _CCTAR,
-  {
-    [_h]: ["POST", "/configuredTables/{configuredTableIdentifier}/analysisRule", 200],
-  },
+  { [_h]: ["POST", "/configuredTables/{configuredTableIdentifier}/analysisRule", 200] },
   () => CreateConfiguredTableAnalysisRuleInput,
   () => CreateConfiguredTableAnalysisRuleOutput,
 ];
@@ -3986,9 +3632,7 @@ export var CreateConfiguredTableAssociation: StaticOperationSchema = [
   9,
   n0,
   _CCTA,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/configuredTableAssociations", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/configuredTableAssociations", 200] },
   () => CreateConfiguredTableAssociationInput,
   () => CreateConfiguredTableAssociationOutput,
 ];
@@ -4010,9 +3654,7 @@ export var CreateIdMappingTable: StaticOperationSchema = [
   9,
   n0,
   _CIMT,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/idmappingtables", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/idmappingtables", 200] },
   () => CreateIdMappingTableInput,
   () => CreateIdMappingTableOutput,
 ];
@@ -4020,9 +3662,7 @@ export var CreateIdNamespaceAssociation: StaticOperationSchema = [
   9,
   n0,
   _CINAr,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/idnamespaceassociations", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/idnamespaceassociations", 200] },
   () => CreateIdNamespaceAssociationInput,
   () => CreateIdNamespaceAssociationOutput,
 ];
@@ -4030,9 +3670,7 @@ export var CreateMembership: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_h]: ["POST", "/memberships", 200],
-  },
+  { [_h]: ["POST", "/memberships", 200] },
   () => CreateMembershipInput,
   () => CreateMembershipOutput,
 ];
@@ -4040,9 +3678,7 @@ export var CreatePrivacyBudgetTemplate: StaticOperationSchema = [
   9,
   n0,
   _CPBTr,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/privacybudgettemplates", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/privacybudgettemplates", 200] },
   () => CreatePrivacyBudgetTemplateInput,
   () => CreatePrivacyBudgetTemplateOutput,
 ];
@@ -4050,9 +3686,7 @@ export var DeleteAnalysisTemplate: StaticOperationSchema = [
   9,
   n0,
   _DAT,
-  {
-    [_h]: ["DELETE", "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}", 204] },
   () => DeleteAnalysisTemplateInput,
   () => DeleteAnalysisTemplateOutput,
 ];
@@ -4060,9 +3694,7 @@ export var DeleteCollaboration: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/collaborations/{collaborationIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/collaborations/{collaborationIdentifier}", 204] },
   () => DeleteCollaborationInput,
   () => DeleteCollaborationOutput,
 ];
@@ -4084,9 +3716,7 @@ export var DeleteConfiguredTable: StaticOperationSchema = [
   9,
   n0,
   _DCT,
-  {
-    [_h]: ["DELETE", "/configuredTables/{configuredTableIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/configuredTables/{configuredTableIdentifier}", 204] },
   () => DeleteConfiguredTableInput,
   () => DeleteConfiguredTableOutput,
 ];
@@ -4094,9 +3724,7 @@ export var DeleteConfiguredTableAnalysisRule: StaticOperationSchema = [
   9,
   n0,
   _DCTAR,
-  {
-    [_h]: ["DELETE", "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}", 204],
-  },
+  { [_h]: ["DELETE", "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}", 204] },
   () => DeleteConfiguredTableAnalysisRuleInput,
   () => DeleteConfiguredTableAnalysisRuleOutput,
 ];
@@ -4132,9 +3760,7 @@ export var DeleteIdMappingTable: StaticOperationSchema = [
   9,
   n0,
   _DIMT,
-  {
-    [_h]: ["DELETE", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}", 204] },
   () => DeleteIdMappingTableInput,
   () => DeleteIdMappingTableOutput,
 ];
@@ -4156,9 +3782,7 @@ export var DeleteMember: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_h]: ["DELETE", "/collaborations/{collaborationIdentifier}/member/{accountId}", 204],
-  },
+  { [_h]: ["DELETE", "/collaborations/{collaborationIdentifier}/member/{accountId}", 204] },
   () => DeleteMemberInput,
   () => DeleteMemberOutput,
 ];
@@ -4166,9 +3790,7 @@ export var DeleteMembership: StaticOperationSchema = [
   9,
   n0,
   _DMe,
-  {
-    [_h]: ["DELETE", "/memberships/{membershipIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/memberships/{membershipIdentifier}", 204] },
   () => DeleteMembershipInput,
   () => DeleteMembershipOutput,
 ];
@@ -4190,9 +3812,7 @@ export var GetAnalysisTemplate: StaticOperationSchema = [
   9,
   n0,
   _GAT,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}", 200] },
   () => GetAnalysisTemplateInput,
   () => GetAnalysisTemplateOutput,
 ];
@@ -4200,9 +3820,7 @@ export var GetCollaboration: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}", 200] },
   () => GetCollaborationInput,
   () => GetCollaborationOutput,
 ];
@@ -4210,9 +3828,7 @@ export var GetCollaborationAnalysisTemplate: StaticOperationSchema = [
   9,
   n0,
   _GCAT,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}", 200] },
   () => GetCollaborationAnalysisTemplateInput,
   () => GetCollaborationAnalysisTemplateOutput,
 ];
@@ -4220,9 +3836,7 @@ export var GetCollaborationChangeRequest: StaticOperationSchema = [
   9,
   n0,
   _GCCR,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/changeRequests/{changeRequestIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/changeRequests/{changeRequestIdentifier}", 200] },
   () => GetCollaborationChangeRequestInput,
   () => GetCollaborationChangeRequestOutput,
 ];
@@ -4286,9 +3900,7 @@ export var GetConfiguredTable: StaticOperationSchema = [
   9,
   n0,
   _GCT,
-  {
-    [_h]: ["GET", "/configuredTables/{configuredTableIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/configuredTables/{configuredTableIdentifier}", 200] },
   () => GetConfiguredTableInput,
   () => GetConfiguredTableOutput,
 ];
@@ -4296,9 +3908,7 @@ export var GetConfiguredTableAnalysisRule: StaticOperationSchema = [
   9,
   n0,
   _GCTAR,
-  {
-    [_h]: ["GET", "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}", 200],
-  },
+  { [_h]: ["GET", "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}", 200] },
   () => GetConfiguredTableAnalysisRuleInput,
   () => GetConfiguredTableAnalysisRuleOutput,
 ];
@@ -4334,9 +3944,7 @@ export var GetIdMappingTable: StaticOperationSchema = [
   9,
   n0,
   _GIMT,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}", 200] },
   () => GetIdMappingTableInput,
   () => GetIdMappingTableOutput,
 ];
@@ -4358,9 +3966,7 @@ export var GetMembership: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}", 200] },
   () => GetMembershipInput,
   () => GetMembershipOutput,
 ];
@@ -4378,9 +3984,7 @@ export var GetProtectedJob: StaticOperationSchema = [
   9,
   n0,
   _GPJ,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedJobs/{protectedJobIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedJobs/{protectedJobIdentifier}", 200] },
   () => GetProtectedJobInput,
   () => GetProtectedJobOutput,
 ];
@@ -4388,9 +3992,7 @@ export var GetProtectedQuery: StaticOperationSchema = [
   9,
   n0,
   _GPQ,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}", 200] },
   () => GetProtectedQueryInput,
   () => GetProtectedQueryOutput,
 ];
@@ -4398,9 +4000,7 @@ export var GetSchema: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/schemas/{name}", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/schemas/{name}", 200] },
   () => GetSchemaInput,
   () => GetSchemaOutput,
 ];
@@ -4408,9 +4008,7 @@ export var GetSchemaAnalysisRule: StaticOperationSchema = [
   9,
   n0,
   _GSAR,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}", 200] },
   () => GetSchemaAnalysisRuleInput,
   () => GetSchemaAnalysisRuleOutput,
 ];
@@ -4418,9 +4016,7 @@ export var ListAnalysisTemplates: StaticOperationSchema = [
   9,
   n0,
   _LAT,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/analysistemplates", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/analysistemplates", 200] },
   () => ListAnalysisTemplatesInput,
   () => ListAnalysisTemplatesOutput,
 ];
@@ -4428,9 +4024,7 @@ export var ListCollaborationAnalysisTemplates: StaticOperationSchema = [
   9,
   n0,
   _LCAT,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/analysistemplates", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/analysistemplates", 200] },
   () => ListCollaborationAnalysisTemplatesInput,
   () => ListCollaborationAnalysisTemplatesOutput,
 ];
@@ -4438,9 +4032,7 @@ export var ListCollaborationChangeRequests: StaticOperationSchema = [
   9,
   n0,
   _LCCR,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/changeRequests", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/changeRequests", 200] },
   () => ListCollaborationChangeRequestsInput,
   () => ListCollaborationChangeRequestsOutput,
 ];
@@ -4448,9 +4040,7 @@ export var ListCollaborationConfiguredAudienceModelAssociations: StaticOperation
   9,
   n0,
   _LCCAMA,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations", 200] },
   () => ListCollaborationConfiguredAudienceModelAssociationsInput,
   () => ListCollaborationConfiguredAudienceModelAssociationsOutput,
 ];
@@ -4458,9 +4048,7 @@ export var ListCollaborationIdNamespaceAssociations: StaticOperationSchema = [
   9,
   n0,
   _LCINA,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/idnamespaceassociations", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/idnamespaceassociations", 200] },
   () => ListCollaborationIdNamespaceAssociationsInput,
   () => ListCollaborationIdNamespaceAssociationsOutput,
 ];
@@ -4468,9 +4056,7 @@ export var ListCollaborationPrivacyBudgets: StaticOperationSchema = [
   9,
   n0,
   _LCPB,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/privacybudgets", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/privacybudgets", 200] },
   () => ListCollaborationPrivacyBudgetsInput,
   () => ListCollaborationPrivacyBudgetsOutput,
 ];
@@ -4478,9 +4064,7 @@ export var ListCollaborationPrivacyBudgetTemplates: StaticOperationSchema = [
   9,
   n0,
   _LCPBT,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/privacybudgettemplates", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/privacybudgettemplates", 200] },
   () => ListCollaborationPrivacyBudgetTemplatesInput,
   () => ListCollaborationPrivacyBudgetTemplatesOutput,
 ];
@@ -4488,9 +4072,7 @@ export var ListCollaborations: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/collaborations", 200],
-  },
+  { [_h]: ["GET", "/collaborations", 200] },
   () => ListCollaborationsInput,
   () => ListCollaborationsOutput,
 ];
@@ -4498,9 +4080,7 @@ export var ListConfiguredAudienceModelAssociations: StaticOperationSchema = [
   9,
   n0,
   _LCAMA,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations", 200] },
   () => ListConfiguredAudienceModelAssociationsInput,
   () => ListConfiguredAudienceModelAssociationsOutput,
 ];
@@ -4508,9 +4088,7 @@ export var ListConfiguredTableAssociations: StaticOperationSchema = [
   9,
   n0,
   _LCTA,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/configuredTableAssociations", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/configuredTableAssociations", 200] },
   () => ListConfiguredTableAssociationsInput,
   () => ListConfiguredTableAssociationsOutput,
 ];
@@ -4518,9 +4096,7 @@ export var ListConfiguredTables: StaticOperationSchema = [
   9,
   n0,
   _LCT,
-  {
-    [_h]: ["GET", "/configuredTables", 200],
-  },
+  { [_h]: ["GET", "/configuredTables", 200] },
   () => ListConfiguredTablesInput,
   () => ListConfiguredTablesOutput,
 ];
@@ -4528,9 +4104,7 @@ export var ListIdMappingTables: StaticOperationSchema = [
   9,
   n0,
   _LIMT,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/idmappingtables", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/idmappingtables", 200] },
   () => ListIdMappingTablesInput,
   () => ListIdMappingTablesOutput,
 ];
@@ -4538,9 +4112,7 @@ export var ListIdNamespaceAssociations: StaticOperationSchema = [
   9,
   n0,
   _LINA,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/idnamespaceassociations", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/idnamespaceassociations", 200] },
   () => ListIdNamespaceAssociationsInput,
   () => ListIdNamespaceAssociationsOutput,
 ];
@@ -4548,9 +4120,7 @@ export var ListMembers: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/members", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/members", 200] },
   () => ListMembersInput,
   () => ListMembersOutput,
 ];
@@ -4558,9 +4128,7 @@ export var ListMemberships: StaticOperationSchema = [
   9,
   n0,
   _LMi,
-  {
-    [_h]: ["GET", "/memberships", 200],
-  },
+  { [_h]: ["GET", "/memberships", 200] },
   () => ListMembershipsInput,
   () => ListMembershipsOutput,
 ];
@@ -4568,9 +4136,7 @@ export var ListPrivacyBudgets: StaticOperationSchema = [
   9,
   n0,
   _LPB,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/privacybudgets", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/privacybudgets", 200] },
   () => ListPrivacyBudgetsInput,
   () => ListPrivacyBudgetsOutput,
 ];
@@ -4578,9 +4144,7 @@ export var ListPrivacyBudgetTemplates: StaticOperationSchema = [
   9,
   n0,
   _LPBT,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/privacybudgettemplates", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/privacybudgettemplates", 200] },
   () => ListPrivacyBudgetTemplatesInput,
   () => ListPrivacyBudgetTemplatesOutput,
 ];
@@ -4588,9 +4152,7 @@ export var ListProtectedJobs: StaticOperationSchema = [
   9,
   n0,
   _LPJ,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedJobs", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedJobs", 200] },
   () => ListProtectedJobsInput,
   () => ListProtectedJobsOutput,
 ];
@@ -4598,9 +4160,7 @@ export var ListProtectedQueries: StaticOperationSchema = [
   9,
   n0,
   _LPQ,
-  {
-    [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedQueries", 200],
-  },
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/protectedQueries", 200] },
   () => ListProtectedQueriesInput,
   () => ListProtectedQueriesOutput,
 ];
@@ -4608,9 +4168,7 @@ export var ListSchemas: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/collaborations/{collaborationIdentifier}/schemas", 200],
-  },
+  { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/schemas", 200] },
   () => ListSchemasInput,
   () => ListSchemasOutput,
 ];
@@ -4618,9 +4176,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -4628,9 +4184,7 @@ export var PopulateIdMappingTable: StaticOperationSchema = [
   9,
   n0,
   _PIMT,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}/populate", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}/populate", 200] },
   () => PopulateIdMappingTableInput,
   () => PopulateIdMappingTableOutput,
 ];
@@ -4638,9 +4192,7 @@ export var PreviewPrivacyImpact: StaticOperationSchema = [
   9,
   n0,
   _PPI,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/previewprivacyimpact", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/previewprivacyimpact", 200] },
   () => PreviewPrivacyImpactInput,
   () => PreviewPrivacyImpactOutput,
 ];
@@ -4648,9 +4200,7 @@ export var StartProtectedJob: StaticOperationSchema = [
   9,
   n0,
   _SPJ,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/protectedJobs", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/protectedJobs", 200] },
   () => StartProtectedJobInput,
   () => StartProtectedJobOutput,
 ];
@@ -4658,9 +4208,7 @@ export var StartProtectedQuery: StaticOperationSchema = [
   9,
   n0,
   _SPQ,
-  {
-    [_h]: ["POST", "/memberships/{membershipIdentifier}/protectedQueries", 200],
-  },
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/protectedQueries", 200] },
   () => StartProtectedQueryInput,
   () => StartProtectedQueryOutput,
 ];
@@ -4668,9 +4216,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -4678,9 +4224,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -4688,9 +4232,7 @@ export var UpdateAnalysisTemplate: StaticOperationSchema = [
   9,
   n0,
   _UAT,
-  {
-    [_h]: ["PATCH", "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}", 200] },
   () => UpdateAnalysisTemplateInput,
   () => UpdateAnalysisTemplateOutput,
 ];
@@ -4698,9 +4240,7 @@ export var UpdateCollaboration: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PATCH", "/collaborations/{collaborationIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/collaborations/{collaborationIdentifier}", 200] },
   () => UpdateCollaborationInput,
   () => UpdateCollaborationOutput,
 ];
@@ -4722,9 +4262,7 @@ export var UpdateConfiguredTable: StaticOperationSchema = [
   9,
   n0,
   _UCT,
-  {
-    [_h]: ["PATCH", "/configuredTables/{configuredTableIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/configuredTables/{configuredTableIdentifier}", 200] },
   () => UpdateConfiguredTableInput,
   () => UpdateConfiguredTableOutput,
 ];
@@ -4732,9 +4270,7 @@ export var UpdateConfiguredTableAnalysisRule: StaticOperationSchema = [
   9,
   n0,
   _UCTAR,
-  {
-    [_h]: ["PATCH", "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}", 200],
-  },
+  { [_h]: ["PATCH", "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}", 200] },
   () => UpdateConfiguredTableAnalysisRuleInput,
   () => UpdateConfiguredTableAnalysisRuleOutput,
 ];
@@ -4770,9 +4306,7 @@ export var UpdateIdMappingTable: StaticOperationSchema = [
   9,
   n0,
   _UIMT,
-  {
-    [_h]: ["PATCH", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}", 200] },
   () => UpdateIdMappingTableInput,
   () => UpdateIdMappingTableOutput,
 ];
@@ -4794,9 +4328,7 @@ export var UpdateMembership: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  {
-    [_h]: ["PATCH", "/memberships/{membershipIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/memberships/{membershipIdentifier}", 200] },
   () => UpdateMembershipInput,
   () => UpdateMembershipOutput,
 ];
@@ -4818,9 +4350,7 @@ export var UpdateProtectedJob: StaticOperationSchema = [
   9,
   n0,
   _UPJ,
-  {
-    [_h]: ["PATCH", "/memberships/{membershipIdentifier}/protectedJobs/{protectedJobIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/memberships/{membershipIdentifier}/protectedJobs/{protectedJobIdentifier}", 200] },
   () => UpdateProtectedJobInput,
   () => UpdateProtectedJobOutput,
 ];
@@ -4828,9 +4358,7 @@ export var UpdateProtectedQuery: StaticOperationSchema = [
   9,
   n0,
   _UPQ,
-  {
-    [_h]: ["PATCH", "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}", 200] },
   () => UpdateProtectedQueryInput,
   () => UpdateProtectedQueryOutput,
 ];

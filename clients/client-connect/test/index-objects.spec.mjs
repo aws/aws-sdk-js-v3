@@ -1,11 +1,14 @@
 import {
+  AccessType,
   ActionType,
   ActivateEvaluationFormCommand,
   AgentAvailabilityTimer,
   AgentStatusState,
   AgentStatusType,
+  AiUseCase,
   AllowedUserAction,
   AnsweringMachineDetectionStatus,
+  ApplicationType,
   ArtifactStatus,
   AssociateAnalyticsDataSetCommand,
   AssociateApprovedOriginCommand,
@@ -21,14 +24,20 @@ import {
   AssociateQueueQuickConnectsCommand,
   AssociateRoutingProfileQueuesCommand,
   AssociateSecurityKeyCommand,
+  AssociateSecurityProfilesCommand,
   AssociateTrafficDistributionGroupUserCommand,
   AssociateUserProficienciesCommand,
+  AssociateWorkspaceCommand,
   AutoEvaluationStatus,
   BatchAssociateAnalyticsDataSetCommand,
+  BatchCreateDataTableValueCommand,
+  BatchDeleteDataTableValueCommand,
+  BatchDescribeDataTableValueCommand,
   BatchDisassociateAnalyticsDataSetCommand,
   BatchGetAttachedFileMetadataCommand,
   BatchGetFlowAssociationCommand,
   BatchPutContactCommand,
+  BatchUpdateDataTableValueCommand,
   BehaviorType,
   BooleanComparisonType,
   Channel,
@@ -45,7 +54,10 @@ import {
   ContactFlowStatus,
   ContactFlowType,
   ContactInitiationMethod,
+  ContactInteractionType,
+  ContactMediaProcessingFailureMode,
   ContactMetricName,
+  ContactParticipantRole,
   ContactRecordingType,
   ContactState,
   CreateAgentStatusCommand,
@@ -55,6 +67,8 @@ import {
   CreateContactFlowModuleCommand,
   CreateContactFlowModuleVersionCommand,
   CreateContactFlowVersionCommand,
+  CreateDataTableAttributeCommand,
+  CreateDataTableCommand,
   CreateEmailAddressCommand,
   CreateEvaluationFormCommand,
   CreateHoursOfOperationCommand,
@@ -79,7 +93,12 @@ import {
   CreateViewCommand,
   CreateViewVersionCommand,
   CreateVocabularyCommand,
+  CreateWorkspaceCommand,
+  CreateWorkspacePageCommand,
   CurrentMetricName,
+  DataTableAttributeValueType,
+  DataTableLockLevel,
+  DataTableStatus,
   DateComparisonType,
   DateTimeComparisonType,
   DeactivateEvaluationFormCommand,
@@ -91,6 +110,8 @@ import {
   DeleteContactFlowModuleCommand,
   DeleteContactFlowModuleVersionCommand,
   DeleteContactFlowVersionCommand,
+  DeleteDataTableAttributeCommand,
+  DeleteDataTableCommand,
   DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
   DeleteHoursOfOperationCommand,
@@ -113,6 +134,9 @@ import {
   DeleteViewCommand,
   DeleteViewVersionCommand,
   DeleteVocabularyCommand,
+  DeleteWorkspaceCommand,
+  DeleteWorkspaceMediaCommand,
+  DeleteWorkspacePageCommand,
   DescribeAgentStatusCommand,
   DescribeAuthenticationProfileCommand,
   DescribeContactCommand,
@@ -120,6 +144,8 @@ import {
   DescribeContactFlowCommand,
   DescribeContactFlowModuleAliasCommand,
   DescribeContactFlowModuleCommand,
+  DescribeDataTableAttributeCommand,
+  DescribeDataTableCommand,
   DescribeEmailAddressCommand,
   DescribeEvaluationFormCommand,
   DescribeHoursOfOperationCommand,
@@ -141,6 +167,7 @@ import {
   DescribeUserHierarchyStructureCommand,
   DescribeViewCommand,
   DescribeVocabularyCommand,
+  DescribeWorkspaceCommand,
   DeviceType,
   DirectoryType,
   DisassociateAnalyticsDataSetCommand,
@@ -155,17 +182,23 @@ import {
   DisassociateQueueQuickConnectsCommand,
   DisassociateRoutingProfileQueuesCommand,
   DisassociateSecurityKeyCommand,
+  DisassociateSecurityProfilesCommand,
   DisassociateTrafficDistributionGroupUserCommand,
   DisassociateUserProficienciesCommand,
+  DisassociateWorkspaceCommand,
   DismissUserContactCommand,
   EmailHeaderType,
   EncryptionType,
   EndpointType,
+  EntityType,
+  EvaluateDataTableValuesCommand,
   EvaluationFormItemEnablementAction,
   EvaluationFormItemEnablementOperator,
   EvaluationFormItemEnablementSourceType,
   EvaluationFormItemEnablementSourceValueType,
   EvaluationFormItemSourceValuesComparator,
+  EvaluationFormLanguageCode,
+  EvaluationFormMultiSelectQuestionDisplayMode,
   EvaluationFormQuestionAutomationAnswerSourceType,
   EvaluationFormQuestionType,
   EvaluationFormScoringMode,
@@ -181,7 +214,9 @@ import {
   FailureReasonCode,
   FileStatusType,
   FileUseCaseType,
+  FilterV2StringConditionComparisonOperator,
   FlowAssociationResourceType,
+  FlowModuleType,
   GetAttachedFileCommand,
   GetContactAttributesCommand,
   GetContactMetricsCommand,
@@ -200,6 +235,7 @@ import {
   HistoricalMetricName,
   HoursOfOperationDays,
   ImportPhoneNumberCommand,
+  ImportWorkspaceMediaCommand,
   InboundMessageSourceType,
   InitiateAs,
   InstanceAttributeType,
@@ -224,7 +260,12 @@ import {
   ListContactFlowVersionsCommand,
   ListContactFlowsCommand,
   ListContactReferencesCommand,
+  ListDataTableAttributesCommand,
+  ListDataTablePrimaryValuesCommand,
+  ListDataTableValuesCommand,
+  ListDataTablesCommand,
   ListDefaultVocabulariesCommand,
+  ListEntitySecurityProfilesCommand,
   ListEvaluationFormVersionsCommand,
   ListEvaluationFormsCommand,
   ListFlowAssociationResourceType,
@@ -251,6 +292,7 @@ import {
   ListRulesCommand,
   ListSecurityKeysCommand,
   ListSecurityProfileApplicationsCommand,
+  ListSecurityProfileFlowModulesCommand,
   ListSecurityProfilePermissionsCommand,
   ListSecurityProfilesCommand,
   ListTagsForResourceCommand,
@@ -263,10 +305,16 @@ import {
   ListUsersCommand,
   ListViewVersionsCommand,
   ListViewsCommand,
+  ListWorkspaceMediaCommand,
+  ListWorkspacePagesCommand,
+  ListWorkspacesCommand,
   MediaStreamType,
+  MediaType,
   MeetingFeatureStatus,
   MonitorCapability,
   MonitorContactCommand,
+  MultiSelectQuestionRuleCategoryAutomationCondition,
+  NextContactType,
   NotificationContentType,
   NotificationDeliveryType,
   NumberComparisonType,
@@ -302,6 +350,7 @@ import {
   RehydrationType,
   ReleasePhoneNumberCommand,
   ReplicateInstanceCommand,
+  ResponseMode,
   ResumeContactCommand,
   ResumeContactRecordingCommand,
   RoutingCriteriaStepStatus,
@@ -316,6 +365,7 @@ import {
   SearchContactsMatchType,
   SearchContactsTimeRangeConditionType,
   SearchContactsTimeRangeType,
+  SearchDataTablesCommand,
   SearchEmailAddressesCommand,
   SearchEvaluationFormsCommand,
   SearchHoursOfOperationOverridesCommand,
@@ -329,7 +379,10 @@ import {
   SearchSecurityProfilesCommand,
   SearchUserHierarchyGroupsCommand,
   SearchUsersCommand,
+  SearchViewsCommand,
   SearchVocabulariesCommand,
+  SearchWorkspaceAssociationsCommand,
+  SearchWorkspacesCommand,
   SearchableQueueType,
   SendChatIntegrationEventCommand,
   SendOutboundEmailCommand,
@@ -342,6 +395,7 @@ import {
   StartAttachedFileUploadCommand,
   StartChatContactCommand,
   StartContactEvaluationCommand,
+  StartContactMediaProcessingCommand,
   StartContactRecordingCommand,
   StartContactStreamingCommand,
   StartEmailContactCommand,
@@ -354,6 +408,7 @@ import {
   Statistic,
   Status,
   StopContactCommand,
+  StopContactMediaProcessingCommand,
   StopContactRecordingCommand,
   StopContactStreamingCommand,
   StorageType,
@@ -385,6 +440,9 @@ import {
   UpdateContactFlowNameCommand,
   UpdateContactRoutingDataCommand,
   UpdateContactScheduleCommand,
+  UpdateDataTableAttributeCommand,
+  UpdateDataTableMetadataCommand,
+  UpdateDataTablePrimaryValuesCommand,
   UpdateEmailAddressMetadataCommand,
   UpdateEvaluationFormCommand,
   UpdateHoursOfOperationCommand,
@@ -424,13 +482,20 @@ import {
   UpdateUserSecurityProfilesCommand,
   UpdateViewContentCommand,
   UpdateViewMetadataCommand,
+  UpdateWorkspaceMetadataCommand,
+  UpdateWorkspacePageCommand,
+  UpdateWorkspaceThemeCommand,
+  UpdateWorkspaceVisibilityCommand,
   UseCaseType,
   VideoCapability,
   ViewStatus,
   ViewType,
+  Visibility,
   VocabularyLanguageCode,
   VocabularyState,
   VoiceRecordingTrack,
+  WorkspaceFontFamily,
+  paginateEvaluateDataTableValues,
   paginateGetCurrentMetricData,
   paginateGetCurrentUserData,
   paginateGetMetricData,
@@ -446,6 +511,10 @@ import {
   paginateListContactFlowVersions,
   paginateListContactFlows,
   paginateListContactReferences,
+  paginateListDataTableAttributes,
+  paginateListDataTablePrimaryValues,
+  paginateListDataTableValues,
+  paginateListDataTables,
   paginateListDefaultVocabularies,
   paginateListEvaluationFormVersions,
   paginateListEvaluationForms,
@@ -483,11 +552,14 @@ import {
   paginateListUsers,
   paginateListViewVersions,
   paginateListViews,
+  paginateListWorkspacePages,
+  paginateListWorkspaces,
   paginateSearchAgentStatuses,
   paginateSearchAvailablePhoneNumbers,
   paginateSearchContactFlowModules,
   paginateSearchContactFlows,
   paginateSearchContacts,
+  paginateSearchDataTables,
   paginateSearchHoursOfOperationOverrides,
   paginateSearchHoursOfOperations,
   paginateSearchPredefinedAttributes,
@@ -499,317 +571,367 @@ import {
   paginateSearchSecurityProfiles,
   paginateSearchUserHierarchyGroups,
   paginateSearchUsers,
+  paginateSearchViews,
   paginateSearchVocabularies,
+  paginateSearchWorkspaceAssociations,
+  paginateSearchWorkspaces,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ConnectClient === "function")
-assert(typeof Connect === "function")
+assert(typeof ConnectClient === "function");
+assert(typeof Connect === "function");
 // commands
-assert(typeof ActivateEvaluationFormCommand === "function")
-assert(typeof AssociateAnalyticsDataSetCommand === "function")
-assert(typeof AssociateApprovedOriginCommand === "function")
-assert(typeof AssociateBotCommand === "function")
-assert(typeof AssociateContactWithUserCommand === "function")
-assert(typeof AssociateDefaultVocabularyCommand === "function")
-assert(typeof AssociateEmailAddressAliasCommand === "function")
-assert(typeof AssociateFlowCommand === "function")
-assert(typeof AssociateInstanceStorageConfigCommand === "function")
-assert(typeof AssociateLambdaFunctionCommand === "function")
-assert(typeof AssociateLexBotCommand === "function")
-assert(typeof AssociatePhoneNumberContactFlowCommand === "function")
-assert(typeof AssociateQueueQuickConnectsCommand === "function")
-assert(typeof AssociateRoutingProfileQueuesCommand === "function")
-assert(typeof AssociateSecurityKeyCommand === "function")
-assert(typeof AssociateTrafficDistributionGroupUserCommand === "function")
-assert(typeof AssociateUserProficienciesCommand === "function")
-assert(typeof BatchAssociateAnalyticsDataSetCommand === "function")
-assert(typeof BatchDisassociateAnalyticsDataSetCommand === "function")
-assert(typeof BatchGetAttachedFileMetadataCommand === "function")
-assert(typeof BatchGetFlowAssociationCommand === "function")
-assert(typeof BatchPutContactCommand === "function")
-assert(typeof ClaimPhoneNumberCommand === "function")
-assert(typeof CompleteAttachedFileUploadCommand === "function")
-assert(typeof CreateAgentStatusCommand === "function")
-assert(typeof CreateContactCommand === "function")
-assert(typeof CreateContactFlowCommand === "function")
-assert(typeof CreateContactFlowModuleCommand === "function")
-assert(typeof CreateContactFlowModuleAliasCommand === "function")
-assert(typeof CreateContactFlowModuleVersionCommand === "function")
-assert(typeof CreateContactFlowVersionCommand === "function")
-assert(typeof CreateEmailAddressCommand === "function")
-assert(typeof CreateEvaluationFormCommand === "function")
-assert(typeof CreateHoursOfOperationCommand === "function")
-assert(typeof CreateHoursOfOperationOverrideCommand === "function")
-assert(typeof CreateInstanceCommand === "function")
-assert(typeof CreateIntegrationAssociationCommand === "function")
-assert(typeof CreateParticipantCommand === "function")
-assert(typeof CreatePersistentContactAssociationCommand === "function")
-assert(typeof CreatePredefinedAttributeCommand === "function")
-assert(typeof CreatePromptCommand === "function")
-assert(typeof CreatePushNotificationRegistrationCommand === "function")
-assert(typeof CreateQueueCommand === "function")
-assert(typeof CreateQuickConnectCommand === "function")
-assert(typeof CreateRoutingProfileCommand === "function")
-assert(typeof CreateRuleCommand === "function")
-assert(typeof CreateSecurityProfileCommand === "function")
-assert(typeof CreateTaskTemplateCommand === "function")
-assert(typeof CreateTrafficDistributionGroupCommand === "function")
-assert(typeof CreateUseCaseCommand === "function")
-assert(typeof CreateUserCommand === "function")
-assert(typeof CreateUserHierarchyGroupCommand === "function")
-assert(typeof CreateViewCommand === "function")
-assert(typeof CreateViewVersionCommand === "function")
-assert(typeof CreateVocabularyCommand === "function")
-assert(typeof DeactivateEvaluationFormCommand === "function")
-assert(typeof DeleteAttachedFileCommand === "function")
-assert(typeof DeleteContactEvaluationCommand === "function")
-assert(typeof DeleteContactFlowCommand === "function")
-assert(typeof DeleteContactFlowModuleCommand === "function")
-assert(typeof DeleteContactFlowModuleAliasCommand === "function")
-assert(typeof DeleteContactFlowModuleVersionCommand === "function")
-assert(typeof DeleteContactFlowVersionCommand === "function")
-assert(typeof DeleteEmailAddressCommand === "function")
-assert(typeof DeleteEvaluationFormCommand === "function")
-assert(typeof DeleteHoursOfOperationCommand === "function")
-assert(typeof DeleteHoursOfOperationOverrideCommand === "function")
-assert(typeof DeleteInstanceCommand === "function")
-assert(typeof DeleteIntegrationAssociationCommand === "function")
-assert(typeof DeletePredefinedAttributeCommand === "function")
-assert(typeof DeletePromptCommand === "function")
-assert(typeof DeletePushNotificationRegistrationCommand === "function")
-assert(typeof DeleteQueueCommand === "function")
-assert(typeof DeleteQuickConnectCommand === "function")
-assert(typeof DeleteRoutingProfileCommand === "function")
-assert(typeof DeleteRuleCommand === "function")
-assert(typeof DeleteSecurityProfileCommand === "function")
-assert(typeof DeleteTaskTemplateCommand === "function")
-assert(typeof DeleteTrafficDistributionGroupCommand === "function")
-assert(typeof DeleteUseCaseCommand === "function")
-assert(typeof DeleteUserCommand === "function")
-assert(typeof DeleteUserHierarchyGroupCommand === "function")
-assert(typeof DeleteViewCommand === "function")
-assert(typeof DeleteViewVersionCommand === "function")
-assert(typeof DeleteVocabularyCommand === "function")
-assert(typeof DescribeAgentStatusCommand === "function")
-assert(typeof DescribeAuthenticationProfileCommand === "function")
-assert(typeof DescribeContactCommand === "function")
-assert(typeof DescribeContactEvaluationCommand === "function")
-assert(typeof DescribeContactFlowCommand === "function")
-assert(typeof DescribeContactFlowModuleCommand === "function")
-assert(typeof DescribeContactFlowModuleAliasCommand === "function")
-assert(typeof DescribeEmailAddressCommand === "function")
-assert(typeof DescribeEvaluationFormCommand === "function")
-assert(typeof DescribeHoursOfOperationCommand === "function")
-assert(typeof DescribeHoursOfOperationOverrideCommand === "function")
-assert(typeof DescribeInstanceCommand === "function")
-assert(typeof DescribeInstanceAttributeCommand === "function")
-assert(typeof DescribeInstanceStorageConfigCommand === "function")
-assert(typeof DescribePhoneNumberCommand === "function")
-assert(typeof DescribePredefinedAttributeCommand === "function")
-assert(typeof DescribePromptCommand === "function")
-assert(typeof DescribeQueueCommand === "function")
-assert(typeof DescribeQuickConnectCommand === "function")
-assert(typeof DescribeRoutingProfileCommand === "function")
-assert(typeof DescribeRuleCommand === "function")
-assert(typeof DescribeSecurityProfileCommand === "function")
-assert(typeof DescribeTrafficDistributionGroupCommand === "function")
-assert(typeof DescribeUserCommand === "function")
-assert(typeof DescribeUserHierarchyGroupCommand === "function")
-assert(typeof DescribeUserHierarchyStructureCommand === "function")
-assert(typeof DescribeViewCommand === "function")
-assert(typeof DescribeVocabularyCommand === "function")
-assert(typeof DisassociateAnalyticsDataSetCommand === "function")
-assert(typeof DisassociateApprovedOriginCommand === "function")
-assert(typeof DisassociateBotCommand === "function")
-assert(typeof DisassociateEmailAddressAliasCommand === "function")
-assert(typeof DisassociateFlowCommand === "function")
-assert(typeof DisassociateInstanceStorageConfigCommand === "function")
-assert(typeof DisassociateLambdaFunctionCommand === "function")
-assert(typeof DisassociateLexBotCommand === "function")
-assert(typeof DisassociatePhoneNumberContactFlowCommand === "function")
-assert(typeof DisassociateQueueQuickConnectsCommand === "function")
-assert(typeof DisassociateRoutingProfileQueuesCommand === "function")
-assert(typeof DisassociateSecurityKeyCommand === "function")
-assert(typeof DisassociateTrafficDistributionGroupUserCommand === "function")
-assert(typeof DisassociateUserProficienciesCommand === "function")
-assert(typeof DismissUserContactCommand === "function")
-assert(typeof GetAttachedFileCommand === "function")
-assert(typeof GetContactAttributesCommand === "function")
-assert(typeof GetContactMetricsCommand === "function")
-assert(typeof GetCurrentMetricDataCommand === "function")
-assert(typeof GetCurrentUserDataCommand === "function")
-assert(typeof GetEffectiveHoursOfOperationsCommand === "function")
-assert(typeof GetFederationTokenCommand === "function")
-assert(typeof GetFlowAssociationCommand === "function")
-assert(typeof GetMetricDataCommand === "function")
-assert(typeof GetMetricDataV2Command === "function")
-assert(typeof GetPromptFileCommand === "function")
-assert(typeof GetTaskTemplateCommand === "function")
-assert(typeof GetTrafficDistributionCommand === "function")
-assert(typeof ImportPhoneNumberCommand === "function")
-assert(typeof ListAgentStatusesCommand === "function")
-assert(typeof ListAnalyticsDataAssociationsCommand === "function")
-assert(typeof ListAnalyticsDataLakeDataSetsCommand === "function")
-assert(typeof ListApprovedOriginsCommand === "function")
-assert(typeof ListAssociatedContactsCommand === "function")
-assert(typeof ListAuthenticationProfilesCommand === "function")
-assert(typeof ListBotsCommand === "function")
-assert(typeof ListContactEvaluationsCommand === "function")
-assert(typeof ListContactFlowModuleAliasesCommand === "function")
-assert(typeof ListContactFlowModulesCommand === "function")
-assert(typeof ListContactFlowModuleVersionsCommand === "function")
-assert(typeof ListContactFlowsCommand === "function")
-assert(typeof ListContactFlowVersionsCommand === "function")
-assert(typeof ListContactReferencesCommand === "function")
-assert(typeof ListDefaultVocabulariesCommand === "function")
-assert(typeof ListEvaluationFormsCommand === "function")
-assert(typeof ListEvaluationFormVersionsCommand === "function")
-assert(typeof ListFlowAssociationsCommand === "function")
-assert(typeof ListHoursOfOperationOverridesCommand === "function")
-assert(typeof ListHoursOfOperationsCommand === "function")
-assert(typeof ListInstanceAttributesCommand === "function")
-assert(typeof ListInstancesCommand === "function")
-assert(typeof ListInstanceStorageConfigsCommand === "function")
-assert(typeof ListIntegrationAssociationsCommand === "function")
-assert(typeof ListLambdaFunctionsCommand === "function")
-assert(typeof ListLexBotsCommand === "function")
-assert(typeof ListPhoneNumbersCommand === "function")
-assert(typeof ListPhoneNumbersV2Command === "function")
-assert(typeof ListPredefinedAttributesCommand === "function")
-assert(typeof ListPromptsCommand === "function")
-assert(typeof ListQueueQuickConnectsCommand === "function")
-assert(typeof ListQueuesCommand === "function")
-assert(typeof ListQuickConnectsCommand === "function")
-assert(typeof ListRealtimeContactAnalysisSegmentsV2Command === "function")
-assert(typeof ListRoutingProfileManualAssignmentQueuesCommand === "function")
-assert(typeof ListRoutingProfileQueuesCommand === "function")
-assert(typeof ListRoutingProfilesCommand === "function")
-assert(typeof ListRulesCommand === "function")
-assert(typeof ListSecurityKeysCommand === "function")
-assert(typeof ListSecurityProfileApplicationsCommand === "function")
-assert(typeof ListSecurityProfilePermissionsCommand === "function")
-assert(typeof ListSecurityProfilesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ListTaskTemplatesCommand === "function")
-assert(typeof ListTrafficDistributionGroupsCommand === "function")
-assert(typeof ListTrafficDistributionGroupUsersCommand === "function")
-assert(typeof ListUseCasesCommand === "function")
-assert(typeof ListUserHierarchyGroupsCommand === "function")
-assert(typeof ListUserProficienciesCommand === "function")
-assert(typeof ListUsersCommand === "function")
-assert(typeof ListViewsCommand === "function")
-assert(typeof ListViewVersionsCommand === "function")
-assert(typeof MonitorContactCommand === "function")
-assert(typeof PauseContactCommand === "function")
-assert(typeof PutUserStatusCommand === "function")
-assert(typeof ReleasePhoneNumberCommand === "function")
-assert(typeof ReplicateInstanceCommand === "function")
-assert(typeof ResumeContactCommand === "function")
-assert(typeof ResumeContactRecordingCommand === "function")
-assert(typeof SearchAgentStatusesCommand === "function")
-assert(typeof SearchAvailablePhoneNumbersCommand === "function")
-assert(typeof SearchContactEvaluationsCommand === "function")
-assert(typeof SearchContactFlowModulesCommand === "function")
-assert(typeof SearchContactFlowsCommand === "function")
-assert(typeof SearchContactsCommand === "function")
-assert(typeof SearchEmailAddressesCommand === "function")
-assert(typeof SearchEvaluationFormsCommand === "function")
-assert(typeof SearchHoursOfOperationOverridesCommand === "function")
-assert(typeof SearchHoursOfOperationsCommand === "function")
-assert(typeof SearchPredefinedAttributesCommand === "function")
-assert(typeof SearchPromptsCommand === "function")
-assert(typeof SearchQueuesCommand === "function")
-assert(typeof SearchQuickConnectsCommand === "function")
-assert(typeof SearchResourceTagsCommand === "function")
-assert(typeof SearchRoutingProfilesCommand === "function")
-assert(typeof SearchSecurityProfilesCommand === "function")
-assert(typeof SearchUserHierarchyGroupsCommand === "function")
-assert(typeof SearchUsersCommand === "function")
-assert(typeof SearchVocabulariesCommand === "function")
-assert(typeof SendChatIntegrationEventCommand === "function")
-assert(typeof SendOutboundEmailCommand === "function")
-assert(typeof StartAttachedFileUploadCommand === "function")
-assert(typeof StartChatContactCommand === "function")
-assert(typeof StartContactEvaluationCommand === "function")
-assert(typeof StartContactRecordingCommand === "function")
-assert(typeof StartContactStreamingCommand === "function")
-assert(typeof StartEmailContactCommand === "function")
-assert(typeof StartOutboundChatContactCommand === "function")
-assert(typeof StartOutboundEmailContactCommand === "function")
-assert(typeof StartOutboundVoiceContactCommand === "function")
-assert(typeof StartScreenSharingCommand === "function")
-assert(typeof StartTaskContactCommand === "function")
-assert(typeof StartWebRTCContactCommand === "function")
-assert(typeof StopContactCommand === "function")
-assert(typeof StopContactRecordingCommand === "function")
-assert(typeof StopContactStreamingCommand === "function")
-assert(typeof SubmitContactEvaluationCommand === "function")
-assert(typeof SuspendContactRecordingCommand === "function")
-assert(typeof TagContactCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof TransferContactCommand === "function")
-assert(typeof UntagContactCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateAgentStatusCommand === "function")
-assert(typeof UpdateAuthenticationProfileCommand === "function")
-assert(typeof UpdateContactCommand === "function")
-assert(typeof UpdateContactAttributesCommand === "function")
-assert(typeof UpdateContactEvaluationCommand === "function")
-assert(typeof UpdateContactFlowContentCommand === "function")
-assert(typeof UpdateContactFlowMetadataCommand === "function")
-assert(typeof UpdateContactFlowModuleAliasCommand === "function")
-assert(typeof UpdateContactFlowModuleContentCommand === "function")
-assert(typeof UpdateContactFlowModuleMetadataCommand === "function")
-assert(typeof UpdateContactFlowNameCommand === "function")
-assert(typeof UpdateContactRoutingDataCommand === "function")
-assert(typeof UpdateContactScheduleCommand === "function")
-assert(typeof UpdateEmailAddressMetadataCommand === "function")
-assert(typeof UpdateEvaluationFormCommand === "function")
-assert(typeof UpdateHoursOfOperationCommand === "function")
-assert(typeof UpdateHoursOfOperationOverrideCommand === "function")
-assert(typeof UpdateInstanceAttributeCommand === "function")
-assert(typeof UpdateInstanceStorageConfigCommand === "function")
-assert(typeof UpdateParticipantAuthenticationCommand === "function")
-assert(typeof UpdateParticipantRoleConfigCommand === "function")
-assert(typeof UpdatePhoneNumberCommand === "function")
-assert(typeof UpdatePhoneNumberMetadataCommand === "function")
-assert(typeof UpdatePredefinedAttributeCommand === "function")
-assert(typeof UpdatePromptCommand === "function")
-assert(typeof UpdateQueueHoursOfOperationCommand === "function")
-assert(typeof UpdateQueueMaxContactsCommand === "function")
-assert(typeof UpdateQueueNameCommand === "function")
-assert(typeof UpdateQueueOutboundCallerConfigCommand === "function")
-assert(typeof UpdateQueueOutboundEmailConfigCommand === "function")
-assert(typeof UpdateQueueStatusCommand === "function")
-assert(typeof UpdateQuickConnectConfigCommand === "function")
-assert(typeof UpdateQuickConnectNameCommand === "function")
-assert(typeof UpdateRoutingProfileAgentAvailabilityTimerCommand === "function")
-assert(typeof UpdateRoutingProfileConcurrencyCommand === "function")
-assert(typeof UpdateRoutingProfileDefaultOutboundQueueCommand === "function")
-assert(typeof UpdateRoutingProfileNameCommand === "function")
-assert(typeof UpdateRoutingProfileQueuesCommand === "function")
-assert(typeof UpdateRuleCommand === "function")
-assert(typeof UpdateSecurityProfileCommand === "function")
-assert(typeof UpdateTaskTemplateCommand === "function")
-assert(typeof UpdateTrafficDistributionCommand === "function")
-assert(typeof UpdateUserHierarchyCommand === "function")
-assert(typeof UpdateUserHierarchyGroupNameCommand === "function")
-assert(typeof UpdateUserHierarchyStructureCommand === "function")
-assert(typeof UpdateUserIdentityInfoCommand === "function")
-assert(typeof UpdateUserPhoneConfigCommand === "function")
-assert(typeof UpdateUserProficienciesCommand === "function")
-assert(typeof UpdateUserRoutingProfileCommand === "function")
-assert(typeof UpdateUserSecurityProfilesCommand === "function")
-assert(typeof UpdateViewContentCommand === "function")
-assert(typeof UpdateViewMetadataCommand === "function")
+assert(typeof ActivateEvaluationFormCommand === "function");
+assert(typeof AssociateAnalyticsDataSetCommand === "function");
+assert(typeof AssociateApprovedOriginCommand === "function");
+assert(typeof AssociateBotCommand === "function");
+assert(typeof AssociateContactWithUserCommand === "function");
+assert(typeof AssociateDefaultVocabularyCommand === "function");
+assert(typeof AssociateEmailAddressAliasCommand === "function");
+assert(typeof AssociateFlowCommand === "function");
+assert(typeof AssociateInstanceStorageConfigCommand === "function");
+assert(typeof AssociateLambdaFunctionCommand === "function");
+assert(typeof AssociateLexBotCommand === "function");
+assert(typeof AssociatePhoneNumberContactFlowCommand === "function");
+assert(typeof AssociateQueueQuickConnectsCommand === "function");
+assert(typeof AssociateRoutingProfileQueuesCommand === "function");
+assert(typeof AssociateSecurityKeyCommand === "function");
+assert(typeof AssociateSecurityProfilesCommand === "function");
+assert(typeof AssociateTrafficDistributionGroupUserCommand === "function");
+assert(typeof AssociateUserProficienciesCommand === "function");
+assert(typeof AssociateWorkspaceCommand === "function");
+assert(typeof BatchAssociateAnalyticsDataSetCommand === "function");
+assert(typeof BatchCreateDataTableValueCommand === "function");
+assert(typeof BatchDeleteDataTableValueCommand === "function");
+assert(typeof BatchDescribeDataTableValueCommand === "function");
+assert(typeof BatchDisassociateAnalyticsDataSetCommand === "function");
+assert(typeof BatchGetAttachedFileMetadataCommand === "function");
+assert(typeof BatchGetFlowAssociationCommand === "function");
+assert(typeof BatchPutContactCommand === "function");
+assert(typeof BatchUpdateDataTableValueCommand === "function");
+assert(typeof ClaimPhoneNumberCommand === "function");
+assert(typeof CompleteAttachedFileUploadCommand === "function");
+assert(typeof CreateAgentStatusCommand === "function");
+assert(typeof CreateContactCommand === "function");
+assert(typeof CreateContactFlowCommand === "function");
+assert(typeof CreateContactFlowModuleCommand === "function");
+assert(typeof CreateContactFlowModuleAliasCommand === "function");
+assert(typeof CreateContactFlowModuleVersionCommand === "function");
+assert(typeof CreateContactFlowVersionCommand === "function");
+assert(typeof CreateDataTableCommand === "function");
+assert(typeof CreateDataTableAttributeCommand === "function");
+assert(typeof CreateEmailAddressCommand === "function");
+assert(typeof CreateEvaluationFormCommand === "function");
+assert(typeof CreateHoursOfOperationCommand === "function");
+assert(typeof CreateHoursOfOperationOverrideCommand === "function");
+assert(typeof CreateInstanceCommand === "function");
+assert(typeof CreateIntegrationAssociationCommand === "function");
+assert(typeof CreateParticipantCommand === "function");
+assert(typeof CreatePersistentContactAssociationCommand === "function");
+assert(typeof CreatePredefinedAttributeCommand === "function");
+assert(typeof CreatePromptCommand === "function");
+assert(typeof CreatePushNotificationRegistrationCommand === "function");
+assert(typeof CreateQueueCommand === "function");
+assert(typeof CreateQuickConnectCommand === "function");
+assert(typeof CreateRoutingProfileCommand === "function");
+assert(typeof CreateRuleCommand === "function");
+assert(typeof CreateSecurityProfileCommand === "function");
+assert(typeof CreateTaskTemplateCommand === "function");
+assert(typeof CreateTrafficDistributionGroupCommand === "function");
+assert(typeof CreateUseCaseCommand === "function");
+assert(typeof CreateUserCommand === "function");
+assert(typeof CreateUserHierarchyGroupCommand === "function");
+assert(typeof CreateViewCommand === "function");
+assert(typeof CreateViewVersionCommand === "function");
+assert(typeof CreateVocabularyCommand === "function");
+assert(typeof CreateWorkspaceCommand === "function");
+assert(typeof CreateWorkspacePageCommand === "function");
+assert(typeof DeactivateEvaluationFormCommand === "function");
+assert(typeof DeleteAttachedFileCommand === "function");
+assert(typeof DeleteContactEvaluationCommand === "function");
+assert(typeof DeleteContactFlowCommand === "function");
+assert(typeof DeleteContactFlowModuleCommand === "function");
+assert(typeof DeleteContactFlowModuleAliasCommand === "function");
+assert(typeof DeleteContactFlowModuleVersionCommand === "function");
+assert(typeof DeleteContactFlowVersionCommand === "function");
+assert(typeof DeleteDataTableCommand === "function");
+assert(typeof DeleteDataTableAttributeCommand === "function");
+assert(typeof DeleteEmailAddressCommand === "function");
+assert(typeof DeleteEvaluationFormCommand === "function");
+assert(typeof DeleteHoursOfOperationCommand === "function");
+assert(typeof DeleteHoursOfOperationOverrideCommand === "function");
+assert(typeof DeleteInstanceCommand === "function");
+assert(typeof DeleteIntegrationAssociationCommand === "function");
+assert(typeof DeletePredefinedAttributeCommand === "function");
+assert(typeof DeletePromptCommand === "function");
+assert(typeof DeletePushNotificationRegistrationCommand === "function");
+assert(typeof DeleteQueueCommand === "function");
+assert(typeof DeleteQuickConnectCommand === "function");
+assert(typeof DeleteRoutingProfileCommand === "function");
+assert(typeof DeleteRuleCommand === "function");
+assert(typeof DeleteSecurityProfileCommand === "function");
+assert(typeof DeleteTaskTemplateCommand === "function");
+assert(typeof DeleteTrafficDistributionGroupCommand === "function");
+assert(typeof DeleteUseCaseCommand === "function");
+assert(typeof DeleteUserCommand === "function");
+assert(typeof DeleteUserHierarchyGroupCommand === "function");
+assert(typeof DeleteViewCommand === "function");
+assert(typeof DeleteViewVersionCommand === "function");
+assert(typeof DeleteVocabularyCommand === "function");
+assert(typeof DeleteWorkspaceCommand === "function");
+assert(typeof DeleteWorkspaceMediaCommand === "function");
+assert(typeof DeleteWorkspacePageCommand === "function");
+assert(typeof DescribeAgentStatusCommand === "function");
+assert(typeof DescribeAuthenticationProfileCommand === "function");
+assert(typeof DescribeContactCommand === "function");
+assert(typeof DescribeContactEvaluationCommand === "function");
+assert(typeof DescribeContactFlowCommand === "function");
+assert(typeof DescribeContactFlowModuleCommand === "function");
+assert(typeof DescribeContactFlowModuleAliasCommand === "function");
+assert(typeof DescribeDataTableCommand === "function");
+assert(typeof DescribeDataTableAttributeCommand === "function");
+assert(typeof DescribeEmailAddressCommand === "function");
+assert(typeof DescribeEvaluationFormCommand === "function");
+assert(typeof DescribeHoursOfOperationCommand === "function");
+assert(typeof DescribeHoursOfOperationOverrideCommand === "function");
+assert(typeof DescribeInstanceCommand === "function");
+assert(typeof DescribeInstanceAttributeCommand === "function");
+assert(typeof DescribeInstanceStorageConfigCommand === "function");
+assert(typeof DescribePhoneNumberCommand === "function");
+assert(typeof DescribePredefinedAttributeCommand === "function");
+assert(typeof DescribePromptCommand === "function");
+assert(typeof DescribeQueueCommand === "function");
+assert(typeof DescribeQuickConnectCommand === "function");
+assert(typeof DescribeRoutingProfileCommand === "function");
+assert(typeof DescribeRuleCommand === "function");
+assert(typeof DescribeSecurityProfileCommand === "function");
+assert(typeof DescribeTrafficDistributionGroupCommand === "function");
+assert(typeof DescribeUserCommand === "function");
+assert(typeof DescribeUserHierarchyGroupCommand === "function");
+assert(typeof DescribeUserHierarchyStructureCommand === "function");
+assert(typeof DescribeViewCommand === "function");
+assert(typeof DescribeVocabularyCommand === "function");
+assert(typeof DescribeWorkspaceCommand === "function");
+assert(typeof DisassociateAnalyticsDataSetCommand === "function");
+assert(typeof DisassociateApprovedOriginCommand === "function");
+assert(typeof DisassociateBotCommand === "function");
+assert(typeof DisassociateEmailAddressAliasCommand === "function");
+assert(typeof DisassociateFlowCommand === "function");
+assert(typeof DisassociateInstanceStorageConfigCommand === "function");
+assert(typeof DisassociateLambdaFunctionCommand === "function");
+assert(typeof DisassociateLexBotCommand === "function");
+assert(typeof DisassociatePhoneNumberContactFlowCommand === "function");
+assert(typeof DisassociateQueueQuickConnectsCommand === "function");
+assert(typeof DisassociateRoutingProfileQueuesCommand === "function");
+assert(typeof DisassociateSecurityKeyCommand === "function");
+assert(typeof DisassociateSecurityProfilesCommand === "function");
+assert(typeof DisassociateTrafficDistributionGroupUserCommand === "function");
+assert(typeof DisassociateUserProficienciesCommand === "function");
+assert(typeof DisassociateWorkspaceCommand === "function");
+assert(typeof DismissUserContactCommand === "function");
+assert(typeof EvaluateDataTableValuesCommand === "function");
+assert(typeof GetAttachedFileCommand === "function");
+assert(typeof GetContactAttributesCommand === "function");
+assert(typeof GetContactMetricsCommand === "function");
+assert(typeof GetCurrentMetricDataCommand === "function");
+assert(typeof GetCurrentUserDataCommand === "function");
+assert(typeof GetEffectiveHoursOfOperationsCommand === "function");
+assert(typeof GetFederationTokenCommand === "function");
+assert(typeof GetFlowAssociationCommand === "function");
+assert(typeof GetMetricDataCommand === "function");
+assert(typeof GetMetricDataV2Command === "function");
+assert(typeof GetPromptFileCommand === "function");
+assert(typeof GetTaskTemplateCommand === "function");
+assert(typeof GetTrafficDistributionCommand === "function");
+assert(typeof ImportPhoneNumberCommand === "function");
+assert(typeof ImportWorkspaceMediaCommand === "function");
+assert(typeof ListAgentStatusesCommand === "function");
+assert(typeof ListAnalyticsDataAssociationsCommand === "function");
+assert(typeof ListAnalyticsDataLakeDataSetsCommand === "function");
+assert(typeof ListApprovedOriginsCommand === "function");
+assert(typeof ListAssociatedContactsCommand === "function");
+assert(typeof ListAuthenticationProfilesCommand === "function");
+assert(typeof ListBotsCommand === "function");
+assert(typeof ListContactEvaluationsCommand === "function");
+assert(typeof ListContactFlowModuleAliasesCommand === "function");
+assert(typeof ListContactFlowModulesCommand === "function");
+assert(typeof ListContactFlowModuleVersionsCommand === "function");
+assert(typeof ListContactFlowsCommand === "function");
+assert(typeof ListContactFlowVersionsCommand === "function");
+assert(typeof ListContactReferencesCommand === "function");
+assert(typeof ListDataTableAttributesCommand === "function");
+assert(typeof ListDataTablePrimaryValuesCommand === "function");
+assert(typeof ListDataTablesCommand === "function");
+assert(typeof ListDataTableValuesCommand === "function");
+assert(typeof ListDefaultVocabulariesCommand === "function");
+assert(typeof ListEntitySecurityProfilesCommand === "function");
+assert(typeof ListEvaluationFormsCommand === "function");
+assert(typeof ListEvaluationFormVersionsCommand === "function");
+assert(typeof ListFlowAssociationsCommand === "function");
+assert(typeof ListHoursOfOperationOverridesCommand === "function");
+assert(typeof ListHoursOfOperationsCommand === "function");
+assert(typeof ListInstanceAttributesCommand === "function");
+assert(typeof ListInstancesCommand === "function");
+assert(typeof ListInstanceStorageConfigsCommand === "function");
+assert(typeof ListIntegrationAssociationsCommand === "function");
+assert(typeof ListLambdaFunctionsCommand === "function");
+assert(typeof ListLexBotsCommand === "function");
+assert(typeof ListPhoneNumbersCommand === "function");
+assert(typeof ListPhoneNumbersV2Command === "function");
+assert(typeof ListPredefinedAttributesCommand === "function");
+assert(typeof ListPromptsCommand === "function");
+assert(typeof ListQueueQuickConnectsCommand === "function");
+assert(typeof ListQueuesCommand === "function");
+assert(typeof ListQuickConnectsCommand === "function");
+assert(typeof ListRealtimeContactAnalysisSegmentsV2Command === "function");
+assert(typeof ListRoutingProfileManualAssignmentQueuesCommand === "function");
+assert(typeof ListRoutingProfileQueuesCommand === "function");
+assert(typeof ListRoutingProfilesCommand === "function");
+assert(typeof ListRulesCommand === "function");
+assert(typeof ListSecurityKeysCommand === "function");
+assert(typeof ListSecurityProfileApplicationsCommand === "function");
+assert(typeof ListSecurityProfileFlowModulesCommand === "function");
+assert(typeof ListSecurityProfilePermissionsCommand === "function");
+assert(typeof ListSecurityProfilesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListTaskTemplatesCommand === "function");
+assert(typeof ListTrafficDistributionGroupsCommand === "function");
+assert(typeof ListTrafficDistributionGroupUsersCommand === "function");
+assert(typeof ListUseCasesCommand === "function");
+assert(typeof ListUserHierarchyGroupsCommand === "function");
+assert(typeof ListUserProficienciesCommand === "function");
+assert(typeof ListUsersCommand === "function");
+assert(typeof ListViewsCommand === "function");
+assert(typeof ListViewVersionsCommand === "function");
+assert(typeof ListWorkspaceMediaCommand === "function");
+assert(typeof ListWorkspacePagesCommand === "function");
+assert(typeof ListWorkspacesCommand === "function");
+assert(typeof MonitorContactCommand === "function");
+assert(typeof PauseContactCommand === "function");
+assert(typeof PutUserStatusCommand === "function");
+assert(typeof ReleasePhoneNumberCommand === "function");
+assert(typeof ReplicateInstanceCommand === "function");
+assert(typeof ResumeContactCommand === "function");
+assert(typeof ResumeContactRecordingCommand === "function");
+assert(typeof SearchAgentStatusesCommand === "function");
+assert(typeof SearchAvailablePhoneNumbersCommand === "function");
+assert(typeof SearchContactEvaluationsCommand === "function");
+assert(typeof SearchContactFlowModulesCommand === "function");
+assert(typeof SearchContactFlowsCommand === "function");
+assert(typeof SearchContactsCommand === "function");
+assert(typeof SearchDataTablesCommand === "function");
+assert(typeof SearchEmailAddressesCommand === "function");
+assert(typeof SearchEvaluationFormsCommand === "function");
+assert(typeof SearchHoursOfOperationOverridesCommand === "function");
+assert(typeof SearchHoursOfOperationsCommand === "function");
+assert(typeof SearchPredefinedAttributesCommand === "function");
+assert(typeof SearchPromptsCommand === "function");
+assert(typeof SearchQueuesCommand === "function");
+assert(typeof SearchQuickConnectsCommand === "function");
+assert(typeof SearchResourceTagsCommand === "function");
+assert(typeof SearchRoutingProfilesCommand === "function");
+assert(typeof SearchSecurityProfilesCommand === "function");
+assert(typeof SearchUserHierarchyGroupsCommand === "function");
+assert(typeof SearchUsersCommand === "function");
+assert(typeof SearchViewsCommand === "function");
+assert(typeof SearchVocabulariesCommand === "function");
+assert(typeof SearchWorkspaceAssociationsCommand === "function");
+assert(typeof SearchWorkspacesCommand === "function");
+assert(typeof SendChatIntegrationEventCommand === "function");
+assert(typeof SendOutboundEmailCommand === "function");
+assert(typeof StartAttachedFileUploadCommand === "function");
+assert(typeof StartChatContactCommand === "function");
+assert(typeof StartContactEvaluationCommand === "function");
+assert(typeof StartContactMediaProcessingCommand === "function");
+assert(typeof StartContactRecordingCommand === "function");
+assert(typeof StartContactStreamingCommand === "function");
+assert(typeof StartEmailContactCommand === "function");
+assert(typeof StartOutboundChatContactCommand === "function");
+assert(typeof StartOutboundEmailContactCommand === "function");
+assert(typeof StartOutboundVoiceContactCommand === "function");
+assert(typeof StartScreenSharingCommand === "function");
+assert(typeof StartTaskContactCommand === "function");
+assert(typeof StartWebRTCContactCommand === "function");
+assert(typeof StopContactCommand === "function");
+assert(typeof StopContactMediaProcessingCommand === "function");
+assert(typeof StopContactRecordingCommand === "function");
+assert(typeof StopContactStreamingCommand === "function");
+assert(typeof SubmitContactEvaluationCommand === "function");
+assert(typeof SuspendContactRecordingCommand === "function");
+assert(typeof TagContactCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof TransferContactCommand === "function");
+assert(typeof UntagContactCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateAgentStatusCommand === "function");
+assert(typeof UpdateAuthenticationProfileCommand === "function");
+assert(typeof UpdateContactCommand === "function");
+assert(typeof UpdateContactAttributesCommand === "function");
+assert(typeof UpdateContactEvaluationCommand === "function");
+assert(typeof UpdateContactFlowContentCommand === "function");
+assert(typeof UpdateContactFlowMetadataCommand === "function");
+assert(typeof UpdateContactFlowModuleAliasCommand === "function");
+assert(typeof UpdateContactFlowModuleContentCommand === "function");
+assert(typeof UpdateContactFlowModuleMetadataCommand === "function");
+assert(typeof UpdateContactFlowNameCommand === "function");
+assert(typeof UpdateContactRoutingDataCommand === "function");
+assert(typeof UpdateContactScheduleCommand === "function");
+assert(typeof UpdateDataTableAttributeCommand === "function");
+assert(typeof UpdateDataTableMetadataCommand === "function");
+assert(typeof UpdateDataTablePrimaryValuesCommand === "function");
+assert(typeof UpdateEmailAddressMetadataCommand === "function");
+assert(typeof UpdateEvaluationFormCommand === "function");
+assert(typeof UpdateHoursOfOperationCommand === "function");
+assert(typeof UpdateHoursOfOperationOverrideCommand === "function");
+assert(typeof UpdateInstanceAttributeCommand === "function");
+assert(typeof UpdateInstanceStorageConfigCommand === "function");
+assert(typeof UpdateParticipantAuthenticationCommand === "function");
+assert(typeof UpdateParticipantRoleConfigCommand === "function");
+assert(typeof UpdatePhoneNumberCommand === "function");
+assert(typeof UpdatePhoneNumberMetadataCommand === "function");
+assert(typeof UpdatePredefinedAttributeCommand === "function");
+assert(typeof UpdatePromptCommand === "function");
+assert(typeof UpdateQueueHoursOfOperationCommand === "function");
+assert(typeof UpdateQueueMaxContactsCommand === "function");
+assert(typeof UpdateQueueNameCommand === "function");
+assert(typeof UpdateQueueOutboundCallerConfigCommand === "function");
+assert(typeof UpdateQueueOutboundEmailConfigCommand === "function");
+assert(typeof UpdateQueueStatusCommand === "function");
+assert(typeof UpdateQuickConnectConfigCommand === "function");
+assert(typeof UpdateQuickConnectNameCommand === "function");
+assert(typeof UpdateRoutingProfileAgentAvailabilityTimerCommand === "function");
+assert(typeof UpdateRoutingProfileConcurrencyCommand === "function");
+assert(typeof UpdateRoutingProfileDefaultOutboundQueueCommand === "function");
+assert(typeof UpdateRoutingProfileNameCommand === "function");
+assert(typeof UpdateRoutingProfileQueuesCommand === "function");
+assert(typeof UpdateRuleCommand === "function");
+assert(typeof UpdateSecurityProfileCommand === "function");
+assert(typeof UpdateTaskTemplateCommand === "function");
+assert(typeof UpdateTrafficDistributionCommand === "function");
+assert(typeof UpdateUserHierarchyCommand === "function");
+assert(typeof UpdateUserHierarchyGroupNameCommand === "function");
+assert(typeof UpdateUserHierarchyStructureCommand === "function");
+assert(typeof UpdateUserIdentityInfoCommand === "function");
+assert(typeof UpdateUserPhoneConfigCommand === "function");
+assert(typeof UpdateUserProficienciesCommand === "function");
+assert(typeof UpdateUserRoutingProfileCommand === "function");
+assert(typeof UpdateUserSecurityProfilesCommand === "function");
+assert(typeof UpdateViewContentCommand === "function");
+assert(typeof UpdateViewMetadataCommand === "function");
+assert(typeof UpdateWorkspaceMetadataCommand === "function");
+assert(typeof UpdateWorkspacePageCommand === "function");
+assert(typeof UpdateWorkspaceThemeCommand === "function");
+assert(typeof UpdateWorkspaceVisibilityCommand === "function");
 // enums
+assert(typeof AccessType === "object");
 assert(typeof ActionType === "object");
 assert(typeof AgentAvailabilityTimer === "object");
 assert(typeof AgentStatusState === "object");
 assert(typeof AgentStatusType === "object");
+assert(typeof AiUseCase === "object");
 assert(typeof AllowedUserAction === "object");
 assert(typeof AnsweringMachineDetectionStatus === "object");
+assert(typeof ApplicationType === "object");
 assert(typeof ArtifactStatus === "object");
 assert(typeof AutoEvaluationStatus === "object");
 assert(typeof BehaviorType === "object");
@@ -823,10 +945,16 @@ assert(typeof ContactFlowState === "object");
 assert(typeof ContactFlowStatus === "object");
 assert(typeof ContactFlowType === "object");
 assert(typeof ContactInitiationMethod === "object");
+assert(typeof ContactInteractionType === "object");
+assert(typeof ContactMediaProcessingFailureMode === "object");
 assert(typeof ContactMetricName === "object");
+assert(typeof ContactParticipantRole === "object");
 assert(typeof ContactRecordingType === "object");
 assert(typeof ContactState === "object");
 assert(typeof CurrentMetricName === "object");
+assert(typeof DataTableAttributeValueType === "object");
+assert(typeof DataTableLockLevel === "object");
+assert(typeof DataTableStatus === "object");
 assert(typeof DateComparisonType === "object");
 assert(typeof DateTimeComparisonType === "object");
 assert(typeof DecimalComparisonType === "object");
@@ -835,11 +963,14 @@ assert(typeof DirectoryType === "object");
 assert(typeof EmailHeaderType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof EndpointType === "object");
+assert(typeof EntityType === "object");
 assert(typeof EvaluationFormItemEnablementAction === "object");
 assert(typeof EvaluationFormItemEnablementOperator === "object");
 assert(typeof EvaluationFormItemEnablementSourceType === "object");
 assert(typeof EvaluationFormItemEnablementSourceValueType === "object");
 assert(typeof EvaluationFormItemSourceValuesComparator === "object");
+assert(typeof EvaluationFormLanguageCode === "object");
+assert(typeof EvaluationFormMultiSelectQuestionDisplayMode === "object");
 assert(typeof EvaluationFormQuestionAutomationAnswerSourceType === "object");
 assert(typeof EvaluationFormQuestionType === "object");
 assert(typeof EvaluationFormScoringMode === "object");
@@ -855,7 +986,9 @@ assert(typeof EventSourceName === "object");
 assert(typeof FailureReasonCode === "object");
 assert(typeof FileStatusType === "object");
 assert(typeof FileUseCaseType === "object");
+assert(typeof FilterV2StringConditionComparisonOperator === "object");
 assert(typeof FlowAssociationResourceType === "object");
+assert(typeof FlowModuleType === "object");
 assert(typeof Grouping === "object");
 assert(typeof HierarchyGroupMatchType === "object");
 assert(typeof HistoricalMetricName === "object");
@@ -872,8 +1005,11 @@ assert(typeof IvrRecordingTrack === "object");
 assert(typeof LexVersion === "object");
 assert(typeof ListFlowAssociationResourceType === "object");
 assert(typeof MediaStreamType === "object");
+assert(typeof MediaType === "object");
 assert(typeof MeetingFeatureStatus === "object");
 assert(typeof MonitorCapability === "object");
+assert(typeof MultiSelectQuestionRuleCategoryAutomationCondition === "object");
+assert(typeof NextContactType === "object");
 assert(typeof NotificationContentType === "object");
 assert(typeof NotificationDeliveryType === "object");
 assert(typeof NumberComparisonType === "object");
@@ -905,6 +1041,7 @@ assert(typeof RecordingStatus === "object");
 assert(typeof ReferenceStatus === "object");
 assert(typeof ReferenceType === "object");
 assert(typeof RehydrationType === "object");
+assert(typeof ResponseMode === "object");
 assert(typeof RoutingCriteriaStepStatus === "object");
 assert(typeof RulePublishStatus === "object");
 assert(typeof ScreenShareCapability === "object");
@@ -933,79 +1070,92 @@ assert(typeof UseCaseType === "object");
 assert(typeof VideoCapability === "object");
 assert(typeof ViewStatus === "object");
 assert(typeof ViewType === "object");
+assert(typeof Visibility === "object");
 assert(typeof VocabularyLanguageCode === "object");
 assert(typeof VocabularyState === "object");
 assert(typeof VoiceRecordingTrack === "object");
+assert(typeof WorkspaceFontFamily === "object");
 // errors
-assert(ConnectServiceException.prototype instanceof Error)
+assert(ConnectServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateGetCurrentMetricData === "function")
-assert(typeof paginateGetCurrentUserData === "function")
-assert(typeof paginateGetMetricData === "function")
-assert(typeof paginateGetMetricDataV2 === "function")
-assert(typeof paginateListAgentStatuses === "function")
-assert(typeof paginateListApprovedOrigins === "function")
-assert(typeof paginateListAuthenticationProfiles === "function")
-assert(typeof paginateListBots === "function")
-assert(typeof paginateListContactEvaluations === "function")
-assert(typeof paginateListContactFlowModuleAliases === "function")
-assert(typeof paginateListContactFlowModuleVersions === "function")
-assert(typeof paginateListContactFlowModules === "function")
-assert(typeof paginateListContactFlowVersions === "function")
-assert(typeof paginateListContactFlows === "function")
-assert(typeof paginateListContactReferences === "function")
-assert(typeof paginateListDefaultVocabularies === "function")
-assert(typeof paginateListEvaluationFormVersions === "function")
-assert(typeof paginateListEvaluationForms === "function")
-assert(typeof paginateListFlowAssociations === "function")
-assert(typeof paginateListHoursOfOperationOverrides === "function")
-assert(typeof paginateListHoursOfOperations === "function")
-assert(typeof paginateListInstanceAttributes === "function")
-assert(typeof paginateListInstanceStorageConfigs === "function")
-assert(typeof paginateListInstances === "function")
-assert(typeof paginateListIntegrationAssociations === "function")
-assert(typeof paginateListLambdaFunctions === "function")
-assert(typeof paginateListLexBots === "function")
-assert(typeof paginateListPhoneNumbers === "function")
-assert(typeof paginateListPhoneNumbersV2 === "function")
-assert(typeof paginateListPredefinedAttributes === "function")
-assert(typeof paginateListPrompts === "function")
-assert(typeof paginateListQueueQuickConnects === "function")
-assert(typeof paginateListQueues === "function")
-assert(typeof paginateListQuickConnects === "function")
-assert(typeof paginateListRealtimeContactAnalysisSegmentsV2 === "function")
-assert(typeof paginateListRoutingProfileManualAssignmentQueues === "function")
-assert(typeof paginateListRoutingProfileQueues === "function")
-assert(typeof paginateListRoutingProfiles === "function")
-assert(typeof paginateListRules === "function")
-assert(typeof paginateListSecurityKeys === "function")
-assert(typeof paginateListSecurityProfileApplications === "function")
-assert(typeof paginateListSecurityProfilePermissions === "function")
-assert(typeof paginateListSecurityProfiles === "function")
-assert(typeof paginateListTaskTemplates === "function")
-assert(typeof paginateListTrafficDistributionGroupUsers === "function")
-assert(typeof paginateListTrafficDistributionGroups === "function")
-assert(typeof paginateListUseCases === "function")
-assert(typeof paginateListUserHierarchyGroups === "function")
-assert(typeof paginateListUserProficiencies === "function")
-assert(typeof paginateListUsers === "function")
-assert(typeof paginateListViewVersions === "function")
-assert(typeof paginateListViews === "function")
-assert(typeof paginateSearchAgentStatuses === "function")
-assert(typeof paginateSearchAvailablePhoneNumbers === "function")
-assert(typeof paginateSearchContactFlowModules === "function")
-assert(typeof paginateSearchContactFlows === "function")
-assert(typeof paginateSearchContacts === "function")
-assert(typeof paginateSearchHoursOfOperationOverrides === "function")
-assert(typeof paginateSearchHoursOfOperations === "function")
-assert(typeof paginateSearchPredefinedAttributes === "function")
-assert(typeof paginateSearchPrompts === "function")
-assert(typeof paginateSearchQueues === "function")
-assert(typeof paginateSearchQuickConnects === "function")
-assert(typeof paginateSearchResourceTags === "function")
-assert(typeof paginateSearchRoutingProfiles === "function")
-assert(typeof paginateSearchSecurityProfiles === "function")
-assert(typeof paginateSearchUserHierarchyGroups === "function")
-assert(typeof paginateSearchUsers === "function")
-assert(typeof paginateSearchVocabularies === "function")
+assert(typeof paginateEvaluateDataTableValues === "function");
+assert(typeof paginateGetCurrentMetricData === "function");
+assert(typeof paginateGetCurrentUserData === "function");
+assert(typeof paginateGetMetricData === "function");
+assert(typeof paginateGetMetricDataV2 === "function");
+assert(typeof paginateListAgentStatuses === "function");
+assert(typeof paginateListApprovedOrigins === "function");
+assert(typeof paginateListAuthenticationProfiles === "function");
+assert(typeof paginateListBots === "function");
+assert(typeof paginateListContactEvaluations === "function");
+assert(typeof paginateListContactFlowModuleAliases === "function");
+assert(typeof paginateListContactFlowModuleVersions === "function");
+assert(typeof paginateListContactFlowModules === "function");
+assert(typeof paginateListContactFlowVersions === "function");
+assert(typeof paginateListContactFlows === "function");
+assert(typeof paginateListContactReferences === "function");
+assert(typeof paginateListDataTableAttributes === "function");
+assert(typeof paginateListDataTablePrimaryValues === "function");
+assert(typeof paginateListDataTableValues === "function");
+assert(typeof paginateListDataTables === "function");
+assert(typeof paginateListDefaultVocabularies === "function");
+assert(typeof paginateListEvaluationFormVersions === "function");
+assert(typeof paginateListEvaluationForms === "function");
+assert(typeof paginateListFlowAssociations === "function");
+assert(typeof paginateListHoursOfOperationOverrides === "function");
+assert(typeof paginateListHoursOfOperations === "function");
+assert(typeof paginateListInstanceAttributes === "function");
+assert(typeof paginateListInstanceStorageConfigs === "function");
+assert(typeof paginateListInstances === "function");
+assert(typeof paginateListIntegrationAssociations === "function");
+assert(typeof paginateListLambdaFunctions === "function");
+assert(typeof paginateListLexBots === "function");
+assert(typeof paginateListPhoneNumbers === "function");
+assert(typeof paginateListPhoneNumbersV2 === "function");
+assert(typeof paginateListPredefinedAttributes === "function");
+assert(typeof paginateListPrompts === "function");
+assert(typeof paginateListQueueQuickConnects === "function");
+assert(typeof paginateListQueues === "function");
+assert(typeof paginateListQuickConnects === "function");
+assert(typeof paginateListRealtimeContactAnalysisSegmentsV2 === "function");
+assert(typeof paginateListRoutingProfileManualAssignmentQueues === "function");
+assert(typeof paginateListRoutingProfileQueues === "function");
+assert(typeof paginateListRoutingProfiles === "function");
+assert(typeof paginateListRules === "function");
+assert(typeof paginateListSecurityKeys === "function");
+assert(typeof paginateListSecurityProfileApplications === "function");
+assert(typeof paginateListSecurityProfilePermissions === "function");
+assert(typeof paginateListSecurityProfiles === "function");
+assert(typeof paginateListTaskTemplates === "function");
+assert(typeof paginateListTrafficDistributionGroupUsers === "function");
+assert(typeof paginateListTrafficDistributionGroups === "function");
+assert(typeof paginateListUseCases === "function");
+assert(typeof paginateListUserHierarchyGroups === "function");
+assert(typeof paginateListUserProficiencies === "function");
+assert(typeof paginateListUsers === "function");
+assert(typeof paginateListViewVersions === "function");
+assert(typeof paginateListViews === "function");
+assert(typeof paginateListWorkspacePages === "function");
+assert(typeof paginateListWorkspaces === "function");
+assert(typeof paginateSearchAgentStatuses === "function");
+assert(typeof paginateSearchAvailablePhoneNumbers === "function");
+assert(typeof paginateSearchContactFlowModules === "function");
+assert(typeof paginateSearchContactFlows === "function");
+assert(typeof paginateSearchContacts === "function");
+assert(typeof paginateSearchDataTables === "function");
+assert(typeof paginateSearchHoursOfOperationOverrides === "function");
+assert(typeof paginateSearchHoursOfOperations === "function");
+assert(typeof paginateSearchPredefinedAttributes === "function");
+assert(typeof paginateSearchPrompts === "function");
+assert(typeof paginateSearchQueues === "function");
+assert(typeof paginateSearchQuickConnects === "function");
+assert(typeof paginateSearchResourceTags === "function");
+assert(typeof paginateSearchRoutingProfiles === "function");
+assert(typeof paginateSearchSecurityProfiles === "function");
+assert(typeof paginateSearchUserHierarchyGroups === "function");
+assert(typeof paginateSearchUsers === "function");
+assert(typeof paginateSearchViews === "function");
+assert(typeof paginateSearchVocabularies === "function");
+assert(typeof paginateSearchWorkspaceAssociations === "function");
+assert(typeof paginateSearchWorkspaces === "function");
 console.log(`Connect index test passed.`);

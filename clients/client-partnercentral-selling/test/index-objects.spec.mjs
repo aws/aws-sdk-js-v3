@@ -11,6 +11,7 @@ import {
   CompetitorName,
   CountryCode,
   CreateEngagementCommand,
+  CreateEngagementContextCommand,
   CreateEngagementInvitationCommand,
   CreateOpportunityCommand,
   CreateResourceSnapshotCommand,
@@ -40,11 +41,13 @@ import {
   ListEngagementResourceAssociationsCommand,
   ListEngagementsCommand,
   ListOpportunitiesCommand,
+  ListOpportunityFromEngagementTasksCommand,
   ListResourceSnapshotJobsCommand,
   ListResourceSnapshotsCommand,
   ListSolutionsCommand,
   ListTagsForResourceCommand,
   ListTasksSortName,
+  MarketSegment,
   MarketingSource,
   NationalSecurity,
   OpportunityEngagementInvitationSortName,
@@ -75,12 +78,14 @@ import {
   Stage,
   StartEngagementByAcceptingInvitationTaskCommand,
   StartEngagementFromOpportunityTaskCommand,
+  StartOpportunityFromEngagementTaskCommand,
   StartResourceSnapshotJobCommand,
   StopResourceSnapshotJobCommand,
   SubmitOpportunityCommand,
   TagResourceCommand,
   TaskStatus,
   UntagResourceCommand,
+  UpdateEngagementContextCommand,
   UpdateOpportunityCommand,
   Visibility,
   paginateListEngagementByAcceptingInvitationTasks,
@@ -90,53 +95,58 @@ import {
   paginateListEngagementResourceAssociations,
   paginateListEngagements,
   paginateListOpportunities,
+  paginateListOpportunityFromEngagementTasks,
   paginateListResourceSnapshotJobs,
   paginateListResourceSnapshots,
   paginateListSolutions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof PartnerCentralSellingClient === "function")
-assert(typeof PartnerCentralSelling === "function")
+assert(typeof PartnerCentralSellingClient === "function");
+assert(typeof PartnerCentralSelling === "function");
 // commands
-assert(typeof AcceptEngagementInvitationCommand === "function")
-assert(typeof AssignOpportunityCommand === "function")
-assert(typeof AssociateOpportunityCommand === "function")
-assert(typeof CreateEngagementCommand === "function")
-assert(typeof CreateEngagementInvitationCommand === "function")
-assert(typeof CreateOpportunityCommand === "function")
-assert(typeof CreateResourceSnapshotCommand === "function")
-assert(typeof CreateResourceSnapshotJobCommand === "function")
-assert(typeof DeleteResourceSnapshotJobCommand === "function")
-assert(typeof DisassociateOpportunityCommand === "function")
-assert(typeof GetAwsOpportunitySummaryCommand === "function")
-assert(typeof GetEngagementCommand === "function")
-assert(typeof GetEngagementInvitationCommand === "function")
-assert(typeof GetOpportunityCommand === "function")
-assert(typeof GetResourceSnapshotCommand === "function")
-assert(typeof GetResourceSnapshotJobCommand === "function")
-assert(typeof GetSellingSystemSettingsCommand === "function")
-assert(typeof ListEngagementByAcceptingInvitationTasksCommand === "function")
-assert(typeof ListEngagementFromOpportunityTasksCommand === "function")
-assert(typeof ListEngagementInvitationsCommand === "function")
-assert(typeof ListEngagementMembersCommand === "function")
-assert(typeof ListEngagementResourceAssociationsCommand === "function")
-assert(typeof ListEngagementsCommand === "function")
-assert(typeof ListOpportunitiesCommand === "function")
-assert(typeof ListResourceSnapshotJobsCommand === "function")
-assert(typeof ListResourceSnapshotsCommand === "function")
-assert(typeof ListSolutionsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutSellingSystemSettingsCommand === "function")
-assert(typeof RejectEngagementInvitationCommand === "function")
-assert(typeof StartEngagementByAcceptingInvitationTaskCommand === "function")
-assert(typeof StartEngagementFromOpportunityTaskCommand === "function")
-assert(typeof StartResourceSnapshotJobCommand === "function")
-assert(typeof StopResourceSnapshotJobCommand === "function")
-assert(typeof SubmitOpportunityCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateOpportunityCommand === "function")
+assert(typeof AcceptEngagementInvitationCommand === "function");
+assert(typeof AssignOpportunityCommand === "function");
+assert(typeof AssociateOpportunityCommand === "function");
+assert(typeof CreateEngagementCommand === "function");
+assert(typeof CreateEngagementContextCommand === "function");
+assert(typeof CreateEngagementInvitationCommand === "function");
+assert(typeof CreateOpportunityCommand === "function");
+assert(typeof CreateResourceSnapshotCommand === "function");
+assert(typeof CreateResourceSnapshotJobCommand === "function");
+assert(typeof DeleteResourceSnapshotJobCommand === "function");
+assert(typeof DisassociateOpportunityCommand === "function");
+assert(typeof GetAwsOpportunitySummaryCommand === "function");
+assert(typeof GetEngagementCommand === "function");
+assert(typeof GetEngagementInvitationCommand === "function");
+assert(typeof GetOpportunityCommand === "function");
+assert(typeof GetResourceSnapshotCommand === "function");
+assert(typeof GetResourceSnapshotJobCommand === "function");
+assert(typeof GetSellingSystemSettingsCommand === "function");
+assert(typeof ListEngagementByAcceptingInvitationTasksCommand === "function");
+assert(typeof ListEngagementFromOpportunityTasksCommand === "function");
+assert(typeof ListEngagementInvitationsCommand === "function");
+assert(typeof ListEngagementMembersCommand === "function");
+assert(typeof ListEngagementResourceAssociationsCommand === "function");
+assert(typeof ListEngagementsCommand === "function");
+assert(typeof ListOpportunitiesCommand === "function");
+assert(typeof ListOpportunityFromEngagementTasksCommand === "function");
+assert(typeof ListResourceSnapshotJobsCommand === "function");
+assert(typeof ListResourceSnapshotsCommand === "function");
+assert(typeof ListSolutionsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutSellingSystemSettingsCommand === "function");
+assert(typeof RejectEngagementInvitationCommand === "function");
+assert(typeof StartEngagementByAcceptingInvitationTaskCommand === "function");
+assert(typeof StartEngagementFromOpportunityTaskCommand === "function");
+assert(typeof StartOpportunityFromEngagementTaskCommand === "function");
+assert(typeof StartResourceSnapshotJobCommand === "function");
+assert(typeof StopResourceSnapshotJobCommand === "function");
+assert(typeof SubmitOpportunityCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateEngagementContextCommand === "function");
+assert(typeof UpdateOpportunityCommand === "function");
 // enums
 assert(typeof AwsClosedLostReason === "object");
 assert(typeof AwsFundingUsed === "object");
@@ -157,6 +167,7 @@ assert(typeof InvitationStatus === "object");
 assert(typeof InvolvementTypeChangeReason === "object");
 assert(typeof ListTasksSortName === "object");
 assert(typeof MarketingSource === "object");
+assert(typeof MarketSegment === "object");
 assert(typeof NationalSecurity === "object");
 assert(typeof OpportunityEngagementInvitationSortName === "object");
 assert(typeof OpportunityOrigin === "object");
@@ -182,16 +193,17 @@ assert(typeof Stage === "object");
 assert(typeof TaskStatus === "object");
 assert(typeof Visibility === "object");
 // errors
-assert(PartnerCentralSellingServiceException.prototype instanceof Error)
+assert(PartnerCentralSellingServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListEngagementByAcceptingInvitationTasks === "function")
-assert(typeof paginateListEngagementFromOpportunityTasks === "function")
-assert(typeof paginateListEngagementInvitations === "function")
-assert(typeof paginateListEngagementMembers === "function")
-assert(typeof paginateListEngagementResourceAssociations === "function")
-assert(typeof paginateListEngagements === "function")
-assert(typeof paginateListOpportunities === "function")
-assert(typeof paginateListResourceSnapshotJobs === "function")
-assert(typeof paginateListResourceSnapshots === "function")
-assert(typeof paginateListSolutions === "function")
+assert(typeof paginateListEngagementByAcceptingInvitationTasks === "function");
+assert(typeof paginateListEngagementFromOpportunityTasks === "function");
+assert(typeof paginateListEngagementInvitations === "function");
+assert(typeof paginateListEngagementMembers === "function");
+assert(typeof paginateListEngagementResourceAssociations === "function");
+assert(typeof paginateListEngagements === "function");
+assert(typeof paginateListOpportunities === "function");
+assert(typeof paginateListOpportunityFromEngagementTasks === "function");
+assert(typeof paginateListResourceSnapshotJobs === "function");
+assert(typeof paginateListResourceSnapshots === "function");
+assert(typeof paginateListSolutions === "function");
 console.log(`PartnerCentralSelling index test passed.`);

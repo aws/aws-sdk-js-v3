@@ -15,10 +15,15 @@ import {
 } from "./enums";
 
 import {
+  type AgentKnowledgeBase,
+  type AgentVersion,
+  type KendraKnowledgeBaseConfiguration,
+  type PromptInferenceConfiguration,
+  type PromptTemplateConfiguration,
+  type S3Location,
+  type SqlKnowledgeBaseConfiguration,
   AgentFlowNodeConfiguration,
-  AgentKnowledgeBase,
   AgentKnowledgeBaseSummary,
-  AgentVersion,
   AgentVersionSummary,
   AudioConfiguration,
   CollectorFlowNodeConfiguration,
@@ -30,7 +35,6 @@ import {
   InlineCodeFlowNodeConfiguration,
   InputFlowNodeConfiguration,
   IteratorFlowNodeConfiguration,
-  KendraKnowledgeBaseConfiguration,
   KnowledgeBaseFlowNodeConfiguration,
   LambdaFunctionFlowNodeConfiguration,
   LexFlowNodeConfiguration,
@@ -38,11 +42,7 @@ import {
   LoopInputFlowNodeConfiguration,
   OutputFlowNodeConfiguration,
   PromptFlowNodeConfiguration,
-  PromptInferenceConfiguration,
-  PromptTemplateConfiguration,
   RetrievalFlowNodeConfiguration,
-  S3Location,
-  SqlKnowledgeBaseConfiguration,
   StorageFlowNodeConfiguration,
   VideoConfiguration,
 } from "./models_0";

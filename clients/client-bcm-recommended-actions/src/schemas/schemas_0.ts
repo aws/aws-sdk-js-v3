@@ -59,36 +59,25 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`BCMRecommendedActionsAccessDenied`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`BCMRecommendedActionsAccessDenied`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActionFilter: StaticStructureSchema = [3, n0, _AF, 0, [_k, _mO, _v], [0, 0, 64 | 0]];
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`BCMRecommendedActionsInternalServer`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`BCMRecommendedActionsInternalServer`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListRecommendedActionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -118,33 +107,22 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`BCMRecommendedActionsThrottling`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`BCMRecommendedActionsThrottling`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`BCMRecommendedActionsValidation`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`BCMRecommendedActionsValidation`, 400] },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var BCMRecommendedActionsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -154,16 +132,12 @@ export var BCMRecommendedActionsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(BCMRecommendedActionsServiceException, __BCMRecommendedActionsServiceException);
-
 export var ActionFilterList: StaticListSchema = [1, n0, _AFL, 0, () => ActionFilter];
 export var FilterValues = 64 | 0;
-
 export var NextSteps = 64 | 0;
-
 export var RecommendedActions: StaticListSchema = [1, n0, _RAe, 0, () => RecommendedAction];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var Context = 128 | 0;
-
 export var ListRecommendedActions: StaticOperationSchema = [
   9,
   n0,

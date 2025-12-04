@@ -9,11 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { ListWorkloadIdentitiesRequest, ListWorkloadIdentitiesResponse } from "../models/models_1";
-=======
-import type { ListWorkloadIdentitiesRequest, ListWorkloadIdentitiesResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { ListWorkloadIdentitiesRequest, ListWorkloadIdentitiesResponse } from "../models/models_1";
 import { ListWorkloadIdentities } from "../schemas/schemas_0";
 
 /**

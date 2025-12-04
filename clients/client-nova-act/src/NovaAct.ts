@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CreateActCommand, CreateActCommandInput, CreateActCommandOutput } from "./commands/CreateActCommand";
 import {
@@ -66,7 +66,7 @@ import {
   UpdateWorkflowRunCommandInput,
   UpdateWorkflowRunCommandOutput,
 } from "./commands/UpdateWorkflowRunCommand";
-import { NovaActClient, NovaActClientConfig } from "./NovaActClient";
+import { NovaActClient } from "./NovaActClient";
 
 const commands = {
   CreateActCommand,

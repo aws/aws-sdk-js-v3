@@ -56,43 +56,43 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof Route53DomainsClient === "function")
-assert(typeof Route53Domains === "function")
+assert(typeof Route53DomainsClient === "function");
+assert(typeof Route53Domains === "function");
 // commands
-assert(typeof AcceptDomainTransferFromAnotherAwsAccountCommand === "function")
-assert(typeof AssociateDelegationSignerToDomainCommand === "function")
-assert(typeof CancelDomainTransferToAnotherAwsAccountCommand === "function")
-assert(typeof CheckDomainAvailabilityCommand === "function")
-assert(typeof CheckDomainTransferabilityCommand === "function")
-assert(typeof DeleteDomainCommand === "function")
-assert(typeof DeleteTagsForDomainCommand === "function")
-assert(typeof DisableDomainAutoRenewCommand === "function")
-assert(typeof DisableDomainTransferLockCommand === "function")
-assert(typeof DisassociateDelegationSignerFromDomainCommand === "function")
-assert(typeof EnableDomainAutoRenewCommand === "function")
-assert(typeof EnableDomainTransferLockCommand === "function")
-assert(typeof GetContactReachabilityStatusCommand === "function")
-assert(typeof GetDomainDetailCommand === "function")
-assert(typeof GetDomainSuggestionsCommand === "function")
-assert(typeof GetOperationDetailCommand === "function")
-assert(typeof ListDomainsCommand === "function")
-assert(typeof ListOperationsCommand === "function")
-assert(typeof ListPricesCommand === "function")
-assert(typeof ListTagsForDomainCommand === "function")
-assert(typeof PushDomainCommand === "function")
-assert(typeof RegisterDomainCommand === "function")
-assert(typeof RejectDomainTransferFromAnotherAwsAccountCommand === "function")
-assert(typeof RenewDomainCommand === "function")
-assert(typeof ResendContactReachabilityEmailCommand === "function")
-assert(typeof ResendOperationAuthorizationCommand === "function")
-assert(typeof RetrieveDomainAuthCodeCommand === "function")
-assert(typeof TransferDomainCommand === "function")
-assert(typeof TransferDomainToAnotherAwsAccountCommand === "function")
-assert(typeof UpdateDomainContactCommand === "function")
-assert(typeof UpdateDomainContactPrivacyCommand === "function")
-assert(typeof UpdateDomainNameserversCommand === "function")
-assert(typeof UpdateTagsForDomainCommand === "function")
-assert(typeof ViewBillingCommand === "function")
+assert(typeof AcceptDomainTransferFromAnotherAwsAccountCommand === "function");
+assert(typeof AssociateDelegationSignerToDomainCommand === "function");
+assert(typeof CancelDomainTransferToAnotherAwsAccountCommand === "function");
+assert(typeof CheckDomainAvailabilityCommand === "function");
+assert(typeof CheckDomainTransferabilityCommand === "function");
+assert(typeof DeleteDomainCommand === "function");
+assert(typeof DeleteTagsForDomainCommand === "function");
+assert(typeof DisableDomainAutoRenewCommand === "function");
+assert(typeof DisableDomainTransferLockCommand === "function");
+assert(typeof DisassociateDelegationSignerFromDomainCommand === "function");
+assert(typeof EnableDomainAutoRenewCommand === "function");
+assert(typeof EnableDomainTransferLockCommand === "function");
+assert(typeof GetContactReachabilityStatusCommand === "function");
+assert(typeof GetDomainDetailCommand === "function");
+assert(typeof GetDomainSuggestionsCommand === "function");
+assert(typeof GetOperationDetailCommand === "function");
+assert(typeof ListDomainsCommand === "function");
+assert(typeof ListOperationsCommand === "function");
+assert(typeof ListPricesCommand === "function");
+assert(typeof ListTagsForDomainCommand === "function");
+assert(typeof PushDomainCommand === "function");
+assert(typeof RegisterDomainCommand === "function");
+assert(typeof RejectDomainTransferFromAnotherAwsAccountCommand === "function");
+assert(typeof RenewDomainCommand === "function");
+assert(typeof ResendContactReachabilityEmailCommand === "function");
+assert(typeof ResendOperationAuthorizationCommand === "function");
+assert(typeof RetrieveDomainAuthCodeCommand === "function");
+assert(typeof TransferDomainCommand === "function");
+assert(typeof TransferDomainToAnotherAwsAccountCommand === "function");
+assert(typeof UpdateDomainContactCommand === "function");
+assert(typeof UpdateDomainContactPrivacyCommand === "function");
+assert(typeof UpdateDomainNameserversCommand === "function");
+assert(typeof UpdateTagsForDomainCommand === "function");
+assert(typeof ViewBillingCommand === "function");
 // enums
 assert(typeof ContactType === "object");
 assert(typeof CountryCode === "object");
@@ -108,10 +108,10 @@ assert(typeof SortOrder === "object");
 assert(typeof StatusFlag === "object");
 assert(typeof Transferable === "object");
 // errors
-assert(Route53DomainsServiceException.prototype instanceof Error)
+assert(Route53DomainsServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListDomains === "function")
-assert(typeof paginateListOperations === "function")
-assert(typeof paginateListPrices === "function")
-assert(typeof paginateViewBilling === "function")
+assert(typeof paginateListDomains === "function");
+assert(typeof paginateListOperations === "function");
+assert(typeof paginateListPrices === "function");
+assert(typeof paginateViewBilling === "function");
 console.log(`Route53Domains index test passed.`);

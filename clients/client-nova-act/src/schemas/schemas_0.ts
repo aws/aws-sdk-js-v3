@@ -163,7 +163,7 @@ const n0 = "com.amazonaws.novaact";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -183,25 +183,13 @@ import {
 import { NovaActServiceException as __NovaActServiceException } from "../models/NovaActServiceException";
 
 /* eslint no-var: 0 */
-
 export var SensitiveDocument: StaticSimpleSchema = [0, n0, _SD, 8, 15];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var Task: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var ToolDescription: StaticSimpleSchema = [0, n0, _TD, 8, 0];
 export var WorkflowDescription: StaticSimpleSchema = [0, n0, _WD, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActError: StaticStructureSchema = [3, n0, _AE, 0, [_m, _t], [[() => SensitiveString, 0], 0]];
 export var ActSummary: StaticStructureSchema = [
   3,
@@ -215,19 +203,8 @@ export var Call: StaticStructureSchema = [3, n0, _C, 0, [_cI, _i, _n], [0, [() =
 export var CallResult: StaticStructureSchema = [3, n0, _CR, 0, [_cI, _co], [0, [() => CallResultContents, 0]]];
 export var ClientInfo: StaticStructureSchema = [3, n0, _CI, 0, [_cV, _sV], [1, 0]];
 export var CompatibilityInformation: StaticStructureSchema = [3, n0, _CIo, 0, [_cCV, _sMI, _m], [1, 64 | 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateActRequest: StaticStructureSchema = [
   3,
   n0,
@@ -321,24 +298,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS, _r],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [0, [1, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvokeActStepRequest: StaticStructureSchema = [
   3,
   n0,
@@ -354,51 +318,10 @@ export var ListActsRequest: StaticStructureSchema = [
   _LAR,
   0,
   [_wDN, _wRI, _sI, _mR, _nT, _sO],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _wRI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _wRI }], [0, { [_hQ]: _sI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListActsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_aS, _nT], [() => ActSummaries, 0]];
-export var ListModelsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LMR,
-  0,
-  [_cCV],
-  [
-    [
-      1,
-      {
-        [_hQ]: _cCV,
-      },
-    ],
-  ],
-];
+export var ListModelsRequest: StaticStructureSchema = [3, n0, _LMR, 0, [_cCV], [[1, { [_hQ]: _cCV }]]];
 export var ListModelsResponse: StaticStructureSchema = [
   3,
   n0,
@@ -413,23 +336,7 @@ export var ListSessionsRequest: StaticStructureSchema = [
   _LSR,
   0,
   [_wDN, _wRI, _mR, _nT, _sO],
-  [
-    [0, 1],
-    [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListSessionsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_sS, _nT], [() => SessionSummaries, 0]];
 export var ListWorkflowDefinitionsRequest: StaticStructureSchema = [
@@ -438,21 +345,7 @@ export var ListWorkflowDefinitionsRequest: StaticStructureSchema = [
   _LWDR,
   0,
   [_mR, _nT, _sO],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListWorkflowDefinitionsResponse: StaticStructureSchema = [
   3,
@@ -468,22 +361,7 @@ export var ListWorkflowRunsRequest: StaticStructureSchema = [
   _LWRR,
   0,
   [_wDN, _mR, _nT, _sO],
-  [
-    [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListWorkflowRunsResponse: StaticStructureSchema = [
   3,
@@ -500,52 +378,30 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionSummary: StaticStructureSchema = [3, n0, _SSe, 0, [_sI], [0]];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ToolSpec: StaticStructureSchema = [
   3,
   n0,
@@ -570,15 +426,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var WorkflowDefinitionSummary: StaticStructureSchema = [3, n0, _WDS, 0, [_wDA, _wDN, _cA, _s], [0, 0, 5, 0]];
 export var WorkflowExportConfig: StaticStructureSchema = [3, n0, _WEC, 0, [_sBN, _sKP], [0, 0]];
@@ -591,17 +443,14 @@ export var WorkflowRunSummary: StaticStructureSchema = [
   [0, 0, 0, 5, 5, () => TraceLocation],
 ];
 export var __Unit = "unit" as const;
-
 export var NovaActServiceException: StaticErrorSchema = [-3, _sm, "NovaActServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NovaActServiceException, __NovaActServiceException);
-
 export var ActSummaries: StaticListSchema = [1, n0, _ASc, 0, () => ActSummary];
 export var CallResultContents: StaticListSchema = [1, n0, _CRC, 0, [() => CallResultContent, 0]];
 export var CallResults: StaticListSchema = [1, n0, _CRa, 0, [() => CallResult, 0]];
 export var Calls: StaticListSchema = [1, n0, _Ca, 0, [() => Call, 0]];
 export var ModelAliases: StaticListSchema = [1, n0, _MAo, 0, () => ModelAlias];
 export var ModelIdList = 64 | 0;
-
 export var ModelSummaries: StaticListSchema = [1, n0, _MSo, 0, () => ModelSummary];
 export var SessionSummaries: StaticListSchema = [1, n0, _SSes, 0, () => SessionSummary];
 export var ToolSpecs: StaticListSchema = [1, n0, _TSo, 0, [() => ToolSpec, 0]];
@@ -628,9 +477,7 @@ export var CreateSession: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["PUT", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}/sessions", 201],
-  },
+  { [_h]: ["PUT", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}/sessions", 201] },
   () => CreateSessionRequest,
   () => CreateSessionResponse,
 ];
@@ -638,9 +485,7 @@ export var CreateWorkflowDefinition: StaticOperationSchema = [
   9,
   n0,
   _CWD,
-  {
-    [_h]: ["PUT", "/workflow-definitions", 201],
-  },
+  { [_h]: ["PUT", "/workflow-definitions", 201] },
   () => CreateWorkflowDefinitionRequest,
   () => CreateWorkflowDefinitionResponse,
 ];
@@ -648,9 +493,7 @@ export var CreateWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _CWR,
-  {
-    [_h]: ["PUT", "/workflow-definitions/{workflowDefinitionName}/workflow-runs", 201],
-  },
+  { [_h]: ["PUT", "/workflow-definitions/{workflowDefinitionName}/workflow-runs", 201] },
   () => CreateWorkflowRunRequest,
   () => CreateWorkflowRunResponse,
 ];
@@ -658,9 +501,7 @@ export var DeleteWorkflowDefinition: StaticOperationSchema = [
   9,
   n0,
   _DWD,
-  {
-    [_h]: ["DELETE", "/workflow-definitions/{workflowDefinitionName}", 202],
-  },
+  { [_h]: ["DELETE", "/workflow-definitions/{workflowDefinitionName}", 202] },
   () => DeleteWorkflowDefinitionRequest,
   () => DeleteWorkflowDefinitionResponse,
 ];
@@ -668,9 +509,7 @@ export var DeleteWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _DWR,
-  {
-    [_h]: ["DELETE", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 202],
-  },
+  { [_h]: ["DELETE", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 202] },
   () => DeleteWorkflowRunRequest,
   () => DeleteWorkflowRunResponse,
 ];
@@ -678,9 +517,7 @@ export var GetWorkflowDefinition: StaticOperationSchema = [
   9,
   n0,
   _GWD,
-  {
-    [_h]: ["GET", "/workflow-definitions/{workflowDefinitionName}", 200],
-  },
+  { [_h]: ["GET", "/workflow-definitions/{workflowDefinitionName}", 200] },
   () => GetWorkflowDefinitionRequest,
   () => GetWorkflowDefinitionResponse,
 ];
@@ -688,9 +525,7 @@ export var GetWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _GWR,
-  {
-    [_h]: ["GET", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 200],
-  },
+  { [_h]: ["GET", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 200] },
   () => GetWorkflowRunRequest,
   () => GetWorkflowRunResponse,
 ];
@@ -712,9 +547,7 @@ export var ListActs: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["POST", "/workflow-definitions/{workflowDefinitionName}/acts", 200],
-  },
+  { [_h]: ["POST", "/workflow-definitions/{workflowDefinitionName}/acts", 200] },
   () => ListActsRequest,
   () => ListActsResponse,
 ];
@@ -722,9 +555,7 @@ export var ListModels: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_h]: ["POST", "/models", 200],
-  },
+  { [_h]: ["POST", "/models", 200] },
   () => ListModelsRequest,
   () => ListModelsResponse,
 ];
@@ -732,9 +563,7 @@ export var ListSessions: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["POST", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 200],
-  },
+  { [_h]: ["POST", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 200] },
   () => ListSessionsRequest,
   () => ListSessionsResponse,
 ];
@@ -742,9 +571,7 @@ export var ListWorkflowDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LWD,
-  {
-    [_h]: ["POST", "/workflow-definitions", 200],
-  },
+  { [_h]: ["POST", "/workflow-definitions", 200] },
   () => ListWorkflowDefinitionsRequest,
   () => ListWorkflowDefinitionsResponse,
 ];
@@ -752,9 +579,7 @@ export var ListWorkflowRuns: StaticOperationSchema = [
   9,
   n0,
   _LWR,
-  {
-    [_h]: ["POST", "/workflow-definitions/{workflowDefinitionName}/workflow-runs", 200],
-  },
+  { [_h]: ["POST", "/workflow-definitions/{workflowDefinitionName}/workflow-runs", 200] },
   () => ListWorkflowRunsRequest,
   () => ListWorkflowRunsResponse,
 ];
@@ -776,9 +601,7 @@ export var UpdateWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _UWR,
-  {
-    [_h]: ["PUT", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 200],
-  },
+  { [_h]: ["PUT", "/workflow-definitions/{workflowDefinitionName}/workflow-runs/{workflowRunId}", 200] },
   () => UpdateWorkflowRunRequest,
   () => UpdateWorkflowRunResponse,
 ];

@@ -100,20 +100,8 @@ import {
 import { IoTJobsDataPlaneServiceException as __IoTJobsDataPlaneServiceException } from "../models/IoTJobsDataPlaneServiceException";
 
 /* eslint no-var: 0 */
-
-export var CertificateValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var CertificateValidationException: StaticErrorSchema = [-3, n0, _CVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(CertificateValidationException, __CertificateValidationException);
-
 export var CommandParameterValue: StaticStructureSchema = [
   3,
   n0,
@@ -122,19 +110,8 @@ export var CommandParameterValue: StaticStructureSchema = [
   [_S, _B, _I, _L, _D, _BIN, _UL],
   [0, 2, 1, 1, 1, 21, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DescribeJobExecutionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -144,18 +121,8 @@ export var DescribeJobExecutionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iJD,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _eN,
-      },
-    ],
+    [2, { [_hQ]: _iJD }],
+    [1, { [_hQ]: _eN }],
   ],
 ];
 export var DescribeJobExecutionResponse: StaticStructureSchema = [3, n0, _DJERe, 0, [_ex], [() => JobExecution]];
@@ -168,45 +135,12 @@ export var GetPendingJobExecutionsResponse: StaticStructureSchema = [
   [_iPJ, _qJ],
   [() => JobExecutionSummaryList, () => JobExecutionSummaryList],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var InvalidStateTransitionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISTE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var InvalidStateTransitionException: StaticErrorSchema = [-3, n0, _ISTE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidStateTransitionException, __InvalidStateTransitionException);
-
 export var JobExecution: StaticStructureSchema = [
   3,
   n0,
@@ -224,45 +158,12 @@ export var JobExecutionSummary: StaticStructureSchema = [
   [_jI, _qA, _sA, _lUA, _vN, _eN],
   [0, 1, 1, 1, 1, 1],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartCommandExecutionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -288,32 +189,10 @@ export var StartNextPendingJobExecutionResponse: StaticStructureSchema = [
   [_ex],
   [() => JobExecution],
 ];
-export var TerminalStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TSE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [_m],
-  [0],
-];
+export var TerminalStateException: StaticErrorSchema = [-3, n0, _TSE, { [_e]: _c, [_hE]: 410 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TerminalStateException, __TerminalStateException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m, _pa],
-  [0, 21],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m, _pa], [0, 21]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UpdateJobExecutionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -330,21 +209,9 @@ export var UpdateJobExecutionResponse: StaticStructureSchema = [
   [_eS, _jD],
   [() => JobExecutionState, 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var IoTJobsDataPlaneServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -354,18 +221,14 @@ export var IoTJobsDataPlaneServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(IoTJobsDataPlaneServiceException, __IoTJobsDataPlaneServiceException);
-
 export var JobExecutionSummaryList: StaticListSchema = [1, n0, _JESL, 0, () => JobExecutionSummary];
 export var CommandExecutionParameterMap: StaticMapSchema = [2, n0, _CEPM, 0, 0, () => CommandParameterValue];
 export var DetailsMap = 128 | 0;
-
 export var DescribeJobExecution: StaticOperationSchema = [
   9,
   n0,
   _DJE,
-  {
-    [_h]: ["GET", "/things/{thingName}/jobs/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}/jobs/{jobId}", 200] },
   () => DescribeJobExecutionRequest,
   () => DescribeJobExecutionResponse,
 ];
@@ -373,9 +236,7 @@ export var GetPendingJobExecutions: StaticOperationSchema = [
   9,
   n0,
   _GPJE,
-  {
-    [_h]: ["GET", "/things/{thingName}/jobs", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}/jobs", 200] },
   () => GetPendingJobExecutionsRequest,
   () => GetPendingJobExecutionsResponse,
 ];
@@ -383,9 +244,7 @@ export var StartCommandExecution: StaticOperationSchema = [
   9,
   n0,
   _SCE,
-  {
-    [_h]: ["POST", "/command-executions", 200],
-  },
+  { [_h]: ["POST", "/command-executions", 200] },
   () => StartCommandExecutionRequest,
   () => StartCommandExecutionResponse,
 ];
@@ -393,9 +252,7 @@ export var StartNextPendingJobExecution: StaticOperationSchema = [
   9,
   n0,
   _SNPJE,
-  {
-    [_h]: ["PUT", "/things/{thingName}/jobs/$next", 200],
-  },
+  { [_h]: ["PUT", "/things/{thingName}/jobs/$next", 200] },
   () => StartNextPendingJobExecutionRequest,
   () => StartNextPendingJobExecutionResponse,
 ];
@@ -403,9 +260,7 @@ export var UpdateJobExecution: StaticOperationSchema = [
   9,
   n0,
   _UJE,
-  {
-    [_h]: ["POST", "/things/{thingName}/jobs/{jobId}", 200],
-  },
+  { [_h]: ["POST", "/things/{thingName}/jobs/{jobId}", 200] },
   () => UpdateJobExecutionRequest,
   () => UpdateJobExecutionResponse,
 ];

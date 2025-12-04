@@ -5,14 +5,10 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateParticipantAuthenticationRequest, UpdateParticipantAuthenticationResponse } from "../models/models_3";
-=======
 import type {
   UpdateParticipantAuthenticationRequest,
   UpdateParticipantAuthenticationResponse,
-} from "../models/models_2";
->>>>>>> 60efd81940b (chore: codegen)
+} from "../models/models_3";
 import { UpdateParticipantAuthentication } from "../schemas/schemas_0";
 
 /**

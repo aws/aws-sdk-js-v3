@@ -157,21 +157,9 @@ import {
 import { MarketplaceAgreementServiceException as __MarketplaceAgreementServiceException } from "../models/MarketplaceAgreementServiceException";
 
 /* eslint no-var: 0 */
-
 export var Acceptor: StaticStructureSchema = [3, n0, _A, 0, [_aI], [0]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_rI, _m],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_rI, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AgreementViewSummary: StaticStructureSchema = [
   3,
   n0,
@@ -231,19 +219,8 @@ export var FreeTrialPricingTerm: StaticStructureSchema = [3, n0, _FTPT, 0, [_t, 
 export var GetAgreementTermsInput: StaticStructureSchema = [3, n0, _GATI, 0, [_aIg, _mR, _nT], [0, 1, 0]];
 export var GetAgreementTermsOutput: StaticStructureSchema = [3, n0, _GATO, 0, [_aTc, _nT], [() => AcceptedTermList, 0]];
 export var GrantItem: StaticStructureSchema = [3, n0, _GI, 0, [_dK, _mQ], [0, 1]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_rI, _m],
-  [0, 0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_rI, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LegalTerm: StaticStructureSchema = [3, n0, _LT, 0, [_t, _do], [0, () => DocumentList]];
 export var PaymentScheduleTerm: StaticStructureSchema = [3, n0, _PST, 0, [_t, _cC, _sc], [0, 0, () => ScheduleList]];
 export var ProposalSummary: StaticStructureSchema = [3, n0, _PS, 0, [_r, _oI, _oSI], [() => Resources, 0, 0]];
@@ -257,15 +234,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_rI, _m, _rIe, _rT],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ScheduleItem: StaticStructureSchema = [3, n0, _SI, 0, [_cD, _cA], [4, 0]];
 export var SearchAgreementsInput: StaticStructureSchema = [
   3,
@@ -286,19 +259,8 @@ export var SearchAgreementsOutput: StaticStructureSchema = [
 export var Selector: StaticStructureSchema = [3, n0, _S, 0, [_t, _val], [0, 0]];
 export var Sort: StaticStructureSchema = [3, n0, _So, 0, [_sB, _sO], [0, 0]];
 export var SupportTerm: StaticStructureSchema = [3, n0, _ST, 0, [_t, _rP], [0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_rI, _m],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_rI, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UsageBasedPricingTerm: StaticStructureSchema = [
   3,
   n0,
@@ -312,15 +274,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_rI, _m, _re, _fi],
   [0, 0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var ValidityTerm: StaticStructureSchema = [3, n0, _VT, 0, [_t, _aD, _aSD, _aED], [0, 0, 4, 4]];
 export var VariablePaymentTerm: StaticStructureSchema = [
@@ -333,7 +291,6 @@ export var VariablePaymentTerm: StaticStructureSchema = [
 ];
 export var VariablePaymentTermConfiguration: StaticStructureSchema = [3, n0, _VPTC, 0, [_pRAS, _eD], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var MarketplaceAgreementServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -343,7 +300,6 @@ export var MarketplaceAgreementServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(MarketplaceAgreementServiceException, __MarketplaceAgreementServiceException);
-
 export var AcceptedTermList: StaticListSchema = [1, n0, _ATL, 0, () => AcceptedTerm];
 export var AgreementViewSummaryList: StaticListSchema = [1, n0, _AVSL, 0, () => AgreementViewSummary];
 export var ConfigurableUpfrontRateCardList: StaticListSchema = [
@@ -357,7 +313,6 @@ export var DimensionList: StaticListSchema = [1, n0, _DL, 0, () => Dimension];
 export var DocumentList: StaticListSchema = [1, n0, _DLo, 0, () => DocumentItem];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FilterValueList = 64 | 0;
-
 export var GrantList: StaticListSchema = [1, n0, _GL, 0, () => GrantItem];
 export var RateCardList: StaticListSchema = [1, n0, _RCL, 0, () => RateCardItem];
 export var Resources: StaticListSchema = [1, n0, _Re, 0, () => Resource];

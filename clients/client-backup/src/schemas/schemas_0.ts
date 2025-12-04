@@ -781,7 +781,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var RequesterComment: StaticSimpleSchema = [0, n0, _RC, 8, 0];
 export var AdvancedBackupSetting: StaticStructureSchema = [3, n0, _ABS, 0, [_RT, _BO], [0, 128 | 0]];
 export var AggregatedScanResult: StaticStructureSchema = [3, n0, _ASR, 0, [_FS, _F, _LC], [2, 64 | 0, 4]];
@@ -789,14 +788,11 @@ export var AlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_C, _M, _CRI, _A, _T, _Co],
   [0, 0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
 export var AssociateBackupVaultMpaApprovalTeamInput: StaticStructureSchema = [
   3,
   n0,
@@ -972,18 +968,8 @@ export var CancelLegalHoldInput: StaticStructureSchema = [
   [_LHI, _CDa, _RRID],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cD,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _rRID,
-      },
-    ],
+    [0, { [_hQ]: _cD }],
+    [1, { [_hQ]: _rRID }],
   ],
 ];
 export var CancelLegalHoldOutput: StaticStructureSchema = [3, n0, _CLHO, 0, [], []];
@@ -1001,16 +987,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ConflictException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ControlInputParameter: StaticStructureSchema = [3, n0, _CIP, 0, [_PN, _PV], [0, 0]];
 export var ControlScope: StaticStructureSchema = [3, n0, _CS, 0, [_CRIo, _CRT, _Ta], [64 | 0, 64 | 0, 128 | 0]];
 export var CopyAction: StaticStructureSchema = [3, n0, _CAo, 0, [_L, _DBVA], [() => Lifecycle, 0]];
@@ -1273,14 +1254,11 @@ export var DependencyFailureException: StaticErrorSchema = [
   -3,
   n0,
   _DFE,
-  {
-    [_e]: _s,
-  },
+  { [_e]: _s },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(DependencyFailureException, __DependencyFailureException);
-
 export var DescribeBackupJobInput: StaticStructureSchema = [3, n0, _DBJI, 0, [_BJI], [[0, 1]]];
 export var DescribeBackupJobOutput: StaticStructureSchema = [
   3,
@@ -1364,12 +1342,7 @@ export var DescribeBackupVaultInput: StaticStructureSchema = [
   [_BVN, _BVAI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bVAI,
-      },
-    ],
+    [0, { [_hQ]: _bVAI }],
   ],
 ];
 export var DescribeBackupVaultOutput: StaticStructureSchema = [
@@ -1411,12 +1384,7 @@ export var DescribeRecoveryPointInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bVAI,
-      },
-    ],
+    [0, { [_hQ]: _bVAI }],
   ],
 ];
 export var DescribeRecoveryPointOutput: StaticStructureSchema = [
@@ -1598,18 +1566,8 @@ export var GetBackupPlanInput: StaticStructureSchema = [
   [_BPIa, _VI, _MSRP],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MSRP,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
+    [1, { [_hQ]: _MSRP }],
   ],
 ];
 export var GetBackupPlanOutput: StaticStructureSchema = [
@@ -1687,12 +1645,7 @@ export var GetRecoveryPointRestoreMetadataInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bVAI,
-      },
-    ],
+    [0, { [_hQ]: _bVAI }],
   ],
 ];
 export var GetRecoveryPointRestoreMetadataOutput: StaticStructureSchema = [
@@ -1719,24 +1672,9 @@ export var GetRestoreTestingInferredMetadataInput: StaticStructureSchema = [
   0,
   [_BVAI, _BVN, _RPA],
   [
-    [
-      0,
-      {
-        [_hQ]: _BVAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BVN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _RPA,
-      },
-    ],
+    [0, { [_hQ]: _BVAI }],
+    [0, { [_hQ]: _BVN }],
+    [0, { [_hQ]: _RPA }],
   ],
 ];
 export var GetRestoreTestingInferredMetadataOutput: StaticStructureSchema = [3, n0, _GRTIMO, 0, [_IM], [128 | 0]];
@@ -1791,38 +1729,22 @@ export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_C, _M, _T, _Co], [0, 0, 0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var InvalidResourceStateException: StaticErrorSchema = [
   -3,
   n0,
   _IRSE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidResourceStateException, __InvalidResourceStateException);
-
 export var KeyValue: StaticStructureSchema = [3, n0, _KV, 0, [_K, _V], [0, 0]];
 export var LatestMpaApprovalTeamUpdate: StaticStructureSchema = [
   3,
@@ -1842,18 +1764,8 @@ export var LegalHold: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 4, 4],
 ];
 export var Lifecycle: StaticStructureSchema = [3, n0, _L, 0, [_MTCSAD, _DAD, _OITAFSR, _DAE], [1, 1, 2, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_C, _M, _T, _Co], [0, 0, 0, 0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListBackupJobsInput: StaticStructureSchema = [
   3,
   n0,
@@ -1861,84 +1773,19 @@ export var ListBackupJobsInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _BRA, _BSy, _BBVN, _BCB, _BCA, _BRT, _BAI, _BCAy, _BCBy, _BPJI, _BMC],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bVN,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cB,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cAo,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cBo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pJI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _rA }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _bVN }],
+    [4, { [_hQ]: _cB }],
+    [4, { [_hQ]: _cA }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _aI }],
+    [4, { [_hQ]: _cAo }],
+    [4, { [_hQ]: _cBo }],
+    [0, { [_hQ]: _pJI }],
+    [0, { [_hQ]: _mC }],
   ],
 ];
 export var ListBackupJobsOutput: StaticStructureSchema = [3, n0, _LBJO, 0, [_BJa, _NT], [() => BackupJobsList, 0]];
@@ -1949,48 +1796,13 @@ export var ListBackupJobSummariesInput: StaticStructureSchema = [
   0,
   [_AI, _S, _RT, _MC, _AP, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _AI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _RT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _MC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AP,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _AI }],
+    [0, { [_hQ]: _S }],
+    [0, { [_hQ]: _RT }],
+    [0, { [_hQ]: _MC }],
+    [0, { [_hQ]: _AP }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListBackupJobSummariesOutput: StaticStructureSchema = [
@@ -2008,24 +1820,9 @@ export var ListBackupPlansInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _IDn],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iD,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [2, { [_hQ]: _iD }],
   ],
 ];
 export var ListBackupPlansOutput: StaticStructureSchema = [3, n0, _LBPO, 0, [_NT, _BPL], [0, () => BackupPlansList]];
@@ -2036,18 +1833,8 @@ export var ListBackupPlanTemplatesInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListBackupPlanTemplatesOutput: StaticStructureSchema = [
@@ -2066,18 +1853,8 @@ export var ListBackupPlanVersionsInput: StaticStructureSchema = [
   [_BPIa, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListBackupPlanVersionsOutput: StaticStructureSchema = [
@@ -2096,18 +1873,8 @@ export var ListBackupSelectionsInput: StaticStructureSchema = [
   [_BPIa, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListBackupSelectionsOutput: StaticStructureSchema = [
@@ -2125,30 +1892,10 @@ export var ListBackupVaultsInput: StaticStructureSchema = [
   0,
   [_BVTy, _BSyh, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _vT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _sh,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _vT }],
+    [2, { [_hQ]: _sh }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListBackupVaultsOutput: StaticStructureSchema = [3, n0, _LBVO, 0, [_BVL, _NT], [() => BackupVaultList, 0]];
@@ -2159,90 +1906,20 @@ export var ListCopyJobsInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _BRA, _BSy, _BCB, _BCA, _BRT, _BDVA, _BAI, _BCBy, _BCAy, _BPJI, _BMC, _BSRPA],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cB,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dVA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cBo,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cAo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pJI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sRPA,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _rA }],
+    [0, { [_hQ]: _st }],
+    [4, { [_hQ]: _cB }],
+    [4, { [_hQ]: _cA }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _dVA }],
+    [0, { [_hQ]: _aI }],
+    [4, { [_hQ]: _cBo }],
+    [4, { [_hQ]: _cAo }],
+    [0, { [_hQ]: _pJI }],
+    [0, { [_hQ]: _mC }],
+    [0, { [_hQ]: _sRPA }],
   ],
 ];
 export var ListCopyJobsOutput: StaticStructureSchema = [3, n0, _LCJO, 0, [_CJo, _NT], [() => CopyJobsList, 0]];
@@ -2253,48 +1930,13 @@ export var ListCopyJobSummariesInput: StaticStructureSchema = [
   0,
   [_AI, _S, _RT, _MC, _AP, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _AI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _RT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _MC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AP,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _AI }],
+    [0, { [_hQ]: _S }],
+    [0, { [_hQ]: _RT }],
+    [0, { [_hQ]: _MC }],
+    [0, { [_hQ]: _AP }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListCopyJobSummariesOutput: StaticStructureSchema = [
@@ -2312,18 +1954,8 @@ export var ListFrameworksInput: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListFrameworksOutput: StaticStructureSchema = [3, n0, _LFO, 0, [_Fra, _NT], [() => FrameworkList, 0]];
@@ -2334,48 +1966,13 @@ export var ListIndexedRecoveryPointsInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _SRA, _CBr, _CAr, _RT, _IS],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sRA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cB,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _iS,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _sRA }],
+    [4, { [_hQ]: _cB }],
+    [4, { [_hQ]: _cA }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _iS }],
   ],
 ];
 export var ListIndexedRecoveryPointsOutput: StaticStructureSchema = [
@@ -2393,18 +1990,8 @@ export var ListLegalHoldsInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListLegalHoldsOutput: StaticStructureSchema = [3, n0, _LLHO, 0, [_NT, _LHe], [0, () => LegalHoldsList]];
@@ -2416,24 +2003,9 @@ export var ListProtectedResourcesByBackupVaultInput: StaticStructureSchema = [
   [_BVN, _BVAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bVAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _bVAI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListProtectedResourcesByBackupVaultOutput: StaticStructureSchema = [
@@ -2451,18 +2023,8 @@ export var ListProtectedResourcesInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListProtectedResourcesOutput: StaticStructureSchema = [
@@ -2481,60 +2043,15 @@ export var ListRecoveryPointsByBackupVaultInput: StaticStructureSchema = [
   [_BVN, _BVAI, _NT, _MR, _BRA, _BRT, _BBPI, _BCB, _BCA, _BPRPA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bVAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bPI,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cB,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pRPA,
-      },
-    ],
+    [0, { [_hQ]: _bVAI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _rA }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _bPI }],
+    [4, { [_hQ]: _cB }],
+    [4, { [_hQ]: _cA }],
+    [0, { [_hQ]: _pRPA }],
   ],
 ];
 export var ListRecoveryPointsByBackupVaultOutput: StaticStructureSchema = [
@@ -2553,18 +2070,8 @@ export var ListRecoveryPointsByLegalHoldInput: StaticStructureSchema = [
   [_LHI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRecoveryPointsByLegalHoldOutput: StaticStructureSchema = [
@@ -2583,24 +2090,9 @@ export var ListRecoveryPointsByResourceInput: StaticStructureSchema = [
   [_RA, _NT, _MR, _MBAWSBO],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _mBAWSBO,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [2, { [_hQ]: _mBAWSBO }],
   ],
 ];
 export var ListRecoveryPointsByResourceOutput: StaticStructureSchema = [
@@ -2618,42 +2110,12 @@ export var ListReportJobsInput: StaticStructureSchema = [
   0,
   [_BRPN, _BCByr, _BCAyr, _BSyt, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _RPN,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _CBre,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _CAre,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _RPN }],
+    [4, { [_hQ]: _CBre }],
+    [4, { [_hQ]: _CAre }],
+    [0, { [_hQ]: _St }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListReportJobsOutput: StaticStructureSchema = [3, n0, _LRJO, 0, [_RJe, _NT], [() => ReportJobList, 0]];
@@ -2664,18 +2126,8 @@ export var ListReportPlansInput: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListReportPlansOutput: StaticStructureSchema = [3, n0, _LRPO, 0, [_RPep, _NT], [() => ReportPlanList, 0]];
@@ -2687,18 +2139,8 @@ export var ListRestoreAccessBackupVaultsInput: StaticStructureSchema = [
   [_BVN, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRestoreAccessBackupVaultsOutput: StaticStructureSchema = [
@@ -2717,36 +2159,11 @@ export var ListRestoreJobsByProtectedResourceInput: StaticStructureSchema = [
   [_RA, _BSyt, _BRPCDA, _BRPCDB, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sta,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _rPCDA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _rPCDB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _sta }],
+    [4, { [_hQ]: _rPCDA }],
+    [4, { [_hQ]: _rPCDB }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRestoreJobsByProtectedResourceOutput: StaticStructureSchema = [
@@ -2764,72 +2181,17 @@ export var ListRestoreJobsInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _BAI, _BRT, _BCB, _BCA, _BSyt, _BCBy, _BCAy, _BRTPA, _BPJI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cB,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sta,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cBo,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _cAo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rTPA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pJI,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _aI }],
+    [0, { [_hQ]: _rT }],
+    [4, { [_hQ]: _cB }],
+    [4, { [_hQ]: _cA }],
+    [0, { [_hQ]: _sta }],
+    [4, { [_hQ]: _cBo }],
+    [4, { [_hQ]: _cAo }],
+    [0, { [_hQ]: _rTPA }],
+    [0, { [_hQ]: _pJI }],
   ],
 ];
 export var ListRestoreJobsOutput: StaticStructureSchema = [3, n0, _LRJOi, 0, [_RJes, _NT], [() => RestoreJobsList, 0]];
@@ -2840,42 +2202,12 @@ export var ListRestoreJobSummariesInput: StaticStructureSchema = [
   0,
   [_AI, _S, _RT, _AP, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _AI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _RT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AP,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _AI }],
+    [0, { [_hQ]: _S }],
+    [0, { [_hQ]: _RT }],
+    [0, { [_hQ]: _AP }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListRestoreJobSummariesOutput: StaticStructureSchema = [
@@ -2893,18 +2225,8 @@ export var ListRestoreTestingPlansInput: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListRestoreTestingPlansOutput: StaticStructureSchema = [
@@ -2922,18 +2244,8 @@ export var ListRestoreTestingSelectionsInput: StaticStructureSchema = [
   0,
   [_MR, _NT, _RTPN],
   [
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
     [0, 1],
   ],
 ];
@@ -2952,78 +2264,18 @@ export var ListScanJobsInput: StaticStructureSchema = [
   0,
   [_BAI, _BBVN, _BCAy, _BCBy, _BMS, _BRPA, _BRA, _BRT, _BSRS, _BSy, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _BAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BBVN,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _BCAy,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _BCBy,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BMS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BRPA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BRA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BRT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BSRS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _BSy,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _BAI }],
+    [0, { [_hQ]: _BBVN }],
+    [4, { [_hQ]: _BCAy }],
+    [4, { [_hQ]: _BCBy }],
+    [0, { [_hQ]: _BMS }],
+    [0, { [_hQ]: _BRPA }],
+    [0, { [_hQ]: _BRA }],
+    [0, { [_hQ]: _BRT }],
+    [0, { [_hQ]: _BSRS }],
+    [0, { [_hQ]: _BSy }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListScanJobsOutput: StaticStructureSchema = [3, n0, _LSJO, 0, [_NT, _SJ], [0, () => ScanJobs]];
@@ -3034,54 +2286,14 @@ export var ListScanJobSummariesInput: StaticStructureSchema = [
   0,
   [_AI, _RT, _MS, _SRS, _S, _AP, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _AI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _RT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _MS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SRS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AP,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _AI }],
+    [0, { [_hQ]: _RT }],
+    [0, { [_hQ]: _MS }],
+    [0, { [_hQ]: _SRS }],
+    [0, { [_hQ]: _S }],
+    [0, { [_hQ]: _AP }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListScanJobSummariesOutput: StaticStructureSchema = [
@@ -3100,18 +2312,8 @@ export var ListTagsInput: StaticStructureSchema = [
   [_RA, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTagsOutput: StaticStructureSchema = [3, n0, _LTO, 0, [_NT, _Ta], [0, [() => Tags, 0]]];
@@ -3122,18 +2324,8 @@ export var ListTieringConfigurationsInput: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTieringConfigurationsOutput: StaticStructureSchema = [
@@ -3148,14 +2340,11 @@ export var MissingParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _MPVE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(MissingParameterValueException, __MissingParameterValueException);
-
 export var ProtectedResource: StaticStructureSchema = [
   3,
   n0,
@@ -3318,14 +2507,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceSelection: StaticStructureSchema = [3, n0, _RSe, 0, [_Re, _TDSID, _RT], [64 | 0, 1, 0]];
 export var RestoreAccessBackupVaultListMember: StaticStructureSchema = [
   3,
@@ -3457,12 +2643,7 @@ export var RevokeRestoreAccessBackupVaultInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      () => RequesterComment,
-      {
-        [_hQ]: _rC,
-      },
-    ],
+    [() => RequesterComment, { [_hQ]: _rC }],
   ],
 ];
 export var ScanAction: StaticStructureSchema = [3, n0, _SAc, 0, [_MS, _SMc], [0, 0]];
@@ -3491,14 +2672,11 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _s,
-  },
+  { [_e]: _s },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartBackupJobInput: StaticStructureSchema = [
   3,
   n0,
@@ -3726,10 +2904,8 @@ export var UpdateTieringConfigurationOutput: StaticStructureSchema = [
   [0, 0, 4, 4],
 ];
 export var __Unit = "unit" as const;
-
 export var BackupServiceException: StaticErrorSchema = [-3, _sm, "BackupServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BackupServiceException, __BackupServiceException);
-
 export var AdvancedBackupSettings: StaticListSchema = [1, n0, _ABSd, 0, () => AdvancedBackupSetting];
 export var BackupJobsList: StaticListSchema = [1, n0, _BJL, 0, () => BackupJob];
 export var BackupJobSummaryList: StaticListSchema = [1, n0, _BJSL, 0, () => BackupJobSummary];
@@ -3740,17 +2916,14 @@ export var BackupRules: StaticListSchema = [1, n0, _BRa, 0, [() => BackupRule, 0
 export var BackupRulesInput: StaticListSchema = [1, n0, _BRIac, 0, [() => BackupRuleInput, 0]];
 export var BackupSelectionsList: StaticListSchema = [1, n0, _BSL, 0, () => BackupSelectionsListMember];
 export var BackupVaultEvents = 64 | 0;
-
 export var BackupVaultList: StaticListSchema = [1, n0, _BVL, 0, () => BackupVaultListMember];
 export var ComplianceResourceIdList = 64 | 0;
-
 export var ConditionParameters: StaticListSchema = [1, n0, _CPo, 0, () => ConditionParameter];
 export var ControlInputParameters: StaticListSchema = [1, n0, _CIPo, 0, () => ControlInputParameter];
 export var CopyActions: StaticListSchema = [1, n0, _CA, 0, () => CopyAction];
 export var CopyJobsList: StaticListSchema = [1, n0, _CJL, 0, () => CopyJob];
 export var CopyJobSummaryList: StaticListSchema = [1, n0, _CJSL, 0, () => CopyJobSummary];
 export var FormatList = 64 | 0;
-
 export var FrameworkControls: StaticListSchema = [1, n0, _FC, 0, () => FrameworkControl];
 export var FrameworkList: StaticListSchema = [1, n0, _FL, 0, () => Framework];
 export var IndexActions: StaticListSchema = [1, n0, _IA, 0, () => IndexAction];
@@ -3765,14 +2938,10 @@ export var RecoveryPointsList: StaticListSchema = [1, n0, _RPLe, 0, () => Recove
 export var ReportJobList: StaticListSchema = [1, n0, _RJL, 0, () => ReportJob];
 export var ReportPlanList: StaticListSchema = [1, n0, _RPLep, 0, () => ReportPlan];
 export var ResourceArns = 64 | 0;
-
 export var ResourceIdentifiers = 64 | 0;
-
 export var ResourceSelections: StaticListSchema = [1, n0, _RSes, 0, () => ResourceSelection];
 export var ResourceTypeList = 64 | 0;
-
 export var ResourceTypes = 64 | 0;
-
 export var RestoreAccessBackupVaultList: StaticListSchema = [
   1,
   n0,
@@ -3784,46 +2953,33 @@ export var RestoreJobsList: StaticListSchema = [1, n0, _RJLe, 0, () => RestoreJo
 export var RestoreJobSummaryList: StaticListSchema = [1, n0, _RJSL, 0, () => RestoreJobSummary];
 export var RestoreTestingPlans: StaticListSchema = [1, n0, _RTPe, 0, () => RestoreTestingPlanForList];
 export var RestoreTestingRecoveryPointTypeList = 64 | 0;
-
 export var RestoreTestingSelections: StaticListSchema = [1, n0, _RTSe, 0, () => RestoreTestingSelectionForList];
 export var ScanActions: StaticListSchema = [1, n0, _SA, 0, () => ScanAction];
 export var ScanFindings = 64 | 0;
-
 export var ScanJobs: StaticListSchema = [1, n0, _SJ, 0, () => ScanJob];
 export var ScanJobSummaryList: StaticListSchema = [1, n0, _SJSL, 0, () => ScanJobSummary];
 export var ScanResults: StaticListSchema = [1, n0, _SR, 0, () => ScanResult];
 export var ScanSettings: StaticListSchema = [1, n0, _SS, 0, () => ScanSetting];
 export var ScheduledRunsPreview: StaticListSchema = [1, n0, _SRP, 0, () => ScheduledPlanExecutionMember];
 export var stringList = 64 | 0;
-
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
 export var TieringConfigurationsList: StaticListSchema = [1, n0, _TCL, 0, () => TieringConfigurationsListMember];
 export var VaultNames = 64 | 0;
-
 export var BackupJobChildJobsInState = 128 | 1;
-
 export var BackupOptions = 128 | 0;
-
 export var CopyJobChildJobsInState = 128 | 1;
-
 export var GlobalSettings = 128 | 0;
-
 export var Metadata: StaticMapSchema = [2, n0, _Me, 8, 0, 0];
 export var ResourceTypeManagementPreference = 128 | 2;
-
 export var ResourceTypeOptInPreference = 128 | 2;
-
 export var SensitiveStringMap: StaticMapSchema = [2, n0, _SSM, 8, 0, 0];
 export var stringMap = 128 | 0;
-
 export var Tags: StaticMapSchema = [2, n0, _Ta, 8, 0, 0];
 export var AssociateBackupVaultMpaApprovalTeam: StaticOperationSchema = [
   9,
   n0,
   _ABVMAT,
-  {
-    [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/mpaApprovalTeam", 204],
-  },
+  { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/mpaApprovalTeam", 204] },
   () => AssociateBackupVaultMpaApprovalTeamInput,
   () => __Unit,
 ];
@@ -3831,9 +2987,7 @@ export var CancelLegalHold: StaticOperationSchema = [
   9,
   n0,
   _CLH,
-  {
-    [_h]: ["DELETE", "/legal-holds/{LegalHoldId}", 201],
-  },
+  { [_h]: ["DELETE", "/legal-holds/{LegalHoldId}", 201] },
   () => CancelLegalHoldInput,
   () => CancelLegalHoldOutput,
 ];
@@ -3841,9 +2995,7 @@ export var CreateBackupPlan: StaticOperationSchema = [
   9,
   n0,
   _CBP,
-  {
-    [_h]: ["PUT", "/backup/plans", 200],
-  },
+  { [_h]: ["PUT", "/backup/plans", 200] },
   () => CreateBackupPlanInput,
   () => CreateBackupPlanOutput,
 ];
@@ -3851,9 +3003,7 @@ export var CreateBackupSelection: StaticOperationSchema = [
   9,
   n0,
   _CBS,
-  {
-    [_h]: ["PUT", "/backup/plans/{BackupPlanId}/selections", 200],
-  },
+  { [_h]: ["PUT", "/backup/plans/{BackupPlanId}/selections", 200] },
   () => CreateBackupSelectionInput,
   () => CreateBackupSelectionOutput,
 ];
@@ -3861,9 +3011,7 @@ export var CreateBackupVault: StaticOperationSchema = [
   9,
   n0,
   _CBV,
-  {
-    [_h]: ["PUT", "/backup-vaults/{BackupVaultName}", 200],
-  },
+  { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}", 200] },
   () => CreateBackupVaultInput,
   () => CreateBackupVaultOutput,
 ];
@@ -3871,9 +3019,7 @@ export var CreateFramework: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["POST", "/audit/frameworks", 200],
-  },
+  { [_h]: ["POST", "/audit/frameworks", 200] },
   () => CreateFrameworkInput,
   () => CreateFrameworkOutput,
 ];
@@ -3881,9 +3027,7 @@ export var CreateLegalHold: StaticOperationSchema = [
   9,
   n0,
   _CLHr,
-  {
-    [_h]: ["POST", "/legal-holds", 200],
-  },
+  { [_h]: ["POST", "/legal-holds", 200] },
   () => CreateLegalHoldInput,
   () => CreateLegalHoldOutput,
 ];
@@ -3891,9 +3035,7 @@ export var CreateLogicallyAirGappedBackupVault: StaticOperationSchema = [
   9,
   n0,
   _CLAGBV,
-  {
-    [_h]: ["PUT", "/logically-air-gapped-backup-vaults/{BackupVaultName}", 200],
-  },
+  { [_h]: ["PUT", "/logically-air-gapped-backup-vaults/{BackupVaultName}", 200] },
   () => CreateLogicallyAirGappedBackupVaultInput,
   () => CreateLogicallyAirGappedBackupVaultOutput,
 ];
@@ -3901,9 +3043,7 @@ export var CreateReportPlan: StaticOperationSchema = [
   9,
   n0,
   _CRP,
-  {
-    [_h]: ["POST", "/audit/report-plans", 200],
-  },
+  { [_h]: ["POST", "/audit/report-plans", 200] },
   () => CreateReportPlanInput,
   () => CreateReportPlanOutput,
 ];
@@ -3911,9 +3051,7 @@ export var CreateRestoreAccessBackupVault: StaticOperationSchema = [
   9,
   n0,
   _CRABV,
-  {
-    [_h]: ["PUT", "/restore-access-backup-vaults", 200],
-  },
+  { [_h]: ["PUT", "/restore-access-backup-vaults", 200] },
   () => CreateRestoreAccessBackupVaultInput,
   () => CreateRestoreAccessBackupVaultOutput,
 ];
@@ -3921,9 +3059,7 @@ export var CreateRestoreTestingPlan: StaticOperationSchema = [
   9,
   n0,
   _CRTP,
-  {
-    [_h]: ["PUT", "/restore-testing/plans", 201],
-  },
+  { [_h]: ["PUT", "/restore-testing/plans", 201] },
   () => CreateRestoreTestingPlanInput,
   () => CreateRestoreTestingPlanOutput,
 ];
@@ -3931,9 +3067,7 @@ export var CreateRestoreTestingSelection: StaticOperationSchema = [
   9,
   n0,
   _CRTS,
-  {
-    [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}/selections", 201],
-  },
+  { [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}/selections", 201] },
   () => CreateRestoreTestingSelectionInput,
   () => CreateRestoreTestingSelectionOutput,
 ];
@@ -3941,9 +3075,7 @@ export var CreateTieringConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CTC,
-  {
-    [_h]: ["PUT", "/tiering-configurations", 200],
-  },
+  { [_h]: ["PUT", "/tiering-configurations", 200] },
   () => CreateTieringConfigurationInput,
   () => CreateTieringConfigurationOutput,
 ];
@@ -3951,9 +3083,7 @@ export var DeleteBackupPlan: StaticOperationSchema = [
   9,
   n0,
   _DBP,
-  {
-    [_h]: ["DELETE", "/backup/plans/{BackupPlanId}", 200],
-  },
+  { [_h]: ["DELETE", "/backup/plans/{BackupPlanId}", 200] },
   () => DeleteBackupPlanInput,
   () => DeleteBackupPlanOutput,
 ];
@@ -3961,9 +3091,7 @@ export var DeleteBackupSelection: StaticOperationSchema = [
   9,
   n0,
   _DBS,
-  {
-    [_h]: ["DELETE", "/backup/plans/{BackupPlanId}/selections/{SelectionId}", 200],
-  },
+  { [_h]: ["DELETE", "/backup/plans/{BackupPlanId}/selections/{SelectionId}", 200] },
   () => DeleteBackupSelectionInput,
   () => __Unit,
 ];
@@ -3971,9 +3099,7 @@ export var DeleteBackupVault: StaticOperationSchema = [
   9,
   n0,
   _DBV,
-  {
-    [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}", 200],
-  },
+  { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}", 200] },
   () => DeleteBackupVaultInput,
   () => __Unit,
 ];
@@ -3981,9 +3107,7 @@ export var DeleteBackupVaultAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _DBVAP,
-  {
-    [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/access-policy", 200],
-  },
+  { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/access-policy", 200] },
   () => DeleteBackupVaultAccessPolicyInput,
   () => __Unit,
 ];
@@ -3991,9 +3115,7 @@ export var DeleteBackupVaultLockConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DBVLC,
-  {
-    [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/vault-lock", 200],
-  },
+  { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/vault-lock", 200] },
   () => DeleteBackupVaultLockConfigurationInput,
   () => __Unit,
 ];
@@ -4001,9 +3123,7 @@ export var DeleteBackupVaultNotifications: StaticOperationSchema = [
   9,
   n0,
   _DBVN,
-  {
-    [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/notification-configuration", 200],
-  },
+  { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/notification-configuration", 200] },
   () => DeleteBackupVaultNotificationsInput,
   () => __Unit,
 ];
@@ -4011,9 +3131,7 @@ export var DeleteFramework: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/audit/frameworks/{FrameworkName}", 200],
-  },
+  { [_h]: ["DELETE", "/audit/frameworks/{FrameworkName}", 200] },
   () => DeleteFrameworkInput,
   () => __Unit,
 ];
@@ -4021,9 +3139,7 @@ export var DeleteRecoveryPoint: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200],
-  },
+  { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200] },
   () => DeleteRecoveryPointInput,
   () => __Unit,
 ];
@@ -4031,9 +3147,7 @@ export var DeleteReportPlan: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
-  {
-    [_h]: ["DELETE", "/audit/report-plans/{ReportPlanName}", 200],
-  },
+  { [_h]: ["DELETE", "/audit/report-plans/{ReportPlanName}", 200] },
   () => DeleteReportPlanInput,
   () => __Unit,
 ];
@@ -4041,9 +3155,7 @@ export var DeleteRestoreTestingPlan: StaticOperationSchema = [
   9,
   n0,
   _DRTP,
-  {
-    [_h]: ["DELETE", "/restore-testing/plans/{RestoreTestingPlanName}", 204],
-  },
+  { [_h]: ["DELETE", "/restore-testing/plans/{RestoreTestingPlanName}", 204] },
   () => DeleteRestoreTestingPlanInput,
   () => __Unit,
 ];
@@ -4051,9 +3163,7 @@ export var DeleteRestoreTestingSelection: StaticOperationSchema = [
   9,
   n0,
   _DRTS,
-  {
-    [_h]: ["DELETE", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 204],
-  },
+  { [_h]: ["DELETE", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 204] },
   () => DeleteRestoreTestingSelectionInput,
   () => __Unit,
 ];
@@ -4061,9 +3171,7 @@ export var DeleteTieringConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DTC,
-  {
-    [_h]: ["DELETE", "/tiering-configurations/{TieringConfigurationName}", 200],
-  },
+  { [_h]: ["DELETE", "/tiering-configurations/{TieringConfigurationName}", 200] },
   () => DeleteTieringConfigurationInput,
   () => DeleteTieringConfigurationOutput,
 ];
@@ -4071,9 +3179,7 @@ export var DescribeBackupJob: StaticOperationSchema = [
   9,
   n0,
   _DBJ,
-  {
-    [_h]: ["GET", "/backup-jobs/{BackupJobId}", 200],
-  },
+  { [_h]: ["GET", "/backup-jobs/{BackupJobId}", 200] },
   () => DescribeBackupJobInput,
   () => DescribeBackupJobOutput,
 ];
@@ -4081,9 +3187,7 @@ export var DescribeBackupVault: StaticOperationSchema = [
   9,
   n0,
   _DBVe,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}", 200] },
   () => DescribeBackupVaultInput,
   () => DescribeBackupVaultOutput,
 ];
@@ -4091,9 +3195,7 @@ export var DescribeCopyJob: StaticOperationSchema = [
   9,
   n0,
   _DCJ,
-  {
-    [_h]: ["GET", "/copy-jobs/{CopyJobId}", 200],
-  },
+  { [_h]: ["GET", "/copy-jobs/{CopyJobId}", 200] },
   () => DescribeCopyJobInput,
   () => DescribeCopyJobOutput,
 ];
@@ -4101,9 +3203,7 @@ export var DescribeFramework: StaticOperationSchema = [
   9,
   n0,
   _DFe,
-  {
-    [_h]: ["GET", "/audit/frameworks/{FrameworkName}", 200],
-  },
+  { [_h]: ["GET", "/audit/frameworks/{FrameworkName}", 200] },
   () => DescribeFrameworkInput,
   () => DescribeFrameworkOutput,
 ];
@@ -4111,9 +3211,7 @@ export var DescribeGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _DGS,
-  {
-    [_h]: ["GET", "/global-settings", 200],
-  },
+  { [_h]: ["GET", "/global-settings", 200] },
   () => DescribeGlobalSettingsInput,
   () => DescribeGlobalSettingsOutput,
 ];
@@ -4121,9 +3219,7 @@ export var DescribeProtectedResource: StaticOperationSchema = [
   9,
   n0,
   _DPR,
-  {
-    [_h]: ["GET", "/resources/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/resources/{ResourceArn}", 200] },
   () => DescribeProtectedResourceInput,
   () => DescribeProtectedResourceOutput,
 ];
@@ -4131,9 +3227,7 @@ export var DescribeRecoveryPoint: StaticOperationSchema = [
   9,
   n0,
   _DRPes,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200] },
   () => DescribeRecoveryPointInput,
   () => DescribeRecoveryPointOutput,
 ];
@@ -4141,9 +3235,7 @@ export var DescribeRegionSettings: StaticOperationSchema = [
   9,
   n0,
   _DRS,
-  {
-    [_h]: ["GET", "/account-settings", 200],
-  },
+  { [_h]: ["GET", "/account-settings", 200] },
   () => DescribeRegionSettingsInput,
   () => DescribeRegionSettingsOutput,
 ];
@@ -4151,9 +3243,7 @@ export var DescribeReportJob: StaticOperationSchema = [
   9,
   n0,
   _DRJ,
-  {
-    [_h]: ["GET", "/audit/report-jobs/{ReportJobId}", 200],
-  },
+  { [_h]: ["GET", "/audit/report-jobs/{ReportJobId}", 200] },
   () => DescribeReportJobInput,
   () => DescribeReportJobOutput,
 ];
@@ -4161,9 +3251,7 @@ export var DescribeReportPlan: StaticOperationSchema = [
   9,
   n0,
   _DRPesc,
-  {
-    [_h]: ["GET", "/audit/report-plans/{ReportPlanName}", 200],
-  },
+  { [_h]: ["GET", "/audit/report-plans/{ReportPlanName}", 200] },
   () => DescribeReportPlanInput,
   () => DescribeReportPlanOutput,
 ];
@@ -4171,9 +3259,7 @@ export var DescribeRestoreJob: StaticOperationSchema = [
   9,
   n0,
   _DRJe,
-  {
-    [_h]: ["GET", "/restore-jobs/{RestoreJobId}", 200],
-  },
+  { [_h]: ["GET", "/restore-jobs/{RestoreJobId}", 200] },
   () => DescribeRestoreJobInput,
   () => DescribeRestoreJobOutput,
 ];
@@ -4181,9 +3267,7 @@ export var DescribeScanJob: StaticOperationSchema = [
   9,
   n0,
   _DSJ,
-  {
-    [_h]: ["GET", "/scan/jobs/{ScanJobId}", 200],
-  },
+  { [_h]: ["GET", "/scan/jobs/{ScanJobId}", 200] },
   () => DescribeScanJobInput,
   () => DescribeScanJobOutput,
 ];
@@ -4191,9 +3275,7 @@ export var DisassociateBackupVaultMpaApprovalTeam: StaticOperationSchema = [
   9,
   n0,
   _DBVMAT,
-  {
-    [_h]: ["POST", "/backup-vaults/{BackupVaultName}/mpaApprovalTeam?delete", 204],
-  },
+  { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/mpaApprovalTeam?delete", 204] },
   () => DisassociateBackupVaultMpaApprovalTeamInput,
   () => __Unit,
 ];
@@ -4201,9 +3283,7 @@ export var DisassociateRecoveryPoint: StaticOperationSchema = [
   9,
   n0,
   _DRPi,
-  {
-    [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate", 200],
-  },
+  { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate", 200] },
   () => DisassociateRecoveryPointInput,
   () => __Unit,
 ];
@@ -4211,9 +3291,7 @@ export var DisassociateRecoveryPointFromParent: StaticOperationSchema = [
   9,
   n0,
   _DRPFP,
-  {
-    [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation", 204],
-  },
+  { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation", 204] },
   () => DisassociateRecoveryPointFromParentInput,
   () => __Unit,
 ];
@@ -4221,9 +3299,7 @@ export var ExportBackupPlanTemplate: StaticOperationSchema = [
   9,
   n0,
   _EBPT,
-  {
-    [_h]: ["GET", "/backup/plans/{BackupPlanId}/toTemplate", 200],
-  },
+  { [_h]: ["GET", "/backup/plans/{BackupPlanId}/toTemplate", 200] },
   () => ExportBackupPlanTemplateInput,
   () => ExportBackupPlanTemplateOutput,
 ];
@@ -4231,9 +3307,7 @@ export var GetBackupPlan: StaticOperationSchema = [
   9,
   n0,
   _GBP,
-  {
-    [_h]: ["GET", "/backup/plans/{BackupPlanId}", 200],
-  },
+  { [_h]: ["GET", "/backup/plans/{BackupPlanId}", 200] },
   () => GetBackupPlanInput,
   () => GetBackupPlanOutput,
 ];
@@ -4241,9 +3315,7 @@ export var GetBackupPlanFromJSON: StaticOperationSchema = [
   9,
   n0,
   _GBPFJSON,
-  {
-    [_h]: ["POST", "/backup/template/json/toPlan", 200],
-  },
+  { [_h]: ["POST", "/backup/template/json/toPlan", 200] },
   () => GetBackupPlanFromJSONInput,
   () => GetBackupPlanFromJSONOutput,
 ];
@@ -4251,9 +3323,7 @@ export var GetBackupPlanFromTemplate: StaticOperationSchema = [
   9,
   n0,
   _GBPFT,
-  {
-    [_h]: ["GET", "/backup/template/plans/{BackupPlanTemplateId}/toPlan", 200],
-  },
+  { [_h]: ["GET", "/backup/template/plans/{BackupPlanTemplateId}/toPlan", 200] },
   () => GetBackupPlanFromTemplateInput,
   () => GetBackupPlanFromTemplateOutput,
 ];
@@ -4261,9 +3331,7 @@ export var GetBackupSelection: StaticOperationSchema = [
   9,
   n0,
   _GBS,
-  {
-    [_h]: ["GET", "/backup/plans/{BackupPlanId}/selections/{SelectionId}", 200],
-  },
+  { [_h]: ["GET", "/backup/plans/{BackupPlanId}/selections/{SelectionId}", 200] },
   () => GetBackupSelectionInput,
   () => GetBackupSelectionOutput,
 ];
@@ -4271,9 +3339,7 @@ export var GetBackupVaultAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _GBVAP,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}/access-policy", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/access-policy", 200] },
   () => GetBackupVaultAccessPolicyInput,
   () => GetBackupVaultAccessPolicyOutput,
 ];
@@ -4281,9 +3347,7 @@ export var GetBackupVaultNotifications: StaticOperationSchema = [
   9,
   n0,
   _GBVN,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}/notification-configuration", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/notification-configuration", 200] },
   () => GetBackupVaultNotificationsInput,
   () => GetBackupVaultNotificationsOutput,
 ];
@@ -4291,9 +3355,7 @@ export var GetLegalHold: StaticOperationSchema = [
   9,
   n0,
   _GLH,
-  {
-    [_h]: ["GET", "/legal-holds/{LegalHoldId}", 200],
-  },
+  { [_h]: ["GET", "/legal-holds/{LegalHoldId}", 200] },
   () => GetLegalHoldInput,
   () => GetLegalHoldOutput,
 ];
@@ -4301,9 +3363,7 @@ export var GetRecoveryPointIndexDetails: StaticOperationSchema = [
   9,
   n0,
   _GRPID,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", 200] },
   () => GetRecoveryPointIndexDetailsInput,
   () => GetRecoveryPointIndexDetailsOutput,
 ];
@@ -4311,9 +3371,7 @@ export var GetRecoveryPointRestoreMetadata: StaticOperationSchema = [
   9,
   n0,
   _GRPRM,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata", 200] },
   () => GetRecoveryPointRestoreMetadataInput,
   () => GetRecoveryPointRestoreMetadataOutput,
 ];
@@ -4321,9 +3379,7 @@ export var GetRestoreJobMetadata: StaticOperationSchema = [
   9,
   n0,
   _GRJM,
-  {
-    [_h]: ["GET", "/restore-jobs/{RestoreJobId}/metadata", 200],
-  },
+  { [_h]: ["GET", "/restore-jobs/{RestoreJobId}/metadata", 200] },
   () => GetRestoreJobMetadataInput,
   () => GetRestoreJobMetadataOutput,
 ];
@@ -4331,9 +3387,7 @@ export var GetRestoreTestingInferredMetadata: StaticOperationSchema = [
   9,
   n0,
   _GRTIM,
-  {
-    [_h]: ["GET", "/restore-testing/inferred-metadata", 200],
-  },
+  { [_h]: ["GET", "/restore-testing/inferred-metadata", 200] },
   () => GetRestoreTestingInferredMetadataInput,
   () => GetRestoreTestingInferredMetadataOutput,
 ];
@@ -4341,9 +3395,7 @@ export var GetRestoreTestingPlan: StaticOperationSchema = [
   9,
   n0,
   _GRTP,
-  {
-    [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}", 200],
-  },
+  { [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}", 200] },
   () => GetRestoreTestingPlanInput,
   () => GetRestoreTestingPlanOutput,
 ];
@@ -4351,9 +3403,7 @@ export var GetRestoreTestingSelection: StaticOperationSchema = [
   9,
   n0,
   _GRTS,
-  {
-    [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 200],
-  },
+  { [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 200] },
   () => GetRestoreTestingSelectionInput,
   () => GetRestoreTestingSelectionOutput,
 ];
@@ -4361,9 +3411,7 @@ export var GetSupportedResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _GSRT,
-  {
-    [_h]: ["GET", "/supported-resource-types", 200],
-  },
+  { [_h]: ["GET", "/supported-resource-types", 200] },
   () => __Unit,
   () => GetSupportedResourceTypesOutput,
 ];
@@ -4371,9 +3419,7 @@ export var GetTieringConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GTC,
-  {
-    [_h]: ["GET", "/tiering-configurations/{TieringConfigurationName}", 200],
-  },
+  { [_h]: ["GET", "/tiering-configurations/{TieringConfigurationName}", 200] },
   () => GetTieringConfigurationInput,
   () => GetTieringConfigurationOutput,
 ];
@@ -4381,9 +3427,7 @@ export var ListBackupJobs: StaticOperationSchema = [
   9,
   n0,
   _LBJ,
-  {
-    [_h]: ["GET", "/backup-jobs", 200],
-  },
+  { [_h]: ["GET", "/backup-jobs", 200] },
   () => ListBackupJobsInput,
   () => ListBackupJobsOutput,
 ];
@@ -4391,9 +3435,7 @@ export var ListBackupJobSummaries: StaticOperationSchema = [
   9,
   n0,
   _LBJS,
-  {
-    [_h]: ["GET", "/audit/backup-job-summaries", 200],
-  },
+  { [_h]: ["GET", "/audit/backup-job-summaries", 200] },
   () => ListBackupJobSummariesInput,
   () => ListBackupJobSummariesOutput,
 ];
@@ -4401,9 +3443,7 @@ export var ListBackupPlans: StaticOperationSchema = [
   9,
   n0,
   _LBP,
-  {
-    [_h]: ["GET", "/backup/plans", 200],
-  },
+  { [_h]: ["GET", "/backup/plans", 200] },
   () => ListBackupPlansInput,
   () => ListBackupPlansOutput,
 ];
@@ -4411,9 +3451,7 @@ export var ListBackupPlanTemplates: StaticOperationSchema = [
   9,
   n0,
   _LBPT,
-  {
-    [_h]: ["GET", "/backup/template/plans", 200],
-  },
+  { [_h]: ["GET", "/backup/template/plans", 200] },
   () => ListBackupPlanTemplatesInput,
   () => ListBackupPlanTemplatesOutput,
 ];
@@ -4421,9 +3459,7 @@ export var ListBackupPlanVersions: StaticOperationSchema = [
   9,
   n0,
   _LBPV,
-  {
-    [_h]: ["GET", "/backup/plans/{BackupPlanId}/versions", 200],
-  },
+  { [_h]: ["GET", "/backup/plans/{BackupPlanId}/versions", 200] },
   () => ListBackupPlanVersionsInput,
   () => ListBackupPlanVersionsOutput,
 ];
@@ -4431,9 +3467,7 @@ export var ListBackupSelections: StaticOperationSchema = [
   9,
   n0,
   _LBS,
-  {
-    [_h]: ["GET", "/backup/plans/{BackupPlanId}/selections", 200],
-  },
+  { [_h]: ["GET", "/backup/plans/{BackupPlanId}/selections", 200] },
   () => ListBackupSelectionsInput,
   () => ListBackupSelectionsOutput,
 ];
@@ -4441,9 +3475,7 @@ export var ListBackupVaults: StaticOperationSchema = [
   9,
   n0,
   _LBV,
-  {
-    [_h]: ["GET", "/backup-vaults", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults", 200] },
   () => ListBackupVaultsInput,
   () => ListBackupVaultsOutput,
 ];
@@ -4451,9 +3483,7 @@ export var ListCopyJobs: StaticOperationSchema = [
   9,
   n0,
   _LCJ,
-  {
-    [_h]: ["GET", "/copy-jobs", 200],
-  },
+  { [_h]: ["GET", "/copy-jobs", 200] },
   () => ListCopyJobsInput,
   () => ListCopyJobsOutput,
 ];
@@ -4461,9 +3491,7 @@ export var ListCopyJobSummaries: StaticOperationSchema = [
   9,
   n0,
   _LCJS,
-  {
-    [_h]: ["GET", "/audit/copy-job-summaries", 200],
-  },
+  { [_h]: ["GET", "/audit/copy-job-summaries", 200] },
   () => ListCopyJobSummariesInput,
   () => ListCopyJobSummariesOutput,
 ];
@@ -4471,9 +3499,7 @@ export var ListFrameworks: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["GET", "/audit/frameworks", 200],
-  },
+  { [_h]: ["GET", "/audit/frameworks", 200] },
   () => ListFrameworksInput,
   () => ListFrameworksOutput,
 ];
@@ -4481,9 +3507,7 @@ export var ListIndexedRecoveryPoints: StaticOperationSchema = [
   9,
   n0,
   _LIRP,
-  {
-    [_h]: ["GET", "/indexes/recovery-point", 200],
-  },
+  { [_h]: ["GET", "/indexes/recovery-point", 200] },
   () => ListIndexedRecoveryPointsInput,
   () => ListIndexedRecoveryPointsOutput,
 ];
@@ -4491,9 +3515,7 @@ export var ListLegalHolds: StaticOperationSchema = [
   9,
   n0,
   _LLH,
-  {
-    [_h]: ["GET", "/legal-holds", 200],
-  },
+  { [_h]: ["GET", "/legal-holds", 200] },
   () => ListLegalHoldsInput,
   () => ListLegalHoldsOutput,
 ];
@@ -4501,9 +3523,7 @@ export var ListProtectedResources: StaticOperationSchema = [
   9,
   n0,
   _LPR,
-  {
-    [_h]: ["GET", "/resources", 200],
-  },
+  { [_h]: ["GET", "/resources", 200] },
   () => ListProtectedResourcesInput,
   () => ListProtectedResourcesOutput,
 ];
@@ -4511,9 +3531,7 @@ export var ListProtectedResourcesByBackupVault: StaticOperationSchema = [
   9,
   n0,
   _LPRBBV,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}/resources", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/resources", 200] },
   () => ListProtectedResourcesByBackupVaultInput,
   () => ListProtectedResourcesByBackupVaultOutput,
 ];
@@ -4521,9 +3539,7 @@ export var ListRecoveryPointsByBackupVault: StaticOperationSchema = [
   9,
   n0,
   _LRPBBV,
-  {
-    [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points", 200],
-  },
+  { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points", 200] },
   () => ListRecoveryPointsByBackupVaultInput,
   () => ListRecoveryPointsByBackupVaultOutput,
 ];
@@ -4531,9 +3547,7 @@ export var ListRecoveryPointsByLegalHold: StaticOperationSchema = [
   9,
   n0,
   _LRPBLH,
-  {
-    [_h]: ["GET", "/legal-holds/{LegalHoldId}/recovery-points", 200],
-  },
+  { [_h]: ["GET", "/legal-holds/{LegalHoldId}/recovery-points", 200] },
   () => ListRecoveryPointsByLegalHoldInput,
   () => ListRecoveryPointsByLegalHoldOutput,
 ];
@@ -4541,9 +3555,7 @@ export var ListRecoveryPointsByResource: StaticOperationSchema = [
   9,
   n0,
   _LRPBR,
-  {
-    [_h]: ["GET", "/resources/{ResourceArn}/recovery-points", 200],
-  },
+  { [_h]: ["GET", "/resources/{ResourceArn}/recovery-points", 200] },
   () => ListRecoveryPointsByResourceInput,
   () => ListRecoveryPointsByResourceOutput,
 ];
@@ -4551,9 +3563,7 @@ export var ListReportJobs: StaticOperationSchema = [
   9,
   n0,
   _LRJ,
-  {
-    [_h]: ["GET", "/audit/report-jobs", 200],
-  },
+  { [_h]: ["GET", "/audit/report-jobs", 200] },
   () => ListReportJobsInput,
   () => ListReportJobsOutput,
 ];
@@ -4561,9 +3571,7 @@ export var ListReportPlans: StaticOperationSchema = [
   9,
   n0,
   _LRP,
-  {
-    [_h]: ["GET", "/audit/report-plans", 200],
-  },
+  { [_h]: ["GET", "/audit/report-plans", 200] },
   () => ListReportPlansInput,
   () => ListReportPlansOutput,
 ];
@@ -4571,9 +3579,7 @@ export var ListRestoreAccessBackupVaults: StaticOperationSchema = [
   9,
   n0,
   _LRABV,
-  {
-    [_h]: ["GET", "/logically-air-gapped-backup-vaults/{BackupVaultName}/restore-access-backup-vaults", 200],
-  },
+  { [_h]: ["GET", "/logically-air-gapped-backup-vaults/{BackupVaultName}/restore-access-backup-vaults", 200] },
   () => ListRestoreAccessBackupVaultsInput,
   () => ListRestoreAccessBackupVaultsOutput,
 ];
@@ -4581,9 +3587,7 @@ export var ListRestoreJobs: StaticOperationSchema = [
   9,
   n0,
   _LRJi,
-  {
-    [_h]: ["GET", "/restore-jobs", 200],
-  },
+  { [_h]: ["GET", "/restore-jobs", 200] },
   () => ListRestoreJobsInput,
   () => ListRestoreJobsOutput,
 ];
@@ -4591,9 +3595,7 @@ export var ListRestoreJobsByProtectedResource: StaticOperationSchema = [
   9,
   n0,
   _LRJBPR,
-  {
-    [_h]: ["GET", "/resources/{ResourceArn}/restore-jobs", 200],
-  },
+  { [_h]: ["GET", "/resources/{ResourceArn}/restore-jobs", 200] },
   () => ListRestoreJobsByProtectedResourceInput,
   () => ListRestoreJobsByProtectedResourceOutput,
 ];
@@ -4601,9 +3603,7 @@ export var ListRestoreJobSummaries: StaticOperationSchema = [
   9,
   n0,
   _LRJS,
-  {
-    [_h]: ["GET", "/audit/restore-job-summaries", 200],
-  },
+  { [_h]: ["GET", "/audit/restore-job-summaries", 200] },
   () => ListRestoreJobSummariesInput,
   () => ListRestoreJobSummariesOutput,
 ];
@@ -4611,9 +3611,7 @@ export var ListRestoreTestingPlans: StaticOperationSchema = [
   9,
   n0,
   _LRTP,
-  {
-    [_h]: ["GET", "/restore-testing/plans", 200],
-  },
+  { [_h]: ["GET", "/restore-testing/plans", 200] },
   () => ListRestoreTestingPlansInput,
   () => ListRestoreTestingPlansOutput,
 ];
@@ -4621,9 +3619,7 @@ export var ListRestoreTestingSelections: StaticOperationSchema = [
   9,
   n0,
   _LRTS,
-  {
-    [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}/selections", 200],
-  },
+  { [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}/selections", 200] },
   () => ListRestoreTestingSelectionsInput,
   () => ListRestoreTestingSelectionsOutput,
 ];
@@ -4631,9 +3627,7 @@ export var ListScanJobs: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
-  {
-    [_h]: ["GET", "/scan/jobs", 200],
-  },
+  { [_h]: ["GET", "/scan/jobs", 200] },
   () => ListScanJobsInput,
   () => ListScanJobsOutput,
 ];
@@ -4641,9 +3635,7 @@ export var ListScanJobSummaries: StaticOperationSchema = [
   9,
   n0,
   _LSJS,
-  {
-    [_h]: ["GET", "/audit/scan-job-summaries", 200],
-  },
+  { [_h]: ["GET", "/audit/scan-job-summaries", 200] },
   () => ListScanJobSummariesInput,
   () => ListScanJobSummariesOutput,
 ];
@@ -4651,9 +3643,7 @@ export var ListTags: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsInput,
   () => ListTagsOutput,
 ];
@@ -4661,9 +3651,7 @@ export var ListTieringConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LTC,
-  {
-    [_h]: ["GET", "/tiering-configurations", 200],
-  },
+  { [_h]: ["GET", "/tiering-configurations", 200] },
   () => ListTieringConfigurationsInput,
   () => ListTieringConfigurationsOutput,
 ];
@@ -4671,9 +3659,7 @@ export var PutBackupVaultAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _PBVAP,
-  {
-    [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/access-policy", 200],
-  },
+  { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/access-policy", 200] },
   () => PutBackupVaultAccessPolicyInput,
   () => __Unit,
 ];
@@ -4681,9 +3667,7 @@ export var PutBackupVaultLockConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PBVLC,
-  {
-    [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/vault-lock", 200],
-  },
+  { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/vault-lock", 200] },
   () => PutBackupVaultLockConfigurationInput,
   () => __Unit,
 ];
@@ -4691,9 +3675,7 @@ export var PutBackupVaultNotifications: StaticOperationSchema = [
   9,
   n0,
   _PBVN,
-  {
-    [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/notification-configuration", 200],
-  },
+  { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/notification-configuration", 200] },
   () => PutBackupVaultNotificationsInput,
   () => __Unit,
 ];
@@ -4701,9 +3683,7 @@ export var PutRestoreValidationResult: StaticOperationSchema = [
   9,
   n0,
   _PRVR,
-  {
-    [_h]: ["PUT", "/restore-jobs/{RestoreJobId}/validations", 204],
-  },
+  { [_h]: ["PUT", "/restore-jobs/{RestoreJobId}/validations", 204] },
   () => PutRestoreValidationResultInput,
   () => __Unit,
 ];
@@ -4725,9 +3705,7 @@ export var StartBackupJob: StaticOperationSchema = [
   9,
   n0,
   _SBJ,
-  {
-    [_h]: ["PUT", "/backup-jobs", 200],
-  },
+  { [_h]: ["PUT", "/backup-jobs", 200] },
   () => StartBackupJobInput,
   () => StartBackupJobOutput,
 ];
@@ -4735,9 +3713,7 @@ export var StartCopyJob: StaticOperationSchema = [
   9,
   n0,
   _SCJ,
-  {
-    [_h]: ["PUT", "/copy-jobs", 200],
-  },
+  { [_h]: ["PUT", "/copy-jobs", 200] },
   () => StartCopyJobInput,
   () => StartCopyJobOutput,
 ];
@@ -4745,9 +3721,7 @@ export var StartReportJob: StaticOperationSchema = [
   9,
   n0,
   _SRJ,
-  {
-    [_h]: ["POST", "/audit/report-jobs/{ReportPlanName}", 200],
-  },
+  { [_h]: ["POST", "/audit/report-jobs/{ReportPlanName}", 200] },
   () => StartReportJobInput,
   () => StartReportJobOutput,
 ];
@@ -4755,9 +3729,7 @@ export var StartRestoreJob: StaticOperationSchema = [
   9,
   n0,
   _SRJt,
-  {
-    [_h]: ["PUT", "/restore-jobs", 200],
-  },
+  { [_h]: ["PUT", "/restore-jobs", 200] },
   () => StartRestoreJobInput,
   () => StartRestoreJobOutput,
 ];
@@ -4765,9 +3737,7 @@ export var StartScanJob: StaticOperationSchema = [
   9,
   n0,
   _SSJ,
-  {
-    [_h]: ["PUT", "/scan/job", 201],
-  },
+  { [_h]: ["PUT", "/scan/job", 201] },
   () => StartScanJobInput,
   () => StartScanJobOutput,
 ];
@@ -4775,9 +3745,7 @@ export var StopBackupJob: StaticOperationSchema = [
   9,
   n0,
   _SBJt,
-  {
-    [_h]: ["POST", "/backup-jobs/{BackupJobId}", 200],
-  },
+  { [_h]: ["POST", "/backup-jobs/{BackupJobId}", 200] },
   () => StopBackupJobInput,
   () => __Unit,
 ];
@@ -4785,9 +3753,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceInput,
   () => __Unit,
 ];
@@ -4795,9 +3761,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/untag/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/untag/{ResourceArn}", 200] },
   () => UntagResourceInput,
   () => __Unit,
 ];
@@ -4805,9 +3769,7 @@ export var UpdateBackupPlan: StaticOperationSchema = [
   9,
   n0,
   _UBP,
-  {
-    [_h]: ["POST", "/backup/plans/{BackupPlanId}", 200],
-  },
+  { [_h]: ["POST", "/backup/plans/{BackupPlanId}", 200] },
   () => UpdateBackupPlanInput,
   () => UpdateBackupPlanOutput,
 ];
@@ -4815,9 +3777,7 @@ export var UpdateFramework: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["PUT", "/audit/frameworks/{FrameworkName}", 200],
-  },
+  { [_h]: ["PUT", "/audit/frameworks/{FrameworkName}", 200] },
   () => UpdateFrameworkInput,
   () => UpdateFrameworkOutput,
 ];
@@ -4825,9 +3785,7 @@ export var UpdateGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _UGS,
-  {
-    [_h]: ["PUT", "/global-settings", 200],
-  },
+  { [_h]: ["PUT", "/global-settings", 200] },
   () => UpdateGlobalSettingsInput,
   () => __Unit,
 ];
@@ -4835,9 +3793,7 @@ export var UpdateRecoveryPointIndexSettings: StaticOperationSchema = [
   9,
   n0,
   _URPIS,
-  {
-    [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", 200],
-  },
+  { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", 200] },
   () => UpdateRecoveryPointIndexSettingsInput,
   () => UpdateRecoveryPointIndexSettingsOutput,
 ];
@@ -4845,9 +3801,7 @@ export var UpdateRecoveryPointLifecycle: StaticOperationSchema = [
   9,
   n0,
   _URPL,
-  {
-    [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200],
-  },
+  { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200] },
   () => UpdateRecoveryPointLifecycleInput,
   () => UpdateRecoveryPointLifecycleOutput,
 ];
@@ -4855,9 +3809,7 @@ export var UpdateRegionSettings: StaticOperationSchema = [
   9,
   n0,
   _URS,
-  {
-    [_h]: ["PUT", "/account-settings", 200],
-  },
+  { [_h]: ["PUT", "/account-settings", 200] },
   () => UpdateRegionSettingsInput,
   () => __Unit,
 ];
@@ -4865,9 +3817,7 @@ export var UpdateReportPlan: StaticOperationSchema = [
   9,
   n0,
   _URP,
-  {
-    [_h]: ["PUT", "/audit/report-plans/{ReportPlanName}", 200],
-  },
+  { [_h]: ["PUT", "/audit/report-plans/{ReportPlanName}", 200] },
   () => UpdateReportPlanInput,
   () => UpdateReportPlanOutput,
 ];
@@ -4875,9 +3825,7 @@ export var UpdateRestoreTestingPlan: StaticOperationSchema = [
   9,
   n0,
   _URTP,
-  {
-    [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}", 200],
-  },
+  { [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}", 200] },
   () => UpdateRestoreTestingPlanInput,
   () => UpdateRestoreTestingPlanOutput,
 ];
@@ -4885,9 +3833,7 @@ export var UpdateRestoreTestingSelection: StaticOperationSchema = [
   9,
   n0,
   _URTS,
-  {
-    [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 200],
-  },
+  { [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 200] },
   () => UpdateRestoreTestingSelectionInput,
   () => UpdateRestoreTestingSelectionOutput,
 ];
@@ -4895,9 +3841,7 @@ export var UpdateTieringConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UTC,
-  {
-    [_h]: ["PUT", "/tiering-configurations/{TieringConfigurationName}", 200],
-  },
+  { [_h]: ["PUT", "/tiering-configurations/{TieringConfigurationName}", 200] },
   () => UpdateTieringConfigurationInput,
   () => UpdateTieringConfigurationOutput,
 ];

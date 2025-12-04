@@ -242,47 +242,27 @@ import {
 import { KinesisVideoServiceException as __KinesisVideoServiceException } from "../models/KinesisVideoServiceException";
 
 /* eslint no-var: 0 */
-
 export var MediaUriSecretArn: StaticSimpleSchema = [0, n0, _MUSA, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountChannelLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _ACLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccountChannelLimitExceededException, __AccountChannelLimitExceededException);
-
 export var AccountStreamLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _ASLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccountStreamLimitExceededException, __AccountStreamLimitExceededException);
-
 export var ChannelInfo: StaticStructureSchema = [
   3,
   n0,
@@ -292,19 +272,8 @@ export var ChannelInfo: StaticStructureSchema = [
   [0, 0, 0, 0, 4, () => SingleMasterConfiguration, 0],
 ];
 export var ChannelNameCondition: StaticStructureSchema = [3, n0, _CNC, 0, [_CO, _CV], [0, 0]];
-export var ClientLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ClientLimitExceededException: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ClientLimitExceededException, __ClientLimitExceededException);
-
 export var CreateSignalingChannelInput: StaticStructureSchema = [
   3,
   n0,
@@ -399,15 +368,11 @@ export var DeviceStreamLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _DSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DeviceStreamLimitExceededException, __DeviceStreamLimitExceededException);
-
 export var EdgeAgentStatus: StaticStructureSchema = [
   3,
   n0,
@@ -451,45 +416,12 @@ export var ImageGenerationConfiguration: StaticStructureSchema = [
   [0, 0, () => ImageGenerationDestinationConfig, 1, 0, 128 | 0, 1, 1],
 ];
 export var ImageGenerationDestinationConfig: StaticStructureSchema = [3, n0, _IGDC, 0, [_U, _DR], [0, 0]];
-export var InvalidArgumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-
-export var InvalidDeviceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidDeviceException: StaticErrorSchema = [-3, n0, _IDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeviceException, __InvalidDeviceException);
-
-export var InvalidResourceFormatException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidResourceFormatException: StaticErrorSchema = [-3, n0, _IRFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidResourceFormatException, __InvalidResourceFormatException);
-
 export var LastRecorderStatus: StaticStructureSchema = [3, n0, _LRS, 0, [_JSD, _LCT, _LUT, _RS], [0, 4, 4, 0]];
 export var LastUploaderStatus: StaticStructureSchema = [3, n0, _LUS, 0, [_JSD, _LCT, _LUT, _US], [0, 4, 4, 0]];
 export var ListEdgeAgentConfigurationsEdgeConfig: StaticStructureSchema = [
@@ -549,32 +481,10 @@ export var MediaSourceConfig: StaticStructureSchema = [
   [[() => MediaUriSecretArn, 0], 0],
 ];
 export var MediaStorageConfiguration: StaticStructureSchema = [3, n0, _MSC, 0, [_SARN, _S], [0, 0]];
-export var NoDataRetentionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NDRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var NoDataRetentionException: StaticErrorSchema = [-3, n0, _NDRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NoDataRetentionException, __NoDataRetentionException);
-
-export var NotAuthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NAE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_M],
-  [0],
-];
+export var NotAuthorizedException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedException);
-
 export var NotificationConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -593,32 +503,10 @@ export var RecorderConfig: StaticStructureSchema = [
   [[() => MediaSourceConfig, 0], () => ScheduleConfig],
 ];
 export var ResourceEndpointListItem: StaticStructureSchema = [3, n0, _RELI, 0, [_P, _RE], [0, 0]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ScheduleConfig: StaticStructureSchema = [3, n0, _SC, 0, [_SE, _DIS], [0, 1]];
 export var SingleMasterChannelEndpointConfiguration: StaticStructureSchema = [3, n0, _SMCEC, 0, [_Pr, _R], [64 | 0, 0]];
 export var SingleMasterConfiguration: StaticStructureSchema = [3, n0, _SMC, 0, [_MTS], [1]];
@@ -642,10 +530,7 @@ export var StreamEdgeConfigurationNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _SECNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -653,7 +538,6 @@ TypeRegistry.for(n0).registerError(
   StreamEdgeConfigurationNotFoundException,
   __StreamEdgeConfigurationNotFoundException
 );
-
 export var StreamInfo: StaticStructureSchema = [
   3,
   n0,
@@ -671,15 +555,11 @@ export var TagsPerResourceExceededLimitException: StaticErrorSchema = [
   -3,
   n0,
   _TPRELE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TagsPerResourceExceededLimitException, __TagsPerResourceExceededLimitException);
-
 export var TagStreamInput: StaticStructureSchema = [3, n0, _TSI, 0, [_SARN, _SN, _T], [0, 0, 128 | 0]];
 export var TagStreamOutput: StaticStructureSchema = [3, n0, _TSO, 0, [], []];
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TKL], [0, 64 | 0]];
@@ -743,24 +623,11 @@ export var UpdateStreamStorageConfigurationInput: StaticStructureSchema = [
 ];
 export var UpdateStreamStorageConfigurationOutput: StaticStructureSchema = [3, n0, _USSCO, 0, [], []];
 export var UploaderConfig: StaticStructureSchema = [3, n0, _UC, 0, [_SC], [() => ScheduleConfig]];
-export var VersionMismatchException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var VersionMismatchException: StaticErrorSchema = [-3, n0, _VME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(VersionMismatchException, __VersionMismatchException);
-
 export var __Unit = "unit" as const;
-
 export var KinesisVideoServiceException: StaticErrorSchema = [-3, _s, "KinesisVideoServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(KinesisVideoServiceException, __KinesisVideoServiceException);
-
 export var ChannelInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ChannelInfo];
 export var ListEdgeAgentConfigurationsEdgeConfigList: StaticListSchema = [
   1,
@@ -770,7 +637,6 @@ export var ListEdgeAgentConfigurationsEdgeConfigList: StaticListSchema = [
   [() => ListEdgeAgentConfigurationsEdgeConfig, 0],
 ];
 export var ListOfProtocols = 64 | 0;
-
 export var MappedResourceConfigurationList: StaticListSchema = [
   1,
   n0,
@@ -781,20 +647,15 @@ export var MappedResourceConfigurationList: StaticListSchema = [
 export var ResourceEndpointList: StaticListSchema = [1, n0, _REL, 0, () => ResourceEndpointListItem];
 export var StreamInfoList: StaticListSchema = [1, n0, _SIL, 0, () => StreamInfo];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TagOnCreateList: StaticListSchema = [1, n0, _TOCL, 0, () => Tag];
 export var FormatConfig = 128 | 0;
-
 export var ResourceTags = 128 | 0;
-
 export var CreateSignalingChannel: StaticOperationSchema = [
   9,
   n0,
   _CSC,
-  {
-    [_h]: ["POST", "/createSignalingChannel", 200],
-  },
+  { [_h]: ["POST", "/createSignalingChannel", 200] },
   () => CreateSignalingChannelInput,
   () => CreateSignalingChannelOutput,
 ];
@@ -802,9 +663,7 @@ export var CreateStream: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_h]: ["POST", "/createStream", 200],
-  },
+  { [_h]: ["POST", "/createStream", 200] },
   () => CreateStreamInput,
   () => CreateStreamOutput,
 ];
@@ -812,9 +671,7 @@ export var DeleteEdgeConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DEC,
-  {
-    [_h]: ["POST", "/deleteEdgeConfiguration", 200],
-  },
+  { [_h]: ["POST", "/deleteEdgeConfiguration", 200] },
   () => DeleteEdgeConfigurationInput,
   () => DeleteEdgeConfigurationOutput,
 ];
@@ -822,9 +679,7 @@ export var DeleteSignalingChannel: StaticOperationSchema = [
   9,
   n0,
   _DSC,
-  {
-    [_h]: ["POST", "/deleteSignalingChannel", 200],
-  },
+  { [_h]: ["POST", "/deleteSignalingChannel", 200] },
   () => DeleteSignalingChannelInput,
   () => DeleteSignalingChannelOutput,
 ];
@@ -832,9 +687,7 @@ export var DeleteStream: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["POST", "/deleteStream", 200],
-  },
+  { [_h]: ["POST", "/deleteStream", 200] },
   () => DeleteStreamInput,
   () => DeleteStreamOutput,
 ];
@@ -842,9 +695,7 @@ export var DescribeEdgeConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DECe,
-  {
-    [_h]: ["POST", "/describeEdgeConfiguration", 200],
-  },
+  { [_h]: ["POST", "/describeEdgeConfiguration", 200] },
   () => DescribeEdgeConfigurationInput,
   () => DescribeEdgeConfigurationOutput,
 ];
@@ -852,9 +703,7 @@ export var DescribeImageGenerationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DIGC,
-  {
-    [_h]: ["POST", "/describeImageGenerationConfiguration", 200],
-  },
+  { [_h]: ["POST", "/describeImageGenerationConfiguration", 200] },
   () => DescribeImageGenerationConfigurationInput,
   () => DescribeImageGenerationConfigurationOutput,
 ];
@@ -862,9 +711,7 @@ export var DescribeMappedResourceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DMRC,
-  {
-    [_h]: ["POST", "/describeMappedResourceConfiguration", 200],
-  },
+  { [_h]: ["POST", "/describeMappedResourceConfiguration", 200] },
   () => DescribeMappedResourceConfigurationInput,
   () => DescribeMappedResourceConfigurationOutput,
 ];
@@ -872,9 +719,7 @@ export var DescribeMediaStorageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DMSC,
-  {
-    [_h]: ["POST", "/describeMediaStorageConfiguration", 200],
-  },
+  { [_h]: ["POST", "/describeMediaStorageConfiguration", 200] },
   () => DescribeMediaStorageConfigurationInput,
   () => DescribeMediaStorageConfigurationOutput,
 ];
@@ -882,9 +727,7 @@ export var DescribeNotificationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DNC,
-  {
-    [_h]: ["POST", "/describeNotificationConfiguration", 200],
-  },
+  { [_h]: ["POST", "/describeNotificationConfiguration", 200] },
   () => DescribeNotificationConfigurationInput,
   () => DescribeNotificationConfigurationOutput,
 ];
@@ -892,9 +735,7 @@ export var DescribeSignalingChannel: StaticOperationSchema = [
   9,
   n0,
   _DSCe,
-  {
-    [_h]: ["POST", "/describeSignalingChannel", 200],
-  },
+  { [_h]: ["POST", "/describeSignalingChannel", 200] },
   () => DescribeSignalingChannelInput,
   () => DescribeSignalingChannelOutput,
 ];
@@ -902,9 +743,7 @@ export var DescribeStream: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_h]: ["POST", "/describeStream", 200],
-  },
+  { [_h]: ["POST", "/describeStream", 200] },
   () => DescribeStreamInput,
   () => DescribeStreamOutput,
 ];
@@ -912,9 +751,7 @@ export var DescribeStreamStorageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DSSC,
-  {
-    [_h]: ["POST", "/describeStreamStorageConfiguration", 200],
-  },
+  { [_h]: ["POST", "/describeStreamStorageConfiguration", 200] },
   () => DescribeStreamStorageConfigurationInput,
   () => DescribeStreamStorageConfigurationOutput,
 ];
@@ -922,9 +759,7 @@ export var GetDataEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GDE,
-  {
-    [_h]: ["POST", "/getDataEndpoint", 200],
-  },
+  { [_h]: ["POST", "/getDataEndpoint", 200] },
   () => GetDataEndpointInput,
   () => GetDataEndpointOutput,
 ];
@@ -932,9 +767,7 @@ export var GetSignalingChannelEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GSCE,
-  {
-    [_h]: ["POST", "/getSignalingChannelEndpoint", 200],
-  },
+  { [_h]: ["POST", "/getSignalingChannelEndpoint", 200] },
   () => GetSignalingChannelEndpointInput,
   () => GetSignalingChannelEndpointOutput,
 ];
@@ -942,9 +775,7 @@ export var ListEdgeAgentConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LEAC,
-  {
-    [_h]: ["POST", "/listEdgeAgentConfigurations", 200],
-  },
+  { [_h]: ["POST", "/listEdgeAgentConfigurations", 200] },
   () => ListEdgeAgentConfigurationsInput,
   () => ListEdgeAgentConfigurationsOutput,
 ];
@@ -952,9 +783,7 @@ export var ListSignalingChannels: StaticOperationSchema = [
   9,
   n0,
   _LSCi,
-  {
-    [_h]: ["POST", "/listSignalingChannels", 200],
-  },
+  { [_h]: ["POST", "/listSignalingChannels", 200] },
   () => ListSignalingChannelsInput,
   () => ListSignalingChannelsOutput,
 ];
@@ -962,9 +791,7 @@ export var ListStreams: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["POST", "/listStreams", 200],
-  },
+  { [_h]: ["POST", "/listStreams", 200] },
   () => ListStreamsInput,
   () => ListStreamsOutput,
 ];
@@ -972,9 +799,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -982,9 +807,7 @@ export var ListTagsForStream: StaticOperationSchema = [
   9,
   n0,
   _LTFS,
-  {
-    [_h]: ["POST", "/listTagsForStream", 200],
-  },
+  { [_h]: ["POST", "/listTagsForStream", 200] },
   () => ListTagsForStreamInput,
   () => ListTagsForStreamOutput,
 ];
@@ -992,9 +815,7 @@ export var StartEdgeConfigurationUpdate: StaticOperationSchema = [
   9,
   n0,
   _SECU,
-  {
-    [_h]: ["POST", "/startEdgeConfigurationUpdate", 200],
-  },
+  { [_h]: ["POST", "/startEdgeConfigurationUpdate", 200] },
   () => StartEdgeConfigurationUpdateInput,
   () => StartEdgeConfigurationUpdateOutput,
 ];
@@ -1002,9 +823,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -1012,9 +831,7 @@ export var TagStream: StaticOperationSchema = [
   9,
   n0,
   _TS,
-  {
-    [_h]: ["POST", "/tagStream", 200],
-  },
+  { [_h]: ["POST", "/tagStream", 200] },
   () => TagStreamInput,
   () => TagStreamOutput,
 ];
@@ -1022,9 +839,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -1032,9 +847,7 @@ export var UntagStream: StaticOperationSchema = [
   9,
   n0,
   _USn,
-  {
-    [_h]: ["POST", "/untagStream", 200],
-  },
+  { [_h]: ["POST", "/untagStream", 200] },
   () => UntagStreamInput,
   () => UntagStreamOutput,
 ];
@@ -1042,9 +855,7 @@ export var UpdateDataRetention: StaticOperationSchema = [
   9,
   n0,
   _UDR,
-  {
-    [_h]: ["POST", "/updateDataRetention", 200],
-  },
+  { [_h]: ["POST", "/updateDataRetention", 200] },
   () => UpdateDataRetentionInput,
   () => UpdateDataRetentionOutput,
 ];
@@ -1052,9 +863,7 @@ export var UpdateImageGenerationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UIGC,
-  {
-    [_h]: ["POST", "/updateImageGenerationConfiguration", 200],
-  },
+  { [_h]: ["POST", "/updateImageGenerationConfiguration", 200] },
   () => UpdateImageGenerationConfigurationInput,
   () => UpdateImageGenerationConfigurationOutput,
 ];
@@ -1062,9 +871,7 @@ export var UpdateMediaStorageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UMSC,
-  {
-    [_h]: ["POST", "/updateMediaStorageConfiguration", 200],
-  },
+  { [_h]: ["POST", "/updateMediaStorageConfiguration", 200] },
   () => UpdateMediaStorageConfigurationInput,
   () => UpdateMediaStorageConfigurationOutput,
 ];
@@ -1072,9 +879,7 @@ export var UpdateNotificationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UNC,
-  {
-    [_h]: ["POST", "/updateNotificationConfiguration", 200],
-  },
+  { [_h]: ["POST", "/updateNotificationConfiguration", 200] },
   () => UpdateNotificationConfigurationInput,
   () => UpdateNotificationConfigurationOutput,
 ];
@@ -1082,9 +887,7 @@ export var UpdateSignalingChannel: StaticOperationSchema = [
   9,
   n0,
   _USC,
-  {
-    [_h]: ["POST", "/updateSignalingChannel", 200],
-  },
+  { [_h]: ["POST", "/updateSignalingChannel", 200] },
   () => UpdateSignalingChannelInput,
   () => UpdateSignalingChannelOutput,
 ];
@@ -1092,9 +895,7 @@ export var UpdateStream: StaticOperationSchema = [
   9,
   n0,
   _USp,
-  {
-    [_h]: ["POST", "/updateStream", 200],
-  },
+  { [_h]: ["POST", "/updateStream", 200] },
   () => UpdateStreamInput,
   () => UpdateStreamOutput,
 ];
@@ -1102,9 +903,7 @@ export var UpdateStreamStorageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _USSC,
-  {
-    [_h]: ["POST", "/updateStreamStorageConfiguration", 200],
-  },
+  { [_h]: ["POST", "/updateStreamStorageConfiguration", 200] },
   () => UpdateStreamStorageConfigurationInput,
   () => UpdateStreamStorageConfigurationOutput,
 ];

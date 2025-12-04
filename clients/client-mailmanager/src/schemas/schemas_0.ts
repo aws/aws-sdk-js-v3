@@ -476,26 +476,14 @@ import {
 import { MailManagerServiceException as __MailManagerServiceException } from "../models/MailManagerServiceException";
 
 /* eslint no-var: 0 */
-
 export var Address: StaticSimpleSchema = [0, n0, _A, 8, 0];
 export var AddressPrefix: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 export var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 export var PreSignedUrl: StaticSimpleSchema = [0, n0, _PSU, 8, 0];
 export var SenderIpAddress: StaticSimpleSchema = [0, n0, _SIA, 8, 0];
 export var SmtpPassword: StaticSimpleSchema = [0, n0, _SP, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddHeaderAction: StaticStructureSchema = [3, n0, _AHA, 0, [_HN, _HV], [0, 0]];
 export var AddonInstance: StaticStructureSchema = [3, n0, _AI, 0, [_AII, _ASI, _AN, _AIA, _CT], [0, 0, 0, 0, 4]];
 export var AddonSubscription: StaticStructureSchema = [3, n0, _AS, 0, [_ASI, _AN, _ASA, _CT], [0, 0, 0, 4]];
@@ -528,19 +516,8 @@ export var ArchiveStringExpression: StaticStructureSchema = [
   [_E, _O, _V],
   [() => ArchiveStringToEvaluate, 0, 64 | 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAddonInstanceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -956,19 +933,8 @@ export var RegisterMemberToAddressListResponse: StaticStructureSchema = [3, n0, 
 export var Relay: StaticStructureSchema = [3, n0, _Rel, 0, [_RI, _RN, _LMT], [0, 0, 4]];
 export var RelayAction: StaticStructureSchema = [3, n0, _RAel, 0, [_AFP, _Rel, _MF], [0, 0, 0]];
 export var ReplaceRecipientAction: StaticStructureSchema = [3, n0, _RRA, 0, [_RW], [[() => Recipients, 0]]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Row: StaticStructureSchema = [
   3,
   n0,
@@ -1027,19 +993,8 @@ export var SavedAddress: StaticStructureSchema = [3, n0, _SAa, 0, [_A, _CT], [[(
 export var SearchStatus: StaticStructureSchema = [3, n0, _SS, 0, [_ST, _CTo, _S, _EM], [4, 4, 0, 0]];
 export var SearchSummary: StaticStructureSchema = [3, n0, _SSe, 0, [_SI, _St], [0, () => SearchStatus]];
 export var SendAction: StaticStructureSchema = [3, n0, _SAe, 0, [_AFP, _RA], [0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SnsAction: StaticStructureSchema = [3, n0, _SAn, 0, [_AFP, _TAo, _RA, _Enc, _PT], [0, 0, 0, 0, 0]];
 export var StartAddressListImportJobRequest: StaticStructureSchema = [3, n0, _SALIJR, 0, [_JI], [0]];
 export var StartAddressListImportJobResponse: StaticStructureSchema = [3, n0, _SALIJRt, 0, [], []];
@@ -1070,19 +1025,8 @@ export var StopArchiveSearchResponse: StaticStructureSchema = [3, n0, _SASRtop, 
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAes, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrafficPolicy: StaticStructureSchema = [3, n0, _TPr, 0, [_TPN, _TPI, _DA], [0, 0, 0]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RAes, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1124,40 +1068,23 @@ export var UpdateTrafficPolicyRequest: StaticStructureSchema = [
   [0, 0, () => PolicyStatementList, 0, 1],
 ];
 export var UpdateTrafficPolicyResponse: StaticStructureSchema = [3, n0, _UTPRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var MailManagerServiceException: StaticErrorSchema = [-3, _s, "MailManagerServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(MailManagerServiceException, __MailManagerServiceException);
-
 export var AddonInstances: StaticListSchema = [1, n0, _AId, 0, () => AddonInstance];
 export var AddonSubscriptions: StaticListSchema = [1, n0, _ASd, 0, () => AddonSubscription];
 export var AddressLists: StaticListSchema = [1, n0, _ALd, 0, () => AddressList];
 export var ArchiveFilterConditions: StaticListSchema = [1, n0, _AFC, 0, () => ArchiveFilterCondition];
 export var ArchivesList: StaticListSchema = [1, n0, _ALr, 0, () => Archive];
 export var EmailReceivedHeadersList = 64 | 0;
-
 export var ExportSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExportSummary];
 export var ImportJobs: StaticListSchema = [1, n0, _IJm, 0, [() => ImportJob, 0]];
 export var IngressAddressListArnList = 64 | 0;
-
 export var IngressPointsList: StaticListSchema = [1, n0, _IPL, 0, () => IngressPoint];
 export var Ipv4Cidrs = 64 | 0;
-
 export var Ipv6Cidrs = 64 | 0;
-
 export var PolicyConditions: StaticListSchema = [1, n0, _PC, 0, () => PolicyCondition];
 export var PolicyStatementList: StaticListSchema = [1, n0, _PSL, 0, () => PolicyStatement];
 export var Recipients: StaticListSchema = [1, n0, _Rec, 0, [() => EmailAddress, 0]];
@@ -1165,26 +1092,18 @@ export var Relays: StaticListSchema = [1, n0, _Re, 0, () => Relay];
 export var RowsList: StaticListSchema = [1, n0, _RL, 0, [() => Row, 0]];
 export var RuleActions: StaticListSchema = [1, n0, _RAu, 0, [() => RuleAction, 0]];
 export var RuleAddressListArnList = 64 | 0;
-
 export var RuleConditions: StaticListSchema = [1, n0, _RC, 0, () => RuleCondition];
 export var RuleDmarcValueList = 64 | 0;
-
 export var RuleIpValueList = 64 | 0;
-
 export var Rules: StaticListSchema = [1, n0, _Ru, 0, [() => Rule, 0]];
 export var RuleSets: StaticListSchema = [1, n0, _RS, 0, () => RuleSet];
 export var RuleStringList = 64 | 0;
-
 export var RuleVerdictValueList = 64 | 0;
-
 export var SavedAddresses: StaticListSchema = [1, n0, _SAav, 0, [() => SavedAddress, 0]];
 export var SearchSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => SearchSummary];
 export var StringList = 64 | 0;
-
 export var StringValueList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TrafficPolicyList: StaticListSchema = [1, n0, _TPL, 0, () => TrafficPolicy];
 export var ArchiveBooleanToEvaluate: StaticStructureSchema = [3, n0, _ABTE, 0, [_At], [0]];

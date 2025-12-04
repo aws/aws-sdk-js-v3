@@ -285,7 +285,7 @@ it("empty_output:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -315,7 +315,7 @@ it("empty_output_no_body:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -345,7 +345,7 @@ it("RpcV2CborFloat16Inf:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       value: Infinity,
@@ -387,7 +387,7 @@ it("RpcV2CborFloat16NegInf:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       value: -Infinity,
@@ -429,7 +429,7 @@ it("RpcV2CborFloat16LSBNaN:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       value: NaN,
@@ -471,7 +471,7 @@ it("RpcV2CborFloat16MSBNaN:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       value: NaN,
@@ -513,7 +513,7 @@ it("RpcV2CborFloat16Subnormal:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       value: 4.76837158203125e-6,
@@ -555,7 +555,7 @@ it("RpcV2CborDateTimeWithFractionalSeconds:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(9.46845296123e8 * 1000),
@@ -599,7 +599,7 @@ it.skip("RpcV2CborInvalidGreetingError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         message: "Hi",
@@ -646,7 +646,7 @@ it.skip("RpcV2CborComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         TopLevel: "Top level",
@@ -693,7 +693,7 @@ it.skip("RpcV2CborEmptyComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -764,7 +764,7 @@ it("no_output:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -794,7 +794,7 @@ it("NoOutputClientAllowsEmptyCbor:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -825,7 +825,7 @@ it("NoOutputClientAllowsEmptyBody:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -1080,7 +1080,7 @@ it.skip("RpcV2CborClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       defaultString: "hi",
@@ -1144,7 +1144,7 @@ it.skip("RpcV2CborClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       defaultString: "bye",
@@ -1249,7 +1249,7 @@ it("optional_output:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -1330,7 +1330,7 @@ it("RpcV2CborRecursiveShapes:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -1383,7 +1383,7 @@ it("RpcV2CborRecursiveShapesUsingDefiniteLength:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -1571,7 +1571,7 @@ it("RpcV2CborMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       denseStructMap: {
@@ -1620,7 +1620,7 @@ it("RpcV2CborDeserializesZeroValuesInMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       denseNumberMap: {
@@ -1667,7 +1667,7 @@ it("RpcV2CborDeserializesDenseSetMap:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       denseSetMap: {
@@ -1713,7 +1713,7 @@ it.skip("RpcV2CborDeserializesDenseSetMapAndSkipsNull:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       denseSetMap: {
@@ -1899,7 +1899,7 @@ it("RpcV2CborLists:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: ["foo", "bar"],
@@ -1962,7 +1962,7 @@ it("RpcV2CborListsEmpty:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: [],
@@ -2004,7 +2004,7 @@ it("RpcV2CborIndefiniteStringInsideIndefiniteListCanDeserialize:Response", async
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: [
@@ -2050,7 +2050,7 @@ it("RpcV2CborIndefiniteStringInsideDefiniteListCanDeserialize:Response", async (
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: [
@@ -2326,7 +2326,7 @@ it("RpcV2CborSparseJsonMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       sparseStructMap: {
@@ -2375,7 +2375,7 @@ it("RpcV2CborDeserializesNullMapValues:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       sparseBooleanMap: {
@@ -2428,7 +2428,7 @@ it("RpcV2CborDeserializesSparseSetMap:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       sparseSetMap: {
@@ -2473,7 +2473,7 @@ it("RpcV2CborDeserializesSparseSetMapAndRetainsNull:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       sparseSetMap: {
@@ -2519,7 +2519,7 @@ it("RpcV2CborDeserializesZeroValuesInSparseMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       sparseNumberMap: {
@@ -2778,7 +2778,7 @@ it("RpcV2CborSimpleScalarProperties:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       trueBooleanValue: true,
@@ -2828,7 +2828,7 @@ it("RpcV2CborSimpleScalarPropertiesUsingDefiniteLength:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       trueBooleanValue: true,
@@ -2878,7 +2878,7 @@ it("RpcV2CborClientDoesntDeserializeNullStructureValues:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -2908,7 +2908,7 @@ it("RpcV2CborSupportsNaNFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       doubleValue: NaN,
@@ -2951,7 +2951,7 @@ it("RpcV2CborSupportsInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       doubleValue: Infinity,
@@ -2994,7 +2994,7 @@ it("RpcV2CborSupportsNegativeInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       doubleValue: -Infinity,
@@ -3037,7 +3037,7 @@ it("RpcV2CborSupportsUpcastingDataOnDeserialize:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       doubleValue: 1.5,
@@ -3085,7 +3085,7 @@ it("RpcV2CborExtraFieldsInTheBodyShouldBeSkippedByClients:Response", async () =>
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       byteValue: 5,
@@ -3218,7 +3218,7 @@ it("RpcV2CborSparseMapsDeserializeNullValues:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       sparseStringMap: {
@@ -3262,7 +3262,7 @@ it("RpcV2CborSparseListsDeserializeNull:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       sparseStringList: [null],

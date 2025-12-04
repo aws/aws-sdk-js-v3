@@ -9,11 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { TagResourceRequest, TagResourceResponse } from "../models/models_1";
-=======
-import type { TagResourceRequest, TagResourceResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { TagResourceRequest, TagResourceResponse } from "../models/models_1";
 import { TagResource } from "../schemas/schemas_0";
 
 /**

@@ -7,13 +7,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
-<<<<<<< HEAD
 } from "../models/models_4";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-=======
-} from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
->>>>>>> 60efd81940b (chore: codegen)
 import { ListTrainingJobsForHyperParameterTuningJob } from "../schemas/schemas_0";
 
 /**

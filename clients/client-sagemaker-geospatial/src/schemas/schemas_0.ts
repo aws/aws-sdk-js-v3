@@ -278,31 +278,10 @@ import {
 import { SageMakerGeospatialServiceException as __SageMakerGeospatialServiceException } from "../models/SageMakerGeospatialServiceException";
 
 /* eslint no-var: 0 */
-
-export var BinaryFile: StaticSimpleSchema = [
-  0,
-  n0,
-  _BF,
-  {
-    [_mT]: _ab,
-    [_s]: 1,
-  },
-  42,
-];
+export var BinaryFile: StaticSimpleSchema = [0, n0, _BF, { [_mT]: _ab, [_s]: 1 }, 42];
 export var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssetValue: StaticStructureSchema = [3, n0, _AV, 0, [_H], [0]];
 export var BandMathConfigInput: StaticStructureSchema = [
   3,
@@ -314,19 +293,8 @@ export var BandMathConfigInput: StaticStructureSchema = [
 ];
 export var CloudMaskingConfigInput: StaticStructureSchema = [3, n0, _CMCI, 0, [], []];
 export var CloudRemovalConfigInput: StaticStructureSchema = [3, n0, _CRCI, 0, [_AN, _IV, _TB], [0, 0, 64 | 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CustomIndicesInput: StaticStructureSchema = [3, n0, _CII, 0, [_O], [() => OperationsListInput]];
 export var DeleteEarthObservationJobInput: StaticStructureSchema = [3, n0, _DEOJI, 0, [_A], [[0, 1]]];
 export var DeleteEarthObservationJobOutput: StaticStructureSchema = [3, n0, _DEOJO, 0, [], []];
@@ -430,60 +398,15 @@ export var GetTileInput: StaticStructureSchema = [
     [1, 1],
     [1, 1],
     [1, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _IA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Tar,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _A,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _IM,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _OF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _TRF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ODT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ERA,
-      },
-    ],
+    [64 | 0, { [_hQ]: _IA }],
+    [0, { [_hQ]: _Tar }],
+    [0, { [_hQ]: _A }],
+    [2, { [_hQ]: _IM }],
+    [0, { [_hQ]: _OF }],
+    [0, { [_hQ]: _TRF }],
+    [0, { [_hQ]: _PF }],
+    [0, { [_hQ]: _ODT }],
+    [0, { [_hQ]: _ERA }],
   ],
 ];
 export var GetTileOutput: StaticStructureSchema = [3, n0, _GTO, 0, [_BF], [[() => BinaryFile, 16]]];
@@ -527,19 +450,8 @@ export var InputConfigOutput: StaticStructureSchema = [
   [_PEOJA, _RDCQ],
   [0, [() => RasterDataCollectionQueryOutput, 0]],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ItemSource: StaticStructureSchema = [
   3,
   n0,
@@ -581,18 +493,8 @@ export var ListRasterDataCollectionsInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      () => NextToken,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [() => NextToken, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListRasterDataCollectionsOutput: StaticStructureSchema = [
@@ -681,19 +583,8 @@ export var ResamplingConfigInput: StaticStructureSchema = [
   [_OR, _AN, _TB],
   [() => OutputResolutionResamplingInput, 0, 64 | 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ReverseGeocodingConfig: StaticStructureSchema = [3, n0, _RGC, 0, [_YAN, _XAN], [0, 0]];
 export var SearchRasterDataCollectionInput: StaticStructureSchema = [
   3,
@@ -715,15 +606,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StackConfigInput: StaticStructureSchema = [
   3,
   n0,
@@ -778,19 +665,8 @@ export var TemporalStatisticsConfigInput: StaticStructureSchema = [
   [_GB, _St, _TB],
   [0, 64 | 0, 64 | 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeRangeFilterInput: StaticStructureSchema = [3, n0, _TRFI, 8, [_ST, _ET], [4, 4]];
 export var TimeRangeFilterOutput: StaticStructureSchema = [3, n0, _TRFO, 8, [_ST, _ET], [5, 5]];
 export var UntagResourceRequest: StaticStructureSchema = [
@@ -801,29 +677,13 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UserDefined: StaticStructureSchema = [3, n0, _UD, 0, [_V, _U], [1, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VectorEnrichmentJobErrorDetails: StaticStructureSchema = [3, n0, _VEJED, 0, [_ETr, _EM], [0, 0]];
 export var VectorEnrichmentJobExportErrorDetails: StaticStructureSchema = [3, n0, _VEJEED, 0, [_T, _M], [0, 0]];
 export var VectorEnrichmentJobInputConfig: StaticStructureSchema = [
@@ -855,13 +715,11 @@ export var SageMakerGeospatialServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(SageMakerGeospatialServiceException, __SageMakerGeospatialServiceException);
-
 export var DataCollectionsList: StaticListSchema = [1, n0, _DCL, 0, () => RasterDataCollectionMetadata];
 export var EarthObservationJobList: StaticListSchema = [1, n0, _EOJL, 0, () => ListEarthObservationJobOutputConfig];
 export var EarthObservationJobOutputBands: StaticListSchema = [1, n0, _EOJOB, 0, () => OutputBand];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var ImageSourceBandList = 64 | 0;
-
 export var ItemSourceList: StaticListSchema = [1, n0, _ISL, 0, [() => ItemSource, 0]];
 export var LinearRing: StaticListSchema = [1, n0, _LR, 0, [() => Position, 0]];
 export var LinearRings: StaticListSchema = [1, n0, _LRi, 0, [() => LinearRing, 0]];
@@ -870,17 +728,12 @@ export var OperationsListInput: StaticListSchema = [1, n0, _OLI, 0, () => Operat
 export var Position: StaticListSchema = [1, n0, _Po, 8, 1];
 export var PropertyFiltersList: StaticListSchema = [1, n0, _PFL, 0, () => PropertyFilter];
 export var StringListInput = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TemporalStatisticsListInput = 64 | 0;
-
 export var VectorEnrichmentJobList: StaticListSchema = [1, n0, _VEJL, 0, () => ListVectorEnrichmentJobOutputConfig];
 export var ZonalStatisticsListInput = 64 | 0;
-
 export var AssetsMap: StaticMapSchema = [2, n0, _AM, 0, 0, () => AssetValue];
 export var Tags = 128 | 0;
-
 export var AreaOfInterest: StaticStructureSchema = [3, n0, _AOI, 0, [_AOIG], [[() => AreaOfInterestGeometry, 0]]];
 export var AreaOfInterestGeometry: StaticStructureSchema = [
   3,
@@ -946,9 +799,7 @@ export var DeleteEarthObservationJob: StaticOperationSchema = [
   9,
   n0,
   _DEOJ,
-  {
-    [_h]: ["DELETE", "/earth-observation-jobs/{Arn}", 200],
-  },
+  { [_h]: ["DELETE", "/earth-observation-jobs/{Arn}", 200] },
   () => DeleteEarthObservationJobInput,
   () => DeleteEarthObservationJobOutput,
 ];
@@ -956,9 +807,7 @@ export var DeleteVectorEnrichmentJob: StaticOperationSchema = [
   9,
   n0,
   _DVEJ,
-  {
-    [_h]: ["DELETE", "/vector-enrichment-jobs/{Arn}", 200],
-  },
+  { [_h]: ["DELETE", "/vector-enrichment-jobs/{Arn}", 200] },
   () => DeleteVectorEnrichmentJobInput,
   () => DeleteVectorEnrichmentJobOutput,
 ];
@@ -966,9 +815,7 @@ export var ExportEarthObservationJob: StaticOperationSchema = [
   9,
   n0,
   _EEOJ,
-  {
-    [_h]: ["POST", "/export-earth-observation-job", 200],
-  },
+  { [_h]: ["POST", "/export-earth-observation-job", 200] },
   () => ExportEarthObservationJobInput,
   () => ExportEarthObservationJobOutput,
 ];
@@ -976,9 +823,7 @@ export var ExportVectorEnrichmentJob: StaticOperationSchema = [
   9,
   n0,
   _EVEJ,
-  {
-    [_h]: ["POST", "/export-vector-enrichment-jobs", 200],
-  },
+  { [_h]: ["POST", "/export-vector-enrichment-jobs", 200] },
   () => ExportVectorEnrichmentJobInput,
   () => ExportVectorEnrichmentJobOutput,
 ];
@@ -986,9 +831,7 @@ export var GetEarthObservationJob: StaticOperationSchema = [
   9,
   n0,
   _GEOJ,
-  {
-    [_h]: ["GET", "/earth-observation-jobs/{Arn}", 200],
-  },
+  { [_h]: ["GET", "/earth-observation-jobs/{Arn}", 200] },
   () => GetEarthObservationJobInput,
   () => GetEarthObservationJobOutput,
 ];
@@ -996,9 +839,7 @@ export var GetRasterDataCollection: StaticOperationSchema = [
   9,
   n0,
   _GRDC,
-  {
-    [_h]: ["GET", "/raster-data-collection/{Arn}", 200],
-  },
+  { [_h]: ["GET", "/raster-data-collection/{Arn}", 200] },
   () => GetRasterDataCollectionInput,
   () => GetRasterDataCollectionOutput,
 ];
@@ -1006,9 +847,7 @@ export var GetTile: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["GET", "/tile/{z}/{x}/{y}", 200],
-  },
+  { [_h]: ["GET", "/tile/{z}/{x}/{y}", 200] },
   () => GetTileInput,
   () => GetTileOutput,
 ];
@@ -1016,9 +855,7 @@ export var GetVectorEnrichmentJob: StaticOperationSchema = [
   9,
   n0,
   _GVEJ,
-  {
-    [_h]: ["GET", "/vector-enrichment-jobs/{Arn}", 200],
-  },
+  { [_h]: ["GET", "/vector-enrichment-jobs/{Arn}", 200] },
   () => GetVectorEnrichmentJobInput,
   () => GetVectorEnrichmentJobOutput,
 ];
@@ -1026,9 +863,7 @@ export var ListEarthObservationJobs: StaticOperationSchema = [
   9,
   n0,
   _LEOJ,
-  {
-    [_h]: ["POST", "/list-earth-observation-jobs", 200],
-  },
+  { [_h]: ["POST", "/list-earth-observation-jobs", 200] },
   () => ListEarthObservationJobInput,
   () => ListEarthObservationJobOutput,
 ];
@@ -1036,9 +871,7 @@ export var ListRasterDataCollections: StaticOperationSchema = [
   9,
   n0,
   _LRDC,
-  {
-    [_h]: ["GET", "/raster-data-collections", 200],
-  },
+  { [_h]: ["GET", "/raster-data-collections", 200] },
   () => ListRasterDataCollectionsInput,
   () => ListRasterDataCollectionsOutput,
 ];
@@ -1046,9 +879,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1056,9 +887,7 @@ export var ListVectorEnrichmentJobs: StaticOperationSchema = [
   9,
   n0,
   _LVEJ,
-  {
-    [_h]: ["POST", "/list-vector-enrichment-jobs", 200],
-  },
+  { [_h]: ["POST", "/list-vector-enrichment-jobs", 200] },
   () => ListVectorEnrichmentJobInput,
   () => ListVectorEnrichmentJobOutput,
 ];
@@ -1066,9 +895,7 @@ export var SearchRasterDataCollection: StaticOperationSchema = [
   9,
   n0,
   _SRDC,
-  {
-    [_h]: ["POST", "/search-raster-data-collection", 200],
-  },
+  { [_h]: ["POST", "/search-raster-data-collection", 200] },
   () => SearchRasterDataCollectionInput,
   () => SearchRasterDataCollectionOutput,
 ];
@@ -1076,9 +903,7 @@ export var StartEarthObservationJob: StaticOperationSchema = [
   9,
   n0,
   _SEOJ,
-  {
-    [_h]: ["POST", "/earth-observation-jobs", 200],
-  },
+  { [_h]: ["POST", "/earth-observation-jobs", 200] },
   () => StartEarthObservationJobInput,
   () => StartEarthObservationJobOutput,
 ];
@@ -1086,9 +911,7 @@ export var StartVectorEnrichmentJob: StaticOperationSchema = [
   9,
   n0,
   _SVEJ,
-  {
-    [_h]: ["POST", "/vector-enrichment-jobs", 200],
-  },
+  { [_h]: ["POST", "/vector-enrichment-jobs", 200] },
   () => StartVectorEnrichmentJobInput,
   () => StartVectorEnrichmentJobOutput,
 ];
@@ -1096,9 +919,7 @@ export var StopEarthObservationJob: StaticOperationSchema = [
   9,
   n0,
   _SEOJt,
-  {
-    [_h]: ["POST", "/earth-observation-jobs/stop", 200],
-  },
+  { [_h]: ["POST", "/earth-observation-jobs/stop", 200] },
   () => StopEarthObservationJobInput,
   () => StopEarthObservationJobOutput,
 ];
@@ -1106,9 +927,7 @@ export var StopVectorEnrichmentJob: StaticOperationSchema = [
   9,
   n0,
   _SVEJt,
-  {
-    [_h]: ["POST", "/vector-enrichment-jobs/stop", 200],
-  },
+  { [_h]: ["POST", "/vector-enrichment-jobs/stop", 200] },
   () => StopVectorEnrichmentJobInput,
   () => StopVectorEnrichmentJobOutput,
 ];
@@ -1116,9 +935,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["PUT", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1126,9 +943,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

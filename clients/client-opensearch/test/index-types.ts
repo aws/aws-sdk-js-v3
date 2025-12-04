@@ -559,6 +559,7 @@ export type {
   ScheduledAction,
   ScheduledAutoTuneDetails,
   SecurityLakeDirectQueryDataSource,
+  ServerlessVectorAcceleration,
   ServiceSoftwareOptions,
   SnapshotOptions,
   SnapshotOptionsStatus,

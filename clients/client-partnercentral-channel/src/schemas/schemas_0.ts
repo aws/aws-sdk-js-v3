@@ -206,7 +206,6 @@ import {
 import { PartnerCentralChannelServiceException as __PartnerCentralChannelServiceException } from "../models/PartnerCentralChannelServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptChannelHandshakeDetail: StaticStructureSchema = [3, n0, _ACHD, 0, [_i, _a, _s], [0, 0, 0]];
 export var AcceptChannelHandshakeRequest: StaticStructureSchema = [3, n0, _ACHR, 0, [_c, _id], [0, 0]];
 export var AcceptChannelHandshakeResponse: StaticStructureSchema = [
@@ -217,19 +216,8 @@ export var AcceptChannelHandshakeResponse: StaticStructureSchema = [
   [_cHD],
   [() => AcceptChannelHandshakeDetail],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _cl,
-    [_hE]: 403,
-  },
-  [_m, _r],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _cl, [_hE]: 403 }, [_m, _r], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CancelChannelHandshakeDetail: StaticStructureSchema = [3, n0, _CCHD, 0, [_i, _a, _s], [0, 0, 0]];
 export var CancelChannelHandshakeRequest: StaticStructureSchema = [3, n0, _CCHR, 0, [_c, _id], [0, 0]];
 export var CancelChannelHandshakeResponse: StaticStructureSchema = [
@@ -248,19 +236,8 @@ export var ChannelHandshakeSummary: StaticStructureSchema = [
   [_i, _a, _c, _hT, _oAI, _sAI, _sDN, _rAI, _aRI, _d, _cA, _uA, _s],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => HandshakeDetail, 5, 5, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _cl,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _cl, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateChannelHandshakeDetail: StaticStructureSchema = [3, n0, _CCHDr, 0, [_i, _a], [0, 0]];
 export var CreateChannelHandshakeRequest: StaticStructureSchema = [
   3,
@@ -332,19 +309,8 @@ export var DeleteRelationshipRequest: StaticStructureSchema = [
 export var DeleteRelationshipResponse: StaticStructureSchema = [3, n0, _DRRe, 0, [], []];
 export var GetRelationshipRequest: StaticStructureSchema = [3, n0, _GRR, 0, [_c, _pMAI, _id], [0, 0, 0]];
 export var GetRelationshipResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_rD], [() => RelationshipDetail]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListChannelHandshakesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -441,15 +407,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-  },
+  { [_e]: _cl, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RevokeServicePeriodHandshakeDetail: StaticStructureSchema = [
   3,
   n0,
@@ -465,15 +427,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _cl,
-    [_hE]: 402,
-  },
+  { [_e]: _cl, [_hE]: 402 },
   [_m, _rI, _rT, _qC],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartServicePeriodHandshakeDetail: StaticStructureSchema = [
   3,
   n0,
@@ -495,19 +453,8 @@ export var StartServicePeriodTypeSort: StaticStructureSchema = [3, n0, _SSPTS, 0
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _cl,
-    [_hE]: 429,
-  },
-  [_m, _sC, _qC],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _cl, [_hE]: 429 }, [_m, _sC, _qC], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateProgramManagementAccountDetail: StaticStructureSchema = [
@@ -555,18 +502,13 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
+  { [_e]: _cl, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_na, _cod, _m], [0, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var PartnerCentralChannelServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -576,24 +518,15 @@ export var PartnerCentralChannelServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PartnerCentralChannelServiceException, __PartnerCentralChannelServiceException);
-
 export var AccountIdList = 64 | 0;
-
 export var AssociatedResourceIdentifierList = 64 | 0;
-
 export var AssociationTypeList = 64 | 0;
-
 export var ChannelHandshakeSummaries: StaticListSchema = [1, n0, _CHSh, 0, () => ChannelHandshakeSummary];
 export var HandshakeStatusList = 64 | 0;
-
 export var ProgramList = 64 | 0;
-
 export var ProgramManagementAccountDisplayNameList = 64 | 0;
-
 export var ProgramManagementAccountIdentifierList = 64 | 0;
-
 export var ProgramManagementAccountStatusList = 64 | 0;
-
 export var ProgramManagementAccountSummaries: StaticListSchema = [
   1,
   n0,
@@ -602,12 +535,9 @@ export var ProgramManagementAccountSummaries: StaticListSchema = [
   () => ProgramManagementAccountSummary,
 ];
 export var RelationshipDisplayNameList = 64 | 0;
-
 export var RelationshipSummaries: StaticListSchema = [1, n0, _RSe, 0, () => RelationshipSummary];
 export var ServicePeriodTypeList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var ChannelHandshakePayload: StaticStructureSchema = [
@@ -662,9 +592,7 @@ export var AcceptChannelHandshake: StaticOperationSchema = [
   9,
   n0,
   _ACH,
-  {
-    [_h]: ["POST", "/AcceptChannelHandshake", 200],
-  },
+  { [_h]: ["POST", "/AcceptChannelHandshake", 200] },
   () => AcceptChannelHandshakeRequest,
   () => AcceptChannelHandshakeResponse,
 ];
@@ -672,9 +600,7 @@ export var CancelChannelHandshake: StaticOperationSchema = [
   9,
   n0,
   _CCH,
-  {
-    [_h]: ["POST", "/CancelChannelHandshake", 200],
-  },
+  { [_h]: ["POST", "/CancelChannelHandshake", 200] },
   () => CancelChannelHandshakeRequest,
   () => CancelChannelHandshakeResponse,
 ];
@@ -682,9 +608,7 @@ export var CreateChannelHandshake: StaticOperationSchema = [
   9,
   n0,
   _CCHr,
-  {
-    [_h]: ["POST", "/CreateChannelHandshake", 200],
-  },
+  { [_h]: ["POST", "/CreateChannelHandshake", 200] },
   () => CreateChannelHandshakeRequest,
   () => CreateChannelHandshakeResponse,
 ];
@@ -692,9 +616,7 @@ export var CreateProgramManagementAccount: StaticOperationSchema = [
   9,
   n0,
   _CPMA,
-  {
-    [_h]: ["POST", "/CreateProgramManagementAccount", 200],
-  },
+  { [_h]: ["POST", "/CreateProgramManagementAccount", 200] },
   () => CreateProgramManagementAccountRequest,
   () => CreateProgramManagementAccountResponse,
 ];
@@ -702,9 +624,7 @@ export var CreateRelationship: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_h]: ["POST", "/CreateRelationship", 200],
-  },
+  { [_h]: ["POST", "/CreateRelationship", 200] },
   () => CreateRelationshipRequest,
   () => CreateRelationshipResponse,
 ];
@@ -712,9 +632,7 @@ export var DeleteProgramManagementAccount: StaticOperationSchema = [
   9,
   n0,
   _DPMA,
-  {
-    [_h]: ["POST", "/DeleteProgramManagementAccount", 200],
-  },
+  { [_h]: ["POST", "/DeleteProgramManagementAccount", 200] },
   () => DeleteProgramManagementAccountRequest,
   () => DeleteProgramManagementAccountResponse,
 ];
@@ -722,9 +640,7 @@ export var DeleteRelationship: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["POST", "/DeleteRelationship", 200],
-  },
+  { [_h]: ["POST", "/DeleteRelationship", 200] },
   () => DeleteRelationshipRequest,
   () => DeleteRelationshipResponse,
 ];
@@ -732,9 +648,7 @@ export var GetRelationship: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["POST", "/GetRelationship", 200],
-  },
+  { [_h]: ["POST", "/GetRelationship", 200] },
   () => GetRelationshipRequest,
   () => GetRelationshipResponse,
 ];
@@ -742,9 +656,7 @@ export var ListChannelHandshakes: StaticOperationSchema = [
   9,
   n0,
   _LCH,
-  {
-    [_h]: ["POST", "/ListChannelHandshakes", 200],
-  },
+  { [_h]: ["POST", "/ListChannelHandshakes", 200] },
   () => ListChannelHandshakesRequest,
   () => ListChannelHandshakesResponse,
 ];
@@ -752,9 +664,7 @@ export var ListProgramManagementAccounts: StaticOperationSchema = [
   9,
   n0,
   _LPMA,
-  {
-    [_h]: ["POST", "/ListProgramManagementAccounts", 200],
-  },
+  { [_h]: ["POST", "/ListProgramManagementAccounts", 200] },
   () => ListProgramManagementAccountsRequest,
   () => ListProgramManagementAccountsResponse,
 ];
@@ -762,9 +672,7 @@ export var ListRelationships: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["POST", "/ListRelationships", 200],
-  },
+  { [_h]: ["POST", "/ListRelationships", 200] },
   () => ListRelationshipsRequest,
   () => ListRelationshipsResponse,
 ];
@@ -772,9 +680,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -782,9 +688,7 @@ export var RejectChannelHandshake: StaticOperationSchema = [
   9,
   n0,
   _RCH,
-  {
-    [_h]: ["POST", "/RejectChannelHandshake", 200],
-  },
+  { [_h]: ["POST", "/RejectChannelHandshake", 200] },
   () => RejectChannelHandshakeRequest,
   () => RejectChannelHandshakeResponse,
 ];
@@ -792,9 +696,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -802,9 +704,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -812,9 +712,7 @@ export var UpdateProgramManagementAccount: StaticOperationSchema = [
   9,
   n0,
   _UPMA,
-  {
-    [_h]: ["POST", "/UpdateProgramManagementAccount", 200],
-  },
+  { [_h]: ["POST", "/UpdateProgramManagementAccount", 200] },
   () => UpdateProgramManagementAccountRequest,
   () => UpdateProgramManagementAccountResponse,
 ];
@@ -822,9 +720,7 @@ export var UpdateRelationship: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_h]: ["POST", "/UpdateRelationship", 200],
-  },
+  { [_h]: ["POST", "/UpdateRelationship", 200] },
   () => UpdateRelationshipRequest,
   () => UpdateRelationshipResponse,
 ];

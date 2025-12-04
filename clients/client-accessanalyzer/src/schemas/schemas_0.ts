@@ -496,22 +496,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessCheckPolicyDocument: StaticSimpleSchema = [0, n0, _ACPD, 8, 0];
 export var Access: StaticStructureSchema = [3, n0, _A, 0, [_a, _r], [64 | 0, 64 | 0]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessPreview: StaticStructureSchema = [
   3,
   n0,
@@ -638,19 +626,8 @@ export var CloudTrailProperties: StaticStructureSchema = [
   [_tP, _sT, _eT],
   [() => TrailPropertiesList, 5, 5],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAccessPreviewRequest: StaticStructureSchema = [
   3,
   n0,
@@ -686,13 +663,7 @@ export var DeleteAnalyzerRequest: StaticStructureSchema = [
   [_aN, _cTl],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteArchiveRuleRequest: StaticStructureSchema = [
@@ -704,13 +675,7 @@ export var DeleteArchiveRuleRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DynamodbStreamConfiguration: StaticStructureSchema = [3, n0, _DSC, 0, [_sP], [0]];
@@ -792,12 +757,7 @@ export var GenerateFindingRecommendationRequest: StaticStructureSchema = [
   0,
   [_aA, _i],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
     [0, 1],
   ],
 ];
@@ -809,12 +769,7 @@ export var GetAccessPreviewRequest: StaticStructureSchema = [
   [_aPI, _aA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
   ],
 ];
 export var GetAccessPreviewResponse: StaticStructureSchema = [3, n0, _GAPRe, 0, [_aP], [() => AccessPreview]];
@@ -825,18 +780,8 @@ export var GetAnalyzedResourceRequest: StaticStructureSchema = [
   0,
   [_aA, _rA],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
+    [0, { [_hQ]: _rA }],
   ],
 ];
 export var GetAnalyzedResourceResponse: StaticStructureSchema = [3, n0, _GARRe, 0, [_re], [() => AnalyzedResource]];
@@ -861,25 +806,10 @@ export var GetFindingRecommendationRequest: StaticStructureSchema = [
   0,
   [_aA, _i, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetFindingRecommendationResponse: StaticStructureSchema = [
@@ -897,12 +827,7 @@ export var GetFindingRequest: StaticStructureSchema = [
   0,
   [_aA, _i],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
     [0, 1],
   ],
 ];
@@ -923,25 +848,10 @@ export var GetFindingV2Request: StaticStructureSchema = [
   0,
   [_aA, _i, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetFindingV2Response: StaticStructureSchema = [
@@ -960,18 +870,8 @@ export var GetGeneratedPolicyRequest: StaticStructureSchema = [
   [_jI, _iRP, _iSLT],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iRP,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iSLT,
-      },
-    ],
+    [2, { [_hQ]: _iRP }],
+    [2, { [_hQ]: _iSLT }],
   ],
 ];
 export var GetGeneratedPolicyResponse: StaticStructureSchema = [
@@ -1036,37 +936,14 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InternetConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [], []];
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var JobDetails: StaticStructureSchema = [3, n0, _JD, 0, [_jI, _s, _sO, _cO, _jE], [0, 0, 5, 5, () => JobError]];
 export var JobError: StaticStructureSchema = [3, n0, _JE, 0, [_cod, _m], [0, 0]];
 export var KmsGrantConfiguration: StaticStructureSchema = [
@@ -1109,24 +986,9 @@ export var ListAccessPreviewsRequest: StaticStructureSchema = [
   0,
   [_aA, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _aA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _aA }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAccessPreviewsResponse: StaticStructureSchema = [
@@ -1153,24 +1015,9 @@ export var ListAnalyzersRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _t],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _t }],
   ],
 ];
 export var ListAnalyzersResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_ana, _nT], [() => AnalyzersList, 0]];
@@ -1182,18 +1029,8 @@ export var ListArchiveRulesRequest: StaticStructureSchema = [
   [_aN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListArchiveRulesResponse: StaticStructureSchema = [
@@ -1229,24 +1066,9 @@ export var ListPolicyGenerationsRequest: StaticStructureSchema = [
   0,
   [_pA, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _pA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _pA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPolicyGenerationsResponse: StaticStructureSchema = [
@@ -1285,15 +1107,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTypeDetails: StaticStructureSchema = [3, n0, _RTD, 0, [_tAP, _tACA, _tAE], [1, 1, 1]];
 export var S3AccessPointConfiguration: StaticStructureSchema = [
   3,
@@ -1346,15 +1164,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SnsTopicConfiguration: StaticStructureSchema = [3, n0, _STC, 0, [_tPo], [0]];
 export var SortCriteria: StaticStructureSchema = [3, n0, _SC, 0, [_aNt, _oB], [0, 0]];
 export var Span: StaticStructureSchema = [3, n0, _S, 0, [_st, _en], [() => Position, () => Position]];
@@ -1377,38 +1191,15 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Trail: StaticStructureSchema = [3, n0, _T, 0, [_cTA, _reg, _aRl], [0, 64 | 0, 2]];
 export var TrailProperties: StaticStructureSchema = [3, n0, _TP, 0, [_cTA, _reg, _aRl], [0, 64 | 0, 2]];
-export var UnprocessableEntityException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UEE,
-  {
-    [_e]: _c,
-    [_hE]: 422,
-  },
-  [_m],
-  [0],
-];
+export var UnprocessableEntityException: StaticErrorSchema = [-3, n0, _UEE, { [_e]: _c, [_hE]: 422 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnprocessableEntityException, __UnprocessableEntityException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1417,12 +1208,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1495,24 +1281,7 @@ export var ValidatePolicyRequest: StaticStructureSchema = [
   _VPR,
   0,
   [_loc, _mR, _nT, _pD, _pT, _vPRT],
-  [
-    0,
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-    0,
-    0,
-  ],
+  [0, [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0, 0, 0],
 ];
 export var ValidatePolicyResponse: StaticStructureSchema = [
   3,
@@ -1526,43 +1295,31 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _reas, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_vI], [0]];
 export var __Unit = "unit" as const;
-
 export var AccessAnalyzerServiceException: StaticErrorSchema = [-3, _sm, "AccessAnalyzerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AccessAnalyzerServiceException, __AccessAnalyzerServiceException);
-
 export var AccessList: StaticListSchema = [1, n0, _AL, 0, () => Access];
 export var AccessPreviewFindingsList: StaticListSchema = [1, n0, _APFL, 0, () => AccessPreviewFinding];
 export var AccessPreviewsList: StaticListSchema = [1, n0, _APL, 0, () => AccessPreviewSummary];
 export var AccountAggregations: StaticListSchema = [1, n0, _AA, 0, () => FindingAggregationAccountDetails];
 export var AccountIdsList = 64 | 0;
-
 export var ActionList = 64 | 0;
-
 export var ActionsList = 64 | 0;
-
 export var AnalysisRuleCriteriaList: StaticListSchema = [1, n0, _ARCL, 0, () => AnalysisRuleCriteria];
 export var AnalyzedResourcesList: StaticListSchema = [1, n0, _ARL, 0, () => AnalyzedResourceSummary];
 export var AnalyzersList: StaticListSchema = [1, n0, _ALn, 0, () => AnalyzerSummary];
 export var ArchiveRulesList: StaticListSchema = [1, n0, _ARLr, 0, () => ArchiveRuleSummary];
 export var EbsGroupList = 64 | 0;
-
 export var EbsUserIdList = 64 | 0;
-
 export var FindingDetailsList: StaticListSchema = [1, n0, _FDL, 0, () => FindingDetails];
 export var FindingIdList = 64 | 0;
-
 export var FindingsList: StaticListSchema = [1, n0, _FL, 0, () => FindingSummary];
 export var FindingsListV2: StaticListSchema = [1, n0, _FLV, 0, () => FindingSummaryV2];
 export var FindingSourceList: StaticListSchema = [1, n0, _FSL, 0, () => FindingSource];
@@ -1578,24 +1335,17 @@ export var InternalAccessAnalysisRuleCriteriaList: StaticListSchema = [
 ];
 export var KmsGrantConfigurationsList: StaticListSchema = [1, n0, _KGCL, 0, () => KmsGrantConfiguration];
 export var KmsGrantOperationsList = 64 | 0;
-
 export var LocationList: StaticListSchema = [1, n0, _LL, 0, () => Location];
 export var PathElementList: StaticListSchema = [1, n0, _PEL, 0, () => PathElement];
 export var PolicyGenerationList: StaticListSchema = [1, n0, _PGL, 0, () => PolicyGeneration];
 export var RdsDbClusterSnapshotAccountIdsList = 64 | 0;
-
 export var RdsDbSnapshotAccountIdsList = 64 | 0;
-
 export var ReasonSummaryList: StaticListSchema = [1, n0, _RSL, 0, () => ReasonSummary];
 export var RecommendedStepList: StaticListSchema = [1, n0, _RSLe, 0, () => RecommendedStep];
 export var RegionList = 64 | 0;
-
 export var ResourceArnsList = 64 | 0;
-
 export var ResourcesList = 64 | 0;
-
 export var ResourceTypeList = 64 | 0;
-
 export var S3BucketAclGrantConfigurationsList: StaticListSchema = [
   1,
   n0,
@@ -1604,9 +1354,7 @@ export var S3BucketAclGrantConfigurationsList: StaticListSchema = [
   () => S3BucketAclGrantConfiguration,
 ];
 export var SharedViaList = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var TagsList: StaticListSchema = [1, n0, _TL, 0, 128 | 0];
 export var TrailList: StaticListSchema = [1, n0, _TLr, 0, () => Trail];
 export var TrailPropertiesList: StaticListSchema = [1, n0, _TPL, 0, () => TrailProperties];
@@ -1615,13 +1363,10 @@ export var UnusedActionList: StaticListSchema = [1, n0, _UAL, 0, () => UnusedAct
 export var ValidatePolicyFindingList: StaticListSchema = [1, n0, _VPFL, 0, () => ValidatePolicyFinding];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var ValueList = 64 | 0;
-
 export var ConditionKeyMap = 128 | 0;
-
 export var ConfigurationsMap: StaticMapSchema = [2, n0, _CM, 0, 0, () => Configuration];
 export var FilterCriteriaMap: StaticMapSchema = [2, n0, _FCM, 0, 0, () => Criterion];
 export var FindingAggregationAccountDetailsMap = 128 | 1;
-
 export var InternalAccessResourceTypeStatisticsMap: StaticMapSchema = [
   2,
   n0,
@@ -1631,11 +1376,8 @@ export var InternalAccessResourceTypeStatisticsMap: StaticMapSchema = [
   () => InternalAccessResourceTypeDetails,
 ];
 export var KmsConstraintsMap = 128 | 0;
-
 export var KmsKeyPoliciesMap = 128 | 0;
-
 export var PrincipalMap = 128 | 0;
-
 export var RdsDbClusterSnapshotAttributesMap: StaticMapSchema = [
   2,
   n0,
@@ -1656,7 +1398,6 @@ export var S3ExpressDirectoryAccessPointConfigurationsMap: StaticMapSchema = [
   () => S3ExpressDirectoryAccessPointConfiguration,
 ];
 export var TagsMap = 128 | 0;
-
 export var AclGrantee: StaticStructureSchema = [3, n0, _AG, 0, [_i, _u], [0, 0]];
 export var AnalyzerConfiguration: StaticStructureSchema = [
   3,
@@ -1732,9 +1473,7 @@ export var ApplyArchiveRule: StaticOperationSchema = [
   9,
   n0,
   _AAR,
-  {
-    [_h]: ["PUT", "/archive-rule", 200],
-  },
+  { [_h]: ["PUT", "/archive-rule", 200] },
   () => ApplyArchiveRuleRequest,
   () => __Unit,
 ];
@@ -1742,9 +1481,7 @@ export var CancelPolicyGeneration: StaticOperationSchema = [
   9,
   n0,
   _CPG,
-  {
-    [_h]: ["PUT", "/policy/generation/{jobId}", 200],
-  },
+  { [_h]: ["PUT", "/policy/generation/{jobId}", 200] },
   () => CancelPolicyGenerationRequest,
   () => CancelPolicyGenerationResponse,
 ];
@@ -1752,9 +1489,7 @@ export var CheckAccessNotGranted: StaticOperationSchema = [
   9,
   n0,
   _CANG,
-  {
-    [_h]: ["POST", "/policy/check-access-not-granted", 200],
-  },
+  { [_h]: ["POST", "/policy/check-access-not-granted", 200] },
   () => CheckAccessNotGrantedRequest,
   () => CheckAccessNotGrantedResponse,
 ];
@@ -1762,9 +1497,7 @@ export var CheckNoNewAccess: StaticOperationSchema = [
   9,
   n0,
   _CNNA,
-  {
-    [_h]: ["POST", "/policy/check-no-new-access", 200],
-  },
+  { [_h]: ["POST", "/policy/check-no-new-access", 200] },
   () => CheckNoNewAccessRequest,
   () => CheckNoNewAccessResponse,
 ];
@@ -1772,9 +1505,7 @@ export var CheckNoPublicAccess: StaticOperationSchema = [
   9,
   n0,
   _CNPA,
-  {
-    [_h]: ["POST", "/policy/check-no-public-access", 200],
-  },
+  { [_h]: ["POST", "/policy/check-no-public-access", 200] },
   () => CheckNoPublicAccessRequest,
   () => CheckNoPublicAccessResponse,
 ];
@@ -1782,9 +1513,7 @@ export var CreateAccessPreview: StaticOperationSchema = [
   9,
   n0,
   _CAP,
-  {
-    [_h]: ["PUT", "/access-preview", 200],
-  },
+  { [_h]: ["PUT", "/access-preview", 200] },
   () => CreateAccessPreviewRequest,
   () => CreateAccessPreviewResponse,
 ];
@@ -1792,9 +1521,7 @@ export var CreateAnalyzer: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["PUT", "/analyzer", 200],
-  },
+  { [_h]: ["PUT", "/analyzer", 200] },
   () => CreateAnalyzerRequest,
   () => CreateAnalyzerResponse,
 ];
@@ -1802,9 +1529,7 @@ export var CreateArchiveRule: StaticOperationSchema = [
   9,
   n0,
   _CARre,
-  {
-    [_h]: ["PUT", "/analyzer/{analyzerName}/archive-rule", 200],
-  },
+  { [_h]: ["PUT", "/analyzer/{analyzerName}/archive-rule", 200] },
   () => CreateArchiveRuleRequest,
   () => __Unit,
 ];
@@ -1812,9 +1537,7 @@ export var DeleteAnalyzer: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/analyzer/{analyzerName}", 200],
-  },
+  { [_h]: ["DELETE", "/analyzer/{analyzerName}", 200] },
   () => DeleteAnalyzerRequest,
   () => __Unit,
 ];
@@ -1822,9 +1545,7 @@ export var DeleteArchiveRule: StaticOperationSchema = [
   9,
   n0,
   _DARe,
-  {
-    [_h]: ["DELETE", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200],
-  },
+  { [_h]: ["DELETE", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200] },
   () => DeleteArchiveRuleRequest,
   () => __Unit,
 ];
@@ -1832,9 +1553,7 @@ export var GenerateFindingRecommendation: StaticOperationSchema = [
   9,
   n0,
   _GFRen,
-  {
-    [_h]: ["POST", "/recommendation/{id}", 200],
-  },
+  { [_h]: ["POST", "/recommendation/{id}", 200] },
   () => GenerateFindingRecommendationRequest,
   () => __Unit,
 ];
@@ -1842,9 +1561,7 @@ export var GetAccessPreview: StaticOperationSchema = [
   9,
   n0,
   _GAP,
-  {
-    [_h]: ["GET", "/access-preview/{accessPreviewId}", 200],
-  },
+  { [_h]: ["GET", "/access-preview/{accessPreviewId}", 200] },
   () => GetAccessPreviewRequest,
   () => GetAccessPreviewResponse,
 ];
@@ -1852,9 +1569,7 @@ export var GetAnalyzedResource: StaticOperationSchema = [
   9,
   n0,
   _GARet,
-  {
-    [_h]: ["GET", "/analyzed-resource", 200],
-  },
+  { [_h]: ["GET", "/analyzed-resource", 200] },
   () => GetAnalyzedResourceRequest,
   () => GetAnalyzedResourceResponse,
 ];
@@ -1862,9 +1577,7 @@ export var GetAnalyzer: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/analyzer/{analyzerName}", 200],
-  },
+  { [_h]: ["GET", "/analyzer/{analyzerName}", 200] },
   () => GetAnalyzerRequest,
   () => GetAnalyzerResponse,
 ];
@@ -1872,9 +1585,7 @@ export var GetArchiveRule: StaticOperationSchema = [
   9,
   n0,
   _GARetr,
-  {
-    [_h]: ["GET", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200],
-  },
+  { [_h]: ["GET", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200] },
   () => GetArchiveRuleRequest,
   () => GetArchiveRuleResponse,
 ];
@@ -1882,9 +1593,7 @@ export var GetFinding: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["GET", "/finding/{id}", 200],
-  },
+  { [_h]: ["GET", "/finding/{id}", 200] },
   () => GetFindingRequest,
   () => GetFindingResponse,
 ];
@@ -1892,9 +1601,7 @@ export var GetFindingRecommendation: StaticOperationSchema = [
   9,
   n0,
   _GFRet,
-  {
-    [_h]: ["GET", "/recommendation/{id}", 200],
-  },
+  { [_h]: ["GET", "/recommendation/{id}", 200] },
   () => GetFindingRecommendationRequest,
   () => GetFindingRecommendationResponse,
 ];
@@ -1902,9 +1609,7 @@ export var GetFindingsStatistics: StaticOperationSchema = [
   9,
   n0,
   _GFS,
-  {
-    [_h]: ["POST", "/analyzer/findings/statistics", 200],
-  },
+  { [_h]: ["POST", "/analyzer/findings/statistics", 200] },
   () => GetFindingsStatisticsRequest,
   () => GetFindingsStatisticsResponse,
 ];
@@ -1912,9 +1617,7 @@ export var GetFindingV2: StaticOperationSchema = [
   9,
   n0,
   _GFV,
-  {
-    [_h]: ["GET", "/findingv2/{id}", 200],
-  },
+  { [_h]: ["GET", "/findingv2/{id}", 200] },
   () => GetFindingV2Request,
   () => GetFindingV2Response,
 ];
@@ -1922,9 +1625,7 @@ export var GetGeneratedPolicy: StaticOperationSchema = [
   9,
   n0,
   _GGP,
-  {
-    [_h]: ["GET", "/policy/generation/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/policy/generation/{jobId}", 200] },
   () => GetGeneratedPolicyRequest,
   () => GetGeneratedPolicyResponse,
 ];
@@ -1932,9 +1633,7 @@ export var ListAccessPreviewFindings: StaticOperationSchema = [
   9,
   n0,
   _LAPF,
-  {
-    [_h]: ["POST", "/access-preview/{accessPreviewId}", 200],
-  },
+  { [_h]: ["POST", "/access-preview/{accessPreviewId}", 200] },
   () => ListAccessPreviewFindingsRequest,
   () => ListAccessPreviewFindingsResponse,
 ];
@@ -1942,9 +1641,7 @@ export var ListAccessPreviews: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_h]: ["GET", "/access-preview", 200],
-  },
+  { [_h]: ["GET", "/access-preview", 200] },
   () => ListAccessPreviewsRequest,
   () => ListAccessPreviewsResponse,
 ];
@@ -1952,9 +1649,7 @@ export var ListAnalyzedResources: StaticOperationSchema = [
   9,
   n0,
   _LARis,
-  {
-    [_h]: ["POST", "/analyzed-resource", 200],
-  },
+  { [_h]: ["POST", "/analyzed-resource", 200] },
   () => ListAnalyzedResourcesRequest,
   () => ListAnalyzedResourcesResponse,
 ];
@@ -1962,9 +1657,7 @@ export var ListAnalyzers: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/analyzer", 200],
-  },
+  { [_h]: ["GET", "/analyzer", 200] },
   () => ListAnalyzersRequest,
   () => ListAnalyzersResponse,
 ];
@@ -1972,9 +1665,7 @@ export var ListArchiveRules: StaticOperationSchema = [
   9,
   n0,
   _LARist,
-  {
-    [_h]: ["GET", "/analyzer/{analyzerName}/archive-rule", 200],
-  },
+  { [_h]: ["GET", "/analyzer/{analyzerName}/archive-rule", 200] },
   () => ListArchiveRulesRequest,
   () => ListArchiveRulesResponse,
 ];
@@ -1982,9 +1673,7 @@ export var ListFindings: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["POST", "/finding", 200],
-  },
+  { [_h]: ["POST", "/finding", 200] },
   () => ListFindingsRequest,
   () => ListFindingsResponse,
 ];
@@ -1992,9 +1681,7 @@ export var ListFindingsV2: StaticOperationSchema = [
   9,
   n0,
   _LFV,
-  {
-    [_h]: ["POST", "/findingv2", 200],
-  },
+  { [_h]: ["POST", "/findingv2", 200] },
   () => ListFindingsV2Request,
   () => ListFindingsV2Response,
 ];
@@ -2002,9 +1689,7 @@ export var ListPolicyGenerations: StaticOperationSchema = [
   9,
   n0,
   _LPG,
-  {
-    [_h]: ["GET", "/policy/generation", 200],
-  },
+  { [_h]: ["GET", "/policy/generation", 200] },
   () => ListPolicyGenerationsRequest,
   () => ListPolicyGenerationsResponse,
 ];
@@ -2012,9 +1697,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2022,9 +1705,7 @@ export var StartPolicyGeneration: StaticOperationSchema = [
   9,
   n0,
   _SPG,
-  {
-    [_h]: ["PUT", "/policy/generation", 200],
-  },
+  { [_h]: ["PUT", "/policy/generation", 200] },
   () => StartPolicyGenerationRequest,
   () => StartPolicyGenerationResponse,
 ];
@@ -2032,9 +1713,7 @@ export var StartResourceScan: StaticOperationSchema = [
   9,
   n0,
   _SRS,
-  {
-    [_h]: ["POST", "/resource/scan", 200],
-  },
+  { [_h]: ["POST", "/resource/scan", 200] },
   () => StartResourceScanRequest,
   () => __Unit,
 ];
@@ -2042,9 +1721,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2052,9 +1729,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2062,9 +1737,7 @@ export var UpdateAnalyzer: StaticOperationSchema = [
   9,
   n0,
   _UAp,
-  {
-    [_h]: ["PUT", "/analyzer/{analyzerName}", 200],
-  },
+  { [_h]: ["PUT", "/analyzer/{analyzerName}", 200] },
   () => UpdateAnalyzerRequest,
   () => UpdateAnalyzerResponse,
 ];
@@ -2072,9 +1745,7 @@ export var UpdateArchiveRule: StaticOperationSchema = [
   9,
   n0,
   _UARpd,
-  {
-    [_h]: ["PUT", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200],
-  },
+  { [_h]: ["PUT", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200] },
   () => UpdateArchiveRuleRequest,
   () => __Unit,
 ];
@@ -2082,9 +1753,7 @@ export var UpdateFindings: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["PUT", "/finding", 200],
-  },
+  { [_h]: ["PUT", "/finding", 200] },
   () => UpdateFindingsRequest,
   () => __Unit,
 ];
@@ -2092,9 +1761,7 @@ export var ValidatePolicy: StaticOperationSchema = [
   9,
   n0,
   _VP,
-  {
-    [_h]: ["POST", "/policy/validation", 200],
-  },
+  { [_h]: ["POST", "/policy/validation", 200] },
   () => ValidatePolicyRequest,
   () => ValidatePolicyResponse,
 ];

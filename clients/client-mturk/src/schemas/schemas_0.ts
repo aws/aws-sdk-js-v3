@@ -288,7 +288,6 @@ import { RequestError as __RequestError, ServiceFault as __ServiceFault } from "
 import { MTurkServiceException as __MTurkServiceException } from "../models/MTurkServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptQualificationRequestRequest: StaticStructureSchema = [3, n0, _AQRR, 0, [_QRI, _IV], [0, 1]];
 export var AcceptQualificationRequestResponse: StaticStructureSchema = [3, n0, _AQRRc, 0, [], []];
 export var ApproveAssignmentRequest: StaticStructureSchema = [3, n0, _AAR, 0, [_AI, _RF, _OR], [0, 0, 2]];
@@ -619,16 +618,11 @@ export var RequestError: StaticErrorSchema = [
   -3,
   n0,
   _RE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`RequestError`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`RequestError`, 400] },
   [_M, _TEC],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(RequestError, __RequestError);
-
 export var ReviewActionDetail: StaticStructureSchema = [
   3,
   n0,
@@ -669,16 +663,11 @@ export var ServiceFault: StaticErrorSchema = [
   -3,
   n0,
   _SF,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`ServiceFault`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`ServiceFault`, 500] },
   [_M, _TEC],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceFault, __ServiceFault);
-
 export var UpdateExpirationForHITRequest: StaticStructureSchema = [3, n0, _UEFHITR, 0, [_HITI, _EA], [0, 4]];
 export var UpdateExpirationForHITResponse: StaticStructureSchema = [3, n0, _UEFHITRp, 0, [], []];
 export var UpdateHITReviewStatusRequest: StaticStructureSchema = [3, n0, _UHITRSR, 0, [_HITI, _Rev], [0, 2]];
@@ -712,22 +701,16 @@ export var UpdateQualificationTypeResponse: StaticStructureSchema = [
 ];
 export var WorkerBlock: StaticStructureSchema = [3, n0, _WBo, 0, [_WI, _R], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var MTurkServiceException: StaticErrorSchema = [-3, _sm, "MTurkServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MTurkServiceException, __MTurkServiceException);
-
 export var AssignmentList: StaticListSchema = [1, n0, _AL, 0, () => Assignment];
 export var AssignmentStatusList = 64 | 0;
-
 export var BonusPaymentList: StaticListSchema = [1, n0, _BPL, 0, () => BonusPayment];
 export var CustomerIdList = 64 | 0;
-
 export var EventTypeList = 64 | 0;
-
 export var HITLayoutParameterList: StaticListSchema = [1, n0, _HITLPL, 0, () => HITLayoutParameter];
 export var HITList: StaticListSchema = [1, n0, _HITL, 0, () => HIT];
 export var IntegerList = 64 | 1;
-
 export var LocaleList: StaticListSchema = [1, n0, _LL, 0, () => Locale];
 export var NotifyWorkersFailureStatusList: StaticListSchema = [1, n0, _NWFSL, 0, () => NotifyWorkersFailureStatus];
 export var ParameterMapEntryList: StaticListSchema = [1, n0, _PMEL, 0, () => ParameterMapEntry];
@@ -738,10 +721,8 @@ export var QualificationRequirementList: StaticListSchema = [1, n0, _QRLu, 0, ()
 export var QualificationTypeList: StaticListSchema = [1, n0, _QTL, 0, () => QualificationType];
 export var ReviewActionDetailList: StaticListSchema = [1, n0, _RADL, 0, () => ReviewActionDetail];
 export var ReviewPolicyLevelList = 64 | 0;
-
 export var ReviewResultDetailList: StaticListSchema = [1, n0, _RRDL, 0, () => ReviewResultDetail];
 export var StringList = 64 | 0;
-
 export var WorkerBlockList: StaticListSchema = [1, n0, _WBL, 0, () => WorkerBlock];
 export var AcceptQualificationRequest: StaticOperationSchema = [
   9,

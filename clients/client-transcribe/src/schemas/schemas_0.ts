@@ -322,22 +322,10 @@ import {
 import { TranscribeServiceException as __TranscribeServiceException } from "../models/TranscribeServiceException";
 
 /* eslint no-var: 0 */
-
 export var Pronouns: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var AbsoluteTimeRange: StaticStructureSchema = [3, n0, _ATR, 0, [_ST, _ET, _F, _L], [1, 1, 1, 1]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var CallAnalyticsJob: StaticStructureSchema = [
   3,
   n0,
@@ -399,19 +387,8 @@ export var CategoryProperties: StaticStructureSchema = [
 ];
 export var ChannelDefinition: StaticStructureSchema = [3, n0, _CDh, 0, [_CI, _PR], [1, 0]];
 export var ClinicalNoteGenerationSettings: StaticStructureSchema = [3, n0, _CNGS, 0, [_NT], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContentRedaction: StaticStructureSchema = [3, n0, _CR, 0, [_RT, _RO, _PET], [0, 0, 64 | 0]];
 export var CreateCallAnalyticsCategoryRequest: StaticStructureSchema = [
   3,
@@ -551,19 +528,8 @@ export var GetVocabularyResponse: StaticStructureSchema = [
   [0, 0, 0, 4, 0, 0],
 ];
 export var InputDataConfig: StaticStructureSchema = [3, n0, _IDC, 0, [_SU, _TDSU, _DARA], [0, 0, 0]];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
 export var InterruptionFilter: StaticStructureSchema = [
   3,
   n0,
@@ -583,19 +549,8 @@ export var LanguageModel: StaticStructureSchema = [
   [_MN, _CTr, _LMT, _LC, _BMN, _MS, _UA, _FR, _IDC],
   [0, 4, 4, 0, 0, 0, 2, 0, () => InputDataConfig],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListCallAnalyticsCategoriesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -603,18 +558,8 @@ export var ListCallAnalyticsCategoriesRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListCallAnalyticsCategoriesResponse: StaticStructureSchema = [
@@ -632,30 +577,10 @@ export var ListCallAnalyticsJobsRequest: StaticStructureSchema = [
   0,
   [_St, _JNC, _NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _JNC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _St }],
+    [0, { [_hQ]: _JNC }],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListCallAnalyticsJobsResponse: StaticStructureSchema = [
@@ -673,30 +598,10 @@ export var ListLanguageModelsRequest: StaticStructureSchema = [
   0,
   [_SE, _NC, _NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _SEt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _SEt }],
+    [0, { [_hQ]: _NC }],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListLanguageModelsResponse: StaticStructureSchema = [3, n0, _LLMRi, 0, [_NTe, _Mo], [0, () => Models]];
@@ -707,30 +612,10 @@ export var ListMedicalScribeJobsRequest: StaticStructureSchema = [
   0,
   [_St, _JNC, _NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _JNC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _St }],
+    [0, { [_hQ]: _JNC }],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListMedicalScribeJobsResponse: StaticStructureSchema = [
@@ -748,30 +633,10 @@ export var ListMedicalTranscriptionJobsRequest: StaticStructureSchema = [
   0,
   [_St, _JNC, _NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _JNC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _St }],
+    [0, { [_hQ]: _JNC }],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListMedicalTranscriptionJobsResponse: StaticStructureSchema = [
@@ -789,30 +654,10 @@ export var ListMedicalVocabulariesRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR, _SEta, _NC],
   [
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SEta,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NC,
-      },
-    ],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _SEta }],
+    [0, { [_hQ]: _NC }],
   ],
 ];
 export var ListMedicalVocabulariesResponse: StaticStructureSchema = [
@@ -832,30 +677,10 @@ export var ListTranscriptionJobsRequest: StaticStructureSchema = [
   0,
   [_St, _JNC, _NTe, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _St,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _JNC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _St }],
+    [0, { [_hQ]: _JNC }],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListTranscriptionJobsResponse: StaticStructureSchema = [
@@ -873,30 +698,10 @@ export var ListVocabulariesRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR, _SEta, _NC],
   [
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SEta,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NC,
-      },
-    ],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _SEta }],
+    [0, { [_hQ]: _NC }],
   ],
 ];
 export var ListVocabulariesResponse: StaticStructureSchema = [
@@ -914,24 +719,9 @@ export var ListVocabularyFiltersRequest: StaticStructureSchema = [
   0,
   [_NTe, _MR, _NC],
   [
-    [
-      0,
-      {
-        [_hQ]: _NTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NC,
-      },
-    ],
+    [0, { [_hQ]: _NTe }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NC }],
   ],
 ];
 export var ListVocabularyFiltersResponse: StaticStructureSchema = [
@@ -1044,19 +834,8 @@ export var NonTalkTimeFilter: StaticStructureSchema = [
   [_Th, _ATR, _RTR, _N],
   [1, () => AbsoluteTimeRange, () => RelativeTimeRange, 2],
 ];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var RelativeTimeRange: StaticStructureSchema = [3, n0, _RTR, 0, [_SP, _EP, _F, _L], [1, 1, 1, 1]];
 export var SentimentFilter: StaticStructureSchema = [
   3,
@@ -1255,12 +1034,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1310,47 +1084,34 @@ export var UpdateVocabularyResponse: StaticStructureSchema = [3, n0, _UVRp, 0, [
 export var VocabularyFilterInfo: StaticStructureSchema = [3, n0, _VFI, 0, [_VFN, _LC, _LMT], [0, 0, 4]];
 export var VocabularyInfo: StaticStructureSchema = [3, n0, _VI, 0, [_VN, _LC, _LMT, _VS], [0, 0, 4, 0]];
 export var __Unit = "unit" as const;
-
 export var TranscribeServiceException: StaticErrorSchema = [-3, _sm, "TranscribeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TranscribeServiceException, __TranscribeServiceException);
-
 export var CallAnalyticsJobSummaries: StaticListSchema = [1, n0, _CAJSall, 0, () => CallAnalyticsJobSummary];
 export var CallAnalyticsSkippedFeatureList: StaticListSchema = [1, n0, _CASFL, 0, () => CallAnalyticsSkippedFeature];
 export var CategoryPropertiesList: StaticListSchema = [1, n0, _CPL, 0, () => CategoryProperties];
 export var ChannelDefinitions: StaticListSchema = [1, n0, _CD, 0, () => ChannelDefinition];
 export var LanguageCodeList: StaticListSchema = [1, n0, _LCL, 0, () => LanguageCodeItem];
 export var LanguageOptions = 64 | 0;
-
 export var MedicalScribeChannelDefinitions: StaticListSchema = [1, n0, _MSCDe, 0, () => MedicalScribeChannelDefinition];
 export var MedicalScribeJobSummaries: StaticListSchema = [1, n0, _MSJS, 0, () => MedicalScribeJobSummary];
 export var MedicalTranscriptionJobSummaries: StaticListSchema = [1, n0, _MTJS, 0, () => MedicalTranscriptionJobSummary];
 export var Models: StaticListSchema = [1, n0, _Mo, 0, () => LanguageModel];
 export var Phrases = 64 | 0;
-
 export var PiiEntityTypes = 64 | 0;
-
 export var RuleList: StaticListSchema = [1, n0, _RL, 0, () => Rule];
 export var SentimentValueList = 64 | 0;
-
 export var StringTargetList = 64 | 0;
-
 export var SubtitleFileUris = 64 | 0;
-
 export var SubtitleFormats = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ToxicityCategories = 64 | 0;
-
 export var ToxicityDetection: StaticListSchema = [1, n0, _TD, 0, () => ToxicityDetectionSettings];
 export var TranscriptionJobSummaries: StaticListSchema = [1, n0, _TJS, 0, () => TranscriptionJobSummary];
 export var Vocabularies: StaticListSchema = [1, n0, _V, 0, () => VocabularyInfo];
 export var VocabularyFilters: StaticListSchema = [1, n0, _VF, 0, () => VocabularyFilterInfo];
 export var Words = 64 | 0;
-
 export var KMSEncryptionContextMap = 128 | 0;
-
 export var LanguageIdSettingsMap: StaticMapSchema = [2, n0, _LISM, 0, 0, () => LanguageIdSettings];
 export var Rule: StaticStructureSchema = [
   3,
@@ -1364,9 +1125,7 @@ export var CreateCallAnalyticsCategory: StaticOperationSchema = [
   9,
   n0,
   _CCAC,
-  {
-    [_h]: ["PUT", "/callanalyticscategories/{CategoryName}", 200],
-  },
+  { [_h]: ["PUT", "/callanalyticscategories/{CategoryName}", 200] },
   () => CreateCallAnalyticsCategoryRequest,
   () => CreateCallAnalyticsCategoryResponse,
 ];
@@ -1374,9 +1133,7 @@ export var CreateLanguageModel: StaticOperationSchema = [
   9,
   n0,
   _CLM,
-  {
-    [_h]: ["PUT", "/languagemodels/{ModelName}", 200],
-  },
+  { [_h]: ["PUT", "/languagemodels/{ModelName}", 200] },
   () => CreateLanguageModelRequest,
   () => CreateLanguageModelResponse,
 ];
@@ -1384,9 +1141,7 @@ export var CreateMedicalVocabulary: StaticOperationSchema = [
   9,
   n0,
   _CMV,
-  {
-    [_h]: ["PUT", "/medicalvocabularies/{VocabularyName}", 200],
-  },
+  { [_h]: ["PUT", "/medicalvocabularies/{VocabularyName}", 200] },
   () => CreateMedicalVocabularyRequest,
   () => CreateMedicalVocabularyResponse,
 ];
@@ -1394,9 +1149,7 @@ export var CreateVocabulary: StaticOperationSchema = [
   9,
   n0,
   _CV,
-  {
-    [_h]: ["PUT", "/vocabularies/{VocabularyName}", 200],
-  },
+  { [_h]: ["PUT", "/vocabularies/{VocabularyName}", 200] },
   () => CreateVocabularyRequest,
   () => CreateVocabularyResponse,
 ];
@@ -1404,9 +1157,7 @@ export var CreateVocabularyFilter: StaticOperationSchema = [
   9,
   n0,
   _CVF,
-  {
-    [_h]: ["POST", "/vocabularyFilters/{VocabularyFilterName}", 201],
-  },
+  { [_h]: ["POST", "/vocabularyFilters/{VocabularyFilterName}", 201] },
   () => CreateVocabularyFilterRequest,
   () => CreateVocabularyFilterResponse,
 ];
@@ -1414,9 +1165,7 @@ export var DeleteCallAnalyticsCategory: StaticOperationSchema = [
   9,
   n0,
   _DCAC,
-  {
-    [_h]: ["DELETE", "/callanalyticscategories/{CategoryName}", 204],
-  },
+  { [_h]: ["DELETE", "/callanalyticscategories/{CategoryName}", 204] },
   () => DeleteCallAnalyticsCategoryRequest,
   () => DeleteCallAnalyticsCategoryResponse,
 ];
@@ -1424,9 +1173,7 @@ export var DeleteCallAnalyticsJob: StaticOperationSchema = [
   9,
   n0,
   _DCAJ,
-  {
-    [_h]: ["DELETE", "/callanalyticsjobs/{CallAnalyticsJobName}", 204],
-  },
+  { [_h]: ["DELETE", "/callanalyticsjobs/{CallAnalyticsJobName}", 204] },
   () => DeleteCallAnalyticsJobRequest,
   () => DeleteCallAnalyticsJobResponse,
 ];
@@ -1434,9 +1181,7 @@ export var DeleteLanguageModel: StaticOperationSchema = [
   9,
   n0,
   _DLM,
-  {
-    [_h]: ["DELETE", "/languagemodels/{ModelName}", 204],
-  },
+  { [_h]: ["DELETE", "/languagemodels/{ModelName}", 204] },
   () => DeleteLanguageModelRequest,
   () => __Unit,
 ];
@@ -1444,9 +1189,7 @@ export var DeleteMedicalScribeJob: StaticOperationSchema = [
   9,
   n0,
   _DMSJ,
-  {
-    [_h]: ["DELETE", "/medicalscribejobs/{MedicalScribeJobName}", 204],
-  },
+  { [_h]: ["DELETE", "/medicalscribejobs/{MedicalScribeJobName}", 204] },
   () => DeleteMedicalScribeJobRequest,
   () => __Unit,
 ];
@@ -1454,9 +1197,7 @@ export var DeleteMedicalTranscriptionJob: StaticOperationSchema = [
   9,
   n0,
   _DMTJ,
-  {
-    [_h]: ["DELETE", "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", 204],
-  },
+  { [_h]: ["DELETE", "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", 204] },
   () => DeleteMedicalTranscriptionJobRequest,
   () => __Unit,
 ];
@@ -1464,9 +1205,7 @@ export var DeleteMedicalVocabulary: StaticOperationSchema = [
   9,
   n0,
   _DMV,
-  {
-    [_h]: ["DELETE", "/medicalvocabularies/{VocabularyName}", 204],
-  },
+  { [_h]: ["DELETE", "/medicalvocabularies/{VocabularyName}", 204] },
   () => DeleteMedicalVocabularyRequest,
   () => __Unit,
 ];
@@ -1474,9 +1213,7 @@ export var DeleteTranscriptionJob: StaticOperationSchema = [
   9,
   n0,
   _DTJ,
-  {
-    [_h]: ["DELETE", "/transcriptionjobs/{TranscriptionJobName}", 204],
-  },
+  { [_h]: ["DELETE", "/transcriptionjobs/{TranscriptionJobName}", 204] },
   () => DeleteTranscriptionJobRequest,
   () => __Unit,
 ];
@@ -1484,9 +1221,7 @@ export var DeleteVocabulary: StaticOperationSchema = [
   9,
   n0,
   _DV,
-  {
-    [_h]: ["DELETE", "/vocabularies/{VocabularyName}", 204],
-  },
+  { [_h]: ["DELETE", "/vocabularies/{VocabularyName}", 204] },
   () => DeleteVocabularyRequest,
   () => __Unit,
 ];
@@ -1494,9 +1229,7 @@ export var DeleteVocabularyFilter: StaticOperationSchema = [
   9,
   n0,
   _DVF,
-  {
-    [_h]: ["DELETE", "/vocabularyFilters/{VocabularyFilterName}", 204],
-  },
+  { [_h]: ["DELETE", "/vocabularyFilters/{VocabularyFilterName}", 204] },
   () => DeleteVocabularyFilterRequest,
   () => __Unit,
 ];
@@ -1504,9 +1237,7 @@ export var DescribeLanguageModel: StaticOperationSchema = [
   9,
   n0,
   _DLMe,
-  {
-    [_h]: ["GET", "/languagemodels/{ModelName}", 200],
-  },
+  { [_h]: ["GET", "/languagemodels/{ModelName}", 200] },
   () => DescribeLanguageModelRequest,
   () => DescribeLanguageModelResponse,
 ];
@@ -1514,9 +1245,7 @@ export var GetCallAnalyticsCategory: StaticOperationSchema = [
   9,
   n0,
   _GCAC,
-  {
-    [_h]: ["GET", "/callanalyticscategories/{CategoryName}", 200],
-  },
+  { [_h]: ["GET", "/callanalyticscategories/{CategoryName}", 200] },
   () => GetCallAnalyticsCategoryRequest,
   () => GetCallAnalyticsCategoryResponse,
 ];
@@ -1524,9 +1253,7 @@ export var GetCallAnalyticsJob: StaticOperationSchema = [
   9,
   n0,
   _GCAJ,
-  {
-    [_h]: ["GET", "/callanalyticsjobs/{CallAnalyticsJobName}", 200],
-  },
+  { [_h]: ["GET", "/callanalyticsjobs/{CallAnalyticsJobName}", 200] },
   () => GetCallAnalyticsJobRequest,
   () => GetCallAnalyticsJobResponse,
 ];
@@ -1534,9 +1261,7 @@ export var GetMedicalScribeJob: StaticOperationSchema = [
   9,
   n0,
   _GMSJ,
-  {
-    [_h]: ["GET", "/medicalscribejobs/{MedicalScribeJobName}", 200],
-  },
+  { [_h]: ["GET", "/medicalscribejobs/{MedicalScribeJobName}", 200] },
   () => GetMedicalScribeJobRequest,
   () => GetMedicalScribeJobResponse,
 ];
@@ -1544,9 +1269,7 @@ export var GetMedicalTranscriptionJob: StaticOperationSchema = [
   9,
   n0,
   _GMTJ,
-  {
-    [_h]: ["GET", "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", 200],
-  },
+  { [_h]: ["GET", "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", 200] },
   () => GetMedicalTranscriptionJobRequest,
   () => GetMedicalTranscriptionJobResponse,
 ];
@@ -1554,9 +1277,7 @@ export var GetMedicalVocabulary: StaticOperationSchema = [
   9,
   n0,
   _GMV,
-  {
-    [_h]: ["GET", "/medicalvocabularies/{VocabularyName}", 200],
-  },
+  { [_h]: ["GET", "/medicalvocabularies/{VocabularyName}", 200] },
   () => GetMedicalVocabularyRequest,
   () => GetMedicalVocabularyResponse,
 ];
@@ -1564,9 +1285,7 @@ export var GetTranscriptionJob: StaticOperationSchema = [
   9,
   n0,
   _GTJ,
-  {
-    [_h]: ["GET", "/transcriptionjobs/{TranscriptionJobName}", 200],
-  },
+  { [_h]: ["GET", "/transcriptionjobs/{TranscriptionJobName}", 200] },
   () => GetTranscriptionJobRequest,
   () => GetTranscriptionJobResponse,
 ];
@@ -1574,9 +1293,7 @@ export var GetVocabulary: StaticOperationSchema = [
   9,
   n0,
   _GV,
-  {
-    [_h]: ["GET", "/vocabularies/{VocabularyName}", 200],
-  },
+  { [_h]: ["GET", "/vocabularies/{VocabularyName}", 200] },
   () => GetVocabularyRequest,
   () => GetVocabularyResponse,
 ];
@@ -1584,9 +1301,7 @@ export var GetVocabularyFilter: StaticOperationSchema = [
   9,
   n0,
   _GVF,
-  {
-    [_h]: ["GET", "/vocabularyFilters/{VocabularyFilterName}", 200],
-  },
+  { [_h]: ["GET", "/vocabularyFilters/{VocabularyFilterName}", 200] },
   () => GetVocabularyFilterRequest,
   () => GetVocabularyFilterResponse,
 ];
@@ -1594,9 +1309,7 @@ export var ListCallAnalyticsCategories: StaticOperationSchema = [
   9,
   n0,
   _LCAC,
-  {
-    [_h]: ["GET", "/callanalyticscategories", 200],
-  },
+  { [_h]: ["GET", "/callanalyticscategories", 200] },
   () => ListCallAnalyticsCategoriesRequest,
   () => ListCallAnalyticsCategoriesResponse,
 ];
@@ -1604,9 +1317,7 @@ export var ListCallAnalyticsJobs: StaticOperationSchema = [
   9,
   n0,
   _LCAJ,
-  {
-    [_h]: ["GET", "/callanalyticsjobs", 200],
-  },
+  { [_h]: ["GET", "/callanalyticsjobs", 200] },
   () => ListCallAnalyticsJobsRequest,
   () => ListCallAnalyticsJobsResponse,
 ];
@@ -1614,9 +1325,7 @@ export var ListLanguageModels: StaticOperationSchema = [
   9,
   n0,
   _LLM,
-  {
-    [_h]: ["GET", "/languagemodels", 200],
-  },
+  { [_h]: ["GET", "/languagemodels", 200] },
   () => ListLanguageModelsRequest,
   () => ListLanguageModelsResponse,
 ];
@@ -1624,9 +1333,7 @@ export var ListMedicalScribeJobs: StaticOperationSchema = [
   9,
   n0,
   _LMSJ,
-  {
-    [_h]: ["GET", "/medicalscribejobs", 200],
-  },
+  { [_h]: ["GET", "/medicalscribejobs", 200] },
   () => ListMedicalScribeJobsRequest,
   () => ListMedicalScribeJobsResponse,
 ];
@@ -1634,9 +1341,7 @@ export var ListMedicalTranscriptionJobs: StaticOperationSchema = [
   9,
   n0,
   _LMTJ,
-  {
-    [_h]: ["GET", "/medicaltranscriptionjobs", 200],
-  },
+  { [_h]: ["GET", "/medicaltranscriptionjobs", 200] },
   () => ListMedicalTranscriptionJobsRequest,
   () => ListMedicalTranscriptionJobsResponse,
 ];
@@ -1644,9 +1349,7 @@ export var ListMedicalVocabularies: StaticOperationSchema = [
   9,
   n0,
   _LMV,
-  {
-    [_h]: ["GET", "/medicalvocabularies", 200],
-  },
+  { [_h]: ["GET", "/medicalvocabularies", 200] },
   () => ListMedicalVocabulariesRequest,
   () => ListMedicalVocabulariesResponse,
 ];
@@ -1654,9 +1357,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1664,9 +1365,7 @@ export var ListTranscriptionJobs: StaticOperationSchema = [
   9,
   n0,
   _LTJ,
-  {
-    [_h]: ["GET", "/transcriptionjobs", 200],
-  },
+  { [_h]: ["GET", "/transcriptionjobs", 200] },
   () => ListTranscriptionJobsRequest,
   () => ListTranscriptionJobsResponse,
 ];
@@ -1674,9 +1373,7 @@ export var ListVocabularies: StaticOperationSchema = [
   9,
   n0,
   _LV,
-  {
-    [_h]: ["GET", "/vocabularies", 200],
-  },
+  { [_h]: ["GET", "/vocabularies", 200] },
   () => ListVocabulariesRequest,
   () => ListVocabulariesResponse,
 ];
@@ -1684,9 +1381,7 @@ export var ListVocabularyFilters: StaticOperationSchema = [
   9,
   n0,
   _LVF,
-  {
-    [_h]: ["GET", "/vocabularyFilters", 200],
-  },
+  { [_h]: ["GET", "/vocabularyFilters", 200] },
   () => ListVocabularyFiltersRequest,
   () => ListVocabularyFiltersResponse,
 ];
@@ -1694,9 +1389,7 @@ export var StartCallAnalyticsJob: StaticOperationSchema = [
   9,
   n0,
   _SCAJ,
-  {
-    [_h]: ["PUT", "/callanalyticsjobs/{CallAnalyticsJobName}", 200],
-  },
+  { [_h]: ["PUT", "/callanalyticsjobs/{CallAnalyticsJobName}", 200] },
   () => StartCallAnalyticsJobRequest,
   () => StartCallAnalyticsJobResponse,
 ];
@@ -1704,9 +1397,7 @@ export var StartMedicalScribeJob: StaticOperationSchema = [
   9,
   n0,
   _SMSJ,
-  {
-    [_h]: ["PUT", "/medicalscribejobs/{MedicalScribeJobName}", 200],
-  },
+  { [_h]: ["PUT", "/medicalscribejobs/{MedicalScribeJobName}", 200] },
   () => StartMedicalScribeJobRequest,
   () => StartMedicalScribeJobResponse,
 ];
@@ -1714,9 +1405,7 @@ export var StartMedicalTranscriptionJob: StaticOperationSchema = [
   9,
   n0,
   _SMTJ,
-  {
-    [_h]: ["PUT", "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", 200],
-  },
+  { [_h]: ["PUT", "/medicaltranscriptionjobs/{MedicalTranscriptionJobName}", 200] },
   () => StartMedicalTranscriptionJobRequest,
   () => StartMedicalTranscriptionJobResponse,
 ];
@@ -1724,9 +1413,7 @@ export var StartTranscriptionJob: StaticOperationSchema = [
   9,
   n0,
   _STJ,
-  {
-    [_h]: ["PUT", "/transcriptionjobs/{TranscriptionJobName}", 200],
-  },
+  { [_h]: ["PUT", "/transcriptionjobs/{TranscriptionJobName}", 200] },
   () => StartTranscriptionJobRequest,
   () => StartTranscriptionJobResponse,
 ];
@@ -1734,9 +1421,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["PUT", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1744,9 +1429,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1754,9 +1437,7 @@ export var UpdateCallAnalyticsCategory: StaticOperationSchema = [
   9,
   n0,
   _UCAC,
-  {
-    [_h]: ["PATCH", "/callanalyticscategories/{CategoryName}", 200],
-  },
+  { [_h]: ["PATCH", "/callanalyticscategories/{CategoryName}", 200] },
   () => UpdateCallAnalyticsCategoryRequest,
   () => UpdateCallAnalyticsCategoryResponse,
 ];
@@ -1764,9 +1445,7 @@ export var UpdateMedicalVocabulary: StaticOperationSchema = [
   9,
   n0,
   _UMV,
-  {
-    [_h]: ["PATCH", "/medicalvocabularies/{VocabularyName}", 200],
-  },
+  { [_h]: ["PATCH", "/medicalvocabularies/{VocabularyName}", 200] },
   () => UpdateMedicalVocabularyRequest,
   () => UpdateMedicalVocabularyResponse,
 ];
@@ -1774,9 +1453,7 @@ export var UpdateVocabulary: StaticOperationSchema = [
   9,
   n0,
   _UV,
-  {
-    [_h]: ["PATCH", "/vocabularies/{VocabularyName}", 200],
-  },
+  { [_h]: ["PATCH", "/vocabularies/{VocabularyName}", 200] },
   () => UpdateVocabularyRequest,
   () => UpdateVocabularyResponse,
 ];
@@ -1784,9 +1461,7 @@ export var UpdateVocabularyFilter: StaticOperationSchema = [
   9,
   n0,
   _UVF,
-  {
-    [_h]: ["PUT", "/vocabularyFilters/{VocabularyFilterName}", 200],
-  },
+  { [_h]: ["PUT", "/vocabularyFilters/{VocabularyFilterName}", 200] },
   () => UpdateVocabularyFilterRequest,
   () => UpdateVocabularyFilterResponse,
 ];

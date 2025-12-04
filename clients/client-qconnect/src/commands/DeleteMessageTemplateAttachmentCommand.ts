@@ -4,16 +4,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { DeleteMessageTemplateAttachmentRequest, DeleteMessageTemplateAttachmentResponse } from "../models/models_1";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-=======
 import type {
   DeleteMessageTemplateAttachmentRequest,
   DeleteMessageTemplateAttachmentResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
->>>>>>> 60efd81940b (chore: codegen)
 import { DeleteMessageTemplateAttachment } from "../schemas/schemas_0";
 
 /**

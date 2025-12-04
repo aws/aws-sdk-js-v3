@@ -2,7 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { EC2ProtocolServiceException as __BaseException } from "./EC2ProtocolServiceException";
-import { ComplexNestedErrorData } from "./models_0";
+import type { ComplexNestedErrorData } from "./models_0";
 
 /**
  * This error is thrown when a request is invalid.

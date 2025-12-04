@@ -4,17 +4,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import {
+import type {
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult,
 } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-=======
-import type { DescribeValidDBInstanceModificationsMessage } from "../models/models_0";
-import type { DescribeValidDBInstanceModificationsResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
->>>>>>> 60efd81940b (chore: codegen)
 import { DescribeValidDBInstanceModifications } from "../schemas/schemas_0";
 
 /**

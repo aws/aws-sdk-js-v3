@@ -36,26 +36,26 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof InvoicingClient === "function")
-assert(typeof Invoicing === "function")
+assert(typeof InvoicingClient === "function");
+assert(typeof Invoicing === "function");
 // commands
-assert(typeof BatchGetInvoiceProfileCommand === "function")
-assert(typeof CreateInvoiceUnitCommand === "function")
-assert(typeof CreateProcurementPortalPreferenceCommand === "function")
-assert(typeof DeleteInvoiceUnitCommand === "function")
-assert(typeof DeleteProcurementPortalPreferenceCommand === "function")
-assert(typeof GetInvoicePDFCommand === "function")
-assert(typeof GetInvoiceUnitCommand === "function")
-assert(typeof GetProcurementPortalPreferenceCommand === "function")
-assert(typeof ListInvoiceSummariesCommand === "function")
-assert(typeof ListInvoiceUnitsCommand === "function")
-assert(typeof ListProcurementPortalPreferencesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutProcurementPortalPreferenceCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateInvoiceUnitCommand === "function")
-assert(typeof UpdateProcurementPortalPreferenceStatusCommand === "function")
+assert(typeof BatchGetInvoiceProfileCommand === "function");
+assert(typeof CreateInvoiceUnitCommand === "function");
+assert(typeof CreateProcurementPortalPreferenceCommand === "function");
+assert(typeof DeleteInvoiceUnitCommand === "function");
+assert(typeof DeleteProcurementPortalPreferenceCommand === "function");
+assert(typeof GetInvoicePDFCommand === "function");
+assert(typeof GetInvoiceUnitCommand === "function");
+assert(typeof GetProcurementPortalPreferenceCommand === "function");
+assert(typeof ListInvoiceSummariesCommand === "function");
+assert(typeof ListInvoiceUnitsCommand === "function");
+assert(typeof ListProcurementPortalPreferencesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutProcurementPortalPreferenceCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateInvoiceUnitCommand === "function");
+assert(typeof UpdateProcurementPortalPreferenceStatusCommand === "function");
 // enums
 assert(typeof BuyerDomain === "object");
 assert(typeof ConnectionTestingMethod === "object");
@@ -69,9 +69,9 @@ assert(typeof Protocol === "object");
 assert(typeof PurchaseOrderDataSourceType === "object");
 assert(typeof SupplierDomain === "object");
 // errors
-assert(InvoicingServiceException.prototype instanceof Error)
+assert(InvoicingServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListInvoiceSummaries === "function")
-assert(typeof paginateListInvoiceUnits === "function")
-assert(typeof paginateListProcurementPortalPreferences === "function")
+assert(typeof paginateListInvoiceSummaries === "function");
+assert(typeof paginateListInvoiceUnits === "function");
+assert(typeof paginateListProcurementPortalPreferences === "function");
 console.log(`Invoicing index test passed.`);

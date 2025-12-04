@@ -9,12 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { SynchronizeGatewayTargetsRequest } from "../models/models_0";
-import { SynchronizeGatewayTargetsResponse } from "../models/models_1";
-=======
-import type { SynchronizeGatewayTargetsRequest, SynchronizeGatewayTargetsResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { SynchronizeGatewayTargetsRequest } from "../models/models_0";
+import type { SynchronizeGatewayTargetsResponse } from "../models/models_1";
 import { SynchronizeGatewayTargets } from "../schemas/schemas_0";
 
 /**

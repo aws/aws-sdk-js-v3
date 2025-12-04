@@ -23,15 +23,15 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof AutoScalingPlansClient === "function")
-assert(typeof AutoScalingPlans === "function")
+assert(typeof AutoScalingPlansClient === "function");
+assert(typeof AutoScalingPlans === "function");
 // commands
-assert(typeof CreateScalingPlanCommand === "function")
-assert(typeof DeleteScalingPlanCommand === "function")
-assert(typeof DescribeScalingPlanResourcesCommand === "function")
-assert(typeof DescribeScalingPlansCommand === "function")
-assert(typeof GetScalingPlanResourceForecastDataCommand === "function")
-assert(typeof UpdateScalingPlanCommand === "function")
+assert(typeof CreateScalingPlanCommand === "function");
+assert(typeof DeleteScalingPlanCommand === "function");
+assert(typeof DescribeScalingPlanResourcesCommand === "function");
+assert(typeof DescribeScalingPlansCommand === "function");
+assert(typeof GetScalingPlanResourceForecastDataCommand === "function");
+assert(typeof UpdateScalingPlanCommand === "function");
 // enums
 assert(typeof ForecastDataType === "object");
 assert(typeof LoadMetricType === "object");
@@ -46,5 +46,5 @@ assert(typeof ScalingPolicyUpdateBehavior === "object");
 assert(typeof ScalingStatusCode === "object");
 assert(typeof ServiceNamespace === "object");
 // errors
-assert(AutoScalingPlansServiceException.prototype instanceof Error)
+assert(AutoScalingPlansServiceException.prototype instanceof Error);
 console.log(`AutoScalingPlans index test passed.`);

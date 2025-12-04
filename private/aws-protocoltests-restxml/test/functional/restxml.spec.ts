@@ -625,7 +625,7 @@ it("BodyWithXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -777,7 +777,7 @@ it("RestXmlDateTimeWithNegativeOffset:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(1576540098 * 1000),
@@ -821,7 +821,7 @@ it("RestXmlDateTimeWithPositiveOffset:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(1576540098 * 1000),
@@ -869,7 +869,7 @@ it("EmptyInputAndEmptyOutput:Request", async () => {
 it("EmptyInputAndEmptyOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined``),
   });
 
   const params: any = {};
@@ -882,7 +882,7 @@ it("EmptyInputAndEmptyOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -1077,7 +1077,7 @@ it("FlattenedXmlMap:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -1177,7 +1177,7 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -1230,7 +1230,7 @@ it("RestXmlFlattenedXmlMapWithXmlNamespace:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -1277,7 +1277,7 @@ it("RestXmlDateTimeWithFractionalSeconds:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(9.46845296123e8 * 1000),
@@ -1318,7 +1318,7 @@ it("GreetingWithErrors:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       greeting: "Hello",
@@ -1370,7 +1370,7 @@ it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         message: "Hi",
@@ -1426,7 +1426,7 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(403);
+    expect(r.$metadata.httpStatusCode).toBe(403);
     const paramsToValidate: any = [
       {
         Header: "Header",
@@ -1506,7 +1506,7 @@ it("HttpEmptyPrefixHeadersResponseClient:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       prefixHeaders: {
@@ -1580,7 +1580,7 @@ it("RestXmlEnumPayloadResponse:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       payload: "enumvalue",
@@ -1692,7 +1692,7 @@ it("HttpPayloadTraitsWithBlob:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -1734,7 +1734,7 @@ it("HttpPayloadTraitsWithNoBlobBody:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -1817,7 +1817,7 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -1900,7 +1900,7 @@ it("HttpPayloadWithMemberXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -1993,7 +1993,7 @@ it("HttpPayloadWithStructure:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -2109,7 +2109,7 @@ it("RestXmlHttpPayloadWithUnion:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -2152,7 +2152,7 @@ it("RestXmlHttpPayloadWithUnsetUnion:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -2222,7 +2222,7 @@ it("HttpPayloadWithXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -2310,7 +2310,7 @@ it("HttpPayloadWithXmlNamespace:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -2398,7 +2398,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -2545,7 +2545,7 @@ it("HttpPrefixHeadersArePresent:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -2590,7 +2590,7 @@ it("HttpPrefixHeadersAreNotPresent:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -2863,7 +2863,7 @@ it("RestXmlHttpResponseCode:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(201);
+  expect(r.$metadata.httpStatusCode).toBe(201);
   const paramsToValidate: any = [
     {
       Status: 201,
@@ -2933,7 +2933,7 @@ it("RestXmlStringPayloadResponse:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       payload: "rawstring",
@@ -2974,7 +2974,7 @@ it("IgnoreQueryParamsInResponse:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       baz: "bam",
@@ -3293,7 +3293,7 @@ it("InputAndOutputWithStringHeaders:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerString: "Hello",
@@ -3342,7 +3342,7 @@ it("InputAndOutputWithNumericHeaders:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerByte: 1,
@@ -3391,7 +3391,7 @@ it("InputAndOutputWithBooleanHeaders:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerTrueBool: true,
@@ -3434,7 +3434,7 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerTimestampList: [new Date(1576540098 * 1000), new Date(1576540098 * 1000)],
@@ -3476,7 +3476,7 @@ it("InputAndOutputWithEnumHeaders:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerEnum: "Foo",
@@ -3519,7 +3519,7 @@ it("RestXmlSupportsNaNFloatHeaderOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerFloat: NaN,
@@ -3562,7 +3562,7 @@ it("RestXmlSupportsInfinityFloatHeaderOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerFloat: Infinity,
@@ -3605,7 +3605,7 @@ it("RestXmlSupportsNegativeInfinityFloatHeaderOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       headerFloat: -Infinity,
@@ -3760,7 +3760,7 @@ it("NestedXmlMapResponse:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nestedMap: {
@@ -3816,7 +3816,7 @@ it("FlatNestedXmlMapResponse:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       flatNestedMap: {
@@ -3965,7 +3965,7 @@ it("NestedXmlMapWithXmlNameDeserializes:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nestedXmlMapWithXmlNameMap: {
@@ -4022,7 +4022,7 @@ it("NoInputAndNoOutput:Request", async () => {
 it("NoInputAndNoOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined``),
   });
 
   const params: any = {};
@@ -4035,7 +4035,7 @@ it("NoInputAndNoOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -4071,7 +4071,7 @@ it("NoInputAndOutput:Request", async () => {
 it("NoInputAndOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined``),
   });
 
   const params: any = {};
@@ -4084,7 +4084,7 @@ it("NoInputAndOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -4487,7 +4487,7 @@ it("RecursiveShapes:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -4847,7 +4847,7 @@ it("SimpleScalarProperties:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -4907,7 +4907,7 @@ it("SimpleScalarPropertiesComplexEscapes:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -4953,7 +4953,7 @@ it("SimpleScalarPropertiesWithEscapedCharacter:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -5002,7 +5002,7 @@ it("SimpleScalarPropertiesWithXMLPreamble:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -5049,7 +5049,7 @@ it("SimpleScalarPropertiesWithWhiteSpace:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -5096,7 +5096,7 @@ it("SimpleScalarPropertiesPureWhiteSpace:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "Foo",
@@ -5142,7 +5142,7 @@ it("RestXmlSupportsNaNFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: NaN,
@@ -5188,7 +5188,7 @@ it("RestXmlSupportsInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: Infinity,
@@ -5234,7 +5234,7 @@ it("RestXmlSupportsNegativeInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: -Infinity,
@@ -5325,7 +5325,7 @@ it("TimestampFormatHeaders:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       memberEpochSeconds: new Date(1576540098 * 1000),
@@ -5453,7 +5453,7 @@ it("XmlAttributes:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "hi",
@@ -5539,7 +5539,7 @@ it("XmlAttributesOnPayload:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       payload: {
@@ -5624,7 +5624,7 @@ it("XmlBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("value", (c) => c.charCodeAt(0)),
@@ -5668,7 +5668,7 @@ it("XmlEmptyBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("", (c) => c.charCodeAt(0)),
@@ -5712,7 +5712,7 @@ it("XmlEmptySelfClosedBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("", (c) => c.charCodeAt(0)),
@@ -5797,7 +5797,7 @@ it("XmlEmptyLists:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: [],
@@ -5880,7 +5880,7 @@ it("XmlEmptyMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {},
@@ -5924,7 +5924,7 @@ it("XmlEmptySelfClosedMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {},
@@ -6006,7 +6006,7 @@ it("XmlEmptyStrings:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       emptyString: "",
@@ -6050,7 +6050,7 @@ it("XmlEmptySelfClosedStrings:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       emptyString: "",
@@ -6180,7 +6180,7 @@ it("XmlEnums:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       fooEnum1: "Foo",
@@ -6318,7 +6318,7 @@ it("XmlIntEnums:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       intEnum1: 1,
@@ -6571,7 +6571,7 @@ it("XmlLists:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: ["foo", "bar"],
@@ -6721,7 +6721,7 @@ it("XmlMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -6843,7 +6843,7 @@ it("XmlMapsXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -6951,7 +6951,7 @@ it("RestXmlXmlMapWithXmlNamespace:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -7051,7 +7051,7 @@ it("XmlNamespaces:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -7364,7 +7364,7 @@ it("XmlTimestamps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       normal: new Date(1398796238 * 1000),
@@ -7408,7 +7408,7 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dateTime: new Date(1398796238 * 1000),
@@ -7452,7 +7452,7 @@ it("XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dateTimeOnTarget: new Date(1398796238 * 1000),
@@ -7496,7 +7496,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       epochSeconds: new Date(1398796238 * 1000),
@@ -7540,7 +7540,7 @@ it("XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       epochSecondsOnTarget: new Date(1398796238 * 1000),
@@ -7584,7 +7584,7 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238 * 1000),
@@ -7628,7 +7628,7 @@ it("XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       httpDateOnTarget: new Date(1398796238 * 1000),
@@ -7873,7 +7873,7 @@ it("XmlUnionsWithStructMember:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       unionValue: {
@@ -7930,7 +7930,7 @@ it("XmlUnionsWithStringMember:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       unionValue: {
@@ -7978,7 +7978,7 @@ it("XmlUnionsWithBooleanMember:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       unionValue: {
@@ -8028,7 +8028,7 @@ it("XmlUnionsWithUnionMember:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       unionValue: {

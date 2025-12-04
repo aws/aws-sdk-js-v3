@@ -9,11 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateGatewayTargetRequest, UpdateGatewayTargetResponse } from "../models/models_1";
-=======
-import type { UpdateGatewayTargetRequest, UpdateGatewayTargetResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateGatewayTargetRequest, UpdateGatewayTargetResponse } from "../models/models_1";
 import { UpdateGatewayTarget } from "../schemas/schemas_0";
 
 /**

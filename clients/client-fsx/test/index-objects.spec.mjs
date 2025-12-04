@@ -70,6 +70,7 @@ import {
   NetworkType,
   NfsVersion,
   OntapDeploymentType,
+  OntapFileSystemUserType,
   OntapVolumeType,
   OpenZFSCopyStrategy,
   OpenZFSDataCompressionType,
@@ -131,57 +132,57 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof FSxClient === "function")
-assert(typeof FSx === "function")
+assert(typeof FSxClient === "function");
+assert(typeof FSx === "function");
 // commands
-assert(typeof AssociateFileSystemAliasesCommand === "function")
-assert(typeof CancelDataRepositoryTaskCommand === "function")
-assert(typeof CopyBackupCommand === "function")
-assert(typeof CopySnapshotAndUpdateVolumeCommand === "function")
-assert(typeof CreateAndAttachS3AccessPointCommand === "function")
-assert(typeof CreateBackupCommand === "function")
-assert(typeof CreateDataRepositoryAssociationCommand === "function")
-assert(typeof CreateDataRepositoryTaskCommand === "function")
-assert(typeof CreateFileCacheCommand === "function")
-assert(typeof CreateFileSystemCommand === "function")
-assert(typeof CreateFileSystemFromBackupCommand === "function")
-assert(typeof CreateSnapshotCommand === "function")
-assert(typeof CreateStorageVirtualMachineCommand === "function")
-assert(typeof CreateVolumeCommand === "function")
-assert(typeof CreateVolumeFromBackupCommand === "function")
-assert(typeof DeleteBackupCommand === "function")
-assert(typeof DeleteDataRepositoryAssociationCommand === "function")
-assert(typeof DeleteFileCacheCommand === "function")
-assert(typeof DeleteFileSystemCommand === "function")
-assert(typeof DeleteSnapshotCommand === "function")
-assert(typeof DeleteStorageVirtualMachineCommand === "function")
-assert(typeof DeleteVolumeCommand === "function")
-assert(typeof DescribeBackupsCommand === "function")
-assert(typeof DescribeDataRepositoryAssociationsCommand === "function")
-assert(typeof DescribeDataRepositoryTasksCommand === "function")
-assert(typeof DescribeFileCachesCommand === "function")
-assert(typeof DescribeFileSystemAliasesCommand === "function")
-assert(typeof DescribeFileSystemsCommand === "function")
-assert(typeof DescribeS3AccessPointAttachmentsCommand === "function")
-assert(typeof DescribeSharedVpcConfigurationCommand === "function")
-assert(typeof DescribeSnapshotsCommand === "function")
-assert(typeof DescribeStorageVirtualMachinesCommand === "function")
-assert(typeof DescribeVolumesCommand === "function")
-assert(typeof DetachAndDeleteS3AccessPointCommand === "function")
-assert(typeof DisassociateFileSystemAliasesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof ReleaseFileSystemNfsV3LocksCommand === "function")
-assert(typeof RestoreVolumeFromSnapshotCommand === "function")
-assert(typeof StartMisconfiguredStateRecoveryCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateDataRepositoryAssociationCommand === "function")
-assert(typeof UpdateFileCacheCommand === "function")
-assert(typeof UpdateFileSystemCommand === "function")
-assert(typeof UpdateSharedVpcConfigurationCommand === "function")
-assert(typeof UpdateSnapshotCommand === "function")
-assert(typeof UpdateStorageVirtualMachineCommand === "function")
-assert(typeof UpdateVolumeCommand === "function")
+assert(typeof AssociateFileSystemAliasesCommand === "function");
+assert(typeof CancelDataRepositoryTaskCommand === "function");
+assert(typeof CopyBackupCommand === "function");
+assert(typeof CopySnapshotAndUpdateVolumeCommand === "function");
+assert(typeof CreateAndAttachS3AccessPointCommand === "function");
+assert(typeof CreateBackupCommand === "function");
+assert(typeof CreateDataRepositoryAssociationCommand === "function");
+assert(typeof CreateDataRepositoryTaskCommand === "function");
+assert(typeof CreateFileCacheCommand === "function");
+assert(typeof CreateFileSystemCommand === "function");
+assert(typeof CreateFileSystemFromBackupCommand === "function");
+assert(typeof CreateSnapshotCommand === "function");
+assert(typeof CreateStorageVirtualMachineCommand === "function");
+assert(typeof CreateVolumeCommand === "function");
+assert(typeof CreateVolumeFromBackupCommand === "function");
+assert(typeof DeleteBackupCommand === "function");
+assert(typeof DeleteDataRepositoryAssociationCommand === "function");
+assert(typeof DeleteFileCacheCommand === "function");
+assert(typeof DeleteFileSystemCommand === "function");
+assert(typeof DeleteSnapshotCommand === "function");
+assert(typeof DeleteStorageVirtualMachineCommand === "function");
+assert(typeof DeleteVolumeCommand === "function");
+assert(typeof DescribeBackupsCommand === "function");
+assert(typeof DescribeDataRepositoryAssociationsCommand === "function");
+assert(typeof DescribeDataRepositoryTasksCommand === "function");
+assert(typeof DescribeFileCachesCommand === "function");
+assert(typeof DescribeFileSystemAliasesCommand === "function");
+assert(typeof DescribeFileSystemsCommand === "function");
+assert(typeof DescribeS3AccessPointAttachmentsCommand === "function");
+assert(typeof DescribeSharedVpcConfigurationCommand === "function");
+assert(typeof DescribeSnapshotsCommand === "function");
+assert(typeof DescribeStorageVirtualMachinesCommand === "function");
+assert(typeof DescribeVolumesCommand === "function");
+assert(typeof DetachAndDeleteS3AccessPointCommand === "function");
+assert(typeof DisassociateFileSystemAliasesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ReleaseFileSystemNfsV3LocksCommand === "function");
+assert(typeof RestoreVolumeFromSnapshotCommand === "function");
+assert(typeof StartMisconfiguredStateRecoveryCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateDataRepositoryAssociationCommand === "function");
+assert(typeof UpdateFileCacheCommand === "function");
+assert(typeof UpdateFileSystemCommand === "function");
+assert(typeof UpdateSharedVpcConfigurationCommand === "function");
+assert(typeof UpdateSnapshotCommand === "function");
+assert(typeof UpdateStorageVirtualMachineCommand === "function");
+assert(typeof UpdateVolumeCommand === "function");
 // enums
 assert(typeof AdministrativeActionType === "object");
 assert(typeof AliasLifecycle === "object");
@@ -215,6 +216,7 @@ assert(typeof MetadataConfigurationMode === "object");
 assert(typeof NetworkType === "object");
 assert(typeof NfsVersion === "object");
 assert(typeof OntapDeploymentType === "object");
+assert(typeof OntapFileSystemUserType === "object");
 assert(typeof OntapVolumeType === "object");
 assert(typeof OpenZFSCopyStrategy === "object");
 assert(typeof OpenZFSDataCompressionType === "object");
@@ -251,17 +253,17 @@ assert(typeof VolumeType === "object");
 assert(typeof WindowsAccessAuditLogLevel === "object");
 assert(typeof WindowsDeploymentType === "object");
 // errors
-assert(FSxServiceException.prototype instanceof Error)
+assert(FSxServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateDescribeBackups === "function")
-assert(typeof paginateDescribeDataRepositoryAssociations === "function")
-assert(typeof paginateDescribeDataRepositoryTasks === "function")
-assert(typeof paginateDescribeFileCaches === "function")
-assert(typeof paginateDescribeFileSystemAliases === "function")
-assert(typeof paginateDescribeFileSystems === "function")
-assert(typeof paginateDescribeS3AccessPointAttachments === "function")
-assert(typeof paginateDescribeSnapshots === "function")
-assert(typeof paginateDescribeStorageVirtualMachines === "function")
-assert(typeof paginateDescribeVolumes === "function")
-assert(typeof paginateListTagsForResource === "function")
+assert(typeof paginateDescribeBackups === "function");
+assert(typeof paginateDescribeDataRepositoryAssociations === "function");
+assert(typeof paginateDescribeDataRepositoryTasks === "function");
+assert(typeof paginateDescribeFileCaches === "function");
+assert(typeof paginateDescribeFileSystemAliases === "function");
+assert(typeof paginateDescribeFileSystems === "function");
+assert(typeof paginateDescribeS3AccessPointAttachments === "function");
+assert(typeof paginateDescribeSnapshots === "function");
+assert(typeof paginateDescribeStorageVirtualMachines === "function");
+assert(typeof paginateDescribeVolumes === "function");
+assert(typeof paginateListTagsForResource === "function");
 console.log(`FSx index test passed.`);

@@ -105,20 +105,8 @@ import {
 import { RekognitionStreamingServiceException as __RekognitionStreamingServiceException } from "../models/RekognitionStreamingServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BoundingBox: StaticStructureSchema = [3, n0, _BB, 0, [_W, _H, _L, _T], [1, 1, 1, 1]];
 export var ChallengeConfig: StaticStructureSchema = [
   3,
@@ -174,61 +162,24 @@ export var FaceMovementServerChallenge: StaticStructureSchema = [
 ];
 export var FreshnessColor: StaticStructureSchema = [3, n0, _FC, 0, [_RGB], [64 | 1]];
 export var InitialFace: StaticStructureSchema = [3, n0, _IF, 0, [_BB, _IFDT], [() => BoundingBox, 1]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var OvalParameters: StaticStructureSchema = [3, n0, _OP, 0, [_W, _H, _CX, _CY], [1, 1, 1, 1]];
 export var ServerSessionInformationEvent: StaticStructureSchema = [3, n0, _SSIE, 0, [_SI], [() => SessionInformation]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _C],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SessionInformation: StaticStructureSchema = [3, n0, _SI, 0, [_Ch], [() => ServerChallenge]];
-export var SessionNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var SessionNotFoundException: StaticErrorSchema = [-3, n0, _SNFE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(SessionNotFoundException, __SessionNotFoundException);
-
 export var StartFaceLivenessSessionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -236,30 +187,10 @@ export var StartFaceLivenessSessionRequest: StaticStructureSchema = [
   0,
   [_SIe, _VW, _VH, _CV, _LRS],
   [
-    [
-      0,
-      {
-        [_hH]: _xarslsi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xarslvw,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xarslvh,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xarslcv,
-      },
-    ],
+    [0, { [_hH]: _xarslsi }],
+    [0, { [_hH]: _xarslvw }],
+    [0, { [_hH]: _xarslvh }],
+    [0, { [_hH]: _xarslcv }],
     [() => LivenessRequestStream, 16],
   ],
 ];
@@ -270,45 +201,17 @@ export var StartFaceLivenessSessionResponse: StaticStructureSchema = [
   0,
   [_SIe, _LRSi],
   [
-    [
-      0,
-      {
-        [_hH]: _xarslsi,
-      },
-    ],
+    [0, { [_hH]: _xarslsi }],
     [() => LivenessResponseStream, 16],
   ],
 ];
 export var TargetFace: StaticStructureSchema = [3, n0, _TF, 0, [_BB, _FDITPST, _FDITPET], [() => BoundingBox, 1, 1]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VideoEvent: StaticStructureSchema = [3, n0, _VEi, 0, [_VC, _TM], [21, 1]];
 export var __Unit = "unit" as const;
-
 export var RekognitionStreamingServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -318,9 +221,7 @@ export var RekognitionStreamingServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(RekognitionStreamingServiceException, __RekognitionStreamingServiceException);
-
 export var ColorComponentList = 64 | 1;
-
 export var ColorSequences: StaticListSchema = [1, n0, _CSo, 0, () => ColorSequence];
 export var ClientChallenge: StaticStructureSchema = [
   3,
@@ -334,9 +235,7 @@ export var LivenessRequestStream: StaticStructureSchema = [
   3,
   n0,
   _LRS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_VEi, _CSIE],
   [() => VideoEvent, () => ClientSessionInformationEvent],
 ];
@@ -344,9 +243,7 @@ export var LivenessResponseStream: StaticStructureSchema = [
   3,
   n0,
   _LRSi,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_SSIE, _DE, _CE, _VE, _ISE, _TE, _SQEE, _SUE],
   [
     () => ServerSessionInformationEvent,
@@ -371,9 +268,7 @@ export var StartFaceLivenessSession: StaticOperationSchema = [
   9,
   n0,
   _SFLS,
-  {
-    [_h]: ["POST", "/start-face-liveness-session", 200],
-  },
+  { [_h]: ["POST", "/start-face-liveness-session", 200] },
   () => StartFaceLivenessSessionRequest,
   () => StartFaceLivenessSessionResponse,
 ];

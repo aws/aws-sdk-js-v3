@@ -43,7 +43,9 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     disableRequestCompression: config?.disableRequestCompression ?? DEFAULT_DISABLE_REQUEST_COMPRESSION,
     eventStreamPayloadHandlerProvider:
       config?.eventStreamPayloadHandlerProvider ??
-      (() => ({ handle: invalidFunction("event stream request is not supported in browser.") })),
+      (() => ({
+        handle: invalidFunction("event stream request is not supported in browser."),
+      })),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     md5: config?.md5 ?? Md5,

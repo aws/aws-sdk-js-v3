@@ -295,7 +295,6 @@ import {
 import { SSMContactsServiceException as __SSMContactsServiceException } from "../models/SSMContactsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptPageRequest: StaticStructureSchema = [
   3,
   n0,
@@ -305,19 +304,8 @@ export var AcceptPageRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0],
 ];
 export var AcceptPageResult: StaticStructureSchema = [3, n0, _APRc, 0, [], []];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActivateContactChannelRequest: StaticStructureSchema = [3, n0, _ACCR, 0, [_CCI, _ACc], [0, 0]];
 export var ActivateContactChannelResult: StaticStructureSchema = [3, n0, _ACCRc, 0, [], []];
 export var ChannelTargetInfo: StaticStructureSchema = [3, n0, _CTI, 0, [_CCI, _RIIM], [0, 1]];
@@ -325,15 +313,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT, _DE],
   [0, 0, 0, () => DependentEntityList],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Contact: StaticStructureSchema = [3, n0, _C, 0, [_CA, _A, _DN, _T], [0, 0, 0, 0]];
 export var ContactChannel: StaticStructureSchema = [
   3,
@@ -382,19 +366,8 @@ export var CreateRotationRequest: StaticStructureSchema = [
   [0, 64 | 0, 4, 0, () => RecurrenceSettings, () => TagsList, 0],
 ];
 export var CreateRotationResult: StaticStructureSchema = [3, n0, _CRRr, 0, [_RA], [0]];
-export var DataEncryptionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var DataEncryptionException: StaticErrorSchema = [-3, n0, _DEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DataEncryptionException, __DataEncryptionException);
-
 export var DeactivateContactChannelRequest: StaticStructureSchema = [3, n0, _DCCR, 0, [_CCI], [0]];
 export var DeactivateContactChannelResult: StaticStructureSchema = [3, n0, _DCCRe, 0, [], []];
 export var DeleteContactChannelRequest: StaticStructureSchema = [3, n0, _DCCRel, 0, [_CCI], [0]];
@@ -468,23 +441,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListContactChannelsRequest: StaticStructureSchema = [3, n0, _LCCR, 0, [_CI, _NT, _MR], [0, 0, 1]];
 export var ListContactChannelsResult: StaticStructureSchema = [
   3,
@@ -592,15 +553,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Rotation: StaticStructureSchema = [
   3,
   n0,
@@ -631,15 +588,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _QC, _SCe],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ShiftDetails: StaticStructureSchema = [3, n0, _SD, 0, [_OCI], [64 | 0]];
 export var Stage: StaticStructureSchema = [3, n0, _Sta, 0, [_DIM, _Tar], [1, () => TargetsList]];
 export var StartEngagementRequest: StaticStructureSchema = [
@@ -668,25 +621,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _QC, _SCe, _RAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeRange: StaticStructureSchema = [3, n0, _TR, 0, [_ST, _ET], [4, 4]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResult: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -714,22 +653,16 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _F],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_Na, _M], [0, 0]];
 export var WeeklySetting: StaticStructureSchema = [3, n0, _WSe, 0, [_DOW, _HOT], [0, () => HandOffTime]];
 export var __Unit = "unit" as const;
-
 export var SSMContactsServiceException: StaticErrorSchema = [-3, _sm, "SSMContactsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSMContactsServiceException, __SSMContactsServiceException);
-
 export var ContactChannelList: StaticListSchema = [1, n0, _CCL, 0, () => ContactChannel];
 export var ContactsList: StaticListSchema = [1, n0, _CL, 0, () => Contact];
 export var CoverageTimes: StaticListSchema = [1, n0, _CTo, 0, () => CoverageTime];
@@ -742,21 +675,15 @@ export var PagesList: StaticListSchema = [1, n0, _PL, 0, () => Page];
 export var ReceiptsList: StaticListSchema = [1, n0, _RL, 0, () => Receipt];
 export var ResolutionList: StaticListSchema = [1, n0, _RLe, 0, () => ResolutionContact];
 export var RotationContactsArnList = 64 | 0;
-
 export var RotationOverrideContactsArnList = 64 | 0;
-
 export var RotationOverridePreviewMemberList = 64 | 0;
-
 export var RotationOverrides: StaticListSchema = [1, n0, _RO, 0, () => RotationOverride];
 export var RotationPreviewMemberList = 64 | 0;
-
 export var Rotations: StaticListSchema = [1, n0, _Ro, 0, () => Rotation];
 export var RotationShifts: StaticListSchema = [1, n0, _RS, 0, () => RotationShift];
 export var SsmContactsArnList = 64 | 0;
-
 export var StagesList: StaticListSchema = [1, n0, _SL, 0, () => Stage];
 export var TagKeyList = 64 | 0;
-
 export var TagsList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetsList: StaticListSchema = [1, n0, _TLa, 0, () => Target];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];

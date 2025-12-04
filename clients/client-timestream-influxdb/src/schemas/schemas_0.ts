@@ -244,35 +244,12 @@ import {
 import { TimestreamInfluxDBServiceException as __TimestreamInfluxDBServiceException } from "../models/TimestreamInfluxDBServiceException";
 
 /* eslint no-var: 0 */
-
 export var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateDbClusterInput: StaticStructureSchema = [
   3,
   n0,
@@ -764,19 +741,8 @@ export var InfluxDBv3EnterpriseParameters: StaticStructureSchema = [
     () => Duration,
   ],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListDbClustersInput: StaticStructureSchema = [3, n0, _LDCI, 0, [_nTe, _mR], [0, 1]];
 export var ListDbClustersOutput: StaticStructureSchema = [
   3,
@@ -820,51 +786,24 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Configuration: StaticStructureSchema = [3, n0, _SC, 0, [_bN, _ena], [0, 2]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, 128 | 0]];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, 1], 64 | 0]];
 export var UpdateDbClusterInput: StaticStructureSchema = [
   3,
@@ -914,21 +853,9 @@ export var UpdateDbInstanceOutput: StaticStructureSchema = [
   ],
   [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration, 0, 0, 0, 64 | 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _r],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _r], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var TimestreamInfluxDBServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -938,23 +865,16 @@ export var TimestreamInfluxDBServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(TimestreamInfluxDBServiceException, __TimestreamInfluxDBServiceException);
-
 export var DbClusterSummaryList: StaticListSchema = [1, n0, _DCSL, 0, () => DbClusterSummary];
 export var DbInstanceForClusterSummaryList: StaticListSchema = [1, n0, _DIFCSL, 0, () => DbInstanceForClusterSummary];
 export var DbInstanceSummaryList: StaticListSchema = [1, n0, _DISL, 0, () => DbInstanceSummary];
 export var DbParameterGroupSummaryList: StaticListSchema = [1, n0, _DPGSL, 0, () => DbParameterGroupSummary];
 export var InstanceModeList = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var VpcSecurityGroupIdList = 64 | 0;
-
 export var VpcSubnetIdList = 64 | 0;
-
 export var RequestTagMap = 128 | 0;
-
 export var ResponseTagMap = 128 | 0;
-
 export var _Parameters: StaticStructureSchema = [
   3,
   n0,

@@ -38,6 +38,7 @@ import {
   CreatePromptRouterCommand,
   CreateProvisionedModelThroughputCommand,
   CustomModelDeploymentStatus,
+  CustomModelDeploymentUpdateStatus,
   CustomizationType,
   DeleteAutomatedReasoningPolicyBuildWorkflowCommand,
   DeleteAutomatedReasoningPolicyCommand,
@@ -143,6 +144,7 @@ import {
   PutModelInvocationLoggingConfigurationCommand,
   PutUseCaseForModelAccessCommand,
   QueryTransformationType,
+  ReasoningEffort,
   RegionAvailability,
   RegisterMarketplaceModelEndpointCommand,
   RerankingMetadataSelectionMode,
@@ -164,6 +166,7 @@ import {
   UpdateAutomatedReasoningPolicyAnnotationsCommand,
   UpdateAutomatedReasoningPolicyCommand,
   UpdateAutomatedReasoningPolicyTestCaseCommand,
+  UpdateCustomModelDeploymentCommand,
   UpdateGuardrailCommand,
   UpdateMarketplaceModelEndpointCommand,
   UpdateProvisionedModelThroughputCommand,
@@ -189,106 +192,107 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof BedrockClient === "function")
-assert(typeof Bedrock === "function")
+assert(typeof BedrockClient === "function");
+assert(typeof Bedrock === "function");
 // commands
-assert(typeof BatchDeleteEvaluationJobCommand === "function")
-assert(typeof CancelAutomatedReasoningPolicyBuildWorkflowCommand === "function")
-assert(typeof CreateAutomatedReasoningPolicyCommand === "function")
-assert(typeof CreateAutomatedReasoningPolicyTestCaseCommand === "function")
-assert(typeof CreateAutomatedReasoningPolicyVersionCommand === "function")
-assert(typeof CreateCustomModelCommand === "function")
-assert(typeof CreateCustomModelDeploymentCommand === "function")
-assert(typeof CreateEvaluationJobCommand === "function")
-assert(typeof CreateFoundationModelAgreementCommand === "function")
-assert(typeof CreateGuardrailCommand === "function")
-assert(typeof CreateGuardrailVersionCommand === "function")
-assert(typeof CreateInferenceProfileCommand === "function")
-assert(typeof CreateMarketplaceModelEndpointCommand === "function")
-assert(typeof CreateModelCopyJobCommand === "function")
-assert(typeof CreateModelCustomizationJobCommand === "function")
-assert(typeof CreateModelImportJobCommand === "function")
-assert(typeof CreateModelInvocationJobCommand === "function")
-assert(typeof CreatePromptRouterCommand === "function")
-assert(typeof CreateProvisionedModelThroughputCommand === "function")
-assert(typeof DeleteAutomatedReasoningPolicyCommand === "function")
-assert(typeof DeleteAutomatedReasoningPolicyBuildWorkflowCommand === "function")
-assert(typeof DeleteAutomatedReasoningPolicyTestCaseCommand === "function")
-assert(typeof DeleteCustomModelCommand === "function")
-assert(typeof DeleteCustomModelDeploymentCommand === "function")
-assert(typeof DeleteEnforcedGuardrailConfigurationCommand === "function")
-assert(typeof DeleteFoundationModelAgreementCommand === "function")
-assert(typeof DeleteGuardrailCommand === "function")
-assert(typeof DeleteImportedModelCommand === "function")
-assert(typeof DeleteInferenceProfileCommand === "function")
-assert(typeof DeleteMarketplaceModelEndpointCommand === "function")
-assert(typeof DeleteModelInvocationLoggingConfigurationCommand === "function")
-assert(typeof DeletePromptRouterCommand === "function")
-assert(typeof DeleteProvisionedModelThroughputCommand === "function")
-assert(typeof DeregisterMarketplaceModelEndpointCommand === "function")
-assert(typeof ExportAutomatedReasoningPolicyVersionCommand === "function")
-assert(typeof GetAutomatedReasoningPolicyCommand === "function")
-assert(typeof GetAutomatedReasoningPolicyAnnotationsCommand === "function")
-assert(typeof GetAutomatedReasoningPolicyBuildWorkflowCommand === "function")
-assert(typeof GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand === "function")
-assert(typeof GetAutomatedReasoningPolicyNextScenarioCommand === "function")
-assert(typeof GetAutomatedReasoningPolicyTestCaseCommand === "function")
-assert(typeof GetAutomatedReasoningPolicyTestResultCommand === "function")
-assert(typeof GetCustomModelCommand === "function")
-assert(typeof GetCustomModelDeploymentCommand === "function")
-assert(typeof GetEvaluationJobCommand === "function")
-assert(typeof GetFoundationModelCommand === "function")
-assert(typeof GetFoundationModelAvailabilityCommand === "function")
-assert(typeof GetGuardrailCommand === "function")
-assert(typeof GetImportedModelCommand === "function")
-assert(typeof GetInferenceProfileCommand === "function")
-assert(typeof GetMarketplaceModelEndpointCommand === "function")
-assert(typeof GetModelCopyJobCommand === "function")
-assert(typeof GetModelCustomizationJobCommand === "function")
-assert(typeof GetModelImportJobCommand === "function")
-assert(typeof GetModelInvocationJobCommand === "function")
-assert(typeof GetModelInvocationLoggingConfigurationCommand === "function")
-assert(typeof GetPromptRouterCommand === "function")
-assert(typeof GetProvisionedModelThroughputCommand === "function")
-assert(typeof GetUseCaseForModelAccessCommand === "function")
-assert(typeof ListAutomatedReasoningPoliciesCommand === "function")
-assert(typeof ListAutomatedReasoningPolicyBuildWorkflowsCommand === "function")
-assert(typeof ListAutomatedReasoningPolicyTestCasesCommand === "function")
-assert(typeof ListAutomatedReasoningPolicyTestResultsCommand === "function")
-assert(typeof ListCustomModelDeploymentsCommand === "function")
-assert(typeof ListCustomModelsCommand === "function")
-assert(typeof ListEnforcedGuardrailsConfigurationCommand === "function")
-assert(typeof ListEvaluationJobsCommand === "function")
-assert(typeof ListFoundationModelAgreementOffersCommand === "function")
-assert(typeof ListFoundationModelsCommand === "function")
-assert(typeof ListGuardrailsCommand === "function")
-assert(typeof ListImportedModelsCommand === "function")
-assert(typeof ListInferenceProfilesCommand === "function")
-assert(typeof ListMarketplaceModelEndpointsCommand === "function")
-assert(typeof ListModelCopyJobsCommand === "function")
-assert(typeof ListModelCustomizationJobsCommand === "function")
-assert(typeof ListModelImportJobsCommand === "function")
-assert(typeof ListModelInvocationJobsCommand === "function")
-assert(typeof ListPromptRoutersCommand === "function")
-assert(typeof ListProvisionedModelThroughputsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutEnforcedGuardrailConfigurationCommand === "function")
-assert(typeof PutModelInvocationLoggingConfigurationCommand === "function")
-assert(typeof PutUseCaseForModelAccessCommand === "function")
-assert(typeof RegisterMarketplaceModelEndpointCommand === "function")
-assert(typeof StartAutomatedReasoningPolicyBuildWorkflowCommand === "function")
-assert(typeof StartAutomatedReasoningPolicyTestWorkflowCommand === "function")
-assert(typeof StopEvaluationJobCommand === "function")
-assert(typeof StopModelCustomizationJobCommand === "function")
-assert(typeof StopModelInvocationJobCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateAutomatedReasoningPolicyCommand === "function")
-assert(typeof UpdateAutomatedReasoningPolicyAnnotationsCommand === "function")
-assert(typeof UpdateAutomatedReasoningPolicyTestCaseCommand === "function")
-assert(typeof UpdateGuardrailCommand === "function")
-assert(typeof UpdateMarketplaceModelEndpointCommand === "function")
-assert(typeof UpdateProvisionedModelThroughputCommand === "function")
+assert(typeof BatchDeleteEvaluationJobCommand === "function");
+assert(typeof CancelAutomatedReasoningPolicyBuildWorkflowCommand === "function");
+assert(typeof CreateAutomatedReasoningPolicyCommand === "function");
+assert(typeof CreateAutomatedReasoningPolicyTestCaseCommand === "function");
+assert(typeof CreateAutomatedReasoningPolicyVersionCommand === "function");
+assert(typeof CreateCustomModelCommand === "function");
+assert(typeof CreateCustomModelDeploymentCommand === "function");
+assert(typeof CreateEvaluationJobCommand === "function");
+assert(typeof CreateFoundationModelAgreementCommand === "function");
+assert(typeof CreateGuardrailCommand === "function");
+assert(typeof CreateGuardrailVersionCommand === "function");
+assert(typeof CreateInferenceProfileCommand === "function");
+assert(typeof CreateMarketplaceModelEndpointCommand === "function");
+assert(typeof CreateModelCopyJobCommand === "function");
+assert(typeof CreateModelCustomizationJobCommand === "function");
+assert(typeof CreateModelImportJobCommand === "function");
+assert(typeof CreateModelInvocationJobCommand === "function");
+assert(typeof CreatePromptRouterCommand === "function");
+assert(typeof CreateProvisionedModelThroughputCommand === "function");
+assert(typeof DeleteAutomatedReasoningPolicyCommand === "function");
+assert(typeof DeleteAutomatedReasoningPolicyBuildWorkflowCommand === "function");
+assert(typeof DeleteAutomatedReasoningPolicyTestCaseCommand === "function");
+assert(typeof DeleteCustomModelCommand === "function");
+assert(typeof DeleteCustomModelDeploymentCommand === "function");
+assert(typeof DeleteEnforcedGuardrailConfigurationCommand === "function");
+assert(typeof DeleteFoundationModelAgreementCommand === "function");
+assert(typeof DeleteGuardrailCommand === "function");
+assert(typeof DeleteImportedModelCommand === "function");
+assert(typeof DeleteInferenceProfileCommand === "function");
+assert(typeof DeleteMarketplaceModelEndpointCommand === "function");
+assert(typeof DeleteModelInvocationLoggingConfigurationCommand === "function");
+assert(typeof DeletePromptRouterCommand === "function");
+assert(typeof DeleteProvisionedModelThroughputCommand === "function");
+assert(typeof DeregisterMarketplaceModelEndpointCommand === "function");
+assert(typeof ExportAutomatedReasoningPolicyVersionCommand === "function");
+assert(typeof GetAutomatedReasoningPolicyCommand === "function");
+assert(typeof GetAutomatedReasoningPolicyAnnotationsCommand === "function");
+assert(typeof GetAutomatedReasoningPolicyBuildWorkflowCommand === "function");
+assert(typeof GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand === "function");
+assert(typeof GetAutomatedReasoningPolicyNextScenarioCommand === "function");
+assert(typeof GetAutomatedReasoningPolicyTestCaseCommand === "function");
+assert(typeof GetAutomatedReasoningPolicyTestResultCommand === "function");
+assert(typeof GetCustomModelCommand === "function");
+assert(typeof GetCustomModelDeploymentCommand === "function");
+assert(typeof GetEvaluationJobCommand === "function");
+assert(typeof GetFoundationModelCommand === "function");
+assert(typeof GetFoundationModelAvailabilityCommand === "function");
+assert(typeof GetGuardrailCommand === "function");
+assert(typeof GetImportedModelCommand === "function");
+assert(typeof GetInferenceProfileCommand === "function");
+assert(typeof GetMarketplaceModelEndpointCommand === "function");
+assert(typeof GetModelCopyJobCommand === "function");
+assert(typeof GetModelCustomizationJobCommand === "function");
+assert(typeof GetModelImportJobCommand === "function");
+assert(typeof GetModelInvocationJobCommand === "function");
+assert(typeof GetModelInvocationLoggingConfigurationCommand === "function");
+assert(typeof GetPromptRouterCommand === "function");
+assert(typeof GetProvisionedModelThroughputCommand === "function");
+assert(typeof GetUseCaseForModelAccessCommand === "function");
+assert(typeof ListAutomatedReasoningPoliciesCommand === "function");
+assert(typeof ListAutomatedReasoningPolicyBuildWorkflowsCommand === "function");
+assert(typeof ListAutomatedReasoningPolicyTestCasesCommand === "function");
+assert(typeof ListAutomatedReasoningPolicyTestResultsCommand === "function");
+assert(typeof ListCustomModelDeploymentsCommand === "function");
+assert(typeof ListCustomModelsCommand === "function");
+assert(typeof ListEnforcedGuardrailsConfigurationCommand === "function");
+assert(typeof ListEvaluationJobsCommand === "function");
+assert(typeof ListFoundationModelAgreementOffersCommand === "function");
+assert(typeof ListFoundationModelsCommand === "function");
+assert(typeof ListGuardrailsCommand === "function");
+assert(typeof ListImportedModelsCommand === "function");
+assert(typeof ListInferenceProfilesCommand === "function");
+assert(typeof ListMarketplaceModelEndpointsCommand === "function");
+assert(typeof ListModelCopyJobsCommand === "function");
+assert(typeof ListModelCustomizationJobsCommand === "function");
+assert(typeof ListModelImportJobsCommand === "function");
+assert(typeof ListModelInvocationJobsCommand === "function");
+assert(typeof ListPromptRoutersCommand === "function");
+assert(typeof ListProvisionedModelThroughputsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutEnforcedGuardrailConfigurationCommand === "function");
+assert(typeof PutModelInvocationLoggingConfigurationCommand === "function");
+assert(typeof PutUseCaseForModelAccessCommand === "function");
+assert(typeof RegisterMarketplaceModelEndpointCommand === "function");
+assert(typeof StartAutomatedReasoningPolicyBuildWorkflowCommand === "function");
+assert(typeof StartAutomatedReasoningPolicyTestWorkflowCommand === "function");
+assert(typeof StopEvaluationJobCommand === "function");
+assert(typeof StopModelCustomizationJobCommand === "function");
+assert(typeof StopModelInvocationJobCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateAutomatedReasoningPolicyCommand === "function");
+assert(typeof UpdateAutomatedReasoningPolicyAnnotationsCommand === "function");
+assert(typeof UpdateAutomatedReasoningPolicyTestCaseCommand === "function");
+assert(typeof UpdateCustomModelDeploymentCommand === "function");
+assert(typeof UpdateGuardrailCommand === "function");
+assert(typeof UpdateMarketplaceModelEndpointCommand === "function");
+assert(typeof UpdateProvisionedModelThroughputCommand === "function");
 // enums
 assert(typeof AgreementStatus === "object");
 assert(typeof ApplicationType === "object");
@@ -308,6 +312,7 @@ assert(typeof CommitmentDuration === "object");
 assert(typeof ConfigurationOwner === "object");
 assert(typeof CustomizationType === "object");
 assert(typeof CustomModelDeploymentStatus === "object");
+assert(typeof CustomModelDeploymentUpdateStatus === "object");
 assert(typeof EntitlementAvailability === "object");
 assert(typeof EvaluationJobStatus === "object");
 assert(typeof EvaluationJobType === "object");
@@ -348,6 +353,7 @@ assert(typeof PromptRouterStatus === "object");
 assert(typeof PromptRouterType === "object");
 assert(typeof ProvisionedModelStatus === "object");
 assert(typeof QueryTransformationType === "object");
+assert(typeof ReasoningEffort === "object");
 assert(typeof RegionAvailability === "object");
 assert(typeof RerankingMetadataSelectionMode === "object");
 assert(typeof RetrieveAndGenerateType === "object");
@@ -360,24 +366,24 @@ assert(typeof SortOrder === "object");
 assert(typeof Status === "object");
 assert(typeof VectorSearchRerankingConfigurationType === "object");
 // errors
-assert(BedrockServiceException.prototype instanceof Error)
+assert(BedrockServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListAutomatedReasoningPolicies === "function")
-assert(typeof paginateListAutomatedReasoningPolicyBuildWorkflows === "function")
-assert(typeof paginateListAutomatedReasoningPolicyTestCases === "function")
-assert(typeof paginateListAutomatedReasoningPolicyTestResults === "function")
-assert(typeof paginateListCustomModelDeployments === "function")
-assert(typeof paginateListCustomModels === "function")
-assert(typeof paginateListEnforcedGuardrailsConfiguration === "function")
-assert(typeof paginateListEvaluationJobs === "function")
-assert(typeof paginateListGuardrails === "function")
-assert(typeof paginateListImportedModels === "function")
-assert(typeof paginateListInferenceProfiles === "function")
-assert(typeof paginateListMarketplaceModelEndpoints === "function")
-assert(typeof paginateListModelCopyJobs === "function")
-assert(typeof paginateListModelCustomizationJobs === "function")
-assert(typeof paginateListModelImportJobs === "function")
-assert(typeof paginateListModelInvocationJobs === "function")
-assert(typeof paginateListPromptRouters === "function")
-assert(typeof paginateListProvisionedModelThroughputs === "function")
+assert(typeof paginateListAutomatedReasoningPolicies === "function");
+assert(typeof paginateListAutomatedReasoningPolicyBuildWorkflows === "function");
+assert(typeof paginateListAutomatedReasoningPolicyTestCases === "function");
+assert(typeof paginateListAutomatedReasoningPolicyTestResults === "function");
+assert(typeof paginateListCustomModelDeployments === "function");
+assert(typeof paginateListCustomModels === "function");
+assert(typeof paginateListEnforcedGuardrailsConfiguration === "function");
+assert(typeof paginateListEvaluationJobs === "function");
+assert(typeof paginateListGuardrails === "function");
+assert(typeof paginateListImportedModels === "function");
+assert(typeof paginateListInferenceProfiles === "function");
+assert(typeof paginateListMarketplaceModelEndpoints === "function");
+assert(typeof paginateListModelCopyJobs === "function");
+assert(typeof paginateListModelCustomizationJobs === "function");
+assert(typeof paginateListModelImportJobs === "function");
+assert(typeof paginateListModelInvocationJobs === "function");
+assert(typeof paginateListPromptRouters === "function");
+assert(typeof paginateListProvisionedModelThroughputs === "function");
 console.log(`Bedrock index test passed.`);

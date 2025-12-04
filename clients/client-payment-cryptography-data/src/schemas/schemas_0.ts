@@ -297,7 +297,6 @@ import {
 import { PaymentCryptographyDataServiceException as __PaymentCryptographyDataServiceException } from "../models/PaymentCryptographyDataServiceException";
 
 /* eslint no-var: 0 */
-
 export var ApplicationCryptogramType: StaticSimpleSchema = [0, n0, _ACT, 8, 0];
 export var AuthRequestCryptogramType: StaticSimpleSchema = [0, n0, _ARCT, 8, 0];
 export var AuthResponseValueType: StaticSimpleSchema = [0, n0, _ARVT, 8, 0];
@@ -327,19 +326,8 @@ export var TrackDataType: StaticSimpleSchema = [0, n0, _TDT, 8, 0];
 export var TransactionDataType: StaticSimpleSchema = [0, n0, _TDTr, 8, 0];
 export var ValidationDataType: StaticSimpleSchema = [0, n0, _VDT, 8, 0];
 export var VerificationValueType: StaticSimpleSchema = [0, n0, _VVT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AmexAttributes: StaticStructureSchema = [
   3,
   n0,
@@ -643,19 +631,8 @@ export var IncomingDiffieHellmanTr31KeyBlock: StaticStructureSchema = [
   [_PKI, _CAPKI, _PKC, _DKA, _KDF, _KDHA, _DD, _WKB],
   [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData, [() => Tr31WrappedKeyBlock, 0]],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var MacAlgorithmDukpt: StaticStructureSchema = [3, n0, _MAD, 0, [_KSN, _DKV, _DDT], [0, 0, 0]];
 export var MacAlgorithmEmv: StaticStructureSchema = [
   3,
@@ -698,19 +675,8 @@ export var ReEncryptDataOutput: StaticStructureSchema = [
   [_KA, _KCV, _CT],
   [0, 0, [() => CipherTextType, 0]],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_RI],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_RI], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SessionKeyAmex: StaticStructureSchema = [
   3,
   n0,
@@ -759,19 +725,8 @@ export var SymmetricEncryptionAttributes: StaticStructureSchema = [
   [_Mo, _IV, _PT],
   [0, [() => InitializationVectorType, 0], 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TranslateKeyMaterialInput: StaticStructureSchema = [
   3,
   n0,
@@ -820,28 +775,14 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_m, _fL],
   [0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_p, _m], [0, 0]];
-export var VerificationFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_R, _M],
-  [0, 0],
-];
+export var VerificationFailedException: StaticErrorSchema = [-3, n0, _VFE, { [_e]: _c, [_hE]: 400 }, [_R, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(VerificationFailedException, __VerificationFailedException);
-
 export var VerifyAuthRequestCryptogramInput: StaticStructureSchema = [
   3,
   n0,
@@ -945,7 +886,6 @@ export var WrappedWorkingKey: StaticStructureSchema = [
   [[() => KeyMaterial, 0], 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var PaymentCryptographyDataServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -955,7 +895,6 @@ export var PaymentCryptographyDataServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PaymentCryptographyDataServiceException, __PaymentCryptographyDataServiceException);
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var CardGenerationAttributes: StaticStructureSchema = [
   3,
@@ -1138,9 +1077,7 @@ export var DecryptData: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["POST", "/keys/{KeyIdentifier}/decrypt", 200],
-  },
+  { [_h]: ["POST", "/keys/{KeyIdentifier}/decrypt", 200] },
   () => DecryptDataInput,
   () => DecryptDataOutput,
 ];
@@ -1148,9 +1085,7 @@ export var EncryptData: StaticOperationSchema = [
   9,
   n0,
   _ED,
-  {
-    [_h]: ["POST", "/keys/{KeyIdentifier}/encrypt", 200],
-  },
+  { [_h]: ["POST", "/keys/{KeyIdentifier}/encrypt", 200] },
   () => EncryptDataInput,
   () => EncryptDataOutput,
 ];
@@ -1158,9 +1093,7 @@ export var GenerateCardValidationData: StaticOperationSchema = [
   9,
   n0,
   _GCVD,
-  {
-    [_h]: ["POST", "/cardvalidationdata/generate", 200],
-  },
+  { [_h]: ["POST", "/cardvalidationdata/generate", 200] },
   () => GenerateCardValidationDataInput,
   () => GenerateCardValidationDataOutput,
 ];
@@ -1168,9 +1101,7 @@ export var GenerateMac: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["POST", "/mac/generate", 200],
-  },
+  { [_h]: ["POST", "/mac/generate", 200] },
   () => GenerateMacInput,
   () => GenerateMacOutput,
 ];
@@ -1178,9 +1109,7 @@ export var GenerateMacEmvPinChange: StaticOperationSchema = [
   9,
   n0,
   _GMEPC,
-  {
-    [_h]: ["POST", "/macemvpinchange/generate", 200],
-  },
+  { [_h]: ["POST", "/macemvpinchange/generate", 200] },
   () => GenerateMacEmvPinChangeInput,
   () => GenerateMacEmvPinChangeOutput,
 ];
@@ -1188,9 +1117,7 @@ export var GeneratePinData: StaticOperationSchema = [
   9,
   n0,
   _GPD,
-  {
-    [_h]: ["POST", "/pindata/generate", 200],
-  },
+  { [_h]: ["POST", "/pindata/generate", 200] },
   () => GeneratePinDataInput,
   () => GeneratePinDataOutput,
 ];
@@ -1198,9 +1125,7 @@ export var ReEncryptData: StaticOperationSchema = [
   9,
   n0,
   _RED,
-  {
-    [_h]: ["POST", "/keys/{IncomingKeyIdentifier}/reencrypt", 200],
-  },
+  { [_h]: ["POST", "/keys/{IncomingKeyIdentifier}/reencrypt", 200] },
   () => ReEncryptDataInput,
   () => ReEncryptDataOutput,
 ];
@@ -1208,9 +1133,7 @@ export var TranslateKeyMaterial: StaticOperationSchema = [
   9,
   n0,
   _TKM,
-  {
-    [_h]: ["POST", "/keymaterial/translate", 200],
-  },
+  { [_h]: ["POST", "/keymaterial/translate", 200] },
   () => TranslateKeyMaterialInput,
   () => TranslateKeyMaterialOutput,
 ];
@@ -1218,9 +1141,7 @@ export var TranslatePinData: StaticOperationSchema = [
   9,
   n0,
   _TPD,
-  {
-    [_h]: ["POST", "/pindata/translate", 200],
-  },
+  { [_h]: ["POST", "/pindata/translate", 200] },
   () => TranslatePinDataInput,
   () => TranslatePinDataOutput,
 ];
@@ -1228,9 +1149,7 @@ export var VerifyAuthRequestCryptogram: StaticOperationSchema = [
   9,
   n0,
   _VARC,
-  {
-    [_h]: ["POST", "/cryptogram/verify", 200],
-  },
+  { [_h]: ["POST", "/cryptogram/verify", 200] },
   () => VerifyAuthRequestCryptogramInput,
   () => VerifyAuthRequestCryptogramOutput,
 ];
@@ -1238,9 +1157,7 @@ export var VerifyCardValidationData: StaticOperationSchema = [
   9,
   n0,
   _VCVD,
-  {
-    [_h]: ["POST", "/cardvalidationdata/verify", 200],
-  },
+  { [_h]: ["POST", "/cardvalidationdata/verify", 200] },
   () => VerifyCardValidationDataInput,
   () => VerifyCardValidationDataOutput,
 ];
@@ -1248,9 +1165,7 @@ export var VerifyMac: StaticOperationSchema = [
   9,
   n0,
   _VM,
-  {
-    [_h]: ["POST", "/mac/verify", 200],
-  },
+  { [_h]: ["POST", "/mac/verify", 200] },
   () => VerifyMacInput,
   () => VerifyMacOutput,
 ];
@@ -1258,9 +1173,7 @@ export var VerifyPinData: StaticOperationSchema = [
   9,
   n0,
   _VPD,
-  {
-    [_h]: ["POST", "/pindata/verify", 200],
-  },
+  { [_h]: ["POST", "/pindata/verify", 200] },
   () => VerifyPinDataInput,
   () => VerifyPinDataOutput,
 ];

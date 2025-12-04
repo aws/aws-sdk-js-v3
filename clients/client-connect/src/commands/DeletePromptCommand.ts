@@ -5,11 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { DeletePromptRequest } from "../models/models_1";
-=======
-import type { DeletePromptRequest } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { DeletePromptRequest } from "../models/models_1";
 import { DeletePrompt } from "../schemas/schemas_0";
 
 /**

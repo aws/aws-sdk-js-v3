@@ -28,7 +28,6 @@ import { MarketplaceCommerceAnalyticsException as __MarketplaceCommerceAnalytics
 import { MarketplaceCommerceAnalyticsServiceException as __MarketplaceCommerceAnalyticsServiceException } from "../models/MarketplaceCommerceAnalyticsServiceException";
 
 /* eslint no-var: 0 */
-
 export var GenerateDataSetRequest: StaticStructureSchema = [
   3,
   n0,
@@ -38,18 +37,8 @@ export var GenerateDataSetRequest: StaticStructureSchema = [
   [0, 4, 0, 0, 0, 0, 128 | 0],
 ];
 export var GenerateDataSetResult: StaticStructureSchema = [3, n0, _GDSRe, 0, [_dSRI], [0]];
-export var MarketplaceCommerceAnalyticsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MCAE,
-  {
-    [_e]: _s,
-  },
-  [_m],
-  [0],
-];
+export var MarketplaceCommerceAnalyticsException: StaticErrorSchema = [-3, n0, _MCAE, { [_e]: _s }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MarketplaceCommerceAnalyticsException, __MarketplaceCommerceAnalyticsException);
-
 export var StartSupportDataExportRequest: StaticStructureSchema = [
   3,
   n0,
@@ -60,7 +49,6 @@ export var StartSupportDataExportRequest: StaticStructureSchema = [
 ];
 export var StartSupportDataExportResult: StaticStructureSchema = [3, n0, _SSDERt, 0, [_dSRI], [0]];
 export var __Unit = "unit" as const;
-
 export var MarketplaceCommerceAnalyticsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -73,9 +61,7 @@ TypeRegistry.for(_sm).registerError(
   MarketplaceCommerceAnalyticsServiceException,
   __MarketplaceCommerceAnalyticsServiceException
 );
-
 export var CustomerDefinedValues = 128 | 0;
-
 export var GenerateDataSet: StaticOperationSchema = [
   9,
   n0,

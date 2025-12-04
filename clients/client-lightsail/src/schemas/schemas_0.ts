@@ -1204,7 +1204,6 @@ import {
 import { LightsailServiceException as __LightsailServiceException } from "../models/LightsailServiceException";
 
 /* eslint no-var: 0 */
-
 export var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 export var IAMAccessKeyId: StaticSimpleSchema = [0, n0, _IAMAKI, 8, 0];
 export var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
@@ -1213,15 +1212,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessKey: StaticStructureSchema = [
   3,
   n0,
@@ -1237,15 +1232,11 @@ export var AccountSetupInProgressException: StaticErrorSchema = [
   -3,
   n0,
   _ASIPE,
-  {
-    [_e]: _c,
-    [_hE]: 428,
-  },
+  { [_e]: _c, [_hE]: 428 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(AccountSetupInProgressException, __AccountSetupInProgressException);
-
 export var AddOn: StaticStructureSchema = [3, n0, _AO, 0, [_n, _s, _sTOD, _nSTOD, _th, _du], [0, 0, 0, 0, 0, 0]];
 export var AddOnRequest: StaticStructureSchema = [
   3,
@@ -1971,24 +1962,9 @@ export var GetAlarmsRequest: StaticStructureSchema = [
   0,
   [_aN, _pT, _mRN],
   [
-    [
-      0,
-      {
-        [_hQ]: _aN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mRN,
-      },
-    ],
+    [0, { [_hQ]: _aN }],
+    [0, { [_hQ]: _pT }],
+    [0, { [_hQ]: _mRN }],
   ],
 ];
 export var GetAlarmsResult: StaticStructureSchema = [3, n0, _GARe, 0, [_al, _nPT], [() => AlarmsList, 0]];
@@ -2052,21 +2028,7 @@ export var GetCloudFormationStackRecordsResult: StaticStructureSchema = [
   [_cFSR, _nPT],
   [() => CloudFormationStackRecordList, 0],
 ];
-export var GetContactMethodsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCMR,
-  0,
-  [_prot],
-  [
-    [
-      64 | 0,
-      {
-        [_hQ]: _prot,
-      },
-    ],
-  ],
-];
+export var GetContactMethodsRequest: StaticStructureSchema = [3, n0, _GCMR, 0, [_prot], [[64 | 0, { [_hQ]: _prot }]]];
 export var GetContactMethodsResult: StaticStructureSchema = [3, n0, _GCMRe, 0, [_cM], [() => ContactMethodsList]];
 export var GetContainerAPIMetadataRequest: StaticStructureSchema = [3, n0, _GCAPIMR, 0, [], []];
 export var GetContainerAPIMetadataResult: StaticStructureSchema = [
@@ -2088,30 +2050,10 @@ export var GetContainerLogRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
+    [0, { [_hQ]: _fP }],
+    [0, { [_hQ]: _pT }],
   ],
 ];
 export var GetContainerLogResult: StaticStructureSchema = [
@@ -2139,36 +2081,11 @@ export var GetContainerServiceMetricDataRequest: StaticStructureSchema = [
   [_sN, _mN, _sT, _eT, _p, _stat],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mN,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _stat,
-      },
-    ],
+    [0, { [_hQ]: _mN }],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
+    [1, { [_hQ]: _p }],
+    [64 | 0, { [_hQ]: _stat }],
   ],
 ];
 export var GetContainerServiceMetricDataResult: StaticStructureSchema = [
@@ -2188,21 +2105,7 @@ export var GetContainerServicePowersResult: StaticStructureSchema = [
   [_pow],
   [() => ContainerServicePowerList],
 ];
-export var GetContainerServicesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GCSR,
-  0,
-  [_sN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _sN,
-      },
-    ],
-  ],
-];
+export var GetContainerServicesRequest: StaticStructureSchema = [3, n0, _GCSR, 0, [_sN], [[0, { [_hQ]: _sN }]]];
 export var GetCostEstimateRequest: StaticStructureSchema = [3, n0, _GCER, 0, [_rN, _sT, _eT], [0, 4, 4]];
 export var GetCostEstimateResult: StaticStructureSchema = [3, n0, _GCERe, 0, [_rBE], [() => ResourcesBudgetEstimate]];
 export var GetDiskRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_dNi], [0]];
@@ -2635,15 +2538,11 @@ export var InvalidInputException: StaticErrorSchema = [
   -3,
   n0,
   _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var IsVpcPeeredRequest: StaticStructureSchema = [3, n0, _IVPR, 0, [], []];
 export var IsVpcPeeredResult: StaticStructureSchema = [3, n0, _IVPRs, 0, [_iPs], [2]];
 export var KeyPair: StaticStructureSchema = [
@@ -2829,15 +2728,11 @@ export var NotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OpenInstancePublicPortsRequest: StaticStructureSchema = [3, n0, _OIPPR, 0, [_pI, _iN], [() => PortInfo, 0]];
 export var OpenInstancePublicPortsResult: StaticStructureSchema = [3, n0, _OIPPRp, 0, [_op], [() => Operation]];
 export var Operation: StaticStructureSchema = [
@@ -2852,15 +2747,11 @@ export var OperationFailureException: StaticErrorSchema = [
   -3,
   n0,
   _OFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(OperationFailureException, __OperationFailureException);
-
 export var Origin: StaticStructureSchema = [3, n0, _Or, 0, [_n, _rT, _rNe, _pP, _rTes], [0, 0, 0, 0, 1]];
 export var PasswordData: StaticStructureSchema = [3, n0, _PD, 0, [_ciph, _kPN], [0, 0]];
 export var PeerVpcRequest: StaticStructureSchema = [3, n0, _PVR, 0, [], []];
@@ -2934,15 +2825,11 @@ export var RegionSetupInProgressException: StaticErrorSchema = [
   -3,
   n0,
   _RSIPE,
-  {
-    [_e]: _c,
-    [_hE]: 428,
-  },
+  { [_e]: _c, [_hE]: 428 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(RegionSetupInProgressException, __RegionSetupInProgressException);
-
 export var RegisterContainerImageRequest: StaticStructureSchema = [3, n0, _RCIR, 0, [_sN, _la, _di], [[0, 1], 0, 0]];
 export var RegisterContainerImageResult: StaticStructureSchema = [3, n0, _RCIRe, 0, [_cIo], [() => ContainerImage]];
 export var RegisteredDomainDelegationInfo: StaticStructureSchema = [
@@ -3093,15 +2980,11 @@ export var ServiceException: StaticErrorSchema = [
   -3,
   n0,
   _SE,
-  {
-    [_e]: _serv,
-    [_hE]: 500,
-  },
+  { [_e]: _serv, [_hE]: 500 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
-
 export var Session: StaticStructureSchema = [
   3,
   n0,
@@ -3180,12 +3063,7 @@ export var TestAlarmRequest: StaticStructureSchema = [
   [_aN, _sta],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sta,
-      },
-    ],
+    [0, { [_hQ]: _sta }],
   ],
 ];
 export var TestAlarmResult: StaticStructureSchema = [3, n0, _TARe, 0, [_o], [() => OperationList]];
@@ -3194,15 +3072,11 @@ export var UnauthenticatedException: StaticErrorSchema = [
   -3,
   n0,
   _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
+  { [_e]: _c, [_hE]: 401 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnauthenticatedException, __UnauthenticatedException);
-
 export var UnpeerVpcRequest: StaticStructureSchema = [3, n0, _UVR, 0, [], []];
 export var UnpeerVpcResult: StaticStructureSchema = [3, n0, _UVRn, 0, [_op], [() => Operation]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rN, _rAe, _tK], [0, 0, 64 | 0]];
@@ -3291,36 +3165,28 @@ export var UpdateRelationalDatabaseRequest: StaticStructureSchema = [
 ];
 export var UpdateRelationalDatabaseResult: StaticStructureSchema = [3, n0, _URDRp, 0, [_o], [() => OperationList]];
 export var __Unit = "unit" as const;
-
 export var LightsailServiceException: StaticErrorSchema = [-3, _sm, "LightsailServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LightsailServiceException, __LightsailServiceException);
-
 export var AccessKeyList: StaticListSchema = [1, n0, _AKL, 0, [() => AccessKey, 0]];
 export var AccessReceiverList: StaticListSchema = [1, n0, _ARL, 0, () => ResourceReceivingAccess];
 export var AddOnList: StaticListSchema = [1, n0, _AOL, 0, () => AddOn];
 export var AddOnRequestList: StaticListSchema = [1, n0, _AORL, 0, () => AddOnRequest];
 export var AlarmsList: StaticListSchema = [1, n0, _AL, 0, () => Alarm];
 export var AppCategoryList = 64 | 0;
-
 export var AttachedDiskList: StaticListSchema = [1, n0, _ADL, 0, () => AttachedDisk];
 export var AutoSnapshotDetailsList: StaticListSchema = [1, n0, _ASDL, 0, () => AutoSnapshotDetails];
 export var AvailabilityZoneList: StaticListSchema = [1, n0, _AZL, 0, () => AvailabilityZone];
 export var BlueprintList: StaticListSchema = [1, n0, _BL, 0, () => Blueprint];
 export var BucketBundleList: StaticListSchema = [1, n0, _BBL, 0, () => BucketBundle];
 export var BucketCorsAllowedHeaders = 64 | 0;
-
 export var BucketCorsAllowedMethods = 64 | 0;
-
 export var BucketCorsAllowedOrigins = 64 | 0;
-
 export var BucketCorsExposeHeaders = 64 | 0;
-
 export var BucketCorsRules: StaticListSchema = [1, n0, _BCRu, 0, () => BucketCorsRule];
 export var BucketList: StaticListSchema = [1, n0, _BLu, 0, () => Bucket];
 export var BundleList: StaticListSchema = [1, n0, _BLun, 0, () => Bundle];
 export var CacheBehaviorList: StaticListSchema = [1, n0, _CBL, 0, () => CacheBehaviorPerPath];
 export var CertificateStatusList = 64 | 0;
-
 export var CertificateSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CertificateSummary];
 export var CloudFormationStackRecordList: StaticListSchema = [1, n0, _CFSRL, 0, () => CloudFormationStackRecord];
 export var CloudFormationStackRecordSourceInfoList: StaticListSchema = [
@@ -3332,7 +3198,6 @@ export var CloudFormationStackRecordSourceInfoList: StaticListSchema = [
 ];
 export var ContactMethodsList: StaticListSchema = [1, n0, _CML, 0, () => ContactMethod];
 export var ContactProtocolsList = 64 | 0;
-
 export var ContainerImageList: StaticListSchema = [1, n0, _CIL, 0, () => ContainerImage];
 export var ContainerServiceDeploymentList: StaticListSchema = [1, n0, _CSDL, 0, () => ContainerServiceDeployment];
 export var ContainerServiceList: StaticListSchema = [1, n0, _CSLo, 0, () => ContainerService];
@@ -3340,7 +3205,6 @@ export var ContainerServiceLogEventList: StaticListSchema = [1, n0, _CSLEL, 0, (
 export var ContainerServiceMetadataEntryList: StaticListSchema = [1, n0, _CSMEL, 0, 128 | 0];
 export var ContainerServicePowerList: StaticListSchema = [1, n0, _CSPL, 0, () => ContainerServicePower];
 export var ContainerServicePublicDomainsList = 64 | 0;
-
 export var CostEstimates: StaticListSchema = [1, n0, _CEo, 0, () => CostEstimate];
 export var DiskInfoList: StaticListSchema = [1, n0, _DIL, 0, () => DiskInfo];
 export var DiskList: StaticListSchema = [1, n0, _DL, 0, () => Disk];
@@ -3351,23 +3215,19 @@ export var DistributionList: StaticListSchema = [1, n0, _DLi, 0, () => Lightsail
 export var DomainEntryList: StaticListSchema = [1, n0, _DEL, 0, () => DomainEntry];
 export var DomainList: StaticListSchema = [1, n0, _DLo, 0, () => Domain];
 export var DomainNameList = 64 | 0;
-
 export var DomainValidationRecordList: StaticListSchema = [1, n0, _DVRL, 0, () => DomainValidationRecord];
 export var EstimatesByTime: StaticListSchema = [1, n0, _EBTs, 0, () => EstimateByTime];
 export var ExportSnapshotRecordList: StaticListSchema = [1, n0, _ESRL, 0, () => ExportSnapshotRecord];
 export var HeaderForwardList = 64 | 0;
-
 export var HostKeysList: StaticListSchema = [1, n0, _HKL, 0, () => HostKeyAttributes];
 export var InstanceEntryList: StaticListSchema = [1, n0, _IEL, 0, () => InstanceEntry];
 export var InstanceHealthSummaryList: StaticListSchema = [1, n0, _IHSL, 0, () => InstanceHealthSummary];
 export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance];
 export var InstancePlatformList = 64 | 0;
-
 export var InstancePortInfoList: StaticListSchema = [1, n0, _IPIL, 0, () => InstancePortInfo];
 export var InstancePortStateList: StaticListSchema = [1, n0, _IPSL, 0, () => InstancePortState];
 export var InstanceSnapshotList: StaticListSchema = [1, n0, _ISL, 0, () => InstanceSnapshot];
 export var Ipv6AddressList = 64 | 0;
-
 export var KeyPairList: StaticListSchema = [1, n0, _KPL, 0, () => KeyPair];
 export var LoadBalancerList: StaticListSchema = [1, n0, _LBL, 0, () => LoadBalancer];
 export var LoadBalancerTlsCertificateDomainValidationOptionList: StaticListSchema = [
@@ -3396,16 +3256,12 @@ export var LoadBalancerTlsPolicyList: StaticListSchema = [1, n0, _LBTPL, 0, () =
 export var LogEventList: StaticListSchema = [1, n0, _LEL, 0, () => LogEvent];
 export var MetricDatapointList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDatapoint];
 export var MetricStatisticList = 64 | 0;
-
 export var NotificationTriggerList = 64 | 0;
-
 export var OperationList: StaticListSchema = [1, n0, _OL, 0, () => Operation];
 export var PartnerIdList = 64 | 0;
-
 export var PendingMaintenanceActionList: StaticListSchema = [1, n0, _PMAL, 0, () => PendingMaintenanceAction];
 export var PortInfoList: StaticListSchema = [1, n0, _PIL, 0, () => PortInfo];
 export var PortList = 64 | 1;
-
 export var RegionList: StaticListSchema = [1, n0, _RLe, 0, () => Region];
 export var RelationalDatabaseBlueprintList: StaticListSchema = [1, n0, _RDBL, 0, () => RelationalDatabaseBlueprint];
 export var RelationalDatabaseBundleList: StaticListSchema = [1, n0, _RDBLe, 0, () => RelationalDatabaseBundle];
@@ -3414,41 +3270,29 @@ export var RelationalDatabaseList: StaticListSchema = [1, n0, _RDL, 0, () => Rel
 export var RelationalDatabaseParameterList: StaticListSchema = [1, n0, _RDPL, 0, () => RelationalDatabaseParameter];
 export var RelationalDatabaseSnapshotList: StaticListSchema = [1, n0, _RDSL, 0, () => RelationalDatabaseSnapshot];
 export var ResourceNameList = 64 | 0;
-
 export var ResourcesBudgetEstimate: StaticListSchema = [1, n0, _RBEe, 0, () => ResourceBudgetEstimate];
 export var Sessions: StaticListSchema = [1, n0, _Se, 0, [() => Session, 0]];
 export var SetupDomainNameList = 64 | 0;
-
 export var SetupExecutionDetailsList: StaticListSchema = [1, n0, _SEDL, 0, () => SetupExecutionDetails];
 export var setupHistoryList: StaticListSchema = [1, n0, _sHL, 0, () => SetupHistory];
 export var StaticIpList: StaticListSchema = [1, n0, _SIL, 0, () => StaticIp];
 export var StringList = 64 | 0;
-
 export var SubjectAlternativeNameList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var AttachedDiskMap: StaticMapSchema = [2, n0, _ADM, 0, 0, () => DiskMapList];
 export var ContainerMap: StaticMapSchema = [2, n0, _CMo, 0, 0, () => Container];
 export var ContainerServiceMetadataEntry = 128 | 0;
-
 export var ContainerServicePublicDomains: StaticMapSchema = [2, n0, _CSPD, 0, 0, 64 | 0];
 export var DomainEntryOptions = 128 | 0;
-
 export var Environment = 128 | 0;
-
 export var LoadBalancerConfigurationOptions = 128 | 0;
-
 export var PortMap = 128 | 0;
-
 export var AllocateStaticIp: StaticOperationSchema = [
   9,
   n0,
   _ASI,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/AllocateStaticIp", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/AllocateStaticIp", 200] },
   () => AllocateStaticIpRequest,
   () => AllocateStaticIpResult,
 ];
@@ -3456,9 +3300,7 @@ export var AttachCertificateToDistribution: StaticOperationSchema = [
   9,
   n0,
   _ACTD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/AttachCertificateToDistribution", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/AttachCertificateToDistribution", 200] },
   () => AttachCertificateToDistributionRequest,
   () => AttachCertificateToDistributionResult,
 ];
@@ -3466,9 +3308,7 @@ export var AttachDisk: StaticOperationSchema = [
   9,
   n0,
   _ADt,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/AttachDisk", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/AttachDisk", 200] },
   () => AttachDiskRequest,
   () => AttachDiskResult,
 ];
@@ -3476,9 +3316,7 @@ export var AttachInstancesToLoadBalancer: StaticOperationSchema = [
   9,
   n0,
   _AITLB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/AttachInstancesToLoadBalancer", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/AttachInstancesToLoadBalancer", 200] },
   () => AttachInstancesToLoadBalancerRequest,
   () => AttachInstancesToLoadBalancerResult,
 ];
@@ -3486,9 +3324,7 @@ export var AttachLoadBalancerTlsCertificate: StaticOperationSchema = [
   9,
   n0,
   _ALBTC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/AttachLoadBalancerTlsCertificate", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/AttachLoadBalancerTlsCertificate", 200] },
   () => AttachLoadBalancerTlsCertificateRequest,
   () => AttachLoadBalancerTlsCertificateResult,
 ];
@@ -3496,9 +3332,7 @@ export var AttachStaticIp: StaticOperationSchema = [
   9,
   n0,
   _ASIt,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/AttachStaticIp", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/AttachStaticIp", 200] },
   () => AttachStaticIpRequest,
   () => AttachStaticIpResult,
 ];
@@ -3506,9 +3340,7 @@ export var CloseInstancePublicPorts: StaticOperationSchema = [
   9,
   n0,
   _CIPP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CloseInstancePublicPorts", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CloseInstancePublicPorts", 200] },
   () => CloseInstancePublicPortsRequest,
   () => CloseInstancePublicPortsResult,
 ];
@@ -3516,9 +3348,7 @@ export var CopySnapshot: StaticOperationSchema = [
   9,
   n0,
   _CSop,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CopySnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CopySnapshot", 200] },
   () => CopySnapshotRequest,
   () => CopySnapshotResult,
 ];
@@ -3526,9 +3356,7 @@ export var CreateBucket: StaticOperationSchema = [
   9,
   n0,
   _CBr,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateBucket", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateBucket", 200] },
   () => CreateBucketRequest,
   () => CreateBucketResult,
 ];
@@ -3536,9 +3364,7 @@ export var CreateBucketAccessKey: StaticOperationSchema = [
   9,
   n0,
   _CBAK,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateBucketAccessKey", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateBucketAccessKey", 200] },
   () => CreateBucketAccessKeyRequest,
   () => CreateBucketAccessKeyResult,
 ];
@@ -3546,9 +3372,7 @@ export var CreateCertificate: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateCertificate", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateCertificate", 200] },
   () => CreateCertificateRequest,
   () => CreateCertificateResult,
 ];
@@ -3556,9 +3380,7 @@ export var CreateCloudFormationStack: StaticOperationSchema = [
   9,
   n0,
   _CCFS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateCloudFormationStack", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateCloudFormationStack", 200] },
   () => CreateCloudFormationStackRequest,
   () => CreateCloudFormationStackResult,
 ];
@@ -3566,9 +3388,7 @@ export var CreateContactMethod: StaticOperationSchema = [
   9,
   n0,
   _CCM,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateContactMethod", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateContactMethod", 200] },
   () => CreateContactMethodRequest,
   () => CreateContactMethodResult,
 ];
@@ -3576,9 +3396,7 @@ export var CreateContainerService: StaticOperationSchema = [
   9,
   n0,
   _CCS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/container-services", 201],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/container-services", 201] },
   () => CreateContainerServiceRequest,
   () => CreateContainerServiceResult,
 ];
@@ -3586,9 +3404,7 @@ export var CreateContainerServiceDeployment: StaticOperationSchema = [
   9,
   n0,
   _CCSD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/container-services/{serviceName}/deployments", 201],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/container-services/{serviceName}/deployments", 201] },
   () => CreateContainerServiceDeploymentRequest,
   () => CreateContainerServiceDeploymentResult,
 ];
@@ -3596,9 +3412,7 @@ export var CreateContainerServiceRegistryLogin: StaticOperationSchema = [
   9,
   n0,
   _CCSRL,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/container-registry-login", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/container-registry-login", 200] },
   () => CreateContainerServiceRegistryLoginRequest,
   () => CreateContainerServiceRegistryLoginResult,
 ];
@@ -3606,9 +3420,7 @@ export var CreateDisk: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateDisk", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateDisk", 200] },
   () => CreateDiskRequest,
   () => CreateDiskResult,
 ];
@@ -3616,9 +3428,7 @@ export var CreateDiskFromSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CDFS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateDiskFromSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateDiskFromSnapshot", 200] },
   () => CreateDiskFromSnapshotRequest,
   () => CreateDiskFromSnapshotResult,
 ];
@@ -3626,9 +3436,7 @@ export var CreateDiskSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CDS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateDiskSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateDiskSnapshot", 200] },
   () => CreateDiskSnapshotRequest,
   () => CreateDiskSnapshotResult,
 ];
@@ -3636,9 +3444,7 @@ export var CreateDistribution: StaticOperationSchema = [
   9,
   n0,
   _CDr,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateDistribution", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateDistribution", 200] },
   () => CreateDistributionRequest,
   () => CreateDistributionResult,
 ];
@@ -3646,9 +3452,7 @@ export var CreateDomain: StaticOperationSchema = [
   9,
   n0,
   _CDre,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateDomain", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateDomain", 200] },
   () => CreateDomainRequest,
   () => CreateDomainResult,
 ];
@@ -3656,9 +3460,7 @@ export var CreateDomainEntry: StaticOperationSchema = [
   9,
   n0,
   _CDE,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateDomainEntry", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateDomainEntry", 200] },
   () => CreateDomainEntryRequest,
   () => CreateDomainEntryResult,
 ];
@@ -3666,9 +3468,7 @@ export var CreateGUISessionAccessDetails: StaticOperationSchema = [
   9,
   n0,
   _CGUISAD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/create-gui-session-access-details", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/create-gui-session-access-details", 200] },
   () => CreateGUISessionAccessDetailsRequest,
   () => CreateGUISessionAccessDetailsResult,
 ];
@@ -3676,9 +3476,7 @@ export var CreateInstances: StaticOperationSchema = [
   9,
   n0,
   _CIr,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateInstances", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateInstances", 200] },
   () => CreateInstancesRequest,
   () => CreateInstancesResult,
 ];
@@ -3686,9 +3484,7 @@ export var CreateInstancesFromSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CIFS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateInstancesFromSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateInstancesFromSnapshot", 200] },
   () => CreateInstancesFromSnapshotRequest,
   () => CreateInstancesFromSnapshotResult,
 ];
@@ -3696,9 +3492,7 @@ export var CreateInstanceSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CIS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateInstanceSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateInstanceSnapshot", 200] },
   () => CreateInstanceSnapshotRequest,
   () => CreateInstanceSnapshotResult,
 ];
@@ -3706,9 +3500,7 @@ export var CreateKeyPair: StaticOperationSchema = [
   9,
   n0,
   _CKP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateKeyPair", 200] },
   () => CreateKeyPairRequest,
   () => CreateKeyPairResult,
 ];
@@ -3716,9 +3508,7 @@ export var CreateLoadBalancer: StaticOperationSchema = [
   9,
   n0,
   _CLB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateLoadBalancer", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateLoadBalancer", 200] },
   () => CreateLoadBalancerRequest,
   () => CreateLoadBalancerResult,
 ];
@@ -3726,9 +3516,7 @@ export var CreateLoadBalancerTlsCertificate: StaticOperationSchema = [
   9,
   n0,
   _CLBTC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateLoadBalancerTlsCertificate", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateLoadBalancerTlsCertificate", 200] },
   () => CreateLoadBalancerTlsCertificateRequest,
   () => CreateLoadBalancerTlsCertificateResult,
 ];
@@ -3736,9 +3524,7 @@ export var CreateRelationalDatabase: StaticOperationSchema = [
   9,
   n0,
   _CRD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateRelationalDatabase", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateRelationalDatabase", 200] },
   () => CreateRelationalDatabaseRequest,
   () => CreateRelationalDatabaseResult,
 ];
@@ -3746,9 +3532,7 @@ export var CreateRelationalDatabaseFromSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CRDFS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateRelationalDatabaseFromSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateRelationalDatabaseFromSnapshot", 200] },
   () => CreateRelationalDatabaseFromSnapshotRequest,
   () => CreateRelationalDatabaseFromSnapshotResult,
 ];
@@ -3756,9 +3540,7 @@ export var CreateRelationalDatabaseSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CRDS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/CreateRelationalDatabaseSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/CreateRelationalDatabaseSnapshot", 200] },
   () => CreateRelationalDatabaseSnapshotRequest,
   () => CreateRelationalDatabaseSnapshotResult,
 ];
@@ -3766,9 +3548,7 @@ export var DeleteAlarm: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_ht]: ["DELETE", "/ls/api/2016-11-28/DeleteAlarm/{alarmName}", 200],
-  },
+  { [_ht]: ["DELETE", "/ls/api/2016-11-28/DeleteAlarm/{alarmName}", 200] },
   () => DeleteAlarmRequest,
   () => DeleteAlarmResult,
 ];
@@ -3776,9 +3556,7 @@ export var DeleteAutoSnapshot: StaticOperationSchema = [
   9,
   n0,
   _DAS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteAutoSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteAutoSnapshot", 200] },
   () => DeleteAutoSnapshotRequest,
   () => DeleteAutoSnapshotResult,
 ];
@@ -3786,9 +3564,7 @@ export var DeleteBucket: StaticOperationSchema = [
   9,
   n0,
   _DBe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteBucket", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteBucket", 200] },
   () => DeleteBucketRequest,
   () => DeleteBucketResult,
 ];
@@ -3796,9 +3572,7 @@ export var DeleteBucketAccessKey: StaticOperationSchema = [
   9,
   n0,
   _DBAK,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteBucketAccessKey", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteBucketAccessKey", 200] },
   () => DeleteBucketAccessKeyRequest,
   () => DeleteBucketAccessKeyResult,
 ];
@@ -3806,9 +3580,7 @@ export var DeleteCertificate: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteCertificate", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteCertificate", 200] },
   () => DeleteCertificateRequest,
   () => DeleteCertificateResult,
 ];
@@ -3816,9 +3588,7 @@ export var DeleteContactMethod: StaticOperationSchema = [
   9,
   n0,
   _DCM,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteContactMethod", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteContactMethod", 200] },
   () => DeleteContactMethodRequest,
   () => DeleteContactMethodResult,
 ];
@@ -3826,9 +3596,7 @@ export var DeleteContainerImage: StaticOperationSchema = [
   9,
   n0,
   _DCI,
-  {
-    [_ht]: ["DELETE", "/ls/api/2016-11-28/container-services/{serviceName}/images/{image}", 204],
-  },
+  { [_ht]: ["DELETE", "/ls/api/2016-11-28/container-services/{serviceName}/images/{image}", 204] },
   () => DeleteContainerImageRequest,
   () => DeleteContainerImageResult,
 ];
@@ -3836,9 +3604,7 @@ export var DeleteContainerService: StaticOperationSchema = [
   9,
   n0,
   _DCS,
-  {
-    [_ht]: ["DELETE", "/ls/api/2016-11-28/container-services/{serviceName}", 204],
-  },
+  { [_ht]: ["DELETE", "/ls/api/2016-11-28/container-services/{serviceName}", 204] },
   () => DeleteContainerServiceRequest,
   () => DeleteContainerServiceResult,
 ];
@@ -3846,9 +3612,7 @@ export var DeleteDisk: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDisk", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDisk", 200] },
   () => DeleteDiskRequest,
   () => DeleteDiskResult,
 ];
@@ -3856,9 +3620,7 @@ export var DeleteDiskSnapshot: StaticOperationSchema = [
   9,
   n0,
   _DDS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDiskSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDiskSnapshot", 200] },
   () => DeleteDiskSnapshotRequest,
   () => DeleteDiskSnapshotResult,
 ];
@@ -3866,9 +3628,7 @@ export var DeleteDistribution: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDistribution", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDistribution", 200] },
   () => DeleteDistributionRequest,
   () => DeleteDistributionResult,
 ];
@@ -3876,9 +3636,7 @@ export var DeleteDomain: StaticOperationSchema = [
   9,
   n0,
   _DDel,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDomain", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDomain", 200] },
   () => DeleteDomainRequest,
   () => DeleteDomainResult,
 ];
@@ -3886,9 +3644,7 @@ export var DeleteDomainEntry: StaticOperationSchema = [
   9,
   n0,
   _DDE,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDomainEntry", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteDomainEntry", 200] },
   () => DeleteDomainEntryRequest,
   () => DeleteDomainEntryResult,
 ];
@@ -3896,9 +3652,7 @@ export var DeleteInstance: StaticOperationSchema = [
   9,
   n0,
   _DIe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteInstance", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteInstance", 200] },
   () => DeleteInstanceRequest,
   () => DeleteInstanceResult,
 ];
@@ -3906,9 +3660,7 @@ export var DeleteInstanceSnapshot: StaticOperationSchema = [
   9,
   n0,
   _DIS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteInstanceSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteInstanceSnapshot", 200] },
   () => DeleteInstanceSnapshotRequest,
   () => DeleteInstanceSnapshotResult,
 ];
@@ -3916,9 +3668,7 @@ export var DeleteKeyPair: StaticOperationSchema = [
   9,
   n0,
   _DKP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteKeyPair", 200] },
   () => DeleteKeyPairRequest,
   () => DeleteKeyPairResult,
 ];
@@ -3926,9 +3676,7 @@ export var DeleteKnownHostKeys: StaticOperationSchema = [
   9,
   n0,
   _DKHK,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteKnownHostKeys", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteKnownHostKeys", 200] },
   () => DeleteKnownHostKeysRequest,
   () => DeleteKnownHostKeysResult,
 ];
@@ -3936,9 +3684,7 @@ export var DeleteLoadBalancer: StaticOperationSchema = [
   9,
   n0,
   _DLB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteLoadBalancer", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteLoadBalancer", 200] },
   () => DeleteLoadBalancerRequest,
   () => DeleteLoadBalancerResult,
 ];
@@ -3946,9 +3692,7 @@ export var DeleteLoadBalancerTlsCertificate: StaticOperationSchema = [
   9,
   n0,
   _DLBTC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteLoadBalancerTlsCertificate", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteLoadBalancerTlsCertificate", 200] },
   () => DeleteLoadBalancerTlsCertificateRequest,
   () => DeleteLoadBalancerTlsCertificateResult,
 ];
@@ -3956,9 +3700,7 @@ export var DeleteRelationalDatabase: StaticOperationSchema = [
   9,
   n0,
   _DRD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteRelationalDatabase", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteRelationalDatabase", 200] },
   () => DeleteRelationalDatabaseRequest,
   () => DeleteRelationalDatabaseResult,
 ];
@@ -3966,9 +3708,7 @@ export var DeleteRelationalDatabaseSnapshot: StaticOperationSchema = [
   9,
   n0,
   _DRDS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DeleteRelationalDatabaseSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DeleteRelationalDatabaseSnapshot", 200] },
   () => DeleteRelationalDatabaseSnapshotRequest,
   () => DeleteRelationalDatabaseSnapshotResult,
 ];
@@ -3976,9 +3716,7 @@ export var DetachCertificateFromDistribution: StaticOperationSchema = [
   9,
   n0,
   _DCFD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DetachCertificateFromDistribution", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DetachCertificateFromDistribution", 200] },
   () => DetachCertificateFromDistributionRequest,
   () => DetachCertificateFromDistributionResult,
 ];
@@ -3986,9 +3724,7 @@ export var DetachDisk: StaticOperationSchema = [
   9,
   n0,
   _DDet,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DetachDisk", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DetachDisk", 200] },
   () => DetachDiskRequest,
   () => DetachDiskResult,
 ];
@@ -3996,9 +3732,7 @@ export var DetachInstancesFromLoadBalancer: StaticOperationSchema = [
   9,
   n0,
   _DIFLB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DetachInstancesFromLoadBalancer", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DetachInstancesFromLoadBalancer", 200] },
   () => DetachInstancesFromLoadBalancerRequest,
   () => DetachInstancesFromLoadBalancerResult,
 ];
@@ -4006,9 +3740,7 @@ export var DetachStaticIp: StaticOperationSchema = [
   9,
   n0,
   _DSIe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DetachStaticIp", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DetachStaticIp", 200] },
   () => DetachStaticIpRequest,
   () => DetachStaticIpResult,
 ];
@@ -4016,9 +3748,7 @@ export var DisableAddOn: StaticOperationSchema = [
   9,
   n0,
   _DAO,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DisableAddOn", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DisableAddOn", 200] },
   () => DisableAddOnRequest,
   () => DisableAddOnResult,
 ];
@@ -4026,9 +3756,7 @@ export var DownloadDefaultKeyPair: StaticOperationSchema = [
   9,
   n0,
   _DDKP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/DownloadDefaultKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/DownloadDefaultKeyPair", 200] },
   () => DownloadDefaultKeyPairRequest,
   () => DownloadDefaultKeyPairResult,
 ];
@@ -4036,9 +3764,7 @@ export var EnableAddOn: StaticOperationSchema = [
   9,
   n0,
   _EAO,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/EnableAddOn", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/EnableAddOn", 200] },
   () => EnableAddOnRequest,
   () => EnableAddOnResult,
 ];
@@ -4046,9 +3772,7 @@ export var ExportSnapshot: StaticOperationSchema = [
   9,
   n0,
   _ES,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/ExportSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/ExportSnapshot", 200] },
   () => ExportSnapshotRequest,
   () => ExportSnapshotResult,
 ];
@@ -4056,9 +3780,7 @@ export var GetActiveNames: StaticOperationSchema = [
   9,
   n0,
   _GAN,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetActiveNames", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetActiveNames", 200] },
   () => GetActiveNamesRequest,
   () => GetActiveNamesResult,
 ];
@@ -4066,9 +3788,7 @@ export var GetAlarms: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/GetAlarms", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/GetAlarms", 200] },
   () => GetAlarmsRequest,
   () => GetAlarmsResult,
 ];
@@ -4076,9 +3796,7 @@ export var GetAutoSnapshots: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetAutoSnapshots", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetAutoSnapshots", 200] },
   () => GetAutoSnapshotsRequest,
   () => GetAutoSnapshotsResult,
 ];
@@ -4086,9 +3804,7 @@ export var GetBlueprints: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetBlueprints", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetBlueprints", 200] },
   () => GetBlueprintsRequest,
   () => GetBlueprintsResult,
 ];
@@ -4096,9 +3812,7 @@ export var GetBucketAccessKeys: StaticOperationSchema = [
   9,
   n0,
   _GBAK,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetBucketAccessKeys", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetBucketAccessKeys", 200] },
   () => GetBucketAccessKeysRequest,
   () => GetBucketAccessKeysResult,
 ];
@@ -4106,9 +3820,7 @@ export var GetBucketBundles: StaticOperationSchema = [
   9,
   n0,
   _GBB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetBucketBundles", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetBucketBundles", 200] },
   () => GetBucketBundlesRequest,
   () => GetBucketBundlesResult,
 ];
@@ -4116,9 +3828,7 @@ export var GetBucketMetricData: StaticOperationSchema = [
   9,
   n0,
   _GBMD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetBucketMetricData", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetBucketMetricData", 200] },
   () => GetBucketMetricDataRequest,
   () => GetBucketMetricDataResult,
 ];
@@ -4126,9 +3836,7 @@ export var GetBuckets: StaticOperationSchema = [
   9,
   n0,
   _GBe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetBuckets", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetBuckets", 200] },
   () => GetBucketsRequest,
   () => GetBucketsResult,
 ];
@@ -4136,9 +3844,7 @@ export var GetBundles: StaticOperationSchema = [
   9,
   n0,
   _GBet,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetBundles", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetBundles", 200] },
   () => GetBundlesRequest,
   () => GetBundlesResult,
 ];
@@ -4146,9 +3852,7 @@ export var GetCertificates: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetCertificates", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetCertificates", 200] },
   () => GetCertificatesRequest,
   () => GetCertificatesResult,
 ];
@@ -4156,9 +3860,7 @@ export var GetCloudFormationStackRecords: StaticOperationSchema = [
   9,
   n0,
   _GCFSR,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetCloudFormationStackRecords", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetCloudFormationStackRecords", 200] },
   () => GetCloudFormationStackRecordsRequest,
   () => GetCloudFormationStackRecordsResult,
 ];
@@ -4166,9 +3868,7 @@ export var GetContactMethods: StaticOperationSchema = [
   9,
   n0,
   _GCM,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/GetContactMethods", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/GetContactMethods", 200] },
   () => GetContactMethodsRequest,
   () => GetContactMethodsResult,
 ];
@@ -4176,9 +3876,7 @@ export var GetContainerAPIMetadata: StaticOperationSchema = [
   9,
   n0,
   _GCAPIM,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/container-api-metadata", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/container-api-metadata", 200] },
   () => GetContainerAPIMetadataRequest,
   () => GetContainerAPIMetadataResult,
 ];
@@ -4186,9 +3884,7 @@ export var GetContainerImages: StaticOperationSchema = [
   9,
   n0,
   _GCI,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/images", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/images", 200] },
   () => GetContainerImagesRequest,
   () => GetContainerImagesResult,
 ];
@@ -4196,9 +3892,7 @@ export var GetContainerLog: StaticOperationSchema = [
   9,
   n0,
   _GCL,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/containers/{containerName}/log", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/containers/{containerName}/log", 200] },
   () => GetContainerLogRequest,
   () => GetContainerLogResult,
 ];
@@ -4206,9 +3900,7 @@ export var GetContainerServiceDeployments: StaticOperationSchema = [
   9,
   n0,
   _GCSD,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/deployments", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/deployments", 200] },
   () => GetContainerServiceDeploymentsRequest,
   () => GetContainerServiceDeploymentsResult,
 ];
@@ -4216,9 +3908,7 @@ export var GetContainerServiceMetricData: StaticOperationSchema = [
   9,
   n0,
   _GCSMD,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/metrics", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/container-services/{serviceName}/metrics", 200] },
   () => GetContainerServiceMetricDataRequest,
   () => GetContainerServiceMetricDataResult,
 ];
@@ -4226,9 +3916,7 @@ export var GetContainerServicePowers: StaticOperationSchema = [
   9,
   n0,
   _GCSP,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/container-service-powers", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/container-service-powers", 200] },
   () => GetContainerServicePowersRequest,
   () => GetContainerServicePowersResult,
 ];
@@ -4236,9 +3924,7 @@ export var GetContainerServices: StaticOperationSchema = [
   9,
   n0,
   _GCS,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/container-services", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/container-services", 200] },
   () => GetContainerServicesRequest,
   () => ContainerServicesListResult,
 ];
@@ -4246,9 +3932,7 @@ export var GetCostEstimate: StaticOperationSchema = [
   9,
   n0,
   _GCE,
-  {
-    [_ht]: ["POST", "/budgettracker/getCostEstimate", 200],
-  },
+  { [_ht]: ["POST", "/budgettracker/getCostEstimate", 200] },
   () => GetCostEstimateRequest,
   () => GetCostEstimateResult,
 ];
@@ -4256,9 +3940,7 @@ export var GetDisk: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDisk", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDisk", 200] },
   () => GetDiskRequest,
   () => GetDiskResult,
 ];
@@ -4266,9 +3948,7 @@ export var GetDisks: StaticOperationSchema = [
   9,
   n0,
   _GDe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDisks", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDisks", 200] },
   () => GetDisksRequest,
   () => GetDisksResult,
 ];
@@ -4276,9 +3956,7 @@ export var GetDiskSnapshot: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDiskSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDiskSnapshot", 200] },
   () => GetDiskSnapshotRequest,
   () => GetDiskSnapshotResult,
 ];
@@ -4286,9 +3964,7 @@ export var GetDiskSnapshots: StaticOperationSchema = [
   9,
   n0,
   _GDSe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDiskSnapshots", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDiskSnapshots", 200] },
   () => GetDiskSnapshotsRequest,
   () => GetDiskSnapshotsResult,
 ];
@@ -4296,9 +3972,7 @@ export var GetDistributionBundles: StaticOperationSchema = [
   9,
   n0,
   _GDB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributionBundles", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributionBundles", 200] },
   () => GetDistributionBundlesRequest,
   () => GetDistributionBundlesResult,
 ];
@@ -4306,9 +3980,7 @@ export var GetDistributionLatestCacheReset: StaticOperationSchema = [
   9,
   n0,
   _GDLCR,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributionLatestCacheReset", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributionLatestCacheReset", 200] },
   () => GetDistributionLatestCacheResetRequest,
   () => GetDistributionLatestCacheResetResult,
 ];
@@ -4316,9 +3988,7 @@ export var GetDistributionMetricData: StaticOperationSchema = [
   9,
   n0,
   _GDMD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributionMetricData", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributionMetricData", 200] },
   () => GetDistributionMetricDataRequest,
   () => GetDistributionMetricDataResult,
 ];
@@ -4326,9 +3996,7 @@ export var GetDistributions: StaticOperationSchema = [
   9,
   n0,
   _GDet,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributions", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDistributions", 200] },
   () => GetDistributionsRequest,
   () => GetDistributionsResult,
 ];
@@ -4336,9 +4004,7 @@ export var GetDomain: StaticOperationSchema = [
   9,
   n0,
   _GDeto,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDomain", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDomain", 200] },
   () => GetDomainRequest,
   () => GetDomainResult,
 ];
@@ -4346,9 +4012,7 @@ export var GetDomains: StaticOperationSchema = [
   9,
   n0,
   _GDetom,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetDomains", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetDomains", 200] },
   () => GetDomainsRequest,
   () => GetDomainsResult,
 ];
@@ -4356,9 +4020,7 @@ export var GetExportSnapshotRecords: StaticOperationSchema = [
   9,
   n0,
   _GESR,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetExportSnapshotRecords", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetExportSnapshotRecords", 200] },
   () => GetExportSnapshotRecordsRequest,
   () => GetExportSnapshotRecordsResult,
 ];
@@ -4366,9 +4028,7 @@ export var GetInstance: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstance", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstance", 200] },
   () => GetInstanceRequest,
   () => GetInstanceResult,
 ];
@@ -4376,9 +4036,7 @@ export var GetInstanceAccessDetails: StaticOperationSchema = [
   9,
   n0,
   _GIAD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceAccessDetails", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceAccessDetails", 200] },
   () => GetInstanceAccessDetailsRequest,
   () => GetInstanceAccessDetailsResult,
 ];
@@ -4386,9 +4044,7 @@ export var GetInstanceMetricData: StaticOperationSchema = [
   9,
   n0,
   _GIMD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceMetricData", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceMetricData", 200] },
   () => GetInstanceMetricDataRequest,
   () => GetInstanceMetricDataResult,
 ];
@@ -4396,9 +4052,7 @@ export var GetInstancePortStates: StaticOperationSchema = [
   9,
   n0,
   _GIPS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstancePortStates", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstancePortStates", 200] },
   () => GetInstancePortStatesRequest,
   () => GetInstancePortStatesResult,
 ];
@@ -4406,9 +4060,7 @@ export var GetInstances: StaticOperationSchema = [
   9,
   n0,
   _GIe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstances", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstances", 200] },
   () => GetInstancesRequest,
   () => GetInstancesResult,
 ];
@@ -4416,9 +4068,7 @@ export var GetInstanceSnapshot: StaticOperationSchema = [
   9,
   n0,
   _GIS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceSnapshot", 200] },
   () => GetInstanceSnapshotRequest,
   () => GetInstanceSnapshotResult,
 ];
@@ -4426,9 +4076,7 @@ export var GetInstanceSnapshots: StaticOperationSchema = [
   9,
   n0,
   _GISe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceSnapshots", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceSnapshots", 200] },
   () => GetInstanceSnapshotsRequest,
   () => GetInstanceSnapshotsResult,
 ];
@@ -4436,9 +4084,7 @@ export var GetInstanceState: StaticOperationSchema = [
   9,
   n0,
   _GISet,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceState", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetInstanceState", 200] },
   () => GetInstanceStateRequest,
   () => GetInstanceStateResult,
 ];
@@ -4446,9 +4092,7 @@ export var GetKeyPair: StaticOperationSchema = [
   9,
   n0,
   _GKP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetKeyPair", 200] },
   () => GetKeyPairRequest,
   () => GetKeyPairResult,
 ];
@@ -4456,9 +4100,7 @@ export var GetKeyPairs: StaticOperationSchema = [
   9,
   n0,
   _GKPe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetKeyPairs", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetKeyPairs", 200] },
   () => GetKeyPairsRequest,
   () => GetKeyPairsResult,
 ];
@@ -4466,9 +4108,7 @@ export var GetLoadBalancer: StaticOperationSchema = [
   9,
   n0,
   _GLB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancer", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancer", 200] },
   () => GetLoadBalancerRequest,
   () => GetLoadBalancerResult,
 ];
@@ -4476,9 +4116,7 @@ export var GetLoadBalancerMetricData: StaticOperationSchema = [
   9,
   n0,
   _GLBMD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancerMetricData", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancerMetricData", 200] },
   () => GetLoadBalancerMetricDataRequest,
   () => GetLoadBalancerMetricDataResult,
 ];
@@ -4486,9 +4124,7 @@ export var GetLoadBalancers: StaticOperationSchema = [
   9,
   n0,
   _GLBe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancers", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancers", 200] },
   () => GetLoadBalancersRequest,
   () => GetLoadBalancersResult,
 ];
@@ -4496,9 +4132,7 @@ export var GetLoadBalancerTlsCertificates: StaticOperationSchema = [
   9,
   n0,
   _GLBTC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancerTlsCertificates", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancerTlsCertificates", 200] },
   () => GetLoadBalancerTlsCertificatesRequest,
   () => GetLoadBalancerTlsCertificatesResult,
 ];
@@ -4506,9 +4140,7 @@ export var GetLoadBalancerTlsPolicies: StaticOperationSchema = [
   9,
   n0,
   _GLBTP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancerTlsPolicies", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetLoadBalancerTlsPolicies", 200] },
   () => GetLoadBalancerTlsPoliciesRequest,
   () => GetLoadBalancerTlsPoliciesResult,
 ];
@@ -4516,9 +4148,7 @@ export var GetOperation: StaticOperationSchema = [
   9,
   n0,
   _GO,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetOperation", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetOperation", 200] },
   () => GetOperationRequest,
   () => GetOperationResult,
 ];
@@ -4526,9 +4156,7 @@ export var GetOperations: StaticOperationSchema = [
   9,
   n0,
   _GOe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetOperations", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetOperations", 200] },
   () => GetOperationsRequest,
   () => GetOperationsResult,
 ];
@@ -4536,9 +4164,7 @@ export var GetOperationsForResource: StaticOperationSchema = [
   9,
   n0,
   _GOFR,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetOperationsForResource", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetOperationsForResource", 200] },
   () => GetOperationsForResourceRequest,
   () => GetOperationsForResourceResult,
 ];
@@ -4546,9 +4172,7 @@ export var GetRegions: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRegions", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRegions", 200] },
   () => GetRegionsRequest,
   () => GetRegionsResult,
 ];
@@ -4556,9 +4180,7 @@ export var GetRelationalDatabase: StaticOperationSchema = [
   9,
   n0,
   _GRD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabase", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabase", 200] },
   () => GetRelationalDatabaseRequest,
   () => GetRelationalDatabaseResult,
 ];
@@ -4566,9 +4188,7 @@ export var GetRelationalDatabaseBlueprints: StaticOperationSchema = [
   9,
   n0,
   _GRDB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseBlueprints", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseBlueprints", 200] },
   () => GetRelationalDatabaseBlueprintsRequest,
   () => GetRelationalDatabaseBlueprintsResult,
 ];
@@ -4576,9 +4196,7 @@ export var GetRelationalDatabaseBundles: StaticOperationSchema = [
   9,
   n0,
   _GRDBe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseBundles", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseBundles", 200] },
   () => GetRelationalDatabaseBundlesRequest,
   () => GetRelationalDatabaseBundlesResult,
 ];
@@ -4586,9 +4204,7 @@ export var GetRelationalDatabaseEvents: StaticOperationSchema = [
   9,
   n0,
   _GRDE,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseEvents", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseEvents", 200] },
   () => GetRelationalDatabaseEventsRequest,
   () => GetRelationalDatabaseEventsResult,
 ];
@@ -4596,9 +4212,7 @@ export var GetRelationalDatabaseLogEvents: StaticOperationSchema = [
   9,
   n0,
   _GRDLE,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseLogEvents", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseLogEvents", 200] },
   () => GetRelationalDatabaseLogEventsRequest,
   () => GetRelationalDatabaseLogEventsResult,
 ];
@@ -4606,9 +4220,7 @@ export var GetRelationalDatabaseLogStreams: StaticOperationSchema = [
   9,
   n0,
   _GRDLS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseLogStreams", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseLogStreams", 200] },
   () => GetRelationalDatabaseLogStreamsRequest,
   () => GetRelationalDatabaseLogStreamsResult,
 ];
@@ -4616,9 +4228,7 @@ export var GetRelationalDatabaseMasterUserPassword: StaticOperationSchema = [
   9,
   n0,
   _GRDMUP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseMasterUserPassword", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseMasterUserPassword", 200] },
   () => GetRelationalDatabaseMasterUserPasswordRequest,
   () => GetRelationalDatabaseMasterUserPasswordResult,
 ];
@@ -4626,9 +4236,7 @@ export var GetRelationalDatabaseMetricData: StaticOperationSchema = [
   9,
   n0,
   _GRDMD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseMetricData", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseMetricData", 200] },
   () => GetRelationalDatabaseMetricDataRequest,
   () => GetRelationalDatabaseMetricDataResult,
 ];
@@ -4636,9 +4244,7 @@ export var GetRelationalDatabaseParameters: StaticOperationSchema = [
   9,
   n0,
   _GRDP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseParameters", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseParameters", 200] },
   () => GetRelationalDatabaseParametersRequest,
   () => GetRelationalDatabaseParametersResult,
 ];
@@ -4646,9 +4252,7 @@ export var GetRelationalDatabases: StaticOperationSchema = [
   9,
   n0,
   _GRDe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabases", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabases", 200] },
   () => GetRelationalDatabasesRequest,
   () => GetRelationalDatabasesResult,
 ];
@@ -4656,9 +4260,7 @@ export var GetRelationalDatabaseSnapshot: StaticOperationSchema = [
   9,
   n0,
   _GRDS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseSnapshot", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseSnapshot", 200] },
   () => GetRelationalDatabaseSnapshotRequest,
   () => GetRelationalDatabaseSnapshotResult,
 ];
@@ -4666,9 +4268,7 @@ export var GetRelationalDatabaseSnapshots: StaticOperationSchema = [
   9,
   n0,
   _GRDSe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseSnapshots", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetRelationalDatabaseSnapshots", 200] },
   () => GetRelationalDatabaseSnapshotsRequest,
   () => GetRelationalDatabaseSnapshotsResult,
 ];
@@ -4676,9 +4276,7 @@ export var GetSetupHistory: StaticOperationSchema = [
   9,
   n0,
   _GSH,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/get-setup-history", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/get-setup-history", 200] },
   () => GetSetupHistoryRequest,
   () => GetSetupHistoryResult,
 ];
@@ -4686,9 +4284,7 @@ export var GetStaticIp: StaticOperationSchema = [
   9,
   n0,
   _GSI,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetStaticIp", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetStaticIp", 200] },
   () => GetStaticIpRequest,
   () => GetStaticIpResult,
 ];
@@ -4696,9 +4292,7 @@ export var GetStaticIps: StaticOperationSchema = [
   9,
   n0,
   _GSIe,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/GetStaticIps", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/GetStaticIps", 200] },
   () => GetStaticIpsRequest,
   () => GetStaticIpsResult,
 ];
@@ -4706,9 +4300,7 @@ export var ImportKeyPair: StaticOperationSchema = [
   9,
   n0,
   _IKP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/ImportKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/ImportKeyPair", 200] },
   () => ImportKeyPairRequest,
   () => ImportKeyPairResult,
 ];
@@ -4716,9 +4308,7 @@ export var IsVpcPeered: StaticOperationSchema = [
   9,
   n0,
   _IVP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/IsVpcPeered", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/IsVpcPeered", 200] },
   () => IsVpcPeeredRequest,
   () => IsVpcPeeredResult,
 ];
@@ -4726,9 +4316,7 @@ export var OpenInstancePublicPorts: StaticOperationSchema = [
   9,
   n0,
   _OIPP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/OpenInstancePublicPorts", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/OpenInstancePublicPorts", 200] },
   () => OpenInstancePublicPortsRequest,
   () => OpenInstancePublicPortsResult,
 ];
@@ -4736,9 +4324,7 @@ export var PeerVpc: StaticOperationSchema = [
   9,
   n0,
   _PV,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/PeerVpc", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/PeerVpc", 200] },
   () => PeerVpcRequest,
   () => PeerVpcResult,
 ];
@@ -4746,9 +4332,7 @@ export var PutAlarm: StaticOperationSchema = [
   9,
   n0,
   _PA,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/PutAlarm", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/PutAlarm", 200] },
   () => PutAlarmRequest,
   () => PutAlarmResult,
 ];
@@ -4756,9 +4340,7 @@ export var PutInstancePublicPorts: StaticOperationSchema = [
   9,
   n0,
   _PIPP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/PutInstancePublicPorts", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/PutInstancePublicPorts", 200] },
   () => PutInstancePublicPortsRequest,
   () => PutInstancePublicPortsResult,
 ];
@@ -4766,9 +4348,7 @@ export var RebootInstance: StaticOperationSchema = [
   9,
   n0,
   _RI,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/RebootInstance", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/RebootInstance", 200] },
   () => RebootInstanceRequest,
   () => RebootInstanceResult,
 ];
@@ -4776,9 +4356,7 @@ export var RebootRelationalDatabase: StaticOperationSchema = [
   9,
   n0,
   _RRD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/RebootRelationalDatabase", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/RebootRelationalDatabase", 200] },
   () => RebootRelationalDatabaseRequest,
   () => RebootRelationalDatabaseResult,
 ];
@@ -4786,9 +4364,7 @@ export var RegisterContainerImage: StaticOperationSchema = [
   9,
   n0,
   _RCI,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/container-services/{serviceName}/images", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/container-services/{serviceName}/images", 200] },
   () => RegisterContainerImageRequest,
   () => RegisterContainerImageResult,
 ];
@@ -4796,9 +4372,7 @@ export var ReleaseStaticIp: StaticOperationSchema = [
   9,
   n0,
   _RSI,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/ReleaseStaticIp", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/ReleaseStaticIp", 200] },
   () => ReleaseStaticIpRequest,
   () => ReleaseStaticIpResult,
 ];
@@ -4806,9 +4380,7 @@ export var ResetDistributionCache: StaticOperationSchema = [
   9,
   n0,
   _RDC,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/ResetDistributionCache", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/ResetDistributionCache", 200] },
   () => ResetDistributionCacheRequest,
   () => ResetDistributionCacheResult,
 ];
@@ -4816,9 +4388,7 @@ export var SendContactMethodVerification: StaticOperationSchema = [
   9,
   n0,
   _SCMV,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/SendContactMethodVerification", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/SendContactMethodVerification", 200] },
   () => SendContactMethodVerificationRequest,
   () => SendContactMethodVerificationResult,
 ];
@@ -4826,9 +4396,7 @@ export var SetIpAddressType: StaticOperationSchema = [
   9,
   n0,
   _SIAT,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/SetIpAddressType", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/SetIpAddressType", 200] },
   () => SetIpAddressTypeRequest,
   () => SetIpAddressTypeResult,
 ];
@@ -4836,9 +4404,7 @@ export var SetResourceAccessForBucket: StaticOperationSchema = [
   9,
   n0,
   _SRAFB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/SetResourceAccessForBucket", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/SetResourceAccessForBucket", 200] },
   () => SetResourceAccessForBucketRequest,
   () => SetResourceAccessForBucketResult,
 ];
@@ -4846,9 +4412,7 @@ export var SetupInstanceHttps: StaticOperationSchema = [
   9,
   n0,
   _SIH,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/setup-instance-https", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/setup-instance-https", 200] },
   () => SetupInstanceHttpsRequest,
   () => SetupInstanceHttpsResult,
 ];
@@ -4856,9 +4420,7 @@ export var StartGUISession: StaticOperationSchema = [
   9,
   n0,
   _SGUIS,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/start-gui-session", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/start-gui-session", 200] },
   () => StartGUISessionRequest,
   () => StartGUISessionResult,
 ];
@@ -4866,9 +4428,7 @@ export var StartInstance: StaticOperationSchema = [
   9,
   n0,
   _SIt,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/StartInstance", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/StartInstance", 200] },
   () => StartInstanceRequest,
   () => StartInstanceResult,
 ];
@@ -4876,9 +4436,7 @@ export var StartRelationalDatabase: StaticOperationSchema = [
   9,
   n0,
   _SRD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/StartRelationalDatabase", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/StartRelationalDatabase", 200] },
   () => StartRelationalDatabaseRequest,
   () => StartRelationalDatabaseResult,
 ];
@@ -4886,9 +4444,7 @@ export var StopGUISession: StaticOperationSchema = [
   9,
   n0,
   _SGUISt,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/stop-gui-session", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/stop-gui-session", 200] },
   () => StopGUISessionRequest,
   () => StopGUISessionResult,
 ];
@@ -4896,9 +4452,7 @@ export var StopInstance: StaticOperationSchema = [
   9,
   n0,
   _SIto,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/StopInstance", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/StopInstance", 200] },
   () => StopInstanceRequest,
   () => StopInstanceResult,
 ];
@@ -4906,9 +4460,7 @@ export var StopRelationalDatabase: StaticOperationSchema = [
   9,
   n0,
   _SRDt,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/StopRelationalDatabase", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/StopRelationalDatabase", 200] },
   () => StopRelationalDatabaseRequest,
   () => StopRelationalDatabaseResult,
 ];
@@ -4916,9 +4468,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/TagResource", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/TagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResult,
 ];
@@ -4926,9 +4476,7 @@ export var TestAlarm: StaticOperationSchema = [
   9,
   n0,
   _TA,
-  {
-    [_ht]: ["GET", "/ls/api/2016-11-28/TestAlarm/{alarmName}", 200],
-  },
+  { [_ht]: ["GET", "/ls/api/2016-11-28/TestAlarm/{alarmName}", 200] },
   () => TestAlarmRequest,
   () => TestAlarmResult,
 ];
@@ -4936,9 +4484,7 @@ export var UnpeerVpc: StaticOperationSchema = [
   9,
   n0,
   _UV,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UnpeerVpc", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UnpeerVpc", 200] },
   () => UnpeerVpcRequest,
   () => UnpeerVpcResult,
 ];
@@ -4946,9 +4492,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UntagResource", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResult,
 ];
@@ -4956,9 +4500,7 @@ export var UpdateBucket: StaticOperationSchema = [
   9,
   n0,
   _UB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateBucket", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateBucket", 200] },
   () => UpdateBucketRequest,
   () => UpdateBucketResult,
 ];
@@ -4966,9 +4508,7 @@ export var UpdateBucketBundle: StaticOperationSchema = [
   9,
   n0,
   _UBB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateBucketBundle", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateBucketBundle", 200] },
   () => UpdateBucketBundleRequest,
   () => UpdateBucketBundleResult,
 ];
@@ -4976,9 +4516,7 @@ export var UpdateContainerService: StaticOperationSchema = [
   9,
   n0,
   _UCS,
-  {
-    [_ht]: ["PATCH", "/ls/api/2016-11-28/container-services/{serviceName}", 200],
-  },
+  { [_ht]: ["PATCH", "/ls/api/2016-11-28/container-services/{serviceName}", 200] },
   () => UpdateContainerServiceRequest,
   () => UpdateContainerServiceResult,
 ];
@@ -4986,9 +4524,7 @@ export var UpdateDistribution: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateDistribution", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateDistribution", 200] },
   () => UpdateDistributionRequest,
   () => UpdateDistributionResult,
 ];
@@ -4996,9 +4532,7 @@ export var UpdateDistributionBundle: StaticOperationSchema = [
   9,
   n0,
   _UDB,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateDistributionBundle", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateDistributionBundle", 200] },
   () => UpdateDistributionBundleRequest,
   () => UpdateDistributionBundleResult,
 ];
@@ -5006,9 +4540,7 @@ export var UpdateDomainEntry: StaticOperationSchema = [
   9,
   n0,
   _UDE,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateDomainEntry", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateDomainEntry", 200] },
   () => UpdateDomainEntryRequest,
   () => UpdateDomainEntryResult,
 ];
@@ -5016,9 +4548,7 @@ export var UpdateInstanceMetadataOptions: StaticOperationSchema = [
   9,
   n0,
   _UIMO,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateInstanceMetadataOptions", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateInstanceMetadataOptions", 200] },
   () => UpdateInstanceMetadataOptionsRequest,
   () => UpdateInstanceMetadataOptionsResult,
 ];
@@ -5026,9 +4556,7 @@ export var UpdateLoadBalancerAttribute: StaticOperationSchema = [
   9,
   n0,
   _ULBA,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateLoadBalancerAttribute", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateLoadBalancerAttribute", 200] },
   () => UpdateLoadBalancerAttributeRequest,
   () => UpdateLoadBalancerAttributeResult,
 ];
@@ -5036,9 +4564,7 @@ export var UpdateRelationalDatabase: StaticOperationSchema = [
   9,
   n0,
   _URD,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateRelationalDatabase", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateRelationalDatabase", 200] },
   () => UpdateRelationalDatabaseRequest,
   () => UpdateRelationalDatabaseResult,
 ];
@@ -5046,9 +4572,7 @@ export var UpdateRelationalDatabaseParameters: StaticOperationSchema = [
   9,
   n0,
   _URDP,
-  {
-    [_ht]: ["POST", "/ls/api/2016-11-28/UpdateRelationalDatabaseParameters", 200],
-  },
+  { [_ht]: ["POST", "/ls/api/2016-11-28/UpdateRelationalDatabaseParameters", 200] },
   () => UpdateRelationalDatabaseParametersRequest,
   () => UpdateRelationalDatabaseParametersResult,
 ];

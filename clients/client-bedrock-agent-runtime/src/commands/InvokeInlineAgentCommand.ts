@@ -9,12 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { InvokeInlineAgentResponse } from "../models/models_0";
-import { InvokeInlineAgentRequest } from "../models/models_1";
-=======
-import type { InvokeInlineAgentRequest, InvokeInlineAgentResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { InvokeInlineAgentResponse } from "../models/models_0";
+import type { InvokeInlineAgentRequest } from "../models/models_1";
 import { InvokeInlineAgent } from "../schemas/schemas_0";
 
 /**

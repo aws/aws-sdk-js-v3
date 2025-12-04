@@ -16,7 +16,9 @@ export const getRuntimeConfig = (config: SageMakerRuntimeHTTP2ClientConfig) => {
     runtime: "react-native",
     eventStreamPayloadHandlerProvider:
       config?.eventStreamPayloadHandlerProvider ??
-      (() => ({ handle: invalidFunction("event stream request is not supported in ReactNative.") })),
+      (() => ({
+        handle: invalidFunction("event stream request is not supported in ReactNative."),
+      })),
     sha256: config?.sha256 ?? Sha256,
   };
 };

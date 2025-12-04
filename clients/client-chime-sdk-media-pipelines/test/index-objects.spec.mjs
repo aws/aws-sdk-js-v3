@@ -86,40 +86,40 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ChimeSDKMediaPipelinesClient === "function")
-assert(typeof ChimeSDKMediaPipelines === "function")
+assert(typeof ChimeSDKMediaPipelinesClient === "function");
+assert(typeof ChimeSDKMediaPipelines === "function");
 // commands
-assert(typeof CreateMediaCapturePipelineCommand === "function")
-assert(typeof CreateMediaConcatenationPipelineCommand === "function")
-assert(typeof CreateMediaInsightsPipelineCommand === "function")
-assert(typeof CreateMediaInsightsPipelineConfigurationCommand === "function")
-assert(typeof CreateMediaLiveConnectorPipelineCommand === "function")
-assert(typeof CreateMediaPipelineKinesisVideoStreamPoolCommand === "function")
-assert(typeof CreateMediaStreamPipelineCommand === "function")
-assert(typeof DeleteMediaCapturePipelineCommand === "function")
-assert(typeof DeleteMediaInsightsPipelineConfigurationCommand === "function")
-assert(typeof DeleteMediaPipelineCommand === "function")
-assert(typeof DeleteMediaPipelineKinesisVideoStreamPoolCommand === "function")
-assert(typeof GetMediaCapturePipelineCommand === "function")
-assert(typeof GetMediaInsightsPipelineConfigurationCommand === "function")
-assert(typeof GetMediaPipelineCommand === "function")
-assert(typeof GetMediaPipelineKinesisVideoStreamPoolCommand === "function")
-assert(typeof GetSpeakerSearchTaskCommand === "function")
-assert(typeof GetVoiceToneAnalysisTaskCommand === "function")
-assert(typeof ListMediaCapturePipelinesCommand === "function")
-assert(typeof ListMediaInsightsPipelineConfigurationsCommand === "function")
-assert(typeof ListMediaPipelineKinesisVideoStreamPoolsCommand === "function")
-assert(typeof ListMediaPipelinesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof StartSpeakerSearchTaskCommand === "function")
-assert(typeof StartVoiceToneAnalysisTaskCommand === "function")
-assert(typeof StopSpeakerSearchTaskCommand === "function")
-assert(typeof StopVoiceToneAnalysisTaskCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateMediaInsightsPipelineConfigurationCommand === "function")
-assert(typeof UpdateMediaInsightsPipelineStatusCommand === "function")
-assert(typeof UpdateMediaPipelineKinesisVideoStreamPoolCommand === "function")
+assert(typeof CreateMediaCapturePipelineCommand === "function");
+assert(typeof CreateMediaConcatenationPipelineCommand === "function");
+assert(typeof CreateMediaInsightsPipelineCommand === "function");
+assert(typeof CreateMediaInsightsPipelineConfigurationCommand === "function");
+assert(typeof CreateMediaLiveConnectorPipelineCommand === "function");
+assert(typeof CreateMediaPipelineKinesisVideoStreamPoolCommand === "function");
+assert(typeof CreateMediaStreamPipelineCommand === "function");
+assert(typeof DeleteMediaCapturePipelineCommand === "function");
+assert(typeof DeleteMediaInsightsPipelineConfigurationCommand === "function");
+assert(typeof DeleteMediaPipelineCommand === "function");
+assert(typeof DeleteMediaPipelineKinesisVideoStreamPoolCommand === "function");
+assert(typeof GetMediaCapturePipelineCommand === "function");
+assert(typeof GetMediaInsightsPipelineConfigurationCommand === "function");
+assert(typeof GetMediaPipelineCommand === "function");
+assert(typeof GetMediaPipelineKinesisVideoStreamPoolCommand === "function");
+assert(typeof GetSpeakerSearchTaskCommand === "function");
+assert(typeof GetVoiceToneAnalysisTaskCommand === "function");
+assert(typeof ListMediaCapturePipelinesCommand === "function");
+assert(typeof ListMediaInsightsPipelineConfigurationsCommand === "function");
+assert(typeof ListMediaPipelineKinesisVideoStreamPoolsCommand === "function");
+assert(typeof ListMediaPipelinesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof StartSpeakerSearchTaskCommand === "function");
+assert(typeof StartVoiceToneAnalysisTaskCommand === "function");
+assert(typeof StopSpeakerSearchTaskCommand === "function");
+assert(typeof StopVoiceToneAnalysisTaskCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateMediaInsightsPipelineConfigurationCommand === "function");
+assert(typeof UpdateMediaInsightsPipelineStatusCommand === "function");
+assert(typeof UpdateMediaPipelineKinesisVideoStreamPoolCommand === "function");
 // enums
 assert(typeof ActiveSpeakerPosition === "object");
 assert(typeof ArtifactsConcatenationState === "object");
@@ -168,10 +168,10 @@ assert(typeof VocabularyFilterMethod === "object");
 assert(typeof VoiceAnalyticsConfigurationStatus === "object");
 assert(typeof VoiceAnalyticsLanguageCode === "object");
 // errors
-assert(ChimeSDKMediaPipelinesServiceException.prototype instanceof Error)
+assert(ChimeSDKMediaPipelinesServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListMediaCapturePipelines === "function")
-assert(typeof paginateListMediaInsightsPipelineConfigurations === "function")
-assert(typeof paginateListMediaPipelineKinesisVideoStreamPools === "function")
-assert(typeof paginateListMediaPipelines === "function")
+assert(typeof paginateListMediaCapturePipelines === "function");
+assert(typeof paginateListMediaInsightsPipelineConfigurations === "function");
+assert(typeof paginateListMediaPipelineKinesisVideoStreamPools === "function");
+assert(typeof paginateListMediaPipelines === "function");
 console.log(`ChimeSDKMediaPipelines index test passed.`);

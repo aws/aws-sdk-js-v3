@@ -8,12 +8,12 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof SageMakerRuntimeHTTP2Client === "function")
-assert(typeof SageMakerRuntimeHTTP2 === "function")
+assert(typeof SageMakerRuntimeHTTP2Client === "function");
+assert(typeof SageMakerRuntimeHTTP2 === "function");
 // commands
-assert(typeof InvokeEndpointWithBidirectionalStreamCommand === "function")
+assert(typeof InvokeEndpointWithBidirectionalStreamCommand === "function");
 // errors
-assert(InternalStreamFailure.prototype instanceof SageMakerRuntimeHTTP2ServiceException)
-assert(ModelStreamError.prototype instanceof SageMakerRuntimeHTTP2ServiceException)
-assert(SageMakerRuntimeHTTP2ServiceException.prototype instanceof Error)
+assert(InternalStreamFailure.prototype instanceof SageMakerRuntimeHTTP2ServiceException);
+assert(ModelStreamError.prototype instanceof SageMakerRuntimeHTTP2ServiceException);
+assert(SageMakerRuntimeHTTP2ServiceException.prototype instanceof Error);
 console.log(`SageMakerRuntimeHTTP2 index test passed.`);

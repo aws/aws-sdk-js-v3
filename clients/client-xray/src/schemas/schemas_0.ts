@@ -441,7 +441,6 @@ import {
 import { XRayServiceException as __XRayServiceException } from "../models/XRayServiceException";
 
 /* eslint no-var: 0 */
-
 export var Alias: StaticStructureSchema = [3, n0, _A, 0, [_N, _Na, _T], [0, 64 | 0, 0]];
 export var AnomalousService: StaticStructureSchema = [3, n0, _AS, 0, [_SI], [() => ServiceId]];
 export var AvailabilityZoneDetail: StaticStructureSchema = [3, n0, _AZD, 0, [_N], [0]];
@@ -756,31 +755,10 @@ export var InsightSummary: StaticStructureSchema = [
   ],
 ];
 export var InstanceIdDetail: StaticStructureSchema = [3, n0, _IID, 0, [_Id], [0]];
-export var InvalidPolicyRevisionIdException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPRIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidPolicyRevisionIdException: StaticErrorSchema = [-3, n0, _IPRIE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidPolicyRevisionIdException, __InvalidPolicyRevisionIdException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListResourcePoliciesRequest: StaticStructureSchema = [3, n0, _LRPR, 0, [_NT], [0]];
 export var ListResourcePoliciesResult: StaticStructureSchema = [
   3,
@@ -801,58 +779,14 @@ export var ListRetrievedTracesResult: StaticStructureSchema = [
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARNe, _NT], [0, 0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta, _NT], [() => TagList, 0]];
-export var LockoutPreventionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var LockoutPreventionException: StaticErrorSchema = [-3, n0, _LPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LockoutPreventionException, __LockoutPreventionException);
-
-export var MalformedPolicyDocumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var MalformedPolicyDocumentException: StaticErrorSchema = [-3, n0, _MPDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException, __MalformedPolicyDocumentException);
-
-export var PolicyCountLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PCLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var PolicyCountLimitExceededException: StaticErrorSchema = [-3, n0, _PCLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyCountLimitExceededException, __PolicyCountLimitExceededException);
-
-export var PolicySizeLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var PolicySizeLimitExceededException: StaticErrorSchema = [-3, n0, _PSLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicySizeLimitExceededException, __PolicySizeLimitExceededException);
-
 export var ProbabilisticRuleValue: StaticStructureSchema = [3, n0, _PRV, 0, [_DSP, _ASP], [1, 1]];
 export var ProbabilisticRuleValueUpdate: StaticStructureSchema = [3, n0, _PRVU, 0, [_DSP], [1]];
 export var PutEncryptionConfigRequest: StaticStructureSchema = [3, n0, _PECR, 0, [_KI, _T], [0, 0]];
@@ -879,19 +813,8 @@ export var PutTraceSegmentsResult: StaticStructureSchema = [
 ];
 export var RequestImpactStatistics: StaticStructureSchema = [3, n0, _RIS, 0, [_FC, _OCk, _TCo], [1, 1, 1]];
 export var ResourceARNDetail: StaticStructureSchema = [3, n0, _RARND, 0, [_ARN], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RNe],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RNe], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePolicy: StaticStructureSchema = [3, n0, _RPe, 0, [_PN, _PD, _PRI, _LUTa], [0, 0, 0, 4]];
 export var ResponseTimeRootCause: StaticStructureSchema = [
   3,
@@ -913,18 +836,8 @@ export var ResponseTimeRootCauseService: StaticStructureSchema = [
 export var RetrievedService: StaticStructureSchema = [3, n0, _RSe, 0, [_Ser, _L], [() => Service, () => LinksList]];
 export var RetrievedTrace: StaticStructureSchema = [3, n0, _RTet, 0, [_Id, _Du, _Sp], [0, 1, () => SpanList]];
 export var RootCauseException: StaticStructureSchema = [3, n0, _RCE, 0, [_N, _M], [0, 0]];
-export var RuleLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var RuleLimitExceededException: StaticErrorSchema = [-3, n0, _RLEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(RuleLimitExceededException, __RuleLimitExceededException);
-
 export var SamplingBoost: StaticStructureSchema = [3, n0, _SB, 0, [_BR, _BRTTL], [1, 4]];
 export var SamplingBoostStatisticsDocument: StaticStructureSchema = [
   3,
@@ -1009,19 +922,8 @@ export var TelemetryRecord: StaticStructureSchema = [
   [_Ti, _SRC, _SSC, _SSCe, _SRCe, _BCE],
   [4, 1, 1, 1, 1, () => BackendConnectionErrors],
 ];
-export var ThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottledException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
-
 export var TimeSeriesServiceStatistics: StaticStructureSchema = [
   3,
   n0,
@@ -1030,19 +932,8 @@ export var TimeSeriesServiceStatistics: StaticStructureSchema = [
   [_Ti, _ESS, _SSSe, _SFS, _RTH],
   [4, () => EdgeStatistics, () => ServiceStatistics, () => ForecastStatistics, () => Histogram],
 ];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RNe],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RNe], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var Trace: StaticStructureSchema = [3, n0, _Tra, 0, [_Id, _Du, _LE, _Segm], [0, 1, 2, () => SegmentList]];
 export var TraceSummary: StaticStructureSchema = [
   3,
@@ -1132,13 +1023,10 @@ export var ValueWithServiceIds: StaticStructureSchema = [
   [() => AnnotationValue, () => ServiceIds],
 ];
 export var __Unit = "unit" as const;
-
 export var XRayServiceException: StaticErrorSchema = [-3, _s, "XRayServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(XRayServiceException, __XRayServiceException);
-
 export var AliasList: StaticListSchema = [1, n0, _AL, 0, () => Alias];
 export var AliasNames = 64 | 0;
-
 export var AnomalousServiceList: StaticListSchema = [1, n0, _ASL, 0, () => AnomalousService];
 export var EdgeList: StaticListSchema = [1, n0, _EL, 0, () => Edge];
 export var ErrorRootCauseEntityPath: StaticListSchema = [1, n0, _ERCEP, 0, () => ErrorRootCauseEntity];
@@ -1151,12 +1039,10 @@ export var GroupSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GroupSumm
 export var Histogram: StaticListSchema = [1, n0, _Hi, 0, () => HistogramEntry];
 export var IndexingRuleList: StaticListSchema = [1, n0, _IRL, 0, () => IndexingRule];
 export var InsightCategoryList = 64 | 0;
-
 export var InsightEventList: StaticListSchema = [1, n0, _IEL, 0, () => InsightEvent];
 export var InsightImpactGraphEdgeList: StaticListSchema = [1, n0, _IIGEL, 0, () => InsightImpactGraphEdge];
 export var InsightImpactGraphServiceList: StaticListSchema = [1, n0, _IIGSL, 0, () => InsightImpactGraphService];
 export var InsightStateList = 64 | 0;
-
 export var InsightSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => InsightSummary];
 export var LinksList: StaticListSchema = [1, n0, _LL, 0, () => GraphLink];
 export var ResourcePolicyList: StaticListSchema = [1, n0, _RPL, 0, () => ResourcePolicy];
@@ -1180,34 +1066,27 @@ export var SegmentList: StaticListSchema = [1, n0, _SL, 0, () => Segment];
 export var ServiceIds: StaticListSchema = [1, n0, _SIe, 0, () => ServiceId];
 export var ServiceList: StaticListSchema = [1, n0, _SLe, 0, () => Service];
 export var ServiceNames = 64 | 0;
-
 export var SpanList: StaticListSchema = [1, n0, _SLp, 0, () => Span];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TelemetryRecordList: StaticListSchema = [1, n0, _TRL, 0, () => TelemetryRecord];
 export var TimeSeriesServiceStatisticsList: StaticListSchema = [1, n0, _TSSSL, 0, () => TimeSeriesServiceStatistics];
 export var TraceAvailabilityZones: StaticListSchema = [1, n0, _TAZ, 0, () => AvailabilityZoneDetail];
 export var TraceIdList = 64 | 0;
-
 export var TraceIdListForRetrieval = 64 | 0;
-
 export var TraceInstanceIds: StaticListSchema = [1, n0, _TII, 0, () => InstanceIdDetail];
 export var TraceList: StaticListSchema = [1, n0, _TLr, 0, () => Trace];
 export var TraceResourceARNs: StaticListSchema = [1, n0, _TRARN, 0, () => ResourceARNDetail];
 export var TraceSegmentDocumentList = 64 | 0;
-
 export var TraceSpanList: StaticListSchema = [1, n0, _TSL, 0, () => RetrievedTrace];
 export var TraceSummaryList: StaticListSchema = [1, n0, _TSLr, 0, () => TraceSummary];
 export var TraceUsers: StaticListSchema = [1, n0, _TUr, 0, () => TraceUser];
 export var UnprocessedStatisticsList: StaticListSchema = [1, n0, _USL, 0, () => UnprocessedStatistics];
 export var UnprocessedTraceIdList = 64 | 0;
-
 export var UnprocessedTraceSegmentList: StaticListSchema = [1, n0, _UTSL, 0, () => UnprocessedTraceSegment];
 export var ValuesWithServiceIds: StaticListSchema = [1, n0, _VWSIa, 0, () => ValueWithServiceIds];
 export var Annotations: StaticMapSchema = [2, n0, _An, 0, 0, () => ValuesWithServiceIds];
 export var AttributeMap = 128 | 0;
-
 export var AnnotationValue: StaticStructureSchema = [3, n0, _AV, 0, [_NV, _BV, _SV], [1, 2, 0]];
 export var IndexingRuleValue: StaticStructureSchema = [3, n0, _IRV, 0, [_Pro], [() => ProbabilisticRuleValue]];
 export var IndexingRuleValueUpdate: StaticStructureSchema = [
@@ -1222,9 +1101,7 @@ export var BatchGetTraces: StaticOperationSchema = [
   9,
   n0,
   _BGT,
-  {
-    [_h]: ["POST", "/Traces", 200],
-  },
+  { [_h]: ["POST", "/Traces", 200] },
   () => BatchGetTracesRequest,
   () => BatchGetTracesResult,
 ];
@@ -1232,9 +1109,7 @@ export var CancelTraceRetrieval: StaticOperationSchema = [
   9,
   n0,
   _CTR,
-  {
-    [_h]: ["POST", "/CancelTraceRetrieval", 200],
-  },
+  { [_h]: ["POST", "/CancelTraceRetrieval", 200] },
   () => CancelTraceRetrievalRequest,
   () => CancelTraceRetrievalResult,
 ];
@@ -1242,9 +1117,7 @@ export var CreateGroup: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  {
-    [_h]: ["POST", "/CreateGroup", 200],
-  },
+  { [_h]: ["POST", "/CreateGroup", 200] },
   () => CreateGroupRequest,
   () => CreateGroupResult,
 ];
@@ -1252,9 +1125,7 @@ export var CreateSamplingRule: StaticOperationSchema = [
   9,
   n0,
   _CSR,
-  {
-    [_h]: ["POST", "/CreateSamplingRule", 200],
-  },
+  { [_h]: ["POST", "/CreateSamplingRule", 200] },
   () => CreateSamplingRuleRequest,
   () => CreateSamplingRuleResult,
 ];
@@ -1262,9 +1133,7 @@ export var DeleteGroup: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_h]: ["POST", "/DeleteGroup", 200],
-  },
+  { [_h]: ["POST", "/DeleteGroup", 200] },
   () => DeleteGroupRequest,
   () => DeleteGroupResult,
 ];
@@ -1272,9 +1141,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["POST", "/DeleteResourcePolicy", 200],
-  },
+  { [_h]: ["POST", "/DeleteResourcePolicy", 200] },
   () => DeleteResourcePolicyRequest,
   () => DeleteResourcePolicyResult,
 ];
@@ -1282,9 +1149,7 @@ export var DeleteSamplingRule: StaticOperationSchema = [
   9,
   n0,
   _DSR,
-  {
-    [_h]: ["POST", "/DeleteSamplingRule", 200],
-  },
+  { [_h]: ["POST", "/DeleteSamplingRule", 200] },
   () => DeleteSamplingRuleRequest,
   () => DeleteSamplingRuleResult,
 ];
@@ -1292,9 +1157,7 @@ export var GetEncryptionConfig: StaticOperationSchema = [
   9,
   n0,
   _GEC,
-  {
-    [_h]: ["POST", "/EncryptionConfig", 200],
-  },
+  { [_h]: ["POST", "/EncryptionConfig", 200] },
   () => GetEncryptionConfigRequest,
   () => GetEncryptionConfigResult,
 ];
@@ -1302,9 +1165,7 @@ export var GetGroup: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_h]: ["POST", "/GetGroup", 200],
-  },
+  { [_h]: ["POST", "/GetGroup", 200] },
   () => GetGroupRequest,
   () => GetGroupResult,
 ];
@@ -1312,9 +1173,7 @@ export var GetGroups: StaticOperationSchema = [
   9,
   n0,
   _GGe,
-  {
-    [_h]: ["POST", "/Groups", 200],
-  },
+  { [_h]: ["POST", "/Groups", 200] },
   () => GetGroupsRequest,
   () => GetGroupsResult,
 ];
@@ -1322,9 +1181,7 @@ export var GetIndexingRules: StaticOperationSchema = [
   9,
   n0,
   _GIRet,
-  {
-    [_h]: ["POST", "/GetIndexingRules", 200],
-  },
+  { [_h]: ["POST", "/GetIndexingRules", 200] },
   () => GetIndexingRulesRequest,
   () => GetIndexingRulesResult,
 ];
@@ -1332,9 +1189,7 @@ export var GetInsight: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_h]: ["POST", "/Insight", 200],
-  },
+  { [_h]: ["POST", "/Insight", 200] },
   () => GetInsightRequest,
   () => GetInsightResult,
 ];
@@ -1342,9 +1197,7 @@ export var GetInsightEvents: StaticOperationSchema = [
   9,
   n0,
   _GIE,
-  {
-    [_h]: ["POST", "/InsightEvents", 200],
-  },
+  { [_h]: ["POST", "/InsightEvents", 200] },
   () => GetInsightEventsRequest,
   () => GetInsightEventsResult,
 ];
@@ -1352,9 +1205,7 @@ export var GetInsightImpactGraph: StaticOperationSchema = [
   9,
   n0,
   _GIIG,
-  {
-    [_h]: ["POST", "/InsightImpactGraph", 200],
-  },
+  { [_h]: ["POST", "/InsightImpactGraph", 200] },
   () => GetInsightImpactGraphRequest,
   () => GetInsightImpactGraphResult,
 ];
@@ -1362,9 +1213,7 @@ export var GetInsightSummaries: StaticOperationSchema = [
   9,
   n0,
   _GIS,
-  {
-    [_h]: ["POST", "/InsightSummaries", 200],
-  },
+  { [_h]: ["POST", "/InsightSummaries", 200] },
   () => GetInsightSummariesRequest,
   () => GetInsightSummariesResult,
 ];
@@ -1372,9 +1221,7 @@ export var GetRetrievedTracesGraph: StaticOperationSchema = [
   9,
   n0,
   _GRTG,
-  {
-    [_h]: ["POST", "/GetRetrievedTracesGraph", 200],
-  },
+  { [_h]: ["POST", "/GetRetrievedTracesGraph", 200] },
   () => GetRetrievedTracesGraphRequest,
   () => GetRetrievedTracesGraphResult,
 ];
@@ -1382,9 +1229,7 @@ export var GetSamplingRules: StaticOperationSchema = [
   9,
   n0,
   _GSR,
-  {
-    [_h]: ["POST", "/GetSamplingRules", 200],
-  },
+  { [_h]: ["POST", "/GetSamplingRules", 200] },
   () => GetSamplingRulesRequest,
   () => GetSamplingRulesResult,
 ];
@@ -1392,9 +1237,7 @@ export var GetSamplingStatisticSummaries: StaticOperationSchema = [
   9,
   n0,
   _GSSS,
-  {
-    [_h]: ["POST", "/SamplingStatisticSummaries", 200],
-  },
+  { [_h]: ["POST", "/SamplingStatisticSummaries", 200] },
   () => GetSamplingStatisticSummariesRequest,
   () => GetSamplingStatisticSummariesResult,
 ];
@@ -1402,9 +1245,7 @@ export var GetSamplingTargets: StaticOperationSchema = [
   9,
   n0,
   _GST,
-  {
-    [_h]: ["POST", "/SamplingTargets", 200],
-  },
+  { [_h]: ["POST", "/SamplingTargets", 200] },
   () => GetSamplingTargetsRequest,
   () => GetSamplingTargetsResult,
 ];
@@ -1412,9 +1253,7 @@ export var GetServiceGraph: StaticOperationSchema = [
   9,
   n0,
   _GSG,
-  {
-    [_h]: ["POST", "/ServiceGraph", 200],
-  },
+  { [_h]: ["POST", "/ServiceGraph", 200] },
   () => GetServiceGraphRequest,
   () => GetServiceGraphResult,
 ];
@@ -1422,9 +1261,7 @@ export var GetTimeSeriesServiceStatistics: StaticOperationSchema = [
   9,
   n0,
   _GTSSS,
-  {
-    [_h]: ["POST", "/TimeSeriesServiceStatistics", 200],
-  },
+  { [_h]: ["POST", "/TimeSeriesServiceStatistics", 200] },
   () => GetTimeSeriesServiceStatisticsRequest,
   () => GetTimeSeriesServiceStatisticsResult,
 ];
@@ -1432,9 +1269,7 @@ export var GetTraceGraph: StaticOperationSchema = [
   9,
   n0,
   _GTG,
-  {
-    [_h]: ["POST", "/TraceGraph", 200],
-  },
+  { [_h]: ["POST", "/TraceGraph", 200] },
   () => GetTraceGraphRequest,
   () => GetTraceGraphResult,
 ];
@@ -1442,9 +1277,7 @@ export var GetTraceSegmentDestination: StaticOperationSchema = [
   9,
   n0,
   _GTSD,
-  {
-    [_h]: ["POST", "/GetTraceSegmentDestination", 200],
-  },
+  { [_h]: ["POST", "/GetTraceSegmentDestination", 200] },
   () => GetTraceSegmentDestinationRequest,
   () => GetTraceSegmentDestinationResult,
 ];
@@ -1452,9 +1285,7 @@ export var GetTraceSummaries: StaticOperationSchema = [
   9,
   n0,
   _GTS,
-  {
-    [_h]: ["POST", "/TraceSummaries", 200],
-  },
+  { [_h]: ["POST", "/TraceSummaries", 200] },
   () => GetTraceSummariesRequest,
   () => GetTraceSummariesResult,
 ];
@@ -1462,9 +1293,7 @@ export var ListResourcePolicies: StaticOperationSchema = [
   9,
   n0,
   _LRP,
-  {
-    [_h]: ["POST", "/ListResourcePolicies", 200],
-  },
+  { [_h]: ["POST", "/ListResourcePolicies", 200] },
   () => ListResourcePoliciesRequest,
   () => ListResourcePoliciesResult,
 ];
@@ -1472,9 +1301,7 @@ export var ListRetrievedTraces: StaticOperationSchema = [
   9,
   n0,
   _LRT,
-  {
-    [_h]: ["POST", "/ListRetrievedTraces", 200],
-  },
+  { [_h]: ["POST", "/ListRetrievedTraces", 200] },
   () => ListRetrievedTracesRequest,
   () => ListRetrievedTracesResult,
 ];
@@ -1482,9 +1309,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1492,9 +1317,7 @@ export var PutEncryptionConfig: StaticOperationSchema = [
   9,
   n0,
   _PEC,
-  {
-    [_h]: ["POST", "/PutEncryptionConfig", 200],
-  },
+  { [_h]: ["POST", "/PutEncryptionConfig", 200] },
   () => PutEncryptionConfigRequest,
   () => PutEncryptionConfigResult,
 ];
@@ -1502,9 +1325,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["POST", "/PutResourcePolicy", 200],
-  },
+  { [_h]: ["POST", "/PutResourcePolicy", 200] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResult,
 ];
@@ -1512,9 +1333,7 @@ export var PutTelemetryRecords: StaticOperationSchema = [
   9,
   n0,
   _PTR,
-  {
-    [_h]: ["POST", "/TelemetryRecords", 200],
-  },
+  { [_h]: ["POST", "/TelemetryRecords", 200] },
   () => PutTelemetryRecordsRequest,
   () => PutTelemetryRecordsResult,
 ];
@@ -1522,9 +1341,7 @@ export var PutTraceSegments: StaticOperationSchema = [
   9,
   n0,
   _PTS,
-  {
-    [_h]: ["POST", "/TraceSegments", 200],
-  },
+  { [_h]: ["POST", "/TraceSegments", 200] },
   () => PutTraceSegmentsRequest,
   () => PutTraceSegmentsResult,
 ];
@@ -1532,9 +1349,7 @@ export var StartTraceRetrieval: StaticOperationSchema = [
   9,
   n0,
   _STR,
-  {
-    [_h]: ["POST", "/StartTraceRetrieval", 200],
-  },
+  { [_h]: ["POST", "/StartTraceRetrieval", 200] },
   () => StartTraceRetrievalRequest,
   () => StartTraceRetrievalResult,
 ];
@@ -1542,9 +1357,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1552,9 +1365,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1562,9 +1373,7 @@ export var UpdateGroup: StaticOperationSchema = [
   9,
   n0,
   _UG,
-  {
-    [_h]: ["POST", "/UpdateGroup", 200],
-  },
+  { [_h]: ["POST", "/UpdateGroup", 200] },
   () => UpdateGroupRequest,
   () => UpdateGroupResult,
 ];
@@ -1572,9 +1381,7 @@ export var UpdateIndexingRule: StaticOperationSchema = [
   9,
   n0,
   _UIR,
-  {
-    [_h]: ["POST", "/UpdateIndexingRule", 200],
-  },
+  { [_h]: ["POST", "/UpdateIndexingRule", 200] },
   () => UpdateIndexingRuleRequest,
   () => UpdateIndexingRuleResult,
 ];
@@ -1582,9 +1389,7 @@ export var UpdateSamplingRule: StaticOperationSchema = [
   9,
   n0,
   _USR,
-  {
-    [_h]: ["POST", "/UpdateSamplingRule", 200],
-  },
+  { [_h]: ["POST", "/UpdateSamplingRule", 200] },
   () => UpdateSamplingRuleRequest,
   () => UpdateSamplingRuleResult,
 ];
@@ -1592,9 +1397,7 @@ export var UpdateTraceSegmentDestination: StaticOperationSchema = [
   9,
   n0,
   _UTSD,
-  {
-    [_h]: ["POST", "/UpdateTraceSegmentDestination", 200],
-  },
+  { [_h]: ["POST", "/UpdateTraceSegmentDestination", 200] },
   () => UpdateTraceSegmentDestinationRequest,
   () => UpdateTraceSegmentDestinationResult,
 ];

@@ -5,12 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateContactRequest, UpdateContactResponse } from "../models/models_3";
-=======
-import type { UpdateContactResponse } from "../models/models_2";
-import type { UpdateContactRequest } from "../models/models_3";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateContactRequest, UpdateContactResponse } from "../models/models_3";
 import { UpdateContact } from "../schemas/schemas_0";
 
 /**

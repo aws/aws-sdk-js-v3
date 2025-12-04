@@ -5,12 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_2";
-=======
-import type { ListSecurityKeysRequest } from "../models/models_1";
-import type { ListSecurityKeysResponse } from "../models/models_2";
->>>>>>> 60efd81940b (chore: codegen)
+import type { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_2";
 import { ListSecurityKeys } from "../schemas/schemas_0";
 
 /**

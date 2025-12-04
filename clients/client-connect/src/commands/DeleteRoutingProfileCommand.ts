@@ -5,11 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { DeleteRoutingProfileRequest } from "../models/models_1";
-=======
-import type { DeleteRoutingProfileRequest } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { DeleteRoutingProfileRequest } from "../models/models_1";
 import { DeleteRoutingProfile } from "../schemas/schemas_0";
 
 /**

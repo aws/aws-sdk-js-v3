@@ -23,28 +23,28 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof SupportClient === "function")
-assert(typeof Support === "function")
+assert(typeof SupportClient === "function");
+assert(typeof Support === "function");
 // commands
-assert(typeof AddAttachmentsToSetCommand === "function")
-assert(typeof AddCommunicationToCaseCommand === "function")
-assert(typeof CreateCaseCommand === "function")
-assert(typeof DescribeAttachmentCommand === "function")
-assert(typeof DescribeCasesCommand === "function")
-assert(typeof DescribeCommunicationsCommand === "function")
-assert(typeof DescribeCreateCaseOptionsCommand === "function")
-assert(typeof DescribeServicesCommand === "function")
-assert(typeof DescribeSeverityLevelsCommand === "function")
-assert(typeof DescribeSupportedLanguagesCommand === "function")
-assert(typeof DescribeTrustedAdvisorCheckRefreshStatusesCommand === "function")
-assert(typeof DescribeTrustedAdvisorCheckResultCommand === "function")
-assert(typeof DescribeTrustedAdvisorChecksCommand === "function")
-assert(typeof DescribeTrustedAdvisorCheckSummariesCommand === "function")
-assert(typeof RefreshTrustedAdvisorCheckCommand === "function")
-assert(typeof ResolveCaseCommand === "function")
+assert(typeof AddAttachmentsToSetCommand === "function");
+assert(typeof AddCommunicationToCaseCommand === "function");
+assert(typeof CreateCaseCommand === "function");
+assert(typeof DescribeAttachmentCommand === "function");
+assert(typeof DescribeCasesCommand === "function");
+assert(typeof DescribeCommunicationsCommand === "function");
+assert(typeof DescribeCreateCaseOptionsCommand === "function");
+assert(typeof DescribeServicesCommand === "function");
+assert(typeof DescribeSeverityLevelsCommand === "function");
+assert(typeof DescribeSupportedLanguagesCommand === "function");
+assert(typeof DescribeTrustedAdvisorCheckRefreshStatusesCommand === "function");
+assert(typeof DescribeTrustedAdvisorCheckResultCommand === "function");
+assert(typeof DescribeTrustedAdvisorChecksCommand === "function");
+assert(typeof DescribeTrustedAdvisorCheckSummariesCommand === "function");
+assert(typeof RefreshTrustedAdvisorCheckCommand === "function");
+assert(typeof ResolveCaseCommand === "function");
 // errors
-assert(SupportServiceException.prototype instanceof Error)
+assert(SupportServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateDescribeCases === "function")
-assert(typeof paginateDescribeCommunications === "function")
+assert(typeof paginateDescribeCases === "function");
+assert(typeof paginateDescribeCommunications === "function");
 console.log(`Support index test passed.`);

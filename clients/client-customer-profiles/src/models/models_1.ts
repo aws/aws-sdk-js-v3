@@ -2,19 +2,19 @@
 import { Gender, LayoutType, PartyType, ProfileType, ReadinessStatus, Statistic } from "./enums";
 
 import {
-  AttributeDetails,
-  Conditions,
-  DataStoreRequest,
-  DataStoreResponse,
-  EngagementPreferences,
+  type AttributeDetails,
+  type Conditions,
+  type DataStoreRequest,
+  type DataStoreResponse,
+  type EngagementPreferences,
+  type EventTriggerLimits,
+  type MatchingRequest,
+  type MatchingResponse,
+  type Readiness,
+  type RecommenderConfig,
+  type RuleBasedMatchingRequest,
+  type RuleBasedMatchingResponse,
   EventTriggerCondition,
-  EventTriggerLimits,
-  MatchingRequest,
-  MatchingResponse,
-  Readiness,
-  RecommenderConfig,
-  RuleBasedMatchingRequest,
-  RuleBasedMatchingResponse,
 } from "./models_0";
 
 /**

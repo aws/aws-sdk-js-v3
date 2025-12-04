@@ -828,7 +828,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 export var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
 export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
@@ -843,19 +842,8 @@ export var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0
 export var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var TargetDescription: StaticSimpleSchema = [0, n0, _TD, 8, 0];
 export var TargetName: StaticSimpleSchema = [0, n0, _TN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AgentRuntime: StaticStructureSchema = [
   3,
   n0,
@@ -962,32 +950,10 @@ export var CodeInterpreterSummary: StaticStructureSchema = [
   [_cII, _cIA, _n, _d, _s, _cA, _lUA],
   [0, 0, 0, [() => Description, 0], 0, 5, 5],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContainerConfiguration: StaticStructureSchema = [3, n0, _CCo, 0, [_cU], [0]];
 export var CreateAgentRuntimeEndpointRequest: StaticStructureSchema = [
   3,
@@ -1315,19 +1281,8 @@ export var CustomOauth2ProviderConfigOutput: StaticStructureSchema = [
   [_oD, _cI],
   [() => Oauth2Discovery, 0],
 ];
-export var DecryptionFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _DF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var DecryptionFailure: StaticErrorSchema = [-3, n0, _DF, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DecryptionFailure, __DecryptionFailure);
-
 export var DeleteAgentRuntimeEndpointRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1337,13 +1292,7 @@ export var DeleteAgentRuntimeEndpointRequest: StaticStructureSchema = [
   [
     [0, 1],
     [() => EndpointName, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteAgentRuntimeEndpointResponse: StaticStructureSchema = [
@@ -1362,13 +1311,7 @@ export var DeleteAgentRuntimeRequest: StaticStructureSchema = [
   [_aRI, _cTl],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteAgentRuntimeResponse: StaticStructureSchema = [3, n0, _DARRe, 0, [_s, _aRI], [0, 0]];
@@ -1382,13 +1325,7 @@ export var DeleteBrowserRequest: StaticStructureSchema = [
   [_bI, _cTl],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteBrowserResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [_bI, _s, _lUA], [0, 0, 5]];
@@ -1400,13 +1337,7 @@ export var DeleteCodeInterpreterRequest: StaticStructureSchema = [
   [_cII, _cTl],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteCodeInterpreterResponse: StaticStructureSchema = [3, n0, _DCIRe, 0, [_cII, _s, _lUA], [0, 0, 5]];
@@ -1440,13 +1371,7 @@ export var DeleteMemoryInput: StaticStructureSchema = [
   0,
   [_cTl, _mIe],
   [
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
     [0, 1],
   ],
 ];
@@ -1495,19 +1420,8 @@ export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0
 export var DeleteResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPRe, 0, [], []];
 export var DeleteWorkloadIdentityRequest: StaticStructureSchema = [3, n0, _DWIR, 0, [_n], [0]];
 export var DeleteWorkloadIdentityResponse: StaticStructureSchema = [3, n0, _DWIRe, 0, [], []];
-export var EncryptionFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _EF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var EncryptionFailure: StaticErrorSchema = [-3, n0, _EF, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(EncryptionFailure, __EncryptionFailure);
-
 export var EpisodicConsolidationOverride: StaticStructureSchema = [3, n0, _ECO, 0, [_aTP, _mI], [[() => Prompt, 0], 0]];
 export var EpisodicExtractionOverride: StaticStructureSchema = [3, n0, _EEO, 0, [_aTP, _mI], [[() => Prompt, 0], 0]];
 export var EpisodicMemoryStrategyInput: StaticStructureSchema = [
@@ -1646,12 +1560,7 @@ export var GetAgentRuntimeRequest: StaticStructureSchema = [
   [_aRI, _aRV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ve,
-      },
-    ],
+    [0, { [_hQ]: _ve }],
   ],
 ];
 export var GetAgentRuntimeResponse: StaticStructureSchema = [
@@ -1942,19 +1851,8 @@ export var IncludedOauth2ProviderConfigOutput: StaticStructureSchema = [
 ];
 export var InferenceConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_mT, _te, _tP, _sS], [1, 1, 1, 64 | 0]];
 export var InterceptorInputConfiguration: StaticStructureSchema = [3, n0, _IIC, 0, [_pRH], [2]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvocationConfiguration: StaticStructureSchema = [3, n0, _ICn, 0, [_tA, _pDBN], [0, 0]];
 export var InvocationConfigurationInput: StaticStructureSchema = [3, n0, _ICI, 0, [_tA, _pDBN], [0, 0]];
 export var KmsConfiguration: StaticStructureSchema = [3, n0, _KC, 0, [_kT, _kKA], [0, 0]];
@@ -1984,18 +1882,8 @@ export var ListAgentRuntimeEndpointsRequest: StaticStructureSchema = [
   [_aRI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAgentRuntimeEndpointsResponse: StaticStructureSchema = [
@@ -2013,18 +1901,8 @@ export var ListAgentRuntimesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAgentRuntimesResponse: StaticStructureSchema = [
@@ -2043,18 +1921,8 @@ export var ListAgentRuntimeVersionsRequest: StaticStructureSchema = [
   [_aRI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAgentRuntimeVersionsResponse: StaticStructureSchema = [
@@ -2081,24 +1949,9 @@ export var ListBrowsersRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _ty],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var ListBrowsersResponse: StaticStructureSchema = [
@@ -2116,24 +1969,9 @@ export var ListCodeInterpretersRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _ty],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var ListCodeInterpretersResponse: StaticStructureSchema = [
@@ -2151,18 +1989,8 @@ export var ListEvaluatorsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListEvaluatorsResponse: StaticStructureSchema = [
@@ -2180,18 +2008,8 @@ export var ListGatewaysRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListGatewaysResponse: StaticStructureSchema = [
@@ -2210,18 +2028,8 @@ export var ListGatewayTargetsRequest: StaticStructureSchema = [
   [_gIa, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListGatewayTargetsResponse: StaticStructureSchema = [
@@ -2250,18 +2058,8 @@ export var ListOnlineEvaluationConfigsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListOnlineEvaluationConfigsResponse: StaticStructureSchema = [
@@ -2279,25 +2077,10 @@ export var ListPoliciesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _pEI, _tRS],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tRS,
-      },
-    ],
+    [0, { [_hQ]: _tRS }],
   ],
 ];
 export var ListPoliciesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pol, _nT], [[() => Policies, 0], 0]];
@@ -2308,18 +2091,8 @@ export var ListPolicyEnginesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPolicyEnginesResponse: StaticStructureSchema = [
@@ -2339,18 +2112,8 @@ export var ListPolicyGenerationAssetsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPolicyGenerationAssetsResponse: StaticStructureSchema = [
@@ -2368,18 +2131,8 @@ export var ListPolicyGenerationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _pEI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -2557,32 +2310,10 @@ export var ProtocolConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_sP],
 export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_rAe, _po], [[0, 1], 0]];
 export var PutResourcePolicyResponse: StaticStructureSchema = [3, n0, _PRPRu, 0, [_po], [0]];
 export var RecordingConfig: StaticStructureSchema = [3, n0, _RC, 0, [_en, _sL], [2, () => S3Location]];
-export var ResourceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceLimitExceededException: StaticErrorSchema = [-3, n0, _RLEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Rule: StaticStructureSchema = [
   3,
   n0,
@@ -2672,32 +2403,10 @@ export var SemanticOverrideExtractionConfigurationInput: StaticStructureSchema =
   [_aTP, _mI],
   [[() => Prompt, 0], 0],
 ];
-export var ServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var ServiceException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionConfig: StaticStructureSchema = [3, n0, _SCe, 0, [_sTM], [1]];
 export var SetTokenVaultCMKRequest: StaticStructureSchema = [
   3,
@@ -2805,32 +2514,10 @@ export var TargetSummary: StaticStructureSchema = [
   [_tI, _n, _s, _d, _cA, _uA],
   [0, [() => TargetName, 0], 0, [() => TargetDescription, 0], 5, 5],
 ];
-export var ThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottledException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TEh,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEh, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeBasedTrigger: StaticStructureSchema = [3, n0, _TBT, 0, [_iST], [1]];
 export var TimeBasedTriggerInput: StaticStructureSchema = [3, n0, _TBTI, 0, [_iST], [1]];
 export var TokenBasedTrigger: StaticStructureSchema = [3, n0, _TBTo, 0, [_tCo], [1]];
@@ -2843,19 +2530,8 @@ export var ToolDefinition: StaticStructureSchema = [
   [_n, _d, _iS, _oS],
   [0, 0, () => SchemaDefinition, () => SchemaDefinition],
 ];
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2864,12 +2540,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -3175,21 +2846,16 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_sG, _su], [64 | 0, 64 | 0]];
 export var WorkloadIdentityDetails: StaticStructureSchema = [3, n0, _WID, 0, [_wIA], [0]];
 export var WorkloadIdentityType: StaticStructureSchema = [3, n0, _WIT, 0, [_n, _wIA], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var BedrockAgentCoreControlServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -3199,15 +2865,11 @@ export var BedrockAgentCoreControlServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(BedrockAgentCoreControlServiceException, __BedrockAgentCoreControlServiceException);
-
 export var AgentRuntimeEndpoints: StaticListSchema = [1, n0, _AREg, 0, [() => AgentRuntimeEndpoint, 0]];
 export var AgentRuntimes: StaticListSchema = [1, n0, _ARg, 0, [() => AgentRuntime, 0]];
 export var AllowedAudienceList = 64 | 0;
-
 export var AllowedClientsList = 64 | 0;
-
 export var AllowedScopesType = 64 | 0;
-
 export var ApiGatewayToolFilters: StaticListSchema = [1, n0, _AGTFp, 0, () => ApiGatewayToolFilter];
 export var ApiGatewayToolOverrides: StaticListSchema = [1, n0, _AGTOp, 0, () => ApiGatewayToolOverride];
 export var ApiKeyCredentialProviders: StaticListSchema = [1, n0, _AKCP, 0, () => ApiKeyCredentialProviderItem];
@@ -3224,13 +2886,11 @@ export var CredentialProviderConfigurations: StaticListSchema = [
 export var CustomClaimValidationsType: StaticListSchema = [1, n0, _CCVTu, 0, () => CustomClaimValidationType];
 export var DeleteMemoryStrategiesList: StaticListSchema = [1, n0, _DMSL, 0, () => DeleteMemoryStrategyInput];
 export var EntryPoints = 64 | 0;
-
 export var EvaluatorList: StaticListSchema = [1, n0, _EL, 0, () => EvaluatorReference];
 export var EvaluatorSummaryList: StaticListSchema = [1, n0, _ESL, 0, [() => EvaluatorSummary, 0]];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var Findings: StaticListSchema = [1, n0, _Fin, 0, () => Finding];
 export var GatewayInterceptionPoints = 64 | 0;
-
 export var GatewayInterceptorConfigurations: StaticListSchema = [
   1,
   n0,
@@ -3241,23 +2901,17 @@ export var GatewayInterceptorConfigurations: StaticListSchema = [
 export var GatewaySummaries: StaticListSchema = [1, n0, _GSa, 0, [() => GatewaySummary, 0]];
 export var GatewayTargetList: StaticListSchema = [1, n0, _GTL, 0, [() => GatewayTarget, 0]];
 export var LogGroupNamesList = 64 | 0;
-
 export var MatchValueStringList = 64 | 0;
-
 export var McpSupportedVersions = 64 | 0;
-
 export var MemoryStrategyInputList: StaticListSchema = [1, n0, _MSIL, 0, [() => MemoryStrategyInput, 0]];
 export var MemoryStrategyList: StaticListSchema = [1, n0, _MSL, 0, [() => MemoryStrategy, 0]];
 export var MemorySummaryList: StaticListSchema = [1, n0, _MSLe, 0, () => MemorySummary];
 export var ModifyMemoryStrategiesList: StaticListSchema = [1, n0, _MMSL, 0, [() => ModifyMemoryStrategyInput, 0]];
 export var NamespacesList = 64 | 0;
-
 export var NonEmptyStringList = 64 | 0;
-
 export var NumericalScaleDefinitions: StaticListSchema = [1, n0, _NSDu, 0, () => NumericalScaleDefinition];
 export var Oauth2CredentialProviders: StaticListSchema = [1, n0, _OCP, 0, () => Oauth2CredentialProviderItem];
 export var OAuthScopes = 64 | 0;
-
 export var OnlineEvaluationConfigSummaryList: StaticListSchema = [
   1,
   n0,
@@ -3270,32 +2924,19 @@ export var PolicyEngines: StaticListSchema = [1, n0, _PEo, 0, [() => PolicyEngin
 export var PolicyGenerationAssets: StaticListSchema = [1, n0, _PGAo, 0, () => PolicyGenerationAsset];
 export var PolicyGenerations: StaticListSchema = [1, n0, _PGo, 0, () => PolicyGeneration];
 export var PolicyStatusReasons = 64 | 0;
-
 export var RequestHeaderAllowlist = 64 | 0;
-
 export var RequiredProperties = 64 | 0;
-
 export var ResourceOauth2ReturnUrlListType = 64 | 0;
-
 export var ResponseListType = 64 | 0;
-
 export var RestApiMethods = 64 | 0;
-
 export var SecurityGroups = 64 | 0;
-
 export var ServiceNamesList = 64 | 0;
-
 export var StatusReasons = 64 | 0;
-
 export var Subnets = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TargetIdList = 64 | 0;
-
 export var TargetSummaries: StaticListSchema = [1, n0, _TSa, 0, [() => TargetSummary, 0]];
 export var TokenEndpointAuthMethodsType = 64 | 0;
-
 export var ToolDefinitions: StaticListSchema = [1, n0, _TDoo, 0, () => ToolDefinition];
 export var TriggerConditionInputList: StaticListSchema = [1, n0, _TCIL, 0, () => TriggerConditionInput];
 export var TriggerConditionsList: StaticListSchema = [1, n0, _TCL, 0, () => TriggerCondition];
@@ -3305,7 +2946,6 @@ export var EnvironmentVariablesMap: StaticMapSchema = [2, n0, _EVM, 8, 0, 0];
 export var OAuthCustomParameters: StaticMapSchema = [2, n0, _OACPu, 0, [0, 0], [() => OAuthCustomParametersValue, 0]];
 export var SchemaProperties: StaticMapSchema = [2, n0, _SP, 0, 0, () => SchemaDefinition];
 export var TagsMap = 128 | 0;
-
 export var AgentRuntimeArtifact: StaticStructureSchema = [
   3,
   n0,
@@ -3602,9 +3242,7 @@ export var CreateAgentRuntime: StaticOperationSchema = [
   9,
   n0,
   _CAR,
-  {
-    [_h]: ["PUT", "/runtimes/", 202],
-  },
+  { [_h]: ["PUT", "/runtimes/", 202] },
   () => CreateAgentRuntimeRequest,
   () => CreateAgentRuntimeResponse,
 ];
@@ -3612,9 +3250,7 @@ export var CreateAgentRuntimeEndpoint: StaticOperationSchema = [
   9,
   n0,
   _CARE,
-  {
-    [_h]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 202],
-  },
+  { [_h]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 202] },
   () => CreateAgentRuntimeEndpointRequest,
   () => CreateAgentRuntimeEndpointResponse,
 ];
@@ -3622,9 +3258,7 @@ export var CreateApiKeyCredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _CAKCP,
-  {
-    [_h]: ["POST", "/identities/CreateApiKeyCredentialProvider", 201],
-  },
+  { [_h]: ["POST", "/identities/CreateApiKeyCredentialProvider", 201] },
   () => CreateApiKeyCredentialProviderRequest,
   () => CreateApiKeyCredentialProviderResponse,
 ];
@@ -3632,9 +3266,7 @@ export var CreateBrowser: StaticOperationSchema = [
   9,
   n0,
   _CB,
-  {
-    [_h]: ["PUT", "/browsers", 202],
-  },
+  { [_h]: ["PUT", "/browsers", 202] },
   () => CreateBrowserRequest,
   () => CreateBrowserResponse,
 ];
@@ -3642,9 +3274,7 @@ export var CreateCodeInterpreter: StaticOperationSchema = [
   9,
   n0,
   _CCIr,
-  {
-    [_h]: ["PUT", "/code-interpreters", 202],
-  },
+  { [_h]: ["PUT", "/code-interpreters", 202] },
   () => CreateCodeInterpreterRequest,
   () => CreateCodeInterpreterResponse,
 ];
@@ -3652,9 +3282,7 @@ export var CreateEvaluator: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/evaluators/create", 202],
-  },
+  { [_h]: ["POST", "/evaluators/create", 202] },
   () => CreateEvaluatorRequest,
   () => CreateEvaluatorResponse,
 ];
@@ -3662,9 +3290,7 @@ export var CreateGateway: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  {
-    [_h]: ["POST", "/gateways/", 202],
-  },
+  { [_h]: ["POST", "/gateways/", 202] },
   () => CreateGatewayRequest,
   () => CreateGatewayResponse,
 ];
@@ -3672,9 +3298,7 @@ export var CreateGatewayTarget: StaticOperationSchema = [
   9,
   n0,
   _CGT,
-  {
-    [_h]: ["POST", "/gateways/{gatewayIdentifier}/targets/", 202],
-  },
+  { [_h]: ["POST", "/gateways/{gatewayIdentifier}/targets/", 202] },
   () => CreateGatewayTargetRequest,
   () => CreateGatewayTargetResponse,
 ];
@@ -3682,9 +3306,7 @@ export var CreateMemory: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_h]: ["POST", "/memories/create", 202],
-  },
+  { [_h]: ["POST", "/memories/create", 202] },
   () => CreateMemoryInput,
   () => CreateMemoryOutput,
 ];
@@ -3692,9 +3314,7 @@ export var CreateOauth2CredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _COCP,
-  {
-    [_h]: ["POST", "/identities/CreateOauth2CredentialProvider", 201],
-  },
+  { [_h]: ["POST", "/identities/CreateOauth2CredentialProvider", 201] },
   () => CreateOauth2CredentialProviderRequest,
   () => CreateOauth2CredentialProviderResponse,
 ];
@@ -3702,9 +3322,7 @@ export var CreateOnlineEvaluationConfig: StaticOperationSchema = [
   9,
   n0,
   _COEC,
-  {
-    [_h]: ["POST", "/online-evaluation-configs/create", 202],
-  },
+  { [_h]: ["POST", "/online-evaluation-configs/create", 202] },
   () => CreateOnlineEvaluationConfigRequest,
   () => CreateOnlineEvaluationConfigResponse,
 ];
@@ -3712,9 +3330,7 @@ export var CreatePolicy: StaticOperationSchema = [
   9,
   n0,
   _CPre,
-  {
-    [_h]: ["POST", "/policy-engines/{policyEngineId}/policies", 202],
-  },
+  { [_h]: ["POST", "/policy-engines/{policyEngineId}/policies", 202] },
   () => CreatePolicyRequest,
   () => CreatePolicyResponse,
 ];
@@ -3722,9 +3338,7 @@ export var CreatePolicyEngine: StaticOperationSchema = [
   9,
   n0,
   _CPE,
-  {
-    [_h]: ["POST", "/policy-engines", 202],
-  },
+  { [_h]: ["POST", "/policy-engines", 202] },
   () => CreatePolicyEngineRequest,
   () => CreatePolicyEngineResponse,
 ];
@@ -3732,9 +3346,7 @@ export var CreateWorkloadIdentity: StaticOperationSchema = [
   9,
   n0,
   _CWI,
-  {
-    [_h]: ["POST", "/identities/CreateWorkloadIdentity", 201],
-  },
+  { [_h]: ["POST", "/identities/CreateWorkloadIdentity", 201] },
   () => CreateWorkloadIdentityRequest,
   () => CreateWorkloadIdentityResponse,
 ];
@@ -3742,9 +3354,7 @@ export var DeleteAgentRuntime: StaticOperationSchema = [
   9,
   n0,
   _DAR,
-  {
-    [_h]: ["DELETE", "/runtimes/{agentRuntimeId}/", 202],
-  },
+  { [_h]: ["DELETE", "/runtimes/{agentRuntimeId}/", 202] },
   () => DeleteAgentRuntimeRequest,
   () => DeleteAgentRuntimeResponse,
 ];
@@ -3752,9 +3362,7 @@ export var DeleteAgentRuntimeEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DARE,
-  {
-    [_h]: ["DELETE", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202],
-  },
+  { [_h]: ["DELETE", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202] },
   () => DeleteAgentRuntimeEndpointRequest,
   () => DeleteAgentRuntimeEndpointResponse,
 ];
@@ -3762,9 +3370,7 @@ export var DeleteApiKeyCredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _DAKCP,
-  {
-    [_h]: ["POST", "/identities/DeleteApiKeyCredentialProvider", 204],
-  },
+  { [_h]: ["POST", "/identities/DeleteApiKeyCredentialProvider", 204] },
   () => DeleteApiKeyCredentialProviderRequest,
   () => DeleteApiKeyCredentialProviderResponse,
 ];
@@ -3772,9 +3378,7 @@ export var DeleteBrowser: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["DELETE", "/browsers/{browserId}", 202],
-  },
+  { [_h]: ["DELETE", "/browsers/{browserId}", 202] },
   () => DeleteBrowserRequest,
   () => DeleteBrowserResponse,
 ];
@@ -3782,9 +3386,7 @@ export var DeleteCodeInterpreter: StaticOperationSchema = [
   9,
   n0,
   _DCI,
-  {
-    [_h]: ["DELETE", "/code-interpreters/{codeInterpreterId}", 202],
-  },
+  { [_h]: ["DELETE", "/code-interpreters/{codeInterpreterId}", 202] },
   () => DeleteCodeInterpreterRequest,
   () => DeleteCodeInterpreterResponse,
 ];
@@ -3792,9 +3394,7 @@ export var DeleteEvaluator: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/evaluators/{evaluatorId}", 202],
-  },
+  { [_h]: ["DELETE", "/evaluators/{evaluatorId}", 202] },
   () => DeleteEvaluatorRequest,
   () => DeleteEvaluatorResponse,
 ];
@@ -3802,9 +3402,7 @@ export var DeleteGateway: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_h]: ["DELETE", "/gateways/{gatewayIdentifier}/", 202],
-  },
+  { [_h]: ["DELETE", "/gateways/{gatewayIdentifier}/", 202] },
   () => DeleteGatewayRequest,
   () => DeleteGatewayResponse,
 ];
@@ -3812,9 +3410,7 @@ export var DeleteGatewayTarget: StaticOperationSchema = [
   9,
   n0,
   _DGT,
-  {
-    [_h]: ["DELETE", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202],
-  },
+  { [_h]: ["DELETE", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202] },
   () => DeleteGatewayTargetRequest,
   () => DeleteGatewayTargetResponse,
 ];
@@ -3822,9 +3418,7 @@ export var DeleteMemory: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_h]: ["DELETE", "/memories/{memoryId}/delete", 202],
-  },
+  { [_h]: ["DELETE", "/memories/{memoryId}/delete", 202] },
   () => DeleteMemoryInput,
   () => DeleteMemoryOutput,
 ];
@@ -3832,9 +3426,7 @@ export var DeleteOauth2CredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _DOCP,
-  {
-    [_h]: ["POST", "/identities/DeleteOauth2CredentialProvider", 204],
-  },
+  { [_h]: ["POST", "/identities/DeleteOauth2CredentialProvider", 204] },
   () => DeleteOauth2CredentialProviderRequest,
   () => DeleteOauth2CredentialProviderResponse,
 ];
@@ -3842,9 +3434,7 @@ export var DeleteOnlineEvaluationConfig: StaticOperationSchema = [
   9,
   n0,
   _DOEC,
-  {
-    [_h]: ["DELETE", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202],
-  },
+  { [_h]: ["DELETE", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] },
   () => DeleteOnlineEvaluationConfigRequest,
   () => DeleteOnlineEvaluationConfigResponse,
 ];
@@ -3852,9 +3442,7 @@ export var DeletePolicy: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/policy-engines/{policyEngineId}/policies/{policyId}", 202],
-  },
+  { [_h]: ["DELETE", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] },
   () => DeletePolicyRequest,
   () => DeletePolicyResponse,
 ];
@@ -3862,9 +3450,7 @@ export var DeletePolicyEngine: StaticOperationSchema = [
   9,
   n0,
   _DPE,
-  {
-    [_h]: ["DELETE", "/policy-engines/{policyEngineId}", 202],
-  },
+  { [_h]: ["DELETE", "/policy-engines/{policyEngineId}", 202] },
   () => DeletePolicyEngineRequest,
   () => DeletePolicyEngineResponse,
 ];
@@ -3872,9 +3458,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 204] },
   () => DeleteResourcePolicyRequest,
   () => DeleteResourcePolicyResponse,
 ];
@@ -3882,9 +3466,7 @@ export var DeleteWorkloadIdentity: StaticOperationSchema = [
   9,
   n0,
   _DWI,
-  {
-    [_h]: ["POST", "/identities/DeleteWorkloadIdentity", 204],
-  },
+  { [_h]: ["POST", "/identities/DeleteWorkloadIdentity", 204] },
   () => DeleteWorkloadIdentityRequest,
   () => DeleteWorkloadIdentityResponse,
 ];
@@ -3892,9 +3474,7 @@ export var GetAgentRuntime: StaticOperationSchema = [
   9,
   n0,
   _GAR,
-  {
-    [_h]: ["GET", "/runtimes/{agentRuntimeId}/", 200],
-  },
+  { [_h]: ["GET", "/runtimes/{agentRuntimeId}/", 200] },
   () => GetAgentRuntimeRequest,
   () => GetAgentRuntimeResponse,
 ];
@@ -3902,9 +3482,7 @@ export var GetAgentRuntimeEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GARE,
-  {
-    [_h]: ["GET", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 200],
-  },
+  { [_h]: ["GET", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 200] },
   () => GetAgentRuntimeEndpointRequest,
   () => GetAgentRuntimeEndpointResponse,
 ];
@@ -3912,9 +3490,7 @@ export var GetApiKeyCredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _GAKCPe,
-  {
-    [_h]: ["POST", "/identities/GetApiKeyCredentialProvider", 200],
-  },
+  { [_h]: ["POST", "/identities/GetApiKeyCredentialProvider", 200] },
   () => GetApiKeyCredentialProviderRequest,
   () => GetApiKeyCredentialProviderResponse,
 ];
@@ -3922,9 +3498,7 @@ export var GetBrowser: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["GET", "/browsers/{browserId}", 200],
-  },
+  { [_h]: ["GET", "/browsers/{browserId}", 200] },
   () => GetBrowserRequest,
   () => GetBrowserResponse,
 ];
@@ -3932,9 +3506,7 @@ export var GetCodeInterpreter: StaticOperationSchema = [
   9,
   n0,
   _GCI,
-  {
-    [_h]: ["GET", "/code-interpreters/{codeInterpreterId}", 200],
-  },
+  { [_h]: ["GET", "/code-interpreters/{codeInterpreterId}", 200] },
   () => GetCodeInterpreterRequest,
   () => GetCodeInterpreterResponse,
 ];
@@ -3942,9 +3514,7 @@ export var GetEvaluator: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/evaluators/{evaluatorId}", 200],
-  },
+  { [_h]: ["GET", "/evaluators/{evaluatorId}", 200] },
   () => GetEvaluatorRequest,
   () => GetEvaluatorResponse,
 ];
@@ -3952,9 +3522,7 @@ export var GetGateway: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_h]: ["GET", "/gateways/{gatewayIdentifier}/", 200],
-  },
+  { [_h]: ["GET", "/gateways/{gatewayIdentifier}/", 200] },
   () => GetGatewayRequest,
   () => GetGatewayResponse,
 ];
@@ -3962,9 +3530,7 @@ export var GetGatewayTarget: StaticOperationSchema = [
   9,
   n0,
   _GGT,
-  {
-    [_h]: ["GET", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 200],
-  },
+  { [_h]: ["GET", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 200] },
   () => GetGatewayTargetRequest,
   () => GetGatewayTargetResponse,
 ];
@@ -3972,9 +3538,7 @@ export var GetMemory: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/memories/{memoryId}/details", 200],
-  },
+  { [_h]: ["GET", "/memories/{memoryId}/details", 200] },
   () => GetMemoryInput,
   () => GetMemoryOutput,
 ];
@@ -3982,9 +3546,7 @@ export var GetOauth2CredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _GOCP,
-  {
-    [_h]: ["POST", "/identities/GetOauth2CredentialProvider", 200],
-  },
+  { [_h]: ["POST", "/identities/GetOauth2CredentialProvider", 200] },
   () => GetOauth2CredentialProviderRequest,
   () => GetOauth2CredentialProviderResponse,
 ];
@@ -3992,9 +3554,7 @@ export var GetOnlineEvaluationConfig: StaticOperationSchema = [
   9,
   n0,
   _GOEC,
-  {
-    [_h]: ["GET", "/online-evaluation-configs/{onlineEvaluationConfigId}", 200],
-  },
+  { [_h]: ["GET", "/online-evaluation-configs/{onlineEvaluationConfigId}", 200] },
   () => GetOnlineEvaluationConfigRequest,
   () => GetOnlineEvaluationConfigResponse,
 ];
@@ -4002,9 +3562,7 @@ export var GetPolicy: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/policy-engines/{policyEngineId}/policies/{policyId}", 200],
-  },
+  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policies/{policyId}", 200] },
   () => GetPolicyRequest,
   () => GetPolicyResponse,
 ];
@@ -4012,9 +3570,7 @@ export var GetPolicyEngine: StaticOperationSchema = [
   9,
   n0,
   _GPE,
-  {
-    [_h]: ["GET", "/policy-engines/{policyEngineId}", 200],
-  },
+  { [_h]: ["GET", "/policy-engines/{policyEngineId}", 200] },
   () => GetPolicyEngineRequest,
   () => GetPolicyEngineResponse,
 ];
@@ -4022,9 +3578,7 @@ export var GetPolicyGeneration: StaticOperationSchema = [
   9,
   n0,
   _GPG,
-  {
-    [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}", 200],
-  },
+  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}", 200] },
   () => GetPolicyGenerationRequest,
   () => GetPolicyGenerationResponse,
 ];
@@ -4032,9 +3586,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -4042,9 +3594,7 @@ export var GetTokenVault: StaticOperationSchema = [
   9,
   n0,
   _GTV,
-  {
-    [_h]: ["POST", "/identities/get-token-vault", 200],
-  },
+  { [_h]: ["POST", "/identities/get-token-vault", 200] },
   () => GetTokenVaultRequest,
   () => GetTokenVaultResponse,
 ];
@@ -4052,9 +3602,7 @@ export var GetWorkloadIdentity: StaticOperationSchema = [
   9,
   n0,
   _GWI,
-  {
-    [_h]: ["POST", "/identities/GetWorkloadIdentity", 200],
-  },
+  { [_h]: ["POST", "/identities/GetWorkloadIdentity", 200] },
   () => GetWorkloadIdentityRequest,
   () => GetWorkloadIdentityResponse,
 ];
@@ -4062,9 +3610,7 @@ export var ListAgentRuntimeEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LARE,
-  {
-    [_h]: ["POST", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 200],
-  },
+  { [_h]: ["POST", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 200] },
   () => ListAgentRuntimeEndpointsRequest,
   () => ListAgentRuntimeEndpointsResponse,
 ];
@@ -4072,9 +3618,7 @@ export var ListAgentRuntimes: StaticOperationSchema = [
   9,
   n0,
   _LAR,
-  {
-    [_h]: ["POST", "/runtimes/", 200],
-  },
+  { [_h]: ["POST", "/runtimes/", 200] },
   () => ListAgentRuntimesRequest,
   () => ListAgentRuntimesResponse,
 ];
@@ -4082,9 +3626,7 @@ export var ListAgentRuntimeVersions: StaticOperationSchema = [
   9,
   n0,
   _LARV,
-  {
-    [_h]: ["POST", "/runtimes/{agentRuntimeId}/versions/", 200],
-  },
+  { [_h]: ["POST", "/runtimes/{agentRuntimeId}/versions/", 200] },
   () => ListAgentRuntimeVersionsRequest,
   () => ListAgentRuntimeVersionsResponse,
 ];
@@ -4092,9 +3634,7 @@ export var ListApiKeyCredentialProviders: StaticOperationSchema = [
   9,
   n0,
   _LAKCP,
-  {
-    [_h]: ["POST", "/identities/ListApiKeyCredentialProviders", 200],
-  },
+  { [_h]: ["POST", "/identities/ListApiKeyCredentialProviders", 200] },
   () => ListApiKeyCredentialProvidersRequest,
   () => ListApiKeyCredentialProvidersResponse,
 ];
@@ -4102,9 +3642,7 @@ export var ListBrowsers: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_h]: ["POST", "/browsers", 200],
-  },
+  { [_h]: ["POST", "/browsers", 200] },
   () => ListBrowsersRequest,
   () => ListBrowsersResponse,
 ];
@@ -4112,9 +3650,7 @@ export var ListCodeInterpreters: StaticOperationSchema = [
   9,
   n0,
   _LCI,
-  {
-    [_h]: ["POST", "/code-interpreters", 200],
-  },
+  { [_h]: ["POST", "/code-interpreters", 200] },
   () => ListCodeInterpretersRequest,
   () => ListCodeInterpretersResponse,
 ];
@@ -4122,9 +3658,7 @@ export var ListEvaluators: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["POST", "/evaluators", 200],
-  },
+  { [_h]: ["POST", "/evaluators", 200] },
   () => ListEvaluatorsRequest,
   () => ListEvaluatorsResponse,
 ];
@@ -4132,9 +3666,7 @@ export var ListGateways: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  {
-    [_h]: ["GET", "/gateways/", 200],
-  },
+  { [_h]: ["GET", "/gateways/", 200] },
   () => ListGatewaysRequest,
   () => ListGatewaysResponse,
 ];
@@ -4142,9 +3674,7 @@ export var ListGatewayTargets: StaticOperationSchema = [
   9,
   n0,
   _LGT,
-  {
-    [_h]: ["GET", "/gateways/{gatewayIdentifier}/targets/", 200],
-  },
+  { [_h]: ["GET", "/gateways/{gatewayIdentifier}/targets/", 200] },
   () => ListGatewayTargetsRequest,
   () => ListGatewayTargetsResponse,
 ];
@@ -4152,9 +3682,7 @@ export var ListMemories: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_h]: ["POST", "/memories/", 200],
-  },
+  { [_h]: ["POST", "/memories/", 200] },
   () => ListMemoriesInput,
   () => ListMemoriesOutput,
 ];
@@ -4162,9 +3690,7 @@ export var ListOauth2CredentialProviders: StaticOperationSchema = [
   9,
   n0,
   _LOCP,
-  {
-    [_h]: ["POST", "/identities/ListOauth2CredentialProviders", 200],
-  },
+  { [_h]: ["POST", "/identities/ListOauth2CredentialProviders", 200] },
   () => ListOauth2CredentialProvidersRequest,
   () => ListOauth2CredentialProvidersResponse,
 ];
@@ -4172,9 +3698,7 @@ export var ListOnlineEvaluationConfigs: StaticOperationSchema = [
   9,
   n0,
   _LOEC,
-  {
-    [_h]: ["POST", "/online-evaluation-configs", 200],
-  },
+  { [_h]: ["POST", "/online-evaluation-configs", 200] },
   () => ListOnlineEvaluationConfigsRequest,
   () => ListOnlineEvaluationConfigsResponse,
 ];
@@ -4182,9 +3706,7 @@ export var ListPolicies: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/policy-engines/{policyEngineId}/policies", 200],
-  },
+  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policies", 200] },
   () => ListPoliciesRequest,
   () => ListPoliciesResponse,
 ];
@@ -4192,9 +3714,7 @@ export var ListPolicyEngines: StaticOperationSchema = [
   9,
   n0,
   _LPE,
-  {
-    [_h]: ["GET", "/policy-engines", 200],
-  },
+  { [_h]: ["GET", "/policy-engines", 200] },
   () => ListPolicyEnginesRequest,
   () => ListPolicyEnginesResponse,
 ];
@@ -4202,9 +3722,7 @@ export var ListPolicyGenerationAssets: StaticOperationSchema = [
   9,
   n0,
   _LPGA,
-  {
-    [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}/assets", 200],
-  },
+  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}/assets", 200] },
   () => ListPolicyGenerationAssetsRequest,
   () => ListPolicyGenerationAssetsResponse,
 ];
@@ -4212,9 +3730,7 @@ export var ListPolicyGenerations: StaticOperationSchema = [
   9,
   n0,
   _LPG,
-  {
-    [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations", 200],
-  },
+  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations", 200] },
   () => ListPolicyGenerationsRequest,
   () => ListPolicyGenerationsResponse,
 ];
@@ -4222,9 +3738,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -4232,9 +3746,7 @@ export var ListWorkloadIdentities: StaticOperationSchema = [
   9,
   n0,
   _LWI,
-  {
-    [_h]: ["POST", "/identities/ListWorkloadIdentities", 200],
-  },
+  { [_h]: ["POST", "/identities/ListWorkloadIdentities", 200] },
   () => ListWorkloadIdentitiesRequest,
   () => ListWorkloadIdentitiesResponse,
 ];
@@ -4242,9 +3754,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["PUT", "/resourcepolicy/{resourceArn}", 201],
-  },
+  { [_h]: ["PUT", "/resourcepolicy/{resourceArn}", 201] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResponse,
 ];
@@ -4252,9 +3762,7 @@ export var SetTokenVaultCMK: StaticOperationSchema = [
   9,
   n0,
   _STVCMK,
-  {
-    [_h]: ["POST", "/identities/set-token-vault-cmk", 200],
-  },
+  { [_h]: ["POST", "/identities/set-token-vault-cmk", 200] },
   () => SetTokenVaultCMKRequest,
   () => SetTokenVaultCMKResponse,
 ];
@@ -4262,9 +3770,7 @@ export var StartPolicyGeneration: StaticOperationSchema = [
   9,
   n0,
   _SPG,
-  {
-    [_h]: ["POST", "/policy-engines/{policyEngineId}/policy-generations", 202],
-  },
+  { [_h]: ["POST", "/policy-engines/{policyEngineId}/policy-generations", 202] },
   () => StartPolicyGenerationRequest,
   () => StartPolicyGenerationResponse,
 ];
@@ -4272,9 +3778,7 @@ export var SynchronizeGatewayTargets: StaticOperationSchema = [
   9,
   n0,
   _SGT,
-  {
-    [_h]: ["PUT", "/gateways/{gatewayIdentifier}/synchronizeTargets", 202],
-  },
+  { [_h]: ["PUT", "/gateways/{gatewayIdentifier}/synchronizeTargets", 202] },
   () => SynchronizeGatewayTargetsRequest,
   () => SynchronizeGatewayTargetsResponse,
 ];
@@ -4282,9 +3786,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -4292,9 +3794,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -4302,9 +3802,7 @@ export var UpdateAgentRuntime: StaticOperationSchema = [
   9,
   n0,
   _UAR,
-  {
-    [_h]: ["PUT", "/runtimes/{agentRuntimeId}/", 202],
-  },
+  { [_h]: ["PUT", "/runtimes/{agentRuntimeId}/", 202] },
   () => UpdateAgentRuntimeRequest,
   () => UpdateAgentRuntimeResponse,
 ];
@@ -4312,9 +3810,7 @@ export var UpdateAgentRuntimeEndpoint: StaticOperationSchema = [
   9,
   n0,
   _UARE,
-  {
-    [_h]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202],
-  },
+  { [_h]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202] },
   () => UpdateAgentRuntimeEndpointRequest,
   () => UpdateAgentRuntimeEndpointResponse,
 ];
@@ -4322,9 +3818,7 @@ export var UpdateApiKeyCredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _UAKCP,
-  {
-    [_h]: ["POST", "/identities/UpdateApiKeyCredentialProvider", 200],
-  },
+  { [_h]: ["POST", "/identities/UpdateApiKeyCredentialProvider", 200] },
   () => UpdateApiKeyCredentialProviderRequest,
   () => UpdateApiKeyCredentialProviderResponse,
 ];
@@ -4332,9 +3826,7 @@ export var UpdateEvaluator: StaticOperationSchema = [
   9,
   n0,
   _UEp,
-  {
-    [_h]: ["PUT", "/evaluators/{evaluatorId}", 202],
-  },
+  { [_h]: ["PUT", "/evaluators/{evaluatorId}", 202] },
   () => UpdateEvaluatorRequest,
   () => UpdateEvaluatorResponse,
 ];
@@ -4342,9 +3834,7 @@ export var UpdateGateway: StaticOperationSchema = [
   9,
   n0,
   _UG,
-  {
-    [_h]: ["PUT", "/gateways/{gatewayIdentifier}/", 202],
-  },
+  { [_h]: ["PUT", "/gateways/{gatewayIdentifier}/", 202] },
   () => UpdateGatewayRequest,
   () => UpdateGatewayResponse,
 ];
@@ -4352,9 +3842,7 @@ export var UpdateGatewayTarget: StaticOperationSchema = [
   9,
   n0,
   _UGT,
-  {
-    [_h]: ["PUT", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202],
-  },
+  { [_h]: ["PUT", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202] },
   () => UpdateGatewayTargetRequest,
   () => UpdateGatewayTargetResponse,
 ];
@@ -4362,9 +3850,7 @@ export var UpdateMemory: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  {
-    [_h]: ["PUT", "/memories/{memoryId}/update", 202],
-  },
+  { [_h]: ["PUT", "/memories/{memoryId}/update", 202] },
   () => UpdateMemoryInput,
   () => UpdateMemoryOutput,
 ];
@@ -4372,9 +3858,7 @@ export var UpdateOauth2CredentialProvider: StaticOperationSchema = [
   9,
   n0,
   _UOCP,
-  {
-    [_h]: ["POST", "/identities/UpdateOauth2CredentialProvider", 200],
-  },
+  { [_h]: ["POST", "/identities/UpdateOauth2CredentialProvider", 200] },
   () => UpdateOauth2CredentialProviderRequest,
   () => UpdateOauth2CredentialProviderResponse,
 ];
@@ -4382,9 +3866,7 @@ export var UpdateOnlineEvaluationConfig: StaticOperationSchema = [
   9,
   n0,
   _UOEC,
-  {
-    [_h]: ["PUT", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202],
-  },
+  { [_h]: ["PUT", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] },
   () => UpdateOnlineEvaluationConfigRequest,
   () => UpdateOnlineEvaluationConfigResponse,
 ];
@@ -4392,9 +3874,7 @@ export var UpdatePolicy: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PUT", "/policy-engines/{policyEngineId}/policies/{policyId}", 202],
-  },
+  { [_h]: ["PUT", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] },
   () => UpdatePolicyRequest,
   () => UpdatePolicyResponse,
 ];
@@ -4402,9 +3882,7 @@ export var UpdatePolicyEngine: StaticOperationSchema = [
   9,
   n0,
   _UPE,
-  {
-    [_h]: ["PUT", "/policy-engines/{policyEngineId}", 202],
-  },
+  { [_h]: ["PUT", "/policy-engines/{policyEngineId}", 202] },
   () => UpdatePolicyEngineRequest,
   () => UpdatePolicyEngineResponse,
 ];
@@ -4412,9 +3890,7 @@ export var UpdateWorkloadIdentity: StaticOperationSchema = [
   9,
   n0,
   _UWI,
-  {
-    [_h]: ["POST", "/identities/UpdateWorkloadIdentity", 200],
-  },
+  { [_h]: ["POST", "/identities/UpdateWorkloadIdentity", 200] },
   () => UpdateWorkloadIdentityRequest,
   () => UpdateWorkloadIdentityResponse,
 ];

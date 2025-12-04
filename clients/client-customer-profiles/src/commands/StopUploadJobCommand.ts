@@ -9,11 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { StopUploadJobRequest, StopUploadJobResponse } from "../models/models_1";
-=======
-import type { StopUploadJobRequest, StopUploadJobResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { StopUploadJobRequest, StopUploadJobResponse } from "../models/models_1";
 import { StopUploadJob } from "../schemas/schemas_0";
 
 /**

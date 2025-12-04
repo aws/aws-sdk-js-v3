@@ -9,11 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_1";
-=======
-import type { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_1";
 import { UpdateProfile } from "../schemas/schemas_0";
 
 /**

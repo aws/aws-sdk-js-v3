@@ -55,44 +55,44 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof QAppsClient === "function")
-assert(typeof QApps === "function")
+assert(typeof QAppsClient === "function");
+assert(typeof QApps === "function");
 // commands
-assert(typeof AssociateLibraryItemReviewCommand === "function")
-assert(typeof AssociateQAppWithUserCommand === "function")
-assert(typeof BatchCreateCategoryCommand === "function")
-assert(typeof BatchDeleteCategoryCommand === "function")
-assert(typeof BatchUpdateCategoryCommand === "function")
-assert(typeof CreateLibraryItemCommand === "function")
-assert(typeof CreatePresignedUrlCommand === "function")
-assert(typeof CreateQAppCommand === "function")
-assert(typeof DeleteLibraryItemCommand === "function")
-assert(typeof DeleteQAppCommand === "function")
-assert(typeof DescribeQAppPermissionsCommand === "function")
-assert(typeof DisassociateLibraryItemReviewCommand === "function")
-assert(typeof DisassociateQAppFromUserCommand === "function")
-assert(typeof ExportQAppSessionDataCommand === "function")
-assert(typeof GetLibraryItemCommand === "function")
-assert(typeof GetQAppCommand === "function")
-assert(typeof GetQAppSessionCommand === "function")
-assert(typeof GetQAppSessionMetadataCommand === "function")
-assert(typeof ImportDocumentCommand === "function")
-assert(typeof ListCategoriesCommand === "function")
-assert(typeof ListLibraryItemsCommand === "function")
-assert(typeof ListQAppsCommand === "function")
-assert(typeof ListQAppSessionDataCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PredictQAppCommand === "function")
-assert(typeof StartQAppSessionCommand === "function")
-assert(typeof StopQAppSessionCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateLibraryItemCommand === "function")
-assert(typeof UpdateLibraryItemMetadataCommand === "function")
-assert(typeof UpdateQAppCommand === "function")
-assert(typeof UpdateQAppPermissionsCommand === "function")
-assert(typeof UpdateQAppSessionCommand === "function")
-assert(typeof UpdateQAppSessionMetadataCommand === "function")
+assert(typeof AssociateLibraryItemReviewCommand === "function");
+assert(typeof AssociateQAppWithUserCommand === "function");
+assert(typeof BatchCreateCategoryCommand === "function");
+assert(typeof BatchDeleteCategoryCommand === "function");
+assert(typeof BatchUpdateCategoryCommand === "function");
+assert(typeof CreateLibraryItemCommand === "function");
+assert(typeof CreatePresignedUrlCommand === "function");
+assert(typeof CreateQAppCommand === "function");
+assert(typeof DeleteLibraryItemCommand === "function");
+assert(typeof DeleteQAppCommand === "function");
+assert(typeof DescribeQAppPermissionsCommand === "function");
+assert(typeof DisassociateLibraryItemReviewCommand === "function");
+assert(typeof DisassociateQAppFromUserCommand === "function");
+assert(typeof ExportQAppSessionDataCommand === "function");
+assert(typeof GetLibraryItemCommand === "function");
+assert(typeof GetQAppCommand === "function");
+assert(typeof GetQAppSessionCommand === "function");
+assert(typeof GetQAppSessionMetadataCommand === "function");
+assert(typeof ImportDocumentCommand === "function");
+assert(typeof ListCategoriesCommand === "function");
+assert(typeof ListLibraryItemsCommand === "function");
+assert(typeof ListQAppsCommand === "function");
+assert(typeof ListQAppSessionDataCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PredictQAppCommand === "function");
+assert(typeof StartQAppSessionCommand === "function");
+assert(typeof StopQAppSessionCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateLibraryItemCommand === "function");
+assert(typeof UpdateLibraryItemMetadataCommand === "function");
+assert(typeof UpdateQAppCommand === "function");
+assert(typeof UpdateQAppPermissionsCommand === "function");
+assert(typeof UpdateQAppSessionCommand === "function");
+assert(typeof UpdateQAppSessionMetadataCommand === "function");
 // enums
 assert(typeof Action === "object");
 assert(typeof AppRequiredCapability === "object");
@@ -108,8 +108,8 @@ assert(typeof Sender === "object");
 assert(typeof SubmissionMutationKind === "object");
 assert(typeof UserType === "object");
 // errors
-assert(QAppsServiceException.prototype instanceof Error)
+assert(QAppsServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListLibraryItems === "function")
-assert(typeof paginateListQApps === "function")
+assert(typeof paginateListLibraryItems === "function");
+assert(typeof paginateListQApps === "function");
 console.log(`QApps index test passed.`);

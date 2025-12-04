@@ -33,27 +33,27 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof CloudHSMV2Client === "function")
-assert(typeof CloudHSMV2 === "function")
+assert(typeof CloudHSMV2Client === "function");
+assert(typeof CloudHSMV2 === "function");
 // commands
-assert(typeof CopyBackupToRegionCommand === "function")
-assert(typeof CreateClusterCommand === "function")
-assert(typeof CreateHsmCommand === "function")
-assert(typeof DeleteBackupCommand === "function")
-assert(typeof DeleteClusterCommand === "function")
-assert(typeof DeleteHsmCommand === "function")
-assert(typeof DeleteResourcePolicyCommand === "function")
-assert(typeof DescribeBackupsCommand === "function")
-assert(typeof DescribeClustersCommand === "function")
-assert(typeof GetResourcePolicyCommand === "function")
-assert(typeof InitializeClusterCommand === "function")
-assert(typeof ListTagsCommand === "function")
-assert(typeof ModifyBackupAttributesCommand === "function")
-assert(typeof ModifyClusterCommand === "function")
-assert(typeof PutResourcePolicyCommand === "function")
-assert(typeof RestoreBackupCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
+assert(typeof CopyBackupToRegionCommand === "function");
+assert(typeof CreateClusterCommand === "function");
+assert(typeof CreateHsmCommand === "function");
+assert(typeof DeleteBackupCommand === "function");
+assert(typeof DeleteClusterCommand === "function");
+assert(typeof DeleteHsmCommand === "function");
+assert(typeof DeleteResourcePolicyCommand === "function");
+assert(typeof DescribeBackupsCommand === "function");
+assert(typeof DescribeClustersCommand === "function");
+assert(typeof GetResourcePolicyCommand === "function");
+assert(typeof InitializeClusterCommand === "function");
+assert(typeof ListTagsCommand === "function");
+assert(typeof ModifyBackupAttributesCommand === "function");
+assert(typeof ModifyClusterCommand === "function");
+assert(typeof PutResourcePolicyCommand === "function");
+assert(typeof RestoreBackupCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
 // enums
 assert(typeof BackupPolicy === "object");
 assert(typeof BackupRetentionType === "object");
@@ -63,9 +63,9 @@ assert(typeof ClusterState === "object");
 assert(typeof HsmState === "object");
 assert(typeof NetworkType === "object");
 // errors
-assert(CloudHSMV2ServiceException.prototype instanceof Error)
+assert(CloudHSMV2ServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateDescribeBackups === "function")
-assert(typeof paginateDescribeClusters === "function")
-assert(typeof paginateListTags === "function")
+assert(typeof paginateDescribeBackups === "function");
+assert(typeof paginateDescribeClusters === "function");
+assert(typeof paginateListTags === "function");
 console.log(`CloudHSMV2 index test passed.`);

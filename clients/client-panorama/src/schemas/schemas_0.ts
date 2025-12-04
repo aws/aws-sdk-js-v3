@@ -341,21 +341,9 @@ import {
 import { PanoramaServiceException as __PanoramaServiceException } from "../models/PanoramaServiceException";
 
 /* eslint no-var: 0 */
-
 export var TemplateValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AlternateSoftwareMetadata: StaticStructureSchema = [3, n0, _ASM, 0, [_V], [0]];
 export var ApplicationInstance: StaticStructureSchema = [
   3,
@@ -369,15 +357,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT, _EI, _EA],
   [0, 0, 0, 0, () => ConflictExceptionErrorArgumentList],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConflictExceptionErrorArgument: StaticStructureSchema = [3, n0, _CEEA, 0, [_N, _Va], [0, 0]];
 export var CreateApplicationInstanceRequest: StaticStructureSchema = [
   3,
@@ -434,12 +418,7 @@ export var DeletePackageRequest: StaticStructureSchema = [
   [_PI, _FD],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _FD,
-      },
-    ],
+    [2, { [_hQ]: _FD }],
   ],
 ];
 export var DeletePackageResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
@@ -450,21 +429,11 @@ export var DeregisterPackageVersionRequest: StaticStructureSchema = [
   0,
   [_OA, _PI, _PV, _PVa, _ULPV],
   [
-    [
-      0,
-      {
-        [_hQ]: _OA,
-      },
-    ],
+    [0, { [_hQ]: _OA }],
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ULPV,
-      },
-    ],
+    [0, { [_hQ]: _ULPV }],
   ],
 ];
 export var DeregisterPackageVersionResponse: StaticStructureSchema = [3, n0, _DPVRe, 0, [], []];
@@ -542,12 +511,7 @@ export var DescribeNodeRequest: StaticStructureSchema = [
   [_NI, _OA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _OA,
-      },
-    ],
+    [0, { [_hQ]: _OA }],
   ],
 ];
 export var DescribeNodeResponse: StaticStructureSchema = [
@@ -595,20 +559,10 @@ export var DescribePackageVersionRequest: StaticStructureSchema = [
   0,
   [_OA, _PI, _PV, _PVa],
   [
-    [
-      0,
-      {
-        [_hQ]: _OA,
-      },
-    ],
+    [0, { [_hQ]: _OA }],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _PVa,
-      },
-    ],
+    [0, { [_hQ]: _PVa }],
   ],
 ];
 export var DescribePackageVersionResponse: StaticStructureSchema = [
@@ -635,23 +589,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Job: StaticStructureSchema = [3, n0, _Jo, 0, [_JI, _DIe], [0, 0]];
 export var JobResourceTags: StaticStructureSchema = [3, n0, _JRT, 0, [_RT, _T], [0, 128 | 0]];
 export var LatestDeviceJob: StaticStructureSchema = [3, n0, _LDJ, 0, [_IV, _S, _JT], [0, 0, 0]];
@@ -663,18 +605,8 @@ export var ListApplicationInstanceDependenciesRequest: StaticStructureSchema = [
   [_AII, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListApplicationInstanceDependenciesResponse: StaticStructureSchema = [
@@ -693,18 +625,8 @@ export var ListApplicationInstanceNodeInstancesRequest: StaticStructureSchema = 
   [_AII, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListApplicationInstanceNodeInstancesResponse: StaticStructureSchema = [
@@ -722,30 +644,10 @@ export var ListApplicationInstancesRequest: StaticStructureSchema = [
   0,
   [_DIe, _SF, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _dI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sF,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _dI }],
+    [0, { [_hQ]: _sF }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListApplicationInstancesResponse: StaticStructureSchema = [
@@ -763,24 +665,9 @@ export var ListDevicesJobsRequest: StaticStructureSchema = [
   0,
   [_DIe, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _DIe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _DIe }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListDevicesJobsResponse: StaticStructureSchema = [3, n0, _LDJRi, 0, [_DJe, _NT], [() => DeviceJobList, 0]];
@@ -791,42 +678,12 @@ export var ListDevicesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR, _SB, _SO, _NF, _DASF],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _DASF,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _SB }],
+    [0, { [_hQ]: _SO }],
+    [0, { [_hQ]: _NF }],
+    [0, { [_hQ]: _DASF }],
   ],
 ];
 export var ListDevicesResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dev, _NT], [() => DeviceList, 0]];
@@ -837,18 +694,8 @@ export var ListNodeFromTemplateJobsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListNodeFromTemplateJobsResponse: StaticStructureSchema = [
@@ -866,48 +713,13 @@ export var ListNodesRequest: StaticStructureSchema = [
   0,
   [_C, _OA, _PN, _PV, _PVa, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _ca,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pVa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _ca }],
+    [0, { [_hQ]: _oA }],
+    [0, { [_hQ]: _pN }],
+    [0, { [_hQ]: _pV }],
+    [0, { [_hQ]: _pVa }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListNodesResponse: StaticStructureSchema = [3, n0, _LNRi, 0, [_No, _NT], [() => NodesList, 0]];
@@ -918,18 +730,8 @@ export var ListPackageImportJobsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListPackageImportJobsResponse: StaticStructureSchema = [
@@ -947,18 +749,8 @@ export var ListPackagesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPackagesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_P, _NT], [() => PackageList, 0]];
@@ -1094,29 +886,21 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Location: StaticStructureSchema = [3, n0, _SLo, 0, [_R, _BN, _OK], [0, 0, 0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _QC, _SC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SignalApplicationInstanceNodeInstancesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1138,12 +922,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1153,20 +932,15 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Re, _EI, _EA, _F],
   [0, 0, 0, () => ValidationExceptionErrorArgumentList, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionErrorArgument: StaticStructureSchema = [3, n0, _VEEA, 0, [_N, _Va], [0, 0]];
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
 export var PanoramaServiceException: StaticErrorSchema = [-3, _sm, "PanoramaServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PanoramaServiceException, __PanoramaServiceException);
-
 export var AlternateSoftwares: StaticListSchema = [1, n0, _AS, 0, () => AlternateSoftwareMetadata];
 export var ApplicationInstances: StaticListSchema = [1, n0, _AIp, 0, () => ApplicationInstance];
 export var ConflictExceptionErrorArgumentList: StaticListSchema = [
@@ -1177,11 +951,9 @@ export var ConflictExceptionErrorArgumentList: StaticListSchema = [
   () => ConflictExceptionErrorArgument,
 ];
 export var DeviceIdList = 64 | 0;
-
 export var DeviceJobList: StaticListSchema = [1, n0, _DJL, 0, () => DeviceJob];
 export var DeviceList: StaticListSchema = [1, n0, _DL, 0, () => Device];
 export var DnsList = 64 | 0;
-
 export var InputPortList: StaticListSchema = [1, n0, _IPL, 0, () => NodeInputPort];
 export var JobList: StaticListSchema = [1, n0, _JL, 0, () => Job];
 export var JobTagsList: StaticListSchema = [1, n0, _JTL, 0, () => JobResourceTags];
@@ -1190,16 +962,13 @@ export var NodeInstances: StaticListSchema = [1, n0, _NIod, 0, () => NodeInstanc
 export var NodeSignalList: StaticListSchema = [1, n0, _NSL, 0, () => NodeSignal];
 export var NodesList: StaticListSchema = [1, n0, _NL, 0, () => Node];
 export var NtpServerList = 64 | 0;
-
 export var OutputPortList: StaticListSchema = [1, n0, _OPL, 0, () => NodeOutputPort];
 export var PackageImportJobList: StaticListSchema = [1, n0, _PIJL, 0, () => PackageImportJob];
 export var PackageList: StaticListSchema = [1, n0, _PL, 0, () => PackageListItem];
 export var PackageObjects: StaticListSchema = [1, n0, _PO, 0, () => PackageObject];
 export var PrincipalArnsList = 64 | 0;
-
 export var ReportedRuntimeContextStates: StaticListSchema = [1, n0, _RRCSe, 0, () => ReportedRuntimeContextState];
 export var TagKeyList = 64 | 0;
-
 export var ValidationExceptionErrorArgumentList: StaticListSchema = [
   1,
   n0,
@@ -1209,7 +978,6 @@ export var ValidationExceptionErrorArgumentList: StaticListSchema = [
 ];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var TagMap = 128 | 0;
-
 export var TemplateParametersMap: StaticMapSchema = [2, n0, _TPM, 0, [0, 0], [() => TemplateValue, 0]];
 export var ManifestOverridesPayload: StaticStructureSchema = [3, n0, _MOP, 0, [_PD], [0]];
 export var ManifestPayload: StaticStructureSchema = [3, n0, _MP, 0, [_PD], [0]];
@@ -1217,9 +985,7 @@ export var CreateApplicationInstance: StaticOperationSchema = [
   9,
   n0,
   _CAI,
-  {
-    [_h]: ["POST", "/application-instances", 200],
-  },
+  { [_h]: ["POST", "/application-instances", 200] },
   () => CreateApplicationInstanceRequest,
   () => CreateApplicationInstanceResponse,
 ];
@@ -1227,9 +993,7 @@ export var CreateJobForDevices: StaticOperationSchema = [
   9,
   n0,
   _CJFD,
-  {
-    [_h]: ["POST", "/jobs", 200],
-  },
+  { [_h]: ["POST", "/jobs", 200] },
   () => CreateJobForDevicesRequest,
   () => CreateJobForDevicesResponse,
 ];
@@ -1237,9 +1001,7 @@ export var CreateNodeFromTemplateJob: StaticOperationSchema = [
   9,
   n0,
   _CNFTJ,
-  {
-    [_h]: ["POST", "/packages/template-job", 200],
-  },
+  { [_h]: ["POST", "/packages/template-job", 200] },
   () => CreateNodeFromTemplateJobRequest,
   () => CreateNodeFromTemplateJobResponse,
 ];
@@ -1247,9 +1009,7 @@ export var CreatePackage: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/packages", 200],
-  },
+  { [_h]: ["POST", "/packages", 200] },
   () => CreatePackageRequest,
   () => CreatePackageResponse,
 ];
@@ -1257,9 +1017,7 @@ export var CreatePackageImportJob: StaticOperationSchema = [
   9,
   n0,
   _CPIJ,
-  {
-    [_h]: ["POST", "/packages/import-jobs", 200],
-  },
+  { [_h]: ["POST", "/packages/import-jobs", 200] },
   () => CreatePackageImportJobRequest,
   () => CreatePackageImportJobResponse,
 ];
@@ -1267,9 +1025,7 @@ export var DeleteDevice: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/devices/{DeviceId}", 200],
-  },
+  { [_h]: ["DELETE", "/devices/{DeviceId}", 200] },
   () => DeleteDeviceRequest,
   () => DeleteDeviceResponse,
 ];
@@ -1277,9 +1033,7 @@ export var DeletePackage: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/packages/{PackageId}", 200],
-  },
+  { [_h]: ["DELETE", "/packages/{PackageId}", 200] },
   () => DeletePackageRequest,
   () => DeletePackageResponse,
 ];
@@ -1287,9 +1041,7 @@ export var DeregisterPackageVersion: StaticOperationSchema = [
   9,
   n0,
   _DPV,
-  {
-    [_h]: ["DELETE", "/packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}", 200],
-  },
+  { [_h]: ["DELETE", "/packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}", 200] },
   () => DeregisterPackageVersionRequest,
   () => DeregisterPackageVersionResponse,
 ];
@@ -1297,9 +1049,7 @@ export var DescribeApplicationInstance: StaticOperationSchema = [
   9,
   n0,
   _DAI,
-  {
-    [_h]: ["GET", "/application-instances/{ApplicationInstanceId}", 200],
-  },
+  { [_h]: ["GET", "/application-instances/{ApplicationInstanceId}", 200] },
   () => DescribeApplicationInstanceRequest,
   () => DescribeApplicationInstanceResponse,
 ];
@@ -1307,9 +1057,7 @@ export var DescribeApplicationInstanceDetails: StaticOperationSchema = [
   9,
   n0,
   _DAID,
-  {
-    [_h]: ["GET", "/application-instances/{ApplicationInstanceId}/details", 200],
-  },
+  { [_h]: ["GET", "/application-instances/{ApplicationInstanceId}/details", 200] },
   () => DescribeApplicationInstanceDetailsRequest,
   () => DescribeApplicationInstanceDetailsResponse,
 ];
@@ -1317,9 +1065,7 @@ export var DescribeDevice: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["GET", "/devices/{DeviceId}", 200],
-  },
+  { [_h]: ["GET", "/devices/{DeviceId}", 200] },
   () => DescribeDeviceRequest,
   () => DescribeDeviceResponse,
 ];
@@ -1327,9 +1073,7 @@ export var DescribeDeviceJob: StaticOperationSchema = [
   9,
   n0,
   _DDJ,
-  {
-    [_h]: ["GET", "/jobs/{JobId}", 200],
-  },
+  { [_h]: ["GET", "/jobs/{JobId}", 200] },
   () => DescribeDeviceJobRequest,
   () => DescribeDeviceJobResponse,
 ];
@@ -1337,9 +1081,7 @@ export var DescribeNode: StaticOperationSchema = [
   9,
   n0,
   _DNe,
-  {
-    [_h]: ["GET", "/nodes/{NodeId}", 200],
-  },
+  { [_h]: ["GET", "/nodes/{NodeId}", 200] },
   () => DescribeNodeRequest,
   () => DescribeNodeResponse,
 ];
@@ -1347,9 +1089,7 @@ export var DescribeNodeFromTemplateJob: StaticOperationSchema = [
   9,
   n0,
   _DNFTJ,
-  {
-    [_h]: ["GET", "/packages/template-job/{JobId}", 200],
-  },
+  { [_h]: ["GET", "/packages/template-job/{JobId}", 200] },
   () => DescribeNodeFromTemplateJobRequest,
   () => DescribeNodeFromTemplateJobResponse,
 ];
@@ -1357,9 +1097,7 @@ export var DescribePackage: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["GET", "/packages/metadata/{PackageId}", 200],
-  },
+  { [_h]: ["GET", "/packages/metadata/{PackageId}", 200] },
   () => DescribePackageRequest,
   () => DescribePackageResponse,
 ];
@@ -1367,9 +1105,7 @@ export var DescribePackageImportJob: StaticOperationSchema = [
   9,
   n0,
   _DPIJ,
-  {
-    [_h]: ["GET", "/packages/import-jobs/{JobId}", 200],
-  },
+  { [_h]: ["GET", "/packages/import-jobs/{JobId}", 200] },
   () => DescribePackageImportJobRequest,
   () => DescribePackageImportJobResponse,
 ];
@@ -1377,9 +1113,7 @@ export var DescribePackageVersion: StaticOperationSchema = [
   9,
   n0,
   _DPVe,
-  {
-    [_h]: ["GET", "/packages/metadata/{PackageId}/versions/{PackageVersion}", 200],
-  },
+  { [_h]: ["GET", "/packages/metadata/{PackageId}/versions/{PackageVersion}", 200] },
   () => DescribePackageVersionRequest,
   () => DescribePackageVersionResponse,
 ];
@@ -1387,9 +1121,7 @@ export var ListApplicationInstanceDependencies: StaticOperationSchema = [
   9,
   n0,
   _LAID,
-  {
-    [_h]: ["GET", "/application-instances/{ApplicationInstanceId}/package-dependencies", 200],
-  },
+  { [_h]: ["GET", "/application-instances/{ApplicationInstanceId}/package-dependencies", 200] },
   () => ListApplicationInstanceDependenciesRequest,
   () => ListApplicationInstanceDependenciesResponse,
 ];
@@ -1397,9 +1129,7 @@ export var ListApplicationInstanceNodeInstances: StaticOperationSchema = [
   9,
   n0,
   _LAINI,
-  {
-    [_h]: ["GET", "/application-instances/{ApplicationInstanceId}/node-instances", 200],
-  },
+  { [_h]: ["GET", "/application-instances/{ApplicationInstanceId}/node-instances", 200] },
   () => ListApplicationInstanceNodeInstancesRequest,
   () => ListApplicationInstanceNodeInstancesResponse,
 ];
@@ -1407,9 +1137,7 @@ export var ListApplicationInstances: StaticOperationSchema = [
   9,
   n0,
   _LAI,
-  {
-    [_h]: ["GET", "/application-instances", 200],
-  },
+  { [_h]: ["GET", "/application-instances", 200] },
   () => ListApplicationInstancesRequest,
   () => ListApplicationInstancesResponse,
 ];
@@ -1417,9 +1145,7 @@ export var ListDevices: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/devices", 200],
-  },
+  { [_h]: ["GET", "/devices", 200] },
   () => ListDevicesRequest,
   () => ListDevicesResponse,
 ];
@@ -1427,9 +1153,7 @@ export var ListDevicesJobs: StaticOperationSchema = [
   9,
   n0,
   _LDJi,
-  {
-    [_h]: ["GET", "/jobs", 200],
-  },
+  { [_h]: ["GET", "/jobs", 200] },
   () => ListDevicesJobsRequest,
   () => ListDevicesJobsResponse,
 ];
@@ -1437,9 +1161,7 @@ export var ListNodeFromTemplateJobs: StaticOperationSchema = [
   9,
   n0,
   _LNFTJ,
-  {
-    [_h]: ["GET", "/packages/template-job", 200],
-  },
+  { [_h]: ["GET", "/packages/template-job", 200] },
   () => ListNodeFromTemplateJobsRequest,
   () => ListNodeFromTemplateJobsResponse,
 ];
@@ -1447,9 +1169,7 @@ export var ListNodes: StaticOperationSchema = [
   9,
   n0,
   _LN,
-  {
-    [_h]: ["GET", "/nodes", 200],
-  },
+  { [_h]: ["GET", "/nodes", 200] },
   () => ListNodesRequest,
   () => ListNodesResponse,
 ];
@@ -1457,9 +1177,7 @@ export var ListPackageImportJobs: StaticOperationSchema = [
   9,
   n0,
   _LPIJ,
-  {
-    [_h]: ["GET", "/packages/import-jobs", 200],
-  },
+  { [_h]: ["GET", "/packages/import-jobs", 200] },
   () => ListPackageImportJobsRequest,
   () => ListPackageImportJobsResponse,
 ];
@@ -1467,9 +1185,7 @@ export var ListPackages: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/packages", 200],
-  },
+  { [_h]: ["GET", "/packages", 200] },
   () => ListPackagesRequest,
   () => ListPackagesResponse,
 ];
@@ -1477,9 +1193,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1487,9 +1201,7 @@ export var ProvisionDevice: StaticOperationSchema = [
   9,
   n0,
   _PDr,
-  {
-    [_h]: ["POST", "/devices", 200],
-  },
+  { [_h]: ["POST", "/devices", 200] },
   () => ProvisionDeviceRequest,
   () => ProvisionDeviceResponse,
 ];
@@ -1497,9 +1209,7 @@ export var RegisterPackageVersion: StaticOperationSchema = [
   9,
   n0,
   _RPV,
-  {
-    [_h]: ["PUT", "/packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}", 200],
-  },
+  { [_h]: ["PUT", "/packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}", 200] },
   () => RegisterPackageVersionRequest,
   () => RegisterPackageVersionResponse,
 ];
@@ -1507,9 +1217,7 @@ export var RemoveApplicationInstance: StaticOperationSchema = [
   9,
   n0,
   _RAI,
-  {
-    [_h]: ["DELETE", "/application-instances/{ApplicationInstanceId}", 200],
-  },
+  { [_h]: ["DELETE", "/application-instances/{ApplicationInstanceId}", 200] },
   () => RemoveApplicationInstanceRequest,
   () => RemoveApplicationInstanceResponse,
 ];
@@ -1517,9 +1225,7 @@ export var SignalApplicationInstanceNodeInstances: StaticOperationSchema = [
   9,
   n0,
   _SAINI,
-  {
-    [_h]: ["PUT", "/application-instances/{ApplicationInstanceId}/node-signals", 200],
-  },
+  { [_h]: ["PUT", "/application-instances/{ApplicationInstanceId}/node-signals", 200] },
   () => SignalApplicationInstanceNodeInstancesRequest,
   () => SignalApplicationInstanceNodeInstancesResponse,
 ];
@@ -1527,9 +1233,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1537,9 +1241,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1547,9 +1249,7 @@ export var UpdateDeviceMetadata: StaticOperationSchema = [
   9,
   n0,
   _UDM,
-  {
-    [_h]: ["PUT", "/devices/{DeviceId}", 200],
-  },
+  { [_h]: ["PUT", "/devices/{DeviceId}", 200] },
   () => UpdateDeviceMetadataRequest,
   () => UpdateDeviceMetadataResponse,
 ];

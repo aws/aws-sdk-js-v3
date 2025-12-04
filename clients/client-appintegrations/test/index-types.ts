@@ -71,6 +71,7 @@ export type {
   UpdateEventIntegrationCommand,
   UpdateEventIntegrationCommandInput,
   UpdateEventIntegrationCommandOutput,
+  ApplicationType,
   ContactHandlingScope,
   ExecutionMode,
   ExecutionStatus,

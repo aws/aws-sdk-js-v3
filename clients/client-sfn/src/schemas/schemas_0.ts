@@ -479,7 +479,6 @@ import {
 import { SFNServiceException as __SFNServiceException } from "../models/SFNServiceException";
 
 /* eslint no-var: 0 */
-
 export var AliasDescription: StaticSimpleSchema = [0, n0, _AD, 8, 0];
 export var ConnectorParameters: StaticSimpleSchema = [0, n0, _CP, 8, 0];
 export var Definition: StaticSimpleSchema = [0, n0, _D, 8, 0];
@@ -500,30 +499,10 @@ export var ValidateStateMachineDefinitionMessage: StaticSimpleSchema = [0, n0, _
 export var VariableName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
 export var VariableValue: StaticSimpleSchema = [0, n0, _VV, 8, 0];
 export var VersionDescription: StaticSimpleSchema = [0, n0, _VD, 8, 0];
-export var ActivityAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _AAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ActivityAlreadyExists: StaticErrorSchema = [-3, n0, _AAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ActivityAlreadyExists, __ActivityAlreadyExists);
-
-export var ActivityDoesNotExist: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADNE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ActivityDoesNotExist: StaticErrorSchema = [-3, n0, _ADNE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ActivityDoesNotExist, __ActivityDoesNotExist);
-
 export var ActivityFailedEventDetails: StaticStructureSchema = [
   3,
   n0,
@@ -535,18 +514,8 @@ export var ActivityFailedEventDetails: StaticStructureSchema = [
     [() => SensitiveCause, 0],
   ],
 ];
-export var ActivityLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _ALE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ActivityLimitExceeded: StaticErrorSchema = [-3, n0, _ALE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ActivityLimitExceeded, __ActivityLimitExceeded);
-
 export var ActivityListItem: StaticStructureSchema = [3, n0, _ALI, 0, [_aA, _n, _cD], [0, 0, 4]];
 export var ActivityScheduledEventDetails: StaticStructureSchema = [
   3,
@@ -587,35 +556,14 @@ export var ActivityTimedOutEventDetails: StaticStructureSchema = [
     [() => SensitiveCause, 0],
   ],
 ];
-export var ActivityWorkerLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _AWLE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ActivityWorkerLimitExceeded: StaticErrorSchema = [-3, n0, _AWLE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ActivityWorkerLimitExceeded, __ActivityWorkerLimitExceeded);
-
 export var AssignedVariablesDetails: StaticStructureSchema = [3, n0, _AVD, 0, [_t], [2]];
 export var BillingDetails: StaticStructureSchema = [3, n0, _BD, 0, [_bMUIMB, _bDIM], [1, 1]];
 export var CloudWatchEventsExecutionDataDetails: StaticStructureSchema = [3, n0, _CWEEDD, 0, [_in], [2]];
 export var CloudWatchLogsLogGroup: StaticStructureSchema = [3, n0, _CWLLG, 0, [_lGA], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateActivityInput: StaticStructureSchema = [
   3,
   n0,
@@ -785,30 +733,10 @@ export var ExecutionAbortedEventDetails: StaticStructureSchema = [
     [() => SensitiveCause, 0],
   ],
 ];
-export var ExecutionAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _EAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ExecutionAlreadyExists: StaticErrorSchema = [-3, n0, _EAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExecutionAlreadyExists, __ExecutionAlreadyExists);
-
-export var ExecutionDoesNotExist: StaticErrorSchema = [
-  -3,
-  n0,
-  _EDNE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ExecutionDoesNotExist: StaticErrorSchema = [-3, n0, _EDNE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExecutionDoesNotExist, __ExecutionDoesNotExist);
-
 export var ExecutionFailedEventDetails: StaticStructureSchema = [
   3,
   n0,
@@ -820,18 +748,8 @@ export var ExecutionFailedEventDetails: StaticStructureSchema = [
     [() => SensitiveCause, 0],
   ],
 ];
-export var ExecutionLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _ELE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ExecutionLimitExceeded: StaticErrorSchema = [-3, n0, _ELE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExecutionLimitExceeded, __ExecutionLimitExceeded);
-
 export var ExecutionListItem: StaticStructureSchema = [
   3,
   n0,
@@ -840,18 +758,8 @@ export var ExecutionListItem: StaticStructureSchema = [
   [_eA, _sMA, _n, _s, _sD, _sDt, _mRA, _iCt, _sMVA, _sMAA, _rCe, _rD],
   [0, 0, 0, 0, 4, 4, 0, 1, 0, 0, 1, 4],
 ];
-export var ExecutionNotRedrivable: StaticErrorSchema = [
-  -3,
-  n0,
-  _ENR,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ExecutionNotRedrivable: StaticErrorSchema = [-3, n0, _ENR, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExecutionNotRedrivable, __ExecutionNotRedrivable);
-
 export var ExecutionRedrivenEventDetails: StaticStructureSchema = [3, n0, _ERED, 0, [_rCe], [1]];
 export var ExecutionStartedEventDetails: StaticStructureSchema = [
   3,
@@ -1039,150 +947,30 @@ export var InspectionErrorDetails: StaticStructureSchema = [
     [() => RetryBackoffIntervalSeconds, 0],
   ],
 ];
-export var InvalidArn: StaticErrorSchema = [
-  -3,
-  n0,
-  _IA,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArn: StaticErrorSchema = [-3, n0, _IA, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArn, __InvalidArn);
-
-export var InvalidDefinition: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDn,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDefinition: StaticErrorSchema = [-3, n0, _IDn, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDefinition, __InvalidDefinition);
-
-export var InvalidEncryptionConfiguration: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEC,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidEncryptionConfiguration: StaticErrorSchema = [-3, n0, _IEC, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidEncryptionConfiguration, __InvalidEncryptionConfiguration);
-
-export var InvalidExecutionInput: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEI,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidExecutionInput: StaticErrorSchema = [-3, n0, _IEI, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidExecutionInput, __InvalidExecutionInput);
-
-export var InvalidLoggingConfiguration: StaticErrorSchema = [
-  -3,
-  n0,
-  _ILC,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidLoggingConfiguration: StaticErrorSchema = [-3, n0, _ILC, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidLoggingConfiguration, __InvalidLoggingConfiguration);
-
-export var InvalidName: StaticErrorSchema = [
-  -3,
-  n0,
-  _IN,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidName: StaticErrorSchema = [-3, n0, _IN, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidName, __InvalidName);
-
-export var InvalidOutput: StaticErrorSchema = [
-  -3,
-  n0,
-  _IO,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidOutput: StaticErrorSchema = [-3, n0, _IO, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidOutput, __InvalidOutput);
-
-export var InvalidToken: StaticErrorSchema = [
-  -3,
-  n0,
-  _IT,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidToken: StaticErrorSchema = [-3, n0, _IT, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidToken, __InvalidToken);
-
-export var InvalidTracingConfiguration: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITC,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTracingConfiguration: StaticErrorSchema = [-3, n0, _ITC, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTracingConfiguration, __InvalidTracingConfiguration);
-
-export var KmsAccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _KADE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KmsAccessDeniedException: StaticErrorSchema = [-3, n0, _KADE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KmsAccessDeniedException, __KmsAccessDeniedException);
-
-export var KmsInvalidStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _KISE,
-  {
-    [_e]: _c,
-  },
-  [_kKS, _m],
-  [0, 0],
-];
+export var KmsInvalidStateException: StaticErrorSchema = [-3, n0, _KISE, { [_e]: _c }, [_kKS, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(KmsInvalidStateException, __KmsInvalidStateException);
-
-export var KmsThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _KTE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KmsThrottlingException: StaticErrorSchema = [-3, n0, _KTE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KmsThrottlingException, __KmsThrottlingException);
-
 export var LambdaFunctionFailedEventDetails: StaticStructureSchema = [
   3,
   n0,
@@ -1319,18 +1107,8 @@ export var MapRunListItem: StaticStructureSchema = [3, n0, _MRLI, 0, [_eA, _mRA,
 export var MapRunRedrivenEventDetails: StaticStructureSchema = [3, n0, _MRRED, 0, [_mRA, _rCe], [0, 1]];
 export var MapRunStartedEventDetails: StaticStructureSchema = [3, n0, _MRSED, 0, [_mRA], [0]];
 export var MapStateStartedEventDetails: StaticStructureSchema = [3, n0, _MSSED, 0, [_len], [1]];
-export var MissingRequiredParameter: StaticErrorSchema = [
-  -3,
-  n0,
-  _MRP,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var MissingRequiredParameter: StaticErrorSchema = [-3, n0, _MRP, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MissingRequiredParameter, __MissingRequiredParameter);
-
 export var MockErrorOutput: StaticStructureSchema = [
   3,
   n0,
@@ -1361,19 +1139,8 @@ export var PublishStateMachineVersionInput: StaticStructureSchema = [
 export var PublishStateMachineVersionOutput: StaticStructureSchema = [3, n0, _PSMVO, 0, [_cD, _sMVA], [4, 0]];
 export var RedriveExecutionInput: StaticStructureSchema = [3, n0, _REI, 0, [_eA, _cT], [0, [0, 4]]];
 export var RedriveExecutionOutput: StaticStructureSchema = [3, n0, _REO, 0, [_rD], [4]];
-export var ResourceNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var ResourceNotFound: StaticErrorSchema = [-3, n0, _RNF, { [_e]: _c, [_hE]: 404 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFound, __ResourceNotFound);
-
 export var RoutingConfigurationListItem: StaticStructureSchema = [3, n0, _RCLI, 0, [_sMVA, _w], [0, 1]];
 export var SendTaskFailureInput: StaticStructureSchema = [
   3,
@@ -1388,19 +1155,8 @@ export var SendTaskHeartbeatInput: StaticStructureSchema = [3, n0, _STHI, 0, [_t
 export var SendTaskHeartbeatOutput: StaticStructureSchema = [3, n0, _STHO, 0, [], []];
 export var SendTaskSuccessInput: StaticStructureSchema = [3, n0, _STSI, 0, [_tT, _o], [0, [() => SensitiveData, 0]]];
 export var SendTaskSuccessOutput: StaticStructureSchema = [3, n0, _STSO, 0, [], []];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartExecutionInput: StaticStructureSchema = [
   3,
   n0,
@@ -1464,67 +1220,17 @@ export var StateExitedEventDetails: StaticStructureSchema = [
   ],
 ];
 export var StateMachineAliasListItem: StaticStructureSchema = [3, n0, _SMALI, 0, [_sMAA, _cD], [0, 4]];
-export var StateMachineAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _SMAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var StateMachineAlreadyExists: StaticErrorSchema = [-3, n0, _SMAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(StateMachineAlreadyExists, __StateMachineAlreadyExists);
-
-export var StateMachineDeleting: StaticErrorSchema = [
-  -3,
-  n0,
-  _SMD,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var StateMachineDeleting: StaticErrorSchema = [-3, n0, _SMD, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(StateMachineDeleting, __StateMachineDeleting);
-
-export var StateMachineDoesNotExist: StaticErrorSchema = [
-  -3,
-  n0,
-  _SMDNE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var StateMachineDoesNotExist: StaticErrorSchema = [-3, n0, _SMDNE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(StateMachineDoesNotExist, __StateMachineDoesNotExist);
-
-export var StateMachineLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _SMLE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var StateMachineLimitExceeded: StaticErrorSchema = [-3, n0, _SMLE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(StateMachineLimitExceeded, __StateMachineLimitExceeded);
-
 export var StateMachineListItem: StaticStructureSchema = [3, n0, _SMLI, 0, [_sMA, _n, _ty, _cD], [0, 0, 0, 4]];
-export var StateMachineTypeNotSupported: StaticErrorSchema = [
-  -3,
-  n0,
-  _SMTNS,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var StateMachineTypeNotSupported: StaticErrorSchema = [-3, n0, _SMTNS, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(StateMachineTypeNotSupported, __StateMachineTypeNotSupported);
-
 export var StateMachineVersionListItem: StaticStructureSchema = [3, n0, _SMVLI, 0, [_sMVA, _cD], [0, 4]];
 export var StopExecutionInput: StaticStructureSchema = [
   3,
@@ -1539,18 +1245,8 @@ export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rAe, _ta], [0, () => TagList]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var TaskCredentials: StaticStructureSchema = [3, n0, _TC, 0, [_rA], [0]];
-export var TaskDoesNotExist: StaticErrorSchema = [
-  -3,
-  n0,
-  _TDNE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TaskDoesNotExist: StaticErrorSchema = [-3, n0, _TDNE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TaskDoesNotExist, __TaskDoesNotExist);
-
 export var TaskFailedEventDetails: StaticStructureSchema = [
   3,
   n0,
@@ -1600,18 +1296,8 @@ export var TaskSucceededEventDetails: StaticStructureSchema = [
   [_rT, _r, _o, _oD],
   [0, 0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails],
 ];
-export var TaskTimedOut: StaticErrorSchema = [
-  -3,
-  n0,
-  _TTO,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TaskTimedOut: StaticErrorSchema = [-3, n0, _TTO, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TaskTimedOut, __TaskTimedOut);
-
 export var TaskTimedOutEventDetails: StaticStructureSchema = [
   3,
   n0,
@@ -1655,19 +1341,8 @@ export var TestStateOutput: StaticStructureSchema = [
   [_o, _e, _ca, _iDns, _nS, _s],
   [[() => SensitiveData, 0], [() => SensitiveError, 0], [() => SensitiveCause, 0], [() => InspectionData, 0], 0, 0],
 ];
-export var TooManyTags: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMT,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var TooManyTags: StaticErrorSchema = [-3, n0, _TMT, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTags, __TooManyTags);
-
 export var TracingConfiguration: StaticStructureSchema = [3, n0, _TCr, 0, [_en], [2]];
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_rAe, _tK], [0, 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
@@ -1729,24 +1404,11 @@ export var ValidateStateMachineDefinitionOutput: StaticStructureSchema = [
   [_re, _di, _t],
   [0, [() => ValidateStateMachineDefinitionDiagnosticList, 0], 2],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _rea],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _rea], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var SFNServiceException: StaticErrorSchema = [-3, _sm, "SFNServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SFNServiceException, __SFNServiceException);
-
 export var ActivityList: StaticListSchema = [1, n0, _AL, 0, () => ActivityListItem];
 export var ExecutionList: StaticListSchema = [1, n0, _EL, 0, () => ExecutionListItem];
 export var HistoryEventList: StaticListSchema = [1, n0, _HEL, 0, [() => HistoryEvent, 0]];
@@ -1757,7 +1419,6 @@ export var StateMachineAliasList: StaticListSchema = [1, n0, _SMAL, 0, () => Sta
 export var StateMachineList: StaticListSchema = [1, n0, _SML, 0, () => StateMachineListItem];
 export var StateMachineVersionList: StaticListSchema = [1, n0, _SMVL, 0, () => StateMachineVersionListItem];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidateStateMachineDefinitionDiagnosticList: StaticListSchema = [
   1,
@@ -1990,9 +1651,7 @@ export var StartSyncExecution: StaticOperationSchema = [
   9,
   n0,
   _SSE,
-  {
-    [_end]: ["sync-"],
-  },
+  { [_end]: ["sync-"] },
   () => StartSyncExecutionInput,
   () => StartSyncExecutionOutput,
 ];
@@ -2009,9 +1668,7 @@ export var TestState: StaticOperationSchema = [
   9,
   n0,
   _TS,
-  {
-    [_end]: ["sync-"],
-  },
+  { [_end]: ["sync-"] },
   () => TestStateInput,
   () => TestStateOutput,
 ];

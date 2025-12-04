@@ -1603,7 +1603,6 @@ import {
   UpdateViewMetadataCommandInput,
   UpdateViewMetadataCommandOutput,
 } from "./commands/UpdateViewMetadataCommand";
-<<<<<<< HEAD
 import {
   UpdateWorkspaceMetadataCommand,
   UpdateWorkspaceMetadataCommandInput,
@@ -1624,10 +1623,7 @@ import {
   UpdateWorkspaceVisibilityCommandInput,
   UpdateWorkspaceVisibilityCommandOutput,
 } from "./commands/UpdateWorkspaceVisibilityCommand";
-import { ConnectClient, ConnectClientConfig } from "./ConnectClient";
-=======
 import { ConnectClient } from "./ConnectClient";
->>>>>>> 60efd81940b (chore: codegen)
 
 const commands = {
   ActivateEvaluationFormCommand,

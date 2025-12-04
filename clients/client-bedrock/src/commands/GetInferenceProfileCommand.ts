@@ -5,11 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { GetInferenceProfileRequest, GetInferenceProfileResponse } from "../models/models_1";
-=======
-import type { GetInferenceProfileRequest, GetInferenceProfileResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { GetInferenceProfileRequest, GetInferenceProfileResponse } from "../models/models_1";
 import { GetInferenceProfile } from "../schemas/schemas_0";
 
 /**

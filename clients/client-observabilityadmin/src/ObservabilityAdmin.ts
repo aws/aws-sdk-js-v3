@@ -193,16 +193,12 @@ import {
   UpdateTelemetryRuleForOrganizationCommandInput,
   UpdateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/UpdateTelemetryRuleForOrganizationCommand";
-<<<<<<< HEAD
 import {
   ValidateTelemetryPipelineConfigurationCommand,
   ValidateTelemetryPipelineConfigurationCommandInput,
   ValidateTelemetryPipelineConfigurationCommandOutput,
 } from "./commands/ValidateTelemetryPipelineConfigurationCommand";
-import { ObservabilityAdminClient, ObservabilityAdminClientConfig } from "./ObservabilityAdminClient";
-=======
 import { ObservabilityAdminClient } from "./ObservabilityAdminClient";
->>>>>>> 60efd81940b (chore: codegen)
 
 const commands = {
   CreateCentralizationRuleForOrganizationCommand,

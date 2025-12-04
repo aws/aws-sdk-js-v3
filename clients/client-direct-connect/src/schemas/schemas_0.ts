@@ -380,7 +380,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AcceptDirectConnectGatewayAssociationProposalRequest: StaticStructureSchema = [
   3,
   n0,
@@ -781,18 +780,8 @@ export var DescribeVirtualInterfacesRequest: StaticStructureSchema = [
   [_cI, _vII, _mR, _nT],
   [0, 0, 1, 0],
 ];
-export var DirectConnectClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCCE,
-  {
-    [_e]: _cl,
-  },
-  [_m],
-  [0],
-];
+export var DirectConnectClientException: StaticErrorSchema = [-3, n0, _DCCE, { [_e]: _cl }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DirectConnectClientException, __DirectConnectClientException);
-
 export var DirectConnectGateway: StaticStructureSchema = [
   3,
   n0,
@@ -825,19 +814,8 @@ export var DirectConnectGatewayAttachment: StaticStructureSchema = [
   [_dCGI, _vII, _vIR, _vIOA, _aSt, _aT, _sCE],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var DirectConnectServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCSE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var DirectConnectServerException: StaticErrorSchema = [-3, n0, _DCSE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DirectConnectServerException, __DirectConnectServerException);
-
 export var DisassociateConnectionFromLagRequest: StaticStructureSchema = [3, n0, _DCFLR, 0, [_cI, _lI], [0, 0]];
 export var DisassociateMacSecKeyRequest: StaticStructureSchema = [3, n0, _DMSKR, 0, [_cI, _sARN], [0, 0]];
 export var DisassociateMacSecKeyResponse: StaticStructureSchema = [
@@ -848,18 +826,8 @@ export var DisassociateMacSecKeyResponse: StaticStructureSchema = [
   [_cI, _mSK],
   [0, () => MacSecKeyList],
 ];
-export var DuplicateTagKeysException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DTKE,
-  {
-    [_e]: _cl,
-  },
-  [_m],
-  [0],
-];
+export var DuplicateTagKeysException: StaticErrorSchema = [-3, n0, _DTKE, { [_e]: _cl }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DuplicateTagKeysException, __DuplicateTagKeysException);
-
 export var Interconnect: StaticStructureSchema = [
   3,
   n0,
@@ -985,18 +953,8 @@ export var StopBgpFailoverTestResponse: StaticStructureSchema = [
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _cl,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _cl }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rAe, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateConnectionRequest: StaticStructureSchema = [3, n0, _UCR, 0, [_cI, _cN, _eM], [0, 0, 0]];
@@ -1110,17 +1068,12 @@ export var VirtualInterfaceTestHistory: StaticStructureSchema = [
   [0, 0, 64 | 0, 0, 0, 1, 4, 4],
 ];
 export var __Unit = "unit" as const;
-
 export var DirectConnectServiceException: StaticErrorSchema = [-3, _sm, "DirectConnectServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DirectConnectServiceException, __DirectConnectServiceException);
-
 export var AgreementList: StaticListSchema = [1, n0, _AL, 0, () => CustomerAgreement];
 export var AvailableMacSecPortSpeeds = 64 | 0;
-
 export var AvailablePortSpeeds = 64 | 0;
-
 export var BGPPeerIdList = 64 | 0;
-
 export var BGPPeerList: StaticListSchema = [1, n0, _BGPPL, 0, () => BGPPeer];
 export var ConnectionList: StaticListSchema = [1, n0, _CL, 0, () => Connection];
 export var DirectConnectGatewayAssociationList: StaticListSchema = [
@@ -1150,13 +1103,10 @@ export var LagList: StaticListSchema = [1, n0, _LL, 0, () => Lag];
 export var LocationList: StaticListSchema = [1, n0, _LLo, 0, () => Location];
 export var MacSecKeyList: StaticListSchema = [1, n0, _MSKL, 0, () => MacSecKey];
 export var ProviderList = 64 | 0;
-
 export var ResourceArnList = 64 | 0;
-
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
 export var RouteFilterPrefixList: StaticListSchema = [1, n0, _RFPL, 0, () => RouteFilterPrefix];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var VirtualGatewayList: StaticListSchema = [1, n0, _VGL, 0, () => VirtualGateway];
 export var VirtualInterfaceList: StaticListSchema = [1, n0, _VIL, 0, () => VirtualInterface];

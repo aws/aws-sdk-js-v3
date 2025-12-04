@@ -220,6 +220,7 @@ export type {
   ImportMode,
   IngestionMode,
   ObjectiveSensitivity,
+  RankingInfluenceType,
   RecipeProvider,
   TrainingMode,
   TrainingType,

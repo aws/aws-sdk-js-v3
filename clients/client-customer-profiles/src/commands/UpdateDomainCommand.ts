@@ -9,11 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_1";
-=======
-import type { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_1";
 import { UpdateDomain } from "../schemas/schemas_0";
 
 /**

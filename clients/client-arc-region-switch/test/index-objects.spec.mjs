@@ -59,29 +59,29 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof ARCRegionSwitchClient === "function")
-assert(typeof ARCRegionSwitch === "function")
+assert(typeof ARCRegionSwitchClient === "function");
+assert(typeof ARCRegionSwitch === "function");
 // commands
-assert(typeof ApprovePlanExecutionStepCommand === "function")
-assert(typeof CancelPlanExecutionCommand === "function")
-assert(typeof CreatePlanCommand === "function")
-assert(typeof DeletePlanCommand === "function")
-assert(typeof GetPlanCommand === "function")
-assert(typeof GetPlanEvaluationStatusCommand === "function")
-assert(typeof GetPlanExecutionCommand === "function")
-assert(typeof GetPlanInRegionCommand === "function")
-assert(typeof ListPlanExecutionEventsCommand === "function")
-assert(typeof ListPlanExecutionsCommand === "function")
-assert(typeof ListPlansCommand === "function")
-assert(typeof ListPlansInRegionCommand === "function")
-assert(typeof ListRoute53HealthChecksCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof StartPlanExecutionCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdatePlanCommand === "function")
-assert(typeof UpdatePlanExecutionCommand === "function")
-assert(typeof UpdatePlanExecutionStepCommand === "function")
+assert(typeof ApprovePlanExecutionStepCommand === "function");
+assert(typeof CancelPlanExecutionCommand === "function");
+assert(typeof CreatePlanCommand === "function");
+assert(typeof DeletePlanCommand === "function");
+assert(typeof GetPlanCommand === "function");
+assert(typeof GetPlanEvaluationStatusCommand === "function");
+assert(typeof GetPlanExecutionCommand === "function");
+assert(typeof GetPlanInRegionCommand === "function");
+assert(typeof ListPlanExecutionEventsCommand === "function");
+assert(typeof ListPlanExecutionsCommand === "function");
+assert(typeof ListPlansCommand === "function");
+assert(typeof ListPlansInRegionCommand === "function");
+assert(typeof ListRoute53HealthChecksCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof StartPlanExecutionCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdatePlanCommand === "function");
+assert(typeof UpdatePlanExecutionCommand === "function");
+assert(typeof UpdatePlanExecutionStepCommand === "function");
 // enums
 assert(typeof AlarmCondition === "object");
 assert(typeof AlarmType === "object");
@@ -107,18 +107,18 @@ assert(typeof UpdatePlanExecutionAction === "object");
 assert(typeof UpdatePlanExecutionStepAction === "object");
 assert(typeof WorkflowTargetAction === "object");
 // errors
-assert(ARCRegionSwitchServiceException.prototype instanceof Error)
+assert(ARCRegionSwitchServiceException.prototype instanceof Error);
 // waiters
-assert(typeof waitForPlanEvaluationStatusPassed === "function")
-assert(typeof waitForPlanExecutionCompleted === "function")
-assert(typeof waitUntilPlanEvaluationStatusPassed === "function")
-assert(typeof waitUntilPlanExecutionCompleted === "function")
+assert(typeof waitForPlanEvaluationStatusPassed === "function");
+assert(typeof waitForPlanExecutionCompleted === "function");
+assert(typeof waitUntilPlanEvaluationStatusPassed === "function");
+assert(typeof waitUntilPlanExecutionCompleted === "function");
 // paginators
-assert(typeof paginateGetPlanEvaluationStatus === "function")
-assert(typeof paginateGetPlanExecution === "function")
-assert(typeof paginateListPlanExecutionEvents === "function")
-assert(typeof paginateListPlanExecutions === "function")
-assert(typeof paginateListPlans === "function")
-assert(typeof paginateListPlansInRegion === "function")
-assert(typeof paginateListRoute53HealthChecks === "function")
+assert(typeof paginateGetPlanEvaluationStatus === "function");
+assert(typeof paginateGetPlanExecution === "function");
+assert(typeof paginateListPlanExecutionEvents === "function");
+assert(typeof paginateListPlanExecutions === "function");
+assert(typeof paginateListPlans === "function");
+assert(typeof paginateListPlansInRegion === "function");
+assert(typeof paginateListRoute53HealthChecks === "function");
 console.log(`ARCRegionSwitch index test passed.`);

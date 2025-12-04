@@ -245,20 +245,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountInfo: StaticStructureSchema = [3, n0, _AI, 0, [_aI, _s, _oRM, _sR, _lUT], [0, 0, 0, 0, 4]];
 export var AssociateAccountsRequest: StaticStructureSchema = [3, n0, _AAR, 0, [_aIc, _cT], [64 | 0, [0, 4]]];
 export var AssociateAccountsResponse: StaticStructureSchema = [3, n0, _AARs, 0, [_aIc, _er], [64 | 0, 64 | 0]];
@@ -337,19 +325,8 @@ export var EbsVolume: StaticStructureSchema = [3, n0, _EV, 0, [_con], [() => Ebs
 export var EbsVolumeConfiguration: StaticStructureSchema = [3, n0, _EVC, 0, [_ty, _sIG, _i, _th], [0, 1, 1, 1]];
 export var EstimatedMonthlySavings: StaticStructureSchema = [3, n0, _EMS, 0, [_cu, _bDS, _aDS, _sEM], [0, 1, 1, 0]];
 export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_n, _v], [0, 64 | 0]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GetAutomationEventRequest: StaticStructureSchema = [3, n0, _GAER, 0, [_eI], [0]];
 export var GetAutomationEventResponse: StaticStructureSchema = [
   3,
@@ -394,59 +371,22 @@ export var GetEnrollmentConfigurationResponse: StaticStructureSchema = [
   [_s, _sR, _oRM, _lUT],
   [0, 0, 0, 4],
 ];
-export var IdempotencyTokenInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var IdempotencyTokenInUseException: StaticErrorSchema = [-3, n0, _ITIUE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IdempotencyTokenInUseException, __IdempotencyTokenInUseException);
-
 export var IdempotentParameterMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-
 export var IntegerCriteriaCondition: StaticStructureSchema = [3, n0, _ICC, 0, [_co, _v], [0, 64 | 1]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidParameterValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterValueException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
 export var ListAccountsRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_mR, _nT], [1, 0]];
 export var ListAccountsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_a, _nT], [() => AccountInfoList, 0]];
 export var ListAutomationEventsRequest: StaticStructureSchema = [
@@ -572,32 +512,10 @@ export var ListRecommendedActionSummariesResponse: StaticStructureSchema = [
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
-export var NotManagementAccountException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NMAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var NotManagementAccountException: StaticErrorSchema = [-3, n0, _NMAE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotManagementAccountException, __NotManagementAccountException);
-
-export var OptInRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OIRE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var OptInRequiredException: StaticErrorSchema = [-3, n0, _OIRE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OptInRequiredException, __OptInRequiredException);
-
 export var OrganizationConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_rAO, _aIc], [0, 64 | 0]];
 export var OrganizationScope: StaticStructureSchema = [3, n0, _OS, 0, [_aIc], [64 | 0]];
 export var PreviewResult: StaticStructureSchema = [
@@ -666,50 +584,17 @@ export var RecommendedActionTotal: StaticStructureSchema = [
   [_rAC, _eMS],
   [1, () => EstimatedMonthlySavings],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTagsCriteriaCondition: StaticStructureSchema = [3, n0, _RTCC, 0, [_co, _k, _v], [0, 0, 64 | 0]];
 export var RollbackAutomationEventRequest: StaticStructureSchema = [3, n0, _RAER, 0, [_eI, _cT], [0, [0, 4]]];
 export var RollbackAutomationEventResponse: StaticStructureSchema = [3, n0, _RAERo, 0, [_eI, _eS], [0, 0]];
 export var RulePreviewTotal: StaticStructureSchema = [3, n0, _RPT, 0, [_rAC, _eMS], [1, () => EstimatedMonthlySavings]];
 export var Schedule: StaticStructureSchema = [3, n0, _S, 0, [_sE, _sET, _eWIM], [0, 0, 1]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartAutomationEventRequest: StaticStructureSchema = [3, n0, _SAER, 0, [_rAI, _cT], [0, [0, 4]]];
 export var StartAutomationEventResponse: StaticStructureSchema = [3, n0, _SAERt, 0, [_rAI, _eI, _eS], [0, 0, 0]];
 export var StringCriteriaCondition: StaticStructureSchema = [3, n0, _SCC, 0, [_co, _v], [0, 64 | 0]];
@@ -725,19 +610,8 @@ export var TagResourceRequest: StaticStructureSchema = [
   [0, 1, () => TagList, [0, 4]],
 ];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_sTI, _eTE], [4, 4]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _rR, _tK, _cT], [0, 1, 64 | 0, [0, 4]]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -767,7 +641,6 @@ export var UpdateEnrollmentConfigurationResponse: StaticStructureSchema = [
   [0, 0, 4],
 ];
 export var __Unit = "unit" as const;
-
 export var ComputeOptimizerAutomationServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -780,9 +653,7 @@ TypeRegistry.for(_sm).registerError(
   ComputeOptimizerAutomationServiceException,
   __ComputeOptimizerAutomationServiceException
 );
-
 export var AccountIdList = 64 | 0;
-
 export var AccountInfoList: StaticListSchema = [1, n0, _AIL, 0, () => AccountInfo];
 export var AutomationEventFilterList: StaticListSchema = [1, n0, _AEFL, 0, () => AutomationEventFilter];
 export var AutomationEvents: StaticListSchema = [1, n0, _AEu, 0, () => AutomationEvent];
@@ -791,22 +662,17 @@ export var AutomationEventSummaryList: StaticListSchema = [1, n0, _AESL, 0, () =
 export var AutomationRules: StaticListSchema = [1, n0, _ARu, 0, () => AutomationRule];
 export var DoubleCriteriaConditionList: StaticListSchema = [1, n0, _DCCL, 0, () => DoubleCriteriaCondition];
 export var DoubleList = 64 | 1;
-
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FilterValues = 64 | 0;
-
 export var IntegerCriteriaConditionList: StaticListSchema = [1, n0, _ICCL, 0, () => IntegerCriteriaCondition];
 export var IntegerList = 64 | 1;
-
 export var OrganizationConfigurationAccountIds = 64 | 0;
-
 export var PreviewResults: StaticListSchema = [1, n0, _PRr, 0, () => PreviewResult];
 export var PreviewResultSummaries: StaticListSchema = [1, n0, _PRSr, 0, () => PreviewResultSummary];
 export var RecommendedActionFilterList: StaticListSchema = [1, n0, _RAFL, 0, () => RecommendedActionFilter];
 export var RecommendedActions: StaticListSchema = [1, n0, _RAe, 0, () => RecommendedAction];
 export var RecommendedActionSummaries: StaticListSchema = [1, n0, _RASe, 0, () => RecommendedActionSummary];
 export var RecommendedActionTypeList = 64 | 0;
-
 export var ResourceTagsCriteriaConditionList: StaticListSchema = [
   1,
   n0,
@@ -816,12 +682,9 @@ export var ResourceTagsCriteriaConditionList: StaticListSchema = [
 ];
 export var StringCriteriaConditionList: StaticListSchema = [1, n0, _SCCL, 0, () => StringCriteriaCondition];
 export var StringCriteriaValues = 64 | 0;
-
 export var StringList = 64 | 0;
-
 export var SummaryDimensions: StaticListSchema = [1, n0, _SDu, 0, () => SummaryDimension];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ResourceDetails: StaticStructureSchema = [3, n0, _RD, 0, [_eV], [() => EbsVolume]];
 export var AssociateAccounts: StaticOperationSchema = [

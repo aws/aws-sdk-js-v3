@@ -5,11 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateQueueOutboundEmailConfigRequest } from "../models/models_3";
-=======
-import type { UpdateQueueOutboundEmailConfigRequest } from "../models/models_2";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateQueueOutboundEmailConfigRequest } from "../models/models_3";
 import { UpdateQueueOutboundEmailConfig } from "../schemas/schemas_0";
 
 /**

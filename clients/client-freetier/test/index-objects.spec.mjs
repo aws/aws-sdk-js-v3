@@ -19,14 +19,14 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof FreeTierClient === "function")
-assert(typeof FreeTier === "function")
+assert(typeof FreeTierClient === "function");
+assert(typeof FreeTier === "function");
 // commands
-assert(typeof GetAccountActivityCommand === "function")
-assert(typeof GetAccountPlanStateCommand === "function")
-assert(typeof GetFreeTierUsageCommand === "function")
-assert(typeof ListAccountActivitiesCommand === "function")
-assert(typeof UpgradeAccountPlanCommand === "function")
+assert(typeof GetAccountActivityCommand === "function");
+assert(typeof GetAccountPlanStateCommand === "function");
+assert(typeof GetFreeTierUsageCommand === "function");
+assert(typeof ListAccountActivitiesCommand === "function");
+assert(typeof UpgradeAccountPlanCommand === "function");
 // enums
 assert(typeof AccountPlanStatus === "object");
 assert(typeof AccountPlanType === "object");
@@ -36,8 +36,8 @@ assert(typeof Dimension === "object");
 assert(typeof LanguageCode === "object");
 assert(typeof MatchOption === "object");
 // errors
-assert(FreeTierServiceException.prototype instanceof Error)
+assert(FreeTierServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateGetFreeTierUsage === "function")
-assert(typeof paginateListAccountActivities === "function")
+assert(typeof paginateGetFreeTierUsage === "function");
+assert(typeof paginateListAccountActivities === "function");
 console.log(`FreeTier index test passed.`);

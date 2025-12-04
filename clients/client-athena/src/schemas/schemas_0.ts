@@ -531,7 +531,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AclConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_SAO], [0]];
 export var ApplicationDPUSizes: StaticStructureSchema = [3, n0, _ADPUS, 0, [_ARI, _SDPUS], [0, 64 | 1]];
 export var AthenaError: StaticStructureSchema = [3, n0, _AE, 0, [_EC, _ET, _R, _EM], [1, 1, 2, 0]];
@@ -800,30 +799,10 @@ export var ImportNotebookInput: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0],
 ];
 export var ImportNotebookOutput: StaticStructureSchema = [3, n0, _INO, 0, [_NI], [0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_AEC, _M],
-  [0, 0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_AEC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListApplicationDPUSizesInput: StaticStructureSchema = [3, n0, _LADPUSI, 0, [_MR, _NT], [1, 0]];
 export var ListApplicationDPUSizesOutput: StaticStructureSchema = [
   3,
@@ -965,18 +944,8 @@ export var ManagedQueryResultsConfigurationUpdates: StaticStructureSchema = [
   [2, () => ManagedQueryResultsEncryptionConfiguration, 2],
 ];
 export var ManagedQueryResultsEncryptionConfiguration: StaticStructureSchema = [3, n0, _MQREC, 0, [_KK], [0]];
-export var MetadataException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ME,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MetadataException: StaticErrorSchema = [-3, n0, _ME, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MetadataException, __MetadataException);
-
 export var MonitoringConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1080,18 +1049,8 @@ export var QueryStagePlanNode: StaticStructureSchema = [
   [_N, _I, _Ch, _RSe],
   [0, 0, () => QueryStagePlanNodes, 64 | 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResultConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1122,18 +1081,8 @@ export var ResultSet: StaticStructureSchema = [3, n0, _RS, 0, [_Ro, _RSM], [() =
 export var ResultSetMetadata: StaticStructureSchema = [3, n0, _RSM, 0, [_CI], [() => ColumnInfoList]];
 export var Row: StaticStructureSchema = [3, n0, _Row, 0, [_Data], [() => datumList]];
 export var S3LoggingConfiguration: StaticStructureSchema = [3, n0, _SLC, 0, [_E, _KK, _LL], [2, 0, 0]];
-export var SessionAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var SessionAlreadyExistsException: StaticErrorSchema = [-3, n0, _SAEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(SessionAlreadyExistsException, __SessionAlreadyExistsException);
-
 export var SessionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1212,18 +1161,8 @@ export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RARN, _T
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var TerminateSessionRequest: StaticStructureSchema = [3, n0, _TSR, 0, [_SI], [0]];
 export var TerminateSessionResponse: StaticStructureSchema = [3, n0, _TSRe, 0, [_S], [0]];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-  },
-  [_M, _Rea],
-  [0, 0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c }, [_M, _Rea], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UnprocessedNamedQueryId: StaticStructureSchema = [3, n0, _UNQIn, 0, [_NQIa, _ECr, _EM], [0, 0, 0]];
 export var UnprocessedPreparedStatementName: StaticStructureSchema = [3, n0, _UPSNn, 0, [_SNt, _ECr, _EM], [0, 0, 0]];
 export var UnprocessedQueryExecutionId: StaticStructureSchema = [3, n0, _UQEIn, 0, [_QEIu, _ECr, _EM], [0, 0, 0]];
@@ -1316,10 +1255,8 @@ export var WorkGroupSummary: StaticStructureSchema = [
   [0, 0, 0, 4, () => EngineVersion, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var AthenaServiceException: StaticErrorSchema = [-3, _sm, "AthenaServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AthenaServiceException, __AthenaServiceException);
-
 export var ApplicationDPUSizesList: StaticListSchema = [1, n0, _ADPUSL, 0, () => ApplicationDPUSizes];
 export var CalculationsList: StaticListSchema = [1, n0, _CL, 0, () => CalculationSummary];
 export var CapacityAssignmentsList: StaticListSchema = [1, n0, _CAL, 0, () => CapacityAssignment];
@@ -1332,33 +1269,25 @@ export var DataCatalogSummaryList: StaticListSchema = [1, n0, _DCSL, 0, () => Da
 export var datumList: StaticListSchema = [1, n0, _dL, 0, () => Datum];
 export var EngineVersionsList: StaticListSchema = [1, n0, _EVL, 0, () => EngineVersion];
 export var ExecutionParameters = 64 | 0;
-
 export var ExecutorsSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExecutorsSummary];
 export var LogTypeValuesList = 64 | 0;
-
 export var NamedQueryIdList = 64 | 0;
-
 export var NamedQueryList: StaticListSchema = [1, n0, _NQL, 0, () => NamedQuery];
 export var NotebookMetadataArray: StaticListSchema = [1, n0, _NMA, 0, () => NotebookMetadata];
 export var NotebookSessionsList: StaticListSchema = [1, n0, _NSL, 0, () => NotebookSessionSummary];
 export var PreparedStatementDetailsList: StaticListSchema = [1, n0, _PSDL, 0, () => PreparedStatement];
 export var PreparedStatementNameList = 64 | 0;
-
 export var PreparedStatementsList: StaticListSchema = [1, n0, _PSL, 0, () => PreparedStatementSummary];
 export var QueryExecutionIdList = 64 | 0;
-
 export var QueryExecutionList: StaticListSchema = [1, n0, _QEL, 0, () => QueryExecution];
 export var QueryStagePlanNodes: StaticListSchema = [1, n0, _QSPNu, 0, () => QueryStagePlanNode];
 export var QueryStages: StaticListSchema = [1, n0, _QSuer, 0, () => QueryStage];
 export var RowList: StaticListSchema = [1, n0, _RL, 0, () => Row];
 export var SessionsList: StaticListSchema = [1, n0, _SL, 0, () => SessionSummary];
 export var StringList = 64 | 0;
-
 export var SupportedDPUSizeList = 64 | 1;
-
 export var TableMetadataList: StaticListSchema = [1, n0, _TML, 0, () => TableMetadata];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var UnprocessedNamedQueryIdList: StaticListSchema = [1, n0, _UNQIL, 0, () => UnprocessedNamedQueryId];
 export var UnprocessedPreparedStatementNameList: StaticListSchema = [
@@ -1370,11 +1299,9 @@ export var UnprocessedPreparedStatementNameList: StaticListSchema = [
 ];
 export var UnprocessedQueryExecutionIdList: StaticListSchema = [1, n0, _UQEIL, 0, () => UnprocessedQueryExecutionId];
 export var WorkGroupNamesList = 64 | 0;
-
 export var WorkGroupsList: StaticListSchema = [1, n0, _WGL, 0, () => WorkGroupSummary];
 export var LogTypesMap: StaticMapSchema = [2, n0, _LTM, 0, 0, 64 | 0];
 export var ParametersMap = 128 | 0;
-
 export var BatchGetNamedQuery: StaticOperationSchema = [
   9,
   n0,

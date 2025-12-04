@@ -4,13 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/models_0";
-=======
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import type { DeleteFunctionRequest } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/models_0";
 import { DeleteFunction } from "../schemas/schemas_0";
 
 /**

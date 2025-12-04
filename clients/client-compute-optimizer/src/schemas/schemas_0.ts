@@ -492,20 +492,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountEnrollmentStatus: StaticStructureSchema = [3, n0, _AES, 0, [_aI, _s, _sR, _lUT], [0, 0, 0, 4]];
 export var AutoScalingGroupConfiguration: StaticStructureSchema = [
   3,
@@ -1225,32 +1213,10 @@ export var InstanceSavingsOpportunityAfterDiscounts: StaticStructureSchema = [
   [_sOP, _eMS],
   [1, () => InstanceEstimatedMonthlySavings],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidParameterValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterValueException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
 export var JobFilter: StaticStructureSchema = [3, n0, _JF, 0, [_n, _va], [0, 64 | 0]];
 export var LambdaEffectiveRecommendationPreferences: StaticStructureSchema = [
   3,
@@ -1335,47 +1301,14 @@ export var LicenseRecommendationOption: StaticStructureSchema = [
   [_r, _oS, _lE, _lM, _sO],
   [1, 0, 0, 0, () => SavingsOpportunity],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var MemorySizeConfiguration: StaticStructureSchema = [3, n0, _MSC, 0, [_mem, _mRe], [1, 1]];
 export var MetricSource: StaticStructureSchema = [3, n0, _MS, 0, [_pr, _pA], [0, 0]];
-export var MissingAuthenticationToken: StaticErrorSchema = [
-  -3,
-  n0,
-  _MAT,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var MissingAuthenticationToken: StaticErrorSchema = [-3, n0, _MAT, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MissingAuthenticationToken, __MissingAuthenticationToken);
-
-export var OptInRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OIRE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var OptInRequiredException: StaticErrorSchema = [-3, n0, _OIRE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OptInRequiredException, __OptInRequiredException);
-
 export var OrderBy: StaticStructureSchema = [3, n0, _OB, 0, [_d, _o], [0, 0]];
 export var PreferredResource: StaticStructureSchema = [3, n0, _PR, 0, [_n, _iL, _eL], [0, 64 | 0, 64 | 0]];
 export var ProjectedMetric: StaticStructureSchema = [3, n0, _PM, 0, [_n, _ti, _va], [0, 64 | 4, 64 | 1]];
@@ -1558,19 +1491,8 @@ export var RecommendedOptionProjectedMetric: StaticStructureSchema = [
   [_rIT, _r, _pM],
   [0, 1, () => ProjectedMetrics],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Destination: StaticStructureSchema = [3, n0, _SD, 0, [_b, _k, _mK], [0, 0, 0]];
 export var S3DestinationConfig: StaticStructureSchema = [3, n0, _SDC, 0, [_b, _kP], [0, 0]];
 export var SavingsOpportunity: StaticStructureSchema = [
@@ -1590,34 +1512,12 @@ export var ServiceConfiguration: StaticStructureSchema = [
   [_mem, _cp, _cCo, _aSC, _tDA],
   [1, 1, () => ContainerConfigurations, 0, 0],
 ];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var Summary: StaticStructureSchema = [3, n0, _Su, 0, [_n, _v, _rCS], [0, 1, () => ReasonCodeSummaries]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UpdateEnrollmentStatusRequest: StaticStructureSchema = [3, n0, _UESR, 0, [_s, _iMA], [0, 2]];
 export var UpdateEnrollmentStatusResponse: StaticStructureSchema = [3, n0, _UESRp, 0, [_s, _sR], [0, 0]];
 export var UtilizationMetric: StaticStructureSchema = [3, n0, _UM, 0, [_n, _st, _v], [0, 0, 1]];
@@ -1666,7 +1566,6 @@ export var VolumeRecommendationOption: StaticStructureSchema = [
   [() => VolumeConfiguration, 1, 1, () => SavingsOpportunity, () => EBSSavingsOpportunityAfterDiscounts],
 ];
 export var __Unit = "unit" as const;
-
 export var ComputeOptimizerServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1676,12 +1575,9 @@ export var ComputeOptimizerServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ComputeOptimizerServiceException, __ComputeOptimizerServiceException);
-
 export var AccountEnrollmentStatuses: StaticListSchema = [1, n0, _AESc, 0, () => AccountEnrollmentStatus];
 export var AccountIds = 64 | 0;
-
 export var AutoScalingGroupArns = 64 | 0;
-
 export var AutoScalingGroupRecommendationOptions: StaticListSchema = [
   1,
   n0,
@@ -1693,7 +1589,6 @@ export var AutoScalingGroupRecommendations: StaticListSchema = [1, n0, _ASGRu, 0
 export var ContainerConfigurations: StaticListSchema = [1, n0, _CCo, 0, () => ContainerConfiguration];
 export var ContainerRecommendations: StaticListSchema = [1, n0, _CRo, 0, () => ContainerRecommendation];
 export var CpuVendorArchitectures = 64 | 0;
-
 export var EBSFilters: StaticListSchema = [1, n0, _EBSFi, 0, () => EBSFilter];
 export var EBSUtilizationMetrics: StaticListSchema = [1, n0, _EBSUMt, 0, () => EBSUtilizationMetric];
 export var ECSServiceProjectedMetrics: StaticListSchema = [1, n0, _ECSSPMe, 0, () => ECSServiceProjectedMetric];
@@ -1712,7 +1607,6 @@ export var ECSServiceRecommendationFilters: StaticListSchema = [
   () => ECSServiceRecommendationFilter,
 ];
 export var ECSServiceRecommendationFindingReasonCodes = 64 | 0;
-
 export var ECSServiceRecommendationOptions: StaticListSchema = [
   1,
   n0,
@@ -1732,26 +1626,16 @@ export var ECSServiceUtilizationMetrics: StaticListSchema = [1, n0, _ECSSUMe, 0,
 export var EffectivePreferredResources: StaticListSchema = [1, n0, _EPRf, 0, () => EffectivePreferredResource];
 export var EnrollmentFilters: StaticListSchema = [1, n0, _EFn, 0, () => EnrollmentFilter];
 export var ExportableAutoScalingGroupFields = 64 | 0;
-
 export var ExportableECSServiceFields = 64 | 0;
-
 export var ExportableIdleFields = 64 | 0;
-
 export var ExportableInstanceFields = 64 | 0;
-
 export var ExportableLambdaFunctionFields = 64 | 0;
-
 export var ExportableLicenseFields = 64 | 0;
-
 export var ExportableRDSDBFields = 64 | 0;
-
 export var ExportableVolumeFields = 64 | 0;
-
 export var Filters: StaticListSchema = [1, n0, _Fi, 0, () => Filter];
 export var FilterValues = 64 | 0;
-
 export var FunctionArns = 64 | 0;
-
 export var GetRecommendationErrors: StaticListSchema = [1, n0, _GREe, 0, () => GetRecommendationError];
 export var Gpus: StaticListSchema = [1, n0, _Gp, 0, () => Gpu];
 export var IdleRecommendationErrors: StaticListSchema = [1, n0, _IREd, 0, () => IdleRecommendationError];
@@ -1761,15 +1645,11 @@ export var IdleSummaries: StaticListSchema = [1, n0, _ISd, 0, () => IdleSummary]
 export var IdleUtilizationMetrics: StaticListSchema = [1, n0, _IUMd, 0, () => IdleUtilizationMetric];
 export var InferredWorkloadSavings: StaticListSchema = [1, n0, _IWSn, 0, () => InferredWorkloadSaving];
 export var InferredWorkloadTypes = 64 | 0;
-
 export var InstanceArns = 64 | 0;
-
 export var InstanceRecommendationFindingReasonCodes = 64 | 0;
-
 export var InstanceRecommendations: StaticListSchema = [1, n0, _IRns, 0, () => InstanceRecommendation];
 export var JobFilters: StaticListSchema = [1, n0, _JFo, 0, () => JobFilter];
 export var JobIds = 64 | 0;
-
 export var LambdaFunctionMemoryProjectedMetrics: StaticListSchema = [
   1,
   n0,
@@ -1792,7 +1672,6 @@ export var LambdaFunctionRecommendationFilters: StaticListSchema = [
   () => LambdaFunctionRecommendationFilter,
 ];
 export var LambdaFunctionRecommendationFindingReasonCodes = 64 | 0;
-
 export var LambdaFunctionRecommendations: StaticListSchema = [1, n0, _LFRa, 0, () => LambdaFunctionRecommendation];
 export var LambdaFunctionUtilizationMetrics: StaticListSchema = [
   1,
@@ -1802,20 +1681,15 @@ export var LambdaFunctionUtilizationMetrics: StaticListSchema = [
   () => LambdaFunctionUtilizationMetric,
 ];
 export var LicenseFindingReasonCodes = 64 | 0;
-
 export var LicenseRecommendationFilters: StaticListSchema = [1, n0, _LRFi, 0, () => LicenseRecommendationFilter];
 export var LicenseRecommendationOptions: StaticListSchema = [1, n0, _LROi, 0, () => LicenseRecommendationOption];
 export var LicenseRecommendations: StaticListSchema = [1, n0, _LRi, 0, () => LicenseRecommendation];
 export var MetricsSource: StaticListSchema = [1, n0, _MSe, 0, () => MetricSource];
 export var MetricValues = 64 | 1;
-
 export var MixedInstanceTypes = 64 | 0;
-
 export var PlatformDifferences = 64 | 0;
-
 export var PreferredResources: StaticListSchema = [1, n0, _PRr, 0, () => PreferredResource];
 export var PreferredResourceValues = 64 | 0;
-
 export var ProjectedMetrics: StaticListSchema = [1, n0, _PMr, 0, () => ProjectedMetric];
 export var ProjectedUtilizationMetrics: StaticListSchema = [1, n0, _PUM, 0, () => UtilizationMetric];
 export var RDSDatabaseProjectedMetrics: StaticListSchema = [1, n0, _RDSDPMa, 0, () => RDSDatabaseProjectedMetric];
@@ -1845,14 +1719,11 @@ export var RDSDBStorageRecommendationOptions: StaticListSchema = [
 ];
 export var RDSDBUtilizationMetrics: StaticListSchema = [1, n0, _RDSDBUMt, 0, () => RDSDBUtilizationMetric];
 export var RDSInstanceFindingReasonCodes = 64 | 0;
-
 export var RDSStorageFindingReasonCodes = 64 | 0;
-
 export var ReasonCodeSummaries: StaticListSchema = [1, n0, _RCSe, 0, () => ReasonCodeSummary];
 export var RecommendationExportJobs: StaticListSchema = [1, n0, _REJe, 0, () => RecommendationExportJob];
 export var RecommendationOptions: StaticListSchema = [1, n0, _RO, 0, () => InstanceRecommendationOption];
 export var RecommendationPreferenceNames = 64 | 0;
-
 export var RecommendationPreferencesDetails: StaticListSchema = [
   1,
   n0,
@@ -1870,17 +1741,13 @@ export var RecommendedOptionProjectedMetrics: StaticListSchema = [
   () => RecommendedOptionProjectedMetric,
 ];
 export var ResourceArns = 64 | 0;
-
 export var ServiceArns = 64 | 0;
-
 export var Summaries: StaticListSchema = [1, n0, _Sum, 0, () => Summary];
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var Timestamps = 64 | 4;
-
 export var UtilizationMetrics: StaticListSchema = [1, n0, _UMt, 0, () => UtilizationMetric];
 export var UtilizationPreferences: StaticListSchema = [1, n0, _UPt, 0, () => UtilizationPreference];
 export var VolumeArns = 64 | 0;
-
 export var VolumeRecommendationOptions: StaticListSchema = [1, n0, _VROo, 0, () => VolumeRecommendationOption];
 export var VolumeRecommendations: StaticListSchema = [1, n0, _VRo, 0, () => VolumeRecommendation];
 export var DeleteRecommendationPreferences: StaticOperationSchema = [

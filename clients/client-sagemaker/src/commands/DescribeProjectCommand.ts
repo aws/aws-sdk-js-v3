@@ -4,14 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { DescribeProjectInput } from "../models/models_2";
-import { DescribeProjectOutput } from "../models/models_3";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-=======
-import type { DescribeProjectInput, DescribeProjectOutput } from "../models/models_2";
+import type { DescribeProjectInput } from "../models/models_2";
+import type { DescribeProjectOutput } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
->>>>>>> 60efd81940b (chore: codegen)
 import { DescribeProject } from "../schemas/schemas_0";
 
 /**

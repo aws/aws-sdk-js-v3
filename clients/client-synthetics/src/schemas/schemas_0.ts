@@ -239,37 +239,14 @@ import {
 import { SyntheticsServiceException as __SyntheticsServiceException } from "../models/SyntheticsServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ArtifactConfigInput: StaticStructureSchema = [3, n0, _ACI, 0, [_SE], [() => S3EncryptionConfig]];
 export var ArtifactConfigOutput: StaticStructureSchema = [3, n0, _ACO, 0, [_SE], [() => S3EncryptionConfig]];
 export var AssociateResourceRequest: StaticStructureSchema = [3, n0, _ARR, 0, [_GI, _RA], [[0, 1], 0]];
 export var AssociateResourceResponse: StaticStructureSchema = [3, n0, _ARRs, 0, [], []];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BaseScreenshot: StaticStructureSchema = [3, n0, _BS, 0, [_SN, _IC], [0, 64 | 0]];
 export var BrowserConfig: StaticStructureSchema = [3, n0, _BC, 0, [_BT], [0]];
 export var Canary: StaticStructureSchema = [
@@ -381,19 +358,8 @@ export var CanaryScheduleOutput: StaticStructureSchema = [
 ];
 export var CanaryStatus: StaticStructureSchema = [3, n0, _CS, 0, [_Sta, _SR, _SRC], [0, 0, 0]];
 export var CanaryTimeline: StaticStructureSchema = [3, n0, _CT, 0, [_Cr, _LM, _LS, _LSa], [4, 4, 4, 4]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateCanaryRequest: StaticStructureSchema = [
   3,
   n0,
@@ -429,12 +395,7 @@ export var DeleteCanaryRequest: StaticStructureSchema = [
   [_N, _DL],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _dL,
-      },
-    ],
+    [2, { [_hQ]: _dL }],
   ],
 ];
 export var DeleteCanaryResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
@@ -480,12 +441,7 @@ export var GetCanaryRequest: StaticStructureSchema = [
   [_N, _DRI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dRI,
-      },
-    ],
+    [0, { [_hQ]: _dRI }],
   ],
 ];
 export var GetCanaryResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_C], [() => Canary]];
@@ -502,32 +458,10 @@ export var GetGroupRequest: StaticStructureSchema = [3, n0, _GGR, 0, [_GI], [[0,
 export var GetGroupResponse: StaticStructureSchema = [3, n0, _GGRe, 0, [_G], [() => Group]];
 export var Group: StaticStructureSchema = [3, n0, _G, 0, [_I, _N, _A, _Ta, _CTr, _LMT], [0, 0, 0, 128 | 0, 4, 4]];
 export var GroupSummary: StaticStructureSchema = [3, n0, _GS, 0, [_I, _N, _A], [0, 0, 0]];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAssociatedGroupsRequest: StaticStructureSchema = [3, n0, _LAGR, 0, [_NT, _MR, _RA], [0, 1, [0, 1]]];
 export var ListAssociatedGroupsResponse: StaticStructureSchema = [
   3,
@@ -543,62 +477,18 @@ export var ListGroupsRequest: StaticStructureSchema = [3, n0, _LGR, 0, [_NT, _MR
 export var ListGroupsResponse: StaticStructureSchema = [3, n0, _LGRi, 0, [_Gr, _NT], [() => GroupSummaryList, 0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
-export var RequestEntityTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RETLE,
-  {
-    [_e]: _c,
-    [_hE]: 413,
-  },
-  [_M],
-  [0],
-];
+export var RequestEntityTooLargeException: StaticErrorSchema = [-3, n0, _RETLE, { [_e]: _c, [_hE]: 413 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(RequestEntityTooLargeException, __RequestEntityTooLargeException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetryConfigInput: StaticStructureSchema = [3, n0, _RCI, 0, [_MRa], [1]];
 export var RetryConfigOutput: StaticStructureSchema = [3, n0, _RCO, 0, [_MRa], [1]];
 export var RuntimeVersion: StaticStructureSchema = [3, n0, _RV, 0, [_VN, _Des, _RD, _DD], [0, 0, 4, 4]];
 export var S3EncryptionConfig: StaticStructureSchema = [3, n0, _SEC, 0, [_EM, _KKA], [0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartCanaryDryRunRequest: StaticStructureSchema = [
   3,
   n0,
@@ -629,19 +519,8 @@ export var StopCanaryRequest: StaticStructureSchema = [3, n0, _SCRto, 0, [_N], [
 export var StopCanaryResponse: StaticStructureSchema = [3, n0, _SCRtop, 0, [], []];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -650,12 +529,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -685,19 +559,8 @@ export var UpdateCanaryRequest: StaticStructureSchema = [
   ],
 ];
 export var UpdateCanaryResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VisualReferenceInput: StaticStructureSchema = [
   3,
   n0,
@@ -717,50 +580,35 @@ export var VisualReferenceOutput: StaticStructureSchema = [
 export var VpcConfigInput: StaticStructureSchema = [3, n0, _VCI, 0, [_SI, _SGI, _IAFDS], [64 | 0, 64 | 0, 2]];
 export var VpcConfigOutput: StaticStructureSchema = [3, n0, _VCO, 0, [_VI, _SI, _SGI, _IAFDS], [0, 64 | 0, 64 | 0, 2]];
 export var __Unit = "unit" as const;
-
 export var SyntheticsServiceException: StaticErrorSchema = [-3, _sm, "SyntheticsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SyntheticsServiceException, __SyntheticsServiceException);
-
 export var BaseScreenshotIgnoreCoordinates = 64 | 0;
-
 export var BaseScreenshots: StaticListSchema = [1, n0, _BSa, 0, () => BaseScreenshot];
 export var BlueprintTypes = 64 | 0;
-
 export var BrowserConfigs: StaticListSchema = [1, n0, _BCr, 0, () => BrowserConfig];
 export var Canaries: StaticListSchema = [1, n0, _Ca, 0, () => Canary];
 export var CanariesLastRun: StaticListSchema = [1, n0, _CLRa, 0, () => CanaryLastRun];
 export var CanaryRuns: StaticListSchema = [1, n0, _CRa, 0, () => CanaryRun];
 export var Dependencies: StaticListSchema = [1, n0, _D, 0, () => Dependency];
 export var DescribeCanariesLastRunNameFilter = 64 | 0;
-
 export var DescribeCanariesNameFilter = 64 | 0;
-
 export var EngineConfigs: StaticListSchema = [1, n0, _EC, 0, () => EngineConfig];
 export var GroupSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GroupSummary];
 export var ResourceList = 64 | 0;
-
 export var RuntimeVersionList: StaticListSchema = [1, n0, _RVL, 0, () => RuntimeVersion];
 export var SecurityGroupIds = 64 | 0;
-
 export var StringList = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var VisualReferences: StaticListSchema = [1, n0, _VRi, 0, () => VisualReferenceInput];
 export var VisualReferencesOutput: StaticListSchema = [1, n0, _VROi, 0, () => VisualReferenceOutput];
 export var EnvironmentVariablesMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AssociateResource: StaticOperationSchema = [
   9,
   n0,
   _AR,
-  {
-    [_h]: ["PATCH", "/group/{GroupIdentifier}/associate", 200],
-  },
+  { [_h]: ["PATCH", "/group/{GroupIdentifier}/associate", 200] },
   () => AssociateResourceRequest,
   () => AssociateResourceResponse,
 ];
@@ -768,9 +616,7 @@ export var CreateCanary: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/canary", 200],
-  },
+  { [_h]: ["POST", "/canary", 200] },
   () => CreateCanaryRequest,
   () => CreateCanaryResponse,
 ];
@@ -778,9 +624,7 @@ export var CreateGroup: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  {
-    [_h]: ["POST", "/group", 200],
-  },
+  { [_h]: ["POST", "/group", 200] },
   () => CreateGroupRequest,
   () => CreateGroupResponse,
 ];
@@ -788,9 +632,7 @@ export var DeleteCanary: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/canary/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/canary/{Name}", 200] },
   () => DeleteCanaryRequest,
   () => DeleteCanaryResponse,
 ];
@@ -798,9 +640,7 @@ export var DeleteGroup: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  {
-    [_h]: ["DELETE", "/group/{GroupIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/group/{GroupIdentifier}", 200] },
   () => DeleteGroupRequest,
   () => DeleteGroupResponse,
 ];
@@ -808,9 +648,7 @@ export var DescribeCanaries: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["POST", "/canaries", 200],
-  },
+  { [_h]: ["POST", "/canaries", 200] },
   () => DescribeCanariesRequest,
   () => DescribeCanariesResponse,
 ];
@@ -818,9 +656,7 @@ export var DescribeCanariesLastRun: StaticOperationSchema = [
   9,
   n0,
   _DCLR,
-  {
-    [_h]: ["POST", "/canaries/last-run", 200],
-  },
+  { [_h]: ["POST", "/canaries/last-run", 200] },
   () => DescribeCanariesLastRunRequest,
   () => DescribeCanariesLastRunResponse,
 ];
@@ -828,9 +664,7 @@ export var DescribeRuntimeVersions: StaticOperationSchema = [
   9,
   n0,
   _DRV,
-  {
-    [_h]: ["POST", "/runtime-versions", 200],
-  },
+  { [_h]: ["POST", "/runtime-versions", 200] },
   () => DescribeRuntimeVersionsRequest,
   () => DescribeRuntimeVersionsResponse,
 ];
@@ -838,9 +672,7 @@ export var DisassociateResource: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["PATCH", "/group/{GroupIdentifier}/disassociate", 200],
-  },
+  { [_h]: ["PATCH", "/group/{GroupIdentifier}/disassociate", 200] },
   () => DisassociateResourceRequest,
   () => DisassociateResourceResponse,
 ];
@@ -848,9 +680,7 @@ export var GetCanary: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/canary/{Name}", 200],
-  },
+  { [_h]: ["GET", "/canary/{Name}", 200] },
   () => GetCanaryRequest,
   () => GetCanaryResponse,
 ];
@@ -858,9 +688,7 @@ export var GetCanaryRuns: StaticOperationSchema = [
   9,
   n0,
   _GCRet,
-  {
-    [_h]: ["POST", "/canary/{Name}/runs", 200],
-  },
+  { [_h]: ["POST", "/canary/{Name}/runs", 200] },
   () => GetCanaryRunsRequest,
   () => GetCanaryRunsResponse,
 ];
@@ -868,9 +696,7 @@ export var GetGroup: StaticOperationSchema = [
   9,
   n0,
   _GG,
-  {
-    [_h]: ["GET", "/group/{GroupIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/group/{GroupIdentifier}", 200] },
   () => GetGroupRequest,
   () => GetGroupResponse,
 ];
@@ -878,9 +704,7 @@ export var ListAssociatedGroups: StaticOperationSchema = [
   9,
   n0,
   _LAG,
-  {
-    [_h]: ["POST", "/resource/{ResourceArn}/groups", 200],
-  },
+  { [_h]: ["POST", "/resource/{ResourceArn}/groups", 200] },
   () => ListAssociatedGroupsRequest,
   () => ListAssociatedGroupsResponse,
 ];
@@ -888,9 +712,7 @@ export var ListGroupResources: StaticOperationSchema = [
   9,
   n0,
   _LGRis,
-  {
-    [_h]: ["POST", "/group/{GroupIdentifier}/resources", 200],
-  },
+  { [_h]: ["POST", "/group/{GroupIdentifier}/resources", 200] },
   () => ListGroupResourcesRequest,
   () => ListGroupResourcesResponse,
 ];
@@ -898,9 +720,7 @@ export var ListGroups: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  {
-    [_h]: ["POST", "/groups", 200],
-  },
+  { [_h]: ["POST", "/groups", 200] },
   () => ListGroupsRequest,
   () => ListGroupsResponse,
 ];
@@ -908,9 +728,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -918,9 +736,7 @@ export var StartCanary: StaticOperationSchema = [
   9,
   n0,
   _SC,
-  {
-    [_h]: ["POST", "/canary/{Name}/start", 200],
-  },
+  { [_h]: ["POST", "/canary/{Name}/start", 200] },
   () => StartCanaryRequest,
   () => StartCanaryResponse,
 ];
@@ -928,9 +744,7 @@ export var StartCanaryDryRun: StaticOperationSchema = [
   9,
   n0,
   _SCDR,
-  {
-    [_h]: ["POST", "/canary/{Name}/dry-run/start", 200],
-  },
+  { [_h]: ["POST", "/canary/{Name}/dry-run/start", 200] },
   () => StartCanaryDryRunRequest,
   () => StartCanaryDryRunResponse,
 ];
@@ -938,9 +752,7 @@ export var StopCanary: StaticOperationSchema = [
   9,
   n0,
   _SCt,
-  {
-    [_h]: ["POST", "/canary/{Name}/stop", 200],
-  },
+  { [_h]: ["POST", "/canary/{Name}/stop", 200] },
   () => StopCanaryRequest,
   () => StopCanaryResponse,
 ];
@@ -948,9 +760,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -958,9 +768,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -968,9 +776,7 @@ export var UpdateCanary: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PATCH", "/canary/{Name}", 200],
-  },
+  { [_h]: ["PATCH", "/canary/{Name}", 200] },
   () => UpdateCanaryRequest,
   () => UpdateCanaryResponse,
 ];

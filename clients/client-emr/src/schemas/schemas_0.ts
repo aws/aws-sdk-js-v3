@@ -646,7 +646,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AddInstanceFleetInput: StaticStructureSchema = [3, n0, _AIFI, 0, [_CI, _IF], [0, () => InstanceFleetConfig]];
 export var AddInstanceFleetOutput: StaticStructureSchema = [3, n0, _AIFO, 0, [_CI, _IFI, _CA], [0, 0, 0]];
 export var AddInstanceGroupsInput: StaticStructureSchema = [
@@ -1207,40 +1206,15 @@ export var InternalServerError: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InternalFailure`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalFailure`, 500] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEn,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_ECr, _M],
-  [0, 0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_ECr, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var JobFlowDetail: StaticStructureSchema = [
   3,
   n0,
@@ -1851,16 +1825,13 @@ export var UpdateStudioSessionMappingInput: StaticStructureSchema = [
 export var UsernamePassword: StaticStructureSchema = [3, n0, _UP, 8, [_Us, _Pas], [0, 0]];
 export var VolumeSpecification: StaticStructureSchema = [3, n0, _VS, 0, [_VT, _Io, _SIGB, _Thr], [0, 1, 1, 1]];
 export var __Unit = "unit" as const;
-
 export var EMRServiceException: StaticErrorSchema = [-3, _sm, "EMRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EMRServiceException, __EMRServiceException);
-
 export var ApplicationList: StaticListSchema = [1, n0, _AL, 0, () => Application];
 export var BootstrapActionConfigList: StaticListSchema = [1, n0, _BACL, 0, () => BootstrapActionConfig];
 export var BootstrapActionDetailList: StaticListSchema = [1, n0, _BADL, 0, () => BootstrapActionDetail];
 export var CancelStepsInfoList: StaticListSchema = [1, n0, _CSIL, 0, () => CancelStepsInfo];
 export var ClusterStateList = 64 | 0;
-
 export var ClusterSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ClusterSummary];
 export var CommandList: StaticListSchema = [1, n0, _CLo, 0, () => Command];
 export var ConfigurationList: StaticListSchema = [1, n0, _CLon, 0, () => Configuration];
@@ -1868,9 +1839,7 @@ export var EbsBlockDeviceConfigList: StaticListSchema = [1, n0, _EBDCL, 0, () =>
 export var EbsBlockDeviceList: StaticListSchema = [1, n0, _EBDL, 0, () => EbsBlockDevice];
 export var EbsVolumeList: StaticListSchema = [1, n0, _EVL, 0, () => EbsVolume];
 export var EC2InstanceIdsList = 64 | 0;
-
 export var EC2InstanceIdsToTerminateList = 64 | 0;
-
 export var ErrorData: StaticListSchema = [1, n0, _EDrr, 0, 128 | 0];
 export var ErrorDetailList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetail];
 export var InstanceFleetConfigList: StaticListSchema = [1, n0, _IFCL, 0, () => InstanceFleetConfig];
@@ -1878,59 +1847,44 @@ export var InstanceFleetList: StaticListSchema = [1, n0, _IFL, 0, () => Instance
 export var InstanceGroupConfigList: StaticListSchema = [1, n0, _IGCL, 0, () => InstanceGroupConfig];
 export var InstanceGroupDetailList: StaticListSchema = [1, n0, _IGDL, 0, () => InstanceGroupDetail];
 export var InstanceGroupIdsList = 64 | 0;
-
 export var InstanceGroupList: StaticListSchema = [1, n0, _IGL, 0, () => InstanceGroup];
 export var InstanceGroupModifyConfigList: StaticListSchema = [1, n0, _IGMCL, 0, () => InstanceGroupModifyConfig];
 export var InstanceGroupTypeList = 64 | 0;
-
 export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance];
 export var InstanceStateList = 64 | 0;
-
 export var InstanceTypeConfigList: StaticListSchema = [1, n0, _ITCL, 0, () => InstanceTypeConfig];
 export var InstanceTypeSpecificationList: StaticListSchema = [1, n0, _ITSL, 0, () => InstanceTypeSpecification];
 export var JobFlowDetailList: StaticListSchema = [1, n0, _JFDL, 0, () => JobFlowDetail];
 export var JobFlowExecutionStateList = 64 | 0;
-
 export var KeyValueList: StaticListSchema = [1, n0, _KVL, 0, () => KeyValue];
 export var MetricDimensionList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDimension];
 export var NewSupportedProductsList: StaticListSchema = [1, n0, _NSPL, 0, () => SupportedProductConfig];
 export var NotebookExecutionSummaryList: StaticListSchema = [1, n0, _NESL, 0, () => NotebookExecutionSummary];
 export var OSReleaseList: StaticListSchema = [1, n0, _OSRLe, 0, () => OSRelease];
 export var PersistentAppUITypeList = 64 | 0;
-
 export var PlacementGroupConfigList: StaticListSchema = [1, n0, _PGCL, 0, () => PlacementGroupConfig];
 export var PortRanges: StaticListSchema = [1, n0, _PRo, 0, () => PortRange];
 export var ScalingRuleList: StaticListSchema = [1, n0, _SRL, 0, () => ScalingRule];
 export var SecurityConfigurationList: StaticListSchema = [1, n0, _SCLe, 0, () => SecurityConfigurationSummary];
 export var SecurityGroupsList = 64 | 0;
-
 export var SessionMappingSummaryList: StaticListSchema = [1, n0, _SMSL, 0, () => SessionMappingSummary];
 export var SimplifiedApplicationList: StaticListSchema = [1, n0, _SAL, 0, () => SimplifiedApplication];
 export var StepConfigList: StaticListSchema = [1, n0, _SCLt, 0, () => StepConfig];
 export var StepDetailList: StaticListSchema = [1, n0, _SDL, 0, () => StepDetail];
 export var StepIdsList = 64 | 0;
-
 export var StepStateList = 64 | 0;
-
 export var StepSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => StepSummary];
 export var StringList = 64 | 0;
-
 export var StudioSummaryList: StaticListSchema = [1, n0, _SSLt, 0, () => StudioSummary];
 export var SubnetIdList = 64 | 0;
-
 export var SupportedInstanceTypesList: StaticListSchema = [1, n0, _SITL, 0, () => SupportedInstanceType];
 export var SupportedProductsList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var XmlStringList = 64 | 0;
-
 export var XmlStringMaxLen256List = 64 | 0;
-
 export var EnvironmentVariablesMap = 128 | 0;
-
 export var LogTypesMap: StaticMapSchema = [2, n0, _LTM, 0, 0, 64 | 0];
 export var StringMap = 128 | 0;
-
 export var Credentials: StaticStructureSchema = [3, n0, _Cr, 0, [_UP], [[() => UsernamePassword, 0]]];
 export var AddInstanceFleet: StaticOperationSchema = [
   9,

@@ -349,33 +349,10 @@ import {
 import { LexModelBuildingServiceServiceException as __LexModelBuildingServiceServiceException } from "../models/LexModelBuildingServiceServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BotAliasMetadata: StaticStructureSchema = [
   3,
   n0,
@@ -397,19 +374,8 @@ export var BuiltinIntentMetadata: StaticStructureSchema = [3, n0, _BIM, 0, [_si,
 export var BuiltinIntentSlot: StaticStructureSchema = [3, n0, _BIS, 0, [_n], [0]];
 export var BuiltinSlotTypeMetadata: StaticStructureSchema = [3, n0, _BSTM, 0, [_si, _sL], [0, 64 | 0]];
 export var CodeHook: StaticStructureSchema = [3, n0, _CH, 0, [_u, _mV], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConversationLogsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -553,24 +519,9 @@ export var GetBotAliasesRequest: StaticStructureSchema = [
   [_bN, _nT, _mR, _nC],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nC }],
   ],
 ];
 export var GetBotAliasesResponse: StaticStructureSchema = [
@@ -629,24 +580,9 @@ export var GetBotChannelAssociationsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nC }],
   ],
 ];
 export var GetBotChannelAssociationsResponse: StaticStructureSchema = [
@@ -683,24 +619,9 @@ export var GetBotsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _nC],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nC }],
   ],
 ];
 export var GetBotsResponse: StaticStructureSchema = [3, n0, _GBReto, 0, [_b, _nT], [() => BotMetadataList, 0]];
@@ -712,18 +633,8 @@ export var GetBotVersionsRequest: StaticStructureSchema = [
   [_n, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetBotVersionsResponse: StaticStructureSchema = [3, n0, _GBVRe, 0, [_b, _nT], [() => BotMetadataList, 0]];
@@ -743,30 +654,10 @@ export var GetBuiltinIntentsRequest: StaticStructureSchema = [
   0,
   [_l, _sC, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _l }],
+    [0, { [_hQ]: _sC }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetBuiltinIntentsResponse: StaticStructureSchema = [
@@ -784,30 +675,10 @@ export var GetBuiltinSlotTypesRequest: StaticStructureSchema = [
   0,
   [_l, _sC, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _l }],
+    [0, { [_hQ]: _sC }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetBuiltinSlotTypesResponse: StaticStructureSchema = [
@@ -825,30 +696,10 @@ export var GetExportRequest: StaticStructureSchema = [
   0,
   [_n, _v, _rT, _eT],
   [
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _v }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _eT }],
   ],
 ];
 export var GetExportResponse: StaticStructureSchema = [
@@ -913,24 +764,9 @@ export var GetIntentsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _nC],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nC }],
   ],
 ];
 export var GetIntentsResponse: StaticStructureSchema = [3, n0, _GIRetnte, 0, [_i, _nT], [() => IntentMetadataList, 0]];
@@ -942,18 +778,8 @@ export var GetIntentVersionsRequest: StaticStructureSchema = [
   [_n, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetIntentVersionsResponse: StaticStructureSchema = [
@@ -980,42 +806,12 @@ export var GetMigrationsRequest: StaticStructureSchema = [
   0,
   [_sBA, _sBO, _vBNC, _mSE, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sBA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sBO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vBNC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mSE,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sBA }],
+    [0, { [_hQ]: _sBO }],
+    [0, { [_hQ]: _vBNC }],
+    [0, { [_hQ]: _mSE }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetMigrationsResponse: StaticStructureSchema = [
@@ -1052,24 +848,9 @@ export var GetSlotTypesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _nC],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nC }],
   ],
 ];
 export var GetSlotTypesResponse: StaticStructureSchema = [
@@ -1088,18 +869,8 @@ export var GetSlotTypeVersionsRequest: StaticStructureSchema = [
   [_n, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetSlotTypeVersionsResponse: StaticStructureSchema = [
@@ -1118,18 +889,8 @@ export var GetUtterancesViewRequest: StaticStructureSchema = [
   [_bN, _bVo, _sTt],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _bv,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [64 | 0, { [_hQ]: _bv }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var GetUtterancesViewResponse: StaticStructureSchema = [
@@ -1143,41 +904,18 @@ export var GetUtterancesViewResponse: StaticStructureSchema = [
 export var InputContext: StaticStructureSchema = [3, n0, _IC, 0, [_n], [0]];
 export var Intent: StaticStructureSchema = [3, n0, _I, 0, [_iN, _iV], [0, 0]];
 export var IntentMetadata: StaticStructureSchema = [3, n0, _IM, 0, [_n, _d, _lUD, _cD, _v], [0, 0, 4, 4, 0]];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
 export var KendraConfiguration: StaticStructureSchema = [3, n0, _KC, 0, [_kI, _qFS, _r], [0, 0, 0]];
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_rAS, _m],
-  [
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
 export var LogSettingsRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_lT, _de, _kKA, _rA], [0, 0, 0, 0]];
@@ -1192,33 +930,11 @@ export var MigrationSummary: StaticStructureSchema = [
   [_mI, _vBN, _vBV, _vBL, _vBI, _vBR, _mSi, _mSig, _mT],
   [0, 0, 0, 0, 0, 0, 0, 0, 4],
 ];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OutputContext: StaticStructureSchema = [3, n0, _OC, 0, [_n, _tTLIS, _tTL], [0, 1, 1]];
-export var PreconditionFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PFE,
-  {
-    [_e]: _c,
-    [_hE]: 412,
-  },
-  [_m],
-  [0],
-];
+export var PreconditionFailedException: StaticErrorSchema = [-3, n0, _PFE, { [_e]: _c, [_hE]: 412 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
-
 export var Prompt: StaticStructureSchema = [3, n0, _P, 0, [_me, _mA, _rC], [() => MessageList, 1, 0]];
 export var PutBotAliasRequest: StaticStructureSchema = [
   3,
@@ -1325,15 +1041,11 @@ export var ResourceInUseException: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_rTe, _eR],
   [0, () => ResourceReference],
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
 export var ResourceReference: StaticStructureSchema = [3, n0, _RR, 0, [_n, _v], [0, 0]];
 export var Slot: StaticStructureSchema = [
   3,
@@ -1392,19 +1104,13 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UtteranceData: StaticStructureSchema = [3, n0, _UD, 0, [_uS, _cou, _dU, _fUD, _lUDa], [0, 1, 1, 4, 4]];
 export var UtteranceList: StaticStructureSchema = [3, n0, _UL, 0, [_bV, _ut], [0, () => ListOfUtterance]];
 export var __Unit = "unit" as const;
-
 export var LexModelBuildingServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1414,12 +1120,10 @@ export var LexModelBuildingServiceServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(LexModelBuildingServiceServiceException, __LexModelBuildingServiceServiceException);
-
 export var BotAliasMetadataList: StaticListSchema = [1, n0, _BAML, 0, () => BotAliasMetadata];
 export var BotChannelAssociationList: StaticListSchema = [1, n0, _BCAL, 0, [() => BotChannelAssociation, 0]];
 export var BotMetadataList: StaticListSchema = [1, n0, _BML, 0, () => BotMetadata];
 export var BotVersions = 64 | 0;
-
 export var BuiltinIntentMetadataList: StaticListSchema = [1, n0, _BIML, 0, () => BuiltinIntentMetadata];
 export var BuiltinIntentSlotList: StaticListSchema = [1, n0, _BISL, 0, () => BuiltinIntentSlot];
 export var BuiltinSlotTypeMetadataList: StaticListSchema = [1, n0, _BSTML, 0, () => BuiltinSlotTypeMetadata];
@@ -1428,18 +1132,14 @@ export var InputContextList: StaticListSchema = [1, n0, _ICL, 0, () => InputCont
 export var IntentList: StaticListSchema = [1, n0, _IL, 0, () => Intent];
 export var IntentMetadataList: StaticListSchema = [1, n0, _IML, 0, () => IntentMetadata];
 export var IntentUtteranceList = 64 | 0;
-
 export var ListOfUtterance: StaticListSchema = [1, n0, _LOU, 0, () => UtteranceData];
 export var ListsOfUtterances: StaticListSchema = [1, n0, _LOUi, 0, () => UtteranceList];
 export var LocaleList = 64 | 0;
-
 export var LogSettingsRequestList: StaticListSchema = [1, n0, _LSRL, 0, () => LogSettingsRequest];
 export var LogSettingsResponseList: StaticListSchema = [1, n0, _LSRLo, 0, () => LogSettingsResponse];
 export var MessageList: StaticListSchema = [1, n0, _ML, 0, () => Message];
 export var MigrationAlertDetails = 64 | 0;
-
 export var MigrationAlertReferenceURLs = 64 | 0;
-
 export var MigrationAlerts: StaticListSchema = [1, n0, _MAi, 0, () => MigrationAlert];
 export var MigrationSummaryList: StaticListSchema = [1, n0, _MSL, 0, () => MigrationSummary];
 export var OutputContextList: StaticListSchema = [1, n0, _OCL, 0, () => OutputContext];
@@ -1448,22 +1148,16 @@ export var SlotList: StaticListSchema = [1, n0, _SL, 0, () => Slot];
 export var SlotTypeConfigurations: StaticListSchema = [1, n0, _STCl, 0, () => SlotTypeConfiguration];
 export var SlotTypeMetadataList: StaticListSchema = [1, n0, _STML, 0, () => SlotTypeMetadata];
 export var SlotUtteranceList = 64 | 0;
-
 export var StringList = 64 | 0;
-
 export var SynonymList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ChannelConfigurationMap: StaticMapSchema = [2, n0, _CCM, 8, 0, 0];
 export var CreateBotVersion: StaticOperationSchema = [
   9,
   n0,
   _CBV,
-  {
-    [_h]: ["POST", "/bots/{name}/versions", 201],
-  },
+  { [_h]: ["POST", "/bots/{name}/versions", 201] },
   () => CreateBotVersionRequest,
   () => CreateBotVersionResponse,
 ];
@@ -1471,9 +1165,7 @@ export var CreateIntentVersion: StaticOperationSchema = [
   9,
   n0,
   _CIV,
-  {
-    [_h]: ["POST", "/intents/{name}/versions", 201],
-  },
+  { [_h]: ["POST", "/intents/{name}/versions", 201] },
   () => CreateIntentVersionRequest,
   () => CreateIntentVersionResponse,
 ];
@@ -1481,9 +1173,7 @@ export var CreateSlotTypeVersion: StaticOperationSchema = [
   9,
   n0,
   _CSTV,
-  {
-    [_h]: ["POST", "/slottypes/{name}/versions", 201],
-  },
+  { [_h]: ["POST", "/slottypes/{name}/versions", 201] },
   () => CreateSlotTypeVersionRequest,
   () => CreateSlotTypeVersionResponse,
 ];
@@ -1491,9 +1181,7 @@ export var DeleteBot: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["DELETE", "/bots/{name}", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{name}", 204] },
   () => DeleteBotRequest,
   () => __Unit,
 ];
@@ -1501,9 +1189,7 @@ export var DeleteBotAlias: StaticOperationSchema = [
   9,
   n0,
   _DBA,
-  {
-    [_h]: ["DELETE", "/bots/{botName}/aliases/{name}", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{botName}/aliases/{name}", 204] },
   () => DeleteBotAliasRequest,
   () => __Unit,
 ];
@@ -1511,9 +1197,7 @@ export var DeleteBotChannelAssociation: StaticOperationSchema = [
   9,
   n0,
   _DBCA,
-  {
-    [_h]: ["DELETE", "/bots/{botName}/aliases/{botAlias}/channels/{name}", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{botName}/aliases/{botAlias}/channels/{name}", 204] },
   () => DeleteBotChannelAssociationRequest,
   () => __Unit,
 ];
@@ -1521,9 +1205,7 @@ export var DeleteBotVersion: StaticOperationSchema = [
   9,
   n0,
   _DBV,
-  {
-    [_h]: ["DELETE", "/bots/{name}/versions/{version}", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{name}/versions/{version}", 204] },
   () => DeleteBotVersionRequest,
   () => __Unit,
 ];
@@ -1531,9 +1213,7 @@ export var DeleteIntent: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_h]: ["DELETE", "/intents/{name}", 204],
-  },
+  { [_h]: ["DELETE", "/intents/{name}", 204] },
   () => DeleteIntentRequest,
   () => __Unit,
 ];
@@ -1541,9 +1221,7 @@ export var DeleteIntentVersion: StaticOperationSchema = [
   9,
   n0,
   _DIV,
-  {
-    [_h]: ["DELETE", "/intents/{name}/versions/{version}", 204],
-  },
+  { [_h]: ["DELETE", "/intents/{name}/versions/{version}", 204] },
   () => DeleteIntentVersionRequest,
   () => __Unit,
 ];
@@ -1551,9 +1229,7 @@ export var DeleteSlotType: StaticOperationSchema = [
   9,
   n0,
   _DST,
-  {
-    [_h]: ["DELETE", "/slottypes/{name}", 204],
-  },
+  { [_h]: ["DELETE", "/slottypes/{name}", 204] },
   () => DeleteSlotTypeRequest,
   () => __Unit,
 ];
@@ -1561,9 +1237,7 @@ export var DeleteSlotTypeVersion: StaticOperationSchema = [
   9,
   n0,
   _DSTV,
-  {
-    [_h]: ["DELETE", "/slottypes/{name}/version/{version}", 204],
-  },
+  { [_h]: ["DELETE", "/slottypes/{name}/version/{version}", 204] },
   () => DeleteSlotTypeVersionRequest,
   () => __Unit,
 ];
@@ -1571,9 +1245,7 @@ export var DeleteUtterances: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_h]: ["DELETE", "/bots/{botName}/utterances/{userId}", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{botName}/utterances/{userId}", 204] },
   () => DeleteUtterancesRequest,
   () => __Unit,
 ];
@@ -1581,9 +1253,7 @@ export var GetBot: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["GET", "/bots/{name}/versions/{versionOrAlias}", 200],
-  },
+  { [_h]: ["GET", "/bots/{name}/versions/{versionOrAlias}", 200] },
   () => GetBotRequest,
   () => GetBotResponse,
 ];
@@ -1591,9 +1261,7 @@ export var GetBotAlias: StaticOperationSchema = [
   9,
   n0,
   _GBA,
-  {
-    [_h]: ["GET", "/bots/{botName}/aliases/{name}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botName}/aliases/{name}", 200] },
   () => GetBotAliasRequest,
   () => GetBotAliasResponse,
 ];
@@ -1601,9 +1269,7 @@ export var GetBotAliases: StaticOperationSchema = [
   9,
   n0,
   _GBAe,
-  {
-    [_h]: ["GET", "/bots/{botName}/aliases", 200],
-  },
+  { [_h]: ["GET", "/bots/{botName}/aliases", 200] },
   () => GetBotAliasesRequest,
   () => GetBotAliasesResponse,
 ];
@@ -1611,9 +1277,7 @@ export var GetBotChannelAssociation: StaticOperationSchema = [
   9,
   n0,
   _GBCA,
-  {
-    [_h]: ["GET", "/bots/{botName}/aliases/{botAlias}/channels/{name}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botName}/aliases/{botAlias}/channels/{name}", 200] },
   () => GetBotChannelAssociationRequest,
   () => GetBotChannelAssociationResponse,
 ];
@@ -1621,9 +1285,7 @@ export var GetBotChannelAssociations: StaticOperationSchema = [
   9,
   n0,
   _GBCAe,
-  {
-    [_h]: ["GET", "/bots/{botName}/aliases/{botAlias}/channels", 200],
-  },
+  { [_h]: ["GET", "/bots/{botName}/aliases/{botAlias}/channels", 200] },
   () => GetBotChannelAssociationsRequest,
   () => GetBotChannelAssociationsResponse,
 ];
@@ -1631,9 +1293,7 @@ export var GetBots: StaticOperationSchema = [
   9,
   n0,
   _GBe,
-  {
-    [_h]: ["GET", "/bots", 200],
-  },
+  { [_h]: ["GET", "/bots", 200] },
   () => GetBotsRequest,
   () => GetBotsResponse,
 ];
@@ -1641,9 +1301,7 @@ export var GetBotVersions: StaticOperationSchema = [
   9,
   n0,
   _GBV,
-  {
-    [_h]: ["GET", "/bots/{name}/versions", 200],
-  },
+  { [_h]: ["GET", "/bots/{name}/versions", 200] },
   () => GetBotVersionsRequest,
   () => GetBotVersionsResponse,
 ];
@@ -1651,9 +1309,7 @@ export var GetBuiltinIntent: StaticOperationSchema = [
   9,
   n0,
   _GBI,
-  {
-    [_h]: ["GET", "/builtins/intents/{signature}", 200],
-  },
+  { [_h]: ["GET", "/builtins/intents/{signature}", 200] },
   () => GetBuiltinIntentRequest,
   () => GetBuiltinIntentResponse,
 ];
@@ -1661,9 +1317,7 @@ export var GetBuiltinIntents: StaticOperationSchema = [
   9,
   n0,
   _GBIe,
-  {
-    [_h]: ["GET", "/builtins/intents", 200],
-  },
+  { [_h]: ["GET", "/builtins/intents", 200] },
   () => GetBuiltinIntentsRequest,
   () => GetBuiltinIntentsResponse,
 ];
@@ -1671,9 +1325,7 @@ export var GetBuiltinSlotTypes: StaticOperationSchema = [
   9,
   n0,
   _GBST,
-  {
-    [_h]: ["GET", "/builtins/slottypes", 200],
-  },
+  { [_h]: ["GET", "/builtins/slottypes", 200] },
   () => GetBuiltinSlotTypesRequest,
   () => GetBuiltinSlotTypesResponse,
 ];
@@ -1681,9 +1333,7 @@ export var GetExport: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/exports", 200],
-  },
+  { [_h]: ["GET", "/exports", 200] },
   () => GetExportRequest,
   () => GetExportResponse,
 ];
@@ -1691,9 +1341,7 @@ export var GetImport: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_h]: ["GET", "/imports/{importId}", 200],
-  },
+  { [_h]: ["GET", "/imports/{importId}", 200] },
   () => GetImportRequest,
   () => GetImportResponse,
 ];
@@ -1701,9 +1349,7 @@ export var GetIntent: StaticOperationSchema = [
   9,
   n0,
   _GIe,
-  {
-    [_h]: ["GET", "/intents/{name}/versions/{version}", 200],
-  },
+  { [_h]: ["GET", "/intents/{name}/versions/{version}", 200] },
   () => GetIntentRequest,
   () => GetIntentResponse,
 ];
@@ -1711,9 +1357,7 @@ export var GetIntents: StaticOperationSchema = [
   9,
   n0,
   _GIet,
-  {
-    [_h]: ["GET", "/intents", 200],
-  },
+  { [_h]: ["GET", "/intents", 200] },
   () => GetIntentsRequest,
   () => GetIntentsResponse,
 ];
@@ -1721,9 +1365,7 @@ export var GetIntentVersions: StaticOperationSchema = [
   9,
   n0,
   _GIV,
-  {
-    [_h]: ["GET", "/intents/{name}/versions", 200],
-  },
+  { [_h]: ["GET", "/intents/{name}/versions", 200] },
   () => GetIntentVersionsRequest,
   () => GetIntentVersionsResponse,
 ];
@@ -1731,9 +1373,7 @@ export var GetMigration: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/migrations/{migrationId}", 200],
-  },
+  { [_h]: ["GET", "/migrations/{migrationId}", 200] },
   () => GetMigrationRequest,
   () => GetMigrationResponse,
 ];
@@ -1741,9 +1381,7 @@ export var GetMigrations: StaticOperationSchema = [
   9,
   n0,
   _GMe,
-  {
-    [_h]: ["GET", "/migrations", 200],
-  },
+  { [_h]: ["GET", "/migrations", 200] },
   () => GetMigrationsRequest,
   () => GetMigrationsResponse,
 ];
@@ -1751,9 +1389,7 @@ export var GetSlotType: StaticOperationSchema = [
   9,
   n0,
   _GST,
-  {
-    [_h]: ["GET", "/slottypes/{name}/versions/{version}", 200],
-  },
+  { [_h]: ["GET", "/slottypes/{name}/versions/{version}", 200] },
   () => GetSlotTypeRequest,
   () => GetSlotTypeResponse,
 ];
@@ -1761,9 +1397,7 @@ export var GetSlotTypes: StaticOperationSchema = [
   9,
   n0,
   _GSTe,
-  {
-    [_h]: ["GET", "/slottypes", 200],
-  },
+  { [_h]: ["GET", "/slottypes", 200] },
   () => GetSlotTypesRequest,
   () => GetSlotTypesResponse,
 ];
@@ -1771,9 +1405,7 @@ export var GetSlotTypeVersions: StaticOperationSchema = [
   9,
   n0,
   _GSTV,
-  {
-    [_h]: ["GET", "/slottypes/{name}/versions", 200],
-  },
+  { [_h]: ["GET", "/slottypes/{name}/versions", 200] },
   () => GetSlotTypeVersionsRequest,
   () => GetSlotTypeVersionsResponse,
 ];
@@ -1781,9 +1413,7 @@ export var GetUtterancesView: StaticOperationSchema = [
   9,
   n0,
   _GUV,
-  {
-    [_h]: ["GET", "/bots/{botName}/utterances?view=aggregation", 200],
-  },
+  { [_h]: ["GET", "/bots/{botName}/utterances?view=aggregation", 200] },
   () => GetUtterancesViewRequest,
   () => GetUtterancesViewResponse,
 ];
@@ -1791,9 +1421,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1801,9 +1429,7 @@ export var PutBot: StaticOperationSchema = [
   9,
   n0,
   _PB,
-  {
-    [_h]: ["PUT", "/bots/{name}/versions/$LATEST", 200],
-  },
+  { [_h]: ["PUT", "/bots/{name}/versions/$LATEST", 200] },
   () => PutBotRequest,
   () => PutBotResponse,
 ];
@@ -1811,9 +1437,7 @@ export var PutBotAlias: StaticOperationSchema = [
   9,
   n0,
   _PBA,
-  {
-    [_h]: ["PUT", "/bots/{botName}/aliases/{name}", 200],
-  },
+  { [_h]: ["PUT", "/bots/{botName}/aliases/{name}", 200] },
   () => PutBotAliasRequest,
   () => PutBotAliasResponse,
 ];
@@ -1821,9 +1445,7 @@ export var PutIntent: StaticOperationSchema = [
   9,
   n0,
   _PI,
-  {
-    [_h]: ["PUT", "/intents/{name}/versions/$LATEST", 200],
-  },
+  { [_h]: ["PUT", "/intents/{name}/versions/$LATEST", 200] },
   () => PutIntentRequest,
   () => PutIntentResponse,
 ];
@@ -1831,9 +1453,7 @@ export var PutSlotType: StaticOperationSchema = [
   9,
   n0,
   _PST,
-  {
-    [_h]: ["PUT", "/slottypes/{name}/versions/$LATEST", 200],
-  },
+  { [_h]: ["PUT", "/slottypes/{name}/versions/$LATEST", 200] },
   () => PutSlotTypeRequest,
   () => PutSlotTypeResponse,
 ];
@@ -1841,9 +1461,7 @@ export var StartImport: StaticOperationSchema = [
   9,
   n0,
   _SI,
-  {
-    [_h]: ["POST", "/imports", 201],
-  },
+  { [_h]: ["POST", "/imports", 201] },
   () => StartImportRequest,
   () => StartImportResponse,
 ];
@@ -1851,9 +1469,7 @@ export var StartMigration: StaticOperationSchema = [
   9,
   n0,
   _SM,
-  {
-    [_h]: ["POST", "/migrations", 202],
-  },
+  { [_h]: ["POST", "/migrations", 202] },
   () => StartMigrationRequest,
   () => StartMigrationResponse,
 ];
@@ -1861,9 +1477,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1871,9 +1485,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

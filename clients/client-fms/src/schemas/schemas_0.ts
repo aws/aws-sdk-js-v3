@@ -478,7 +478,6 @@ import {
 import { FMSServiceException as __FMSServiceException } from "../models/FMSServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccountScope: StaticStructureSchema = [3, n0, _AS, 0, [_A, _AAE, _ESA], [64 | 0, 2, 2]];
 export var ActionTarget: StaticStructureSchema = [3, n0, _AT, 0, [_RI, _D], [0, 0]];
 export var AdminAccountSummary: StaticStructureSchema = [3, n0, _AAS, 0, [_AA, _DA, _S], [0, 2, 0]];
@@ -745,30 +744,10 @@ export var GetThirdPartyFirewallAssociationStatusResponse: StaticStructureSchema
 ];
 export var GetViolationDetailsRequest: StaticStructureSchema = [3, n0, _GVDR, 0, [_PI, _MA, _RI, _RT], [0, 0, 0, 0]];
 export var GetViolationDetailsResponse: StaticStructureSchema = [3, n0, _GVDRe, 0, [_VD], [() => ViolationDetail]];
-export var InternalErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var InternalErrorException: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InternalErrorException, __InternalErrorException);
-
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var InvalidNetworkAclEntriesViolation: StaticStructureSchema = [
   3,
   n0,
@@ -777,42 +756,12 @@ export var InvalidNetworkAclEntriesViolation: StaticStructureSchema = [
   [_V, _Su, _SAZ, _CANA, _EVn],
   [0, 0, 0, 0, () => EntryViolations],
 ];
-export var InvalidOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var InvalidOperationException: StaticErrorSchema = [-3, n0, _IOE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InvalidOperationException, __InvalidOperationException);
-
-export var InvalidTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var InvalidTypeException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InvalidTypeException, __InvalidTypeException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAdminAccountsForOrganizationRequest: StaticStructureSchema = [3, n0, _LAAFOR, 0, [_NT, _MR], [0, 1]];
 export var ListAdminAccountsForOrganizationResponse: StaticStructureSchema = [
   3,
@@ -1197,18 +1146,8 @@ export var ReplaceNetworkAclAssociationAction: StaticStructureSchema = [
   [0, () => ActionTarget, () => ActionTarget, 2],
 ];
 export var Resource: StaticStructureSchema = [3, n0, _Res, 0, [_URI, _AI], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceSet: StaticStructureSchema = [
   3,
   n0,
@@ -1380,17 +1319,13 @@ export var WebACLHasOutOfScopeResourcesViolation: StaticStructureSchema = [
   [0, 64 | 0],
 ];
 export var __Unit = "unit" as const;
-
 export var FMSServiceException: StaticErrorSchema = [-3, _s, "FMSServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(FMSServiceException, __FMSServiceException);
-
 export var AccountIdList = 64 | 0;
-
 export var AdminAccountSummaryList: StaticListSchema = [1, n0, _AASL, 0, () => AdminAccountSummary];
 export var AppsList: StaticListSchema = [1, n0, _AL, 0, () => App];
 export var AppsListsData: StaticListSchema = [1, n0, _ALDp, 0, () => AppsListDataSummary];
 export var AWSAccountIdList = 64 | 0;
-
 export var AwsEc2NetworkInterfaceViolations: StaticListSchema = [
   1,
   n0,
@@ -1399,63 +1334,46 @@ export var AwsEc2NetworkInterfaceViolations: StaticListSchema = [
   () => AwsEc2NetworkInterfaceViolation,
 ];
 export var AWSRegionList = 64 | 0;
-
 export var ComplianceViolators: StaticListSchema = [1, n0, _CVo, 0, () => ComplianceViolator];
 export var CustomerPolicyScopeIdList = 64 | 0;
-
 export var DiscoveredResourceList: StaticListSchema = [1, n0, _DRL, 0, () => DiscoveredResource];
 export var DnsRuleGroupPriorities = 64 | 1;
-
 export var EntriesDescription: StaticListSchema = [1, n0, _EDnt, 0, () => EntryDescription];
 export var EntriesWithConflicts: StaticListSchema = [1, n0, _EWC, 0, () => EntryDescription];
 export var EntryViolationReasons = 64 | 0;
-
 export var EntryViolations: StaticListSchema = [1, n0, _EVn, 0, () => EntryViolation];
 export var EvaluationResults: StaticListSchema = [1, n0, _ERv, 0, () => EvaluationResult];
 export var ExpectedRoutes: StaticListSchema = [1, n0, _ERxp, 0, () => ExpectedRoute];
 export var FailedItemList: StaticListSchema = [1, n0, _FIL, 0, () => FailedItem];
 export var IdentifierList = 64 | 0;
-
 export var LengthBoundedStringList = 64 | 0;
-
 export var MemberAccounts = 64 | 0;
-
 export var NetworkAclEntries: StaticListSchema = [1, n0, _NAEe, 0, () => NetworkAclEntry];
 export var NetworkFirewallActionList = 64 | 0;
-
 export var OrderedRemediationActions: StaticListSchema = [1, n0, _ORA, 0, () => RemediationActionWithOrder];
 export var OrganizationalUnitIdList = 64 | 0;
-
 export var PartialMatches: StaticListSchema = [1, n0, _PM, 0, () => PartialMatch];
 export var PolicyComplianceStatusList: StaticListSchema = [1, n0, _PCSL, 0, () => PolicyComplianceStatus];
 export var PolicySummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PolicySummary];
 export var PossibleRemediationActionList: StaticListSchema = [1, n0, _PRAL, 0, () => PossibleRemediationAction];
 export var ProtocolsList = 64 | 0;
-
 export var ProtocolsListsData: StaticListSchema = [1, n0, _PLDr, 0, () => ProtocolsListDataSummary];
 export var ResourceArnList = 64 | 0;
-
 export var ResourceIdList = 64 | 0;
-
 export var ResourceList: StaticListSchema = [1, n0, _RL, 0, () => Resource];
 export var ResourceSetIds = 64 | 0;
-
 export var ResourceSetSummaryList: StaticListSchema = [1, n0, _RSSL, 0, () => ResourceSetSummary];
 export var ResourceTags: StaticListSchema = [1, n0, _RTe, 0, () => ResourceTag];
 export var ResourceTypeList = 64 | 0;
-
 export var ResourceViolations: StaticListSchema = [1, n0, _RVe, 0, () => ResourceViolation];
 export var Routes: StaticListSchema = [1, n0, _Rou, 0, () => Route];
 export var SecurityGroupRemediationActions: StaticListSchema = [1, n0, _SGRAe, 0, () => SecurityGroupRemediationAction];
 export var SecurityServiceTypeList = 64 | 0;
-
 export var StatefulRuleGroupList: StaticListSchema = [1, n0, _SRGL, 0, () => StatefulRuleGroup];
 export var StatelessRuleGroupList: StaticListSchema = [1, n0, _SRGLt, 0, () => StatelessRuleGroup];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetViolationReasons = 64 | 0;
-
 export var ThirdPartyFirewallFirewallPolicies: StaticListSchema = [
   1,
   n0,
@@ -1464,10 +1382,8 @@ export var ThirdPartyFirewallFirewallPolicies: StaticListSchema = [
   () => ThirdPartyFirewallFirewallPolicy,
 ];
 export var ComplianceViolatorMetadata = 128 | 0;
-
 export var CustomerPolicyScopeMap: StaticMapSchema = [2, n0, _CPSM, 0, 0, 64 | 0];
 export var IssueInfoMap = 128 | 0;
-
 export var PreviousAppsList: StaticMapSchema = [2, n0, _PAL, 0, 0, () => AppsList];
 export var PreviousProtocolsList: StaticMapSchema = [2, n0, _PPL, 0, 0, 64 | 0];
 export var AssociateAdminAccount: StaticOperationSchema = [

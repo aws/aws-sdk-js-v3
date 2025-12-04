@@ -113,32 +113,11 @@ import {
 import { ResourceGroupsTaggingAPIServiceException as __ResourceGroupsTaggingAPIServiceException } from "../models/ResourceGroupsTaggingAPIServiceException";
 
 /* eslint no-var: 0 */
-
 export var ComplianceDetails: StaticStructureSchema = [3, n0, _CD, 0, [_NK, _KWNV, _CS], [64 | 0, 64 | 0, 2]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
-export var ConstraintViolationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ConstraintViolationException: StaticErrorSchema = [-3, n0, _CVE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConstraintViolationException, __ConstraintViolationException);
-
 export var DescribeReportCreationInput: StaticStructureSchema = [3, n0, _DRCI, 0, [], []];
 export var DescribeReportCreationOutput: StaticStructureSchema = [3, n0, _DRCO, 0, [_S, _SL, _SD, _EM], [0, 0, 0, 0]];
 export var FailureInfo: StaticStructureSchema = [3, n0, _FI, 0, [_SC, _EC, _EM], [1, 0, 0]];
@@ -171,30 +150,10 @@ export var GetTagKeysInput: StaticStructureSchema = [3, n0, _GTKI, 0, [_PT], [0]
 export var GetTagKeysOutput: StaticStructureSchema = [3, n0, _GTKO, 0, [_PT, _TK], [0, 64 | 0]];
 export var GetTagValuesInput: StaticStructureSchema = [3, n0, _GTVI, 0, [_PT, _K], [0, 0]];
 export var GetTagValuesOutput: StaticStructureSchema = [3, n0, _GTVO, 0, [_PT, _TV], [0, 64 | 0]];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var ListRequiredTagsInput: StaticStructureSchema = [3, n0, _LRTI, 0, [_NT, _MR], [0, 1]];
 export var ListRequiredTagsOutput: StaticStructureSchema = [
   3,
@@ -204,18 +163,8 @@ export var ListRequiredTagsOutput: StaticStructureSchema = [
   [_RT, _NT],
   [() => RequiredTagsForListRequiredTags, 0],
 ];
-export var PaginationTokenExpiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var PaginationTokenExpiredException: StaticErrorSchema = [-3, n0, _PTEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PaginationTokenExpiredException, __PaginationTokenExpiredException);
-
 export var RequiredTag: StaticStructureSchema = [3, n0, _RTe, 0, [_RTes, _CFRT, _RTK], [0, 64 | 0, 64 | 0]];
 export var ResourceTagMapping: StaticStructureSchema = [
   3,
@@ -232,22 +181,11 @@ export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagFilter: StaticStructureSchema = [3, n0, _TFa, 0, [_K, _Va], [0, 64 | 0]];
 export var TagResourcesInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RARNL, _T], [64 | 0, 128 | 0]];
 export var TagResourcesOutput: StaticStructureSchema = [3, n0, _TRO, 0, [_FRM], [() => FailedResourcesMap]];
-export var ThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ThrottledException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
-
 export var UntagResourcesInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARNL, _TK], [64 | 0, 64 | 0]];
 export var UntagResourcesOutput: StaticStructureSchema = [3, n0, _URO, 0, [_FRM], [() => FailedResourcesMap]];
 export var __Unit = "unit" as const;
-
 export var ResourceGroupsTaggingAPIServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -260,48 +198,31 @@ TypeRegistry.for(_sm).registerError(
   ResourceGroupsTaggingAPIServiceException,
   __ResourceGroupsTaggingAPIServiceException
 );
-
 export var CloudFormationResourceTypes = 64 | 0;
-
 export var GroupBy = 64 | 0;
-
 export var RegionFilterList = 64 | 0;
-
 export var ReportingTagKeys = 64 | 0;
-
 export var RequiredTagsForListRequiredTags: StaticListSchema = [1, n0, _RTFLRT, 0, () => RequiredTag];
 export var ResourceARNListForGet = 64 | 0;
-
 export var ResourceARNListForTagUntag = 64 | 0;
-
 export var ResourceTagMappingList: StaticListSchema = [1, n0, _RTML, 0, () => ResourceTagMapping];
 export var ResourceTypeFilterList = 64 | 0;
-
 export var SummaryList: StaticListSchema = [1, n0, _SLu, 0, () => Summary];
 export var TagFilterList: StaticListSchema = [1, n0, _TFL, 0, () => TagFilter];
 export var TagKeyFilterList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagKeyListForUntag = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TagValueList = 64 | 0;
-
 export var TagValuesOutputList = 64 | 0;
-
 export var TargetIdFilterList = 64 | 0;
-
 export var FailedResourcesMap: StaticMapSchema = [2, n0, _FRM, 0, 0, () => FailureInfo];
 export var TagMap = 128 | 0;
-
 export var DescribeReportCreation: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_h]: ["POST", "/DescribeReportCreation", 200],
-  },
+  { [_h]: ["POST", "/DescribeReportCreation", 200] },
   () => DescribeReportCreationInput,
   () => DescribeReportCreationOutput,
 ];
@@ -309,9 +230,7 @@ export var GetComplianceSummary: StaticOperationSchema = [
   9,
   n0,
   _GCS,
-  {
-    [_h]: ["POST", "/GetComplianceSummary", 200],
-  },
+  { [_h]: ["POST", "/GetComplianceSummary", 200] },
   () => GetComplianceSummaryInput,
   () => GetComplianceSummaryOutput,
 ];
@@ -319,9 +238,7 @@ export var GetResources: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["POST", "/GetResources", 200],
-  },
+  { [_h]: ["POST", "/GetResources", 200] },
   () => GetResourcesInput,
   () => GetResourcesOutput,
 ];
@@ -329,9 +246,7 @@ export var GetTagKeys: StaticOperationSchema = [
   9,
   n0,
   _GTK,
-  {
-    [_h]: ["POST", "/GetTagKeys", 200],
-  },
+  { [_h]: ["POST", "/GetTagKeys", 200] },
   () => GetTagKeysInput,
   () => GetTagKeysOutput,
 ];
@@ -339,9 +254,7 @@ export var GetTagValues: StaticOperationSchema = [
   9,
   n0,
   _GTV,
-  {
-    [_h]: ["POST", "/GetTagValues", 200],
-  },
+  { [_h]: ["POST", "/GetTagValues", 200] },
   () => GetTagValuesInput,
   () => GetTagValuesOutput,
 ];
@@ -349,9 +262,7 @@ export var ListRequiredTags: StaticOperationSchema = [
   9,
   n0,
   _LRT,
-  {
-    [_h]: ["POST", "/ListRequiredTags", 200],
-  },
+  { [_h]: ["POST", "/ListRequiredTags", 200] },
   () => ListRequiredTagsInput,
   () => ListRequiredTagsOutput,
 ];
@@ -359,9 +270,7 @@ export var StartReportCreation: StaticOperationSchema = [
   9,
   n0,
   _SRC,
-  {
-    [_h]: ["POST", "/StartReportCreation", 200],
-  },
+  { [_h]: ["POST", "/StartReportCreation", 200] },
   () => StartReportCreationInput,
   () => StartReportCreationOutput,
 ];
@@ -369,9 +278,7 @@ export var TagResources: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResources", 200],
-  },
+  { [_h]: ["POST", "/TagResources", 200] },
   () => TagResourcesInput,
   () => TagResourcesOutput,
 ];
@@ -379,9 +286,7 @@ export var UntagResources: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResources", 200],
-  },
+  { [_h]: ["POST", "/UntagResources", 200] },
   () => UntagResourcesInput,
   () => UntagResourcesOutput,
 ];

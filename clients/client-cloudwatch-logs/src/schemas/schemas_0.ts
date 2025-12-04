@@ -867,19 +867,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountPolicy: StaticStructureSchema = [
   3,
   n0,
@@ -941,18 +930,8 @@ export var ConfigurationTemplateDeliveryConfigValues: StaticStructureSchema = [
   [_rF, _fD, _sDC],
   [64 | 0, 0, () => S3DeliveryConfiguration],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CopyValue: StaticStructureSchema = [3, n0, _CV, 0, [_en], [() => CopyValueEntries]];
 export var CopyValueEntry: StaticStructureSchema = [3, n0, _CVE, 0, [_so, _t, _oIE], [0, 0, 2]];
 export var CreateDeliveryRequest: StaticStructureSchema = [
@@ -1001,18 +980,8 @@ export var CreateScheduledQueryRequest: StaticStructureSchema = [
 ];
 export var CreateScheduledQueryResponse: StaticStructureSchema = [3, n0, _CSQRr, 0, [_sQA, _st], [0, 0]];
 export var CSV: StaticStructureSchema = [3, n0, _CSV, 0, [_qC, _del, _co, _so], [0, 0, 64 | 0, 0]];
-export var DataAlreadyAcceptedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DAAE,
-  {
-    [_e]: _c,
-  },
-  [_eST, _m],
-  [0, 0],
-];
+export var DataAlreadyAcceptedException: StaticErrorSchema = [-3, n0, _DAAE, { [_e]: _c }, [_eST, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(DataAlreadyAcceptedException, __DataAlreadyAcceptedException);
-
 export var DataSource: StaticStructureSchema = [3, n0, _DS, 0, [_n, _ty], [0, 0]];
 export var DataSourceFilter: StaticStructureSchema = [3, n0, _DSF, 0, [_n, _ty], [0, 0]];
 export var DateTimeConverter: StaticStructureSchema = [
@@ -1400,79 +1369,18 @@ export var GroupingIdentifier: StaticStructureSchema = [3, n0, _GI, 0, [_k, _v],
 export var IndexPolicy: StaticStructureSchema = [3, n0, _IP, 0, [_lGIo, _lUTa, _pD, _pN, _so], [0, 1, 0, 0, 0]];
 export var InputLogEvent: StaticStructureSchema = [3, n0, _ILE, 0, [_tim, _m], [1, 0]];
 export var IntegrationSummary: StaticStructureSchema = [3, n0, _IS, 0, [_iN, _iTn, _iS], [0, 0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InternalStreamingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEn,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InternalStreamingException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalStreamingException, __InternalStreamingException);
-
-export var InvalidOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidOperationException: StaticErrorSchema = [-3, n0, _IOE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidOperationException, __InvalidOperationException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidSequenceTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISTE,
-  {
-    [_e]: _c,
-  },
-  [_eST, _m],
-  [0, 0],
-];
+export var InvalidSequenceTokenException: StaticErrorSchema = [-3, n0, _ISTE, { [_e]: _c }, [_eST, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidSequenceTokenException, __InvalidSequenceTokenException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAggregateLogGroupSummariesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1601,14 +1509,11 @@ export var MalformedQueryException: StaticErrorSchema = [
   -3,
   n0,
   _MQE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_qCE, _m],
   [() => QueryCompileError, 0],
 ];
 TypeRegistry.for(n0).registerError(MalformedQueryException, __MalformedQueryException);
-
 export var MetricFilter: StaticStructureSchema = [
   3,
   n0,
@@ -1718,18 +1623,8 @@ export var OpenSearchWorkspace: StaticStructureSchema = [
   [_wI, _sta],
   [0, () => OpenSearchResourceStatus],
 ];
-export var OperationAbortedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var OperationAbortedException: StaticErrorSchema = [-3, n0, _OAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OperationAbortedException, __OperationAbortedException);
-
 export var OutputLogEvent: StaticStructureSchema = [3, n0, _OLE, 0, [_tim, _m, _iT], [1, 0, 1]];
 export var ParseCloudfront: StaticStructureSchema = [3, n0, _PC, 0, [_so], [0]];
 export var ParseJSON: StaticStructureSchema = [3, n0, _PJSON, 0, [_so, _des], [0, 0]];
@@ -1926,30 +1821,10 @@ export var RejectedEntityInfo: StaticStructureSchema = [3, n0, _REI, 0, [_eTr], 
 export var RejectedLogEventsInfo: StaticStructureSchema = [3, n0, _RLEI, 0, [_tNLESI, _tOLEEI, _eLEEI], [1, 1, 1]];
 export var RenameKeyEntry: StaticStructureSchema = [3, n0, _RKE, 0, [_k, _rTen, _oIE], [0, 0, 2]];
 export var RenameKeys: StaticStructureSchema = [3, n0, _RK, 0, [_en], [() => RenameKeyEntries]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePolicy: StaticStructureSchema = [
   3,
   n0,
@@ -1986,54 +1861,14 @@ export var ScheduledQuerySummary: StaticStructureSchema = [
   [0, 0, 0, 1, 0, 0, 0, () => DestinationConfiguration, 1, 1],
 ];
 export var SearchedLogStream: StaticStructureSchema = [3, n0, _SLS, 0, [_lSN, _sCe], [0, 2]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _ser,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _ser }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
-export var SessionStreamingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SSE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var SessionStreamingException: StaticErrorSchema = [-3, n0, _SSE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SessionStreamingException, __SessionStreamingException);
-
-export var SessionTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _STE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var SessionTimeoutException: StaticErrorSchema = [-3, n0, _STE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SessionTimeoutException, __SessionTimeoutException);
-
 export var SplitString: StaticStructureSchema = [3, n0, _SS, 0, [_en], [() => SplitStringEntries]];
 export var SplitStringEntry: StaticStructureSchema = [3, n0, _SSEp, 0, [_so, _del], [0, 0]];
 export var StartLiveTailRequest: StaticStructureSchema = [
@@ -2080,31 +1915,10 @@ export var TestMetricFilterRequest: StaticStructureSchema = [3, n0, _TMFR, 0, [_
 export var TestMetricFilterResponse: StaticStructureSchema = [3, n0, _TMFRe, 0, [_mat], [() => MetricFilterMatches]];
 export var TestTransformerRequest: StaticStructureSchema = [3, n0, _TTR, 0, [_tC, _lEM], [() => Processors, 64 | 0]];
 export var TestTransformerResponse: StaticStructureSchema = [3, n0, _TTRe, 0, [_tL], [() => TransformedLogs]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TransformedLogRecord: StaticStructureSchema = [3, n0, _TLR, 0, [_eN, _eM, _tEM], [1, 0, 0]];
 export var TriggerHistoryRecord: StaticStructureSchema = [
   3,
@@ -2117,18 +1931,8 @@ export var TriggerHistoryRecord: StaticStructureSchema = [
 export var TrimString: StaticStructureSchema = [3, n0, _TS, 0, [_wK], [64 | 0]];
 export var TypeConverter: StaticStructureSchema = [3, n0, _TC, 0, [_en], [() => TypeConverterEntries]];
 export var TypeConverterEntry: StaticStructureSchema = [3, n0, _TCE, 0, [_k, _ty], [0, 0]];
-export var UnrecognizedClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UCE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnrecognizedClientException: StaticErrorSchema = [-3, n0, _UCE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnrecognizedClientException, __UnrecognizedClientException);
-
 export var UntagLogGroupRequest: StaticStructureSchema = [3, n0, _ULGR, 0, [_lGN, _ta], [0, 64 | 0]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UpdateAnomalyRequest: StaticStructureSchema = [
@@ -2173,96 +1977,63 @@ export var UpdateScheduledQueryResponse: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration, 0, 1, 0, 1, 1, 0, 1, 1],
 ];
 export var UpperCaseString: StaticStructureSchema = [3, n0, _UCS, 0, [_wK], [64 | 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var CloudWatchLogsServiceException: StaticErrorSchema = [-3, _sm, "CloudWatchLogsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudWatchLogsServiceException, __CloudWatchLogsServiceException);
-
 export var AccountIds = 64 | 0;
-
 export var AccountPolicies: StaticListSchema = [1, n0, _APc, 0, () => AccountPolicy];
 export var AddKeyEntries: StaticListSchema = [1, n0, _AKEd, 0, () => AddKeyEntry];
 export var AggregateLogGroupSummaries: StaticListSchema = [1, n0, _ALGSg, 0, () => AggregateLogGroupSummary];
 export var AllowedFieldDelimiters = 64 | 0;
-
 export var AllowedFields: StaticListSchema = [1, n0, _AF, 0, () => RecordField];
 export var Anomalies: StaticListSchema = [1, n0, _An, 0, () => Anomaly];
 export var AnomalyDetectors: StaticListSchema = [1, n0, _ADn, 0, () => AnomalyDetector];
 export var Columns = 64 | 0;
-
 export var ConfigurationTemplates: StaticListSchema = [1, n0, _CTo, 0, () => ConfigurationTemplate];
 export var CopyValueEntries: StaticListSchema = [1, n0, _CVEo, 0, () => CopyValueEntry];
 export var DashboardViewerPrincipals = 64 | 0;
-
 export var DataSourceFilters: StaticListSchema = [1, n0, _DSFa, 0, () => DataSourceFilter];
 export var DeleteWithKeys = 64 | 0;
-
 export var Deliveries: StaticListSchema = [1, n0, _Del, 0, () => Delivery];
 export var DeliveryDestinations: StaticListSchema = [1, n0, _DDe, 0, () => DeliveryDestination];
 export var DeliveryDestinationTypes = 64 | 0;
-
 export var DeliverySources: StaticListSchema = [1, n0, _DSel, 0, () => DeliverySource];
 export var DescribeFieldIndexesLogGroupIdentifiers = 64 | 0;
-
 export var DescribeIndexPoliciesLogGroupIdentifiers = 64 | 0;
-
 export var DescribeLogGroupsLogGroupIdentifiers = 64 | 0;
-
 export var Destinations: StaticListSchema = [1, n0, _Des, 0, () => Destination];
 export var EmitSystemFields = 64 | 0;
-
 export var ExecutionStatusList = 64 | 0;
-
 export var ExportTasks: StaticListSchema = [1, n0, _ETx, 0, () => ExportTask];
 export var FieldIndexes: StaticListSchema = [1, n0, _FIi, 0, () => FieldIndex];
 export var FieldIndexNames = 64 | 0;
-
 export var FilteredLogEvents: StaticListSchema = [1, n0, _FLEi, 0, () => FilteredLogEvent];
 export var GroupingIdentifiers: StaticListSchema = [1, n0, _GIr, 0, () => GroupingIdentifier];
 export var IndexPolicies: StaticListSchema = [1, n0, _IPn, 0, () => IndexPolicy];
 export var InheritedProperties = 64 | 0;
-
 export var InputLogEvents: StaticListSchema = [1, n0, _ILEn, 0, () => InputLogEvent];
 export var InputLogStreamNames = 64 | 0;
-
 export var IntegrationSummaries: StaticListSchema = [1, n0, _ISn, 0, () => IntegrationSummary];
 export var LiveTailSessionResults: StaticListSchema = [1, n0, _LTSR, 0, () => LiveTailSessionLogEvent];
 export var LogFieldsList: StaticListSchema = [1, n0, _LFL, 0, () => LogFieldsListItem];
 export var LogGroupArnList = 64 | 0;
-
 export var LogGroupFieldList: StaticListSchema = [1, n0, _LGFL, 0, () => LogGroupField];
 export var LogGroupIdentifiers = 64 | 0;
-
 export var LogGroupNames = 64 | 0;
-
 export var LogGroups: StaticListSchema = [1, n0, _LGo, 0, () => LogGroup];
 export var LogGroupSummaries: StaticListSchema = [1, n0, _LGSo, 0, () => LogGroupSummary];
 export var LogSamples: StaticListSchema = [1, n0, _LSo, 0, () => LogEvent];
 export var LogStreams: StaticListSchema = [1, n0, _LSog, 0, () => LogStream];
 export var LogTypes = 64 | 0;
-
 export var LowerCaseStringWithKeys = 64 | 0;
-
 export var MatchPatterns = 64 | 0;
-
 export var MetricFilterMatches: StaticListSchema = [1, n0, _MFM, 0, () => MetricFilterMatchRecord];
 export var MetricFilters: StaticListSchema = [1, n0, _MFe, 0, () => MetricFilter];
 export var MetricTransformations: StaticListSchema = [1, n0, _MTe, 0, () => MetricTransformation];
 export var MoveKeyEntries: StaticListSchema = [1, n0, _MKEo, 0, () => MoveKeyEntry];
 export var OutputFormats = 64 | 0;
-
 export var OutputLogEvents: StaticListSchema = [1, n0, _OLEu, 0, () => OutputLogEvent];
 export var PatternTokens: StaticListSchema = [1, n0, _PTa, 0, () => PatternToken];
 export var Processors: StaticListSchema = [1, n0, _Pro, 0, () => Processor];
@@ -2270,61 +2041,41 @@ export var QueryDefinitionList: StaticListSchema = [1, n0, _QDL, 0, () => QueryD
 export var QueryInfoList: StaticListSchema = [1, n0, _QIL, 0, () => QueryInfo];
 export var QueryResults: StaticListSchema = [1, n0, _QR, 0, () => ResultRows];
 export var RecordFields = 64 | 0;
-
 export var RenameKeyEntries: StaticListSchema = [1, n0, _RKEe, 0, () => RenameKeyEntry];
 export var ResourceArns = 64 | 0;
-
 export var ResourcePolicies: StaticListSchema = [1, n0, _RPe, 0, () => ResourcePolicy];
 export var ResourceTypes = 64 | 0;
-
 export var ResultRows: StaticListSchema = [1, n0, _RR, 0, () => ResultField];
 export var S3TableIntegrationSources: StaticListSchema = [1, n0, _STISa, 0, () => S3TableIntegrationSource];
 export var ScheduledQueryDestinationList: StaticListSchema = [1, n0, _SQDL, 0, () => ScheduledQueryDestination];
 export var ScheduledQueryLogGroupIdentifiers = 64 | 0;
-
 export var ScheduledQuerySummaryList: StaticListSchema = [1, n0, _SQSL, 0, () => ScheduledQuerySummary];
 export var SearchedLogStreams: StaticListSchema = [1, n0, _SLSe, 0, () => SearchedLogStream];
 export var SplitStringEntries: StaticListSchema = [1, n0, _SSEpl, 0, () => SplitStringEntry];
 export var StartLiveTailLogGroupIdentifiers = 64 | 0;
-
 export var SubscriptionFilters: StaticListSchema = [1, n0, _SFu, 0, () => SubscriptionFilter];
 export var SubstituteStringEntries: StaticListSchema = [1, n0, _SSEub, 0, () => SubstituteStringEntry];
 export var TagKeyList = 64 | 0;
-
 export var TagList = 64 | 0;
-
 export var TestEventMessages = 64 | 0;
-
 export var TransformedLogs: StaticListSchema = [1, n0, _TL, 0, () => TransformedLogRecord];
 export var TriggerHistoryRecordList: StaticListSchema = [1, n0, _THRL, 0, () => TriggerHistoryRecord];
 export var TrimStringWithKeys = 64 | 0;
-
 export var TypeConverterEntries: StaticListSchema = [1, n0, _TCEy, 0, () => TypeConverterEntry];
 export var UpperCaseStringWithKeys = 64 | 0;
-
 export var Dimensions = 128 | 0;
-
 export var EntityAttributes = 128 | 0;
-
 export var EntityKeyAttributes = 128 | 0;
-
 export var Enumerations = 128 | 1;
-
 export var ExtractedValues = 128 | 0;
-
 export var Histogram = 128 | 1;
-
 export var LogRecord = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var GetLogObjectResponseStream: StaticStructureSchema = [
   3,
   n0,
   _GLORS,
-  {
-    [_str]: 1,
-  },
+  { [_str]: 1 },
   [_fi, _ISEn],
   [() => FieldsData, [() => InternalStreamingException, 0]],
 ];
@@ -2334,9 +2085,7 @@ export var StartLiveTailResponseStream: StaticStructureSchema = [
   3,
   n0,
   _SLTRS,
-  {
-    [_str]: 1,
-  },
+  { [_str]: 1 },
   [_sSe, _sUe, _STE, _SSE],
   [
     () => LiveTailSessionStart,
@@ -2721,9 +2470,7 @@ export var GetLogObject: StaticOperationSchema = [
   9,
   n0,
   _GLO,
-  {
-    [_end]: ["streaming-"],
-  },
+  { [_end]: ["streaming-"] },
   () => GetLogObjectRequest,
   () => GetLogObjectResponse,
 ];
@@ -2966,9 +2713,7 @@ export var StartLiveTail: StaticOperationSchema = [
   9,
   n0,
   _SLT,
-  {
-    [_end]: ["streaming-"],
-  },
+  { [_end]: ["streaming-"] },
   () => StartLiveTailRequest,
   () => StartLiveTailResponse,
 ];

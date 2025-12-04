@@ -77,27 +77,27 @@ import {
 } from "./enums";
 
 import {
-  CarrierGateway,
-  ClientVpnEndpointStatus,
-  ClientVpnRouteStatus,
-  CoipCidr,
-  CoipPool,
-  Subnet,
+  type CarrierGateway,
+  type ClientVpnEndpointStatus,
+  type ClientVpnRouteStatus,
+  type CoipCidr,
+  type CoipPool,
+  type Subnet,
+  type TransitGatewayPeeringAttachment,
+  type TransitGatewayVpcAttachment,
+  type VerifiedAccessInstance,
+  type VerifiedAccessSseSpecificationResponse,
+  type VerifiedAccessTrustProvider,
+  type Vpc,
+  type VpcEncryptionControl,
+  type VpcPeeringConnection,
   Tag,
   TagSpecification,
-  TransitGatewayPeeringAttachment,
-  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
-  VerifiedAccessInstance,
-  VerifiedAccessSseSpecificationResponse,
-  VerifiedAccessTrustProvider,
-  Vpc,
   VpcAttachment,
-  VpcEncryptionControl,
-  VpcPeeringConnection,
 } from "./models_0";
 
-import {
+import type {
   Ec2InstanceConnectEndpoint,
   Ipam,
   IpamExternalResourceVerificationToken,

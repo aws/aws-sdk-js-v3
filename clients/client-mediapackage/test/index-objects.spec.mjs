@@ -43,28 +43,28 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof MediaPackageClient === "function")
-assert(typeof MediaPackage === "function")
+assert(typeof MediaPackageClient === "function");
+assert(typeof MediaPackage === "function");
 // commands
-assert(typeof ConfigureLogsCommand === "function")
-assert(typeof CreateChannelCommand === "function")
-assert(typeof CreateHarvestJobCommand === "function")
-assert(typeof CreateOriginEndpointCommand === "function")
-assert(typeof DeleteChannelCommand === "function")
-assert(typeof DeleteOriginEndpointCommand === "function")
-assert(typeof DescribeChannelCommand === "function")
-assert(typeof DescribeHarvestJobCommand === "function")
-assert(typeof DescribeOriginEndpointCommand === "function")
-assert(typeof ListChannelsCommand === "function")
-assert(typeof ListHarvestJobsCommand === "function")
-assert(typeof ListOriginEndpointsCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof RotateChannelCredentialsCommand === "function")
-assert(typeof RotateIngestEndpointCredentialsCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
-assert(typeof UpdateChannelCommand === "function")
-assert(typeof UpdateOriginEndpointCommand === "function")
+assert(typeof ConfigureLogsCommand === "function");
+assert(typeof CreateChannelCommand === "function");
+assert(typeof CreateHarvestJobCommand === "function");
+assert(typeof CreateOriginEndpointCommand === "function");
+assert(typeof DeleteChannelCommand === "function");
+assert(typeof DeleteOriginEndpointCommand === "function");
+assert(typeof DescribeChannelCommand === "function");
+assert(typeof DescribeHarvestJobCommand === "function");
+assert(typeof DescribeOriginEndpointCommand === "function");
+assert(typeof ListChannelsCommand === "function");
+assert(typeof ListHarvestJobsCommand === "function");
+assert(typeof ListOriginEndpointsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof RotateChannelCredentialsCommand === "function");
+assert(typeof RotateIngestEndpointCredentialsCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateChannelCommand === "function");
+assert(typeof UpdateOriginEndpointCommand === "function");
 // enums
 assert(typeof __AdTriggersElement === "object");
 assert(typeof __PeriodTriggersElement === "object");
@@ -83,9 +83,9 @@ assert(typeof Status === "object");
 assert(typeof StreamOrder === "object");
 assert(typeof UtcTiming === "object");
 // errors
-assert(MediaPackageServiceException.prototype instanceof Error)
+assert(MediaPackageServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListChannels === "function")
-assert(typeof paginateListHarvestJobs === "function")
-assert(typeof paginateListOriginEndpoints === "function")
+assert(typeof paginateListChannels === "function");
+assert(typeof paginateListHarvestJobs === "function");
+assert(typeof paginateListOriginEndpoints === "function");
 console.log(`MediaPackage index test passed.`);

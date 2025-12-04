@@ -654,72 +654,13 @@ import {
 import { RestJsonProtocolServiceException as __RestJsonProtocolServiceException } from "../models/RestJsonProtocolServiceException";
 
 /* eslint no-var: 0 */
-
-export var FiniteStreamingBlob: StaticSimpleSchema = [
-  0,
-  n0,
-  _FSB,
-  {
-    [_rL]: 1,
-    [_s]: 1,
-  },
-  42,
-];
-export var JsonHeaderString: StaticSimpleSchema = [
-  0,
-  n0,
-  _JHS,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var JsonValue: StaticSimpleSchema = [
-  0,
-  n0,
-  _JV,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var StreamingBlob: StaticSimpleSchema = [
-  0,
-  n0,
-  _SB,
-  {
-    [_s]: 1,
-  },
-  42,
-];
-export var StreamingTextPlainBlob: StaticSimpleSchema = [
-  0,
-  n0,
-  _STPB,
-  {
-    [_mT]: _t,
-    [_s]: 1,
-  },
-  42,
-];
-export var JpegBlob: StaticSimpleSchema = [
-  0,
-  n1,
-  _JB,
-  {
-    [_mT]: _i,
-  },
-  21,
-];
-export var TextPlainBlob: StaticSimpleSchema = [
-  0,
-  n1,
-  _TPB,
-  {
-    [_mT]: _t,
-  },
-  21,
-];
+export var FiniteStreamingBlob: StaticSimpleSchema = [0, n0, _FSB, { [_rL]: 1, [_s]: 1 }, 42];
+export var JsonHeaderString: StaticSimpleSchema = [0, n0, _JHS, { [_mT]: _a }, 0];
+export var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
+export var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_s]: 1 }, 42];
+export var StreamingTextPlainBlob: StaticSimpleSchema = [0, n0, _STPB, { [_mT]: _t, [_s]: 1 }, 42];
+export var JpegBlob: StaticSimpleSchema = [0, n1, _JB, { [_mT]: _i }, 21];
+export var TextPlainBlob: StaticSimpleSchema = [0, n1, _TPB, { [_mT]: _t }, 21];
 export var AllQueryStringTypesInput: StaticStructureSchema = [
   3,
   n0,
@@ -749,182 +690,41 @@ export var AllQueryStringTypesInput: StaticStructureSchema = [
     _qPMOSL,
   ],
   [
-    [
-      0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _SL,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _SS,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _B,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _Sh,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _I,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hQ]: _IL,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hQ]: _IS,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _L,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _F,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _D,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hQ]: _DL,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _Bo,
-      },
-    ],
-    [
-      64 | 2,
-      {
-        [_hQ]: _BL,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _T,
-      },
-    ],
-    [
-      64 | 4,
-      {
-        [_hQ]: _TL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _E,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _EL,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _IE,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hQ]: _IEL,
-      },
-    ],
+    [0, { [_hQ]: _S }],
+    [64 | 0, { [_hQ]: _SL }],
+    [64 | 0, { [_hQ]: _SS }],
+    [1, { [_hQ]: _B }],
+    [1, { [_hQ]: _Sh }],
+    [1, { [_hQ]: _I }],
+    [64 | 1, { [_hQ]: _IL }],
+    [64 | 1, { [_hQ]: _IS }],
+    [1, { [_hQ]: _L }],
+    [1, { [_hQ]: _F }],
+    [1, { [_hQ]: _D }],
+    [64 | 1, { [_hQ]: _DL }],
+    [2, { [_hQ]: _Bo }],
+    [64 | 2, { [_hQ]: _BL }],
+    [4, { [_hQ]: _T }],
+    [64 | 4, { [_hQ]: _TL }],
+    [0, { [_hQ]: _E }],
+    [64 | 0, { [_hQ]: _EL }],
+    [1, { [_hQ]: _IE }],
+    [64 | 1, { [_hQ]: _IEL }],
     [[2, n1, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
-export var BlobPayloadEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _BPE,
-  0,
-  [_p],
-  [
-    [
-      21,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
-];
+export var BlobPayloadEvent: StaticStructureSchema = [3, n0, _BPE, 0, [_p], [[21, { [_eP]: 1 }]]];
 export var ClientOptionalDefaults: StaticStructureSchema = [3, n0, _COD, 0, [_m], [1]];
 export var ComplexError: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_H, _TLo, _N],
-  [
-    [
-      0,
-      {
-        [_hH]: _XH,
-      },
-    ],
-    0,
-    [() => ComplexNestedErrorData, 0],
-  ],
+  [[0, { [_hH]: _XH }], 0, [() => ComplexNestedErrorData, 0]],
 ];
 TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
-
-export var ComplexNestedErrorData: StaticStructureSchema = [
-  3,
-  n0,
-  _CNED,
-  0,
-  [_Fo],
-  [
-    [
-      0,
-      {
-        [_jN]: _Foo,
-      },
-    ],
-  ],
-];
+export var ComplexNestedErrorData: StaticStructureSchema = [3, n0, _CNED, 0, [_Fo], [[0, { [_jN]: _Foo }]]];
 export var ConstantAndVariableQueryStringInput: StaticStructureSchema = [
   3,
   n0,
@@ -932,18 +732,8 @@ export var ConstantAndVariableQueryStringInput: StaticStructureSchema = [
   0,
   [_b, _mS],
   [
-    [
-      0,
-      {
-        [_hQ]: _b,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mS,
-      },
-    ],
+    [0, { [_hQ]: _b }],
+    [0, { [_hQ]: _mS }],
   ],
 ];
 export var ConstantQueryStringInput: StaticStructureSchema = [3, n0, _CQSI, 0, [_h], [[0, 1]]];
@@ -1016,12 +806,7 @@ export var DuplexStreamWithInitialMessagesInput: StaticStructureSchema = [
   0,
   [_iRM, _st],
   [
-    [
-      0,
-      {
-        [_hH]: _irm,
-      },
-    ],
+    [0, { [_hH]: _irm }],
     [() => EventStream, 16],
   ],
 ];
@@ -1032,60 +817,20 @@ export var DuplexStreamWithInitialMessagesOutput: StaticStructureSchema = [
   0,
   [_iRMn, _st],
   [
-    [
-      0,
-      {
-        [_hH]: _irm_,
-      },
-    ],
+    [0, { [_hH]: _irm_ }],
     [() => EventStream, 16],
   ],
 ];
 export var EmptyInputAndEmptyOutputInput: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
 export var EmptyInputAndEmptyOutputOutput: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
 export var EnumPayloadInput: StaticStructureSchema = [3, n0, _EPI, 0, [_p], [[0, 16]]];
-export var ErrorEvent: StaticErrorSchema = [
-  -3,
-  n0,
-  _EE,
-  {
-    [_e]: _c,
-  },
-  [_me],
-  [0],
-];
+export var ErrorEvent: StaticErrorSchema = [-3, n0, _EE, { [_e]: _c }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ErrorEvent, __ErrorEvent);
-
 export var Farewell: StaticStructureSchema = [3, n0, _Fa, 0, [_ph], [0]];
-export var FooError: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [],
-  [],
-];
+export var FooError: StaticErrorSchema = [-3, n0, _FE, { [_e]: _se, [_hE]: 500 }, [], []];
 TypeRegistry.for(n0).registerError(FooError, __FooError);
-
 export var FractionalSecondsOutput: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
-export var GreetingWithErrorsOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _GWEO,
-  0,
-  [_g],
-  [
-    [
-      0,
-      {
-        [_hH]: _XG,
-      },
-    ],
-  ],
-];
+export var GreetingWithErrorsOutput: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [[0, { [_hH]: _XG }]]];
 export var HeadersAndExplicitPayloadEvent: StaticStructureSchema = [
   3,
   n0,
@@ -1093,18 +838,8 @@ export var HeadersAndExplicitPayloadEvent: StaticStructureSchema = [
   0,
   [_he, _p],
   [
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      () => PayloadStructure,
-      {
-        [_eP]: 1,
-      },
-    ],
+    [0, { [_eH]: 1 }],
+    [() => PayloadStructure, { [_eP]: 1 }],
   ],
 ];
 export var HeadersAndImplicitPayloadEvent: StaticStructureSchema = [
@@ -1113,15 +848,7 @@ export var HeadersAndImplicitPayloadEvent: StaticStructureSchema = [
   _HAIPE,
   0,
   [_he, _p],
-  [
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_eH]: 1 }], 0],
 ];
 export var HeadersEvent: StaticStructureSchema = [
   3,
@@ -1130,71 +857,17 @@ export var HeadersEvent: StaticStructureSchema = [
   0,
   [_bH, _bHy, _sH, _iH, _lH, _bHl, _sHt, _tH],
   [
-    [
-      2,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      1,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      1,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      1,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      1,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      21,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      5,
-      {
-        [_eH]: 1,
-      },
-    ],
+    [2, { [_eH]: 1 }],
+    [1, { [_eH]: 1 }],
+    [1, { [_eH]: 1 }],
+    [1, { [_eH]: 1 }],
+    [1, { [_eH]: 1 }],
+    [21, { [_eH]: 1 }],
+    [0, { [_eH]: 1 }],
+    [5, { [_eH]: 1 }],
   ],
 ];
-export var HostLabelInput: StaticStructureSchema = [
-  3,
-  n0,
-  _HLI,
-  0,
-  [_la],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-      },
-    ],
-  ],
-];
+export var HostLabelInput: StaticStructureSchema = [3, n0, _HLI, 0, [_la], [[0, { [_hL]: 1 }]]];
 export var HttpChecksumRequiredInputOutput: StaticStructureSchema = [3, n0, _HCRIO, 0, [_fo], [0]];
 export var HttpEmptyPrefixHeadersInput: StaticStructureSchema = [
   3,
@@ -1203,18 +876,8 @@ export var HttpEmptyPrefixHeadersInput: StaticStructureSchema = [
   0,
   [_pH, _sHp],
   [
-    [
-      128 | 0,
-      {
-        [_hPH]: _,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _h,
-      },
-    ],
+    [128 | 0, { [_hPH]: _ }],
+    [0, { [_hH]: _h }],
   ],
 ];
 export var HttpEmptyPrefixHeadersOutput: StaticStructureSchema = [
@@ -1224,18 +887,8 @@ export var HttpEmptyPrefixHeadersOutput: StaticStructureSchema = [
   0,
   [_pH, _sHp],
   [
-    [
-      128 | 0,
-      {
-        [_hPH]: _,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _h,
-      },
-    ],
+    [128 | 0, { [_hPH]: _ }],
+    [0, { [_hH]: _h }],
   ],
 ];
 export var HttpPayloadTraitsInputOutput: StaticStructureSchema = [
@@ -1245,12 +898,7 @@ export var HttpPayloadTraitsInputOutput: StaticStructureSchema = [
   0,
   [_fo, _bl],
   [
-    [
-      0,
-      {
-        [_hH]: _XF,
-      },
-    ],
+    [0, { [_hH]: _XF }],
     [21, 16],
   ],
 ];
@@ -1261,12 +909,7 @@ export var HttpPayloadTraitsWithMediaTypeInputOutput: StaticStructureSchema = [
   0,
   [_fo, _bl],
   [
-    [
-      0,
-      {
-        [_hH]: _XF,
-      },
-    ],
+    [0, { [_hH]: _XF }],
     [() => TextPlainBlob, 16],
   ],
 ];
@@ -1293,18 +936,8 @@ export var HttpPrefixHeadersInput: StaticStructureSchema = [
   0,
   [_fo, _fM],
   [
-    [
-      0,
-      {
-        [_hH]: _xf,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_hPH]: _xf_,
-      },
-    ],
+    [0, { [_hH]: _xf }],
+    [128 | 0, { [_hPH]: _xf_ }],
   ],
 ];
 export var HttpPrefixHeadersInResponseInput: StaticStructureSchema = [3, n0, _HPHIRI, 0, [], []];
@@ -1314,14 +947,7 @@ export var HttpPrefixHeadersInResponseOutput: StaticStructureSchema = [
   _HPHIRO,
   0,
   [_pH],
-  [
-    [
-      128 | 0,
-      {
-        [_hPH]: _,
-      },
-    ],
-  ],
+  [[128 | 0, { [_hPH]: _ }]],
 ];
 export var HttpPrefixHeadersOutput: StaticStructureSchema = [
   3,
@@ -1330,18 +956,8 @@ export var HttpPrefixHeadersOutput: StaticStructureSchema = [
   0,
   [_fo, _fM],
   [
-    [
-      0,
-      {
-        [_hH]: _xf,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_hPH]: _xf_,
-      },
-    ],
+    [0, { [_hH]: _xf }],
+    [128 | 0, { [_hPH]: _xf_ }],
   ],
 ];
 export var HttpQueryParamsOnlyInput: StaticStructureSchema = [3, n0, _HQPOI, 0, [_qM], [[128 | 0, 64]]];
@@ -1402,21 +1018,7 @@ export var HttpRequestWithLabelsInput: StaticStructureSchema = [
 ];
 export var HttpRequestWithRegexLiteralInput: StaticStructureSchema = [3, n0, _HRWRLI, 0, [_str_], [[0, 1]]];
 export var HttpResponseCodeOutput: StaticStructureSchema = [3, n0, _HRCO, 0, [_St], [[1, 32]]];
-export var IgnoreQueryParamsInResponseOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _IQPIRO,
-  0,
-  [_b],
-  [
-    [
-      0,
-      {
-        [_hQ]: _b,
-      },
-    ],
-  ],
-];
+export var IgnoreQueryParamsInResponseOutput: StaticStructureSchema = [3, n0, _IQPIRO, 0, [_b], [[0, { [_hQ]: _b }]]];
 export var InputAndOutputWithHeadersIO: StaticStructureSchema = [
   3,
   n0,
@@ -1424,114 +1026,24 @@ export var InputAndOutputWithHeadersIO: StaticStructureSchema = [
   0,
   [_hS, _hB, _hSe, _hI, _hLe, _hF, _hD, _hTB, _hFB, _hSL, _hSS, _hIL, _hBL, _hTL, _hEe, _hEL, _hIE, _hIEL],
   [
-    [
-      0,
-      {
-        [_hH]: _XS,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XB,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XS_,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XL,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XF_,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XD,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _XB_,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _XB__,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hH]: _XS__,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hH]: _XS___,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hH]: _XI_,
-      },
-    ],
-    [
-      64 | 2,
-      {
-        [_hH]: _XB___,
-      },
-    ],
-    [
-      64 | 4,
-      {
-        [_hH]: _XT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XE,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hH]: _XE_,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XI__,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hH]: _XI___,
-      },
-    ],
+    [0, { [_hH]: _XS }],
+    [1, { [_hH]: _XB }],
+    [1, { [_hH]: _XS_ }],
+    [1, { [_hH]: _XI }],
+    [1, { [_hH]: _XL }],
+    [1, { [_hH]: _XF_ }],
+    [1, { [_hH]: _XD }],
+    [2, { [_hH]: _XB_ }],
+    [2, { [_hH]: _XB__ }],
+    [64 | 0, { [_hH]: _XS__ }],
+    [64 | 0, { [_hH]: _XS___ }],
+    [64 | 1, { [_hH]: _XI_ }],
+    [64 | 2, { [_hH]: _XB___ }],
+    [64 | 4, { [_hH]: _XT }],
+    [0, { [_hH]: _XE }],
+    [64 | 0, { [_hH]: _XE_ }],
+    [1, { [_hH]: _XI__ }],
+    [64 | 1, { [_hH]: _XI___ }],
   ],
 ];
 export var InputStreamInput: StaticStructureSchema = [3, n0, _ISI, 0, [_st], [[() => EventStream, 16]]];
@@ -1542,28 +1054,12 @@ export var InputStreamWithInitialRequestInput: StaticStructureSchema = [
   0,
   [_iRM, _st],
   [
-    [
-      0,
-      {
-        [_hH]: _irm,
-      },
-    ],
+    [0, { [_hH]: _irm }],
     [() => EventStream, 16],
   ],
 ];
-export var InvalidGreeting: StaticErrorSchema = [
-  -3,
-  n0,
-  _IG,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidGreeting: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
-
 export var JsonBlobsInputOutput: StaticStructureSchema = [3, n0, _JBIO, 0, [_da], [21]];
 export var JsonEnumsInputOutput: StaticStructureSchema = [
   3,
@@ -1596,12 +1092,7 @@ export var JsonListsInputOutput: StaticStructureSchema = [
     64 | 0,
     64 | 1,
     [1, n1, _NSL, 0, 64 | 0],
-    [
-      () => StructureList,
-      {
-        [_jN]: _mSL,
-      },
-    ],
+    [() => StructureList, { [_jN]: _mSL }],
   ],
 ];
 export var JsonMapsInputOutput: StaticStructureSchema = [
@@ -1629,22 +1120,7 @@ export var MalformedBooleanInput: StaticStructureSchema = [
   _MBIa,
   0,
   [_bIB, _bIP, _bIQ, _bIH],
-  [
-    2,
-    [2, 1],
-    [
-      2,
-      {
-        [_hQ]: _bIQ,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _bIH,
-      },
-    ],
-  ],
+  [2, [2, 1], [2, { [_hQ]: _bIQ }], [2, { [_hH]: _bIH }]],
 ];
 export var MalformedByteInput: StaticStructureSchema = [
   3,
@@ -1652,22 +1128,7 @@ export var MalformedByteInput: StaticStructureSchema = [
   _MBIal,
   0,
   [_bIBy, _bIPy, _bIQy, _bIHy],
-  [
-    1,
-    [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _bIQy,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _bIHy,
-      },
-    ],
-  ],
+  [1, [1, 1], [1, { [_hQ]: _bIQy }], [1, { [_hH]: _bIHy }]],
 ];
 export var MalformedContentTypeWithGenericStringInput: StaticStructureSchema = [3, n0, _MCTWGSI, 0, [_p], [[0, 16]]];
 export var MalformedContentTypeWithoutBodyEmptyInputInput: StaticStructureSchema = [
@@ -1676,14 +1137,7 @@ export var MalformedContentTypeWithoutBodyEmptyInputInput: StaticStructureSchema
   _MCTWBEII,
   0,
   [_he],
-  [
-    [
-      0,
-      {
-        [_hH]: _he,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _he }]],
 ];
 export var MalformedContentTypeWithPayloadInput: StaticStructureSchema = [
   3,
@@ -1699,22 +1153,7 @@ export var MalformedDoubleInput: StaticStructureSchema = [
   _MDI,
   0,
   [_dIB, _dIP, _dIQ, _dIH],
-  [
-    1,
-    [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _dIQ,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _dIH,
-      },
-    ],
-  ],
+  [1, [1, 1], [1, { [_hQ]: _dIQ }], [1, { [_hH]: _dIH }]],
 ];
 export var MalformedFloatInput: StaticStructureSchema = [
   3,
@@ -1722,22 +1161,7 @@ export var MalformedFloatInput: StaticStructureSchema = [
   _MFI,
   0,
   [_fIB, _fIP, _fIQ, _fIH],
-  [
-    1,
-    [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _fIQ,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _fIH,
-      },
-    ],
-  ],
+  [1, [1, 1], [1, { [_hQ]: _fIQ }], [1, { [_hH]: _fIH }]],
 ];
 export var MalformedIntegerInput: StaticStructureSchema = [
   3,
@@ -1745,22 +1169,7 @@ export var MalformedIntegerInput: StaticStructureSchema = [
   _MII,
   0,
   [_iIB, _iIP, _iIQ, _iIH],
-  [
-    1,
-    [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _iIQ,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _iIH,
-      },
-    ],
-  ],
+  [1, [1, 1], [1, { [_hQ]: _iIQ }], [1, { [_hH]: _iIH }]],
 ];
 export var MalformedListInput: StaticStructureSchema = [3, n0, _MLI, 0, [_bLo], [64 | 0]];
 export var MalformedLongInput: StaticStructureSchema = [
@@ -1769,22 +1178,7 @@ export var MalformedLongInput: StaticStructureSchema = [
   _MLIa,
   0,
   [_lIB, _lIP, _lIQ, _lIH],
-  [
-    1,
-    [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _lIQ,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _lIH,
-      },
-    ],
-  ],
+  [1, [1, 1], [1, { [_hQ]: _lIQ }], [1, { [_hH]: _lIH }]],
 ];
 export var MalformedMapInput: StaticStructureSchema = [3, n0, _MMI, 0, [_bM], [128 | 0]];
 export var MalformedRequestBodyInput: StaticStructureSchema = [3, n0, _MRBI, 0, [_int, _fl], [1, 1]];
@@ -1794,22 +1188,7 @@ export var MalformedShortInput: StaticStructureSchema = [
   _MSI,
   0,
   [_sIB, _sIP, _sIQ, _sIH],
-  [
-    1,
-    [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _sIQ,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _sIH,
-      },
-    ],
-  ],
+  [1, [1, 1], [1, { [_hQ]: _sIQ }], [1, { [_hH]: _sIH }]],
 ];
 export var MalformedStringInput: StaticStructureSchema = [
   3,
@@ -1817,14 +1196,7 @@ export var MalformedStringInput: StaticStructureSchema = [
   _MSIa,
   0,
   [_bl],
-  [
-    [
-      () => JsonHeaderString,
-      {
-        [_hH]: _amth,
-      },
-    ],
-  ],
+  [[() => JsonHeaderString, { [_hH]: _amth }]],
 ];
 export var MalformedTimestampBodyDateTimeInput: StaticStructureSchema = [3, n0, _MTBDTI, 0, [_ti], [5]];
 export var MalformedTimestampBodyDefaultInput: StaticStructureSchema = [3, n0, _MTBDI, 0, [_ti], [4]];
@@ -1835,14 +1207,7 @@ export var MalformedTimestampHeaderDateTimeInput: StaticStructureSchema = [
   _MTHDTI,
   0,
   [_ti],
-  [
-    [
-      5,
-      {
-        [_hH]: _ti,
-      },
-    ],
-  ],
+  [[5, { [_hH]: _ti }]],
 ];
 export var MalformedTimestampHeaderDefaultInput: StaticStructureSchema = [
   3,
@@ -1850,30 +1215,9 @@ export var MalformedTimestampHeaderDefaultInput: StaticStructureSchema = [
   _MTHDI,
   0,
   [_ti],
-  [
-    [
-      4,
-      {
-        [_hH]: _ti,
-      },
-    ],
-  ],
+  [[4, { [_hH]: _ti }]],
 ];
-export var MalformedTimestampHeaderEpochInput: StaticStructureSchema = [
-  3,
-  n0,
-  _MTHEI,
-  0,
-  [_ti],
-  [
-    [
-      7,
-      {
-        [_hH]: _ti,
-      },
-    ],
-  ],
-];
+export var MalformedTimestampHeaderEpochInput: StaticStructureSchema = [3, n0, _MTHEI, 0, [_ti], [[7, { [_hH]: _ti }]]];
 export var MalformedTimestampPathDefaultInput: StaticStructureSchema = [3, n0, _MTPDI, 0, [_ti], [[4, 1]]];
 export var MalformedTimestampPathEpochInput: StaticStructureSchema = [3, n0, _MTPEI, 0, [_ti], [[7, 1]]];
 export var MalformedTimestampPathHttpDateInput: StaticStructureSchema = [3, n0, _MTPHDI, 0, [_ti], [[6, 1]]];
@@ -1883,76 +1227,20 @@ export var MalformedTimestampQueryDefaultInput: StaticStructureSchema = [
   _MTQDI,
   0,
   [_ti],
-  [
-    [
-      4,
-      {
-        [_hQ]: _ti,
-      },
-    ],
-  ],
+  [[4, { [_hQ]: _ti }]],
 ];
-export var MalformedTimestampQueryEpochInput: StaticStructureSchema = [
-  3,
-  n0,
-  _MTQEI,
-  0,
-  [_ti],
-  [
-    [
-      7,
-      {
-        [_hQ]: _ti,
-      },
-    ],
-  ],
-];
+export var MalformedTimestampQueryEpochInput: StaticStructureSchema = [3, n0, _MTQEI, 0, [_ti], [[7, { [_hQ]: _ti }]]];
 export var MalformedTimestampQueryHttpDateInput: StaticStructureSchema = [
   3,
   n0,
   _MTQHDI,
   0,
   [_ti],
-  [
-    [
-      6,
-      {
-        [_hQ]: _ti,
-      },
-    ],
-  ],
+  [[6, { [_hQ]: _ti }]],
 ];
 export var MalformedUnionInput: StaticStructureSchema = [3, n0, _MUI, 0, [_u], [() => SimpleUnion]];
-export var MediaTypeHeaderInput: StaticStructureSchema = [
-  3,
-  n0,
-  _MTHI,
-  0,
-  [_j],
-  [
-    [
-      () => JsonValue,
-      {
-        [_hH]: _XJ,
-      },
-    ],
-  ],
-];
-export var MediaTypeHeaderOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _MTHO,
-  0,
-  [_j],
-  [
-    [
-      () => JsonValue,
-      {
-        [_hH]: _XJ,
-      },
-    ],
-  ],
-];
+export var MediaTypeHeaderInput: StaticStructureSchema = [3, n0, _MTHI, 0, [_j], [[() => JsonValue, { [_hH]: _XJ }]]];
+export var MediaTypeHeaderOutput: StaticStructureSchema = [3, n0, _MTHO, 0, [_j], [[() => JsonValue, { [_hH]: _XJ }]]];
 export var NestedPayload: StaticStructureSchema = [3, n0, _NP, 0, [_g, _na], [0, 0]];
 export var NoInputAndOutputOutput: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
 export var NullAndEmptyHeadersIO: StaticStructureSchema = [
@@ -1962,24 +1250,9 @@ export var NullAndEmptyHeadersIO: StaticStructureSchema = [
   0,
   [_a_, _b_, _c_],
   [
-    [
-      0,
-      {
-        [_hH]: _XA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XB____,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hH]: _XC,
-      },
-    ],
+    [0, { [_hH]: _XA }],
+    [0, { [_hH]: _XB____ }],
+    [64 | 0, { [_hH]: _XC }],
   ],
 ];
 export var OmitsNullSerializesEmptyStringInput: StaticStructureSchema = [
@@ -1989,18 +1262,8 @@ export var OmitsNullSerializesEmptyStringInput: StaticStructureSchema = [
   0,
   [_nV, _eS],
   [
-    [
-      0,
-      {
-        [_hQ]: _Nu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Em,
-      },
-    ],
+    [0, { [_hQ]: _Nu }],
+    [0, { [_hQ]: _Em }],
   ],
 ];
 export var OmitsSerializingEmptyListsInput: StaticStructureSchema = [
@@ -2010,48 +1273,13 @@ export var OmitsSerializingEmptyListsInput: StaticStructureSchema = [
   0,
   [_qSL, _qIL, _qDL, _qBL, _qTL, _qEL, _qIEL],
   [
-    [
-      64 | 0,
-      {
-        [_hQ]: _SL,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hQ]: _IL,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hQ]: _DL,
-      },
-    ],
-    [
-      64 | 2,
-      {
-        [_hQ]: _BL,
-      },
-    ],
-    [
-      64 | 4,
-      {
-        [_hQ]: _TL,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _EL,
-      },
-    ],
-    [
-      64 | 1,
-      {
-        [_hQ]: _IEL,
-      },
-    ],
+    [64 | 0, { [_hQ]: _SL }],
+    [64 | 1, { [_hQ]: _IL }],
+    [64 | 1, { [_hQ]: _DL }],
+    [64 | 2, { [_hQ]: _BL }],
+    [64 | 4, { [_hQ]: _TL }],
+    [64 | 0, { [_hQ]: _EL }],
+    [64 | 1, { [_hQ]: _IEL }],
   ],
 ];
 export var OperationWithDefaultsInput: StaticStructureSchema = [
@@ -2116,12 +1344,7 @@ export var OutputStreamWithInitialResponseOutput: StaticStructureSchema = [
   0,
   [_iRMn, _st],
   [
-    [
-      0,
-      {
-        [_hH]: _irm_,
-      },
-    ],
+    [0, { [_hH]: _irm_ }],
     [() => EventStream, 16],
   ],
 ];
@@ -2151,15 +1374,7 @@ export var PutWithContentEncodingInput: StaticStructureSchema = [
   _PWCEI,
   0,
   [_en, _da],
-  [
-    [
-      0,
-      {
-        [_hH]: _CE_,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _CE_ }], 0],
 ];
 export var QueryIdempotencyTokenAutoFillInput: StaticStructureSchema = [
   3,
@@ -2167,15 +1382,7 @@ export var QueryIdempotencyTokenAutoFillInput: StaticStructureSchema = [
   _QITAFI,
   0,
   [_to],
-  [
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _to,
-      },
-    ],
-  ],
+  [[0, { [_iT]: 1, [_hQ]: _to }]],
 ];
 export var QueryParamsAsStringListMapInput: StaticStructureSchema = [
   3,
@@ -2184,12 +1391,7 @@ export var QueryParamsAsStringListMapInput: StaticStructureSchema = [
   0,
   [_q, _fo],
   [
-    [
-      0,
-      {
-        [_hQ]: _co,
-      },
-    ],
+    [0, { [_hQ]: _co }],
     [[2, n1, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
@@ -2200,12 +1402,7 @@ export var QueryPrecedenceInput: StaticStructureSchema = [
   0,
   [_fo, _b],
   [
-    [
-      0,
-      {
-        [_hQ]: _ba,
-      },
-    ],
+    [0, { [_hQ]: _ba }],
     [128 | 0, 64],
   ],
 ];
@@ -2235,47 +1432,15 @@ export var RecursiveShapesInputOutputNested2: StaticStructureSchema = [
 ];
 export var ResponseCodeHttpFallbackInputOutput: StaticStructureSchema = [3, n0, _RCHFIO, 0, [], []];
 export var ResponseCodeRequiredOutput: StaticStructureSchema = [3, n0, _RCRO, 0, [_rC], [[1, 32]]];
-export var ServiceUnavailableError: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var ServiceUnavailableError: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableError, __ServiceUnavailableError);
-
 export var SimpleScalarPropertiesInputOutput: StaticStructureSchema = [
   3,
   n0,
   _SSPIO,
   0,
   [_fo, _sV, _tBV, _fBV, _bV, _sVh, _iV, _lV, _fV, _dVo],
-  [
-    [
-      0,
-      {
-        [_hH]: _XF,
-      },
-    ],
-    0,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    [
-      1,
-      {
-        [_jN]: _DD,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _XF }], 0, 2, 2, 1, 1, 1, 1, 1, [1, { [_jN]: _DD }]],
 ];
 export var SingletonEvent: StaticStructureSchema = [3, n0, _SE, 0, [_v], [0]];
 export var SparseJsonListsInputOutput: StaticStructureSchema = [
@@ -2310,12 +1475,7 @@ export var StreamingTraitsInputOutput: StaticStructureSchema = [
   0,
   [_fo, _bl],
   [
-    [
-      0,
-      {
-        [_hH]: _XF,
-      },
-    ],
+    [0, { [_hH]: _XF }],
     [() => StreamingBlob, 16],
   ],
 ];
@@ -2326,12 +1486,7 @@ export var StreamingTraitsRequireLengthInput: StaticStructureSchema = [
   0,
   [_fo, _bl],
   [
-    [
-      0,
-      {
-        [_hH]: _XF,
-      },
-    ],
+    [0, { [_hH]: _XF }],
     [() => FiniteStreamingBlob, 16],
   ],
 ];
@@ -2342,30 +1497,11 @@ export var StreamingTraitsWithMediaTypeInputOutput: StaticStructureSchema = [
   0,
   [_fo, _bl],
   [
-    [
-      0,
-      {
-        [_hH]: _XF,
-      },
-    ],
+    [0, { [_hH]: _XF }],
     [() => StreamingTextPlainBlob, 16],
   ],
 ];
-export var StringPayloadEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _SPE,
-  0,
-  [_p],
-  [
-    [
-      0,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
-];
+export var StringPayloadEvent: StaticStructureSchema = [3, n0, _SPE, 0, [_p], [[0, { [_eP]: 1 }]]];
 export var StringPayloadInput: StaticStructureSchema = [3, n0, _SPI, 0, [_p], [[0, 16]]];
 export var StructureListMember: StaticStructureSchema = [
   3,
@@ -2374,18 +1510,8 @@ export var StructureListMember: StaticStructureSchema = [
   0,
   [_a_, _b_],
   [
-    [
-      0,
-      {
-        [_jN]: _v,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _o,
-      },
-    ],
+    [0, { [_jN]: _v }],
+    [0, { [_jN]: _o }],
   ],
 ];
 export var StructurePayloadEvent: StaticStructureSchema = [
@@ -2394,14 +1520,7 @@ export var StructurePayloadEvent: StaticStructureSchema = [
   _SPEt,
   0,
   [_p],
-  [
-    [
-      () => PayloadStructure,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
+  [[() => PayloadStructure, { [_eP]: 1 }]],
 ];
 export var TestBodyStructureInputOutput: StaticStructureSchema = [
   3,
@@ -2409,32 +1528,10 @@ export var TestBodyStructureInputOutput: StaticStructureSchema = [
   _TBSIO,
   0,
   [_tI, _tC],
-  [
-    [
-      0,
-      {
-        [_hH]: _xati,
-      },
-    ],
-    () => TestConfig,
-  ],
+  [[0, { [_hH]: _xati }], () => TestConfig],
 ];
 export var TestConfig: StaticStructureSchema = [3, n0, _TC, 0, [_tim], [1]];
-export var TestNoPayloadInputOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _TNPIO,
-  0,
-  [_tI],
-  [
-    [
-      0,
-      {
-        [_hH]: _XATI,
-      },
-    ],
-  ],
-];
+export var TestNoPayloadInputOutput: StaticStructureSchema = [3, n0, _TNPIO, 0, [_tI], [[0, { [_hH]: _XATI }]]];
 export var TestPayloadBlobInputOutput: StaticStructureSchema = [
   3,
   n0,
@@ -2442,12 +1539,7 @@ export var TestPayloadBlobInputOutput: StaticStructureSchema = [
   0,
   [_cT, _da],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
+    [0, { [_hH]: _CT }],
     [21, 16],
   ],
 ];
@@ -2458,12 +1550,7 @@ export var TestPayloadStructureInputOutput: StaticStructureSchema = [
   0,
   [_tI, _pC],
   [
-    [
-      0,
-      {
-        [_hH]: _xati,
-      },
-    ],
+    [0, { [_hH]: _xati }],
     [() => PayloadConfig, 16],
   ],
 ];
@@ -2474,48 +1561,13 @@ export var TimestampFormatHeadersIO: StaticStructureSchema = [
   0,
   [_mES, _mHD, _mDT, _dFe, _tES, _tHD, _tDT],
   [
-    [
-      7,
-      {
-        [_hH]: _Xm,
-      },
-    ],
-    [
-      6,
-      {
-        [_hH]: _Xm_,
-      },
-    ],
-    [
-      5,
-      {
-        [_hH]: _Xm__,
-      },
-    ],
-    [
-      4,
-      {
-        [_hH]: _Xd,
-      },
-    ],
-    [
-      7,
-      {
-        [_hH]: _Xt,
-      },
-    ],
-    [
-      6,
-      {
-        [_hH]: _Xt_,
-      },
-    ],
-    [
-      5,
-      {
-        [_hH]: _Xt__,
-      },
-    ],
+    [7, { [_hH]: _Xm }],
+    [6, { [_hH]: _Xm_ }],
+    [5, { [_hH]: _Xm__ }],
+    [4, { [_hH]: _Xd }],
+    [7, { [_hH]: _Xt }],
+    [6, { [_hH]: _Xt_ }],
+    [5, { [_hH]: _Xt__ }],
   ],
 ];
 export var TopLevel: StaticStructureSchema = [
@@ -2527,25 +1579,10 @@ export var TopLevel: StaticStructureSchema = [
   [() => Dialog, () => DialogList, () => DialogMap],
 ];
 export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_con], [() => MyUnion]];
-export var UnionPayloadEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _UPE,
-  0,
-  [_p],
-  [
-    [
-      () => PayloadUnion,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
-];
+export var UnionPayloadEvent: StaticStructureSchema = [3, n0, _UPE, 0, [_p], [[() => PayloadUnion, { [_eP]: 1 }]]];
 export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
 export var GreetingStruct_n1: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
 export var __Unit = "unit" as const;
-
 export var RestJsonProtocolServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -2555,135 +1592,48 @@ export var RestJsonProtocolServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(RestJsonProtocolServiceException, __RestJsonProtocolServiceException);
-
 export var DialogList: StaticListSchema = [1, n0, _DLi, 0, () => Dialog];
 export var SimpleList = 64 | 0;
-
 export var StructureList: StaticListSchema = [1, n0, _SLt, 0, [() => StructureListMember, 0]];
 export var TestStringList = 64 | 0;
-
 export var BooleanList = 64 | 2;
-
 export var DoubleList = 64 | 1;
-
 export var FooEnumList = 64 | 0;
-
 export var FooEnumSet = 64 | 0;
-
 export var IntegerEnumList = 64 | 1;
-
 export var IntegerEnumSet = 64 | 1;
-
 export var IntegerList = 64 | 1;
-
 export var IntegerSet = 64 | 1;
-
 export var NestedStringList: StaticListSchema = [1, n1, _NSL, 0, 64 | 0];
-export var SparseShortList: StaticListSchema = [
-  1,
-  n1,
-  _SSL,
-  {
-    [_sp]: 1,
-  },
-  1,
-];
-export var SparseStringList: StaticListSchema = [
-  1,
-  n1,
-  _SSLp,
-  {
-    [_sp]: 1,
-  },
-  0,
-];
+export var SparseShortList: StaticListSchema = [1, n1, _SSL, { [_sp]: 1 }, 1];
+export var SparseStringList: StaticListSchema = [1, n1, _SSLp, { [_sp]: 1 }, 0];
 export var StringList = 64 | 0;
-
 export var StringSet = 64 | 0;
-
 export var TimestampList = 64 | 4;
-
 export var DenseBooleanMap = 128 | 2;
-
 export var DenseNumberMap = 128 | 1;
-
 export var DenseSetMap: StaticMapSchema = [2, n0, _DSM, 0, 0, 64 | 0];
 export var DenseStringMap = 128 | 0;
-
 export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct_n1];
 export var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog];
 export var DocumentValuedMap = 128 | 15;
-
 export var QueryMap = 128 | 0;
-
 export var SimpleMap = 128 | 0;
-
-export var SparseBooleanMap: StaticMapSchema = [
-  2,
-  n0,
-  _SBM,
-  {
-    [_sp]: 1,
-  },
-  0,
-  2,
-];
-export var SparseNumberMap: StaticMapSchema = [
-  2,
-  n0,
-  _SNM,
-  {
-    [_sp]: 1,
-  },
-  0,
-  1,
-];
-export var SparseSetMap: StaticMapSchema = [
-  2,
-  n0,
-  _SSM,
-  {
-    [_sp]: 1,
-  },
-  0,
-  64 | 0,
-];
-export var SparseStructMap: StaticMapSchema = [
-  2,
-  n0,
-  _SSMp,
-  {
-    [_sp]: 1,
-  },
-  0,
-  () => GreetingStruct_n1,
-];
+export var SparseBooleanMap: StaticMapSchema = [2, n0, _SBM, { [_sp]: 1 }, 0, 2];
+export var SparseNumberMap: StaticMapSchema = [2, n0, _SNM, { [_sp]: 1 }, 0, 1];
+export var SparseSetMap: StaticMapSchema = [2, n0, _SSM, { [_sp]: 1 }, 0, 64 | 0];
+export var SparseStructMap: StaticMapSchema = [2, n0, _SSMp, { [_sp]: 1 }, 0, () => GreetingStruct_n1];
 export var TestStringMap = 128 | 0;
-
 export var FooEnumMap = 128 | 0;
-
 export var IntegerEnumMap = 128 | 1;
-
-export var SparseStringMap: StaticMapSchema = [
-  2,
-  n1,
-  _SSMpa,
-  {
-    [_sp]: 1,
-  },
-  0,
-  0,
-];
+export var SparseStringMap: StaticMapSchema = [2, n1, _SSMpa, { [_sp]: 1 }, 0, 0];
 export var StringListMap: StaticMapSchema = [2, n1, _SLM, 0, 0, 64 | 0];
 export var StringMap = 128 | 0;
-
 export var EventStream: StaticStructureSchema = [
   3,
   n0,
   _ES,
-  {
-    [_s]: 1,
-  },
+  { [_s]: 1 },
   [_hea, _bP, _sP, _sPt, _uP, _hAEP, _hAIP, _e],
   [
     [() => HeadersEvent, 0],
@@ -2715,29 +1665,13 @@ export var UnionWithJsonName: StaticStructureSchema = [
   _UWJN,
   0,
   [_fo, _ba, _b],
-  [
-    [
-      0,
-      {
-        [_jN]: _FOO,
-      },
-    ],
-    0,
-    [
-      0,
-      {
-        [_jN]: _baz,
-      },
-    ],
-  ],
+  [[0, { [_jN]: _FOO }], 0, [0, { [_jN]: _baz }]],
 ];
 export var AllQueryStringTypes: StaticOperationSchema = [
   9,
   n0,
   _AQST,
-  {
-    [_ht]: ["GET", "/AllQueryStringTypesInput", 200],
-  },
+  { [_ht]: ["GET", "/AllQueryStringTypesInput", 200] },
   () => AllQueryStringTypesInput,
   () => __Unit,
 ];
@@ -2745,9 +1679,7 @@ export var ConstantAndVariableQueryString: StaticOperationSchema = [
   9,
   n0,
   _CAVQS,
-  {
-    [_ht]: ["GET", "/ConstantAndVariableQueryString?foo=bar", 200],
-  },
+  { [_ht]: ["GET", "/ConstantAndVariableQueryString?foo=bar", 200] },
   () => ConstantAndVariableQueryStringInput,
   () => __Unit,
 ];
@@ -2755,9 +1687,7 @@ export var ConstantQueryString: StaticOperationSchema = [
   9,
   n0,
   _CQS,
-  {
-    [_ht]: ["GET", "/ConstantQueryString/{hello}?foo=bar&hello", 200],
-  },
+  { [_ht]: ["GET", "/ConstantQueryString/{hello}?foo=bar&hello", 200] },
   () => ConstantQueryStringInput,
   () => __Unit,
 ];
@@ -2765,9 +1695,7 @@ export var ContentTypeParameters: StaticOperationSchema = [
   9,
   n0,
   _CTP,
-  {
-    [_ht]: ["POST", "/ContentTypeParameters", 200],
-  },
+  { [_ht]: ["POST", "/ContentTypeParameters", 200] },
   () => ContentTypeParametersInput,
   () => ContentTypeParametersOutput,
 ];
@@ -2775,9 +1703,7 @@ export var DatetimeOffsets: StaticOperationSchema = [
   9,
   n0,
   _DO,
-  {
-    [_ht]: ["POST", "/DatetimeOffsets", 200],
-  },
+  { [_ht]: ["POST", "/DatetimeOffsets", 200] },
   () => __Unit,
   () => DatetimeOffsetsOutput,
 ];
@@ -2785,9 +1711,7 @@ export var DocumentType: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_ht]: ["PUT", "/DocumentType", 200],
-  },
+  { [_ht]: ["PUT", "/DocumentType", 200] },
   () => DocumentTypeInputOutput,
   () => DocumentTypeInputOutput,
 ];
@@ -2795,9 +1719,7 @@ export var DocumentTypeAsMapValue: StaticOperationSchema = [
   9,
   n0,
   _DTAMV,
-  {
-    [_ht]: ["PUT", "/DocumentTypeAsMapValue", 200],
-  },
+  { [_ht]: ["PUT", "/DocumentTypeAsMapValue", 200] },
   () => DocumentTypeAsMapValueInputOutput,
   () => DocumentTypeAsMapValueInputOutput,
 ];
@@ -2805,9 +1727,7 @@ export var DocumentTypeAsPayload: StaticOperationSchema = [
   9,
   n0,
   _DTAP,
-  {
-    [_ht]: ["PUT", "/DocumentTypeAsPayload", 200],
-  },
+  { [_ht]: ["PUT", "/DocumentTypeAsPayload", 200] },
   () => DocumentTypeAsPayloadInputOutput,
   () => DocumentTypeAsPayloadInputOutput,
 ];
@@ -2815,9 +1735,7 @@ export var DuplexStream: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_ht]: ["POST", "/DuplexStream", 200],
-  },
+  { [_ht]: ["POST", "/DuplexStream", 200] },
   () => DuplexStreamInput,
   () => DuplexStreamOutput,
 ];
@@ -2825,9 +1743,7 @@ export var DuplexStreamWithDistinctStreams: StaticOperationSchema = [
   9,
   n0,
   _DSWDS,
-  {
-    [_ht]: ["POST", "/DuplexStreamWithDistinctStreams", 200],
-  },
+  { [_ht]: ["POST", "/DuplexStreamWithDistinctStreams", 200] },
   () => DuplexStreamWithDistinctStreamsInput,
   () => DuplexStreamWithDistinctStreamsOutput,
 ];
@@ -2835,9 +1751,7 @@ export var DuplexStreamWithInitialMessages: StaticOperationSchema = [
   9,
   n0,
   _DSWIM,
-  {
-    [_ht]: ["POST", "/DuplexStreamWithInitialMessages", 200],
-  },
+  { [_ht]: ["POST", "/DuplexStreamWithInitialMessages", 200] },
   () => DuplexStreamWithInitialMessagesInput,
   () => DuplexStreamWithInitialMessagesOutput,
 ];
@@ -2845,9 +1759,7 @@ export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
   9,
   n0,
   _EIAEO,
-  {
-    [_ht]: ["POST", "/EmptyInputAndEmptyOutput", 200],
-  },
+  { [_ht]: ["POST", "/EmptyInputAndEmptyOutput", 200] },
   () => EmptyInputAndEmptyOutputInput,
   () => EmptyInputAndEmptyOutputOutput,
 ];
@@ -2855,10 +1767,7 @@ export var EndpointOperation: StaticOperationSchema = [
   9,
   n0,
   _EO,
-  {
-    [_ht]: ["POST", "/EndpointOperation", 200],
-    [_end]: ["foo."],
-  },
+  { [_ht]: ["POST", "/EndpointOperation", 200], [_end]: ["foo."] },
   () => __Unit,
   () => __Unit,
 ];
@@ -2866,10 +1775,7 @@ export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
   n0,
   _EWHLO,
-  {
-    [_ht]: ["POST", "/EndpointWithHostLabelOperation", 200],
-    [_end]: ["foo.{label}."],
-  },
+  { [_ht]: ["POST", "/EndpointWithHostLabelOperation", 200], [_end]: ["foo.{label}."] },
   () => HostLabelInput,
   () => __Unit,
 ];
@@ -2877,9 +1783,7 @@ export var FractionalSeconds: StaticOperationSchema = [
   9,
   n0,
   _FS,
-  {
-    [_ht]: ["POST", "/FractionalSeconds", 200],
-  },
+  { [_ht]: ["POST", "/FractionalSeconds", 200] },
   () => __Unit,
   () => FractionalSecondsOutput,
 ];
@@ -2887,9 +1791,7 @@ export var GreetingWithErrors: StaticOperationSchema = [
   9,
   n0,
   _GWE,
-  {
-    [_ht]: ["PUT", "/GreetingWithErrors", 200],
-  },
+  { [_ht]: ["PUT", "/GreetingWithErrors", 200] },
   () => __Unit,
   () => GreetingWithErrorsOutput,
 ];
@@ -2897,9 +1799,7 @@ export var HostWithPathOperation: StaticOperationSchema = [
   9,
   n0,
   _HWPO,
-  {
-    [_ht]: ["GET", "/HostWithPathOperation", 200],
-  },
+  { [_ht]: ["GET", "/HostWithPathOperation", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -2907,10 +1807,7 @@ export var HttpChecksumRequired: StaticOperationSchema = [
   9,
   n0,
   _HCR,
-  {
-    [_ht]: ["POST", "/HttpChecksumRequired", 200],
-    [_hCR]: 1,
-  },
+  { [_ht]: ["POST", "/HttpChecksumRequired", 200], [_hCR]: 1 },
   () => HttpChecksumRequiredInputOutput,
   () => HttpChecksumRequiredInputOutput,
 ];
@@ -2918,9 +1815,7 @@ export var HttpEmptyPrefixHeaders: StaticOperationSchema = [
   9,
   n0,
   _HEPH,
-  {
-    [_ht]: ["GET", "/HttpEmptyPrefixHeaders", 200],
-  },
+  { [_ht]: ["GET", "/HttpEmptyPrefixHeaders", 200] },
   () => HttpEmptyPrefixHeadersInput,
   () => HttpEmptyPrefixHeadersOutput,
 ];
@@ -2928,9 +1823,7 @@ export var HttpEnumPayload: StaticOperationSchema = [
   9,
   n0,
   _HEP,
-  {
-    [_ht]: ["POST", "/EnumPayload", 200],
-  },
+  { [_ht]: ["POST", "/EnumPayload", 200] },
   () => EnumPayloadInput,
   () => EnumPayloadInput,
 ];
@@ -2938,9 +1831,7 @@ export var HttpPayloadTraits: StaticOperationSchema = [
   9,
   n0,
   _HPT,
-  {
-    [_ht]: ["POST", "/HttpPayloadTraits", 200],
-  },
+  { [_ht]: ["POST", "/HttpPayloadTraits", 200] },
   () => HttpPayloadTraitsInputOutput,
   () => HttpPayloadTraitsInputOutput,
 ];
@@ -2948,9 +1839,7 @@ export var HttpPayloadTraitsWithMediaType: StaticOperationSchema = [
   9,
   n0,
   _HPTWMT,
-  {
-    [_ht]: ["POST", "/HttpPayloadTraitsWithMediaType", 200],
-  },
+  { [_ht]: ["POST", "/HttpPayloadTraitsWithMediaType", 200] },
   () => HttpPayloadTraitsWithMediaTypeInputOutput,
   () => HttpPayloadTraitsWithMediaTypeInputOutput,
 ];
@@ -2958,9 +1847,7 @@ export var HttpPayloadWithStructure: StaticOperationSchema = [
   9,
   n0,
   _HPWS,
-  {
-    [_ht]: ["PUT", "/HttpPayloadWithStructure", 200],
-  },
+  { [_ht]: ["PUT", "/HttpPayloadWithStructure", 200] },
   () => HttpPayloadWithStructureInputOutput,
   () => HttpPayloadWithStructureInputOutput,
 ];
@@ -2968,9 +1855,7 @@ export var HttpPayloadWithUnion: StaticOperationSchema = [
   9,
   n0,
   _HPWU,
-  {
-    [_ht]: ["PUT", "/HttpPayloadWithUnion", 200],
-  },
+  { [_ht]: ["PUT", "/HttpPayloadWithUnion", 200] },
   () => HttpPayloadWithUnionInputOutput,
   () => HttpPayloadWithUnionInputOutput,
 ];
@@ -2978,9 +1863,7 @@ export var HttpPrefixHeaders: StaticOperationSchema = [
   9,
   n0,
   _HPH,
-  {
-    [_ht]: ["GET", "/HttpPrefixHeaders", 200],
-  },
+  { [_ht]: ["GET", "/HttpPrefixHeaders", 200] },
   () => HttpPrefixHeadersInput,
   () => HttpPrefixHeadersOutput,
 ];
@@ -2988,9 +1871,7 @@ export var HttpPrefixHeadersInResponse: StaticOperationSchema = [
   9,
   n0,
   _HPHIR,
-  {
-    [_ht]: ["GET", "/HttpPrefixHeadersResponse", 200],
-  },
+  { [_ht]: ["GET", "/HttpPrefixHeadersResponse", 200] },
   () => HttpPrefixHeadersInResponseInput,
   () => HttpPrefixHeadersInResponseOutput,
 ];
@@ -2998,9 +1879,7 @@ export var HttpQueryParamsOnlyOperation: StaticOperationSchema = [
   9,
   n0,
   _HQPOO,
-  {
-    [_ht]: ["GET", "/http-query-params-only", 200],
-  },
+  { [_ht]: ["GET", "/http-query-params-only", 200] },
   () => HttpQueryParamsOnlyInput,
   () => __Unit,
 ];
@@ -3008,9 +1887,7 @@ export var HttpRequestWithFloatLabels: StaticOperationSchema = [
   9,
   n0,
   _HRWFL,
-  {
-    [_ht]: ["GET", "/FloatHttpLabels/{float}/{double}", 200],
-  },
+  { [_ht]: ["GET", "/FloatHttpLabels/{float}/{double}", 200] },
   () => HttpRequestWithFloatLabelsInput,
   () => __Unit,
 ];
@@ -3018,9 +1895,7 @@ export var HttpRequestWithGreedyLabelInPath: StaticOperationSchema = [
   9,
   n0,
   _HRWGLIP,
-  {
-    [_ht]: ["GET", "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}", 200],
-  },
+  { [_ht]: ["GET", "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}", 200] },
   () => HttpRequestWithGreedyLabelInPathInput,
   () => __Unit,
 ];
@@ -3056,9 +1931,7 @@ export var HttpRequestWithRegexLiteral: StaticOperationSchema = [
   9,
   n0,
   _HRWRL,
-  {
-    [_ht]: ["GET", "/ReDosLiteral/{str}/(a+)+", 200],
-  },
+  { [_ht]: ["GET", "/ReDosLiteral/{str}/(a+)+", 200] },
   () => HttpRequestWithRegexLiteralInput,
   () => __Unit,
 ];
@@ -3066,9 +1939,7 @@ export var HttpResponseCode: StaticOperationSchema = [
   9,
   n0,
   _HRC,
-  {
-    [_ht]: ["PUT", "/HttpResponseCode", 200],
-  },
+  { [_ht]: ["PUT", "/HttpResponseCode", 200] },
   () => __Unit,
   () => HttpResponseCodeOutput,
 ];
@@ -3076,9 +1947,7 @@ export var HttpStringPayload: StaticOperationSchema = [
   9,
   n0,
   _HSP,
-  {
-    [_ht]: ["POST", "/StringPayload", 200],
-  },
+  { [_ht]: ["POST", "/StringPayload", 200] },
   () => StringPayloadInput,
   () => StringPayloadInput,
 ];
@@ -3086,9 +1955,7 @@ export var IgnoreQueryParamsInResponse: StaticOperationSchema = [
   9,
   n0,
   _IQPIR,
-  {
-    [_ht]: ["GET", "/IgnoreQueryParamsInResponse", 200],
-  },
+  { [_ht]: ["GET", "/IgnoreQueryParamsInResponse", 200] },
   () => __Unit,
   () => IgnoreQueryParamsInResponseOutput,
 ];
@@ -3096,9 +1963,7 @@ export var InputAndOutputWithHeaders: StaticOperationSchema = [
   9,
   n0,
   _IAOWH,
-  {
-    [_ht]: ["POST", "/InputAndOutputWithHeaders", 200],
-  },
+  { [_ht]: ["POST", "/InputAndOutputWithHeaders", 200] },
   () => InputAndOutputWithHeadersIO,
   () => InputAndOutputWithHeadersIO,
 ];
@@ -3106,9 +1971,7 @@ export var InputStream: StaticOperationSchema = [
   9,
   n0,
   _ISn,
-  {
-    [_ht]: ["POST", "/InputStream", 200],
-  },
+  { [_ht]: ["POST", "/InputStream", 200] },
   () => InputStreamInput,
   () => __Unit,
 ];
@@ -3116,9 +1979,7 @@ export var InputStreamWithInitialRequest: StaticOperationSchema = [
   9,
   n0,
   _ISWIR,
-  {
-    [_ht]: ["POST", "/InputStreamWithInitialRequest", 200],
-  },
+  { [_ht]: ["POST", "/InputStreamWithInitialRequest", 200] },
   () => InputStreamWithInitialRequestInput,
   () => __Unit,
 ];
@@ -3126,9 +1987,7 @@ export var JsonBlobs: StaticOperationSchema = [
   9,
   n0,
   _JBs,
-  {
-    [_ht]: ["POST", "/JsonBlobs", 200],
-  },
+  { [_ht]: ["POST", "/JsonBlobs", 200] },
   () => JsonBlobsInputOutput,
   () => JsonBlobsInputOutput,
 ];
@@ -3136,9 +1995,7 @@ export var JsonEnums: StaticOperationSchema = [
   9,
   n0,
   _JE,
-  {
-    [_ht]: ["PUT", "/JsonEnums", 200],
-  },
+  { [_ht]: ["PUT", "/JsonEnums", 200] },
   () => JsonEnumsInputOutput,
   () => JsonEnumsInputOutput,
 ];
@@ -3146,9 +2003,7 @@ export var JsonIntEnums: StaticOperationSchema = [
   9,
   n0,
   _JIE,
-  {
-    [_ht]: ["PUT", "/JsonIntEnums", 200],
-  },
+  { [_ht]: ["PUT", "/JsonIntEnums", 200] },
   () => JsonIntEnumsInputOutput,
   () => JsonIntEnumsInputOutput,
 ];
@@ -3156,9 +2011,7 @@ export var JsonLists: StaticOperationSchema = [
   9,
   n0,
   _JL,
-  {
-    [_ht]: ["PUT", "/JsonLists", 200],
-  },
+  { [_ht]: ["PUT", "/JsonLists", 200] },
   () => JsonListsInputOutput,
   () => JsonListsInputOutput,
 ];
@@ -3166,9 +2019,7 @@ export var JsonMaps: StaticOperationSchema = [
   9,
   n0,
   _JM,
-  {
-    [_ht]: ["POST", "/JsonMaps", 200],
-  },
+  { [_ht]: ["POST", "/JsonMaps", 200] },
   () => JsonMapsInputOutput,
   () => JsonMapsInputOutput,
 ];
@@ -3176,9 +2027,7 @@ export var JsonTimestamps: StaticOperationSchema = [
   9,
   n0,
   _JT,
-  {
-    [_ht]: ["POST", "/JsonTimestamps", 200],
-  },
+  { [_ht]: ["POST", "/JsonTimestamps", 200] },
   () => JsonTimestampsInputOutput,
   () => JsonTimestampsInputOutput,
 ];
@@ -3186,9 +2035,7 @@ export var JsonUnions: StaticOperationSchema = [
   9,
   n0,
   _JU,
-  {
-    [_ht]: ["PUT", "/JsonUnions", 200],
-  },
+  { [_ht]: ["PUT", "/JsonUnions", 200] },
   () => UnionInputOutput,
   () => UnionInputOutput,
 ];
@@ -3196,9 +2043,7 @@ export var MalformedAcceptWithBody: StaticOperationSchema = [
   9,
   n0,
   _MAWB,
-  {
-    [_ht]: ["POST", "/MalformedAcceptWithBody", 200],
-  },
+  { [_ht]: ["POST", "/MalformedAcceptWithBody", 200] },
   () => __Unit,
   () => GreetingStruct_n1,
 ];
@@ -3206,9 +2051,7 @@ export var MalformedAcceptWithGenericString: StaticOperationSchema = [
   9,
   n0,
   _MAWGS,
-  {
-    [_ht]: ["POST", "/MalformedAcceptWithGenericString", 200],
-  },
+  { [_ht]: ["POST", "/MalformedAcceptWithGenericString", 200] },
   () => __Unit,
   () => MalformedAcceptWithGenericStringOutput,
 ];
@@ -3216,9 +2059,7 @@ export var MalformedAcceptWithPayload: StaticOperationSchema = [
   9,
   n0,
   _MAWP,
-  {
-    [_ht]: ["POST", "/MalformedAcceptWithPayload", 200],
-  },
+  { [_ht]: ["POST", "/MalformedAcceptWithPayload", 200] },
   () => __Unit,
   () => MalformedAcceptWithPayloadOutput,
 ];
@@ -3226,9 +2067,7 @@ export var MalformedBlob: StaticOperationSchema = [
   9,
   n0,
   _MB,
-  {
-    [_ht]: ["POST", "/MalformedBlob", 200],
-  },
+  { [_ht]: ["POST", "/MalformedBlob", 200] },
   () => MalformedBlobInput,
   () => __Unit,
 ];
@@ -3236,9 +2075,7 @@ export var MalformedBoolean: StaticOperationSchema = [
   9,
   n0,
   _MBa,
-  {
-    [_ht]: ["POST", "/MalformedBoolean/{booleanInPath}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedBoolean/{booleanInPath}", 200] },
   () => MalformedBooleanInput,
   () => __Unit,
 ];
@@ -3246,9 +2083,7 @@ export var MalformedByte: StaticOperationSchema = [
   9,
   n0,
   _MBal,
-  {
-    [_ht]: ["POST", "/MalformedByte/{byteInPath}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedByte/{byteInPath}", 200] },
   () => MalformedByteInput,
   () => __Unit,
 ];
@@ -3256,9 +2091,7 @@ export var MalformedContentTypeWithBody: StaticOperationSchema = [
   9,
   n0,
   _MCTWB,
-  {
-    [_ht]: ["POST", "/MalformedContentTypeWithBody", 200],
-  },
+  { [_ht]: ["POST", "/MalformedContentTypeWithBody", 200] },
   () => GreetingStruct_n1,
   () => __Unit,
 ];
@@ -3266,9 +2099,7 @@ export var MalformedContentTypeWithGenericString: StaticOperationSchema = [
   9,
   n0,
   _MCTWGS,
-  {
-    [_ht]: ["POST", "/MalformedContentTypeWithGenericString", 200],
-  },
+  { [_ht]: ["POST", "/MalformedContentTypeWithGenericString", 200] },
   () => MalformedContentTypeWithGenericStringInput,
   () => __Unit,
 ];
@@ -3276,9 +2107,7 @@ export var MalformedContentTypeWithoutBody: StaticOperationSchema = [
   9,
   n0,
   _MCTWBa,
-  {
-    [_ht]: ["POST", "/MalformedContentTypeWithoutBody", 200],
-  },
+  { [_ht]: ["POST", "/MalformedContentTypeWithoutBody", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -3286,9 +2115,7 @@ export var MalformedContentTypeWithoutBodyEmptyInput: StaticOperationSchema = [
   9,
   n0,
   _MCTWBEI,
-  {
-    [_ht]: ["POST", "/MalformedContentTypeWithoutBodyEmptyInput", 200],
-  },
+  { [_ht]: ["POST", "/MalformedContentTypeWithoutBodyEmptyInput", 200] },
   () => MalformedContentTypeWithoutBodyEmptyInputInput,
   () => __Unit,
 ];
@@ -3296,9 +2123,7 @@ export var MalformedContentTypeWithPayload: StaticOperationSchema = [
   9,
   n0,
   _MCTWP,
-  {
-    [_ht]: ["POST", "/MalformedContentTypeWithPayload", 200],
-  },
+  { [_ht]: ["POST", "/MalformedContentTypeWithPayload", 200] },
   () => MalformedContentTypeWithPayloadInput,
   () => __Unit,
 ];
@@ -3306,9 +2131,7 @@ export var MalformedDouble: StaticOperationSchema = [
   9,
   n0,
   _MD,
-  {
-    [_ht]: ["POST", "/MalformedDouble/{doubleInPath}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedDouble/{doubleInPath}", 200] },
   () => MalformedDoubleInput,
   () => __Unit,
 ];
@@ -3316,9 +2139,7 @@ export var MalformedFloat: StaticOperationSchema = [
   9,
   n0,
   _MF,
-  {
-    [_ht]: ["POST", "/MalformedFloat/{floatInPath}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedFloat/{floatInPath}", 200] },
   () => MalformedFloatInput,
   () => __Unit,
 ];
@@ -3326,9 +2147,7 @@ export var MalformedInteger: StaticOperationSchema = [
   9,
   n0,
   _MI,
-  {
-    [_ht]: ["POST", "/MalformedInteger/{integerInPath}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedInteger/{integerInPath}", 200] },
   () => MalformedIntegerInput,
   () => __Unit,
 ];
@@ -3336,9 +2155,7 @@ export var MalformedList: StaticOperationSchema = [
   9,
   n0,
   _ML,
-  {
-    [_ht]: ["POST", "/MalformedList", 200],
-  },
+  { [_ht]: ["POST", "/MalformedList", 200] },
   () => MalformedListInput,
   () => __Unit,
 ];
@@ -3346,9 +2163,7 @@ export var MalformedLong: StaticOperationSchema = [
   9,
   n0,
   _MLa,
-  {
-    [_ht]: ["POST", "/MalformedLong/{longInPath}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedLong/{longInPath}", 200] },
   () => MalformedLongInput,
   () => __Unit,
 ];
@@ -3356,9 +2171,7 @@ export var MalformedMap: StaticOperationSchema = [
   9,
   n0,
   _MM,
-  {
-    [_ht]: ["POST", "/MalformedMap", 200],
-  },
+  { [_ht]: ["POST", "/MalformedMap", 200] },
   () => MalformedMapInput,
   () => __Unit,
 ];
@@ -3366,9 +2179,7 @@ export var MalformedRequestBody: StaticOperationSchema = [
   9,
   n0,
   _MRB,
-  {
-    [_ht]: ["POST", "/MalformedRequestBody", 200],
-  },
+  { [_ht]: ["POST", "/MalformedRequestBody", 200] },
   () => MalformedRequestBodyInput,
   () => __Unit,
 ];
@@ -3376,9 +2187,7 @@ export var MalformedShort: StaticOperationSchema = [
   9,
   n0,
   _MS,
-  {
-    [_ht]: ["POST", "/MalformedShort/{shortInPath}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedShort/{shortInPath}", 200] },
   () => MalformedShortInput,
   () => __Unit,
 ];
@@ -3386,9 +2195,7 @@ export var MalformedString: StaticOperationSchema = [
   9,
   n0,
   _MSa,
-  {
-    [_ht]: ["POST", "/MalformedString", 200],
-  },
+  { [_ht]: ["POST", "/MalformedString", 200] },
   () => MalformedStringInput,
   () => __Unit,
 ];
@@ -3396,9 +2203,7 @@ export var MalformedTimestampBodyDateTime: StaticOperationSchema = [
   9,
   n0,
   _MTBDT,
-  {
-    [_ht]: ["POST", "/MalformedTimestampBodyDateTime", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampBodyDateTime", 200] },
   () => MalformedTimestampBodyDateTimeInput,
   () => __Unit,
 ];
@@ -3406,9 +2211,7 @@ export var MalformedTimestampBodyDefault: StaticOperationSchema = [
   9,
   n0,
   _MTBD,
-  {
-    [_ht]: ["POST", "/MalformedTimestampBodyDefault", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampBodyDefault", 200] },
   () => MalformedTimestampBodyDefaultInput,
   () => __Unit,
 ];
@@ -3416,9 +2219,7 @@ export var MalformedTimestampBodyHttpDate: StaticOperationSchema = [
   9,
   n0,
   _MTBHD,
-  {
-    [_ht]: ["POST", "/MalformedTimestampBodyHttpDate", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampBodyHttpDate", 200] },
   () => MalformedTimestampBodyHttpDateInput,
   () => __Unit,
 ];
@@ -3426,9 +2227,7 @@ export var MalformedTimestampHeaderDateTime: StaticOperationSchema = [
   9,
   n0,
   _MTHDT,
-  {
-    [_ht]: ["POST", "/MalformedTimestampHeaderDateTime", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampHeaderDateTime", 200] },
   () => MalformedTimestampHeaderDateTimeInput,
   () => __Unit,
 ];
@@ -3436,9 +2235,7 @@ export var MalformedTimestampHeaderDefault: StaticOperationSchema = [
   9,
   n0,
   _MTHD,
-  {
-    [_ht]: ["POST", "/MalformedTimestampHeaderDefault", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampHeaderDefault", 200] },
   () => MalformedTimestampHeaderDefaultInput,
   () => __Unit,
 ];
@@ -3446,9 +2243,7 @@ export var MalformedTimestampHeaderEpoch: StaticOperationSchema = [
   9,
   n0,
   _MTHE,
-  {
-    [_ht]: ["POST", "/MalformedTimestampHeaderEpoch", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampHeaderEpoch", 200] },
   () => MalformedTimestampHeaderEpochInput,
   () => __Unit,
 ];
@@ -3456,9 +2251,7 @@ export var MalformedTimestampPathDefault: StaticOperationSchema = [
   9,
   n0,
   _MTPD,
-  {
-    [_ht]: ["POST", "/MalformedTimestampPathDefault/{timestamp}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampPathDefault/{timestamp}", 200] },
   () => MalformedTimestampPathDefaultInput,
   () => __Unit,
 ];
@@ -3466,9 +2259,7 @@ export var MalformedTimestampPathEpoch: StaticOperationSchema = [
   9,
   n0,
   _MTPE,
-  {
-    [_ht]: ["POST", "/MalformedTimestampPathEpoch/{timestamp}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampPathEpoch/{timestamp}", 200] },
   () => MalformedTimestampPathEpochInput,
   () => __Unit,
 ];
@@ -3476,9 +2267,7 @@ export var MalformedTimestampPathHttpDate: StaticOperationSchema = [
   9,
   n0,
   _MTPHD,
-  {
-    [_ht]: ["POST", "/MalformedTimestampPathHttpDate/{timestamp}", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampPathHttpDate/{timestamp}", 200] },
   () => MalformedTimestampPathHttpDateInput,
   () => __Unit,
 ];
@@ -3486,9 +2275,7 @@ export var MalformedTimestampQueryDefault: StaticOperationSchema = [
   9,
   n0,
   _MTQD,
-  {
-    [_ht]: ["POST", "/MalformedTimestampQueryDefault", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampQueryDefault", 200] },
   () => MalformedTimestampQueryDefaultInput,
   () => __Unit,
 ];
@@ -3496,9 +2283,7 @@ export var MalformedTimestampQueryEpoch: StaticOperationSchema = [
   9,
   n0,
   _MTQE,
-  {
-    [_ht]: ["POST", "/MalformedTimestampQueryEpoch", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampQueryEpoch", 200] },
   () => MalformedTimestampQueryEpochInput,
   () => __Unit,
 ];
@@ -3506,9 +2291,7 @@ export var MalformedTimestampQueryHttpDate: StaticOperationSchema = [
   9,
   n0,
   _MTQHD,
-  {
-    [_ht]: ["POST", "/MalformedTimestampQueryHttpDate", 200],
-  },
+  { [_ht]: ["POST", "/MalformedTimestampQueryHttpDate", 200] },
   () => MalformedTimestampQueryHttpDateInput,
   () => __Unit,
 ];
@@ -3516,9 +2299,7 @@ export var MalformedUnion: StaticOperationSchema = [
   9,
   n0,
   _MUa,
-  {
-    [_ht]: ["POST", "/MalformedUnion", 200],
-  },
+  { [_ht]: ["POST", "/MalformedUnion", 200] },
   () => MalformedUnionInput,
   () => __Unit,
 ];
@@ -3526,9 +2307,7 @@ export var MediaTypeHeader: StaticOperationSchema = [
   9,
   n0,
   _MTH,
-  {
-    [_ht]: ["GET", "/MediaTypeHeader", 200],
-  },
+  { [_ht]: ["GET", "/MediaTypeHeader", 200] },
   () => MediaTypeHeaderInput,
   () => MediaTypeHeaderOutput,
 ];
@@ -3536,9 +2315,7 @@ export var NoInputAndNoOutput: StaticOperationSchema = [
   9,
   n0,
   _NIANO,
-  {
-    [_ht]: ["POST", "/NoInputAndNoOutput", 200],
-  },
+  { [_ht]: ["POST", "/NoInputAndNoOutput", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -3546,9 +2323,7 @@ export var NoInputAndOutput: StaticOperationSchema = [
   9,
   n0,
   _NIAO,
-  {
-    [_ht]: ["POST", "/NoInputAndOutputOutput", 200],
-  },
+  { [_ht]: ["POST", "/NoInputAndOutputOutput", 200] },
   () => __Unit,
   () => NoInputAndOutputOutput,
 ];
@@ -3556,9 +2331,7 @@ export var NullAndEmptyHeadersClient: StaticOperationSchema = [
   9,
   n0,
   _NAEHC,
-  {
-    [_ht]: ["GET", "/NullAndEmptyHeadersClient", 200],
-  },
+  { [_ht]: ["GET", "/NullAndEmptyHeadersClient", 200] },
   () => NullAndEmptyHeadersIO,
   () => NullAndEmptyHeadersIO,
 ];
@@ -3566,9 +2339,7 @@ export var NullAndEmptyHeadersServer: StaticOperationSchema = [
   9,
   n0,
   _NAEHS,
-  {
-    [_ht]: ["GET", "/NullAndEmptyHeadersServer", 200],
-  },
+  { [_ht]: ["GET", "/NullAndEmptyHeadersServer", 200] },
   () => NullAndEmptyHeadersIO,
   () => NullAndEmptyHeadersIO,
 ];
@@ -3576,9 +2347,7 @@ export var OmitsNullSerializesEmptyString: StaticOperationSchema = [
   9,
   n0,
   _ONSES,
-  {
-    [_ht]: ["GET", "/OmitsNullSerializesEmptyString", 200],
-  },
+  { [_ht]: ["GET", "/OmitsNullSerializesEmptyString", 200] },
   () => OmitsNullSerializesEmptyStringInput,
   () => __Unit,
 ];
@@ -3586,9 +2355,7 @@ export var OmitsSerializingEmptyLists: StaticOperationSchema = [
   9,
   n0,
   _OSEL,
-  {
-    [_ht]: ["POST", "/OmitsSerializingEmptyLists", 200],
-  },
+  { [_ht]: ["POST", "/OmitsSerializingEmptyLists", 200] },
   () => OmitsSerializingEmptyListsInput,
   () => __Unit,
 ];
@@ -3596,9 +2363,7 @@ export var OperationWithDefaults: StaticOperationSchema = [
   9,
   n0,
   _OWD,
-  {
-    [_ht]: ["POST", "/OperationWithDefaults", 200],
-  },
+  { [_ht]: ["POST", "/OperationWithDefaults", 200] },
   () => OperationWithDefaultsInput,
   () => OperationWithDefaultsOutput,
 ];
@@ -3606,9 +2371,7 @@ export var OperationWithNestedStructure: StaticOperationSchema = [
   9,
   n0,
   _OWNS,
-  {
-    [_ht]: ["POST", "/OperationWithNestedStructure", 200],
-  },
+  { [_ht]: ["POST", "/OperationWithNestedStructure", 200] },
   () => OperationWithNestedStructureInput,
   () => OperationWithNestedStructureOutput,
 ];
@@ -3616,9 +2379,7 @@ export var OutputStream: StaticOperationSchema = [
   9,
   n0,
   _OS,
-  {
-    [_ht]: ["POST", "/OutputStream", 200],
-  },
+  { [_ht]: ["POST", "/OutputStream", 200] },
   () => __Unit,
   () => OutputStreamOutput,
 ];
@@ -3626,9 +2387,7 @@ export var OutputStreamWithInitialResponse: StaticOperationSchema = [
   9,
   n0,
   _OSWIR,
-  {
-    [_ht]: ["POST", "/OutputStreamWithInitialResponse", 200],
-  },
+  { [_ht]: ["POST", "/OutputStreamWithInitialResponse", 200] },
   () => __Unit,
   () => OutputStreamWithInitialResponseOutput,
 ];
@@ -3636,9 +2395,7 @@ export var PostPlayerAction: StaticOperationSchema = [
   9,
   n0,
   _PPA,
-  {
-    [_ht]: ["POST", "/PostPlayerAction", 200],
-  },
+  { [_ht]: ["POST", "/PostPlayerAction", 200] },
   () => PostPlayerActionInput,
   () => PostPlayerActionOutput,
 ];
@@ -3646,9 +2403,7 @@ export var PostUnionWithJsonName: StaticOperationSchema = [
   9,
   n0,
   _PUWJN,
-  {
-    [_ht]: ["POST", "/PostUnionWithJsonName", 200],
-  },
+  { [_ht]: ["POST", "/PostUnionWithJsonName", 200] },
   () => PostUnionWithJsonNameInput,
   () => PostUnionWithJsonNameOutput,
 ];
@@ -3656,9 +2411,7 @@ export var PutWithContentEncoding: StaticOperationSchema = [
   9,
   n0,
   _PWCE,
-  {
-    [_ht]: ["POST", "/requestcompression/putcontentwithencoding", 200],
-  },
+  { [_ht]: ["POST", "/requestcompression/putcontentwithencoding", 200] },
   () => PutWithContentEncodingInput,
   () => __Unit,
 ];
@@ -3666,9 +2419,7 @@ export var QueryIdempotencyTokenAutoFill: StaticOperationSchema = [
   9,
   n0,
   _QITAF,
-  {
-    [_ht]: ["POST", "/QueryIdempotencyTokenAutoFill", 200],
-  },
+  { [_ht]: ["POST", "/QueryIdempotencyTokenAutoFill", 200] },
   () => QueryIdempotencyTokenAutoFillInput,
   () => __Unit,
 ];
@@ -3676,9 +2427,7 @@ export var QueryParamsAsStringListMap: StaticOperationSchema = [
   9,
   n0,
   _QPASLM,
-  {
-    [_ht]: ["POST", "/StringListMap", 200],
-  },
+  { [_ht]: ["POST", "/StringListMap", 200] },
   () => QueryParamsAsStringListMapInput,
   () => __Unit,
 ];
@@ -3686,9 +2435,7 @@ export var QueryPrecedence: StaticOperationSchema = [
   9,
   n0,
   _QP,
-  {
-    [_ht]: ["POST", "/Precedence", 200],
-  },
+  { [_ht]: ["POST", "/Precedence", 200] },
   () => QueryPrecedenceInput,
   () => __Unit,
 ];
@@ -3696,9 +2443,7 @@ export var RecursiveShapes: StaticOperationSchema = [
   9,
   n0,
   _RS,
-  {
-    [_ht]: ["PUT", "/RecursiveShapes", 200],
-  },
+  { [_ht]: ["PUT", "/RecursiveShapes", 200] },
   () => RecursiveShapesInputOutput,
   () => RecursiveShapesInputOutput,
 ];
@@ -3706,9 +2451,7 @@ export var ResponseCodeHttpFallback: StaticOperationSchema = [
   9,
   n0,
   _RCHF,
-  {
-    [_ht]: ["GET", "/responseCodeHttpFallback", 201],
-  },
+  { [_ht]: ["GET", "/responseCodeHttpFallback", 201] },
   () => ResponseCodeHttpFallbackInputOutput,
   () => ResponseCodeHttpFallbackInputOutput,
 ];
@@ -3716,9 +2459,7 @@ export var ResponseCodeRequired: StaticOperationSchema = [
   9,
   n0,
   _RCR,
-  {
-    [_ht]: ["GET", "/responseCodeRequired", 200],
-  },
+  { [_ht]: ["GET", "/responseCodeRequired", 200] },
   () => __Unit,
   () => ResponseCodeRequiredOutput,
 ];
@@ -3726,9 +2467,7 @@ export var SimpleScalarProperties: StaticOperationSchema = [
   9,
   n0,
   _SSP,
-  {
-    [_ht]: ["PUT", "/SimpleScalarProperties", 200],
-  },
+  { [_ht]: ["PUT", "/SimpleScalarProperties", 200] },
   () => SimpleScalarPropertiesInputOutput,
   () => SimpleScalarPropertiesInputOutput,
 ];
@@ -3736,9 +2475,7 @@ export var SparseJsonLists: StaticOperationSchema = [
   9,
   n0,
   _SJL,
-  {
-    [_ht]: ["PUT", "/SparseJsonLists", 200],
-  },
+  { [_ht]: ["PUT", "/SparseJsonLists", 200] },
   () => SparseJsonListsInputOutput,
   () => SparseJsonListsInputOutput,
 ];
@@ -3746,9 +2483,7 @@ export var SparseJsonMaps: StaticOperationSchema = [
   9,
   n0,
   _SJM,
-  {
-    [_ht]: ["POST", "/SparseJsonMaps", 200],
-  },
+  { [_ht]: ["POST", "/SparseJsonMaps", 200] },
   () => SparseJsonMapsInputOutput,
   () => SparseJsonMapsInputOutput,
 ];
@@ -3756,9 +2491,7 @@ export var StreamingTraits: StaticOperationSchema = [
   9,
   n0,
   _ST,
-  {
-    [_ht]: ["POST", "/StreamingTraits", 200],
-  },
+  { [_ht]: ["POST", "/StreamingTraits", 200] },
   () => StreamingTraitsInputOutput,
   () => StreamingTraitsInputOutput,
 ];
@@ -3766,9 +2499,7 @@ export var StreamingTraitsRequireLength: StaticOperationSchema = [
   9,
   n0,
   _STRL,
-  {
-    [_ht]: ["POST", "/StreamingTraitsRequireLength", 200],
-  },
+  { [_ht]: ["POST", "/StreamingTraitsRequireLength", 200] },
   () => StreamingTraitsRequireLengthInput,
   () => __Unit,
 ];
@@ -3776,9 +2507,7 @@ export var StreamingTraitsWithMediaType: StaticOperationSchema = [
   9,
   n0,
   _STWMT,
-  {
-    [_ht]: ["POST", "/StreamingTraitsWithMediaType", 200],
-  },
+  { [_ht]: ["POST", "/StreamingTraitsWithMediaType", 200] },
   () => StreamingTraitsWithMediaTypeInputOutput,
   () => StreamingTraitsWithMediaTypeInputOutput,
 ];
@@ -3786,9 +2515,7 @@ export var TestBodyStructure: StaticOperationSchema = [
   9,
   n0,
   _TBS,
-  {
-    [_ht]: ["POST", "/body", 200],
-  },
+  { [_ht]: ["POST", "/body", 200] },
   () => TestBodyStructureInputOutput,
   () => TestBodyStructureInputOutput,
 ];
@@ -3796,9 +2523,7 @@ export var TestGetNoInputNoPayload: StaticOperationSchema = [
   9,
   n0,
   _TGNINP,
-  {
-    [_ht]: ["GET", "/no_input_no_payload", 200],
-  },
+  { [_ht]: ["GET", "/no_input_no_payload", 200] },
   () => __Unit,
   () => TestNoPayloadInputOutput,
 ];
@@ -3806,9 +2531,7 @@ export var TestGetNoPayload: StaticOperationSchema = [
   9,
   n0,
   _TGNP,
-  {
-    [_ht]: ["GET", "/no_payload", 200],
-  },
+  { [_ht]: ["GET", "/no_payload", 200] },
   () => TestNoPayloadInputOutput,
   () => TestNoPayloadInputOutput,
 ];
@@ -3816,9 +2539,7 @@ export var TestPayloadBlob: StaticOperationSchema = [
   9,
   n0,
   _TPBe,
-  {
-    [_ht]: ["POST", "/blob_payload", 200],
-  },
+  { [_ht]: ["POST", "/blob_payload", 200] },
   () => TestPayloadBlobInputOutput,
   () => TestPayloadBlobInputOutput,
 ];
@@ -3826,9 +2547,7 @@ export var TestPayloadStructure: StaticOperationSchema = [
   9,
   n0,
   _TPS,
-  {
-    [_ht]: ["POST", "/payload", 200],
-  },
+  { [_ht]: ["POST", "/payload", 200] },
   () => TestPayloadStructureInputOutput,
   () => TestPayloadStructureInputOutput,
 ];
@@ -3836,9 +2555,7 @@ export var TestPostNoInputNoPayload: StaticOperationSchema = [
   9,
   n0,
   _TPNINP,
-  {
-    [_ht]: ["POST", "/no_input_no_payload", 200],
-  },
+  { [_ht]: ["POST", "/no_input_no_payload", 200] },
   () => __Unit,
   () => TestNoPayloadInputOutput,
 ];
@@ -3846,9 +2563,7 @@ export var TestPostNoPayload: StaticOperationSchema = [
   9,
   n0,
   _TPNP,
-  {
-    [_ht]: ["POST", "/no_payload", 200],
-  },
+  { [_ht]: ["POST", "/no_payload", 200] },
   () => TestNoPayloadInputOutput,
   () => TestNoPayloadInputOutput,
 ];
@@ -3856,9 +2571,7 @@ export var TimestampFormatHeaders: StaticOperationSchema = [
   9,
   n0,
   _TFH,
-  {
-    [_ht]: ["POST", "/TimestampFormatHeaders", 200],
-  },
+  { [_ht]: ["POST", "/TimestampFormatHeaders", 200] },
   () => TimestampFormatHeadersIO,
   () => TimestampFormatHeadersIO,
 ];
@@ -3866,9 +2579,7 @@ export var UnitInputAndOutput: StaticOperationSchema = [
   9,
   n0,
   _UIAO,
-  {
-    [_ht]: ["POST", "/UnitInputAndOutput", 200],
-  },
+  { [_ht]: ["POST", "/UnitInputAndOutput", 200] },
   () => __Unit,
   () => __Unit,
 ];

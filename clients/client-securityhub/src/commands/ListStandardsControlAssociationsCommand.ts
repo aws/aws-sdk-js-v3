@@ -4,12 +4,10 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { ListStandardsControlAssociationsRequest, ListStandardsControlAssociationsResponse } from "../models/models_2";
-=======
-import type { ListStandardsControlAssociationsRequest } from "../models/models_2";
-import type { ListStandardsControlAssociationsResponse } from "../models/models_3";
->>>>>>> 60efd81940b (chore: codegen)
+import type {
+  ListStandardsControlAssociationsRequest,
+  ListStandardsControlAssociationsResponse,
+} from "../models/models_2";
 import { ListStandardsControlAssociations } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 

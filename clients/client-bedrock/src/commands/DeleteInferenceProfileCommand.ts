@@ -5,12 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { DeleteInferenceProfileRequest } from "../models/models_0";
-import { DeleteInferenceProfileResponse } from "../models/models_1";
-=======
-import type { DeleteInferenceProfileRequest, DeleteInferenceProfileResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { DeleteInferenceProfileRequest } from "../models/models_0";
+import type { DeleteInferenceProfileResponse } from "../models/models_1";
 import { DeleteInferenceProfile } from "../schemas/schemas_0";
 
 /**

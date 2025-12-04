@@ -258,20 +258,8 @@ import {
 import { MarketplaceCatalogServiceException as __MarketplaceCatalogServiceException } from "../models/MarketplaceCatalogServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AmiProductEntityIdFilter: StaticStructureSchema = [3, n0, _APEIF, 0, [_VL], [64 | 0]];
 export var AmiProductFilters: StaticStructureSchema = [
   3,
@@ -316,18 +304,8 @@ export var CancelChangeSetRequest: StaticStructureSchema = [
   0,
   [_C, _CSI],
   [
-    [
-      0,
-      {
-        [_hQ]: _ca,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cSI,
-      },
-    ],
+    [0, { [_hQ]: _ca }],
+    [0, { [_hQ]: _cSI }],
   ],
 ];
 export var CancelChangeSetResponse: StaticStructureSchema = [3, n0, _CCSRa, 0, [_CSI, _CSA], [0, 0]];
@@ -423,21 +401,7 @@ export var DataProductSort: StaticStructureSchema = [3, n0, _DPS, 0, [_SB, _SO],
 export var DataProductSummary: StaticStructureSchema = [3, n0, _DPSa, 0, [_PT, _V], [0, 0]];
 export var DataProductTitleFilter: StaticStructureSchema = [3, n0, _DPTF, 0, [_VL, _WCV], [64 | 0, 0]];
 export var DataProductVisibilityFilter: StaticStructureSchema = [3, n0, _DPVF, 0, [_VL], [64 | 0]];
-export var DeleteResourcePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DRPR,
-  0,
-  [_RA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-  ],
-];
+export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0, [_RA], [[0, { [_hQ]: _rA }]]];
 export var DeleteResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPRe, 0, [], []];
 export var DescribeChangeSetRequest: StaticStructureSchema = [
   3,
@@ -446,18 +410,8 @@ export var DescribeChangeSetRequest: StaticStructureSchema = [
   0,
   [_C, _CSI],
   [
-    [
-      0,
-      {
-        [_hQ]: _ca,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cSI,
-      },
-    ],
+    [0, { [_hQ]: _ca }],
+    [0, { [_hQ]: _cSI }],
   ],
 ];
 export var DescribeChangeSetResponse: StaticStructureSchema = [
@@ -475,18 +429,8 @@ export var DescribeEntityRequest: StaticStructureSchema = [
   0,
   [_C, _EI],
   [
-    [
-      0,
-      {
-        [_hQ]: _ca,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eI,
-      },
-    ],
+    [0, { [_hQ]: _ca }],
+    [0, { [_hQ]: _eI }],
   ],
 ];
 export var DescribeEntityResponse: StaticStructureSchema = [
@@ -525,35 +469,10 @@ export var EntitySummary: StaticStructureSchema = [
 ];
 export var ErrorDetail: StaticStructureSchema = [3, n0, _EDr, 0, [_EC, _EM], [0, 0]];
 export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_N, _VL], [0, 64 | 0]];
-export var GetResourcePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GRPR,
-  0,
-  [_RA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-  ],
-];
+export var GetResourcePolicyRequest: StaticStructureSchema = [3, n0, _GRPR, 0, [_RA], [[0, { [_hQ]: _rA }]]];
 export var GetResourcePolicyResponse: StaticStructureSchema = [3, n0, _GRPRe, 0, [_P], [0]];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
 export var ListChangeSetsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -839,45 +758,12 @@ export var ResaleAuthorizationSummary: StaticStructureSchema = [
   [_N, _PI, _PN, _MAI, _MLN, _RAID, _RLN, _S, _OES, _CD, _AED],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 423,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 423 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceNotSupportedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNSE,
-  {
-    [_e]: _c,
-    [_hE]: 415,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotSupportedException: StaticErrorSchema = [-3, n0, _RNSE, { [_e]: _c, [_hE]: 415 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotSupportedException, __ResourceNotSupportedException);
-
 export var SaaSProductEntityIdFilter: StaticStructureSchema = [3, n0, _SSPEIF, 0, [_VL], [64 | 0]];
 export var SaaSProductFilters: StaticStructureSchema = [
   3,
@@ -912,19 +798,8 @@ export var SaaSProductSort: StaticStructureSchema = [3, n0, _SSPSa, 0, [_SB, _SO
 export var SaaSProductSummary: StaticStructureSchema = [3, n0, _SSPS, 0, [_PT, _V], [0, 0]];
 export var SaaSProductTitleFilter: StaticStructureSchema = [3, n0, _SSPTF, 0, [_VL, _WCV], [64 | 0, 0]];
 export var SaaSProductVisibilityFilter: StaticStructureSchema = [3, n0, _SSPVF, 0, [_VL], [64 | 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Sort: StaticStructureSchema = [3, n0, _So, 0, [_SB, _SO], [0, 0]];
 export var StartChangeSetRequest: StaticStructureSchema = [
   3,
@@ -938,36 +813,13 @@ export var StartChangeSetResponse: StaticStructureSchema = [3, n0, _SCSRt, 0, [_
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 422,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 422 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var MarketplaceCatalogServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -977,105 +829,59 @@ export var MarketplaceCatalogServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(MarketplaceCatalogServiceException, __MarketplaceCatalogServiceException);
-
 export var AmiProductEntityIdFilterValueList = 64 | 0;
-
 export var AmiProductTitleFilterValueList = 64 | 0;
-
 export var AmiProductVisibilityFilterValueList = 64 | 0;
-
 export var ChangeSetDescription: StaticListSchema = [1, n0, _CSD, 0, () => ChangeSummary];
 export var ChangeSetSummaryList: StaticListSchema = [1, n0, _CSSL, 0, () => ChangeSetSummaryListItem];
 export var ContainerProductEntityIdFilterValueList = 64 | 0;
-
 export var ContainerProductTitleFilterValueList = 64 | 0;
-
 export var ContainerProductVisibilityFilterValueList = 64 | 0;
-
 export var DataProductEntityIdFilterValueList = 64 | 0;
-
 export var DataProductTitleFilterValueList = 64 | 0;
-
 export var DataProductVisibilityFilterValueList = 64 | 0;
-
 export var EntityRequestList: StaticListSchema = [1, n0, _ERL, 0, () => EntityRequest];
 export var EntitySummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EntitySummary];
 export var ErrorDetailList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetail];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var MachineLearningProductEntityIdFilterValueList = 64 | 0;
-
 export var MachineLearningProductTitleFilterValueList = 64 | 0;
-
 export var MachineLearningProductVisibilityFilterValueList = 64 | 0;
-
 export var OfferBuyerAccountsList = 64 | 0;
-
 export var OfferEntityIdFilterValueList = 64 | 0;
-
 export var OfferNameFilterValueList = 64 | 0;
-
 export var OfferProductIdFilterValueList = 64 | 0;
-
 export var OfferResaleAuthorizationIdFilterValueList = 64 | 0;
-
 export var OfferSetAssociatedOfferIdsFilterValueList = 64 | 0;
-
 export var OfferSetAssociatedOfferIdsList = 64 | 0;
-
 export var OfferSetEntityIdFilterValueList = 64 | 0;
-
 export var OfferSetIdFilterValueList = 64 | 0;
-
 export var OfferSetNameFilterValueList = 64 | 0;
-
 export var OfferSetSolutionIdFilterValueList = 64 | 0;
-
 export var OfferSetStateFilterValueList = 64 | 0;
-
 export var OfferStateFilterValueList = 64 | 0;
-
 export var OfferTargetingFilterValueList = 64 | 0;
-
 export var OfferTargetingList = 64 | 0;
-
 export var RequestedChangeList: StaticListSchema = [1, n0, _RCL, 0, () => Change];
 export var ResaleAuthorizationAvailabilityEndDateFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationCreatedDateFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationEntityIdFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationManufacturerAccountIdFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationManufacturerLegalNameFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationNameFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationOfferExtendedStatusFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationProductIdFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationProductNameFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationResellerAccountIDFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationResellerLegalNameFilterValueList = 64 | 0;
-
 export var ResaleAuthorizationStatusFilterValueList = 64 | 0;
-
 export var ResourceIdList = 64 | 0;
-
 export var SaaSProductEntityIdFilterValueList = 64 | 0;
-
 export var SaaSProductTitleFilterValueList = 64 | 0;
-
 export var SaaSProductVisibilityFilterValueList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValueList = 64 | 0;
-
 export var EntityDetails: StaticMapSchema = [2, n0, _ED, 0, 0, () => EntityDetail];
 export var Errors: StaticMapSchema = [2, n0, _E, 0, 0, () => BatchDescribeErrorDetail];
 export var EntityTypeFilters: StaticStructureSchema = [
@@ -1116,9 +922,7 @@ export var BatchDescribeEntities: StaticOperationSchema = [
   9,
   n0,
   _BDE,
-  {
-    [_h]: ["POST", "/BatchDescribeEntities", 200],
-  },
+  { [_h]: ["POST", "/BatchDescribeEntities", 200] },
   () => BatchDescribeEntitiesRequest,
   () => BatchDescribeEntitiesResponse,
 ];
@@ -1126,9 +930,7 @@ export var CancelChangeSet: StaticOperationSchema = [
   9,
   n0,
   _CCS,
-  {
-    [_h]: ["PATCH", "/CancelChangeSet", 200],
-  },
+  { [_h]: ["PATCH", "/CancelChangeSet", 200] },
   () => CancelChangeSetRequest,
   () => CancelChangeSetResponse,
 ];
@@ -1136,9 +938,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/DeleteResourcePolicy", 200],
-  },
+  { [_h]: ["DELETE", "/DeleteResourcePolicy", 200] },
   () => DeleteResourcePolicyRequest,
   () => DeleteResourcePolicyResponse,
 ];
@@ -1146,9 +946,7 @@ export var DescribeChangeSet: StaticOperationSchema = [
   9,
   n0,
   _DCS,
-  {
-    [_h]: ["GET", "/DescribeChangeSet", 200],
-  },
+  { [_h]: ["GET", "/DescribeChangeSet", 200] },
   () => DescribeChangeSetRequest,
   () => DescribeChangeSetResponse,
 ];
@@ -1156,9 +954,7 @@ export var DescribeEntity: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["GET", "/DescribeEntity", 200],
-  },
+  { [_h]: ["GET", "/DescribeEntity", 200] },
   () => DescribeEntityRequest,
   () => DescribeEntityResponse,
 ];
@@ -1166,9 +962,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/GetResourcePolicy", 200],
-  },
+  { [_h]: ["GET", "/GetResourcePolicy", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -1176,9 +970,7 @@ export var ListChangeSets: StaticOperationSchema = [
   9,
   n0,
   _LCS,
-  {
-    [_h]: ["POST", "/ListChangeSets", 200],
-  },
+  { [_h]: ["POST", "/ListChangeSets", 200] },
   () => ListChangeSetsRequest,
   () => ListChangeSetsResponse,
 ];
@@ -1186,9 +978,7 @@ export var ListEntities: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["POST", "/ListEntities", 200],
-  },
+  { [_h]: ["POST", "/ListEntities", 200] },
   () => ListEntitiesRequest,
   () => ListEntitiesResponse,
 ];
@@ -1196,9 +986,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1206,9 +994,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["POST", "/PutResourcePolicy", 200],
-  },
+  { [_h]: ["POST", "/PutResourcePolicy", 200] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResponse,
 ];
@@ -1216,9 +1002,7 @@ export var StartChangeSet: StaticOperationSchema = [
   9,
   n0,
   _SCS,
-  {
-    [_h]: ["POST", "/StartChangeSet", 200],
-  },
+  { [_h]: ["POST", "/StartChangeSet", 200] },
   () => StartChangeSetRequest,
   () => StartChangeSetResponse,
 ];
@@ -1226,9 +1010,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1236,9 +1018,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

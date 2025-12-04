@@ -5,14 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateJobStatusRequest } from "../models/models_0";
-import { UpdateJobStatusResult } from "../models/models_1";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-=======
-import type { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_0";
+import type { UpdateJobStatusRequest } from "../models/models_0";
+import type { UpdateJobStatusResult } from "../models/models_1";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
->>>>>>> 60efd81940b (chore: codegen)
 import { UpdateJobStatus } from "../schemas/schemas_0";
 
 /**

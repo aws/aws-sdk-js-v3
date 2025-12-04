@@ -221,21 +221,9 @@ import {
 import { PCSServiceException as __PCSServiceException } from "../models/PCSServiceException";
 
 /* eslint no-var: 0 */
-
 export var SharedSecret: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Accounting: StaticStructureSchema = [3, n0, _A, 0, [_dPTID, _mo], [1, 0]];
 export var AccountingRequest: StaticStructureSchema = [3, n0, _AR, 0, [_dPTID, _mo], [1, 0]];
 export var Cluster: StaticStructureSchema = [
@@ -327,19 +315,8 @@ export var ComputeNodeGroupSummary: StaticStructureSchema = [
   [_n, _i, _a, _cI, _cA, _mA, _s],
   [0, 0, 0, 0, 5, 5, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateClusterRequest: StaticStructureSchema = [
   3,
   n0,
@@ -411,19 +388,8 @@ export var GetComputeNodeGroupResponse: StaticStructureSchema = [3, n0, _GCNGRe,
 export var GetQueueRequest: StaticStructureSchema = [3, n0, _GQR, 0, [_cIl, _qI], [0, 0]];
 export var GetQueueResponse: StaticStructureSchema = [3, n0, _GQRe, 0, [_q], [() => Queue]];
 export var InstanceConfig: StaticStructureSchema = [3, n0, _IC, 0, [_iT], [0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JwtAuth: StaticStructureSchema = [3, n0, _JA, 0, [_jK], [() => JwtKey]];
 export var JwtKey: StaticStructureSchema = [3, n0, _JK, 0, [_sA, _sV], [0, 0]];
 export var ListClustersRequest: StaticStructureSchema = [
@@ -433,18 +399,8 @@ export var ListClustersRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListClustersResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_clu, _nT], [() => ClusterList, 0]];
@@ -501,15 +457,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ScalingConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_mIC, _mICa], [1, 1]];
 export var ScalingConfigurationRequest: StaticStructureSchema = [3, n0, _SCR, 0, [_mIC, _mICa], [1, 1]];
 export var Scheduler: StaticStructureSchema = [3, n0, _S, 0, [_ty, _v], [0, 0]];
@@ -518,15 +470,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _sCe, _rI, _rT, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SlurmAuthKey: StaticStructureSchema = [3, n0, _SAK, 0, [_sA, _sV], [0, 0]];
 export var SlurmCustomSetting: StaticStructureSchema = [3, n0, _SCS, 0, [_pN, _pV], [0, 0]];
 export var SlurmRest: StaticStructureSchema = [3, n0, _SRl, 0, [_mo], [0]];
@@ -538,23 +486,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, 1], 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAccountingRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_dPTID, _mo], [1, 0]];
@@ -633,21 +569,15 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var PCSServiceException: StaticErrorSchema = [-3, _sm, "PCSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PCSServiceException, __PCSServiceException);
-
 export var ClusterList: StaticListSchema = [1, n0, _CL, 0, () => ClusterSummary];
 export var ComputeNodeGroupConfigurationList: StaticListSchema = [
   1,
@@ -662,19 +592,13 @@ export var ErrorInfoList: StaticListSchema = [1, n0, _EIL, 0, () => ErrorInfo];
 export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => InstanceConfig];
 export var QueueList: StaticListSchema = [1, n0, _QL, 0, () => QueueSummary];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SlurmCustomSettings: StaticListSchema = [1, n0, _SCSl, 0, () => SlurmCustomSetting];
 export var StringList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var RequestTagMap = 128 | 0;
-
 export var ResponseTagMap = 128 | 0;
-
 export var CreateCluster: StaticOperationSchema = [
   9,
   n0,

@@ -5,11 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { DeleteRuleRequest } from "../models/models_1";
-=======
-import type { DeleteRuleRequest } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { DeleteRuleRequest } from "../models/models_1";
 import { DeleteRule } from "../schemas/schemas_0";
 
 /**

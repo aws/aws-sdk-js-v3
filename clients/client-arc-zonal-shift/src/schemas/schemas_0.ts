@@ -124,20 +124,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AutoshiftInResource: StaticStructureSchema = [3, n0, _AIR, 0, [_aS, _aF, _sT], [0, 0, 4]];
 export var AutoshiftSummary: StaticStructureSchema = [3, n0, _AS, 0, [_aF, _eT, _sT, _s], [0, 4, 4, 0]];
 export var CancelPracticeRunRequest: StaticStructureSchema = [3, n0, _CPRR, 0, [_zSI], [[0, 1]]];
@@ -150,19 +138,8 @@ export var CancelPracticeRunResponse: StaticStructureSchema = [
   [0, 0, 0, 4, 4, 0, 0],
 ];
 export var CancelZonalShiftRequest: StaticStructureSchema = [3, n0, _CZSR, 0, [_zSI], [[0, 1]]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _r, _zSI],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _r, _zSI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ControlCondition: StaticStructureSchema = [3, n0, _CC, 0, [_t, _aI], [0, 0]];
 export var CreatePracticeRunConfigurationRequest: StaticStructureSchema = [
   3,
@@ -200,19 +177,8 @@ export var GetManagedResourceResponse: StaticStructureSchema = [
   [_a, _n, _aWp, _zS, _au, _pRC, _zAS],
   [0, 0, 128 | 1, () => ZonalShiftsInResource, () => AutoshiftsInResource, () => PracticeRunConfiguration, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAutoshiftsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -220,24 +186,9 @@ export var ListAutoshiftsRequest: StaticStructureSchema = [
   0,
   [_nT, _s, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _s }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAutoshiftsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_i, _nT], [() => AutoshiftSummaries, 0]];
@@ -248,18 +199,8 @@ export var ListManagedResourcesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListManagedResourcesResponse: StaticStructureSchema = [
@@ -277,30 +218,10 @@ export var ListZonalShiftsRequest: StaticStructureSchema = [
   0,
   [_nT, _s, _mR, _rI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rI,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _s }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _rI }],
   ],
 ];
 export var ListZonalShiftsResponse: StaticStructureSchema = [
@@ -327,19 +248,8 @@ export var PracticeRunConfiguration: StaticStructureSchema = [
   [_bA, _oA, _bW, _aW, _bD],
   [() => BlockingAlarms, () => OutcomeAlarms, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var StartPracticeRunRequest: StaticStructureSchema = [3, n0, _SPRR, 0, [_rI, _aF, _co], [0, 0, 0]];
 export var StartPracticeRunResponse: StaticStructureSchema = [
   3,
@@ -350,19 +260,8 @@ export var StartPracticeRunResponse: StaticStructureSchema = [
   [0, 0, 0, 4, 4, 0, 0],
 ];
 export var StartZonalShiftRequest: StaticStructureSchema = [3, n0, _SZSR, 0, [_rI, _aF, _eI, _co], [0, 0, 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UpdateAutoshiftObserverNotificationStatusRequest: StaticStructureSchema = [3, n0, _UAONSR, 0, [_s], [0]];
 export var UpdateAutoshiftObserverNotificationStatusResponse: StaticStructureSchema = [3, n0, _UAONSRp, 0, [_s], [0]];
 export var UpdatePracticeRunConfigurationRequest: StaticStructureSchema = [
@@ -391,19 +290,8 @@ export var UpdateZonalAutoshiftConfigurationRequest: StaticStructureSchema = [
 ];
 export var UpdateZonalAutoshiftConfigurationResponse: StaticStructureSchema = [3, n0, _UZACRp, 0, [_rI, _zAS], [0, 0]];
 export var UpdateZonalShiftRequest: StaticStructureSchema = [3, n0, _UZSR, 0, [_zSI, _co, _eI], [[0, 1], 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _r],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _r], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ZonalShift: StaticStructureSchema = [
   3,
   n0,
@@ -429,34 +317,25 @@ export var ZonalShiftSummary: StaticStructureSchema = [
   [0, 0, 0, 4, 4, 0, 0, 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var ARCZonalShiftServiceException: StaticErrorSchema = [-3, _sm, "ARCZonalShiftServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ARCZonalShiftServiceException, __ARCZonalShiftServiceException);
-
 export var AllowedWindows = 64 | 0;
-
 export var AutoshiftsInResource: StaticListSchema = [1, n0, _AIRu, 0, () => AutoshiftInResource];
 export var AutoshiftSummaries: StaticListSchema = [1, n0, _ASu, 0, () => AutoshiftSummary];
 export var AvailabilityZones = 64 | 0;
-
 export var BlockedDates = 64 | 0;
-
 export var BlockedWindows = 64 | 0;
-
 export var BlockingAlarms: StaticListSchema = [1, n0, _BA, 0, () => ControlCondition];
 export var ManagedResourceSummaries: StaticListSchema = [1, n0, _MRSa, 0, () => ManagedResourceSummary];
 export var OutcomeAlarms: StaticListSchema = [1, n0, _OA, 0, () => ControlCondition];
 export var ZonalShiftsInResource: StaticListSchema = [1, n0, _ZSIRo, 0, () => ZonalShiftInResource];
 export var ZonalShiftSummaries: StaticListSchema = [1, n0, _ZSSo, 0, () => ZonalShiftSummary];
 export var AppliedWeights = 128 | 1;
-
 export var CancelPracticeRun: StaticOperationSchema = [
   9,
   n0,
   _CPR,
-  {
-    [_h]: ["DELETE", "/practiceruns/{zonalShiftId}", 200],
-  },
+  { [_h]: ["DELETE", "/practiceruns/{zonalShiftId}", 200] },
   () => CancelPracticeRunRequest,
   () => CancelPracticeRunResponse,
 ];
@@ -464,9 +343,7 @@ export var CancelZonalShift: StaticOperationSchema = [
   9,
   n0,
   _CZS,
-  {
-    [_h]: ["DELETE", "/zonalshifts/{zonalShiftId}", 200],
-  },
+  { [_h]: ["DELETE", "/zonalshifts/{zonalShiftId}", 200] },
   () => CancelZonalShiftRequest,
   () => ZonalShift,
 ];
@@ -474,9 +351,7 @@ export var CreatePracticeRunConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CPRC,
-  {
-    [_h]: ["POST", "/configuration", 201],
-  },
+  { [_h]: ["POST", "/configuration", 201] },
   () => CreatePracticeRunConfigurationRequest,
   () => CreatePracticeRunConfigurationResponse,
 ];
@@ -484,9 +359,7 @@ export var DeletePracticeRunConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DPRC,
-  {
-    [_h]: ["DELETE", "/configuration/{resourceIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/configuration/{resourceIdentifier}", 200] },
   () => DeletePracticeRunConfigurationRequest,
   () => DeletePracticeRunConfigurationResponse,
 ];
@@ -494,9 +367,7 @@ export var GetAutoshiftObserverNotificationStatus: StaticOperationSchema = [
   9,
   n0,
   _GAONS,
-  {
-    [_h]: ["GET", "/autoshift-observer-notification", 200],
-  },
+  { [_h]: ["GET", "/autoshift-observer-notification", 200] },
   () => GetAutoshiftObserverNotificationStatusRequest,
   () => GetAutoshiftObserverNotificationStatusResponse,
 ];
@@ -504,9 +375,7 @@ export var GetManagedResource: StaticOperationSchema = [
   9,
   n0,
   _GMR,
-  {
-    [_h]: ["GET", "/managedresources/{resourceIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/managedresources/{resourceIdentifier}", 200] },
   () => GetManagedResourceRequest,
   () => GetManagedResourceResponse,
 ];
@@ -514,9 +383,7 @@ export var ListAutoshifts: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/autoshifts", 200],
-  },
+  { [_h]: ["GET", "/autoshifts", 200] },
   () => ListAutoshiftsRequest,
   () => ListAutoshiftsResponse,
 ];
@@ -524,9 +391,7 @@ export var ListManagedResources: StaticOperationSchema = [
   9,
   n0,
   _LMR,
-  {
-    [_h]: ["GET", "/managedresources", 200],
-  },
+  { [_h]: ["GET", "/managedresources", 200] },
   () => ListManagedResourcesRequest,
   () => ListManagedResourcesResponse,
 ];
@@ -534,9 +399,7 @@ export var ListZonalShifts: StaticOperationSchema = [
   9,
   n0,
   _LZS,
-  {
-    [_h]: ["GET", "/zonalshifts", 200],
-  },
+  { [_h]: ["GET", "/zonalshifts", 200] },
   () => ListZonalShiftsRequest,
   () => ListZonalShiftsResponse,
 ];
@@ -544,9 +407,7 @@ export var StartPracticeRun: StaticOperationSchema = [
   9,
   n0,
   _SPR,
-  {
-    [_h]: ["POST", "/practiceruns", 200],
-  },
+  { [_h]: ["POST", "/practiceruns", 200] },
   () => StartPracticeRunRequest,
   () => StartPracticeRunResponse,
 ];
@@ -554,9 +415,7 @@ export var StartZonalShift: StaticOperationSchema = [
   9,
   n0,
   _SZS,
-  {
-    [_h]: ["POST", "/zonalshifts", 201],
-  },
+  { [_h]: ["POST", "/zonalshifts", 201] },
   () => StartZonalShiftRequest,
   () => ZonalShift,
 ];
@@ -564,9 +423,7 @@ export var UpdateAutoshiftObserverNotificationStatus: StaticOperationSchema = [
   9,
   n0,
   _UAONS,
-  {
-    [_h]: ["PUT", "/autoshift-observer-notification", 200],
-  },
+  { [_h]: ["PUT", "/autoshift-observer-notification", 200] },
   () => UpdateAutoshiftObserverNotificationStatusRequest,
   () => UpdateAutoshiftObserverNotificationStatusResponse,
 ];
@@ -574,9 +431,7 @@ export var UpdatePracticeRunConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UPRC,
-  {
-    [_h]: ["PATCH", "/configuration/{resourceIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/configuration/{resourceIdentifier}", 200] },
   () => UpdatePracticeRunConfigurationRequest,
   () => UpdatePracticeRunConfigurationResponse,
 ];
@@ -584,9 +439,7 @@ export var UpdateZonalAutoshiftConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UZAC,
-  {
-    [_h]: ["PUT", "/managedresources/{resourceIdentifier}", 200],
-  },
+  { [_h]: ["PUT", "/managedresources/{resourceIdentifier}", 200] },
   () => UpdateZonalAutoshiftConfigurationRequest,
   () => UpdateZonalAutoshiftConfigurationResponse,
 ];
@@ -594,9 +447,7 @@ export var UpdateZonalShift: StaticOperationSchema = [
   9,
   n0,
   _UZS,
-  {
-    [_h]: ["PATCH", "/zonalshifts/{zonalShiftId}", 200],
-  },
+  { [_h]: ["PATCH", "/zonalshifts/{zonalShiftId}", 200] },
   () => UpdateZonalShiftRequest,
   () => ZonalShift,
 ];

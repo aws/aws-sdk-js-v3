@@ -65,20 +65,8 @@ import {
 import { SageMakerA2IRuntimeServiceException as __SageMakerA2IRuntimeServiceException } from "../models/SageMakerA2IRuntimeServiceException";
 
 /* eslint no-var: 0 */
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DeleteHumanLoopRequest: StaticStructureSchema = [3, n0, _DHLR, 0, [_HLN], [[0, 1]]];
 export var DeleteHumanLoopResponse: StaticStructureSchema = [3, n0, _DHLRe, 0, [], []];
 export var DescribeHumanLoopRequest: StaticStructureSchema = [3, n0, _DHLRes, 0, [_HLN], [[0, 1]]];
@@ -94,19 +82,8 @@ export var HumanLoopDataAttributes: StaticStructureSchema = [3, n0, _HLDA, 0, [_
 export var HumanLoopInput: StaticStructureSchema = [3, n0, _HLI, 0, [_IC], [0]];
 export var HumanLoopOutput: StaticStructureSchema = [3, n0, _HLO, 0, [_OSU], [0]];
 export var HumanLoopSummary: StaticStructureSchema = [3, n0, _HLSu, 0, [_HLN, _HLS, _CT, _FR, _FDA], [0, 0, 5, 0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListHumanLoopsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -114,42 +91,12 @@ export var ListHumanLoopsRequest: StaticStructureSchema = [
   0,
   [_CTA, _CTB, _FDA, _SO, _NT, _MR],
   [
-    [
-      5,
-      {
-        [_hQ]: _CTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _CTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _FDA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [5, { [_hQ]: _CTA }],
+    [5, { [_hQ]: _CTB }],
+    [0, { [_hQ]: _FDA }],
+    [0, { [_hQ]: _SO }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListHumanLoopsResponse: StaticStructureSchema = [
@@ -160,32 +107,10 @@ export var ListHumanLoopsResponse: StaticStructureSchema = [
   [_HLSum, _NT],
   [() => HumanLoopSummaries, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartHumanLoopRequest: StaticStructureSchema = [
   3,
   n0,
@@ -197,34 +122,11 @@ export var StartHumanLoopRequest: StaticStructureSchema = [
 export var StartHumanLoopResponse: StaticStructureSchema = [3, n0, _SHLRt, 0, [_HLA], [0]];
 export var StopHumanLoopRequest: StaticStructureSchema = [3, n0, _SHLRto, 0, [_HLN], [0]];
 export var StopHumanLoopResponse: StaticStructureSchema = [3, n0, _SHLRtop, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var SageMakerA2IRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -234,17 +136,13 @@ export var SageMakerA2IRuntimeServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(SageMakerA2IRuntimeServiceException, __SageMakerA2IRuntimeServiceException);
-
 export var ContentClassifiers = 64 | 0;
-
 export var HumanLoopSummaries: StaticListSchema = [1, n0, _HLSum, 0, () => HumanLoopSummary];
 export var DeleteHumanLoop: StaticOperationSchema = [
   9,
   n0,
   _DHL,
-  {
-    [_h]: ["DELETE", "/human-loops/{HumanLoopName}", 200],
-  },
+  { [_h]: ["DELETE", "/human-loops/{HumanLoopName}", 200] },
   () => DeleteHumanLoopRequest,
   () => DeleteHumanLoopResponse,
 ];
@@ -252,9 +150,7 @@ export var DescribeHumanLoop: StaticOperationSchema = [
   9,
   n0,
   _DHLe,
-  {
-    [_h]: ["GET", "/human-loops/{HumanLoopName}", 200],
-  },
+  { [_h]: ["GET", "/human-loops/{HumanLoopName}", 200] },
   () => DescribeHumanLoopRequest,
   () => DescribeHumanLoopResponse,
 ];
@@ -262,9 +158,7 @@ export var ListHumanLoops: StaticOperationSchema = [
   9,
   n0,
   _LHL,
-  {
-    [_h]: ["GET", "/human-loops", 200],
-  },
+  { [_h]: ["GET", "/human-loops", 200] },
   () => ListHumanLoopsRequest,
   () => ListHumanLoopsResponse,
 ];
@@ -272,9 +166,7 @@ export var StartHumanLoop: StaticOperationSchema = [
   9,
   n0,
   _SHL,
-  {
-    [_h]: ["POST", "/human-loops", 200],
-  },
+  { [_h]: ["POST", "/human-loops", 200] },
   () => StartHumanLoopRequest,
   () => StartHumanLoopResponse,
 ];
@@ -282,9 +174,7 @@ export var StopHumanLoop: StaticOperationSchema = [
   9,
   n0,
   _SHLt,
-  {
-    [_h]: ["POST", "/human-loops/stop", 200],
-  },
+  { [_h]: ["POST", "/human-loops/stop", 200] },
   () => StopHumanLoopRequest,
   () => StopHumanLoopResponse,
 ];

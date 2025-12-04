@@ -86,6 +86,8 @@ export type {
   MemoryDbReservedInstancesConfiguration,
   MetricsByTime,
   MixedInstanceConfiguration,
+  NatGateway,
+  NatGatewayConfiguration,
   OpenSearchReservedInstances,
   OpenSearchReservedInstancesConfiguration,
   OrderBy,

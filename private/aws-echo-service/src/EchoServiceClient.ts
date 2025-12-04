@@ -262,17 +262,17 @@ export class EchoServiceClient extends __Client<
   readonly config: EchoServiceClientResolvedConfig;
 
   constructor(...[configuration]: __CheckOptionalClientConfig<EchoServiceClientConfig>) {
-    let _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_0 = __getRuntimeConfig(configuration || {});
     super(_config_0 as any);
     this.initConfig = _config_0;
-    let _config_1 = resolveClientEndpointParameters(_config_0);
-    let _config_2 = resolveUserAgentConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveEndpointConfig(_config_4);
-    let _config_6 = resolveEndpointRequiredConfig(_config_5);
-    let _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    let _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveEndpointConfig(_config_4);
+    const _config_6 = resolveEndpointRequiredConfig(_config_5);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     this.config = _config_8;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

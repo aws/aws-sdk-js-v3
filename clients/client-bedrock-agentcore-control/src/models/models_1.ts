@@ -2,12 +2,12 @@
 import { PolicyStatus, PolicyValidationMode, SchemaType, TargetStatus } from "./enums";
 
 import {
+  type KmsConfiguration,
+  type PolicyDefinition,
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   CredentialProviderConfiguration,
-  KmsConfiguration,
   McpServerTargetConfiguration,
-  PolicyDefinition,
   S3Configuration,
 } from "./models_0";
 

@@ -5,11 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateEnvironmentInput, UpdateEnvironmentOutput } from "../models/models_2";
-=======
-import type { UpdateEnvironmentInput, UpdateEnvironmentOutput } from "../models/models_1";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateEnvironmentInput, UpdateEnvironmentOutput } from "../models/models_2";
 import { UpdateEnvironment } from "../schemas/schemas_0";
 
 /**

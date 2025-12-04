@@ -4,13 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetMembersRequest, GetMembersResponse } from "../models/models_1";
-=======
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import type { GetMembersRequest, GetMembersResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { GetMembersRequest, GetMembersResponse } from "../models/models_1";
 import { GetMembers } from "../schemas/schemas_0";
 
 /**

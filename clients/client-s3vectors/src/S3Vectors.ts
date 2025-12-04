@@ -59,17 +59,13 @@ import {
   QueryVectorsCommandInput,
   QueryVectorsCommandOutput,
 } from "./commands/QueryVectorsCommand";
-<<<<<<< HEAD
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { S3VectorsClient, S3VectorsClientConfig } from "./S3VectorsClient";
-=======
 import { S3VectorsClient } from "./S3VectorsClient";
->>>>>>> 60efd81940b (chore: codegen)
 
 const commands = {
   CreateIndexCommand,

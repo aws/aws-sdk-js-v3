@@ -714,40 +714,12 @@ import {
 import { NetworkManagerServiceException as __NetworkManagerServiceException } from "../models/NetworkManagerServiceException";
 
 /* eslint no-var: 0 */
-
-export var SynthesizedJsonCoreNetworkPolicyDocument: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJCNPD,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var SynthesizedJsonResourcePolicyDocument: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJRPD,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
+export var SynthesizedJsonCoreNetworkPolicyDocument: StaticSimpleSchema = [0, n0, _SJCNPD, { [_mT]: _a }, 0];
+export var SynthesizedJsonResourcePolicyDocument: StaticSimpleSchema = [0, n0, _SJRPD, { [_mT]: _a }, 0];
 export var AcceptAttachmentRequest: StaticStructureSchema = [3, n0, _AAR, 0, [_AI], [[0, 1]]];
 export var AcceptAttachmentResponse: StaticStructureSchema = [3, n0, _AARc, 0, [_A], [() => Attachment]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountStatus: StaticStructureSchema = [3, n0, _AS, 0, [_AIc, _SLRDS], [0, 0]];
 export var AssociateConnectPeerRequest: StaticStructureSchema = [
   3,
@@ -838,19 +810,8 @@ export var AttachmentRoutingPolicyAssociationSummary: StaticStructureSchema = [
 export var AWSLocation: StaticStructureSchema = [3, n0, _AWSL, 0, [_Z, _SA], [0, 0]];
 export var Bandwidth: StaticStructureSchema = [3, n0, _B, 0, [_US, _DS], [1, 1]];
 export var BgpOptions: StaticStructureSchema = [3, n0, _BO, 0, [_PA], [1]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RIe, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RIe, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectAttachment: StaticStructureSchema = [
   3,
   n0,
@@ -1009,15 +970,11 @@ export var CoreNetworkPolicyException: StaticErrorSchema = [
   -3,
   n0,
   _CNPEo,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Er],
   [0, () => CoreNetworkPolicyErrorList],
 ];
 TypeRegistry.for(n0).registerError(CoreNetworkPolicyException, __CoreNetworkPolicyException);
-
 export var CoreNetworkPolicyVersion: StaticStructureSchema = [
   3,
   n0,
@@ -1337,24 +1294,9 @@ export var DescribeGlobalNetworksRequest: StaticStructureSchema = [
   0,
   [_GNIl, _MR, _NT],
   [
-    [
-      64 | 0,
-      {
-        [_hQ]: _gNI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _gNI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var DescribeGlobalNetworksResponse: StaticStructureSchema = [
@@ -1427,18 +1369,8 @@ export var DisassociateLinkRequest: StaticStructureSchema = [
   [_GNI, _DI, _LI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _lI,
-      },
-    ],
+    [0, { [_hQ]: _dI }],
+    [0, { [_hQ]: _lI }],
   ],
 ];
 export var DisassociateLinkResponse: StaticStructureSchema = [3, n0, _DLRis, 0, [_LA], [() => LinkAssociation]];
@@ -1484,30 +1416,10 @@ export var GetConnectionsRequest: StaticStructureSchema = [
   [_GNI, _CIo, _DI, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _cI }],
+    [0, { [_hQ]: _dI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetConnectionsResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_Conn, _NT], [() => ConnectionList, 0]];
@@ -1519,24 +1431,9 @@ export var GetConnectPeerAssociationsRequest: StaticStructureSchema = [
   [_GNI, _CPIo, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _cPI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _cPI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetConnectPeerAssociationsResponse: StaticStructureSchema = [
@@ -1558,18 +1455,8 @@ export var GetCoreNetworkChangeEventsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetCoreNetworkChangeEventsResponse: StaticStructureSchema = [
@@ -1589,18 +1476,8 @@ export var GetCoreNetworkChangeSetRequest: StaticStructureSchema = [
   [
     [0, 1],
     [1, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetCoreNetworkChangeSetResponse: StaticStructureSchema = [
@@ -1619,18 +1496,8 @@ export var GetCoreNetworkPolicyRequest: StaticStructureSchema = [
   [_CNI, _PVI, _Al],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _pVI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _al,
-      },
-    ],
+    [1, { [_hQ]: _pVI }],
+    [0, { [_hQ]: _al }],
   ],
 ];
 export var GetCoreNetworkPolicyResponse: StaticStructureSchema = [
@@ -1651,24 +1518,9 @@ export var GetCustomerGatewayAssociationsRequest: StaticStructureSchema = [
   [_GNI, _CGAus, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _cGA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _cGA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetCustomerGatewayAssociationsResponse: StaticStructureSchema = [
@@ -1687,30 +1539,10 @@ export var GetDevicesRequest: StaticStructureSchema = [
   [_GNI, _DIev, _SI, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _dIe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _dIe }],
+    [0, { [_hQ]: _sI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetDevicesResponse: StaticStructureSchema = [3, n0, _GDRe, 0, [_Dev, _NT], [[() => DeviceList, 0], 0]];
@@ -1731,30 +1563,10 @@ export var GetLinkAssociationsRequest: StaticStructureSchema = [
   [_GNI, _DI, _LI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _lI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _dI }],
+    [0, { [_hQ]: _lI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetLinkAssociationsResponse: StaticStructureSchema = [
@@ -1773,42 +1585,12 @@ export var GetLinksRequest: StaticStructureSchema = [
   [_GNI, _LIi, _SI, _Ty, _Pro, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _lIi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _lIi }],
+    [0, { [_hQ]: _sI }],
+    [0, { [_hQ]: _t }],
+    [0, { [_hQ]: _p }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetLinksResponse: StaticStructureSchema = [3, n0, _GLRe, 0, [_Lin, _NT], [() => LinkList, 0]];
@@ -1820,24 +1602,9 @@ export var GetNetworkResourceCountsRequest: StaticStructureSchema = [
   [_GNI, _RT, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetNetworkResourceCountsResponse: StaticStructureSchema = [
@@ -1856,54 +1623,14 @@ export var GetNetworkResourceRelationshipsRequest: StaticStructureSchema = [
   [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RA, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cNI }],
+    [0, { [_hQ]: _rGA }],
+    [0, { [_hQ]: _aR }],
+    [0, { [_hQ]: _aI }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _rA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetNetworkResourceRelationshipsResponse: StaticStructureSchema = [
@@ -1922,54 +1649,14 @@ export var GetNetworkResourcesRequest: StaticStructureSchema = [
   [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RA, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cNI }],
+    [0, { [_hQ]: _rGA }],
+    [0, { [_hQ]: _aR }],
+    [0, { [_hQ]: _aI }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _rA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetNetworkResourcesResponse: StaticStructureSchema = [
@@ -2015,54 +1702,14 @@ export var GetNetworkTelemetryRequest: StaticStructureSchema = [
   [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RA, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rGA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cNI }],
+    [0, { [_hQ]: _rGA }],
+    [0, { [_hQ]: _aR }],
+    [0, { [_hQ]: _aI }],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _rA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetNetworkTelemetryResponse: StaticStructureSchema = [
@@ -2102,24 +1749,9 @@ export var GetSitesRequest: StaticStructureSchema = [
   [_GNI, _SIi, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _sIi,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _sIi }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetSitesResponse: StaticStructureSchema = [3, n0, _GSRe, 0, [_Sit, _NT], [[() => SiteList, 0], 0]];
@@ -2140,24 +1772,9 @@ export var GetTransitGatewayConnectPeerAssociationsRequest: StaticStructureSchem
   [_GNI, _TGCPAra, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tGCPA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tGCPA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetTransitGatewayConnectPeerAssociationsResponse: StaticStructureSchema = [
@@ -2185,24 +1802,9 @@ export var GetTransitGatewayRegistrationsRequest: StaticStructureSchema = [
   [_GNI, _TGAr, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tGA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tGA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetTransitGatewayRegistrationsResponse: StaticStructureSchema = [
@@ -2236,23 +1838,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Link: StaticStructureSchema = [
   3,
   n0,
@@ -2270,24 +1860,9 @@ export var ListAttachmentRoutingPolicyAssociationsRequest: StaticStructureSchema
   [_CNI, _AI, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aIt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _aIt }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAttachmentRoutingPolicyAssociationsResponse: StaticStructureSchema = [
@@ -2305,42 +1880,12 @@ export var ListAttachmentsRequest: StaticStructureSchema = [
   0,
   [_CNI, _AT, _EL, _S, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _cNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cNI }],
+    [0, { [_hQ]: _aT }],
+    [0, { [_hQ]: _eL }],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAttachmentsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_At, _NT], [() => AttachmentList, 0]];
@@ -2351,30 +1896,10 @@ export var ListConnectPeersRequest: StaticStructureSchema = [
   0,
   [_CNI, _CAI, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _cNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cAI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cNI }],
+    [0, { [_hQ]: _cAI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListConnectPeersResponse: StaticStructureSchema = [
@@ -2393,18 +1918,8 @@ export var ListCoreNetworkPolicyVersionsRequest: StaticStructureSchema = [
   [_CNI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCoreNetworkPolicyVersionsResponse: StaticStructureSchema = [
@@ -2423,24 +1938,9 @@ export var ListCoreNetworkPrefixListAssociationsRequest: StaticStructureSchema =
   [_CNI, _PLA, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pLA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _pLA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCoreNetworkPrefixListAssociationsResponse: StaticStructureSchema = [
@@ -2457,28 +1957,7 @@ export var ListCoreNetworkRoutingInformationRequest: StaticStructureSchema = [
   _LCNRIR,
   0,
   [_CNI, _SN, _EL, _NHF, _LPMo, _EAPM, _MM, _CM, _MR, _NT],
-  [
-    [0, 1],
-    0,
-    0,
-    [2, n0, _FM, 0, 0, 64 | 0],
-    64 | 0,
-    64 | 0,
-    64 | 0,
-    64 | 0,
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-  ],
+  [[0, 1], 0, 0, [2, n0, _FM, 0, 0, 64 | 0], 64 | 0, 64 | 0, 64 | 0, 64 | 0, [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]],
 ];
 export var ListCoreNetworkRoutingInformationResponse: StaticStructureSchema = [
   3,
@@ -2495,18 +1974,8 @@ export var ListCoreNetworksRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCoreNetworksResponse: StaticStructureSchema = [
@@ -2524,18 +1993,8 @@ export var ListOrganizationServiceAccessStatusRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListOrganizationServiceAccessStatusResponse: StaticStructureSchema = [
@@ -2553,42 +2012,12 @@ export var ListPeeringsRequest: StaticStructureSchema = [
   0,
   [_CNI, _PT, _EL, _S, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _cNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cNI }],
+    [0, { [_hQ]: _pT }],
+    [0, { [_hQ]: _eL }],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPeeringsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_Pee, _NT], [() => PeeringList, 0]];
@@ -2643,17 +2072,7 @@ export var OrganizationStatus: StaticStructureSchema = [
   _OS,
   0,
   [_OI, _OASAS, _SLRDS, _ASL],
-  [
-    0,
-    0,
-    0,
-    [
-      () => AccountStatusList,
-      {
-        [_xN]: _OS,
-      },
-    ],
-  ],
+  [0, 0, 0, [() => AccountStatusList, { [_xN]: _OS }]],
 ];
 export var PathComponent: StaticStructureSchema = [
   3,
@@ -2769,15 +2188,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RIe, _RT, _Cont],
   [0, 0, 0, 128 | 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RestoreCoreNetworkPolicyVersionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2858,15 +2273,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RIe, _RT, _LC, _SC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Site: StaticStructureSchema = [
   3,
   n0,
@@ -2901,23 +2312,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TransitGatewayConnectPeerAssociation: StaticStructureSchema = [
   3,
   n0,
@@ -2952,12 +2351,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -3046,15 +2440,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _Fi],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
 export var Via: StaticStructureSchema = [
   3,
@@ -3075,10 +2465,8 @@ export var VpcAttachment: StaticStructureSchema = [
 export var VpcOptions: StaticStructureSchema = [3, n0, _VO, 0, [_IS, _AMS, _DSn, _SGRS], [2, 2, 2, 2]];
 export var WhenSentTo: StaticStructureSchema = [3, n0, _WST, 0, [_WSTSL], [64 | 0]];
 export var __Unit = "unit" as const;
-
 export var NetworkManagerServiceException: StaticErrorSchema = [-3, _sm, "NetworkManagerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NetworkManagerServiceException, __NetworkManagerServiceException);
-
 export var AccountStatusList: StaticListSchema = [1, n0, _ASL, 0, () => AccountStatus];
 export var AttachmentErrorList: StaticListSchema = [1, n0, _AEL, 0, () => AttachmentError];
 export var AttachmentList: StaticListSchema = [1, n0, _AL, 0, () => Attachment];
@@ -3090,16 +2478,13 @@ export var AttachmentRoutingPolicyAssociationsList: StaticListSchema = [
   () => AttachmentRoutingPolicyAssociationSummary,
 ];
 export var ConnectionIdList = 64 | 0;
-
 export var ConnectionList: StaticListSchema = [1, n0, _CL, 0, () => Connection];
 export var ConnectPeerAssociationList: StaticListSchema = [1, n0, _CPAL, 0, () => ConnectPeerAssociation];
 export var ConnectPeerBgpConfigurationList: StaticListSchema = [1, n0, _CPBCL, 0, () => ConnectPeerBgpConfiguration];
 export var ConnectPeerErrorList: StaticListSchema = [1, n0, _CPEL, 0, () => ConnectPeerError];
 export var ConnectPeerIdList = 64 | 0;
-
 export var ConnectPeerSummaryList: StaticListSchema = [1, n0, _CPSL, 0, () => ConnectPeerSummary];
 export var ConstrainedStringList = 64 | 0;
-
 export var CoreNetworkChangeEventList: StaticListSchema = [1, n0, _CNCEL, 0, () => CoreNetworkChangeEvent];
 export var CoreNetworkChangeList: StaticListSchema = [1, n0, _CNCL, 0, () => CoreNetworkChange];
 export var CoreNetworkEdgeList: StaticListSchema = [1, n0, _CNEL, 0, () => CoreNetworkEdge];
@@ -3122,24 +2507,17 @@ export var CoreNetworkRoutingInformationList: StaticListSchema = [
 export var CoreNetworkSegmentList: StaticListSchema = [1, n0, _CNSL, 0, () => CoreNetworkSegment];
 export var CoreNetworkSummaryList: StaticListSchema = [1, n0, _CNSLo, 0, () => CoreNetworkSummary];
 export var CustomerGatewayArnList = 64 | 0;
-
 export var CustomerGatewayAssociationList: StaticListSchema = [1, n0, _CGAL, 0, () => CustomerGatewayAssociation];
 export var DeviceIdList = 64 | 0;
-
 export var DeviceList: StaticListSchema = [1, n0, _DL, 0, [() => Device, 0]];
 export var EdgeSet = 64 | 0;
-
 export var EdgeSetList: StaticListSchema = [1, n0, _ESL, 0, 64 | 0];
 export var ExternalRegionCodeList = 64 | 0;
-
 export var FilterValues = 64 | 0;
-
 export var GlobalNetworkIdList = 64 | 0;
-
 export var GlobalNetworkList: StaticListSchema = [1, n0, _GNL, 0, () => GlobalNetwork];
 export var LinkAssociationList: StaticListSchema = [1, n0, _LAL, 0, () => LinkAssociation];
 export var LinkIdList = 64 | 0;
-
 export var LinkList: StaticListSchema = [1, n0, _LL, 0, () => Link];
 export var NetworkFunctionGroupList: StaticListSchema = [1, n0, _NFGL, 0, () => NetworkFunctionGroup];
 export var NetworkResourceCountList: StaticListSchema = [1, n0, _NRCL, 0, () => NetworkResourceCount];
@@ -3153,9 +2531,7 @@ export var PeeringList: StaticListSchema = [1, n0, _PL, 0, () => Peering];
 export var PrefixListAssociationList: StaticListSchema = [1, n0, _PLAL, 0, () => PrefixListAssociation];
 export var RelationshipList: StaticListSchema = [1, n0, _RL, 0, () => Relationship];
 export var RouteStateList = 64 | 0;
-
 export var RouteTypeList = 64 | 0;
-
 export var RoutingPolicyAssociationDetailsList: StaticListSchema = [
   1,
   n0,
@@ -3165,17 +2541,12 @@ export var RoutingPolicyAssociationDetailsList: StaticListSchema = [
 ];
 export var ServiceInsertionActionList: StaticListSchema = [1, n0, _SIAL, 0, () => ServiceInsertionAction];
 export var SiteIdList = 64 | 0;
-
 export var SiteList: StaticListSchema = [1, n0, _SL, 0, [() => Site, 0]];
 export var SubnetArnList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TransitGatewayArnList = 64 | 0;
-
 export var TransitGatewayConnectPeerArnList = 64 | 0;
-
 export var TransitGatewayConnectPeerAssociationList: StaticListSchema = [
   1,
   n0,
@@ -3186,22 +2557,16 @@ export var TransitGatewayConnectPeerAssociationList: StaticListSchema = [
 export var TransitGatewayRegistrationList: StaticListSchema = [1, n0, _TGRL, 0, () => TransitGatewayRegistration];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var WhenSentToSegmentsList = 64 | 0;
-
 export var WithEdgeOverridesList: StaticListSchema = [1, n0, _WEOL, 0, () => EdgeOverride];
 export var ExceptionContextMap = 128 | 0;
-
 export var FilterMap: StaticMapSchema = [2, n0, _FM, 0, 0, 64 | 0];
 export var NetworkResourceMetadataMap = 128 | 0;
-
 export var ReasonContextMap = 128 | 0;
-
 export var AcceptAttachment: StaticOperationSchema = [
   9,
   n0,
   _AA,
-  {
-    [_h]: ["POST", "/attachments/{AttachmentId}/accept", 200],
-  },
+  { [_h]: ["POST", "/attachments/{AttachmentId}/accept", 200] },
   () => AcceptAttachmentRequest,
   () => AcceptAttachmentResponse,
 ];
@@ -3209,9 +2574,7 @@ export var AssociateConnectPeer: StaticOperationSchema = [
   9,
   n0,
   _ACP,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/connect-peer-associations", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/connect-peer-associations", 200] },
   () => AssociateConnectPeerRequest,
   () => AssociateConnectPeerResponse,
 ];
@@ -3219,9 +2582,7 @@ export var AssociateCustomerGateway: StaticOperationSchema = [
   9,
   n0,
   _ACG,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/customer-gateway-associations", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/customer-gateway-associations", 200] },
   () => AssociateCustomerGatewayRequest,
   () => AssociateCustomerGatewayResponse,
 ];
@@ -3229,9 +2590,7 @@ export var AssociateLink: StaticOperationSchema = [
   9,
   n0,
   _ALs,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/link-associations", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/link-associations", 200] },
   () => AssociateLinkRequest,
   () => AssociateLinkResponse,
 ];
@@ -3239,9 +2598,7 @@ export var AssociateTransitGatewayConnectPeer: StaticOperationSchema = [
   9,
   n0,
   _ATGCP,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations", 200] },
   () => AssociateTransitGatewayConnectPeerRequest,
   () => AssociateTransitGatewayConnectPeerResponse,
 ];
@@ -3249,9 +2606,7 @@ export var CreateConnectAttachment: StaticOperationSchema = [
   9,
   n0,
   _CCA,
-  {
-    [_h]: ["POST", "/connect-attachments", 200],
-  },
+  { [_h]: ["POST", "/connect-attachments", 200] },
   () => CreateConnectAttachmentRequest,
   () => CreateConnectAttachmentResponse,
 ];
@@ -3259,9 +2614,7 @@ export var CreateConnection: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/connections", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/connections", 200] },
   () => CreateConnectionRequest,
   () => CreateConnectionResponse,
 ];
@@ -3269,9 +2622,7 @@ export var CreateConnectPeer: StaticOperationSchema = [
   9,
   n0,
   _CCP,
-  {
-    [_h]: ["POST", "/connect-peers", 200],
-  },
+  { [_h]: ["POST", "/connect-peers", 200] },
   () => CreateConnectPeerRequest,
   () => CreateConnectPeerResponse,
 ];
@@ -3279,9 +2630,7 @@ export var CreateCoreNetwork: StaticOperationSchema = [
   9,
   n0,
   _CCN,
-  {
-    [_h]: ["POST", "/core-networks", 200],
-  },
+  { [_h]: ["POST", "/core-networks", 200] },
   () => CreateCoreNetworkRequest,
   () => CreateCoreNetworkResponse,
 ];
@@ -3289,9 +2638,7 @@ export var CreateCoreNetworkPrefixListAssociation: StaticOperationSchema = [
   9,
   n0,
   _CCNPLA,
-  {
-    [_h]: ["POST", "/prefix-list", 200],
-  },
+  { [_h]: ["POST", "/prefix-list", 200] },
   () => CreateCoreNetworkPrefixListAssociationRequest,
   () => CreateCoreNetworkPrefixListAssociationResponse,
 ];
@@ -3299,9 +2646,7 @@ export var CreateDevice: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/devices", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/devices", 200] },
   () => CreateDeviceRequest,
   () => CreateDeviceResponse,
 ];
@@ -3309,9 +2654,7 @@ export var CreateDirectConnectGatewayAttachment: StaticOperationSchema = [
   9,
   n0,
   _CDCGA,
-  {
-    [_h]: ["POST", "/direct-connect-gateway-attachments", 200],
-  },
+  { [_h]: ["POST", "/direct-connect-gateway-attachments", 200] },
   () => CreateDirectConnectGatewayAttachmentRequest,
   () => CreateDirectConnectGatewayAttachmentResponse,
 ];
@@ -3319,9 +2662,7 @@ export var CreateGlobalNetwork: StaticOperationSchema = [
   9,
   n0,
   _CGN,
-  {
-    [_h]: ["POST", "/global-networks", 200],
-  },
+  { [_h]: ["POST", "/global-networks", 200] },
   () => CreateGlobalNetworkRequest,
   () => CreateGlobalNetworkResponse,
 ];
@@ -3329,9 +2670,7 @@ export var CreateLink: StaticOperationSchema = [
   9,
   n0,
   _CLr,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/links", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/links", 200] },
   () => CreateLinkRequest,
   () => CreateLinkResponse,
 ];
@@ -3339,9 +2678,7 @@ export var CreateSite: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/sites", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/sites", 200] },
   () => CreateSiteRequest,
   () => CreateSiteResponse,
 ];
@@ -3349,9 +2686,7 @@ export var CreateSiteToSiteVpnAttachment: StaticOperationSchema = [
   9,
   n0,
   _CSTSVA,
-  {
-    [_h]: ["POST", "/site-to-site-vpn-attachments", 200],
-  },
+  { [_h]: ["POST", "/site-to-site-vpn-attachments", 200] },
   () => CreateSiteToSiteVpnAttachmentRequest,
   () => CreateSiteToSiteVpnAttachmentResponse,
 ];
@@ -3359,9 +2694,7 @@ export var CreateTransitGatewayPeering: StaticOperationSchema = [
   9,
   n0,
   _CTGP,
-  {
-    [_h]: ["POST", "/transit-gateway-peerings", 200],
-  },
+  { [_h]: ["POST", "/transit-gateway-peerings", 200] },
   () => CreateTransitGatewayPeeringRequest,
   () => CreateTransitGatewayPeeringResponse,
 ];
@@ -3369,9 +2702,7 @@ export var CreateTransitGatewayRouteTableAttachment: StaticOperationSchema = [
   9,
   n0,
   _CTGRTA,
-  {
-    [_h]: ["POST", "/transit-gateway-route-table-attachments", 200],
-  },
+  { [_h]: ["POST", "/transit-gateway-route-table-attachments", 200] },
   () => CreateTransitGatewayRouteTableAttachmentRequest,
   () => CreateTransitGatewayRouteTableAttachmentResponse,
 ];
@@ -3379,9 +2710,7 @@ export var CreateVpcAttachment: StaticOperationSchema = [
   9,
   n0,
   _CVA,
-  {
-    [_h]: ["POST", "/vpc-attachments", 200],
-  },
+  { [_h]: ["POST", "/vpc-attachments", 200] },
   () => CreateVpcAttachmentRequest,
   () => CreateVpcAttachmentResponse,
 ];
@@ -3389,9 +2718,7 @@ export var DeleteAttachment: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["DELETE", "/attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/attachments/{AttachmentId}", 200] },
   () => DeleteAttachmentRequest,
   () => DeleteAttachmentResponse,
 ];
@@ -3399,9 +2726,7 @@ export var DeleteConnection: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}", 200] },
   () => DeleteConnectionRequest,
   () => DeleteConnectionResponse,
 ];
@@ -3409,9 +2734,7 @@ export var DeleteConnectPeer: StaticOperationSchema = [
   9,
   n0,
   _DCP,
-  {
-    [_h]: ["DELETE", "/connect-peers/{ConnectPeerId}", 200],
-  },
+  { [_h]: ["DELETE", "/connect-peers/{ConnectPeerId}", 200] },
   () => DeleteConnectPeerRequest,
   () => DeleteConnectPeerResponse,
 ];
@@ -3419,9 +2742,7 @@ export var DeleteCoreNetwork: StaticOperationSchema = [
   9,
   n0,
   _DCN,
-  {
-    [_h]: ["DELETE", "/core-networks/{CoreNetworkId}", 200],
-  },
+  { [_h]: ["DELETE", "/core-networks/{CoreNetworkId}", 200] },
   () => DeleteCoreNetworkRequest,
   () => DeleteCoreNetworkResponse,
 ];
@@ -3429,9 +2750,7 @@ export var DeleteCoreNetworkPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _DCNPV,
-  {
-    [_h]: ["DELETE", "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}", 200],
-  },
+  { [_h]: ["DELETE", "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}", 200] },
   () => DeleteCoreNetworkPolicyVersionRequest,
   () => DeleteCoreNetworkPolicyVersionResponse,
 ];
@@ -3439,9 +2758,7 @@ export var DeleteCoreNetworkPrefixListAssociation: StaticOperationSchema = [
   9,
   n0,
   _DCNPLA,
-  {
-    [_h]: ["DELETE", "/prefix-list/{PrefixListArn}/core-network/{CoreNetworkId}", 200],
-  },
+  { [_h]: ["DELETE", "/prefix-list/{PrefixListArn}/core-network/{CoreNetworkId}", 200] },
   () => DeleteCoreNetworkPrefixListAssociationRequest,
   () => DeleteCoreNetworkPrefixListAssociationResponse,
 ];
@@ -3449,9 +2766,7 @@ export var DeleteDevice: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/devices/{DeviceId}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/devices/{DeviceId}", 200] },
   () => DeleteDeviceRequest,
   () => DeleteDeviceResponse,
 ];
@@ -3459,9 +2774,7 @@ export var DeleteGlobalNetwork: StaticOperationSchema = [
   9,
   n0,
   _DGN,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}", 200] },
   () => DeleteGlobalNetworkRequest,
   () => DeleteGlobalNetworkResponse,
 ];
@@ -3469,9 +2782,7 @@ export var DeleteLink: StaticOperationSchema = [
   9,
   n0,
   _DLe,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/links/{LinkId}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/links/{LinkId}", 200] },
   () => DeleteLinkRequest,
   () => DeleteLinkResponse,
 ];
@@ -3479,9 +2790,7 @@ export var DeletePeering: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/peerings/{PeeringId}", 200],
-  },
+  { [_h]: ["DELETE", "/peerings/{PeeringId}", 200] },
   () => DeletePeeringRequest,
   () => DeletePeeringResponse,
 ];
@@ -3489,9 +2798,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/resource-policy/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/resource-policy/{ResourceArn}", 200] },
   () => DeleteResourcePolicyRequest,
   () => DeleteResourcePolicyResponse,
 ];
@@ -3499,9 +2806,7 @@ export var DeleteSite: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/sites/{SiteId}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/sites/{SiteId}", 200] },
   () => DeleteSiteRequest,
   () => DeleteSiteResponse,
 ];
@@ -3509,9 +2814,7 @@ export var DeregisterTransitGateway: StaticOperationSchema = [
   9,
   n0,
   _DTG,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/transit-gateway-registrations/{TransitGatewayArn}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/transit-gateway-registrations/{TransitGatewayArn}", 200] },
   () => DeregisterTransitGatewayRequest,
   () => DeregisterTransitGatewayResponse,
 ];
@@ -3519,9 +2822,7 @@ export var DescribeGlobalNetworks: StaticOperationSchema = [
   9,
   n0,
   _DGNe,
-  {
-    [_h]: ["GET", "/global-networks", 200],
-  },
+  { [_h]: ["GET", "/global-networks", 200] },
   () => DescribeGlobalNetworksRequest,
   () => DescribeGlobalNetworksResponse,
 ];
@@ -3529,9 +2830,7 @@ export var DisassociateConnectPeer: StaticOperationSchema = [
   9,
   n0,
   _DCPi,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/connect-peer-associations/{ConnectPeerId}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/connect-peer-associations/{ConnectPeerId}", 200] },
   () => DisassociateConnectPeerRequest,
   () => DisassociateConnectPeerResponse,
 ];
@@ -3539,9 +2838,7 @@ export var DisassociateCustomerGateway: StaticOperationSchema = [
   9,
   n0,
   _DCG,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}", 200] },
   () => DisassociateCustomerGatewayRequest,
   () => DisassociateCustomerGatewayResponse,
 ];
@@ -3549,9 +2846,7 @@ export var DisassociateLink: StaticOperationSchema = [
   9,
   n0,
   _DLi,
-  {
-    [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/link-associations", 200],
-  },
+  { [_h]: ["DELETE", "/global-networks/{GlobalNetworkId}/link-associations", 200] },
   () => DisassociateLinkRequest,
   () => DisassociateLinkResponse,
 ];
@@ -3573,9 +2868,7 @@ export var ExecuteCoreNetworkChangeSet: StaticOperationSchema = [
   9,
   n0,
   _ECNCS,
-  {
-    [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}/execute", 200],
-  },
+  { [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}/execute", 200] },
   () => ExecuteCoreNetworkChangeSetRequest,
   () => ExecuteCoreNetworkChangeSetResponse,
 ];
@@ -3583,9 +2876,7 @@ export var GetConnectAttachment: StaticOperationSchema = [
   9,
   n0,
   _GCA,
-  {
-    [_h]: ["GET", "/connect-attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["GET", "/connect-attachments/{AttachmentId}", 200] },
   () => GetConnectAttachmentRequest,
   () => GetConnectAttachmentResponse,
 ];
@@ -3593,9 +2884,7 @@ export var GetConnections: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/connections", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/connections", 200] },
   () => GetConnectionsRequest,
   () => GetConnectionsResponse,
 ];
@@ -3603,9 +2892,7 @@ export var GetConnectPeer: StaticOperationSchema = [
   9,
   n0,
   _GCP,
-  {
-    [_h]: ["GET", "/connect-peers/{ConnectPeerId}", 200],
-  },
+  { [_h]: ["GET", "/connect-peers/{ConnectPeerId}", 200] },
   () => GetConnectPeerRequest,
   () => GetConnectPeerResponse,
 ];
@@ -3613,9 +2900,7 @@ export var GetConnectPeerAssociations: StaticOperationSchema = [
   9,
   n0,
   _GCPA,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/connect-peer-associations", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/connect-peer-associations", 200] },
   () => GetConnectPeerAssociationsRequest,
   () => GetConnectPeerAssociationsResponse,
 ];
@@ -3623,9 +2908,7 @@ export var GetCoreNetwork: StaticOperationSchema = [
   9,
   n0,
   _GCN,
-  {
-    [_h]: ["GET", "/core-networks/{CoreNetworkId}", 200],
-  },
+  { [_h]: ["GET", "/core-networks/{CoreNetworkId}", 200] },
   () => GetCoreNetworkRequest,
   () => GetCoreNetworkResponse,
 ];
@@ -3633,9 +2916,7 @@ export var GetCoreNetworkChangeEvents: StaticOperationSchema = [
   9,
   n0,
   _GCNCE,
-  {
-    [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-change-events/{PolicyVersionId}", 200],
-  },
+  { [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-change-events/{PolicyVersionId}", 200] },
   () => GetCoreNetworkChangeEventsRequest,
   () => GetCoreNetworkChangeEventsResponse,
 ];
@@ -3643,9 +2924,7 @@ export var GetCoreNetworkChangeSet: StaticOperationSchema = [
   9,
   n0,
   _GCNCS,
-  {
-    [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}", 200],
-  },
+  { [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}", 200] },
   () => GetCoreNetworkChangeSetRequest,
   () => GetCoreNetworkChangeSetResponse,
 ];
@@ -3653,9 +2932,7 @@ export var GetCoreNetworkPolicy: StaticOperationSchema = [
   9,
   n0,
   _GCNP,
-  {
-    [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-policy", 200],
-  },
+  { [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-policy", 200] },
   () => GetCoreNetworkPolicyRequest,
   () => GetCoreNetworkPolicyResponse,
 ];
@@ -3663,9 +2940,7 @@ export var GetCustomerGatewayAssociations: StaticOperationSchema = [
   9,
   n0,
   _GCGA,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/customer-gateway-associations", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/customer-gateway-associations", 200] },
   () => GetCustomerGatewayAssociationsRequest,
   () => GetCustomerGatewayAssociationsResponse,
 ];
@@ -3673,9 +2948,7 @@ export var GetDevices: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/devices", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/devices", 200] },
   () => GetDevicesRequest,
   () => GetDevicesResponse,
 ];
@@ -3683,9 +2956,7 @@ export var GetDirectConnectGatewayAttachment: StaticOperationSchema = [
   9,
   n0,
   _GDCGA,
-  {
-    [_h]: ["GET", "/direct-connect-gateway-attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["GET", "/direct-connect-gateway-attachments/{AttachmentId}", 200] },
   () => GetDirectConnectGatewayAttachmentRequest,
   () => GetDirectConnectGatewayAttachmentResponse,
 ];
@@ -3693,9 +2964,7 @@ export var GetLinkAssociations: StaticOperationSchema = [
   9,
   n0,
   _GLA,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/link-associations", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/link-associations", 200] },
   () => GetLinkAssociationsRequest,
   () => GetLinkAssociationsResponse,
 ];
@@ -3703,9 +2972,7 @@ export var GetLinks: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/links", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/links", 200] },
   () => GetLinksRequest,
   () => GetLinksResponse,
 ];
@@ -3713,9 +2980,7 @@ export var GetNetworkResourceCounts: StaticOperationSchema = [
   9,
   n0,
   _GNRC,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-resource-count", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-resource-count", 200] },
   () => GetNetworkResourceCountsRequest,
   () => GetNetworkResourceCountsResponse,
 ];
@@ -3723,9 +2988,7 @@ export var GetNetworkResourceRelationships: StaticOperationSchema = [
   9,
   n0,
   _GNRRetet,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-resource-relationships", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-resource-relationships", 200] },
   () => GetNetworkResourceRelationshipsRequest,
   () => GetNetworkResourceRelationshipsResponse,
 ];
@@ -3733,9 +2996,7 @@ export var GetNetworkResources: StaticOperationSchema = [
   9,
   n0,
   _GNR,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-resources", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-resources", 200] },
   () => GetNetworkResourcesRequest,
   () => GetNetworkResourcesResponse,
 ];
@@ -3743,9 +3004,7 @@ export var GetNetworkRoutes: StaticOperationSchema = [
   9,
   n0,
   _GNRe,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/network-routes", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/network-routes", 200] },
   () => GetNetworkRoutesRequest,
   () => GetNetworkRoutesResponse,
 ];
@@ -3753,9 +3012,7 @@ export var GetNetworkTelemetry: StaticOperationSchema = [
   9,
   n0,
   _GNT,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-telemetry", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/network-telemetry", 200] },
   () => GetNetworkTelemetryRequest,
   () => GetNetworkTelemetryResponse,
 ];
@@ -3763,9 +3020,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/resource-policy/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/resource-policy/{ResourceArn}", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -3773,9 +3028,7 @@ export var GetRouteAnalysis: StaticOperationSchema = [
   9,
   n0,
   _GRA,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/route-analyses/{RouteAnalysisId}", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/route-analyses/{RouteAnalysisId}", 200] },
   () => GetRouteAnalysisRequest,
   () => GetRouteAnalysisResponse,
 ];
@@ -3783,9 +3036,7 @@ export var GetSites: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/sites", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/sites", 200] },
   () => GetSitesRequest,
   () => GetSitesResponse,
 ];
@@ -3793,9 +3044,7 @@ export var GetSiteToSiteVpnAttachment: StaticOperationSchema = [
   9,
   n0,
   _GSTSVA,
-  {
-    [_h]: ["GET", "/site-to-site-vpn-attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["GET", "/site-to-site-vpn-attachments/{AttachmentId}", 200] },
   () => GetSiteToSiteVpnAttachmentRequest,
   () => GetSiteToSiteVpnAttachmentResponse,
 ];
@@ -3803,9 +3052,7 @@ export var GetTransitGatewayConnectPeerAssociations: StaticOperationSchema = [
   9,
   n0,
   _GTGCPA,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations", 200] },
   () => GetTransitGatewayConnectPeerAssociationsRequest,
   () => GetTransitGatewayConnectPeerAssociationsResponse,
 ];
@@ -3813,9 +3060,7 @@ export var GetTransitGatewayPeering: StaticOperationSchema = [
   9,
   n0,
   _GTGP,
-  {
-    [_h]: ["GET", "/transit-gateway-peerings/{PeeringId}", 200],
-  },
+  { [_h]: ["GET", "/transit-gateway-peerings/{PeeringId}", 200] },
   () => GetTransitGatewayPeeringRequest,
   () => GetTransitGatewayPeeringResponse,
 ];
@@ -3823,9 +3068,7 @@ export var GetTransitGatewayRegistrations: StaticOperationSchema = [
   9,
   n0,
   _GTGR,
-  {
-    [_h]: ["GET", "/global-networks/{GlobalNetworkId}/transit-gateway-registrations", 200],
-  },
+  { [_h]: ["GET", "/global-networks/{GlobalNetworkId}/transit-gateway-registrations", 200] },
   () => GetTransitGatewayRegistrationsRequest,
   () => GetTransitGatewayRegistrationsResponse,
 ];
@@ -3833,9 +3076,7 @@ export var GetTransitGatewayRouteTableAttachment: StaticOperationSchema = [
   9,
   n0,
   _GTGRTA,
-  {
-    [_h]: ["GET", "/transit-gateway-route-table-attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["GET", "/transit-gateway-route-table-attachments/{AttachmentId}", 200] },
   () => GetTransitGatewayRouteTableAttachmentRequest,
   () => GetTransitGatewayRouteTableAttachmentResponse,
 ];
@@ -3843,9 +3084,7 @@ export var GetVpcAttachment: StaticOperationSchema = [
   9,
   n0,
   _GVA,
-  {
-    [_h]: ["GET", "/vpc-attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["GET", "/vpc-attachments/{AttachmentId}", 200] },
   () => GetVpcAttachmentRequest,
   () => GetVpcAttachmentResponse,
 ];
@@ -3853,9 +3092,7 @@ export var ListAttachmentRoutingPolicyAssociations: StaticOperationSchema = [
   9,
   n0,
   _LARPA,
-  {
-    [_h]: ["GET", "/routing-policy-label/core-network/{CoreNetworkId}", 200],
-  },
+  { [_h]: ["GET", "/routing-policy-label/core-network/{CoreNetworkId}", 200] },
   () => ListAttachmentRoutingPolicyAssociationsRequest,
   () => ListAttachmentRoutingPolicyAssociationsResponse,
 ];
@@ -3863,9 +3100,7 @@ export var ListAttachments: StaticOperationSchema = [
   9,
   n0,
   _LAis,
-  {
-    [_h]: ["GET", "/attachments", 200],
-  },
+  { [_h]: ["GET", "/attachments", 200] },
   () => ListAttachmentsRequest,
   () => ListAttachmentsResponse,
 ];
@@ -3873,9 +3108,7 @@ export var ListConnectPeers: StaticOperationSchema = [
   9,
   n0,
   _LCP,
-  {
-    [_h]: ["GET", "/connect-peers", 200],
-  },
+  { [_h]: ["GET", "/connect-peers", 200] },
   () => ListConnectPeersRequest,
   () => ListConnectPeersResponse,
 ];
@@ -3883,9 +3116,7 @@ export var ListCoreNetworkPolicyVersions: StaticOperationSchema = [
   9,
   n0,
   _LCNPV,
-  {
-    [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-policy-versions", 200],
-  },
+  { [_h]: ["GET", "/core-networks/{CoreNetworkId}/core-network-policy-versions", 200] },
   () => ListCoreNetworkPolicyVersionsRequest,
   () => ListCoreNetworkPolicyVersionsResponse,
 ];
@@ -3893,9 +3124,7 @@ export var ListCoreNetworkPrefixListAssociations: StaticOperationSchema = [
   9,
   n0,
   _LCNPLA,
-  {
-    [_h]: ["GET", "/prefix-list/core-network/{CoreNetworkId}", 200],
-  },
+  { [_h]: ["GET", "/prefix-list/core-network/{CoreNetworkId}", 200] },
   () => ListCoreNetworkPrefixListAssociationsRequest,
   () => ListCoreNetworkPrefixListAssociationsResponse,
 ];
@@ -3903,9 +3132,7 @@ export var ListCoreNetworkRoutingInformation: StaticOperationSchema = [
   9,
   n0,
   _LCNRI,
-  {
-    [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-routing-information", 200],
-  },
+  { [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-routing-information", 200] },
   () => ListCoreNetworkRoutingInformationRequest,
   () => ListCoreNetworkRoutingInformationResponse,
 ];
@@ -3913,9 +3140,7 @@ export var ListCoreNetworks: StaticOperationSchema = [
   9,
   n0,
   _LCN,
-  {
-    [_h]: ["GET", "/core-networks", 200],
-  },
+  { [_h]: ["GET", "/core-networks", 200] },
   () => ListCoreNetworksRequest,
   () => ListCoreNetworksResponse,
 ];
@@ -3923,9 +3148,7 @@ export var ListOrganizationServiceAccessStatus: StaticOperationSchema = [
   9,
   n0,
   _LOSAS,
-  {
-    [_h]: ["GET", "/organizations/service-access", 200],
-  },
+  { [_h]: ["GET", "/organizations/service-access", 200] },
   () => ListOrganizationServiceAccessStatusRequest,
   () => ListOrganizationServiceAccessStatusResponse,
 ];
@@ -3933,9 +3156,7 @@ export var ListPeerings: StaticOperationSchema = [
   9,
   n0,
   _LPi,
-  {
-    [_h]: ["GET", "/peerings", 200],
-  },
+  { [_h]: ["GET", "/peerings", 200] },
   () => ListPeeringsRequest,
   () => ListPeeringsResponse,
 ];
@@ -3943,9 +3164,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3953,9 +3172,7 @@ export var PutAttachmentRoutingPolicyLabel: StaticOperationSchema = [
   9,
   n0,
   _PARPL,
-  {
-    [_h]: ["POST", "/routing-policy-label", 200],
-  },
+  { [_h]: ["POST", "/routing-policy-label", 200] },
   () => PutAttachmentRoutingPolicyLabelRequest,
   () => PutAttachmentRoutingPolicyLabelResponse,
 ];
@@ -3963,9 +3180,7 @@ export var PutCoreNetworkPolicy: StaticOperationSchema = [
   9,
   n0,
   _PCNP,
-  {
-    [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-policy", 200],
-  },
+  { [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-policy", 200] },
   () => PutCoreNetworkPolicyRequest,
   () => PutCoreNetworkPolicyResponse,
 ];
@@ -3973,9 +3188,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRPu,
-  {
-    [_h]: ["POST", "/resource-policy/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/resource-policy/{ResourceArn}", 200] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResponse,
 ];
@@ -3983,9 +3196,7 @@ export var RegisterTransitGateway: StaticOperationSchema = [
   9,
   n0,
   _RTG,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/transit-gateway-registrations", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/transit-gateway-registrations", 200] },
   () => RegisterTransitGatewayRequest,
   () => RegisterTransitGatewayResponse,
 ];
@@ -3993,9 +3204,7 @@ export var RejectAttachment: StaticOperationSchema = [
   9,
   n0,
   _RAe,
-  {
-    [_h]: ["POST", "/attachments/{AttachmentId}/reject", 200],
-  },
+  { [_h]: ["POST", "/attachments/{AttachmentId}/reject", 200] },
   () => RejectAttachmentRequest,
   () => RejectAttachmentResponse,
 ];
@@ -4003,9 +3212,7 @@ export var RemoveAttachmentRoutingPolicyLabel: StaticOperationSchema = [
   9,
   n0,
   _RARPL,
-  {
-    [_h]: ["DELETE", "/routing-policy-label/core-network/{CoreNetworkId}/attachment/{AttachmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/routing-policy-label/core-network/{CoreNetworkId}/attachment/{AttachmentId}", 200] },
   () => RemoveAttachmentRoutingPolicyLabelRequest,
   () => RemoveAttachmentRoutingPolicyLabelResponse,
 ];
@@ -4013,9 +3220,7 @@ export var RestoreCoreNetworkPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _RCNPV,
-  {
-    [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}/restore", 200],
-  },
+  { [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}/restore", 200] },
   () => RestoreCoreNetworkPolicyVersionRequest,
   () => RestoreCoreNetworkPolicyVersionResponse,
 ];
@@ -4023,9 +3228,7 @@ export var StartOrganizationServiceAccessUpdate: StaticOperationSchema = [
   9,
   n0,
   _SOSAU,
-  {
-    [_h]: ["POST", "/organizations/service-access", 200],
-  },
+  { [_h]: ["POST", "/organizations/service-access", 200] },
   () => StartOrganizationServiceAccessUpdateRequest,
   () => StartOrganizationServiceAccessUpdateResponse,
 ];
@@ -4033,9 +3236,7 @@ export var StartRouteAnalysis: StaticOperationSchema = [
   9,
   n0,
   _SRA,
-  {
-    [_h]: ["POST", "/global-networks/{GlobalNetworkId}/route-analyses", 200],
-  },
+  { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/route-analyses", 200] },
   () => StartRouteAnalysisRequest,
   () => StartRouteAnalysisResponse,
 ];
@@ -4043,9 +3244,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -4053,9 +3252,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -4063,9 +3260,7 @@ export var UpdateConnection: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}", 200],
-  },
+  { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}", 200] },
   () => UpdateConnectionRequest,
   () => UpdateConnectionResponse,
 ];
@@ -4073,9 +3268,7 @@ export var UpdateCoreNetwork: StaticOperationSchema = [
   9,
   n0,
   _UCN,
-  {
-    [_h]: ["PATCH", "/core-networks/{CoreNetworkId}", 200],
-  },
+  { [_h]: ["PATCH", "/core-networks/{CoreNetworkId}", 200] },
   () => UpdateCoreNetworkRequest,
   () => UpdateCoreNetworkResponse,
 ];
@@ -4083,9 +3276,7 @@ export var UpdateDevice: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/devices/{DeviceId}", 200],
-  },
+  { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/devices/{DeviceId}", 200] },
   () => UpdateDeviceRequest,
   () => UpdateDeviceResponse,
 ];
@@ -4093,9 +3284,7 @@ export var UpdateDirectConnectGatewayAttachment: StaticOperationSchema = [
   9,
   n0,
   _UDCGA,
-  {
-    [_h]: ["PATCH", "/direct-connect-gateway-attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["PATCH", "/direct-connect-gateway-attachments/{AttachmentId}", 200] },
   () => UpdateDirectConnectGatewayAttachmentRequest,
   () => UpdateDirectConnectGatewayAttachmentResponse,
 ];
@@ -4103,9 +3292,7 @@ export var UpdateGlobalNetwork: StaticOperationSchema = [
   9,
   n0,
   _UGN,
-  {
-    [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}", 200],
-  },
+  { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}", 200] },
   () => UpdateGlobalNetworkRequest,
   () => UpdateGlobalNetworkResponse,
 ];
@@ -4113,9 +3300,7 @@ export var UpdateLink: StaticOperationSchema = [
   9,
   n0,
   _UL,
-  {
-    [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/links/{LinkId}", 200],
-  },
+  { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/links/{LinkId}", 200] },
   () => UpdateLinkRequest,
   () => UpdateLinkResponse,
 ];
@@ -4123,9 +3308,7 @@ export var UpdateNetworkResourceMetadata: StaticOperationSchema = [
   9,
   n0,
   _UNRM,
-  {
-    [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/network-resources/{ResourceArn}/metadata", 200],
-  },
+  { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/network-resources/{ResourceArn}/metadata", 200] },
   () => UpdateNetworkResourceMetadataRequest,
   () => UpdateNetworkResourceMetadataResponse,
 ];
@@ -4133,9 +3316,7 @@ export var UpdateSite: StaticOperationSchema = [
   9,
   n0,
   _USp,
-  {
-    [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/sites/{SiteId}", 200],
-  },
+  { [_h]: ["PATCH", "/global-networks/{GlobalNetworkId}/sites/{SiteId}", 200] },
   () => UpdateSiteRequest,
   () => UpdateSiteResponse,
 ];
@@ -4143,9 +3324,7 @@ export var UpdateVpcAttachment: StaticOperationSchema = [
   9,
   n0,
   _UVA,
-  {
-    [_h]: ["PATCH", "/vpc-attachments/{AttachmentId}", 200],
-  },
+  { [_h]: ["PATCH", "/vpc-attachments/{AttachmentId}", 200] },
   () => UpdateVpcAttachmentRequest,
   () => UpdateVpcAttachmentResponse,
 ];

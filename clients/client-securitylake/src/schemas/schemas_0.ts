@@ -254,20 +254,8 @@ import {
 import { SecurityLakeServiceException as __SecurityLakeServiceException } from "../models/SecurityLakeServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m, _eC],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m, _eC], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AwsIdentity: StaticStructureSchema = [3, n0, _AI, 0, [_p, _eI], [0, 0]];
 export var AwsLogSourceConfiguration: StaticStructureSchema = [
   3,
@@ -278,32 +266,10 @@ export var AwsLogSourceConfiguration: StaticStructureSchema = [
   [64 | 0, 64 | 0, 0, 0],
 ];
 export var AwsLogSourceResource: StaticStructureSchema = [3, n0, _ALSR, 0, [_sN, _sV], [0, 0]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rN, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rN, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAwsLogSourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -479,12 +445,7 @@ export var DeleteCustomLogSourceRequest: StaticStructureSchema = [
   [_sN, _sV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sV,
-      },
-    ],
+    [0, { [_hQ]: _sV }],
   ],
 ];
 export var DeleteCustomLogSourceResponse: StaticStructureSchema = [3, n0, _DCLSRe, 0, [], []];
@@ -544,19 +505,8 @@ export var HttpsNotificationConfiguration: StaticStructureSchema = [
   [_en, _aAKN, _aAKV, _hM, _tRA],
   [0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListDataLakeExceptionsRequest: StaticStructureSchema = [3, n0, _LDLER, 0, [_r, _mR, _nT], [64 | 0, 1, 0]];
 export var ListDataLakeExceptionsResponse: StaticStructureSchema = [
   3,
@@ -566,21 +516,7 @@ export var ListDataLakeExceptionsResponse: StaticStructureSchema = [
   [_exc, _nT],
   [() => DataLakeExceptionList, 0],
 ];
-export var ListDataLakesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDLR,
-  0,
-  [_r],
-  [
-    [
-      64 | 0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-  ],
-];
+export var ListDataLakesRequest: StaticStructureSchema = [3, n0, _LDLR, 0, [_r], [[64 | 0, { [_hQ]: _r }]]];
 export var ListDataLakesResponse: StaticStructureSchema = [3, n0, _LDLRi, 0, [_dL], [() => DataLakeResourceList]];
 export var ListLogSourcesRequest: StaticStructureSchema = [
   3,
@@ -598,18 +534,8 @@ export var ListSubscribersRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSubscribersResponse: StaticStructureSchema = [
@@ -629,15 +555,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rN, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SqsNotificationConfiguration: StaticStructureSchema = [3, n0, _SNC, 0, [], []];
 export var SubscriberResource: StaticStructureSchema = [
   3,
@@ -654,25 +576,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -681,12 +589,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -727,14 +630,10 @@ export var UpdateSubscriberRequest: StaticStructureSchema = [
 ];
 export var UpdateSubscriberResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_su], [() => SubscriberResource]];
 export var __Unit = "unit" as const;
-
 export var SecurityLakeServiceException: StaticErrorSchema = [-3, _sm, "SecurityLakeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SecurityLakeServiceException, __SecurityLakeServiceException);
-
 export var AccessTypeList = 64 | 0;
-
 export var AccountList = 64 | 0;
-
 export var AwsLogSourceConfigurationList: StaticListSchema = [1, n0, _ALSCL, 0, () => AwsLogSourceConfiguration];
 export var AwsLogSourceResourceList: StaticListSchema = [1, n0, _ALSRL, 0, () => AwsLogSourceResource];
 export var DataLakeAutoEnableNewAccountConfigurationList: StaticListSchema = [
@@ -753,12 +652,9 @@ export var DataLakeSourceStatusList: StaticListSchema = [1, n0, _DLSSL, 0, () =>
 export var LogSourceList: StaticListSchema = [1, n0, _LSL, 0, () => LogSource];
 export var LogSourceResourceList: StaticListSchema = [1, n0, _LSRL, 0, () => LogSourceResource];
 export var OcsfEventClassList = 64 | 0;
-
 export var RegionList = 64 | 0;
-
 export var SubscriberResourceList: StaticListSchema = [1, n0, _SRL, 0, () => SubscriberResource];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var LogSourceResource: StaticStructureSchema = [
   3,
@@ -780,9 +676,7 @@ export var CreateAwsLogSource: StaticOperationSchema = [
   9,
   n0,
   _CALS,
-  {
-    [_h]: ["POST", "/v1/datalake/logsources/aws", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/logsources/aws", 200] },
   () => CreateAwsLogSourceRequest,
   () => CreateAwsLogSourceResponse,
 ];
@@ -790,9 +684,7 @@ export var CreateCustomLogSource: StaticOperationSchema = [
   9,
   n0,
   _CCLS,
-  {
-    [_h]: ["POST", "/v1/datalake/logsources/custom", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/logsources/custom", 200] },
   () => CreateCustomLogSourceRequest,
   () => CreateCustomLogSourceResponse,
 ];
@@ -800,9 +692,7 @@ export var CreateDataLake: StaticOperationSchema = [
   9,
   n0,
   _CDL,
-  {
-    [_h]: ["POST", "/v1/datalake", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake", 200] },
   () => CreateDataLakeRequest,
   () => CreateDataLakeResponse,
 ];
@@ -810,9 +700,7 @@ export var CreateDataLakeExceptionSubscription: StaticOperationSchema = [
   9,
   n0,
   _CDLES,
-  {
-    [_h]: ["POST", "/v1/datalake/exceptions/subscription", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/exceptions/subscription", 200] },
   () => CreateDataLakeExceptionSubscriptionRequest,
   () => CreateDataLakeExceptionSubscriptionResponse,
 ];
@@ -820,9 +708,7 @@ export var CreateDataLakeOrganizationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CDLOC,
-  {
-    [_h]: ["POST", "/v1/datalake/organization/configuration", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/organization/configuration", 200] },
   () => CreateDataLakeOrganizationConfigurationRequest,
   () => CreateDataLakeOrganizationConfigurationResponse,
 ];
@@ -830,9 +716,7 @@ export var CreateSubscriber: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/v1/subscribers", 200],
-  },
+  { [_h]: ["POST", "/v1/subscribers", 200] },
   () => CreateSubscriberRequest,
   () => CreateSubscriberResponse,
 ];
@@ -840,9 +724,7 @@ export var CreateSubscriberNotification: StaticOperationSchema = [
   9,
   n0,
   _CSN,
-  {
-    [_h]: ["POST", "/v1/subscribers/{subscriberId}/notification", 200],
-  },
+  { [_h]: ["POST", "/v1/subscribers/{subscriberId}/notification", 200] },
   () => CreateSubscriberNotificationRequest,
   () => CreateSubscriberNotificationResponse,
 ];
@@ -850,9 +732,7 @@ export var DeleteAwsLogSource: StaticOperationSchema = [
   9,
   n0,
   _DALS,
-  {
-    [_h]: ["POST", "/v1/datalake/logsources/aws/delete", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/logsources/aws/delete", 200] },
   () => DeleteAwsLogSourceRequest,
   () => DeleteAwsLogSourceResponse,
 ];
@@ -860,9 +740,7 @@ export var DeleteCustomLogSource: StaticOperationSchema = [
   9,
   n0,
   _DCLS,
-  {
-    [_h]: ["DELETE", "/v1/datalake/logsources/custom/{sourceName}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/datalake/logsources/custom/{sourceName}", 200] },
   () => DeleteCustomLogSourceRequest,
   () => DeleteCustomLogSourceResponse,
 ];
@@ -870,9 +748,7 @@ export var DeleteDataLake: StaticOperationSchema = [
   9,
   n0,
   _DDL,
-  {
-    [_h]: ["POST", "/v1/datalake/delete", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/delete", 200] },
   () => DeleteDataLakeRequest,
   () => DeleteDataLakeResponse,
 ];
@@ -880,9 +756,7 @@ export var DeleteDataLakeExceptionSubscription: StaticOperationSchema = [
   9,
   n0,
   _DDLES,
-  {
-    [_h]: ["DELETE", "/v1/datalake/exceptions/subscription", 200],
-  },
+  { [_h]: ["DELETE", "/v1/datalake/exceptions/subscription", 200] },
   () => DeleteDataLakeExceptionSubscriptionRequest,
   () => DeleteDataLakeExceptionSubscriptionResponse,
 ];
@@ -890,9 +764,7 @@ export var DeleteDataLakeOrganizationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DDLOC,
-  {
-    [_h]: ["POST", "/v1/datalake/organization/configuration/delete", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/organization/configuration/delete", 200] },
   () => DeleteDataLakeOrganizationConfigurationRequest,
   () => DeleteDataLakeOrganizationConfigurationResponse,
 ];
@@ -900,9 +772,7 @@ export var DeleteSubscriber: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/v1/subscribers/{subscriberId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/subscribers/{subscriberId}", 200] },
   () => DeleteSubscriberRequest,
   () => DeleteSubscriberResponse,
 ];
@@ -910,9 +780,7 @@ export var DeleteSubscriberNotification: StaticOperationSchema = [
   9,
   n0,
   _DSN,
-  {
-    [_h]: ["DELETE", "/v1/subscribers/{subscriberId}/notification", 200],
-  },
+  { [_h]: ["DELETE", "/v1/subscribers/{subscriberId}/notification", 200] },
   () => DeleteSubscriberNotificationRequest,
   () => DeleteSubscriberNotificationResponse,
 ];
@@ -920,9 +788,7 @@ export var DeregisterDataLakeDelegatedAdministrator: StaticOperationSchema = [
   9,
   n0,
   _DDLDA,
-  {
-    [_h]: ["DELETE", "/v1/datalake/delegate", 200],
-  },
+  { [_h]: ["DELETE", "/v1/datalake/delegate", 200] },
   () => DeregisterDataLakeDelegatedAdministratorRequest,
   () => DeregisterDataLakeDelegatedAdministratorResponse,
 ];
@@ -930,9 +796,7 @@ export var GetDataLakeExceptionSubscription: StaticOperationSchema = [
   9,
   n0,
   _GDLES,
-  {
-    [_h]: ["GET", "/v1/datalake/exceptions/subscription", 200],
-  },
+  { [_h]: ["GET", "/v1/datalake/exceptions/subscription", 200] },
   () => GetDataLakeExceptionSubscriptionRequest,
   () => GetDataLakeExceptionSubscriptionResponse,
 ];
@@ -940,9 +804,7 @@ export var GetDataLakeOrganizationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GDLOC,
-  {
-    [_h]: ["GET", "/v1/datalake/organization/configuration", 200],
-  },
+  { [_h]: ["GET", "/v1/datalake/organization/configuration", 200] },
   () => GetDataLakeOrganizationConfigurationRequest,
   () => GetDataLakeOrganizationConfigurationResponse,
 ];
@@ -950,9 +812,7 @@ export var GetDataLakeSources: StaticOperationSchema = [
   9,
   n0,
   _GDLS,
-  {
-    [_h]: ["POST", "/v1/datalake/sources", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/sources", 200] },
   () => GetDataLakeSourcesRequest,
   () => GetDataLakeSourcesResponse,
 ];
@@ -960,9 +820,7 @@ export var GetSubscriber: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/v1/subscribers/{subscriberId}", 200],
-  },
+  { [_h]: ["GET", "/v1/subscribers/{subscriberId}", 200] },
   () => GetSubscriberRequest,
   () => GetSubscriberResponse,
 ];
@@ -970,9 +828,7 @@ export var ListDataLakeExceptions: StaticOperationSchema = [
   9,
   n0,
   _LDLE,
-  {
-    [_h]: ["POST", "/v1/datalake/exceptions", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/exceptions", 200] },
   () => ListDataLakeExceptionsRequest,
   () => ListDataLakeExceptionsResponse,
 ];
@@ -980,9 +836,7 @@ export var ListDataLakes: StaticOperationSchema = [
   9,
   n0,
   _LDL,
-  {
-    [_h]: ["GET", "/v1/datalakes", 200],
-  },
+  { [_h]: ["GET", "/v1/datalakes", 200] },
   () => ListDataLakesRequest,
   () => ListDataLakesResponse,
 ];
@@ -990,9 +844,7 @@ export var ListLogSources: StaticOperationSchema = [
   9,
   n0,
   _LLS,
-  {
-    [_h]: ["POST", "/v1/datalake/logsources/list", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/logsources/list", 200] },
   () => ListLogSourcesRequest,
   () => ListLogSourcesResponse,
 ];
@@ -1000,9 +852,7 @@ export var ListSubscribers: StaticOperationSchema = [
   9,
   n0,
   _LSi,
-  {
-    [_h]: ["GET", "/v1/subscribers", 200],
-  },
+  { [_h]: ["GET", "/v1/subscribers", 200] },
   () => ListSubscribersRequest,
   () => ListSubscribersResponse,
 ];
@@ -1010,9 +860,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1020,9 +868,7 @@ export var RegisterDataLakeDelegatedAdministrator: StaticOperationSchema = [
   9,
   n0,
   _RDLDA,
-  {
-    [_h]: ["POST", "/v1/datalake/delegate", 200],
-  },
+  { [_h]: ["POST", "/v1/datalake/delegate", 200] },
   () => RegisterDataLakeDelegatedAdministratorRequest,
   () => RegisterDataLakeDelegatedAdministratorResponse,
 ];
@@ -1030,9 +876,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/v1/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1040,9 +884,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1050,9 +892,7 @@ export var UpdateDataLake: StaticOperationSchema = [
   9,
   n0,
   _UDL,
-  {
-    [_h]: ["PUT", "/v1/datalake", 200],
-  },
+  { [_h]: ["PUT", "/v1/datalake", 200] },
   () => UpdateDataLakeRequest,
   () => UpdateDataLakeResponse,
 ];
@@ -1060,9 +900,7 @@ export var UpdateDataLakeExceptionSubscription: StaticOperationSchema = [
   9,
   n0,
   _UDLES,
-  {
-    [_h]: ["PUT", "/v1/datalake/exceptions/subscription", 200],
-  },
+  { [_h]: ["PUT", "/v1/datalake/exceptions/subscription", 200] },
   () => UpdateDataLakeExceptionSubscriptionRequest,
   () => UpdateDataLakeExceptionSubscriptionResponse,
 ];
@@ -1070,9 +908,7 @@ export var UpdateSubscriber: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/v1/subscribers/{subscriberId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/subscribers/{subscriberId}", 200] },
   () => UpdateSubscriberRequest,
   () => UpdateSubscriberResponse,
 ];
@@ -1080,9 +916,7 @@ export var UpdateSubscriberNotification: StaticOperationSchema = [
   9,
   n0,
   _USN,
-  {
-    [_h]: ["PUT", "/v1/subscribers/{subscriberId}/notification", 200],
-  },
+  { [_h]: ["PUT", "/v1/subscribers/{subscriberId}/notification", 200] },
   () => UpdateSubscriberNotificationRequest,
   () => UpdateSubscriberNotificationResponse,
 ];

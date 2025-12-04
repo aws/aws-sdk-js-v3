@@ -153,46 +153,19 @@ import {
 import { RedshiftDataServiceException as __RedshiftDataServiceException } from "../models/RedshiftDataServiceException";
 
 /* eslint no-var: 0 */
-
-export var ActiveSessionsExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ActiveSessionsExceededException: StaticErrorSchema = [-3, n0, _ASEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ActiveSessionsExceededException, __ActiveSessionsExceededException);
-
-export var ActiveStatementsExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASEEc,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ActiveStatementsExceededException: StaticErrorSchema = [-3, n0, _ASEEc, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ActiveStatementsExceededException, __ActiveStatementsExceededException);
-
 export var BatchExecuteStatementException: StaticErrorSchema = [
   -3,
   n0,
   _BESE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _SI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(BatchExecuteStatementException, __BatchExecuteStatementException);
-
 export var BatchExecuteStatementInput: StaticStructureSchema = [
   3,
   n0,
@@ -219,19 +192,8 @@ export var ColumnMetadata: StaticStructureSchema = [
   [_iCS, _iC, _iS, _l, _n, _nu, _p, _sc, _sN, _tN, _tNy, _le, _cD],
   [2, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0],
 ];
-export var DatabaseConnectionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var DatabaseConnectionException: StaticErrorSchema = [-3, n0, _DCE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DatabaseConnectionException, __DatabaseConnectionException);
-
 export var DescribeStatementRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_I], [0]];
 export var DescribeStatementResponse: StaticStructureSchema = [
   3,
@@ -250,19 +212,8 @@ export var DescribeTableRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
 ];
 export var DescribeTableResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [_TN, _CL, _NT], [0, () => ColumnList, 0]];
-export var ExecuteStatementException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ESE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M, _SI],
-  [0, 0],
-];
+export var ExecuteStatementException: StaticErrorSchema = [-3, n0, _ESE, { [_e]: _s, [_hE]: 500 }, [_M, _SI], [0, 0]];
 TypeRegistry.for(n0).registerError(ExecuteStatementException, __ExecuteStatementException);
-
 export var ExecuteStatementInput: StaticStructureSchema = [
   3,
   n0,
@@ -297,19 +248,8 @@ export var GetStatementResultV2Response: StaticStructureSchema = [
   [_R, _CM, _TNR, _RF, _NT],
   [() => FormattedSqlRecords, () => ColumnMetadataList, 1, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListDatabasesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -346,32 +286,10 @@ export var ListTablesRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
 ];
 export var ListTablesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_Ta, _NT], [() => TableList, 0]];
-export var QueryTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _QTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var QueryTimeoutException: StaticErrorSchema = [-3, n0, _QTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(QueryTimeoutException, __QueryTimeoutException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SqlParameter: StaticStructureSchema = [3, n0, _SPq, 0, [_n, _v], [0, 0]];
 export var StatementData: StaticStructureSchema = [
   3,
@@ -390,39 +308,22 @@ export var SubStatementData: StaticStructureSchema = [
   [0, 1, 0, 0, 4, 4, 0, 1, 1, 1, 2],
 ];
 export var TableMember: StaticStructureSchema = [3, n0, _TM, 0, [_n, _t, _sch], [0, 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var RedshiftDataServiceException: StaticErrorSchema = [-3, _sm, "RedshiftDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RedshiftDataServiceException, __RedshiftDataServiceException);
-
 export var ColumnList: StaticListSchema = [1, n0, _CL, 0, () => ColumnMetadata];
 export var ColumnMetadataList: StaticListSchema = [1, n0, _CML, 0, () => ColumnMetadata];
 export var DatabaseList = 64 | 0;
-
 export var DbGroupList = 64 | 0;
-
 export var FieldList: StaticListSchema = [1, n0, _FL, 0, () => Field];
 export var FormattedSqlRecords: StaticListSchema = [1, n0, _FSR, 0, () => QueryRecords];
 export var SchemaList = 64 | 0;
-
 export var SqlList = 64 | 0;
-
 export var SqlParametersList: StaticListSchema = [1, n0, _SPL, 0, () => SqlParameter];
 export var SqlRecords: StaticListSchema = [1, n0, _SR, 0, () => FieldList];
 export var StatementList: StaticListSchema = [1, n0, _SL, 0, () => StatementData];
 export var StatementStringList = 64 | 0;
-
 export var SubStatementList: StaticListSchema = [1, n0, _SSL, 0, () => SubStatementData];
 export var TableList: StaticListSchema = [1, n0, _TL, 0, () => TableMember];
 export var Field: StaticStructureSchema = [3, n0, _F, 0, [_iN, _bV, _lV, _dV, _sV, _bVl], [2, 2, 1, 1, 0, 21]];

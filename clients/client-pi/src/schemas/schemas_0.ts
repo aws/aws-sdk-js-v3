@@ -164,7 +164,6 @@ import {
 import { PIServiceException as __PIServiceException } from "../models/PIServiceException";
 
 /* eslint no-var: 0 */
-
 export var MarkdownString: StaticSimpleSchema = [0, n0, _MS, 8, 0];
 export var AnalysisReport: StaticStructureSchema = [
   3,
@@ -308,30 +307,10 @@ export var Insight: StaticStructureSchema = [
     () => DataList,
   ],
 ];
-export var InternalServiceError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_Me],
-  [0],
-];
+export var InternalServiceError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceError, __InternalServiceError);
-
-export var InvalidArgumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var InvalidArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-
 export var ListAvailableResourceDimensionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -399,18 +378,8 @@ export var MetricKeyDataPoints: StaticStructureSchema = [
   [() => ResponseResourceMetricKey, () => DataPointsList],
 ];
 export var MetricQuery: StaticStructureSchema = [3, n0, _MQe, 0, [_M, _GB, _F], [0, () => DimensionGroup, 128 | 0]];
-export var NotAuthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NAE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var NotAuthorizedException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedException);
-
 export var PerformanceInsightsMetric: StaticStructureSchema = [
   3,
   n0,
@@ -429,15 +398,11 @@ export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_ST, _RARN, _TK], [0, 0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var __Unit = "unit" as const;
-
 export var PIServiceException: StaticErrorSchema = [-3, _sm, "PIServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PIServiceException, __PIServiceException);
-
 export var AdditionalMetricsList = 64 | 0;
-
 export var AnalysisReportSummaryList: StaticListSchema = [1, n0, _ARSL, 0, () => AnalysisReportSummary];
 export var AuthorizedActionsList = 64 | 0;
-
 export var DataList: StaticListSchema = [1, n0, _DL, 0, () => Data];
 export var DataPointsList: StaticListSchema = [1, n0, _DPL, 0, () => DataPoint];
 export var DimensionDetailList: StaticListSchema = [1, n0, _DDL, 0, () => DimensionDetail];
@@ -445,34 +410,24 @@ export var DimensionGroupDetailList: StaticListSchema = [1, n0, _DGDL, 0, () => 
 export var DimensionKeyDescriptionList: StaticListSchema = [1, n0, _DKDL, 0, () => DimensionKeyDescription];
 export var DimensionKeyDetailList: StaticListSchema = [1, n0, _DKDLi, 0, () => DimensionKeyDetail];
 export var DimensionsMetricList = 64 | 0;
-
 export var InsightList: StaticListSchema = [1, n0, _IL, 0, [() => Insight, 0]];
 export var MetricDimensionsList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDimensionGroups];
 export var MetricKeyDataPointsList: StaticListSchema = [1, n0, _MKDPL, 0, () => MetricKeyDataPoints];
 export var MetricQueryList: StaticListSchema = [1, n0, _MQL, 0, () => MetricQuery];
 export var MetricTypeList = 64 | 0;
-
 export var MetricValuesList = 64 | 1;
-
 export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, [() => Recommendation, 0]];
 export var RequestedDimensionList = 64 | 0;
-
 export var ResponsePartitionKeyList: StaticListSchema = [1, n0, _RPKL, 0, () => ResponsePartitionKey];
 export var ResponseResourceMetricList: StaticListSchema = [1, n0, _RRML, 0, () => ResponseResourceMetric];
 export var SanitizedStringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var AdditionalMetricsMap = 128 | 1;
-
 export var DescriptiveMap = 128 | 0;
-
 export var DimensionMap = 128 | 0;
-
 export var FeatureMetadataMap: StaticMapSchema = [2, n0, _FMM, 0, 0, () => FeatureMetadata];
 export var MetricQueryFilterMap = 128 | 0;
-
 export var CreatePerformanceAnalysisReport: StaticOperationSchema = [
   9,
   n0,

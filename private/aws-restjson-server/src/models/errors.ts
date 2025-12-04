@@ -2,7 +2,7 @@
 import { ServiceException as __BaseException } from "@aws-smithy/server-common";
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ComplexNestedErrorData } from "./models_0";
+import type { ComplexNestedErrorData } from "./models_0";
 
 /**
  * This error is thrown when a request is invalid.

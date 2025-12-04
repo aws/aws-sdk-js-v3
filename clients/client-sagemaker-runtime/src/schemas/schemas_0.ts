@@ -99,48 +99,15 @@ import {
 import { SageMakerRuntimeServiceException as __SageMakerRuntimeServiceException } from "../models/SageMakerRuntimeServiceException";
 
 /* eslint no-var: 0 */
-
 export var BodyBlob: StaticSimpleSchema = [0, n0, _BB, 8, 21];
 export var CustomAttributesHeader: StaticSimpleSchema = [0, n0, _CAH, 8, 0];
 export var PartBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
-export var InternalDependencyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDE,
-  {
-    [_e]: _s,
-    [_hE]: 530,
-  },
-  [_M],
-  [0],
-];
+export var InternalDependencyException: StaticErrorSchema = [-3, n0, _IDE, { [_e]: _s, [_hE]: 530 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalDependencyException, __InternalDependencyException);
-
-export var InternalFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _IF,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalFailure: StaticErrorSchema = [-3, n0, _IF, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalFailure, __InternalFailure);
-
-export var InternalStreamFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISF,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalStreamFailure: StaticErrorSchema = [-3, n0, _ISF, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalStreamFailure, __InternalStreamFailure);
-
 export var InvokeEndpointAsyncInput: StaticStructureSchema = [
   3,
   n0,
@@ -149,48 +116,13 @@ export var InvokeEndpointAsyncInput: StaticStructureSchema = [
   [_EN, _CT, _A, _CA, _II, _IL, _RTTLS, _ITS],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _XASCT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASA,
-      },
-    ],
-    [
-      () => CustomAttributesHeader,
-      {
-        [_hH]: _XASCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASII,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XASR,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _XASI_,
-      },
-    ],
+    [0, { [_hH]: _XASCT }],
+    [0, { [_hH]: _XASA }],
+    [() => CustomAttributesHeader, { [_hH]: _XASCA }],
+    [0, { [_hH]: _XASII }],
+    [0, { [_hH]: _XASI }],
+    [1, { [_hH]: _XASR }],
+    [1, { [_hH]: _XASI_ }],
   ],
 ];
 export var InvokeEndpointAsyncOutput: StaticStructureSchema = [
@@ -199,21 +131,7 @@ export var InvokeEndpointAsyncOutput: StaticStructureSchema = [
   _IEAO,
   0,
   [_II, _OL, _FL],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _XASO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASF,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _XASO }], [0, { [_hH]: _XASF }]],
 ];
 export var InvokeEndpointInput: StaticStructureSchema = [
   3,
@@ -224,66 +142,16 @@ export var InvokeEndpointInput: StaticStructureSchema = [
   [
     [0, 1],
     [() => BodyBlob, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
-    [
-      () => CustomAttributesHeader,
-      {
-        [_hH]: _XASCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASTM,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASTV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASTCH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASII,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASEE,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASIC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASSI,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _A }],
+    [() => CustomAttributesHeader, { [_hH]: _XASCA }],
+    [0, { [_hH]: _XASTM }],
+    [0, { [_hH]: _XASTV }],
+    [0, { [_hH]: _XASTCH }],
+    [0, { [_hH]: _XASII }],
+    [0, { [_hH]: _XASEE }],
+    [0, { [_hH]: _XASIC }],
+    [0, { [_hH]: _XASSI }],
   ],
 ];
 export var InvokeEndpointOutput: StaticStructureSchema = [
@@ -294,36 +162,11 @@ export var InvokeEndpointOutput: StaticStructureSchema = [
   [_B, _CT, _IPV, _CA, _NSI, _CSI],
   [
     [() => BodyBlob, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xAIPV,
-      },
-    ],
-    [
-      () => CustomAttributesHeader,
-      {
-        [_hH]: _XASCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASNSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASCSI,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _xAIPV }],
+    [() => CustomAttributesHeader, { [_hH]: _XASCA }],
+    [0, { [_hH]: _XASNSI }],
+    [0, { [_hH]: _XASCSI }],
   ],
 ];
 export var InvokeEndpointWithResponseStreamInput: StaticStructureSchema = [
@@ -335,54 +178,14 @@ export var InvokeEndpointWithResponseStreamInput: StaticStructureSchema = [
   [
     [0, 1],
     [() => BodyBlob, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASA,
-      },
-    ],
-    [
-      () => CustomAttributesHeader,
-      {
-        [_hH]: _XASCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASTV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASTCH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASII,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASIC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASSI,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _XASA }],
+    [() => CustomAttributesHeader, { [_hH]: _XASCA }],
+    [0, { [_hH]: _XASTV }],
+    [0, { [_hH]: _XASTCH }],
+    [0, { [_hH]: _XASII }],
+    [0, { [_hH]: _XASIC }],
+    [0, { [_hH]: _XASSI }],
   ],
 ];
 export var InvokeEndpointWithResponseStreamOutput: StaticStructureSchema = [
@@ -393,106 +196,29 @@ export var InvokeEndpointWithResponseStreamOutput: StaticStructureSchema = [
   [_B, _CT, _IPV, _CA],
   [
     [() => ResponseStream, 16],
-    [
-      0,
-      {
-        [_hH]: _XASCT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xAIPV,
-      },
-    ],
-    [
-      () => CustomAttributesHeader,
-      {
-        [_hH]: _XASCA,
-      },
-    ],
+    [0, { [_hH]: _XASCT }],
+    [0, { [_hH]: _xAIPV }],
+    [() => CustomAttributesHeader, { [_hH]: _XASCA }],
   ],
 ];
-export var ModelError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ME,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_M, _OSC, _OM, _LSA],
-  [0, 1, 0, 0],
-];
+export var ModelError: StaticErrorSchema = [-3, n0, _ME, { [_e]: _c, [_hE]: 424 }, [_M, _OSC, _OM, _LSA], [0, 1, 0, 0]];
 TypeRegistry.for(n0).registerError(ModelError, __ModelError);
-
 export var ModelNotReadyException: StaticErrorSchema = [
   -3,
   n0,
   _MNRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ModelNotReadyException`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ModelNotReadyException`, 429] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ModelNotReadyException, __ModelNotReadyException);
-
-export var ModelStreamError: StaticErrorSchema = [
-  -3,
-  n0,
-  _MSE,
-  {
-    [_e]: _c,
-  },
-  [_M, _EC],
-  [0, 0],
-];
+export var ModelStreamError: StaticErrorSchema = [-3, n0, _MSE, { [_e]: _c }, [_M, _EC], [0, 0]];
 TypeRegistry.for(n0).registerError(ModelStreamError, __ModelStreamError);
-
-export var PayloadPart: StaticStructureSchema = [
-  3,
-  n0,
-  _PP,
-  0,
-  [_By],
-  [
-    [
-      () => PartBlob,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
-];
-export var ServiceUnavailable: StaticErrorSchema = [
-  -3,
-  n0,
-  _SU,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M],
-  [0],
-];
+export var PayloadPart: StaticStructureSchema = [3, n0, _PP, 0, [_By], [[() => PartBlob, { [_eP]: 1 }]]];
+export var ServiceUnavailable: StaticErrorSchema = [-3, n0, _SU, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailable, __ServiceUnavailable);
-
-export var ValidationError: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationError: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationError, __ValidationError);
-
 export var SageMakerRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -502,14 +228,11 @@ export var SageMakerRuntimeServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(SageMakerRuntimeServiceException, __SageMakerRuntimeServiceException);
-
 export var ResponseStream: StaticStructureSchema = [
   3,
   n0,
   _RS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_PP, _MSE, _ISF],
   [
     [() => PayloadPart, 0],
@@ -521,9 +244,7 @@ export var InvokeEndpoint: StaticOperationSchema = [
   9,
   n0,
   _IE,
-  {
-    [_h]: ["POST", "/endpoints/{EndpointName}/invocations", 200],
-  },
+  { [_h]: ["POST", "/endpoints/{EndpointName}/invocations", 200] },
   () => InvokeEndpointInput,
   () => InvokeEndpointOutput,
 ];
@@ -531,9 +252,7 @@ export var InvokeEndpointAsync: StaticOperationSchema = [
   9,
   n0,
   _IEA,
-  {
-    [_h]: ["POST", "/endpoints/{EndpointName}/async-invocations", 202],
-  },
+  { [_h]: ["POST", "/endpoints/{EndpointName}/async-invocations", 202] },
   () => InvokeEndpointAsyncInput,
   () => InvokeEndpointAsyncOutput,
 ];
@@ -541,9 +260,7 @@ export var InvokeEndpointWithResponseStream: StaticOperationSchema = [
   9,
   n0,
   _IEWRS,
-  {
-    [_h]: ["POST", "/endpoints/{EndpointName}/invocations-response-stream", 200],
-  },
+  { [_h]: ["POST", "/endpoints/{EndpointName}/invocations-response-stream", 200] },
   () => InvokeEndpointWithResponseStreamInput,
   () => InvokeEndpointWithResponseStreamOutput,
 ];

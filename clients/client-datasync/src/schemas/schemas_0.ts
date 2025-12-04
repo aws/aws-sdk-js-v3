@@ -397,7 +397,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AzureBlobSasToken: StaticSimpleSchema = [0, n0, _ABST, 8, 0];
 export var ObjectStorageSecretKey: StaticSimpleSchema = [0, n0, _OSSK, 8, 0];
 export var SmbPassword: StaticSimpleSchema = [0, n0, _SP, 8, 0];
@@ -804,30 +803,10 @@ export var FsxUpdateProtocolSmb: StaticStructureSchema = [
   [0, () => SmbMountOptions, [() => SmbPassword, 0], 0],
 ];
 export var HdfsNameNode: StaticStructureSchema = [3, n0, _HNN, 0, [_H, _Po], [0, 1]];
-export var InternalException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IE,
-  {
-    [_e]: _s,
-  },
-  [_m, _eC],
-  [0, 0],
-];
+export var InternalException: StaticErrorSchema = [-3, n0, _IE, { [_e]: _s }, [_m, _eC], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_m, _eC, _dEC],
-  [0, 0, 0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_m, _eC, _dEC], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListAgentsRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_MR, _NT], [1, 0]];
 export var ListAgentsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_A, _NT], [() => AgentList, 0]];
 export var ListLocationsRequest: StaticStructureSchema = [
@@ -1067,35 +1046,24 @@ export var UpdateTaskRequest: StaticStructureSchema = [
 ];
 export var UpdateTaskResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [], []];
 export var __Unit = "unit" as const;
-
 export var DataSyncServiceException: StaticErrorSchema = [-3, _sm, "DataSyncServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DataSyncServiceException, __DataSyncServiceException);
-
 export var AgentArnList = 64 | 0;
-
 export var AgentList: StaticListSchema = [1, n0, _AL, 0, () => AgentListEntry];
 export var DestinationNetworkInterfaceArns = 64 | 0;
-
 export var DnsIpList = 64 | 0;
-
 export var Ec2SecurityGroupArnList = 64 | 0;
-
 export var FilterList: StaticListSchema = [1, n0, _FLi, 0, () => FilterRule];
 export var FilterValues = 64 | 0;
-
 export var HdfsNameNodeList: StaticListSchema = [1, n0, _HNNL, 0, () => HdfsNameNode];
 export var InputTagList: StaticListSchema = [1, n0, _ITL, 0, () => TagListEntry];
 export var LocationFilters: StaticListSchema = [1, n0, _LFo, 0, () => LocationFilter];
 export var LocationList: StaticListSchema = [1, n0, _LLo, 0, () => LocationListEntry];
 export var OutputTagList: StaticListSchema = [1, n0, _OTL, 0, () => TagListEntry];
 export var PLSecurityGroupArnList = 64 | 0;
-
 export var PLSubnetArnList = 64 | 0;
-
 export var SourceNetworkInterfaceArns = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TaskExecutionList: StaticListSchema = [1, n0, _TEL, 0, () => TaskExecutionListEntry];
 export var TaskFilters: StaticListSchema = [1, n0, _TFa, 0, () => TaskFilter];
 export var TaskList: StaticListSchema = [1, n0, _TL, 0, () => TaskListEntry];

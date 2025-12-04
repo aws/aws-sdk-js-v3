@@ -2,17 +2,17 @@
 import { AgentCollaboration, OrchestrationType } from "./enums";
 
 import {
+  type CustomOrchestration,
+  type GuardrailConfigurationWithArn,
+  type InlineBedrockModelConfigurations,
+  type InlineSessionState,
+  type PromptCreationConfigurations,
+  type PromptOverrideConfiguration,
+  type StreamingConfigurations,
   AgentActionGroup,
   Collaborator,
   CollaboratorConfiguration,
-  CustomOrchestration,
-  GuardrailConfigurationWithArn,
-  InlineBedrockModelConfigurations,
-  InlineSessionState,
   KnowledgeBase,
-  PromptCreationConfigurations,
-  PromptOverrideConfiguration,
-  StreamingConfigurations,
 } from "./models_0";
 
 /**

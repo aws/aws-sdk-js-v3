@@ -4,15 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD:clients/client-securityhub/src/commands/RegisterConnectorV2Command.ts
-import { RegisterConnectorV2Request, RegisterConnectorV2Response } from "../models/models_3";
+import type { RegisterConnectorV2Request, RegisterConnectorV2Response } from "../models/models_3";
 import { RegisterConnectorV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-=======
-import type { ConnectorRegistrationsV2Request, ConnectorRegistrationsV2Response } from "../models/models_2";
-import { ConnectorRegistrationsV2 } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
->>>>>>> 60efd81940b (chore: codegen):clients/client-securityhub/src/commands/ConnectorRegistrationsV2Command.ts
 
 /**
  * @public

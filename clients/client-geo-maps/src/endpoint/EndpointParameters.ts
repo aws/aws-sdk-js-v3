@@ -11,10 +11,16 @@ export interface ClientInputEndpointParameters {
   region?: string | undefined | Provider<string | undefined>;
 }
 
+/**
+ * @public
+ */
 export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
+/**
+ * @internal
+ */
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
@@ -25,6 +31,9 @@ export const resolveClientEndpointParameters = <T>(
   });
 };
 
+/**
+ * @internal
+ */
 export const commonParams = {
   UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
   Endpoint: { type: "builtInParams", name: "endpoint" },
@@ -32,6 +41,9 @@ export const commonParams = {
   UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 } as const;
 
+/**
+ * @internal
+ */
 export interface EndpointParameters extends __EndpointParameters {
   UseDualStack?: boolean | undefined;
   UseFIPS?: boolean | undefined;

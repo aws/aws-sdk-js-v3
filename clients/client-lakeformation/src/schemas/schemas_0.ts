@@ -464,31 +464,11 @@ import {
 import { LakeFormationServiceException as __LakeFormationServiceException } from "../models/LakeFormationServiceException";
 
 /* eslint no-var: 0 */
-
-export var ResultStream: StaticSimpleSchema = [
-  0,
-  n0,
-  _RS,
-  {
-    [_s]: 1,
-  },
-  42,
-];
+export var ResultStream: StaticSimpleSchema = [0, n0, _RS, { [_s]: 1 }, 42];
 export var SyntheticGetWorkUnitResultsRequestWorkUnitTokenString: StaticSimpleSchema = [0, n0, _SGWURRWUTS, 8, 0];
 export var SyntheticStartQueryPlanningRequestQueryString: StaticSimpleSchema = [0, n0, _SSQPRQS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddLFTagsToResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -500,18 +480,8 @@ export var AddLFTagsToResourceRequest: StaticStructureSchema = [
 export var AddLFTagsToResourceResponse: StaticStructureSchema = [3, n0, _ALFTTRRd, 0, [_F], [() => LFTagErrors]];
 export var AddObjectInput: StaticStructureSchema = [3, n0, _AOI, 0, [_U, _ET, _S, _PV], [0, 0, 1, 64 | 0]];
 export var AllRowsWildcard: StaticStructureSchema = [3, n0, _ARW, 0, [], []];
-export var AlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var AlreadyExistsException: StaticErrorSchema = [-3, n0, _AEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
 export var AssumeDecoratedRoleWithSAMLRequest: StaticStructureSchema = [
   3,
   n0,
@@ -584,18 +554,8 @@ export var ColumnLFTag: StaticStructureSchema = [3, n0, _CLFT, 0, [_N, _LFT], [0
 export var ColumnWildcard: StaticStructureSchema = [3, n0, _CW, 0, [_ECN], [64 | 0]];
 export var CommitTransactionRequest: StaticStructureSchema = [3, n0, _CTRo, 0, [_TI], [0]];
 export var CommitTransactionResponse: StaticStructureSchema = [3, n0, _CTRom, 0, [_TS], [0]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var Condition: StaticStructureSchema = [3, n0, _C, 0, [_Ex], [0]];
 export var CreateDataCellsFilterRequest: StaticStructureSchema = [3, n0, _CDCFR, 0, [_TD], [() => DataCellsFilter]];
 export var CreateDataCellsFilterResponse: StaticStructureSchema = [3, n0, _CDCFRr, 0, [], []];
@@ -737,33 +697,12 @@ export var DescribeTransactionResponse: StaticStructureSchema = [
   [() => TransactionDescription],
 ];
 export var DetailsMap: StaticStructureSchema = [3, n0, _DM, 0, [_RSe], [64 | 0]];
-export var EntityNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ENFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var EntityNotFoundException: StaticErrorSchema = [-3, n0, _ENFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EntityNotFoundException, __EntityNotFoundException);
-
 export var ErrorDetail: StaticStructureSchema = [3, n0, _ED, 0, [_EC, _EM], [0, 0]];
 export var ExecutionStatistics: StaticStructureSchema = [3, n0, _ES, 0, [_AETM, _DSB, _WUEC], [1, 1, 1]];
-export var ExpiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [_M],
-  [0],
-];
+export var ExpiredException: StaticErrorSchema = [-3, n0, _EE, { [_e]: _c, [_hE]: 410 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ExpiredException, __ExpiredException);
-
 export var ExtendTransactionRequest: StaticStructureSchema = [3, n0, _ETR, 0, [_TI], [0]];
 export var ExtendTransactionResponse: StaticStructureSchema = [3, n0, _ETRx, 0, [], []];
 export var ExternalFilteringConfiguration: StaticStructureSchema = [3, n0, _EFC, 0, [_St, _AT], [0, 64 | 0]];
@@ -894,18 +833,8 @@ export var GetWorkUnitsResponse: StaticStructureSchema = [
   [_NT, _QI, _WUR],
   [0, 0, () => WorkUnitRangeList],
 ];
-export var GlueEncryptionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var GlueEncryptionException: StaticErrorSchema = [-3, n0, _GEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(GlueEncryptionException, __GlueEncryptionException);
-
 export var GrantPermissionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -915,32 +844,10 @@ export var GrantPermissionsRequest: StaticStructureSchema = [
   [0, () => DataLakePrincipal, () => Resource, 64 | 0, () => Condition, 64 | 0],
 ];
 export var GrantPermissionsResponse: StaticStructureSchema = [3, n0, _GPRr, 0, [], []];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var LakeFormationOptInsInfo: StaticStructureSchema = [
   3,
   n0,
@@ -1056,32 +963,12 @@ export var ListTransactionsResponse: StaticStructureSchema = [
   [_Tr, _NT],
   [() => TransactionDescriptionList, 0],
 ];
-export var OperationTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var OperationTimeoutException: StaticErrorSchema = [-3, n0, _OTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OperationTimeoutException, __OperationTimeoutException);
-
 export var PartitionObjects: StaticStructureSchema = [3, n0, _PO, 0, [_PV, _O], [64 | 0, () => TableObjectList]];
 export var PartitionValueList: StaticStructureSchema = [3, n0, _PVL, 0, [_V], [64 | 0]];
-export var PermissionTypeMismatchException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTME,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var PermissionTypeMismatchException: StaticErrorSchema = [-3, n0, _PTME, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PermissionTypeMismatchException, __PermissionTypeMismatchException);
-
 export var PlanningStatistics: StaticStructureSchema = [3, n0, _PS, 0, [_EDTSB, _PTM, _QTM, _WUGC], [1, 1, 1, 1]];
 export var PrincipalPermissions: StaticStructureSchema = [3, n0, _PPr, 0, [_P, _Pe], [() => DataLakePrincipal, 64 | 0]];
 export var PrincipalResourcePermissions: StaticStructureSchema = [
@@ -1155,31 +1042,10 @@ export var Resource: StaticStructureSchema = [
   ],
 ];
 export var ResourceInfo: StaticStructureSchema = [3, n0, _RI, 0, [_RAe, _RA, _LM, _WF, _HAE, _WPA], [0, 0, 4, 2, 2, 2]];
-export var ResourceNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotReadyException: StaticErrorSchema = [-3, n0, _RNRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotReadyException, __ResourceNotReadyException);
-
-export var ResourceNumberLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNLEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNumberLimitExceededException: StaticErrorSchema = [-3, n0, _RNLEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNumberLimitExceededException, __ResourceNumberLimitExceededException);
-
 export var RevokePermissionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1233,19 +1099,8 @@ export var StartQueryPlanningRequest: StaticStructureSchema = [
 export var StartQueryPlanningResponse: StaticStructureSchema = [3, n0, _SQPRt, 0, [_QI], [0]];
 export var StartTransactionRequest: StaticStructureSchema = [3, n0, _STR, 0, [_TT], [0]];
 export var StartTransactionResponse: StaticStructureSchema = [3, n0, _STRt, 0, [_TI], [0]];
-export var StatisticsNotReadyYetException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNRYE,
-  {
-    [_e]: _c,
-    [_hE]: 420,
-  },
-  [_M],
-  [0],
-];
+export var StatisticsNotReadyYetException: StaticErrorSchema = [-3, n0, _SNRYE, { [_e]: _c, [_hE]: 420 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(StatisticsNotReadyYetException, __StatisticsNotReadyYetException);
-
 export var StorageOptimizer: StaticStructureSchema = [3, n0, _SO, 0, [_SOT, _Co, _EM, _W, _LRD], [0, 128 | 0, 0, 0, 0]];
 export var TableObject: StaticStructureSchema = [3, n0, _TO, 0, [_U, _ET, _S], [0, 0, 1]];
 export var TableResource: StaticStructureSchema = [3, n0, _TR, 0, [_CI, _DN, _N, _TW], [0, 0, 0, () => TableWildcard]];
@@ -1274,58 +1129,21 @@ export var TaggedTable: StaticStructureSchema = [
   [_T, _LFTOD, _LFTOT, _LFTOC],
   [() => TableResource, () => LFTagsList, () => LFTagsList, () => ColumnLFTagsList],
 ];
-export var ThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottledException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
-
-export var TransactionCanceledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TransactionCanceledException: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TransactionCanceledException, __TransactionCanceledException);
-
 export var TransactionCommitInProgressException: StaticErrorSchema = [
   -3,
   n0,
   _TCIPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TransactionCommitInProgressException, __TransactionCommitInProgressException);
-
-export var TransactionCommittedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCEr,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TransactionCommittedException: StaticErrorSchema = [-3, n0, _TCEr, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TransactionCommittedException, __TransactionCommittedException);
-
 export var TransactionDescription: StaticStructureSchema = [3, n0, _TDr, 0, [_TI, _TS, _TST, _TET], [0, 0, 4, 4]];
 export var UpdateDataCellsFilterRequest: StaticStructureSchema = [3, n0, _UDCFR, 0, [_TD], [() => DataCellsFilter]];
 export var UpdateDataCellsFilterResponse: StaticStructureSchema = [3, n0, _UDCFRp, 0, [], []];
@@ -1385,19 +1203,8 @@ export var UpdateTableStorageOptimizerRequest: StaticStructureSchema = [
 export var UpdateTableStorageOptimizerResponse: StaticStructureSchema = [3, n0, _UTSORp, 0, [_Re], [0]];
 export var VirtualObject: StaticStructureSchema = [3, n0, _VO, 0, [_U, _ET], [0, 0]];
 export var WorkUnitRange: StaticStructureSchema = [3, n0, _WURo, 0, [_WUIM, _WUIMo, _WUT], [1, 1, 0]];
-export var WorkUnitsNotReadyYetException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WUNRYE,
-  {
-    [_e]: _c,
-    [_hE]: 420,
-  },
-  [_M],
-  [0],
-];
+export var WorkUnitsNotReadyYetException: StaticErrorSchema = [-3, n0, _WUNRYE, { [_e]: _c, [_hE]: 420 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(WorkUnitsNotReadyYetException, __WorkUnitsNotReadyYetException);
-
 export var WriteOperation: StaticStructureSchema = [
   3,
   n0,
@@ -1407,17 +1214,13 @@ export var WriteOperation: StaticStructureSchema = [
   [() => AddObjectInput, () => DeleteObjectInput],
 ];
 export var __Unit = "unit" as const;
-
 export var LakeFormationServiceException: StaticErrorSchema = [-3, _sm, "LakeFormationServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LakeFormationServiceException, __LakeFormationServiceException);
-
 export var AuthorizedSessionTagValueList = 64 | 0;
-
 export var BatchPermissionsFailureList: StaticListSchema = [1, n0, _BPFL, 0, () => BatchPermissionsFailureEntry];
 export var BatchPermissionsRequestEntryList: StaticListSchema = [1, n0, _BPREL, 0, () => BatchPermissionsRequestEntry];
 export var ColumnLFTagsList: StaticListSchema = [1, n0, _CLFTL, 0, () => ColumnLFTag];
 export var ColumnNames = 64 | 0;
-
 export var DatabaseLFTagsList: StaticListSchema = [1, n0, _DLFTL, 0, () => TaggedDatabase];
 export var DataCellsFilterList: StaticListSchema = [1, n0, _DCFL, 0, () => DataCellsFilter];
 export var DataLakePrincipalList: StaticListSchema = [1, n0, _DLPL, 0, () => DataLakePrincipal];
@@ -1429,45 +1232,31 @@ export var LFTagExpressionsList: StaticListSchema = [1, n0, _LFTEL, 0, () => LFT
 export var LFTagsList: StaticListSchema = [1, n0, _LFTL, 0, () => LFTagPair];
 export var PartitionedTableObjectsList: StaticListSchema = [1, n0, _PTOL, 0, () => PartitionObjects];
 export var PartitionValuesList = 64 | 0;
-
 export var PathStringList = 64 | 0;
-
 export var PermissionList = 64 | 0;
-
 export var PermissionTypeList = 64 | 0;
-
 export var PrincipalPermissionsList: StaticListSchema = [1, n0, _PPL, 0, () => PrincipalPermissions];
 export var PrincipalResourcePermissionsList: StaticListSchema = [1, n0, _PRPL, 0, () => PrincipalResourcePermissions];
 export var RedshiftServiceIntegrations: StaticListSchema = [1, n0, _RSI, 0, () => RedshiftScopeUnion];
 export var ResourceInfoList: StaticListSchema = [1, n0, _RIL, 0, () => ResourceInfo];
 export var ResourceShareList = 64 | 0;
-
 export var ScopeTargets = 64 | 0;
-
 export var ServiceIntegrationList: StaticListSchema = [1, n0, _SIL, 0, () => ServiceIntegrationUnion];
 export var StorageOptimizerList: StaticListSchema = [1, n0, _SOL, 0, () => StorageOptimizer];
 export var StringValueList = 64 | 0;
-
 export var TableLFTagsList: StaticListSchema = [1, n0, _TLFTL, 0, () => TaggedTable];
 export var TableObjectList: StaticListSchema = [1, n0, _TOL, 0, () => TableObject];
 export var TagValueList = 64 | 0;
-
 export var TransactionDescriptionList: StaticListSchema = [1, n0, _TDL, 0, () => TransactionDescription];
 export var TrustedResourceOwners = 64 | 0;
-
 export var ValueStringList = 64 | 0;
-
 export var VirtualObjectList: StaticListSchema = [1, n0, _VOL, 0, () => VirtualObject];
 export var WorkUnitRangeList: StaticListSchema = [1, n0, _WURL, 0, () => WorkUnitRange];
 export var WriteOperationList: StaticListSchema = [1, n0, _WOL, 0, () => WriteOperation];
 export var AdditionalContextMap = 128 | 0;
-
 export var ParametersMap = 128 | 0;
-
 export var QueryParameterMap = 128 | 0;
-
 export var StorageOptimizerConfig = 128 | 0;
-
 export var StorageOptimizerConfigMap: StaticMapSchema = [2, n0, _SOCM, 0, 0, 128 | 0];
 export var RedshiftScopeUnion: StaticStructureSchema = [3, n0, _RSU, 0, [_RC], [() => RedshiftConnect]];
 export var ServiceIntegrationUnion: StaticStructureSchema = [
@@ -1482,9 +1271,7 @@ export var AddLFTagsToResource: StaticOperationSchema = [
   9,
   n0,
   _ALFTTR,
-  {
-    [_h]: ["POST", "/AddLFTagsToResource", 200],
-  },
+  { [_h]: ["POST", "/AddLFTagsToResource", 200] },
   () => AddLFTagsToResourceRequest,
   () => AddLFTagsToResourceResponse,
 ];
@@ -1492,9 +1279,7 @@ export var AssumeDecoratedRoleWithSAML: StaticOperationSchema = [
   9,
   n0,
   _ADRWSAML,
-  {
-    [_h]: ["POST", "/AssumeDecoratedRoleWithSAML", 200],
-  },
+  { [_h]: ["POST", "/AssumeDecoratedRoleWithSAML", 200] },
   () => AssumeDecoratedRoleWithSAMLRequest,
   () => AssumeDecoratedRoleWithSAMLResponse,
 ];
@@ -1502,9 +1287,7 @@ export var BatchGrantPermissions: StaticOperationSchema = [
   9,
   n0,
   _BGP,
-  {
-    [_h]: ["POST", "/BatchGrantPermissions", 200],
-  },
+  { [_h]: ["POST", "/BatchGrantPermissions", 200] },
   () => BatchGrantPermissionsRequest,
   () => BatchGrantPermissionsResponse,
 ];
@@ -1512,9 +1295,7 @@ export var BatchRevokePermissions: StaticOperationSchema = [
   9,
   n0,
   _BRP,
-  {
-    [_h]: ["POST", "/BatchRevokePermissions", 200],
-  },
+  { [_h]: ["POST", "/BatchRevokePermissions", 200] },
   () => BatchRevokePermissionsRequest,
   () => BatchRevokePermissionsResponse,
 ];
@@ -1522,9 +1303,7 @@ export var CancelTransaction: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_h]: ["POST", "/CancelTransaction", 200],
-  },
+  { [_h]: ["POST", "/CancelTransaction", 200] },
   () => CancelTransactionRequest,
   () => CancelTransactionResponse,
 ];
@@ -1532,9 +1311,7 @@ export var CommitTransaction: StaticOperationSchema = [
   9,
   n0,
   _CTo,
-  {
-    [_h]: ["POST", "/CommitTransaction", 200],
-  },
+  { [_h]: ["POST", "/CommitTransaction", 200] },
   () => CommitTransactionRequest,
   () => CommitTransactionResponse,
 ];
@@ -1542,9 +1319,7 @@ export var CreateDataCellsFilter: StaticOperationSchema = [
   9,
   n0,
   _CDCF,
-  {
-    [_h]: ["POST", "/CreateDataCellsFilter", 200],
-  },
+  { [_h]: ["POST", "/CreateDataCellsFilter", 200] },
   () => CreateDataCellsFilterRequest,
   () => CreateDataCellsFilterResponse,
 ];
@@ -1552,9 +1327,7 @@ export var CreateLakeFormationIdentityCenterConfiguration: StaticOperationSchema
   9,
   n0,
   _CLFICC,
-  {
-    [_h]: ["POST", "/CreateLakeFormationIdentityCenterConfiguration", 200],
-  },
+  { [_h]: ["POST", "/CreateLakeFormationIdentityCenterConfiguration", 200] },
   () => CreateLakeFormationIdentityCenterConfigurationRequest,
   () => CreateLakeFormationIdentityCenterConfigurationResponse,
 ];
@@ -1562,9 +1335,7 @@ export var CreateLakeFormationOptIn: StaticOperationSchema = [
   9,
   n0,
   _CLFOI,
-  {
-    [_h]: ["POST", "/CreateLakeFormationOptIn", 200],
-  },
+  { [_h]: ["POST", "/CreateLakeFormationOptIn", 200] },
   () => CreateLakeFormationOptInRequest,
   () => CreateLakeFormationOptInResponse,
 ];
@@ -1572,9 +1343,7 @@ export var CreateLFTag: StaticOperationSchema = [
   9,
   n0,
   _CLFTr,
-  {
-    [_h]: ["POST", "/CreateLFTag", 200],
-  },
+  { [_h]: ["POST", "/CreateLFTag", 200] },
   () => CreateLFTagRequest,
   () => CreateLFTagResponse,
 ];
@@ -1582,9 +1351,7 @@ export var CreateLFTagExpression: StaticOperationSchema = [
   9,
   n0,
   _CLFTE,
-  {
-    [_h]: ["POST", "/CreateLFTagExpression", 200],
-  },
+  { [_h]: ["POST", "/CreateLFTagExpression", 200] },
   () => CreateLFTagExpressionRequest,
   () => CreateLFTagExpressionResponse,
 ];
@@ -1592,9 +1359,7 @@ export var DeleteDataCellsFilter: StaticOperationSchema = [
   9,
   n0,
   _DDCF,
-  {
-    [_h]: ["POST", "/DeleteDataCellsFilter", 200],
-  },
+  { [_h]: ["POST", "/DeleteDataCellsFilter", 200] },
   () => DeleteDataCellsFilterRequest,
   () => DeleteDataCellsFilterResponse,
 ];
@@ -1602,9 +1367,7 @@ export var DeleteLakeFormationIdentityCenterConfiguration: StaticOperationSchema
   9,
   n0,
   _DLFICC,
-  {
-    [_h]: ["POST", "/DeleteLakeFormationIdentityCenterConfiguration", 200],
-  },
+  { [_h]: ["POST", "/DeleteLakeFormationIdentityCenterConfiguration", 200] },
   () => DeleteLakeFormationIdentityCenterConfigurationRequest,
   () => DeleteLakeFormationIdentityCenterConfigurationResponse,
 ];
@@ -1612,9 +1375,7 @@ export var DeleteLakeFormationOptIn: StaticOperationSchema = [
   9,
   n0,
   _DLFOI,
-  {
-    [_h]: ["POST", "/DeleteLakeFormationOptIn", 200],
-  },
+  { [_h]: ["POST", "/DeleteLakeFormationOptIn", 200] },
   () => DeleteLakeFormationOptInRequest,
   () => DeleteLakeFormationOptInResponse,
 ];
@@ -1622,9 +1383,7 @@ export var DeleteLFTag: StaticOperationSchema = [
   9,
   n0,
   _DLFT,
-  {
-    [_h]: ["POST", "/DeleteLFTag", 200],
-  },
+  { [_h]: ["POST", "/DeleteLFTag", 200] },
   () => DeleteLFTagRequest,
   () => DeleteLFTagResponse,
 ];
@@ -1632,9 +1391,7 @@ export var DeleteLFTagExpression: StaticOperationSchema = [
   9,
   n0,
   _DLFTE,
-  {
-    [_h]: ["POST", "/DeleteLFTagExpression", 200],
-  },
+  { [_h]: ["POST", "/DeleteLFTagExpression", 200] },
   () => DeleteLFTagExpressionRequest,
   () => DeleteLFTagExpressionResponse,
 ];
@@ -1642,9 +1399,7 @@ export var DeleteObjectsOnCancel: StaticOperationSchema = [
   9,
   n0,
   _DOOC,
-  {
-    [_h]: ["POST", "/DeleteObjectsOnCancel", 200],
-  },
+  { [_h]: ["POST", "/DeleteObjectsOnCancel", 200] },
   () => DeleteObjectsOnCancelRequest,
   () => DeleteObjectsOnCancelResponse,
 ];
@@ -1652,9 +1407,7 @@ export var DeregisterResource: StaticOperationSchema = [
   9,
   n0,
   _DRe,
-  {
-    [_h]: ["POST", "/DeregisterResource", 200],
-  },
+  { [_h]: ["POST", "/DeregisterResource", 200] },
   () => DeregisterResourceRequest,
   () => DeregisterResourceResponse,
 ];
@@ -1662,9 +1415,7 @@ export var DescribeLakeFormationIdentityCenterConfiguration: StaticOperationSche
   9,
   n0,
   _DLFICCe,
-  {
-    [_h]: ["POST", "/DescribeLakeFormationIdentityCenterConfiguration", 200],
-  },
+  { [_h]: ["POST", "/DescribeLakeFormationIdentityCenterConfiguration", 200] },
   () => DescribeLakeFormationIdentityCenterConfigurationRequest,
   () => DescribeLakeFormationIdentityCenterConfigurationResponse,
 ];
@@ -1672,9 +1423,7 @@ export var DescribeResource: StaticOperationSchema = [
   9,
   n0,
   _DRes,
-  {
-    [_h]: ["POST", "/DescribeResource", 200],
-  },
+  { [_h]: ["POST", "/DescribeResource", 200] },
   () => DescribeResourceRequest,
   () => DescribeResourceResponse,
 ];
@@ -1682,9 +1431,7 @@ export var DescribeTransaction: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["POST", "/DescribeTransaction", 200],
-  },
+  { [_h]: ["POST", "/DescribeTransaction", 200] },
   () => DescribeTransactionRequest,
   () => DescribeTransactionResponse,
 ];
@@ -1692,9 +1439,7 @@ export var ExtendTransaction: StaticOperationSchema = [
   9,
   n0,
   _ETx,
-  {
-    [_h]: ["POST", "/ExtendTransaction", 200],
-  },
+  { [_h]: ["POST", "/ExtendTransaction", 200] },
   () => ExtendTransactionRequest,
   () => ExtendTransactionResponse,
 ];
@@ -1702,9 +1447,7 @@ export var GetDataCellsFilter: StaticOperationSchema = [
   9,
   n0,
   _GDCF,
-  {
-    [_h]: ["POST", "/GetDataCellsFilter", 200],
-  },
+  { [_h]: ["POST", "/GetDataCellsFilter", 200] },
   () => GetDataCellsFilterRequest,
   () => GetDataCellsFilterResponse,
 ];
@@ -1712,9 +1455,7 @@ export var GetDataLakePrincipal: StaticOperationSchema = [
   9,
   n0,
   _GDLP,
-  {
-    [_h]: ["POST", "/GetDataLakePrincipal", 200],
-  },
+  { [_h]: ["POST", "/GetDataLakePrincipal", 200] },
   () => GetDataLakePrincipalRequest,
   () => GetDataLakePrincipalResponse,
 ];
@@ -1722,9 +1463,7 @@ export var GetDataLakeSettings: StaticOperationSchema = [
   9,
   n0,
   _GDLS,
-  {
-    [_h]: ["POST", "/GetDataLakeSettings", 200],
-  },
+  { [_h]: ["POST", "/GetDataLakeSettings", 200] },
   () => GetDataLakeSettingsRequest,
   () => GetDataLakeSettingsResponse,
 ];
@@ -1732,9 +1471,7 @@ export var GetEffectivePermissionsForPath: StaticOperationSchema = [
   9,
   n0,
   _GEPFP,
-  {
-    [_h]: ["POST", "/GetEffectivePermissionsForPath", 200],
-  },
+  { [_h]: ["POST", "/GetEffectivePermissionsForPath", 200] },
   () => GetEffectivePermissionsForPathRequest,
   () => GetEffectivePermissionsForPathResponse,
 ];
@@ -1742,9 +1479,7 @@ export var GetLFTag: StaticOperationSchema = [
   9,
   n0,
   _GLFT,
-  {
-    [_h]: ["POST", "/GetLFTag", 200],
-  },
+  { [_h]: ["POST", "/GetLFTag", 200] },
   () => GetLFTagRequest,
   () => GetLFTagResponse,
 ];
@@ -1752,9 +1487,7 @@ export var GetLFTagExpression: StaticOperationSchema = [
   9,
   n0,
   _GLFTE,
-  {
-    [_h]: ["POST", "/GetLFTagExpression", 200],
-  },
+  { [_h]: ["POST", "/GetLFTagExpression", 200] },
   () => GetLFTagExpressionRequest,
   () => GetLFTagExpressionResponse,
 ];
@@ -1762,10 +1495,7 @@ export var GetQueryState: StaticOperationSchema = [
   9,
   n0,
   _GQS,
-  {
-    [_h]: ["POST", "/GetQueryState", 200],
-    [_en]: ["query-"],
-  },
+  { [_h]: ["POST", "/GetQueryState", 200], [_en]: ["query-"] },
   () => GetQueryStateRequest,
   () => GetQueryStateResponse,
 ];
@@ -1773,10 +1503,7 @@ export var GetQueryStatistics: StaticOperationSchema = [
   9,
   n0,
   _GQSe,
-  {
-    [_h]: ["POST", "/GetQueryStatistics", 200],
-    [_en]: ["query-"],
-  },
+  { [_h]: ["POST", "/GetQueryStatistics", 200], [_en]: ["query-"] },
   () => GetQueryStatisticsRequest,
   () => GetQueryStatisticsResponse,
 ];
@@ -1784,9 +1511,7 @@ export var GetResourceLFTags: StaticOperationSchema = [
   9,
   n0,
   _GRLFT,
-  {
-    [_h]: ["POST", "/GetResourceLFTags", 200],
-  },
+  { [_h]: ["POST", "/GetResourceLFTags", 200] },
   () => GetResourceLFTagsRequest,
   () => GetResourceLFTagsResponse,
 ];
@@ -1794,9 +1519,7 @@ export var GetTableObjects: StaticOperationSchema = [
   9,
   n0,
   _GTO,
-  {
-    [_h]: ["POST", "/GetTableObjects", 200],
-  },
+  { [_h]: ["POST", "/GetTableObjects", 200] },
   () => GetTableObjectsRequest,
   () => GetTableObjectsResponse,
 ];
@@ -1804,9 +1527,7 @@ export var GetTemporaryGluePartitionCredentials: StaticOperationSchema = [
   9,
   n0,
   _GTGPC,
-  {
-    [_h]: ["POST", "/GetTemporaryGluePartitionCredentials", 200],
-  },
+  { [_h]: ["POST", "/GetTemporaryGluePartitionCredentials", 200] },
   () => GetTemporaryGluePartitionCredentialsRequest,
   () => GetTemporaryGluePartitionCredentialsResponse,
 ];
@@ -1814,9 +1535,7 @@ export var GetTemporaryGlueTableCredentials: StaticOperationSchema = [
   9,
   n0,
   _GTGTC,
-  {
-    [_h]: ["POST", "/GetTemporaryGlueTableCredentials", 200],
-  },
+  { [_h]: ["POST", "/GetTemporaryGlueTableCredentials", 200] },
   () => GetTemporaryGlueTableCredentialsRequest,
   () => GetTemporaryGlueTableCredentialsResponse,
 ];
@@ -1824,10 +1543,7 @@ export var GetWorkUnitResults: StaticOperationSchema = [
   9,
   n0,
   _GWURet,
-  {
-    [_h]: ["POST", "/GetWorkUnitResults", 200],
-    [_en]: ["data-"],
-  },
+  { [_h]: ["POST", "/GetWorkUnitResults", 200], [_en]: ["data-"] },
   () => GetWorkUnitResultsRequest,
   () => GetWorkUnitResultsResponse,
 ];
@@ -1835,10 +1551,7 @@ export var GetWorkUnits: StaticOperationSchema = [
   9,
   n0,
   _GWU,
-  {
-    [_h]: ["POST", "/GetWorkUnits", 200],
-    [_en]: ["query-"],
-  },
+  { [_h]: ["POST", "/GetWorkUnits", 200], [_en]: ["query-"] },
   () => GetWorkUnitsRequest,
   () => GetWorkUnitsResponse,
 ];
@@ -1846,9 +1559,7 @@ export var GrantPermissions: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["POST", "/GrantPermissions", 200],
-  },
+  { [_h]: ["POST", "/GrantPermissions", 200] },
   () => GrantPermissionsRequest,
   () => GrantPermissionsResponse,
 ];
@@ -1856,9 +1567,7 @@ export var ListDataCellsFilter: StaticOperationSchema = [
   9,
   n0,
   _LDCF,
-  {
-    [_h]: ["POST", "/ListDataCellsFilter", 200],
-  },
+  { [_h]: ["POST", "/ListDataCellsFilter", 200] },
   () => ListDataCellsFilterRequest,
   () => ListDataCellsFilterResponse,
 ];
@@ -1866,9 +1575,7 @@ export var ListLakeFormationOptIns: StaticOperationSchema = [
   9,
   n0,
   _LLFOI,
-  {
-    [_h]: ["POST", "/ListLakeFormationOptIns", 200],
-  },
+  { [_h]: ["POST", "/ListLakeFormationOptIns", 200] },
   () => ListLakeFormationOptInsRequest,
   () => ListLakeFormationOptInsResponse,
 ];
@@ -1876,9 +1583,7 @@ export var ListLFTagExpressions: StaticOperationSchema = [
   9,
   n0,
   _LLFTE,
-  {
-    [_h]: ["POST", "/ListLFTagExpressions", 200],
-  },
+  { [_h]: ["POST", "/ListLFTagExpressions", 200] },
   () => ListLFTagExpressionsRequest,
   () => ListLFTagExpressionsResponse,
 ];
@@ -1886,9 +1591,7 @@ export var ListLFTags: StaticOperationSchema = [
   9,
   n0,
   _LLFT,
-  {
-    [_h]: ["POST", "/ListLFTags", 200],
-  },
+  { [_h]: ["POST", "/ListLFTags", 200] },
   () => ListLFTagsRequest,
   () => ListLFTagsResponse,
 ];
@@ -1896,9 +1599,7 @@ export var ListPermissions: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["POST", "/ListPermissions", 200],
-  },
+  { [_h]: ["POST", "/ListPermissions", 200] },
   () => ListPermissionsRequest,
   () => ListPermissionsResponse,
 ];
@@ -1906,9 +1607,7 @@ export var ListResources: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["POST", "/ListResources", 200],
-  },
+  { [_h]: ["POST", "/ListResources", 200] },
   () => ListResourcesRequest,
   () => ListResourcesResponse,
 ];
@@ -1916,9 +1615,7 @@ export var ListTableStorageOptimizers: StaticOperationSchema = [
   9,
   n0,
   _LTSO,
-  {
-    [_h]: ["POST", "/ListTableStorageOptimizers", 200],
-  },
+  { [_h]: ["POST", "/ListTableStorageOptimizers", 200] },
   () => ListTableStorageOptimizersRequest,
   () => ListTableStorageOptimizersResponse,
 ];
@@ -1926,9 +1623,7 @@ export var ListTransactions: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["POST", "/ListTransactions", 200],
-  },
+  { [_h]: ["POST", "/ListTransactions", 200] },
   () => ListTransactionsRequest,
   () => ListTransactionsResponse,
 ];
@@ -1936,9 +1631,7 @@ export var PutDataLakeSettings: StaticOperationSchema = [
   9,
   n0,
   _PDLS,
-  {
-    [_h]: ["POST", "/PutDataLakeSettings", 200],
-  },
+  { [_h]: ["POST", "/PutDataLakeSettings", 200] },
   () => PutDataLakeSettingsRequest,
   () => PutDataLakeSettingsResponse,
 ];
@@ -1946,9 +1639,7 @@ export var RegisterResource: StaticOperationSchema = [
   9,
   n0,
   _RR,
-  {
-    [_h]: ["POST", "/RegisterResource", 200],
-  },
+  { [_h]: ["POST", "/RegisterResource", 200] },
   () => RegisterResourceRequest,
   () => RegisterResourceResponse,
 ];
@@ -1956,9 +1647,7 @@ export var RemoveLFTagsFromResource: StaticOperationSchema = [
   9,
   n0,
   _RLFTFR,
-  {
-    [_h]: ["POST", "/RemoveLFTagsFromResource", 200],
-  },
+  { [_h]: ["POST", "/RemoveLFTagsFromResource", 200] },
   () => RemoveLFTagsFromResourceRequest,
   () => RemoveLFTagsFromResourceResponse,
 ];
@@ -1966,9 +1655,7 @@ export var RevokePermissions: StaticOperationSchema = [
   9,
   n0,
   _RP,
-  {
-    [_h]: ["POST", "/RevokePermissions", 200],
-  },
+  { [_h]: ["POST", "/RevokePermissions", 200] },
   () => RevokePermissionsRequest,
   () => RevokePermissionsResponse,
 ];
@@ -1976,9 +1663,7 @@ export var SearchDatabasesByLFTags: StaticOperationSchema = [
   9,
   n0,
   _SDBLFT,
-  {
-    [_h]: ["POST", "/SearchDatabasesByLFTags", 200],
-  },
+  { [_h]: ["POST", "/SearchDatabasesByLFTags", 200] },
   () => SearchDatabasesByLFTagsRequest,
   () => SearchDatabasesByLFTagsResponse,
 ];
@@ -1986,9 +1671,7 @@ export var SearchTablesByLFTags: StaticOperationSchema = [
   9,
   n0,
   _STBLFT,
-  {
-    [_h]: ["POST", "/SearchTablesByLFTags", 200],
-  },
+  { [_h]: ["POST", "/SearchTablesByLFTags", 200] },
   () => SearchTablesByLFTagsRequest,
   () => SearchTablesByLFTagsResponse,
 ];
@@ -1996,10 +1679,7 @@ export var StartQueryPlanning: StaticOperationSchema = [
   9,
   n0,
   _SQP,
-  {
-    [_h]: ["POST", "/StartQueryPlanning", 200],
-    [_en]: ["query-"],
-  },
+  { [_h]: ["POST", "/StartQueryPlanning", 200], [_en]: ["query-"] },
   () => StartQueryPlanningRequest,
   () => StartQueryPlanningResponse,
 ];
@@ -2007,9 +1687,7 @@ export var StartTransaction: StaticOperationSchema = [
   9,
   n0,
   _STt,
-  {
-    [_h]: ["POST", "/StartTransaction", 200],
-  },
+  { [_h]: ["POST", "/StartTransaction", 200] },
   () => StartTransactionRequest,
   () => StartTransactionResponse,
 ];
@@ -2017,9 +1695,7 @@ export var UpdateDataCellsFilter: StaticOperationSchema = [
   9,
   n0,
   _UDCF,
-  {
-    [_h]: ["POST", "/UpdateDataCellsFilter", 200],
-  },
+  { [_h]: ["POST", "/UpdateDataCellsFilter", 200] },
   () => UpdateDataCellsFilterRequest,
   () => UpdateDataCellsFilterResponse,
 ];
@@ -2027,9 +1703,7 @@ export var UpdateLakeFormationIdentityCenterConfiguration: StaticOperationSchema
   9,
   n0,
   _ULFICC,
-  {
-    [_h]: ["POST", "/UpdateLakeFormationIdentityCenterConfiguration", 200],
-  },
+  { [_h]: ["POST", "/UpdateLakeFormationIdentityCenterConfiguration", 200] },
   () => UpdateLakeFormationIdentityCenterConfigurationRequest,
   () => UpdateLakeFormationIdentityCenterConfigurationResponse,
 ];
@@ -2037,9 +1711,7 @@ export var UpdateLFTag: StaticOperationSchema = [
   9,
   n0,
   _ULFT,
-  {
-    [_h]: ["POST", "/UpdateLFTag", 200],
-  },
+  { [_h]: ["POST", "/UpdateLFTag", 200] },
   () => UpdateLFTagRequest,
   () => UpdateLFTagResponse,
 ];
@@ -2047,9 +1719,7 @@ export var UpdateLFTagExpression: StaticOperationSchema = [
   9,
   n0,
   _ULFTE,
-  {
-    [_h]: ["POST", "/UpdateLFTagExpression", 200],
-  },
+  { [_h]: ["POST", "/UpdateLFTagExpression", 200] },
   () => UpdateLFTagExpressionRequest,
   () => UpdateLFTagExpressionResponse,
 ];
@@ -2057,9 +1727,7 @@ export var UpdateResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UpdateResource", 200],
-  },
+  { [_h]: ["POST", "/UpdateResource", 200] },
   () => UpdateResourceRequest,
   () => UpdateResourceResponse,
 ];
@@ -2067,9 +1735,7 @@ export var UpdateTableObjects: StaticOperationSchema = [
   9,
   n0,
   _UTO,
-  {
-    [_h]: ["POST", "/UpdateTableObjects", 200],
-  },
+  { [_h]: ["POST", "/UpdateTableObjects", 200] },
   () => UpdateTableObjectsRequest,
   () => UpdateTableObjectsResponse,
 ];
@@ -2077,9 +1743,7 @@ export var UpdateTableStorageOptimizer: StaticOperationSchema = [
   9,
   n0,
   _UTSO,
-  {
-    [_h]: ["POST", "/UpdateTableStorageOptimizer", 200],
-  },
+  { [_h]: ["POST", "/UpdateTableStorageOptimizer", 200] },
   () => UpdateTableStorageOptimizerRequest,
   () => UpdateTableStorageOptimizerResponse,
 ];

@@ -9,11 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { UpdateEventTriggerRequest, UpdateEventTriggerResponse } from "../models/models_1";
-=======
-import type { UpdateEventTriggerRequest, UpdateEventTriggerResponse } from "../models/models_0";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateEventTriggerRequest, UpdateEventTriggerResponse } from "../models/models_1";
 import { UpdateEventTrigger } from "../schemas/schemas_0";
 
 /**

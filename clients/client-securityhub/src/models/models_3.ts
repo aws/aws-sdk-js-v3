@@ -14,10 +14,13 @@ import {
   TargetType,
 } from "./enums";
 
-import { AutomationRulesActionV2, NoteUpdate } from "./models_0";
+import { type NoteUpdate, AutomationRulesActionV2 } from "./models_0";
 
 import {
-  AwsSecurityFindingFilters,
+  type AwsSecurityFindingFilters,
+  type OrganizationConfiguration,
+  type Policy,
+  type Target,
   FindingsTrendsStringFilter,
   JiraCloudUpdateConfiguration,
   OcsfBooleanFilter,
@@ -26,16 +29,13 @@ import {
   OcsfMapFilter,
   OcsfNumberFilter,
   OcsfStringFilter,
-  OrganizationConfiguration,
   ParameterConfiguration,
-  Policy,
   ResourcesDateFilter,
   ResourcesMapFilter,
   ResourcesNumberFilter,
   ResourcesStringFilter,
   ResourcesTrendsStringFilter,
   SortCriterion,
-  Target,
 } from "./models_2";
 
 /**

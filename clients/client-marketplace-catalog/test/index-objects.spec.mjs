@@ -22,6 +22,8 @@ import {
   MarketplaceCatalog,
   MarketplaceCatalogClient,
   MarketplaceCatalogServiceException,
+  OfferSetSortBy,
+  OfferSetStateString,
   OfferSortBy,
   OfferStateString,
   OfferTargetingString,
@@ -40,22 +42,22 @@ import {
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
-assert(typeof MarketplaceCatalogClient === "function")
-assert(typeof MarketplaceCatalog === "function")
+assert(typeof MarketplaceCatalogClient === "function");
+assert(typeof MarketplaceCatalog === "function");
 // commands
-assert(typeof BatchDescribeEntitiesCommand === "function")
-assert(typeof CancelChangeSetCommand === "function")
-assert(typeof DeleteResourcePolicyCommand === "function")
-assert(typeof DescribeChangeSetCommand === "function")
-assert(typeof DescribeEntityCommand === "function")
-assert(typeof GetResourcePolicyCommand === "function")
-assert(typeof ListChangeSetsCommand === "function")
-assert(typeof ListEntitiesCommand === "function")
-assert(typeof ListTagsForResourceCommand === "function")
-assert(typeof PutResourcePolicyCommand === "function")
-assert(typeof StartChangeSetCommand === "function")
-assert(typeof TagResourceCommand === "function")
-assert(typeof UntagResourceCommand === "function")
+assert(typeof BatchDescribeEntitiesCommand === "function");
+assert(typeof CancelChangeSetCommand === "function");
+assert(typeof DeleteResourcePolicyCommand === "function");
+assert(typeof DescribeChangeSetCommand === "function");
+assert(typeof DescribeEntityCommand === "function");
+assert(typeof GetResourcePolicyCommand === "function");
+assert(typeof ListChangeSetsCommand === "function");
+assert(typeof ListEntitiesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof PutResourcePolicyCommand === "function");
+assert(typeof StartChangeSetCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
 // enums
 assert(typeof AmiProductSortBy === "object");
 assert(typeof AmiProductVisibilityString === "object");
@@ -68,6 +70,8 @@ assert(typeof FailureCode === "object");
 assert(typeof Intent === "object");
 assert(typeof MachineLearningProductSortBy === "object");
 assert(typeof MachineLearningProductVisibilityString === "object");
+assert(typeof OfferSetSortBy === "object");
+assert(typeof OfferSetStateString === "object");
 assert(typeof OfferSortBy === "object");
 assert(typeof OfferStateString === "object");
 assert(typeof OfferTargetingString === "object");
@@ -78,8 +82,8 @@ assert(typeof SaaSProductSortBy === "object");
 assert(typeof SaaSProductVisibilityString === "object");
 assert(typeof SortOrder === "object");
 // errors
-assert(MarketplaceCatalogServiceException.prototype instanceof Error)
+assert(MarketplaceCatalogServiceException.prototype instanceof Error);
 // paginators
-assert(typeof paginateListChangeSets === "function")
-assert(typeof paginateListEntities === "function")
+assert(typeof paginateListChangeSets === "function");
+assert(typeof paginateListEntities === "function");
 console.log(`MarketplaceCatalog index test passed.`);

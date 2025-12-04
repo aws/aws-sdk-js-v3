@@ -1617,7 +1617,6 @@ import {
 import { SSMServiceException as __SSMServiceException } from "../models/SSMServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessKeySecretType: StaticSimpleSchema = [0, n0, _AKST, 8, 0];
 export var IPAddress: StaticSimpleSchema = [0, n0, _IPA, 8, 0];
 export var MaintenanceWindowDescription: StaticSimpleSchema = [0, n0, _MWD, 8, 0];
@@ -1629,18 +1628,8 @@ export var OwnerInformation: StaticSimpleSchema = [0, n0, _OI, 8, 0];
 export var PatchSourceConfiguration: StaticSimpleSchema = [0, n0, _PSC, 8, 0];
 export var PSParameterValue: StaticSimpleSchema = [0, n0, _PSPV, 8, 0];
 export var SessionTokenType: StaticSimpleSchema = [0, n0, _STT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountSharingInfo: StaticStructureSchema = [3, n0, _ASI, 0, [_AI, _SDV], [0, 0]];
 export var Activation: StaticStructureSchema = [
   3,
@@ -1659,28 +1648,20 @@ export var AlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`AlreadyExistsException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
 export var AssociatedInstances: StaticErrorSchema = [
   -3,
   n0,
   _AIs,
-  {
-    [_e]: _c,
-    [_aQE]: [`AssociatedInstances`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`AssociatedInstances`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(AssociatedInstances, __AssociatedInstances);
-
 export var AssociateOpsItemRelatedItemRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1716,15 +1697,11 @@ export var AssociationAlreadyExists: StaticErrorSchema = [
   -3,
   n0,
   _AAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AssociationAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`AssociationAlreadyExists`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(AssociationAlreadyExists, __AssociationAlreadyExists);
-
 export var AssociationDescription: StaticStructureSchema = [
   3,
   n0,
@@ -1797,15 +1774,11 @@ export var AssociationDoesNotExist: StaticErrorSchema = [
   -3,
   n0,
   _ADNE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AssociationDoesNotExist`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`AssociationDoesNotExist`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AssociationDoesNotExist, __AssociationDoesNotExist);
-
 export var AssociationExecution: StaticStructureSchema = [
   3,
   n0,
@@ -1818,15 +1791,11 @@ export var AssociationExecutionDoesNotExist: StaticErrorSchema = [
   -3,
   n0,
   _AEDNE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AssociationExecutionDoesNotExist`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`AssociationExecutionDoesNotExist`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AssociationExecutionDoesNotExist, __AssociationExecutionDoesNotExist);
-
 export var AssociationExecutionFilter: StaticStructureSchema = [3, n0, _AEF, 0, [_K, _V, _Ty], [0, 0, 0]];
 export var AssociationExecutionTarget: StaticStructureSchema = [
   3,
@@ -1842,15 +1811,11 @@ export var AssociationLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
   _ALE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AssociationLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`AssociationLimitExceeded`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(AssociationLimitExceeded, __AssociationLimitExceeded);
-
 export var AssociationOverview: StaticStructureSchema = [3, n0, _AO, 0, [_St, _DS, _ASAC], [0, 0, 128 | 1]];
 export var AssociationStatus: StaticStructureSchema = [3, n0, _AS, 0, [_Da, _N, _M, _AId], [4, 0, 0, 0]];
 export var AssociationVersionInfo: StaticStructureSchema = [
@@ -1886,15 +1851,11 @@ export var AssociationVersionLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
   _AVLE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AssociationVersionLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`AssociationVersionLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AssociationVersionLimitExceeded, __AssociationVersionLimitExceeded);
-
 export var AttachmentContent: StaticStructureSchema = [3, n0, _ACt, 0, [_N, _Si, _H, _HT, _U], [0, 1, 0, 0, 0]];
 export var AttachmentInformation: StaticStructureSchema = [3, n0, _AIt, 0, [_N], [0]];
 export var AttachmentsSource: StaticStructureSchema = [3, n0, _ASt, 0, [_K, _Va, _N], [0, 64 | 0, 0]];
@@ -1902,10 +1863,7 @@ export var AutomationDefinitionNotApprovedException: StaticErrorSchema = [
   -3,
   n0,
   _ADNAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AutomationDefinitionNotApproved`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`AutomationDefinitionNotApproved`, 400] },
   [_M],
   [0],
 ];
@@ -1913,28 +1871,20 @@ TypeRegistry.for(n0).registerError(
   AutomationDefinitionNotApprovedException,
   __AutomationDefinitionNotApprovedException
 );
-
 export var AutomationDefinitionNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _ADNFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AutomationDefinitionNotFound`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`AutomationDefinitionNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AutomationDefinitionNotFoundException, __AutomationDefinitionNotFoundException);
-
 export var AutomationDefinitionVersionNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _ADVNFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AutomationDefinitionVersionNotFound`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`AutomationDefinitionVersionNotFound`, 404] },
   [_M],
   [0],
 ];
@@ -1942,7 +1892,6 @@ TypeRegistry.for(n0).registerError(
   AutomationDefinitionVersionNotFoundException,
   __AutomationDefinitionVersionNotFoundException
 );
-
 export var AutomationExecution: StaticStructureSchema = [
   3,
   n0,
@@ -2043,10 +1992,7 @@ export var AutomationExecutionLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _AELEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AutomationExecutionLimitExceeded`, 429],
-  },
+  { [_e]: _c, [_aQE]: [`AutomationExecutionLimitExceeded`, 429] },
   [_M],
   [0],
 ];
@@ -2054,7 +2000,6 @@ TypeRegistry.for(n0).registerError(
   AutomationExecutionLimitExceededException,
   __AutomationExecutionLimitExceededException
 );
-
 export var AutomationExecutionMetadata: StaticStructureSchema = [
   3,
   n0,
@@ -2131,15 +2076,11 @@ export var AutomationExecutionNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _AENFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AutomationExecutionNotFound`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`AutomationExecutionNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AutomationExecutionNotFoundException, __AutomationExecutionNotFoundException);
-
 export var AutomationExecutionPreview: StaticStructureSchema = [
   3,
   n0,
@@ -2152,15 +2093,11 @@ export var AutomationStepNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _ASNFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`AutomationStepNotFoundException`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`AutomationStepNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AutomationStepNotFoundException, __AutomationStepNotFoundException);
-
 export var BaselineOverride: StaticStructureSchema = [
   3,
   n0,
@@ -2307,10 +2244,7 @@ export var ComplianceTypeCountLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _CTCLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ComplianceTypeCountLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ComplianceTypeCountLimitExceeded`, 400] },
   [_M],
   [0],
 ];
@@ -2318,7 +2252,6 @@ TypeRegistry.for(n0).registerError(
   ComplianceTypeCountLimitExceededException,
   __ComplianceTypeCountLimitExceededException
 );
-
 export var CompliantSummary: StaticStructureSchema = [3, n0, _CSo, 0, [_CCo, _SS], [1, () => SeveritySummary]];
 export var CreateActivationRequest: StaticStructureSchema = [
   3,
@@ -2513,15 +2446,11 @@ export var CustomSchemaCountLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _CSCLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`CustomSchemaCountLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`CustomSchemaCountLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CustomSchemaCountLimitExceededException, __CustomSchemaCountLimitExceededException);
-
 export var DeleteActivationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_AIc], [0]];
 export var DeleteActivationResult: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
 export var DeleteAssociationRequest: StaticStructureSchema = [3, n0, _DARel, 0, [_N, _II, _AIss], [0, 0, 0]];
@@ -3096,15 +3025,11 @@ export var DocumentAlreadyExists: StaticErrorSchema = [
   -3,
   n0,
   _DAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`DocumentAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`DocumentAlreadyExists`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DocumentAlreadyExists, __DocumentAlreadyExists);
-
 export var DocumentDefaultVersionDescription: StaticStructureSchema = [3, n0, _DDVD, 0, [_N, _DVe, _DVN], [0, 0, 0]];
 export var DocumentDescription: StaticStructureSchema = [
   3,
@@ -3190,15 +3115,11 @@ export var DocumentLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
   _DLE,
-  {
-    [_e]: _c,
-    [_aQE]: [`DocumentLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`DocumentLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DocumentLimitExceeded, __DocumentLimitExceeded);
-
 export var DocumentMetadataResponseInfo: StaticStructureSchema = [
   3,
   n0,
@@ -3212,15 +3133,11 @@ export var DocumentPermissionLimit: StaticErrorSchema = [
   -3,
   n0,
   _DPL,
-  {
-    [_e]: _c,
-    [_aQE]: [`DocumentPermissionLimit`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`DocumentPermissionLimit`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DocumentPermissionLimit, __DocumentPermissionLimit);
-
 export var DocumentRequires: StaticStructureSchema = [3, n0, _DRo, 0, [_N, _Ve, _RTeq, _VN], [0, 0, 0, 0]];
 export var DocumentReviewCommentSource: StaticStructureSchema = [3, n0, _DRCS, 0, [_Ty, _Con], [0, 0]];
 export var DocumentReviewerResponseSource: StaticStructureSchema = [
@@ -3244,67 +3161,47 @@ export var DocumentVersionLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
   _DVLE,
-  {
-    [_e]: _c,
-    [_aQE]: [`DocumentVersionLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`DocumentVersionLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DocumentVersionLimitExceeded, __DocumentVersionLimitExceeded);
-
 export var DoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _DNEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`DoesNotExistException`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`DoesNotExistException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DoesNotExistException, __DoesNotExistException);
-
 export var DuplicateDocumentContent: StaticErrorSchema = [
   -3,
   n0,
   _DDC,
-  {
-    [_e]: _c,
-    [_aQE]: [`DuplicateDocumentContent`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`DuplicateDocumentContent`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DuplicateDocumentContent, __DuplicateDocumentContent);
-
 export var DuplicateDocumentVersionName: StaticErrorSchema = [
   -3,
   n0,
   _DDVN,
-  {
-    [_e]: _c,
-    [_aQE]: [`DuplicateDocumentVersionName`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`DuplicateDocumentVersionName`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DuplicateDocumentVersionName, __DuplicateDocumentVersionName);
-
 export var DuplicateInstanceId: StaticErrorSchema = [
   -3,
   n0,
   _DII,
-  {
-    [_e]: _c,
-    [_aQE]: [`DuplicateInstanceId`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`DuplicateInstanceId`, 404] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(DuplicateInstanceId, __DuplicateInstanceId);
-
 export var EffectivePatch: StaticStructureSchema = [3, n0, _EPf, 0, [_Pat, _PSa], [() => Patch, () => PatchStatus]];
 export var FailedCreateAssociation: StaticStructureSchema = [
   3,
@@ -3326,15 +3223,11 @@ export var FeatureNotAvailableException: StaticErrorSchema = [
   -3,
   n0,
   _FNAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`FeatureNotAvailableException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`FeatureNotAvailableException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(FeatureNotAvailableException, __FeatureNotAvailableException);
-
 export var GetAccessTokenRequest: StaticStructureSchema = [3, n0, _GATR, 0, [_ARI], [0]];
 export var GetAccessTokenResponse: StaticStructureSchema = [3, n0, _GATRe, 0, [_Cr, _ARS], [[() => Credentials, 0], 0]];
 export var GetAutomationExecutionRequest: StaticStructureSchema = [3, n0, _GAER, 0, [_AEI], [0]];
@@ -3625,54 +3518,38 @@ export var HierarchyLevelLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _HLLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`HierarchyLevelLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`HierarchyLevelLimitExceededException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(HierarchyLevelLimitExceededException, __HierarchyLevelLimitExceededException);
-
 export var HierarchyTypeMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _HTME,
-  {
-    [_e]: _c,
-    [_aQE]: [`HierarchyTypeMismatchException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`HierarchyTypeMismatchException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(HierarchyTypeMismatchException, __HierarchyTypeMismatchException);
-
 export var IdempotentParameterMismatch: StaticErrorSchema = [
   -3,
   n0,
   _IPM,
-  {
-    [_e]: _c,
-    [_aQE]: [`IdempotentParameterMismatch`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`IdempotentParameterMismatch`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatch, __IdempotentParameterMismatch);
-
 export var IncompatiblePolicyException: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  {
-    [_e]: _c,
-    [_aQE]: [`IncompatiblePolicyException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`IncompatiblePolicyException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IncompatiblePolicyException, __IncompatiblePolicyException);
-
 export var InstanceAggregatedAssociationOverview: StaticStructureSchema = [
   3,
   n0,
@@ -3890,101 +3767,70 @@ export var InternalServerError: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_aQE]: [`InternalServerError`, 500],
-  },
+  { [_e]: _s, [_aQE]: [`InternalServerError`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
 export var InvalidActivation: StaticErrorSchema = [
   -3,
   n0,
   _IAn,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidActivation`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidActivation`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidActivation, __InvalidActivation);
-
 export var InvalidActivationId: StaticErrorSchema = [
   -3,
   n0,
   _IAI,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidActivationId`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidActivationId`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidActivationId, __InvalidActivationId);
-
 export var InvalidAggregatorException: StaticErrorSchema = [
   -3,
   n0,
   _IAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidAggregator`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidAggregator`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAggregatorException, __InvalidAggregatorException);
-
 export var InvalidAllowedPatternException: StaticErrorSchema = [
   -3,
   n0,
   _IAPE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidAllowedPatternException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidAllowedPatternException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAllowedPatternException, __InvalidAllowedPatternException);
-
 export var InvalidAssociation: StaticErrorSchema = [
   -3,
   n0,
   _IAnv,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidAssociation`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidAssociation`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAssociation, __InvalidAssociation);
-
 export var InvalidAssociationVersion: StaticErrorSchema = [
   -3,
   n0,
   _IAV,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidAssociationVersion`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidAssociationVersion`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAssociationVersion, __InvalidAssociationVersion);
-
 export var InvalidAutomationExecutionParametersException: StaticErrorSchema = [
   -3,
   n0,
   _IAEPE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidAutomationExecutionParameters`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidAutomationExecutionParameters`, 400] },
   [_M],
   [0],
 ];
@@ -3992,54 +3838,38 @@ TypeRegistry.for(n0).registerError(
   InvalidAutomationExecutionParametersException,
   __InvalidAutomationExecutionParametersException
 );
-
 export var InvalidAutomationSignalException: StaticErrorSchema = [
   -3,
   n0,
   _IASE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidAutomationSignalException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidAutomationSignalException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAutomationSignalException, __InvalidAutomationSignalException);
-
 export var InvalidAutomationStatusUpdateException: StaticErrorSchema = [
   -3,
   n0,
   _IASUE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidAutomationStatusUpdateException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidAutomationStatusUpdateException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAutomationStatusUpdateException, __InvalidAutomationStatusUpdateException);
-
 export var InvalidCommandId: StaticErrorSchema = [
   -3,
   n0,
   _ICI,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidCommandId`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidCommandId`, 404] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvalidCommandId, __InvalidCommandId);
-
 export var InvalidDeleteInventoryParametersException: StaticErrorSchema = [
   -3,
   n0,
   _IDIPE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDeleteInventoryParameters`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDeleteInventoryParameters`, 400] },
   [_M],
   [0],
 ];
@@ -4047,514 +3877,315 @@ TypeRegistry.for(n0).registerError(
   InvalidDeleteInventoryParametersException,
   __InvalidDeleteInventoryParametersException
 );
-
 export var InvalidDeletionIdException: StaticErrorSchema = [
   -3,
   n0,
   _IDIE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDeletionId`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDeletionId`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDeletionIdException, __InvalidDeletionIdException);
-
 export var InvalidDocument: StaticErrorSchema = [
   -3,
   n0,
   _IDn,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDocument`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDocument`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDocument, __InvalidDocument);
-
 export var InvalidDocumentContent: StaticErrorSchema = [
   -3,
   n0,
   _IDC,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDocumentContent`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDocumentContent`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDocumentContent, __InvalidDocumentContent);
-
 export var InvalidDocumentOperation: StaticErrorSchema = [
   -3,
   n0,
   _IDO,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDocumentOperation`, 403],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDocumentOperation`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDocumentOperation, __InvalidDocumentOperation);
-
 export var InvalidDocumentSchemaVersion: StaticErrorSchema = [
   -3,
   n0,
   _IDSV,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDocumentSchemaVersion`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDocumentSchemaVersion`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDocumentSchemaVersion, __InvalidDocumentSchemaVersion);
-
 export var InvalidDocumentType: StaticErrorSchema = [
   -3,
   n0,
   _IDT,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDocumentType`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDocumentType`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDocumentType, __InvalidDocumentType);
-
 export var InvalidDocumentVersion: StaticErrorSchema = [
   -3,
   n0,
   _IDVn,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidDocumentVersion`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidDocumentVersion`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDocumentVersion, __InvalidDocumentVersion);
-
-export var InvalidFilter: StaticErrorSchema = [
-  -3,
-  n0,
-  _IF,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidFilter`, 441],
-  },
-  [_M],
-  [0],
-];
+export var InvalidFilter: StaticErrorSchema = [-3, n0, _IF, { [_e]: _c, [_aQE]: [`InvalidFilter`, 441] }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidFilter, __InvalidFilter);
-
 export var InvalidFilterKey: StaticErrorSchema = [
   -3,
   n0,
   _IFK,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidFilterKey`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidFilterKey`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvalidFilterKey, __InvalidFilterKey);
-
 export var InvalidFilterOption: StaticErrorSchema = [
   -3,
   n0,
   _IFO,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidFilterOption`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidFilterOption`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidFilterOption, __InvalidFilterOption);
-
 export var InvalidFilterValue: StaticErrorSchema = [
   -3,
   n0,
   _IFV,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidFilterValue`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidFilterValue`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidFilterValue, __InvalidFilterValue);
-
 export var InvalidInstanceId: StaticErrorSchema = [
   -3,
   n0,
   _III,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidInstanceId`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidInstanceId`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInstanceId, __InvalidInstanceId);
-
 export var InvalidInstanceInformationFilterValue: StaticErrorSchema = [
   -3,
   n0,
   _IIIFV,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidInstanceInformationFilterValue`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidInstanceInformationFilterValue`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInstanceInformationFilterValue, __InvalidInstanceInformationFilterValue);
-
 export var InvalidInstancePropertyFilterValue: StaticErrorSchema = [
   -3,
   n0,
   _IIPFV,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidInstancePropertyFilterValue`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidInstancePropertyFilterValue`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInstancePropertyFilterValue, __InvalidInstancePropertyFilterValue);
-
 export var InvalidInventoryGroupException: StaticErrorSchema = [
   -3,
   n0,
   _IIGE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidInventoryGroup`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidInventoryGroup`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInventoryGroupException, __InvalidInventoryGroupException);
-
 export var InvalidInventoryItemContextException: StaticErrorSchema = [
   -3,
   n0,
   _IIICE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidInventoryItemContext`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidInventoryItemContext`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInventoryItemContextException, __InvalidInventoryItemContextException);
-
 export var InvalidInventoryRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IIRE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidInventoryRequest`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidInventoryRequest`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidInventoryRequestException, __InvalidInventoryRequestException);
-
 export var InvalidItemContentException: StaticErrorSchema = [
   -3,
   n0,
   _IICE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidItemContent`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidItemContent`, 400] },
   [_TN, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidItemContentException, __InvalidItemContentException);
-
-export var InvalidKeyId: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKI,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidKeyId`, 400],
-  },
-  [_m],
-  [0],
-];
+export var InvalidKeyId: StaticErrorSchema = [-3, n0, _IKI, { [_e]: _c, [_aQE]: [`InvalidKeyId`, 400] }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidKeyId, __InvalidKeyId);
-
 export var InvalidNextToken: StaticErrorSchema = [
   -3,
   n0,
   _INT,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidNextToken`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidNextToken`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNextToken, __InvalidNextToken);
-
 export var InvalidNotificationConfig: StaticErrorSchema = [
   -3,
   n0,
   _INC,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidNotificationConfig`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidNotificationConfig`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNotificationConfig, __InvalidNotificationConfig);
-
 export var InvalidOptionException: StaticErrorSchema = [
   -3,
   n0,
   _IOE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidOption`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidOption`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidOptionException, __InvalidOptionException);
-
 export var InvalidOutputFolder: StaticErrorSchema = [
   -3,
   n0,
   _IOF,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidOutputFolder`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidOutputFolder`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvalidOutputFolder, __InvalidOutputFolder);
-
 export var InvalidOutputLocation: StaticErrorSchema = [
   -3,
   n0,
   _IOLn,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidOutputLocation`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidOutputLocation`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvalidOutputLocation, __InvalidOutputLocation);
-
 export var InvalidParameters: StaticErrorSchema = [
   -3,
   n0,
   _IP,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidParameters`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidParameters`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameters, __InvalidParameters);
-
 export var InvalidPermissionType: StaticErrorSchema = [
   -3,
   n0,
   _IPT,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidPermissionType`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidPermissionType`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidPermissionType, __InvalidPermissionType);
-
 export var InvalidPluginName: StaticErrorSchema = [
   -3,
   n0,
   _IPN,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidPluginName`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidPluginName`, 404] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvalidPluginName, __InvalidPluginName);
-
 export var InvalidPolicyAttributeException: StaticErrorSchema = [
   -3,
   n0,
   _IPAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidPolicyAttributeException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidPolicyAttributeException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyAttributeException, __InvalidPolicyAttributeException);
-
 export var InvalidPolicyTypeException: StaticErrorSchema = [
   -3,
   n0,
   _IPTE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidPolicyTypeException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidPolicyTypeException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyTypeException, __InvalidPolicyTypeException);
-
 export var InvalidResourceId: StaticErrorSchema = [
   -3,
   n0,
   _IRI,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidResourceId`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidResourceId`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvalidResourceId, __InvalidResourceId);
-
 export var InvalidResourceType: StaticErrorSchema = [
   -3,
   n0,
   _IRT,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidResourceType`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidResourceType`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvalidResourceType, __InvalidResourceType);
-
 export var InvalidResultAttributeException: StaticErrorSchema = [
   -3,
   n0,
   _IRAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidResultAttribute`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidResultAttribute`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidResultAttributeException, __InvalidResultAttributeException);
-
-export var InvalidRole: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRnv,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidRole`, 400],
-  },
-  [_M],
-  [0],
-];
+export var InvalidRole: StaticErrorSchema = [-3, n0, _IRnv, { [_e]: _c, [_aQE]: [`InvalidRole`, 400] }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRole, __InvalidRole);
-
 export var InvalidSchedule: StaticErrorSchema = [
   -3,
   n0,
   _ISnv,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidSchedule`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidSchedule`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSchedule, __InvalidSchedule);
-
-export var InvalidTag: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITn,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidTag`, 400],
-  },
-  [_M],
-  [0],
-];
+export var InvalidTag: StaticErrorSchema = [-3, n0, _ITn, { [_e]: _c, [_aQE]: [`InvalidTag`, 400] }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidTag, __InvalidTag);
-
-export var InvalidTarget: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITnv,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidTarget`, 400],
-  },
-  [_M],
-  [0],
-];
+export var InvalidTarget: StaticErrorSchema = [-3, n0, _ITnv, { [_e]: _c, [_aQE]: [`InvalidTarget`, 400] }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidTarget, __InvalidTarget);
-
 export var InvalidTargetMaps: StaticErrorSchema = [
   -3,
   n0,
   _ITM,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidTargetMaps`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidTargetMaps`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTargetMaps, __InvalidTargetMaps);
-
 export var InvalidTypeNameException: StaticErrorSchema = [
   -3,
   n0,
   _ITNE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidTypeName`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvalidTypeName`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTypeNameException, __InvalidTypeNameException);
-
-export var InvalidUpdate: StaticErrorSchema = [
-  -3,
-  n0,
-  _IU,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvalidUpdate`, 400],
-  },
-  [_M],
-  [0],
-];
+export var InvalidUpdate: StaticErrorSchema = [-3, n0, _IU, { [_e]: _c, [_aQE]: [`InvalidUpdate`, 400] }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidUpdate, __InvalidUpdate);
-
 export var InventoryAggregator: StaticStructureSchema = [
   3,
   n0,
@@ -4626,41 +4257,29 @@ export var InvocationDoesNotExist: StaticErrorSchema = [
   -3,
   n0,
   _IDNE,
-  {
-    [_e]: _c,
-    [_aQE]: [`InvocationDoesNotExist`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`InvocationDoesNotExist`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(InvocationDoesNotExist, __InvocationDoesNotExist);
-
 export var ItemContentMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _ICME,
-  {
-    [_e]: _c,
-    [_aQE]: [`ItemContentMismatch`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ItemContentMismatch`, 400] },
   [_TN, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ItemContentMismatchException, __ItemContentMismatchException);
-
 export var ItemSizeLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _ISLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ItemSizeLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ItemSizeLimitExceeded`, 400] },
   [_TN, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ItemSizeLimitExceededException, __ItemSizeLimitExceededException);
-
 export var LabelParameterVersionRequest: StaticStructureSchema = [3, n0, _LPVR, 0, [_N, _PVa, _L], [0, 1, 64 | 0]];
 export var LabelParameterVersionResult: StaticStructureSchema = [3, n0, _LPVRa, 0, [_IL, _PVa], [64 | 0, 1]];
 export var ListAssociationsRequest: StaticStructureSchema = [
@@ -5032,10 +4651,7 @@ export var MalformedResourcePolicyDocumentException: StaticErrorSchema = [
   -3,
   n0,
   _MRPDE,
-  {
-    [_e]: _c,
-    [_aQE]: [`MalformedResourcePolicyDocumentException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`MalformedResourcePolicyDocumentException`, 400] },
   [_M],
   [0],
 ];
@@ -5043,20 +4659,15 @@ TypeRegistry.for(n0).registerError(
   MalformedResourcePolicyDocumentException,
   __MalformedResourcePolicyDocumentException
 );
-
 export var MaxDocumentSizeExceeded: StaticErrorSchema = [
   -3,
   n0,
   _MDSE,
-  {
-    [_e]: _c,
-    [_aQE]: [`MaxDocumentSizeExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`MaxDocumentSizeExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MaxDocumentSizeExceeded, __MaxDocumentSizeExceeded);
-
 export var MetadataValue: StaticStructureSchema = [3, n0, _MV, 0, [_V], [0]];
 export var ModifyDocumentPermissionRequest: StaticStructureSchema = [
   3,
@@ -5089,15 +4700,11 @@ export var NoLongerSupportedException: StaticErrorSchema = [
   -3,
   n0,
   _NLSE,
-  {
-    [_e]: _c,
-    [_aQE]: [`NoLongerSupported`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`NoLongerSupported`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NoLongerSupportedException, __NoLongerSupportedException);
-
 export var NonCompliantSummary: StaticStructureSchema = [3, n0, _NCS, 0, [_NCC, _SS], [1, () => SeveritySummary]];
 export var NotificationConfig: StaticStructureSchema = [3, n0, _NC, 0, [_NAo, _NE, _NTot], [0, 64 | 0, 0]];
 export var OpsAggregator: StaticStructureSchema = [
@@ -5169,41 +4776,29 @@ export var OpsItemAccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _OIADE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemAccessDeniedException`, 403],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemAccessDeniedException`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsItemAccessDeniedException, __OpsItemAccessDeniedException);
-
 export var OpsItemAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _OIAEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemAlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemAlreadyExistsException`, 400] },
   [_M, _OII],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(OpsItemAlreadyExistsException, __OpsItemAlreadyExistsException);
-
 export var OpsItemConflictException: StaticErrorSchema = [
   -3,
   n0,
   _OICE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemConflictException`, 409],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemConflictException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsItemConflictException, __OpsItemConflictException);
-
 export var OpsItemDataValue: StaticStructureSchema = [3, n0, _OIDV, 0, [_V, _Ty], [0, 0]];
 export var OpsItemEventFilter: StaticStructureSchema = [3, n0, _OIEF, 0, [_K, _Va, _Ope], [0, 64 | 0, 0]];
 export var OpsItemEventSummary: StaticStructureSchema = [
@@ -5220,50 +4815,35 @@ export var OpsItemInvalidParameterException: StaticErrorSchema = [
   -3,
   n0,
   _OIIPE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemInvalidParameterException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemInvalidParameterException`, 400] },
   [_PNa, _M],
   [64 | 0, 0],
 ];
 TypeRegistry.for(n0).registerError(OpsItemInvalidParameterException, __OpsItemInvalidParameterException);
-
 export var OpsItemLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _OILEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemLimitExceededException`, 400] },
   [_RTes, _Li, _LTi, _M],
   [64 | 0, 1, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(OpsItemLimitExceededException, __OpsItemLimitExceededException);
-
 export var OpsItemNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _OINFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemNotFoundException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemNotFoundException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsItemNotFoundException, __OpsItemNotFoundException);
-
 export var OpsItemNotification: StaticStructureSchema = [3, n0, _OIN, 0, [_Arn], [0]];
 export var OpsItemRelatedItemAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _OIRIAEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemRelatedItemAlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemRelatedItemAlreadyExistsException`, 400] },
   [_M, _RU, _OII],
   [0, 0, 0],
 ];
@@ -5271,15 +4851,11 @@ TypeRegistry.for(n0).registerError(
   OpsItemRelatedItemAlreadyExistsException,
   __OpsItemRelatedItemAlreadyExistsException
 );
-
 export var OpsItemRelatedItemAssociationNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _OIRIANFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsItemRelatedItemAssociationNotFoundException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsItemRelatedItemAssociationNotFoundException`, 400] },
   [_M],
   [0],
 ];
@@ -5287,7 +4863,6 @@ TypeRegistry.for(n0).registerError(
   OpsItemRelatedItemAssociationNotFoundException,
   __OpsItemRelatedItemAssociationNotFoundException
 );
-
 export var OpsItemRelatedItemsFilter: StaticStructureSchema = [3, n0, _OIRIF, 0, [_K, _Va, _Ope], [0, 64 | 0, 0]];
 export var OpsItemRelatedItemSummary: StaticStructureSchema = [
   3,
@@ -5310,81 +4885,57 @@ export var OpsMetadataAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _OMAEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsMetadataAlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsMetadataAlreadyExistsException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsMetadataAlreadyExistsException, __OpsMetadataAlreadyExistsException);
-
 export var OpsMetadataFilter: StaticStructureSchema = [3, n0, _OMF, 0, [_K, _Va], [0, 64 | 0]];
 export var OpsMetadataInvalidArgumentException: StaticErrorSchema = [
   -3,
   n0,
   _OMIAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsMetadataInvalidArgumentException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`OpsMetadataInvalidArgumentException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsMetadataInvalidArgumentException, __OpsMetadataInvalidArgumentException);
-
 export var OpsMetadataKeyLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _OMKLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsMetadataKeyLimitExceededException`, 429],
-  },
+  { [_e]: _c, [_aQE]: [`OpsMetadataKeyLimitExceededException`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsMetadataKeyLimitExceededException, __OpsMetadataKeyLimitExceededException);
-
 export var OpsMetadataLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _OMLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsMetadataLimitExceededException`, 429],
-  },
+  { [_e]: _c, [_aQE]: [`OpsMetadataLimitExceededException`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsMetadataLimitExceededException, __OpsMetadataLimitExceededException);
-
 export var OpsMetadataNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _OMNFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsMetadataNotFoundException`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`OpsMetadataNotFoundException`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsMetadataNotFoundException, __OpsMetadataNotFoundException);
-
 export var OpsMetadataTooManyUpdatesException: StaticErrorSchema = [
   -3,
   n0,
   _OMTMUE,
-  {
-    [_e]: _c,
-    [_aQE]: [`OpsMetadataTooManyUpdatesException`, 429],
-  },
+  { [_e]: _c, [_aQE]: [`OpsMetadataTooManyUpdatesException`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OpsMetadataTooManyUpdatesException, __OpsMetadataTooManyUpdatesException);
-
 export var OpsResultAttribute: StaticStructureSchema = [3, n0, _ORA, 0, [_TN], [0]];
 export var OutputSource: StaticStructureSchema = [3, n0, _OS, 0, [_OSI, _OSTu], [0, 0]];
 export var Parameter: StaticStructureSchema = [
@@ -5399,15 +4950,11 @@ export var ParameterAlreadyExists: StaticErrorSchema = [
   -3,
   n0,
   _PAE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ParameterAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ParameterAlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterAlreadyExists, __ParameterAlreadyExists);
-
 export var ParameterHistory: StaticStructureSchema = [
   3,
   n0,
@@ -5421,28 +4968,20 @@ export var ParameterLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
   _PLE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ParameterLimitExceeded`, 429],
-  },
+  { [_e]: _c, [_aQE]: [`ParameterLimitExceeded`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterLimitExceeded, __ParameterLimitExceeded);
-
 export var ParameterMaxVersionLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
   _PMVLE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ParameterMaxVersionLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ParameterMaxVersionLimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterMaxVersionLimitExceeded, __ParameterMaxVersionLimitExceeded);
-
 export var ParameterMetadata: StaticStructureSchema = [
   3,
   n0,
@@ -5455,56 +4994,40 @@ export var ParameterNotFound: StaticErrorSchema = [
   -3,
   n0,
   _PNF,
-  {
-    [_e]: _c,
-    [_aQE]: [`ParameterNotFound`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`ParameterNotFound`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterNotFound, __ParameterNotFound);
-
 export var ParameterPatternMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _PPME,
-  {
-    [_e]: _c,
-    [_aQE]: [`ParameterPatternMismatchException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ParameterPatternMismatchException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterPatternMismatchException, __ParameterPatternMismatchException);
-
 export var ParametersFilter: StaticStructureSchema = [3, n0, _PFa, 0, [_K, _Va], [0, 64 | 0]];
 export var ParameterStringFilter: StaticStructureSchema = [3, n0, _PSF, 0, [_K, _Opt, _Va], [0, 0, 64 | 0]];
 export var ParameterVersionLabelLimitExceeded: StaticErrorSchema = [
   -3,
   n0,
   _PVLLE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ParameterVersionLabelLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ParameterVersionLabelLimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterVersionLabelLimitExceeded, __ParameterVersionLabelLimitExceeded);
-
 export var ParameterVersionNotFound: StaticErrorSchema = [
   -3,
   n0,
   _PVNF,
-  {
-    [_e]: _c,
-    [_aQE]: [`ParameterVersionNotFound`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ParameterVersionNotFound`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ParameterVersionNotFound, __ParameterVersionNotFound);
-
 export var ParentStepDetails: StaticStructureSchema = [3, n0, _PSD, 0, [_SEI, _SNt, _Ac, _It, _IV], [0, 0, 0, 1, 0]];
 export var Patch: StaticStructureSchema = [
   3,
@@ -5580,15 +5103,11 @@ export var PoliciesLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _PLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`PoliciesLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`PoliciesLimitExceededException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PoliciesLimitExceededException, __PoliciesLimitExceededException);
-
 export var ProgressCounters: StaticStructureSchema = [3, n0, _PC, 0, [_TSo, _SSu, _FSa, _CSa, _TOS], [1, 1, 1, 1, 1]];
 export var PutComplianceItemsRequest: StaticStructureSchema = [
   3,
@@ -5677,15 +5196,11 @@ export var ResourceDataSyncAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _RDSAEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceDataSyncAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceDataSyncAlreadyExists`, 400] },
   [_SN],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceDataSyncAlreadyExistsException, __ResourceDataSyncAlreadyExistsException);
-
 export var ResourceDataSyncAwsOrganizationsSource: StaticStructureSchema = [
   3,
   n0,
@@ -5698,37 +5213,26 @@ export var ResourceDataSyncConflictException: StaticErrorSchema = [
   -3,
   n0,
   _RDSCE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceDataSyncConflictException`, 409],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceDataSyncConflictException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceDataSyncConflictException, __ResourceDataSyncConflictException);
-
 export var ResourceDataSyncCountExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RDSCEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceDataSyncCountExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceDataSyncCountExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceDataSyncCountExceededException, __ResourceDataSyncCountExceededException);
-
 export var ResourceDataSyncDestinationDataSharing: StaticStructureSchema = [3, n0, _RDSDDS, 0, [_DDST], [0]];
 export var ResourceDataSyncInvalidConfigurationException: StaticErrorSchema = [
   -3,
   n0,
   _RDSICE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceDataSyncInvalidConfiguration`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceDataSyncInvalidConfiguration`, 400] },
   [_M],
   [0],
 ];
@@ -5736,7 +5240,6 @@ TypeRegistry.for(n0).registerError(
   ResourceDataSyncInvalidConfigurationException,
   __ResourceDataSyncInvalidConfigurationException
 );
-
 export var ResourceDataSyncItem: StaticStructureSchema = [
   3,
   n0,
@@ -5749,15 +5252,11 @@ export var ResourceDataSyncNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RDSNFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceDataSyncNotFound`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceDataSyncNotFound`, 404] },
   [_SN, _STy, _M],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceDataSyncNotFoundException, __ResourceDataSyncNotFoundException);
-
 export var ResourceDataSyncOrganizationalUnit: StaticStructureSchema = [3, n0, _RDSOU, 0, [_OUI], [0]];
 export var ResourceDataSyncS3Destination: StaticStructureSchema = [
   3,
@@ -5787,93 +5286,65 @@ export var ResourceInUseException: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceInUseException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceInUseException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
 export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceLimitExceededException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePolicyConflictException: StaticErrorSchema = [
   -3,
   n0,
   _RPCE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourcePolicyConflictException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourcePolicyConflictException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourcePolicyConflictException, __ResourcePolicyConflictException);
-
 export var ResourcePolicyInvalidParameterException: StaticErrorSchema = [
   -3,
   n0,
   _RPIPE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourcePolicyInvalidParameterException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourcePolicyInvalidParameterException`, 400] },
   [_PNa, _M],
   [64 | 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourcePolicyInvalidParameterException, __ResourcePolicyInvalidParameterException);
-
 export var ResourcePolicyLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RPLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourcePolicyLimitExceededException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ResourcePolicyLimitExceededException`, 400] },
   [_Li, _LTi, _M],
   [1, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourcePolicyLimitExceededException, __ResourcePolicyLimitExceededException);
-
 export var ResourcePolicyNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RPNFE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ResourcePolicyNotFoundException`, 404],
-  },
+  { [_e]: _c, [_aQE]: [`ResourcePolicyNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourcePolicyNotFoundException, __ResourcePolicyNotFoundException);
-
 export var ResultAttribute: StaticStructureSchema = [3, n0, _RAes, 0, [_TN], [0]];
 export var ResumeSessionRequest: StaticStructureSchema = [3, n0, _RSR, 0, [_SIes], [0]];
 export var ResumeSessionResponse: StaticStructureSchema = [3, n0, _RSRe, 0, [_SIes, _TV, _SU], [0, 0, 0]];
@@ -5940,14 +5411,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_M, _RI, _RT, _QC, _SCe],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceSetting: StaticStructureSchema = [
   3,
   n0,
@@ -5960,15 +5428,11 @@ export var ServiceSettingNotFound: StaticErrorSchema = [
   -3,
   n0,
   _SSNF,
-  {
-    [_e]: _c,
-    [_aQE]: [`ServiceSettingNotFound`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ServiceSettingNotFound`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceSettingNotFound, __ServiceSettingNotFound);
-
 export var Session: StaticStructureSchema = [
   3,
   n0,
@@ -6049,19 +5513,8 @@ export var StartSessionRequest: StaticStructureSchema = [
   [0, 0, 0, [2, n0, _SMP, 0, 0, 64 | 0]],
 ];
 export var StartSessionResponse: StaticStructureSchema = [3, n0, _SSRt, 0, [_SIes, _TV, _SU], [0, 0, 0]];
-export var StatusUnchanged: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUt,
-  {
-    [_e]: _c,
-    [_aQE]: [`StatusUnchanged`, 400],
-  },
-  [],
-  [],
-];
+export var StatusUnchanged: StaticErrorSchema = [-3, n0, _SUt, { [_e]: _c, [_aQE]: [`StatusUnchanged`, 400] }, [], []];
 TypeRegistry.for(n0).registerError(StatusUnchanged, __StatusUnchanged);
-
 export var StepExecution: StaticStructureSchema = [
   3,
   n0,
@@ -6127,30 +5580,22 @@ export var SubTypeCountLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _STCLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`SubTypeCountLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`SubTypeCountLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SubTypeCountLimitExceededException, __SubTypeCountLimitExceededException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var Target: StaticStructureSchema = [3, n0, _Tar, 0, [_K, _Va], [0, 64 | 0]];
 export var TargetInUseException: StaticErrorSchema = [
   -3,
   n0,
   _TIUE,
-  {
-    [_e]: _c,
-    [_aQE]: [`TargetInUseException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`TargetInUseException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TargetInUseException, __TargetInUseException);
-
 export var TargetLocation: StaticStructureSchema = [
   3,
   n0,
@@ -6163,105 +5608,61 @@ export var TargetNotConnected: StaticErrorSchema = [
   -3,
   n0,
   _TNC,
-  {
-    [_e]: _c,
-    [_aQE]: [`TargetNotConnected`, 430],
-  },
+  { [_e]: _c, [_aQE]: [`TargetNotConnected`, 430] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TargetNotConnected, __TargetNotConnected);
-
 export var TargetPreview: StaticStructureSchema = [3, n0, _TPar, 0, [_Cou, _TT], [1, 0]];
 export var TerminateSessionRequest: StaticStructureSchema = [3, n0, _TSR, 0, [_SIes], [0]];
 export var TerminateSessionResponse: StaticStructureSchema = [3, n0, _TSRe, 0, [_SIes], [0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_M, _QC, _SCe],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M, _QC, _SCe], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TooManyTagsError: StaticErrorSchema = [
   -3,
   n0,
   _TMTE,
-  {
-    [_e]: _c,
-    [_aQE]: [`TooManyTagsError`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`TooManyTagsError`, 400] },
   [],
   [],
 ];
 TypeRegistry.for(n0).registerError(TooManyTagsError, __TooManyTagsError);
-
-export var TooManyUpdates: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMU,
-  {
-    [_e]: _c,
-    [_aQE]: [`TooManyUpdates`, 429],
-  },
-  [_M],
-  [0],
-];
+export var TooManyUpdates: StaticErrorSchema = [-3, n0, _TMU, { [_e]: _c, [_aQE]: [`TooManyUpdates`, 429] }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyUpdates, __TooManyUpdates);
-
 export var TotalSizeLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _TSLEE,
-  {
-    [_e]: _c,
-    [_aQE]: [`TotalSizeLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`TotalSizeLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TotalSizeLimitExceededException, __TotalSizeLimitExceededException);
-
 export var UnlabelParameterVersionRequest: StaticStructureSchema = [3, n0, _UPVR, 0, [_N, _PVa, _L], [0, 1, 64 | 0]];
 export var UnlabelParameterVersionResult: StaticStructureSchema = [3, n0, _UPVRn, 0, [_RLe, _IL], [64 | 0, 64 | 0]];
 export var UnsupportedCalendarException: StaticErrorSchema = [
   -3,
   n0,
   _UCE,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedCalendarException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedCalendarException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedCalendarException, __UnsupportedCalendarException);
-
 export var UnsupportedFeatureRequiredException: StaticErrorSchema = [
   -3,
   n0,
   _UFRE,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedFeatureRequiredException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedFeatureRequiredException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedFeatureRequiredException, __UnsupportedFeatureRequiredException);
-
 export var UnsupportedInventoryItemContextException: StaticErrorSchema = [
   -3,
   n0,
   _UIICE,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedInventoryItemContext`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedInventoryItemContext`, 400] },
   [_TN, _M],
   [0, 0],
 ];
@@ -6269,15 +5670,11 @@ TypeRegistry.for(n0).registerError(
   UnsupportedInventoryItemContextException,
   __UnsupportedInventoryItemContextException
 );
-
 export var UnsupportedInventorySchemaVersionException: StaticErrorSchema = [
   -3,
   n0,
   _UISVE,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedInventorySchemaVersion`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedInventorySchemaVersion`, 400] },
   [_M],
   [0],
 ];
@@ -6285,59 +5682,42 @@ TypeRegistry.for(n0).registerError(
   UnsupportedInventorySchemaVersionException,
   __UnsupportedInventorySchemaVersionException
 );
-
 export var UnsupportedOperatingSystem: StaticErrorSchema = [
   -3,
   n0,
   _UOS,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedOperatingSystem`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedOperatingSystem`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedOperatingSystem, __UnsupportedOperatingSystem);
-
 export var UnsupportedOperationException: StaticErrorSchema = [
   -3,
   n0,
   _UOE,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedOperation`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedOperation`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-
 export var UnsupportedParameterType: StaticErrorSchema = [
   -3,
   n0,
   _UPT,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedParameterType`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedParameterType`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedParameterType, __UnsupportedParameterType);
-
 export var UnsupportedPlatformType: StaticErrorSchema = [
   -3,
   n0,
   _UPTn,
-  {
-    [_e]: _c,
-    [_aQE]: [`UnsupportedPlatformType`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`UnsupportedPlatformType`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedPlatformType, __UnsupportedPlatformType);
-
 export var UpdateAssociationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -6584,46 +5964,17 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ValidationException`, 400] },
   [_M, _RCea],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var SSMServiceException: StaticErrorSchema = [-3, _sm, "SSMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSMServiceException, __SSMServiceException);
-
-export var AccountIdList: StaticListSchema = [
-  1,
-  n0,
-  _AIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _AI,
-    },
-  ],
-];
+export var AccountIdList: StaticListSchema = [1, n0, _AIL, 0, [0, { [_xN]: _AI }]];
 export var Accounts = 64 | 0;
-
-export var AccountSharingInfoList: StaticListSchema = [
-  1,
-  n0,
-  _ASIL,
-  0,
-  [
-    () => AccountSharingInfo,
-    {
-      [_xN]: _ASI,
-    },
-  ],
-];
+export var AccountSharingInfoList: StaticListSchema = [1, n0, _ASIL, 0, [() => AccountSharingInfo, { [_xN]: _ASI }]];
 export var ActivationList: StaticListSchema = [1, n0, _AL, 0, () => Activation];
 export var AlarmList: StaticListSchema = [1, n0, _ALl, 0, () => Alarm];
 export var AlarmStateInformationList: StaticListSchema = [1, n0, _ASILl, 0, () => AlarmStateInformation];
@@ -6632,254 +5983,99 @@ export var AssociationDescriptionList: StaticListSchema = [
   n0,
   _ADL,
   0,
-  [
-    () => AssociationDescription,
-    {
-      [_xN]: _AD,
-    },
-  ],
+  [() => AssociationDescription, { [_xN]: _AD }],
 ];
 export var AssociationExecutionFilterList: StaticListSchema = [
   1,
   n0,
   _AEFL,
   0,
-  [
-    () => AssociationExecutionFilter,
-    {
-      [_xN]: _AEF,
-    },
-  ],
+  [() => AssociationExecutionFilter, { [_xN]: _AEF }],
 ];
-export var AssociationExecutionsList: StaticListSchema = [
-  1,
-  n0,
-  _AEL,
-  0,
-  [
-    () => AssociationExecution,
-    {
-      [_xN]: _AE,
-    },
-  ],
-];
+export var AssociationExecutionsList: StaticListSchema = [1, n0, _AEL, 0, [() => AssociationExecution, { [_xN]: _AE }]];
 export var AssociationExecutionTargetsFilterList: StaticListSchema = [
   1,
   n0,
   _AETFL,
   0,
-  [
-    () => AssociationExecutionTargetsFilter,
-    {
-      [_xN]: _AETF,
-    },
-  ],
+  [() => AssociationExecutionTargetsFilter, { [_xN]: _AETF }],
 ];
 export var AssociationExecutionTargetsList: StaticListSchema = [
   1,
   n0,
   _AETL,
   0,
-  [
-    () => AssociationExecutionTarget,
-    {
-      [_xN]: _AET,
-    },
-  ],
+  [() => AssociationExecutionTarget, { [_xN]: _AET }],
 ];
-export var AssociationFilterList: StaticListSchema = [
-  1,
-  n0,
-  _AFL,
-  0,
-  [
-    () => AssociationFilter,
-    {
-      [_xN]: _AF,
-    },
-  ],
-];
+export var AssociationFilterList: StaticListSchema = [1, n0, _AFL, 0, [() => AssociationFilter, { [_xN]: _AF }]];
 export var AssociationIdList = 64 | 0;
-
-export var AssociationList: StaticListSchema = [
-  1,
-  n0,
-  _ALs,
-  0,
-  [
-    () => Association,
-    {
-      [_xN]: _As,
-    },
-  ],
-];
+export var AssociationList: StaticListSchema = [1, n0, _ALs, 0, [() => Association, { [_xN]: _As }]];
 export var AssociationVersionList: StaticListSchema = [1, n0, _AVL, 0, [() => AssociationVersionInfo, 0]];
-export var AttachmentContentList: StaticListSchema = [
-  1,
-  n0,
-  _ACL,
-  0,
-  [
-    () => AttachmentContent,
-    {
-      [_xN]: _ACt,
-    },
-  ],
-];
+export var AttachmentContentList: StaticListSchema = [1, n0, _ACL, 0, [() => AttachmentContent, { [_xN]: _ACt }]];
 export var AttachmentInformationList: StaticListSchema = [
   1,
   n0,
   _AILt,
   0,
-  [
-    () => AttachmentInformation,
-    {
-      [_xN]: _AIt,
-    },
-  ],
+  [() => AttachmentInformation, { [_xN]: _AIt }],
 ];
 export var AttachmentsSourceList: StaticListSchema = [1, n0, _ASL, 0, () => AttachmentsSource];
 export var AttachmentsSourceValues = 64 | 0;
-
 export var AutomationExecutionFilterList: StaticListSchema = [1, n0, _AEFLu, 0, () => AutomationExecutionFilter];
 export var AutomationExecutionFilterValueList = 64 | 0;
-
 export var AutomationExecutionMetadataList: StaticListSchema = [1, n0, _AEML, 0, () => AutomationExecutionMetadata];
 export var AutomationParameterValueList = 64 | 0;
-
 export var CalendarNameOrARNList = 64 | 0;
-
 export var CategoryEnumList = 64 | 0;
-
 export var CategoryList = 64 | 0;
-
 export var CommandFilterList: StaticListSchema = [1, n0, _CFL, 0, () => CommandFilter];
 export var CommandInvocationList: StaticListSchema = [1, n0, _CIL, 0, () => CommandInvocation];
 export var CommandList: StaticListSchema = [1, n0, _CLo, 0, [() => Command, 0]];
 export var CommandPluginList: StaticListSchema = [1, n0, _CPL, 0, () => CommandPlugin];
 export var ComplianceItemEntryList: StaticListSchema = [1, n0, _CIEL, 0, () => ComplianceItemEntry];
-export var ComplianceItemList: StaticListSchema = [
-  1,
-  n0,
-  _CILo,
-  0,
-  [
-    () => ComplianceItem,
-    {
-      [_xN]: _Item,
-    },
-  ],
-];
+export var ComplianceItemList: StaticListSchema = [1, n0, _CILo, 0, [() => ComplianceItem, { [_xN]: _Item }]];
 export var ComplianceResourceIdList = 64 | 0;
-
 export var ComplianceResourceTypeList = 64 | 0;
-
 export var ComplianceStringFilterList: StaticListSchema = [
   1,
   n0,
   _CSFL,
   0,
-  [
-    () => ComplianceStringFilter,
-    {
-      [_xN]: _CFo,
-    },
-  ],
+  [() => ComplianceStringFilter, { [_xN]: _CFo }],
 ];
-export var ComplianceStringFilterValueList: StaticListSchema = [
-  1,
-  n0,
-  _CSFVL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _FVi,
-    },
-  ],
-];
+export var ComplianceStringFilterValueList: StaticListSchema = [1, n0, _CSFVL, 0, [0, { [_xN]: _FVi }]];
 export var ComplianceSummaryItemList: StaticListSchema = [
   1,
   n0,
   _CSIL,
   0,
-  [
-    () => ComplianceSummaryItem,
-    {
-      [_xN]: _Item,
-    },
-  ],
+  [() => ComplianceSummaryItem, { [_xN]: _Item }],
 ];
 export var CreateAssociationBatchRequestEntries: StaticListSchema = [
   1,
   n0,
   _CABREr,
   0,
-  [
-    () => CreateAssociationBatchRequestEntry,
-    {
-      [_xN]: _en,
-    },
-  ],
+  [() => CreateAssociationBatchRequestEntry, { [_xN]: _en }],
 ];
 export var DescribeActivationsFilterList: StaticListSchema = [1, n0, _DAFL, 0, () => DescribeActivationsFilter];
-export var DocumentFilterList: StaticListSchema = [
-  1,
-  n0,
-  _DFL,
-  0,
-  [
-    () => DocumentFilter,
-    {
-      [_xN]: _DFo,
-    },
-  ],
-];
-export var DocumentIdentifierList: StaticListSchema = [
-  1,
-  n0,
-  _DIL,
-  0,
-  [
-    () => DocumentIdentifier,
-    {
-      [_xN]: _DIo,
-    },
-  ],
-];
+export var DocumentFilterList: StaticListSchema = [1, n0, _DFL, 0, [() => DocumentFilter, { [_xN]: _DFo }]];
+export var DocumentIdentifierList: StaticListSchema = [1, n0, _DIL, 0, [() => DocumentIdentifier, { [_xN]: _DIo }]];
 export var DocumentKeyValuesFilterList: StaticListSchema = [1, n0, _DKVFL, 0, () => DocumentKeyValuesFilter];
 export var DocumentKeyValuesFilterValues = 64 | 0;
-
-export var DocumentParameterList: StaticListSchema = [
-  1,
-  n0,
-  _DPLo,
-  0,
-  [
-    () => DocumentParameter,
-    {
-      [_xN]: _DPo,
-    },
-  ],
-];
+export var DocumentParameterList: StaticListSchema = [1, n0, _DPLo, 0, [() => DocumentParameter, { [_xN]: _DPo }]];
 export var DocumentRequiresList: StaticListSchema = [1, n0, _DRL, 0, () => DocumentRequires];
 export var DocumentReviewCommentList: StaticListSchema = [1, n0, _DRCL, 0, () => DocumentReviewCommentSource];
 export var DocumentReviewerResponseList: StaticListSchema = [1, n0, _DRRL, 0, () => DocumentReviewerResponseSource];
 export var DocumentVersionList: StaticListSchema = [1, n0, _DVL, 0, () => DocumentVersionInfo];
 export var EffectivePatchList: StaticListSchema = [1, n0, _EPL, 0, () => EffectivePatch];
 export var ExcludeAccounts = 64 | 0;
-
 export var FailedCreateAssociationList: StaticListSchema = [
   1,
   n0,
   _FCAL,
   0,
-  [
-    () => FailedCreateAssociation,
-    {
-      [_xN]: _FCAE,
-    },
-  ],
+  [() => FailedCreateAssociation, { [_xN]: _FCAE }],
 ];
 export var GetResourcePoliciesResponseEntries: StaticListSchema = [
   1,
@@ -6891,198 +6087,66 @@ export var GetResourcePoliciesResponseEntries: StaticListSchema = [
 export var InstanceAssociationList: StaticListSchema = [1, n0, _IAL, 0, () => InstanceAssociation];
 export var InstanceAssociationStatusInfos: StaticListSchema = [1, n0, _IASI, 0, () => InstanceAssociationStatusInfo];
 export var InstanceIdList = 64 | 0;
-
 export var InstanceInformationFilterList: StaticListSchema = [
   1,
   n0,
   _IIFL,
   0,
-  [
-    () => InstanceInformationFilter,
-    {
-      [_xN]: _IIF,
-    },
-  ],
+  [() => InstanceInformationFilter, { [_xN]: _IIF }],
 ];
-export var InstanceInformationFilterValueSet: StaticListSchema = [
-  1,
-  n0,
-  _IIFVS,
-  0,
-  [
-    0,
-    {
-      [_xN]: _IIFV,
-    },
-  ],
-];
-export var InstanceInformationList: StaticListSchema = [
-  1,
-  n0,
-  _IIL,
-  0,
-  [
-    () => InstanceInformation,
-    {
-      [_xN]: _IInst,
-    },
-  ],
-];
+export var InstanceInformationFilterValueSet: StaticListSchema = [1, n0, _IIFVS, 0, [0, { [_xN]: _IIFV }]];
+export var InstanceInformationList: StaticListSchema = [1, n0, _IIL, 0, [() => InstanceInformation, { [_xN]: _IInst }]];
 export var InstanceInformationStringFilterList: StaticListSchema = [
   1,
   n0,
   _IISFL,
   0,
-  [
-    () => InstanceInformationStringFilter,
-    {
-      [_xN]: _IISF,
-    },
-  ],
+  [() => InstanceInformationStringFilter, { [_xN]: _IISF }],
 ];
 export var InstancePatchStateFilterList: StaticListSchema = [1, n0, _IPSFL, 0, () => InstancePatchStateFilter];
 export var InstancePatchStateFilterValues = 64 | 0;
-
 export var InstancePatchStateList: StaticListSchema = [1, n0, _IPSL, 0, [() => InstancePatchState, 0]];
 export var InstancePatchStatesList: StaticListSchema = [1, n0, _IPSLn, 0, [() => InstancePatchState, 0]];
-export var InstanceProperties: StaticListSchema = [
-  1,
-  n0,
-  _IPn,
-  0,
-  [
-    () => InstanceProperty,
-    {
-      [_xN]: _IPns,
-    },
-  ],
-];
+export var InstanceProperties: StaticListSchema = [1, n0, _IPn, 0, [() => InstanceProperty, { [_xN]: _IPns }]];
 export var InstancePropertyFilterList: StaticListSchema = [
   1,
   n0,
   _IPFL,
   0,
-  [
-    () => InstancePropertyFilter,
-    {
-      [_xN]: _IPF,
-    },
-  ],
+  [() => InstancePropertyFilter, { [_xN]: _IPF }],
 ];
-export var InstancePropertyFilterValueSet: StaticListSchema = [
-  1,
-  n0,
-  _IPFVS,
-  0,
-  [
-    0,
-    {
-      [_xN]: _IPFV,
-    },
-  ],
-];
+export var InstancePropertyFilterValueSet: StaticListSchema = [1, n0, _IPFVS, 0, [0, { [_xN]: _IPFV }]];
 export var InstancePropertyStringFilterList: StaticListSchema = [
   1,
   n0,
   _IPSFLn,
   0,
-  [
-    () => InstancePropertyStringFilter,
-    {
-      [_xN]: _IPSFn,
-    },
-  ],
+  [() => InstancePropertyStringFilter, { [_xN]: _IPSFn }],
 ];
-export var InventoryAggregatorList: StaticListSchema = [
-  1,
-  n0,
-  _IALn,
-  0,
-  [
-    () => InventoryAggregator,
-    {
-      [_xN]: _Agg,
-    },
-  ],
-];
+export var InventoryAggregatorList: StaticListSchema = [1, n0, _IALn, 0, [() => InventoryAggregator, { [_xN]: _Agg }]];
 export var InventoryDeletionsList: StaticListSchema = [1, n0, _IDL, 0, () => InventoryDeletionStatusItem];
 export var InventoryDeletionSummaryItems: StaticListSchema = [1, n0, _IDSInv, 0, () => InventoryDeletionSummaryItem];
-export var InventoryFilterList: StaticListSchema = [
-  1,
-  n0,
-  _IFL,
-  0,
-  [
-    () => InventoryFilter,
-    {
-      [_xN]: _IFn,
-    },
-  ],
-];
-export var InventoryFilterValueList: StaticListSchema = [
-  1,
-  n0,
-  _IFVL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _FVi,
-    },
-  ],
-];
-export var InventoryGroupList: StaticListSchema = [
-  1,
-  n0,
-  _IGL,
-  0,
-  [
-    () => InventoryGroup,
-    {
-      [_xN]: _IG,
-    },
-  ],
-];
+export var InventoryFilterList: StaticListSchema = [1, n0, _IFL, 0, [() => InventoryFilter, { [_xN]: _IFn }]];
+export var InventoryFilterValueList: StaticListSchema = [1, n0, _IFVL, 0, [0, { [_xN]: _FVi }]];
+export var InventoryGroupList: StaticListSchema = [1, n0, _IGL, 0, [() => InventoryGroup, { [_xN]: _IG }]];
 export var InventoryItemAttributeList: StaticListSchema = [
   1,
   n0,
   _IIAL,
   0,
-  [
-    () => InventoryItemAttribute,
-    {
-      [_xN]: _Attr,
-    },
-  ],
+  [() => InventoryItemAttribute, { [_xN]: _Attr }],
 ];
 export var InventoryItemEntryList: StaticListSchema = [1, n0, _IIEL, 0, 128 | 0];
-export var InventoryItemList: StaticListSchema = [
-  1,
-  n0,
-  _IILn,
-  0,
-  [
-    () => InventoryItem,
-    {
-      [_xN]: _Item,
-    },
-  ],
-];
+export var InventoryItemList: StaticListSchema = [1, n0, _IILn, 0, [() => InventoryItem, { [_xN]: _Item }]];
 export var InventoryItemSchemaResultList: StaticListSchema = [1, n0, _IISRL, 0, [() => InventoryItemSchema, 0]];
 export var InventoryResultEntityList: StaticListSchema = [
   1,
   n0,
   _IREL,
   0,
-  [
-    () => InventoryResultEntity,
-    {
-      [_xN]: _Entit,
-    },
-  ],
+  [() => InventoryResultEntity, { [_xN]: _Entit }],
 ];
 export var KeyList = 64 | 0;
-
 export var MaintenanceWindowExecutionList: StaticListSchema = [1, n0, _MWEL, 0, () => MaintenanceWindowExecution];
 export var MaintenanceWindowExecutionTaskIdentityList: StaticListSchema = [
   1,
@@ -7092,7 +6156,6 @@ export var MaintenanceWindowExecutionTaskIdentityList: StaticListSchema = [
   () => MaintenanceWindowExecutionTaskIdentity,
 ];
 export var MaintenanceWindowExecutionTaskIdList = 64 | 0;
-
 export var MaintenanceWindowExecutionTaskInvocationIdentityList: StaticListSchema = [
   1,
   n0,
@@ -7102,7 +6165,6 @@ export var MaintenanceWindowExecutionTaskInvocationIdentityList: StaticListSchem
 ];
 export var MaintenanceWindowFilterList: StaticListSchema = [1, n0, _MWFL, 0, () => MaintenanceWindowFilter];
 export var MaintenanceWindowFilterValues = 64 | 0;
-
 export var MaintenanceWindowIdentityList: StaticListSchema = [1, n0, _MWIL, 0, [() => MaintenanceWindowIdentity, 0]];
 export var MaintenanceWindowsForTargetList: StaticListSchema = [
   1,
@@ -7128,158 +6190,52 @@ export var MaintenanceWindowTaskParameterValueList: StaticListSchema = [
   [() => MaintenanceWindowTaskParameterValue, 0],
 ];
 export var MetadataKeysToDeleteList = 64 | 0;
-
-export var NodeAggregatorList: StaticListSchema = [
-  1,
-  n0,
-  _NAL,
-  0,
-  [
-    () => NodeAggregator,
-    {
-      [_xN]: _NA,
-    },
-  ],
-];
-export var NodeFilterList: StaticListSchema = [
-  1,
-  n0,
-  _NFL,
-  0,
-  [
-    () => NodeFilter,
-    {
-      [_xN]: _NF,
-    },
-  ],
-];
-export var NodeFilterValueList: StaticListSchema = [
-  1,
-  n0,
-  _NFVL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _FVi,
-    },
-  ],
-];
+export var NodeAggregatorList: StaticListSchema = [1, n0, _NAL, 0, [() => NodeAggregator, { [_xN]: _NA }]];
+export var NodeFilterList: StaticListSchema = [1, n0, _NFL, 0, [() => NodeFilter, { [_xN]: _NF }]];
+export var NodeFilterValueList: StaticListSchema = [1, n0, _NFVL, 0, [0, { [_xN]: _FVi }]];
 export var NodeList: StaticListSchema = [1, n0, _NL, 0, [() => Node, 0]];
 export var NodeSummaryList: StaticListSchema = [1, n0, _NSL, 0, 128 | 0];
 export var NotificationEventList = 64 | 0;
-
-export var OpsAggregatorList: StaticListSchema = [
-  1,
-  n0,
-  _OAL,
-  0,
-  [
-    () => OpsAggregator,
-    {
-      [_xN]: _Agg,
-    },
-  ],
-];
+export var OpsAggregatorList: StaticListSchema = [1, n0, _OAL, 0, [() => OpsAggregator, { [_xN]: _Agg }]];
 export var OpsEntityItemEntryList: StaticListSchema = [1, n0, _OEIEL, 0, 128 | 0];
-export var OpsEntityList: StaticListSchema = [
-  1,
-  n0,
-  _OEL,
-  0,
-  [
-    () => OpsEntity,
-    {
-      [_xN]: _Entit,
-    },
-  ],
-];
-export var OpsFilterList: StaticListSchema = [
-  1,
-  n0,
-  _OFL,
-  0,
-  [
-    () => OpsFilter,
-    {
-      [_xN]: _OF,
-    },
-  ],
-];
-export var OpsFilterValueList: StaticListSchema = [
-  1,
-  n0,
-  _OFVL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _FVi,
-    },
-  ],
-];
+export var OpsEntityList: StaticListSchema = [1, n0, _OEL, 0, [() => OpsEntity, { [_xN]: _Entit }]];
+export var OpsFilterList: StaticListSchema = [1, n0, _OFL, 0, [() => OpsFilter, { [_xN]: _OF }]];
+export var OpsFilterValueList: StaticListSchema = [1, n0, _OFVL, 0, [0, { [_xN]: _FVi }]];
 export var OpsItemEventFilters: StaticListSchema = [1, n0, _OIEFp, 0, () => OpsItemEventFilter];
 export var OpsItemEventFilterValues = 64 | 0;
-
 export var OpsItemEventSummaries: StaticListSchema = [1, n0, _OIESp, 0, () => OpsItemEventSummary];
 export var OpsItemFilters: StaticListSchema = [1, n0, _OIF, 0, () => OpsItemFilter];
 export var OpsItemFilterValues = 64 | 0;
-
 export var OpsItemNotifications: StaticListSchema = [1, n0, _OINp, 0, () => OpsItemNotification];
 export var OpsItemOpsDataKeysList = 64 | 0;
-
 export var OpsItemParameterNamesList = 64 | 0;
-
 export var OpsItemRelatedItemsFilters: StaticListSchema = [1, n0, _OIRIFp, 0, () => OpsItemRelatedItemsFilter];
 export var OpsItemRelatedItemsFilterValues = 64 | 0;
-
 export var OpsItemRelatedItemSummaries: StaticListSchema = [1, n0, _OIRISp, 0, () => OpsItemRelatedItemSummary];
 export var OpsItemSummaries: StaticListSchema = [1, n0, _OIS, 0, () => OpsItemSummary];
 export var OpsMetadataFilterList: StaticListSchema = [1, n0, _OMFL, 0, () => OpsMetadataFilter];
 export var OpsMetadataFilterValueList = 64 | 0;
-
 export var OpsMetadataList: StaticListSchema = [1, n0, _OML, 0, () => OpsMetadata];
-export var OpsResultAttributeList: StaticListSchema = [
-  1,
-  n0,
-  _ORAL,
-  0,
-  [
-    () => OpsResultAttribute,
-    {
-      [_xN]: _ORA,
-    },
-  ],
-];
+export var OpsResultAttributeList: StaticListSchema = [1, n0, _ORAL, 0, [() => OpsResultAttribute, { [_xN]: _ORA }]];
 export var ParameterHistoryList: StaticListSchema = [1, n0, _PHL, 0, [() => ParameterHistory, 0]];
 export var ParameterLabelList = 64 | 0;
-
 export var ParameterList: StaticListSchema = [1, n0, _PL, 0, [() => Parameter, 0]];
 export var ParameterMetadataList: StaticListSchema = [1, n0, _PML, 0, () => ParameterMetadata];
 export var ParameterNameList = 64 | 0;
-
 export var ParameterPolicyList: StaticListSchema = [1, n0, _PPLa, 0, () => ParameterInlinePolicy];
 export var ParametersFilterList: StaticListSchema = [1, n0, _PFL, 0, () => ParametersFilter];
 export var ParametersFilterValueList = 64 | 0;
-
 export var ParameterStringFilterList: StaticListSchema = [1, n0, _PSFL, 0, () => ParameterStringFilter];
 export var ParameterStringFilterValueList = 64 | 0;
-
 export var ParameterValueList = 64 | 0;
-
 export var PatchAdvisoryIdList = 64 | 0;
-
 export var PatchBaselineIdentityList: StaticListSchema = [1, n0, _PBIL, 0, () => PatchBaselineIdentity];
 export var PatchBugzillaIdList = 64 | 0;
-
 export var PatchComplianceDataList: StaticListSchema = [1, n0, _PCDL, 0, () => PatchComplianceData];
 export var PatchCVEIdList = 64 | 0;
-
 export var PatchFilterList: StaticListSchema = [1, n0, _PFLa, 0, () => PatchFilter];
 export var PatchFilterValueList = 64 | 0;
-
 export var PatchGroupList = 64 | 0;
-
 export var PatchGroupPatchBaselineMappingList: StaticListSchema = [
   1,
   n0,
@@ -7288,32 +6244,16 @@ export var PatchGroupPatchBaselineMappingList: StaticListSchema = [
   () => PatchGroupPatchBaselineMapping,
 ];
 export var PatchIdList = 64 | 0;
-
 export var PatchList: StaticListSchema = [1, n0, _PLa, 0, () => Patch];
 export var PatchOrchestratorFilterList: StaticListSchema = [1, n0, _POFL, 0, () => PatchOrchestratorFilter];
 export var PatchOrchestratorFilterValues = 64 | 0;
-
 export var PatchPropertiesList: StaticListSchema = [1, n0, _PPL, 0, 128 | 0];
 export var PatchRuleList: StaticListSchema = [1, n0, _PRL, 0, () => PatchRule];
 export var PatchSourceList: StaticListSchema = [1, n0, _PSL, 0, [() => PatchSource, 0]];
 export var PatchSourceProductList = 64 | 0;
-
-export var PlatformTypeList: StaticListSchema = [
-  1,
-  n0,
-  _PTL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _PTla,
-    },
-  ],
-];
+export var PlatformTypeList: StaticListSchema = [1, n0, _PTL, 0, [0, { [_xN]: _PTla }]];
 export var RegionList = 64 | 0;
-
 export var Regions = 64 | 0;
-
 export var RegistrationMetadataList: StaticListSchema = [1, n0, _RML, 0, () => RegistrationMetadataItem];
 export var RelatedOpsItems: StaticListSchema = [1, n0, _ROI, 0, () => RelatedOpsItem];
 export var ResourceComplianceSummaryItemList: StaticListSchema = [
@@ -7321,12 +6261,7 @@ export var ResourceComplianceSummaryItemList: StaticListSchema = [
   n0,
   _RCSIL,
   0,
-  [
-    () => ResourceComplianceSummaryItem,
-    {
-      [_xN]: _Item,
-    },
-  ],
+  [() => ResourceComplianceSummaryItem, { [_xN]: _Item }],
 ];
 export var ResourceDataSyncItemList: StaticListSchema = [1, n0, _RDSIL, 0, () => ResourceDataSyncItem];
 export var ResourceDataSyncOrganizationalUnitList: StaticListSchema = [
@@ -7337,69 +6272,33 @@ export var ResourceDataSyncOrganizationalUnitList: StaticListSchema = [
   () => ResourceDataSyncOrganizationalUnit,
 ];
 export var ResourceDataSyncSourceRegionList = 64 | 0;
-
 export var ResourcePolicyParameterNamesList = 64 | 0;
-
-export var ResultAttributeList: StaticListSchema = [
-  1,
-  n0,
-  _RAL,
-  0,
-  [
-    () => ResultAttribute,
-    {
-      [_xN]: _RAes,
-    },
-  ],
-];
-export var ReviewInformationList: StaticListSchema = [
-  1,
-  n0,
-  _RIL,
-  0,
-  [
-    () => ReviewInformation,
-    {
-      [_xN]: _RIe,
-    },
-  ],
-];
+export var ResultAttributeList: StaticListSchema = [1, n0, _RAL, 0, [() => ResultAttribute, { [_xN]: _RAes }]];
+export var ReviewInformationList: StaticListSchema = [1, n0, _RIL, 0, [() => ReviewInformation, { [_xN]: _RIe }]];
 export var Runbooks: StaticListSchema = [1, n0, _R, 0, () => Runbook];
 export var ScheduledWindowExecutionList: StaticListSchema = [1, n0, _SWEL, 0, () => ScheduledWindowExecution];
 export var SessionFilterList: StaticListSchema = [1, n0, _SFL, 0, () => SessionFilter];
 export var SessionList: StaticListSchema = [1, n0, _SLe, 0, () => Session];
 export var SessionManagerParameterValueList = 64 | 0;
-
 export var StepExecutionFilterList: StaticListSchema = [1, n0, _SEFL, 0, () => StepExecutionFilter];
 export var StepExecutionFilterValueList = 64 | 0;
-
 export var StepExecutionList: StaticListSchema = [1, n0, _SEL, 0, () => StepExecution];
 export var StringList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
 export var TargetLocations: StaticListSchema = [1, n0, _TL, 0, () => TargetLocation];
 export var TargetMaps: StaticListSchema = [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]];
 export var TargetMapValueList = 64 | 0;
-
 export var TargetParameterList = 64 | 0;
-
 export var TargetPreviewList: StaticListSchema = [1, n0, _TPL, 0, () => TargetPreview];
 export var Targets: StaticListSchema = [1, n0, _Ta, 0, () => Target];
 export var TargetValues = 64 | 0;
-
 export var ValidNextStepList = 64 | 0;
-
 export var AssociationStatusAggregatedCount = 128 | 1;
-
 export var AutomationParameterMap: StaticMapSchema = [2, n0, _APM, 0, 0, 64 | 0];
 export var ComplianceItemDetails = 128 | 0;
-
 export var InstanceAssociationStatusAggregatedCount = 128 | 1;
-
 export var InventoryItemContentContext = 128 | 0;
-
 export var InventoryItemEntry = 128 | 0;
-
 export var InventoryResultItemMap: StaticMapSchema = [2, n0, _IRIM, 0, 0, () => InventoryResultItem];
 export var MaintenanceWindowTaskParameters: StaticMapSchema = [
   2,
@@ -7411,21 +6310,15 @@ export var MaintenanceWindowTaskParameters: StaticMapSchema = [
 ];
 export var MetadataMap: StaticMapSchema = [2, n0, _MM, 0, 0, () => MetadataValue];
 export var NodeSummary = 128 | 0;
-
 export var NormalStringMap = 128 | 0;
-
 export var OpsAggregatorValueMap = 128 | 0;
-
 export var OpsEntityItemEntry = 128 | 0;
-
 export var OpsEntityItemMap: StaticMapSchema = [2, n0, _OEIM, 0, 0, () => OpsEntityItem];
 export var OpsItemOperationalData: StaticMapSchema = [2, n0, _OIOD, 0, 0, () => OpsItemDataValue];
 export var _Parameters: StaticMapSchema = [2, n0, _P, 8, 0, 64 | 0];
 export var PatchPropertyEntry = 128 | 0;
-
 export var SessionManagerParameters: StaticMapSchema = [2, n0, _SMP, 0, 0, 64 | 0];
 export var StepPreviewMap = 128 | 1;
-
 export var TargetMap: StaticMapSchema = [2, n0, _TMa, 0, 0, 64 | 0];
 export var ExecutionInputs: StaticStructureSchema = [3, n0, _EIx, 0, [_Aut], [() => AutomationExecutionInputs]];
 export var ExecutionPreview: StaticStructureSchema = [3, n0, _EPx, 0, [_Aut], [() => AutomationExecutionPreview]];

@@ -264,21 +264,15 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDeniedException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDeniedException`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddWorkloadRequest: StaticStructureSchema = [
   3,
   n0,
@@ -308,16 +302,11 @@ export var BadRequestException: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`BadRequestException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`BadRequestException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var ConfigurationEvent: StaticStructureSchema = [
   3,
   n0,
@@ -437,16 +426,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InternalServerException`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServerException`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListApplicationsRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_MR, _NT, _AIc], [1, 0, 0]];
 export var ListApplicationsResponse: StaticStructureSchema = [
   3,
@@ -599,59 +583,27 @@ export var ResourceInUseException: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceInUseException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceInUseException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TagsAlreadyExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TagsAlreadyExistException: StaticErrorSchema = [-3, n0, _TAEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TagsAlreadyExistException, __TagsAlreadyExistException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateApplicationRequest: StaticStructureSchema = [
@@ -705,20 +657,14 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Workload: StaticStructureSchema = [3, n0, _W, 0, [_WI, _CN, _WN, _T, _WR, _MWC], [0, 0, 0, 0, 0, 2]];
 export var WorkloadConfiguration: StaticStructureSchema = [3, n0, _WC, 0, [_WN, _T, _C], [0, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var ApplicationInsightsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -728,26 +674,20 @@ export var ApplicationInsightsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ApplicationInsightsServiceException, __ApplicationInsightsServiceException);
-
 export var ApplicationComponentList: StaticListSchema = [1, n0, _ACL, 0, () => ApplicationComponent];
 export var ApplicationInfoList: StaticListSchema = [1, n0, _AIL, 0, () => ApplicationInfo];
 export var ConfigurationEventList: StaticListSchema = [1, n0, _CEL, 0, () => ConfigurationEvent];
 export var LogPatternList: StaticListSchema = [1, n0, _LPL, 0, () => LogPattern];
 export var LogPatternSetList = 64 | 0;
-
 export var ObservationList: StaticListSchema = [1, n0, _OL, 0, () => Observation];
 export var ProblemList: StaticListSchema = [1, n0, _PL, 0, () => Problem];
 export var ResourceList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var WorkloadList: StaticListSchema = [1, n0, _WL, 0, () => Workload];
 export var DetectedWorkload: StaticMapSchema = [2, n0, _DW, 0, 0, 128 | 0];
 export var Feedback = 128 | 0;
-
 export var WorkloadMetaData = 128 | 0;
-
 export var AddWorkload: StaticOperationSchema = [9, n0, _AW, 0, () => AddWorkloadRequest, () => AddWorkloadResponse];
 export var CreateApplication: StaticOperationSchema = [
   9,

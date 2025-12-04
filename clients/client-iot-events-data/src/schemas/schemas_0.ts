@@ -174,7 +174,6 @@ import {
 import { IoTEventsDataServiceException as __IoTEventsDataServiceException } from "../models/IoTEventsDataServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcknowledgeActionConfiguration: StaticStructureSchema = [3, n0, _AAC, 0, [_n], [0]];
 export var AcknowledgeAlarmActionRequest: StaticStructureSchema = [3, n0, _AAAR, 0, [_rI, _aMN, _kV, _n], [0, 0, 0, 0]];
 export var Alarm: StaticStructureSchema = [
@@ -329,12 +328,7 @@ export var DescribeAlarmRequest: StaticStructureSchema = [
   [_aMN, _kV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _kV,
-      },
-    ],
+    [0, { [_hQ]: _kV }],
   ],
 ];
 export var DescribeAlarmResponse: StaticStructureSchema = [3, n0, _DARe, 0, [_a], [() => Alarm]];
@@ -346,12 +340,7 @@ export var DescribeDetectorRequest: StaticStructureSchema = [
   [_dMN, _kV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _kV,
-      },
-    ],
+    [0, { [_hQ]: _kV }],
   ],
 ];
 export var DescribeDetectorResponse: StaticStructureSchema = [3, n0, _DDRes, 0, [_de], [() => Detector]];
@@ -385,32 +374,10 @@ export var DisableActionConfiguration: StaticStructureSchema = [3, n0, _DAC, 0, 
 export var DisableAlarmActionRequest: StaticStructureSchema = [3, n0, _DAAR, 0, [_rI, _aMN, _kV, _n], [0, 0, 0, 0]];
 export var EnableActionConfiguration: StaticStructureSchema = [3, n0, _EAC, 0, [_n], [0]];
 export var EnableAlarmActionRequest: StaticStructureSchema = [3, n0, _EAAR, 0, [_rI, _aMN, _kV, _n], [0, 0, 0, 0]];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListAlarmsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -419,18 +386,8 @@ export var ListAlarmsRequest: StaticStructureSchema = [
   [_aMN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAlarmsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_aSl, _nT], [() => AlarmSummaries, 0]];
@@ -442,57 +399,20 @@ export var ListDetectorsRequest: StaticStructureSchema = [
   [_dMN, _sN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _sN }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDetectorsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_dS, _nT], [() => DetectorSummaries, 0]];
 export var Message: StaticStructureSchema = [3, n0, _M, 0, [_mI, _iN, _p, _ti], [0, 0, 21, () => TimestampValue]];
 export var ResetActionConfiguration: StaticStructureSchema = [3, n0, _RAC, 0, [_n], [0]];
 export var ResetAlarmActionRequest: StaticStructureSchema = [3, n0, _RAAR, 0, [_rI, _aMN, _kV, _n], [0, 0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RuleEvaluation: StaticStructureSchema = [3, n0, _RE, 0, [_sRE], [() => SimpleRuleEvaluation]];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_me],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SimpleRuleEvaluation: StaticStructureSchema = [3, n0, _SRE, 0, [_iPV, _o, _tV], [0, 0, 0]];
 export var SnoozeActionConfiguration: StaticStructureSchema = [3, n0, _SAC, 0, [_sD, _n], [1, 0]];
 export var SnoozeAlarmActionRequest: StaticStructureSchema = [
@@ -505,19 +425,8 @@ export var SnoozeAlarmActionRequest: StaticStructureSchema = [
 ];
 export var StateChangeConfiguration: StaticStructureSchema = [3, n0, _SCC, 0, [_tT], [0]];
 export var SystemEvent: StaticStructureSchema = [3, n0, _SE, 0, [_eT, _sCC], [0, () => StateChangeConfiguration]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_me],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Timer: StaticStructureSchema = [3, n0, _T, 0, [_na, _ti], [0, 4]];
 export var TimerDefinition: StaticStructureSchema = [3, n0, _TD, 0, [_na, _sec], [0, 1]];
 export var TimestampValue: StaticStructureSchema = [3, n0, _TV, 0, [_tIM], [1]];
@@ -532,10 +441,8 @@ export var UpdateDetectorRequest: StaticStructureSchema = [
 export var Variable: StaticStructureSchema = [3, n0, _V, 0, [_na, _va], [0, 0]];
 export var VariableDefinition: StaticStructureSchema = [3, n0, _VD, 0, [_na, _va], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var IoTEventsDataServiceException: StaticErrorSchema = [-3, _sm, "IoTEventsDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTEventsDataServiceException, __IoTEventsDataServiceException);
-
 export var AcknowledgeAlarmActionRequests: StaticListSchema = [1, n0, _AAARc, 0, () => AcknowledgeAlarmActionRequest];
 export var AlarmSummaries: StaticListSchema = [1, n0, _ASla, 0, () => AlarmSummary];
 export var BatchAlarmActionErrorEntries: StaticListSchema = [1, n0, _BAAEEa, 0, () => BatchAlarmActionErrorEntry];
@@ -558,9 +465,7 @@ export var BatchAcknowledgeAlarm: StaticOperationSchema = [
   9,
   n0,
   _BAA,
-  {
-    [_h]: ["POST", "/alarms/acknowledge", 202],
-  },
+  { [_h]: ["POST", "/alarms/acknowledge", 202] },
   () => BatchAcknowledgeAlarmRequest,
   () => BatchAcknowledgeAlarmResponse,
 ];
@@ -568,9 +473,7 @@ export var BatchDeleteDetector: StaticOperationSchema = [
   9,
   n0,
   _BDD,
-  {
-    [_h]: ["POST", "/detectors/delete", 200],
-  },
+  { [_h]: ["POST", "/detectors/delete", 200] },
   () => BatchDeleteDetectorRequest,
   () => BatchDeleteDetectorResponse,
 ];
@@ -578,9 +481,7 @@ export var BatchDisableAlarm: StaticOperationSchema = [
   9,
   n0,
   _BDA,
-  {
-    [_h]: ["POST", "/alarms/disable", 202],
-  },
+  { [_h]: ["POST", "/alarms/disable", 202] },
   () => BatchDisableAlarmRequest,
   () => BatchDisableAlarmResponse,
 ];
@@ -588,9 +489,7 @@ export var BatchEnableAlarm: StaticOperationSchema = [
   9,
   n0,
   _BEA,
-  {
-    [_h]: ["POST", "/alarms/enable", 202],
-  },
+  { [_h]: ["POST", "/alarms/enable", 202] },
   () => BatchEnableAlarmRequest,
   () => BatchEnableAlarmResponse,
 ];
@@ -598,9 +497,7 @@ export var BatchPutMessage: StaticOperationSchema = [
   9,
   n0,
   _BPM,
-  {
-    [_h]: ["POST", "/inputs/messages", 200],
-  },
+  { [_h]: ["POST", "/inputs/messages", 200] },
   () => BatchPutMessageRequest,
   () => BatchPutMessageResponse,
 ];
@@ -608,9 +505,7 @@ export var BatchResetAlarm: StaticOperationSchema = [
   9,
   n0,
   _BRA,
-  {
-    [_h]: ["POST", "/alarms/reset", 202],
-  },
+  { [_h]: ["POST", "/alarms/reset", 202] },
   () => BatchResetAlarmRequest,
   () => BatchResetAlarmResponse,
 ];
@@ -618,9 +513,7 @@ export var BatchSnoozeAlarm: StaticOperationSchema = [
   9,
   n0,
   _BSA,
-  {
-    [_h]: ["POST", "/alarms/snooze", 202],
-  },
+  { [_h]: ["POST", "/alarms/snooze", 202] },
   () => BatchSnoozeAlarmRequest,
   () => BatchSnoozeAlarmResponse,
 ];
@@ -628,9 +521,7 @@ export var BatchUpdateDetector: StaticOperationSchema = [
   9,
   n0,
   _BUD,
-  {
-    [_h]: ["POST", "/detectors", 200],
-  },
+  { [_h]: ["POST", "/detectors", 200] },
   () => BatchUpdateDetectorRequest,
   () => BatchUpdateDetectorResponse,
 ];
@@ -638,9 +529,7 @@ export var DescribeAlarm: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["GET", "/alarms/{alarmModelName}/keyValues", 200],
-  },
+  { [_h]: ["GET", "/alarms/{alarmModelName}/keyValues", 200] },
   () => DescribeAlarmRequest,
   () => DescribeAlarmResponse,
 ];
@@ -648,9 +537,7 @@ export var DescribeDetector: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["GET", "/detectors/{detectorModelName}/keyValues", 200],
-  },
+  { [_h]: ["GET", "/detectors/{detectorModelName}/keyValues", 200] },
   () => DescribeDetectorRequest,
   () => DescribeDetectorResponse,
 ];
@@ -658,9 +545,7 @@ export var ListAlarms: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/alarms/{alarmModelName}", 200],
-  },
+  { [_h]: ["GET", "/alarms/{alarmModelName}", 200] },
   () => ListAlarmsRequest,
   () => ListAlarmsResponse,
 ];
@@ -668,9 +553,7 @@ export var ListDetectors: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/detectors/{detectorModelName}", 200],
-  },
+  { [_h]: ["GET", "/detectors/{detectorModelName}", 200] },
   () => ListDetectorsRequest,
   () => ListDetectorsResponse,
 ];

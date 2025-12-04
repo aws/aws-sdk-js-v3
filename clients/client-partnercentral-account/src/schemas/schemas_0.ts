@@ -195,7 +195,7 @@ const n0 = "com.amazonaws.partnercentralaccount";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -216,7 +216,6 @@ import {
 import { PartnerCentralAccountServiceException as __PartnerCentralAccountServiceException } from "../models/PartnerCentralAccountServiceException";
 
 /* eslint no-var: 0 */
-
 export var EmailVerificationCode: StaticSimpleSchema = [0, n0, _EVC, 8, 0];
 export var SensitiveUnicodeString: StaticSimpleSchema = [0, n0, _SUS, 8, 0];
 export var AcceptConnectionInvitationRequest: StaticStructureSchema = [3, n0, _ACIR, 0, [_C, _I, _CT], [0, 0, [0, 4]]];
@@ -228,19 +227,8 @@ export var AcceptConnectionInvitationResponse: StaticStructureSchema = [
   [_Co],
   [[() => Connection, 0]],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountSummary: StaticStructureSchema = [3, n0, _AS, 0, [_N], [0]];
 export var AllianceLeadContact: StaticStructureSchema = [
   3,
@@ -301,19 +289,8 @@ export var CancelProfileUpdateTaskResponse: StaticStructureSchema = [
   [_C, _A, _Id, _TI, _TD, _SA, _S, _EAn, _EDL],
   [0, 0, 0, 0, () => TaskDetails, 5, 0, 5, () => ErrorDetailList],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Connection: StaticStructureSchema = [
   3,
   n0,
@@ -477,19 +454,8 @@ export var GetProfileVisibilityResponse: StaticStructureSchema = [
   [_C, _A, _Id, _V, _PI],
   [0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListConnectionInvitationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -593,19 +559,8 @@ export var RejectConnectionInvitationResponse: StaticStructureSchema = [
   [_C, _Id, _A, _CI, _CTo, _CA, _UA, _EA, _OPI, _PT, _S, _IM, _IE, _IN],
   [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0]],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SellerProfileSummary: StaticStructureSchema = [3, n0, _SPS, 0, [_Id, _N], [0, 0]];
 export var SendEmailVerificationCodeRequest: StaticStructureSchema = [3, n0, _SEVCR, 0, [_C, _E], [0, 0]];
 export var SendEmailVerificationCodeResponse: StaticStructureSchema = [3, n0, _SEVCRe, 0, [], []];
@@ -613,15 +568,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _R],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartProfileUpdateTaskRequest: StaticStructureSchema = [
   3,
   n0,
@@ -649,19 +600,8 @@ export var TaskDetails: StaticStructureSchema = [
   [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo],
   [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M, _SC, _QC],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _SC, _QC], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateConnectionPreferencesRequest: StaticStructureSchema = [
@@ -684,17 +624,12 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _R, _EDr],
   [0, 0, () => ValidationErrorList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var PartnerCentralAccountServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -704,19 +639,15 @@ export var PartnerCentralAccountServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PartnerCentralAccountServiceException, __PartnerCentralAccountServiceException);
-
 export var ConnectionInvitationSummaryList: StaticListSchema = [1, n0, _CISL, 0, () => ConnectionInvitationSummary];
 export var ConnectionSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ConnectionSummary];
 export var ErrorDetailList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetail];
 export var IndustrySegmentList = 64 | 0;
-
 export var LocalizedContentList: StaticListSchema = [1, n0, _LCL, 0, () => LocalizedContent];
 export var ParticipantIdentifierList = 64 | 0;
-
 export var PartnerDomainList: StaticListSchema = [1, n0, _PDL, 0, () => PartnerDomain];
 export var PartnerSummaryList: StaticListSchema = [1, n0, _PSL, 0, [() => PartnerSummary, 0]];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidationErrorList: StaticListSchema = [1, n0, _VEL, 0, () => ValidationError];
 export var ConnectionTypeDetailMap: StaticMapSchema = [2, n0, _CTDM, 0, [0, 0], [() => ConnectionTypeDetail, 0]];

@@ -4,14 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateTriggerRequest } from "../models/models_2";
-import { UpdateTriggerResponse } from "../models/models_3";
-=======
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import type { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_2";
->>>>>>> 60efd81940b (chore: codegen)
+import type { UpdateTriggerRequest } from "../models/models_2";
+import type { UpdateTriggerResponse } from "../models/models_3";
 import { UpdateTrigger } from "../schemas/schemas_0";
 
 /**

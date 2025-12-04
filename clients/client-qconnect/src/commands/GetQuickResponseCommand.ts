@@ -4,13 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-<<<<<<< HEAD
-import { GetQuickResponseRequest, GetQuickResponseResponse } from "../models/models_1";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-=======
-import type { GetQuickResponseRequest, GetQuickResponseResponse } from "../models/models_0";
+import type { GetQuickResponseRequest, GetQuickResponseResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
->>>>>>> 60efd81940b (chore: codegen)
 import { GetQuickResponse } from "../schemas/schemas_0";
 
 /**
