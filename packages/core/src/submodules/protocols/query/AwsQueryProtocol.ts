@@ -161,15 +161,7 @@ export class AwsQueryProtocol extends RpcProtocol {
       response,
       errorData,
       metadata,
-      (registry: TypeRegistry, errorName: string) => {
-        try {
-          return registry.getSchema(errorName) as StaticErrorSchema;
-        } catch (e) {
-          return registry.find(
-            (schema) => (NormalizedSchema.of(schema).getMergedTraits().awsQueryError as any)?.[0] === errorName
-          ) as StaticErrorSchema;
-        }
-      }
+      this.mixin.findQueryCompatibleError
     );
 
     const ns = NormalizedSchema.of(errorSchema);
@@ -177,6 +169,8 @@ export class AwsQueryProtocol extends RpcProtocol {
     const exception = new ErrorCtor(message);
 
     const output = {
+      Type: errorData.Error.Type,
+      Code: errorData.Error.Code,
       Error: errorData.Error,
     } as any;
 

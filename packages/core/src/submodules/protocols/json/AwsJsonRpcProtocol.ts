@@ -110,7 +110,8 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
       this.options.defaultNamespace,
       response,
       dataObject,
-      metadata
+      metadata,
+      this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined
     );
 
     const ns = NormalizedSchema.of(errorSchema);
@@ -120,8 +121,9 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
 
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {
-      const target = member.getMergedTraits().jsonName ?? name;
-      output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+      if (dataObject[name] != null) {
+        output[name] = this.codec.createDeserializer().readObject(member, dataObject[name]);
+      }
     }
 
     if (this.awsQueryCompatible) {
