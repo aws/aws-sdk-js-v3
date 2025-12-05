@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import {
+  type ApiKeyIdentity,
+  type ApiKeyIdentityProvider,
   type HttpAuthScheme,
-  ApiKeyIdentity,
-  ApiKeyIdentityProvider,
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
   TokenIdentity,
