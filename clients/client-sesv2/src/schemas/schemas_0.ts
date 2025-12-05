@@ -3025,7 +3025,7 @@ export var PutEmailIdentityDkimSigningAttributes: StaticOperationSchema = [
   9,
   n0,
   _PEIDSA,
-  { [_h]: ["PUT", "/v1/email/identities/{EmailIdentity}/dkim/signing", 200] },
+  { [_h]: ["PUT", "/v2/email/identities/{EmailIdentity}/dkim/signing", 200] },
   () => PutEmailIdentityDkimSigningAttributesRequest,
   () => PutEmailIdentityDkimSigningAttributesResponse,
 ];
