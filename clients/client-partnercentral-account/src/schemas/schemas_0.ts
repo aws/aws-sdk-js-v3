@@ -12,12 +12,15 @@ const _AT = "AccessType";
 const _ATCED = "AwsTrainingCertificationEmailDomains";
 const _Ac = "Account";
 const _BT = "BusinessTitle";
+const _BVD = "BusinessVerificationDetails";
 const _BVE = "BusinessValidationError";
+const _BVR = "BusinessVerificationResponse";
 const _C = "Catalog";
 const _CA = "CreatedAt";
 const _CAa = "CanceledAt";
+const _CAo = "CompletedAt";
 const _CB = "CanceledBy";
-const _CC = "CancelConnection";
+const _CC = "CountryCode";
 const _CCI = "CancelConnectionInvitation";
 const _CCIR = "CancelConnectionInvitationRequest";
 const _CCIRa = "CancelConnectionInvitationResponse";
@@ -26,6 +29,7 @@ const _CCIRre = "CreateConnectionInvitationResponse";
 const _CCIr = "CreateConnectionInvitation";
 const _CCR = "CancelConnectionRequest";
 const _CCRa = "CancelConnectionResponse";
+const _CCa = "CancelConnection";
 const _CE = "ConflictException";
 const _CI = "ConnectionId";
 const _CIS = "ConnectionInvitationSummary";
@@ -47,6 +51,8 @@ const _CTS = "ConnectionTypeSummary";
 const _CTSM = "ConnectionTypeSummaryMap";
 const _CTo = "ConnectionType";
 const _CTon = "ConnectionTypes";
+const _CU = "CompletionUrl";
+const _CUEA = "CompletionUrlExpiresAt";
 const _Co = "Connection";
 const _Cod = "Code";
 const _D = "Description";
@@ -87,6 +93,9 @@ const _GPUTRe = "GetProfileUpdateTaskResponse";
 const _GPV = "GetProfileVisibility";
 const _GPVR = "GetProfileVisibilityRequest";
 const _GPVRe = "GetProfileVisibilityResponse";
+const _GV = "GetVerification";
+const _GVR = "GetVerificationRequest";
+const _GVRe = "GetVerificationResponse";
 const _I = "Identifier";
 const _IE = "InviterEmail";
 const _IM = "InvitationMessage";
@@ -94,6 +103,7 @@ const _IN = "InviterName";
 const _IS = "IndustrySegments";
 const _ISE = "InternalServerException";
 const _Id = "Id";
+const _JOI = "JurisdictionOfIncorporation";
 const _K = "Key";
 const _L = "Locale";
 const _LC = "LocalizedContent";
@@ -105,8 +115,8 @@ const _LCR = "ListConnectionsRequest";
 const _LCRi = "ListConnectionsResponse";
 const _LCi = "ListConnections";
 const _LCo = "LocalizedContents";
-const _LN = "LastName";
-const _LNe = "LegalName";
+const _LN = "LegalName";
+const _LNa = "LastName";
 const _LP = "ListPartners";
 const _LPR = "ListPartnersRequest";
 const _LPRi = "ListPartnersResponse";
@@ -146,8 +156,11 @@ const _RAe = "RegisteredAt";
 const _RCI = "RejectConnectionInvitation";
 const _RCIR = "RejectConnectionInvitationRequest";
 const _RCIRe = "RejectConnectionInvitationResponse";
-const _RI = "ReceiverIdentifier";
+const _RI = "RegistrationId";
+const _RIe = "ReceiverIdentifier";
 const _RNFE = "ResourceNotFoundException";
+const _RVD = "RegistrantVerificationDetails";
+const _RVR = "RegistrantVerificationResponse";
 const _Re = "Revision";
 const _S = "Status";
 const _SA = "StartedAt";
@@ -162,6 +175,9 @@ const _SPUTR = "StartProfileUpdateTaskRequest";
 const _SPUTRt = "StartProfileUpdateTaskResponse";
 const _SQEE = "ServiceQuotaExceededException";
 const _SUS = "SensitiveUnicodeString";
+const _SV = "StartVerification";
+const _SVR = "StartVerificationRequest";
+const _SVRt = "StartVerificationResponse";
 const _T = "Tags";
 const _TD = "TaskDetails";
 const _TE = "ThrottlingException";
@@ -181,9 +197,14 @@ const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _V = "Visibility";
+const _VD = "VerificationDetails";
 const _VE = "ValidationException";
 const _VEL = "ValidationErrorList";
 const _VEa = "ValidationError";
+const _VRD = "VerificationResponseDetails";
+const _VS = "VerificationStatus";
+const _VSR = "VerificationStatusReason";
+const _VT = "VerificationType";
 const _Va = "Value";
 const _WU = "WebsiteUrl";
 const _c = "client";
@@ -217,6 +238,8 @@ import { PartnerCentralAccountServiceException as __PartnerCentralAccountService
 
 /* eslint no-var: 0 */
 export var EmailVerificationCode: StaticSimpleSchema = [0, n0, _EVC, 8, 0];
+export var LegalName: StaticSimpleSchema = [0, n0, _LN, 8, 0];
+export var RegistrationId: StaticSimpleSchema = [0, n0, _RI, 8, 0];
 export var SensitiveUnicodeString: StaticSimpleSchema = [0, n0, _SUS, 8, 0];
 export var AcceptConnectionInvitationRequest: StaticStructureSchema = [3, n0, _ACIR, 0, [_C, _I, _CT], [0, 0, [0, 4]]];
 export var AcceptConnectionInvitationResponse: StaticStructureSchema = [
@@ -235,7 +258,7 @@ export var AllianceLeadContact: StaticStructureSchema = [
   n0,
   _ALC,
   0,
-  [_FN, _LN, _E, _BT],
+  [_FN, _LNa, _E, _BT],
   [[() => SensitiveUnicodeString, 0], [() => SensitiveUnicodeString, 0], 0, [() => SensitiveUnicodeString, 0]],
 ];
 export var AssociateAwsTrainingCertificationEmailDomainRequest: StaticStructureSchema = [
@@ -248,6 +271,22 @@ export var AssociateAwsTrainingCertificationEmailDomainRequest: StaticStructureS
 ];
 export var AssociateAwsTrainingCertificationEmailDomainResponse: StaticStructureSchema = [3, n0, _AATCEDRs, 0, [], []];
 export var BusinessValidationError: StaticStructureSchema = [3, n0, _BVE, 0, [_M, _Cod], [0, 0]];
+export var BusinessVerificationDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _BVD,
+  0,
+  [_LN, _RI, _CC, _JOI],
+  [[() => LegalName, 0], [() => RegistrationId, 0], 0, 0],
+];
+export var BusinessVerificationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _BVR,
+  0,
+  [_BVD],
+  [[() => BusinessVerificationDetails, 0]],
+];
 export var CancelConnectionInvitationRequest: StaticStructureSchema = [3, n0, _CCIR, 0, [_C, _I, _CT], [0, 0, [0, 4]]];
 export var CancelConnectionInvitationResponse: StaticStructureSchema = [
   3,
@@ -329,7 +368,7 @@ export var CreateConnectionInvitationRequest: StaticStructureSchema = [
   n0,
   _CCIRr,
   0,
-  [_C, _CT, _CTo, _E, _M, _N, _RI],
+  [_C, _CT, _CTo, _E, _M, _N, _RIe],
   [0, [0, 4], 0, 0, 0, [() => SensitiveUnicodeString, 0], 0],
 ];
 export var CreateConnectionInvitationResponse: StaticStructureSchema = [
@@ -345,7 +384,7 @@ export var CreatePartnerRequest: StaticStructureSchema = [
   n0,
   _CPR,
   0,
-  [_C, _CT, _LNe, _PST, _ALC, _EVC, _T],
+  [_C, _CT, _LN, _PST, _ALC, _EVC, _T],
   [
     0,
     [0, 4],
@@ -361,7 +400,7 @@ export var CreatePartnerResponse: StaticStructureSchema = [
   n0,
   _CPRr,
   0,
-  [_C, _A, _Id, _LNe, _CA, _P, _ATCED, _ALC],
+  [_C, _A, _Id, _LN, _CA, _P, _ATCED, _ALC],
   [
     0,
     0,
@@ -433,7 +472,7 @@ export var GetPartnerResponse: StaticStructureSchema = [
   n0,
   _GPRe,
   0,
-  [_C, _A, _Id, _LNe, _CA, _P, _ATCED],
+  [_C, _A, _Id, _LN, _CA, _P, _ATCED],
   [0, 0, 0, [() => SensitiveUnicodeString, 0], 5, () => PartnerProfile, () => PartnerDomainList],
 ];
 export var GetProfileUpdateTaskRequest: StaticStructureSchema = [3, n0, _GPUTR, 0, [_C, _I], [0, 0]];
@@ -453,6 +492,15 @@ export var GetProfileVisibilityResponse: StaticStructureSchema = [
   0,
   [_C, _A, _Id, _V, _PI],
   [0, 0, 0, 0, 0],
+];
+export var GetVerificationRequest: StaticStructureSchema = [3, n0, _GVR, 0, [_VT], [0]];
+export var GetVerificationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GVRe,
+  0,
+  [_VT, _VS, _VSR, _VRD, _SA, _CAo],
+  [0, 0, 0, [() => VerificationResponseDetails, 0], 5, 5],
 ];
 export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
@@ -515,7 +563,7 @@ export var PartnerSummary: StaticStructureSchema = [
   n0,
   _PS,
   0,
-  [_C, _A, _Id, _LNe, _CA],
+  [_C, _A, _Id, _LN, _CA],
   [0, 0, 0, [() => SensitiveUnicodeString, 0], 5],
 ];
 export var PutAllianceLeadContactRequest: StaticStructureSchema = [
@@ -543,6 +591,8 @@ export var PutProfileVisibilityResponse: StaticStructureSchema = [
   [_C, _A, _Id, _V, _PI],
   [0, 0, 0, 0, 0],
 ];
+export var RegistrantVerificationDetails: StaticStructureSchema = [3, n0, _RVD, 0, [], []];
+export var RegistrantVerificationResponse: StaticStructureSchema = [3, n0, _RVR, 0, [_CU, _CUEA], [0, 5]];
 export var RejectConnectionInvitationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -588,6 +638,25 @@ export var StartProfileUpdateTaskResponse: StaticStructureSchema = [
   0,
   [_C, _A, _Id, _TI, _TD, _SA, _S, _EAn, _EDL],
   [0, 0, 0, 0, () => TaskDetails, 5, 0, 5, () => ErrorDetailList],
+];
+export var StartVerificationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SVR,
+  0,
+  [_CT, _VD],
+  [
+    [0, 4],
+    [() => VerificationDetails, 0],
+  ],
+];
+export var StartVerificationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _SVRt,
+  0,
+  [_VT, _VS, _VSR, _VRD, _SA, _CAo],
+  [0, 0, 0, [() => VerificationResponseDetails, 0], 5, 5],
 ];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, () => TagList]];
@@ -668,6 +737,22 @@ export var ValidationError: StaticStructureSchema = [
   [_FVE, _BVE],
   [() => FieldValidationError, () => BusinessValidationError],
 ];
+export var VerificationDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _VD,
+  0,
+  [_BVD, _RVD],
+  [[() => BusinessVerificationDetails, 0], () => RegistrantVerificationDetails],
+];
+export var VerificationResponseDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _VRD,
+  0,
+  [_BVR, _RVR],
+  [[() => BusinessVerificationResponse, 0], () => RegistrantVerificationResponse],
+];
 export var AcceptConnectionInvitation: StaticOperationSchema = [
   9,
   n0,
@@ -687,7 +772,7 @@ export var AssociateAwsTrainingCertificationEmailDomain: StaticOperationSchema =
 export var CancelConnection: StaticOperationSchema = [
   9,
   n0,
-  _CC,
+  _CCa,
   0,
   () => CancelConnectionRequest,
   () => CancelConnectionResponse,
@@ -781,6 +866,14 @@ export var GetProfileVisibility: StaticOperationSchema = [
   () => GetProfileVisibilityRequest,
   () => GetProfileVisibilityResponse,
 ];
+export var GetVerification: StaticOperationSchema = [
+  9,
+  n0,
+  _GV,
+  0,
+  () => GetVerificationRequest,
+  () => GetVerificationResponse,
+];
 export var ListConnectionInvitations: StaticOperationSchema = [
   9,
   n0,
@@ -845,6 +938,14 @@ export var StartProfileUpdateTask: StaticOperationSchema = [
   2,
   () => StartProfileUpdateTaskRequest,
   () => StartProfileUpdateTaskResponse,
+];
+export var StartVerification: StaticOperationSchema = [
+  9,
+  n0,
+  _SV,
+  2,
+  () => StartVerificationRequest,
+  () => StartVerificationResponse,
 ];
 export var TagResource: StaticOperationSchema = [9, n0, _TR, 2, () => TagResourceRequest, () => TagResourceResponse];
 export var UntagResource: StaticOperationSchema = [

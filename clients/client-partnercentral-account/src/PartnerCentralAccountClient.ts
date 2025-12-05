@@ -114,6 +114,7 @@ import {
   GetProfileVisibilityCommandInput,
   GetProfileVisibilityCommandOutput,
 } from "./commands/GetProfileVisibilityCommand";
+import { GetVerificationCommandInput, GetVerificationCommandOutput } from "./commands/GetVerificationCommand";
 import {
   ListConnectionInvitationsCommandInput,
   ListConnectionInvitationsCommandOutput,
@@ -144,6 +145,7 @@ import {
   StartProfileUpdateTaskCommandInput,
   StartProfileUpdateTaskCommandOutput,
 } from "./commands/StartProfileUpdateTaskCommand";
+import { StartVerificationCommandInput, StartVerificationCommandOutput } from "./commands/StartVerificationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -180,6 +182,7 @@ export type ServiceInputTypes =
   | GetPartnerCommandInput
   | GetProfileUpdateTaskCommandInput
   | GetProfileVisibilityCommandInput
+  | GetVerificationCommandInput
   | ListConnectionInvitationsCommandInput
   | ListConnectionsCommandInput
   | ListPartnersCommandInput
@@ -189,6 +192,7 @@ export type ServiceInputTypes =
   | RejectConnectionInvitationCommandInput
   | SendEmailVerificationCodeCommandInput
   | StartProfileUpdateTaskCommandInput
+  | StartVerificationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConnectionPreferencesCommandInput;
@@ -212,6 +216,7 @@ export type ServiceOutputTypes =
   | GetPartnerCommandOutput
   | GetProfileUpdateTaskCommandOutput
   | GetProfileVisibilityCommandOutput
+  | GetVerificationCommandOutput
   | ListConnectionInvitationsCommandOutput
   | ListConnectionsCommandOutput
   | ListPartnersCommandOutput
@@ -221,6 +226,7 @@ export type ServiceOutputTypes =
   | RejectConnectionInvitationCommandOutput
   | SendEmailVerificationCodeCommandOutput
   | StartProfileUpdateTaskCommandOutput
+  | StartVerificationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectionPreferencesCommandOutput;

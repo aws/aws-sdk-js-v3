@@ -325,6 +325,14 @@ GetProfileVisibility
 </details>
 <details>
 <summary>
+GetVerification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/GetVerificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetVerificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetVerificationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListConnectionInvitations
 </summary>
 
@@ -393,6 +401,14 @@ StartProfileUpdateTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/StartProfileUpdateTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartProfileUpdateTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartProfileUpdateTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartVerification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/StartVerificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartVerificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartVerificationCommandOutput/)
 
 </details>
 <details>

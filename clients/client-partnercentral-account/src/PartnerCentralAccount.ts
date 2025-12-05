@@ -74,6 +74,11 @@ import {
   GetProfileVisibilityCommandOutput,
 } from "./commands/GetProfileVisibilityCommand";
 import {
+  GetVerificationCommand,
+  GetVerificationCommandInput,
+  GetVerificationCommandOutput,
+} from "./commands/GetVerificationCommand";
+import {
   ListConnectionInvitationsCommand,
   ListConnectionInvitationsCommandInput,
   ListConnectionInvitationsCommandOutput,
@@ -118,6 +123,11 @@ import {
   StartProfileUpdateTaskCommandInput,
   StartProfileUpdateTaskCommandOutput,
 } from "./commands/StartProfileUpdateTaskCommand";
+import {
+  StartVerificationCommand,
+  StartVerificationCommandInput,
+  StartVerificationCommandOutput,
+} from "./commands/StartVerificationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -147,6 +157,7 @@ const commands = {
   GetPartnerCommand,
   GetProfileUpdateTaskCommand,
   GetProfileVisibilityCommand,
+  GetVerificationCommand,
   ListConnectionInvitationsCommand,
   ListConnectionsCommand,
   ListPartnersCommand,
@@ -156,6 +167,7 @@ const commands = {
   RejectConnectionInvitationCommand,
   SendEmailVerificationCodeCommand,
   StartProfileUpdateTaskCommand,
+  StartVerificationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectionPreferencesCommand,
@@ -400,6 +412,20 @@ export interface PartnerCentralAccount {
   ): void;
 
   /**
+   * @see {@link GetVerificationCommand}
+   */
+  getVerification(
+    args: GetVerificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVerificationCommandOutput>;
+  getVerification(args: GetVerificationCommandInput, cb: (err: any, data?: GetVerificationCommandOutput) => void): void;
+  getVerification(
+    args: GetVerificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVerificationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListConnectionInvitationsCommand}
    */
   listConnectionInvitations(
@@ -541,6 +567,24 @@ export interface PartnerCentralAccount {
     args: StartProfileUpdateTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartProfileUpdateTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartVerificationCommand}
+   */
+  startVerification(): Promise<StartVerificationCommandOutput>;
+  startVerification(
+    args: StartVerificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartVerificationCommandOutput>;
+  startVerification(
+    args: StartVerificationCommandInput,
+    cb: (err: any, data?: StartVerificationCommandOutput) => void
+  ): void;
+  startVerification(
+    args: StartVerificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartVerificationCommandOutput) => void
   ): void;
 
   /**

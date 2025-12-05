@@ -17,6 +17,7 @@ import {
   GetPartnerCommand,
   GetProfileUpdateTaskCommand,
   GetProfileVisibilityCommand,
+  GetVerificationCommand,
   IndustrySegment,
   InvitationStatus,
   ListConnectionInvitationsCommand,
@@ -36,9 +37,12 @@ import {
   RejectConnectionInvitationCommand,
   SendEmailVerificationCodeCommand,
   StartProfileUpdateTaskCommand,
+  StartVerificationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectionPreferencesCommand,
+  VerificationStatus,
+  VerificationType,
   paginateListConnectionInvitations,
   paginateListConnections,
   paginateListPartners,
@@ -63,6 +67,7 @@ assert(typeof GetConnectionPreferencesCommand === "function");
 assert(typeof GetPartnerCommand === "function");
 assert(typeof GetProfileUpdateTaskCommand === "function");
 assert(typeof GetProfileVisibilityCommand === "function");
+assert(typeof GetVerificationCommand === "function");
 assert(typeof ListConnectionInvitationsCommand === "function");
 assert(typeof ListConnectionsCommand === "function");
 assert(typeof ListPartnersCommand === "function");
@@ -72,6 +77,7 @@ assert(typeof PutProfileVisibilityCommand === "function");
 assert(typeof RejectConnectionInvitationCommand === "function");
 assert(typeof SendEmailVerificationCodeCommand === "function");
 assert(typeof StartProfileUpdateTaskCommand === "function");
+assert(typeof StartVerificationCommand === "function");
 assert(typeof TagResourceCommand === "function");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UpdateConnectionPreferencesCommand === "function");
@@ -86,6 +92,8 @@ assert(typeof PrimarySolutionType === "object");
 assert(typeof ProfileTaskStatus === "object");
 assert(typeof ProfileValidationErrorReason === "object");
 assert(typeof ProfileVisibility === "object");
+assert(typeof VerificationStatus === "object");
+assert(typeof VerificationType === "object");
 // errors
 assert(PartnerCentralAccountServiceException.prototype instanceof Error);
 // paginators

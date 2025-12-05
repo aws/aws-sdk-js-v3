@@ -12,6 +12,8 @@ import {
   ProfileTaskStatus,
   ProfileValidationErrorReason,
   ProfileVisibility,
+  VerificationStatus,
+  VerificationType,
 } from "./enums";
 
 /**
@@ -419,6 +421,48 @@ export interface AssociateAwsTrainingCertificationEmailDomainRequest {
  * @public
  */
 export interface AssociateAwsTrainingCertificationEmailDomainResponse {}
+
+/**
+ * <p>Contains the business information required for verifying a company's legal status and registration details within AWS Partner Central.</p>
+ * @public
+ */
+export interface BusinessVerificationDetails {
+  /**
+   * <p>The official legal name of the business as registered with the appropriate government authorities.</p>
+   * @public
+   */
+  LegalName: string | undefined;
+
+  /**
+   * <p>The unique business registration identifier assigned by the government or regulatory authority, such as a company registration number or tax identification number.</p>
+   * @public
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * <p>The ISO 3166-1 alpha-2 country code where the business is legally registered and operates.</p>
+   * @public
+   */
+  CountryCode: string | undefined;
+
+  /**
+   * <p>The specific legal jurisdiction or state where the business was incorporated or registered, providing additional location context beyond the country code.</p>
+   * @public
+   */
+  JurisdictionOfIncorporation?: string | undefined;
+}
+
+/**
+ * <p>Contains the response information and results from a business verification process, including any verification-specific data returned by the verification service.</p>
+ * @public
+ */
+export interface BusinessVerificationResponse {
+  /**
+   * <p>The business verification details that were processed and verified, potentially including additional information discovered during the verification process.</p>
+   * @public
+   */
+  BusinessVerificationDetails: BusinessVerificationDetails | undefined;
+}
 
 /**
  * @public
@@ -2069,6 +2113,129 @@ export interface GetProfileVisibilityResponse {
 /**
  * @public
  */
+export interface GetVerificationRequest {
+  /**
+   * <p>The type of verification to retrieve information for. Valid values include business verification for company registration details and registrant verification for individual identity confirmation.</p>
+   * @public
+   */
+  VerificationType: VerificationType | undefined;
+}
+
+/**
+ * <p>Contains the response information from a registrant verification process, including any verification-specific data and next steps for the individual verification workflow.</p>
+ * @public
+ */
+export interface RegistrantVerificationResponse {
+  /**
+   * <p>A secure URL where the registrant can complete additional verification steps, such as document upload or identity confirmation through a third-party verification service.</p>
+   * @public
+   */
+  CompletionUrl: string | undefined;
+
+  /**
+   * <p>The timestamp when the completion URL expires and is no longer valid for accessing the verification workflow.</p>
+   * @public
+   */
+  CompletionUrlExpiresAt: Date | undefined;
+}
+
+/**
+ * <p>A union structure containing the response details specific to different types of verification processes, providing type-specific information and results.</p>
+ * @public
+ */
+export type VerificationResponseDetails =
+  | VerificationResponseDetails.BusinessVerificationResponseMember
+  | VerificationResponseDetails.RegistrantVerificationResponseMember
+  | VerificationResponseDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace VerificationResponseDetails {
+  /**
+   * <p>The response details from a business verification process, including verification results and any additional business information discovered.</p>
+   * @public
+   */
+  export interface BusinessVerificationResponseMember {
+    BusinessVerificationResponse: BusinessVerificationResponse;
+    RegistrantVerificationResponse?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The response details from a registrant verification process, including verification results and any additional steps required for identity confirmation.</p>
+   * @public
+   */
+  export interface RegistrantVerificationResponseMember {
+    BusinessVerificationResponse?: never;
+    RegistrantVerificationResponse: RegistrantVerificationResponse;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    BusinessVerificationResponse?: never;
+    RegistrantVerificationResponse?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    BusinessVerificationResponse: (value: BusinessVerificationResponse) => T;
+    RegistrantVerificationResponse: (value: RegistrantVerificationResponse) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetVerificationResponse {
+  /**
+   * <p>The type of verification that was requested and processed.</p>
+   * @public
+   */
+  VerificationType: VerificationType | undefined;
+
+  /**
+   * <p>The current status of the verification process. Possible values include pending, in-progress, completed, failed, or expired.</p>
+   * @public
+   */
+  VerificationStatus: VerificationStatus | undefined;
+
+  /**
+   * <p>Additional information explaining the current verification status, particularly useful when the status indicates a failure or requires additional action.</p>
+   * @public
+   */
+  VerificationStatusReason?: string | undefined;
+
+  /**
+   * <p>Detailed response information specific to the type of verification performed, including any verification-specific data or results.</p>
+   * @public
+   */
+  VerificationResponseDetails: VerificationResponseDetails | undefined;
+
+  /**
+   * <p>The timestamp when the verification process was initiated.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the verification process was completed. This field is null if the verification is still in progress.</p>
+   * @public
+   */
+  CompletedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListPartnersRequest {
   /**
    * <p>The catalog identifier to list partners from.</p>
@@ -2389,6 +2556,123 @@ export interface SendEmailVerificationCodeRequest {
  * @public
  */
 export interface SendEmailVerificationCodeResponse {}
+
+/**
+ * <p>Contains the personal information required for verifying an individual's identity as part of the partner registration process in AWS Partner Central.</p>
+ * @public
+ */
+export interface RegistrantVerificationDetails {}
+
+/**
+ * <p>A union structure containing the specific details required for different types of verification processes supported by AWS Partner Central.</p>
+ * @public
+ */
+export type VerificationDetails =
+  | VerificationDetails.BusinessVerificationDetailsMember
+  | VerificationDetails.RegistrantVerificationDetailsMember
+  | VerificationDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace VerificationDetails {
+  /**
+   * <p>The business verification details to be used when starting a business verification process.</p>
+   * @public
+   */
+  export interface BusinessVerificationDetailsMember {
+    BusinessVerificationDetails: BusinessVerificationDetails;
+    RegistrantVerificationDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The registrant verification details to be used when starting an individual identity verification process.</p>
+   * @public
+   */
+  export interface RegistrantVerificationDetailsMember {
+    BusinessVerificationDetails?: never;
+    RegistrantVerificationDetails: RegistrantVerificationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    BusinessVerificationDetails?: never;
+    RegistrantVerificationDetails?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    BusinessVerificationDetails: (value: BusinessVerificationDetails) => T;
+    RegistrantVerificationDetails: (value: RegistrantVerificationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartVerificationRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This prevents duplicate verification processes from being started accidentally.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The specific details required for the verification process, including business information for business verification or personal information for registrant verification.</p>
+   * @public
+   */
+  VerificationDetails?: VerificationDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartVerificationResponse {
+  /**
+   * <p>The type of verification that was started based on the provided verification details.</p>
+   * @public
+   */
+  VerificationType: VerificationType | undefined;
+
+  /**
+   * <p>The initial status of the verification process after it has been started. Typically this will be pending or in-progress.</p>
+   * @public
+   */
+  VerificationStatus: VerificationStatus | undefined;
+
+  /**
+   * <p>Additional information about the initial verification status, including any immediate feedback about the submitted verification details.</p>
+   * @public
+   */
+  VerificationStatusReason?: string | undefined;
+
+  /**
+   * <p>Initial response details specific to the type of verification started, which may include next steps or additional requirements.</p>
+   * @public
+   */
+  VerificationResponseDetails: VerificationResponseDetails | undefined;
+
+  /**
+   * <p>The timestamp when the verification process was successfully initiated.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the verification process was completed. This field is typically null for newly started verifications unless they complete immediately.</p>
+   * @public
+   */
+  CompletedAt?: Date | undefined;
+}
 
 /**
  * @public

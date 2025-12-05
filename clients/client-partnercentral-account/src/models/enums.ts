@@ -44,6 +44,7 @@ export type AccessDeniedExceptionReason =
  * @enum
  */
 export const ConflictExceptionReason = {
+  ACCOUNT_ALREADY_VERIFIED: "ACCOUNT_ALREADY_VERIFIED",
   CONFLICT_CLIENT_TOKEN: "CONFLICT_CLIENT_TOKEN",
   DUPLICATE_CONNECTION: "DUPLICATE_CONNECTION",
   DUPLICATE_CONNECTION_INVITATION: "DUPLICATE_CONNECTION_INVITATION",
@@ -54,6 +55,7 @@ export const ConflictExceptionReason = {
   INCOMPATIBLE_CONNECTION_STATE: "INCOMPATIBLE_CONNECTION_STATE",
   INCOMPATIBLE_PARTNER_PROFILE_TASK_STATE: "INCOMPATIBLE_PARTNER_PROFILE_TASK_STATE",
   INCOMPATIBLE_PROFILE_STATE: "INCOMPATIBLE_PROFILE_STATE",
+  VERIFICATION_ALREADY_IN_PROGRESS: "VERIFICATION_ALREADY_IN_PROGRESS",
 } as const;
 /**
  * @public
@@ -73,6 +75,7 @@ export const ResourceNotFoundExceptionReason = {
   PARTNER_PROFILE_TASK_NOT_FOUND: "PARTNER_PROFILE_TASK_NOT_FOUND",
   RECEIVER_PROFILE_NOT_FOUND: "RECEIVER_PROFILE_NOT_FOUND",
   SENDER_PROFILE_NOT_FOUND: "SENDER_PROFILE_NOT_FOUND",
+  VERIFICATION_NOT_FOUND: "VERIFICATION_NOT_FOUND",
 } as const;
 /**
  * @public
@@ -299,3 +302,32 @@ export const ProfileVisibility = {
  * @public
  */
 export type ProfileVisibility = (typeof ProfileVisibility)[keyof typeof ProfileVisibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationType = {
+  BUSINESS_VERIFICATION: "BUSINESS_VERIFICATION",
+  REGISTRANT_VERIFICATION: "REGISTRANT_VERIFICATION",
+} as const;
+/**
+ * @public
+ */
+export type VerificationType = (typeof VerificationType)[keyof typeof VerificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING_CUSTOMER_ACTION: "PENDING_CUSTOMER_ACTION",
+  REJECTED: "REJECTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
