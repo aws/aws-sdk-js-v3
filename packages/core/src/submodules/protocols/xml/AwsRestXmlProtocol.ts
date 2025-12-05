@@ -72,7 +72,9 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
 
     if (request.headers["content-type"] === this.getDefaultContentType()) {
       if (typeof request.body === "string") {
-        request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
+        if (!request.body.startsWith("<?xml ")) {
+          request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
+        }
       }
     }
 
