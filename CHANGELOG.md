@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+
+### Bug Fixes
+
+* **core/protocols:** awsQueryCompatibility error structuring ([#7541](https://github.com/aws/aws-sdk-js-v3/issues/7541)) ([ab68395](https://github.com/aws/aws-sdk-js-v3/commit/ab6839561b259612ec9524938277804f59d3048f))
+* **core/protocols:** conditionally append xml declaration ([#7551](https://github.com/aws/aws-sdk-js-v3/issues/7551)) ([f9245de](https://github.com/aws/aws-sdk-js-v3/commit/f9245def44697ffb3b64d55c6e1e58ef9edd7ef4))
+* **ec2-metadata-service:** discard response body stream on failed request ([#7543](https://github.com/aws/aws-sdk-js-v3/issues/7543)) ([2dc10c6](https://github.com/aws/aws-sdk-js-v3/commit/2dc10c6fef69350a3a2b6e0e22ef0fb4f4e3c7ab))
+
+
+### Features
+
+* **client-iam:** Adding the ExpirationTime attribute to the delegation request resource. ([2de7392](https://github.com/aws/aws-sdk-js-v3/commit/2de739245699a99e911d0550749e7c9e4b0313ba))
+* **client-inspector2:** This release adds a new ScanStatus called "Unsupported Code Artifacts". This ScanStatus will be returned when a Lambda function was not code scanned because it has unsupported code artifacts. ([30b100c](https://github.com/aws/aws-sdk-js-v3/commit/30b100c95832cb085138547adf0c2cd97de84248))
+* **client-partnercentral-account:** Adding Verification API's to Partner Central Account SDK. ([b9bad19](https://github.com/aws/aws-sdk-js-v3/commit/b9bad198139e2f90ece73c567ec855f1dc083f23))
+* **client-sesv2:** Updating the desired url for `PutEmailIdentityDkimSigningAttributes` from v1 to v2 ([4e8746f](https://github.com/aws/aws-sdk-js-v3/commit/4e8746fff5a52958dc8d53e9ea85263d3233a9f6))
+
+
+
+
+
 # [3.945.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.944.0...v3.945.0) (2025-12-04)
 
 

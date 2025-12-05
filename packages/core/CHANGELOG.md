@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+
+### Bug Fixes
+
+* **core/protocols:** awsQueryCompatibility error structuring ([#7541](https://github.com/aws/aws-sdk-js-v3/issues/7541)) ([ab68395](https://github.com/aws/aws-sdk-js-v3/commit/ab6839561b259612ec9524938277804f59d3048f))
+* **core/protocols:** conditionally append xml declaration ([#7551](https://github.com/aws/aws-sdk-js-v3/issues/7551)) ([f9245de](https://github.com/aws/aws-sdk-js-v3/commit/f9245def44697ffb3b64d55c6e1e58ef9edd7ef4))
+
+
+
+
+
 # [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
 
 **Note:** Version bump only for package @aws-sdk/core
