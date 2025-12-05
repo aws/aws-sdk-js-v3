@@ -76,6 +76,7 @@ export interface GetDelegationRequestCommandOutput extends GetDelegationRequestR
  * //     OwnerId: "STRING_VALUE",
  * //     ApproverId: "STRING_VALUE",
  * //     State: "UNASSIGNED" || "ASSIGNED" || "PENDING_APPROVAL" || "FINALIZED" || "ACCEPTED" || "REJECTED" || "EXPIRED",
+ * //     ExpirationTime: new Date("TIMESTAMP"),
  * //     RequestorId: "STRING_VALUE",
  * //     RequestorName: "STRING_VALUE",
  * //     CreateDate: new Date("TIMESTAMP"),

@@ -226,8 +226,9 @@ const _ERD = "EvalResourceDecision";
 const _ERLT = "EvaluationResultsListType";
 const _ERN = "EvalResourceName";
 const _ERv = "EvaluationResults";
-const _ET = "EntityType";
+const _ET = "ExpirationTime";
 const _ETUE = "EntityTemporarilyUnmodifiableException";
+const _ETn = "EntityType";
 const _En = "Encoding";
 const _Ex = "Expiration";
 const _F = "Filter";
@@ -1131,8 +1132,8 @@ export var DelegationRequest: StaticStructureSchema = [
   n0,
   _DR,
   0,
-  [_DRI, _OAI, _D, _RM, _P, _PP, _RPRA, _OI, _AI, _St, _RI, _RNe, _CD, _SD, _RU, _No, _RR, _OSBO, _UT],
-  [0, 0, 0, 0, () => DelegationPermission, 0, 64 | 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 4],
+  [_DRI, _OAI, _D, _RM, _P, _PP, _RPRA, _OI, _AI, _St, _ET, _RI, _RNe, _CD, _SD, _RU, _No, _RR, _OSBO, _UT],
+  [0, 0, 0, 0, () => DelegationPermission, 0, 64 | 0, 0, 0, 0, 4, 0, 0, 4, 1, 0, 0, 0, 2, 4],
 ];
 export var DeleteAccessKeyRequest: StaticStructureSchema = [3, n0, _DAKR, 0, [_UN, _AKI], [0, 0]];
 export var DeleteAccountAliasRequest: StaticStructureSchema = [3, n0, _DAAR, 0, [_AA], [0]];
@@ -1975,7 +1976,7 @@ export var PolicyGrantingServiceAccess: StaticStructureSchema = [
   n0,
   _PGSAo,
   0,
-  [_PN, _PT, _PA, _ET, _EN],
+  [_PN, _PT, _PA, _ETn, _EN],
   [0, 0, 0, 0, 0],
 ];
 export var PolicyGroup: StaticStructureSchema = [3, n0, _PGo, 0, [_GN, _GI], [0, 0]];
