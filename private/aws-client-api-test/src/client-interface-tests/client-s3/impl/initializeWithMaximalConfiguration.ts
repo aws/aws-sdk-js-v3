@@ -138,6 +138,7 @@ export const initializeWithMaximalConfiguration = () => {
     responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
     requestStreamBufferSize: 8 * 1024,
     expectContinueHeader: 8 * 1024 * 1024,
+    clientContextParams: {},
   };
 
   const s3 = new S3Client(config);
