@@ -6004,7 +6004,7 @@ export var TimeSeriesDataPointSummaryFormOutput: StaticStructureSchema = [
 export var Topic: StaticStructureSchema = [3, n0, _To, 0, [_sub, _res, _ro], [0, () => NotificationResource, 0]];
 export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var Unit_n0: StaticStructureSchema = [3, n0, _U, 0, [], []];
+export var Unit: StaticStructureSchema = [3, n0, _U, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -6916,9 +6916,9 @@ export var PolicyGrantDetail: StaticStructureSchema = [
     () => CreateAssetTypePolicyGrantDetail,
     () => CreateProjectPolicyGrantDetail,
     () => CreateEnvironmentProfilePolicyGrantDetail,
-    () => Unit_n0,
-    () => Unit_n0,
-    () => Unit_n0,
+    () => Unit,
+    () => Unit,
+    () => Unit,
     () => CreateProjectFromProjectProfilePolicyGrantDetail,
     () => UseAssetTypePolicyGrantDetail,
   ],
