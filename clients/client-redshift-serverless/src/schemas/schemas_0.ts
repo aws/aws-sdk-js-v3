@@ -68,6 +68,7 @@ const _DWRe = "DeleteWorkgroupResponse";
 const _E = "Endpoint";
 const _EA = "EndpointAccess";
 const _EAL = "EndpointAccessList";
+const _ET = "ExpirationTime";
 const _GC = "GetCredentials";
 const _GCDA = "GetCustomDomainAssociation";
 const _GCDAR = "GetCustomDomainAssociationRequest";
@@ -77,6 +78,9 @@ const _GCRe = "GetCredentialsResponse";
 const _GEA = "GetEndpointAccess";
 const _GEAR = "GetEndpointAccessRequest";
 const _GEARe = "GetEndpointAccessResponse";
+const _GICAT = "GetIdentityCenterAuthToken";
+const _GICATR = "GetIdentityCenterAuthTokenRequest";
+const _GICATRe = "GetIdentityCenterAuthTokenResponse";
 const _GN = "GetNamespace";
 const _GNR = "GetNamespaceRequest";
 const _GNRe = "GetNamespaceResponse";
@@ -199,7 +203,7 @@ const _SL = "SnapshotList";
 const _SQEE = "ServiceQuotaExceededException";
 const _ST = "ServerlessTrack";
 const _Sc = "Schedule";
-const _T = "Tag";
+const _T = "Token";
 const _TA = "TargetAction";
 const _TE = "ThrottlingException";
 const _TL = "TagList";
@@ -210,6 +214,7 @@ const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TRS = "TableRestoreStatus";
 const _TRSL = "TableRestoreStatusList";
+const _Ta = "Tag";
 const _UCDA = "UpdateCustomDomainAssociation";
 const _UCDAR = "UpdateCustomDomainAssociationRequest";
 const _UCDARp = "UpdateCustomDomainAssociationResponse";
@@ -301,6 +306,7 @@ const _eS = "endpointStatus";
 const _eSTC = "estimatedSecondsToCompletion";
 const _eT = "endTime";
 const _eTIS = "elapsedTimeInSeconds";
+const _eTx = "expirationTime";
 const _eVR = "enhancedVpcRouting";
 const _en = "endpoint";
 const _ena = "enabled";
@@ -314,6 +320,7 @@ const _hQ = "httpQuery";
 const _iA = "ipv6Address";
 const _iAT = "ipAddressType";
 const _iR = "iamRoles";
+const _jN = "jsonName";
 const _k = "key";
 const _kKI = "kmsKeyId";
 const _l = "level";
@@ -416,6 +423,7 @@ const _tRS = "tableRestoreStatus";
 const _tRSa = "tableRestoreStatuses";
 const _tSIMB = "totalSizeInMegaBytes";
 const _tSN = "targetSchemaName";
+const _to = "token";
 const _tr = "track";
 const _tra = "tracks";
 const _uC = "upfrontCharge";
@@ -437,6 +445,7 @@ const _w = "workgroup";
 const _wA = "workgroupArn";
 const _wI = "workgroupId";
 const _wN = "workgroupName";
+const _wNo = "workgroupNames";
 const _wV = "workgroupVersion";
 const _wo = "workgroups";
 const n0 = "com.amazonaws.redshiftserverless";
@@ -651,6 +660,18 @@ export var GetCustomDomainAssociationResponse: StaticStructureSchema = [
 ];
 export var GetEndpointAccessRequest: StaticStructureSchema = [3, n0, _GEAR, 0, [_eN], [0]];
 export var GetEndpointAccessResponse: StaticStructureSchema = [3, n0, _GEARe, 0, [_en], [() => EndpointAccess]];
+export var GetIdentityCenterAuthTokenRequest: StaticStructureSchema = [3, n0, _GICATR, 0, [_wNo], [64 | 0]];
+export var GetIdentityCenterAuthTokenResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GICATRe,
+  8,
+  [_to, _eTx],
+  [
+    [0, { [_jN]: _T }],
+    [5, { [_jN]: _ET }],
+  ],
+];
 export var GetNamespaceRequest: StaticStructureSchema = [3, n0, _GNR, 0, [_nN], [0]];
 export var GetNamespaceResponse: StaticStructureSchema = [3, n0, _GNRe, 0, [_n], [[() => Namespace, 0]]];
 export var GetRecoveryPointRequest: StaticStructureSchema = [3, n0, _GRPR, 0, [_rPI], [0]];
@@ -1061,7 +1082,7 @@ export var TableRestoreStatus: StaticStructureSchema = [
   [_tRRI, _st, _m, _rT, _nN, _wN, _sN, _pIMB, _tDIMB, _sDN, _sSN, _sTN, _tDN, _tSN, _nTN, _rPI],
   [0, 0, 0, 4, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
+export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_k, _v], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_co, _m], [0, 0]];
@@ -1269,6 +1290,7 @@ export var VpcIds = 64 | 0;
 export var VpcSecurityGroupIdList = 64 | 0;
 export var VpcSecurityGroupMembershipList: StaticListSchema = [1, n0, _VSGML, 0, () => VpcSecurityGroupMembership];
 export var WorkgroupList: StaticListSchema = [1, n0, _WL, 0, () => Workgroup];
+export var WorkgroupNameList = 64 | 0;
 export var Schedule: StaticStructureSchema = [3, n0, _Sc, 0, [_at, _cr], [4, 0]];
 export var TargetAction: StaticStructureSchema = [3, n0, _TA, 0, [_cS], [() => CreateSnapshotScheduleActionParameters]];
 export var ConvertRecoveryPointToSnapshot: StaticOperationSchema = [
@@ -1446,6 +1468,14 @@ export var GetEndpointAccess: StaticOperationSchema = [
   0,
   () => GetEndpointAccessRequest,
   () => GetEndpointAccessResponse,
+];
+export var GetIdentityCenterAuthToken: StaticOperationSchema = [
+  9,
+  n0,
+  _GICAT,
+  0,
+  () => GetIdentityCenterAuthTokenRequest,
+  () => GetIdentityCenterAuthTokenResponse,
 ];
 export var GetNamespace: StaticOperationSchema = [9, n0, _GN, 0, () => GetNamespaceRequest, () => GetNamespaceResponse];
 export var GetRecoveryPoint: StaticOperationSchema = [

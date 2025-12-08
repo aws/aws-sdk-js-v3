@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetTrackRequest, GetTrackResponse } from "../models/models_0";
+import type { GetIdentityCenterAuthTokenRequest, GetIdentityCenterAuthTokenResponse } from "../models/models_0";
 import type {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetTrack } from "../schemas/schemas_0";
+import { GetIdentityCenterAuthToken } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,50 +20,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTrackCommand}.
+ * The input for {@link GetIdentityCenterAuthTokenCommand}.
  */
-export interface GetTrackCommandInput extends GetTrackRequest {}
+export interface GetIdentityCenterAuthTokenCommandInput extends GetIdentityCenterAuthTokenRequest {}
 /**
  * @public
  *
- * The output of {@link GetTrackCommand}.
+ * The output of {@link GetIdentityCenterAuthTokenCommand}.
  */
-export interface GetTrackCommandOutput extends GetTrackResponse, __MetadataBearer {}
+export interface GetIdentityCenterAuthTokenCommandOutput extends GetIdentityCenterAuthTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Get the Redshift Serverless version for a specified track.</p>
+ * <p>Returns an Identity Center authentication token for accessing Amazon Redshift Serverless workgroups.</p> <p>The token provides secure access to data within the specified workgroups using Identity Center identity propagation. The token expires after a specified duration and must be refreshed for continued access.</p> <p>The Identity and Access Management (IAM) user or role that runs GetIdentityCenterAuthToken must have appropriate permissions to access the specified workgroups and Identity Center integration must be configured for the workgroups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, GetTrackCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, GetTrackCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, GetIdentityCenterAuthTokenCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, GetIdentityCenterAuthTokenCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
  * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
- * const input = { // GetTrackRequest
- *   trackName: "STRING_VALUE", // required
+ * const input = { // GetIdentityCenterAuthTokenRequest
+ *   workgroupNames: [ // WorkgroupNameList // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new GetTrackCommand(input);
+ * const command = new GetIdentityCenterAuthTokenCommand(input);
  * const response = await client.send(command);
- * // { // GetTrackResponse
- * //   track: { // ServerlessTrack
- * //     trackName: "STRING_VALUE",
- * //     workgroupVersion: "STRING_VALUE",
- * //     updateTargets: [ // UpdateTargetsList
- * //       { // UpdateTarget
- * //         trackName: "STRING_VALUE",
- * //         workgroupVersion: "STRING_VALUE",
- * //       },
- * //     ],
- * //   },
+ * // { // GetIdentityCenterAuthTokenResponse
+ * //   token: "STRING_VALUE",
+ * //   expirationTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param GetTrackCommandInput - {@link GetTrackCommandInput}
- * @returns {@link GetTrackCommandOutput}
- * @see {@link GetTrackCommandInput} for command's `input` shape.
- * @see {@link GetTrackCommandOutput} for command's `response` shape.
+ * @param GetIdentityCenterAuthTokenCommandInput - {@link GetIdentityCenterAuthTokenCommandInput}
+ * @returns {@link GetIdentityCenterAuthTokenCommandOutput}
+ * @see {@link GetIdentityCenterAuthTokenCommandInput} for command's `input` shape.
+ * @see {@link GetIdentityCenterAuthTokenCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -93,10 +87,10 @@ export interface GetTrackCommandOutput extends GetTrackResponse, __MetadataBeare
  *
  * @public
  */
-export class GetTrackCommand extends $Command
+export class GetIdentityCenterAuthTokenCommand extends $Command
   .classBuilder<
-    GetTrackCommandInput,
-    GetTrackCommandOutput,
+    GetIdentityCenterAuthTokenCommandInput,
+    GetIdentityCenterAuthTokenCommandOutput,
     RedshiftServerlessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,19 +99,19 @@ export class GetTrackCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("RedshiftServerless", "GetTrack", {})
-  .n("RedshiftServerlessClient", "GetTrackCommand")
-  .sc(GetTrack)
+  .s("RedshiftServerless", "GetIdentityCenterAuthToken", {})
+  .n("RedshiftServerlessClient", "GetIdentityCenterAuthTokenCommand")
+  .sc(GetIdentityCenterAuthToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetTrackRequest;
-      output: GetTrackResponse;
+      input: GetIdentityCenterAuthTokenRequest;
+      output: GetIdentityCenterAuthTokenResponse;
     };
     sdk: {
-      input: GetTrackCommandInput;
-      output: GetTrackCommandOutput;
+      input: GetIdentityCenterAuthTokenCommandInput;
+      output: GetIdentityCenterAuthTokenCommandOutput;
     };
   };
 }

@@ -121,6 +121,10 @@ import {
   GetCustomDomainAssociationCommandOutput,
 } from "./commands/GetCustomDomainAssociationCommand";
 import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "./commands/GetEndpointAccessCommand";
+import {
+  GetIdentityCenterAuthTokenCommandInput,
+  GetIdentityCenterAuthTokenCommandOutput,
+} from "./commands/GetIdentityCenterAuthTokenCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
 import { GetReservationCommandInput, GetReservationCommandOutput } from "./commands/GetReservationCommand";
@@ -254,6 +258,7 @@ export type ServiceInputTypes =
   | GetCredentialsCommandInput
   | GetCustomDomainAssociationCommandInput
   | GetEndpointAccessCommandInput
+  | GetIdentityCenterAuthTokenCommandInput
   | GetNamespaceCommandInput
   | GetRecoveryPointCommandInput
   | GetReservationCommandInput
@@ -323,6 +328,7 @@ export type ServiceOutputTypes =
   | GetCredentialsCommandOutput
   | GetCustomDomainAssociationCommandOutput
   | GetEndpointAccessCommandOutput
+  | GetIdentityCenterAuthTokenCommandOutput
   | GetNamespaceCommandOutput
   | GetRecoveryPointCommandOutput
   | GetReservationCommandOutput

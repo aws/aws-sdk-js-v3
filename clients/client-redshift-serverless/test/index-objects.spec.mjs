@@ -24,6 +24,7 @@ import {
   GetCredentialsCommand,
   GetCustomDomainAssociationCommand,
   GetEndpointAccessCommand,
+  GetIdentityCenterAuthTokenCommand,
   GetNamespaceCommand,
   GetRecoveryPointCommand,
   GetReservationCommand,
@@ -133,6 +134,7 @@ assert(typeof DeleteWorkgroupCommand === "function");
 assert(typeof GetCredentialsCommand === "function");
 assert(typeof GetCustomDomainAssociationCommand === "function");
 assert(typeof GetEndpointAccessCommand === "function");
+assert(typeof GetIdentityCenterAuthTokenCommand === "function");
 assert(typeof GetNamespaceCommand === "function");
 assert(typeof GetRecoveryPointCommand === "function");
 assert(typeof GetReservationCommand === "function");

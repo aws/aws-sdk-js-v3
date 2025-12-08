@@ -113,6 +113,11 @@ import {
   GetEndpointAccessCommandOutput,
 } from "./commands/GetEndpointAccessCommand";
 import {
+  GetIdentityCenterAuthTokenCommand,
+  GetIdentityCenterAuthTokenCommandInput,
+  GetIdentityCenterAuthTokenCommandOutput,
+} from "./commands/GetIdentityCenterAuthTokenCommand";
+import {
   GetNamespaceCommand,
   GetNamespaceCommandInput,
   GetNamespaceCommandOutput,
@@ -331,6 +336,7 @@ const commands = {
   GetCredentialsCommand,
   GetCustomDomainAssociationCommand,
   GetEndpointAccessCommand,
+  GetIdentityCenterAuthTokenCommand,
   GetNamespaceCommand,
   GetRecoveryPointCommand,
   GetReservationCommand,
@@ -728,6 +734,23 @@ export interface RedshiftServerless {
     args: GetEndpointAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIdentityCenterAuthTokenCommand}
+   */
+  getIdentityCenterAuthToken(
+    args: GetIdentityCenterAuthTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdentityCenterAuthTokenCommandOutput>;
+  getIdentityCenterAuthToken(
+    args: GetIdentityCenterAuthTokenCommandInput,
+    cb: (err: any, data?: GetIdentityCenterAuthTokenCommandOutput) => void
+  ): void;
+  getIdentityCenterAuthToken(
+    args: GetIdentityCenterAuthTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdentityCenterAuthTokenCommandOutput) => void
   ): void;
 
   /**
