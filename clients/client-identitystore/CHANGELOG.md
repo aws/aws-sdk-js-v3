@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+
+### Features
+
+* **client-identitystore:** Updating AWS Identity Store APIs to support Attribute Extensions capability, with the first release adding Enterprise Attributes. This launch aligns Identity Store APIs with SCIM for enterprise attributes, reducing cases when customers are forced to use SCIM due to lack of SigV4 API support. ([14887fd](https://github.com/aws/aws-sdk-js-v3/commit/14887fdeabc27e97d5e567ac3589b01bd2286dbf))
+
+
+
+
+
 # [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
 
 **Note:** Version bump only for package @aws-sdk/client-identitystore

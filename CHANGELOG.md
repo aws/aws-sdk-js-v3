@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+
+### Features
+
+* **client-cost-explorer:** Add support for Cost Category resource associations including filtering by resource type on ListCostCategoryDefinitions and new ListCostCategoryResourceAssociations API. ([011b4f6](https://github.com/aws/aws-sdk-js-v3/commit/011b4f652cec1d49963da351de47d7f7fe7ac51e))
+* **client-ec2:** Amazon EC2 P6-B300 instances provide 8x NVIDIA Blackwell Ultra GPUs with 2.1 TB high bandwidth GPU memory, 6.4 Tbps EFA networking, 300 Gbps dedicated ENA throughput, and 4 TB of system memory. Amazon EC2 C8a instances are powered by 5th Gen AMD EPYC processors with a maximum frequency of 4.5 GHz. ([229ff01](https://github.com/aws/aws-sdk-js-v3/commit/229ff01153e039dff1feed4db33554b79c1b94ff))
+* **client-identitystore:** Updating AWS Identity Store APIs to support Attribute Extensions capability, with the first release adding Enterprise Attributes. This launch aligns Identity Store APIs with SCIM for enterprise attributes, reducing cases when customers are forced to use SCIM due to lack of SigV4 API support. ([14887fd](https://github.com/aws/aws-sdk-js-v3/commit/14887fdeabc27e97d5e567ac3589b01bd2286dbf))
+* **client-partnercentral-selling:** Deal Sizing Service for AI-based deal size estimation with AWS service-level breakdown, supporting Expansion and Migration deals across Technology, and Reseller partner cohorts, including Pricing Calculator AddOn for MAP deals and funding incentives. ([867598e](https://github.com/aws/aws-sdk-js-v3/commit/867598e2c17d1cc7c6d654d0456e1362f55a0d20))
+* **client-rds:** Adding support for tagging RDS Instance/Cluster Automated Backups ([41b9a13](https://github.com/aws/aws-sdk-js-v3/commit/41b9a1394c4a22430f1bb70f510c3fc09a4978a1))
+* **client-redshift-serverless:** Added GetIdentityCenterAuthToken API to retrieve encrypted authentication tokens for Identity Center integrated serverless workgroups. This API enables programmatic access to secure Identity Center tokens with proper error handling and parameter validation across supported SDK languages. ([c3d2776](https://github.com/aws/aws-sdk-js-v3/commit/c3d277699b6031476f0ad563776b73206bc6ed88))
+* **client-rolesanywhere:** Increases certificate string length for trust anchor source data to support ML-DSA certificates. ([481b863](https://github.com/aws/aws-sdk-js-v3/commit/481b863e4698390601110bf96ffec6bd392bab13))
+* **client-sesv2:** Update Mail Manager Archive ARN validation ([18c203b](https://github.com/aws/aws-sdk-js-v3/commit/18c203b2cfbce0b058408546046e8ee6c610341e))
+* **clients:** update client endpoints as of 2025-12-08 ([7e0d61b](https://github.com/aws/aws-sdk-js-v3/commit/7e0d61b2858caa82bd7d36142e800cefccf27672))
+
+
+
+
+
 # [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
 
 

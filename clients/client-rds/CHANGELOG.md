@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+
+### Features
+
+* **client-rds:** Adding support for tagging RDS Instance/Cluster Automated Backups ([41b9a13](https://github.com/aws/aws-sdk-js-v3/commit/41b9a1394c4a22430f1bb70f510c3fc09a4978a1))
+
+
+
+
+
 # [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

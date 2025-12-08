@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+
+### Features
+
+* **client-cost-explorer:** Add support for Cost Category resource associations including filtering by resource type on ListCostCategoryDefinitions and new ListCostCategoryResourceAssociations API. ([011b4f6](https://github.com/aws/aws-sdk-js-v3/commit/011b4f652cec1d49963da351de47d7f7fe7ac51e))
+
+
+
+
+
 # [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-explorer
