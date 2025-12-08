@@ -1,15 +1,21 @@
 import {
+  AccessDeniedException,
   ChangeProgressStageStatuses,
   ChangeProgressStatuses,
+  ConflictException,
   CreatePipelineCommand,
   CreatePipelineEndpointCommand,
   DeletePipelineCommand,
   DeletePipelineEndpointCommand,
   DeleteResourcePolicyCommand,
+  DisabledOperationException,
   GetPipelineBlueprintCommand,
   GetPipelineChangeProgressCommand,
   GetPipelineCommand,
   GetResourcePolicyCommand,
+  InternalException,
+  InvalidPaginationTokenException,
+  LimitExceededException,
   ListPipelineBlueprintsCommand,
   ListPipelineEndpointConnectionsCommand,
   ListPipelineEndpointsCommand,
@@ -21,6 +27,8 @@ import {
   PipelineEndpointStatus,
   PipelineStatus,
   PutResourcePolicyCommand,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RevokePipelineEndpointConnectionsCommand,
   StartPipelineCommand,
   StopPipelineCommand,
@@ -28,6 +36,7 @@ import {
   UntagResourceCommand,
   UpdatePipelineCommand,
   ValidatePipelineCommand,
+  ValidationException,
   VpcEndpointManagement,
   VpcEndpointServiceName,
   paginateListPipelineEndpointConnections,
@@ -69,6 +78,15 @@ assert(typeof PipelineStatus === "object");
 assert(typeof VpcEndpointManagement === "object");
 assert(typeof VpcEndpointServiceName === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof OSISServiceException);
+assert(ConflictException.prototype instanceof OSISServiceException);
+assert(DisabledOperationException.prototype instanceof OSISServiceException);
+assert(InternalException.prototype instanceof OSISServiceException);
+assert(InvalidPaginationTokenException.prototype instanceof OSISServiceException);
+assert(LimitExceededException.prototype instanceof OSISServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof OSISServiceException);
+assert(ResourceNotFoundException.prototype instanceof OSISServiceException);
+assert(ValidationException.prototype instanceof OSISServiceException);
 assert(OSISServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListPipelineEndpointConnections === "function");

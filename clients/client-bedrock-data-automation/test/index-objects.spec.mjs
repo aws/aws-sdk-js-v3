@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AudioExtractionCategoryType,
   AudioGenerativeOutputLanguage,
   AudioStandardGenerativeFieldType,
@@ -7,6 +8,7 @@ import {
   BedrockDataAutomationServiceException,
   BlueprintStage,
   BlueprintStageFilter,
+  ConflictException,
   CreateBlueprintCommand,
   CreateBlueprintVersionCommand,
   CreateDataAutomationProjectCommand,
@@ -23,21 +25,26 @@ import {
   GetDataAutomationProjectCommand,
   ImageExtractionCategoryType,
   ImageStandardGenerativeFieldType,
+  InternalServerException,
   Language,
   ListBlueprintsCommand,
   ListDataAutomationProjectsCommand,
   ListTagsForResourceCommand,
   PIIEntityType,
   PIIRedactionMaskMode,
+  ResourceNotFoundException,
   ResourceOwner,
   SensitiveDataDetectionMode,
   SensitiveDataDetectionScopeType,
+  ServiceQuotaExceededException,
   State,
   TagResourceCommand,
+  ThrottlingException,
   Type,
   UntagResourceCommand,
   UpdateBlueprintCommand,
   UpdateDataAutomationProjectCommand,
+  ValidationException,
   VideoExtractionCategoryType,
   VideoStandardGenerativeFieldType,
   paginateListBlueprints,
@@ -88,6 +95,13 @@ assert(typeof Type === "object");
 assert(typeof VideoExtractionCategoryType === "object");
 assert(typeof VideoStandardGenerativeFieldType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BedrockDataAutomationServiceException);
+assert(ConflictException.prototype instanceof BedrockDataAutomationServiceException);
+assert(InternalServerException.prototype instanceof BedrockDataAutomationServiceException);
+assert(ResourceNotFoundException.prototype instanceof BedrockDataAutomationServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BedrockDataAutomationServiceException);
+assert(ThrottlingException.prototype instanceof BedrockDataAutomationServiceException);
+assert(ValidationException.prototype instanceof BedrockDataAutomationServiceException);
 assert(BedrockDataAutomationServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBlueprints === "function");

@@ -167,7 +167,6 @@ export var RequestedRangeNotSatisfiableException: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(RequestedRangeNotSatisfiableException, __RequestedRangeNotSatisfiableException);
-export var __Unit = "unit" as const;
 export var MediaStoreDataServiceException: StaticErrorSchema = [-3, _sm, "MediaStoreDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MediaStoreDataServiceException, __MediaStoreDataServiceException);
 export var ItemList: StaticListSchema = [1, n0, _IL, 0, () => Item];

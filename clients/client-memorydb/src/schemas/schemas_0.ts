@@ -1668,7 +1668,6 @@ export var UserQuotaExceededFault: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(UserQuotaExceededFault, __UserQuotaExceededFault);
-export var __Unit = "unit" as const;
 export var MemoryDBServiceException: StaticErrorSchema = [-3, _s, "MemoryDBServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(MemoryDBServiceException, __MemoryDBServiceException);
 export var ACLClusterNameList = 64 | 0;

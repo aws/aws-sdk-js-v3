@@ -192,7 +192,6 @@ export var VoiceMessageContent: StaticStructureSchema = [
   [_CIM, _PTM, _SSMLM],
   [() => CallInstructionsMessageType, () => PlainTextMessageType, () => SSMLMessageType],
 ];
-export var __Unit = "unit" as const;
 export var PinpointSMSVoiceServiceException: StaticErrorSchema = [
   -3,
   _sm,

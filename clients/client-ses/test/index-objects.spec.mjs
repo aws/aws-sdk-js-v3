@@ -1,9 +1,15 @@
 import {
+  AccountSendingPausedException,
+  AlreadyExistsException,
   BehaviorOnMXFailure,
   BounceType,
   BulkEmailStatus,
+  CannotDeleteException,
   CloneReceiptRuleSetCommand,
+  ConfigurationSetAlreadyExistsException,
   ConfigurationSetAttribute,
+  ConfigurationSetDoesNotExistException,
+  ConfigurationSetSendingPausedException,
   CreateConfigurationSetCommand,
   CreateConfigurationSetEventDestinationCommand,
   CreateConfigurationSetTrackingOptionsCommand,
@@ -13,6 +19,9 @@ import {
   CreateReceiptRuleSetCommand,
   CreateTemplateCommand,
   CustomMailFromStatus,
+  CustomVerificationEmailInvalidContentException,
+  CustomVerificationEmailTemplateAlreadyExistsException,
+  CustomVerificationEmailTemplateDoesNotExistException,
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetEventDestinationCommand,
   DeleteConfigurationSetTrackingOptionsCommand,
@@ -30,7 +39,10 @@ import {
   DescribeReceiptRuleSetCommand,
   DimensionValueSource,
   DsnAction,
+  EventDestinationAlreadyExistsException,
+  EventDestinationDoesNotExistException,
   EventType,
+  FromEmailAddressNotVerifiedException,
   GetAccountSendingEnabledCommand,
   GetCustomVerificationEmailTemplateCommand,
   GetIdentityDkimAttributesCommand,
@@ -42,7 +54,20 @@ import {
   GetSendStatisticsCommand,
   GetTemplateCommand,
   IdentityType,
+  InvalidCloudWatchDestinationException,
+  InvalidConfigurationSetException,
+  InvalidDeliveryOptionsException,
+  InvalidFirehoseDestinationException,
+  InvalidLambdaFunctionException,
+  InvalidPolicyException,
+  InvalidRenderingParameterException,
+  InvalidS3ConfigurationException,
+  InvalidSNSDestinationException,
+  InvalidSnsTopicException,
+  InvalidTemplateException,
+  InvalidTrackingOptionsException,
   InvocationType,
+  LimitExceededException,
   ListConfigurationSetsCommand,
   ListCustomVerificationEmailTemplatesCommand,
   ListIdentitiesCommand,
@@ -51,11 +76,17 @@ import {
   ListReceiptRuleSetsCommand,
   ListTemplatesCommand,
   ListVerifiedEmailAddressesCommand,
+  MailFromDomainNotVerifiedException,
+  MessageRejected,
+  MissingRenderingAttributeException,
   NotificationType,
+  ProductionAccessNotGrantedException,
   PutConfigurationSetDeliveryOptionsCommand,
   PutIdentityPolicyCommand,
   ReceiptFilterPolicy,
   ReorderReceiptRuleSetCommand,
+  RuleDoesNotExistException,
+  RuleSetDoesNotExistException,
   SES,
   SESClient,
   SESServiceException,
@@ -74,8 +105,11 @@ import {
   SetIdentityNotificationTopicCommand,
   SetReceiptRulePositionCommand,
   StopScope,
+  TemplateDoesNotExistException,
   TestRenderTemplateCommand,
   TlsPolicy,
+  TrackingOptionsAlreadyExistsException,
+  TrackingOptionsDoesNotExistException,
   UpdateAccountSendingEnabledCommand,
   UpdateConfigurationSetEventDestinationCommand,
   UpdateConfigurationSetReputationMetricsEnabledCommand,
@@ -188,6 +222,40 @@ assert(typeof StopScope === "object");
 assert(typeof TlsPolicy === "object");
 assert(typeof VerificationStatus === "object");
 // errors
+assert(AccountSendingPausedException.prototype instanceof SESServiceException);
+assert(AlreadyExistsException.prototype instanceof SESServiceException);
+assert(CannotDeleteException.prototype instanceof SESServiceException);
+assert(ConfigurationSetAlreadyExistsException.prototype instanceof SESServiceException);
+assert(ConfigurationSetDoesNotExistException.prototype instanceof SESServiceException);
+assert(ConfigurationSetSendingPausedException.prototype instanceof SESServiceException);
+assert(CustomVerificationEmailInvalidContentException.prototype instanceof SESServiceException);
+assert(CustomVerificationEmailTemplateAlreadyExistsException.prototype instanceof SESServiceException);
+assert(CustomVerificationEmailTemplateDoesNotExistException.prototype instanceof SESServiceException);
+assert(EventDestinationAlreadyExistsException.prototype instanceof SESServiceException);
+assert(EventDestinationDoesNotExistException.prototype instanceof SESServiceException);
+assert(FromEmailAddressNotVerifiedException.prototype instanceof SESServiceException);
+assert(InvalidCloudWatchDestinationException.prototype instanceof SESServiceException);
+assert(InvalidConfigurationSetException.prototype instanceof SESServiceException);
+assert(InvalidDeliveryOptionsException.prototype instanceof SESServiceException);
+assert(InvalidFirehoseDestinationException.prototype instanceof SESServiceException);
+assert(InvalidLambdaFunctionException.prototype instanceof SESServiceException);
+assert(InvalidPolicyException.prototype instanceof SESServiceException);
+assert(InvalidRenderingParameterException.prototype instanceof SESServiceException);
+assert(InvalidS3ConfigurationException.prototype instanceof SESServiceException);
+assert(InvalidSNSDestinationException.prototype instanceof SESServiceException);
+assert(InvalidSnsTopicException.prototype instanceof SESServiceException);
+assert(InvalidTemplateException.prototype instanceof SESServiceException);
+assert(InvalidTrackingOptionsException.prototype instanceof SESServiceException);
+assert(LimitExceededException.prototype instanceof SESServiceException);
+assert(MailFromDomainNotVerifiedException.prototype instanceof SESServiceException);
+assert(MessageRejected.prototype instanceof SESServiceException);
+assert(MissingRenderingAttributeException.prototype instanceof SESServiceException);
+assert(ProductionAccessNotGrantedException.prototype instanceof SESServiceException);
+assert(RuleDoesNotExistException.prototype instanceof SESServiceException);
+assert(RuleSetDoesNotExistException.prototype instanceof SESServiceException);
+assert(TemplateDoesNotExistException.prototype instanceof SESServiceException);
+assert(TrackingOptionsAlreadyExistsException.prototype instanceof SESServiceException);
+assert(TrackingOptionsDoesNotExistException.prototype instanceof SESServiceException);
 assert(SESServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForIdentityExists === "function");

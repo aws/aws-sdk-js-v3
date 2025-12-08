@@ -5,6 +5,7 @@ import {
   FailureHandlingPolicy,
   GetDeploymentsCommand,
   GetDeviceRegistrationCommand,
+  InternalServiceException,
   ModelState,
   SagemakerEdge,
   SagemakerEdgeClient,
@@ -26,5 +27,6 @@ assert(typeof DeploymentType === "object");
 assert(typeof FailureHandlingPolicy === "object");
 assert(typeof ModelState === "object");
 // errors
+assert(InternalServiceException.prototype instanceof SagemakerEdgeServiceException);
 assert(SagemakerEdgeServiceException.prototype instanceof Error);
 console.log(`SagemakerEdge index test passed.`);

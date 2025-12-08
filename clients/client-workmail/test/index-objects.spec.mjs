@@ -42,10 +42,17 @@ import {
   DescribeOrganizationCommand,
   DescribeResourceCommand,
   DescribeUserCommand,
+  DirectoryInUseException,
+  DirectoryServiceAuthenticationFailedException,
+  DirectoryUnavailableException,
   DisassociateDelegateFromResourceCommand,
   DisassociateMemberFromGroupCommand,
   DnsRecordVerificationStatus,
+  EmailAddressInUseException,
+  EntityAlreadyRegisteredException,
+  EntityNotFoundException,
   EntityState,
+  EntityStateException,
   EntityType,
   FolderName,
   GetAccessControlEffectCommand,
@@ -59,6 +66,11 @@ import {
   GetPersonalAccessTokenMetadataCommand,
   IdentityProviderAuthenticationMode,
   ImpersonationRoleType,
+  InvalidConfigurationException,
+  InvalidCustomSesConfigurationException,
+  InvalidParameterException,
+  InvalidPasswordException,
+  LimitExceededException,
   ListAccessControlRulesCommand,
   ListAliasesCommand,
   ListAvailabilityConfigurationsCommand,
@@ -77,9 +89,15 @@ import {
   ListResourcesCommand,
   ListTagsForResourceCommand,
   ListUsersCommand,
+  MailDomainInUseException,
+  MailDomainNotFoundException,
+  MailDomainStateException,
   MailboxExportJobState,
   MemberType,
   MobileDeviceAccessRuleEffect,
+  NameAvailabilityException,
+  OrganizationNotFoundException,
+  OrganizationStateException,
   PermissionType,
   PersonalAccessTokenConfigurationStatus,
   PutAccessControlRuleCommand,
@@ -91,12 +109,16 @@ import {
   PutRetentionPolicyCommand,
   RegisterMailDomainCommand,
   RegisterToWorkMailCommand,
+  ReservedNameException,
   ResetPasswordCommand,
+  ResourceNotFoundException,
   ResourceType,
   RetentionAction,
   StartMailboxExportJobCommand,
   TagResourceCommand,
   TestAvailabilityConfigurationCommand,
+  TooManyTagsException,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateAvailabilityConfigurationCommand,
   UpdateDefaultMailDomainCommand,
@@ -243,6 +265,28 @@ assert(typeof ResourceType === "object");
 assert(typeof RetentionAction === "object");
 assert(typeof UserRole === "object");
 // errors
+assert(DirectoryInUseException.prototype instanceof WorkMailServiceException);
+assert(DirectoryServiceAuthenticationFailedException.prototype instanceof WorkMailServiceException);
+assert(DirectoryUnavailableException.prototype instanceof WorkMailServiceException);
+assert(EmailAddressInUseException.prototype instanceof WorkMailServiceException);
+assert(EntityAlreadyRegisteredException.prototype instanceof WorkMailServiceException);
+assert(EntityNotFoundException.prototype instanceof WorkMailServiceException);
+assert(EntityStateException.prototype instanceof WorkMailServiceException);
+assert(InvalidConfigurationException.prototype instanceof WorkMailServiceException);
+assert(InvalidCustomSesConfigurationException.prototype instanceof WorkMailServiceException);
+assert(InvalidParameterException.prototype instanceof WorkMailServiceException);
+assert(InvalidPasswordException.prototype instanceof WorkMailServiceException);
+assert(LimitExceededException.prototype instanceof WorkMailServiceException);
+assert(MailDomainInUseException.prototype instanceof WorkMailServiceException);
+assert(MailDomainNotFoundException.prototype instanceof WorkMailServiceException);
+assert(MailDomainStateException.prototype instanceof WorkMailServiceException);
+assert(NameAvailabilityException.prototype instanceof WorkMailServiceException);
+assert(OrganizationNotFoundException.prototype instanceof WorkMailServiceException);
+assert(OrganizationStateException.prototype instanceof WorkMailServiceException);
+assert(ReservedNameException.prototype instanceof WorkMailServiceException);
+assert(ResourceNotFoundException.prototype instanceof WorkMailServiceException);
+assert(TooManyTagsException.prototype instanceof WorkMailServiceException);
+assert(UnsupportedOperationException.prototype instanceof WorkMailServiceException);
 assert(WorkMailServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAliases === "function");

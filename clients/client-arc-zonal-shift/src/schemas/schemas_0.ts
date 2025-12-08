@@ -316,7 +316,6 @@ export var ZonalShiftSummary: StaticStructureSchema = [
   [_zSI, _rI, _aF, _eTx, _sT, _s, _co, _sTh, _pRO],
   [0, 0, 0, 4, 4, 0, 0, 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var ARCZonalShiftServiceException: StaticErrorSchema = [-3, _sm, "ARCZonalShiftServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ARCZonalShiftServiceException, __ARCZonalShiftServiceException);
 export var AllowedWindows = 64 | 0;

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AccountSortBy,
   AggregationFindingType,
   AggregationResourceType,
@@ -8,6 +9,7 @@ import {
   AssociateMemberCommand,
   AssociationResultStatusCode,
   AwsEcrContainerSortBy,
+  BadRequestException,
   BatchAssociateCodeSecurityScanConfigurationCommand,
   BatchDisassociateCodeSecurityScanConfigurationCommand,
   BatchGetAccountStatusCommand,
@@ -43,6 +45,7 @@ import {
   CodeScanStatus,
   CodeSnippetErrorCode,
   ConfigurationLevel,
+  ConflictException,
   ContinuousIntegrationScanEvent,
   CoverageMapComparison,
   CoverageResourceType,
@@ -108,6 +111,7 @@ import {
   Inspector2ServiceException,
   IntegrationStatus,
   IntegrationType,
+  InternalServerException,
   LambdaFunctionSortBy,
   LambdaLayerSortBy,
   ListAccountPermissionsCommand,
@@ -143,6 +147,7 @@ import {
   RepositorySortBy,
   ResetEncryptionKeyCommand,
   ResourceMapComparison,
+  ResourceNotFoundException,
   ResourceScanType,
   ResourceStringComparison,
   ResourceType,
@@ -157,6 +162,7 @@ import {
   SendCisSessionHealthCommand,
   SendCisSessionTelemetryCommand,
   Service,
+  ServiceQuotaExceededException,
   Severity,
   SortField,
   SortOrder,
@@ -168,6 +174,7 @@ import {
   StringComparison,
   TagComparison,
   TagResourceCommand,
+  ThrottlingException,
   TitleSortBy,
   UntagResourceCommand,
   UpdateCisScanConfigurationCommand,
@@ -180,6 +187,8 @@ import {
   UpdateOrgEc2DeepInspectionConfigurationCommand,
   UpdateOrganizationConfigurationCommand,
   UsageType,
+  ValidationException,
+  ValidationExceptionReason,
   VulnerabilitySource,
   paginateGetCisScanResultDetails,
   paginateGetClustersForImage,
@@ -382,8 +391,17 @@ assert(typeof StringComparison === "object");
 assert(typeof TagComparison === "object");
 assert(typeof TitleSortBy === "object");
 assert(typeof UsageType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VulnerabilitySource === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof Inspector2ServiceException);
+assert(BadRequestException.prototype instanceof Inspector2ServiceException);
+assert(ConflictException.prototype instanceof Inspector2ServiceException);
+assert(InternalServerException.prototype instanceof Inspector2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof Inspector2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof Inspector2ServiceException);
+assert(ThrottlingException.prototype instanceof Inspector2ServiceException);
+assert(ValidationException.prototype instanceof Inspector2ServiceException);
 assert(Inspector2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetCisScanResultDetails === "function");

@@ -1,8 +1,10 @@
 import {
   AuthenticationStrategy,
+  BadRequestException,
   BrokerState,
   BrokerStorageType,
   ChangeType,
+  ConflictException,
   CreateBrokerCommand,
   CreateConfigurationCommand,
   CreateTagsCommand,
@@ -21,6 +23,8 @@ import {
   DescribeConfigurationRevisionCommand,
   DescribeUserCommand,
   EngineType,
+  ForbiddenException,
+  InternalServerErrorException,
   ListBrokersCommand,
   ListConfigurationRevisionsCommand,
   ListConfigurationsCommand,
@@ -29,10 +33,12 @@ import {
   Mq,
   MqClient,
   MqServiceException,
+  NotFoundException,
   PromoteCommand,
   PromoteMode,
   RebootBrokerCommand,
   SanitizationWarningReason,
+  UnauthorizedException,
   UpdateBrokerCommand,
   UpdateConfigurationCommand,
   UpdateUserCommand,
@@ -79,6 +85,12 @@ assert(typeof EngineType === "object");
 assert(typeof PromoteMode === "object");
 assert(typeof SanitizationWarningReason === "object");
 // errors
+assert(BadRequestException.prototype instanceof MqServiceException);
+assert(ConflictException.prototype instanceof MqServiceException);
+assert(ForbiddenException.prototype instanceof MqServiceException);
+assert(InternalServerErrorException.prototype instanceof MqServiceException);
+assert(NotFoundException.prototype instanceof MqServiceException);
+assert(UnauthorizedException.prototype instanceof MqServiceException);
 assert(MqServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBrokers === "function");

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ActionType,
   AllocationStrategy,
   CostOptimizationHub,
@@ -10,6 +11,7 @@ import {
   GetRecommendationCommand,
   GranularityType,
   ImplementationEffort,
+  InternalServerException,
   ListEfficiencyMetricsCommand,
   ListEnrollmentStatusesCommand,
   ListRecommendationSummariesCommand,
@@ -17,13 +19,17 @@ import {
   MemberAccountDiscountVisibility,
   Order,
   PaymentOption,
+  ResourceNotFoundException,
   ResourceType,
   SavingsEstimationMode,
   Source,
   SummaryMetrics,
   Term,
+  ThrottlingException,
   UpdateEnrollmentStatusCommand,
   UpdatePreferencesCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListEfficiencyMetrics,
   paginateListEnrollmentStatuses,
   paginateListRecommendationSummaries,
@@ -57,7 +63,13 @@ assert(typeof SavingsEstimationMode === "object");
 assert(typeof Source === "object");
 assert(typeof SummaryMetrics === "object");
 assert(typeof Term === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CostOptimizationHubServiceException);
+assert(InternalServerException.prototype instanceof CostOptimizationHubServiceException);
+assert(ResourceNotFoundException.prototype instanceof CostOptimizationHubServiceException);
+assert(ThrottlingException.prototype instanceof CostOptimizationHubServiceException);
+assert(ValidationException.prototype instanceof CostOptimizationHubServiceException);
 assert(CostOptimizationHubServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEfficiencyMetrics === "function");

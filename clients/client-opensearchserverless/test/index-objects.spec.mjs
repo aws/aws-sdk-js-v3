@@ -6,6 +6,7 @@ import {
   BatchGetVpcEndpointCommand,
   CollectionStatus,
   CollectionType,
+  ConflictException,
   CreateAccessPolicyCommand,
   CreateCollectionCommand,
   CreateIndexCommand,
@@ -28,6 +29,7 @@ import {
   GetSecurityPolicyCommand,
   IamIdentityCenterGroupAttribute,
   IamIdentityCenterUserAttribute,
+  InternalServerException,
   LifecyclePolicyType,
   ListAccessPoliciesCommand,
   ListCollectionsCommand,
@@ -36,13 +38,16 @@ import {
   ListSecurityPoliciesCommand,
   ListTagsForResourceCommand,
   ListVpcEndpointsCommand,
+  OcuLimitExceededException,
   OpenSearchServerless,
   OpenSearchServerlessClient,
   OpenSearchServerlessServiceException,
+  ResourceNotFoundException,
   ResourceType,
   SecurityConfigType,
   SecurityPolicyType,
   ServerlessVectorAccelerationStatus,
+  ServiceQuotaExceededException,
   StandbyReplicas,
   TagResourceCommand,
   UntagResourceCommand,
@@ -54,6 +59,7 @@ import {
   UpdateSecurityConfigCommand,
   UpdateSecurityPolicyCommand,
   UpdateVpcEndpointCommand,
+  ValidationException,
   VpcEndpointStatus,
   paginateListAccessPolicies,
   paginateListCollections,
@@ -122,6 +128,12 @@ assert(typeof ServerlessVectorAccelerationStatus === "object");
 assert(typeof StandbyReplicas === "object");
 assert(typeof VpcEndpointStatus === "object");
 // errors
+assert(ConflictException.prototype instanceof OpenSearchServerlessServiceException);
+assert(InternalServerException.prototype instanceof OpenSearchServerlessServiceException);
+assert(OcuLimitExceededException.prototype instanceof OpenSearchServerlessServiceException);
+assert(ResourceNotFoundException.prototype instanceof OpenSearchServerlessServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof OpenSearchServerlessServiceException);
+assert(ValidationException.prototype instanceof OpenSearchServerlessServiceException);
 assert(OpenSearchServerlessServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessPolicies === "function");

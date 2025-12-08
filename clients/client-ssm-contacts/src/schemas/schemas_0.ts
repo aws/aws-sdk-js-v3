@@ -660,7 +660,6 @@ export var ValidationException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_Na, _M], [0, 0]];
 export var WeeklySetting: StaticStructureSchema = [3, n0, _WSe, 0, [_DOW, _HOT], [0, () => HandOffTime]];
-export var __Unit = "unit" as const;
 export var SSMContactsServiceException: StaticErrorSchema = [-3, _sm, "SSMContactsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSMContactsServiceException, __SSMContactsServiceException);
 export var ContactChannelList: StaticListSchema = [1, n0, _CCL, 0, () => ContactChannel];

@@ -1,5 +1,6 @@
 import {
   AcceptAttachmentCommand,
+  AccessDeniedException,
   AssociateConnectPeerCommand,
   AssociateCustomerGatewayCommand,
   AssociateLinkCommand,
@@ -11,6 +12,7 @@ import {
   ChangeSetState,
   ChangeStatus,
   ChangeType,
+  ConflictException,
   ConnectPeerAssociationState,
   ConnectPeerErrorCode,
   ConnectPeerState,
@@ -18,6 +20,7 @@ import {
   ConnectionStatus,
   ConnectionType,
   CoreNetworkPolicyAlias,
+  CoreNetworkPolicyException,
   CoreNetworkState,
   CreateConnectAttachmentCommand,
   CreateConnectPeerCommand,
@@ -82,6 +85,7 @@ import {
   GetTransitGatewayRouteTableAttachmentCommand,
   GetVpcAttachmentCommand,
   GlobalNetworkState,
+  InternalServerException,
   LinkAssociationState,
   LinkState,
   ListAttachmentRoutingPolicyAssociationsCommand,
@@ -106,6 +110,7 @@ import {
   RegisterTransitGatewayCommand,
   RejectAttachmentCommand,
   RemoveAttachmentRoutingPolicyLabelCommand,
+  ResourceNotFoundException,
   RestoreCoreNetworkPolicyVersionCommand,
   RouteAnalysisCompletionReasonCode,
   RouteAnalysisCompletionResultCode,
@@ -116,10 +121,12 @@ import {
   RoutingPolicyDirection,
   SegmentActionServiceInsertion,
   SendViaMode,
+  ServiceQuotaExceededException,
   SiteState,
   StartOrganizationServiceAccessUpdateCommand,
   StartRouteAnalysisCommand,
   TagResourceCommand,
+  ThrottlingException,
   TransitGatewayConnectPeerAssociationState,
   TransitGatewayRegistrationState,
   TunnelProtocol,
@@ -133,6 +140,8 @@ import {
   UpdateNetworkResourceMetadataCommand,
   UpdateSiteCommand,
   UpdateVpcAttachmentCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateDescribeGlobalNetworks,
   paginateGetConnectPeerAssociations,
   paginateGetConnections,
@@ -295,7 +304,16 @@ assert(typeof SiteState === "object");
 assert(typeof TransitGatewayConnectPeerAssociationState === "object");
 assert(typeof TransitGatewayRegistrationState === "object");
 assert(typeof TunnelProtocol === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof NetworkManagerServiceException);
+assert(ConflictException.prototype instanceof NetworkManagerServiceException);
+assert(CoreNetworkPolicyException.prototype instanceof NetworkManagerServiceException);
+assert(InternalServerException.prototype instanceof NetworkManagerServiceException);
+assert(ResourceNotFoundException.prototype instanceof NetworkManagerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof NetworkManagerServiceException);
+assert(ThrottlingException.prototype instanceof NetworkManagerServiceException);
+assert(ValidationException.prototype instanceof NetworkManagerServiceException);
 assert(NetworkManagerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeGlobalNetworks === "function");

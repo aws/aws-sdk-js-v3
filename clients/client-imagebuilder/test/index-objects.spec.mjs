@@ -1,7 +1,10 @@
 import {
+  AccessDeniedException,
   BuildType,
+  CallRateLimitExceededException,
   CancelImageCreationCommand,
   CancelLifecycleExecutionCommand,
+  ClientException,
   ComponentFormat,
   ComponentStatus,
   ComponentType,
@@ -27,7 +30,9 @@ import {
   DeleteWorkflowCommand,
   DiskImageFormat,
   DistributeImageCommand,
+  DryRunOperationException,
   EbsVolumeType,
+  ForbiddenException,
   GetComponentCommand,
   GetComponentPolicyCommand,
   GetContainerRecipeCommand,
@@ -45,6 +50,7 @@ import {
   GetWorkflowCommand,
   GetWorkflowExecutionCommand,
   GetWorkflowStepExecutionCommand,
+  IdempotentParameterMismatchException,
   ImageScanStatus,
   ImageSource,
   ImageStatus,
@@ -55,6 +61,12 @@ import {
   ImportComponentCommand,
   ImportDiskImageCommand,
   ImportVmImageCommand,
+  InvalidPaginationTokenException,
+  InvalidParameterCombinationException,
+  InvalidParameterException,
+  InvalidParameterValueException,
+  InvalidRequestException,
+  InvalidVersionNumberException,
   LifecycleExecutionResourceActionName,
   LifecycleExecutionResourceStatus,
   LifecycleExecutionStatus,
@@ -96,14 +108,22 @@ import {
   PutContainerRecipePolicyCommand,
   PutImagePolicyCommand,
   PutImageRecipePolicyCommand,
+  ResourceAlreadyExistsException,
+  ResourceDependencyException,
+  ResourceInUseException,
+  ResourceNotFoundException,
   ResourceStatus,
   RetryImageCommand,
   SendWorkflowStepActionCommand,
+  ServiceException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   SsmParameterDataType,
   StartImagePipelineExecutionCommand,
   StartResourceStateUpdateCommand,
   TagResourceCommand,
   TenancyType,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateDistributionConfigurationCommand,
   UpdateImagePipelineCommand,
@@ -257,6 +277,26 @@ assert(typeof WorkflowStepExecutionRollbackStatus === "object");
 assert(typeof WorkflowStepExecutionStatus === "object");
 assert(typeof WorkflowType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ImagebuilderServiceException);
+assert(CallRateLimitExceededException.prototype instanceof ImagebuilderServiceException);
+assert(ClientException.prototype instanceof ImagebuilderServiceException);
+assert(DryRunOperationException.prototype instanceof ImagebuilderServiceException);
+assert(ForbiddenException.prototype instanceof ImagebuilderServiceException);
+assert(IdempotentParameterMismatchException.prototype instanceof ImagebuilderServiceException);
+assert(InvalidPaginationTokenException.prototype instanceof ImagebuilderServiceException);
+assert(InvalidParameterCombinationException.prototype instanceof ImagebuilderServiceException);
+assert(InvalidParameterException.prototype instanceof ImagebuilderServiceException);
+assert(InvalidParameterValueException.prototype instanceof ImagebuilderServiceException);
+assert(InvalidRequestException.prototype instanceof ImagebuilderServiceException);
+assert(InvalidVersionNumberException.prototype instanceof ImagebuilderServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof ImagebuilderServiceException);
+assert(ResourceDependencyException.prototype instanceof ImagebuilderServiceException);
+assert(ResourceInUseException.prototype instanceof ImagebuilderServiceException);
+assert(ResourceNotFoundException.prototype instanceof ImagebuilderServiceException);
+assert(ServiceException.prototype instanceof ImagebuilderServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ImagebuilderServiceException);
+assert(ServiceUnavailableException.prototype instanceof ImagebuilderServiceException);
+assert(TooManyRequestsException.prototype instanceof ImagebuilderServiceException);
 assert(ImagebuilderServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListComponentBuildVersions === "function");

@@ -2464,7 +2464,6 @@ export var VpcAttachment: StaticStructureSchema = [
 ];
 export var VpcOptions: StaticStructureSchema = [3, n0, _VO, 0, [_IS, _AMS, _DSn, _SGRS], [2, 2, 2, 2]];
 export var WhenSentTo: StaticStructureSchema = [3, n0, _WST, 0, [_WSTSL], [64 | 0]];
-export var __Unit = "unit" as const;
 export var NetworkManagerServiceException: StaticErrorSchema = [-3, _sm, "NetworkManagerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NetworkManagerServiceException, __NetworkManagerServiceException);
 export var AccountStatusList: StaticListSchema = [1, n0, _ASL, 0, () => AccountStatus];

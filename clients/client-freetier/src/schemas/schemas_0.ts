@@ -163,7 +163,6 @@ export var UpgradeAccountPlanRequest: StaticStructureSchema = [3, n0, _UAPR, 0, 
 export var UpgradeAccountPlanResponse: StaticStructureSchema = [3, n0, _UAPRp, 0, [_aIc, _aPT, _aPS], [0, 0, 0]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var FreeTierServiceException: StaticErrorSchema = [-3, _sm, "FreeTierServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FreeTierServiceException, __FreeTierServiceException);
 export var Activities: StaticListSchema = [1, n0, _Ac, 0, () => ActivitySummary];

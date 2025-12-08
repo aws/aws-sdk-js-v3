@@ -1,8 +1,12 @@
 import {
+  AccessDeniedException,
   AddressRoleType,
+  AttachmentUploadException,
   BatchDeleteTaxRegistrationCommand,
   BatchGetTaxExemptionsCommand,
   BatchPutTaxRegistrationCommand,
+  CaseCreationLimitExceededException,
+  ConflictException,
   DeleteSupplementalTaxRegistrationCommand,
   DeleteTaxRegistrationCommand,
   EntityExemptionAccountStatus,
@@ -13,6 +17,7 @@ import {
   HeritageStatus,
   IndonesiaTaxRegistrationNumberType,
   Industries,
+  InternalServerException,
   IsraelCustomerType,
   IsraelDealerType,
   ListSupplementalTaxRegistrationsCommand,
@@ -25,6 +30,7 @@ import {
   PutTaxInheritanceCommand,
   PutTaxRegistrationCommand,
   RegistrationType,
+  ResourceNotFoundException,
   SaudiArabiaTaxRegistrationNumberType,
   Sector,
   SupplementalTaxRegistrationType,
@@ -36,6 +42,8 @@ import {
   TaxSettingsServiceException,
   UkraineTrnType,
   UzbekistanTaxRegistrationNumberType,
+  ValidationException,
+  ValidationExceptionErrorCode,
   paginateListSupplementalTaxRegistrations,
   paginateListTaxExemptions,
   paginateListTaxRegistrations,
@@ -80,7 +88,15 @@ assert(typeof TaxRegistrationStatus === "object");
 assert(typeof TaxRegistrationType === "object");
 assert(typeof UkraineTrnType === "object");
 assert(typeof UzbekistanTaxRegistrationNumberType === "object");
+assert(typeof ValidationExceptionErrorCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof TaxSettingsServiceException);
+assert(AttachmentUploadException.prototype instanceof TaxSettingsServiceException);
+assert(CaseCreationLimitExceededException.prototype instanceof TaxSettingsServiceException);
+assert(ConflictException.prototype instanceof TaxSettingsServiceException);
+assert(InternalServerException.prototype instanceof TaxSettingsServiceException);
+assert(ResourceNotFoundException.prototype instanceof TaxSettingsServiceException);
+assert(ValidationException.prototype instanceof TaxSettingsServiceException);
 assert(TaxSettingsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListSupplementalTaxRegistrations === "function");

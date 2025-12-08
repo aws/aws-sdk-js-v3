@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   AppMonitorPlatform,
   BatchCreateRumMetricDefinitionsCommand,
   BatchDeleteRumMetricDefinitionsCommand,
   BatchGetRumMetricDefinitionsCommand,
+  ConflictException,
   CreateAppMonitorCommand,
   CustomEventsStatus,
   DeleteAppMonitorCommand,
@@ -12,22 +14,31 @@ import {
   GetAppMonitorCommand,
   GetAppMonitorDataCommand,
   GetResourcePolicyCommand,
+  InternalServerException,
+  InvalidPolicyRevisionIdException,
   ListAppMonitorsCommand,
   ListRumMetricsDestinationsCommand,
   ListTagsForResourceCommand,
+  MalformedPolicyDocumentException,
   MetricDestination,
+  PolicyNotFoundException,
+  PolicySizeLimitExceededException,
   PutResourcePolicyCommand,
   PutRumEventsCommand,
   PutRumMetricsDestinationCommand,
   RUM,
   RUMClient,
   RUMServiceException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   StateEnum,
   TagResourceCommand,
   Telemetry,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAppMonitorCommand,
   UpdateRumMetricDefinitionCommand,
+  ValidationException,
   paginateBatchGetRumMetricDefinitions,
   paginateGetAppMonitorData,
   paginateListAppMonitors,
@@ -66,6 +77,17 @@ assert(typeof MetricDestination === "object");
 assert(typeof StateEnum === "object");
 assert(typeof Telemetry === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof RUMServiceException);
+assert(ConflictException.prototype instanceof RUMServiceException);
+assert(InternalServerException.prototype instanceof RUMServiceException);
+assert(InvalidPolicyRevisionIdException.prototype instanceof RUMServiceException);
+assert(MalformedPolicyDocumentException.prototype instanceof RUMServiceException);
+assert(PolicyNotFoundException.prototype instanceof RUMServiceException);
+assert(PolicySizeLimitExceededException.prototype instanceof RUMServiceException);
+assert(ResourceNotFoundException.prototype instanceof RUMServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof RUMServiceException);
+assert(ThrottlingException.prototype instanceof RUMServiceException);
+assert(ValidationException.prototype instanceof RUMServiceException);
 assert(RUMServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateBatchGetRumMetricDefinitions === "function");

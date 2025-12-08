@@ -51,5 +51,12 @@ export type {
   UntagResourceResponse,
   VideoAssetProcessingConfiguration,
   VideoSegmentConfiguration,
+  AccessDeniedException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
+  ThrottlingException,
+  ValidationException,
   BedrockDataAutomationRuntimeServiceException,
 } from "../dist-types/index.d";

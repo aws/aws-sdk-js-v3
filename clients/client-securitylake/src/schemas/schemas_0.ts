@@ -629,7 +629,6 @@ export var UpdateSubscriberRequest: StaticStructureSchema = [
   [[0, 1], () => AwsIdentity, 0, 0, () => LogSourceResourceList],
 ];
 export var UpdateSubscriberResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_su], [() => SubscriberResource]];
-export var __Unit = "unit" as const;
 export var SecurityLakeServiceException: StaticErrorSchema = [-3, _sm, "SecurityLakeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SecurityLakeServiceException, __SecurityLakeServiceException);
 export var AccessTypeList = 64 | 0;

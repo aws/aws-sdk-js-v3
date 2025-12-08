@@ -16,6 +16,14 @@ import {
   GetResourceShareAssociationsCommand,
   GetResourceShareInvitationsCommand,
   GetResourceSharesCommand,
+  IdempotentParameterMismatchException,
+  InvalidClientTokenException,
+  InvalidMaxResultsException,
+  InvalidNextTokenException,
+  InvalidParameterException,
+  InvalidPolicyException,
+  InvalidResourceTypeException,
+  InvalidStateTransitionException,
   ListPendingInvitationResourcesCommand,
   ListPermissionAssociationsCommand,
   ListPermissionVersionsCommand,
@@ -25,10 +33,17 @@ import {
   ListResourceSharePermissionsCommand,
   ListResourceTypesCommand,
   ListResourcesCommand,
+  MalformedArnException,
+  MalformedPolicyTemplateException,
+  MissingRequiredParameterException,
+  OperationNotPermittedException,
+  PermissionAlreadyExistsException,
   PermissionFeatureSet,
+  PermissionLimitExceededException,
   PermissionStatus,
   PermissionType,
   PermissionTypeFilter,
+  PermissionVersionsLimitExceededException,
   PromotePermissionCreatedFromPolicyCommand,
   PromoteResourceShareCreatedFromPolicyCommand,
   RAM,
@@ -37,17 +52,30 @@ import {
   RejectResourceShareInvitationCommand,
   ReplacePermissionAssociationsCommand,
   ReplacePermissionAssociationsWorkStatus,
+  ResourceArnNotFoundException,
   ResourceOwner,
   ResourceRegionScope,
   ResourceRegionScopeFilter,
   ResourceShareAssociationStatus,
   ResourceShareAssociationType,
   ResourceShareFeatureSet,
+  ResourceShareInvitationAlreadyAcceptedException,
+  ResourceShareInvitationAlreadyRejectedException,
+  ResourceShareInvitationArnNotFoundException,
+  ResourceShareInvitationExpiredException,
   ResourceShareInvitationStatus,
+  ResourceShareLimitExceededException,
   ResourceShareStatus,
   ResourceStatus,
+  ServerInternalException,
+  ServiceUnavailableException,
   SetDefaultPermissionVersionCommand,
+  TagLimitExceededException,
+  TagPolicyViolationException,
   TagResourceCommand,
+  ThrottlingException,
+  UnknownResourceException,
+  UnmatchedPolicyPermissionException,
   UntagResourceCommand,
   UpdateResourceShareCommand,
   paginateGetResourcePolicies,
@@ -119,6 +147,34 @@ assert(typeof ResourceShareInvitationStatus === "object");
 assert(typeof ResourceShareStatus === "object");
 assert(typeof ResourceStatus === "object");
 // errors
+assert(IdempotentParameterMismatchException.prototype instanceof RAMServiceException);
+assert(InvalidClientTokenException.prototype instanceof RAMServiceException);
+assert(InvalidMaxResultsException.prototype instanceof RAMServiceException);
+assert(InvalidNextTokenException.prototype instanceof RAMServiceException);
+assert(InvalidParameterException.prototype instanceof RAMServiceException);
+assert(InvalidPolicyException.prototype instanceof RAMServiceException);
+assert(InvalidResourceTypeException.prototype instanceof RAMServiceException);
+assert(InvalidStateTransitionException.prototype instanceof RAMServiceException);
+assert(MalformedArnException.prototype instanceof RAMServiceException);
+assert(MalformedPolicyTemplateException.prototype instanceof RAMServiceException);
+assert(MissingRequiredParameterException.prototype instanceof RAMServiceException);
+assert(OperationNotPermittedException.prototype instanceof RAMServiceException);
+assert(PermissionAlreadyExistsException.prototype instanceof RAMServiceException);
+assert(PermissionLimitExceededException.prototype instanceof RAMServiceException);
+assert(PermissionVersionsLimitExceededException.prototype instanceof RAMServiceException);
+assert(ResourceArnNotFoundException.prototype instanceof RAMServiceException);
+assert(ResourceShareInvitationAlreadyAcceptedException.prototype instanceof RAMServiceException);
+assert(ResourceShareInvitationAlreadyRejectedException.prototype instanceof RAMServiceException);
+assert(ResourceShareInvitationArnNotFoundException.prototype instanceof RAMServiceException);
+assert(ResourceShareInvitationExpiredException.prototype instanceof RAMServiceException);
+assert(ResourceShareLimitExceededException.prototype instanceof RAMServiceException);
+assert(ServerInternalException.prototype instanceof RAMServiceException);
+assert(ServiceUnavailableException.prototype instanceof RAMServiceException);
+assert(TagLimitExceededException.prototype instanceof RAMServiceException);
+assert(TagPolicyViolationException.prototype instanceof RAMServiceException);
+assert(ThrottlingException.prototype instanceof RAMServiceException);
+assert(UnknownResourceException.prototype instanceof RAMServiceException);
+assert(UnmatchedPolicyPermissionException.prototype instanceof RAMServiceException);
 assert(RAMServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetResourcePolicies === "function");

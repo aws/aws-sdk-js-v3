@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   BCMPricingCalculator,
   BCMPricingCalculatorClient,
   BCMPricingCalculatorServiceException,
@@ -20,10 +21,12 @@ import {
   BatchUpdateWorkloadEstimateUsageCommand,
   BillEstimateStatus,
   BillScenarioStatus,
+  ConflictException,
   CreateBillEstimateCommand,
   CreateBillScenarioCommand,
   CreateWorkloadEstimateCommand,
   CurrencyCode,
+  DataUnavailableException,
   DeleteBillEstimateCommand,
   DeleteBillScenarioCommand,
   DeleteWorkloadEstimateCommand,
@@ -32,6 +35,7 @@ import {
   GetPreferencesCommand,
   GetWorkloadEstimateCommand,
   GroupSharingPreferenceEnum,
+  InternalServerException,
   ListBillEstimateCommitmentsCommand,
   ListBillEstimateInputCommitmentModificationsCommand,
   ListBillEstimateInputUsageModificationsCommand,
@@ -51,12 +55,17 @@ import {
   MatchOption,
   PurchaseAgreementType,
   RateType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateBillEstimateCommand,
   UpdateBillScenarioCommand,
   UpdatePreferencesCommand,
   UpdateWorkloadEstimateCommand,
+  ValidationException,
+  ValidationExceptionReason,
   WorkloadEstimateCostStatus,
   WorkloadEstimateRateType,
   WorkloadEstimateStatus,
@@ -133,11 +142,20 @@ assert(typeof ListWorkloadEstimatesFilterName === "object");
 assert(typeof MatchOption === "object");
 assert(typeof PurchaseAgreementType === "object");
 assert(typeof RateType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WorkloadEstimateCostStatus === "object");
 assert(typeof WorkloadEstimateRateType === "object");
 assert(typeof WorkloadEstimateStatus === "object");
 assert(typeof WorkloadEstimateUpdateUsageErrorCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BCMPricingCalculatorServiceException);
+assert(ConflictException.prototype instanceof BCMPricingCalculatorServiceException);
+assert(DataUnavailableException.prototype instanceof BCMPricingCalculatorServiceException);
+assert(InternalServerException.prototype instanceof BCMPricingCalculatorServiceException);
+assert(ResourceNotFoundException.prototype instanceof BCMPricingCalculatorServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BCMPricingCalculatorServiceException);
+assert(ThrottlingException.prototype instanceof BCMPricingCalculatorServiceException);
+assert(ValidationException.prototype instanceof BCMPricingCalculatorServiceException);
 assert(BCMPricingCalculatorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBillEstimateCommitments === "function");

@@ -1663,7 +1663,6 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
 export var AuditManagerServiceException: StaticErrorSchema = [-3, _sm, "AuditManagerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AuditManagerServiceException, __AuditManagerServiceException);
 export var AssessmentControls: StaticListSchema = [1, n0, _ACs, 0, [() => AssessmentControl, 0]];

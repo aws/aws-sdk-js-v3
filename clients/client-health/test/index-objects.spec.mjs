@@ -1,4 +1,5 @@
 import {
+  ConcurrentModificationException,
   DescribeAffectedAccountsForOrganizationCommand,
   DescribeAffectedEntitiesCommand,
   DescribeAffectedEntitiesForOrganizationCommand,
@@ -25,6 +26,8 @@ import {
   Health,
   HealthClient,
   HealthServiceException,
+  InvalidPaginationToken,
+  UnsupportedLocale,
   paginateDescribeAffectedAccountsForOrganization,
   paginateDescribeAffectedEntities,
   paginateDescribeAffectedEntitiesForOrganization,
@@ -63,6 +66,9 @@ assert(typeof EventTypeActionability === "object");
 assert(typeof EventTypeCategory === "object");
 assert(typeof EventTypePersona === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof HealthServiceException);
+assert(InvalidPaginationToken.prototype instanceof HealthServiceException);
+assert(UnsupportedLocale.prototype instanceof HealthServiceException);
 assert(HealthServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeAffectedAccountsForOrganization === "function");

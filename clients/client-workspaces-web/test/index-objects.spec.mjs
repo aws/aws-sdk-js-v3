@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AssociateBrowserSettingsCommand,
   AssociateDataProtectionSettingsCommand,
   AssociateIpAccessSettingsCommand,
@@ -10,6 +11,7 @@ import {
   AuthenticationType,
   BrowserType,
   Category,
+  ConflictException,
   CreateBrowserSettingsCommand,
   CreateDataProtectionSettingsCommand,
   CreateIdentityProviderCommand,
@@ -56,6 +58,7 @@ import {
   GetUserAccessLoggingSettingsCommand,
   GetUserSettingsCommand,
   IdentityProviderType,
+  InternalServerException,
   ListBrowserSettingsCommand,
   ListDataProtectionSettingsCommand,
   ListIdentityProvidersCommand,
@@ -74,9 +77,13 @@ import {
   PortalStatus,
   RedactionPlaceHolderType,
   RendererType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SessionSortBy,
   SessionStatus,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   ToolbarItem,
   ToolbarType,
   UntagResourceCommand,
@@ -90,6 +97,8 @@ import {
   UpdateTrustStoreCommand,
   UpdateUserAccessLoggingSettingsCommand,
   UpdateUserSettingsCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VisualMode,
   WorkSpacesWeb,
   WorkSpacesWebClient,
@@ -206,8 +215,17 @@ assert(typeof SessionSortBy === "object");
 assert(typeof SessionStatus === "object");
 assert(typeof ToolbarItem === "object");
 assert(typeof ToolbarType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VisualMode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof WorkSpacesWebServiceException);
+assert(ConflictException.prototype instanceof WorkSpacesWebServiceException);
+assert(InternalServerException.prototype instanceof WorkSpacesWebServiceException);
+assert(ResourceNotFoundException.prototype instanceof WorkSpacesWebServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof WorkSpacesWebServiceException);
+assert(ThrottlingException.prototype instanceof WorkSpacesWebServiceException);
+assert(TooManyTagsException.prototype instanceof WorkSpacesWebServiceException);
+assert(ValidationException.prototype instanceof WorkSpacesWebServiceException);
 assert(WorkSpacesWebServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBrowserSettings === "function");

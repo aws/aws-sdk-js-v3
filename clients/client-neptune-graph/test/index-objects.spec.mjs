@@ -1,8 +1,11 @@
 import {
+  AccessDeniedException,
   BlankNodeHandling,
   CancelExportTaskCommand,
   CancelImportTaskCommand,
   CancelQueryCommand,
+  ConflictException,
+  ConflictExceptionReason,
   CreateGraphCommand,
   CreateGraphSnapshotCommand,
   CreateGraphUsingImportTaskCommand,
@@ -25,6 +28,7 @@ import {
   GraphStatus,
   GraphSummaryMode,
   ImportTaskStatus,
+  InternalServerException,
   ListExportTasksCommand,
   ListGraphSnapshotsCommand,
   ListGraphsCommand,
@@ -43,15 +47,22 @@ import {
   QueryState,
   QueryStateInput,
   ResetGraphCommand,
+  ResourceNotFoundException,
   RestoreGraphFromSnapshotCommand,
+  ServiceQuotaExceededException,
   SnapshotStatus,
   StartExportTaskCommand,
   StartGraphCommand,
   StartImportTaskCommand,
   StopGraphCommand,
   TagResourceCommand,
+  ThrottlingException,
+  UnprocessableException,
+  UnprocessableExceptionReason,
   UntagResourceCommand,
   UpdateGraphCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListExportTasks,
   paginateListGraphSnapshots,
   paginateListGraphs,
@@ -121,6 +132,7 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UpdateGraphCommand === "function");
 // enums
 assert(typeof BlankNodeHandling === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof ExplainMode === "object");
 assert(typeof ExportFormat === "object");
 assert(typeof ExportTaskStatus === "object");
@@ -136,7 +148,17 @@ assert(typeof QueryLanguage === "object");
 assert(typeof QueryState === "object");
 assert(typeof QueryStateInput === "object");
 assert(typeof SnapshotStatus === "object");
+assert(typeof UnprocessableExceptionReason === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof NeptuneGraphServiceException);
+assert(ConflictException.prototype instanceof NeptuneGraphServiceException);
+assert(InternalServerException.prototype instanceof NeptuneGraphServiceException);
+assert(ResourceNotFoundException.prototype instanceof NeptuneGraphServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof NeptuneGraphServiceException);
+assert(ThrottlingException.prototype instanceof NeptuneGraphServiceException);
+assert(UnprocessableException.prototype instanceof NeptuneGraphServiceException);
+assert(ValidationException.prototype instanceof NeptuneGraphServiceException);
 assert(NeptuneGraphServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForExportTaskCancelled === "function");

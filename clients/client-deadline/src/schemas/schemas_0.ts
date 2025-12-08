@@ -3234,7 +3234,6 @@ export var WorkerSummary: StaticStructureSchema = [
   [_wI, _fI, _fIl, _st, _hP, _l, _cA, _cB, _uA, _uB],
   [0, 0, 0, 0, () => HostPropertiesResponse, () => LogConfiguration, 5, 0, 5, 0],
 ];
-export var __Unit = "unit" as const;
 export var DeadlineServiceException: StaticErrorSchema = [-3, _sm, "DeadlineServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DeadlineServiceException, __DeadlineServiceException);
 export var AcceleratorSelections: StaticListSchema = [1, n0, _ASc, 0, () => AcceleratorSelection];

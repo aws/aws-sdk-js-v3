@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   ApplyPendingMaintenanceActionCommand,
   Auth,
+  ConflictException,
   CopyClusterSnapshotCommand,
   CreateClusterCommand,
   CreateClusterSnapshotCommand,
@@ -12,19 +14,25 @@ import {
   GetClusterCommand,
   GetClusterSnapshotCommand,
   GetPendingMaintenanceActionCommand,
+  InternalServerException,
   ListClusterSnapshotsCommand,
   ListClustersCommand,
   ListPendingMaintenanceActionsCommand,
   ListTagsForResourceCommand,
   OptInType,
+  ResourceNotFoundException,
   RestoreClusterFromSnapshotCommand,
+  ServiceQuotaExceededException,
   SnapshotType,
   StartClusterCommand,
   Status,
   StopClusterCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateClusterCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListClusterSnapshots,
   paginateListClusters,
   paginateListPendingMaintenanceActions,
@@ -58,7 +66,15 @@ assert(typeof Auth === "object");
 assert(typeof OptInType === "object");
 assert(typeof SnapshotType === "object");
 assert(typeof Status === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DocDBElasticServiceException);
+assert(ConflictException.prototype instanceof DocDBElasticServiceException);
+assert(InternalServerException.prototype instanceof DocDBElasticServiceException);
+assert(ResourceNotFoundException.prototype instanceof DocDBElasticServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DocDBElasticServiceException);
+assert(ThrottlingException.prototype instanceof DocDBElasticServiceException);
+assert(ValidationException.prototype instanceof DocDBElasticServiceException);
 assert(DocDBElasticServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListClusterSnapshots === "function");

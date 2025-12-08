@@ -526,7 +526,6 @@ export var Trait: StaticStructureSchema = [3, n0, _Tra, 0, [_N, _S], [0, 1]];
 export var UnmappedAttribute: StaticStructureSchema = [3, n0, _UAn, 0, [_T, _A], [0, () => Attribute]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var ComprehendMedicalServiceException: StaticErrorSchema = [
   -3,
   _sm,

@@ -271,7 +271,6 @@ export var UpdateLinkOutput: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var OAMServiceException: StaticErrorSchema = [-3, _sm, "OAMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OAMServiceException, __OAMServiceException);
 export var ListAttachedLinksItems: StaticListSchema = [1, n0, _LALIis, 0, () => ListAttachedLinksItem];

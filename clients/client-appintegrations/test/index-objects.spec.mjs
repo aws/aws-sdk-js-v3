@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AppIntegrations,
   AppIntegrationsClient,
   AppIntegrationsServiceException,
@@ -11,11 +12,14 @@ import {
   DeleteApplicationCommand,
   DeleteDataIntegrationCommand,
   DeleteEventIntegrationCommand,
+  DuplicateResourceException,
   ExecutionMode,
   ExecutionStatus,
   GetApplicationCommand,
   GetDataIntegrationCommand,
   GetEventIntegrationCommand,
+  InternalServiceError,
+  InvalidRequestException,
   ListApplicationAssociationsCommand,
   ListApplicationsCommand,
   ListDataIntegrationAssociationsCommand,
@@ -23,7 +27,11 @@ import {
   ListEventIntegrationAssociationsCommand,
   ListEventIntegrationsCommand,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
+  ResourceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateDataIntegrationAssociationCommand,
@@ -70,6 +78,14 @@ assert(typeof ContactHandlingScope === "object");
 assert(typeof ExecutionMode === "object");
 assert(typeof ExecutionStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AppIntegrationsServiceException);
+assert(DuplicateResourceException.prototype instanceof AppIntegrationsServiceException);
+assert(InternalServiceError.prototype instanceof AppIntegrationsServiceException);
+assert(InvalidRequestException.prototype instanceof AppIntegrationsServiceException);
+assert(ResourceNotFoundException.prototype instanceof AppIntegrationsServiceException);
+assert(ResourceQuotaExceededException.prototype instanceof AppIntegrationsServiceException);
+assert(ThrottlingException.prototype instanceof AppIntegrationsServiceException);
+assert(UnsupportedOperationException.prototype instanceof AppIntegrationsServiceException);
 assert(AppIntegrationsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplicationAssociations === "function");

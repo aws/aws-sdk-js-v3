@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   AutoPromotionResult,
+  ConflictException,
   CreateDatasetCommand,
   CreateInferenceSchedulerCommand,
   CreateLabelCommand,
@@ -30,6 +32,7 @@ import {
   InferenceExecutionStatus,
   InferenceSchedulerStatus,
   IngestionJobStatus,
+  InternalServerException,
   LabelRating,
   LatestInferenceResult,
   ListDataIngestionJobsCommand,
@@ -54,7 +57,9 @@ import {
   ModelVersionStatus,
   Monotonicity,
   PutResourcePolicyCommand,
+  ResourceNotFoundException,
   RetrainingSchedulerStatus,
+  ServiceQuotaExceededException,
   StartDataIngestionJobCommand,
   StartInferenceSchedulerCommand,
   StartRetrainingSchedulerCommand,
@@ -63,12 +68,14 @@ import {
   StopRetrainingSchedulerCommand,
   TagResourceCommand,
   TargetSamplingRate,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateActiveModelVersionCommand,
   UpdateInferenceSchedulerCommand,
   UpdateLabelGroupCommand,
   UpdateModelCommand,
   UpdateRetrainingSchedulerCommand,
+  ValidationException,
   paginateListDataIngestionJobs,
   paginateListDatasets,
   paginateListInferenceEvents,
@@ -155,6 +162,13 @@ assert(typeof RetrainingSchedulerStatus === "object");
 assert(typeof StatisticalIssueStatus === "object");
 assert(typeof TargetSamplingRate === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof LookoutEquipmentServiceException);
+assert(ConflictException.prototype instanceof LookoutEquipmentServiceException);
+assert(InternalServerException.prototype instanceof LookoutEquipmentServiceException);
+assert(ResourceNotFoundException.prototype instanceof LookoutEquipmentServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof LookoutEquipmentServiceException);
+assert(ThrottlingException.prototype instanceof LookoutEquipmentServiceException);
+assert(ValidationException.prototype instanceof LookoutEquipmentServiceException);
 assert(LookoutEquipmentServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDataIngestionJobs === "function");

@@ -2,21 +2,31 @@ import {
   AcceleratorManufacturer,
   AcceleratorName,
   AcceleratorType,
+  AccessDeniedException,
   AccessType,
   AgentUpdateStatus,
   ApplicationProtocol,
   AssignPublicIp,
+  AttributeLimitExceededException,
   AvailabilityZoneRebalancing,
   BareMetal,
+  BlockedException,
   BurstablePerformance,
   CPUArchitecture,
   CapacityProviderField,
   CapacityProviderStatus,
   CapacityProviderType,
   CapacityProviderUpdateStatus,
+  ClientException,
+  ClusterContainsCapacityProviderException,
+  ClusterContainsContainerInstancesException,
+  ClusterContainsServicesException,
+  ClusterContainsTasksException,
   ClusterField,
+  ClusterNotFoundException,
   ClusterSettingName,
   Compatibility,
+  ConflictException,
   Connectivity,
   ContainerCondition,
   ContainerInstanceField,
@@ -72,8 +82,10 @@ import {
   InstanceGeneration,
   InstanceHealthCheckState,
   InstanceHealthCheckType,
+  InvalidParameterException,
   IpcMode,
   LaunchType,
+  LimitExceededException,
   ListAccountSettingsCommand,
   ListAttributesCommand,
   ListClustersCommand,
@@ -94,12 +106,17 @@ import {
   ManagedResourceStatus,
   ManagedScalingStatus,
   ManagedTerminationProtection,
+  MissingVersionException,
+  NamespaceNotFoundException,
   NetworkMode,
+  NoUpdateAvailableException,
   OSFamily,
   PidMode,
   PlacementConstraintType,
   PlacementStrategyType,
   PlatformDeviceType,
+  PlatformTaskDefinitionIncompatibilityException,
+  PlatformUnknownException,
   PropagateMITags,
   PropagateTags,
   ProxyConfigurationType,
@@ -109,18 +126,24 @@ import {
   PutClusterCapacityProvidersCommand,
   RegisterContainerInstanceCommand,
   RegisterTaskDefinitionCommand,
+  ResourceInUseException,
   ResourceManagementType,
+  ResourceNotFoundException,
   ResourceType,
   RunTaskCommand,
   ScaleUnit,
   SchedulingStrategy,
   Scope,
+  ServerException,
   ServiceConnectAccessLoggingFormat,
   ServiceConnectIncludeQueryParameters,
   ServiceDeploymentLifecycleStage,
+  ServiceDeploymentNotFoundException,
   ServiceDeploymentRollbackMonitorsStatus,
   ServiceDeploymentStatus,
   ServiceField,
+  ServiceNotActiveException,
+  ServiceNotFoundException,
   SettingName,
   SettingType,
   SortOrder,
@@ -133,6 +156,8 @@ import {
   SubmitContainerStateChangeCommand,
   SubmitTaskStateChangeCommand,
   TagResourceCommand,
+  TargetNotConnectedException,
+  TargetNotFoundException,
   TargetType,
   TaskDefinitionFamilyStatus,
   TaskDefinitionField,
@@ -141,9 +166,11 @@ import {
   TaskField,
   TaskFilesystemType,
   TaskSetField,
+  TaskSetNotFoundException,
   TaskStopCode,
   TransportProtocol,
   UlimitName,
+  UnsupportedFeatureException,
   UntagResourceCommand,
   UpdateCapacityProviderCommand,
   UpdateClusterCommand,
@@ -151,6 +178,7 @@ import {
   UpdateContainerAgentCommand,
   UpdateContainerInstancesStateCommand,
   UpdateExpressGatewayServiceCommand,
+  UpdateInProgressException,
   UpdateServiceCommand,
   UpdateServicePrimaryTaskSetCommand,
   UpdateTaskProtectionCommand,
@@ -335,6 +363,34 @@ assert(typeof TransportProtocol === "object");
 assert(typeof UlimitName === "object");
 assert(typeof VersionConsistency === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ECSServiceException);
+assert(AttributeLimitExceededException.prototype instanceof ECSServiceException);
+assert(BlockedException.prototype instanceof ECSServiceException);
+assert(ClientException.prototype instanceof ECSServiceException);
+assert(ClusterContainsCapacityProviderException.prototype instanceof ECSServiceException);
+assert(ClusterContainsContainerInstancesException.prototype instanceof ECSServiceException);
+assert(ClusterContainsServicesException.prototype instanceof ECSServiceException);
+assert(ClusterContainsTasksException.prototype instanceof ECSServiceException);
+assert(ClusterNotFoundException.prototype instanceof ECSServiceException);
+assert(ConflictException.prototype instanceof ECSServiceException);
+assert(InvalidParameterException.prototype instanceof ECSServiceException);
+assert(LimitExceededException.prototype instanceof ECSServiceException);
+assert(MissingVersionException.prototype instanceof ECSServiceException);
+assert(NamespaceNotFoundException.prototype instanceof ECSServiceException);
+assert(NoUpdateAvailableException.prototype instanceof ECSServiceException);
+assert(PlatformTaskDefinitionIncompatibilityException.prototype instanceof ECSServiceException);
+assert(PlatformUnknownException.prototype instanceof ECSServiceException);
+assert(ResourceInUseException.prototype instanceof ECSServiceException);
+assert(ResourceNotFoundException.prototype instanceof ECSServiceException);
+assert(ServerException.prototype instanceof ECSServiceException);
+assert(ServiceDeploymentNotFoundException.prototype instanceof ECSServiceException);
+assert(ServiceNotActiveException.prototype instanceof ECSServiceException);
+assert(ServiceNotFoundException.prototype instanceof ECSServiceException);
+assert(TargetNotConnectedException.prototype instanceof ECSServiceException);
+assert(TargetNotFoundException.prototype instanceof ECSServiceException);
+assert(TaskSetNotFoundException.prototype instanceof ECSServiceException);
+assert(UnsupportedFeatureException.prototype instanceof ECSServiceException);
+assert(UpdateInProgressException.prototype instanceof ECSServiceException);
 assert(ECSServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForServicesInactive === "function");

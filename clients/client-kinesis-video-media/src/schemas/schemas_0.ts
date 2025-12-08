@@ -73,7 +73,6 @@ TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedExcept
 export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 export var StartSelector: StaticStructureSchema = [3, n0, _SS, 0, [_SST, _AFN, _ST, _CTo], [0, 0, 4, 0]];
-export var __Unit = "unit" as const;
 export var KinesisVideoMediaServiceException: StaticErrorSchema = [
   -3,
   _sm,

@@ -55,6 +55,9 @@ import {
   ForecastServiceException,
   GetAccuracyMetricsCommand,
   ImportMode,
+  InvalidInputException,
+  InvalidNextTokenException,
+  LimitExceededException,
   ListDatasetGroupsCommand,
   ListDatasetImportJobsCommand,
   ListDatasetsCommand,
@@ -73,6 +76,9 @@ import {
   Month,
   Operation,
   OptimizationMetric,
+  ResourceAlreadyExistsException,
+  ResourceInUseException,
+  ResourceNotFoundException,
   ResumeResourceCommand,
   ScalingType,
   State,
@@ -184,6 +190,12 @@ assert(typeof State === "object");
 assert(typeof TimePointGranularity === "object");
 assert(typeof TimeSeriesGranularity === "object");
 // errors
+assert(InvalidInputException.prototype instanceof ForecastServiceException);
+assert(InvalidNextTokenException.prototype instanceof ForecastServiceException);
+assert(LimitExceededException.prototype instanceof ForecastServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof ForecastServiceException);
+assert(ResourceInUseException.prototype instanceof ForecastServiceException);
+assert(ResourceNotFoundException.prototype instanceof ForecastServiceException);
 assert(ForecastServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDatasetGroups === "function");

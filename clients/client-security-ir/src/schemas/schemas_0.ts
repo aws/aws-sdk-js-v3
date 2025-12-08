@@ -679,7 +679,6 @@ export var Watcher: StaticStructureSchema = [
     [() => JobTitle, 0],
   ],
 ];
-export var __Unit = "unit" as const;
 export var SecurityIRServiceException: StaticErrorSchema = [-3, _sm, "SecurityIRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SecurityIRServiceException, __SecurityIRServiceException);
 export var AWSAccountIds = 64 | 0;

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   DecryptDataCommand,
   DukptDerivationType,
   DukptEncryptionMode,
@@ -11,6 +12,7 @@ import {
   GenerateMacCommand,
   GenerateMacEmvPinChangeCommand,
   GeneratePinDataCommand,
+  InternalServerException,
   KeyCheckValueAlgorithm,
   KeyDerivationFunction,
   KeyDerivationHashAlgorithm,
@@ -25,10 +27,15 @@ import {
   PinBlockLengthPosition,
   PinBlockPaddingType,
   ReEncryptDataCommand,
+  ResourceNotFoundException,
   SessionKeyDerivationMode,
   SymmetricKeyAlgorithm,
+  ThrottlingException,
   TranslateKeyMaterialCommand,
   TranslatePinDataCommand,
+  ValidationException,
+  VerificationFailedException,
+  VerificationFailedReason,
   VerifyAuthRequestCryptogramCommand,
   VerifyCardValidationDataCommand,
   VerifyMacCommand,
@@ -72,7 +79,14 @@ assert(typeof PinBlockLengthPosition === "object");
 assert(typeof PinBlockPaddingType === "object");
 assert(typeof SessionKeyDerivationMode === "object");
 assert(typeof SymmetricKeyAlgorithm === "object");
+assert(typeof VerificationFailedReason === "object");
 assert(typeof WrappedKeyMaterialFormat === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PaymentCryptographyDataServiceException);
+assert(InternalServerException.prototype instanceof PaymentCryptographyDataServiceException);
+assert(ResourceNotFoundException.prototype instanceof PaymentCryptographyDataServiceException);
+assert(ThrottlingException.prototype instanceof PaymentCryptographyDataServiceException);
+assert(ValidationException.prototype instanceof PaymentCryptographyDataServiceException);
+assert(VerificationFailedException.prototype instanceof PaymentCryptographyDataServiceException);
 assert(PaymentCryptographyDataServiceException.prototype instanceof Error);
 console.log(`PaymentCryptographyData index test passed.`);

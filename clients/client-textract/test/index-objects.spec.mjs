@@ -1,16 +1,20 @@
 import {
+  AccessDeniedException,
   AdapterVersionStatus,
   AnalyzeDocumentCommand,
   AnalyzeExpenseCommand,
   AnalyzeIDCommand,
   AutoUpdate,
+  BadDocumentException,
   BlockType,
+  ConflictException,
   ContentClassifier,
   CreateAdapterCommand,
   CreateAdapterVersionCommand,
   DeleteAdapterCommand,
   DeleteAdapterVersionCommand,
   DetectDocumentTextCommand,
+  DocumentTooLargeException,
   EntityType,
   FeatureType,
   GetAdapterCommand,
@@ -20,12 +24,23 @@ import {
   GetExpenseAnalysisCommand,
   GetLendingAnalysisCommand,
   GetLendingAnalysisSummaryCommand,
+  HumanLoopQuotaExceededException,
+  IdempotentParameterMismatchException,
+  InternalServerError,
+  InvalidJobIdException,
+  InvalidKMSKeyException,
+  InvalidParameterException,
+  InvalidS3ObjectException,
   JobStatus,
+  LimitExceededException,
   ListAdapterVersionsCommand,
   ListAdaptersCommand,
   ListTagsForResourceCommand,
+  ProvisionedThroughputExceededException,
   RelationshipType,
+  ResourceNotFoundException,
   SelectionStatus,
+  ServiceQuotaExceededException,
   StartDocumentAnalysisCommand,
   StartDocumentTextDetectionCommand,
   StartExpenseAnalysisCommand,
@@ -35,8 +50,11 @@ import {
   Textract,
   TextractClient,
   TextractServiceException,
+  ThrottlingException,
+  UnsupportedDocumentException,
   UntagResourceCommand,
   UpdateAdapterCommand,
+  ValidationException,
   ValueType,
   paginateListAdapterVersions,
   paginateListAdapters,
@@ -84,6 +102,24 @@ assert(typeof SelectionStatus === "object");
 assert(typeof TextType === "object");
 assert(typeof ValueType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof TextractServiceException);
+assert(BadDocumentException.prototype instanceof TextractServiceException);
+assert(ConflictException.prototype instanceof TextractServiceException);
+assert(DocumentTooLargeException.prototype instanceof TextractServiceException);
+assert(HumanLoopQuotaExceededException.prototype instanceof TextractServiceException);
+assert(IdempotentParameterMismatchException.prototype instanceof TextractServiceException);
+assert(InternalServerError.prototype instanceof TextractServiceException);
+assert(InvalidJobIdException.prototype instanceof TextractServiceException);
+assert(InvalidKMSKeyException.prototype instanceof TextractServiceException);
+assert(InvalidParameterException.prototype instanceof TextractServiceException);
+assert(InvalidS3ObjectException.prototype instanceof TextractServiceException);
+assert(LimitExceededException.prototype instanceof TextractServiceException);
+assert(ProvisionedThroughputExceededException.prototype instanceof TextractServiceException);
+assert(ResourceNotFoundException.prototype instanceof TextractServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof TextractServiceException);
+assert(ThrottlingException.prototype instanceof TextractServiceException);
+assert(UnsupportedDocumentException.prototype instanceof TextractServiceException);
+assert(ValidationException.prototype instanceof TextractServiceException);
 assert(TextractServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAdapterVersions === "function");

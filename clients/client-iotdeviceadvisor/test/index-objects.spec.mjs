@@ -1,11 +1,13 @@
 import {
   AuthenticationMethod,
+  ConflictException,
   CreateSuiteDefinitionCommand,
   DeleteSuiteDefinitionCommand,
   GetEndpointCommand,
   GetSuiteDefinitionCommand,
   GetSuiteRunCommand,
   GetSuiteRunReportCommand,
+  InternalServerException,
   IotDeviceAdvisor,
   IotDeviceAdvisorClient,
   IotDeviceAdvisorServiceException,
@@ -13,6 +15,7 @@ import {
   ListSuiteRunsCommand,
   ListTagsForResourceCommand,
   Protocol,
+  ResourceNotFoundException,
   StartSuiteRunCommand,
   Status,
   StopSuiteRunCommand,
@@ -22,6 +25,7 @@ import {
   TestCaseScenarioType,
   UntagResourceCommand,
   UpdateSuiteDefinitionCommand,
+  ValidationException,
   paginateListSuiteDefinitions,
   paginateListSuiteRuns,
 } from "../dist-cjs/index.js";
@@ -52,6 +56,10 @@ assert(typeof SuiteRunStatus === "object");
 assert(typeof TestCaseScenarioStatus === "object");
 assert(typeof TestCaseScenarioType === "object");
 // errors
+assert(ConflictException.prototype instanceof IotDeviceAdvisorServiceException);
+assert(InternalServerException.prototype instanceof IotDeviceAdvisorServiceException);
+assert(ResourceNotFoundException.prototype instanceof IotDeviceAdvisorServiceException);
+assert(ValidationException.prototype instanceof IotDeviceAdvisorServiceException);
 assert(IotDeviceAdvisorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListSuiteDefinitions === "function");

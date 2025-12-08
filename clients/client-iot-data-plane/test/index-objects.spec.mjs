@@ -1,15 +1,26 @@
 import {
+  ConflictException,
   DeleteConnectionCommand,
   DeleteThingShadowCommand,
+  ForbiddenException,
   GetRetainedMessageCommand,
   GetThingShadowCommand,
+  InternalFailureException,
+  InvalidRequestException,
   IoTDataPlane,
   IoTDataPlaneClient,
   IoTDataPlaneServiceException,
   ListNamedShadowsForThingCommand,
   ListRetainedMessagesCommand,
+  MethodNotAllowedException,
   PayloadFormatIndicator,
   PublishCommand,
+  RequestEntityTooLargeException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
+  ThrottlingException,
+  UnauthorizedException,
+  UnsupportedDocumentEncodingException,
   UpdateThingShadowCommand,
   paginateListRetainedMessages,
 } from "../dist-cjs/index.js";
@@ -29,6 +40,17 @@ assert(typeof UpdateThingShadowCommand === "function");
 // enums
 assert(typeof PayloadFormatIndicator === "object");
 // errors
+assert(ConflictException.prototype instanceof IoTDataPlaneServiceException);
+assert(ForbiddenException.prototype instanceof IoTDataPlaneServiceException);
+assert(InternalFailureException.prototype instanceof IoTDataPlaneServiceException);
+assert(InvalidRequestException.prototype instanceof IoTDataPlaneServiceException);
+assert(MethodNotAllowedException.prototype instanceof IoTDataPlaneServiceException);
+assert(RequestEntityTooLargeException.prototype instanceof IoTDataPlaneServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTDataPlaneServiceException);
+assert(ServiceUnavailableException.prototype instanceof IoTDataPlaneServiceException);
+assert(ThrottlingException.prototype instanceof IoTDataPlaneServiceException);
+assert(UnauthorizedException.prototype instanceof IoTDataPlaneServiceException);
+assert(UnsupportedDocumentEncodingException.prototype instanceof IoTDataPlaneServiceException);
 assert(IoTDataPlaneServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListRetainedMessages === "function");

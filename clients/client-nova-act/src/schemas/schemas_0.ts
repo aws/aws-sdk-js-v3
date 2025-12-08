@@ -442,7 +442,6 @@ export var WorkflowRunSummary: StaticStructureSchema = [
   [_wRA, _wRI, _s, _sA, _eA, _tL],
   [0, 0, 0, 5, 5, () => TraceLocation],
 ];
-export var __Unit = "unit" as const;
 export var NovaActServiceException: StaticErrorSchema = [-3, _sm, "NovaActServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NovaActServiceException, __NovaActServiceException);
 export var ActSummaries: StaticListSchema = [1, n0, _ASc, 0, () => ActSummary];

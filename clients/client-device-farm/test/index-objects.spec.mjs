@@ -1,7 +1,9 @@
 import {
+  ArgumentException,
   ArtifactCategory,
   ArtifactType,
   BillingMethod,
+  CannotDeleteException,
   CreateDevicePoolCommand,
   CreateInstanceProfileCommand,
   CreateNetworkProfileCommand,
@@ -51,9 +53,13 @@ import {
   GetTestGridSessionCommand,
   GetUploadCommand,
   GetVPCEConfigurationCommand,
+  IdempotencyException,
   InstallToRemoteAccessSessionCommand,
   InstanceStatus,
   InteractionMode,
+  InternalServiceException,
+  InvalidOperationException,
+  LimitExceededException,
   ListArtifactsCommand,
   ListDeviceInstancesCommand,
   ListDevicePoolsCommand,
@@ -79,6 +85,8 @@ import {
   ListUploadsCommand,
   ListVPCEConfigurationsCommand,
   NetworkProfileType,
+  NotEligibleException,
+  NotFoundException,
   OfferingTransactionType,
   OfferingType,
   PurchaseOfferingCommand,
@@ -87,14 +95,18 @@ import {
   RuleOperator,
   SampleType,
   ScheduleRunCommand,
+  ServiceAccountException,
   StopJobCommand,
   StopRemoteAccessSessionCommand,
   StopRunCommand,
+  TagOperationException,
+  TagPolicyException,
   TagResourceCommand,
   TestGridSessionArtifactCategory,
   TestGridSessionArtifactType,
   TestGridSessionStatus,
   TestType,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateDeviceInstanceCommand,
   UpdateDevicePoolCommand,
@@ -238,6 +250,18 @@ assert(typeof UploadCategory === "object");
 assert(typeof UploadStatus === "object");
 assert(typeof UploadType === "object");
 // errors
+assert(ArgumentException.prototype instanceof DeviceFarmServiceException);
+assert(CannotDeleteException.prototype instanceof DeviceFarmServiceException);
+assert(IdempotencyException.prototype instanceof DeviceFarmServiceException);
+assert(InternalServiceException.prototype instanceof DeviceFarmServiceException);
+assert(InvalidOperationException.prototype instanceof DeviceFarmServiceException);
+assert(LimitExceededException.prototype instanceof DeviceFarmServiceException);
+assert(NotEligibleException.prototype instanceof DeviceFarmServiceException);
+assert(NotFoundException.prototype instanceof DeviceFarmServiceException);
+assert(ServiceAccountException.prototype instanceof DeviceFarmServiceException);
+assert(TagOperationException.prototype instanceof DeviceFarmServiceException);
+assert(TagPolicyException.prototype instanceof DeviceFarmServiceException);
+assert(TooManyTagsException.prototype instanceof DeviceFarmServiceException);
 assert(DeviceFarmServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetOfferingStatus === "function");

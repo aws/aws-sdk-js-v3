@@ -1,8 +1,16 @@
 import {
   AddAttachmentsToSetCommand,
   AddCommunicationToCaseCommand,
+  AttachmentIdNotFound,
+  AttachmentLimitExceeded,
+  AttachmentSetExpired,
+  AttachmentSetIdNotFound,
+  AttachmentSetSizeLimitExceeded,
+  CaseCreationLimitExceeded,
+  CaseIdNotFound,
   CreateCaseCommand,
   DescribeAttachmentCommand,
+  DescribeAttachmentLimitExceeded,
   DescribeCasesCommand,
   DescribeCommunicationsCommand,
   DescribeCreateCaseOptionsCommand,
@@ -13,11 +21,13 @@ import {
   DescribeTrustedAdvisorCheckResultCommand,
   DescribeTrustedAdvisorCheckSummariesCommand,
   DescribeTrustedAdvisorChecksCommand,
+  InternalServerError,
   RefreshTrustedAdvisorCheckCommand,
   ResolveCaseCommand,
   Support,
   SupportClient,
   SupportServiceException,
+  ThrottlingException,
   paginateDescribeCases,
   paginateDescribeCommunications,
 } from "../dist-cjs/index.js";
@@ -43,6 +53,16 @@ assert(typeof DescribeTrustedAdvisorCheckSummariesCommand === "function");
 assert(typeof RefreshTrustedAdvisorCheckCommand === "function");
 assert(typeof ResolveCaseCommand === "function");
 // errors
+assert(AttachmentIdNotFound.prototype instanceof SupportServiceException);
+assert(AttachmentLimitExceeded.prototype instanceof SupportServiceException);
+assert(AttachmentSetExpired.prototype instanceof SupportServiceException);
+assert(AttachmentSetIdNotFound.prototype instanceof SupportServiceException);
+assert(AttachmentSetSizeLimitExceeded.prototype instanceof SupportServiceException);
+assert(CaseCreationLimitExceeded.prototype instanceof SupportServiceException);
+assert(CaseIdNotFound.prototype instanceof SupportServiceException);
+assert(DescribeAttachmentLimitExceeded.prototype instanceof SupportServiceException);
+assert(InternalServerError.prototype instanceof SupportServiceException);
+assert(ThrottlingException.prototype instanceof SupportServiceException);
 assert(SupportServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeCases === "function");

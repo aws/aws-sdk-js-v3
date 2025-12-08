@@ -1,5 +1,6 @@
 import {
   AcceptInvitationCommand,
+  AccessDeniedException,
   AdminStatus,
   AllowListStatusCode,
   AllowsUnencryptedObjectUploads,
@@ -13,6 +14,7 @@ import {
   BatchUpdateAutomatedDiscoveryAccountsCommand,
   BucketMetadataErrorCode,
   ClassificationScopeUpdateOperation,
+  ConflictException,
   CreateAllowListCommand,
   CreateClassificationJobCommand,
   CreateCustomDataIdentifierCommand,
@@ -72,6 +74,7 @@ import {
   GetUsageStatisticsCommand,
   GetUsageTotalsCommand,
   GroupBy,
+  InternalServerException,
   IsDefinedInJob,
   IsMonitoredByJob,
   JobComparator,
@@ -105,6 +108,7 @@ import {
   PutClassificationExportConfigurationCommand,
   PutFindingsPublicationConfigurationCommand,
   RelationshipStatus,
+  ResourceNotFoundException,
   RetrievalMode,
   RevealRequestStatus,
   RevealStatus,
@@ -114,6 +118,7 @@ import {
   SearchResourcesSimpleCriterionKey,
   SearchResourcesSortAttributeName,
   SensitiveDataItemCategory,
+  ServiceQuotaExceededException,
   SeverityDescription,
   SharedAccess,
   SimpleCriterionKeyForJob,
@@ -121,10 +126,12 @@ import {
   TagResourceCommand,
   TagTarget,
   TestCustomDataIdentifierCommand,
+  ThrottlingException,
   TimeRange,
   Type,
   UnavailabilityReasonCode,
   Unit,
+  UnprocessableEntityException,
   UntagResourceCommand,
   UpdateAllowListCommand,
   UpdateAutomatedDiscoveryConfigurationCommand,
@@ -143,6 +150,7 @@ import {
   UsageStatisticsSortKey,
   UsageType,
   UserIdentityType,
+  ValidationException,
   paginateDescribeBuckets,
   paginateGetUsageStatistics,
   paginateListAllowLists,
@@ -311,6 +319,14 @@ assert(typeof UsageStatisticsSortKey === "object");
 assert(typeof UsageType === "object");
 assert(typeof UserIdentityType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof Macie2ServiceException);
+assert(ConflictException.prototype instanceof Macie2ServiceException);
+assert(InternalServerException.prototype instanceof Macie2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof Macie2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof Macie2ServiceException);
+assert(ThrottlingException.prototype instanceof Macie2ServiceException);
+assert(UnprocessableEntityException.prototype instanceof Macie2ServiceException);
+assert(ValidationException.prototype instanceof Macie2ServiceException);
 assert(Macie2ServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForFindingRevealed === "function");

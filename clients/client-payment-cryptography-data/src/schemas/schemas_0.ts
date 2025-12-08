@@ -885,7 +885,6 @@ export var WrappedWorkingKey: StaticStructureSchema = [
   [_WKM, _KCV, _WKMF],
   [[() => KeyMaterial, 0], 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var PaymentCryptographyDataServiceException: StaticErrorSchema = [
   -3,
   _sm,

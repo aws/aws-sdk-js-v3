@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AgentManagedRuntimeType,
   AgentRuntimeEndpointStatus,
   AgentRuntimeStatus,
@@ -12,6 +13,8 @@ import {
   ClaimMatchOperatorType,
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
+  ConcurrentModificationException,
+  ConflictException,
   CreateAgentRuntimeCommand,
   CreateAgentRuntimeEndpointCommand,
   CreateApiKeyCredentialProviderCommand,
@@ -28,6 +31,7 @@ import {
   CreateWorkloadIdentityCommand,
   CredentialProviderType,
   CredentialProviderVendorType,
+  DecryptionFailure,
   DeleteAgentRuntimeCommand,
   DeleteAgentRuntimeEndpointCommand,
   DeleteApiKeyCredentialProviderCommand,
@@ -43,6 +47,7 @@ import {
   DeletePolicyEngineCommand,
   DeleteResourcePolicyCommand,
   DeleteWorkloadIdentityCommand,
+  EncryptionFailure,
   EvaluatorLevel,
   EvaluatorStatus,
   EvaluatorType,
@@ -71,6 +76,7 @@ import {
   GetTokenVaultCommand,
   GetWorkloadIdentityCommand,
   InboundTokenClaimValueType,
+  InternalServerException,
   KeyType,
   ListAgentRuntimeEndpointsCommand,
   ListAgentRuntimeVersionsCommand,
@@ -103,16 +109,23 @@ import {
   PolicyStatus,
   PolicyValidationMode,
   PutResourcePolicyCommand,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
   ResourceType,
   RestApiMethod,
   SchemaType,
   SearchType,
   ServerProtocol,
+  ServiceException,
+  ServiceQuotaExceededException,
   SetTokenVaultCMKCommand,
   StartPolicyGenerationCommand,
   SynchronizeGatewayTargetsCommand,
   TagResourceCommand,
   TargetStatus,
+  ThrottledException,
+  ThrottlingException,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeEndpointCommand,
@@ -126,6 +139,8 @@ import {
   UpdatePolicyCommand,
   UpdatePolicyEngineCommand,
   UpdateWorkloadIdentityCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListAgentRuntimeEndpoints,
   paginateListAgentRuntimeVersions,
   paginateListAgentRuntimes,
@@ -286,7 +301,22 @@ assert(typeof SchemaType === "object");
 assert(typeof SearchType === "object");
 assert(typeof ServerProtocol === "object");
 assert(typeof TargetStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ConcurrentModificationException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ConflictException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(DecryptionFailure.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(EncryptionFailure.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(InternalServerException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ResourceLimitExceededException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ResourceNotFoundException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ServiceException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ThrottledException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ThrottlingException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(UnauthorizedException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(ValidationException.prototype instanceof BedrockAgentCoreControlServiceException);
 assert(BedrockAgentCoreControlServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForMemoryCreated === "function");

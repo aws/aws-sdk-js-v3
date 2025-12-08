@@ -7,6 +7,10 @@ import {
   CloudWatchClient,
   CloudWatchServiceException,
   ComparisonOperator,
+  ConcurrentModificationException,
+  ConflictException,
+  DashboardInvalidInputError,
+  DashboardNotFoundError,
   DeleteAlarmsCommand,
   DeleteAnomalyDetectorCommand,
   DeleteDashboardsCommand,
@@ -30,12 +34,20 @@ import {
   GetMetricStreamCommand,
   GetMetricWidgetImageCommand,
   HistoryItemType,
+  InternalServiceFault,
+  InvalidFormatFault,
+  InvalidNextToken,
+  InvalidParameterCombinationException,
+  InvalidParameterValueException,
+  LimitExceededException,
+  LimitExceededFault,
   ListDashboardsCommand,
   ListManagedInsightRulesCommand,
   ListMetricStreamsCommand,
   ListMetricsCommand,
   ListTagsForResourceCommand,
   MetricStreamOutputFormat,
+  MissingRequiredParameterException,
   PutAnomalyDetectorCommand,
   PutCompositeAlarmCommand,
   PutDashboardCommand,
@@ -45,6 +57,8 @@ import {
   PutMetricDataCommand,
   PutMetricStreamCommand,
   RecentlyActive,
+  ResourceNotFound,
+  ResourceNotFoundException,
   ScanBy,
   SetAlarmStateCommand,
   StandardUnit,
@@ -129,6 +143,20 @@ assert(typeof StateValue === "object");
 assert(typeof Statistic === "object");
 assert(typeof StatusCode === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof CloudWatchServiceException);
+assert(ConflictException.prototype instanceof CloudWatchServiceException);
+assert(DashboardInvalidInputError.prototype instanceof CloudWatchServiceException);
+assert(DashboardNotFoundError.prototype instanceof CloudWatchServiceException);
+assert(InternalServiceFault.prototype instanceof CloudWatchServiceException);
+assert(InvalidFormatFault.prototype instanceof CloudWatchServiceException);
+assert(InvalidNextToken.prototype instanceof CloudWatchServiceException);
+assert(InvalidParameterCombinationException.prototype instanceof CloudWatchServiceException);
+assert(InvalidParameterValueException.prototype instanceof CloudWatchServiceException);
+assert(LimitExceededException.prototype instanceof CloudWatchServiceException);
+assert(LimitExceededFault.prototype instanceof CloudWatchServiceException);
+assert(MissingRequiredParameterException.prototype instanceof CloudWatchServiceException);
+assert(ResourceNotFound.prototype instanceof CloudWatchServiceException);
+assert(ResourceNotFoundException.prototype instanceof CloudWatchServiceException);
 assert(CloudWatchServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAlarmExists === "function");

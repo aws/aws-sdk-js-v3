@@ -29,5 +29,10 @@ export type {
   GetRecordResponse,
   PutRecordRequest,
   TtlDuration,
+  AccessForbidden,
+  InternalFailure,
+  ResourceNotFound,
+  ServiceUnavailable,
+  ValidationError,
   SageMakerFeatureStoreRuntimeServiceException,
 } from "../dist-types/index.d";

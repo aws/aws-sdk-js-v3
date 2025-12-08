@@ -1,8 +1,11 @@
 import {
+  AWSServiceAccessNotEnabledException,
+  AccessDeniedException,
   AppliedLevelEnum,
   AssociateServiceQuotaTemplateCommand,
   CreateSupportCaseCommand,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
+  DependencyAccessDeniedException,
   DisassociateServiceQuotaTemplateCommand,
   ErrorCode,
   GetAWSDefaultServiceQuotaCommand,
@@ -11,6 +14,9 @@ import {
   GetRequestedServiceQuotaChangeCommand,
   GetServiceQuotaCommand,
   GetServiceQuotaIncreaseRequestFromTemplateCommand,
+  IllegalArgumentException,
+  InvalidPaginationTokenException,
+  InvalidResourceStateException,
   ListAWSDefaultServiceQuotasCommand,
   ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
   ListRequestedServiceQuotaChangeHistoryCommand,
@@ -18,21 +24,32 @@ import {
   ListServiceQuotasCommand,
   ListServicesCommand,
   ListTagsForResourceCommand,
+  NoAvailableOrganizationException,
+  NoSuchResourceException,
   OptInLevel,
   OptInStatus,
   OptInType,
+  OrganizationNotInAllFeaturesModeException,
   PeriodUnit,
   PutServiceQuotaIncreaseRequestIntoTemplateCommand,
   QuotaContextScope,
+  QuotaExceededException,
   RequestServiceQuotaIncreaseCommand,
   RequestStatus,
+  ResourceAlreadyExistsException,
+  ServiceException,
   ServiceQuotaTemplateAssociationStatus,
+  ServiceQuotaTemplateNotInUseException,
   ServiceQuotas,
   ServiceQuotasClient,
   ServiceQuotasServiceException,
   StartAutoManagementCommand,
   StopAutoManagementCommand,
+  TagPolicyViolationException,
   TagResourceCommand,
+  TemplatesNotAvailableInRegionException,
+  TooManyRequestsException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateAutoManagementCommand,
   paginateListAWSDefaultServiceQuotas,
@@ -82,6 +99,23 @@ assert(typeof QuotaContextScope === "object");
 assert(typeof RequestStatus === "object");
 assert(typeof ServiceQuotaTemplateAssociationStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ServiceQuotasServiceException);
+assert(AWSServiceAccessNotEnabledException.prototype instanceof ServiceQuotasServiceException);
+assert(DependencyAccessDeniedException.prototype instanceof ServiceQuotasServiceException);
+assert(IllegalArgumentException.prototype instanceof ServiceQuotasServiceException);
+assert(InvalidPaginationTokenException.prototype instanceof ServiceQuotasServiceException);
+assert(InvalidResourceStateException.prototype instanceof ServiceQuotasServiceException);
+assert(NoAvailableOrganizationException.prototype instanceof ServiceQuotasServiceException);
+assert(NoSuchResourceException.prototype instanceof ServiceQuotasServiceException);
+assert(OrganizationNotInAllFeaturesModeException.prototype instanceof ServiceQuotasServiceException);
+assert(QuotaExceededException.prototype instanceof ServiceQuotasServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof ServiceQuotasServiceException);
+assert(ServiceException.prototype instanceof ServiceQuotasServiceException);
+assert(ServiceQuotaTemplateNotInUseException.prototype instanceof ServiceQuotasServiceException);
+assert(TagPolicyViolationException.prototype instanceof ServiceQuotasServiceException);
+assert(TemplatesNotAvailableInRegionException.prototype instanceof ServiceQuotasServiceException);
+assert(TooManyRequestsException.prototype instanceof ServiceQuotasServiceException);
+assert(TooManyTagsException.prototype instanceof ServiceQuotasServiceException);
 assert(ServiceQuotasServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAWSDefaultServiceQuotas === "function");

@@ -618,7 +618,6 @@ export var WhatsAppSignupCallbackResult: StaticStructureSchema = [
   [_aIPT, _lAWIS],
   [[() => AssociateInProgressToken, 0], () => LinkedAccountWithIncompleteSetup],
 ];
-export var __Unit = "unit" as const;
 export var SocialMessagingServiceException: StaticErrorSchema = [-3, _sm, "SocialMessagingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SocialMessagingServiceException, __SocialMessagingServiceException);
 export var LinkedWhatsAppBusinessAccountSummaryList: StaticListSchema = [

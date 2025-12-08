@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AdditionalResultAttributeValueType,
   AlfrescoEntity,
   AssociateEntitiesToExperienceCommand,
@@ -10,6 +11,7 @@ import {
   BatchPutDocumentCommand,
   ClearQuerySuggestionsCommand,
   ConditionOperator,
+  ConflictException,
   ConfluenceAttachmentFieldName,
   ConfluenceAuthenticationType,
   ConfluenceBlogFieldName,
@@ -57,6 +59,7 @@ import {
   ExperienceStatus,
   FaqFileFormat,
   FaqStatus,
+  FeaturedResultsConflictException,
   FeaturedResultsSetStatus,
   FsxFileSystemType,
   GetQuerySuggestionsCommand,
@@ -64,7 +67,9 @@ import {
   HighlightType,
   IndexEdition,
   IndexStatus,
+  InternalServerException,
   Interval,
+  InvalidRequestException,
   IssueSubEntity,
   Kendra,
   KendraClient,
@@ -99,6 +104,10 @@ import {
   QuerySuggestionsStatus,
   ReadAccessType,
   RelevanceType,
+  ResourceAlreadyExistException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceUnavailableException,
   RetrieveCommand,
   SalesforceChatterFeedIncludeFilterType,
   SalesforceKnowledgeArticleState,
@@ -106,6 +115,7 @@ import {
   ScoreConfidence,
   ServiceNowAuthenticationType,
   ServiceNowBuildVersionType,
+  ServiceQuotaExceededException,
   SharePointOnlineAuthenticationType,
   SharePointVersion,
   SlackEntity,
@@ -116,6 +126,7 @@ import {
   SuggestionType,
   TagResourceCommand,
   ThesaurusStatus,
+  ThrottlingException,
   Type,
   UntagResourceCommand,
   UpdateAccessControlConfigurationCommand,
@@ -128,6 +139,7 @@ import {
   UpdateThesaurusCommand,
   UserContextPolicy,
   UserGroupResolutionMode,
+  ValidationException,
   WarningCode,
   WebCrawlerMode,
   paginateGetSnapshots,
@@ -278,6 +290,18 @@ assert(typeof UserGroupResolutionMode === "object");
 assert(typeof WarningCode === "object");
 assert(typeof WebCrawlerMode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof KendraServiceException);
+assert(ConflictException.prototype instanceof KendraServiceException);
+assert(FeaturedResultsConflictException.prototype instanceof KendraServiceException);
+assert(InternalServerException.prototype instanceof KendraServiceException);
+assert(InvalidRequestException.prototype instanceof KendraServiceException);
+assert(ResourceAlreadyExistException.prototype instanceof KendraServiceException);
+assert(ResourceInUseException.prototype instanceof KendraServiceException);
+assert(ResourceNotFoundException.prototype instanceof KendraServiceException);
+assert(ResourceUnavailableException.prototype instanceof KendraServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof KendraServiceException);
+assert(ThrottlingException.prototype instanceof KendraServiceException);
+assert(ValidationException.prototype instanceof KendraServiceException);
 assert(KendraServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetSnapshots === "function");

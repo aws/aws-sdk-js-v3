@@ -1888,7 +1888,6 @@ export var WorkspacesPoolSession: StaticStructureSchema = [
   [_AT, _CSon, _SIe, _IIn, _PI, _ET, _NAC, _ST, _UI],
   [0, 0, 0, 0, 0, 4, () => NetworkAccessConfiguration, 4, 0],
 ];
-export var __Unit = "unit" as const;
 export var WorkSpacesServiceException: StaticErrorSchema = [-3, _s, "WorkSpacesServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(WorkSpacesServiceException, __WorkSpacesServiceException);
 export var AccessEndpointList: StaticListSchema = [1, n0, _AEL, 0, () => AccessEndpoint];

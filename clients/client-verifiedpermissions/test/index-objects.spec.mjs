@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   BatchGetPolicyCommand,
   BatchGetPolicyErrorCode,
   BatchIsAuthorizedCommand,
   BatchIsAuthorizedWithTokenCommand,
   CedarVersion,
+  ConflictException,
   CreateIdentitySourceCommand,
   CreatePolicyCommand,
   CreatePolicyStoreCommand,
@@ -19,6 +21,8 @@ import {
   GetPolicyStoreCommand,
   GetPolicyTemplateCommand,
   GetSchemaCommand,
+  InternalServerException,
+  InvalidStateException,
   IsAuthorizedCommand,
   IsAuthorizedWithTokenCommand,
   ListIdentitySourcesCommand,
@@ -30,12 +34,18 @@ import {
   PolicyEffect,
   PolicyType,
   PutSchemaCommand,
+  ResourceNotFoundException,
+  ResourceType,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateIdentitySourceCommand,
   UpdatePolicyCommand,
   UpdatePolicyStoreCommand,
   UpdatePolicyTemplateCommand,
+  ValidationException,
   ValidationMode,
   VerifiedPermissions,
   VerifiedPermissionsClient,
@@ -88,8 +98,18 @@ assert(typeof DeletionProtection === "object");
 assert(typeof OpenIdIssuer === "object");
 assert(typeof PolicyEffect === "object");
 assert(typeof PolicyType === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ValidationMode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof VerifiedPermissionsServiceException);
+assert(ConflictException.prototype instanceof VerifiedPermissionsServiceException);
+assert(InternalServerException.prototype instanceof VerifiedPermissionsServiceException);
+assert(InvalidStateException.prototype instanceof VerifiedPermissionsServiceException);
+assert(ResourceNotFoundException.prototype instanceof VerifiedPermissionsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof VerifiedPermissionsServiceException);
+assert(ThrottlingException.prototype instanceof VerifiedPermissionsServiceException);
+assert(TooManyTagsException.prototype instanceof VerifiedPermissionsServiceException);
+assert(ValidationException.prototype instanceof VerifiedPermissionsServiceException);
 assert(VerifiedPermissionsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListIdentitySources === "function");

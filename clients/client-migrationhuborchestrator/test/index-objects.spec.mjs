@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CreateTemplateCommand,
   CreateWorkflowCommand,
   CreateWorkflowStepCommand,
@@ -14,6 +16,7 @@ import {
   GetWorkflowCommand,
   GetWorkflowStepCommand,
   GetWorkflowStepGroupCommand,
+  InternalServerException,
   ListPluginsCommand,
   ListTagsForResourceCommand,
   ListTemplateStepGroupsCommand,
@@ -28,6 +31,7 @@ import {
   MigrationWorkflowStatusEnum,
   Owner,
   PluginHealth,
+  ResourceNotFoundException,
   RetryWorkflowStepCommand,
   RunEnvironment,
   StartWorkflowCommand,
@@ -38,11 +42,13 @@ import {
   TagResourceCommand,
   TargetType,
   TemplateStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateTemplateCommand,
   UpdateWorkflowCommand,
   UpdateWorkflowStepCommand,
   UpdateWorkflowStepGroupCommand,
+  ValidationException,
   paginateListPlugins,
   paginateListTemplateStepGroups,
   paginateListTemplateSteps,
@@ -99,6 +105,12 @@ assert(typeof StepStatus === "object");
 assert(typeof TargetType === "object");
 assert(typeof TemplateStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MigrationHubOrchestratorServiceException);
+assert(ConflictException.prototype instanceof MigrationHubOrchestratorServiceException);
+assert(InternalServerException.prototype instanceof MigrationHubOrchestratorServiceException);
+assert(ResourceNotFoundException.prototype instanceof MigrationHubOrchestratorServiceException);
+assert(ThrottlingException.prototype instanceof MigrationHubOrchestratorServiceException);
+assert(ValidationException.prototype instanceof MigrationHubOrchestratorServiceException);
 assert(MigrationHubOrchestratorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListPlugins === "function");

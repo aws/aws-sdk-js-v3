@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   ApplicationDeploymentLifecycle,
   ApplicationLifecycle,
   ApplicationVersionLifecycle,
   BatchJobExecutionStatus,
   BatchJobType,
   CancelBatchJobExecutionCommand,
+  ConflictException,
   CreateApplicationCommand,
   CreateDataSetExportTaskCommand,
   CreateDataSetImportTaskCommand,
@@ -17,6 +19,7 @@ import {
   DeploymentLifecycle,
   EngineType,
   EnvironmentLifecycle,
+  ExecutionTimeoutException,
   GetApplicationCommand,
   GetApplicationVersionCommand,
   GetBatchJobExecutionCommand,
@@ -26,6 +29,7 @@ import {
   GetDeploymentCommand,
   GetEnvironmentCommand,
   GetSignedBluinsightsUrlCommand,
+  InternalServerException,
   ListApplicationVersionsCommand,
   ListApplicationsCommand,
   ListBatchJobDefinitionsCommand,
@@ -42,13 +46,19 @@ import {
   M2Client,
   M2ServiceException,
   NetworkType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   StartApplicationCommand,
   StartBatchJobCommand,
   StopApplicationCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateEnvironmentCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListApplicationVersions,
   paginateListApplications,
   paginateListBatchJobDefinitions,
@@ -113,7 +123,17 @@ assert(typeof DeploymentLifecycle === "object");
 assert(typeof EngineType === "object");
 assert(typeof EnvironmentLifecycle === "object");
 assert(typeof NetworkType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof M2ServiceException);
+assert(ConflictException.prototype instanceof M2ServiceException);
+assert(ExecutionTimeoutException.prototype instanceof M2ServiceException);
+assert(InternalServerException.prototype instanceof M2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof M2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof M2ServiceException);
+assert(ServiceUnavailableException.prototype instanceof M2ServiceException);
+assert(ThrottlingException.prototype instanceof M2ServiceException);
+assert(ValidationException.prototype instanceof M2ServiceException);
 assert(M2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplicationVersions === "function");

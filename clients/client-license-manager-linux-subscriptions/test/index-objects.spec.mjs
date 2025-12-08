@@ -2,6 +2,7 @@ import {
   DeregisterSubscriptionProviderCommand,
   GetRegisteredSubscriptionProviderCommand,
   GetServiceSettingsCommand,
+  InternalServerException,
   LicenseManagerLinuxSubscriptions,
   LicenseManagerLinuxSubscriptionsClient,
   LicenseManagerLinuxSubscriptionsServiceException,
@@ -13,12 +14,15 @@ import {
   Operator,
   OrganizationIntegration,
   RegisterSubscriptionProviderCommand,
+  ResourceNotFoundException,
   Status,
   SubscriptionProviderSource,
   SubscriptionProviderStatus,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateServiceSettingsCommand,
+  ValidationException,
   paginateListLinuxSubscriptionInstances,
   paginateListLinuxSubscriptions,
   paginateListRegisteredSubscriptionProviders,
@@ -47,6 +51,10 @@ assert(typeof Status === "object");
 assert(typeof SubscriptionProviderSource === "object");
 assert(typeof SubscriptionProviderStatus === "object");
 // errors
+assert(InternalServerException.prototype instanceof LicenseManagerLinuxSubscriptionsServiceException);
+assert(ResourceNotFoundException.prototype instanceof LicenseManagerLinuxSubscriptionsServiceException);
+assert(ThrottlingException.prototype instanceof LicenseManagerLinuxSubscriptionsServiceException);
+assert(ValidationException.prototype instanceof LicenseManagerLinuxSubscriptionsServiceException);
 assert(LicenseManagerLinuxSubscriptionsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListLinuxSubscriptionInstances === "function");

@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   AllowPublish,
   AllowUpstream,
   AssociateExternalConnectionCommand,
   Codeartifact,
   CodeartifactClient,
   CodeartifactServiceException,
+  ConflictException,
   CopyPackageVersionsCommand,
   CreateDomainCommand,
   CreatePackageGroupCommand,
@@ -34,6 +36,7 @@ import {
   GetRepositoryEndpointCommand,
   GetRepositoryPermissionsPolicyCommand,
   HashAlgorithm,
+  InternalServerException,
   ListAllowedRepositoriesForGroupCommand,
   ListAssociatedPackagesCommand,
   ListDomainsCommand,
@@ -59,12 +62,18 @@ import {
   PutDomainPermissionsPolicyCommand,
   PutPackageOriginConfigurationCommand,
   PutRepositoryPermissionsPolicyCommand,
+  ResourceNotFoundException,
+  ResourceType,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdatePackageGroupCommand,
   UpdatePackageGroupOriginConfigurationCommand,
   UpdatePackageVersionsStatusCommand,
   UpdateRepositoryCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListAllowedRepositoriesForGroup,
   paginateListAssociatedPackages,
   paginateListDomains,
@@ -145,7 +154,16 @@ assert(typeof PackageVersionErrorCode === "object");
 assert(typeof PackageVersionOriginType === "object");
 assert(typeof PackageVersionSortType === "object");
 assert(typeof PackageVersionStatus === "object");
+assert(typeof ResourceType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CodeartifactServiceException);
+assert(ConflictException.prototype instanceof CodeartifactServiceException);
+assert(InternalServerException.prototype instanceof CodeartifactServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodeartifactServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CodeartifactServiceException);
+assert(ThrottlingException.prototype instanceof CodeartifactServiceException);
+assert(ValidationException.prototype instanceof CodeartifactServiceException);
 assert(CodeartifactServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAllowedRepositoriesForGroup === "function");

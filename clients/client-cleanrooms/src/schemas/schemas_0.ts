@@ -3116,7 +3116,6 @@ export var WorkerComputeConfiguration: StaticStructureSchema = [
   [_t, _nu, _pr],
   [0, 1, () => WorkerComputeConfigurationProperties],
 ];
-export var __Unit = "unit" as const;
 export var CleanRoomsServiceException: StaticErrorSchema = [-3, _sm, "CleanRoomsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CleanRoomsServiceException, __CleanRoomsServiceException);
 export var AccessBudgetDetailsList: StaticListSchema = [1, n0, _ABDL, 0, () => AccessBudgetDetails];

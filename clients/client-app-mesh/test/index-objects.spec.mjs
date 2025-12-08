@@ -2,6 +2,8 @@ import {
   AppMesh,
   AppMeshClient,
   AppMeshServiceException,
+  BadRequestException,
+  ConflictException,
   CreateGatewayRouteCommand,
   CreateMeshCommand,
   CreateRouteCommand,
@@ -27,11 +29,14 @@ import {
   DnsResponseType,
   DurationUnit,
   EgressFilterType,
+  ForbiddenException,
   GatewayRouteStatusCode,
   GrpcRetryPolicyEvent,
   HttpMethod,
   HttpScheme,
+  InternalServerErrorException,
   IpPreference,
+  LimitExceededException,
   ListGatewayRoutesCommand,
   ListMeshesCommand,
   ListRoutesCommand,
@@ -42,10 +47,15 @@ import {
   ListVirtualServicesCommand,
   ListenerTlsMode,
   MeshStatusCode,
+  NotFoundException,
   PortProtocol,
+  ResourceInUseException,
   RouteStatusCode,
+  ServiceUnavailableException,
   TagResourceCommand,
   TcpRetryPolicyEvent,
+  TooManyRequestsException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateGatewayRouteCommand,
   UpdateMeshCommand,
@@ -134,6 +144,16 @@ assert(typeof VirtualNodeStatusCode === "object");
 assert(typeof VirtualRouterStatusCode === "object");
 assert(typeof VirtualServiceStatusCode === "object");
 // errors
+assert(BadRequestException.prototype instanceof AppMeshServiceException);
+assert(ConflictException.prototype instanceof AppMeshServiceException);
+assert(ForbiddenException.prototype instanceof AppMeshServiceException);
+assert(InternalServerErrorException.prototype instanceof AppMeshServiceException);
+assert(LimitExceededException.prototype instanceof AppMeshServiceException);
+assert(NotFoundException.prototype instanceof AppMeshServiceException);
+assert(ResourceInUseException.prototype instanceof AppMeshServiceException);
+assert(ServiceUnavailableException.prototype instanceof AppMeshServiceException);
+assert(TooManyRequestsException.prototype instanceof AppMeshServiceException);
+assert(TooManyTagsException.prototype instanceof AppMeshServiceException);
 assert(AppMeshServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListGatewayRoutes === "function");

@@ -10,6 +10,9 @@ export type {
   EntitlementValue,
   GetEntitlementsRequest,
   GetEntitlementsResult,
+  InternalServiceErrorException,
+  InvalidParameterException,
+  ThrottlingException,
   MarketplaceEntitlementServiceServiceException,
   paginateGetEntitlements,
 } from "../dist-types/index.d";

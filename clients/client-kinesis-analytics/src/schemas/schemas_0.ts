@@ -647,7 +647,6 @@ export var UpdateApplicationRequest: StaticStructureSchema = [
   [0, 1, () => ApplicationUpdate],
 ];
 export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
-export var __Unit = "unit" as const;
 export var KinesisAnalyticsServiceException: StaticErrorSchema = [
   -3,
   _sm,

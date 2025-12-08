@@ -750,7 +750,6 @@ export var VirtualCluster: StaticStructureSchema = [
   [_i, _n, _a, _s, _cP, _cAr, _ta, _sCI],
   [0, 0, 0, 0, () => ContainerProvider, 5, 128 | 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var EMRContainersServiceException: StaticErrorSchema = [-3, _sm, "EMRContainersServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EMRContainersServiceException, __EMRContainersServiceException);
 export var ConfigurationList: StaticListSchema = [1, n0, _CL, 0, [() => Configuration, 0]];

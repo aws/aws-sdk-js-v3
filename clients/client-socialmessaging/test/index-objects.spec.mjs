@@ -1,15 +1,21 @@
 import {
+  AccessDeniedByMetaException,
+  AccessDeniedException,
   AssociateWhatsAppBusinessAccountCommand,
   CreateWhatsAppMessageTemplateCommand,
   CreateWhatsAppMessageTemplateFromLibraryCommand,
   CreateWhatsAppMessageTemplateMediaCommand,
   DeleteWhatsAppMessageMediaCommand,
   DeleteWhatsAppMessageTemplateCommand,
+  DependencyException,
   DisassociateWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
   GetWhatsAppMessageMediaCommand,
   GetWhatsAppMessageTemplateCommand,
+  InternalServiceException,
+  InvalidParametersException,
+  LimitExceededException,
   ListLinkedWhatsAppBusinessAccountsCommand,
   ListTagsForResourceCommand,
   ListWhatsAppMessageTemplatesCommand,
@@ -17,13 +23,16 @@ import {
   PostWhatsAppMessageMediaCommand,
   PutWhatsAppBusinessAccountEventDestinationsCommand,
   RegistrationStatus,
+  ResourceNotFoundException,
   SendWhatsAppMessageCommand,
   SocialMessaging,
   SocialMessagingClient,
   SocialMessagingServiceException,
   TagResourceCommand,
+  ThrottledRequestException,
   UntagResourceCommand,
   UpdateWhatsAppMessageTemplateCommand,
+  ValidationException,
   paginateListLinkedWhatsAppBusinessAccounts,
   paginateListWhatsAppMessageTemplates,
   paginateListWhatsAppTemplateLibrary,
@@ -57,6 +66,15 @@ assert(typeof UpdateWhatsAppMessageTemplateCommand === "function");
 // enums
 assert(typeof RegistrationStatus === "object");
 // errors
+assert(AccessDeniedByMetaException.prototype instanceof SocialMessagingServiceException);
+assert(AccessDeniedException.prototype instanceof SocialMessagingServiceException);
+assert(DependencyException.prototype instanceof SocialMessagingServiceException);
+assert(InternalServiceException.prototype instanceof SocialMessagingServiceException);
+assert(InvalidParametersException.prototype instanceof SocialMessagingServiceException);
+assert(LimitExceededException.prototype instanceof SocialMessagingServiceException);
+assert(ResourceNotFoundException.prototype instanceof SocialMessagingServiceException);
+assert(ThrottledRequestException.prototype instanceof SocialMessagingServiceException);
+assert(ValidationException.prototype instanceof SocialMessagingServiceException);
 assert(SocialMessagingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListLinkedWhatsAppBusinessAccounts === "function");

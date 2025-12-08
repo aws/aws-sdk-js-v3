@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   ClusterDeploymentType,
   ClusterStatus,
+  ConflictException,
   CreateDbClusterCommand,
   CreateDbInstanceCommand,
   CreateDbParameterGroupCommand,
@@ -17,6 +19,7 @@ import {
   GetDbInstanceCommand,
   GetDbParameterGroupCommand,
   InstanceMode,
+  InternalServerException,
   ListDbClustersCommand,
   ListDbInstancesCommand,
   ListDbInstancesForClusterCommand,
@@ -25,8 +28,11 @@ import {
   LogFormats,
   LogLevel,
   NetworkType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   Status,
   TagResourceCommand,
+  ThrottlingException,
   TimestreamInfluxDB,
   TimestreamInfluxDBClient,
   TimestreamInfluxDBServiceException,
@@ -34,6 +40,8 @@ import {
   UntagResourceCommand,
   UpdateDbClusterCommand,
   UpdateDbInstanceCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListDbClusters,
   paginateListDbInstances,
   paginateListDbInstancesForCluster,
@@ -77,7 +85,15 @@ assert(typeof LogLevel === "object");
 assert(typeof NetworkType === "object");
 assert(typeof Status === "object");
 assert(typeof TracingType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof TimestreamInfluxDBServiceException);
+assert(ConflictException.prototype instanceof TimestreamInfluxDBServiceException);
+assert(InternalServerException.prototype instanceof TimestreamInfluxDBServiceException);
+assert(ResourceNotFoundException.prototype instanceof TimestreamInfluxDBServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof TimestreamInfluxDBServiceException);
+assert(ThrottlingException.prototype instanceof TimestreamInfluxDBServiceException);
+assert(ValidationException.prototype instanceof TimestreamInfluxDBServiceException);
 assert(TimestreamInfluxDBServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDbClusters === "function");

@@ -63,7 +63,6 @@ export var SendAlexaOfferToMasterRequest: StaticStructureSchema = [3, n0, _SAOTM
 export var SendAlexaOfferToMasterResponse: StaticStructureSchema = [3, n0, _SAOTMRe, 0, [_A], [0]];
 export var SessionExpiredException: StaticErrorSchema = [-3, n0, _SEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SessionExpiredException, __SessionExpiredException);
-export var __Unit = "unit" as const;
 export var KinesisVideoSignalingServiceException: StaticErrorSchema = [
   -3,
   _s,

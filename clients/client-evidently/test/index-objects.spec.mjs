@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   BatchEvaluateFeatureCommand,
   ChangeDirectionEnum,
+  ConflictException,
   CreateExperimentCommand,
   CreateFeatureCommand,
   CreateLaunchCommand,
@@ -31,6 +33,7 @@ import {
   GetLaunchCommand,
   GetProjectCommand,
   GetSegmentCommand,
+  InternalServerException,
   LaunchStatus,
   LaunchStopDesiredState,
   LaunchType,
@@ -43,19 +46,25 @@ import {
   ListTagsForResourceCommand,
   ProjectStatus,
   PutProjectEventsCommand,
+  ResourceNotFoundException,
   SegmentReferenceResourceType,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   StartExperimentCommand,
   StartLaunchCommand,
   StopExperimentCommand,
   StopLaunchCommand,
   TagResourceCommand,
   TestSegmentPatternCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateExperimentCommand,
   UpdateFeatureCommand,
   UpdateLaunchCommand,
   UpdateProjectCommand,
   UpdateProjectDataDeliveryCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VariationValueType,
   paginateListExperiments,
   paginateListFeatures,
@@ -124,8 +133,17 @@ assert(typeof LaunchStopDesiredState === "object");
 assert(typeof LaunchType === "object");
 assert(typeof ProjectStatus === "object");
 assert(typeof SegmentReferenceResourceType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VariationValueType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof EvidentlyServiceException);
+assert(ConflictException.prototype instanceof EvidentlyServiceException);
+assert(InternalServerException.prototype instanceof EvidentlyServiceException);
+assert(ResourceNotFoundException.prototype instanceof EvidentlyServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof EvidentlyServiceException);
+assert(ServiceUnavailableException.prototype instanceof EvidentlyServiceException);
+assert(ThrottlingException.prototype instanceof EvidentlyServiceException);
+assert(ValidationException.prototype instanceof EvidentlyServiceException);
 assert(EvidentlyServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListExperiments === "function");

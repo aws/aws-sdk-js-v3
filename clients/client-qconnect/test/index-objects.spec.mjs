@@ -4,6 +4,7 @@ import {
   AIPromptAPIFormat,
   AIPromptTemplateType,
   AIPromptType,
+  AccessDeniedException,
   ActivateMessageTemplateCommand,
   AssistantCapabilityType,
   AssistantStatus,
@@ -11,6 +12,7 @@ import {
   AssociationType,
   ChannelSubtype,
   ChunkingStrategy,
+  ConflictException,
   ContentAssociationType,
   ContentDisposition,
   ContentStatus,
@@ -48,6 +50,7 @@ import {
   DeleteMessageTemplateAttachmentCommand,
   DeleteMessageTemplateCommand,
   DeleteQuickResponseCommand,
+  DependencyFailedException,
   ExternalSource,
   FilterField,
   FilterOperator,
@@ -106,6 +109,7 @@ import {
   Origin,
   ParsingStrategy,
   Participant,
+  PreconditionFailedException,
   Priority,
   PushMessageAction,
   PutFeedbackCommand,
@@ -128,12 +132,15 @@ import {
   RemoveAssistantAIAgentCommand,
   RemoveKnowledgeBaseTemplateUriCommand,
   RenderMessageTemplateCommand,
+  RequestTimeoutException,
+  ResourceNotFoundException,
   RetrieveCommand,
   SearchContentCommand,
   SearchMessageTemplatesCommand,
   SearchQuickResponsesCommand,
   SearchSessionsCommand,
   SendMessageCommand,
+  ServiceQuotaExceededException,
   SessionDataNamespace,
   SourceContentType,
   SpanStatus,
@@ -144,8 +151,12 @@ import {
   SyncStatus,
   TagResourceCommand,
   TargetType,
+  ThrottlingException,
+  TooManyTagsException,
   ToolOverrideInputValueType,
   ToolType,
+  UnauthorizedException,
+  UnprocessableContentException,
   UntagResourceCommand,
   UpdateAIAgentCommand,
   UpdateAIGuardrailCommand,
@@ -158,6 +169,7 @@ import {
   UpdateQuickResponseCommand,
   UpdateSessionCommand,
   UpdateSessionDataCommand,
+  ValidationException,
   VisibilityStatus,
   WebScopeType,
   WhatsAppSourceConfigurationStatus,
@@ -350,6 +362,18 @@ assert(typeof VisibilityStatus === "object");
 assert(typeof WebScopeType === "object");
 assert(typeof WhatsAppSourceConfigurationStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof QConnectServiceException);
+assert(ConflictException.prototype instanceof QConnectServiceException);
+assert(DependencyFailedException.prototype instanceof QConnectServiceException);
+assert(PreconditionFailedException.prototype instanceof QConnectServiceException);
+assert(RequestTimeoutException.prototype instanceof QConnectServiceException);
+assert(ResourceNotFoundException.prototype instanceof QConnectServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof QConnectServiceException);
+assert(ThrottlingException.prototype instanceof QConnectServiceException);
+assert(TooManyTagsException.prototype instanceof QConnectServiceException);
+assert(UnauthorizedException.prototype instanceof QConnectServiceException);
+assert(UnprocessableContentException.prototype instanceof QConnectServiceException);
+assert(ValidationException.prototype instanceof QConnectServiceException);
 assert(QConnectServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAIAgentVersions === "function");

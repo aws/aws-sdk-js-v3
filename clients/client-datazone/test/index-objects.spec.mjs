@@ -2,6 +2,7 @@ import {
   AcceptPredictionsCommand,
   AcceptRuleBehavior,
   AcceptSubscriptionRequestCommand,
+  AccessDeniedException,
   AddEntityOwnerCommand,
   AddPolicyGrantCommand,
   AssociateEnvironmentRoleCommand,
@@ -17,6 +18,7 @@ import {
   ComputeEnvironments,
   ConfigurableActionTypeAuthorization,
   ConfigurationStatus,
+  ConflictException,
   ConnectionScope,
   ConnectionStatus,
   ConnectionType,
@@ -145,6 +147,7 @@ import {
   GroupProfileStatus,
   GroupSearchType,
   HyperPodOrchestrator,
+  InternalServerException,
   InventorySearchScope,
   JobRunMode,
   JobRunStatus,
@@ -208,6 +211,7 @@ import {
   RemoveEntityOwnerCommand,
   RemovePolicyGrantCommand,
   ResolutionStrategy,
+  ResourceNotFoundException,
   ResourceTagSource,
   RevokeSubscriptionCommand,
   RuleAction,
@@ -222,6 +226,7 @@ import {
   SearchTypesCommand,
   SearchUserProfilesCommand,
   SelfGrantStatus,
+  ServiceQuotaExceededException,
   SortFieldAccountPool,
   SortFieldConnection,
   SortFieldProject,
@@ -237,9 +242,11 @@ import {
   TagResourceCommand,
   TargetEntityType,
   TaskStatus,
+  ThrottlingException,
   TimeSeriesEntityType,
   Timezone,
   TypesSearchScope,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAccountPoolCommand,
   UpdateAssetFilterCommand,
@@ -268,6 +275,7 @@ import {
   UserProfileType,
   UserSearchType,
   UserType,
+  ValidationException,
   paginateListAccountPools,
   paginateListAccountsInAccountPool,
   paginateListAssetFilters,
@@ -579,6 +587,14 @@ assert(typeof UserProfileType === "object");
 assert(typeof UserSearchType === "object");
 assert(typeof UserType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DataZoneServiceException);
+assert(ConflictException.prototype instanceof DataZoneServiceException);
+assert(InternalServerException.prototype instanceof DataZoneServiceException);
+assert(ResourceNotFoundException.prototype instanceof DataZoneServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DataZoneServiceException);
+assert(ThrottlingException.prototype instanceof DataZoneServiceException);
+assert(UnauthorizedException.prototype instanceof DataZoneServiceException);
+assert(ValidationException.prototype instanceof DataZoneServiceException);
 assert(DataZoneServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccountPools === "function");

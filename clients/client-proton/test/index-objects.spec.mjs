@@ -1,5 +1,6 @@
 import {
   AcceptEnvironmentAccountConnectionCommand,
+  AccessDeniedException,
   BlockerStatus,
   BlockerType,
   CancelComponentDeploymentCommand,
@@ -7,6 +8,7 @@ import {
   CancelServiceInstanceDeploymentCommand,
   CancelServicePipelineDeploymentCommand,
   ComponentDeploymentUpdateType,
+  ConflictException,
   CreateComponentCommand,
   CreateEnvironmentAccountConnectionCommand,
   CreateEnvironmentCommand,
@@ -55,6 +57,7 @@ import {
   GetServiceTemplateVersionCommand,
   GetTemplateSyncConfigCommand,
   GetTemplateSyncStatusCommand,
+  InternalServerException,
   ListComponentOutputsCommand,
   ListComponentProvisionedResourcesCommand,
   ListComponentsCommand,
@@ -88,7 +91,9 @@ import {
   RepositoryProvider,
   RepositorySyncStatus,
   ResourceDeploymentStatus,
+  ResourceNotFoundException,
   ResourceSyncStatus,
+  ServiceQuotaExceededException,
   ServiceStatus,
   ServiceTemplateSupportedComponentSourceType,
   SortOrder,
@@ -96,6 +101,7 @@ import {
   TagResourceCommand,
   TemplateType,
   TemplateVersionStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAccountSettingsCommand,
   UpdateComponentCommand,
@@ -111,6 +117,7 @@ import {
   UpdateServiceTemplateCommand,
   UpdateServiceTemplateVersionCommand,
   UpdateTemplateSyncConfigCommand,
+  ValidationException,
   paginateListComponentOutputs,
   paginateListComponentProvisionedResources,
   paginateListComponents,
@@ -269,6 +276,13 @@ assert(typeof SyncType === "object");
 assert(typeof TemplateType === "object");
 assert(typeof TemplateVersionStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ProtonServiceException);
+assert(ConflictException.prototype instanceof ProtonServiceException);
+assert(InternalServerException.prototype instanceof ProtonServiceException);
+assert(ResourceNotFoundException.prototype instanceof ProtonServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ProtonServiceException);
+assert(ThrottlingException.prototype instanceof ProtonServiceException);
+assert(ValidationException.prototype instanceof ProtonServiceException);
 assert(ProtonServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForComponentDeleted === "function");

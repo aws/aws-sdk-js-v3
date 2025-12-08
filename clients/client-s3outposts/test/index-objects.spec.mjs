@@ -1,14 +1,21 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CreateEndpointCommand,
   DeleteEndpointCommand,
   EndpointAccessType,
   EndpointStatus,
+  InternalServerException,
   ListEndpointsCommand,
   ListOutpostsWithS3Command,
   ListSharedEndpointsCommand,
+  OutpostOfflineException,
+  ResourceNotFoundException,
   S3Outposts,
   S3OutpostsClient,
   S3OutpostsServiceException,
+  ThrottlingException,
+  ValidationException,
   paginateListEndpoints,
   paginateListOutpostsWithS3,
   paginateListSharedEndpoints,
@@ -27,6 +34,13 @@ assert(typeof ListSharedEndpointsCommand === "function");
 assert(typeof EndpointAccessType === "object");
 assert(typeof EndpointStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof S3OutpostsServiceException);
+assert(ConflictException.prototype instanceof S3OutpostsServiceException);
+assert(InternalServerException.prototype instanceof S3OutpostsServiceException);
+assert(OutpostOfflineException.prototype instanceof S3OutpostsServiceException);
+assert(ResourceNotFoundException.prototype instanceof S3OutpostsServiceException);
+assert(ThrottlingException.prototype instanceof S3OutpostsServiceException);
+assert(ValidationException.prototype instanceof S3OutpostsServiceException);
 assert(S3OutpostsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEndpoints === "function");

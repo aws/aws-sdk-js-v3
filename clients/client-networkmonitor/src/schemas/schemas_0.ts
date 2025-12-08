@@ -265,7 +265,6 @@ export var UpdateProbeOutput: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var NetworkMonitorServiceException: StaticErrorSchema = [-3, _sm, "NetworkMonitorServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NetworkMonitorServiceException, __NetworkMonitorServiceException);
 export var CreateMonitorProbeInputList: StaticListSchema = [1, n0, _CMPIL, 0, () => CreateMonitorProbeInput];

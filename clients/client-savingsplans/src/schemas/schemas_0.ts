@@ -323,7 +323,6 @@ export var ValidationException: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var SavingsplansServiceException: StaticErrorSchema = [-3, _sm, "SavingsplansServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SavingsplansServiceException, __SavingsplansServiceException);
 export var CurrencyList = 64 | 0;

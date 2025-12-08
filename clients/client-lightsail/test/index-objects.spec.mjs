@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AccessDirection,
   AccessType,
   AccountLevelBpaSyncStatus,
+  AccountSetupInProgressException,
   AddOnType,
   AlarmState,
   AllocateStaticIpCommand,
@@ -170,6 +172,7 @@ import {
   InstanceMetricName,
   InstancePlatform,
   InstanceSnapshotState,
+  InvalidInputException,
   IpAddressType,
   IsVpcPeeredCommand,
   Lightsail,
@@ -190,7 +193,9 @@ import {
   MetricUnit,
   NameServersUpdateStateCode,
   NetworkProtocol,
+  NotFoundException,
   OpenInstancePublicPortsCommand,
+  OperationFailureException,
   OperationStatus,
   OperationType,
   OriginProtocolPolicyEnum,
@@ -206,6 +211,7 @@ import {
   RebootRelationalDatabaseCommand,
   RecordState,
   RegionName,
+  RegionSetupInProgressException,
   RegisterContainerImageCommand,
   RelationalDatabaseEngine,
   RelationalDatabaseMetricName,
@@ -216,6 +222,7 @@ import {
   ResourceBucketAccess,
   ResourceType,
   SendContactMethodVerificationCommand,
+  ServiceException,
   SetIpAddressTypeCommand,
   SetResourceAccessForBucketCommand,
   SetupInstanceHttpsCommand,
@@ -231,6 +238,7 @@ import {
   TagResourceCommand,
   TestAlarmCommand,
   TreatMissingData,
+  UnauthenticatedException,
   UnpeerVpcCommand,
   UntagResourceCommand,
   UpdateBucketBundleCommand,
@@ -494,5 +502,13 @@ assert(typeof StatusType === "object");
 assert(typeof TreatMissingData === "object");
 assert(typeof ViewerMinimumTlsProtocolVersionEnum === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof LightsailServiceException);
+assert(AccountSetupInProgressException.prototype instanceof LightsailServiceException);
+assert(InvalidInputException.prototype instanceof LightsailServiceException);
+assert(NotFoundException.prototype instanceof LightsailServiceException);
+assert(OperationFailureException.prototype instanceof LightsailServiceException);
+assert(RegionSetupInProgressException.prototype instanceof LightsailServiceException);
+assert(ServiceException.prototype instanceof LightsailServiceException);
+assert(UnauthenticatedException.prototype instanceof LightsailServiceException);
 assert(LightsailServiceException.prototype instanceof Error);
 console.log(`Lightsail index test passed.`);

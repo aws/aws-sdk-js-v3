@@ -633,7 +633,6 @@ export var UpdateProtectionGroupResponse: StaticStructureSchema = [3, n0, _UPGRp
 export var UpdateSubscriptionRequest: StaticStructureSchema = [3, n0, _USR, 0, [_AR], [0]];
 export var UpdateSubscriptionResponse: StaticStructureSchema = [3, n0, _USRp, 0, [], []];
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
 export var ShieldServiceException: StaticErrorSchema = [-3, _sm, "ShieldServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ShieldServiceException, __ShieldServiceException);
 export var AttackProperties: StaticListSchema = [1, n0, _AP, 0, () => AttackProperty];

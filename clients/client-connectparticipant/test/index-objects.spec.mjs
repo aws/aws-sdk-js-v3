@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   ArtifactStatus,
   CancelParticipantAuthenticationCommand,
   ChatItemType,
   CompleteAttachmentUploadCommand,
+  ConflictException,
   ConnectParticipant,
   ConnectParticipantClient,
   ConnectParticipantServiceException,
@@ -13,14 +15,20 @@ import {
   GetAttachmentCommand,
   GetAuthenticationUrlCommand,
   GetTranscriptCommand,
+  InternalServerException,
   MeetingFeatureStatus,
   MessageProcessingStatus,
   ParticipantRole,
+  ResourceNotFoundException,
+  ResourceType,
   ScanDirection,
   SendEventCommand,
   SendMessageCommand,
+  ServiceQuotaExceededException,
   SortKey,
   StartAttachmentUploadCommand,
+  ThrottlingException,
+  ValidationException,
   paginateGetTranscript,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -46,9 +54,17 @@ assert(typeof ConnectionType === "object");
 assert(typeof MeetingFeatureStatus === "object");
 assert(typeof MessageProcessingStatus === "object");
 assert(typeof ParticipantRole === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ScanDirection === "object");
 assert(typeof SortKey === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ConnectParticipantServiceException);
+assert(ConflictException.prototype instanceof ConnectParticipantServiceException);
+assert(InternalServerException.prototype instanceof ConnectParticipantServiceException);
+assert(ResourceNotFoundException.prototype instanceof ConnectParticipantServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ConnectParticipantServiceException);
+assert(ThrottlingException.prototype instanceof ConnectParticipantServiceException);
+assert(ValidationException.prototype instanceof ConnectParticipantServiceException);
 assert(ConnectParticipantServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetTranscript === "function");

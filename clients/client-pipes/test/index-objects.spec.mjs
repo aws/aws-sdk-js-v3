@@ -2,6 +2,7 @@ import {
   AssignPublicIp,
   BatchJobDependencyType,
   BatchResourceRequirementType,
+  ConflictException,
   CreatePipeCommand,
   DeletePipeCommand,
   DescribePipeCommand,
@@ -11,6 +12,7 @@ import {
   EcsResourceRequirementType,
   EpochTimeUnit,
   IncludeExecutionDataOption,
+  InternalException,
   KinesisStreamStartPosition,
   LaunchType,
   ListPipesCommand,
@@ -18,6 +20,7 @@ import {
   LogLevel,
   MSKStartPosition,
   MeasureValueType,
+  NotFoundException,
   OnPartialBatchItemFailureStreams,
   PipeState,
   PipeTargetInvocationType,
@@ -31,12 +34,15 @@ import {
   RequestedPipeStateDescribeResponse,
   S3OutputFormat,
   SelfManagedKafkaStartPosition,
+  ServiceQuotaExceededException,
   StartPipeCommand,
   StopPipeCommand,
   TagResourceCommand,
+  ThrottlingException,
   TimeFieldType,
   UntagResourceCommand,
   UpdatePipeCommand,
+  ValidationException,
   paginateListPipes,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -81,6 +87,12 @@ assert(typeof S3OutputFormat === "object");
 assert(typeof SelfManagedKafkaStartPosition === "object");
 assert(typeof TimeFieldType === "object");
 // errors
+assert(ConflictException.prototype instanceof PipesServiceException);
+assert(InternalException.prototype instanceof PipesServiceException);
+assert(NotFoundException.prototype instanceof PipesServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PipesServiceException);
+assert(ThrottlingException.prototype instanceof PipesServiceException);
+assert(ValidationException.prototype instanceof PipesServiceException);
 assert(PipesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListPipes === "function");

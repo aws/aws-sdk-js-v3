@@ -671,7 +671,6 @@ export var UpdateParameterGroupRequest: StaticStructureSchema = [
 export var UpdateParameterGroupResponse: StaticStructureSchema = [3, n0, _UPGRp, 0, [_PG], [() => ParameterGroup]];
 export var UpdateSubnetGroupRequest: StaticStructureSchema = [3, n0, _USGR, 0, [_SGN, _D, _SI], [0, 0, 64 | 0]];
 export var UpdateSubnetGroupResponse: StaticStructureSchema = [3, n0, _USGRp, 0, [_SG], [() => SubnetGroup]];
-export var __Unit = "unit" as const;
 export var DAXServiceException: StaticErrorSchema = [-3, _s, "DAXServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(DAXServiceException, __DAXServiceException);
 export var AvailabilityZoneList = 64 | 0;

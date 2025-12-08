@@ -1,5 +1,6 @@
 import {
   AggregationPeriod,
+  AlreadyExistsException,
   AssociateBackupVaultMpaApprovalTeamCommand,
   Backup,
   BackupClient,
@@ -9,6 +10,7 @@ import {
   BackupVaultEvent,
   CancelLegalHoldCommand,
   ConditionType,
+  ConflictException,
   CopyJobState,
   CopyJobStatus,
   CreateBackupPlanCommand,
@@ -34,6 +36,7 @@ import {
   DeleteRestoreTestingPlanCommand,
   DeleteRestoreTestingSelectionCommand,
   DeleteTieringConfigurationCommand,
+  DependencyFailureException,
   DescribeBackupJobCommand,
   DescribeBackupVaultCommand,
   DescribeCopyJobCommand,
@@ -68,8 +71,12 @@ import {
   GetTieringConfigurationCommand,
   Index,
   IndexStatus,
+  InvalidParameterValueException,
+  InvalidRequestException,
+  InvalidResourceStateException,
   LegalHoldStatus,
   LifecycleDeleteAfterEvent,
+  LimitExceededException,
   ListBackupJobSummariesCommand,
   ListBackupJobsCommand,
   ListBackupPlanTemplatesCommand,
@@ -100,6 +107,7 @@ import {
   ListTagsCommand,
   ListTieringConfigurationsCommand,
   MalwareScanner,
+  MissingParameterValueException,
   MpaRevokeSessionStatus,
   MpaSessionStatus,
   PutBackupVaultAccessPolicyCommand,
@@ -107,6 +115,7 @@ import {
   PutBackupVaultNotificationsCommand,
   PutRestoreValidationResultCommand,
   RecoveryPointStatus,
+  ResourceNotFoundException,
   RestoreDeletionStatus,
   RestoreJobState,
   RestoreJobStatus,
@@ -122,6 +131,7 @@ import {
   ScanResourceType,
   ScanResultStatus,
   ScanState,
+  ServiceUnavailableException,
   StartBackupJobCommand,
   StartCopyJobCommand,
   StartReportJobCommand,
@@ -321,6 +331,16 @@ assert(typeof StorageClass === "object");
 assert(typeof VaultState === "object");
 assert(typeof VaultType === "object");
 // errors
+assert(AlreadyExistsException.prototype instanceof BackupServiceException);
+assert(ConflictException.prototype instanceof BackupServiceException);
+assert(DependencyFailureException.prototype instanceof BackupServiceException);
+assert(InvalidParameterValueException.prototype instanceof BackupServiceException);
+assert(InvalidRequestException.prototype instanceof BackupServiceException);
+assert(InvalidResourceStateException.prototype instanceof BackupServiceException);
+assert(LimitExceededException.prototype instanceof BackupServiceException);
+assert(MissingParameterValueException.prototype instanceof BackupServiceException);
+assert(ResourceNotFoundException.prototype instanceof BackupServiceException);
+assert(ServiceUnavailableException.prototype instanceof BackupServiceException);
 assert(BackupServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBackupJobSummaries === "function");

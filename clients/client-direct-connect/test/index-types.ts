@@ -337,5 +337,9 @@ export type {
   VirtualInterface,
   VirtualInterfaces,
   VirtualInterfaceTestHistory,
+  DirectConnectClientException,
+  DirectConnectServerException,
+  DuplicateTagKeysException,
+  TooManyTagsException,
   DirectConnectServiceException,
 } from "../dist-types/index.d";

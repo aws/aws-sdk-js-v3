@@ -270,7 +270,6 @@ export var UnsupportedGrantTypeException: StaticErrorSchema = [
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedGrantTypeException, __UnsupportedGrantTypeException);
-export var __Unit = "unit" as const;
 export var SSOOIDCServiceException: StaticErrorSchema = [-3, _sm, "SSOOIDCServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSOOIDCServiceException, __SSOOIDCServiceException);
 export var GrantTypes = 64 | 0;

@@ -12,12 +12,16 @@ import {
   GetLifecyclePoliciesCommand,
   GetLifecyclePolicyCommand,
   GettablePolicyStateValues,
+  InternalServerException,
   IntervalUnitValues,
+  InvalidRequestException,
+  LimitExceededException,
   ListTagsForResourceCommand,
   LocationValues,
   PolicyLanguageValues,
   PolicyTypeValues,
   ResourceLocationValues,
+  ResourceNotFoundException,
   ResourceTypeValues,
   RetentionIntervalUnitValues,
   SettablePolicyStateValues,
@@ -56,5 +60,9 @@ assert(typeof RetentionIntervalUnitValues === "object");
 assert(typeof SettablePolicyStateValues === "object");
 assert(typeof StageValues === "object");
 // errors
+assert(InternalServerException.prototype instanceof DLMServiceException);
+assert(InvalidRequestException.prototype instanceof DLMServiceException);
+assert(LimitExceededException.prototype instanceof DLMServiceException);
+assert(ResourceNotFoundException.prototype instanceof DLMServiceException);
 assert(DLMServiceException.prototype instanceof Error);
 console.log(`DLM index test passed.`);

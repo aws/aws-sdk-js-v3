@@ -1,4 +1,6 @@
 import {
+  AccountLimitExceededException,
+  AccountSuspendedException,
   ArtifactNamespace,
   ArtifactPackaging,
   ArtifactsType,
@@ -54,6 +56,7 @@ import {
   GetResourcePolicyCommand,
   ImagePullCredentialsType,
   ImportSourceCredentialsCommand,
+  InvalidInputException,
   InvalidateProjectCacheCommand,
   LanguageType,
   ListBuildBatchesCommand,
@@ -74,6 +77,7 @@ import {
   ListSourceCredentialsCommand,
   LogsConfigStatusType,
   MachineType,
+  OAuthProviderException,
   PlatformType,
   ProjectSortByType,
   ProjectVisibilityType,
@@ -88,6 +92,8 @@ import {
   ReportPackagingType,
   ReportStatusType,
   ReportType,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RetryBuildBatchCommand,
   RetryBuildBatchType,
   RetryBuildCommand,
@@ -250,6 +256,12 @@ assert(typeof WebhookFilterType === "object");
 assert(typeof WebhookScopeType === "object");
 assert(typeof WebhookStatus === "object");
 // errors
+assert(AccountLimitExceededException.prototype instanceof CodeBuildServiceException);
+assert(AccountSuspendedException.prototype instanceof CodeBuildServiceException);
+assert(InvalidInputException.prototype instanceof CodeBuildServiceException);
+assert(OAuthProviderException.prototype instanceof CodeBuildServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof CodeBuildServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodeBuildServiceException);
 assert(CodeBuildServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeCodeCoverages === "function");

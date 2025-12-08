@@ -4,6 +4,7 @@ import {
   AccessAnalyzerServiceException,
   AccessCheckPolicyType,
   AccessCheckResourceType,
+  AccessDeniedException,
   AccessPreviewStatus,
   AccessPreviewStatusReasonCode,
   AclPermission,
@@ -16,6 +17,7 @@ import {
   CheckNoNewAccessResult,
   CheckNoPublicAccessCommand,
   CheckNoPublicAccessResult,
+  ConflictException,
   CreateAccessPreviewCommand,
   CreateAnalyzerCommand,
   CreateArchiveRuleCommand,
@@ -37,6 +39,8 @@ import {
   GetFindingsStatisticsCommand,
   GetGeneratedPolicyCommand,
   InternalAccessType,
+  InternalServerException,
+  InvalidParameterException,
   JobErrorCode,
   JobStatus,
   KmsGrantOperation,
@@ -57,13 +61,17 @@ import {
   RecommendationType,
   RecommendedRemediationAction,
   ResourceControlPolicyRestriction,
+  ResourceNotFoundException,
   ResourceType,
   ServiceControlPolicyRestriction,
+  ServiceQuotaExceededException,
   StartPolicyGenerationCommand,
   StartResourceScanCommand,
   Status,
   TagResourceCommand,
+  ThrottlingException,
   Type,
+  UnprocessableEntityException,
   UntagResourceCommand,
   UpdateAnalyzerCommand,
   UpdateArchiveRuleCommand,
@@ -71,6 +79,8 @@ import {
   ValidatePolicyCommand,
   ValidatePolicyFindingType,
   ValidatePolicyResourceType,
+  ValidationException,
+  ValidationExceptionReason,
   paginateGetFindingRecommendation,
   paginateGetFindingV2,
   paginateListAccessPreviewFindings,
@@ -158,7 +168,17 @@ assert(typeof Status === "object");
 assert(typeof Type === "object");
 assert(typeof ValidatePolicyFindingType === "object");
 assert(typeof ValidatePolicyResourceType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AccessAnalyzerServiceException);
+assert(ConflictException.prototype instanceof AccessAnalyzerServiceException);
+assert(InternalServerException.prototype instanceof AccessAnalyzerServiceException);
+assert(InvalidParameterException.prototype instanceof AccessAnalyzerServiceException);
+assert(ResourceNotFoundException.prototype instanceof AccessAnalyzerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AccessAnalyzerServiceException);
+assert(ThrottlingException.prototype instanceof AccessAnalyzerServiceException);
+assert(UnprocessableEntityException.prototype instanceof AccessAnalyzerServiceException);
+assert(ValidationException.prototype instanceof AccessAnalyzerServiceException);
 assert(AccessAnalyzerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetFindingRecommendation === "function");

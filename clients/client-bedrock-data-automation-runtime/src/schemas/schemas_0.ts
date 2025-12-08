@@ -215,7 +215,6 @@ export var VideoAssetProcessingConfiguration: StaticStructureSchema = [
   [_sC],
   [() => VideoSegmentConfiguration],
 ];
-export var __Unit = "unit" as const;
 export var BedrockDataAutomationRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,

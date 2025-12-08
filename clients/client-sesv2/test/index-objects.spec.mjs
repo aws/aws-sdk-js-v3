@@ -1,11 +1,16 @@
 import {
+  AccountSuspendedException,
+  AlreadyExistsException,
   AttachmentContentDisposition,
   AttachmentContentTransferEncoding,
+  BadRequestException,
   BatchGetMetricDataCommand,
   BehaviorOnMxFailure,
   BounceType,
   BulkEmailStatus,
   CancelExportJobCommand,
+  ConcurrentModificationException,
+  ConflictException,
   ContactLanguage,
   ContactListImportAction,
   CreateConfigurationSetCommand,
@@ -75,7 +80,10 @@ import {
   HttpsPolicy,
   IdentityType,
   ImportDestinationType,
+  InternalServiceErrorException,
+  InvalidNextTokenException,
   JobStatus,
+  LimitExceededException,
   ListConfigurationSetsCommand,
   ListContactListsCommand,
   ListContactsCommand,
@@ -97,12 +105,15 @@ import {
   ListTenantResourcesCommand,
   ListTenantResourcesFilterKey,
   ListTenantsCommand,
+  MailFromDomainNotVerifiedException,
   MailFromDomainStatus,
   MailType,
+  MessageRejected,
   Metric,
   MetricAggregation,
   MetricDimensionName,
   MetricNamespace,
+  NotFoundException,
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDetailsCommand,
   PutAccountSendingAttributesCommand,
@@ -140,6 +151,7 @@ import {
   SendBulkEmailCommand,
   SendCustomVerificationEmailCommand,
   SendEmailCommand,
+  SendingPausedException,
   SendingStatus,
   Status,
   SubscriptionStatus,
@@ -148,6 +160,7 @@ import {
   TagResourceCommand,
   TestRenderEmailTemplateCommand,
   TlsPolicy,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateConfigurationSetEventDestinationCommand,
   UpdateContactCommand,
@@ -345,6 +358,19 @@ assert(typeof VerificationError === "object");
 assert(typeof VerificationStatus === "object");
 assert(typeof WarmupStatus === "object");
 // errors
+assert(AccountSuspendedException.prototype instanceof SESv2ServiceException);
+assert(AlreadyExistsException.prototype instanceof SESv2ServiceException);
+assert(BadRequestException.prototype instanceof SESv2ServiceException);
+assert(ConcurrentModificationException.prototype instanceof SESv2ServiceException);
+assert(ConflictException.prototype instanceof SESv2ServiceException);
+assert(InternalServiceErrorException.prototype instanceof SESv2ServiceException);
+assert(InvalidNextTokenException.prototype instanceof SESv2ServiceException);
+assert(LimitExceededException.prototype instanceof SESv2ServiceException);
+assert(MailFromDomainNotVerifiedException.prototype instanceof SESv2ServiceException);
+assert(MessageRejected.prototype instanceof SESv2ServiceException);
+assert(NotFoundException.prototype instanceof SESv2ServiceException);
+assert(SendingPausedException.prototype instanceof SESv2ServiceException);
+assert(TooManyRequestsException.prototype instanceof SESv2ServiceException);
 assert(SESv2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetDedicatedIps === "function");

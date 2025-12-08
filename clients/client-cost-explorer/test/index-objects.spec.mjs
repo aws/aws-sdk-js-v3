@@ -1,10 +1,14 @@
 import {
   AccountScope,
+  AnalysisNotFoundException,
   AnalysisStatus,
   AnalysisType,
   AnomalyFeedbackType,
   AnomalySubscriptionFrequency,
   ApproximationDimension,
+  BackfillLimitExceededException,
+  BillExpirationException,
+  BillingViewHealthStatusException,
   Context,
   CostAllocationTagBackfillStatus,
   CostAllocationTagStatus,
@@ -22,6 +26,7 @@ import {
   CreateAnomalyMonitorCommand,
   CreateAnomalySubscriptionCommand,
   CreateCostCategoryDefinitionCommand,
+  DataUnavailableException,
   DeleteAnomalyMonitorCommand,
   DeleteAnomalySubscriptionCommand,
   DeleteCostCategoryDefinitionCommand,
@@ -29,6 +34,7 @@ import {
   Dimension,
   ErrorCode,
   FindingReasonCode,
+  GenerationExistsException,
   GenerationStatus,
   GetAnomaliesCommand,
   GetAnomalyMonitorsCommand,
@@ -55,6 +61,8 @@ import {
   GetUsageForecastCommand,
   Granularity,
   GroupDefinitionType,
+  InvalidNextTokenException,
+  LimitExceededException,
   ListCommitmentPurchaseAnalysesCommand,
   ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagsCommand,
@@ -72,8 +80,11 @@ import {
   PlatformDifference,
   ProvideAnomalyFeedbackCommand,
   RecommendationTarget,
+  RequestChangedException,
+  ResourceNotFoundException,
   RightsizingType,
   SavingsPlansDataType,
+  ServiceQuotaExceededException,
   SortOrder,
   StartCommitmentPurchaseAnalysisCommand,
   StartCostAllocationTagBackfillCommand,
@@ -83,6 +94,10 @@ import {
   SupportedSavingsPlansType,
   TagResourceCommand,
   TermInYears,
+  TooManyTagsException,
+  UnknownMonitorException,
+  UnknownSubscriptionException,
+  UnresolvableUsageUnitException,
   UntagResourceCommand,
   UpdateAnomalyMonitorCommand,
   UpdateAnomalySubscriptionCommand,
@@ -192,6 +207,21 @@ assert(typeof SubscriberType === "object");
 assert(typeof SupportedSavingsPlansType === "object");
 assert(typeof TermInYears === "object");
 // errors
+assert(AnalysisNotFoundException.prototype instanceof CostExplorerServiceException);
+assert(BackfillLimitExceededException.prototype instanceof CostExplorerServiceException);
+assert(BillExpirationException.prototype instanceof CostExplorerServiceException);
+assert(BillingViewHealthStatusException.prototype instanceof CostExplorerServiceException);
+assert(DataUnavailableException.prototype instanceof CostExplorerServiceException);
+assert(GenerationExistsException.prototype instanceof CostExplorerServiceException);
+assert(InvalidNextTokenException.prototype instanceof CostExplorerServiceException);
+assert(LimitExceededException.prototype instanceof CostExplorerServiceException);
+assert(RequestChangedException.prototype instanceof CostExplorerServiceException);
+assert(ResourceNotFoundException.prototype instanceof CostExplorerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CostExplorerServiceException);
+assert(TooManyTagsException.prototype instanceof CostExplorerServiceException);
+assert(UnknownMonitorException.prototype instanceof CostExplorerServiceException);
+assert(UnknownSubscriptionException.prototype instanceof CostExplorerServiceException);
+assert(UnresolvableUsageUnitException.prototype instanceof CostExplorerServiceException);
 assert(CostExplorerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetAnomalies === "function");

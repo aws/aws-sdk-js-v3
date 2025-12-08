@@ -27,13 +27,19 @@ import {
   GetSystemTemplateCommand,
   GetSystemTemplateRevisionsCommand,
   GetUploadStatusCommand,
+  InternalFailureException,
+  InvalidRequestException,
   IoTThingsGraph,
   IoTThingsGraphClient,
   IoTThingsGraphServiceException,
+  LimitExceededException,
   ListFlowExecutionMessagesCommand,
   ListTagsForResourceCommand,
   NamespaceDeletionStatus,
   NamespaceDeletionStatusErrorCodes,
+  ResourceAlreadyExistsException,
+  ResourceInUseException,
+  ResourceNotFoundException,
   SearchEntitiesCommand,
   SearchFlowExecutionsCommand,
   SearchFlowTemplatesCommand,
@@ -44,6 +50,7 @@ import {
   SystemInstanceFilterName,
   SystemTemplateFilterName,
   TagResourceCommand,
+  ThrottlingException,
   UndeploySystemInstanceCommand,
   UntagResourceCommand,
   UpdateFlowTemplateCommand,
@@ -116,6 +123,13 @@ assert(typeof SystemInstanceFilterName === "object");
 assert(typeof SystemTemplateFilterName === "object");
 assert(typeof UploadStatus === "object");
 // errors
+assert(InternalFailureException.prototype instanceof IoTThingsGraphServiceException);
+assert(InvalidRequestException.prototype instanceof IoTThingsGraphServiceException);
+assert(LimitExceededException.prototype instanceof IoTThingsGraphServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof IoTThingsGraphServiceException);
+assert(ResourceInUseException.prototype instanceof IoTThingsGraphServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTThingsGraphServiceException);
+assert(ThrottlingException.prototype instanceof IoTThingsGraphServiceException);
 assert(IoTThingsGraphServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetFlowTemplateRevisions === "function");

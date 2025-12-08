@@ -1,6 +1,7 @@
 import {
   AcceptAdministratorInvitationCommand,
   AcceptInvitationCommand,
+  AccessDeniedException,
   ActorSessionMfaStatus,
   AdminStatus,
   AllowedOperators,
@@ -26,6 +27,7 @@ import {
   BatchUpdateStandardsControlAssociationsCommand,
   ComplianceStatus,
   ConfigurationPolicyAssociationStatus,
+  ConflictException,
   ConnectionDirection,
   ConnectorAuthStatus,
   ConnectorProviderName,
@@ -100,7 +102,12 @@ import {
   GroupByField,
   IntegrationType,
   IntegrationV2Type,
+  InternalException,
+  InternalServerException,
+  InvalidAccessException,
+  InvalidInputException,
   InviteMembersCommand,
+  LimitExceededException,
   ListAggregatorsV2Command,
   ListAutomationRulesCommand,
   ListAutomationRulesV2Command,
@@ -133,7 +140,10 @@ import {
   RegionAvailabilityStatus,
   RegisterConnectorV2Command,
   ResourceCategory,
+  ResourceConflictException,
   ResourceGroupByField,
+  ResourceInUseException,
+  ResourceNotFoundException,
   ResourcesDateField,
   ResourcesMapField,
   ResourcesNumberField,
@@ -146,6 +156,7 @@ import {
   SecurityHubClient,
   SecurityHubFeature,
   SecurityHubServiceException,
+  ServiceQuotaExceededException,
   SeverityLabel,
   SeverityRating,
   SortOrder,
@@ -159,6 +170,7 @@ import {
   TargetType,
   ThreatIntelIndicatorCategory,
   ThreatIntelIndicatorType,
+  ThrottlingException,
   TicketCreationMode,
   UnprocessedErrorCode,
   UntagResourceCommand,
@@ -175,6 +187,7 @@ import {
   UpdateSecurityHubConfigurationCommand,
   UpdateStandardsControlCommand,
   UpdateStatus,
+  ValidationException,
   VerificationState,
   VulnerabilityExploitAvailable,
   VulnerabilityFixAvailable,
@@ -389,6 +402,19 @@ assert(typeof VulnerabilityFixAvailable === "object");
 assert(typeof WorkflowState === "object");
 assert(typeof WorkflowStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SecurityHubServiceException);
+assert(ConflictException.prototype instanceof SecurityHubServiceException);
+assert(InternalException.prototype instanceof SecurityHubServiceException);
+assert(InternalServerException.prototype instanceof SecurityHubServiceException);
+assert(InvalidAccessException.prototype instanceof SecurityHubServiceException);
+assert(InvalidInputException.prototype instanceof SecurityHubServiceException);
+assert(LimitExceededException.prototype instanceof SecurityHubServiceException);
+assert(ResourceConflictException.prototype instanceof SecurityHubServiceException);
+assert(ResourceInUseException.prototype instanceof SecurityHubServiceException);
+assert(ResourceNotFoundException.prototype instanceof SecurityHubServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SecurityHubServiceException);
+assert(ThrottlingException.prototype instanceof SecurityHubServiceException);
+assert(ValidationException.prototype instanceof SecurityHubServiceException);
 assert(SecurityHubServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeActionTargets === "function");

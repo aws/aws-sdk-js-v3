@@ -1,5 +1,7 @@
 import {
+  BadRequestException,
   CodeGenerationStatus,
+  ConflictException,
   CreateDiscovererCommand,
   CreateRegistryCommand,
   CreateSchemaCommand,
@@ -14,24 +16,32 @@ import {
   DescribeSchemaCommand,
   DiscovererState,
   ExportSchemaCommand,
+  ForbiddenException,
   GetCodeBindingSourceCommand,
   GetDiscoveredSchemaCommand,
   GetResourcePolicyCommand,
+  GoneException,
+  InternalServerErrorException,
   ListDiscoverersCommand,
   ListRegistriesCommand,
   ListSchemaVersionsCommand,
   ListSchemasCommand,
   ListTagsForResourceCommand,
+  NotFoundException,
+  PreconditionFailedException,
   PutCodeBindingCommand,
   PutResourcePolicyCommand,
   Schemas,
   SchemasClient,
   SchemasServiceException,
   SearchSchemasCommand,
+  ServiceUnavailableException,
   StartDiscovererCommand,
   StopDiscovererCommand,
   TagResourceCommand,
+  TooManyRequestsException,
   Type,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateDiscovererCommand,
   UpdateRegistryCommand,
@@ -85,6 +95,16 @@ assert(typeof CodeGenerationStatus === "object");
 assert(typeof DiscovererState === "object");
 assert(typeof Type === "object");
 // errors
+assert(BadRequestException.prototype instanceof SchemasServiceException);
+assert(ConflictException.prototype instanceof SchemasServiceException);
+assert(ForbiddenException.prototype instanceof SchemasServiceException);
+assert(GoneException.prototype instanceof SchemasServiceException);
+assert(InternalServerErrorException.prototype instanceof SchemasServiceException);
+assert(NotFoundException.prototype instanceof SchemasServiceException);
+assert(PreconditionFailedException.prototype instanceof SchemasServiceException);
+assert(ServiceUnavailableException.prototype instanceof SchemasServiceException);
+assert(TooManyRequestsException.prototype instanceof SchemasServiceException);
+assert(UnauthorizedException.prototype instanceof SchemasServiceException);
 assert(SchemasServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForCodeBindingExists === "function");

@@ -110,7 +110,6 @@ export var ThrottlingException: StaticErrorSchema = [
   [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var __Unit = "unit" as const;
 export var MigrationHubConfigServiceException: StaticErrorSchema = [
   -3,
   _sm,

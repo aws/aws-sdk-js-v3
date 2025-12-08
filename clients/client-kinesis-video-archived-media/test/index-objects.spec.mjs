@@ -1,4 +1,5 @@
 import {
+  ClientLimitExceededException,
   ClipFragmentSelectorType,
   ContainerFormat,
   DASHDisplayFragmentNumber,
@@ -19,10 +20,18 @@ import {
   HLSPlaybackMode,
   ImageError,
   ImageSelectorType,
+  InvalidArgumentException,
+  InvalidCodecPrivateDataException,
+  InvalidMediaFrameException,
   KinesisVideoArchivedMedia,
   KinesisVideoArchivedMediaClient,
   KinesisVideoArchivedMediaServiceException,
   ListFragmentsCommand,
+  MissingCodecPrivateDataException,
+  NoDataRetentionException,
+  NotAuthorizedException,
+  ResourceNotFoundException,
+  UnsupportedStreamMediaTypeException,
   paginateGetImages,
   paginateListFragments,
 } from "../dist-cjs/index.js";
@@ -54,6 +63,15 @@ assert(typeof HLSPlaybackMode === "object");
 assert(typeof ImageError === "object");
 assert(typeof ImageSelectorType === "object");
 // errors
+assert(ClientLimitExceededException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(InvalidArgumentException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(InvalidCodecPrivateDataException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(InvalidMediaFrameException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(MissingCodecPrivateDataException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(NoDataRetentionException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(NotAuthorizedException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(ResourceNotFoundException.prototype instanceof KinesisVideoArchivedMediaServiceException);
+assert(UnsupportedStreamMediaTypeException.prototype instanceof KinesisVideoArchivedMediaServiceException);
 assert(KinesisVideoArchivedMediaServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetImages === "function");

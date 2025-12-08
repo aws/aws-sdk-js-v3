@@ -3,11 +3,16 @@ import {
   AddPermissionCommand,
   ApplicationLogLevel,
   Architecture,
+  CallbackTimeoutException,
+  CapacityProviderLimitExceededException,
   CapacityProviderPredefinedMetricType,
   CapacityProviderScalingMode,
   CapacityProviderState,
   CheckpointDurableExecutionCommand,
+  CodeSigningConfigNotFoundException,
   CodeSigningPolicy,
+  CodeStorageExceededException,
+  CodeVerificationFailedException,
   CreateAliasCommand,
   CreateCapacityProviderCommand,
   CreateCodeSigningConfigCommand,
@@ -25,6 +30,15 @@ import {
   DeleteFunctionUrlConfigCommand,
   DeleteLayerVersionCommand,
   DeleteProvisionedConcurrencyConfigCommand,
+  DurableExecutionAlreadyStartedException,
+  EC2AccessDeniedException,
+  EC2ThrottledException,
+  EC2UnexpectedException,
+  EFSIOException,
+  EFSMountConnectivityException,
+  EFSMountFailureException,
+  EFSMountTimeoutException,
+  ENILimitReachedException,
   EndPointType,
   EventSourceMappingMetric,
   EventSourcePosition,
@@ -35,6 +49,7 @@ import {
   FunctionUrlAuthType,
   FunctionVersion,
   FunctionVersionLatestPublished,
+  FunctionVersionsPerCapacityProviderLimitExceededException,
   GetAccountSettingsCommand,
   GetAliasCommand,
   GetCapacityProviderCommand,
@@ -57,11 +72,22 @@ import {
   GetPolicyCommand,
   GetProvisionedConcurrencyConfigCommand,
   GetRuntimeManagementConfigCommand,
+  InvalidCodeSignatureException,
+  InvalidParameterValueException,
+  InvalidRequestContentException,
+  InvalidRuntimeException,
+  InvalidSecurityGroupIDException,
+  InvalidSubnetIDException,
+  InvalidZipFileException,
   InvocationType,
   InvokeAsyncCommand,
   InvokeCommand,
   InvokeMode,
   InvokeWithResponseStreamCommand,
+  KMSAccessDeniedException,
+  KMSDisabledException,
+  KMSInvalidStateException,
+  KMSNotFoundException,
   KafkaSchemaRegistryAuthType,
   KafkaSchemaValidationAttribute,
   Lambda,
@@ -86,10 +112,14 @@ import {
   ListVersionsByFunctionCommand,
   LogFormat,
   LogType,
+  NoPublishedVersionException,
   OperationAction,
   OperationStatus,
   OperationType,
   PackageType,
+  PolicyLengthExceededException,
+  PreconditionFailedException,
+  ProvisionedConcurrencyConfigNotFoundException,
   ProvisionedConcurrencyStatusEnum,
   PublishLayerVersionCommand,
   PublishVersionCommand,
@@ -100,25 +130,40 @@ import {
   PutFunctionScalingConfigCommand,
   PutProvisionedConcurrencyConfigCommand,
   PutRuntimeManagementConfigCommand,
+  RecursiveInvocationException,
   RecursiveLoop,
   RemoveLayerVersionPermissionCommand,
   RemovePermissionCommand,
+  RequestTooLargeException,
+  ResourceConflictException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceNotReadyException,
   ResponseStreamingInvocationType,
   Runtime,
   SchemaRegistryEventRecordFormat,
   SendDurableExecutionCallbackFailureCommand,
   SendDurableExecutionCallbackHeartbeatCommand,
   SendDurableExecutionCallbackSuccessCommand,
+  SerializedRequestEntityTooLargeException,
+  ServiceException,
   SnapStartApplyOn,
+  SnapStartException,
+  SnapStartNotReadyException,
   SnapStartOptimizationStatus,
+  SnapStartTimeoutException,
   SourceAccessType,
   State,
   StateReasonCode,
   StopDurableExecutionCommand,
+  SubnetIPAddressLimitReachedException,
   SystemLogLevel,
   TagResourceCommand,
   TenantIsolationMode,
+  ThrottleReason,
+  TooManyRequestsException,
   TracingMode,
+  UnsupportedMediaTypeException,
   UntagResourceCommand,
   UpdateAliasCommand,
   UpdateCapacityProviderCommand,
@@ -289,9 +334,54 @@ assert(typeof State === "object");
 assert(typeof StateReasonCode === "object");
 assert(typeof SystemLogLevel === "object");
 assert(typeof TenantIsolationMode === "object");
+assert(typeof ThrottleReason === "object");
 assert(typeof TracingMode === "object");
 assert(typeof UpdateRuntimeOn === "object");
 // errors
+assert(CallbackTimeoutException.prototype instanceof LambdaServiceException);
+assert(CapacityProviderLimitExceededException.prototype instanceof LambdaServiceException);
+assert(CodeSigningConfigNotFoundException.prototype instanceof LambdaServiceException);
+assert(CodeStorageExceededException.prototype instanceof LambdaServiceException);
+assert(CodeVerificationFailedException.prototype instanceof LambdaServiceException);
+assert(DurableExecutionAlreadyStartedException.prototype instanceof LambdaServiceException);
+assert(EC2AccessDeniedException.prototype instanceof LambdaServiceException);
+assert(EC2ThrottledException.prototype instanceof LambdaServiceException);
+assert(EC2UnexpectedException.prototype instanceof LambdaServiceException);
+assert(EFSIOException.prototype instanceof LambdaServiceException);
+assert(EFSMountConnectivityException.prototype instanceof LambdaServiceException);
+assert(EFSMountFailureException.prototype instanceof LambdaServiceException);
+assert(EFSMountTimeoutException.prototype instanceof LambdaServiceException);
+assert(ENILimitReachedException.prototype instanceof LambdaServiceException);
+assert(FunctionVersionsPerCapacityProviderLimitExceededException.prototype instanceof LambdaServiceException);
+assert(InvalidCodeSignatureException.prototype instanceof LambdaServiceException);
+assert(InvalidParameterValueException.prototype instanceof LambdaServiceException);
+assert(InvalidRequestContentException.prototype instanceof LambdaServiceException);
+assert(InvalidRuntimeException.prototype instanceof LambdaServiceException);
+assert(InvalidSecurityGroupIDException.prototype instanceof LambdaServiceException);
+assert(InvalidSubnetIDException.prototype instanceof LambdaServiceException);
+assert(InvalidZipFileException.prototype instanceof LambdaServiceException);
+assert(KMSAccessDeniedException.prototype instanceof LambdaServiceException);
+assert(KMSDisabledException.prototype instanceof LambdaServiceException);
+assert(KMSInvalidStateException.prototype instanceof LambdaServiceException);
+assert(KMSNotFoundException.prototype instanceof LambdaServiceException);
+assert(NoPublishedVersionException.prototype instanceof LambdaServiceException);
+assert(PolicyLengthExceededException.prototype instanceof LambdaServiceException);
+assert(PreconditionFailedException.prototype instanceof LambdaServiceException);
+assert(ProvisionedConcurrencyConfigNotFoundException.prototype instanceof LambdaServiceException);
+assert(RecursiveInvocationException.prototype instanceof LambdaServiceException);
+assert(RequestTooLargeException.prototype instanceof LambdaServiceException);
+assert(ResourceConflictException.prototype instanceof LambdaServiceException);
+assert(ResourceInUseException.prototype instanceof LambdaServiceException);
+assert(ResourceNotFoundException.prototype instanceof LambdaServiceException);
+assert(ResourceNotReadyException.prototype instanceof LambdaServiceException);
+assert(SerializedRequestEntityTooLargeException.prototype instanceof LambdaServiceException);
+assert(ServiceException.prototype instanceof LambdaServiceException);
+assert(SnapStartException.prototype instanceof LambdaServiceException);
+assert(SnapStartNotReadyException.prototype instanceof LambdaServiceException);
+assert(SnapStartTimeoutException.prototype instanceof LambdaServiceException);
+assert(SubnetIPAddressLimitReachedException.prototype instanceof LambdaServiceException);
+assert(TooManyRequestsException.prototype instanceof LambdaServiceException);
+assert(UnsupportedMediaTypeException.prototype instanceof LambdaServiceException);
 assert(LambdaServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForFunctionActive === "function");

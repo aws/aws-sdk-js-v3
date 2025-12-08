@@ -1382,7 +1382,6 @@ export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var Volume: StaticStructureSchema = [3, n0, _V, 0, [_vN, _vT], [0, 0]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_vIp, _sGI, _sI, _iAT], [0, 64 | 0, 64 | 0, 0]];
-export var __Unit = "unit" as const;
 export var FinspaceServiceException: StaticErrorSchema = [-3, _sm, "FinspaceServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FinspaceServiceException, __FinspaceServiceException);
 export var AttachedClusterList = 64 | 0;

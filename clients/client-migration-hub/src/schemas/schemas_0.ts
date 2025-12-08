@@ -357,7 +357,6 @@ export var ThrottlingException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 export var UnauthorizedOperation: StaticErrorSchema = [-3, n0, _UO, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedOperation, __UnauthorizedOperation);
-export var __Unit = "unit" as const;
 export var MigrationHubServiceException: StaticErrorSchema = [-3, _sm, "MigrationHubServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MigrationHubServiceException, __MigrationHubServiceException);
 export var ApplicationIds = 64 | 0;

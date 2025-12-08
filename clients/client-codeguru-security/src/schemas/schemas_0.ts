@@ -453,7 +453,6 @@ export var Vulnerability: StaticStructureSchema = [
   [_rU, _rV, _i, _fP, _iC],
   [64 | 0, 64 | 0, 0, () => FilePath, 1],
 ];
-export var __Unit = "unit" as const;
 export var CodeGuruSecurityServiceException: StaticErrorSchema = [
   -3,
   _sm,

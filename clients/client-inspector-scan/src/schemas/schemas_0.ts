@@ -69,7 +69,6 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
 export var InspectorScanServiceException: StaticErrorSchema = [-3, _sm, "InspectorScanServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(InspectorScanServiceException, __InspectorScanServiceException);
 export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];

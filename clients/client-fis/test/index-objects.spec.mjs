@@ -1,6 +1,7 @@
 import {
   AccountTargeting,
   ActionsMode,
+  ConflictException,
   CreateExperimentTemplateCommand,
   CreateTargetAccountConfigurationCommand,
   DeleteExperimentTemplateCommand,
@@ -27,8 +28,10 @@ import {
   ListTagsForResourceCommand,
   ListTargetAccountConfigurationsCommand,
   ListTargetResourceTypesCommand,
+  ResourceNotFoundException,
   SafetyLeverStatus,
   SafetyLeverStatusInput,
+  ServiceQuotaExceededException,
   StartExperimentCommand,
   StopExperimentCommand,
   TagResourceCommand,
@@ -36,6 +39,7 @@ import {
   UpdateExperimentTemplateCommand,
   UpdateSafetyLeverStateCommand,
   UpdateTargetAccountConfigurationCommand,
+  ValidationException,
   paginateListActions,
   paginateListExperimentResolvedTargets,
   paginateListExperimentTemplates,
@@ -84,6 +88,10 @@ assert(typeof ExperimentStatus === "object");
 assert(typeof SafetyLeverStatus === "object");
 assert(typeof SafetyLeverStatusInput === "object");
 // errors
+assert(ConflictException.prototype instanceof FisServiceException);
+assert(ResourceNotFoundException.prototype instanceof FisServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof FisServiceException);
+assert(ValidationException.prototype instanceof FisServiceException);
 assert(FisServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListActions === "function");

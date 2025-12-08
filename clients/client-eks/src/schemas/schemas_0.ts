@@ -2131,7 +2131,6 @@ export var VpcConfigResponse: StaticStructureSchema = [
 ];
 export var ZonalShiftConfigRequest: StaticStructureSchema = [3, n0, _ZSCR, 0, [_en], [2]];
 export var ZonalShiftConfigResponse: StaticStructureSchema = [3, n0, _ZSCRo, 0, [_en], [2]];
-export var __Unit = "unit" as const;
 export var EKSServiceException: StaticErrorSchema = [-3, _sm, "EKSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EKSServiceException, __EKSServiceException);
 export var AccessPoliciesList: StaticListSchema = [1, n0, _APL, 0, () => AccessPolicy];

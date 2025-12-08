@@ -1615,7 +1615,6 @@ export var VTLDevice: StaticStructureSchema = [
   [_VTLDARNe, _VTLDT, _VTLDV, _VTLDPI, _DSCSIA],
   [0, 0, 0, 0, () => DeviceiSCSIAttributes],
 ];
-export var __Unit = "unit" as const;
 export var StorageGatewayServiceException: StaticErrorSchema = [-3, _sm, "StorageGatewayServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(StorageGatewayServiceException, __StorageGatewayServiceException);
 export var AutomaticTapeCreationPolicyInfos: StaticListSchema = [

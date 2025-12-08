@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ActionCategory,
   ApplicationHealthStatus,
   ApplicationProgressStatus,
@@ -9,6 +10,7 @@ import {
   BootMode,
   ChangeServerLifeCycleStateCommand,
   ChangeServerLifeCycleStateSourceServerLifecycleState,
+  ConflictException,
   CreateApplicationCommand,
   CreateConnectorCommand,
   CreateLaunchConfigurationTemplateCommand,
@@ -44,6 +46,7 @@ import {
   ImportStatus,
   InitializeServiceCommand,
   InitiatedBy,
+  InternalServerException,
   JobLogEvent,
   JobStatus,
   JobType,
@@ -77,8 +80,10 @@ import {
   ReplicationConfigurationEbsEncryption,
   ReplicationConfigurationReplicatedDiskStagingDiskType,
   ReplicationType,
+  ResourceNotFoundException,
   ResumeReplicationCommand,
   RetryDataReplicationCommand,
+  ServiceQuotaExceededException,
   SsmDocumentType,
   SsmParameterStoreParameterType,
   StartCutoverCommand,
@@ -90,8 +95,10 @@ import {
   TagResourceCommand,
   TargetInstanceTypeRightSizingMethod,
   TerminateTargetInstancesCommand,
+  ThrottlingException,
   UnarchiveApplicationCommand,
   UnarchiveWaveCommand,
+  UninitializedAccountException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateConnectorCommand,
@@ -102,6 +109,8 @@ import {
   UpdateSourceServerCommand,
   UpdateSourceServerReplicationTypeCommand,
   UpdateWaveCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VolumeType,
   WaveHealthStatus,
   WaveProgressStatus,
@@ -228,10 +237,19 @@ assert(typeof ReplicationType === "object");
 assert(typeof SsmDocumentType === "object");
 assert(typeof SsmParameterStoreParameterType === "object");
 assert(typeof TargetInstanceTypeRightSizingMethod === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VolumeType === "object");
 assert(typeof WaveHealthStatus === "object");
 assert(typeof WaveProgressStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MgnServiceException);
+assert(ConflictException.prototype instanceof MgnServiceException);
+assert(InternalServerException.prototype instanceof MgnServiceException);
+assert(ResourceNotFoundException.prototype instanceof MgnServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MgnServiceException);
+assert(ThrottlingException.prototype instanceof MgnServiceException);
+assert(UninitializedAccountException.prototype instanceof MgnServiceException);
+assert(ValidationException.prototype instanceof MgnServiceException);
 assert(MgnServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeJobLogItems === "function");

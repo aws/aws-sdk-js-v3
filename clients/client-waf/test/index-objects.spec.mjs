@@ -67,6 +67,9 @@ import {
   ListWebACLsCommand,
   ListXssMatchSetsCommand,
   MatchFieldType,
+  MigrationErrorType,
+  ParameterExceptionField,
+  ParameterExceptionReason,
   PositionalConstraint,
   PredicateType,
   PutLoggingConfigurationCommand,
@@ -88,8 +91,27 @@ import {
   UpdateWebACLCommand,
   UpdateXssMatchSetCommand,
   WAF,
+  WAFBadRequestException,
   WAFClient,
+  WAFDisallowedNameException,
+  WAFEntityMigrationException,
+  WAFInternalErrorException,
+  WAFInvalidAccountException,
+  WAFInvalidOperationException,
+  WAFInvalidParameterException,
+  WAFInvalidPermissionPolicyException,
+  WAFInvalidRegexPatternException,
+  WAFLimitsExceededException,
+  WAFNonEmptyEntityException,
+  WAFNonexistentContainerException,
+  WAFNonexistentItemException,
+  WAFReferencedItemException,
   WAFServiceException,
+  WAFServiceLinkedRoleErrorException,
+  WAFStaleDataException,
+  WAFSubscriptionNotFoundException,
+  WAFTagOperationException,
+  WAFTagOperationInternalErrorException,
   WafActionType,
   WafOverrideActionType,
   WafRuleType,
@@ -184,6 +206,9 @@ assert(typeof GeoMatchConstraintType === "object");
 assert(typeof GeoMatchConstraintValue === "object");
 assert(typeof IPSetDescriptorType === "object");
 assert(typeof MatchFieldType === "object");
+assert(typeof MigrationErrorType === "object");
+assert(typeof ParameterExceptionField === "object");
+assert(typeof ParameterExceptionReason === "object");
 assert(typeof PositionalConstraint === "object");
 assert(typeof PredicateType === "object");
 assert(typeof RateKey === "object");
@@ -192,5 +217,24 @@ assert(typeof WafActionType === "object");
 assert(typeof WafOverrideActionType === "object");
 assert(typeof WafRuleType === "object");
 // errors
+assert(WAFBadRequestException.prototype instanceof WAFServiceException);
+assert(WAFDisallowedNameException.prototype instanceof WAFServiceException);
+assert(WAFEntityMigrationException.prototype instanceof WAFServiceException);
+assert(WAFInternalErrorException.prototype instanceof WAFServiceException);
+assert(WAFInvalidAccountException.prototype instanceof WAFServiceException);
+assert(WAFInvalidOperationException.prototype instanceof WAFServiceException);
+assert(WAFInvalidParameterException.prototype instanceof WAFServiceException);
+assert(WAFInvalidPermissionPolicyException.prototype instanceof WAFServiceException);
+assert(WAFInvalidRegexPatternException.prototype instanceof WAFServiceException);
+assert(WAFLimitsExceededException.prototype instanceof WAFServiceException);
+assert(WAFNonEmptyEntityException.prototype instanceof WAFServiceException);
+assert(WAFNonexistentContainerException.prototype instanceof WAFServiceException);
+assert(WAFNonexistentItemException.prototype instanceof WAFServiceException);
+assert(WAFReferencedItemException.prototype instanceof WAFServiceException);
+assert(WAFServiceLinkedRoleErrorException.prototype instanceof WAFServiceException);
+assert(WAFStaleDataException.prototype instanceof WAFServiceException);
+assert(WAFSubscriptionNotFoundException.prototype instanceof WAFServiceException);
+assert(WAFTagOperationException.prototype instanceof WAFServiceException);
+assert(WAFTagOperationInternalErrorException.prototype instanceof WAFServiceException);
 assert(WAFServiceException.prototype instanceof Error);
 console.log(`WAF index test passed.`);

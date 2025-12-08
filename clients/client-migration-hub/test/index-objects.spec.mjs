@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ApplicationStatus,
   AssociateCreatedArtifactCommand,
   AssociateDiscoveredResourceCommand,
@@ -10,7 +11,11 @@ import {
   DisassociateCreatedArtifactCommand,
   DisassociateDiscoveredResourceCommand,
   DisassociateSourceResourceCommand,
+  DryRunOperation,
+  HomeRegionNotSetException,
   ImportMigrationTaskCommand,
+  InternalServerError,
+  InvalidInputException,
   ListApplicationStatesCommand,
   ListCreatedArtifactsCommand,
   ListDiscoveredResourcesCommand,
@@ -23,9 +28,14 @@ import {
   MigrationHubServiceException,
   NotifyApplicationStateCommand,
   NotifyMigrationTaskStateCommand,
+  PolicyErrorException,
   PutResourceAttributesCommand,
   ResourceAttributeType,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
   Status,
+  ThrottlingException,
+  UnauthorizedOperation,
   UpdateType,
   paginateListApplicationStates,
   paginateListCreatedArtifacts,
@@ -67,6 +77,16 @@ assert(typeof ResourceAttributeType === "object");
 assert(typeof Status === "object");
 assert(typeof UpdateType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MigrationHubServiceException);
+assert(DryRunOperation.prototype instanceof MigrationHubServiceException);
+assert(HomeRegionNotSetException.prototype instanceof MigrationHubServiceException);
+assert(InternalServerError.prototype instanceof MigrationHubServiceException);
+assert(InvalidInputException.prototype instanceof MigrationHubServiceException);
+assert(PolicyErrorException.prototype instanceof MigrationHubServiceException);
+assert(ResourceNotFoundException.prototype instanceof MigrationHubServiceException);
+assert(ServiceUnavailableException.prototype instanceof MigrationHubServiceException);
+assert(ThrottlingException.prototype instanceof MigrationHubServiceException);
+assert(UnauthorizedOperation.prototype instanceof MigrationHubServiceException);
 assert(MigrationHubServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplicationStates === "function");

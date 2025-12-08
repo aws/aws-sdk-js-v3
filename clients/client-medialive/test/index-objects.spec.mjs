@@ -34,6 +34,8 @@ import {
   Av1SpatialAq,
   Av1TemporalAq,
   AvailBlankingState,
+  BadGatewayException,
+  BadRequestException,
   BandwidthReductionFilterStrength,
   BandwidthReductionPostFilterSharpening,
   BatchDeleteCommand,
@@ -71,6 +73,7 @@ import {
   CmafTimedMetadataId3Frame,
   CmafTimedMetadataPassthrough,
   ColorSpace,
+  ConflictException,
   ContentType,
   CreateChannelCommand,
   CreateChannelPlacementGroupCommand,
@@ -169,7 +172,9 @@ import {
   Fmp4NielsenId3Behavior,
   Fmp4TimedMetadataBehavior,
   FollowPoint,
+  ForbiddenException,
   FrameCaptureIntervalUnit,
+  GatewayTimeoutException,
   GetCloudWatchAlarmTemplateCommand,
   GetCloudWatchAlarmTemplateGroupCommand,
   GetEventBridgeRuleTemplateCommand,
@@ -283,6 +288,7 @@ import {
   InputState,
   InputTimecodeSource,
   InputType,
+  InternalServerErrorException,
   LastFrameClippingBehavior,
   ListAlertsCommand,
   ListChannelPlacementGroupsCommand,
@@ -360,6 +366,7 @@ import {
   NodeConnectionState,
   NodeRole,
   NodeState,
+  NotFoundException,
   OfferingDurationUnits,
   OfferingType,
   PipelineId,
@@ -430,9 +437,11 @@ import {
   TimecodeBurninFontSize,
   TimecodeBurninPosition,
   TimecodeConfigSource,
+  TooManyRequestsException,
   TransferInputDeviceCommand,
   TtmlDestinationStyleControl,
   UdpTimedMetadataId3Frame,
+  UnprocessableEntityException,
   UpdateAccountConfigurationCommand,
   UpdateChannelClassCommand,
   UpdateChannelCommand,
@@ -991,6 +1000,15 @@ assert(typeof VideoSelectorColorSpaceUsage === "object");
 assert(typeof WavCodingMode === "object");
 assert(typeof WebvttDestinationStyleControl === "object");
 // errors
+assert(BadGatewayException.prototype instanceof MediaLiveServiceException);
+assert(BadRequestException.prototype instanceof MediaLiveServiceException);
+assert(ConflictException.prototype instanceof MediaLiveServiceException);
+assert(ForbiddenException.prototype instanceof MediaLiveServiceException);
+assert(GatewayTimeoutException.prototype instanceof MediaLiveServiceException);
+assert(InternalServerErrorException.prototype instanceof MediaLiveServiceException);
+assert(NotFoundException.prototype instanceof MediaLiveServiceException);
+assert(TooManyRequestsException.prototype instanceof MediaLiveServiceException);
+assert(UnprocessableEntityException.prototype instanceof MediaLiveServiceException);
 assert(MediaLiveServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForChannelCreated === "function");

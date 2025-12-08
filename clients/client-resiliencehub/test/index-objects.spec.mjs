@@ -1,5 +1,6 @@
 import {
   AcceptResourceGroupingRecommendationsCommand,
+  AccessDeniedException,
   AddDraftAppVersionResourceMappingsCommand,
   AlarmType,
   AppAssessmentScheduleType,
@@ -12,6 +13,7 @@ import {
   ComplianceStatus,
   ConditionOperatorType,
   ConfigRecommendationOptimizationType,
+  ConflictException,
   CostFrequency,
   CreateAppCommand,
   CreateAppVersionAppComponentCommand,
@@ -50,6 +52,7 @@ import {
   GroupingRecommendationStatusType,
   HaArchitecture,
   ImportResourcesToDraftAppVersionCommand,
+  InternalServerException,
   ListAlarmRecommendationsCommand,
   ListAppAssessmentComplianceDriftsCommand,
   ListAppAssessmentResourceDriftsCommand,
@@ -91,9 +94,11 @@ import {
   ResourceImportStatusType,
   ResourceImportStrategyType,
   ResourceMappingType,
+  ResourceNotFoundException,
   ResourceResolutionStatusType,
   ResourceSourceType,
   ResourcesGroupingRecGenStatusType,
+  ServiceQuotaExceededException,
   SopServiceType,
   StartAppAssessmentCommand,
   StartMetricsExportCommand,
@@ -102,12 +107,14 @@ import {
   TemplateFormat,
   TestRisk,
   TestType,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAppCommand,
   UpdateAppVersionAppComponentCommand,
   UpdateAppVersionCommand,
   UpdateAppVersionResourceCommand,
   UpdateResiliencyPolicyCommand,
+  ValidationException,
   paginateListAlarmRecommendations,
   paginateListAppAssessmentComplianceDrifts,
   paginateListAppAssessmentResourceDrifts,
@@ -242,6 +249,13 @@ assert(typeof TemplateFormat === "object");
 assert(typeof TestRisk === "object");
 assert(typeof TestType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ResiliencehubServiceException);
+assert(ConflictException.prototype instanceof ResiliencehubServiceException);
+assert(InternalServerException.prototype instanceof ResiliencehubServiceException);
+assert(ResourceNotFoundException.prototype instanceof ResiliencehubServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ResiliencehubServiceException);
+assert(ThrottlingException.prototype instanceof ResiliencehubServiceException);
+assert(ValidationException.prototype instanceof ResiliencehubServiceException);
 assert(ResiliencehubServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAlarmRecommendations === "function");

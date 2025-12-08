@@ -3,6 +3,7 @@ import {
   GenerateDataSetCommand,
   MarketplaceCommerceAnalytics,
   MarketplaceCommerceAnalyticsClient,
+  MarketplaceCommerceAnalyticsException,
   MarketplaceCommerceAnalyticsServiceException,
   StartSupportDataExportCommand,
   SupportDataSetType,
@@ -18,5 +19,6 @@ assert(typeof StartSupportDataExportCommand === "function");
 assert(typeof DataSetType === "object");
 assert(typeof SupportDataSetType === "object");
 // errors
+assert(MarketplaceCommerceAnalyticsException.prototype instanceof MarketplaceCommerceAnalyticsServiceException);
 assert(MarketplaceCommerceAnalyticsServiceException.prototype instanceof Error);
 console.log(`MarketplaceCommerceAnalytics index test passed.`);

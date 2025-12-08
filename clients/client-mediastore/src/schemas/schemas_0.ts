@@ -189,7 +189,6 @@ export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_R, _T], 
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_R, _TK], [0, 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var __Unit = "unit" as const;
 export var MediaStoreServiceException: StaticErrorSchema = [-3, _sm, "MediaStoreServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MediaStoreServiceException, __MediaStoreServiceException);
 export var AllowedHeaders = 64 | 0;

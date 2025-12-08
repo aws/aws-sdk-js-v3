@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AssociateTrackerConsumerCommand,
   BatchDeleteDevicePositionHistoryCommand,
   BatchDeleteGeofenceCommand,
@@ -8,6 +9,7 @@ import {
   BatchUpdateDevicePositionCommand,
   CalculateRouteCommand,
   CalculateRouteMatrixCommand,
+  ConflictException,
   CreateGeofenceCollectionCommand,
   CreateKeyCommand,
   CreateMapCommand,
@@ -36,6 +38,7 @@ import {
   GetMapStyleDescriptorCommand,
   GetMapTileCommand,
   GetPlaceCommand,
+  InternalServerException,
   ListDevicePositionsCommand,
   ListGeofenceCollectionsCommand,
   ListGeofencesCommand,
@@ -50,10 +53,13 @@ import {
   LocationClient,
   LocationServiceException,
   PutGeofenceCommand,
+  ResourceNotFoundException,
   SearchPlaceIndexForPositionCommand,
   SearchPlaceIndexForSuggestionsCommand,
   SearchPlaceIndexForTextCommand,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateGeofenceCollectionCommand,
   UpdateKeyCommand,
@@ -61,6 +67,7 @@ import {
   UpdatePlaceIndexCommand,
   UpdateRouteCalculatorCommand,
   UpdateTrackerCommand,
+  ValidationException,
   VerifyDevicePositionCommand,
   paginateForecastGeofenceEvents,
   paginateGetDevicePositionHistory,
@@ -140,6 +147,13 @@ assert(typeof UpdateRouteCalculatorCommand === "function");
 assert(typeof UpdateTrackerCommand === "function");
 assert(typeof VerifyDevicePositionCommand === "function");
 // errors
+assert(AccessDeniedException.prototype instanceof LocationServiceException);
+assert(ConflictException.prototype instanceof LocationServiceException);
+assert(InternalServerException.prototype instanceof LocationServiceException);
+assert(ResourceNotFoundException.prototype instanceof LocationServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof LocationServiceException);
+assert(ThrottlingException.prototype instanceof LocationServiceException);
+assert(ValidationException.prototype instanceof LocationServiceException);
 assert(LocationServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateForecastGeofenceEvents === "function");

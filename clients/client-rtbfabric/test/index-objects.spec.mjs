@@ -1,5 +1,7 @@
 import {
   AcceptLinkCommand,
+  AccessDeniedException,
+  ConflictException,
   CreateInboundExternalLinkCommand,
   CreateLinkCommand,
   CreateOutboundExternalLinkCommand,
@@ -16,6 +18,7 @@ import {
   GetOutboundExternalLinkCommand,
   GetRequesterGatewayCommand,
   GetResponderGatewayCommand,
+  InternalServerException,
   LinkDirection,
   LinkStatus,
   ListLinksCommand,
@@ -28,15 +31,19 @@ import {
   RTBFabricServiceException,
   RejectLinkCommand,
   RequesterGatewayStatus,
+  ResourceNotFoundException,
   ResponderErrorMaskingAction,
   ResponderErrorMaskingLoggingType,
   ResponderGatewayStatus,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateLinkCommand,
   UpdateLinkModuleFlowCommand,
   UpdateRequesterGatewayCommand,
   UpdateResponderGatewayCommand,
+  ValidationException,
   paginateListLinks,
   paginateListRequesterGateways,
   paginateListResponderGateways,
@@ -99,6 +106,13 @@ assert(typeof ResponderErrorMaskingAction === "object");
 assert(typeof ResponderErrorMaskingLoggingType === "object");
 assert(typeof ResponderGatewayStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof RTBFabricServiceException);
+assert(ConflictException.prototype instanceof RTBFabricServiceException);
+assert(InternalServerException.prototype instanceof RTBFabricServiceException);
+assert(ResourceNotFoundException.prototype instanceof RTBFabricServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof RTBFabricServiceException);
+assert(ThrottlingException.prototype instanceof RTBFabricServiceException);
+assert(ValidationException.prototype instanceof RTBFabricServiceException);
 assert(RTBFabricServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForInboundExternalLinkActive === "function");

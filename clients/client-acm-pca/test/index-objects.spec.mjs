@@ -9,6 +9,8 @@ import {
   CertificateAuthorityStatus,
   CertificateAuthorityType,
   CertificateAuthorityUsageMode,
+  CertificateMismatchException,
+  ConcurrentModificationException,
   CreateCertificateAuthorityAuditReportCommand,
   CreateCertificateAuthorityCommand,
   CreatePermissionCommand,
@@ -25,14 +27,30 @@ import {
   GetCertificateCommand,
   GetPolicyCommand,
   ImportCertificateAuthorityCertificateCommand,
+  InvalidArgsException,
+  InvalidArnException,
+  InvalidNextTokenException,
+  InvalidPolicyException,
+  InvalidRequestException,
+  InvalidStateException,
+  InvalidTagException,
   IssueCertificateCommand,
   KeyAlgorithm,
   KeyStorageSecurityStandard,
+  LimitExceededException,
   ListCertificateAuthoritiesCommand,
   ListPermissionsCommand,
   ListTagsCommand,
+  LockoutPreventedException,
+  MalformedCSRException,
+  MalformedCertificateException,
+  PermissionAlreadyExistsException,
   PolicyQualifierId,
   PutPolicyCommand,
+  RequestAlreadyProcessedException,
+  RequestFailedException,
+  RequestInProgressException,
+  ResourceNotFoundException,
   ResourceOwner,
   RestoreCertificateAuthorityCommand,
   RevocationReason,
@@ -40,6 +58,7 @@ import {
   S3ObjectAcl,
   SigningAlgorithm,
   TagCertificateAuthorityCommand,
+  TooManyTagsException,
   UntagCertificateAuthorityCommand,
   UpdateCertificateAuthorityCommand,
   ValidityPeriodType,
@@ -101,6 +120,25 @@ assert(typeof S3ObjectAcl === "object");
 assert(typeof SigningAlgorithm === "object");
 assert(typeof ValidityPeriodType === "object");
 // errors
+assert(CertificateMismatchException.prototype instanceof ACMPCAServiceException);
+assert(ConcurrentModificationException.prototype instanceof ACMPCAServiceException);
+assert(InvalidArgsException.prototype instanceof ACMPCAServiceException);
+assert(InvalidArnException.prototype instanceof ACMPCAServiceException);
+assert(InvalidNextTokenException.prototype instanceof ACMPCAServiceException);
+assert(InvalidPolicyException.prototype instanceof ACMPCAServiceException);
+assert(InvalidRequestException.prototype instanceof ACMPCAServiceException);
+assert(InvalidStateException.prototype instanceof ACMPCAServiceException);
+assert(InvalidTagException.prototype instanceof ACMPCAServiceException);
+assert(LimitExceededException.prototype instanceof ACMPCAServiceException);
+assert(LockoutPreventedException.prototype instanceof ACMPCAServiceException);
+assert(MalformedCertificateException.prototype instanceof ACMPCAServiceException);
+assert(MalformedCSRException.prototype instanceof ACMPCAServiceException);
+assert(PermissionAlreadyExistsException.prototype instanceof ACMPCAServiceException);
+assert(RequestAlreadyProcessedException.prototype instanceof ACMPCAServiceException);
+assert(RequestFailedException.prototype instanceof ACMPCAServiceException);
+assert(RequestInProgressException.prototype instanceof ACMPCAServiceException);
+assert(ResourceNotFoundException.prototype instanceof ACMPCAServiceException);
+assert(TooManyTagsException.prototype instanceof ACMPCAServiceException);
 assert(ACMPCAServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAuditReportCreated === "function");

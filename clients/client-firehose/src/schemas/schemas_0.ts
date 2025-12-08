@@ -1442,7 +1442,6 @@ export var VpcConfigurationDescription: StaticStructureSchema = [
   [_SIu, _RARN, _SGI, _VIp],
   [64 | 0, 0, 64 | 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var FirehoseServiceException: StaticErrorSchema = [-3, _sm, "FirehoseServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FirehoseServiceException, __FirehoseServiceException);
 export var DatabaseColumnIncludeOrExcludeList = 64 | 0;

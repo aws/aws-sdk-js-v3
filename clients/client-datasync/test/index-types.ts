@@ -351,6 +351,8 @@ export type {
   UpdateTaskExecutionResponse,
   UpdateTaskRequest,
   UpdateTaskResponse,
+  InternalException,
+  InvalidRequestException,
   DataSyncServiceException,
   paginateListAgents,
   paginateListLocations,

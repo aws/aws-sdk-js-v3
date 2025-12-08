@@ -1565,7 +1565,6 @@ export var VolumeRecommendationOption: StaticStructureSchema = [
   [_co, _pR, _r, _sO, _sOAD],
   [() => VolumeConfiguration, 1, 1, () => SavingsOpportunity, () => EBSSavingsOpportunityAfterDiscounts],
 ];
-export var __Unit = "unit" as const;
 export var ComputeOptimizerServiceException: StaticErrorSchema = [
   -3,
   _sm,

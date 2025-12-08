@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   AlgorithmNameCloudRemoval,
   AlgorithmNameGeoMosaic,
   AlgorithmNameResampling,
   ComparisonOperator,
+  ConflictException,
   DataCollectionType,
   DeleteEarthObservationJobCommand,
   DeleteVectorEnrichmentJobCommand,
@@ -17,6 +19,7 @@ import {
   GetTileCommand,
   GetVectorEnrichmentJobCommand,
   GroupBy,
+  InternalServerException,
   ListEarthObservationJobsCommand,
   ListRasterDataCollectionsCommand,
   ListTagsForResourceCommand,
@@ -24,10 +27,12 @@ import {
   LogicalOperator,
   OutputType,
   PredefinedResolution,
+  ResourceNotFoundException,
   SageMakerGeospatial,
   SageMakerGeospatialClient,
   SageMakerGeospatialServiceException,
   SearchRasterDataCollectionCommand,
+  ServiceQuotaExceededException,
   SortOrder,
   StartEarthObservationJobCommand,
   StartVectorEnrichmentJobCommand,
@@ -36,8 +41,10 @@ import {
   TagResourceCommand,
   TargetOptions,
   TemporalStatistics,
+  ThrottlingException,
   Unit,
   UntagResourceCommand,
+  ValidationException,
   VectorEnrichmentJobDocumentType,
   VectorEnrichmentJobErrorType,
   VectorEnrichmentJobExportErrorType,
@@ -100,6 +107,13 @@ assert(typeof VectorEnrichmentJobStatus === "object");
 assert(typeof VectorEnrichmentJobType === "object");
 assert(typeof ZonalStatistics === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SageMakerGeospatialServiceException);
+assert(ConflictException.prototype instanceof SageMakerGeospatialServiceException);
+assert(InternalServerException.prototype instanceof SageMakerGeospatialServiceException);
+assert(ResourceNotFoundException.prototype instanceof SageMakerGeospatialServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SageMakerGeospatialServiceException);
+assert(ThrottlingException.prototype instanceof SageMakerGeospatialServiceException);
+assert(ValidationException.prototype instanceof SageMakerGeospatialServiceException);
 assert(SageMakerGeospatialServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEarthObservationJobs === "function");

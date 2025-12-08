@@ -7,6 +7,7 @@ import {
   ApplyEnvironmentManagedActionCommand,
   AssociateEnvironmentOperationsRoleCommand,
   CheckDNSAvailabilityCommand,
+  CodeBuildNotInServiceRegionException,
   ComposeEnvironmentsCommand,
   ComputeType,
   ConfigurationDeploymentStatus,
@@ -47,19 +48,36 @@ import {
   EventSeverity,
   FailureType,
   InstancesHealthAttribute,
+  InsufficientPrivilegesException,
+  InvalidRequestException,
   ListAvailableSolutionStacksCommand,
   ListPlatformBranchesCommand,
   ListPlatformVersionsCommand,
   ListTagsForResourceCommand,
+  ManagedActionInvalidStateException,
+  OperationInProgressException,
   PlatformStatus,
+  PlatformVersionStillReferencedException,
   RebuildEnvironmentCommand,
   RequestEnvironmentInfoCommand,
+  ResourceNotFoundException,
+  ResourceTypeNotSupportedException,
   RestartAppServerCommand,
   RetrieveEnvironmentInfoCommand,
+  S3LocationNotInServiceRegionException,
+  S3SubscriptionRequiredException,
+  SourceBundleDeletionException,
   SourceRepository,
   SourceType,
   SwapEnvironmentCNAMEsCommand,
   TerminateEnvironmentCommand,
+  TooManyApplicationVersionsException,
+  TooManyApplicationsException,
+  TooManyBucketsException,
+  TooManyConfigurationTemplatesException,
+  TooManyEnvironmentsException,
+  TooManyPlatformsException,
+  TooManyTagsException,
   UpdateApplicationCommand,
   UpdateApplicationResourceLifecycleCommand,
   UpdateApplicationVersionCommand,
@@ -152,6 +170,25 @@ assert(typeof SourceRepository === "object");
 assert(typeof SourceType === "object");
 assert(typeof ValidationSeverity === "object");
 // errors
+assert(CodeBuildNotInServiceRegionException.prototype instanceof ElasticBeanstalkServiceException);
+assert(ElasticBeanstalkServiceException.prototype instanceof ElasticBeanstalkServiceException);
+assert(InsufficientPrivilegesException.prototype instanceof ElasticBeanstalkServiceException);
+assert(InvalidRequestException.prototype instanceof ElasticBeanstalkServiceException);
+assert(ManagedActionInvalidStateException.prototype instanceof ElasticBeanstalkServiceException);
+assert(OperationInProgressException.prototype instanceof ElasticBeanstalkServiceException);
+assert(PlatformVersionStillReferencedException.prototype instanceof ElasticBeanstalkServiceException);
+assert(ResourceNotFoundException.prototype instanceof ElasticBeanstalkServiceException);
+assert(ResourceTypeNotSupportedException.prototype instanceof ElasticBeanstalkServiceException);
+assert(S3LocationNotInServiceRegionException.prototype instanceof ElasticBeanstalkServiceException);
+assert(S3SubscriptionRequiredException.prototype instanceof ElasticBeanstalkServiceException);
+assert(SourceBundleDeletionException.prototype instanceof ElasticBeanstalkServiceException);
+assert(TooManyApplicationsException.prototype instanceof ElasticBeanstalkServiceException);
+assert(TooManyApplicationVersionsException.prototype instanceof ElasticBeanstalkServiceException);
+assert(TooManyBucketsException.prototype instanceof ElasticBeanstalkServiceException);
+assert(TooManyConfigurationTemplatesException.prototype instanceof ElasticBeanstalkServiceException);
+assert(TooManyEnvironmentsException.prototype instanceof ElasticBeanstalkServiceException);
+assert(TooManyPlatformsException.prototype instanceof ElasticBeanstalkServiceException);
+assert(TooManyTagsException.prototype instanceof ElasticBeanstalkServiceException);
 assert(ElasticBeanstalkServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForEnvironmentExists === "function");

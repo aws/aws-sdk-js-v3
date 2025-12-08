@@ -1045,7 +1045,6 @@ export var UpdateTaskRequest: StaticStructureSchema = [
   ],
 ];
 export var UpdateTaskResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [], []];
-export var __Unit = "unit" as const;
 export var DataSyncServiceException: StaticErrorSchema = [-3, _sm, "DataSyncServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DataSyncServiceException, __DataSyncServiceException);
 export var AgentArnList = 64 | 0;

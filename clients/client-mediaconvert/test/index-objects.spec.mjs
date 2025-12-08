@@ -51,6 +51,7 @@ import {
   AvcIntraSlowPal,
   AvcIntraTelecine,
   AvcIntraUhdQualityTuningLevel,
+  BadRequestException,
   BandwidthReductionFilterSharpening,
   BandwidthReductionFilterStrength,
   BillingTagsSource,
@@ -108,6 +109,7 @@ import {
   ColorSpaceConversion,
   ColorSpaceUsage,
   Commitment,
+  ConflictException,
   ContainerType,
   CopyProtectionAction,
   CreateJobCommand,
@@ -186,6 +188,7 @@ import {
   FileSourceConvert608To708,
   FileSourceTimeDeltaUnits,
   FontScript,
+  ForbiddenException,
   Format,
   FrameControl,
   FrameMetricType,
@@ -290,6 +293,7 @@ import {
   InputSampleRange,
   InputScanType,
   InputTimecodeSource,
+  InternalServerErrorException,
   JobPhase,
   JobStatus,
   JobTemplateListBy,
@@ -381,6 +385,7 @@ import {
   NoiseFilterPostTemporalSharpening,
   NoiseFilterPostTemporalSharpeningStrength,
   NoiseReducerFilter,
+  NotFoundException,
   Order,
   OutputGroupType,
   OutputSdt,
@@ -415,6 +420,7 @@ import {
   ScalingBehavior,
   SccDestinationFramerate,
   SearchJobsCommand,
+  ServiceQuotaExceededException,
   ShareStatus,
   SimulateReservedQueue,
   SlowPalPitchCorrection,
@@ -428,6 +434,7 @@ import {
   TimecodeSource,
   TimecodeTrack,
   TimedMetadata,
+  TooManyRequestsException,
   TrackType,
   TransferCharacteristics,
   TsPtsOffset,
@@ -997,6 +1004,13 @@ assert(typeof XavcSlowPal === "object");
 assert(typeof XavcSpatialAdaptiveQuantization === "object");
 assert(typeof XavcTemporalAdaptiveQuantization === "object");
 // errors
+assert(BadRequestException.prototype instanceof MediaConvertServiceException);
+assert(ConflictException.prototype instanceof MediaConvertServiceException);
+assert(ForbiddenException.prototype instanceof MediaConvertServiceException);
+assert(InternalServerErrorException.prototype instanceof MediaConvertServiceException);
+assert(NotFoundException.prototype instanceof MediaConvertServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MediaConvertServiceException);
+assert(TooManyRequestsException.prototype instanceof MediaConvertServiceException);
 assert(MediaConvertServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeEndpoints === "function");

@@ -56,14 +56,17 @@ import {
   DescribeVirtualInterfacesCommand,
   DirectConnect,
   DirectConnectClient,
+  DirectConnectClientException,
   DirectConnectGatewayAssociationProposalState,
   DirectConnectGatewayAssociationState,
   DirectConnectGatewayAttachmentState,
   DirectConnectGatewayAttachmentType,
   DirectConnectGatewayState,
+  DirectConnectServerException,
   DirectConnectServiceException,
   DisassociateConnectionFromLagCommand,
   DisassociateMacSecKeyCommand,
+  DuplicateTagKeysException,
   GatewayType,
   HasLogicalRedundancy,
   InterconnectState,
@@ -74,6 +77,7 @@ import {
   StartBgpFailoverTestCommand,
   StopBgpFailoverTestCommand,
   TagResourceCommand,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateConnectionCommand,
   UpdateDirectConnectGatewayAssociationCommand,
@@ -168,5 +172,9 @@ assert(typeof LoaContentType === "object");
 assert(typeof NniPartnerType === "object");
 assert(typeof VirtualInterfaceState === "object");
 // errors
+assert(DirectConnectClientException.prototype instanceof DirectConnectServiceException);
+assert(DirectConnectServerException.prototype instanceof DirectConnectServiceException);
+assert(DuplicateTagKeysException.prototype instanceof DirectConnectServiceException);
+assert(TooManyTagsException.prototype instanceof DirectConnectServiceException);
 assert(DirectConnectServiceException.prototype instanceof Error);
 console.log(`DirectConnect index test passed.`);

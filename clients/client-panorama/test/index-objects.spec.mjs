@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   ApplicationInstanceHealthStatus,
   ApplicationInstanceStatus,
+  ConflictException,
   ConnectionType,
   CreateApplicationInstanceCommand,
   CreateJobForDevicesCommand,
@@ -26,6 +28,7 @@ import {
   DeviceReportedStatus,
   DeviceStatus,
   DeviceType,
+  InternalServerException,
   JobResourceType,
   JobType,
   ListApplicationInstanceDependenciesCommand,
@@ -54,6 +57,8 @@ import {
   ProvisionDeviceCommand,
   RegisterPackageVersionCommand,
   RemoveApplicationInstanceCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SignalApplicationInstanceNodeInstancesCommand,
   SortOrder,
   StatusFilter,
@@ -62,6 +67,8 @@ import {
   UntagResourceCommand,
   UpdateDeviceMetadataCommand,
   UpdateProgress,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListApplicationInstanceDependencies,
   paginateListApplicationInstanceNodeInstances,
   paginateListApplicationInstances,
@@ -138,7 +145,14 @@ assert(typeof SortOrder === "object");
 assert(typeof StatusFilter === "object");
 assert(typeof TemplateType === "object");
 assert(typeof UpdateProgress === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PanoramaServiceException);
+assert(ConflictException.prototype instanceof PanoramaServiceException);
+assert(InternalServerException.prototype instanceof PanoramaServiceException);
+assert(ResourceNotFoundException.prototype instanceof PanoramaServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PanoramaServiceException);
+assert(ValidationException.prototype instanceof PanoramaServiceException);
 assert(PanoramaServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplicationInstanceDependencies === "function");

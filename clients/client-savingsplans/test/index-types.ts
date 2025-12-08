@@ -77,5 +77,9 @@ export type {
   TagResourceResponse,
   UntagResourceRequest,
   UntagResourceResponse,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ValidationException,
   SavingsplansServiceException,
 } from "../dist-types/index.d";

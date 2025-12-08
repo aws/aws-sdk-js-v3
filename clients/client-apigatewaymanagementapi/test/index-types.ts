@@ -16,5 +16,9 @@ export type {
   GetConnectionResponse,
   Identity,
   PostToConnectionRequest,
+  ForbiddenException,
+  GoneException,
+  LimitExceededException,
+  PayloadTooLargeException,
   ApiGatewayManagementApiServiceException,
 } from "../dist-types/index.d";

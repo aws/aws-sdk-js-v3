@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CreateIndexCommand,
   CreateVectorBucketCommand,
   DataType,
@@ -11,19 +13,30 @@ import {
   GetVectorBucketCommand,
   GetVectorBucketPolicyCommand,
   GetVectorsCommand,
+  InternalServerException,
+  KmsDisabledException,
+  KmsInvalidKeyUsageException,
+  KmsInvalidStateException,
+  KmsNotFoundException,
   ListIndexesCommand,
   ListTagsForResourceCommand,
   ListVectorBucketsCommand,
   ListVectorsCommand,
+  NotFoundException,
   PutVectorBucketPolicyCommand,
   PutVectorsCommand,
   QueryVectorsCommand,
+  RequestTimeoutException,
   S3Vectors,
   S3VectorsClient,
   S3VectorsServiceException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   SseType,
   TagResourceCommand,
+  TooManyRequestsException,
   UntagResourceCommand,
+  ValidationException,
   paginateListIndexes,
   paginateListVectorBuckets,
   paginateListVectors,
@@ -57,6 +70,19 @@ assert(typeof DataType === "object");
 assert(typeof DistanceMetric === "object");
 assert(typeof SseType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof S3VectorsServiceException);
+assert(ConflictException.prototype instanceof S3VectorsServiceException);
+assert(InternalServerException.prototype instanceof S3VectorsServiceException);
+assert(KmsDisabledException.prototype instanceof S3VectorsServiceException);
+assert(KmsInvalidKeyUsageException.prototype instanceof S3VectorsServiceException);
+assert(KmsInvalidStateException.prototype instanceof S3VectorsServiceException);
+assert(KmsNotFoundException.prototype instanceof S3VectorsServiceException);
+assert(NotFoundException.prototype instanceof S3VectorsServiceException);
+assert(RequestTimeoutException.prototype instanceof S3VectorsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof S3VectorsServiceException);
+assert(ServiceUnavailableException.prototype instanceof S3VectorsServiceException);
+assert(TooManyRequestsException.prototype instanceof S3VectorsServiceException);
+assert(ValidationException.prototype instanceof S3VectorsServiceException);
 assert(S3VectorsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListIndexes === "function");

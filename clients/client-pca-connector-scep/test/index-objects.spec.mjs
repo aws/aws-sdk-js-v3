@@ -1,4 +1,7 @@
 import {
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
   ConnectorStatus,
   ConnectorStatusReason,
   ConnectorType,
@@ -9,14 +12,20 @@ import {
   GetChallengeMetadataCommand,
   GetChallengePasswordCommand,
   GetConnectorCommand,
+  InternalServerException,
   ListChallengeMetadataCommand,
   ListConnectorsCommand,
   ListTagsForResourceCommand,
   PcaConnectorScep,
   PcaConnectorScepClient,
   PcaConnectorScepServiceException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListChallengeMetadata,
   paginateListConnectors,
 } from "../dist-cjs/index.js";
@@ -41,7 +50,16 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof ConnectorStatus === "object");
 assert(typeof ConnectorStatusReason === "object");
 assert(typeof ConnectorType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PcaConnectorScepServiceException);
+assert(BadRequestException.prototype instanceof PcaConnectorScepServiceException);
+assert(ConflictException.prototype instanceof PcaConnectorScepServiceException);
+assert(InternalServerException.prototype instanceof PcaConnectorScepServiceException);
+assert(ResourceNotFoundException.prototype instanceof PcaConnectorScepServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PcaConnectorScepServiceException);
+assert(ThrottlingException.prototype instanceof PcaConnectorScepServiceException);
+assert(ValidationException.prototype instanceof PcaConnectorScepServiceException);
 assert(PcaConnectorScepServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChallengeMetadata === "function");

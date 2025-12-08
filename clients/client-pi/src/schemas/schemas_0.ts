@@ -397,7 +397,6 @@ export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_ST, _R
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_ST, _RARN, _TK], [0, 0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var __Unit = "unit" as const;
 export var PIServiceException: StaticErrorSchema = [-3, _sm, "PIServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PIServiceException, __PIServiceException);
 export var AdditionalMetricsList = 64 | 0;

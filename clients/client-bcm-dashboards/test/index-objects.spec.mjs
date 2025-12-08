@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   BCMDashboards,
   BCMDashboardsClient,
   BCMDashboardsServiceException,
@@ -11,13 +12,18 @@ import {
   GetResourcePolicyCommand,
   Granularity,
   GroupDefinitionType,
+  InternalServerException,
   ListDashboardsCommand,
   ListTagsForResourceCommand,
   MatchOption,
   MetricName,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateDashboardCommand,
+  ValidationException,
   VisualType,
   paginateListDashboards,
 } from "../dist-cjs/index.js";
@@ -45,6 +51,12 @@ assert(typeof MatchOption === "object");
 assert(typeof MetricName === "object");
 assert(typeof VisualType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BCMDashboardsServiceException);
+assert(InternalServerException.prototype instanceof BCMDashboardsServiceException);
+assert(ResourceNotFoundException.prototype instanceof BCMDashboardsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BCMDashboardsServiceException);
+assert(ThrottlingException.prototype instanceof BCMDashboardsServiceException);
+assert(ValidationException.prototype instanceof BCMDashboardsServiceException);
 assert(BCMDashboardsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDashboards === "function");

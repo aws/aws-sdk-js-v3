@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   AuthorizationStrategy,
   CmkType,
+  ConflictException,
   CreateFHIRDatastoreCommand,
   DatastoreStatus,
   DeleteFHIRDatastoreCommand,
@@ -12,16 +14,20 @@ import {
   HealthLake,
   HealthLakeClient,
   HealthLakeServiceException,
+  InternalServerException,
   JobStatus,
   ListFHIRDatastoresCommand,
   ListFHIRExportJobsCommand,
   ListFHIRImportJobsCommand,
   ListTagsForResourceCommand,
   PreloadDataType,
+  ResourceNotFoundException,
   StartFHIRExportJobCommand,
   StartFHIRImportJobCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
+  ValidationException,
   ValidationLevel,
   paginateListFHIRDatastores,
   paginateListFHIRExportJobs,
@@ -63,6 +69,12 @@ assert(typeof JobStatus === "object");
 assert(typeof PreloadDataType === "object");
 assert(typeof ValidationLevel === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof HealthLakeServiceException);
+assert(ConflictException.prototype instanceof HealthLakeServiceException);
+assert(InternalServerException.prototype instanceof HealthLakeServiceException);
+assert(ResourceNotFoundException.prototype instanceof HealthLakeServiceException);
+assert(ThrottlingException.prototype instanceof HealthLakeServiceException);
+assert(ValidationException.prototype instanceof HealthLakeServiceException);
 assert(HealthLakeServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForFHIRDatastoreActive === "function");

@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   B2bi,
   B2biClient,
   B2biServiceException,
   CapabilityDirection,
   CapabilityType,
+  ConflictException,
   ConversionSourceFormat,
   ConversionTargetFormat,
   CreateCapabilityCommand,
@@ -24,6 +26,7 @@ import {
   GetProfileCommand,
   GetTransformerCommand,
   GetTransformerJobCommand,
+  InternalServerException,
   LineTerminator,
   ListCapabilitiesCommand,
   ListPartnershipsCommand,
@@ -33,11 +36,14 @@ import {
   Logging,
   MappingTemplateLanguage,
   MappingType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   StartTransformerJobCommand,
   TagResourceCommand,
   TestConversionCommand,
   TestMappingCommand,
   TestParsingCommand,
+  ThrottlingException,
   ToFormat,
   TransformerJobStatus,
   TransformerStatus,
@@ -46,6 +52,7 @@ import {
   UpdatePartnershipCommand,
   UpdateProfileCommand,
   UpdateTransformerCommand,
+  ValidationException,
   WrapFormat,
   X12FunctionalAcknowledgment,
   X12GS05TimeFormat,
@@ -118,6 +125,13 @@ assert(typeof X12TechnicalAcknowledgment === "object");
 assert(typeof X12TransactionSet === "object");
 assert(typeof X12Version === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof B2biServiceException);
+assert(ConflictException.prototype instanceof B2biServiceException);
+assert(InternalServerException.prototype instanceof B2biServiceException);
+assert(ResourceNotFoundException.prototype instanceof B2biServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof B2biServiceException);
+assert(ThrottlingException.prototype instanceof B2biServiceException);
+assert(ValidationException.prototype instanceof B2biServiceException);
 assert(B2biServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForTransformerJobSucceeded === "function");

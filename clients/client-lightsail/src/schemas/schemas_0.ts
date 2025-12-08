@@ -3164,7 +3164,6 @@ export var UpdateRelationalDatabaseRequest: StaticStructureSchema = [
   [0, [() => SensitiveString, 0], 2, 0, 0, 2, 2, 2, 2, 0, 0],
 ];
 export var UpdateRelationalDatabaseResult: StaticStructureSchema = [3, n0, _URDRp, 0, [_o], [() => OperationList]];
-export var __Unit = "unit" as const;
 export var LightsailServiceException: StaticErrorSchema = [-3, _sm, "LightsailServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LightsailServiceException, __LightsailServiceException);
 export var AccessKeyList: StaticListSchema = [1, n0, _AKL, 0, [() => AccessKey, 0]];

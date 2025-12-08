@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AggregationPeriod,
   ApplicationConfigType,
   AssociateAwsAccountWithPartnerAccountCommand,
@@ -10,6 +11,7 @@ import {
   AssociateWirelessGatewayWithThingCommand,
   BatteryLevel,
   CancelMulticastGroupSessionCommand,
+  ConflictException,
   ConnectionStatus,
   CreateDestinationCommand,
   CreateDeviceProfileCommand,
@@ -85,6 +87,7 @@ import {
   GetWirelessGatewayTaskDefinitionCommand,
   IdentifierType,
   ImportTaskStatus,
+  InternalServerException,
   IoTWireless,
   IoTWirelessClient,
   IoTWirelessServiceException,
@@ -122,6 +125,7 @@ import {
   PutResourceLogLevelCommand,
   ResetAllResourceLogLevelsCommand,
   ResetResourceLogLevelCommand,
+  ResourceNotFoundException,
   SendDataToMulticastGroupCommand,
   SendDataToWirelessDeviceCommand,
   SigningAlg,
@@ -135,6 +139,8 @@ import {
   SupportedRfRegion,
   TagResourceCommand,
   TestWirelessDeviceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateDestinationCommand,
   UpdateEventConfigurationByResourceTypesCommand,
@@ -150,6 +156,7 @@ import {
   UpdateWirelessDeviceCommand,
   UpdateWirelessDeviceImportTaskCommand,
   UpdateWirelessGatewayCommand,
+  ValidationException,
   WirelessDeviceEvent,
   WirelessDeviceFrameInfo,
   WirelessDeviceIdType,
@@ -339,6 +346,13 @@ assert(typeof WirelessGatewayTaskDefinitionType === "object");
 assert(typeof WirelessGatewayTaskStatus === "object");
 assert(typeof WirelessGatewayType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IoTWirelessServiceException);
+assert(ConflictException.prototype instanceof IoTWirelessServiceException);
+assert(InternalServerException.prototype instanceof IoTWirelessServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTWirelessServiceException);
+assert(ThrottlingException.prototype instanceof IoTWirelessServiceException);
+assert(TooManyTagsException.prototype instanceof IoTWirelessServiceException);
+assert(ValidationException.prototype instanceof IoTWirelessServiceException);
 assert(IoTWirelessServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDestinations === "function");

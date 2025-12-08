@@ -1,9 +1,12 @@
 import {
   Brevity,
+  ConcurrentModificationException,
+  ConflictException,
   CreateParallelDataCommand,
   DeleteParallelDataCommand,
   DeleteTerminologyCommand,
   DescribeTextTranslationJobCommand,
+  DetectedLanguageLowConfidenceException,
   Directionality,
   DisplayLanguageCode,
   EncryptionKeyType,
@@ -11,7 +14,12 @@ import {
   GetParallelDataCommand,
   GetTerminologyCommand,
   ImportTerminologyCommand,
+  InternalServerException,
+  InvalidFilterException,
+  InvalidParameterValueException,
+  InvalidRequestException,
   JobStatus,
+  LimitExceededException,
   ListLanguagesCommand,
   ListParallelDataCommand,
   ListTagsForResourceCommand,
@@ -21,15 +29,22 @@ import {
   ParallelDataFormat,
   ParallelDataStatus,
   Profanity,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
   StartTextTranslationJobCommand,
   StopTextTranslationJobCommand,
   TagResourceCommand,
   TerminologyDataFormat,
+  TextSizeLimitExceededException,
+  TooManyRequestsException,
+  TooManyTagsException,
   Translate,
   TranslateClient,
   TranslateDocumentCommand,
   TranslateServiceException,
   TranslateTextCommand,
+  UnsupportedDisplayLanguageCodeException,
+  UnsupportedLanguagePairException,
   UntagResourceCommand,
   UpdateParallelDataCommand,
   paginateListLanguages,
@@ -74,6 +89,21 @@ assert(typeof ParallelDataStatus === "object");
 assert(typeof Profanity === "object");
 assert(typeof TerminologyDataFormat === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof TranslateServiceException);
+assert(ConflictException.prototype instanceof TranslateServiceException);
+assert(DetectedLanguageLowConfidenceException.prototype instanceof TranslateServiceException);
+assert(InternalServerException.prototype instanceof TranslateServiceException);
+assert(InvalidFilterException.prototype instanceof TranslateServiceException);
+assert(InvalidParameterValueException.prototype instanceof TranslateServiceException);
+assert(InvalidRequestException.prototype instanceof TranslateServiceException);
+assert(LimitExceededException.prototype instanceof TranslateServiceException);
+assert(ResourceNotFoundException.prototype instanceof TranslateServiceException);
+assert(ServiceUnavailableException.prototype instanceof TranslateServiceException);
+assert(TextSizeLimitExceededException.prototype instanceof TranslateServiceException);
+assert(TooManyRequestsException.prototype instanceof TranslateServiceException);
+assert(TooManyTagsException.prototype instanceof TranslateServiceException);
+assert(UnsupportedDisplayLanguageCodeException.prototype instanceof TranslateServiceException);
+assert(UnsupportedLanguagePairException.prototype instanceof TranslateServiceException);
 assert(TranslateServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListLanguages === "function");

@@ -265,7 +265,6 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
-export var __Unit = "unit" as const;
 export var BCMDataExportsServiceException: StaticErrorSchema = [-3, _sm, "BCMDataExportsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BCMDataExportsServiceException, __BCMDataExportsServiceException);
 export var ColumnList: StaticListSchema = [1, n0, _CL, 0, () => Column];

@@ -1,7 +1,11 @@
 import {
+  AccessDeniedErrorCode,
+  AccessDeniedException,
   AddAttributesToFindingsCommand,
   AgentHealth,
   AgentHealthCode,
+  AgentsAlreadyRunningAssessmentException,
+  AssessmentRunInProgressException,
   AssessmentRunNotificationSnsStatusCode,
   AssessmentRunState,
   AssetType,
@@ -28,6 +32,13 @@ import {
   InspectorClient,
   InspectorEvent,
   InspectorServiceException,
+  InternalException,
+  InvalidCrossAccountRoleErrorCode,
+  InvalidCrossAccountRoleException,
+  InvalidInputErrorCode,
+  InvalidInputException,
+  LimitExceededErrorCode,
+  LimitExceededException,
   ListAssessmentRunAgentsCommand,
   ListAssessmentRunsCommand,
   ListAssessmentTargetsCommand,
@@ -38,7 +49,10 @@ import {
   ListRulesPackagesCommand,
   ListTagsForResourceCommand,
   Locale,
+  NoSuchEntityErrorCode,
+  NoSuchEntityException,
   PreviewAgentsCommand,
+  PreviewGenerationInProgressException,
   PreviewStatus,
   RegisterCrossAccountAccessRoleCommand,
   RemoveAttributesFromFindingsCommand,
@@ -46,6 +60,7 @@ import {
   ReportStatus,
   ReportType,
   ScopeType,
+  ServiceTemporarilyUnavailableException,
   SetTagsForResourceCommand,
   Severity,
   StartAssessmentRunCommand,
@@ -53,6 +68,7 @@ import {
   StopAssessmentRunCommand,
   SubscribeToEventCommand,
   UnsubscribeFromEventCommand,
+  UnsupportedFeatureException,
   UpdateAssessmentTargetCommand,
   paginateGetExclusionsPreview,
   paginateListAssessmentRunAgents,
@@ -108,6 +124,7 @@ assert(typeof SubscribeToEventCommand === "function");
 assert(typeof UnsubscribeFromEventCommand === "function");
 assert(typeof UpdateAssessmentTargetCommand === "function");
 // enums
+assert(typeof AccessDeniedErrorCode === "object");
 assert(typeof AgentHealth === "object");
 assert(typeof AgentHealthCode === "object");
 assert(typeof AssessmentRunNotificationSnsStatusCode === "object");
@@ -115,7 +132,11 @@ assert(typeof AssessmentRunState === "object");
 assert(typeof AssetType === "object");
 assert(typeof FailedItemErrorCode === "object");
 assert(typeof InspectorEvent === "object");
+assert(typeof InvalidCrossAccountRoleErrorCode === "object");
+assert(typeof InvalidInputErrorCode === "object");
+assert(typeof LimitExceededErrorCode === "object");
 assert(typeof Locale === "object");
+assert(typeof NoSuchEntityErrorCode === "object");
 assert(typeof PreviewStatus === "object");
 assert(typeof ReportFileFormat === "object");
 assert(typeof ReportStatus === "object");
@@ -124,6 +145,17 @@ assert(typeof ScopeType === "object");
 assert(typeof Severity === "object");
 assert(typeof StopAction === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof InspectorServiceException);
+assert(AgentsAlreadyRunningAssessmentException.prototype instanceof InspectorServiceException);
+assert(AssessmentRunInProgressException.prototype instanceof InspectorServiceException);
+assert(InternalException.prototype instanceof InspectorServiceException);
+assert(InvalidCrossAccountRoleException.prototype instanceof InspectorServiceException);
+assert(InvalidInputException.prototype instanceof InspectorServiceException);
+assert(LimitExceededException.prototype instanceof InspectorServiceException);
+assert(NoSuchEntityException.prototype instanceof InspectorServiceException);
+assert(PreviewGenerationInProgressException.prototype instanceof InspectorServiceException);
+assert(ServiceTemporarilyUnavailableException.prototype instanceof InspectorServiceException);
+assert(UnsupportedFeatureException.prototype instanceof InspectorServiceException);
 assert(InspectorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetExclusionsPreview === "function");

@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AccountingMode,
   ClusterStatus,
   ComputeNodeGroupStatus,
+  ConflictException,
   CreateClusterCommand,
   CreateComputeNodeGroupCommand,
   CreateQueueCommand,
@@ -12,6 +14,7 @@ import {
   GetClusterCommand,
   GetComputeNodeGroupCommand,
   GetQueueCommand,
+  InternalServerException,
   ListClustersCommand,
   ListComputeNodeGroupsCommand,
   ListQueuesCommand,
@@ -23,15 +26,20 @@ import {
   PurchaseOption,
   QueueStatus,
   RegisterComputeNodeGroupInstanceCommand,
+  ResourceNotFoundException,
   SchedulerType,
+  ServiceQuotaExceededException,
   Size,
   SlurmRestMode,
   SpotAllocationStrategy,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateClusterCommand,
   UpdateComputeNodeGroupCommand,
   UpdateQueueCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListClusters,
   paginateListComputeNodeGroups,
   paginateListQueues,
@@ -72,7 +80,15 @@ assert(typeof SchedulerType === "object");
 assert(typeof Size === "object");
 assert(typeof SlurmRestMode === "object");
 assert(typeof SpotAllocationStrategy === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PCSServiceException);
+assert(ConflictException.prototype instanceof PCSServiceException);
+assert(InternalServerException.prototype instanceof PCSServiceException);
+assert(ResourceNotFoundException.prototype instanceof PCSServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PCSServiceException);
+assert(ThrottlingException.prototype instanceof PCSServiceException);
+assert(ValidationException.prototype instanceof PCSServiceException);
 assert(PCSServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListClusters === "function");

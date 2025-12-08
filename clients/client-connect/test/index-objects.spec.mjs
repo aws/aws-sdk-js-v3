@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AccessType,
   ActionType,
   ActivateEvaluationFormCommand,
@@ -28,6 +29,8 @@ import {
   AssociateTrafficDistributionGroupUserCommand,
   AssociateUserProficienciesCommand,
   AssociateWorkspaceCommand,
+  AttachedFileInvalidRequestExceptionReason,
+  AttachedFileServiceQuotaExceededExceptionReason,
   AutoEvaluationStatus,
   BatchAssociateAnalyticsDataSetCommand,
   BatchCreateDataTableValueCommand,
@@ -45,11 +48,14 @@ import {
   ClaimPhoneNumberCommand,
   Comparison,
   CompleteAttachedFileUploadCommand,
+  ConditionalOperationFailedException,
+  ConflictException,
   Connect,
   ConnectClient,
   ConnectServiceException,
   ContactFlowModuleState,
   ContactFlowModuleStatus,
+  ContactFlowNotPublishedException,
   ContactFlowState,
   ContactFlowStatus,
   ContactFlowType,
@@ -57,6 +63,7 @@ import {
   ContactInteractionType,
   ContactMediaProcessingFailureMode,
   ContactMetricName,
+  ContactNotFoundException,
   ContactParticipantRole,
   ContactRecordingType,
   ContactState,
@@ -168,6 +175,7 @@ import {
   DescribeViewCommand,
   DescribeVocabularyCommand,
   DescribeWorkspaceCommand,
+  DestinationNotAllowedException,
   DeviceType,
   DirectoryType,
   DisassociateAnalyticsDataSetCommand,
@@ -187,6 +195,7 @@ import {
   DisassociateUserProficienciesCommand,
   DisassociateWorkspaceCommand,
   DismissUserContactCommand,
+  DuplicateResourceException,
   EmailHeaderType,
   EncryptionType,
   EndpointType,
@@ -234,6 +243,7 @@ import {
   HierarchyGroupMatchType,
   HistoricalMetricName,
   HoursOfOperationDays,
+  IdempotencyException,
   ImportPhoneNumberCommand,
   ImportWorkspaceMediaCommand,
   InboundMessageSourceType,
@@ -243,9 +253,15 @@ import {
   InstanceStatus,
   InstanceStorageResourceType,
   IntegrationType,
+  InternalServiceException,
   IntervalPeriod,
+  InvalidContactFlowException,
+  InvalidContactFlowModuleException,
+  InvalidParameterException,
+  InvalidRequestException,
   IvrRecordingTrack,
   LexVersion,
+  LimitExceededException,
   ListAgentStatusesCommand,
   ListAnalyticsDataAssociationsCommand,
   ListAnalyticsDataLakeDataSetsCommand,
@@ -308,6 +324,7 @@ import {
   ListWorkspaceMediaCommand,
   ListWorkspacePagesCommand,
   ListWorkspacesCommand,
+  MaximumResultReturnedException,
   MediaStreamType,
   MediaType,
   MeetingFeatureStatus,
@@ -319,8 +336,10 @@ import {
   NotificationDeliveryType,
   NumberComparisonType,
   NumericQuestionPropertyAutomationLabel,
+  OutboundContactNotPermittedException,
   OutboundMessageSourceType,
   OutboundStrategyType,
+  OutputTypeNotFoundException,
   OverrideDays,
   ParticipantRole,
   ParticipantState,
@@ -332,6 +351,8 @@ import {
   PhoneNumberType,
   PhoneNumberWorkflowStatus,
   PhoneType,
+  PropertyValidationException,
+  PropertyValidationExceptionReason,
   PutUserStatusCommand,
   QuestionRuleCategoryAutomationCondition,
   QueueStatus,
@@ -350,6 +371,11 @@ import {
   RehydrationType,
   ReleasePhoneNumberCommand,
   ReplicateInstanceCommand,
+  ResourceConflictException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceNotReadyException,
+  ResourceType,
   ResponseMode,
   ResumeContactCommand,
   ResumeContactRecordingCommand,
@@ -386,6 +412,7 @@ import {
   SearchableQueueType,
   SendChatIntegrationEventCommand,
   SendOutboundEmailCommand,
+  ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomationCondition,
   SlaAssignmentType,
   SlaType,
@@ -420,7 +447,9 @@ import {
   TargetListType,
   TaskTemplateFieldType,
   TaskTemplateStatus,
+  ThrottlingException,
   TimerEligibleParticipantRoles,
+  TooManyRequestsException,
   TrafficDistributionGroupStatus,
   TrafficType,
   TransferContactCommand,
@@ -487,6 +516,7 @@ import {
   UpdateWorkspaceThemeCommand,
   UpdateWorkspaceVisibilityCommand,
   UseCaseType,
+  UserNotFoundException,
   VideoCapability,
   ViewStatus,
   ViewType,
@@ -933,6 +963,8 @@ assert(typeof AllowedUserAction === "object");
 assert(typeof AnsweringMachineDetectionStatus === "object");
 assert(typeof ApplicationType === "object");
 assert(typeof ArtifactStatus === "object");
+assert(typeof AttachedFileInvalidRequestExceptionReason === "object");
+assert(typeof AttachedFileServiceQuotaExceededExceptionReason === "object");
 assert(typeof AutoEvaluationStatus === "object");
 assert(typeof BehaviorType === "object");
 assert(typeof BooleanComparisonType === "object");
@@ -1026,6 +1058,7 @@ assert(typeof PhoneNumberCountryCode === "object");
 assert(typeof PhoneNumberType === "object");
 assert(typeof PhoneNumberWorkflowStatus === "object");
 assert(typeof PhoneType === "object");
+assert(typeof PropertyValidationExceptionReason === "object");
 assert(typeof QuestionRuleCategoryAutomationCondition === "object");
 assert(typeof QueueStatus === "object");
 assert(typeof QueueType === "object");
@@ -1041,6 +1074,7 @@ assert(typeof RecordingStatus === "object");
 assert(typeof ReferenceStatus === "object");
 assert(typeof ReferenceType === "object");
 assert(typeof RehydrationType === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ResponseMode === "object");
 assert(typeof RoutingCriteriaStepStatus === "object");
 assert(typeof RulePublishStatus === "object");
@@ -1076,6 +1110,32 @@ assert(typeof VocabularyState === "object");
 assert(typeof VoiceRecordingTrack === "object");
 assert(typeof WorkspaceFontFamily === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ConnectServiceException);
+assert(ConditionalOperationFailedException.prototype instanceof ConnectServiceException);
+assert(ConflictException.prototype instanceof ConnectServiceException);
+assert(ContactFlowNotPublishedException.prototype instanceof ConnectServiceException);
+assert(ContactNotFoundException.prototype instanceof ConnectServiceException);
+assert(DestinationNotAllowedException.prototype instanceof ConnectServiceException);
+assert(DuplicateResourceException.prototype instanceof ConnectServiceException);
+assert(IdempotencyException.prototype instanceof ConnectServiceException);
+assert(InternalServiceException.prototype instanceof ConnectServiceException);
+assert(InvalidContactFlowException.prototype instanceof ConnectServiceException);
+assert(InvalidContactFlowModuleException.prototype instanceof ConnectServiceException);
+assert(InvalidParameterException.prototype instanceof ConnectServiceException);
+assert(InvalidRequestException.prototype instanceof ConnectServiceException);
+assert(LimitExceededException.prototype instanceof ConnectServiceException);
+assert(MaximumResultReturnedException.prototype instanceof ConnectServiceException);
+assert(OutboundContactNotPermittedException.prototype instanceof ConnectServiceException);
+assert(OutputTypeNotFoundException.prototype instanceof ConnectServiceException);
+assert(PropertyValidationException.prototype instanceof ConnectServiceException);
+assert(ResourceConflictException.prototype instanceof ConnectServiceException);
+assert(ResourceInUseException.prototype instanceof ConnectServiceException);
+assert(ResourceNotFoundException.prototype instanceof ConnectServiceException);
+assert(ResourceNotReadyException.prototype instanceof ConnectServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ConnectServiceException);
+assert(ThrottlingException.prototype instanceof ConnectServiceException);
+assert(TooManyRequestsException.prototype instanceof ConnectServiceException);
+assert(UserNotFoundException.prototype instanceof ConnectServiceException);
 assert(ConnectServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateEvaluateDataTableValues === "function");

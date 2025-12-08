@@ -1,5 +1,7 @@
 import {
   AcceptEngagementInvitationCommand,
+  AccessDeniedException,
+  AccessDeniedExceptionErrorCode,
   AssignOpportunityCommand,
   AssociateOpportunityCommand,
   AwsClosedLostReason,
@@ -9,6 +11,7 @@ import {
   Channel,
   ClosedLostReason,
   CompetitorName,
+  ConflictException,
   CountryCode,
   CreateEngagementCommand,
   CreateEngagementContextCommand,
@@ -32,6 +35,7 @@ import {
   GetResourceSnapshotJobCommand,
   GetSellingSystemSettingsCommand,
   Industry,
+  InternalServerException,
   InvitationStatus,
   InvolvementTypeChangeReason,
   ListEngagementByAcceptingInvitationTasksCommand,
@@ -65,12 +69,14 @@ import {
   ReceiverResponsibility,
   RejectEngagementInvitationCommand,
   RelatedEntityType,
+  ResourceNotFoundException,
   ResourceSnapshotJobStatus,
   ResourceType,
   RevenueModel,
   ReviewStatus,
   SalesActivity,
   SalesInvolvementType,
+  ServiceQuotaExceededException,
   SolutionSortName,
   SolutionStatus,
   SortBy,
@@ -84,9 +90,13 @@ import {
   SubmitOpportunityCommand,
   TagResourceCommand,
   TaskStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateEngagementContextCommand,
   UpdateOpportunityCommand,
+  ValidationException,
+  ValidationExceptionErrorCode,
+  ValidationExceptionReason,
   Visibility,
   paginateListEngagementByAcceptingInvitationTasks,
   paginateListEngagementFromOpportunityTasks,
@@ -148,6 +158,7 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UpdateEngagementContextCommand === "function");
 assert(typeof UpdateOpportunityCommand === "function");
 // enums
+assert(typeof AccessDeniedExceptionErrorCode === "object");
 assert(typeof AwsClosedLostReason === "object");
 assert(typeof AwsFundingUsed === "object");
 assert(typeof AwsMemberBusinessTitle === "object");
@@ -191,8 +202,17 @@ assert(typeof SortBy === "object");
 assert(typeof SortOrder === "object");
 assert(typeof Stage === "object");
 assert(typeof TaskStatus === "object");
+assert(typeof ValidationExceptionErrorCode === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof Visibility === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PartnerCentralSellingServiceException);
+assert(ConflictException.prototype instanceof PartnerCentralSellingServiceException);
+assert(InternalServerException.prototype instanceof PartnerCentralSellingServiceException);
+assert(ResourceNotFoundException.prototype instanceof PartnerCentralSellingServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PartnerCentralSellingServiceException);
+assert(ThrottlingException.prototype instanceof PartnerCentralSellingServiceException);
+assert(ValidationException.prototype instanceof PartnerCentralSellingServiceException);
 assert(PartnerCentralSellingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEngagementByAcceptingInvitationTasks === "function");

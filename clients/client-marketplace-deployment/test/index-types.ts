@@ -23,5 +23,12 @@ export type {
   TagResourceResponse,
   UntagResourceRequest,
   UntagResourceResponse,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
   MarketplaceDeploymentServiceException,
 } from "../dist-types/index.d";

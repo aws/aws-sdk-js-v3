@@ -3,8 +3,12 @@ import {
   AcknowledgeThirdPartyJobCommand,
   ActionCategory,
   ActionConfigurationPropertyType,
+  ActionExecutionNotFoundException,
   ActionExecutionStatus,
+  ActionNotFoundException,
   ActionOwner,
+  ActionTypeNotFoundException,
+  ApprovalAlreadyCompletedException,
   ApprovalStatus,
   ArtifactLocationType,
   ArtifactStoreType,
@@ -12,8 +16,12 @@ import {
   CodePipeline,
   CodePipelineClient,
   CodePipelineServiceException,
+  ConcurrentModificationException,
+  ConcurrentPipelineExecutionsLimitExceededException,
   ConditionExecutionStatus,
+  ConditionNotOverridableException,
   ConditionType,
+  ConflictException,
   CreateCustomActionTypeCommand,
   CreatePipelineCommand,
   DeleteCustomActionTypeCommand,
@@ -21,6 +29,7 @@ import {
   DeleteWebhookCommand,
   DeregisterWebhookWithThirdPartyCommand,
   DisableStageTransitionCommand,
+  DuplicatedStopRequestException,
   EnableStageTransitionCommand,
   EncryptionKeyType,
   EnvironmentVariableType,
@@ -35,7 +44,23 @@ import {
   GetPipelineStateCommand,
   GetThirdPartyJobDetailsCommand,
   GitPullRequestEventType,
+  InvalidActionDeclarationException,
+  InvalidApprovalTokenException,
+  InvalidArnException,
+  InvalidBlockerDeclarationException,
+  InvalidClientTokenException,
+  InvalidJobException,
+  InvalidJobStateException,
+  InvalidNextTokenException,
+  InvalidNonceException,
+  InvalidStageDeclarationException,
+  InvalidStructureException,
+  InvalidTagsException,
+  InvalidWebhookAuthenticationParametersException,
+  InvalidWebhookFilterPatternException,
+  JobNotFoundException,
   JobStatus,
+  LimitExceededException,
   ListActionExecutionsCommand,
   ListActionTypesCommand,
   ListDeployActionExecutionTargetsCommand,
@@ -45,10 +70,18 @@ import {
   ListRuleTypesCommand,
   ListTagsForResourceCommand,
   ListWebhooksCommand,
+  NotLatestPipelineExecutionException,
+  OutputVariablesSizeExceededException,
   OverrideStageConditionCommand,
+  PipelineExecutionNotFoundException,
+  PipelineExecutionNotStoppableException,
+  PipelineExecutionOutdatedException,
   PipelineExecutionStatus,
+  PipelineNameInUseException,
+  PipelineNotFoundException,
   PipelineTriggerProviderType,
   PipelineType,
+  PipelineVersionNotFoundException,
   PollForJobsCommand,
   PollForThirdPartyJobsCommand,
   PutActionRevisionCommand,
@@ -59,6 +92,8 @@ import {
   PutThirdPartyJobSuccessResultCommand,
   PutWebhookCommand,
   RegisterWebhookWithThirdPartyCommand,
+  RequestFailedException,
+  ResourceNotFoundException,
   Result,
   RetryStageExecutionCommand,
   RetryTrigger,
@@ -69,6 +104,8 @@ import {
   RuleOwner,
   SourceRevisionType,
   StageExecutionStatus,
+  StageNotFoundException,
+  StageNotRetryableException,
   StageRetryMode,
   StageTransitionType,
   StartPipelineExecutionCommand,
@@ -76,11 +113,15 @@ import {
   StopPipelineExecutionCommand,
   TagResourceCommand,
   TargetFilterName,
+  TooManyTagsException,
   TriggerType,
+  UnableToRollbackStageException,
   UntagResourceCommand,
   UpdateActionTypeCommand,
   UpdatePipelineCommand,
+  ValidationException,
   WebhookAuthenticationType,
+  WebhookNotFoundException,
   paginateListActionExecutions,
   paginateListActionTypes,
   paginateListDeployActionExecutionTargets,
@@ -176,6 +217,47 @@ assert(typeof TargetFilterName === "object");
 assert(typeof TriggerType === "object");
 assert(typeof WebhookAuthenticationType === "object");
 // errors
+assert(ActionExecutionNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(ActionNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(ActionTypeNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(ApprovalAlreadyCompletedException.prototype instanceof CodePipelineServiceException);
+assert(ConcurrentModificationException.prototype instanceof CodePipelineServiceException);
+assert(ConcurrentPipelineExecutionsLimitExceededException.prototype instanceof CodePipelineServiceException);
+assert(ConditionNotOverridableException.prototype instanceof CodePipelineServiceException);
+assert(ConflictException.prototype instanceof CodePipelineServiceException);
+assert(DuplicatedStopRequestException.prototype instanceof CodePipelineServiceException);
+assert(InvalidActionDeclarationException.prototype instanceof CodePipelineServiceException);
+assert(InvalidApprovalTokenException.prototype instanceof CodePipelineServiceException);
+assert(InvalidArnException.prototype instanceof CodePipelineServiceException);
+assert(InvalidBlockerDeclarationException.prototype instanceof CodePipelineServiceException);
+assert(InvalidClientTokenException.prototype instanceof CodePipelineServiceException);
+assert(InvalidJobException.prototype instanceof CodePipelineServiceException);
+assert(InvalidJobStateException.prototype instanceof CodePipelineServiceException);
+assert(InvalidNextTokenException.prototype instanceof CodePipelineServiceException);
+assert(InvalidNonceException.prototype instanceof CodePipelineServiceException);
+assert(InvalidStageDeclarationException.prototype instanceof CodePipelineServiceException);
+assert(InvalidStructureException.prototype instanceof CodePipelineServiceException);
+assert(InvalidTagsException.prototype instanceof CodePipelineServiceException);
+assert(InvalidWebhookAuthenticationParametersException.prototype instanceof CodePipelineServiceException);
+assert(InvalidWebhookFilterPatternException.prototype instanceof CodePipelineServiceException);
+assert(JobNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(LimitExceededException.prototype instanceof CodePipelineServiceException);
+assert(NotLatestPipelineExecutionException.prototype instanceof CodePipelineServiceException);
+assert(OutputVariablesSizeExceededException.prototype instanceof CodePipelineServiceException);
+assert(PipelineExecutionNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(PipelineExecutionNotStoppableException.prototype instanceof CodePipelineServiceException);
+assert(PipelineExecutionOutdatedException.prototype instanceof CodePipelineServiceException);
+assert(PipelineNameInUseException.prototype instanceof CodePipelineServiceException);
+assert(PipelineNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(PipelineVersionNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(RequestFailedException.prototype instanceof CodePipelineServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(StageNotFoundException.prototype instanceof CodePipelineServiceException);
+assert(StageNotRetryableException.prototype instanceof CodePipelineServiceException);
+assert(TooManyTagsException.prototype instanceof CodePipelineServiceException);
+assert(UnableToRollbackStageException.prototype instanceof CodePipelineServiceException);
+assert(ValidationException.prototype instanceof CodePipelineServiceException);
+assert(WebhookNotFoundException.prototype instanceof CodePipelineServiceException);
 assert(CodePipelineServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListActionExecutions === "function");

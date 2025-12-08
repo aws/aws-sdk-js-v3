@@ -2,19 +2,31 @@ import {
   BatchGetSecretValueCommand,
   CancelRotateSecretCommand,
   CreateSecretCommand,
+  DecryptionFailure,
   DeleteResourcePolicyCommand,
   DeleteSecretCommand,
   DescribeSecretCommand,
+  EncryptionFailure,
   FilterNameStringType,
   GetRandomPasswordCommand,
   GetResourcePolicyCommand,
   GetSecretValueCommand,
+  InternalServiceError,
+  InvalidNextTokenException,
+  InvalidParameterException,
+  InvalidRequestException,
+  LimitExceededException,
   ListSecretVersionIdsCommand,
   ListSecretsCommand,
+  MalformedPolicyDocumentException,
+  PreconditionNotMetException,
+  PublicPolicyException,
   PutResourcePolicyCommand,
   PutSecretValueCommand,
   RemoveRegionsFromReplicationCommand,
   ReplicateSecretToRegionsCommand,
+  ResourceExistsException,
+  ResourceNotFoundException,
   RestoreSecretCommand,
   RotateSecretCommand,
   SecretsManager,
@@ -65,6 +77,18 @@ assert(typeof FilterNameStringType === "object");
 assert(typeof SortOrderType === "object");
 assert(typeof StatusType === "object");
 // errors
+assert(DecryptionFailure.prototype instanceof SecretsManagerServiceException);
+assert(EncryptionFailure.prototype instanceof SecretsManagerServiceException);
+assert(InternalServiceError.prototype instanceof SecretsManagerServiceException);
+assert(InvalidNextTokenException.prototype instanceof SecretsManagerServiceException);
+assert(InvalidParameterException.prototype instanceof SecretsManagerServiceException);
+assert(InvalidRequestException.prototype instanceof SecretsManagerServiceException);
+assert(LimitExceededException.prototype instanceof SecretsManagerServiceException);
+assert(MalformedPolicyDocumentException.prototype instanceof SecretsManagerServiceException);
+assert(PreconditionNotMetException.prototype instanceof SecretsManagerServiceException);
+assert(PublicPolicyException.prototype instanceof SecretsManagerServiceException);
+assert(ResourceExistsException.prototype instanceof SecretsManagerServiceException);
+assert(ResourceNotFoundException.prototype instanceof SecretsManagerServiceException);
 assert(SecretsManagerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateBatchGetSecretValue === "function");

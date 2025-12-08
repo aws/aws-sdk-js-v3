@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   AssociateSourceNetworkStackCommand,
+  ConflictException,
   CreateExtendedSourceServerCommand,
   CreateLaunchConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommand,
@@ -39,6 +41,7 @@ import {
   GetReplicationConfigurationCommand,
   InitializeServiceCommand,
   InitiatedBy,
+  InternalServerException,
   JobLogEvent,
   JobStatus,
   JobType,
@@ -69,8 +72,10 @@ import {
   ReplicationConfigurationReplicatedDiskStagingDiskType,
   ReplicationDirection,
   ReplicationStatus,
+  ResourceNotFoundException,
   RetryDataReplicationCommand,
   ReverseReplicationCommand,
+  ServiceQuotaExceededException,
   StartFailbackLaunchCommand,
   StartRecoveryCommand,
   StartReplicationCommand,
@@ -82,12 +87,16 @@ import {
   TagResourceCommand,
   TargetInstanceTypeRightSizingMethod,
   TerminateRecoveryInstancesCommand,
+  ThrottlingException,
+  UninitializedAccountException,
   UntagResourceCommand,
   UpdateFailbackReplicationConfigurationCommand,
   UpdateLaunchConfigurationCommand,
   UpdateLaunchConfigurationTemplateCommand,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationTemplateCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VolumeStatus,
   paginateDescribeJobLogItems,
   paginateDescribeJobs,
@@ -193,8 +202,17 @@ assert(typeof ReplicationConfigurationReplicatedDiskStagingDiskType === "object"
 assert(typeof ReplicationDirection === "object");
 assert(typeof ReplicationStatus === "object");
 assert(typeof TargetInstanceTypeRightSizingMethod === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VolumeStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DrsServiceException);
+assert(ConflictException.prototype instanceof DrsServiceException);
+assert(InternalServerException.prototype instanceof DrsServiceException);
+assert(ResourceNotFoundException.prototype instanceof DrsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DrsServiceException);
+assert(ThrottlingException.prototype instanceof DrsServiceException);
+assert(UninitializedAccountException.prototype instanceof DrsServiceException);
+assert(ValidationException.prototype instanceof DrsServiceException);
 assert(DrsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeJobLogItems === "function");

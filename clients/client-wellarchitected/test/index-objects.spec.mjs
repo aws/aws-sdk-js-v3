@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AccountJiraIssueManagementStatus,
   AdditionalResourceType,
   AnswerReason,
@@ -9,6 +10,7 @@ import {
   CheckStatus,
   ChoiceReason,
   ChoiceStatus,
+  ConflictException,
   CreateLensShareCommand,
   CreateLensVersionCommand,
   CreateMilestoneCommand,
@@ -51,6 +53,7 @@ import {
   IntegratingService,
   IntegrationStatus,
   IntegrationStatusInput,
+  InternalServerException,
   IssueManagementType,
   LensStatus,
   LensStatusType,
@@ -84,13 +87,16 @@ import {
   QuestionPriority,
   QuestionType,
   ReportFormat,
+  ResourceNotFoundException,
   ReviewTemplateAnswerStatus,
   ReviewTemplateUpdateStatus,
   Risk,
+  ServiceQuotaExceededException,
   ShareInvitationAction,
   ShareResourceType,
   ShareStatus,
   TagResourceCommand,
+  ThrottlingException,
   TrustedAdvisorIntegrationStatus,
   UntagResourceCommand,
   UpdateAnswerCommand,
@@ -107,6 +113,8 @@ import {
   UpgradeLensReviewCommand,
   UpgradeProfileVersionCommand,
   UpgradeReviewTemplateLensReviewCommand,
+  ValidationException,
+  ValidationExceptionReason,
   WellArchitected,
   WellArchitectedClient,
   WellArchitectedServiceException,
@@ -247,10 +255,18 @@ assert(typeof ShareInvitationAction === "object");
 assert(typeof ShareResourceType === "object");
 assert(typeof ShareStatus === "object");
 assert(typeof TrustedAdvisorIntegrationStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WorkloadEnvironment === "object");
 assert(typeof WorkloadImprovementStatus === "object");
 assert(typeof WorkloadIssueManagementStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof WellArchitectedServiceException);
+assert(ConflictException.prototype instanceof WellArchitectedServiceException);
+assert(InternalServerException.prototype instanceof WellArchitectedServiceException);
+assert(ResourceNotFoundException.prototype instanceof WellArchitectedServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof WellArchitectedServiceException);
+assert(ThrottlingException.prototype instanceof WellArchitectedServiceException);
+assert(ValidationException.prototype instanceof WellArchitectedServiceException);
 assert(WellArchitectedServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetConsolidatedReport === "function");

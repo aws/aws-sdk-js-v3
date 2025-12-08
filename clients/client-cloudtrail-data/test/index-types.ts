@@ -10,5 +10,11 @@ export type {
   PutAuditEventsRequest,
   PutAuditEventsResponse,
   ResultErrorEntry,
+  ChannelInsufficientPermission,
+  ChannelNotFound,
+  ChannelUnsupportedSchema,
+  DuplicatedAuditEventId,
+  InvalidChannelARN,
+  UnsupportedOperationException,
   CloudTrailDataServiceException,
 } from "../dist-types/index.d";

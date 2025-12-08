@@ -1,15 +1,21 @@
 import {
   AcceptConnectionInvitationCommand,
+  AccessDeniedException,
+  AccessDeniedExceptionReason,
   AccessType,
   AssociateAwsTrainingCertificationEmailDomainCommand,
+  BusinessValidationCode,
   CancelConnectionCommand,
   CancelConnectionInvitationCommand,
   CancelProfileUpdateTaskCommand,
+  ConflictException,
+  ConflictExceptionReason,
   ConnectionType,
   ConnectionTypeStatus,
   CreateConnectionInvitationCommand,
   CreatePartnerCommand,
   DisassociateAwsTrainingCertificationEmailDomainCommand,
+  FieldValidationCode,
   GetAllianceLeadContactCommand,
   GetConnectionCommand,
   GetConnectionInvitationCommand,
@@ -19,6 +25,7 @@ import {
   GetProfileVisibilityCommand,
   GetVerificationCommand,
   IndustrySegment,
+  InternalServerException,
   InvitationStatus,
   ListConnectionInvitationsCommand,
   ListConnectionsCommand,
@@ -35,12 +42,19 @@ import {
   PutAllianceLeadContactCommand,
   PutProfileVisibilityCommand,
   RejectConnectionInvitationCommand,
+  ResourceNotFoundException,
+  ResourceNotFoundExceptionReason,
   SendEmailVerificationCodeCommand,
+  ServiceQuotaExceededException,
+  ServiceQuotaExceededExceptionReason,
   StartProfileUpdateTaskCommand,
   StartVerificationCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateConnectionPreferencesCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VerificationStatus,
   VerificationType,
   paginateListConnectionInvitations,
@@ -82,9 +96,13 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UpdateConnectionPreferencesCommand === "function");
 // enums
+assert(typeof AccessDeniedExceptionReason === "object");
 assert(typeof AccessType === "object");
+assert(typeof BusinessValidationCode === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof ConnectionType === "object");
 assert(typeof ConnectionTypeStatus === "object");
+assert(typeof FieldValidationCode === "object");
 assert(typeof IndustrySegment === "object");
 assert(typeof InvitationStatus === "object");
 assert(typeof ParticipantType === "object");
@@ -92,9 +110,19 @@ assert(typeof PrimarySolutionType === "object");
 assert(typeof ProfileTaskStatus === "object");
 assert(typeof ProfileValidationErrorReason === "object");
 assert(typeof ProfileVisibility === "object");
+assert(typeof ResourceNotFoundExceptionReason === "object");
+assert(typeof ServiceQuotaExceededExceptionReason === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VerificationStatus === "object");
 assert(typeof VerificationType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PartnerCentralAccountServiceException);
+assert(ConflictException.prototype instanceof PartnerCentralAccountServiceException);
+assert(InternalServerException.prototype instanceof PartnerCentralAccountServiceException);
+assert(ResourceNotFoundException.prototype instanceof PartnerCentralAccountServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PartnerCentralAccountServiceException);
+assert(ThrottlingException.prototype instanceof PartnerCentralAccountServiceException);
+assert(ValidationException.prototype instanceof PartnerCentralAccountServiceException);
 assert(PartnerCentralAccountServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListConnectionInvitations === "function");

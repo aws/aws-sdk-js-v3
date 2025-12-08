@@ -517,5 +517,7 @@ export type {
   UpdateThingRuntimeConfigurationRequest,
   UpdateThingRuntimeConfigurationResponse,
   VersionInformation,
+  BadRequestException,
+  InternalServerErrorException,
   GreengrassServiceException,
 } from "../dist-types/index.d";

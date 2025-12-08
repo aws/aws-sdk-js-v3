@@ -1406,7 +1406,6 @@ export var ValidateStateMachineDefinitionOutput: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _rea], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var SFNServiceException: StaticErrorSchema = [-3, _sm, "SFNServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SFNServiceException, __SFNServiceException);
 export var ActivityList: StaticListSchema = [1, n0, _AL, 0, () => ActivityListItem];

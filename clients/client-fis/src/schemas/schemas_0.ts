@@ -1020,7 +1020,6 @@ export var ValidationException: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var FisServiceException: StaticErrorSchema = [-3, _sm, "FisServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FisServiceException, __FisServiceException);
 export var ActionSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ActionSummary];

@@ -1,8 +1,10 @@
 import {
   AcceptMarketplaceRegistrationCommand,
   Access,
+  AccessDeniedException,
   AssociateIamRoleToResourceCommand,
   ComputeModel,
+  ConflictException,
   CreateCloudAutonomousVmClusterCommand,
   CreateCloudExadataInfrastructureCommand,
   CreateCloudVmClusterCommand,
@@ -30,6 +32,7 @@ import {
   GetOdbPeeringConnectionCommand,
   IamRoleStatus,
   InitializeServiceCommand,
+  InternalServerException,
   IormLifecycleState,
   LicenseModel,
   ListAutonomousVirtualMachinesCommand,
@@ -54,16 +57,21 @@ import {
   PatchingModeType,
   PreferenceType,
   RebootDbNodeCommand,
+  ResourceNotFoundException,
   ResourceStatus,
+  ServiceQuotaExceededException,
   ShapeType,
   StartDbNodeCommand,
   StopDbNodeCommand,
   SupportedAwsIntegration,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateCloudExadataInfrastructureCommand,
   UpdateOdbNetworkCommand,
   UpdateOdbPeeringConnectionCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VpcEndpointType,
   paginateListAutonomousVirtualMachines,
   paginateListCloudAutonomousVmClusters,
@@ -145,8 +153,16 @@ assert(typeof PreferenceType === "object");
 assert(typeof ResourceStatus === "object");
 assert(typeof ShapeType === "object");
 assert(typeof SupportedAwsIntegration === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VpcEndpointType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof OdbServiceException);
+assert(ConflictException.prototype instanceof OdbServiceException);
+assert(InternalServerException.prototype instanceof OdbServiceException);
+assert(ResourceNotFoundException.prototype instanceof OdbServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof OdbServiceException);
+assert(ThrottlingException.prototype instanceof OdbServiceException);
+assert(ValidationException.prototype instanceof OdbServiceException);
 assert(OdbServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAutonomousVirtualMachines === "function");

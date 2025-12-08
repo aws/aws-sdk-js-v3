@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AccountPlanStatus,
   AccountPlanType,
   ActivityStatus,
@@ -10,10 +11,14 @@ import {
   GetAccountActivityCommand,
   GetAccountPlanStateCommand,
   GetFreeTierUsageCommand,
+  InternalServerException,
   LanguageCode,
   ListAccountActivitiesCommand,
   MatchOption,
+  ResourceNotFoundException,
+  ThrottlingException,
   UpgradeAccountPlanCommand,
+  ValidationException,
   paginateGetFreeTierUsage,
   paginateListAccountActivities,
 } from "../dist-cjs/index.js";
@@ -36,6 +41,11 @@ assert(typeof Dimension === "object");
 assert(typeof LanguageCode === "object");
 assert(typeof MatchOption === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof FreeTierServiceException);
+assert(InternalServerException.prototype instanceof FreeTierServiceException);
+assert(ResourceNotFoundException.prototype instanceof FreeTierServiceException);
+assert(ThrottlingException.prototype instanceof FreeTierServiceException);
+assert(ValidationException.prototype instanceof FreeTierServiceException);
 assert(FreeTierServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetFreeTierUsage === "function");

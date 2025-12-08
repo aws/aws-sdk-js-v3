@@ -1,7 +1,11 @@
 import {
+  AccessDeniedException,
   ApiCacheStatus,
   ApiCacheType,
   ApiCachingBehavior,
+  ApiKeyLimitExceededException,
+  ApiKeyValidityOutOfBoundsException,
+  ApiLimitExceededException,
   AppSync,
   AppSyncClient,
   AppSyncServiceException,
@@ -11,8 +15,12 @@ import {
   AssociationStatus,
   AuthenticationType,
   AuthorizationType,
+  BadRequestException,
+  BadRequestReason,
   CacheHealthMetricsConfig,
+  ConcurrentModificationException,
   ConflictDetectionType,
+  ConflictException,
   ConflictHandlerType,
   CreateApiCacheCommand,
   CreateApiCommand,
@@ -65,8 +73,11 @@ import {
   GraphQLApiIntrospectionConfig,
   GraphQLApiType,
   GraphQLApiVisibility,
+  GraphQLSchemaException,
   HandlerBehavior,
+  InternalFailureException,
   InvokeType,
+  LimitExceededException,
   ListApiKeysCommand,
   ListApisCommand,
   ListChannelNamespacesCommand,
@@ -81,6 +92,7 @@ import {
   ListTypesByAssociationCommand,
   ListTypesCommand,
   MergeType,
+  NotFoundException,
   OperationLevelMetricsConfig,
   OutputType,
   Ownership,
@@ -91,12 +103,14 @@ import {
   ResolverLevelMetricsConfig,
   RuntimeName,
   SchemaStatus,
+  ServiceQuotaExceededException,
   SourceApiAssociationStatus,
   StartDataSourceIntrospectionCommand,
   StartSchemaCreationCommand,
   StartSchemaMergeCommand,
   TagResourceCommand,
   TypeDefinitionFormat,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateApiCacheCommand,
   UpdateApiCommand,
@@ -208,6 +222,7 @@ assert(typeof ApiCachingBehavior === "object");
 assert(typeof AssociationStatus === "object");
 assert(typeof AuthenticationType === "object");
 assert(typeof AuthorizationType === "object");
+assert(typeof BadRequestReason === "object");
 assert(typeof CacheHealthMetricsConfig === "object");
 assert(typeof ConflictDetectionType === "object");
 assert(typeof ConflictHandlerType === "object");
@@ -236,6 +251,19 @@ assert(typeof SchemaStatus === "object");
 assert(typeof SourceApiAssociationStatus === "object");
 assert(typeof TypeDefinitionFormat === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AppSyncServiceException);
+assert(ApiKeyLimitExceededException.prototype instanceof AppSyncServiceException);
+assert(ApiKeyValidityOutOfBoundsException.prototype instanceof AppSyncServiceException);
+assert(ApiLimitExceededException.prototype instanceof AppSyncServiceException);
+assert(BadRequestException.prototype instanceof AppSyncServiceException);
+assert(ConcurrentModificationException.prototype instanceof AppSyncServiceException);
+assert(ConflictException.prototype instanceof AppSyncServiceException);
+assert(GraphQLSchemaException.prototype instanceof AppSyncServiceException);
+assert(InternalFailureException.prototype instanceof AppSyncServiceException);
+assert(LimitExceededException.prototype instanceof AppSyncServiceException);
+assert(NotFoundException.prototype instanceof AppSyncServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AppSyncServiceException);
+assert(UnauthorizedException.prototype instanceof AppSyncServiceException);
 assert(AppSyncServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApiKeys === "function");

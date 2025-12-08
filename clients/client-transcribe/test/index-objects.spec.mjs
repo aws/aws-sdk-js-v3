@@ -1,9 +1,11 @@
 import {
+  BadRequestException,
   BaseModelName,
   CLMLanguageCode,
   CallAnalyticsFeature,
   CallAnalyticsJobStatus,
   CallAnalyticsSkippedReasonCode,
+  ConflictException,
   CreateCallAnalyticsCategoryCommand,
   CreateLanguageModelCommand,
   CreateMedicalVocabularyCommand,
@@ -28,7 +30,9 @@ import {
   GetVocabularyCommand,
   GetVocabularyFilterCommand,
   InputType,
+  InternalFailureException,
   LanguageCode,
+  LimitExceededException,
   ListCallAnalyticsCategoriesCommand,
   ListCallAnalyticsJobsCommand,
   ListLanguageModelsCommand,
@@ -46,6 +50,7 @@ import {
   MedicalScribeNoteTemplate,
   MedicalScribeParticipantRole,
   ModelStatus,
+  NotFoundException,
   OutputLocationType,
   ParticipantRole,
   PiiEntityType,
@@ -163,6 +168,11 @@ assert(typeof Type === "object");
 assert(typeof VocabularyFilterMethod === "object");
 assert(typeof VocabularyState === "object");
 // errors
+assert(BadRequestException.prototype instanceof TranscribeServiceException);
+assert(ConflictException.prototype instanceof TranscribeServiceException);
+assert(InternalFailureException.prototype instanceof TranscribeServiceException);
+assert(LimitExceededException.prototype instanceof TranscribeServiceException);
+assert(NotFoundException.prototype instanceof TranscribeServiceException);
 assert(TranscribeServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCallAnalyticsCategories === "function");

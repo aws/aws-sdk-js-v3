@@ -1,19 +1,33 @@
 import {
+  AccessDeniedException,
   AccessRequestStatus,
   AccessType,
   AddTagsToResourceCommand,
+  AlreadyExistsException,
   AssociateOpsItemRelatedItemCommand,
+  AssociatedInstances,
+  AssociationAlreadyExists,
   AssociationComplianceSeverity,
+  AssociationDoesNotExist,
+  AssociationExecutionDoesNotExist,
   AssociationExecutionFilterKey,
   AssociationExecutionTargetsFilterKey,
   AssociationFilterKey,
   AssociationFilterOperatorType,
+  AssociationLimitExceeded,
   AssociationStatusName,
   AssociationSyncCompliance,
+  AssociationVersionLimitExceeded,
   AttachmentHashType,
   AttachmentsSourceKey,
+  AutomationDefinitionNotApprovedException,
+  AutomationDefinitionNotFoundException,
+  AutomationDefinitionVersionNotFoundException,
   AutomationExecutionFilterKey,
+  AutomationExecutionLimitExceededException,
+  AutomationExecutionNotFoundException,
   AutomationExecutionStatus,
+  AutomationStepNotFoundException,
   AutomationSubtype,
   AutomationType,
   CalendarState,
@@ -26,6 +40,7 @@ import {
   ComplianceQueryOperatorType,
   ComplianceSeverity,
   ComplianceStatus,
+  ComplianceTypeCountLimitExceededException,
   ComplianceUploadType,
   ConnectionStatus,
   CreateActivationCommand,
@@ -37,6 +52,7 @@ import {
   CreateOpsMetadataCommand,
   CreatePatchBaselineCommand,
   CreateResourceDataSyncCommand,
+  CustomSchemaCountLimitExceededException,
   DeleteActivationCommand,
   DeleteAssociationCommand,
   DeleteDocumentCommand,
@@ -88,20 +104,29 @@ import {
   DescribePatchPropertiesCommand,
   DescribeSessionsCommand,
   DisassociateOpsItemRelatedItemCommand,
+  DocumentAlreadyExists,
   DocumentFilterKey,
   DocumentFormat,
   DocumentHashType,
+  DocumentLimitExceeded,
   DocumentMetadataEnum,
   DocumentParameterType,
+  DocumentPermissionLimit,
   DocumentPermissionType,
   DocumentReviewAction,
   DocumentReviewCommentType,
   DocumentStatus,
   DocumentType,
+  DocumentVersionLimitExceeded,
+  DoesNotExistException,
+  DuplicateDocumentContent,
+  DuplicateDocumentVersionName,
+  DuplicateInstanceId,
   ExecutionMode,
   ExecutionPreviewStatus,
   ExternalAlarmState,
   Fault,
+  FeatureNotAvailableException,
   GetAccessTokenCommand,
   GetAutomationExecutionCommand,
   GetCalendarStateCommand,
@@ -129,15 +154,73 @@ import {
   GetPatchBaselineForPatchGroupCommand,
   GetResourcePoliciesCommand,
   GetServiceSettingCommand,
+  HierarchyLevelLimitExceededException,
+  HierarchyTypeMismatchException,
+  IdempotentParameterMismatch,
   ImpactType,
+  IncompatiblePolicyException,
   InstanceInformationFilterKey,
   InstancePatchStateOperatorType,
   InstancePropertyFilterKey,
   InstancePropertyFilterOperator,
+  InternalServerError,
+  InvalidActivation,
+  InvalidActivationId,
+  InvalidAggregatorException,
+  InvalidAllowedPatternException,
+  InvalidAssociation,
+  InvalidAssociationVersion,
+  InvalidAutomationExecutionParametersException,
+  InvalidAutomationSignalException,
+  InvalidAutomationStatusUpdateException,
+  InvalidCommandId,
+  InvalidDeleteInventoryParametersException,
+  InvalidDeletionIdException,
+  InvalidDocument,
+  InvalidDocumentContent,
+  InvalidDocumentOperation,
+  InvalidDocumentSchemaVersion,
+  InvalidDocumentType,
+  InvalidDocumentVersion,
+  InvalidFilter,
+  InvalidFilterKey,
+  InvalidFilterOption,
+  InvalidFilterValue,
+  InvalidInstanceId,
+  InvalidInstanceInformationFilterValue,
+  InvalidInstancePropertyFilterValue,
+  InvalidInventoryGroupException,
+  InvalidInventoryItemContextException,
+  InvalidInventoryRequestException,
+  InvalidItemContentException,
+  InvalidKeyId,
+  InvalidNextToken,
+  InvalidNotificationConfig,
+  InvalidOptionException,
+  InvalidOutputFolder,
+  InvalidOutputLocation,
+  InvalidParameters,
+  InvalidPermissionType,
+  InvalidPluginName,
+  InvalidPolicyAttributeException,
+  InvalidPolicyTypeException,
+  InvalidResourceId,
+  InvalidResourceType,
+  InvalidResultAttributeException,
+  InvalidRole,
+  InvalidSchedule,
+  InvalidTag,
+  InvalidTarget,
+  InvalidTargetMaps,
+  InvalidTypeNameException,
+  InvalidUpdate,
   InventoryAttributeDataType,
   InventoryDeletionStatus,
   InventoryQueryOperatorType,
   InventorySchemaDeleteOption,
+  InvocationDoesNotExist,
+  ItemContentMismatchException,
+  ItemSizeLimitExceededException,
   LabelParameterVersionCommand,
   LastResourceDataSyncStatus,
   ListAssociationVersionsCommand,
@@ -162,8 +245,11 @@ import {
   MaintenanceWindowResourceType,
   MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskType,
+  MalformedResourcePolicyDocumentException,
   ManagedStatus,
+  MaxDocumentSizeExceeded,
   ModifyDocumentPermissionCommand,
+  NoLongerSupportedException,
   NodeAggregatorType,
   NodeAttributeName,
   NodeFilterKey,
@@ -173,16 +259,37 @@ import {
   NotificationType,
   OperatingSystem,
   OpsFilterOperatorType,
+  OpsItemAccessDeniedException,
+  OpsItemAlreadyExistsException,
+  OpsItemConflictException,
   OpsItemDataType,
   OpsItemEventFilterKey,
   OpsItemEventFilterOperator,
   OpsItemFilterKey,
   OpsItemFilterOperator,
+  OpsItemInvalidParameterException,
+  OpsItemLimitExceededException,
+  OpsItemNotFoundException,
+  OpsItemRelatedItemAlreadyExistsException,
+  OpsItemRelatedItemAssociationNotFoundException,
   OpsItemRelatedItemsFilterKey,
   OpsItemRelatedItemsFilterOperator,
   OpsItemStatus,
+  OpsMetadataAlreadyExistsException,
+  OpsMetadataInvalidArgumentException,
+  OpsMetadataKeyLimitExceededException,
+  OpsMetadataLimitExceededException,
+  OpsMetadataNotFoundException,
+  OpsMetadataTooManyUpdatesException,
+  ParameterAlreadyExists,
+  ParameterLimitExceeded,
+  ParameterMaxVersionLimitExceeded,
+  ParameterNotFound,
+  ParameterPatternMismatchException,
   ParameterTier,
   ParameterType,
+  ParameterVersionLabelLimitExceeded,
+  ParameterVersionNotFound,
   ParametersFilterKey,
   PatchAction,
   PatchComplianceDataState,
@@ -195,6 +302,7 @@ import {
   PatchSet,
   PingStatus,
   PlatformType,
+  PoliciesLimitExceededException,
   PutComplianceItemsCommand,
   PutInventoryCommand,
   PutParameterCommand,
@@ -206,7 +314,19 @@ import {
   RegisterTaskWithMaintenanceWindowCommand,
   RemoveTagsFromResourceCommand,
   ResetServiceSettingCommand,
+  ResourceDataSyncAlreadyExistsException,
+  ResourceDataSyncConflictException,
+  ResourceDataSyncCountExceededException,
+  ResourceDataSyncInvalidConfigurationException,
+  ResourceDataSyncNotFoundException,
   ResourceDataSyncS3Format,
+  ResourceInUseException,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
+  ResourcePolicyConflictException,
+  ResourcePolicyInvalidParameterException,
+  ResourcePolicyLimitExceededException,
+  ResourcePolicyNotFoundException,
   ResourceType,
   ResourceTypeForTagging,
   ResumeSessionCommand,
@@ -216,6 +336,8 @@ import {
   SSMServiceException,
   SendAutomationSignalCommand,
   SendCommandCommand,
+  ServiceQuotaExceededException,
+  ServiceSettingNotFound,
   SessionFilterKey,
   SessionState,
   SessionStatus,
@@ -227,11 +349,27 @@ import {
   StartChangeRequestExecutionCommand,
   StartExecutionPreviewCommand,
   StartSessionCommand,
+  StatusUnchanged,
   StepExecutionFilterKey,
   StopAutomationExecutionCommand,
   StopType,
+  SubTypeCountLimitExceededException,
+  TargetInUseException,
+  TargetNotConnected,
   TerminateSessionCommand,
+  ThrottlingException,
+  TooManyTagsError,
+  TooManyUpdates,
+  TotalSizeLimitExceededException,
   UnlabelParameterVersionCommand,
+  UnsupportedCalendarException,
+  UnsupportedFeatureRequiredException,
+  UnsupportedInventoryItemContextException,
+  UnsupportedInventorySchemaVersionException,
+  UnsupportedOperatingSystem,
+  UnsupportedOperationException,
+  UnsupportedParameterType,
+  UnsupportedPlatformType,
   UpdateAssociationCommand,
   UpdateAssociationStatusCommand,
   UpdateDocumentCommand,
@@ -246,6 +384,7 @@ import {
   UpdatePatchBaselineCommand,
   UpdateResourceDataSyncCommand,
   UpdateServiceSettingCommand,
+  ValidationException,
   paginateDescribeActivations,
   paginateDescribeAssociationExecutionTargets,
   paginateDescribeAssociationExecutions,
@@ -550,6 +689,145 @@ assert(typeof SourceType === "object");
 assert(typeof StepExecutionFilterKey === "object");
 assert(typeof StopType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SSMServiceException);
+assert(AlreadyExistsException.prototype instanceof SSMServiceException);
+assert(AssociatedInstances.prototype instanceof SSMServiceException);
+assert(AssociationAlreadyExists.prototype instanceof SSMServiceException);
+assert(AssociationDoesNotExist.prototype instanceof SSMServiceException);
+assert(AssociationExecutionDoesNotExist.prototype instanceof SSMServiceException);
+assert(AssociationLimitExceeded.prototype instanceof SSMServiceException);
+assert(AssociationVersionLimitExceeded.prototype instanceof SSMServiceException);
+assert(AutomationDefinitionNotApprovedException.prototype instanceof SSMServiceException);
+assert(AutomationDefinitionNotFoundException.prototype instanceof SSMServiceException);
+assert(AutomationDefinitionVersionNotFoundException.prototype instanceof SSMServiceException);
+assert(AutomationExecutionLimitExceededException.prototype instanceof SSMServiceException);
+assert(AutomationExecutionNotFoundException.prototype instanceof SSMServiceException);
+assert(AutomationStepNotFoundException.prototype instanceof SSMServiceException);
+assert(ComplianceTypeCountLimitExceededException.prototype instanceof SSMServiceException);
+assert(CustomSchemaCountLimitExceededException.prototype instanceof SSMServiceException);
+assert(DocumentAlreadyExists.prototype instanceof SSMServiceException);
+assert(DocumentLimitExceeded.prototype instanceof SSMServiceException);
+assert(DocumentPermissionLimit.prototype instanceof SSMServiceException);
+assert(DocumentVersionLimitExceeded.prototype instanceof SSMServiceException);
+assert(DoesNotExistException.prototype instanceof SSMServiceException);
+assert(DuplicateDocumentContent.prototype instanceof SSMServiceException);
+assert(DuplicateDocumentVersionName.prototype instanceof SSMServiceException);
+assert(DuplicateInstanceId.prototype instanceof SSMServiceException);
+assert(FeatureNotAvailableException.prototype instanceof SSMServiceException);
+assert(HierarchyLevelLimitExceededException.prototype instanceof SSMServiceException);
+assert(HierarchyTypeMismatchException.prototype instanceof SSMServiceException);
+assert(IdempotentParameterMismatch.prototype instanceof SSMServiceException);
+assert(IncompatiblePolicyException.prototype instanceof SSMServiceException);
+assert(InternalServerError.prototype instanceof SSMServiceException);
+assert(InvalidActivation.prototype instanceof SSMServiceException);
+assert(InvalidActivationId.prototype instanceof SSMServiceException);
+assert(InvalidAggregatorException.prototype instanceof SSMServiceException);
+assert(InvalidAllowedPatternException.prototype instanceof SSMServiceException);
+assert(InvalidAssociation.prototype instanceof SSMServiceException);
+assert(InvalidAssociationVersion.prototype instanceof SSMServiceException);
+assert(InvalidAutomationExecutionParametersException.prototype instanceof SSMServiceException);
+assert(InvalidAutomationSignalException.prototype instanceof SSMServiceException);
+assert(InvalidAutomationStatusUpdateException.prototype instanceof SSMServiceException);
+assert(InvalidCommandId.prototype instanceof SSMServiceException);
+assert(InvalidDeleteInventoryParametersException.prototype instanceof SSMServiceException);
+assert(InvalidDeletionIdException.prototype instanceof SSMServiceException);
+assert(InvalidDocument.prototype instanceof SSMServiceException);
+assert(InvalidDocumentContent.prototype instanceof SSMServiceException);
+assert(InvalidDocumentOperation.prototype instanceof SSMServiceException);
+assert(InvalidDocumentSchemaVersion.prototype instanceof SSMServiceException);
+assert(InvalidDocumentType.prototype instanceof SSMServiceException);
+assert(InvalidDocumentVersion.prototype instanceof SSMServiceException);
+assert(InvalidFilter.prototype instanceof SSMServiceException);
+assert(InvalidFilterKey.prototype instanceof SSMServiceException);
+assert(InvalidFilterOption.prototype instanceof SSMServiceException);
+assert(InvalidFilterValue.prototype instanceof SSMServiceException);
+assert(InvalidInstanceId.prototype instanceof SSMServiceException);
+assert(InvalidInstanceInformationFilterValue.prototype instanceof SSMServiceException);
+assert(InvalidInstancePropertyFilterValue.prototype instanceof SSMServiceException);
+assert(InvalidInventoryGroupException.prototype instanceof SSMServiceException);
+assert(InvalidInventoryItemContextException.prototype instanceof SSMServiceException);
+assert(InvalidInventoryRequestException.prototype instanceof SSMServiceException);
+assert(InvalidItemContentException.prototype instanceof SSMServiceException);
+assert(InvalidKeyId.prototype instanceof SSMServiceException);
+assert(InvalidNextToken.prototype instanceof SSMServiceException);
+assert(InvalidNotificationConfig.prototype instanceof SSMServiceException);
+assert(InvalidOptionException.prototype instanceof SSMServiceException);
+assert(InvalidOutputFolder.prototype instanceof SSMServiceException);
+assert(InvalidOutputLocation.prototype instanceof SSMServiceException);
+assert(InvalidParameters.prototype instanceof SSMServiceException);
+assert(InvalidPermissionType.prototype instanceof SSMServiceException);
+assert(InvalidPluginName.prototype instanceof SSMServiceException);
+assert(InvalidPolicyAttributeException.prototype instanceof SSMServiceException);
+assert(InvalidPolicyTypeException.prototype instanceof SSMServiceException);
+assert(InvalidResourceId.prototype instanceof SSMServiceException);
+assert(InvalidResourceType.prototype instanceof SSMServiceException);
+assert(InvalidResultAttributeException.prototype instanceof SSMServiceException);
+assert(InvalidRole.prototype instanceof SSMServiceException);
+assert(InvalidSchedule.prototype instanceof SSMServiceException);
+assert(InvalidTag.prototype instanceof SSMServiceException);
+assert(InvalidTarget.prototype instanceof SSMServiceException);
+assert(InvalidTargetMaps.prototype instanceof SSMServiceException);
+assert(InvalidTypeNameException.prototype instanceof SSMServiceException);
+assert(InvalidUpdate.prototype instanceof SSMServiceException);
+assert(InvocationDoesNotExist.prototype instanceof SSMServiceException);
+assert(ItemContentMismatchException.prototype instanceof SSMServiceException);
+assert(ItemSizeLimitExceededException.prototype instanceof SSMServiceException);
+assert(MalformedResourcePolicyDocumentException.prototype instanceof SSMServiceException);
+assert(MaxDocumentSizeExceeded.prototype instanceof SSMServiceException);
+assert(NoLongerSupportedException.prototype instanceof SSMServiceException);
+assert(OpsItemAccessDeniedException.prototype instanceof SSMServiceException);
+assert(OpsItemAlreadyExistsException.prototype instanceof SSMServiceException);
+assert(OpsItemConflictException.prototype instanceof SSMServiceException);
+assert(OpsItemInvalidParameterException.prototype instanceof SSMServiceException);
+assert(OpsItemLimitExceededException.prototype instanceof SSMServiceException);
+assert(OpsItemNotFoundException.prototype instanceof SSMServiceException);
+assert(OpsItemRelatedItemAlreadyExistsException.prototype instanceof SSMServiceException);
+assert(OpsItemRelatedItemAssociationNotFoundException.prototype instanceof SSMServiceException);
+assert(OpsMetadataAlreadyExistsException.prototype instanceof SSMServiceException);
+assert(OpsMetadataInvalidArgumentException.prototype instanceof SSMServiceException);
+assert(OpsMetadataKeyLimitExceededException.prototype instanceof SSMServiceException);
+assert(OpsMetadataLimitExceededException.prototype instanceof SSMServiceException);
+assert(OpsMetadataNotFoundException.prototype instanceof SSMServiceException);
+assert(OpsMetadataTooManyUpdatesException.prototype instanceof SSMServiceException);
+assert(ParameterAlreadyExists.prototype instanceof SSMServiceException);
+assert(ParameterLimitExceeded.prototype instanceof SSMServiceException);
+assert(ParameterMaxVersionLimitExceeded.prototype instanceof SSMServiceException);
+assert(ParameterNotFound.prototype instanceof SSMServiceException);
+assert(ParameterPatternMismatchException.prototype instanceof SSMServiceException);
+assert(ParameterVersionLabelLimitExceeded.prototype instanceof SSMServiceException);
+assert(ParameterVersionNotFound.prototype instanceof SSMServiceException);
+assert(PoliciesLimitExceededException.prototype instanceof SSMServiceException);
+assert(ResourceDataSyncAlreadyExistsException.prototype instanceof SSMServiceException);
+assert(ResourceDataSyncConflictException.prototype instanceof SSMServiceException);
+assert(ResourceDataSyncCountExceededException.prototype instanceof SSMServiceException);
+assert(ResourceDataSyncInvalidConfigurationException.prototype instanceof SSMServiceException);
+assert(ResourceDataSyncNotFoundException.prototype instanceof SSMServiceException);
+assert(ResourceInUseException.prototype instanceof SSMServiceException);
+assert(ResourceLimitExceededException.prototype instanceof SSMServiceException);
+assert(ResourceNotFoundException.prototype instanceof SSMServiceException);
+assert(ResourcePolicyConflictException.prototype instanceof SSMServiceException);
+assert(ResourcePolicyInvalidParameterException.prototype instanceof SSMServiceException);
+assert(ResourcePolicyLimitExceededException.prototype instanceof SSMServiceException);
+assert(ResourcePolicyNotFoundException.prototype instanceof SSMServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SSMServiceException);
+assert(ServiceSettingNotFound.prototype instanceof SSMServiceException);
+assert(StatusUnchanged.prototype instanceof SSMServiceException);
+assert(SubTypeCountLimitExceededException.prototype instanceof SSMServiceException);
+assert(TargetInUseException.prototype instanceof SSMServiceException);
+assert(TargetNotConnected.prototype instanceof SSMServiceException);
+assert(ThrottlingException.prototype instanceof SSMServiceException);
+assert(TooManyTagsError.prototype instanceof SSMServiceException);
+assert(TooManyUpdates.prototype instanceof SSMServiceException);
+assert(TotalSizeLimitExceededException.prototype instanceof SSMServiceException);
+assert(UnsupportedCalendarException.prototype instanceof SSMServiceException);
+assert(UnsupportedFeatureRequiredException.prototype instanceof SSMServiceException);
+assert(UnsupportedInventoryItemContextException.prototype instanceof SSMServiceException);
+assert(UnsupportedInventorySchemaVersionException.prototype instanceof SSMServiceException);
+assert(UnsupportedOperatingSystem.prototype instanceof SSMServiceException);
+assert(UnsupportedOperationException.prototype instanceof SSMServiceException);
+assert(UnsupportedParameterType.prototype instanceof SSMServiceException);
+assert(UnsupportedPlatformType.prototype instanceof SSMServiceException);
+assert(ValidationException.prototype instanceof SSMServiceException);
 assert(SSMServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForCommandExecuted === "function");

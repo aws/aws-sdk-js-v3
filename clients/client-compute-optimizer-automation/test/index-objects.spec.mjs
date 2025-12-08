@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AssociateAccountsCommand,
   AutomationEventFilterName,
   AutomationRuleFilterName,
@@ -12,9 +13,14 @@ import {
   EnrollmentStatus,
   EventStatus,
   EventType,
+  ForbiddenException,
   GetAutomationEventCommand,
   GetAutomationRuleCommand,
   GetEnrollmentConfigurationCommand,
+  IdempotencyTokenInUseException,
+  IdempotentParameterMismatchException,
+  InternalServerException,
+  InvalidParameterValueException,
   ListAccountsCommand,
   ListAutomationEventStepsCommand,
   ListAutomationEventSummariesCommand,
@@ -25,20 +31,26 @@ import {
   ListRecommendedActionSummariesCommand,
   ListRecommendedActionsCommand,
   ListTagsForResourceCommand,
+  NotManagementAccountException,
+  OptInRequiredException,
   OrganizationRuleMode,
   RecommendedActionFilterName,
   RecommendedActionType,
+  ResourceNotFoundException,
   ResourceType,
   RollbackAutomationEventCommand,
   RuleApplyOrder,
   RuleStatus,
   RuleType,
   SavingsEstimationMode,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   StartAutomationEventCommand,
   StepStatus,
   StepType,
   SummaryDimensionKey,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAutomationRuleCommand,
   UpdateEnrollmentConfigurationCommand,
@@ -99,6 +111,18 @@ assert(typeof StepStatus === "object");
 assert(typeof StepType === "object");
 assert(typeof SummaryDimensionKey === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(ForbiddenException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(IdempotencyTokenInUseException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(IdempotentParameterMismatchException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(InternalServerException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(InvalidParameterValueException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(NotManagementAccountException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(OptInRequiredException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(ResourceNotFoundException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(ServiceUnavailableException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(ThrottlingException.prototype instanceof ComputeOptimizerAutomationServiceException);
 assert(ComputeOptimizerAutomationServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccounts === "function");

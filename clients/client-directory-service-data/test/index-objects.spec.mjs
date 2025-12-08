@@ -1,5 +1,8 @@
 import {
+  AccessDeniedException,
+  AccessDeniedReason,
   AddGroupMemberCommand,
+  ConflictException,
   CreateGroupCommand,
   CreateUserCommand,
   DeleteGroupCommand,
@@ -9,20 +12,27 @@ import {
   DirectoryServiceData,
   DirectoryServiceDataClient,
   DirectoryServiceDataServiceException,
+  DirectoryUnavailableException,
+  DirectoryUnavailableReason,
   DisableUserCommand,
   GroupScope,
   GroupType,
+  InternalServerException,
   ListGroupMembersCommand,
   ListGroupsCommand,
   ListGroupsForMemberCommand,
   ListUsersCommand,
   MemberType,
   RemoveGroupMemberCommand,
+  ResourceNotFoundException,
   SearchGroupsCommand,
   SearchUsersCommand,
+  ThrottlingException,
   UpdateGroupCommand,
   UpdateType,
   UpdateUserCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListGroupMembers,
   paginateListGroups,
   paginateListGroupsForMember,
@@ -53,11 +63,21 @@ assert(typeof SearchUsersCommand === "function");
 assert(typeof UpdateGroupCommand === "function");
 assert(typeof UpdateUserCommand === "function");
 // enums
+assert(typeof AccessDeniedReason === "object");
+assert(typeof DirectoryUnavailableReason === "object");
 assert(typeof GroupScope === "object");
 assert(typeof GroupType === "object");
 assert(typeof MemberType === "object");
 assert(typeof UpdateType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DirectoryServiceDataServiceException);
+assert(ConflictException.prototype instanceof DirectoryServiceDataServiceException);
+assert(DirectoryUnavailableException.prototype instanceof DirectoryServiceDataServiceException);
+assert(InternalServerException.prototype instanceof DirectoryServiceDataServiceException);
+assert(ResourceNotFoundException.prototype instanceof DirectoryServiceDataServiceException);
+assert(ThrottlingException.prototype instanceof DirectoryServiceDataServiceException);
+assert(ValidationException.prototype instanceof DirectoryServiceDataServiceException);
 assert(DirectoryServiceDataServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListGroupMembers === "function");

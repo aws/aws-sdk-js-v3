@@ -44,11 +44,13 @@ import {
   QualificationTypeStatus,
   RejectAssignmentCommand,
   RejectQualificationRequestCommand,
+  RequestError,
   ReviewActionStatus,
   ReviewPolicyLevel,
   ReviewableHITStatus,
   SendBonusCommand,
   SendTestEventNotificationCommand,
+  ServiceFault,
   UpdateExpirationForHITCommand,
   UpdateHITReviewStatusCommand,
   UpdateHITTypeOfHITCommand,
@@ -124,6 +126,8 @@ assert(typeof ReviewableHITStatus === "object");
 assert(typeof ReviewActionStatus === "object");
 assert(typeof ReviewPolicyLevel === "object");
 // errors
+assert(RequestError.prototype instanceof MTurkServiceException);
+assert(ServiceFault.prototype instanceof MTurkServiceException);
 assert(MTurkServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAssignmentsForHIT === "function");

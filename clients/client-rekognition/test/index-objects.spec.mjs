@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   AssociateFacesCommand,
   Attribute,
   BodyPart,
   CelebrityRecognitionSortBy,
   ChallengeType,
   CompareFacesCommand,
+  ConflictException,
   ContentClassifier,
   ContentModerationAggregateBy,
   ContentModerationSortBy,
@@ -57,12 +59,23 @@ import {
   GetPersonTrackingCommand,
   GetSegmentDetectionCommand,
   GetTextDetectionCommand,
+  HumanLoopQuotaExceededException,
+  IdempotentParameterMismatchException,
+  ImageTooLargeException,
   IndexFacesCommand,
+  InternalServerError,
+  InvalidImageFormatException,
+  InvalidManifestException,
+  InvalidPaginationTokenException,
+  InvalidParameterException,
+  InvalidPolicyRevisionIdException,
+  InvalidS3ObjectException,
   KnownGenderType,
   LabelDetectionAggregateBy,
   LabelDetectionFeatureName,
   LabelDetectionSortBy,
   LandmarkType,
+  LimitExceededException,
   ListCollectionsCommand,
   ListDatasetEntriesCommand,
   ListDatasetLabelsCommand,
@@ -73,6 +86,7 @@ import {
   ListTagsForResourceCommand,
   ListUsersCommand,
   LivenessSessionStatus,
+  MalformedPolicyDocumentException,
   MediaAnalysisJobFailureCode,
   MediaAnalysisJobStatus,
   OrientationCorrection,
@@ -81,6 +95,7 @@ import {
   ProjectStatus,
   ProjectVersionStatus,
   ProtectiveEquipmentType,
+  ProvisionedThroughputExceededException,
   PutProjectPolicyCommand,
   QualityFilter,
   Reason,
@@ -88,11 +103,17 @@ import {
   Rekognition,
   RekognitionClient,
   RekognitionServiceException,
+  ResourceAlreadyExistsException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceNotReadyException,
   SearchFacesByImageCommand,
   SearchFacesCommand,
   SearchUsersByImageCommand,
   SearchUsersCommand,
   SegmentType,
+  ServiceQuotaExceededException,
+  SessionNotFoundException,
   StartCelebrityRecognitionCommand,
   StartContentModerationCommand,
   StartFaceDetectionCommand,
@@ -111,6 +132,7 @@ import {
   TagResourceCommand,
   TechnicalCueType,
   TextTypes,
+  ThrottlingException,
   UnsearchedFaceReason,
   UnsuccessfulFaceAssociationReason,
   UnsuccessfulFaceDeletionReason,
@@ -121,6 +143,7 @@ import {
   UserStatus,
   VideoColorRange,
   VideoJobStatus,
+  VideoTooLargeException,
   paginateDescribeProjectVersions,
   paginateDescribeProjects,
   paginateGetCelebrityRecognition,
@@ -270,6 +293,29 @@ assert(typeof UserStatus === "object");
 assert(typeof VideoColorRange === "object");
 assert(typeof VideoJobStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof RekognitionServiceException);
+assert(ConflictException.prototype instanceof RekognitionServiceException);
+assert(HumanLoopQuotaExceededException.prototype instanceof RekognitionServiceException);
+assert(IdempotentParameterMismatchException.prototype instanceof RekognitionServiceException);
+assert(ImageTooLargeException.prototype instanceof RekognitionServiceException);
+assert(InternalServerError.prototype instanceof RekognitionServiceException);
+assert(InvalidImageFormatException.prototype instanceof RekognitionServiceException);
+assert(InvalidManifestException.prototype instanceof RekognitionServiceException);
+assert(InvalidPaginationTokenException.prototype instanceof RekognitionServiceException);
+assert(InvalidParameterException.prototype instanceof RekognitionServiceException);
+assert(InvalidPolicyRevisionIdException.prototype instanceof RekognitionServiceException);
+assert(InvalidS3ObjectException.prototype instanceof RekognitionServiceException);
+assert(LimitExceededException.prototype instanceof RekognitionServiceException);
+assert(MalformedPolicyDocumentException.prototype instanceof RekognitionServiceException);
+assert(ProvisionedThroughputExceededException.prototype instanceof RekognitionServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof RekognitionServiceException);
+assert(ResourceInUseException.prototype instanceof RekognitionServiceException);
+assert(ResourceNotFoundException.prototype instanceof RekognitionServiceException);
+assert(ResourceNotReadyException.prototype instanceof RekognitionServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof RekognitionServiceException);
+assert(SessionNotFoundException.prototype instanceof RekognitionServiceException);
+assert(ThrottlingException.prototype instanceof RekognitionServiceException);
+assert(VideoTooLargeException.prototype instanceof RekognitionServiceException);
 assert(RekognitionServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForProjectVersionRunning === "function");

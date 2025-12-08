@@ -448,7 +448,6 @@ export var TranscriptEvent: StaticStructureSchema = [3, n0, _TEr, 0, [_tr, _eI],
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var Value: StaticStructureSchema = [3, n0, _V, 0, [_oV, _iV, _rV], [0, 0, 64 | 0]];
-export var __Unit = "unit" as const;
 export var LexRuntimeV2ServiceException: StaticErrorSchema = [-3, _sm, "LexRuntimeV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LexRuntimeV2ServiceException, __LexRuntimeV2ServiceException);
 export var ActiveContextsList: StaticListSchema = [1, n0, _ACL, 0, [() => ActiveContext, 0]];

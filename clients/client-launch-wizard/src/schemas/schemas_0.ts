@@ -275,7 +275,6 @@ export var WorkloadDeploymentPatternDataSummary: StaticStructureSchema = [
   [_wN, _dPN, _wVN, _dN, _d, _st, _sM],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var LaunchWizardServiceException: StaticErrorSchema = [-3, _sm, "LaunchWizardServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LaunchWizardServiceException, __LaunchWizardServiceException);
 export var AllowedValues = 64 | 0;

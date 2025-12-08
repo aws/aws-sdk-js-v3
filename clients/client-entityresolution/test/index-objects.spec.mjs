@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AddPolicyStatementCommand,
   AttributeMatchingModel,
   BatchDeleteUniqueIdCommand,
+  ConflictException,
   CreateIdMappingWorkflowCommand,
   CreateIdNamespaceCommand,
   CreateMatchingWorkflowCommand,
@@ -16,6 +18,7 @@ import {
   EntityResolution,
   EntityResolutionClient,
   EntityResolutionServiceException,
+  ExceedsLimitException,
   GenerateMatchIdCommand,
   GetIdMappingJobCommand,
   GetIdMappingWorkflowCommand,
@@ -31,6 +34,7 @@ import {
   IdMappingWorkflowRuleDefinitionType,
   IdNamespaceType,
   IncrementalRunType,
+  InternalServerException,
   JobStatus,
   JobType,
   ListIdMappingJobsCommand,
@@ -46,17 +50,20 @@ import {
   PutPolicyCommand,
   RecordMatchingModel,
   ResolutionType,
+  ResourceNotFoundException,
   SchemaAttributeType,
   ServiceType,
   StartIdMappingJobCommand,
   StartMatchingJobCommand,
   StatementEffect,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateIdMappingWorkflowCommand,
   UpdateIdNamespaceCommand,
   UpdateMatchingWorkflowCommand,
   UpdateSchemaMappingCommand,
+  ValidationException,
   paginateListIdMappingJobs,
   paginateListIdMappingWorkflows,
   paginateListIdNamespaces,
@@ -127,6 +134,13 @@ assert(typeof SchemaAttributeType === "object");
 assert(typeof ServiceType === "object");
 assert(typeof StatementEffect === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof EntityResolutionServiceException);
+assert(ConflictException.prototype instanceof EntityResolutionServiceException);
+assert(ExceedsLimitException.prototype instanceof EntityResolutionServiceException);
+assert(InternalServerException.prototype instanceof EntityResolutionServiceException);
+assert(ResourceNotFoundException.prototype instanceof EntityResolutionServiceException);
+assert(ThrottlingException.prototype instanceof EntityResolutionServiceException);
+assert(ValidationException.prototype instanceof EntityResolutionServiceException);
 assert(EntityResolutionServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListIdMappingJobs === "function");

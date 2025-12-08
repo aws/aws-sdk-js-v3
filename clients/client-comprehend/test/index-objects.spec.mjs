@@ -6,11 +6,13 @@ import {
   BatchDetectSentimentCommand,
   BatchDetectSyntaxCommand,
   BatchDetectTargetedSentimentCommand,
+  BatchSizeLimitExceededException,
   BlockType,
   ClassifyDocumentCommand,
   Comprehend,
   ComprehendClient,
   ComprehendServiceException,
+  ConcurrentModificationException,
   ContainsPiiEntitiesCommand,
   CreateDatasetCommand,
   CreateDocumentClassifierCommand,
@@ -63,7 +65,14 @@ import {
   FlywheelStatus,
   ImportModelCommand,
   InputFormat,
+  InternalServerException,
+  InvalidFilterException,
+  InvalidRequestDetailReason,
+  InvalidRequestException,
+  InvalidRequestReason,
+  JobNotFoundException,
   JobStatus,
+  KmsKeyValidationException,
   LanguageCode,
   ListDatasetsCommand,
   ListDocumentClassificationJobsCommand,
@@ -93,6 +102,10 @@ import {
   PiiEntityType,
   PutResourcePolicyCommand,
   RelationshipType,
+  ResourceInUseException,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
+  ResourceUnavailableException,
   SentimentType,
   Split,
   StartDocumentClassificationJobCommand,
@@ -117,7 +130,12 @@ import {
   SyntaxLanguageCode,
   TagResourceCommand,
   TargetedSentimentEntityType,
+  TextSizeLimitExceededException,
+  TooManyRequestsException,
+  TooManyTagKeysException,
+  TooManyTagsException,
   ToxicContentType,
+  UnsupportedLanguageException,
   UntagResourceCommand,
   UpdateEndpointCommand,
   UpdateFlywheelCommand,
@@ -248,6 +266,8 @@ assert(typeof EntityType === "object");
 assert(typeof FlywheelIterationStatus === "object");
 assert(typeof FlywheelStatus === "object");
 assert(typeof InputFormat === "object");
+assert(typeof InvalidRequestDetailReason === "object");
+assert(typeof InvalidRequestReason === "object");
 assert(typeof JobStatus === "object");
 assert(typeof LanguageCode === "object");
 assert(typeof ModelStatus === "object");
@@ -265,6 +285,22 @@ assert(typeof SyntaxLanguageCode === "object");
 assert(typeof TargetedSentimentEntityType === "object");
 assert(typeof ToxicContentType === "object");
 // errors
+assert(BatchSizeLimitExceededException.prototype instanceof ComprehendServiceException);
+assert(ConcurrentModificationException.prototype instanceof ComprehendServiceException);
+assert(InternalServerException.prototype instanceof ComprehendServiceException);
+assert(InvalidFilterException.prototype instanceof ComprehendServiceException);
+assert(InvalidRequestException.prototype instanceof ComprehendServiceException);
+assert(JobNotFoundException.prototype instanceof ComprehendServiceException);
+assert(KmsKeyValidationException.prototype instanceof ComprehendServiceException);
+assert(ResourceInUseException.prototype instanceof ComprehendServiceException);
+assert(ResourceLimitExceededException.prototype instanceof ComprehendServiceException);
+assert(ResourceNotFoundException.prototype instanceof ComprehendServiceException);
+assert(ResourceUnavailableException.prototype instanceof ComprehendServiceException);
+assert(TextSizeLimitExceededException.prototype instanceof ComprehendServiceException);
+assert(TooManyRequestsException.prototype instanceof ComprehendServiceException);
+assert(TooManyTagKeysException.prototype instanceof ComprehendServiceException);
+assert(TooManyTagsException.prototype instanceof ComprehendServiceException);
+assert(UnsupportedLanguageException.prototype instanceof ComprehendServiceException);
 assert(ComprehendServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDatasets === "function");

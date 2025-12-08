@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ChallengeType,
   InternalServerException,
   LightChallengeType,
@@ -7,6 +8,7 @@ import {
   RekognitionStreamingServiceException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  SessionNotFoundException,
   StartFaceLivenessSessionCommand,
   ThrottlingException,
   ValidationException,
@@ -21,9 +23,11 @@ assert(typeof StartFaceLivenessSessionCommand === "function");
 assert(typeof ChallengeType === "object");
 assert(typeof LightChallengeType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof RekognitionStreamingServiceException);
 assert(InternalServerException.prototype instanceof RekognitionStreamingServiceException);
 assert(ServiceQuotaExceededException.prototype instanceof RekognitionStreamingServiceException);
 assert(ServiceUnavailableException.prototype instanceof RekognitionStreamingServiceException);
+assert(SessionNotFoundException.prototype instanceof RekognitionStreamingServiceException);
 assert(ThrottlingException.prototype instanceof RekognitionStreamingServiceException);
 assert(ValidationException.prototype instanceof RekognitionStreamingServiceException);
 assert(RekognitionStreamingServiceException.prototype instanceof Error);

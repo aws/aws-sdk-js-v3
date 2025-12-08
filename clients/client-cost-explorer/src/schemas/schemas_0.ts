@@ -1863,7 +1863,6 @@ export var UtilizationByTime: StaticStructureSchema = [
   [_TP, _G, _To],
   [() => DateInterval, () => ReservationUtilizationGroups, () => ReservationAggregates],
 ];
-export var __Unit = "unit" as const;
 export var CostExplorerServiceException: StaticErrorSchema = [-3, _s, "CostExplorerServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(CostExplorerServiceException, __CostExplorerServiceException);
 export var AnalysisIds = 64 | 0;

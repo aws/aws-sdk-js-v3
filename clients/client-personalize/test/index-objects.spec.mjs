@@ -46,6 +46,9 @@ import {
   GetSolutionMetricsCommand,
   ImportMode,
   IngestionMode,
+  InvalidInputException,
+  InvalidNextTokenException,
+  LimitExceededException,
   ListBatchInferenceJobsCommand,
   ListBatchSegmentJobsCommand,
   ListCampaignsCommand,
@@ -70,10 +73,15 @@ import {
   PersonalizeServiceException,
   RankingInfluenceType,
   RecipeProvider,
+  ResourceAlreadyExistsException,
+  ResourceInUseException,
+  ResourceNotFoundException,
   StartRecommenderCommand,
   StopRecommenderCommand,
   StopSolutionVersionCreationCommand,
   TagResourceCommand,
+  TooManyTagKeysException,
+  TooManyTagsException,
   TrainingMode,
   TrainingType,
   UntagResourceCommand,
@@ -186,6 +194,14 @@ assert(typeof RecipeProvider === "object");
 assert(typeof TrainingMode === "object");
 assert(typeof TrainingType === "object");
 // errors
+assert(InvalidInputException.prototype instanceof PersonalizeServiceException);
+assert(InvalidNextTokenException.prototype instanceof PersonalizeServiceException);
+assert(LimitExceededException.prototype instanceof PersonalizeServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof PersonalizeServiceException);
+assert(ResourceInUseException.prototype instanceof PersonalizeServiceException);
+assert(ResourceNotFoundException.prototype instanceof PersonalizeServiceException);
+assert(TooManyTagKeysException.prototype instanceof PersonalizeServiceException);
+assert(TooManyTagsException.prototype instanceof PersonalizeServiceException);
 assert(PersonalizeServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBatchInferenceJobs === "function");

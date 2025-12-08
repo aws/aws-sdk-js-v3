@@ -290,7 +290,6 @@ export var VariablePaymentTerm: StaticStructureSchema = [
   [0, 0, 0, () => VariablePaymentTermConfiguration],
 ];
 export var VariablePaymentTermConfiguration: StaticStructureSchema = [3, n0, _VPTC, 0, [_pRAS, _eD], [0, 0]];
-export var __Unit = "unit" as const;
 export var MarketplaceAgreementServiceException: StaticErrorSchema = [
   -3,
   _sm,

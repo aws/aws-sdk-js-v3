@@ -485,7 +485,6 @@ export var VpcOptions: StaticStructureSchema = [
   [_SI, _SGI, _VAO, _VEM],
   [64 | 0, 64 | 0, () => VpcAttachmentOptions, 0],
 ];
-export var __Unit = "unit" as const;
 export var OSISServiceException: StaticErrorSchema = [-3, _sm, "OSISServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OSISServiceException, __OSISServiceException);
 export var ChangeProgressStageList: StaticListSchema = [1, n0, _CPSL, 0, () => ChangeProgressStage];

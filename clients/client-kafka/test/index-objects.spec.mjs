@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   BatchAssociateScramSecretCommand,
   BatchDisassociateScramSecretCommand,
   BrokerAZDistribution,
@@ -6,6 +7,7 @@ import {
   ClusterState,
   ClusterType,
   ConfigurationState,
+  ConflictException,
   CreateClusterCommand,
   CreateClusterV2Command,
   CreateConfigurationCommand,
@@ -28,9 +30,11 @@ import {
   DescribeTopicPartitionsCommand,
   DescribeVpcConnectionCommand,
   EnhancedMonitoring,
+  ForbiddenException,
   GetBootstrapBrokersCommand,
   GetClusterPolicyCommand,
   GetCompatibleKafkaVersionsCommand,
+  InternalServerErrorException,
   Kafka,
   KafkaClient,
   KafkaServiceException,
@@ -50,6 +54,7 @@ import {
   ListTopicsCommand,
   ListVpcConnectionsCommand,
   NodeType,
+  NotFoundException,
   PutClusterPolicyCommand,
   RebalancingStatus,
   RebootBrokerCommand,
@@ -57,10 +62,13 @@ import {
   ReplicationStartingPositionType,
   ReplicationTopicNameConfigurationType,
   ReplicatorState,
+  ServiceUnavailableException,
   StorageMode,
   TagResourceCommand,
   TargetCompressionType,
+  TooManyRequestsException,
   TopicState,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateBrokerCountCommand,
   UpdateBrokerStorageCommand,
@@ -172,6 +180,14 @@ assert(typeof TopicState === "object");
 assert(typeof UserIdentityType === "object");
 assert(typeof VpcConnectionState === "object");
 // errors
+assert(BadRequestException.prototype instanceof KafkaServiceException);
+assert(ConflictException.prototype instanceof KafkaServiceException);
+assert(ForbiddenException.prototype instanceof KafkaServiceException);
+assert(InternalServerErrorException.prototype instanceof KafkaServiceException);
+assert(NotFoundException.prototype instanceof KafkaServiceException);
+assert(ServiceUnavailableException.prototype instanceof KafkaServiceException);
+assert(TooManyRequestsException.prototype instanceof KafkaServiceException);
+assert(UnauthorizedException.prototype instanceof KafkaServiceException);
 assert(KafkaServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeTopicPartitions === "function");

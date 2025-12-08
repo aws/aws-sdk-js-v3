@@ -832,7 +832,6 @@ export var UpdateConfigurationSetEventDestinationRequest: StaticStructureSchema 
 ];
 export var UpdateConfigurationSetEventDestinationResponse: StaticStructureSchema = [3, n0, _UCSEDRp, 0, [], []];
 export var VolumeStatistics: StaticStructureSchema = [3, n0, _VS, 0, [_IRC, _SRC, _PI, _PSr], [1, 1, 1, 1]];
-export var __Unit = "unit" as const;
 export var PinpointEmailServiceException: StaticErrorSchema = [-3, _sm, "PinpointEmailServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PinpointEmailServiceException, __PinpointEmailServiceException);
 export var BlacklistEntries: StaticListSchema = [1, n0, _BEl, 0, () => BlacklistEntry];

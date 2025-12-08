@@ -264,7 +264,6 @@ export var StartSnapshotResponse: StaticStructureSchema = [
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var EBSServiceException: StaticErrorSchema = [-3, _sm, "EBSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EBSServiceException, __EBSServiceException);
 export var Blocks: StaticListSchema = [1, n0, _Bl, 8, () => Block];

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   Action,
   AppRequiredCapability,
   AppStatus,
@@ -9,6 +10,8 @@ import {
   BatchUpdateCategoryCommand,
   CardOutputSource,
   CardType,
+  ConflictException,
+  ContentTooLargeException,
   CreateLibraryItemCommand,
   CreatePresignedUrlCommand,
   CreateQAppCommand,
@@ -26,6 +29,7 @@ import {
   GetQAppSessionMetadataCommand,
   ImportDocumentCommand,
   InputCardComputeMode,
+  InternalServerException,
   LibraryItemStatus,
   ListCategoriesCommand,
   ListLibraryItemsCommand,
@@ -37,11 +41,15 @@ import {
   QApps,
   QAppsClient,
   QAppsServiceException,
+  ResourceNotFoundException,
   Sender,
+  ServiceQuotaExceededException,
   StartQAppSessionCommand,
   StopQAppSessionCommand,
   SubmissionMutationKind,
   TagResourceCommand,
+  ThrottlingException,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateLibraryItemCommand,
   UpdateLibraryItemMetadataCommand,
@@ -50,6 +58,7 @@ import {
   UpdateQAppSessionCommand,
   UpdateQAppSessionMetadataCommand,
   UserType,
+  ValidationException,
   paginateListLibraryItems,
   paginateListQApps,
 } from "../dist-cjs/index.js";
@@ -108,6 +117,15 @@ assert(typeof Sender === "object");
 assert(typeof SubmissionMutationKind === "object");
 assert(typeof UserType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof QAppsServiceException);
+assert(ConflictException.prototype instanceof QAppsServiceException);
+assert(ContentTooLargeException.prototype instanceof QAppsServiceException);
+assert(InternalServerException.prototype instanceof QAppsServiceException);
+assert(ResourceNotFoundException.prototype instanceof QAppsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof QAppsServiceException);
+assert(ThrottlingException.prototype instanceof QAppsServiceException);
+assert(UnauthorizedException.prototype instanceof QAppsServiceException);
+assert(ValidationException.prototype instanceof QAppsServiceException);
 assert(QAppsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListLibraryItems === "function");

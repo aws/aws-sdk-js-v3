@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   CalculateIsolinesCommand,
   CalculateRouteMatrixCommand,
   CalculateRoutesCommand,
@@ -7,6 +8,7 @@ import {
   GeoRoutesClient,
   GeoRoutesServiceException,
   GeometryFormat,
+  InternalServerException,
   IsolineEngineType,
   IsolineHazardousCargoType,
   IsolineOptimizationObjective,
@@ -65,7 +67,10 @@ import {
   RoutingObjective,
   SideOfStreetMatchingStrategy,
   SnapToRoadsCommand,
+  ThrottlingException,
   TrafficUsage,
+  ValidationException,
+  ValidationExceptionReason,
   WaypointOptimizationClusteringAlgorithm,
   WaypointOptimizationConstraint,
   WaypointOptimizationHazardousCargoType,
@@ -144,6 +149,7 @@ assert(typeof RouteZoneCategory === "object");
 assert(typeof RoutingObjective === "object");
 assert(typeof SideOfStreetMatchingStrategy === "object");
 assert(typeof TrafficUsage === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WaypointOptimizationClusteringAlgorithm === "object");
 assert(typeof WaypointOptimizationConstraint === "object");
 assert(typeof WaypointOptimizationHazardousCargoType === "object");
@@ -152,5 +158,9 @@ assert(typeof WaypointOptimizationServiceTimeTreatment === "object");
 assert(typeof WaypointOptimizationTravelMode === "object");
 assert(typeof WaypointOptimizationTruckType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GeoRoutesServiceException);
+assert(InternalServerException.prototype instanceof GeoRoutesServiceException);
+assert(ThrottlingException.prototype instanceof GeoRoutesServiceException);
+assert(ValidationException.prototype instanceof GeoRoutesServiceException);
 assert(GeoRoutesServiceException.prototype instanceof Error);
 console.log(`GeoRoutes index test passed.`);

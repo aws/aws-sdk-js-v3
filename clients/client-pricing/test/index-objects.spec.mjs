@@ -1,13 +1,21 @@
 import {
+  AccessDeniedException,
   DescribeServicesCommand,
+  ExpiredNextTokenException,
   FilterType,
   GetAttributeValuesCommand,
   GetPriceListFileUrlCommand,
   GetProductsCommand,
+  InternalErrorException,
+  InvalidNextTokenException,
+  InvalidParameterException,
   ListPriceListsCommand,
+  NotFoundException,
   Pricing,
   PricingClient,
   PricingServiceException,
+  ResourceNotFoundException,
+  ThrottlingException,
   paginateDescribeServices,
   paginateGetAttributeValues,
   paginateGetProducts,
@@ -26,6 +34,14 @@ assert(typeof ListPriceListsCommand === "function");
 // enums
 assert(typeof FilterType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PricingServiceException);
+assert(ExpiredNextTokenException.prototype instanceof PricingServiceException);
+assert(InternalErrorException.prototype instanceof PricingServiceException);
+assert(InvalidNextTokenException.prototype instanceof PricingServiceException);
+assert(InvalidParameterException.prototype instanceof PricingServiceException);
+assert(NotFoundException.prototype instanceof PricingServiceException);
+assert(ResourceNotFoundException.prototype instanceof PricingServiceException);
+assert(ThrottlingException.prototype instanceof PricingServiceException);
 assert(PricingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeServices === "function");

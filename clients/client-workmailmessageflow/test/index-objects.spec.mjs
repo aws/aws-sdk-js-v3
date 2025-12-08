@@ -1,6 +1,10 @@
 import {
   GetRawMessageContentCommand,
+  InvalidContentLocation,
+  MessageFrozen,
+  MessageRejected,
   PutRawMessageContentCommand,
+  ResourceNotFoundException,
   WorkMailMessageFlow,
   WorkMailMessageFlowClient,
   WorkMailMessageFlowServiceException,
@@ -13,5 +17,9 @@ assert(typeof WorkMailMessageFlow === "function");
 assert(typeof GetRawMessageContentCommand === "function");
 assert(typeof PutRawMessageContentCommand === "function");
 // errors
+assert(InvalidContentLocation.prototype instanceof WorkMailMessageFlowServiceException);
+assert(MessageFrozen.prototype instanceof WorkMailMessageFlowServiceException);
+assert(MessageRejected.prototype instanceof WorkMailMessageFlowServiceException);
+assert(ResourceNotFoundException.prototype instanceof WorkMailMessageFlowServiceException);
 assert(WorkMailMessageFlowServiceException.prototype instanceof Error);
 console.log(`WorkMailMessageFlow index test passed.`);

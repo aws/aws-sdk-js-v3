@@ -565,6 +565,11 @@ export type {
   UpdateVpcLinkRequest,
   UpdateVpcLinkResponse,
   VpcLink,
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
+  NotFoundException,
+  TooManyRequestsException,
   ApiGatewayV2ServiceException,
   paginateListRoutingRules,
 } from "../dist-types/index.d";

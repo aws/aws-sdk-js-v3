@@ -7,6 +7,8 @@ import {
   BooleanEnumType,
   CommentStatusType,
   CommentVisibilityType,
+  ConcurrentModificationException,
+  ConflictingOperationException,
   ContentCategoryType,
   CreateCommentCommand,
   CreateCustomMetadataCommand,
@@ -14,7 +16,9 @@ import {
   CreateLabelsCommand,
   CreateNotificationSubscriptionCommand,
   CreateUserCommand,
+  CustomMetadataLimitExceededException,
   DeactivateUserCommand,
+  DeactivatingLastSystemUserException,
   DeleteCommentCommand,
   DeleteCustomMetadataCommand,
   DeleteDocumentCommand,
@@ -33,10 +37,15 @@ import {
   DescribeResourcePermissionsCommand,
   DescribeRootFoldersCommand,
   DescribeUsersCommand,
+  DocumentLockedForCommentsException,
   DocumentSourceType,
   DocumentStatusType,
   DocumentThumbnailType,
   DocumentVersionStatus,
+  DraftUploadOutOfSyncException,
+  EntityAlreadyExistsException,
+  EntityNotExistsException,
+  FailedDependencyException,
   FolderContentType,
   GetCurrentUserCommand,
   GetDocumentCommand,
@@ -45,15 +54,24 @@ import {
   GetFolderCommand,
   GetFolderPathCommand,
   GetResourcesCommand,
+  IllegalUserStateException,
   InitiateDocumentVersionUploadCommand,
+  InvalidArgumentException,
+  InvalidCommentOperationException,
+  InvalidOperationException,
+  InvalidPasswordException,
   LanguageCodeType,
+  LimitExceededException,
   LocaleType,
   OrderByFieldType,
   OrderType,
   PrincipalRoleType,
   PrincipalType,
+  ProhibitedStateException,
   RemoveAllResourcePermissionsCommand,
   RemoveResourcePermissionCommand,
+  RequestedEntityTooLargeException,
+  ResourceAlreadyCheckedOutException,
   ResourceCollectionType,
   ResourceSortType,
   ResourceStateType,
@@ -66,11 +84,18 @@ import {
   SearchQueryScopeType,
   SearchResourceType,
   SearchResourcesCommand,
+  ServiceUnavailableException,
   ShareStatusType,
   SortOrder,
+  StorageLimitExceededException,
+  StorageLimitWillExceedException,
   StorageType,
   SubscriptionProtocolType,
   SubscriptionType,
+  TooManyLabelsException,
+  TooManySubscriptionsException,
+  UnauthorizedOperationException,
+  UnauthorizedResourceAccessException,
   UpdateDocumentCommand,
   UpdateDocumentVersionCommand,
   UpdateFolderCommand,
@@ -180,6 +205,31 @@ assert(typeof UserSortType === "object");
 assert(typeof UserStatusType === "object");
 assert(typeof UserType === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof WorkDocsServiceException);
+assert(ConflictingOperationException.prototype instanceof WorkDocsServiceException);
+assert(CustomMetadataLimitExceededException.prototype instanceof WorkDocsServiceException);
+assert(DeactivatingLastSystemUserException.prototype instanceof WorkDocsServiceException);
+assert(DocumentLockedForCommentsException.prototype instanceof WorkDocsServiceException);
+assert(DraftUploadOutOfSyncException.prototype instanceof WorkDocsServiceException);
+assert(EntityAlreadyExistsException.prototype instanceof WorkDocsServiceException);
+assert(EntityNotExistsException.prototype instanceof WorkDocsServiceException);
+assert(FailedDependencyException.prototype instanceof WorkDocsServiceException);
+assert(IllegalUserStateException.prototype instanceof WorkDocsServiceException);
+assert(InvalidArgumentException.prototype instanceof WorkDocsServiceException);
+assert(InvalidCommentOperationException.prototype instanceof WorkDocsServiceException);
+assert(InvalidOperationException.prototype instanceof WorkDocsServiceException);
+assert(InvalidPasswordException.prototype instanceof WorkDocsServiceException);
+assert(LimitExceededException.prototype instanceof WorkDocsServiceException);
+assert(ProhibitedStateException.prototype instanceof WorkDocsServiceException);
+assert(RequestedEntityTooLargeException.prototype instanceof WorkDocsServiceException);
+assert(ResourceAlreadyCheckedOutException.prototype instanceof WorkDocsServiceException);
+assert(ServiceUnavailableException.prototype instanceof WorkDocsServiceException);
+assert(StorageLimitExceededException.prototype instanceof WorkDocsServiceException);
+assert(StorageLimitWillExceedException.prototype instanceof WorkDocsServiceException);
+assert(TooManyLabelsException.prototype instanceof WorkDocsServiceException);
+assert(TooManySubscriptionsException.prototype instanceof WorkDocsServiceException);
+assert(UnauthorizedOperationException.prototype instanceof WorkDocsServiceException);
+assert(UnauthorizedResourceAccessException.prototype instanceof WorkDocsServiceException);
 assert(WorkDocsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeActivities === "function");

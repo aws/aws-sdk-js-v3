@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AttachmentStatus,
   CancelTaskCommand,
   CreateTaskCommand,
@@ -8,6 +9,7 @@ import {
   DescribeTaskCommand,
   ExecutionState,
   InstanceStateName,
+  InternalServerException,
   IpAddressAssignment,
   ListDeviceResourcesCommand,
   ListDevicesCommand,
@@ -15,13 +17,17 @@ import {
   ListTagsForResourceCommand,
   ListTasksCommand,
   PhysicalConnectorType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SnowDeviceManagement,
   SnowDeviceManagementClient,
   SnowDeviceManagementServiceException,
   TagResourceCommand,
   TaskState,
+  ThrottlingException,
   UnlockState,
   UntagResourceCommand,
+  ValidationException,
   paginateListDeviceResources,
   paginateListDevices,
   paginateListExecutions,
@@ -54,6 +60,12 @@ assert(typeof PhysicalConnectorType === "object");
 assert(typeof TaskState === "object");
 assert(typeof UnlockState === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SnowDeviceManagementServiceException);
+assert(InternalServerException.prototype instanceof SnowDeviceManagementServiceException);
+assert(ResourceNotFoundException.prototype instanceof SnowDeviceManagementServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SnowDeviceManagementServiceException);
+assert(ThrottlingException.prototype instanceof SnowDeviceManagementServiceException);
+assert(ValidationException.prototype instanceof SnowDeviceManagementServiceException);
 assert(SnowDeviceManagementServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDeviceResources === "function");

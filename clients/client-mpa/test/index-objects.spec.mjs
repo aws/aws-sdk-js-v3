@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   ActionCompletionStrategy,
   ApprovalTeamStatus,
   ApprovalTeamStatusCode,
   CancelSessionCommand,
+  ConflictException,
   CreateApprovalTeamCommand,
   CreateIdentitySourceCommand,
   DeleteIdentitySourceCommand,
@@ -17,6 +19,8 @@ import {
   IdentitySourceStatusCode,
   IdentitySourceType,
   IdentityStatus,
+  InternalServerException,
+  InvalidParameterException,
   ListApprovalTeamsCommand,
   ListIdentitySourcesCommand,
   ListPoliciesCommand,
@@ -30,14 +34,19 @@ import {
   Operator,
   PolicyStatus,
   PolicyType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SessionExecutionStatus,
   SessionResponse,
   SessionStatus,
   SessionStatusCode,
   StartActiveApprovalTeamDeletionCommand,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateApprovalTeamCommand,
+  ValidationException,
   paginateListApprovalTeams,
   paginateListIdentitySources,
   paginateListPolicies,
@@ -88,6 +97,15 @@ assert(typeof SessionResponse === "object");
 assert(typeof SessionStatus === "object");
 assert(typeof SessionStatusCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MPAServiceException);
+assert(ConflictException.prototype instanceof MPAServiceException);
+assert(InternalServerException.prototype instanceof MPAServiceException);
+assert(InvalidParameterException.prototype instanceof MPAServiceException);
+assert(ResourceNotFoundException.prototype instanceof MPAServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MPAServiceException);
+assert(ThrottlingException.prototype instanceof MPAServiceException);
+assert(TooManyTagsException.prototype instanceof MPAServiceException);
+assert(ValidationException.prototype instanceof MPAServiceException);
 assert(MPAServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApprovalTeams === "function");

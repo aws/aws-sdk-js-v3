@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   AddNotificationChannelCommand,
   AnomalySeverity,
   AnomalyStatus,
   AnomalyType,
   CloudWatchMetricDataStatusCode,
   CloudWatchMetricsStat,
+  ConflictException,
   CostEstimationServiceResourceState,
   CostEstimationStatus,
   DeleteInsightCommand,
@@ -31,6 +33,7 @@ import {
   InsightSeverity,
   InsightStatus,
   InsightType,
+  InternalServerException,
   ListAnomaliesForInsightCommand,
   ListAnomalousLogGroupsCommand,
   ListEventsCommand,
@@ -47,17 +50,22 @@ import {
   PutFeedbackCommand,
   RemoveNotificationChannelCommand,
   ResourceCollectionType,
+  ResourceNotFoundException,
   ResourcePermission,
   ResourceTypeFilter,
   SearchInsightsCommand,
   SearchOrganizationInsightsCommand,
   ServerSideEncryptionType,
   ServiceName,
+  ServiceQuotaExceededException,
   StartCostEstimationCommand,
+  ThrottlingException,
   UpdateEventSourcesConfigCommand,
   UpdateResourceCollectionAction,
   UpdateResourceCollectionCommand,
   UpdateServiceIntegrationCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateDescribeOrganizationResourceCollectionHealth,
   paginateDescribeResourceCollectionHealth,
   paginateGetCostEstimation,
@@ -135,7 +143,15 @@ assert(typeof ResourceTypeFilter === "object");
 assert(typeof ServerSideEncryptionType === "object");
 assert(typeof ServiceName === "object");
 assert(typeof UpdateResourceCollectionAction === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DevOpsGuruServiceException);
+assert(ConflictException.prototype instanceof DevOpsGuruServiceException);
+assert(InternalServerException.prototype instanceof DevOpsGuruServiceException);
+assert(ResourceNotFoundException.prototype instanceof DevOpsGuruServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DevOpsGuruServiceException);
+assert(ThrottlingException.prototype instanceof DevOpsGuruServiceException);
+assert(ValidationException.prototype instanceof DevOpsGuruServiceException);
 assert(DevOpsGuruServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeOrganizationResourceCollectionHealth === "function");

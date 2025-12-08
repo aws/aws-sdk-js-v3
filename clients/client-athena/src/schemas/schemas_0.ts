@@ -1254,7 +1254,6 @@ export var WorkGroupSummary: StaticStructureSchema = [
   [_N, _S, _D, _CT, _EV, _ICAA],
   [0, 0, 0, 4, () => EngineVersion, 0],
 ];
-export var __Unit = "unit" as const;
 export var AthenaServiceException: StaticErrorSchema = [-3, _sm, "AthenaServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AthenaServiceException, __AthenaServiceException);
 export var ApplicationDPUSizesList: StaticListSchema = [1, n0, _ADPUSL, 0, () => ApplicationDPUSizes];

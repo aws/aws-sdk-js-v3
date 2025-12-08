@@ -11,7 +11,10 @@ import {
   DisableDomainAutoRenewCommand,
   DisableDomainTransferLockCommand,
   DisassociateDelegationSignerFromDomainCommand,
+  DnssecLimitExceeded,
   DomainAvailability,
+  DomainLimitExceeded,
+  DuplicateRequest,
   EnableDomainAutoRenewCommand,
   EnableDomainTransferLockCommand,
   ExtraParamName,
@@ -19,12 +22,14 @@ import {
   GetDomainDetailCommand,
   GetDomainSuggestionsCommand,
   GetOperationDetailCommand,
+  InvalidInput,
   ListDomainsAttributeName,
   ListDomainsCommand,
   ListOperationsCommand,
   ListOperationsSortAttributeName,
   ListPricesCommand,
   ListTagsForDomainCommand,
+  OperationLimitExceeded,
   OperationStatus,
   OperationType,
   Operator,
@@ -41,9 +46,11 @@ import {
   Route53DomainsServiceException,
   SortOrder,
   StatusFlag,
+  TLDRulesViolation,
   TransferDomainCommand,
   TransferDomainToAnotherAwsAccountCommand,
   Transferable,
+  UnsupportedTLD,
   UpdateDomainContactCommand,
   UpdateDomainContactPrivacyCommand,
   UpdateDomainNameserversCommand,
@@ -108,6 +115,13 @@ assert(typeof SortOrder === "object");
 assert(typeof StatusFlag === "object");
 assert(typeof Transferable === "object");
 // errors
+assert(DnssecLimitExceeded.prototype instanceof Route53DomainsServiceException);
+assert(DomainLimitExceeded.prototype instanceof Route53DomainsServiceException);
+assert(DuplicateRequest.prototype instanceof Route53DomainsServiceException);
+assert(InvalidInput.prototype instanceof Route53DomainsServiceException);
+assert(OperationLimitExceeded.prototype instanceof Route53DomainsServiceException);
+assert(TLDRulesViolation.prototype instanceof Route53DomainsServiceException);
+assert(UnsupportedTLD.prototype instanceof Route53DomainsServiceException);
 assert(Route53DomainsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDomains === "function");

@@ -1,7 +1,10 @@
 import {
+  BadRequestException,
   Cloud9,
   Cloud9Client,
   Cloud9ServiceException,
+  ConcurrentAccessException,
+  ConflictException,
   ConnectionType,
   CreateEnvironmentEC2Command,
   CreateEnvironmentMembershipCommand,
@@ -13,13 +16,18 @@ import {
   EnvironmentLifecycleStatus,
   EnvironmentStatus,
   EnvironmentType,
+  ForbiddenException,
+  InternalServerErrorException,
+  LimitExceededException,
   ListEnvironmentsCommand,
   ListTagsForResourceCommand,
   ManagedCredentialsAction,
   ManagedCredentialsStatus,
   MemberPermissions,
+  NotFoundException,
   Permissions,
   TagResourceCommand,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateEnvironmentCommand,
   UpdateEnvironmentMembershipCommand,
@@ -54,6 +62,14 @@ assert(typeof ManagedCredentialsStatus === "object");
 assert(typeof MemberPermissions === "object");
 assert(typeof Permissions === "object");
 // errors
+assert(BadRequestException.prototype instanceof Cloud9ServiceException);
+assert(ConcurrentAccessException.prototype instanceof Cloud9ServiceException);
+assert(ConflictException.prototype instanceof Cloud9ServiceException);
+assert(ForbiddenException.prototype instanceof Cloud9ServiceException);
+assert(InternalServerErrorException.prototype instanceof Cloud9ServiceException);
+assert(LimitExceededException.prototype instanceof Cloud9ServiceException);
+assert(NotFoundException.prototype instanceof Cloud9ServiceException);
+assert(TooManyRequestsException.prototype instanceof Cloud9ServiceException);
 assert(Cloud9ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeEnvironmentMemberships === "function");

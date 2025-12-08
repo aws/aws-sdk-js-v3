@@ -718,7 +718,6 @@ export var VoteOnProposalInput: StaticStructureSchema = [3, n0, _VOPI, 0, [_NI, 
 export var VoteOnProposalOutput: StaticStructureSchema = [3, n0, _VOPO, 0, [], []];
 export var VoteSummary: StaticStructureSchema = [3, n0, _VS, 0, [_V, _MN, _MI], [0, 0, 0]];
 export var VotingPolicy: StaticStructureSchema = [3, n0, _VP, 0, [_ATP], [() => ApprovalThresholdPolicy]];
-export var __Unit = "unit" as const;
 export var ManagedBlockchainServiceException: StaticErrorSchema = [
   -3,
   _sm,

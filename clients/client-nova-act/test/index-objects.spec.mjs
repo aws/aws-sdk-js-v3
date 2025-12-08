@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   ActStatus,
+  ConflictException,
   CreateActCommand,
   CreateSessionCommand,
   CreateWorkflowDefinitionCommand,
@@ -8,6 +10,8 @@ import {
   DeleteWorkflowRunCommand,
   GetWorkflowDefinitionCommand,
   GetWorkflowRunCommand,
+  InternalServerException,
+  InternalServerExceptionReason,
   InvokeActStepCommand,
   ListActsCommand,
   ListModelsCommand,
@@ -18,10 +22,15 @@ import {
   NovaAct,
   NovaActClient,
   NovaActServiceException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SortOrder,
+  ThrottlingException,
   TraceLocationType,
   UpdateActCommand,
   UpdateWorkflowRunCommand,
+  ValidationException,
+  ValidationExceptionReason,
   WorkflowDefinitionStatus,
   WorkflowRunStatus,
   paginateListActs,
@@ -52,12 +61,21 @@ assert(typeof UpdateActCommand === "function");
 assert(typeof UpdateWorkflowRunCommand === "function");
 // enums
 assert(typeof ActStatus === "object");
+assert(typeof InternalServerExceptionReason === "object");
 assert(typeof ModelStatus === "object");
 assert(typeof SortOrder === "object");
 assert(typeof TraceLocationType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WorkflowDefinitionStatus === "object");
 assert(typeof WorkflowRunStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof NovaActServiceException);
+assert(ConflictException.prototype instanceof NovaActServiceException);
+assert(InternalServerException.prototype instanceof NovaActServiceException);
+assert(ResourceNotFoundException.prototype instanceof NovaActServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof NovaActServiceException);
+assert(ThrottlingException.prototype instanceof NovaActServiceException);
+assert(ValidationException.prototype instanceof NovaActServiceException);
 assert(NovaActServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListActs === "function");

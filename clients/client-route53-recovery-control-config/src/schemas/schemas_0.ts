@@ -455,7 +455,6 @@ export var UpdateSafetyRuleResponse: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var Route53RecoveryControlConfigServiceException: StaticErrorSchema = [
   -3,
   _sm,

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AssociateAccountsCommand,
   AssociatePricingRulesCommand,
   AssociateResourceErrorReason,
@@ -10,6 +11,8 @@ import {
   BillingconductorClient,
   BillingconductorServiceException,
   ComputationRuleEnum,
+  ConflictException,
+  ConflictExceptionReason,
   CreateBillingGroupCommand,
   CreateCustomLineItemCommand,
   CreatePricingPlanCommand,
@@ -25,6 +28,7 @@ import {
   DisassociatePricingRulesCommand,
   GetBillingGroupCostReportCommand,
   GroupByAttributeName,
+  InternalServerException,
   LineItemFilterAttributeName,
   LineItemFilterValue,
   ListAccountAssociationsCommand,
@@ -41,13 +45,18 @@ import {
   MatchOption,
   PricingRuleScope,
   PricingRuleType,
+  ResourceNotFoundException,
   SearchOption,
+  ServiceLimitExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateBillingGroupCommand,
   UpdateCustomLineItemCommand,
   UpdatePricingPlanCommand,
   UpdatePricingRuleCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateGetBillingGroupCostReport,
   paginateListAccountAssociations,
   paginateListBillingGroupCostReports,
@@ -102,6 +111,7 @@ assert(typeof AssociateResourceErrorReason === "object");
 assert(typeof BillingGroupStatus === "object");
 assert(typeof BillingGroupType === "object");
 assert(typeof ComputationRuleEnum === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof CurrencyCode === "object");
 assert(typeof CustomLineItemRelationship === "object");
 assert(typeof CustomLineItemType === "object");
@@ -112,7 +122,15 @@ assert(typeof MatchOption === "object");
 assert(typeof PricingRuleScope === "object");
 assert(typeof PricingRuleType === "object");
 assert(typeof SearchOption === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BillingconductorServiceException);
+assert(ConflictException.prototype instanceof BillingconductorServiceException);
+assert(InternalServerException.prototype instanceof BillingconductorServiceException);
+assert(ResourceNotFoundException.prototype instanceof BillingconductorServiceException);
+assert(ServiceLimitExceededException.prototype instanceof BillingconductorServiceException);
+assert(ThrottlingException.prototype instanceof BillingconductorServiceException);
+assert(ValidationException.prototype instanceof BillingconductorServiceException);
 assert(BillingconductorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetBillingGroupCostReport === "function");

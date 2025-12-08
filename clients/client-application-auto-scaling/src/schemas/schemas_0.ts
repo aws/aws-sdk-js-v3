@@ -596,7 +596,6 @@ export var ValidationException: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var ApplicationAutoScalingServiceException: StaticErrorSchema = [
   -3,
   _sm,

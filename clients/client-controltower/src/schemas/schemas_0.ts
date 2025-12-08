@@ -573,7 +573,6 @@ export var UpdateLandingZoneInput: StaticStructureSchema = [3, n0, _ULZI, 0, [_v
 export var UpdateLandingZoneOutput: StaticStructureSchema = [3, n0, _ULZO, 0, [_oI], [0]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var ControlTowerServiceException: StaticErrorSchema = [-3, _sm, "ControlTowerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ControlTowerServiceException, __ControlTowerServiceException);
 export var Baselines: StaticListSchema = [1, n0, _B, 0, () => BaselineSummary];

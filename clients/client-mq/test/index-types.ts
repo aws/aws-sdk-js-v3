@@ -154,6 +154,12 @@ export type {
   UserPendingChanges,
   UserSummary,
   WeeklyStartTime,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  InternalServerErrorException,
+  NotFoundException,
+  UnauthorizedException,
   MqServiceException,
   paginateListBrokers,
 } from "../dist-types/index.d";

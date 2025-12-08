@@ -1,6 +1,7 @@
 import {
   AllowNotifications,
   AssociateChannelFlowCommand,
+  BadRequestException,
   BatchCreateChannelMembershipCommand,
   ChannelFlowCallbackCommand,
   ChannelMembershipType,
@@ -12,6 +13,7 @@ import {
   ChimeSDKMessaging,
   ChimeSDKMessagingClient,
   ChimeSDKMessagingServiceException,
+  ConflictException,
   CreateChannelBanCommand,
   CreateChannelCommand,
   CreateChannelFlowCommand,
@@ -35,6 +37,7 @@ import {
   ErrorCode,
   ExpirationCriterion,
   FallbackAction,
+  ForbiddenException,
   GetChannelMembershipPreferencesCommand,
   GetChannelMessageCommand,
   GetChannelMessageStatusCommand,
@@ -54,17 +57,23 @@ import {
   ListTagsForResourceCommand,
   MessagingDataType,
   NetworkType,
+  NotFoundException,
   PushNotificationType,
   PutChannelExpirationSettingsCommand,
   PutChannelMembershipPreferencesCommand,
   PutMessagingStreamingConfigurationsCommand,
   RedactChannelMessageCommand,
+  ResourceLimitExceededException,
   SearchChannelsCommand,
   SearchFieldKey,
   SearchFieldOperator,
   SendChannelMessageCommand,
+  ServiceFailureException,
+  ServiceUnavailableException,
   SortOrder,
   TagResourceCommand,
+  ThrottledClientException,
+  UnauthorizedClientException,
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdateChannelFlowCommand,
@@ -157,6 +166,15 @@ assert(typeof SearchFieldKey === "object");
 assert(typeof SearchFieldOperator === "object");
 assert(typeof SortOrder === "object");
 // errors
+assert(BadRequestException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(ConflictException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(ForbiddenException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(NotFoundException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(ResourceLimitExceededException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(ServiceFailureException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(ServiceUnavailableException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(ThrottledClientException.prototype instanceof ChimeSDKMessagingServiceException);
+assert(UnauthorizedClientException.prototype instanceof ChimeSDKMessagingServiceException);
 assert(ChimeSDKMessagingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChannelBans === "function");

@@ -35,6 +35,12 @@ export type {
   PutKeyResponse,
   UpdateKeysRequest,
   UpdateKeysResponse,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ValidationException,
   CloudFrontKeyValueStoreServiceException,
   paginateListKeys,
 } from "../dist-types/index.d";

@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   AnalysisType,
   BatchGetFindingsCommand,
   CodeGuruSecurity,
   CodeGuruSecurityClient,
   CodeGuruSecurityServiceException,
+  ConflictException,
   CreateScanCommand,
   CreateUploadUrlCommand,
   ErrorCode,
@@ -11,16 +13,21 @@ import {
   GetFindingsCommand,
   GetMetricsSummaryCommand,
   GetScanCommand,
+  InternalServerException,
   ListFindingsMetricsCommand,
   ListScansCommand,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
   ScanState,
   ScanType,
   Severity,
   Status,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAccountConfigurationCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateGetFindings,
   paginateListFindingsMetrics,
   paginateListScans,
@@ -50,7 +57,14 @@ assert(typeof ScanState === "object");
 assert(typeof ScanType === "object");
 assert(typeof Severity === "object");
 assert(typeof Status === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CodeGuruSecurityServiceException);
+assert(ConflictException.prototype instanceof CodeGuruSecurityServiceException);
+assert(InternalServerException.prototype instanceof CodeGuruSecurityServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodeGuruSecurityServiceException);
+assert(ThrottlingException.prototype instanceof CodeGuruSecurityServiceException);
+assert(ValidationException.prototype instanceof CodeGuruSecurityServiceException);
 assert(CodeGuruSecurityServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetFindings === "function");

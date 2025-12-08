@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   AddKeyReplicationRegionsCommand,
+  ConflictException,
   CreateAliasCommand,
   CreateKeyCommand,
   DeleteAliasCommand,
@@ -16,6 +18,7 @@ import {
   GetParametersForImportCommand,
   GetPublicKeyCertificateCommand,
   ImportKeyCommand,
+  InternalServerException,
   KeyAlgorithm,
   KeyCheckValueAlgorithm,
   KeyClass,
@@ -35,15 +38,20 @@ import {
   PaymentCryptographyClient,
   PaymentCryptographyServiceException,
   RemoveKeyReplicationRegionsCommand,
+  ResourceNotFoundException,
   RestoreKeyCommand,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   SigningAlgorithmType,
   StartKeyUsageCommand,
   StopKeyUsageCommand,
   SymmetricKeyAlgorithm,
   TagResourceCommand,
+  ThrottlingException,
   Tr34KeyBlockFormat,
   UntagResourceCommand,
   UpdateAliasCommand,
+  ValidationException,
   WrappedKeyMaterialFormat,
   WrappingKeySpec,
   paginateListAliases,
@@ -101,6 +109,14 @@ assert(typeof Tr34KeyBlockFormat === "object");
 assert(typeof WrappedKeyMaterialFormat === "object");
 assert(typeof WrappingKeySpec === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PaymentCryptographyServiceException);
+assert(ConflictException.prototype instanceof PaymentCryptographyServiceException);
+assert(InternalServerException.prototype instanceof PaymentCryptographyServiceException);
+assert(ResourceNotFoundException.prototype instanceof PaymentCryptographyServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PaymentCryptographyServiceException);
+assert(ServiceUnavailableException.prototype instanceof PaymentCryptographyServiceException);
+assert(ThrottlingException.prototype instanceof PaymentCryptographyServiceException);
+assert(ValidationException.prototype instanceof PaymentCryptographyServiceException);
 assert(PaymentCryptographyServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAliases === "function");

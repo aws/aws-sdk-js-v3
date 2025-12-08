@@ -198,5 +198,13 @@ export type {
   UpdateDestinationOutput,
   VpcConfiguration,
   VpcConfigurationDescription,
+  ConcurrentModificationException,
+  InvalidArgumentException,
+  InvalidKMSResourceException,
+  InvalidSourceException,
+  LimitExceededException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
   FirehoseServiceException,
 } from "../dist-types/index.d";

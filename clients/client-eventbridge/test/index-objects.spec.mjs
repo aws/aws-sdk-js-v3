@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   ActivateEventSourceCommand,
   ApiDestinationHttpMethod,
   ApiDestinationState,
   ArchiveState,
   AssignPublicIp,
   CancelReplayCommand,
+  ConcurrentModificationException,
   ConnectionAuthorizationType,
   ConnectionOAuthHttpMethod,
   ConnectionState,
@@ -39,9 +41,14 @@ import {
   EventBridgeClient,
   EventBridgeServiceException,
   EventSourceState,
+  IllegalStatusException,
   IncludeDetail,
+  InternalException,
+  InvalidEventPatternException,
+  InvalidStateException,
   LaunchType,
   Level,
+  LimitExceededException,
   ListApiDestinationsCommand,
   ListArchivesCommand,
   ListConnectionsCommand,
@@ -55,8 +62,11 @@ import {
   ListRulesCommand,
   ListTagsForResourceCommand,
   ListTargetsByRuleCommand,
+  ManagedRuleException,
+  OperationDisabledException,
   PlacementConstraintType,
   PlacementStrategyType,
+  PolicyLengthExceededException,
   PropagateTags,
   PutEventsCommand,
   PutPartnerEventsCommand,
@@ -67,10 +77,13 @@ import {
   RemoveTargetsCommand,
   ReplayState,
   ReplicationState,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RuleState,
   StartReplayCommand,
   TagResourceCommand,
   TestEventPatternCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateApiDestinationCommand,
   UpdateArchiveCommand,
@@ -160,5 +173,18 @@ assert(typeof ReplayState === "object");
 assert(typeof ReplicationState === "object");
 assert(typeof RuleState === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof EventBridgeServiceException);
+assert(ConcurrentModificationException.prototype instanceof EventBridgeServiceException);
+assert(IllegalStatusException.prototype instanceof EventBridgeServiceException);
+assert(InternalException.prototype instanceof EventBridgeServiceException);
+assert(InvalidEventPatternException.prototype instanceof EventBridgeServiceException);
+assert(InvalidStateException.prototype instanceof EventBridgeServiceException);
+assert(LimitExceededException.prototype instanceof EventBridgeServiceException);
+assert(ManagedRuleException.prototype instanceof EventBridgeServiceException);
+assert(OperationDisabledException.prototype instanceof EventBridgeServiceException);
+assert(PolicyLengthExceededException.prototype instanceof EventBridgeServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof EventBridgeServiceException);
+assert(ResourceNotFoundException.prototype instanceof EventBridgeServiceException);
+assert(ThrottlingException.prototype instanceof EventBridgeServiceException);
 assert(EventBridgeServiceException.prototype instanceof Error);
 console.log(`EventBridge index test passed.`);

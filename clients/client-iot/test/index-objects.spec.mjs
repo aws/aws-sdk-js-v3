@@ -37,9 +37,12 @@ import {
   CancelJobCommand,
   CancelJobExecutionCommand,
   CannedAccessControlList,
+  CertificateConflictException,
   CertificateMode,
   CertificateProviderOperation,
+  CertificateStateException,
   CertificateStatus,
+  CertificateValidationException,
   ClearDefaultAuthorizerCommand,
   CommandExecutionStatus,
   CommandNamespace,
@@ -48,6 +51,8 @@ import {
   ConfigName,
   ConfigurationStatus,
   ConfirmTopicRuleDestinationCommand,
+  ConflictException,
+  ConflictingResourceUpdateException,
   CreateAuditSuppressionCommand,
   CreateAuthorizerCommand,
   CreateBillingGroupCommand,
@@ -91,6 +96,7 @@ import {
   DeleteCertificateProviderCommand,
   DeleteCommandCommand,
   DeleteCommandExecutionCommand,
+  DeleteConflictException,
   DeleteCustomMetricCommand,
   DeleteDimensionCommand,
   DeleteDomainConfigurationCommand,
@@ -198,7 +204,16 @@ import {
   GetTopicRuleCommand,
   GetTopicRuleDestinationCommand,
   GetV2LoggingOptionsCommand,
+  IndexNotReadyException,
   IndexStatus,
+  InternalException,
+  InternalFailureException,
+  InternalServerException,
+  InvalidAggregationException,
+  InvalidQueryException,
+  InvalidRequestException,
+  InvalidResponseException,
+  InvalidStateTransitionException,
   IoT,
   IoTClient,
   IoTServiceException,
@@ -206,6 +221,7 @@ import {
   JobExecutionFailureType,
   JobExecutionStatus,
   JobStatus,
+  LimitExceededException,
   ListActiveViolationsCommand,
   ListAttachedPoliciesCommand,
   ListAuditFindingsCommand,
@@ -273,10 +289,12 @@ import {
   ListViolationEventsCommand,
   LogLevel,
   LogTargetType,
+  MalformedPolicyException,
   MessageFormat,
   MitigationActionType,
   ModelStatus,
   NamedShadowIndexingMode,
+  NotConfiguredException,
   OTAUpdateStatus,
   PackageVersionAction,
   PackageVersionStatus,
@@ -287,11 +305,15 @@ import {
   RegisterCertificateCommand,
   RegisterCertificateWithoutCACommand,
   RegisterThingCommand,
+  RegistrationCodeValidationException,
   RejectCertificateTransferCommand,
   RemoveThingFromBillingGroupCommand,
   RemoveThingFromThingGroupCommand,
   ReplaceTopicRuleCommand,
   ReportType,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
+  ResourceRegistrationFailureException,
   ResourceType,
   RetryableFailureType,
   SbomValidationErrorCode,
@@ -299,13 +321,16 @@ import {
   SbomValidationStatus,
   SearchIndexCommand,
   ServerCertificateStatus,
+  ServiceQuotaExceededException,
   ServiceType,
+  ServiceUnavailableException,
   SetDefaultAuthorizerCommand,
   SetDefaultPolicyVersionCommand,
   SetLoggingOptionsCommand,
   SetV2LoggingLevelCommand,
   SetV2LoggingOptionsCommand,
   SortOrder,
+  SqlParseException,
   StartAuditMitigationActionsTaskCommand,
   StartDetectMitigationActionsTaskCommand,
   StartOnDemandAuditTaskCommand,
@@ -315,6 +340,7 @@ import {
   TagResourceCommand,
   TargetFieldOrder,
   TargetSelection,
+  TaskAlreadyExistsException,
   TemplateType,
   TestAuthorizationCommand,
   TestInvokeAuthorizerCommand,
@@ -322,8 +348,12 @@ import {
   ThingGroupIndexingMode,
   ThingIndexingMode,
   ThingPrincipalType,
+  ThrottlingException,
   TopicRuleDestinationStatus,
+  TransferAlreadyCompletedException,
   TransferCertificateCommand,
+  TransferConflictException,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAccountAuditConfigurationCommand,
   UpdateAuditSuppressionCommand,
@@ -357,7 +387,10 @@ import {
   UpdateThingTypeCommand,
   UpdateTopicRuleDestinationCommand,
   ValidateSecurityProfileBehaviorsCommand,
+  ValidationException,
   VerificationState,
+  VersionConflictException,
+  VersionsLimitExceededException,
   ViolationEventType,
   paginateGetBehaviorModelTrainingSummaries,
   paginateListActiveViolations,
@@ -788,6 +821,39 @@ assert(typeof TopicRuleDestinationStatus === "object");
 assert(typeof VerificationState === "object");
 assert(typeof ViolationEventType === "object");
 // errors
+assert(CertificateConflictException.prototype instanceof IoTServiceException);
+assert(CertificateStateException.prototype instanceof IoTServiceException);
+assert(CertificateValidationException.prototype instanceof IoTServiceException);
+assert(ConflictException.prototype instanceof IoTServiceException);
+assert(ConflictingResourceUpdateException.prototype instanceof IoTServiceException);
+assert(DeleteConflictException.prototype instanceof IoTServiceException);
+assert(IndexNotReadyException.prototype instanceof IoTServiceException);
+assert(InternalException.prototype instanceof IoTServiceException);
+assert(InternalFailureException.prototype instanceof IoTServiceException);
+assert(InternalServerException.prototype instanceof IoTServiceException);
+assert(InvalidAggregationException.prototype instanceof IoTServiceException);
+assert(InvalidQueryException.prototype instanceof IoTServiceException);
+assert(InvalidRequestException.prototype instanceof IoTServiceException);
+assert(InvalidResponseException.prototype instanceof IoTServiceException);
+assert(InvalidStateTransitionException.prototype instanceof IoTServiceException);
+assert(LimitExceededException.prototype instanceof IoTServiceException);
+assert(MalformedPolicyException.prototype instanceof IoTServiceException);
+assert(NotConfiguredException.prototype instanceof IoTServiceException);
+assert(RegistrationCodeValidationException.prototype instanceof IoTServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof IoTServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTServiceException);
+assert(ResourceRegistrationFailureException.prototype instanceof IoTServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof IoTServiceException);
+assert(ServiceUnavailableException.prototype instanceof IoTServiceException);
+assert(SqlParseException.prototype instanceof IoTServiceException);
+assert(TaskAlreadyExistsException.prototype instanceof IoTServiceException);
+assert(ThrottlingException.prototype instanceof IoTServiceException);
+assert(TransferAlreadyCompletedException.prototype instanceof IoTServiceException);
+assert(TransferConflictException.prototype instanceof IoTServiceException);
+assert(UnauthorizedException.prototype instanceof IoTServiceException);
+assert(ValidationException.prototype instanceof IoTServiceException);
+assert(VersionConflictException.prototype instanceof IoTServiceException);
+assert(VersionsLimitExceededException.prototype instanceof IoTServiceException);
 assert(IoTServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetBehaviorModelTrainingSummaries === "function");

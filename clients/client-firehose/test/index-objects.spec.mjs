@@ -3,6 +3,7 @@ import {
   AmazonopensearchserviceIndexRotationPeriod,
   AmazonopensearchserviceS3BackupMode,
   CompressionFormat,
+  ConcurrentModificationException,
   Connectivity,
   ContentEncoding,
   CreateDeliveryStreamCommand,
@@ -22,7 +23,11 @@ import {
   HECEndpointType,
   HttpEndpointS3BackupMode,
   IcebergS3BackupMode,
+  InvalidArgumentException,
+  InvalidKMSResourceException,
+  InvalidSourceException,
   KeyType,
+  LimitExceededException,
   ListDeliveryStreamsCommand,
   ListTagsForDeliveryStreamCommand,
   NoEncryptionConfig,
@@ -35,8 +40,11 @@ import {
   PutRecordBatchCommand,
   PutRecordCommand,
   RedshiftS3BackupMode,
+  ResourceInUseException,
+  ResourceNotFoundException,
   S3BackupMode,
   SSLMode,
+  ServiceUnavailableException,
   SnapshotRequestedBy,
   SnapshotStatus,
   SnowflakeDataLoadingOption,
@@ -100,5 +108,13 @@ assert(typeof SnowflakeS3BackupMode === "object");
 assert(typeof SplunkS3BackupMode === "object");
 assert(typeof SSLMode === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof FirehoseServiceException);
+assert(InvalidArgumentException.prototype instanceof FirehoseServiceException);
+assert(InvalidKMSResourceException.prototype instanceof FirehoseServiceException);
+assert(InvalidSourceException.prototype instanceof FirehoseServiceException);
+assert(LimitExceededException.prototype instanceof FirehoseServiceException);
+assert(ResourceInUseException.prototype instanceof FirehoseServiceException);
+assert(ResourceNotFoundException.prototype instanceof FirehoseServiceException);
+assert(ServiceUnavailableException.prototype instanceof FirehoseServiceException);
 assert(FirehoseServiceException.prototype instanceof Error);
 console.log(`Firehose index test passed.`);

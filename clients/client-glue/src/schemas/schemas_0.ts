@@ -7327,7 +7327,6 @@ export var XMLClassifier: StaticStructureSchema = [
   [_N, _Clas, _CTre, _LU, _Ver, _RTo],
   [0, 0, 4, 4, 1, 0],
 ];
-export var __Unit = "unit" as const;
 export var GlueServiceException: StaticErrorSchema = [-3, _sm, "GlueServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GlueServiceException, __GlueServiceException);
 export var ActionList: StaticListSchema = [1, n0, _ALc, 0, () => Action];

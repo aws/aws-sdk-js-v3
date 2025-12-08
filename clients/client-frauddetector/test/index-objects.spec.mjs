@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   AsyncJobStatus,
   BatchCreateVariableCommand,
   BatchGetVariableCommand,
   CancelBatchImportJobCommand,
   CancelBatchPredictionJobCommand,
+  ConflictException,
   CreateBatchImportJobCommand,
   CreateBatchPredictionJobCommand,
   CreateDetectorVersionCommand,
@@ -57,6 +59,7 @@ import {
   GetOutcomesCommand,
   GetRulesCommand,
   GetVariablesCommand,
+  InternalServerException,
   Language,
   ListEventPredictionsCommand,
   ListTagsForResourceCommand,
@@ -74,9 +77,12 @@ import {
   PutKMSEncryptionKeyCommand,
   PutLabelCommand,
   PutOutcomeCommand,
+  ResourceNotFoundException,
+  ResourceUnavailableException,
   RuleExecutionMode,
   SendEventCommand,
   TagResourceCommand,
+  ThrottlingException,
   TrainingDataSourceEnum,
   UnlabeledEventsTreatment,
   UntagResourceCommand,
@@ -91,6 +97,7 @@ import {
   UpdateRuleMetadataCommand,
   UpdateRuleVersionCommand,
   UpdateVariableCommand,
+  ValidationException,
   paginateDescribeModelVersions,
   paginateGetBatchImportJobs,
   paginateGetBatchPredictionJobs,
@@ -204,6 +211,13 @@ assert(typeof RuleExecutionMode === "object");
 assert(typeof TrainingDataSourceEnum === "object");
 assert(typeof UnlabeledEventsTreatment === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof FraudDetectorServiceException);
+assert(ConflictException.prototype instanceof FraudDetectorServiceException);
+assert(InternalServerException.prototype instanceof FraudDetectorServiceException);
+assert(ResourceNotFoundException.prototype instanceof FraudDetectorServiceException);
+assert(ResourceUnavailableException.prototype instanceof FraudDetectorServiceException);
+assert(ThrottlingException.prototype instanceof FraudDetectorServiceException);
+assert(ValidationException.prototype instanceof FraudDetectorServiceException);
 assert(FraudDetectorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeModelVersions === "function");

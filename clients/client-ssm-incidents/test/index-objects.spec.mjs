@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   BatchGetIncidentFindingsCommand,
+  ConflictException,
   CreateReplicationSetCommand,
   CreateResponsePlanCommand,
   CreateTimelineEventCommand,
@@ -14,6 +16,7 @@ import {
   GetResponsePlanCommand,
   GetTimelineEventCommand,
   IncidentRecordStatus,
+  InternalServerException,
   ItemType,
   ListIncidentFindingsCommand,
   ListIncidentRecordsCommand,
@@ -25,13 +28,18 @@ import {
   PutResourcePolicyCommand,
   RegionStatus,
   ReplicationSetStatus,
+  ResourceNotFoundException,
+  ResourceType,
   SSMIncidents,
   SSMIncidentsClient,
   SSMIncidentsServiceException,
+  ServiceCode,
+  ServiceQuotaExceededException,
   SortOrder,
   SsmTargetAccount,
   StartIncidentCommand,
   TagResourceCommand,
+  ThrottlingException,
   TimelineEventSort,
   UntagResourceCommand,
   UpdateDeletionProtectionCommand,
@@ -40,6 +48,7 @@ import {
   UpdateReplicationSetCommand,
   UpdateResponsePlanCommand,
   UpdateTimelineEventCommand,
+  ValidationException,
   VariableType,
   paginateGetResourcePolicies,
   paginateListIncidentFindings,
@@ -94,11 +103,20 @@ assert(typeof IncidentRecordStatus === "object");
 assert(typeof ItemType === "object");
 assert(typeof RegionStatus === "object");
 assert(typeof ReplicationSetStatus === "object");
+assert(typeof ResourceType === "object");
+assert(typeof ServiceCode === "object");
 assert(typeof SortOrder === "object");
 assert(typeof SsmTargetAccount === "object");
 assert(typeof TimelineEventSort === "object");
 assert(typeof VariableType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SSMIncidentsServiceException);
+assert(ConflictException.prototype instanceof SSMIncidentsServiceException);
+assert(InternalServerException.prototype instanceof SSMIncidentsServiceException);
+assert(ResourceNotFoundException.prototype instanceof SSMIncidentsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SSMIncidentsServiceException);
+assert(ThrottlingException.prototype instanceof SSMIncidentsServiceException);
+assert(ValidationException.prototype instanceof SSMIncidentsServiceException);
 assert(SSMIncidentsServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForWaitForReplicationSetActive === "function");

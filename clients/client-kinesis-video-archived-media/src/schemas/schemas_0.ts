@@ -217,7 +217,6 @@ export var UnsupportedStreamMediaTypeException: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedStreamMediaTypeException, __UnsupportedStreamMediaTypeException);
-export var __Unit = "unit" as const;
 export var KinesisVideoArchivedMediaServiceException: StaticErrorSchema = [
   -3,
   _sm,

@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AdditionalOptionKeys,
   AggFunction,
   AllowFullTableExternalDataAccessEnum,
+  AlreadyExistsException,
   AuthenticationType,
   BackfillErrorCode,
   BatchCreatePartitionCommand,
@@ -32,6 +34,9 @@ import {
   CheckSchemaVersionValidityCommand,
   CloudWatchEncryptionMode,
   ColumnStatisticsState,
+  ColumnStatisticsTaskNotRunningException,
+  ColumnStatisticsTaskRunningException,
+  ColumnStatisticsTaskStoppingException,
   ColumnStatisticsType,
   CompactionStrategy,
   Comparator,
@@ -39,14 +44,21 @@ import {
   CompressionType,
   ComputationType,
   ComputeEnvironment,
+  ConcurrentModificationException,
+  ConcurrentRunsExceededException,
+  ConditionCheckFailureException,
   ConfigurationSource,
+  ConflictException,
   ConnectionPropertyKey,
   ConnectionStatus,
   ConnectionType,
   CrawlState,
   CrawlerHistoryState,
   CrawlerLineageSettings,
+  CrawlerNotRunningException,
+  CrawlerRunningException,
   CrawlerState,
+  CrawlerStoppingException,
   CreateBlueprintCommand,
   CreateCatalogCommand,
   CreateClassifierCommand,
@@ -128,9 +140,14 @@ import {
   DescribeInboundIntegrationsCommand,
   DescribeIntegrationsCommand,
   EnableHybridValues,
+  EntityNotFoundException,
   ExecutionClass,
   ExecutionStatus,
   ExistCondition,
+  FederatedResourceAlreadyExistsException,
+  FederationSourceErrorCode,
+  FederationSourceException,
+  FederationSourceRetryableException,
   FieldDataType,
   FieldFilterOperator,
   FieldName,
@@ -219,6 +236,7 @@ import {
   GetWorkflowRunsCommand,
   Glue,
   GlueClient,
+  GlueEncryptionException,
   GlueRecordType,
   GlueServiceException,
   HudiTargetCompressionType,
@@ -228,9 +246,21 @@ import {
   IcebergStructTypeEnum,
   IcebergTargetCompressionType,
   IcebergUpdateAction,
+  IdempotentParameterMismatchException,
+  IllegalBlueprintStateException,
+  IllegalSessionStateException,
+  IllegalWorkflowStateException,
   ImportCatalogToGlueCommand,
   InclusionAnnotationValue,
+  IntegrationConflictOperationFault,
+  IntegrationNotFoundFault,
+  IntegrationQuotaExceededFault,
   IntegrationStatus,
+  InternalServerException,
+  InternalServiceException,
+  InvalidInputException,
+  InvalidIntegrationStateFault,
+  InvalidStateException,
   JDBCConnectionType,
   JDBCDataType,
   JdbcMetadataEntry,
@@ -238,6 +268,7 @@ import {
   JobMode,
   JobRunState,
   JoinType,
+  KMSKeyNotAccessibleFault,
   Language,
   LastCrawlStatus,
   LastRefreshType,
@@ -269,16 +300,21 @@ import {
   ListWorkflowsCommand,
   Logical,
   LogicalOperator,
+  MLTransformNotReadyException,
   MLUserDataEncryptionModeString,
   MetadataOperation,
   ModifyIntegrationCommand,
+  NoScheduleException,
   NodeType,
   OAuth2GrantType,
+  OperationNotSupportedException,
+  OperationTimeoutException,
   ParamType,
   ParquetCompressionType,
   PartitionIndexStatus,
   Permission,
   PermissionType,
+  PermissionTypeMismatchException,
   PiiType,
   PrincipalType,
   PropertyType,
@@ -295,6 +331,9 @@ import {
   RemoveSchemaVersionMetadataCommand,
   ResetJobBookmarkCommand,
   ResourceAction,
+  ResourceNotFoundException,
+  ResourceNotReadyException,
+  ResourceNumberLimitExceededException,
   ResourceShareType,
   ResourceState,
   ResourceType,
@@ -303,6 +342,9 @@ import {
   S3EncryptionMode,
   ScheduleState,
   ScheduleType,
+  SchedulerNotRunningException,
+  SchedulerRunningException,
+  SchedulerTransitioningException,
   SchemaDiffType,
   SchemaStatus,
   SchemaVersionStatus,
@@ -343,10 +385,12 @@ import {
   TableOptimizerType,
   TagResourceCommand,
   TargetFormat,
+  TargetResourceNotFound,
   TaskRunSortColumnType,
   TaskStatusType,
   TaskType,
   TestConnectionCommand,
+  ThrottlingException,
   TransformSortColumnType,
   TransformStatusType,
   TransformType,
@@ -385,6 +429,8 @@ import {
   UpdateUsageProfileCommand,
   UpdateUserDefinedFunctionCommand,
   UpdateWorkflowCommand,
+  ValidationException,
+  VersionMismatchException,
   ViewDialect,
   ViewUpdateAction,
   WorkerType,
@@ -743,6 +789,7 @@ assert(typeof EnableHybridValues === "object");
 assert(typeof ExecutionClass === "object");
 assert(typeof ExecutionStatus === "object");
 assert(typeof ExistCondition === "object");
+assert(typeof FederationSourceErrorCode === "object");
 assert(typeof FieldDataType === "object");
 assert(typeof FieldFilterOperator === "object");
 assert(typeof FieldName === "object");
@@ -829,6 +876,51 @@ assert(typeof ViewUpdateAction === "object");
 assert(typeof WorkerType === "object");
 assert(typeof WorkflowRunStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GlueServiceException);
+assert(AlreadyExistsException.prototype instanceof GlueServiceException);
+assert(ColumnStatisticsTaskNotRunningException.prototype instanceof GlueServiceException);
+assert(ColumnStatisticsTaskRunningException.prototype instanceof GlueServiceException);
+assert(ColumnStatisticsTaskStoppingException.prototype instanceof GlueServiceException);
+assert(ConcurrentModificationException.prototype instanceof GlueServiceException);
+assert(ConcurrentRunsExceededException.prototype instanceof GlueServiceException);
+assert(ConditionCheckFailureException.prototype instanceof GlueServiceException);
+assert(ConflictException.prototype instanceof GlueServiceException);
+assert(CrawlerNotRunningException.prototype instanceof GlueServiceException);
+assert(CrawlerRunningException.prototype instanceof GlueServiceException);
+assert(CrawlerStoppingException.prototype instanceof GlueServiceException);
+assert(EntityNotFoundException.prototype instanceof GlueServiceException);
+assert(FederatedResourceAlreadyExistsException.prototype instanceof GlueServiceException);
+assert(FederationSourceException.prototype instanceof GlueServiceException);
+assert(FederationSourceRetryableException.prototype instanceof GlueServiceException);
+assert(GlueEncryptionException.prototype instanceof GlueServiceException);
+assert(IdempotentParameterMismatchException.prototype instanceof GlueServiceException);
+assert(IllegalBlueprintStateException.prototype instanceof GlueServiceException);
+assert(IllegalSessionStateException.prototype instanceof GlueServiceException);
+assert(IllegalWorkflowStateException.prototype instanceof GlueServiceException);
+assert(IntegrationConflictOperationFault.prototype instanceof GlueServiceException);
+assert(IntegrationNotFoundFault.prototype instanceof GlueServiceException);
+assert(IntegrationQuotaExceededFault.prototype instanceof GlueServiceException);
+assert(InternalServerException.prototype instanceof GlueServiceException);
+assert(InternalServiceException.prototype instanceof GlueServiceException);
+assert(InvalidInputException.prototype instanceof GlueServiceException);
+assert(InvalidIntegrationStateFault.prototype instanceof GlueServiceException);
+assert(InvalidStateException.prototype instanceof GlueServiceException);
+assert(KMSKeyNotAccessibleFault.prototype instanceof GlueServiceException);
+assert(MLTransformNotReadyException.prototype instanceof GlueServiceException);
+assert(NoScheduleException.prototype instanceof GlueServiceException);
+assert(OperationNotSupportedException.prototype instanceof GlueServiceException);
+assert(OperationTimeoutException.prototype instanceof GlueServiceException);
+assert(PermissionTypeMismatchException.prototype instanceof GlueServiceException);
+assert(ResourceNotFoundException.prototype instanceof GlueServiceException);
+assert(ResourceNotReadyException.prototype instanceof GlueServiceException);
+assert(ResourceNumberLimitExceededException.prototype instanceof GlueServiceException);
+assert(SchedulerNotRunningException.prototype instanceof GlueServiceException);
+assert(SchedulerRunningException.prototype instanceof GlueServiceException);
+assert(SchedulerTransitioningException.prototype instanceof GlueServiceException);
+assert(TargetResourceNotFound.prototype instanceof GlueServiceException);
+assert(ThrottlingException.prototype instanceof GlueServiceException);
+assert(ValidationException.prototype instanceof GlueServiceException);
+assert(VersionMismatchException.prototype instanceof GlueServiceException);
 assert(GlueServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeEntity === "function");

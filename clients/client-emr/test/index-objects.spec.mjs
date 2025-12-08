@@ -52,6 +52,9 @@ import {
   InstanceRoleType,
   InstanceState,
   InstanceStateChangeReasonCode,
+  InternalServerError,
+  InternalServerException,
+  InvalidRequestException,
   JobFlowExecutionState,
   ListBootstrapActionsCommand,
   ListClustersCommand,
@@ -240,6 +243,9 @@ assert(typeof StepState === "object");
 assert(typeof StepStateChangeReasonCode === "object");
 assert(typeof Unit === "object");
 // errors
+assert(InternalServerError.prototype instanceof EMRServiceException);
+assert(InternalServerException.prototype instanceof EMRServiceException);
+assert(InvalidRequestException.prototype instanceof EMRServiceException);
 assert(EMRServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForClusterRunning === "function");

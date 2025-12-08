@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AutoScalingMetric,
   ChangeType,
   ChangesetStatus,
+  ConflictException,
   CreateEnvironmentCommand,
   CreateKxChangesetCommand,
   CreateKxClusterCommand,
@@ -38,6 +40,8 @@ import {
   GetKxUserCommand,
   GetKxVolumeCommand,
   IPAddressType,
+  InternalServerException,
+  InvalidRequestException,
   KxAzMode,
   KxClusterCodeDeploymentStrategy,
   KxClusterStatus,
@@ -50,6 +54,7 @@ import {
   KxScalingGroupStatus,
   KxVolumeStatus,
   KxVolumeType,
+  LimitExceededException,
   ListEnvironmentsCommand,
   ListKxChangesetsCommand,
   ListKxClusterNodesCommand,
@@ -61,9 +66,13 @@ import {
   ListKxUsersCommand,
   ListKxVolumesCommand,
   ListTagsForResourceCommand,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RuleAction,
+  ServiceQuotaExceededException,
   TagResourceCommand,
   TgwStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateEnvironmentCommand,
   UpdateKxClusterCodeConfigurationCommand,
@@ -74,6 +83,7 @@ import {
   UpdateKxEnvironmentNetworkCommand,
   UpdateKxUserCommand,
   UpdateKxVolumeCommand,
+  ValidationException,
   VolumeType,
   paginateListKxChangesets,
   paginateListKxClusterNodes,
@@ -162,6 +172,16 @@ assert(typeof RuleAction === "object");
 assert(typeof TgwStatus === "object");
 assert(typeof VolumeType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof FinspaceServiceException);
+assert(ConflictException.prototype instanceof FinspaceServiceException);
+assert(InternalServerException.prototype instanceof FinspaceServiceException);
+assert(InvalidRequestException.prototype instanceof FinspaceServiceException);
+assert(LimitExceededException.prototype instanceof FinspaceServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof FinspaceServiceException);
+assert(ResourceNotFoundException.prototype instanceof FinspaceServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof FinspaceServiceException);
+assert(ThrottlingException.prototype instanceof FinspaceServiceException);
+assert(ValidationException.prototype instanceof FinspaceServiceException);
 assert(FinspaceServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListKxChangesets === "function");

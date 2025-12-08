@@ -321,7 +321,6 @@ export var VectorBucket: StaticStructureSchema = [
   [0, 0, 4, () => EncryptionConfiguration],
 ];
 export var VectorBucketSummary: StaticStructureSchema = [3, n0, _VBS, 0, [_vBN, _vBA, _cT], [0, 0, 4]];
-export var __Unit = "unit" as const;
 export var S3VectorsServiceException: StaticErrorSchema = [-3, _sm, "S3VectorsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(S3VectorsServiceException, __S3VectorsServiceException);
 export var DeleteVectorsInputList = 64 | 0;

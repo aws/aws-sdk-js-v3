@@ -440,7 +440,6 @@ export var UpdateDetectorRequest: StaticStructureSchema = [
 ];
 export var Variable: StaticStructureSchema = [3, n0, _V, 0, [_na, _va], [0, 0]];
 export var VariableDefinition: StaticStructureSchema = [3, n0, _VD, 0, [_na, _va], [0, 0]];
-export var __Unit = "unit" as const;
 export var IoTEventsDataServiceException: StaticErrorSchema = [-3, _sm, "IoTEventsDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTEventsDataServiceException, __IoTEventsDataServiceException);
 export var AcknowledgeAlarmActionRequests: StaticListSchema = [1, n0, _AAARc, 0, () => AcknowledgeAlarmActionRequest];

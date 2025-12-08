@@ -1,15 +1,32 @@
 import {
+  APICallRateForCustomerExceededFault,
   AZMode,
   AddTagsToResourceCommand,
   AuthTokenUpdateStatus,
   AuthTokenUpdateStrategyType,
   AuthenticationType,
+  AuthorizationAlreadyExistsFault,
+  AuthorizationNotFoundFault,
   AuthorizeCacheSecurityGroupIngressCommand,
   AutomaticFailoverStatus,
   BatchApplyUpdateActionCommand,
   BatchStopUpdateActionCommand,
+  CacheClusterAlreadyExistsFault,
+  CacheClusterNotFoundFault,
+  CacheParameterGroupAlreadyExistsFault,
+  CacheParameterGroupNotFoundFault,
+  CacheParameterGroupQuotaExceededFault,
+  CacheSecurityGroupAlreadyExistsFault,
+  CacheSecurityGroupNotFoundFault,
+  CacheSecurityGroupQuotaExceededFault,
+  CacheSubnetGroupAlreadyExistsFault,
+  CacheSubnetGroupInUse,
+  CacheSubnetGroupNotFoundFault,
+  CacheSubnetGroupQuotaExceededFault,
+  CacheSubnetQuotaExceededFault,
   ChangeType,
   ClusterMode,
+  ClusterQuotaForCustomerExceededFault,
   CompleteMigrationCommand,
   CopyServerlessCacheSnapshotCommand,
   CopySnapshotCommand,
@@ -28,6 +45,8 @@ import {
   DataTieringStatus,
   DecreaseNodeGroupsInGlobalReplicationGroupCommand,
   DecreaseReplicaCountCommand,
+  DefaultUserAssociatedToUserGroupFault,
+  DefaultUserRequired,
   DeleteCacheClusterCommand,
   DeleteCacheParameterGroupCommand,
   DeleteCacheSecurityGroupCommand,
@@ -60,14 +79,35 @@ import {
   DescribeUsersCommand,
   DestinationType,
   DisassociateGlobalReplicationGroupCommand,
+  DuplicateUserNameFault,
   ElastiCache,
   ElastiCacheClient,
   ElastiCacheServiceException,
   ExportServerlessCacheSnapshotCommand,
   FailoverGlobalReplicationGroupCommand,
+  GlobalReplicationGroupAlreadyExistsFault,
+  GlobalReplicationGroupNotFoundFault,
   IncreaseNodeGroupsInGlobalReplicationGroupCommand,
   IncreaseReplicaCountCommand,
   InputAuthenticationType,
+  InsufficientCacheClusterCapacityFault,
+  InvalidARNFault,
+  InvalidCacheClusterStateFault,
+  InvalidCacheParameterGroupStateFault,
+  InvalidCacheSecurityGroupStateFault,
+  InvalidCredentialsException,
+  InvalidGlobalReplicationGroupStateFault,
+  InvalidKMSKeyFault,
+  InvalidParameterCombinationException,
+  InvalidParameterValueException,
+  InvalidReplicationGroupStateFault,
+  InvalidServerlessCacheSnapshotStateFault,
+  InvalidServerlessCacheStateFault,
+  InvalidSnapshotStateFault,
+  InvalidSubnet,
+  InvalidUserGroupStateFault,
+  InvalidUserStateFault,
+  InvalidVPCNetworkStateFault,
   IpDiscovery,
   ListAllowedNodeTypeModificationsCommand,
   ListTagsForResourceCommand,
@@ -85,6 +125,11 @@ import {
   ModifyUserGroupCommand,
   MultiAZStatus,
   NetworkType,
+  NoOperationFault,
+  NodeGroupNotFoundFault,
+  NodeGroupsPerReplicationGroupQuotaExceededFault,
+  NodeQuotaForClusterExceededFault,
+  NodeQuotaForCustomerExceededFault,
   NodeUpdateInitiatedBy,
   NodeUpdateStatus,
   OutpostMode,
@@ -93,18 +138,49 @@ import {
   RebalanceSlotsInGlobalReplicationGroupCommand,
   RebootCacheClusterCommand,
   RemoveTagsFromResourceCommand,
+  ReplicationGroupAlreadyExistsFault,
+  ReplicationGroupAlreadyUnderMigrationFault,
+  ReplicationGroupNotFoundFault,
+  ReplicationGroupNotUnderMigrationFault,
+  ReservedCacheNodeAlreadyExistsFault,
+  ReservedCacheNodeNotFoundFault,
+  ReservedCacheNodeQuotaExceededFault,
+  ReservedCacheNodesOfferingNotFoundFault,
   ResetCacheParameterGroupCommand,
   RevokeCacheSecurityGroupIngressCommand,
+  ServerlessCacheAlreadyExistsFault,
+  ServerlessCacheNotFoundFault,
+  ServerlessCacheQuotaForCustomerExceededFault,
+  ServerlessCacheSnapshotAlreadyExistsFault,
+  ServerlessCacheSnapshotNotFoundFault,
+  ServerlessCacheSnapshotQuotaExceededFault,
+  ServiceLinkedRoleNotFoundFault,
+  ServiceUpdateNotFoundFault,
   ServiceUpdateSeverity,
   ServiceUpdateStatus,
   ServiceUpdateType,
   SlaMet,
+  SnapshotAlreadyExistsFault,
+  SnapshotFeatureNotSupportedFault,
+  SnapshotNotFoundFault,
+  SnapshotQuotaExceededFault,
   SourceType,
   StartMigrationCommand,
+  SubnetInUse,
+  SubnetNotAllowedFault,
+  TagNotFoundFault,
+  TagQuotaPerResourceExceeded,
   TestFailoverCommand,
+  TestFailoverNotAvailableFault,
   TestMigrationCommand,
   TransitEncryptionMode,
   UpdateActionStatus,
+  UserAlreadyExistsFault,
+  UserGroupAlreadyExistsFault,
+  UserGroupNotFoundFault,
+  UserGroupQuotaExceededFault,
+  UserNotFoundFault,
+  UserQuotaExceededFault,
   paginateDescribeCacheClusters,
   paginateDescribeCacheEngineVersions,
   paginateDescribeCacheParameterGroups,
@@ -243,6 +319,82 @@ assert(typeof SourceType === "object");
 assert(typeof TransitEncryptionMode === "object");
 assert(typeof UpdateActionStatus === "object");
 // errors
+assert(APICallRateForCustomerExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(AuthorizationAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(AuthorizationNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheClusterAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheClusterNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheParameterGroupAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheParameterGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheParameterGroupQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheSecurityGroupAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheSecurityGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheSecurityGroupQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheSubnetGroupAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheSubnetGroupInUse.prototype instanceof ElastiCacheServiceException);
+assert(CacheSubnetGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheSubnetGroupQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(CacheSubnetQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(ClusterQuotaForCustomerExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(DefaultUserAssociatedToUserGroupFault.prototype instanceof ElastiCacheServiceException);
+assert(DefaultUserRequired.prototype instanceof ElastiCacheServiceException);
+assert(DuplicateUserNameFault.prototype instanceof ElastiCacheServiceException);
+assert(GlobalReplicationGroupAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(GlobalReplicationGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(InsufficientCacheClusterCapacityFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidARNFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidCacheClusterStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidCacheParameterGroupStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidCacheSecurityGroupStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidCredentialsException.prototype instanceof ElastiCacheServiceException);
+assert(InvalidGlobalReplicationGroupStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidKMSKeyFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidParameterCombinationException.prototype instanceof ElastiCacheServiceException);
+assert(InvalidParameterValueException.prototype instanceof ElastiCacheServiceException);
+assert(InvalidReplicationGroupStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidServerlessCacheSnapshotStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidServerlessCacheStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidSnapshotStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidSubnet.prototype instanceof ElastiCacheServiceException);
+assert(InvalidUserGroupStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidUserStateFault.prototype instanceof ElastiCacheServiceException);
+assert(InvalidVPCNetworkStateFault.prototype instanceof ElastiCacheServiceException);
+assert(NodeGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(NodeGroupsPerReplicationGroupQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(NodeQuotaForClusterExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(NodeQuotaForCustomerExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(NoOperationFault.prototype instanceof ElastiCacheServiceException);
+assert(ReplicationGroupAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(ReplicationGroupAlreadyUnderMigrationFault.prototype instanceof ElastiCacheServiceException);
+assert(ReplicationGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(ReplicationGroupNotUnderMigrationFault.prototype instanceof ElastiCacheServiceException);
+assert(ReservedCacheNodeAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(ReservedCacheNodeNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(ReservedCacheNodeQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(ReservedCacheNodesOfferingNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(ServerlessCacheAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(ServerlessCacheNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(ServerlessCacheQuotaForCustomerExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(ServerlessCacheSnapshotAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(ServerlessCacheSnapshotNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(ServerlessCacheSnapshotQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(ServiceLinkedRoleNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(ServiceUpdateNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(SnapshotAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(SnapshotFeatureNotSupportedFault.prototype instanceof ElastiCacheServiceException);
+assert(SnapshotNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(SnapshotQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(SubnetInUse.prototype instanceof ElastiCacheServiceException);
+assert(SubnetNotAllowedFault.prototype instanceof ElastiCacheServiceException);
+assert(TagNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(TagQuotaPerResourceExceeded.prototype instanceof ElastiCacheServiceException);
+assert(TestFailoverNotAvailableFault.prototype instanceof ElastiCacheServiceException);
+assert(UserAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(UserGroupAlreadyExistsFault.prototype instanceof ElastiCacheServiceException);
+assert(UserGroupNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(UserGroupQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
+assert(UserNotFoundFault.prototype instanceof ElastiCacheServiceException);
+assert(UserQuotaExceededFault.prototype instanceof ElastiCacheServiceException);
 assert(ElastiCacheServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForCacheClusterAvailable === "function");

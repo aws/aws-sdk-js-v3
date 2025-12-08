@@ -1,11 +1,18 @@
 import {
+  AccessDeniedException,
   Action,
+  BadRequestException,
+  BulkLoadIdNotFoundException,
   CancelGremlinQueryCommand,
   CancelLoaderJobCommand,
   CancelMLDataProcessingJobCommand,
   CancelMLModelTrainingJobCommand,
   CancelMLModelTransformJobCommand,
   CancelOpenCypherQueryCommand,
+  CancelledByUserException,
+  ClientTimeoutException,
+  ConcurrentModificationException,
+  ConstraintViolationException,
   CreateMLEndpointCommand,
   DeleteMLEndpointCommand,
   DeletePropertygraphStatisticsCommand,
@@ -17,6 +24,8 @@ import {
   ExecuteGremlinQueryCommand,
   ExecuteOpenCypherExplainQueryCommand,
   ExecuteOpenCypherQueryCommand,
+  ExpiredStreamException,
+  FailureByQueryException,
   Format,
   GetEngineStatusCommand,
   GetGremlinQueryStatusCommand,
@@ -33,6 +42,11 @@ import {
   GetSparqlStatisticsCommand,
   GetSparqlStreamCommand,
   GraphSummaryType,
+  IllegalArgumentException,
+  InternalFailureException,
+  InvalidArgumentException,
+  InvalidNumericDataException,
+  InvalidParameterException,
   IteratorType,
   ListGremlinQueriesCommand,
   ListLoaderJobsCommand,
@@ -41,20 +55,40 @@ import {
   ListMLModelTrainingJobsCommand,
   ListMLModelTransformJobsCommand,
   ListOpenCypherQueriesCommand,
+  LoadUrlAccessDeniedException,
+  MLResourceNotFoundException,
+  MalformedQueryException,
   ManagePropertygraphStatisticsCommand,
   ManageSparqlStatisticsCommand,
+  MemoryLimitExceededException,
+  MethodNotAllowedException,
+  MissingParameterException,
   Mode,
   Neptunedata,
   NeptunedataClient,
   NeptunedataServiceException,
   OpenCypherExplainMode,
   Parallelism,
+  ParsingException,
+  PreconditionsFailedException,
+  QueryLimitExceededException,
+  QueryLimitException,
+  QueryTooLargeException,
+  ReadOnlyViolationException,
   S3BucketRegion,
+  S3Exception,
+  ServerShutdownException,
   StartLoaderJobCommand,
   StartMLDataProcessingJobCommand,
   StartMLModelTrainingJobCommand,
   StartMLModelTransformJobCommand,
   StatisticsAutoGenerationMode,
+  StatisticsNotAvailableException,
+  StreamRecordsNotFoundException,
+  ThrottlingException,
+  TimeLimitExceededException,
+  TooManyRequestsException,
+  UnsupportedOperationException,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -116,5 +150,39 @@ assert(typeof Parallelism === "object");
 assert(typeof S3BucketRegion === "object");
 assert(typeof StatisticsAutoGenerationMode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof NeptunedataServiceException);
+assert(BadRequestException.prototype instanceof NeptunedataServiceException);
+assert(BulkLoadIdNotFoundException.prototype instanceof NeptunedataServiceException);
+assert(CancelledByUserException.prototype instanceof NeptunedataServiceException);
+assert(ClientTimeoutException.prototype instanceof NeptunedataServiceException);
+assert(ConcurrentModificationException.prototype instanceof NeptunedataServiceException);
+assert(ConstraintViolationException.prototype instanceof NeptunedataServiceException);
+assert(ExpiredStreamException.prototype instanceof NeptunedataServiceException);
+assert(FailureByQueryException.prototype instanceof NeptunedataServiceException);
+assert(IllegalArgumentException.prototype instanceof NeptunedataServiceException);
+assert(InternalFailureException.prototype instanceof NeptunedataServiceException);
+assert(InvalidArgumentException.prototype instanceof NeptunedataServiceException);
+assert(InvalidNumericDataException.prototype instanceof NeptunedataServiceException);
+assert(InvalidParameterException.prototype instanceof NeptunedataServiceException);
+assert(LoadUrlAccessDeniedException.prototype instanceof NeptunedataServiceException);
+assert(MalformedQueryException.prototype instanceof NeptunedataServiceException);
+assert(MemoryLimitExceededException.prototype instanceof NeptunedataServiceException);
+assert(MethodNotAllowedException.prototype instanceof NeptunedataServiceException);
+assert(MissingParameterException.prototype instanceof NeptunedataServiceException);
+assert(MLResourceNotFoundException.prototype instanceof NeptunedataServiceException);
+assert(ParsingException.prototype instanceof NeptunedataServiceException);
+assert(PreconditionsFailedException.prototype instanceof NeptunedataServiceException);
+assert(QueryLimitExceededException.prototype instanceof NeptunedataServiceException);
+assert(QueryLimitException.prototype instanceof NeptunedataServiceException);
+assert(QueryTooLargeException.prototype instanceof NeptunedataServiceException);
+assert(ReadOnlyViolationException.prototype instanceof NeptunedataServiceException);
+assert(S3Exception.prototype instanceof NeptunedataServiceException);
+assert(ServerShutdownException.prototype instanceof NeptunedataServiceException);
+assert(StatisticsNotAvailableException.prototype instanceof NeptunedataServiceException);
+assert(StreamRecordsNotFoundException.prototype instanceof NeptunedataServiceException);
+assert(ThrottlingException.prototype instanceof NeptunedataServiceException);
+assert(TimeLimitExceededException.prototype instanceof NeptunedataServiceException);
+assert(TooManyRequestsException.prototype instanceof NeptunedataServiceException);
+assert(UnsupportedOperationException.prototype instanceof NeptunedataServiceException);
 assert(NeptunedataServiceException.prototype instanceof Error);
 console.log(`Neptunedata index test passed.`);

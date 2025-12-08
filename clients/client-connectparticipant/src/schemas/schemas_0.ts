@@ -365,7 +365,6 @@ export var WebRTCMeeting: StaticStructureSchema = [
   [() => WebRTCMediaPlacement, () => MeetingFeaturesConfiguration, 0],
 ];
 export var Websocket: StaticStructureSchema = [3, n0, _W, 0, [_U, _CEo], [0, 0]];
-export var __Unit = "unit" as const;
 export var ConnectParticipantServiceException: StaticErrorSchema = [
   -3,
   _sm,

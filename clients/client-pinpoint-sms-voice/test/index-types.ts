@@ -52,5 +52,11 @@ export type {
   UpdateConfigurationSetEventDestinationRequest,
   UpdateConfigurationSetEventDestinationResponse,
   VoiceMessageContent,
+  AlreadyExistsException,
+  BadRequestException,
+  InternalServiceErrorException,
+  LimitExceededException,
+  NotFoundException,
+  TooManyRequestsException,
   PinpointSMSVoiceServiceException,
 } from "../dist-types/index.d";

@@ -2,12 +2,14 @@ import {
   ACM,
   ACMClient,
   ACMServiceException,
+  AccessDeniedException,
   AddTagsToCertificateCommand,
   CertificateExport,
   CertificateManagedBy,
   CertificateStatus,
   CertificateTransparencyLoggingPreference,
   CertificateType,
+  ConflictException,
   DeleteCertificateCommand,
   DescribeCertificateCommand,
   DomainStatus,
@@ -17,8 +19,15 @@ import {
   GetAccountConfigurationCommand,
   GetCertificateCommand,
   ImportCertificateCommand,
+  InvalidArgsException,
+  InvalidArnException,
+  InvalidDomainValidationOptionsException,
+  InvalidParameterException,
+  InvalidStateException,
+  InvalidTagException,
   KeyAlgorithm,
   KeyUsageName,
+  LimitExceededException,
   ListCertificatesCommand,
   ListTagsForCertificateCommand,
   PutAccountConfigurationCommand,
@@ -28,12 +37,19 @@ import {
   RenewalEligibility,
   RenewalStatus,
   RequestCertificateCommand,
+  RequestInProgressException,
   ResendValidationEmailCommand,
+  ResourceInUseException,
+  ResourceNotFoundException,
   RevocationReason,
   RevokeCertificateCommand,
   SortBy,
   SortOrder,
+  TagPolicyException,
+  ThrottlingException,
+  TooManyTagsException,
   UpdateCertificateOptionsCommand,
+  ValidationException,
   ValidationMethod,
   paginateListCertificates,
   waitForCertificateValidated,
@@ -79,6 +95,22 @@ assert(typeof SortBy === "object");
 assert(typeof SortOrder === "object");
 assert(typeof ValidationMethod === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ACMServiceException);
+assert(ConflictException.prototype instanceof ACMServiceException);
+assert(InvalidArgsException.prototype instanceof ACMServiceException);
+assert(InvalidArnException.prototype instanceof ACMServiceException);
+assert(InvalidDomainValidationOptionsException.prototype instanceof ACMServiceException);
+assert(InvalidParameterException.prototype instanceof ACMServiceException);
+assert(InvalidStateException.prototype instanceof ACMServiceException);
+assert(InvalidTagException.prototype instanceof ACMServiceException);
+assert(LimitExceededException.prototype instanceof ACMServiceException);
+assert(RequestInProgressException.prototype instanceof ACMServiceException);
+assert(ResourceInUseException.prototype instanceof ACMServiceException);
+assert(ResourceNotFoundException.prototype instanceof ACMServiceException);
+assert(TagPolicyException.prototype instanceof ACMServiceException);
+assert(ThrottlingException.prototype instanceof ACMServiceException);
+assert(TooManyTagsException.prototype instanceof ACMServiceException);
+assert(ValidationException.prototype instanceof ACMServiceException);
 assert(ACMServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForCertificateValidated === "function");

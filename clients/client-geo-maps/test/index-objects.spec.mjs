@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ColorScheme,
   ContourDensity,
   GeoMaps,
@@ -9,15 +10,20 @@ import {
   GetStaticMapCommand,
   GetStyleDescriptorCommand,
   GetTileCommand,
+  InternalServerException,
   LabelSize,
   MapFeatureMode,
   MapStyle,
+  ResourceNotFoundException,
   ScaleBarUnit,
   StaticMapStyle,
   Terrain,
+  ThrottlingException,
   TileAdditionalFeature,
   Traffic,
   TravelMode,
+  ValidationException,
+  ValidationExceptionReason,
   Variant,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -42,7 +48,13 @@ assert(typeof Terrain === "object");
 assert(typeof TileAdditionalFeature === "object");
 assert(typeof Traffic === "object");
 assert(typeof TravelMode === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof Variant === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GeoMapsServiceException);
+assert(InternalServerException.prototype instanceof GeoMapsServiceException);
+assert(ResourceNotFoundException.prototype instanceof GeoMapsServiceException);
+assert(ThrottlingException.prototype instanceof GeoMapsServiceException);
+assert(ValidationException.prototype instanceof GeoMapsServiceException);
 assert(GeoMapsServiceException.prototype instanceof Error);
 console.log(`GeoMaps index test passed.`);

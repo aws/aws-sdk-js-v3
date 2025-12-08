@@ -28,14 +28,22 @@ import {
   GetDataSourceCommand,
   GetEvaluationCommand,
   GetMLModelCommand,
+  IdempotentParameterMismatchException,
+  InternalServerException,
+  InvalidInputException,
+  InvalidTagException,
+  LimitExceededException,
   MLModelFilterVariable,
   MLModelType,
   MachineLearning,
   MachineLearningClient,
   MachineLearningServiceException,
   PredictCommand,
+  PredictorNotMountedException,
   RealtimeEndpointStatus,
+  ResourceNotFoundException,
   SortOrder,
+  TagLimitExceededException,
   TaggableResourceType,
   UpdateBatchPredictionCommand,
   UpdateDataSourceCommand,
@@ -100,6 +108,14 @@ assert(typeof RealtimeEndpointStatus === "object");
 assert(typeof SortOrder === "object");
 assert(typeof TaggableResourceType === "object");
 // errors
+assert(IdempotentParameterMismatchException.prototype instanceof MachineLearningServiceException);
+assert(InternalServerException.prototype instanceof MachineLearningServiceException);
+assert(InvalidInputException.prototype instanceof MachineLearningServiceException);
+assert(InvalidTagException.prototype instanceof MachineLearningServiceException);
+assert(LimitExceededException.prototype instanceof MachineLearningServiceException);
+assert(PredictorNotMountedException.prototype instanceof MachineLearningServiceException);
+assert(ResourceNotFoundException.prototype instanceof MachineLearningServiceException);
+assert(TagLimitExceededException.prototype instanceof MachineLearningServiceException);
 assert(MachineLearningServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForBatchPredictionAvailable === "function");

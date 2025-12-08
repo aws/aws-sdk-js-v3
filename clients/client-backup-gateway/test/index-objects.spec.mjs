@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   AssociateGatewayToServerCommand,
   BackupGateway,
   BackupGatewayClient,
   BackupGatewayServiceException,
+  ConflictException,
   CreateGatewayCommand,
   DeleteGatewayCommand,
   DeleteHypervisorCommand,
@@ -15,6 +17,7 @@ import {
   GetVirtualMachineCommand,
   HypervisorState,
   ImportHypervisorConfigurationCommand,
+  InternalServerException,
   ListGatewaysCommand,
   ListHypervisorsCommand,
   ListTagsForResourceCommand,
@@ -22,14 +25,17 @@ import {
   PutBandwidthRateLimitScheduleCommand,
   PutHypervisorPropertyMappingsCommand,
   PutMaintenanceStartTimeCommand,
+  ResourceNotFoundException,
   StartVirtualMachinesMetadataSyncCommand,
   SyncMetadataStatus,
   TagResourceCommand,
   TestHypervisorConfigurationCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateGatewayInformationCommand,
   UpdateGatewaySoftwareNowCommand,
   UpdateHypervisorCommand,
+  ValidationException,
   paginateListGateways,
   paginateListHypervisors,
   paginateListVirtualMachines,
@@ -69,6 +75,12 @@ assert(typeof GatewayType === "object");
 assert(typeof HypervisorState === "object");
 assert(typeof SyncMetadataStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BackupGatewayServiceException);
+assert(ConflictException.prototype instanceof BackupGatewayServiceException);
+assert(InternalServerException.prototype instanceof BackupGatewayServiceException);
+assert(ResourceNotFoundException.prototype instanceof BackupGatewayServiceException);
+assert(ThrottlingException.prototype instanceof BackupGatewayServiceException);
+assert(ValidationException.prototype instanceof BackupGatewayServiceException);
 assert(BackupGatewayServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListGateways === "function");

@@ -21,6 +21,9 @@ import {
   InferICD10CMCommand,
   InferRxNormCommand,
   InferSNOMEDCTCommand,
+  InternalServerException,
+  InvalidEncodingException,
+  InvalidRequestException,
   JobStatus,
   LanguageCode,
   ListEntitiesDetectionV2JobsCommand,
@@ -29,6 +32,7 @@ import {
   ListRxNormInferenceJobsCommand,
   ListSNOMEDCTInferenceJobsCommand,
   RelationshipType,
+  ResourceNotFoundException,
   RxNormAttributeType,
   RxNormEntityCategory,
   RxNormEntityType,
@@ -38,6 +42,7 @@ import {
   SNOMEDCTEntityType,
   SNOMEDCTRelationshipType,
   SNOMEDCTTraitName,
+  ServiceUnavailableException,
   StartEntitiesDetectionV2JobCommand,
   StartICD10CMInferenceJobCommand,
   StartPHIDetectionJobCommand,
@@ -48,6 +53,9 @@ import {
   StopPHIDetectionJobCommand,
   StopRxNormInferenceJobCommand,
   StopSNOMEDCTInferenceJobCommand,
+  TextSizeLimitExceededException,
+  TooManyRequestsException,
+  ValidationException,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -102,5 +110,13 @@ assert(typeof SNOMEDCTEntityType === "object");
 assert(typeof SNOMEDCTRelationshipType === "object");
 assert(typeof SNOMEDCTTraitName === "object");
 // errors
+assert(InternalServerException.prototype instanceof ComprehendMedicalServiceException);
+assert(InvalidEncodingException.prototype instanceof ComprehendMedicalServiceException);
+assert(InvalidRequestException.prototype instanceof ComprehendMedicalServiceException);
+assert(ResourceNotFoundException.prototype instanceof ComprehendMedicalServiceException);
+assert(ServiceUnavailableException.prototype instanceof ComprehendMedicalServiceException);
+assert(TextSizeLimitExceededException.prototype instanceof ComprehendMedicalServiceException);
+assert(TooManyRequestsException.prototype instanceof ComprehendMedicalServiceException);
+assert(ValidationException.prototype instanceof ComprehendMedicalServiceException);
 assert(ComprehendMedicalServiceException.prototype instanceof Error);
 console.log(`ComprehendMedical index test passed.`);

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AggregationType,
   AmplitudeConnectorOperator,
   Appflow,
@@ -7,8 +8,11 @@ import {
   AuthenticationType,
   CancelFlowExecutionsCommand,
   CatalogType,
+  ConflictException,
   ConnectionMode,
+  ConnectorAuthenticationException,
   ConnectorProvisioningType,
+  ConnectorServerException,
   ConnectorType,
   CreateConnectorProfileCommand,
   CreateFlowCommand,
@@ -29,6 +33,7 @@ import {
   FlowStatus,
   GoogleAnalyticsConnectorOperator,
   InforNexusConnectorOperator,
+  InternalServerException,
   ListConnectorEntitiesCommand,
   ListConnectorsCommand,
   ListFlowsCommand,
@@ -47,6 +52,7 @@ import {
   PrivateConnectionProvisioningStatus,
   RegisterConnectorCommand,
   ResetConnectorMetadataCacheCommand,
+  ResourceNotFoundException,
   S3ConnectorOperator,
   S3InputFileType,
   SAPODataConnectorOperator,
@@ -54,6 +60,7 @@ import {
   SalesforceDataTransferApi,
   ScheduleFrequencyType,
   ServiceNowConnectorOperator,
+  ServiceQuotaExceededException,
   SingularConnectorOperator,
   SlackConnectorOperator,
   StartFlowCommand,
@@ -61,13 +68,16 @@ import {
   SupportedDataTransferType,
   TagResourceCommand,
   TaskType,
+  ThrottlingException,
   TrendmicroConnectorOperator,
   TriggerType,
   UnregisterConnectorCommand,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateConnectorProfileCommand,
   UpdateConnectorRegistrationCommand,
   UpdateFlowCommand,
+  ValidationException,
   VeevaConnectorOperator,
   WriteOperationType,
   ZendeskConnectorOperator,
@@ -153,6 +163,16 @@ assert(typeof VeevaConnectorOperator === "object");
 assert(typeof WriteOperationType === "object");
 assert(typeof ZendeskConnectorOperator === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AppflowServiceException);
+assert(ConflictException.prototype instanceof AppflowServiceException);
+assert(ConnectorAuthenticationException.prototype instanceof AppflowServiceException);
+assert(ConnectorServerException.prototype instanceof AppflowServiceException);
+assert(InternalServerException.prototype instanceof AppflowServiceException);
+assert(ResourceNotFoundException.prototype instanceof AppflowServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AppflowServiceException);
+assert(ThrottlingException.prototype instanceof AppflowServiceException);
+assert(UnsupportedOperationException.prototype instanceof AppflowServiceException);
+assert(ValidationException.prototype instanceof AppflowServiceException);
 assert(AppflowServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeConnectorProfiles === "function");

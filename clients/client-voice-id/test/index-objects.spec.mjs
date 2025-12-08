@@ -1,6 +1,9 @@
 import {
+  AccessDeniedException,
   AssociateFraudsterCommand,
   AuthenticationDecision,
+  ConflictException,
+  ConflictType,
   CreateDomainCommand,
   CreateWatchlistCommand,
   DeleteDomainCommand,
@@ -22,6 +25,7 @@ import {
   FraudDetectionDecision,
   FraudDetectionReason,
   FraudsterRegistrationJobStatus,
+  InternalServerException,
   ListDomainsCommand,
   ListFraudsterRegistrationJobsCommand,
   ListFraudstersCommand,
@@ -30,16 +34,21 @@ import {
   ListTagsForResourceCommand,
   ListWatchlistsCommand,
   OptOutSpeakerCommand,
+  ResourceNotFoundException,
+  ResourceType,
   ServerSideEncryptionUpdateStatus,
+  ServiceQuotaExceededException,
   SpeakerEnrollmentJobStatus,
   SpeakerStatus,
   StartFraudsterRegistrationJobCommand,
   StartSpeakerEnrollmentJobCommand,
   StreamingStatus,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateDomainCommand,
   UpdateWatchlistCommand,
+  ValidationException,
   VoiceID,
   VoiceIDClient,
   VoiceIDServiceException,
@@ -86,6 +95,7 @@ assert(typeof UpdateDomainCommand === "function");
 assert(typeof UpdateWatchlistCommand === "function");
 // enums
 assert(typeof AuthenticationDecision === "object");
+assert(typeof ConflictType === "object");
 assert(typeof DomainStatus === "object");
 assert(typeof DuplicateRegistrationAction === "object");
 assert(typeof ExistingEnrollmentAction === "object");
@@ -93,11 +103,19 @@ assert(typeof FraudDetectionAction === "object");
 assert(typeof FraudDetectionDecision === "object");
 assert(typeof FraudDetectionReason === "object");
 assert(typeof FraudsterRegistrationJobStatus === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ServerSideEncryptionUpdateStatus === "object");
 assert(typeof SpeakerEnrollmentJobStatus === "object");
 assert(typeof SpeakerStatus === "object");
 assert(typeof StreamingStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof VoiceIDServiceException);
+assert(ConflictException.prototype instanceof VoiceIDServiceException);
+assert(InternalServerException.prototype instanceof VoiceIDServiceException);
+assert(ResourceNotFoundException.prototype instanceof VoiceIDServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof VoiceIDServiceException);
+assert(ThrottlingException.prototype instanceof VoiceIDServiceException);
+assert(ValidationException.prototype instanceof VoiceIDServiceException);
 assert(VoiceIDServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDomains === "function");

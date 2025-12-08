@@ -1,6 +1,10 @@
 import {
   AddPermissionCommand,
+  AuthorizationErrorException,
+  BatchEntryIdsNotDistinctException,
+  BatchRequestTooLongException,
   CheckIfPhoneNumberIsOptedOutCommand,
+  ConcurrentAccessException,
   ConfirmSubscriptionCommand,
   CreatePlatformApplicationCommand,
   CreatePlatformEndpointCommand,
@@ -10,6 +14,9 @@ import {
   DeletePlatformApplicationCommand,
   DeleteSMSSandboxPhoneNumberCommand,
   DeleteTopicCommand,
+  EmptyBatchRequestException,
+  EndpointDisabledException,
+  FilterPolicyLimitExceededException,
   GetDataProtectionPolicyCommand,
   GetEndpointAttributesCommand,
   GetPlatformApplicationAttributesCommand,
@@ -17,6 +24,18 @@ import {
   GetSMSSandboxAccountStatusCommand,
   GetSubscriptionAttributesCommand,
   GetTopicAttributesCommand,
+  InternalErrorException,
+  InvalidBatchEntryIdException,
+  InvalidParameterException,
+  InvalidParameterValueException,
+  InvalidSecurityException,
+  InvalidStateException,
+  KMSAccessDeniedException,
+  KMSDisabledException,
+  KMSInvalidStateException,
+  KMSNotFoundException,
+  KMSOptInRequired,
+  KMSThrottlingException,
   LanguageCodeString,
   ListEndpointsByPlatformApplicationCommand,
   ListOriginationNumbersCommand,
@@ -27,12 +46,17 @@ import {
   ListSubscriptionsCommand,
   ListTagsForResourceCommand,
   ListTopicsCommand,
+  NotFoundException,
   NumberCapability,
   OptInPhoneNumberCommand,
+  OptedOutException,
+  PlatformApplicationDisabledException,
   PublishBatchCommand,
   PublishCommand,
   PutDataProtectionPolicyCommand,
   RemovePermissionCommand,
+  ReplayLimitExceededException,
+  ResourceNotFoundException,
   RouteType,
   SMSSandboxPhoneNumberVerificationStatus,
   SNS,
@@ -43,10 +67,20 @@ import {
   SetSMSAttributesCommand,
   SetSubscriptionAttributesCommand,
   SetTopicAttributesCommand,
+  StaleTagException,
   SubscribeCommand,
+  SubscriptionLimitExceededException,
+  TagLimitExceededException,
+  TagPolicyException,
   TagResourceCommand,
+  ThrottledException,
+  TooManyEntriesInBatchRequestException,
+  TopicLimitExceededException,
   UnsubscribeCommand,
   UntagResourceCommand,
+  UserErrorException,
+  ValidationException,
+  VerificationException,
   VerifySMSSandboxPhoneNumberCommand,
   paginateListEndpointsByPlatformApplication,
   paginateListOriginationNumbers,
@@ -110,6 +144,40 @@ assert(typeof NumberCapability === "object");
 assert(typeof RouteType === "object");
 assert(typeof SMSSandboxPhoneNumberVerificationStatus === "object");
 // errors
+assert(AuthorizationErrorException.prototype instanceof SNSServiceException);
+assert(BatchEntryIdsNotDistinctException.prototype instanceof SNSServiceException);
+assert(BatchRequestTooLongException.prototype instanceof SNSServiceException);
+assert(ConcurrentAccessException.prototype instanceof SNSServiceException);
+assert(EmptyBatchRequestException.prototype instanceof SNSServiceException);
+assert(EndpointDisabledException.prototype instanceof SNSServiceException);
+assert(FilterPolicyLimitExceededException.prototype instanceof SNSServiceException);
+assert(InternalErrorException.prototype instanceof SNSServiceException);
+assert(InvalidBatchEntryIdException.prototype instanceof SNSServiceException);
+assert(InvalidParameterException.prototype instanceof SNSServiceException);
+assert(InvalidParameterValueException.prototype instanceof SNSServiceException);
+assert(InvalidSecurityException.prototype instanceof SNSServiceException);
+assert(InvalidStateException.prototype instanceof SNSServiceException);
+assert(KMSAccessDeniedException.prototype instanceof SNSServiceException);
+assert(KMSDisabledException.prototype instanceof SNSServiceException);
+assert(KMSInvalidStateException.prototype instanceof SNSServiceException);
+assert(KMSNotFoundException.prototype instanceof SNSServiceException);
+assert(KMSOptInRequired.prototype instanceof SNSServiceException);
+assert(KMSThrottlingException.prototype instanceof SNSServiceException);
+assert(NotFoundException.prototype instanceof SNSServiceException);
+assert(OptedOutException.prototype instanceof SNSServiceException);
+assert(PlatformApplicationDisabledException.prototype instanceof SNSServiceException);
+assert(ReplayLimitExceededException.prototype instanceof SNSServiceException);
+assert(ResourceNotFoundException.prototype instanceof SNSServiceException);
+assert(StaleTagException.prototype instanceof SNSServiceException);
+assert(SubscriptionLimitExceededException.prototype instanceof SNSServiceException);
+assert(TagLimitExceededException.prototype instanceof SNSServiceException);
+assert(TagPolicyException.prototype instanceof SNSServiceException);
+assert(ThrottledException.prototype instanceof SNSServiceException);
+assert(TooManyEntriesInBatchRequestException.prototype instanceof SNSServiceException);
+assert(TopicLimitExceededException.prototype instanceof SNSServiceException);
+assert(UserErrorException.prototype instanceof SNSServiceException);
+assert(ValidationException.prototype instanceof SNSServiceException);
+assert(VerificationException.prototype instanceof SNSServiceException);
 assert(SNSServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEndpointsByPlatformApplication === "function");

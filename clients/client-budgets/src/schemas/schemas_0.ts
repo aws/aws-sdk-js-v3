@@ -647,7 +647,6 @@ export var UpdateSubscriberRequest: StaticStructureSchema = [
   [0, 0, () => Notification, [() => Subscriber, 0], [() => Subscriber, 0]],
 ];
 export var UpdateSubscriberResponse: StaticStructureSchema = [3, n0, _USRp, 0, [], []];
-export var __Unit = "unit" as const;
 export var BudgetsServiceException: StaticErrorSchema = [-3, _sm, "BudgetsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BudgetsServiceException, __BudgetsServiceException);
 export var ActionHistories: StaticListSchema = [1, n0, _AHc, 0, [() => ActionHistory, 0]];

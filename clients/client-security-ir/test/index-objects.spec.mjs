@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ActionType,
   AwsRegion,
   BatchGetMemberAccountDetailsCommand,
@@ -8,6 +9,7 @@ import {
   CloseCaseCommand,
   ClosureCode,
   CommunicationType,
+  ConflictException,
   CreateCaseCommand,
   CreateCaseCommentCommand,
   CreateMembershipCommand,
@@ -18,6 +20,8 @@ import {
   GetCaseAttachmentUploadUrlCommand,
   GetCaseCommand,
   GetMembershipCommand,
+  InternalServerException,
+  InvalidTokenException,
   ListCaseEditsCommand,
   ListCasesCommand,
   ListCommentsCommand,
@@ -30,12 +34,16 @@ import {
   OptInFeatureName,
   PendingAction,
   ResolverType,
+  ResourceNotFoundException,
   SecurityIR,
   SecurityIRClient,
   SecurityIRServiceException,
+  SecurityIncidentResponseNotActiveException,
   SelfManagedCaseStatus,
   SendFeedbackCommand,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateCaseCommand,
   UpdateCaseCommentCommand,
@@ -43,6 +51,8 @@ import {
   UpdateMembershipCommand,
   UpdateResolverTypeCommand,
   UsefulnessRating,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListCaseEdits,
   paginateListCases,
   paginateListComments,
@@ -96,7 +106,17 @@ assert(typeof PendingAction === "object");
 assert(typeof ResolverType === "object");
 assert(typeof SelfManagedCaseStatus === "object");
 assert(typeof UsefulnessRating === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SecurityIRServiceException);
+assert(ConflictException.prototype instanceof SecurityIRServiceException);
+assert(InternalServerException.prototype instanceof SecurityIRServiceException);
+assert(InvalidTokenException.prototype instanceof SecurityIRServiceException);
+assert(ResourceNotFoundException.prototype instanceof SecurityIRServiceException);
+assert(SecurityIncidentResponseNotActiveException.prototype instanceof SecurityIRServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SecurityIRServiceException);
+assert(ThrottlingException.prototype instanceof SecurityIRServiceException);
+assert(ValidationException.prototype instanceof SecurityIRServiceException);
 assert(SecurityIRServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCaseEdits === "function");

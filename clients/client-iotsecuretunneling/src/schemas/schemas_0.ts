@@ -195,7 +195,6 @@ export var Tunnel: StaticStructureSchema = [
 export var TunnelSummary: StaticStructureSchema = [3, n0, _TS, 0, [_tI, _tA, _s, _de, _cA, _lUA], [0, 0, 0, 0, 4, 4]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var __Unit = "unit" as const;
 export var IoTSecureTunnelingServiceException: StaticErrorSchema = [
   -3,
   _sm,

@@ -1,21 +1,27 @@
 import {
+  BadRequestException,
   Capability,
+  ConflictException,
   CreateApplicationCommand,
   CreateApplicationVersionCommand,
   CreateCloudFormationChangeSetCommand,
   CreateCloudFormationTemplateCommand,
   DeleteApplicationCommand,
+  ForbiddenException,
   GetApplicationCommand,
   GetApplicationPolicyCommand,
   GetCloudFormationTemplateCommand,
+  InternalServerErrorException,
   ListApplicationDependenciesCommand,
   ListApplicationVersionsCommand,
   ListApplicationsCommand,
+  NotFoundException,
   PutApplicationPolicyCommand,
   ServerlessApplicationRepository,
   ServerlessApplicationRepositoryClient,
   ServerlessApplicationRepositoryServiceException,
   Status,
+  TooManyRequestsException,
   UnshareApplicationCommand,
   UpdateApplicationCommand,
   paginateListApplicationDependencies,
@@ -45,6 +51,12 @@ assert(typeof UpdateApplicationCommand === "function");
 assert(typeof Capability === "object");
 assert(typeof Status === "object");
 // errors
+assert(BadRequestException.prototype instanceof ServerlessApplicationRepositoryServiceException);
+assert(ConflictException.prototype instanceof ServerlessApplicationRepositoryServiceException);
+assert(ForbiddenException.prototype instanceof ServerlessApplicationRepositoryServiceException);
+assert(InternalServerErrorException.prototype instanceof ServerlessApplicationRepositoryServiceException);
+assert(NotFoundException.prototype instanceof ServerlessApplicationRepositoryServiceException);
+assert(TooManyRequestsException.prototype instanceof ServerlessApplicationRepositoryServiceException);
 assert(ServerlessApplicationRepositoryServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplicationDependencies === "function");

@@ -1231,7 +1231,6 @@ export var Workgroup: StaticStructureSchema = [
     0,
   ],
 ];
-export var __Unit = "unit" as const;
 export var RedshiftServerlessServiceException: StaticErrorSchema = [
   -3,
   _sm,

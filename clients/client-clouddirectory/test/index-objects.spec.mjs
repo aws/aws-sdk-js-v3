@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AddFacetToObjectCommand,
   ApplySchemaCommand,
   AttachObjectCommand,
@@ -8,6 +9,9 @@ import {
   BatchReadCommand,
   BatchReadExceptionType,
   BatchWriteCommand,
+  BatchWriteException,
+  BatchWriteExceptionType,
+  CannotListParentOfRootException,
   CloudDirectory,
   CloudDirectoryClient,
   CloudDirectoryServiceException,
@@ -27,11 +31,19 @@ import {
   DetachObjectCommand,
   DetachPolicyCommand,
   DetachTypedLinkCommand,
+  DirectoryAlreadyExistsException,
+  DirectoryDeletedException,
+  DirectoryNotDisabledException,
+  DirectoryNotEnabledException,
   DirectoryState,
   DisableDirectoryCommand,
   EnableDirectoryCommand,
+  FacetAlreadyExistsException,
   FacetAttributeType,
+  FacetInUseException,
+  FacetNotFoundException,
   FacetStyle,
+  FacetValidationException,
   GetAppliedSchemaVersionCommand,
   GetDirectoryCommand,
   GetFacetCommand,
@@ -40,6 +52,18 @@ import {
   GetObjectInformationCommand,
   GetSchemaAsJsonCommand,
   GetTypedLinkFacetInformationCommand,
+  IncompatibleSchemaException,
+  IndexedAttributeMissingException,
+  InternalServiceException,
+  InvalidArnException,
+  InvalidAttachmentException,
+  InvalidFacetUpdateException,
+  InvalidNextTokenException,
+  InvalidRuleException,
+  InvalidSchemaDocException,
+  InvalidTaggingRequestException,
+  LimitExceededException,
+  LinkNameAlreadyInUseException,
   ListAppliedSchemaArnsCommand,
   ListAttachedIndicesCommand,
   ListDevelopmentSchemaArnsCommand,
@@ -61,14 +85,25 @@ import {
   ListTypedLinkFacetAttributesCommand,
   ListTypedLinkFacetNamesCommand,
   LookupPolicyCommand,
+  NotIndexException,
+  NotNodeException,
+  NotPolicyException,
+  ObjectAlreadyDetachedException,
+  ObjectNotDetachedException,
   ObjectType,
   PublishSchemaCommand,
   PutSchemaFromJsonCommand,
   RangeMode,
   RemoveFacetFromObjectCommand,
   RequiredAttributeBehavior,
+  ResourceNotFoundException,
+  RetryableConflictException,
   RuleType,
+  SchemaAlreadyExistsException,
+  SchemaAlreadyPublishedException,
+  StillContainsLinksException,
   TagResourceCommand,
+  UnsupportedIndexTypeException,
   UntagResourceCommand,
   UpdateActionType,
   UpdateFacetCommand,
@@ -78,6 +113,7 @@ import {
   UpdateTypedLinkFacetCommand,
   UpgradeAppliedSchemaCommand,
   UpgradePublishedSchemaCommand,
+  ValidationException,
   paginateListAppliedSchemaArns,
   paginateListAttachedIndices,
   paginateListDevelopmentSchemaArns,
@@ -171,6 +207,7 @@ assert(typeof UpgradeAppliedSchemaCommand === "function");
 assert(typeof UpgradePublishedSchemaCommand === "function");
 // enums
 assert(typeof BatchReadExceptionType === "object");
+assert(typeof BatchWriteExceptionType === "object");
 assert(typeof ConsistencyLevel === "object");
 assert(typeof DirectoryState === "object");
 assert(typeof FacetAttributeType === "object");
@@ -181,6 +218,41 @@ assert(typeof RequiredAttributeBehavior === "object");
 assert(typeof RuleType === "object");
 assert(typeof UpdateActionType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CloudDirectoryServiceException);
+assert(BatchWriteException.prototype instanceof CloudDirectoryServiceException);
+assert(CannotListParentOfRootException.prototype instanceof CloudDirectoryServiceException);
+assert(DirectoryAlreadyExistsException.prototype instanceof CloudDirectoryServiceException);
+assert(DirectoryDeletedException.prototype instanceof CloudDirectoryServiceException);
+assert(DirectoryNotDisabledException.prototype instanceof CloudDirectoryServiceException);
+assert(DirectoryNotEnabledException.prototype instanceof CloudDirectoryServiceException);
+assert(FacetAlreadyExistsException.prototype instanceof CloudDirectoryServiceException);
+assert(FacetInUseException.prototype instanceof CloudDirectoryServiceException);
+assert(FacetNotFoundException.prototype instanceof CloudDirectoryServiceException);
+assert(FacetValidationException.prototype instanceof CloudDirectoryServiceException);
+assert(IncompatibleSchemaException.prototype instanceof CloudDirectoryServiceException);
+assert(IndexedAttributeMissingException.prototype instanceof CloudDirectoryServiceException);
+assert(InternalServiceException.prototype instanceof CloudDirectoryServiceException);
+assert(InvalidArnException.prototype instanceof CloudDirectoryServiceException);
+assert(InvalidAttachmentException.prototype instanceof CloudDirectoryServiceException);
+assert(InvalidFacetUpdateException.prototype instanceof CloudDirectoryServiceException);
+assert(InvalidNextTokenException.prototype instanceof CloudDirectoryServiceException);
+assert(InvalidRuleException.prototype instanceof CloudDirectoryServiceException);
+assert(InvalidSchemaDocException.prototype instanceof CloudDirectoryServiceException);
+assert(InvalidTaggingRequestException.prototype instanceof CloudDirectoryServiceException);
+assert(LimitExceededException.prototype instanceof CloudDirectoryServiceException);
+assert(LinkNameAlreadyInUseException.prototype instanceof CloudDirectoryServiceException);
+assert(NotIndexException.prototype instanceof CloudDirectoryServiceException);
+assert(NotNodeException.prototype instanceof CloudDirectoryServiceException);
+assert(NotPolicyException.prototype instanceof CloudDirectoryServiceException);
+assert(ObjectAlreadyDetachedException.prototype instanceof CloudDirectoryServiceException);
+assert(ObjectNotDetachedException.prototype instanceof CloudDirectoryServiceException);
+assert(ResourceNotFoundException.prototype instanceof CloudDirectoryServiceException);
+assert(RetryableConflictException.prototype instanceof CloudDirectoryServiceException);
+assert(SchemaAlreadyExistsException.prototype instanceof CloudDirectoryServiceException);
+assert(SchemaAlreadyPublishedException.prototype instanceof CloudDirectoryServiceException);
+assert(StillContainsLinksException.prototype instanceof CloudDirectoryServiceException);
+assert(UnsupportedIndexTypeException.prototype instanceof CloudDirectoryServiceException);
+assert(ValidationException.prototype instanceof CloudDirectoryServiceException);
 assert(CloudDirectoryServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAppliedSchemaArns === "function");

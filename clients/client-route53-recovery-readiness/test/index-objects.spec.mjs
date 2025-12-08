@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CreateCellCommand,
   CreateCrossAccountAuthorizationCommand,
   CreateReadinessCheckCommand,
@@ -18,6 +20,7 @@ import {
   GetRecoveryGroupCommand,
   GetRecoveryGroupReadinessSummaryCommand,
   GetResourceSetCommand,
+  InternalServerException,
   ListCellsCommand,
   ListCrossAccountAuthorizationsCommand,
   ListReadinessChecksCommand,
@@ -26,15 +29,18 @@ import {
   ListRulesCommand,
   ListTagsForResourcesCommand,
   Readiness,
+  ResourceNotFoundException,
   Route53RecoveryReadiness,
   Route53RecoveryReadinessClient,
   Route53RecoveryReadinessServiceException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateCellCommand,
   UpdateReadinessCheckCommand,
   UpdateRecoveryGroupCommand,
   UpdateResourceSetCommand,
+  ValidationException,
   paginateGetCellReadinessSummary,
   paginateGetReadinessCheckResourceStatus,
   paginateGetReadinessCheckStatus,
@@ -86,6 +92,12 @@ assert(typeof UpdateResourceSetCommand === "function");
 // enums
 assert(typeof Readiness === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof Route53RecoveryReadinessServiceException);
+assert(ConflictException.prototype instanceof Route53RecoveryReadinessServiceException);
+assert(InternalServerException.prototype instanceof Route53RecoveryReadinessServiceException);
+assert(ResourceNotFoundException.prototype instanceof Route53RecoveryReadinessServiceException);
+assert(ThrottlingException.prototype instanceof Route53RecoveryReadinessServiceException);
+assert(ValidationException.prototype instanceof Route53RecoveryReadinessServiceException);
 assert(Route53RecoveryReadinessServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetCellReadinessSummary === "function");

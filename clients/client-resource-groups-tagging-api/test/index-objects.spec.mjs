@@ -1,4 +1,6 @@
 import {
+  ConcurrentModificationException,
+  ConstraintViolationException,
   DescribeReportCreationCommand,
   ErrorCode,
   GetComplianceSummaryCommand,
@@ -6,13 +8,17 @@ import {
   GetTagKeysCommand,
   GetTagValuesCommand,
   GroupByAttribute,
+  InternalServiceException,
+  InvalidParameterException,
   ListRequiredTagsCommand,
+  PaginationTokenExpiredException,
   ResourceGroupsTaggingAPI,
   ResourceGroupsTaggingAPIClient,
   ResourceGroupsTaggingAPIServiceException,
   StartReportCreationCommand,
   TagResourcesCommand,
   TargetIdType,
+  ThrottledException,
   UntagResourcesCommand,
   paginateGetComplianceSummary,
   paginateGetResources,
@@ -39,6 +45,12 @@ assert(typeof ErrorCode === "object");
 assert(typeof GroupByAttribute === "object");
 assert(typeof TargetIdType === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof ResourceGroupsTaggingAPIServiceException);
+assert(ConstraintViolationException.prototype instanceof ResourceGroupsTaggingAPIServiceException);
+assert(InternalServiceException.prototype instanceof ResourceGroupsTaggingAPIServiceException);
+assert(InvalidParameterException.prototype instanceof ResourceGroupsTaggingAPIServiceException);
+assert(PaginationTokenExpiredException.prototype instanceof ResourceGroupsTaggingAPIServiceException);
+assert(ThrottledException.prototype instanceof ResourceGroupsTaggingAPIServiceException);
 assert(ResourceGroupsTaggingAPIServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetComplianceSummary === "function");

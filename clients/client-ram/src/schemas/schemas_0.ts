@@ -1052,7 +1052,6 @@ export var UpdateResourceShareResponse: StaticStructureSchema = [
   [_rS, _cT],
   [() => ResourceShare, 0],
 ];
-export var __Unit = "unit" as const;
 export var RAMServiceException: StaticErrorSchema = [-3, _sm, "RAMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RAMServiceException, __RAMServiceException);
 export var AssociatedPermissionList: StaticListSchema = [1, n0, _APL, 0, [() => AssociatedPermission, { [_xN]: _it }]];

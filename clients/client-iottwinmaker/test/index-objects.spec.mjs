@@ -1,8 +1,12 @@
 import {
+  AccessDeniedException,
   BatchPutPropertyValuesCommand,
   CancelMetadataTransferJobCommand,
   ColumnType,
   ComponentUpdateType,
+  ConflictException,
+  ConnectorFailureException,
+  ConnectorTimeoutException,
   CreateComponentTypeCommand,
   CreateEntityCommand,
   CreateMetadataTransferJobCommand,
@@ -27,6 +31,7 @@ import {
   GetSyncJobCommand,
   GetWorkspaceCommand,
   GroupType,
+  InternalServerException,
   InterpolationType,
   IoTTwinMaker,
   IoTTwinMakerClient,
@@ -49,14 +54,19 @@ import {
   PricingTier,
   PropertyGroupUpdateType,
   PropertyUpdateType,
+  QueryTimeoutException,
+  ResourceNotFoundException,
   SceneErrorCode,
   Scope,
+  ServiceQuotaExceededException,
   SourceType,
   State,
   SyncJobState,
   SyncResourceState,
   SyncResourceType,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   Type,
   UntagResourceCommand,
   UpdateComponentTypeCommand,
@@ -65,6 +75,7 @@ import {
   UpdateReason,
   UpdateSceneCommand,
   UpdateWorkspaceCommand,
+  ValidationException,
   paginateExecuteQuery,
   paginateGetPropertyValue,
   paginateGetPropertyValueHistory,
@@ -148,6 +159,17 @@ assert(typeof SyncResourceType === "object");
 assert(typeof Type === "object");
 assert(typeof UpdateReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IoTTwinMakerServiceException);
+assert(ConflictException.prototype instanceof IoTTwinMakerServiceException);
+assert(ConnectorFailureException.prototype instanceof IoTTwinMakerServiceException);
+assert(ConnectorTimeoutException.prototype instanceof IoTTwinMakerServiceException);
+assert(InternalServerException.prototype instanceof IoTTwinMakerServiceException);
+assert(QueryTimeoutException.prototype instanceof IoTTwinMakerServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTTwinMakerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof IoTTwinMakerServiceException);
+assert(ThrottlingException.prototype instanceof IoTTwinMakerServiceException);
+assert(TooManyTagsException.prototype instanceof IoTTwinMakerServiceException);
+assert(ValidationException.prototype instanceof IoTTwinMakerServiceException);
 assert(IoTTwinMakerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateExecuteQuery === "function");

@@ -4,6 +4,8 @@ import {
   ArchiveStatus,
   BucketAbacStatus,
   BucketAccelerateStatus,
+  BucketAlreadyExists,
+  BucketAlreadyOwnedByYou,
   BucketCannedACL,
   BucketLocationConstraint,
   BucketLogsPermission,
@@ -43,6 +45,7 @@ import {
   DeletePublicAccessBlockCommand,
   EncodingType,
   EncryptionType,
+  EncryptionTypeMismatch,
   Event,
   ExistingObjectReplicationStatus,
   ExpirationState,
@@ -84,8 +87,12 @@ import {
   GetPublicAccessBlockCommand,
   HeadBucketCommand,
   HeadObjectCommand,
+  IdempotencyParameterMismatch,
   IntelligentTieringAccessTier,
   IntelligentTieringStatus,
+  InvalidObjectState,
+  InvalidRequest,
+  InvalidWriteOffset,
   InventoryConfigurationState,
   InventoryFormat,
   InventoryFrequency,
@@ -108,12 +115,18 @@ import {
   MFADeleteStatus,
   MetadataDirective,
   MetricsStatus,
+  NoSuchBucket,
+  NoSuchKey,
+  NoSuchUpload,
+  NotFound,
+  ObjectAlreadyInActiveTierError,
   ObjectAttributes,
   ObjectCannedACL,
   ObjectLockEnabled,
   ObjectLockLegalHoldStatus,
   ObjectLockMode,
   ObjectLockRetentionMode,
+  ObjectNotInActiveTierError,
   ObjectOwnership,
   ObjectStorageClass,
   ObjectVersionStorageClass,
@@ -172,6 +185,7 @@ import {
   TableSseAlgorithm,
   TaggingDirective,
   Tier,
+  TooManyParts,
   TransitionDefaultMinimumObjectSize,
   TransitionStorageClass,
   Type,
@@ -378,6 +392,20 @@ assert(typeof TransitionDefaultMinimumObjectSize === "object");
 assert(typeof TransitionStorageClass === "object");
 assert(typeof Type === "object");
 // errors
+assert(BucketAlreadyExists.prototype instanceof S3ServiceException);
+assert(BucketAlreadyOwnedByYou.prototype instanceof S3ServiceException);
+assert(EncryptionTypeMismatch.prototype instanceof S3ServiceException);
+assert(IdempotencyParameterMismatch.prototype instanceof S3ServiceException);
+assert(InvalidObjectState.prototype instanceof S3ServiceException);
+assert(InvalidRequest.prototype instanceof S3ServiceException);
+assert(InvalidWriteOffset.prototype instanceof S3ServiceException);
+assert(NoSuchBucket.prototype instanceof S3ServiceException);
+assert(NoSuchKey.prototype instanceof S3ServiceException);
+assert(NoSuchUpload.prototype instanceof S3ServiceException);
+assert(NotFound.prototype instanceof S3ServiceException);
+assert(ObjectAlreadyInActiveTierError.prototype instanceof S3ServiceException);
+assert(ObjectNotInActiveTierError.prototype instanceof S3ServiceException);
+assert(TooManyParts.prototype instanceof S3ServiceException);
 assert(S3ServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForBucketExists === "function");

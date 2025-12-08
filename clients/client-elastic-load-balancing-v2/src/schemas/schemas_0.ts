@@ -1650,7 +1650,6 @@ export var ZonalCapacityReservationState: StaticStructureSchema = [
   [_S, _AZ, _ECU],
   [() => CapacityReservationStatus, 0, 1],
 ];
-export var __Unit = "unit" as const;
 export var ElasticLoadBalancingV2ServiceException: StaticErrorSchema = [
   -3,
   _sm,

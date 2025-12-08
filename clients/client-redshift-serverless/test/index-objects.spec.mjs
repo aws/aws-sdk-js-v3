@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   ConvertRecoveryPointToSnapshotCommand,
   CreateCustomDomainAssociationCommand,
   CreateEndpointAccessCommand,
@@ -18,6 +20,7 @@ import {
   DeleteSnapshotCopyConfigurationCommand,
   DeleteUsageLimitCommand,
   DeleteWorkgroupCommand,
+  DryRunException,
   GetCredentialsCommand,
   GetCustomDomainAssociationCommand,
   GetEndpointAccessCommand,
@@ -32,6 +35,10 @@ import {
   GetTrackCommand,
   GetUsageLimitCommand,
   GetWorkgroupCommand,
+  InsufficientCapacityException,
+  InternalServerException,
+  InvalidPaginationException,
+  Ipv6CidrBlockNotFoundException,
   LakehouseIdcRegistration,
   LakehouseRegistration,
   ListCustomDomainAssociationsCommand,
@@ -58,13 +65,17 @@ import {
   RedshiftServerless,
   RedshiftServerlessClient,
   RedshiftServerlessServiceException,
+  ResourceNotFoundException,
   RestoreFromRecoveryPointCommand,
   RestoreFromSnapshotCommand,
   RestoreTableFromRecoveryPointCommand,
   RestoreTableFromSnapshotCommand,
+  ServiceQuotaExceededException,
   SnapshotStatus,
   State,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateCustomDomainAssociationCommand,
   UpdateEndpointAccessCommand,
@@ -78,6 +89,7 @@ import {
   UsageLimitBreachAction,
   UsageLimitPeriod,
   UsageLimitUsageType,
+  ValidationException,
   WorkgroupStatus,
   paginateListCustomDomainAssociations,
   paginateListEndpointAccess,
@@ -178,6 +190,18 @@ assert(typeof UsageLimitPeriod === "object");
 assert(typeof UsageLimitUsageType === "object");
 assert(typeof WorkgroupStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof RedshiftServerlessServiceException);
+assert(ConflictException.prototype instanceof RedshiftServerlessServiceException);
+assert(DryRunException.prototype instanceof RedshiftServerlessServiceException);
+assert(InsufficientCapacityException.prototype instanceof RedshiftServerlessServiceException);
+assert(InternalServerException.prototype instanceof RedshiftServerlessServiceException);
+assert(InvalidPaginationException.prototype instanceof RedshiftServerlessServiceException);
+assert(Ipv6CidrBlockNotFoundException.prototype instanceof RedshiftServerlessServiceException);
+assert(ResourceNotFoundException.prototype instanceof RedshiftServerlessServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof RedshiftServerlessServiceException);
+assert(ThrottlingException.prototype instanceof RedshiftServerlessServiceException);
+assert(TooManyTagsException.prototype instanceof RedshiftServerlessServiceException);
+assert(ValidationException.prototype instanceof RedshiftServerlessServiceException);
 assert(RedshiftServerlessServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCustomDomainAssociations === "function");

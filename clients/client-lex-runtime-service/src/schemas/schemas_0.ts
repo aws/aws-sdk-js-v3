@@ -399,7 +399,6 @@ export var ResponseCard: StaticStructureSchema = [3, n0, _RC, 0, [_ve, _cT, _gA]
 export var SentimentResponse: StaticStructureSchema = [3, n0, _SR, 0, [_sL, _sS], [0, 0]];
 export var UnsupportedMediaTypeException: StaticErrorSchema = [-3, n0, _UMTE, { [_e]: _c, [_hE]: 415 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedMediaTypeException, __UnsupportedMediaTypeException);
-export var __Unit = "unit" as const;
 export var LexRuntimeServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,

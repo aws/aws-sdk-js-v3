@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ApplicationCostProfiler,
   ApplicationCostProfilerClient,
   ApplicationCostProfilerServiceException,
@@ -6,11 +7,15 @@ import {
   Format,
   GetReportDefinitionCommand,
   ImportApplicationUsageCommand,
+  InternalServerException,
   ListReportDefinitionsCommand,
   PutReportDefinitionCommand,
   ReportFrequency,
   S3BucketRegion,
+  ServiceQuotaExceededException,
+  ThrottlingException,
   UpdateReportDefinitionCommand,
+  ValidationException,
   paginateListReportDefinitions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -29,6 +34,11 @@ assert(typeof Format === "object");
 assert(typeof ReportFrequency === "object");
 assert(typeof S3BucketRegion === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ApplicationCostProfilerServiceException);
+assert(InternalServerException.prototype instanceof ApplicationCostProfilerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ApplicationCostProfilerServiceException);
+assert(ThrottlingException.prototype instanceof ApplicationCostProfilerServiceException);
+assert(ValidationException.prototype instanceof ApplicationCostProfilerServiceException);
 assert(ApplicationCostProfilerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListReportDefinitions === "function");

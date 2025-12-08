@@ -1662,7 +1662,6 @@ export var UpdateSourceApiAssociationResponse: StaticStructureSchema = [
 export var UpdateTypeRequest: StaticStructureSchema = [3, n0, _UTR, 0, [_aI, _tN, _def, _f], [[0, 1], [0, 1], 0, 0]];
 export var UpdateTypeResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [_ty], [() => Type]];
 export var UserPoolConfig: StaticStructureSchema = [3, n0, _UPC, 0, [_uPI, _aR, _dA, _aICR], [0, 0, 0, 0]];
-export var __Unit = "unit" as const;
 export var AppSyncServiceException: StaticErrorSchema = [-3, _sm, "AppSyncServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppSyncServiceException, __AppSyncServiceException);
 export var AdditionalAuthenticationProviders: StaticListSchema = [

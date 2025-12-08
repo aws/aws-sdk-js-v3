@@ -1133,7 +1133,6 @@ export var WorkloadEstimateUsageItem: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, () => WorkloadEstimateUsageQuantity, 1, 0, 0, () => HistoricalUsageEntity],
 ];
 export var WorkloadEstimateUsageQuantity: StaticStructureSchema = [3, n0, _WEUQ, 0, [_un, _am], [0, 1]];
-export var __Unit = "unit" as const;
 export var BCMPricingCalculatorServiceException: StaticErrorSchema = [
   -3,
   _sm,

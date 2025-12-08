@@ -1,8 +1,11 @@
 import {
+  AccessDeniedException,
   AdMarkerDash,
   AdMarkerHls,
   CancelHarvestJobCommand,
   CmafEncryptionMethod,
+  ConflictException,
+  ConflictExceptionType,
   ContainerType,
   CreateChannelCommand,
   CreateChannelGroupCommand,
@@ -30,6 +33,7 @@ import {
   GetOriginEndpointPolicyCommand,
   HarvestJobStatus,
   InputType,
+  InternalServerException,
   IsmEncryptionMethod,
   ListChannelGroupsCommand,
   ListChannelsCommand,
@@ -46,14 +50,20 @@ import {
   PutOriginEndpointPolicyCommand,
   ResetChannelStateCommand,
   ResetOriginEndpointStateCommand,
+  ResourceNotFoundException,
+  ResourceTypeNotFound,
   ScteFilter,
   ScteInSegments,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   TsEncryptionMethod,
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdateChannelGroupCommand,
   UpdateOriginEndpointCommand,
+  ValidationException,
+  ValidationExceptionType,
   paginateListChannelGroups,
   paginateListChannels,
   paginateListHarvestJobs,
@@ -100,6 +110,7 @@ assert(typeof UpdateOriginEndpointCommand === "function");
 assert(typeof AdMarkerDash === "object");
 assert(typeof AdMarkerHls === "object");
 assert(typeof CmafEncryptionMethod === "object");
+assert(typeof ConflictExceptionType === "object");
 assert(typeof ContainerType === "object");
 assert(typeof DashCompactness === "object");
 assert(typeof DashDrmSignaling === "object");
@@ -116,10 +127,19 @@ assert(typeof IsmEncryptionMethod === "object");
 assert(typeof MssManifestLayout === "object");
 assert(typeof PresetSpeke20Audio === "object");
 assert(typeof PresetSpeke20Video === "object");
+assert(typeof ResourceTypeNotFound === "object");
 assert(typeof ScteFilter === "object");
 assert(typeof ScteInSegments === "object");
 assert(typeof TsEncryptionMethod === "object");
+assert(typeof ValidationExceptionType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MediaPackageV2ServiceException);
+assert(ConflictException.prototype instanceof MediaPackageV2ServiceException);
+assert(InternalServerException.prototype instanceof MediaPackageV2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof MediaPackageV2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MediaPackageV2ServiceException);
+assert(ThrottlingException.prototype instanceof MediaPackageV2ServiceException);
+assert(ValidationException.prototype instanceof MediaPackageV2ServiceException);
 assert(MediaPackageV2ServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForHarvestJobFinished === "function");

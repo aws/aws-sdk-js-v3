@@ -1,7 +1,9 @@
 import {
   AWSServiceAccessStatus,
+  AccessDeniedException,
   AssociateDefaultViewCommand,
   BatchGetViewCommand,
+  ConflictException,
   CreateIndexCommand,
   CreateResourceExplorerSetupCommand,
   CreateViewCommand,
@@ -19,6 +21,7 @@ import {
   GetViewCommand,
   IndexState,
   IndexType,
+  InternalServerException,
   ListIndexesCommand,
   ListIndexesForMembersCommand,
   ListManagedViewsCommand,
@@ -33,11 +36,16 @@ import {
   ResourceExplorer2,
   ResourceExplorer2Client,
   ResourceExplorer2ServiceException,
+  ResourceNotFoundException,
   SearchCommand,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateIndexTypeCommand,
   UpdateViewCommand,
+  ValidationException,
   paginateGetResourceExplorerSetup,
   paginateListIndexes,
   paginateListIndexesForMembers,
@@ -93,6 +101,14 @@ assert(typeof IndexState === "object");
 assert(typeof IndexType === "object");
 assert(typeof OperationStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ResourceExplorer2ServiceException);
+assert(ConflictException.prototype instanceof ResourceExplorer2ServiceException);
+assert(InternalServerException.prototype instanceof ResourceExplorer2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof ResourceExplorer2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ResourceExplorer2ServiceException);
+assert(ThrottlingException.prototype instanceof ResourceExplorer2ServiceException);
+assert(UnauthorizedException.prototype instanceof ResourceExplorer2ServiceException);
+assert(ValidationException.prototype instanceof ResourceExplorer2ServiceException);
 assert(ResourceExplorer2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetResourceExplorerSetup === "function");

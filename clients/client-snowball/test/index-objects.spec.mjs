@@ -2,7 +2,9 @@ import {
   AddressType,
   CancelClusterCommand,
   CancelJobCommand,
+  ClusterLimitExceededException,
   ClusterState,
+  ConflictException,
   CreateAddressCommand,
   CreateClusterCommand,
   CreateJobCommand,
@@ -14,13 +16,20 @@ import {
   DescribeJobCommand,
   DescribeReturnShippingLabelCommand,
   DeviceServiceName,
+  Ec2RequestFailedException,
   GetJobManifestCommand,
   GetJobUnlockCodeCommand,
   GetSnowballUsageCommand,
   GetSoftwareUpdatesCommand,
   ImpactLevel,
+  InvalidAddressException,
+  InvalidInputCombinationException,
+  InvalidJobStateException,
+  InvalidNextTokenException,
+  InvalidResourceException,
   JobState,
   JobType,
+  KMSRequestFailedException,
   ListClusterJobsCommand,
   ListClustersCommand,
   ListCompatibleImagesCommand,
@@ -30,6 +39,7 @@ import {
   ListServiceVersionsCommand,
   LongTermPricingType,
   RemoteManagement,
+  ReturnShippingLabelAlreadyExistsException,
   ServiceName,
   ShipmentState,
   ShippingLabelStatus,
@@ -41,6 +51,7 @@ import {
   SnowballType,
   StorageUnit,
   TransferOption,
+  UnsupportedAddressException,
   UpdateClusterCommand,
   UpdateJobCommand,
   UpdateJobShipmentStateCommand,
@@ -103,6 +114,17 @@ assert(typeof SnowballType === "object");
 assert(typeof StorageUnit === "object");
 assert(typeof TransferOption === "object");
 // errors
+assert(ClusterLimitExceededException.prototype instanceof SnowballServiceException);
+assert(ConflictException.prototype instanceof SnowballServiceException);
+assert(Ec2RequestFailedException.prototype instanceof SnowballServiceException);
+assert(InvalidAddressException.prototype instanceof SnowballServiceException);
+assert(InvalidInputCombinationException.prototype instanceof SnowballServiceException);
+assert(InvalidJobStateException.prototype instanceof SnowballServiceException);
+assert(InvalidNextTokenException.prototype instanceof SnowballServiceException);
+assert(InvalidResourceException.prototype instanceof SnowballServiceException);
+assert(KMSRequestFailedException.prototype instanceof SnowballServiceException);
+assert(ReturnShippingLabelAlreadyExistsException.prototype instanceof SnowballServiceException);
+assert(UnsupportedAddressException.prototype instanceof SnowballServiceException);
 assert(SnowballServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeAddresses === "function");

@@ -1499,7 +1499,6 @@ export var VehicleSummary: StaticStructureSchema = [
   [_vN, _a, _mMA, _dMA, _cT, _lMT, _at],
   [0, 0, 0, 0, 4, 4, 128 | 0],
 ];
-export var __Unit = "unit" as const;
 export var IoTFleetWiseServiceException: StaticErrorSchema = [-3, _sm, "IoTFleetWiseServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTFleetWiseServiceException, __IoTFleetWiseServiceException);
 export var attributeNamesList = 64 | 0;

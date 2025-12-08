@@ -7,16 +7,21 @@ import {
   CostAndUsageReportServiceServiceException,
   DeleteReportDefinitionCommand,
   DescribeReportDefinitionsCommand,
+  DuplicateReportNameException,
+  InternalErrorException,
   LastStatus,
   ListTagsForResourceCommand,
   ModifyReportDefinitionCommand,
   PutReportDefinitionCommand,
   ReportFormat,
+  ReportLimitReachedException,
   ReportVersioning,
+  ResourceNotFoundException,
   SchemaElement,
   TagResourceCommand,
   TimeUnit,
   UntagResourceCommand,
+  ValidationException,
   paginateDescribeReportDefinitions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -41,6 +46,11 @@ assert(typeof ReportVersioning === "object");
 assert(typeof SchemaElement === "object");
 assert(typeof TimeUnit === "object");
 // errors
+assert(DuplicateReportNameException.prototype instanceof CostAndUsageReportServiceServiceException);
+assert(InternalErrorException.prototype instanceof CostAndUsageReportServiceServiceException);
+assert(ReportLimitReachedException.prototype instanceof CostAndUsageReportServiceServiceException);
+assert(ResourceNotFoundException.prototype instanceof CostAndUsageReportServiceServiceException);
+assert(ValidationException.prototype instanceof CostAndUsageReportServiceServiceException);
 assert(CostAndUsageReportServiceServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeReportDefinitions === "function");

@@ -3246,7 +3246,6 @@ export var WorkflowAttributes: StaticStructureSchema = [
 export var WorkflowMetrics: StaticStructureSchema = [3, n0, _WM, 0, [_AI], [() => AppflowIntegrationWorkflowMetrics]];
 export var WorkflowStepItem: StaticStructureSchema = [3, n0, _WSI, 0, [_AI], [() => AppflowIntegrationWorkflowStep]];
 export var ZendeskSourceProperties: StaticStructureSchema = [3, n0, _ZSP, 0, [_Ob], [0]];
-export var __Unit = "unit" as const;
 export var CustomerProfilesServiceException: StaticErrorSchema = [
   -3,
   _sm,

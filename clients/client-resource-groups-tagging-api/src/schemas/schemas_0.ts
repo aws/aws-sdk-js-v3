@@ -185,7 +185,6 @@ export var ThrottledException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [
 TypeRegistry.for(n0).registerError(ThrottledException, __ThrottledException);
 export var UntagResourcesInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARNL, _TK], [64 | 0, 64 | 0]];
 export var UntagResourcesOutput: StaticStructureSchema = [3, n0, _URO, 0, [_FRM], [() => FailedResourcesMap]];
-export var __Unit = "unit" as const;
 export var ResourceGroupsTaggingAPIServiceException: StaticErrorSchema = [
   -3,
   _sm,

@@ -169,5 +169,13 @@ export type {
   UpdateScalingParametersResponse,
   UpdateServiceAccessPoliciesRequest,
   UpdateServiceAccessPoliciesResponse,
+  BaseException,
+  DisabledOperationException,
+  InternalException,
+  InvalidTypeException,
+  LimitExceededException,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
+  ValidationException,
   CloudSearchServiceException,
 } from "../dist-types/index.d";

@@ -6,9 +6,11 @@ import {
   IoTSecureTunneling,
   IoTSecureTunnelingClient,
   IoTSecureTunnelingServiceException,
+  LimitExceededException,
   ListTagsForResourceCommand,
   ListTunnelsCommand,
   OpenTunnelCommand,
+  ResourceNotFoundException,
   RotateTunnelAccessTokenCommand,
   TagResourceCommand,
   TunnelStatus,
@@ -33,6 +35,8 @@ assert(typeof ClientMode === "object");
 assert(typeof ConnectionStatus === "object");
 assert(typeof TunnelStatus === "object");
 // errors
+assert(LimitExceededException.prototype instanceof IoTSecureTunnelingServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTSecureTunnelingServiceException);
 assert(IoTSecureTunnelingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListTunnels === "function");

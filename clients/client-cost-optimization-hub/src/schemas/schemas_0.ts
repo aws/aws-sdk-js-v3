@@ -816,7 +816,6 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var ValidationExceptionDetail: StaticStructureSchema = [3, n0, _VED, 0, [_fN, _m], [0, 0]];
-export var __Unit = "unit" as const;
 export var CostOptimizationHubServiceException: StaticErrorSchema = [
   -3,
   _sm,

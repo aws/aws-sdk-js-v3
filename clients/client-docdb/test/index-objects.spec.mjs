@@ -3,6 +3,8 @@ import {
   AddTagsToResourceCommand,
   ApplyMethod,
   ApplyPendingMaintenanceActionCommand,
+  AuthorizationNotFoundFault,
+  CertificateNotFoundFault,
   CopyDBClusterParameterGroupCommand,
   CopyDBClusterSnapshotCommand,
   CreateDBClusterCommand,
@@ -12,6 +14,26 @@ import {
   CreateDBSubnetGroupCommand,
   CreateEventSubscriptionCommand,
   CreateGlobalClusterCommand,
+  DBClusterAlreadyExistsFault,
+  DBClusterNotFoundFault,
+  DBClusterParameterGroupNotFoundFault,
+  DBClusterQuotaExceededFault,
+  DBClusterSnapshotAlreadyExistsFault,
+  DBClusterSnapshotNotFoundFault,
+  DBInstanceAlreadyExistsFault,
+  DBInstanceNotFoundFault,
+  DBParameterGroupAlreadyExistsFault,
+  DBParameterGroupNotFoundFault,
+  DBParameterGroupQuotaExceededFault,
+  DBSecurityGroupNotFoundFault,
+  DBSnapshotAlreadyExistsFault,
+  DBSnapshotNotFoundFault,
+  DBSubnetGroupAlreadyExistsFault,
+  DBSubnetGroupDoesNotCoverEnoughAZs,
+  DBSubnetGroupNotFoundFault,
+  DBSubnetGroupQuotaExceededFault,
+  DBSubnetQuotaExceededFault,
+  DBUpgradeDependencyFailureFault,
   DeleteDBClusterCommand,
   DeleteDBClusterParameterGroupCommand,
   DeleteDBClusterSnapshotCommand,
@@ -38,10 +60,32 @@ import {
   DocDB,
   DocDBClient,
   DocDBServiceException,
+  EventSubscriptionQuotaExceededFault,
   FailoverDBClusterCommand,
   FailoverGlobalClusterCommand,
   FailoverStatus,
+  GlobalClusterAlreadyExistsFault,
   GlobalClusterMemberSynchronizationStatus,
+  GlobalClusterNotFoundFault,
+  GlobalClusterQuotaExceededFault,
+  InstanceQuotaExceededFault,
+  InsufficientDBClusterCapacityFault,
+  InsufficientDBInstanceCapacityFault,
+  InsufficientStorageClusterCapacityFault,
+  InvalidDBClusterSnapshotStateFault,
+  InvalidDBClusterStateFault,
+  InvalidDBInstanceStateFault,
+  InvalidDBParameterGroupStateFault,
+  InvalidDBSecurityGroupStateFault,
+  InvalidDBSnapshotStateFault,
+  InvalidDBSubnetGroupStateFault,
+  InvalidDBSubnetStateFault,
+  InvalidEventSubscriptionStateFault,
+  InvalidGlobalClusterStateFault,
+  InvalidRestoreFault,
+  InvalidSubnet,
+  InvalidVPCNetworkStateFault,
+  KMSKeyNotAccessibleFault,
   ListTagsForResourceCommand,
   ModifyDBClusterCommand,
   ModifyDBClusterParameterGroupCommand,
@@ -50,16 +94,30 @@ import {
   ModifyDBSubnetGroupCommand,
   ModifyEventSubscriptionCommand,
   ModifyGlobalClusterCommand,
+  NetworkTypeNotSupported,
   RebootDBInstanceCommand,
   RemoveFromGlobalClusterCommand,
   RemoveSourceIdentifierFromSubscriptionCommand,
   RemoveTagsFromResourceCommand,
   ResetDBClusterParameterGroupCommand,
+  ResourceNotFoundFault,
   RestoreDBClusterFromSnapshotCommand,
   RestoreDBClusterToPointInTimeCommand,
+  SNSInvalidTopicFault,
+  SNSNoAuthorizationFault,
+  SNSTopicArnNotFoundFault,
+  SharedSnapshotQuotaExceededFault,
+  SnapshotQuotaExceededFault,
+  SourceNotFoundFault,
   SourceType,
   StartDBClusterCommand,
   StopDBClusterCommand,
+  StorageQuotaExceededFault,
+  StorageTypeNotSupportedFault,
+  SubnetAlreadyInUse,
+  SubscriptionAlreadyExistFault,
+  SubscriptionCategoryNotFoundFault,
+  SubscriptionNotFoundFault,
   SwitchoverGlobalClusterCommand,
   paginateDescribeCertificates,
   paginateDescribeDBClusterParameterGroups,
@@ -145,6 +203,64 @@ assert(typeof FailoverStatus === "object");
 assert(typeof GlobalClusterMemberSynchronizationStatus === "object");
 assert(typeof SourceType === "object");
 // errors
+assert(AuthorizationNotFoundFault.prototype instanceof DocDBServiceException);
+assert(CertificateNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBClusterAlreadyExistsFault.prototype instanceof DocDBServiceException);
+assert(DBClusterNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBClusterParameterGroupNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBClusterQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(DBClusterSnapshotAlreadyExistsFault.prototype instanceof DocDBServiceException);
+assert(DBClusterSnapshotNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBInstanceAlreadyExistsFault.prototype instanceof DocDBServiceException);
+assert(DBInstanceNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBParameterGroupAlreadyExistsFault.prototype instanceof DocDBServiceException);
+assert(DBParameterGroupNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBParameterGroupQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(DBSecurityGroupNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBSnapshotAlreadyExistsFault.prototype instanceof DocDBServiceException);
+assert(DBSnapshotNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBSubnetGroupAlreadyExistsFault.prototype instanceof DocDBServiceException);
+assert(DBSubnetGroupDoesNotCoverEnoughAZs.prototype instanceof DocDBServiceException);
+assert(DBSubnetGroupNotFoundFault.prototype instanceof DocDBServiceException);
+assert(DBSubnetGroupQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(DBSubnetQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(DBUpgradeDependencyFailureFault.prototype instanceof DocDBServiceException);
+assert(EventSubscriptionQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(GlobalClusterAlreadyExistsFault.prototype instanceof DocDBServiceException);
+assert(GlobalClusterNotFoundFault.prototype instanceof DocDBServiceException);
+assert(GlobalClusterQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(InstanceQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(InsufficientDBClusterCapacityFault.prototype instanceof DocDBServiceException);
+assert(InsufficientDBInstanceCapacityFault.prototype instanceof DocDBServiceException);
+assert(InsufficientStorageClusterCapacityFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBClusterSnapshotStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBClusterStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBInstanceStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBParameterGroupStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBSecurityGroupStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBSnapshotStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBSubnetGroupStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidDBSubnetStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidEventSubscriptionStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidGlobalClusterStateFault.prototype instanceof DocDBServiceException);
+assert(InvalidRestoreFault.prototype instanceof DocDBServiceException);
+assert(InvalidSubnet.prototype instanceof DocDBServiceException);
+assert(InvalidVPCNetworkStateFault.prototype instanceof DocDBServiceException);
+assert(KMSKeyNotAccessibleFault.prototype instanceof DocDBServiceException);
+assert(NetworkTypeNotSupported.prototype instanceof DocDBServiceException);
+assert(ResourceNotFoundFault.prototype instanceof DocDBServiceException);
+assert(SharedSnapshotQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(SnapshotQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(SNSInvalidTopicFault.prototype instanceof DocDBServiceException);
+assert(SNSNoAuthorizationFault.prototype instanceof DocDBServiceException);
+assert(SNSTopicArnNotFoundFault.prototype instanceof DocDBServiceException);
+assert(SourceNotFoundFault.prototype instanceof DocDBServiceException);
+assert(StorageQuotaExceededFault.prototype instanceof DocDBServiceException);
+assert(StorageTypeNotSupportedFault.prototype instanceof DocDBServiceException);
+assert(SubnetAlreadyInUse.prototype instanceof DocDBServiceException);
+assert(SubscriptionAlreadyExistFault.prototype instanceof DocDBServiceException);
+assert(SubscriptionCategoryNotFoundFault.prototype instanceof DocDBServiceException);
+assert(SubscriptionNotFoundFault.prototype instanceof DocDBServiceException);
 assert(DocDBServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForDBInstanceAvailable === "function");

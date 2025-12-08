@@ -9,6 +9,7 @@ import {
   ComparisonOperatorType,
   ComputeStatus,
   ComputeType,
+  ConflictException,
   ContainerDependencyCondition,
   ContainerFleetBillingType,
   ContainerFleetLocationStatus,
@@ -91,6 +92,7 @@ import {
   EventCode,
   FilterInstanceStatus,
   FleetAction,
+  FleetCapacityExceededException,
   FleetStatus,
   FleetType,
   FlexMatchMode,
@@ -106,6 +108,7 @@ import {
   GameServerInstanceStatus,
   GameServerProtectionPolicy,
   GameServerUtilizationStatus,
+  GameSessionFullException,
   GameSessionPlacementState,
   GameSessionStatus,
   GameSessionStatusReason,
@@ -113,9 +116,15 @@ import {
   GetComputeAuthTokenCommand,
   GetGameSessionLogUrlCommand,
   GetInstanceAccessCommand,
+  IdempotentParameterMismatchException,
   InstanceRoleCredentialsProvider,
   InstanceStatus,
+  InternalServiceException,
+  InvalidFleetStatusException,
+  InvalidGameSessionStatusException,
+  InvalidRequestException,
   IpProtocol,
+  LimitExceededException,
   ListAliasesCommand,
   ListBuildsCommand,
   ListComputeCommand,
@@ -135,7 +144,10 @@ import {
   LogDestination,
   MatchmakingConfigurationStatus,
   MetricName,
+  NotFoundException,
+  NotReadyException,
   OperatingSystem,
+  OutOfCapacityException,
   PlacementFallbackStrategy,
   PlayerSessionCreationPolicy,
   PlayerSessionStatus,
@@ -162,8 +174,12 @@ import {
   StopMatchmakingCommand,
   SuspendGameServerGroupCommand,
   TagResourceCommand,
+  TaggingFailedException,
+  TerminalRoutingStrategyException,
   TerminateGameSessionCommand,
   TerminationMode,
+  UnauthorizedException,
+  UnsupportedRegionException,
   UntagResourceCommand,
   UpdateAliasCommand,
   UpdateBuildCommand,
@@ -393,6 +409,22 @@ assert(typeof ScalingStatusType === "object");
 assert(typeof SortOrder === "object");
 assert(typeof TerminationMode === "object");
 // errors
+assert(ConflictException.prototype instanceof GameLiftServiceException);
+assert(FleetCapacityExceededException.prototype instanceof GameLiftServiceException);
+assert(GameSessionFullException.prototype instanceof GameLiftServiceException);
+assert(IdempotentParameterMismatchException.prototype instanceof GameLiftServiceException);
+assert(InternalServiceException.prototype instanceof GameLiftServiceException);
+assert(InvalidFleetStatusException.prototype instanceof GameLiftServiceException);
+assert(InvalidGameSessionStatusException.prototype instanceof GameLiftServiceException);
+assert(InvalidRequestException.prototype instanceof GameLiftServiceException);
+assert(LimitExceededException.prototype instanceof GameLiftServiceException);
+assert(NotFoundException.prototype instanceof GameLiftServiceException);
+assert(NotReadyException.prototype instanceof GameLiftServiceException);
+assert(OutOfCapacityException.prototype instanceof GameLiftServiceException);
+assert(TaggingFailedException.prototype instanceof GameLiftServiceException);
+assert(TerminalRoutingStrategyException.prototype instanceof GameLiftServiceException);
+assert(UnauthorizedException.prototype instanceof GameLiftServiceException);
+assert(UnsupportedRegionException.prototype instanceof GameLiftServiceException);
 assert(GameLiftServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeFleetAttributes === "function");

@@ -1,19 +1,25 @@
 import {
+  AccessDeniedException,
   AccountType,
+  ConflictException,
   CreateSlackChannelConfigurationCommand,
   DeleteAccountAliasCommand,
   DeleteSlackChannelConfigurationCommand,
   DeleteSlackWorkspaceConfigurationCommand,
   GetAccountAliasCommand,
+  InternalServerException,
   ListSlackChannelConfigurationsCommand,
   ListSlackWorkspaceConfigurationsCommand,
   NotificationSeverityLevel,
   PutAccountAliasCommand,
   RegisterSlackWorkspaceForOrganizationCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SupportApp,
   SupportAppClient,
   SupportAppServiceException,
   UpdateSlackChannelConfigurationCommand,
+  ValidationException,
   paginateListSlackChannelConfigurations,
   paginateListSlackWorkspaceConfigurations,
 } from "../dist-cjs/index.js";
@@ -36,6 +42,12 @@ assert(typeof UpdateSlackChannelConfigurationCommand === "function");
 assert(typeof AccountType === "object");
 assert(typeof NotificationSeverityLevel === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SupportAppServiceException);
+assert(ConflictException.prototype instanceof SupportAppServiceException);
+assert(InternalServerException.prototype instanceof SupportAppServiceException);
+assert(ResourceNotFoundException.prototype instanceof SupportAppServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SupportAppServiceException);
+assert(ValidationException.prototype instanceof SupportAppServiceException);
 assert(SupportAppServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListSlackChannelConfigurations === "function");

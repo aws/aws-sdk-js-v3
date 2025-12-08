@@ -14,5 +14,9 @@ export type {
   PutRawMessageContentResponse,
   RawMessageContent,
   S3Reference,
+  InvalidContentLocation,
+  MessageFrozen,
+  MessageRejected,
+  ResourceNotFoundException,
   WorkMailMessageFlowServiceException,
 } from "../dist-types/index.d";

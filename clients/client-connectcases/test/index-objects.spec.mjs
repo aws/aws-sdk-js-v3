@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   AuditEventType,
   BatchGetCaseRuleCommand,
   BatchGetFieldCommand,
   BatchPutFieldOptionsCommand,
   CommentBodyTextType,
+  ConflictException,
   ConnectCases,
   ConnectCasesClient,
   ConnectCasesServiceException,
@@ -30,6 +32,7 @@ import {
   GetDomainCommand,
   GetLayoutCommand,
   GetTemplateCommand,
+  InternalServerException,
   ListCaseRulesCommand,
   ListCasesForContactCommand,
   ListDomainsCommand,
@@ -41,21 +44,25 @@ import {
   Order,
   PutCaseEventConfigurationCommand,
   RelatedItemType,
+  ResourceNotFoundException,
   RuleType,
   SearchAllRelatedItemsCommand,
   SearchAllRelatedItemsSortProperty,
   SearchCasesCommand,
   SearchRelatedItemsCommand,
+  ServiceQuotaExceededException,
   SlaStatus,
   SlaType,
   TagResourceCommand,
   TemplateStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateCaseCommand,
   UpdateCaseRuleCommand,
   UpdateFieldCommand,
   UpdateLayoutCommand,
   UpdateTemplateCommand,
+  ValidationException,
   paginateGetCase,
   paginateGetCaseAuditEvents,
   paginateListCaseRules,
@@ -130,6 +137,13 @@ assert(typeof SlaStatus === "object");
 assert(typeof SlaType === "object");
 assert(typeof TemplateStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ConnectCasesServiceException);
+assert(ConflictException.prototype instanceof ConnectCasesServiceException);
+assert(InternalServerException.prototype instanceof ConnectCasesServiceException);
+assert(ResourceNotFoundException.prototype instanceof ConnectCasesServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ConnectCasesServiceException);
+assert(ThrottlingException.prototype instanceof ConnectCasesServiceException);
+assert(ValidationException.prototype instanceof ConnectCasesServiceException);
 assert(ConnectCasesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetCase === "function");

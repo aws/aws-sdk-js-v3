@@ -1927,7 +1927,6 @@ export var VpcEndpointAssociationStatus: StaticStructureSchema = [
   [_S, _ASS],
   [0, () => AssociationSyncState],
 ];
-export var __Unit = "unit" as const;
 export var NetworkFirewallServiceException: StaticErrorSchema = [-3, _sm, "NetworkFirewallServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NetworkFirewallServiceException, __NetworkFirewallServiceException);
 export var Addresses: StaticListSchema = [1, n0, _Ad, 0, () => Address];

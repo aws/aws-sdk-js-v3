@@ -24,9 +24,12 @@ import {
   DescribePipelineCommand,
   FileFormatType,
   GetDatasetContentCommand,
+  InternalFailureException,
+  InvalidRequestException,
   IoTAnalytics,
   IoTAnalyticsClient,
   IoTAnalyticsServiceException,
+  LimitExceededException,
   ListChannelsCommand,
   ListDatasetContentsCommand,
   ListDatasetsCommand,
@@ -36,10 +39,14 @@ import {
   LoggingLevel,
   PutLoggingOptionsCommand,
   ReprocessingStatus,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RunPipelineActivityCommand,
   SampleChannelDataCommand,
+  ServiceUnavailableException,
   StartPipelineReprocessingCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdateDatasetCommand,
@@ -101,6 +108,13 @@ assert(typeof FileFormatType === "object");
 assert(typeof LoggingLevel === "object");
 assert(typeof ReprocessingStatus === "object");
 // errors
+assert(InternalFailureException.prototype instanceof IoTAnalyticsServiceException);
+assert(InvalidRequestException.prototype instanceof IoTAnalyticsServiceException);
+assert(LimitExceededException.prototype instanceof IoTAnalyticsServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof IoTAnalyticsServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTAnalyticsServiceException);
+assert(ServiceUnavailableException.prototype instanceof IoTAnalyticsServiceException);
+assert(ThrottlingException.prototype instanceof IoTAnalyticsServiceException);
 assert(IoTAnalyticsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChannels === "function");

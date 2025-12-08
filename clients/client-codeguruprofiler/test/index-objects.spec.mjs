@@ -9,6 +9,7 @@ import {
   CodeGuruProfilerServiceException,
   ComputePlatform,
   ConfigureAgentCommand,
+  ConflictException,
   CreateProfilingGroupCommand,
   DeleteProfilingGroupCommand,
   DescribeProfilingGroupCommand,
@@ -19,6 +20,7 @@ import {
   GetPolicyCommand,
   GetProfileCommand,
   GetRecommendationsCommand,
+  InternalServerException,
   ListFindingsReportsCommand,
   ListProfileTimesCommand,
   ListProfilingGroupsCommand,
@@ -30,10 +32,14 @@ import {
   PutPermissionCommand,
   RemoveNotificationChannelCommand,
   RemovePermissionCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SubmitFeedbackCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateProfilingGroupCommand,
+  ValidationException,
   paginateGetFindingsReportAccountSummary,
   paginateListFindingsReports,
   paginateListProfileTimes,
@@ -78,6 +84,12 @@ assert(typeof MetadataField === "object");
 assert(typeof MetricType === "object");
 assert(typeof OrderBy === "object");
 // errors
+assert(ConflictException.prototype instanceof CodeGuruProfilerServiceException);
+assert(InternalServerException.prototype instanceof CodeGuruProfilerServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodeGuruProfilerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CodeGuruProfilerServiceException);
+assert(ThrottlingException.prototype instanceof CodeGuruProfilerServiceException);
+assert(ValidationException.prototype instanceof CodeGuruProfilerServiceException);
 assert(CodeGuruProfilerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetFindingsReportAccountSummary === "function");

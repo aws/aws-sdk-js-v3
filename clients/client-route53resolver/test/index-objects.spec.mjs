@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   Action,
   AssociateFirewallRuleGroupCommand,
   AssociateResolverEndpointIpAddressCommand,
@@ -8,6 +9,7 @@ import {
   BlockOverrideDnsType,
   BlockResponse,
   ConfidenceThreshold,
+  ConflictException,
   CreateFirewallDomainListCommand,
   CreateFirewallRuleCommand,
   CreateFirewallRuleGroupCommand,
@@ -50,7 +52,14 @@ import {
   GetResolverRuleCommand,
   GetResolverRulePolicyCommand,
   ImportFirewallDomainsCommand,
+  InternalServiceErrorException,
+  InvalidNextTokenException,
+  InvalidParameterException,
+  InvalidPolicyDocument,
+  InvalidRequestException,
+  InvalidTagException,
   IpAddressStatus,
+  LimitExceededException,
   ListFirewallConfigsCommand,
   ListFirewallDomainListsCommand,
   ListFirewallDomainsCommand,
@@ -83,13 +92,20 @@ import {
   ResolverQueryLogConfigStatus,
   ResolverRuleAssociationStatus,
   ResolverRuleStatus,
+  ResourceExistsException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceUnavailableException,
   Route53Resolver,
   Route53ResolverClient,
   Route53ResolverServiceException,
   RuleTypeOption,
+  ServiceQuotaExceededException,
   ShareStatus,
   SortOrder,
   TagResourceCommand,
+  ThrottlingException,
+  UnknownResourceException,
   UntagResourceCommand,
   UpdateFirewallConfigCommand,
   UpdateFirewallDomainsCommand,
@@ -101,6 +117,7 @@ import {
   UpdateResolverEndpointCommand,
   UpdateResolverRuleCommand,
   Validation,
+  ValidationException,
   paginateListFirewallConfigs,
   paginateListFirewallDomainLists,
   paginateListFirewallDomains,
@@ -224,6 +241,23 @@ assert(typeof ShareStatus === "object");
 assert(typeof SortOrder === "object");
 assert(typeof Validation === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof Route53ResolverServiceException);
+assert(ConflictException.prototype instanceof Route53ResolverServiceException);
+assert(InternalServiceErrorException.prototype instanceof Route53ResolverServiceException);
+assert(InvalidNextTokenException.prototype instanceof Route53ResolverServiceException);
+assert(InvalidParameterException.prototype instanceof Route53ResolverServiceException);
+assert(InvalidPolicyDocument.prototype instanceof Route53ResolverServiceException);
+assert(InvalidRequestException.prototype instanceof Route53ResolverServiceException);
+assert(InvalidTagException.prototype instanceof Route53ResolverServiceException);
+assert(LimitExceededException.prototype instanceof Route53ResolverServiceException);
+assert(ResourceExistsException.prototype instanceof Route53ResolverServiceException);
+assert(ResourceInUseException.prototype instanceof Route53ResolverServiceException);
+assert(ResourceNotFoundException.prototype instanceof Route53ResolverServiceException);
+assert(ResourceUnavailableException.prototype instanceof Route53ResolverServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof Route53ResolverServiceException);
+assert(ThrottlingException.prototype instanceof Route53ResolverServiceException);
+assert(UnknownResourceException.prototype instanceof Route53ResolverServiceException);
+assert(ValidationException.prototype instanceof Route53ResolverServiceException);
 assert(Route53ResolverServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListFirewallConfigs === "function");

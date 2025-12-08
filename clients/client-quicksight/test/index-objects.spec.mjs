@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ActionConnectorErrorType,
   ActionConnectorSearchFilterNameEnum,
   ActionConnectorType,
@@ -55,8 +56,10 @@ import {
   CommitMode,
   ComparisonMethod,
   ComparisonMethodType,
+  ConcurrentUpdatingException,
   ConditionalFormattingIconDisplayOption,
   ConditionalFormattingIconSetType,
+  ConflictException,
   ConnectionAuthType,
   ConstantType,
   ContributionAnalysisDirection,
@@ -89,6 +92,7 @@ import {
   CrossDatasetTypes,
   CustomContentImageScalingConfiguration,
   CustomContentType,
+  CustomerManagedKeyUnavailableException,
   DashboardBehavior,
   DashboardErrorType,
   DashboardFilterAttribute,
@@ -202,8 +206,10 @@ import {
   DescribeVPCConnectionCommand,
   DigitGroupingStyle,
   DisplayFormat,
+  DomainNotWhitelistedException,
   Edition,
   EmbeddingIdentityType,
+  ExceptionResourceType,
   FieldName,
   FileFormat,
   FilterClass,
@@ -239,6 +245,7 @@ import {
   Icon,
   IdentityStore,
   IdentityType,
+  IdentityTypeNotSupportedException,
   ImageCustomActionTrigger,
   IncludeFolderMembers,
   IncludeGeneratedAnswer,
@@ -249,6 +256,12 @@ import {
   IngestionStatus,
   IngestionType,
   InputColumnDataType,
+  InternalFailureException,
+  InternalServerException,
+  InvalidDataSetParameterValueException,
+  InvalidNextTokenException,
+  InvalidParameterValueException,
+  InvalidRequestException,
   JoinOperationType,
   JoinType,
   KPISparklineType,
@@ -256,6 +269,7 @@ import {
   LayerCustomActionTrigger,
   LayoutElementType,
   LegendPosition,
+  LimitExceededException,
   LineChartLineStyle,
   LineChartMarkerShape,
   LineChartType,
@@ -327,6 +341,7 @@ import {
   PivotTableRowsLayout,
   PivotTableSubtotalLevel,
   PluginVisualAxisName,
+  PreconditionNotMetException,
   PredictQAResultsCommand,
   PrimaryValueDisplayType,
   PropertyRole,
@@ -341,6 +356,7 @@ import {
   QuickSight,
   QuickSightClient,
   QuickSightServiceException,
+  QuickSightUserNotFoundException,
   RadarChartAxesRangeScale,
   RadarChartShape,
   ReferenceLineLabelHorizontalPosition,
@@ -354,7 +370,10 @@ import {
   RelativeDateType,
   RelativeFontSize,
   ResizeOption,
+  ResourceExistsException,
+  ResourceNotFoundException,
   ResourceStatus,
+  ResourceUnavailableException,
   RestoreAnalysisCommand,
   ReviewedAnswerErrorCode,
   Role,
@@ -375,6 +394,7 @@ import {
   SelectedFieldOptions,
   SelectedTooltipType,
   ServiceType,
+  SessionLifetimeInMinutesInvalidException,
   SharingModel,
   SheetContentType,
   SheetControlDateTimePickerType,
@@ -413,6 +433,7 @@ import {
   TextWrap,
   ThemeErrorType,
   ThemeType,
+  ThrottlingException,
   TimeGranularity,
   TooltipTarget,
   TooltipTitleType,
@@ -432,6 +453,8 @@ import {
   TransposedColumnType,
   URLTargetConfiguration,
   UndefinedSpecifiedValueType,
+  UnsupportedPricingPlanException,
+  UnsupportedUserEditionException,
   UntagResourceCommand,
   UpdateAccountCustomPermissionCommand,
   UpdateAccountCustomizationCommand,
@@ -861,6 +884,7 @@ assert(typeof DigitGroupingStyle === "object");
 assert(typeof DisplayFormat === "object");
 assert(typeof Edition === "object");
 assert(typeof EmbeddingIdentityType === "object");
+assert(typeof ExceptionResourceType === "object");
 assert(typeof FieldName === "object");
 assert(typeof FileFormat === "object");
 assert(typeof FilterClass === "object");
@@ -1043,6 +1067,28 @@ assert(typeof WordCloudWordOrientation === "object");
 assert(typeof WordCloudWordPadding === "object");
 assert(typeof WordCloudWordScaling === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof QuickSightServiceException);
+assert(ConcurrentUpdatingException.prototype instanceof QuickSightServiceException);
+assert(ConflictException.prototype instanceof QuickSightServiceException);
+assert(CustomerManagedKeyUnavailableException.prototype instanceof QuickSightServiceException);
+assert(DomainNotWhitelistedException.prototype instanceof QuickSightServiceException);
+assert(IdentityTypeNotSupportedException.prototype instanceof QuickSightServiceException);
+assert(InternalFailureException.prototype instanceof QuickSightServiceException);
+assert(InternalServerException.prototype instanceof QuickSightServiceException);
+assert(InvalidDataSetParameterValueException.prototype instanceof QuickSightServiceException);
+assert(InvalidNextTokenException.prototype instanceof QuickSightServiceException);
+assert(InvalidParameterValueException.prototype instanceof QuickSightServiceException);
+assert(InvalidRequestException.prototype instanceof QuickSightServiceException);
+assert(LimitExceededException.prototype instanceof QuickSightServiceException);
+assert(PreconditionNotMetException.prototype instanceof QuickSightServiceException);
+assert(QuickSightUserNotFoundException.prototype instanceof QuickSightServiceException);
+assert(ResourceExistsException.prototype instanceof QuickSightServiceException);
+assert(ResourceNotFoundException.prototype instanceof QuickSightServiceException);
+assert(ResourceUnavailableException.prototype instanceof QuickSightServiceException);
+assert(SessionLifetimeInMinutesInvalidException.prototype instanceof QuickSightServiceException);
+assert(ThrottlingException.prototype instanceof QuickSightServiceException);
+assert(UnsupportedPricingPlanException.prototype instanceof QuickSightServiceException);
+assert(UnsupportedUserEditionException.prototype instanceof QuickSightServiceException);
 assert(QuickSightServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeFolderPermissions === "function");

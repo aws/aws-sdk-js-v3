@@ -14092,7 +14092,6 @@ export var WordCloudVisual: StaticStructureSchema = [
   ],
 ];
 export var YAxisOptions: StaticStructureSchema = [3, n0, _YAO, 0, [_YA], [0]];
-export var __Unit = "unit" as const;
 export var QuickSightServiceException: StaticErrorSchema = [-3, _sm, "QuickSightServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(QuickSightServiceException, __QuickSightServiceException);
 export var ActionConnectorSearchFilterList: StaticListSchema = [1, n0, _ACSFL, 0, () => ActionConnectorSearchFilter];

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AccountStatus,
   ActionEnum,
   AssessmentReportDestinationType,
@@ -55,6 +56,7 @@ import {
   GetOrganizationAdminAccountCommand,
   GetServicesInScopeCommand,
   GetSettingsCommand,
+  InternalServerException,
   KeywordInputType,
   ListAssessmentControlInsightsByControlDomainCommand,
   ListAssessmentFrameworkShareRequestsCommand,
@@ -71,7 +73,9 @@ import {
   ObjectTypeEnum,
   RegisterAccountCommand,
   RegisterOrganizationAdminAccountCommand,
+  ResourceNotFoundException,
   RoleType,
+  ServiceQuotaExceededException,
   SettingAttribute,
   ShareRequestAction,
   ShareRequestStatus,
@@ -81,6 +85,7 @@ import {
   SourceType,
   StartAssessmentFrameworkShareCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAssessmentCommand,
   UpdateAssessmentControlCommand,
@@ -91,6 +96,8 @@ import {
   UpdateControlCommand,
   UpdateSettingsCommand,
   ValidateAssessmentReportIntegrityCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateGetChangeLogs,
   paginateGetDelegations,
   paginateGetEvidenceByEvidenceFolder,
@@ -203,7 +210,14 @@ assert(typeof ShareRequestType === "object");
 assert(typeof SourceFrequency === "object");
 assert(typeof SourceSetUpOption === "object");
 assert(typeof SourceType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AuditManagerServiceException);
+assert(InternalServerException.prototype instanceof AuditManagerServiceException);
+assert(ResourceNotFoundException.prototype instanceof AuditManagerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AuditManagerServiceException);
+assert(ThrottlingException.prototype instanceof AuditManagerServiceException);
+assert(ValidationException.prototype instanceof AuditManagerServiceException);
 assert(AuditManagerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetChangeLogs === "function");

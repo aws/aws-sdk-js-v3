@@ -10,10 +10,17 @@ import {
   ApplyPendingMaintenanceActionCommand,
   AuditPolicyState,
   AuthScheme,
+  AuthorizationAlreadyExistsFault,
+  AuthorizationNotFoundFault,
+  AuthorizationQuotaExceededFault,
   AuthorizeDBSecurityGroupIngressCommand,
   AutomationMode,
   BacktrackDBClusterCommand,
+  BackupPolicyNotFoundFault,
+  BlueGreenDeploymentAlreadyExistsFault,
+  BlueGreenDeploymentNotFoundFault,
   CancelExportTaskCommand,
+  CertificateNotFoundFault,
   ClientPasswordAuthType,
   ClusterScalabilityType,
   CopyDBClusterParameterGroupCommand,
@@ -23,6 +30,7 @@ import {
   CopyOptionGroupCommand,
   CreateBlueGreenDeploymentCommand,
   CreateCustomDBEngineVersionCommand,
+  CreateCustomDBEngineVersionFault,
   CreateDBClusterCommand,
   CreateDBClusterEndpointCommand,
   CreateDBClusterParameterGroupCommand,
@@ -41,10 +49,66 @@ import {
   CreateIntegrationCommand,
   CreateOptionGroupCommand,
   CreateTenantDatabaseCommand,
+  CustomAvailabilityZoneNotFoundFault,
+  CustomDBEngineVersionAlreadyExistsFault,
+  CustomDBEngineVersionNotFoundFault,
+  CustomDBEngineVersionQuotaExceededFault,
   CustomEngineVersionStatus,
+  DBClusterAlreadyExistsFault,
+  DBClusterAutomatedBackupNotFoundFault,
+  DBClusterAutomatedBackupQuotaExceededFault,
+  DBClusterBacktrackNotFoundFault,
+  DBClusterEndpointAlreadyExistsFault,
+  DBClusterEndpointNotFoundFault,
+  DBClusterEndpointQuotaExceededFault,
+  DBClusterNotFoundFault,
+  DBClusterParameterGroupNotFoundFault,
+  DBClusterQuotaExceededFault,
+  DBClusterRoleAlreadyExistsFault,
+  DBClusterRoleNotFoundFault,
+  DBClusterRoleQuotaExceededFault,
+  DBClusterSnapshotAlreadyExistsFault,
+  DBClusterSnapshotNotFoundFault,
+  DBInstanceAlreadyExistsFault,
+  DBInstanceAutomatedBackupNotFoundFault,
+  DBInstanceAutomatedBackupQuotaExceededFault,
+  DBInstanceNotFoundFault,
+  DBInstanceNotReadyFault,
+  DBInstanceRoleAlreadyExistsFault,
+  DBInstanceRoleNotFoundFault,
+  DBInstanceRoleQuotaExceededFault,
+  DBLogFileNotFoundFault,
+  DBParameterGroupAlreadyExistsFault,
+  DBParameterGroupNotFoundFault,
+  DBParameterGroupQuotaExceededFault,
+  DBProxyAlreadyExistsFault,
+  DBProxyEndpointAlreadyExistsFault,
+  DBProxyEndpointNotFoundFault,
+  DBProxyEndpointQuotaExceededFault,
   DBProxyEndpointStatus,
   DBProxyEndpointTargetRole,
+  DBProxyNotFoundFault,
+  DBProxyQuotaExceededFault,
   DBProxyStatus,
+  DBProxyTargetAlreadyRegisteredFault,
+  DBProxyTargetGroupNotFoundFault,
+  DBProxyTargetNotFoundFault,
+  DBSecurityGroupAlreadyExistsFault,
+  DBSecurityGroupNotFoundFault,
+  DBSecurityGroupNotSupportedFault,
+  DBSecurityGroupQuotaExceededFault,
+  DBShardGroupAlreadyExistsFault,
+  DBShardGroupNotFoundFault,
+  DBSnapshotAlreadyExistsFault,
+  DBSnapshotNotFoundFault,
+  DBSnapshotTenantDatabaseNotFoundFault,
+  DBSubnetGroupAlreadyExistsFault,
+  DBSubnetGroupDoesNotCoverEnoughAZs,
+  DBSubnetGroupNotAllowedFault,
+  DBSubnetGroupNotFoundFault,
+  DBSubnetGroupQuotaExceededFault,
+  DBSubnetQuotaExceededFault,
+  DBUpgradeDependencyFailureFault,
   DatabaseInsightsMode,
   DefaultAuthScheme,
   DeleteBlueGreenDeploymentCommand,
@@ -116,22 +180,73 @@ import {
   DescribeTenantDatabasesCommand,
   DescribeValidDBInstanceModificationsCommand,
   DisableHttpEndpointCommand,
+  DomainNotFoundFault,
   DownloadDBLogFilePortionCommand,
+  Ec2ImagePropertiesNotSupportedFault,
   EnableHttpEndpointCommand,
   EndpointNetworkType,
   EngineFamily,
+  EventSubscriptionQuotaExceededFault,
   ExportSourceType,
+  ExportTaskAlreadyExistsFault,
+  ExportTaskNotFoundFault,
   FailoverDBClusterCommand,
   FailoverGlobalClusterCommand,
   FailoverStatus,
+  GlobalClusterAlreadyExistsFault,
   GlobalClusterMemberSynchronizationStatus,
+  GlobalClusterNotFoundFault,
+  GlobalClusterQuotaExceededFault,
   IAMAuthMode,
+  IamRoleMissingPermissionsFault,
+  IamRoleNotFoundFault,
+  InstanceQuotaExceededFault,
+  InsufficientAvailableIPsInSubnetFault,
+  InsufficientDBClusterCapacityFault,
+  InsufficientDBInstanceCapacityFault,
+  InsufficientStorageClusterCapacityFault,
+  IntegrationAlreadyExistsFault,
+  IntegrationConflictOperationFault,
+  IntegrationNotFoundFault,
+  IntegrationQuotaExceededFault,
   IntegrationStatus,
+  InvalidBlueGreenDeploymentStateFault,
+  InvalidCustomDBEngineVersionStateFault,
+  InvalidDBClusterAutomatedBackupStateFault,
+  InvalidDBClusterCapacityFault,
+  InvalidDBClusterEndpointStateFault,
+  InvalidDBClusterSnapshotStateFault,
+  InvalidDBClusterStateFault,
+  InvalidDBInstanceAutomatedBackupStateFault,
+  InvalidDBInstanceStateFault,
+  InvalidDBParameterGroupStateFault,
+  InvalidDBProxyEndpointStateFault,
+  InvalidDBProxyStateFault,
+  InvalidDBSecurityGroupStateFault,
+  InvalidDBShardGroupStateFault,
+  InvalidDBSnapshotStateFault,
+  InvalidDBSubnetGroupFault,
+  InvalidDBSubnetGroupStateFault,
+  InvalidDBSubnetStateFault,
+  InvalidEventSubscriptionStateFault,
+  InvalidExportOnlyFault,
+  InvalidExportSourceStateFault,
+  InvalidExportTaskStateFault,
+  InvalidGlobalClusterStateFault,
+  InvalidIntegrationStateFault,
+  InvalidOptionGroupStateFault,
+  InvalidResourceStateFault,
+  InvalidRestoreFault,
+  InvalidS3BucketFault,
+  InvalidSubnet,
+  InvalidVPCNetworkStateFault,
+  KMSKeyNotAccessibleFault,
   LifecycleSupportName,
   LimitlessDatabaseStatus,
   ListTagsForResourceCommand,
   LocalWriteForwardingStatus,
   MasterUserAuthenticationType,
+  MaxDBShardGroupLimitReached,
   ModifyActivityStreamCommand,
   ModifyCertificatesCommand,
   ModifyCurrentDBClusterCapacityCommand,
@@ -155,8 +270,14 @@ import {
   ModifyIntegrationCommand,
   ModifyOptionGroupCommand,
   ModifyTenantDatabaseCommand,
+  NetworkTypeNotSupported,
+  OptionGroupAlreadyExistsFault,
+  OptionGroupNotFoundFault,
+  OptionGroupQuotaExceededFault,
+  PointInTimeRestoreNotEnabledFault,
   PromoteReadReplicaCommand,
   PromoteReadReplicaDBClusterCommand,
+  ProvisionedIopsNotAvailableInAZFault,
   PurchaseReservedDBInstancesOfferingCommand,
   RDS,
   RDSClient,
@@ -171,8 +292,13 @@ import {
   RemoveSourceIdentifierFromSubscriptionCommand,
   RemoveTagsFromResourceCommand,
   ReplicaMode,
+  ReservedDBInstanceAlreadyExistsFault,
+  ReservedDBInstanceNotFoundFault,
+  ReservedDBInstanceQuotaExceededFault,
+  ReservedDBInstancesOfferingNotFoundFault,
   ResetDBClusterParameterGroupCommand,
   ResetDBParameterGroupCommand,
+  ResourceNotFoundFault,
   RestoreDBClusterFromS3Command,
   RestoreDBClusterFromSnapshotCommand,
   RestoreDBClusterToPointInTimeCommand,
@@ -180,6 +306,14 @@ import {
   RestoreDBInstanceFromS3Command,
   RestoreDBInstanceToPointInTimeCommand,
   RevokeDBSecurityGroupIngressCommand,
+  SNSInvalidTopicFault,
+  SNSNoAuthorizationFault,
+  SNSTopicArnNotFoundFault,
+  SharedSnapshotQuotaExceededFault,
+  SnapshotQuotaExceededFault,
+  SourceClusterNotSupportedFault,
+  SourceDatabaseNotSupportedFault,
+  SourceNotFoundFault,
   SourceType,
   StartActivityStreamCommand,
   StartDBClusterCommand,
@@ -190,6 +324,13 @@ import {
   StopDBClusterCommand,
   StopDBInstanceAutomatedBackupsReplicationCommand,
   StopDBInstanceCommand,
+  StorageQuotaExceededFault,
+  StorageTypeNotAvailableFault,
+  StorageTypeNotSupportedFault,
+  SubnetAlreadyInUse,
+  SubscriptionAlreadyExistFault,
+  SubscriptionCategoryNotFoundFault,
+  SubscriptionNotFoundFault,
   SwitchoverBlueGreenDeploymentCommand,
   SwitchoverGlobalClusterCommand,
   SwitchoverReadReplicaCommand,
@@ -198,7 +339,12 @@ import {
   TargetRole,
   TargetState,
   TargetType,
+  TenantDatabaseAlreadyExistsFault,
+  TenantDatabaseNotFoundFault,
+  TenantDatabaseQuotaExceededFault,
+  UnsupportedDBEngineVersionFault,
   UpgradeRolloutOrder,
+  VpcEncryptionControlViolationException,
   WriteForwardingStatus,
   paginateDescribeBlueGreenDeployments,
   paginateDescribeCertificates,
@@ -466,6 +612,152 @@ assert(typeof TargetType === "object");
 assert(typeof UpgradeRolloutOrder === "object");
 assert(typeof WriteForwardingStatus === "object");
 // errors
+assert(AuthorizationAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(AuthorizationNotFoundFault.prototype instanceof RDSServiceException);
+assert(AuthorizationQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(BackupPolicyNotFoundFault.prototype instanceof RDSServiceException);
+assert(BlueGreenDeploymentAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(BlueGreenDeploymentNotFoundFault.prototype instanceof RDSServiceException);
+assert(CertificateNotFoundFault.prototype instanceof RDSServiceException);
+assert(CreateCustomDBEngineVersionFault.prototype instanceof RDSServiceException);
+assert(CustomAvailabilityZoneNotFoundFault.prototype instanceof RDSServiceException);
+assert(CustomDBEngineVersionAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(CustomDBEngineVersionNotFoundFault.prototype instanceof RDSServiceException);
+assert(CustomDBEngineVersionQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBClusterAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBClusterAutomatedBackupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBClusterAutomatedBackupQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBClusterBacktrackNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBClusterEndpointAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBClusterEndpointNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBClusterEndpointQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBClusterNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBClusterParameterGroupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBClusterQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBClusterRoleAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBClusterRoleNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBClusterRoleQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBClusterSnapshotAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBClusterSnapshotNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBInstanceAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBInstanceAutomatedBackupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBInstanceAutomatedBackupQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBInstanceNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBInstanceNotReadyFault.prototype instanceof RDSServiceException);
+assert(DBInstanceRoleAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBInstanceRoleNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBInstanceRoleQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBLogFileNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBParameterGroupAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBParameterGroupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBParameterGroupQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBProxyAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBProxyEndpointAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBProxyEndpointNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBProxyEndpointQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBProxyNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBProxyQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBProxyTargetAlreadyRegisteredFault.prototype instanceof RDSServiceException);
+assert(DBProxyTargetGroupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBProxyTargetNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBSecurityGroupAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBSecurityGroupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBSecurityGroupNotSupportedFault.prototype instanceof RDSServiceException);
+assert(DBSecurityGroupQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBShardGroupAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBShardGroupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBSnapshotAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBSnapshotNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBSnapshotTenantDatabaseNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBSubnetGroupAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(DBSubnetGroupDoesNotCoverEnoughAZs.prototype instanceof RDSServiceException);
+assert(DBSubnetGroupNotAllowedFault.prototype instanceof RDSServiceException);
+assert(DBSubnetGroupNotFoundFault.prototype instanceof RDSServiceException);
+assert(DBSubnetGroupQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBSubnetQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(DBUpgradeDependencyFailureFault.prototype instanceof RDSServiceException);
+assert(DomainNotFoundFault.prototype instanceof RDSServiceException);
+assert(Ec2ImagePropertiesNotSupportedFault.prototype instanceof RDSServiceException);
+assert(EventSubscriptionQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(ExportTaskAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(ExportTaskNotFoundFault.prototype instanceof RDSServiceException);
+assert(GlobalClusterAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(GlobalClusterNotFoundFault.prototype instanceof RDSServiceException);
+assert(GlobalClusterQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(IamRoleMissingPermissionsFault.prototype instanceof RDSServiceException);
+assert(IamRoleNotFoundFault.prototype instanceof RDSServiceException);
+assert(InstanceQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(InsufficientAvailableIPsInSubnetFault.prototype instanceof RDSServiceException);
+assert(InsufficientDBClusterCapacityFault.prototype instanceof RDSServiceException);
+assert(InsufficientDBInstanceCapacityFault.prototype instanceof RDSServiceException);
+assert(InsufficientStorageClusterCapacityFault.prototype instanceof RDSServiceException);
+assert(IntegrationAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(IntegrationConflictOperationFault.prototype instanceof RDSServiceException);
+assert(IntegrationNotFoundFault.prototype instanceof RDSServiceException);
+assert(IntegrationQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(InvalidBlueGreenDeploymentStateFault.prototype instanceof RDSServiceException);
+assert(InvalidCustomDBEngineVersionStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBClusterAutomatedBackupStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBClusterCapacityFault.prototype instanceof RDSServiceException);
+assert(InvalidDBClusterEndpointStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBClusterSnapshotStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBClusterStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBInstanceAutomatedBackupStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBInstanceStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBParameterGroupStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBProxyEndpointStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBProxyStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBSecurityGroupStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBShardGroupStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBSnapshotStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBSubnetGroupFault.prototype instanceof RDSServiceException);
+assert(InvalidDBSubnetGroupStateFault.prototype instanceof RDSServiceException);
+assert(InvalidDBSubnetStateFault.prototype instanceof RDSServiceException);
+assert(InvalidEventSubscriptionStateFault.prototype instanceof RDSServiceException);
+assert(InvalidExportOnlyFault.prototype instanceof RDSServiceException);
+assert(InvalidExportSourceStateFault.prototype instanceof RDSServiceException);
+assert(InvalidExportTaskStateFault.prototype instanceof RDSServiceException);
+assert(InvalidGlobalClusterStateFault.prototype instanceof RDSServiceException);
+assert(InvalidIntegrationStateFault.prototype instanceof RDSServiceException);
+assert(InvalidOptionGroupStateFault.prototype instanceof RDSServiceException);
+assert(InvalidResourceStateFault.prototype instanceof RDSServiceException);
+assert(InvalidRestoreFault.prototype instanceof RDSServiceException);
+assert(InvalidS3BucketFault.prototype instanceof RDSServiceException);
+assert(InvalidSubnet.prototype instanceof RDSServiceException);
+assert(InvalidVPCNetworkStateFault.prototype instanceof RDSServiceException);
+assert(KMSKeyNotAccessibleFault.prototype instanceof RDSServiceException);
+assert(MaxDBShardGroupLimitReached.prototype instanceof RDSServiceException);
+assert(NetworkTypeNotSupported.prototype instanceof RDSServiceException);
+assert(OptionGroupAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(OptionGroupNotFoundFault.prototype instanceof RDSServiceException);
+assert(OptionGroupQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(PointInTimeRestoreNotEnabledFault.prototype instanceof RDSServiceException);
+assert(ProvisionedIopsNotAvailableInAZFault.prototype instanceof RDSServiceException);
+assert(ReservedDBInstanceAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(ReservedDBInstanceNotFoundFault.prototype instanceof RDSServiceException);
+assert(ReservedDBInstanceQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(ReservedDBInstancesOfferingNotFoundFault.prototype instanceof RDSServiceException);
+assert(ResourceNotFoundFault.prototype instanceof RDSServiceException);
+assert(SharedSnapshotQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(SnapshotQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(SNSInvalidTopicFault.prototype instanceof RDSServiceException);
+assert(SNSNoAuthorizationFault.prototype instanceof RDSServiceException);
+assert(SNSTopicArnNotFoundFault.prototype instanceof RDSServiceException);
+assert(SourceClusterNotSupportedFault.prototype instanceof RDSServiceException);
+assert(SourceDatabaseNotSupportedFault.prototype instanceof RDSServiceException);
+assert(SourceNotFoundFault.prototype instanceof RDSServiceException);
+assert(StorageQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(StorageTypeNotAvailableFault.prototype instanceof RDSServiceException);
+assert(StorageTypeNotSupportedFault.prototype instanceof RDSServiceException);
+assert(SubnetAlreadyInUse.prototype instanceof RDSServiceException);
+assert(SubscriptionAlreadyExistFault.prototype instanceof RDSServiceException);
+assert(SubscriptionCategoryNotFoundFault.prototype instanceof RDSServiceException);
+assert(SubscriptionNotFoundFault.prototype instanceof RDSServiceException);
+assert(TenantDatabaseAlreadyExistsFault.prototype instanceof RDSServiceException);
+assert(TenantDatabaseNotFoundFault.prototype instanceof RDSServiceException);
+assert(TenantDatabaseQuotaExceededFault.prototype instanceof RDSServiceException);
+assert(UnsupportedDBEngineVersionFault.prototype instanceof RDSServiceException);
+assert(VpcEncryptionControlViolationException.prototype instanceof RDSServiceException);
 assert(RDSServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForDBClusterAvailable === "function");

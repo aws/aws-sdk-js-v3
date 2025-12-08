@@ -1,11 +1,14 @@
 import {
+  AccessDeniedException,
   AssociateResourceCommand,
+  BadRequestException,
   BrowserType,
   CanaryRunState,
   CanaryRunStateReasonCode,
   CanaryRunTestResult,
   CanaryState,
   CanaryStateReasonCode,
+  ConflictException,
   CreateCanaryCommand,
   CreateGroupCommand,
   DeleteCanaryCommand,
@@ -19,13 +22,19 @@ import {
   GetCanaryCommand,
   GetCanaryRunsCommand,
   GetGroupCommand,
+  InternalFailureException,
+  InternalServerException,
   ListAssociatedGroupsCommand,
   ListGroupResourcesCommand,
   ListGroupsCommand,
   ListTagsForResourceCommand,
+  NotFoundException,
   ProvisionedResourceCleanupSetting,
+  RequestEntityTooLargeException,
+  ResourceNotFoundException,
   ResourceToTag,
   RunType,
+  ServiceQuotaExceededException,
   StartCanaryCommand,
   StartCanaryDryRunCommand,
   StopCanaryCommand,
@@ -33,8 +42,10 @@ import {
   SyntheticsClient,
   SyntheticsServiceException,
   TagResourceCommand,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateCanaryCommand,
+  ValidationException,
   paginateDescribeCanaries,
   paginateDescribeCanariesLastRun,
   paginateDescribeRuntimeVersions,
@@ -83,6 +94,17 @@ assert(typeof ProvisionedResourceCleanupSetting === "object");
 assert(typeof ResourceToTag === "object");
 assert(typeof RunType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SyntheticsServiceException);
+assert(BadRequestException.prototype instanceof SyntheticsServiceException);
+assert(ConflictException.prototype instanceof SyntheticsServiceException);
+assert(InternalFailureException.prototype instanceof SyntheticsServiceException);
+assert(InternalServerException.prototype instanceof SyntheticsServiceException);
+assert(NotFoundException.prototype instanceof SyntheticsServiceException);
+assert(RequestEntityTooLargeException.prototype instanceof SyntheticsServiceException);
+assert(ResourceNotFoundException.prototype instanceof SyntheticsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SyntheticsServiceException);
+assert(TooManyRequestsException.prototype instanceof SyntheticsServiceException);
+assert(ValidationException.prototype instanceof SyntheticsServiceException);
 assert(SyntheticsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeCanaries === "function");

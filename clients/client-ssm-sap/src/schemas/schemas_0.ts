@@ -536,7 +536,6 @@ export var UpdateApplicationSettingsInput: StaticStructureSchema = [
 export var UpdateApplicationSettingsOutput: StaticStructureSchema = [3, n0, _UASO, 0, [_M, _OIp], [0, 64 | 0]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var SsmSapServiceException: StaticErrorSchema = [-3, _sm, "SsmSapServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SsmSapServiceException, __SsmSapServiceException);
 export var ApplicationArnList = 64 | 0;

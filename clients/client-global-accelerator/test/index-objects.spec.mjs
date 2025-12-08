@@ -1,11 +1,19 @@
 import {
+  AcceleratorNotDisabledException,
+  AcceleratorNotFoundException,
   AcceleratorStatus,
+  AccessDeniedException,
   AddCustomRoutingEndpointsCommand,
   AddEndpointsCommand,
   AdvertiseByoipCidrCommand,
   AllowCustomRoutingTrafficCommand,
+  AssociatedEndpointGroupFoundException,
+  AssociatedListenerFoundException,
+  AttachmentNotFoundException,
+  ByoipCidrNotFoundException,
   ByoipCidrState,
   ClientAffinity,
+  ConflictException,
   CreateAcceleratorCommand,
   CreateCrossAccountAttachmentCommand,
   CreateCustomRoutingAcceleratorCommand,
@@ -34,13 +42,23 @@ import {
   DescribeCustomRoutingListenerCommand,
   DescribeEndpointGroupCommand,
   DescribeListenerCommand,
+  EndpointAlreadyExistsException,
+  EndpointGroupAlreadyExistsException,
+  EndpointGroupNotFoundException,
+  EndpointNotFoundException,
   GlobalAccelerator,
   GlobalAcceleratorClient,
   GlobalAcceleratorServiceException,
   HealthCheckProtocol,
   HealthState,
+  IncorrectCidrStateException,
+  InternalServiceErrorException,
+  InvalidArgumentException,
+  InvalidNextTokenException,
+  InvalidPortRangeException,
   IpAddressFamily,
   IpAddressType,
+  LimitExceededException,
   ListAcceleratorsCommand,
   ListByoipCidrsCommand,
   ListCrossAccountAttachmentsCommand,
@@ -54,11 +72,13 @@ import {
   ListEndpointGroupsCommand,
   ListListenersCommand,
   ListTagsForResourceCommand,
+  ListenerNotFoundException,
   Protocol,
   ProvisionByoipCidrCommand,
   RemoveCustomRoutingEndpointsCommand,
   RemoveEndpointsCommand,
   TagResourceCommand,
+  TransactionInProgressException,
   UntagResourceCommand,
   UpdateAcceleratorAttributesCommand,
   UpdateAcceleratorCommand,
@@ -155,6 +175,26 @@ assert(typeof IpAddressFamily === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof Protocol === "object");
 // errors
+assert(AcceleratorNotDisabledException.prototype instanceof GlobalAcceleratorServiceException);
+assert(AcceleratorNotFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(AccessDeniedException.prototype instanceof GlobalAcceleratorServiceException);
+assert(AssociatedEndpointGroupFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(AssociatedListenerFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(AttachmentNotFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(ByoipCidrNotFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(ConflictException.prototype instanceof GlobalAcceleratorServiceException);
+assert(EndpointAlreadyExistsException.prototype instanceof GlobalAcceleratorServiceException);
+assert(EndpointGroupAlreadyExistsException.prototype instanceof GlobalAcceleratorServiceException);
+assert(EndpointGroupNotFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(EndpointNotFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(IncorrectCidrStateException.prototype instanceof GlobalAcceleratorServiceException);
+assert(InternalServiceErrorException.prototype instanceof GlobalAcceleratorServiceException);
+assert(InvalidArgumentException.prototype instanceof GlobalAcceleratorServiceException);
+assert(InvalidNextTokenException.prototype instanceof GlobalAcceleratorServiceException);
+assert(InvalidPortRangeException.prototype instanceof GlobalAcceleratorServiceException);
+assert(LimitExceededException.prototype instanceof GlobalAcceleratorServiceException);
+assert(ListenerNotFoundException.prototype instanceof GlobalAcceleratorServiceException);
+assert(TransactionInProgressException.prototype instanceof GlobalAcceleratorServiceException);
 assert(GlobalAcceleratorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccelerators === "function");

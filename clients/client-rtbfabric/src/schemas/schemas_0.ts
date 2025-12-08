@@ -654,7 +654,6 @@ export var UpdateResponderGatewayRequest: StaticStructureSchema = [
 export var UpdateResponderGatewayResponse: StaticStructureSchema = [3, n0, _URGRpda, 0, [_gI, _s], [0, 0]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var RTBFabricServiceException: StaticErrorSchema = [-3, _sm, "RTBFabricServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RTBFabricServiceException, __RTBFabricServiceException);
 export var AutoScalingGroupNameList = 64 | 0;

@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AuthPolicyState,
   AuthType,
   BatchUpdateRuleCommand,
+  ConflictException,
   CreateAccessLogSubscriptionCommand,
   CreateListenerCommand,
   CreateResourceConfigurationCommand,
@@ -44,6 +46,7 @@ import {
   GetServiceNetworkVpcAssociationCommand,
   GetTargetGroupCommand,
   HealthCheckProtocolVersion,
+  InternalServerException,
   IpAddressType,
   LambdaEventStructureVersion,
   ListAccessLogSubscriptionsCommand,
@@ -73,10 +76,12 @@ import {
   ResourceConfigurationType,
   ResourceGatewayIpAddressType,
   ResourceGatewayStatus,
+  ResourceNotFoundException,
   ServiceNetworkLogType,
   ServiceNetworkResourceAssociationStatus,
   ServiceNetworkServiceAssociationStatus,
   ServiceNetworkVpcAssociationStatus,
+  ServiceQuotaExceededException,
   ServiceStatus,
   StartDomainVerificationCommand,
   TagResourceCommand,
@@ -85,6 +90,7 @@ import {
   TargetGroupStatus,
   TargetGroupType,
   TargetStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAccessLogSubscriptionCommand,
   UpdateListenerCommand,
@@ -98,6 +104,8 @@ import {
   VPCLattice,
   VPCLatticeClient,
   VPCLatticeServiceException,
+  ValidationException,
+  ValidationExceptionReason,
   VerificationStatus,
   paginateListAccessLogSubscriptions,
   paginateListDomainVerifications,
@@ -217,8 +225,16 @@ assert(typeof TargetGroupProtocolVersion === "object");
 assert(typeof TargetGroupStatus === "object");
 assert(typeof TargetGroupType === "object");
 assert(typeof TargetStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VerificationStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof VPCLatticeServiceException);
+assert(ConflictException.prototype instanceof VPCLatticeServiceException);
+assert(InternalServerException.prototype instanceof VPCLatticeServiceException);
+assert(ResourceNotFoundException.prototype instanceof VPCLatticeServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof VPCLatticeServiceException);
+assert(ThrottlingException.prototype instanceof VPCLatticeServiceException);
+assert(ValidationException.prototype instanceof VPCLatticeServiceException);
 assert(VPCLatticeServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessLogSubscriptions === "function");

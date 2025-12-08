@@ -968,7 +968,6 @@ export var UplinkConnectionDetails: StaticStructureSchema = [
 ];
 export var UplinkEchoConfig: StaticStructureSchema = [3, n0, _UEC, 0, [_ena, _aUCA], [2, 0]];
 export var UplinkSpectrumConfig: StaticStructureSchema = [3, n0, _USC, 0, [_cF, _pol], [() => Frequency, 0]];
-export var __Unit = "unit" as const;
 export var GroundStationServiceException: StaticErrorSchema = [-3, _sm, "GroundStationServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GroundStationServiceException, __GroundStationServiceException);
 export var AgentCpuCoresList = 64 | 1;

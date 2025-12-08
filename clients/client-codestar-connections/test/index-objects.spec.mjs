@@ -1,9 +1,13 @@
 import {
+  AccessDeniedException,
   BlockerStatus,
   BlockerType,
   CodeStarConnections,
   CodeStarConnectionsClient,
   CodeStarConnectionsServiceException,
+  ConcurrentModificationException,
+  ConditionalCheckFailedException,
+  ConflictException,
   ConnectionStatus,
   CreateConnectionCommand,
   CreateHostCommand,
@@ -20,6 +24,9 @@ import {
   GetResourceSyncStatusCommand,
   GetSyncBlockerSummaryCommand,
   GetSyncConfigurationCommand,
+  InternalServerException,
+  InvalidInputException,
+  LimitExceededException,
   ListConnectionsCommand,
   ListHostsCommand,
   ListRepositoryLinksCommand,
@@ -29,12 +36,22 @@ import {
   ProviderType,
   PublishDeploymentStatus,
   RepositorySyncStatus,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   ResourceSyncStatus,
+  ResourceUnavailableException,
+  RetryLatestCommitFailedException,
+  SyncBlockerDoesNotExistException,
+  SyncConfigurationStillExistsException,
   SyncConfigurationType,
   TagResourceCommand,
+  ThrottlingException,
   TriggerResourceUpdateOn,
+  UnsupportedOperationException,
+  UnsupportedProviderTypeException,
   UntagResourceCommand,
   UpdateHostCommand,
+  UpdateOutOfSyncException,
   UpdateRepositoryLinkCommand,
   UpdateSyncBlockerCommand,
   UpdateSyncConfigurationCommand,
@@ -86,6 +103,23 @@ assert(typeof ResourceSyncStatus === "object");
 assert(typeof SyncConfigurationType === "object");
 assert(typeof TriggerResourceUpdateOn === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CodeStarConnectionsServiceException);
+assert(ConcurrentModificationException.prototype instanceof CodeStarConnectionsServiceException);
+assert(ConditionalCheckFailedException.prototype instanceof CodeStarConnectionsServiceException);
+assert(ConflictException.prototype instanceof CodeStarConnectionsServiceException);
+assert(InternalServerException.prototype instanceof CodeStarConnectionsServiceException);
+assert(InvalidInputException.prototype instanceof CodeStarConnectionsServiceException);
+assert(LimitExceededException.prototype instanceof CodeStarConnectionsServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof CodeStarConnectionsServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodeStarConnectionsServiceException);
+assert(ResourceUnavailableException.prototype instanceof CodeStarConnectionsServiceException);
+assert(RetryLatestCommitFailedException.prototype instanceof CodeStarConnectionsServiceException);
+assert(SyncBlockerDoesNotExistException.prototype instanceof CodeStarConnectionsServiceException);
+assert(SyncConfigurationStillExistsException.prototype instanceof CodeStarConnectionsServiceException);
+assert(ThrottlingException.prototype instanceof CodeStarConnectionsServiceException);
+assert(UnsupportedOperationException.prototype instanceof CodeStarConnectionsServiceException);
+assert(UnsupportedProviderTypeException.prototype instanceof CodeStarConnectionsServiceException);
+assert(UpdateOutOfSyncException.prototype instanceof CodeStarConnectionsServiceException);
 assert(CodeStarConnectionsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListConnections === "function");

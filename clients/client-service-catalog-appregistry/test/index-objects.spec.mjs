@@ -3,6 +3,7 @@ import {
   AssociateAttributeGroupCommand,
   AssociateResourceCommand,
   AssociationOption,
+  ConflictException,
   CreateApplicationCommand,
   CreateAttributeGroupCommand,
   DeleteApplicationCommand,
@@ -13,6 +14,7 @@ import {
   GetAssociatedResourceCommand,
   GetAttributeGroupCommand,
   GetConfigurationCommand,
+  InternalServerException,
   ListApplicationsCommand,
   ListAssociatedAttributeGroupsCommand,
   ListAssociatedResourcesCommand,
@@ -22,16 +24,20 @@ import {
   PutConfigurationCommand,
   ResourceGroupState,
   ResourceItemStatus,
+  ResourceNotFoundException,
   ResourceType,
   ServiceCatalogAppRegistry,
   ServiceCatalogAppRegistryClient,
   ServiceCatalogAppRegistryServiceException,
+  ServiceQuotaExceededException,
   SyncAction,
   SyncResourceCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateAttributeGroupCommand,
+  ValidationException,
   paginateListApplications,
   paginateListAssociatedAttributeGroups,
   paginateListAssociatedResources,
@@ -75,6 +81,12 @@ assert(typeof ResourceItemStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof SyncAction === "object");
 // errors
+assert(ConflictException.prototype instanceof ServiceCatalogAppRegistryServiceException);
+assert(InternalServerException.prototype instanceof ServiceCatalogAppRegistryServiceException);
+assert(ResourceNotFoundException.prototype instanceof ServiceCatalogAppRegistryServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ServiceCatalogAppRegistryServiceException);
+assert(ThrottlingException.prototype instanceof ServiceCatalogAppRegistryServiceException);
+assert(ValidationException.prototype instanceof ServiceCatalogAppRegistryServiceException);
 assert(ServiceCatalogAppRegistryServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplications === "function");

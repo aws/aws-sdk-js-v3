@@ -28,5 +28,8 @@ export type {
   PutItemsRequest,
   PutUsersRequest,
   User,
+  InvalidInputException,
+  ResourceInUseException,
+  ResourceNotFoundException,
   PersonalizeEventsServiceException,
 } from "../dist-types/index.d";

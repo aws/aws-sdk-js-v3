@@ -1,5 +1,6 @@
 import {
   AMITypes,
+  AccessDeniedException,
   AccessScopeType,
   AddonIssueCode,
   AddonStatus,
@@ -8,12 +9,14 @@ import {
   AssociateEncryptionConfigCommand,
   AssociateIdentityProviderConfigCommand,
   AuthenticationMode,
+  BadRequestException,
   CapabilityDeletePropagationPolicy,
   CapabilityIssueCode,
   CapabilityStatus,
   CapabilityType,
   CapacityTypes,
   Category,
+  ClientException,
   ClusterIssueCode,
   ClusterStatus,
   ClusterVersionStatus,
@@ -64,6 +67,9 @@ import {
   FargateProfileStatus,
   InsightStatusValue,
   InsightsRefreshStatus,
+  InvalidParameterException,
+  InvalidRequestException,
+  InvalidStateException,
   IpFamily,
   ListAccessEntriesCommand,
   ListAccessPoliciesCommand,
@@ -83,15 +89,24 @@ import {
   NodegroupIssueCode,
   NodegroupStatus,
   NodegroupUpdateStrategies,
+  NotFoundException,
   ProvisionedControlPlaneTier,
   RegisterClusterCommand,
   RepairAction,
   ResolveConflicts,
+  ResourceInUseException,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
+  ResourcePropagationDelayException,
+  ServerException,
+  ServiceUnavailableException,
   SsoIdentityType,
   StartInsightsRefreshCommand,
   SupportType,
   TagResourceCommand,
   TaintEffect,
+  ThrottlingException,
+  UnsupportedAvailabilityZoneException,
   UntagResourceCommand,
   UpdateAccessEntryCommand,
   UpdateAddonCommand,
@@ -249,6 +264,21 @@ assert(typeof UpdateStatus === "object");
 assert(typeof UpdateType === "object");
 assert(typeof VersionStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof EKSServiceException);
+assert(BadRequestException.prototype instanceof EKSServiceException);
+assert(ClientException.prototype instanceof EKSServiceException);
+assert(InvalidParameterException.prototype instanceof EKSServiceException);
+assert(InvalidRequestException.prototype instanceof EKSServiceException);
+assert(InvalidStateException.prototype instanceof EKSServiceException);
+assert(NotFoundException.prototype instanceof EKSServiceException);
+assert(ResourceInUseException.prototype instanceof EKSServiceException);
+assert(ResourceLimitExceededException.prototype instanceof EKSServiceException);
+assert(ResourceNotFoundException.prototype instanceof EKSServiceException);
+assert(ResourcePropagationDelayException.prototype instanceof EKSServiceException);
+assert(ServerException.prototype instanceof EKSServiceException);
+assert(ServiceUnavailableException.prototype instanceof EKSServiceException);
+assert(ThrottlingException.prototype instanceof EKSServiceException);
+assert(UnsupportedAvailabilityZoneException.prototype instanceof EKSServiceException);
 assert(EKSServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAddonActive === "function");

@@ -10482,7 +10482,6 @@ export var WafExcludedRule: StaticStructureSchema = [3, n0, _WER, 0, [_RIu], [0]
 export var WafOverrideAction: StaticStructureSchema = [3, n0, _WOA, 0, [_T], [0]];
 export var Workflow: StaticStructureSchema = [3, n0, _W, 0, [_St], [0]];
 export var WorkflowUpdate: StaticStructureSchema = [3, n0, _WU, 0, [_St], [0]];
-export var __Unit = "unit" as const;
 export var SecurityHubServiceException: StaticErrorSchema = [-3, _sm, "SecurityHubServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SecurityHubServiceException, __SecurityHubServiceException);
 export var AccountDetailsList: StaticListSchema = [1, n0, _ADL, 0, () => AccountDetails];

@@ -5,6 +5,7 @@ import {
   AmplifyBackendServiceException,
   AuthResources,
   AuthenticatedElement,
+  BadRequestException,
   CloneBackendCommand,
   CreateBackendAPICommand,
   CreateBackendAuthCommand,
@@ -18,6 +19,7 @@ import {
   DeleteBackendStorageCommand,
   DeleteTokenCommand,
   DeliveryMethod,
+  GatewayTimeoutException,
   GenerateBackendAPIModelsCommand,
   GetBackendAPICommand,
   GetBackendAPIModelsCommand,
@@ -33,6 +35,7 @@ import {
   MFAMode,
   MfaTypesElement,
   Mode,
+  NotFoundException,
   OAuthGrantType,
   OAuthScopesElement,
   RemoveAllBackendsCommand,
@@ -43,6 +46,7 @@ import {
   ServiceName,
   SignInMethod,
   Status,
+  TooManyRequestsException,
   UnAuthenticatedElement,
   UpdateBackendAPICommand,
   UpdateBackendAuthCommand,
@@ -104,5 +108,9 @@ assert(typeof SignInMethod === "object");
 assert(typeof Status === "object");
 assert(typeof UnAuthenticatedElement === "object");
 // errors
+assert(BadRequestException.prototype instanceof AmplifyBackendServiceException);
+assert(GatewayTimeoutException.prototype instanceof AmplifyBackendServiceException);
+assert(NotFoundException.prototype instanceof AmplifyBackendServiceException);
+assert(TooManyRequestsException.prototype instanceof AmplifyBackendServiceException);
 assert(AmplifyBackendServiceException.prototype instanceof Error);
 console.log(`AmplifyBackend index test passed.`);

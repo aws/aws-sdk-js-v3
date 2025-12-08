@@ -580,7 +580,6 @@ export var UploadEntityDefinitionsRequest: StaticStructureSchema = [
   [() => DefinitionDocument, 2, 2],
 ];
 export var UploadEntityDefinitionsResponse: StaticStructureSchema = [3, n0, _UEDRp, 0, [_uI], [0]];
-export var __Unit = "unit" as const;
 export var IoTThingsGraphServiceException: StaticErrorSchema = [-3, _sm, "IoTThingsGraphServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTThingsGraphServiceException, __IoTThingsGraphServiceException);
 export var DependencyRevisions: StaticListSchema = [1, n0, _DRe, 0, () => DependencyRevision];

@@ -1,23 +1,29 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CreateConfigurationManagerCommand,
   DeleteConfigurationManagerCommand,
   GetConfigurationCommand,
   GetConfigurationManagerCommand,
   GetServiceSettingsCommand,
+  InternalServerException,
   ListConfigurationManagersCommand,
   ListConfigurationsCommand,
   ListQuickSetupTypesCommand,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
   SSMQuickSetup,
   SSMQuickSetupClient,
   SSMQuickSetupServiceException,
   Status,
   StatusType,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateConfigurationDefinitionCommand,
   UpdateConfigurationManagerCommand,
   UpdateServiceSettingsCommand,
+  ValidationException,
   paginateListConfigurationManagers,
   paginateListConfigurations,
 } from "../dist-cjs/index.js";
@@ -44,6 +50,12 @@ assert(typeof UpdateServiceSettingsCommand === "function");
 assert(typeof Status === "object");
 assert(typeof StatusType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SSMQuickSetupServiceException);
+assert(ConflictException.prototype instanceof SSMQuickSetupServiceException);
+assert(InternalServerException.prototype instanceof SSMQuickSetupServiceException);
+assert(ResourceNotFoundException.prototype instanceof SSMQuickSetupServiceException);
+assert(ThrottlingException.prototype instanceof SSMQuickSetupServiceException);
+assert(ValidationException.prototype instanceof SSMQuickSetupServiceException);
 assert(SSMQuickSetupServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListConfigurationManagers === "function");

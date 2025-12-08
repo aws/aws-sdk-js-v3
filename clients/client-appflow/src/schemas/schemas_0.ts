@@ -1663,7 +1663,6 @@ export var ZendeskDestinationProperties: StaticStructureSchema = [
 ];
 export var ZendeskMetadata: StaticStructureSchema = [3, n0, _ZM, 0, [_oAS], [64 | 0]];
 export var ZendeskSourceProperties: StaticStructureSchema = [3, n0, _ZSP, 0, [_o], [0]];
-export var __Unit = "unit" as const;
 export var AppflowServiceException: StaticErrorSchema = [-3, _sm, "AppflowServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppflowServiceException, __AppflowServiceException);
 export var AuthCodeUrlList = 64 | 0;

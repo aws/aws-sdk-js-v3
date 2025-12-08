@@ -1061,7 +1061,6 @@ export var XssMatchSet: StaticStructureSchema = [3, n0, _XMS, 0, [_XMSI, _N, _XM
 export var XssMatchSetSummary: StaticStructureSchema = [3, n0, _XMSS, 0, [_XMSI, _N], [0, 0]];
 export var XssMatchSetUpdate: StaticStructureSchema = [3, n0, _XMSU, 0, [_A, _XMTs], [0, () => XssMatchTuple]];
 export var XssMatchTuple: StaticStructureSchema = [3, n0, _XMTs, 0, [_FTM, _TT], [() => FieldToMatch, 0]];
-export var __Unit = "unit" as const;
 export var WAFServiceException: StaticErrorSchema = [-3, _sm, "WAFServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WAFServiceException, __WAFServiceException);
 export var ActivatedRules: StaticListSchema = [1, n0, _ARc, 0, () => ActivatedRule];

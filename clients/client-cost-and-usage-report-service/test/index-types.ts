@@ -48,6 +48,11 @@ export type {
   TagResourceResponse,
   UntagResourceRequest,
   UntagResourceResponse,
+  DuplicateReportNameException,
+  InternalErrorException,
+  ReportLimitReachedException,
+  ResourceNotFoundException,
+  ValidationException,
   CostAndUsageReportServiceServiceException,
   paginateDescribeReportDefinitions,
 } from "../dist-types/index.d";

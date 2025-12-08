@@ -2462,7 +2462,6 @@ export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
   [0, [() => VectorSearchBedrockRerankingConfiguration, 0]],
 ];
 export var VideoSegment: StaticStructureSchema = [3, n0, _VS, 0, [_sU, _su], [0, 0]];
-export var __Unit = "unit" as const;
 export var BedrockAgentRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,
