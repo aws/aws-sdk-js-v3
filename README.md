@@ -598,7 +598,7 @@ For a full middleware stack deep dive, please check out our [blog post](https://
 Our releases usually happen once per weekday. Each release increments the
 minor version, e.g. 3.200.0 -> 3.201.0.
 
-## Support Policy
+## Node.js and ECMAScript Version Support Policy
 
 In 2025, we [announced](https://a.co/c895JFp) that JS SDK v3 will start following the Node.js release schedule for
 ending support for Node.js and ECMAScript versions. The Node.js LTS versions reach end-of-life (EOL) in April. We will
