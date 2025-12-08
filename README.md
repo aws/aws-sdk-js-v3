@@ -48,7 +48,7 @@ Please refer to [Performance](https://github.com/aws/aws-sdk-js-v3/tree/main/sup
 1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [Release Cadence](#release-cadence)
-1. [Support Policy](#support-policy)
+1. [Node.js and ECMAScript Version Support Policy](#nodejs-and-ecmascript-version-support-policy)
 1. [Stability of Modular Packages](#stability-of-modular-packages)
 1. [Known Issues](#known-issues)
    1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
