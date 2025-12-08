@@ -52,6 +52,12 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  *   BackupRetentionPeriod: Number("int"),
  *   KmsKeyId: "STRING_VALUE",
  *   PreSignedUrl: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new StartDBInstanceAutomatedBackupsReplicationCommand(input);
  * const response = await client.send(command);
@@ -94,6 +100,12 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * //     BackupTarget: "STRING_VALUE",
  * //     MultiTenant: true || false,
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DedicatedLogVolume: true || false,
  * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  * //       { // AdditionalStorageVolume

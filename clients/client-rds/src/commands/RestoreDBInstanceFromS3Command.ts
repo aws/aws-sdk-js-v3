@@ -113,6 +113,17 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  *     { // AdditionalStorageVolume
  *       VolumeName: "STRING_VALUE", // required

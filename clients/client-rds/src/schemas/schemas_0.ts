@@ -1214,6 +1214,7 @@ const _RTFRM = "RemoveTagsFromResourceMessage";
 const _RTLS = "RequireTLS";
 const _RTT = "RestoreToTime";
 const _RTe = "RestoreTime";
+const _RTes = "ResourceType";
 const _RW = "RestoreWindow";
 const _Ra = "Range";
 const _Re = "Recommendation";
@@ -1458,9 +1459,12 @@ const _TOGD = "TargetOptionGroupDescription";
 const _TOGI = "TargetOptionGroupIdentifier";
 const _TR = "TargetRole";
 const _TRy = "TypeRecommendation";
+const _TS = "TagSpecifications";
+const _TSL = "TagSpecificationList";
 const _TST = "TargetStorageType";
 const _TSTa = "TargetStorageThroughput";
 const _TSTas = "TaskStartTime";
+const _TSa = "TagSpecification";
 const _Ta = "Target";
 const _Tag = "Tag";
 const _Tar = "Targets";
@@ -1525,6 +1529,7 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
+const _i = "item";
 const _m = "message";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rds";
 const _xN = "xmlName";
@@ -2065,6 +2070,7 @@ export var CreateDBClusterMessage: StaticStructureSchema = [
     _MUSKKI,
     _CACI,
     _ELS,
+    _TS,
     _MUAT,
   ],
   [
@@ -2124,6 +2130,7 @@ export var CreateDBClusterMessage: StaticStructureSchema = [
     0,
     0,
     0,
+    [() => TagSpecificationList, 0],
     0,
   ],
 ];
@@ -2230,6 +2237,7 @@ export var CreateDBInstanceMessage: StaticStructureSchema = [
     _MT,
     _DLV,
     _ELS,
+    _TS,
     _MUAT,
     _ASVd,
   ],
@@ -2298,6 +2306,7 @@ export var CreateDBInstanceMessage: StaticStructureSchema = [
     2,
     2,
     0,
+    [() => TagSpecificationList, 0],
     0,
     () => AdditionalStorageVolumesList,
   ],
@@ -2355,6 +2364,7 @@ export var CreateDBInstanceReadReplicaMessage: StaticStructureSchema = [
     _DLV,
     _USC,
     _CACI,
+    _TS,
     _ASVd,
   ],
   [
@@ -2405,6 +2415,7 @@ export var CreateDBInstanceReadReplicaMessage: StaticStructureSchema = [
     2,
     2,
     0,
+    [() => TagSpecificationList, 0],
     () => AdditionalStorageVolumesList,
   ],
 ];
@@ -2815,6 +2826,7 @@ export var DBClusterAutomatedBackup: StaticStructureSchema = [
     _I,
     _ST,
     _ABRPA,
+    _TL,
   ],
   [
     0,
@@ -2842,6 +2854,7 @@ export var DBClusterAutomatedBackup: StaticStructureSchema = [
     1,
     1,
     0,
+    [() => TagList, 0],
   ],
 ];
 export var DBClusterAutomatedBackupMessage: StaticStructureSchema = [
@@ -3464,6 +3477,7 @@ export var DBInstanceAutomatedBackup: StaticStructureSchema = [
     _BTa,
     _MT,
     _ABRPA,
+    _TL,
     _DLV,
     _ASVd,
   ],
@@ -3498,6 +3512,7 @@ export var DBInstanceAutomatedBackup: StaticStructureSchema = [
     0,
     2,
     0,
+    [() => TagList, 0],
     2,
     () => AdditionalStorageVolumesList,
   ],
@@ -5526,6 +5541,7 @@ export var ModifyDBInstanceMessage: StaticStructureSchema = [
     _MT,
     _DLV,
     _E,
+    _TS,
     _MUAT,
     _ASVd,
   ],
@@ -5591,6 +5607,7 @@ export var ModifyDBInstanceMessage: StaticStructureSchema = [
     2,
     2,
     0,
+    [() => TagSpecificationList, 0],
     0,
     () => ModifyAdditionalStorageVolumesList,
   ],
@@ -6076,7 +6093,14 @@ export var PromoteReadReplicaDBClusterResult: StaticStructureSchema = [
   [_DBC],
   [[() => DBCluster, 0]],
 ];
-export var PromoteReadReplicaMessage: StaticStructureSchema = [3, n0, _PRRM, 0, [_DBII, _BRP, _PBW], [0, 1, 0]];
+export var PromoteReadReplicaMessage: StaticStructureSchema = [
+  3,
+  n0,
+  _PRRM,
+  0,
+  [_DBII, _BRP, _PBW, _TS],
+  [0, 1, 0, [() => TagSpecificationList, 0]],
+];
 export var PromoteReadReplicaResult: StaticStructureSchema = [3, n0, _PRRR, 0, [_DBI], [[() => DBInstance, 0]]];
 export var ProvisionedIopsNotAvailableInAZFault: StaticErrorSchema = [
   -3,
@@ -6299,6 +6323,7 @@ export var RestoreDBClusterFromS3Message: StaticStructureSchema = [
     _MMUP,
     _MUSKKI,
     _ELS,
+    _TS,
   ],
   [
     [() => AvailabilityZones, 0],
@@ -6338,6 +6363,7 @@ export var RestoreDBClusterFromS3Message: StaticStructureSchema = [
     2,
     0,
     0,
+    [() => TagSpecificationList, 0],
   ],
 ];
 export var RestoreDBClusterFromS3Result: StaticStructureSchema = [3, n0, _RDBCFSR, 0, [_DBC], [[() => DBCluster, 0]]];
@@ -6382,6 +6408,7 @@ export var RestoreDBClusterFromSnapshotMessage: StaticStructureSchema = [
     _PIKMSKI,
     _PIRP,
     _ELS,
+    _TS,
   ],
   [
     [() => AvailabilityZones, 0],
@@ -6419,6 +6446,7 @@ export var RestoreDBClusterFromSnapshotMessage: StaticStructureSchema = [
     0,
     1,
     0,
+    [() => TagSpecificationList, 0],
   ],
 ];
 export var RestoreDBClusterFromSnapshotResult: StaticStructureSchema = [
@@ -6470,6 +6498,7 @@ export var RestoreDBClusterToPointInTimeMessage: StaticStructureSchema = [
     _PIKMSKI,
     _PIRP,
     _ELS,
+    _TS,
   ],
   [
     0,
@@ -6507,6 +6536,7 @@ export var RestoreDBClusterToPointInTimeMessage: StaticStructureSchema = [
     0,
     1,
     0,
+    [() => TagSpecificationList, 0],
   ],
 ];
 export var RestoreDBClusterToPointInTimeResult: StaticStructureSchema = [
@@ -6565,6 +6595,7 @@ export var RestoreDBInstanceFromDBSnapshotMessage: StaticStructureSchema = [
     _DLV,
     _CACI,
     _ELS,
+    _TS,
     _MMUP,
     _MUSKKI,
     _ASVd,
@@ -6612,6 +6643,7 @@ export var RestoreDBInstanceFromDBSnapshotMessage: StaticStructureSchema = [
     2,
     0,
     0,
+    [() => TagSpecificationList, 0],
     2,
     0,
     () => AdditionalStorageVolumesList,
@@ -6683,6 +6715,7 @@ export var RestoreDBInstanceFromS3Message: StaticStructureSchema = [
     _DLV,
     _CACI,
     _ELS,
+    _TS,
     _ASVd,
   ],
   [
@@ -6738,6 +6771,7 @@ export var RestoreDBInstanceFromS3Message: StaticStructureSchema = [
     2,
     0,
     0,
+    [() => TagSpecificationList, 0],
     () => AdditionalStorageVolumesList,
   ],
 ];
@@ -6794,6 +6828,7 @@ export var RestoreDBInstanceToPointInTimeMessage: StaticStructureSchema = [
     _DLV,
     _CACI,
     _ELS,
+    _TS,
     _MMUP,
     _MUSKKI,
     _ASVd,
@@ -6845,6 +6880,7 @@ export var RestoreDBInstanceToPointInTimeMessage: StaticStructureSchema = [
     2,
     0,
     0,
+    [() => TagSpecificationList, 0],
     2,
     0,
     () => AdditionalStorageVolumesList,
@@ -6999,8 +7035,8 @@ export var StartDBInstanceAutomatedBackupsReplicationMessage: StaticStructureSch
   n0,
   _SDBIABRM,
   0,
-  [_SDBIA, _BRP, _KKI, _PSU],
-  [0, 1, 0, [() => SensitiveString, 0]],
+  [_SDBIA, _BRP, _KKI, _PSU, _T],
+  [0, 1, 0, [() => SensitiveString, 0], [() => TagList, 0]],
 ];
 export var StartDBInstanceAutomatedBackupsReplicationResult: StaticStructureSchema = [
   3,
@@ -7130,6 +7166,7 @@ export var SwitchoverReadReplicaMessage: StaticStructureSchema = [3, n0, _SRRM, 
 export var SwitchoverReadReplicaResult: StaticStructureSchema = [3, n0, _SRRR, 0, [_DBI], [[() => DBInstance, 0]]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagListMessage: StaticStructureSchema = [3, n0, _TLM, 0, [_TL], [[() => TagList, 0]]];
+export var TagSpecification: StaticStructureSchema = [3, n0, _TSa, 0, [_RTes, _T], [0, [() => TagList, 0]]];
 export var TargetHealth: StaticStructureSchema = [3, n0, _TH, 0, [_Sta, _Rea, _D], [0, 0, 0]];
 export var TenantDatabase: StaticStructureSchema = [
   3,
@@ -7553,6 +7590,7 @@ export var SupportedEngineLifecycleList: StaticListSchema = [
 export var SupportedTimezonesList: StaticListSchema = [1, n0, _STL, 0, [() => Timezone, { [_xN]: _Ti }]];
 export var SwitchoverDetailList: StaticListSchema = [1, n0, _SDL, 0, () => SwitchoverDetail];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, { [_xN]: _Tag }]];
+export var TagSpecificationList: StaticListSchema = [1, n0, _TSL, 0, [() => TagSpecification, { [_xN]: _i }]];
 export var TargetGroupList: StaticListSchema = [1, n0, _TGL, 0, () => DBProxyTargetGroup];
 export var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => DBProxyTarget];
 export var TenantDatabasesList: StaticListSchema = [1, n0, _TDL, 0, [() => TenantDatabase, { [_xN]: _TD }]];

@@ -76,6 +76,12 @@ export interface DeleteDBClusterAutomatedBackupCommandOutput
  * //     Iops: Number("int"),
  * //     StorageThroughput: Number("int"),
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -83,6 +83,12 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * //     BackupTarget: "STRING_VALUE",
  * //     MultiTenant: true || false,
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DedicatedLogVolume: true || false,
  * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  * //       { // AdditionalStorageVolume

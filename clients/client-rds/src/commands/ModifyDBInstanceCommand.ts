@@ -120,6 +120,17 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   MultiTenant: true || false,
  *   DedicatedLogVolume: true || false,
  *   Engine: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  *   AdditionalStorageVolumes: [ // ModifyAdditionalStorageVolumesList
  *     { // ModifyAdditionalStorageVolume

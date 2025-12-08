@@ -939,6 +939,7 @@ export type {
   SwitchoverReadReplicaResult,
   Tag,
   TagListMessage,
+  TagSpecification,
   TargetHealth,
   TenantDatabase,
   TenantDatabasePendingModifiedValues,

@@ -57,6 +57,17 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   BackupRetentionPeriod: Number("int"),
  *   PreferredBackupWindow: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new PromoteReadReplicaCommand(input);
  * const response = await client.send(command);

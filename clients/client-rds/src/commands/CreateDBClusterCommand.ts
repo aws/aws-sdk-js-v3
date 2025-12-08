@@ -133,6 +133,17 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   CACertificateIdentifier: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  * };
  * const command = new CreateDBClusterCommand(input);

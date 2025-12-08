@@ -127,6 +127,17 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   MultiTenant: true || false,
  *   DedicatedLogVolume: true || false,
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  *     { // AdditionalStorageVolume

@@ -3679,6 +3679,39 @@ export interface ServerlessV2ScalingConfiguration {
 }
 
 /**
+ * <p>The tags to apply to resources when creating or modifying a DB instance or DB cluster. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.</p>
+ * @public
+ */
+export interface TagSpecification {
+  /**
+   * <p>The type of resource to tag on creation.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>.
+   *             </p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -4563,6 +4596,19 @@ export interface CreateDBClusterMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB cluster.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.</p>
@@ -7470,6 +7516,19 @@ export interface CreateDBInstanceMessage {
   EngineLifecycleSupport?: string | undefined;
 
   /**
+   * <p>Tags to assign to resources associated with the DB instance.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
    * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.</p>
    *          <p>You can specify one of the following values:</p>
    *          <ul>
@@ -9477,6 +9536,19 @@ export interface CreateDBInstanceReadReplicaMessage {
    * @public
    */
   CACertificateIdentifier?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB instance.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>A list of additional storage volumes to create for the DB instance. You can create up
@@ -12010,6 +12082,16 @@ export interface DBClusterAutomatedBackup {
    * @public
    */
   AwsBackupRecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>.
+   *             </p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
 }
 
 /**
@@ -12399,6 +12481,16 @@ export interface DBInstanceAutomatedBackup {
    * @public
    */
   AwsBackupRecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>.
+   *             </p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
 
   /**
    * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
@@ -19294,25 +19386,4 @@ export interface DescribeTenantDatabasesMessage {
    * @public
    */
   MaxRecords?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface TenantDatabasesMessage {
-  /**
-   * <p>An optional pagination token provided by a previous
-   *                 <code>DescribeTenantDatabases</code> request. If this parameter is specified, the
-   *             response includes only records beyond the marker, up to the value specified by
-   *                 <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>An array of the tenant databases requested by the <code>DescribeTenantDatabases</code>
-   *             operation.</p>
-   * @public
-   */
-  TenantDatabases?: TenantDatabase[] | undefined;
 }

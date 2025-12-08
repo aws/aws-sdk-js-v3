@@ -114,6 +114,17 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   DedicatedLogVolume: true || false,
  *   UpgradeStorageConfig: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  *     { // AdditionalStorageVolume
  *       VolumeName: "STRING_VALUE", // required

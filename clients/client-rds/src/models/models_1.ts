@@ -34,7 +34,6 @@ import {
   type ReservedDBInstance,
   type ScalingConfiguration,
   type ServerlessV2ScalingConfiguration,
-  type TenantDatabase,
   AdditionalStorageVolume,
   AvailableProcessorFeature,
   DBProxyTarget,
@@ -43,8 +42,31 @@ import {
   Parameter,
   ProcessorFeature,
   Tag,
+  TagSpecification,
+  TenantDatabase,
   UserAuthConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface TenantDatabasesMessage {
+  /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeTenantDatabases</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by
+   *                 <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>An array of the tenant databases requested by the <code>DescribeTenantDatabases</code>
+   *             operation.</p>
+   * @public
+   */
+  TenantDatabases?: TenantDatabase[] | undefined;
+}
 
 /**
  * <p></p>
@@ -2964,6 +2986,19 @@ export interface ModifyDBInstanceMessage {
   Engine?: string | undefined;
 
   /**
+   * <p>Tags to assign to resources associated with the DB instance.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
    * <p>Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication.</p>
    *          <p>You can specify one of the following values:</p>
    *          <ul>
@@ -4098,6 +4133,19 @@ export interface PromoteReadReplicaMessage {
    * @public
    */
   PreferredBackupWindow?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB instance.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 }
 
 /**
@@ -5012,6 +5060,19 @@ export interface RestoreDBClusterFromS3Message {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB cluster.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 }
 
 /**
@@ -5545,6 +5606,19 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB cluster.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 }
 
 /**
@@ -6068,6 +6142,19 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB cluster.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 }
 
 /**
@@ -6727,6 +6814,19 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB instance.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the
@@ -7409,6 +7509,19 @@ export interface RestoreDBInstanceFromS3Message {
    * @public
    */
   EngineLifecycleSupport?: string | undefined;
+
+  /**
+   * <p>Tags to assign to resources associated with the DB instance.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 
   /**
    * <p>A list of additional storage volumes to modify or delete for the DB instance. You can
@@ -8132,6 +8245,19 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   EngineLifecycleSupport?: string | undefined;
 
   /**
+   * <p>Tags to assign to resources associated with the DB instance.</p>
+   *          <p>Valid Values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-backup</code> - The DB instance's automated backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
    * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the
    *             restored DB instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
@@ -8447,6 +8573,12 @@ export interface StartDBInstanceAutomatedBackupsReplicationMessage {
    * @public
    */
   PreSignedUrl?: string | undefined;
+
+  /**
+   * <p>A list of tags to associate with the replicated automated backups.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
