@@ -8357,8 +8357,8 @@ export interface ImageAncestryEntry {
 
   /**
    * <p>The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> |
-   *         <code>aws-marketplace</code> ) of this AMI, if one is assigned. Otherwise, the value is
-   *         <code>null</code>.</p>
+   *       <code>aws-marketplace</code> ) of this AMI, if one is assigned. Otherwise, the value is
+   *       <code>null</code>.</p>
    * @public
    */
   ImageOwnerAlias?: string | undefined;
