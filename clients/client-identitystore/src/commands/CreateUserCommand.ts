@@ -91,6 +91,9 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   ],
  *   Website: "STRING_VALUE",
  *   Birthdate: "STRING_VALUE",
+ *   Extensions: { // Extensions
+ *     "<keys>": "DOCUMENT_VALUE",
+ *   },
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);

@@ -47,6 +47,7 @@ const _EII = "ExternalIdIdentifier";
 const _EIIx = "ExternalIdIssuer";
 const _EIx = "ExternalId";
 const _Em = "Email";
+const _Ex = "Extensions";
 const _F = "Formatted";
 const _FN = "FamilyName";
 const _Fi = "Filter";
@@ -159,6 +160,7 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -234,7 +236,7 @@ export var CreateUserRequest: StaticStructureSchema = [
   n0,
   _CUR,
   0,
-  [_ISI, _UN, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _Ph, _W, _B],
+  [_ISI, _UN, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _Ph, _W, _B, _Ex],
   [
     0,
     [() => UserName, 0],
@@ -253,6 +255,7 @@ export var CreateUserRequest: StaticStructureSchema = [
     [() => Photos, 0],
     [() => SensitiveStringType, 0],
     [() => SensitiveStringType, 0],
+    128 | 15,
   ],
 ];
 export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [_ISI, _UI], [0, 0]];
@@ -280,7 +283,7 @@ export var DescribeGroupResponse: StaticStructureSchema = [
   [_GI, _DN, _EI, _D, _CA, _UA, _CB, _UB, _ISI],
   [0, [() => GroupDisplayName, 0], [() => ExternalIds, 0], [() => SensitiveStringType, 0], 4, 4, 0, 0, 0],
 ];
-export var DescribeUserRequest: StaticStructureSchema = [3, n0, _DURes, 0, [_ISI, _UI], [0, 0]];
+export var DescribeUserRequest: StaticStructureSchema = [3, n0, _DURes, 0, [_ISI, _UI, _Ex], [0, 0, 64 | 0]];
 export var DescribeUserResponse: StaticStructureSchema = [
   3,
   n0,
@@ -311,6 +314,7 @@ export var DescribeUserResponse: StaticStructureSchema = [
     _CB,
     _UA,
     _UB,
+    _Ex,
   ],
   [
     0,
@@ -337,6 +341,7 @@ export var DescribeUserResponse: StaticStructureSchema = [
     0,
     4,
     0,
+    128 | 15,
   ],
 ];
 export var Email: StaticStructureSchema = [
@@ -478,8 +483,8 @@ export var ListUsersRequest: StaticStructureSchema = [
   n0,
   _LUR,
   0,
-  [_ISI, _MR, _NT, _Fil],
-  [0, 1, 0, [() => Filters, 0]],
+  [_ISI, _Ex, _MR, _NT, _Fil],
+  [0, 64 | 0, 1, 0, [() => Filters, 0]],
 ];
 export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_U, _NT], [[() => Users, 0], 0]];
 export var Name: StaticStructureSchema = [
@@ -598,6 +603,7 @@ export var User: StaticStructureSchema = [
     _CB,
     _UA,
     _UB,
+    _Ex,
   ],
   [
     0,
@@ -624,6 +630,7 @@ export var User: StaticStructureSchema = [
     0,
     4,
     0,
+    128 | 15,
   ],
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _RI, _R], [0, 0, 0]];
@@ -633,6 +640,7 @@ TypeRegistry.for(_sm).registerError(IdentitystoreServiceException, __Identitysto
 export var Addresses: StaticListSchema = [1, n0, _Ad, 0, [() => Address, 0]];
 export var AttributeOperations: StaticListSchema = [1, n0, _AOt, 0, () => AttributeOperation];
 export var Emails: StaticListSchema = [1, n0, _E, 0, [() => Email, 0]];
+export var ExtensionNames = 64 | 0;
 export var ExternalIds: StaticListSchema = [1, n0, _EI, 0, [() => ExternalId, 0]];
 export var Filters: StaticListSchema = [1, n0, _Fil, 0, [() => Filter, 0]];
 export var GroupIds = 64 | 0;
@@ -648,6 +656,7 @@ export var Groups: StaticListSchema = [1, n0, _Gr, 0, [() => Group, 0]];
 export var PhoneNumbers: StaticListSchema = [1, n0, _PN, 0, [() => PhoneNumber, 0]];
 export var Photos: StaticListSchema = [1, n0, _Ph, 0, [() => Photo, 0]];
 export var Users: StaticListSchema = [1, n0, _U, 0, [() => User, 0]];
+export var Extensions = 128 | 15;
 export var AlternateIdentifier: StaticStructureSchema = [
   3,
   n0,

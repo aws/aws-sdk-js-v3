@@ -38,6 +38,9 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * const client = new IdentitystoreClient(config);
  * const input = { // ListUsersRequest
  *   IdentityStoreId: "STRING_VALUE", // required
+ *   Extensions: [ // ExtensionNames
+ *     "STRING_VALUE",
+ *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   Filters: [ // Filters
@@ -118,6 +121,9 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       CreatedBy: "STRING_VALUE",
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       UpdatedBy: "STRING_VALUE",
+ * //       Extensions: { // Extensions
+ * //         "<keys>": "DOCUMENT_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

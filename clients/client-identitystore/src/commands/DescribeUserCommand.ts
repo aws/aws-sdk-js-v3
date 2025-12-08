@@ -39,6 +39,9 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * const input = { // DescribeUserRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
+ *   Extensions: [ // ExtensionNames
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
@@ -109,6 +112,9 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //   CreatedBy: "STRING_VALUE",
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * //   UpdatedBy: "STRING_VALUE",
+ * //   Extensions: { // Extensions
+ * //     "<keys>": "DOCUMENT_VALUE",
+ * //   },
  * // };
  *
  * ```
