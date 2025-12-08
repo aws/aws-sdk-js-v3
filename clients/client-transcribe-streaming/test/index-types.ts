@@ -102,6 +102,7 @@ export type {
   ConflictException,
   InternalFailureException,
   LimitExceededException,
+  ResourceNotFoundException,
   ServiceUnavailableException,
   TranscribeStreamingServiceException,
 } from "../dist-types/index.d";

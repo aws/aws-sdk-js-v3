@@ -251,7 +251,6 @@ export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var ControlCatalogServiceException: StaticErrorSchema = [-3, _sm, "ControlCatalogServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ControlCatalogServiceException, __ControlCatalogServiceException);
 export var CommonControlArnFilterList = 64 | 0;

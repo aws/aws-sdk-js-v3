@@ -1,5 +1,6 @@
 import {
   APISchemaType,
+  AccessDeniedException,
   ActionPayloadFieldType,
   ApplicationStatus,
   AssociatePermissionCommand,
@@ -19,6 +20,7 @@ import {
   ChatResponseConfigurationStatus,
   ChatSyncCommand,
   CheckDocumentAccessCommand,
+  ConflictException,
   ContentType,
   CreateAnonymousWebExperienceUrlCommand,
   CreateApplicationCommand,
@@ -54,6 +56,7 @@ import {
   DocumentEnrichmentConditionOperator,
   DocumentStatus,
   ErrorCode,
+  ExternalResourceException,
   GetApplicationCommand,
   GetChatControlsConfigurationCommand,
   GetChatResponseConfigurationCommand,
@@ -74,6 +77,8 @@ import {
   ImageExtractionStatus,
   IndexStatus,
   IndexType,
+  InternalServerException,
+  LicenseNotFoundException,
   ListApplicationsCommand,
   ListAttachmentsCommand,
   ListChatResponseConfigurationsCommand,
@@ -93,6 +98,7 @@ import {
   ListSubscriptionsCommand,
   ListTagsForResourceCommand,
   ListWebExperiencesCommand,
+  MediaTooLargeException,
   MemberRelation,
   MembershipType,
   MessageType,
@@ -114,6 +120,7 @@ import {
   QBusinessClient,
   QBusinessServiceException,
   ReadAccessType,
+  ResourceNotFoundException,
   ResponseConfigurationType,
   ResponseScope,
   RetrieverStatus,
@@ -121,6 +128,7 @@ import {
   RuleType,
   ScoreConfidence,
   SearchRelevantContentCommand,
+  ServiceQuotaExceededException,
   StartDataSourceSyncJobCommand,
   Status,
   StopDataSourceSyncJobCommand,
@@ -128,6 +136,7 @@ import {
   SubscriptionType,
   SystemMessageType,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateChatControlsConfigurationCommand,
@@ -140,6 +149,8 @@ import {
   UpdateSubscriptionCommand,
   UpdateUserCommand,
   UpdateWebExperienceCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VideoExtractionStatus,
   VideoExtractionType,
   WebExperienceSamplePromptsControlMode,
@@ -309,11 +320,22 @@ assert(typeof Status === "object");
 assert(typeof StringAttributeValueBoostingLevel === "object");
 assert(typeof SubscriptionType === "object");
 assert(typeof SystemMessageType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VideoExtractionStatus === "object");
 assert(typeof VideoExtractionType === "object");
 assert(typeof WebExperienceSamplePromptsControlMode === "object");
 assert(typeof WebExperienceStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof QBusinessServiceException);
+assert(ConflictException.prototype instanceof QBusinessServiceException);
+assert(ExternalResourceException.prototype instanceof QBusinessServiceException);
+assert(InternalServerException.prototype instanceof QBusinessServiceException);
+assert(LicenseNotFoundException.prototype instanceof QBusinessServiceException);
+assert(MediaTooLargeException.prototype instanceof QBusinessServiceException);
+assert(ResourceNotFoundException.prototype instanceof QBusinessServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof QBusinessServiceException);
+assert(ThrottlingException.prototype instanceof QBusinessServiceException);
+assert(ValidationException.prototype instanceof QBusinessServiceException);
 assert(QBusinessServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetChatControlsConfiguration === "function");

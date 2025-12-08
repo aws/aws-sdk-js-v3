@@ -620,7 +620,6 @@ export var WorkloadInsightsTopContributorsRow: StaticStructureSchema = [
   [_aI, _lSI, _lA, _lVI, _lRo, _rIe, _v, _lSA, _lVA],
   [0, 0, 0, 0, 0, 0, 1, 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var NetworkFlowMonitorServiceException: StaticErrorSchema = [
   -3,
   _sm,

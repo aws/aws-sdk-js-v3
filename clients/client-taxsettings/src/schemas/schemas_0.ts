@@ -701,7 +701,6 @@ export var VerificationDetails: StaticStructureSchema = [
   [0, () => TaxRegistrationDocuments],
 ];
 export var VietnamAdditionalInfo: StaticStructureSchema = [3, n0, _VAI, 0, [_eIN, _eTCN, _pVN, _pVND], [0, 0, 0, 0]];
-export var __Unit = "unit" as const;
 export var TaxSettingsServiceException: StaticErrorSchema = [-3, _sm, "TaxSettingsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TaxSettingsServiceException, __TaxSettingsServiceException);
 export var AccountDetailsList: StaticListSchema = [1, n0, _ADL, 0, [() => AccountDetails, 0]];

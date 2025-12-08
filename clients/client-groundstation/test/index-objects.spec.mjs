@@ -18,6 +18,7 @@ import {
   DeleteDataflowEndpointGroupCommand,
   DeleteEphemerisCommand,
   DeleteMissionProfileCommand,
+  DependencyException,
   DescribeContactCommand,
   DescribeEphemerisCommand,
   EirpUnits,
@@ -38,6 +39,7 @@ import {
   GroundStation,
   GroundStationClient,
   GroundStationServiceException,
+  InvalidParameterException,
   ListConfigsCommand,
   ListContactsCommand,
   ListDataflowEndpointGroupsCommand,
@@ -49,6 +51,10 @@ import {
   Polarization,
   RegisterAgentCommand,
   ReserveContactCommand,
+  ResourceInUseException,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentStatusCommand,
@@ -125,6 +131,12 @@ assert(typeof EphemerisType === "object");
 assert(typeof FrequencyUnits === "object");
 assert(typeof Polarization === "object");
 // errors
+assert(DependencyException.prototype instanceof GroundStationServiceException);
+assert(InvalidParameterException.prototype instanceof GroundStationServiceException);
+assert(ResourceInUseException.prototype instanceof GroundStationServiceException);
+assert(ResourceLimitExceededException.prototype instanceof GroundStationServiceException);
+assert(ResourceNotFoundException.prototype instanceof GroundStationServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof GroundStationServiceException);
 assert(GroundStationServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForContactScheduled === "function");

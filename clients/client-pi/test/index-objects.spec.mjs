@@ -12,10 +12,13 @@ import {
   GetPerformanceAnalysisReportCommand,
   GetResourceMetadataCommand,
   GetResourceMetricsCommand,
+  InternalServiceError,
+  InvalidArgumentException,
   ListAvailableResourceDimensionsCommand,
   ListAvailableResourceMetricsCommand,
   ListPerformanceAnalysisReportsCommand,
   ListTagsForResourceCommand,
+  NotAuthorizedException,
   PI,
   PIClient,
   PIServiceException,
@@ -61,6 +64,9 @@ assert(typeof ServiceType === "object");
 assert(typeof Severity === "object");
 assert(typeof TextFormat === "object");
 // errors
+assert(InternalServiceError.prototype instanceof PIServiceException);
+assert(InvalidArgumentException.prototype instanceof PIServiceException);
+assert(NotAuthorizedException.prototype instanceof PIServiceException);
 assert(PIServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeDimensionKeys === "function");

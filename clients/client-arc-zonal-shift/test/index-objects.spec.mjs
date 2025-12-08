@@ -2,28 +2,36 @@ import {
   ARCZonalShift,
   ARCZonalShiftClient,
   ARCZonalShiftServiceException,
+  AccessDeniedException,
   AppliedStatus,
   AutoshiftAppliedStatus,
   AutoshiftExecutionStatus,
   AutoshiftObserverNotificationStatus,
   CancelPracticeRunCommand,
   CancelZonalShiftCommand,
+  ConflictException,
+  ConflictExceptionReason,
   ControlConditionType,
   CreatePracticeRunConfigurationCommand,
   DeletePracticeRunConfigurationCommand,
   GetAutoshiftObserverNotificationStatusCommand,
   GetManagedResourceCommand,
+  InternalServerException,
   ListAutoshiftsCommand,
   ListManagedResourcesCommand,
   ListZonalShiftsCommand,
   PracticeRunOutcome,
+  ResourceNotFoundException,
   ShiftType,
   StartPracticeRunCommand,
   StartZonalShiftCommand,
+  ThrottlingException,
   UpdateAutoshiftObserverNotificationStatusCommand,
   UpdatePracticeRunConfigurationCommand,
   UpdateZonalAutoshiftConfigurationCommand,
   UpdateZonalShiftCommand,
+  ValidationException,
+  ValidationExceptionReason,
   ZonalAutoshiftStatus,
   ZonalShiftStatus,
   paginateListAutoshifts,
@@ -55,12 +63,20 @@ assert(typeof AppliedStatus === "object");
 assert(typeof AutoshiftAppliedStatus === "object");
 assert(typeof AutoshiftExecutionStatus === "object");
 assert(typeof AutoshiftObserverNotificationStatus === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof ControlConditionType === "object");
 assert(typeof PracticeRunOutcome === "object");
 assert(typeof ShiftType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof ZonalAutoshiftStatus === "object");
 assert(typeof ZonalShiftStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ARCZonalShiftServiceException);
+assert(ConflictException.prototype instanceof ARCZonalShiftServiceException);
+assert(InternalServerException.prototype instanceof ARCZonalShiftServiceException);
+assert(ResourceNotFoundException.prototype instanceof ARCZonalShiftServiceException);
+assert(ThrottlingException.prototype instanceof ARCZonalShiftServiceException);
+assert(ValidationException.prototype instanceof ARCZonalShiftServiceException);
 assert(ARCZonalShiftServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAutoshifts === "function");

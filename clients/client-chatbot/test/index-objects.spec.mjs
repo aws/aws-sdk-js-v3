@@ -3,40 +3,72 @@ import {
   Chatbot,
   ChatbotClient,
   ChatbotServiceException,
+  ConflictException,
   CreateChimeWebhookConfigurationCommand,
+  CreateChimeWebhookConfigurationException,
   CreateCustomActionCommand,
   CreateMicrosoftTeamsChannelConfigurationCommand,
   CreateSlackChannelConfigurationCommand,
+  CreateSlackChannelConfigurationException,
+  CreateTeamsChannelConfigurationException,
   CustomActionAttachmentCriteriaOperator,
   DeleteChimeWebhookConfigurationCommand,
+  DeleteChimeWebhookConfigurationException,
   DeleteCustomActionCommand,
   DeleteMicrosoftTeamsChannelConfigurationCommand,
   DeleteMicrosoftTeamsConfiguredTeamCommand,
   DeleteMicrosoftTeamsUserIdentityCommand,
+  DeleteMicrosoftTeamsUserIdentityException,
   DeleteSlackChannelConfigurationCommand,
+  DeleteSlackChannelConfigurationException,
   DeleteSlackUserIdentityCommand,
+  DeleteSlackUserIdentityException,
   DeleteSlackWorkspaceAuthorizationCommand,
+  DeleteSlackWorkspaceAuthorizationFault,
+  DeleteTeamsChannelConfigurationException,
+  DeleteTeamsConfiguredTeamException,
   DescribeChimeWebhookConfigurationsCommand,
+  DescribeChimeWebhookConfigurationsException,
   DescribeSlackChannelConfigurationsCommand,
+  DescribeSlackChannelConfigurationsException,
   DescribeSlackUserIdentitiesCommand,
+  DescribeSlackUserIdentitiesException,
   DescribeSlackWorkspacesCommand,
+  DescribeSlackWorkspacesException,
   DisassociateFromConfigurationCommand,
   GetAccountPreferencesCommand,
+  GetAccountPreferencesException,
   GetCustomActionCommand,
   GetMicrosoftTeamsChannelConfigurationCommand,
+  GetTeamsChannelConfigurationException,
+  InternalServiceError,
+  InvalidParameterException,
+  InvalidRequestException,
+  LimitExceededException,
   ListAssociationsCommand,
   ListCustomActionsCommand,
   ListMicrosoftTeamsChannelConfigurationsCommand,
   ListMicrosoftTeamsConfiguredTeamsCommand,
+  ListMicrosoftTeamsConfiguredTeamsException,
   ListMicrosoftTeamsUserIdentitiesCommand,
+  ListMicrosoftTeamsUserIdentitiesException,
   ListTagsForResourceCommand,
+  ListTeamsChannelConfigurationsException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
   TagResourceCommand,
+  TooManyTagsException,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAccountPreferencesCommand,
+  UpdateAccountPreferencesException,
   UpdateChimeWebhookConfigurationCommand,
+  UpdateChimeWebhookConfigurationException,
   UpdateCustomActionCommand,
   UpdateMicrosoftTeamsChannelConfigurationCommand,
   UpdateSlackChannelConfigurationCommand,
+  UpdateSlackChannelConfigurationException,
+  UpdateTeamsChannelConfigurationException,
   paginateDescribeChimeWebhookConfigurations,
   paginateDescribeSlackChannelConfigurations,
   paginateDescribeSlackUserIdentities,
@@ -89,6 +121,38 @@ assert(typeof UpdateSlackChannelConfigurationCommand === "function");
 // enums
 assert(typeof CustomActionAttachmentCriteriaOperator === "object");
 // errors
+assert(ConflictException.prototype instanceof ChatbotServiceException);
+assert(CreateChimeWebhookConfigurationException.prototype instanceof ChatbotServiceException);
+assert(CreateSlackChannelConfigurationException.prototype instanceof ChatbotServiceException);
+assert(CreateTeamsChannelConfigurationException.prototype instanceof ChatbotServiceException);
+assert(DeleteChimeWebhookConfigurationException.prototype instanceof ChatbotServiceException);
+assert(DeleteMicrosoftTeamsUserIdentityException.prototype instanceof ChatbotServiceException);
+assert(DeleteSlackChannelConfigurationException.prototype instanceof ChatbotServiceException);
+assert(DeleteSlackUserIdentityException.prototype instanceof ChatbotServiceException);
+assert(DeleteSlackWorkspaceAuthorizationFault.prototype instanceof ChatbotServiceException);
+assert(DeleteTeamsChannelConfigurationException.prototype instanceof ChatbotServiceException);
+assert(DeleteTeamsConfiguredTeamException.prototype instanceof ChatbotServiceException);
+assert(DescribeChimeWebhookConfigurationsException.prototype instanceof ChatbotServiceException);
+assert(DescribeSlackChannelConfigurationsException.prototype instanceof ChatbotServiceException);
+assert(DescribeSlackUserIdentitiesException.prototype instanceof ChatbotServiceException);
+assert(DescribeSlackWorkspacesException.prototype instanceof ChatbotServiceException);
+assert(GetAccountPreferencesException.prototype instanceof ChatbotServiceException);
+assert(GetTeamsChannelConfigurationException.prototype instanceof ChatbotServiceException);
+assert(InternalServiceError.prototype instanceof ChatbotServiceException);
+assert(InvalidParameterException.prototype instanceof ChatbotServiceException);
+assert(InvalidRequestException.prototype instanceof ChatbotServiceException);
+assert(LimitExceededException.prototype instanceof ChatbotServiceException);
+assert(ListMicrosoftTeamsConfiguredTeamsException.prototype instanceof ChatbotServiceException);
+assert(ListMicrosoftTeamsUserIdentitiesException.prototype instanceof ChatbotServiceException);
+assert(ListTeamsChannelConfigurationsException.prototype instanceof ChatbotServiceException);
+assert(ResourceNotFoundException.prototype instanceof ChatbotServiceException);
+assert(ServiceUnavailableException.prototype instanceof ChatbotServiceException);
+assert(TooManyTagsException.prototype instanceof ChatbotServiceException);
+assert(UnauthorizedException.prototype instanceof ChatbotServiceException);
+assert(UpdateAccountPreferencesException.prototype instanceof ChatbotServiceException);
+assert(UpdateChimeWebhookConfigurationException.prototype instanceof ChatbotServiceException);
+assert(UpdateSlackChannelConfigurationException.prototype instanceof ChatbotServiceException);
+assert(UpdateTeamsChannelConfigurationException.prototype instanceof ChatbotServiceException);
 assert(ChatbotServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeChimeWebhookConfigurations === "function");

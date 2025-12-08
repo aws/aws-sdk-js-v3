@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   BaselineOperationStatus,
   BaselineOperationType,
+  ConflictException,
   ControlOperationStatus,
   ControlOperationType,
   ControlTower,
@@ -22,6 +24,7 @@ import {
   GetEnabledControlCommand,
   GetLandingZoneCommand,
   GetLandingZoneOperationCommand,
+  InternalServerException,
   LandingZoneDriftStatus,
   LandingZoneOperationStatus,
   LandingZoneOperationType,
@@ -37,11 +40,15 @@ import {
   ResetEnabledBaselineCommand,
   ResetEnabledControlCommand,
   ResetLandingZoneCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateEnabledBaselineCommand,
   UpdateEnabledControlCommand,
   UpdateLandingZoneCommand,
+  ValidationException,
   paginateListBaselines,
   paginateListControlOperations,
   paginateListEnabledBaselines,
@@ -96,6 +103,13 @@ assert(typeof LandingZoneOperationType === "object");
 assert(typeof LandingZoneStatus === "object");
 assert(typeof RemediationType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ControlTowerServiceException);
+assert(ConflictException.prototype instanceof ControlTowerServiceException);
+assert(InternalServerException.prototype instanceof ControlTowerServiceException);
+assert(ResourceNotFoundException.prototype instanceof ControlTowerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ControlTowerServiceException);
+assert(ThrottlingException.prototype instanceof ControlTowerServiceException);
+assert(ValidationException.prototype instanceof ControlTowerServiceException);
 assert(ControlTowerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBaselines === "function");

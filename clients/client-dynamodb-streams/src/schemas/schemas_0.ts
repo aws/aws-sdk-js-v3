@@ -162,7 +162,6 @@ export var StreamRecord: StaticStructureSchema = [
 ];
 export var TrimmedDataAccessException: StaticErrorSchema = [-3, n0, _TDAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TrimmedDataAccessException, __TrimmedDataAccessException);
-export var __Unit = "unit" as const;
 export var DynamoDBStreamsServiceException: StaticErrorSchema = [-3, _sm, "DynamoDBStreamsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DynamoDBStreamsServiceException, __DynamoDBStreamsServiceException);
 export var BinarySetAttributeValue = 64 | 21;

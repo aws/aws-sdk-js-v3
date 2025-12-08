@@ -300,6 +300,7 @@ export type {
   UpdateVodSourceRequest,
   UpdateVodSourceResponse,
   VodSource,
+  BadRequestException,
   MediaTailorServiceException,
   paginateGetChannelSchedule,
   paginateListAlerts,

@@ -148,6 +148,13 @@ export type {
   UpdatePipeSourceRabbitMQBrokerParameters,
   UpdatePipeSourceSelfManagedKafkaParameters,
   UpdatePipeSourceSqsQueueParameters,
+  ValidationExceptionField,
+  ConflictException,
+  InternalException,
+  NotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
   PipesServiceException,
   paginateListPipes,
 } from "../dist-types/index.d";

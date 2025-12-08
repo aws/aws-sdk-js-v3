@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ApplyGuardrailCommand,
   AsyncInvokeStatus,
   AudioFormat,
@@ -6,6 +7,7 @@ import {
   BedrockRuntimeClient,
   BedrockRuntimeServiceException,
   CachePointType,
+  ConflictException,
   ConversationRole,
   ConverseCommand,
   ConverseStreamCommand,
@@ -42,9 +44,13 @@ import {
   InvokeModelWithBidirectionalStreamCommand,
   InvokeModelWithResponseStreamCommand,
   ListAsyncInvokesCommand,
+  ModelErrorException,
+  ModelNotReadyException,
   ModelStreamErrorException,
   ModelTimeoutException,
   PerformanceConfigLatency,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   ServiceTierType,
   ServiceUnavailableException,
   SortAsyncInvocationBy,
@@ -115,9 +121,15 @@ assert(typeof ToolUseType === "object");
 assert(typeof Trace === "object");
 assert(typeof VideoFormat === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BedrockRuntimeServiceException);
+assert(ConflictException.prototype instanceof BedrockRuntimeServiceException);
 assert(InternalServerException.prototype instanceof BedrockRuntimeServiceException);
+assert(ModelErrorException.prototype instanceof BedrockRuntimeServiceException);
+assert(ModelNotReadyException.prototype instanceof BedrockRuntimeServiceException);
 assert(ModelStreamErrorException.prototype instanceof BedrockRuntimeServiceException);
 assert(ModelTimeoutException.prototype instanceof BedrockRuntimeServiceException);
+assert(ResourceNotFoundException.prototype instanceof BedrockRuntimeServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BedrockRuntimeServiceException);
 assert(ServiceUnavailableException.prototype instanceof BedrockRuntimeServiceException);
 assert(ThrottlingException.prototype instanceof BedrockRuntimeServiceException);
 assert(ValidationException.prototype instanceof BedrockRuntimeServiceException);

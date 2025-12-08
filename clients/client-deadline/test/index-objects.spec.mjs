@@ -1,6 +1,7 @@
 import {
   AcceleratorName,
   AcceleratorType,
+  AccessDeniedException,
   AssociateMemberToFarmCommand,
   AssociateMemberToFleetCommand,
   AssociateMemberToJobCommand,
@@ -17,6 +18,8 @@ import {
   BudgetStatus,
   ComparisonOperator,
   CompletedStatus,
+  ConflictException,
+  ConflictExceptionReason,
   CopyJobTemplateCommand,
   CpuArchitectureType,
   CreateBudgetCommand,
@@ -81,6 +84,7 @@ import {
   GetStorageProfileForQueueCommand,
   GetTaskCommand,
   GetWorkerCommand,
+  InternalServerErrorException,
   JobAttachmentsFileSystem,
   JobEntityErrorCode,
   JobLifecycleStatus,
@@ -125,6 +129,7 @@ import {
   QueueFleetAssociationStatus,
   QueueLimitAssociationStatus,
   QueueStatus,
+  ResourceNotFoundException,
   RunAs,
   SearchJobsCommand,
   SearchStepsCommand,
@@ -132,6 +137,8 @@ import {
   SearchTermMatchingType,
   SearchWorkersCommand,
   ServiceManagedFleetOperatingSystemFamily,
+  ServiceQuotaExceededException,
+  ServiceQuotaExceededExceptionReason,
   SessionActionStatus,
   SessionLifecycleStatus,
   SessionLifecycleTargetStatus,
@@ -146,6 +153,7 @@ import {
   TagResourceCommand,
   TaskRunStatus,
   TaskTargetRunStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateBudgetCommand,
   UpdateFarmCommand,
@@ -170,6 +178,8 @@ import {
   UsageGroupByField,
   UsageStatistic,
   UsageType,
+  ValidationException,
+  ValidationExceptionReason,
   WorkerStatus,
   paginateGetSessionsStatisticsAggregation,
   paginateListAvailableMeteredProducts,
@@ -344,6 +354,7 @@ assert(typeof BudgetActionType === "object");
 assert(typeof BudgetStatus === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof CompletedStatus === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof CpuArchitectureType === "object");
 assert(typeof CreateJobTargetTaskRunStatus === "object");
 assert(typeof CustomerManagedFleetOperatingSystemFamily === "object");
@@ -372,6 +383,7 @@ assert(typeof QueueStatus === "object");
 assert(typeof RunAs === "object");
 assert(typeof SearchTermMatchingType === "object");
 assert(typeof ServiceManagedFleetOperatingSystemFamily === "object");
+assert(typeof ServiceQuotaExceededExceptionReason === "object");
 assert(typeof SessionActionStatus === "object");
 assert(typeof SessionLifecycleStatus === "object");
 assert(typeof SessionLifecycleTargetStatus === "object");
@@ -391,8 +403,16 @@ assert(typeof UpdateQueueLimitAssociationStatus === "object");
 assert(typeof UsageGroupByField === "object");
 assert(typeof UsageStatistic === "object");
 assert(typeof UsageType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WorkerStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DeadlineServiceException);
+assert(ConflictException.prototype instanceof DeadlineServiceException);
+assert(InternalServerErrorException.prototype instanceof DeadlineServiceException);
+assert(ResourceNotFoundException.prototype instanceof DeadlineServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DeadlineServiceException);
+assert(ThrottlingException.prototype instanceof DeadlineServiceException);
+assert(ValidationException.prototype instanceof DeadlineServiceException);
 assert(DeadlineServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForFleetActive === "function");

@@ -1,4 +1,5 @@
 import {
+  ConflictException,
   CreateLinkCommand,
   CreateSinkCommand,
   DeleteLinkCommand,
@@ -6,18 +7,25 @@ import {
   GetLinkCommand,
   GetSinkCommand,
   GetSinkPolicyCommand,
+  InternalServiceFault,
+  InvalidParameterException,
   ListAttachedLinksCommand,
   ListLinksCommand,
   ListSinksCommand,
   ListTagsForResourceCommand,
+  MissingRequiredParameterException,
   OAM,
   OAMClient,
   OAMServiceException,
   PutSinkPolicyCommand,
+  ResourceNotFoundException,
   ResourceType,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateLinkCommand,
+  ValidationException,
   paginateListAttachedLinks,
   paginateListLinks,
   paginateListSinks,
@@ -45,6 +53,14 @@ assert(typeof UpdateLinkCommand === "function");
 // enums
 assert(typeof ResourceType === "object");
 // errors
+assert(ConflictException.prototype instanceof OAMServiceException);
+assert(InternalServiceFault.prototype instanceof OAMServiceException);
+assert(InvalidParameterException.prototype instanceof OAMServiceException);
+assert(MissingRequiredParameterException.prototype instanceof OAMServiceException);
+assert(ResourceNotFoundException.prototype instanceof OAMServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof OAMServiceException);
+assert(TooManyTagsException.prototype instanceof OAMServiceException);
+assert(ValidationException.prototype instanceof OAMServiceException);
 assert(OAMServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAttachedLinks === "function");

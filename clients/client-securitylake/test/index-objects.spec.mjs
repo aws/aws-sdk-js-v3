@@ -1,6 +1,9 @@
 import {
+  AccessDeniedException,
   AccessType,
   AwsLogSourceName,
+  BadRequestException,
+  ConflictException,
   CreateAwsLogSourceCommand,
   CreateCustomLogSourceCommand,
   CreateDataLakeCommand,
@@ -22,18 +25,21 @@ import {
   GetDataLakeSourcesCommand,
   GetSubscriberCommand,
   HttpMethod,
+  InternalServerException,
   ListDataLakeExceptionsCommand,
   ListDataLakesCommand,
   ListLogSourcesCommand,
   ListSubscribersCommand,
   ListTagsForResourceCommand,
   RegisterDataLakeDelegatedAdministratorCommand,
+  ResourceNotFoundException,
   SecurityLake,
   SecurityLakeClient,
   SecurityLakeServiceException,
   SourceCollectionStatus,
   SubscriberStatus,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateDataLakeCommand,
   UpdateDataLakeExceptionSubscriptionCommand,
@@ -88,6 +94,12 @@ assert(typeof HttpMethod === "object");
 assert(typeof SourceCollectionStatus === "object");
 assert(typeof SubscriberStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SecurityLakeServiceException);
+assert(BadRequestException.prototype instanceof SecurityLakeServiceException);
+assert(ConflictException.prototype instanceof SecurityLakeServiceException);
+assert(InternalServerException.prototype instanceof SecurityLakeServiceException);
+assert(ResourceNotFoundException.prototype instanceof SecurityLakeServiceException);
+assert(ThrottlingException.prototype instanceof SecurityLakeServiceException);
 assert(SecurityLakeServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetDataLakeSources === "function");

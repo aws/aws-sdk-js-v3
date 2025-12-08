@@ -25,6 +25,12 @@ export type {
   GetHomeRegionResult,
   HomeRegionControl,
   Target,
+  AccessDeniedException,
+  DryRunOperation,
+  InternalServerError,
+  InvalidInputException,
+  ServiceUnavailableException,
+  ThrottlingException,
   MigrationHubConfigServiceException,
   paginateDescribeHomeRegionControls,
 } from "../dist-types/index.d";

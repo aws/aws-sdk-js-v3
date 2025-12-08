@@ -501,7 +501,6 @@ export var WorkflowVersionSummary: StaticStructureSchema = [
   [_WV, _WA, _ILV, _CA, _MA, _DSL, _SC, _TM],
   [0, 0, 2, 5, 5, () => DefinitionS3Location, () => ScheduleConfiguration, 0],
 ];
-export var __Unit = "unit" as const;
 export var MWAAServerlessServiceException: StaticErrorSchema = [-3, _sm, "MWAAServerlessServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MWAAServerlessServiceException, __MWAAServerlessServiceException);
 export var SecurityGroupIds = 64 | 0;

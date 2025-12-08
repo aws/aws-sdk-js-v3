@@ -1362,7 +1362,6 @@ export var UpstreamRepository: StaticStructureSchema = [3, n0, _UR, 0, [_rN], [0
 export var UpstreamRepositoryInfo: StaticStructureSchema = [3, n0, _URI, 0, [_rN], [0]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _reas], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var CodeartifactServiceException: StaticErrorSchema = [-3, _sm, "CodeartifactServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeartifactServiceException, __CodeartifactServiceException);
 export var AssetSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AssetSummary];

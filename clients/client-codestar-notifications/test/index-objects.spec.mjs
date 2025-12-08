@@ -1,12 +1,17 @@
 import {
+  AccessDeniedException,
   CodestarNotifications,
   CodestarNotificationsClient,
   CodestarNotificationsServiceException,
+  ConcurrentModificationException,
+  ConfigurationException,
   CreateNotificationRuleCommand,
   DeleteNotificationRuleCommand,
   DeleteTargetCommand,
   DescribeNotificationRuleCommand,
   DetailType,
+  InvalidNextTokenException,
+  LimitExceededException,
   ListEventTypesCommand,
   ListEventTypesFilterName,
   ListNotificationRulesCommand,
@@ -15,12 +20,15 @@ import {
   ListTargetsCommand,
   ListTargetsFilterName,
   NotificationRuleStatus,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   SubscribeCommand,
   TagResourceCommand,
   TargetStatus,
   UnsubscribeCommand,
   UntagResourceCommand,
   UpdateNotificationRuleCommand,
+  ValidationException,
   paginateListEventTypes,
   paginateListNotificationRules,
   paginateListTargets,
@@ -51,6 +59,14 @@ assert(typeof ListTargetsFilterName === "object");
 assert(typeof NotificationRuleStatus === "object");
 assert(typeof TargetStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CodestarNotificationsServiceException);
+assert(ConcurrentModificationException.prototype instanceof CodestarNotificationsServiceException);
+assert(ConfigurationException.prototype instanceof CodestarNotificationsServiceException);
+assert(InvalidNextTokenException.prototype instanceof CodestarNotificationsServiceException);
+assert(LimitExceededException.prototype instanceof CodestarNotificationsServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof CodestarNotificationsServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodestarNotificationsServiceException);
+assert(ValidationException.prototype instanceof CodestarNotificationsServiceException);
 assert(CodestarNotificationsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEventTypes === "function");

@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CreateMonitorCommand,
   CreateScopeCommand,
   DeleteMonitorCommand,
@@ -12,6 +14,7 @@ import {
   GetQueryStatusWorkloadInsightsTopContributorsCommand,
   GetQueryStatusWorkloadInsightsTopContributorsDataCommand,
   GetScopeCommand,
+  InternalServerException,
   ListMonitorsCommand,
   ListScopesCommand,
   ListTagsForResourceCommand,
@@ -24,7 +27,9 @@ import {
   NetworkFlowMonitorClient,
   NetworkFlowMonitorServiceException,
   QueryStatus,
+  ResourceNotFoundException,
   ScopeStatus,
+  ServiceQuotaExceededException,
   StartQueryMonitorTopContributorsCommand,
   StartQueryWorkloadInsightsTopContributorsCommand,
   StartQueryWorkloadInsightsTopContributorsDataCommand,
@@ -33,9 +38,11 @@ import {
   StopQueryWorkloadInsightsTopContributorsDataCommand,
   TagResourceCommand,
   TargetType,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateMonitorCommand,
   UpdateScopeCommand,
+  ValidationException,
   WorkloadInsightsMetric,
   paginateGetQueryResultsMonitorTopContributors,
   paginateGetQueryResultsWorkloadInsightsTopContributors,
@@ -85,6 +92,13 @@ assert(typeof ScopeStatus === "object");
 assert(typeof TargetType === "object");
 assert(typeof WorkloadInsightsMetric === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof NetworkFlowMonitorServiceException);
+assert(ConflictException.prototype instanceof NetworkFlowMonitorServiceException);
+assert(InternalServerException.prototype instanceof NetworkFlowMonitorServiceException);
+assert(ResourceNotFoundException.prototype instanceof NetworkFlowMonitorServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof NetworkFlowMonitorServiceException);
+assert(ThrottlingException.prototype instanceof NetworkFlowMonitorServiceException);
+assert(ValidationException.prototype instanceof NetworkFlowMonitorServiceException);
 assert(NetworkFlowMonitorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetQueryResultsMonitorTopContributors === "function");

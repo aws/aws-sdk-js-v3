@@ -1876,7 +1876,6 @@ export var VPCAssociationAuthorizationNotFound: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(VPCAssociationAuthorizationNotFound, __VPCAssociationAuthorizationNotFound);
 export var VPCAssociationNotFound: StaticErrorSchema = [-3, n0, _VPCANF, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(VPCAssociationNotFound, __VPCAssociationNotFound);
-export var __Unit = "unit" as const;
 export var Route53ServiceException: StaticErrorSchema = [-3, _sm, "Route53ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Route53ServiceException, __Route53ServiceException);
 export var Changes: StaticListSchema = [1, n0, _Cha, 0, [() => Change, { [_xN]: _Ch }]];

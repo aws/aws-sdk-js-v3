@@ -51,6 +51,7 @@ import {
   BuildBotLocaleCommand,
   BuiltInIntentSortAttribute,
   BuiltInSlotTypeSortAttribute,
+  ConflictException,
   ConversationEndState,
   ConversationLogsInputModeFilter,
   CreateBotAliasCommand,
@@ -121,6 +122,7 @@ import {
   IntentFilterOperator,
   IntentSortAttribute,
   IntentState,
+  InternalServerException,
   LexModelsV2,
   LexModelsV2Client,
   LexModelsV2ServiceException,
@@ -158,9 +160,12 @@ import {
   MergeStrategy,
   MessageSelectionStrategy,
   ObfuscationSettingType,
+  PreconditionFailedException,
   PromptAttempt,
+  ResourceNotFoundException,
   SearchAssociatedTranscriptsCommand,
   SearchOrder,
+  ServiceQuotaExceededException,
   SlotConstraint,
   SlotFilterName,
   SlotFilterOperator,
@@ -193,6 +198,7 @@ import {
   TestSetModality,
   TestSetSortAttribute,
   TestSetStatus,
+  ThrottlingException,
   TimeDimension,
   TranscriptFormat,
   UntagResourceCommand,
@@ -207,6 +213,7 @@ import {
   UpdateSlotTypeCommand,
   UpdateTestSetCommand,
   UtteranceContentType,
+  ValidationException,
   VoiceEngine,
   paginateListAggregatedUtterances,
   paginateListBotAliasReplicas,
@@ -466,6 +473,13 @@ assert(typeof TranscriptFormat === "object");
 assert(typeof UtteranceContentType === "object");
 assert(typeof VoiceEngine === "object");
 // errors
+assert(ConflictException.prototype instanceof LexModelsV2ServiceException);
+assert(InternalServerException.prototype instanceof LexModelsV2ServiceException);
+assert(PreconditionFailedException.prototype instanceof LexModelsV2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof LexModelsV2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof LexModelsV2ServiceException);
+assert(ThrottlingException.prototype instanceof LexModelsV2ServiceException);
+assert(ValidationException.prototype instanceof LexModelsV2ServiceException);
 assert(LexModelsV2ServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForBotAliasAvailable === "function");

@@ -232,7 +232,6 @@ export var UpdateEnvironmentRequest: StaticStructureSchema = [
   [0, 0, [() => EnvironmentDescription, 0], 0],
 ];
 export var UpdateEnvironmentResult: StaticStructureSchema = [3, n0, _UERp, 0, [], []];
-export var __Unit = "unit" as const;
 export var Cloud9ServiceException: StaticErrorSchema = [-3, _sm, "Cloud9ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Cloud9ServiceException, __Cloud9ServiceException);
 export var BoundedEnvironmentIdList = 64 | 0;

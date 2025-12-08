@@ -57,5 +57,11 @@ export type {
   TargetTrackingConfiguration,
   UpdateScalingPlanRequest,
   UpdateScalingPlanResponse,
+  ConcurrentUpdateException,
+  InternalServiceException,
+  InvalidNextTokenException,
+  LimitExceededException,
+  ObjectNotFoundException,
+  ValidationException,
   AutoScalingPlansServiceException,
 } from "../dist-types/index.d";

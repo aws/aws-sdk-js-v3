@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AnalysisType,
   AntipatternReportStatus,
   AppType,
@@ -12,8 +13,10 @@ import {
   BinaryAnalyzerName,
   CollectorHealth,
   Condition,
+  ConflictException,
   DataSourceType,
   DatabaseManagementPreference,
+  DependencyException,
   GetApplicationComponentDetailsCommand,
   GetApplicationComponentStrategiesCommand,
   GetAssessmentCommand,
@@ -29,6 +32,7 @@ import {
   HomogeneousTargetDatabaseEngine,
   ImportFileTaskStatus,
   InclusionStatus,
+  InternalServerException,
   ListAnalyzableServersCommand,
   ListApplicationComponentsCommand,
   ListCollectorsCommand,
@@ -43,6 +47,7 @@ import {
   PipelineType,
   PutPortfolioPreferencesCommand,
   RecommendationReportStatus,
+  ResourceNotFoundException,
   ResourceSubType,
   RunTimeAnalyzerName,
   RunTimeAssessmentStatus,
@@ -51,6 +56,8 @@ import {
   ServerCriteria,
   ServerErrorCategory,
   ServerOsType,
+  ServiceLinkedRoleLockClientException,
+  ServiceQuotaExceededException,
   Severity,
   SortOrder,
   SourceCodeAnalyzerName,
@@ -63,9 +70,11 @@ import {
   StrategyRecommendation,
   TargetDatabaseEngine,
   TargetDestination,
+  ThrottlingException,
   TransformationToolName,
   UpdateApplicationComponentConfigCommand,
   UpdateServerConfigCommand,
+  ValidationException,
   VersionControl,
   VersionControlType,
   paginateGetServerDetails,
@@ -148,6 +157,15 @@ assert(typeof TransformationToolName === "object");
 assert(typeof VersionControl === "object");
 assert(typeof VersionControlType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MigrationHubStrategyServiceException);
+assert(ConflictException.prototype instanceof MigrationHubStrategyServiceException);
+assert(DependencyException.prototype instanceof MigrationHubStrategyServiceException);
+assert(InternalServerException.prototype instanceof MigrationHubStrategyServiceException);
+assert(ResourceNotFoundException.prototype instanceof MigrationHubStrategyServiceException);
+assert(ServiceLinkedRoleLockClientException.prototype instanceof MigrationHubStrategyServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MigrationHubStrategyServiceException);
+assert(ThrottlingException.prototype instanceof MigrationHubStrategyServiceException);
+assert(ValidationException.prototype instanceof MigrationHubStrategyServiceException);
 assert(MigrationHubStrategyServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetServerDetails === "function");

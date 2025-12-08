@@ -2,6 +2,7 @@ import {
   AbortMultipartReadSetUploadCommand,
   Accelerators,
   AcceptShareCommand,
+  AccessDeniedException,
   AnnotationType,
   BatchDeleteReadSetCommand,
   CacheBehavior,
@@ -9,6 +10,7 @@ import {
   CancelRunCommand,
   CancelVariantImportJobCommand,
   CompleteMultipartReadSetUploadCommand,
+  ConflictException,
   CreateAnnotationStoreCommand,
   CreateAnnotationStoreVersionCommand,
   CreateMultipartReadSetUploadCommand,
@@ -62,6 +64,7 @@ import {
   GetVariantStoreCommand,
   GetWorkflowCommand,
   GetWorkflowVersionCommand,
+  InternalServerException,
   JobStatus,
   ListAnnotationImportJobsCommand,
   ListAnnotationStoreVersionsCommand,
@@ -86,10 +89,12 @@ import {
   ListVariantStoresCommand,
   ListWorkflowVersionsCommand,
   ListWorkflowsCommand,
+  NotSupportedOperationException,
   Omics,
   OmicsClient,
   OmicsServiceException,
   PutS3AccessPolicyCommand,
+  RangeNotSatisfiableException,
   ReadSetActivationJobItemStatus,
   ReadSetActivationJobStatus,
   ReadSetExportJobItemStatus,
@@ -104,6 +109,8 @@ import {
   ReferenceImportJobItemStatus,
   ReferenceImportJobStatus,
   ReferenceStatus,
+  RequestTimeoutException,
+  ResourceNotFoundException,
   ResourceOwner,
   RunCacheStatus,
   RunExport,
@@ -112,6 +119,7 @@ import {
   RunStatus,
   SchemaValueType,
   SequenceStoreStatus,
+  ServiceQuotaExceededException,
   ShareResourceType,
   ShareStatus,
   SourceReferenceType,
@@ -128,6 +136,7 @@ import {
   StoreType,
   TagResourceCommand,
   TaskStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAnnotationStoreCommand,
   UpdateAnnotationStoreVersionCommand,
@@ -138,6 +147,7 @@ import {
   UpdateWorkflowCommand,
   UpdateWorkflowVersionCommand,
   UploadReadSetPartCommand,
+  ValidationException,
   VersionStatus,
   WorkflowEngine,
   WorkflowExport,
@@ -350,6 +360,16 @@ assert(typeof WorkflowExport === "object");
 assert(typeof WorkflowStatus === "object");
 assert(typeof WorkflowType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof OmicsServiceException);
+assert(ConflictException.prototype instanceof OmicsServiceException);
+assert(InternalServerException.prototype instanceof OmicsServiceException);
+assert(NotSupportedOperationException.prototype instanceof OmicsServiceException);
+assert(RangeNotSatisfiableException.prototype instanceof OmicsServiceException);
+assert(RequestTimeoutException.prototype instanceof OmicsServiceException);
+assert(ResourceNotFoundException.prototype instanceof OmicsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof OmicsServiceException);
+assert(ThrottlingException.prototype instanceof OmicsServiceException);
+assert(ValidationException.prototype instanceof OmicsServiceException);
 assert(OmicsServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAnnotationImportJobCreated === "function");

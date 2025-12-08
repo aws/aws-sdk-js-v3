@@ -2,9 +2,11 @@ import {
   Action,
   Alignment,
   AttributeType,
+  BadRequestException,
   ButtonAction,
   CampaignStatus,
   ChannelType,
+  ConflictException,
   CreateAppCommand,
   CreateCampaignCommand,
   CreateEmailTemplateCommand,
@@ -45,6 +47,7 @@ import {
   DimensionType,
   Duration,
   FilterType,
+  ForbiddenException,
   Format,
   Frequency,
   GetAdmChannelCommand,
@@ -97,6 +100,7 @@ import {
   GetVoiceChannelCommand,
   GetVoiceTemplateCommand,
   Include,
+  InternalServerErrorException,
   JobStatus,
   JourneyRunStatus,
   Layout,
@@ -105,8 +109,11 @@ import {
   ListTemplateVersionsCommand,
   ListTemplatesCommand,
   MessageType,
+  MethodNotAllowedException,
   Mode,
+  NotFoundException,
   Operator,
+  PayloadTooLargeException,
   PhoneNumberValidateCommand,
   Pinpoint,
   PinpointClient,
@@ -123,6 +130,7 @@ import {
   State,
   TagResourceCommand,
   TemplateType,
+  TooManyRequestsException,
   Type,
   UntagResourceCommand,
   UpdateAdmChannelCommand,
@@ -310,5 +318,13 @@ assert(typeof State === "object");
 assert(typeof TemplateType === "object");
 assert(typeof Type === "object");
 // errors
+assert(BadRequestException.prototype instanceof PinpointServiceException);
+assert(ConflictException.prototype instanceof PinpointServiceException);
+assert(ForbiddenException.prototype instanceof PinpointServiceException);
+assert(InternalServerErrorException.prototype instanceof PinpointServiceException);
+assert(MethodNotAllowedException.prototype instanceof PinpointServiceException);
+assert(NotFoundException.prototype instanceof PinpointServiceException);
+assert(PayloadTooLargeException.prototype instanceof PinpointServiceException);
+assert(TooManyRequestsException.prototype instanceof PinpointServiceException);
 assert(PinpointServiceException.prototype instanceof Error);
 console.log(`Pinpoint index test passed.`);

@@ -53,6 +53,13 @@ import {
   GetAnalysisReportResultsCommand,
   IPAddressType,
   IdentifiedType,
+  InsufficientCapacityException,
+  InternalServerError,
+  InvalidOperationException,
+  InvalidRequestException,
+  InvalidResourcePolicyException,
+  InvalidTokenException,
+  LimitExceededException,
   ListAnalysisReportsCommand,
   ListFirewallPoliciesCommand,
   ListFirewallsCommand,
@@ -66,6 +73,7 @@ import {
   ListTagsForResourceCommand,
   ListVpcEndpointAssociationsCommand,
   ListenerPropertyType,
+  LogDestinationPermissionException,
   LogDestinationType,
   LogType,
   NetworkFirewall,
@@ -80,6 +88,8 @@ import {
   RejectNetworkFirewallTransitGatewayAttachmentCommand,
   ResourceManagedStatus,
   ResourceManagedType,
+  ResourceNotFoundException,
+  ResourceOwnerCheckException,
   ResourceStatus,
   RevocationCheckAction,
   RuleGroupRequestPhase,
@@ -97,8 +107,10 @@ import {
   TCPFlag,
   TagResourceCommand,
   TargetType,
+  ThrottlingException,
   TlsInterceptMode,
   TransitGatewayAttachmentStatus,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateAvailabilityZoneChangeProtectionCommand,
   UpdateFirewallAnalysisSettingsCommand,
@@ -251,6 +263,18 @@ assert(typeof TCPFlag === "object");
 assert(typeof TlsInterceptMode === "object");
 assert(typeof TransitGatewayAttachmentStatus === "object");
 // errors
+assert(InsufficientCapacityException.prototype instanceof NetworkFirewallServiceException);
+assert(InternalServerError.prototype instanceof NetworkFirewallServiceException);
+assert(InvalidOperationException.prototype instanceof NetworkFirewallServiceException);
+assert(InvalidRequestException.prototype instanceof NetworkFirewallServiceException);
+assert(InvalidResourcePolicyException.prototype instanceof NetworkFirewallServiceException);
+assert(InvalidTokenException.prototype instanceof NetworkFirewallServiceException);
+assert(LimitExceededException.prototype instanceof NetworkFirewallServiceException);
+assert(LogDestinationPermissionException.prototype instanceof NetworkFirewallServiceException);
+assert(ResourceNotFoundException.prototype instanceof NetworkFirewallServiceException);
+assert(ResourceOwnerCheckException.prototype instanceof NetworkFirewallServiceException);
+assert(ThrottlingException.prototype instanceof NetworkFirewallServiceException);
+assert(UnsupportedOperationException.prototype instanceof NetworkFirewallServiceException);
 assert(NetworkFirewallServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetAnalysisReportResults === "function");

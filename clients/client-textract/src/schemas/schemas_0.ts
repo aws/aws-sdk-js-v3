@@ -761,7 +761,6 @@ export var UpdateAdapterResponse: StaticStructureSchema = [
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var Warning: StaticStructureSchema = [3, n0, _War, 0, [_ECr, _P], [0, 64 | 1]];
-export var __Unit = "unit" as const;
 export var TextractServiceException: StaticErrorSchema = [-3, _sm, "TextractServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TextractServiceException, __TextractServiceException);
 export var AdapterList: StaticListSchema = [1, n0, _AL, 0, () => AdapterOverview];

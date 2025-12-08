@@ -83,6 +83,7 @@ import {
   CompleteOnConvergence,
   CompressionType,
   ConditionOutcome,
+  ConflictException,
   ContainerMode,
   ContentClassifier,
   CreateActionCommand,
@@ -559,6 +560,9 @@ import {
   ReservedCapacityType,
   ResourceCatalogSortBy,
   ResourceCatalogSortOrder,
+  ResourceInUse,
+  ResourceLimitExceeded,
+  ResourceNotFound,
   ResourceSharingStrategy,
   ResourceType,
   RetentionType,
@@ -1555,6 +1559,10 @@ assert(typeof WarmPoolResourceStatus === "object");
 assert(typeof WorkforceIpAddressType === "object");
 assert(typeof WorkforceStatus === "object");
 // errors
+assert(ConflictException.prototype instanceof SageMakerServiceException);
+assert(ResourceInUse.prototype instanceof SageMakerServiceException);
+assert(ResourceLimitExceeded.prototype instanceof SageMakerServiceException);
+assert(ResourceNotFound.prototype instanceof SageMakerServiceException);
 assert(SageMakerServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForEndpointDeleted === "function");

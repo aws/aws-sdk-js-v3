@@ -1,9 +1,11 @@
 import {
   AcceptPrimaryEmailUpdateCommand,
+  AccessDeniedException,
   Account,
   AccountClient,
   AccountServiceException,
   AlternateContactType,
+  ConflictException,
   DeleteAlternateContactCommand,
   DisableRegionCommand,
   EnableRegionCommand,
@@ -12,13 +14,18 @@ import {
   GetContactInformationCommand,
   GetPrimaryEmailCommand,
   GetRegionOptStatusCommand,
+  InternalServerException,
   ListRegionsCommand,
   PrimaryEmailUpdateStatus,
   PutAccountNameCommand,
   PutAlternateContactCommand,
   PutContactInformationCommand,
   RegionOptStatus,
+  ResourceNotFoundException,
   StartPrimaryEmailUpdateCommand,
+  TooManyRequestsException,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListRegions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -44,7 +51,14 @@ assert(typeof StartPrimaryEmailUpdateCommand === "function");
 assert(typeof AlternateContactType === "object");
 assert(typeof PrimaryEmailUpdateStatus === "object");
 assert(typeof RegionOptStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AccountServiceException);
+assert(ConflictException.prototype instanceof AccountServiceException);
+assert(InternalServerException.prototype instanceof AccountServiceException);
+assert(ResourceNotFoundException.prototype instanceof AccountServiceException);
+assert(TooManyRequestsException.prototype instanceof AccountServiceException);
+assert(ValidationException.prototype instanceof AccountServiceException);
 assert(AccountServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListRegions === "function");

@@ -3,6 +3,7 @@ import {
   ApplicationAutoScaling,
   ApplicationAutoScalingClient,
   ApplicationAutoScalingServiceException,
+  ConcurrentUpdateException,
   DeleteScalingPolicyCommand,
   DeleteScheduledActionCommand,
   DeregisterScalableTargetCommand,
@@ -10,22 +11,30 @@ import {
   DescribeScalingActivitiesCommand,
   DescribeScalingPoliciesCommand,
   DescribeScheduledActionsCommand,
+  FailedResourceAccessException,
   GetPredictiveScalingForecastCommand,
+  InternalServiceException,
+  InvalidNextTokenException,
+  LimitExceededException,
   ListTagsForResourceCommand,
   MetricAggregationType,
   MetricStatistic,
   MetricType,
+  ObjectNotFoundException,
   PolicyType,
   PredictiveScalingMaxCapacityBreachBehavior,
   PredictiveScalingMode,
   PutScalingPolicyCommand,
   PutScheduledActionCommand,
   RegisterScalableTargetCommand,
+  ResourceNotFoundException,
   ScalableDimension,
   ScalingActivityStatusCode,
   ServiceNamespace,
   TagResourceCommand,
+  TooManyTagsException,
   UntagResourceCommand,
+  ValidationException,
   paginateDescribeScalableTargets,
   paginateDescribeScalingActivities,
   paginateDescribeScalingPolicies,
@@ -62,6 +71,15 @@ assert(typeof ScalableDimension === "object");
 assert(typeof ScalingActivityStatusCode === "object");
 assert(typeof ServiceNamespace === "object");
 // errors
+assert(ConcurrentUpdateException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(FailedResourceAccessException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(InternalServiceException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(InvalidNextTokenException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(LimitExceededException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(ObjectNotFoundException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(ResourceNotFoundException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(TooManyTagsException.prototype instanceof ApplicationAutoScalingServiceException);
+assert(ValidationException.prototype instanceof ApplicationAutoScalingServiceException);
 assert(ApplicationAutoScalingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeScalableTargets === "function");

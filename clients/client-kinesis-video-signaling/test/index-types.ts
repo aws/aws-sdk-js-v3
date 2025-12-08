@@ -14,5 +14,11 @@ export type {
   IceServer,
   SendAlexaOfferToMasterRequest,
   SendAlexaOfferToMasterResponse,
+  ClientLimitExceededException,
+  InvalidArgumentException,
+  InvalidClientException,
+  NotAuthorizedException,
+  ResourceNotFoundException,
+  SessionExpiredException,
   KinesisVideoSignalingServiceException,
 } from "../dist-types/index.d";

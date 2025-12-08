@@ -847,5 +847,13 @@ export type {
   WriteJourneyRequest,
   WriteSegmentRequest,
   WriteTreatmentResource,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  InternalServerErrorException,
+  MethodNotAllowedException,
+  NotFoundException,
+  PayloadTooLargeException,
+  TooManyRequestsException,
   PinpointServiceException,
 } from "../dist-types/index.d";

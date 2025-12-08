@@ -11,7 +11,11 @@ export type {
   RequestStreamEvent,
   ResponsePayloadPart,
   ResponseStreamEvent,
+  InputValidationError,
+  InternalServerError,
   InternalStreamFailure,
+  ModelError,
   ModelStreamError,
+  ServiceUnavailableError,
   SageMakerRuntimeHTTP2ServiceException,
 } from "../dist-types/index.d";

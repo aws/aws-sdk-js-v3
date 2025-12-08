@@ -228,6 +228,8 @@ export type {
   UpdateQualificationTypeRequest,
   UpdateQualificationTypeResponse,
   WorkerBlock,
+  RequestError,
+  ServiceFault,
   MTurkServiceException,
   paginateListAssignmentsForHIT,
   paginateListBonusPayments,

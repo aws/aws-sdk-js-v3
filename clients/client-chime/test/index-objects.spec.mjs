@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   AccountStatus,
   AccountType,
   AssociatePhoneNumberWithUserCommand,
   AssociateSigninDelegateGroupsWithAccountCommand,
+  BadRequestException,
   BatchCreateRoomMembershipCommand,
   BatchDeletePhoneNumberCommand,
   BatchSuspendUserCommand,
@@ -14,6 +16,7 @@ import {
   Chime,
   ChimeClient,
   ChimeServiceException,
+  ConflictException,
   CreateAccountCommand,
   CreateBotCommand,
   CreateMeetingDialOutCommand,
@@ -30,6 +33,7 @@ import {
   DisassociateSigninDelegateGroupsFromAccountCommand,
   EmailStatus,
   ErrorCode,
+  ForbiddenException,
   GetAccountCommand,
   GetAccountSettingsCommand,
   GetBotCommand,
@@ -55,6 +59,7 @@ import {
   ListUsersCommand,
   LogoutUserCommand,
   MemberType,
+  NotFoundException,
   OrderedPhoneNumberStatus,
   PhoneNumberAssociationName,
   PhoneNumberOrderStatus,
@@ -68,9 +73,15 @@ import {
   RegenerateSecurityTokenCommand,
   RegistrationStatus,
   ResetPersonalPINCommand,
+  ResourceLimitExceededException,
   RestorePhoneNumberCommand,
   RoomMembershipRole,
   SearchAvailablePhoneNumbersCommand,
+  ServiceFailureException,
+  ServiceUnavailableException,
+  ThrottledClientException,
+  UnauthorizedClientException,
+  UnprocessableEntityException,
   UpdateAccountCommand,
   UpdateAccountSettingsCommand,
   UpdateBotCommand,
@@ -178,6 +189,17 @@ assert(typeof RegistrationStatus === "object");
 assert(typeof RoomMembershipRole === "object");
 assert(typeof UserType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ChimeServiceException);
+assert(BadRequestException.prototype instanceof ChimeServiceException);
+assert(ConflictException.prototype instanceof ChimeServiceException);
+assert(ForbiddenException.prototype instanceof ChimeServiceException);
+assert(NotFoundException.prototype instanceof ChimeServiceException);
+assert(ResourceLimitExceededException.prototype instanceof ChimeServiceException);
+assert(ServiceFailureException.prototype instanceof ChimeServiceException);
+assert(ServiceUnavailableException.prototype instanceof ChimeServiceException);
+assert(ThrottledClientException.prototype instanceof ChimeServiceException);
+assert(UnauthorizedClientException.prototype instanceof ChimeServiceException);
+assert(UnprocessableEntityException.prototype instanceof ChimeServiceException);
 assert(ChimeServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccounts === "function");

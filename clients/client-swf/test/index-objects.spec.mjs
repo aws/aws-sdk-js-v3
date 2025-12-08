@@ -12,6 +12,7 @@ import {
   CountPendingDecisionTasksCommand,
   DecisionTaskTimeoutType,
   DecisionType,
+  DefaultUndefinedFault,
   DeleteActivityTypeCommand,
   DeleteWorkflowTypeCommand,
   DeprecateActivityTypeCommand,
@@ -21,17 +22,21 @@ import {
   DescribeDomainCommand,
   DescribeWorkflowExecutionCommand,
   DescribeWorkflowTypeCommand,
+  DomainAlreadyExistsFault,
+  DomainDeprecatedFault,
   EventType,
   ExecutionStatus,
   FailWorkflowExecutionFailedCause,
   GetWorkflowExecutionHistoryCommand,
   LambdaFunctionTimeoutType,
+  LimitExceededFault,
   ListActivityTypesCommand,
   ListClosedWorkflowExecutionsCommand,
   ListDomainsCommand,
   ListOpenWorkflowExecutionsCommand,
   ListTagsForResourceCommand,
   ListWorkflowTypesCommand,
+  OperationNotPermittedFault,
   PollForActivityTaskCommand,
   PollForDecisionTaskCommand,
   RecordActivityTaskHeartbeatCommand,
@@ -60,10 +65,16 @@ import {
   StartWorkflowExecutionCommand,
   TagResourceCommand,
   TerminateWorkflowExecutionCommand,
+  TooManyTagsFault,
+  TypeAlreadyExistsFault,
+  TypeDeprecatedFault,
+  TypeNotDeprecatedFault,
   UndeprecateActivityTypeCommand,
   UndeprecateDomainCommand,
   UndeprecateWorkflowTypeCommand,
+  UnknownResourceFault,
   UntagResourceCommand,
+  WorkflowExecutionAlreadyStartedFault,
   WorkflowExecutionCancelRequestedCause,
   WorkflowExecutionTerminatedCause,
   WorkflowExecutionTimeoutType,
@@ -147,6 +158,17 @@ assert(typeof WorkflowExecutionCancelRequestedCause === "object");
 assert(typeof WorkflowExecutionTerminatedCause === "object");
 assert(typeof WorkflowExecutionTimeoutType === "object");
 // errors
+assert(DefaultUndefinedFault.prototype instanceof SWFServiceException);
+assert(DomainAlreadyExistsFault.prototype instanceof SWFServiceException);
+assert(DomainDeprecatedFault.prototype instanceof SWFServiceException);
+assert(LimitExceededFault.prototype instanceof SWFServiceException);
+assert(OperationNotPermittedFault.prototype instanceof SWFServiceException);
+assert(TooManyTagsFault.prototype instanceof SWFServiceException);
+assert(TypeAlreadyExistsFault.prototype instanceof SWFServiceException);
+assert(TypeDeprecatedFault.prototype instanceof SWFServiceException);
+assert(TypeNotDeprecatedFault.prototype instanceof SWFServiceException);
+assert(UnknownResourceFault.prototype instanceof SWFServiceException);
+assert(WorkflowExecutionAlreadyStartedFault.prototype instanceof SWFServiceException);
 assert(SWFServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetWorkflowExecutionHistory === "function");

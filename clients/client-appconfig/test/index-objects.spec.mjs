@@ -3,6 +3,10 @@ import {
   AppConfig,
   AppConfigClient,
   AppConfigServiceException,
+  BadRequestException,
+  BadRequestReason,
+  BytesMeasure,
+  ConflictException,
   CreateApplicationCommand,
   CreateConfigurationProfileCommand,
   CreateDeploymentStrategyCommand,
@@ -32,6 +36,7 @@ import {
   GetExtensionCommand,
   GetHostedConfigurationVersionCommand,
   GrowthType,
+  InternalServerException,
   ListApplicationsCommand,
   ListConfigurationProfilesCommand,
   ListDeploymentStrategiesCommand,
@@ -41,7 +46,10 @@ import {
   ListExtensionsCommand,
   ListHostedConfigurationVersionsCommand,
   ListTagsForResourceCommand,
+  PayloadTooLargeException,
   ReplicateTo,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   StartDeploymentCommand,
   StopDeploymentCommand,
   TagResourceCommand,
@@ -121,6 +129,8 @@ assert(typeof UpdateExtensionAssociationCommand === "function");
 assert(typeof ValidateConfigurationCommand === "function");
 // enums
 assert(typeof ActionPoint === "object");
+assert(typeof BadRequestReason === "object");
+assert(typeof BytesMeasure === "object");
 assert(typeof DeletionProtectionCheck === "object");
 assert(typeof DeploymentEventType === "object");
 assert(typeof DeploymentState === "object");
@@ -130,6 +140,12 @@ assert(typeof ReplicateTo === "object");
 assert(typeof TriggeredBy === "object");
 assert(typeof ValidatorType === "object");
 // errors
+assert(BadRequestException.prototype instanceof AppConfigServiceException);
+assert(ConflictException.prototype instanceof AppConfigServiceException);
+assert(InternalServerException.prototype instanceof AppConfigServiceException);
+assert(PayloadTooLargeException.prototype instanceof AppConfigServiceException);
+assert(ResourceNotFoundException.prototype instanceof AppConfigServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AppConfigServiceException);
 assert(AppConfigServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForDeploymentComplete === "function");

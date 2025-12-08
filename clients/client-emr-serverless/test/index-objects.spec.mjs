@@ -2,6 +2,7 @@ import {
   ApplicationState,
   Architecture,
   CancelJobRunCommand,
+  ConflictException,
   CreateApplicationCommand,
   DeleteApplicationCommand,
   EMRServerless,
@@ -10,18 +11,22 @@ import {
   GetApplicationCommand,
   GetDashboardForJobRunCommand,
   GetJobRunCommand,
+  InternalServerException,
   JobRunMode,
   JobRunState,
   ListApplicationsCommand,
   ListJobRunAttemptsCommand,
   ListJobRunsCommand,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   StartApplicationCommand,
   StartJobRunCommand,
   StopApplicationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
+  ValidationException,
   paginateListApplications,
   paginateListJobRunAttempts,
   paginateListJobRuns,
@@ -53,6 +58,11 @@ assert(typeof Architecture === "object");
 assert(typeof JobRunMode === "object");
 assert(typeof JobRunState === "object");
 // errors
+assert(ConflictException.prototype instanceof EMRServerlessServiceException);
+assert(InternalServerException.prototype instanceof EMRServerlessServiceException);
+assert(ResourceNotFoundException.prototype instanceof EMRServerlessServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof EMRServerlessServiceException);
+assert(ValidationException.prototype instanceof EMRServerlessServiceException);
 assert(EMRServerlessServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplications === "function");

@@ -1022,7 +1022,6 @@ export var ValueWithServiceIds: StaticStructureSchema = [
   [_AV, _SIe],
   [() => AnnotationValue, () => ServiceIds],
 ];
-export var __Unit = "unit" as const;
 export var XRayServiceException: StaticErrorSchema = [-3, _s, "XRayServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(XRayServiceException, __XRayServiceException);
 export var AliasList: StaticListSchema = [1, n0, _AL, 0, () => Alias];

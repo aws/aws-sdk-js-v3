@@ -2091,7 +2091,6 @@ export var VideoMetadata: StaticStructureSchema = [
 ];
 export var VideoTooLargeException: StaticErrorSchema = [-3, n0, _VTLE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(VideoTooLargeException, __VideoTooLargeException);
-export var __Unit = "unit" as const;
 export var RekognitionServiceException: StaticErrorSchema = [-3, _sm, "RekognitionServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RekognitionServiceException, __RekognitionServiceException);
 export var Assets: StaticListSchema = [1, n0, _As, 0, () => Asset];

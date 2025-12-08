@@ -1,9 +1,12 @@
 import {
+  AccessDeniedException,
+  AccessDeniedExceptionReason,
   ApplicationStatus,
   ApplicationVisibility,
   AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
   AttachManagedPolicyToPermissionSetCommand,
   AuthenticationMethodType,
+  ConflictException,
   CreateAccountAssignmentCommand,
   CreateApplicationAssignmentCommand,
   CreateApplicationCommand,
@@ -46,6 +49,7 @@ import {
   GrantType,
   InstanceAccessControlAttributeConfigurationStatus,
   InstanceStatus,
+  InternalServerException,
   JwksRetrievalOption,
   KmsKeyStatus,
   KmsKeyType,
@@ -80,13 +84,18 @@ import {
   PutApplicationSessionConfigurationCommand,
   PutInlinePolicyToPermissionSetCommand,
   PutPermissionsBoundaryToPermissionSetCommand,
+  ResourceNotFoundException,
+  ResourceNotFoundExceptionReason,
   SSOAdmin,
   SSOAdminClient,
   SSOAdminServiceException,
+  ServiceQuotaExceededException,
   SignInOrigin,
   StatusValues,
   TagResourceCommand,
   TargetType,
+  ThrottlingException,
+  ThrottlingExceptionReason,
   TrustedTokenIssuerType,
   UntagResourceCommand,
   UpdateApplicationCommand,
@@ -95,6 +104,8 @@ import {
   UpdatePermissionSetCommand,
   UpdateTrustedTokenIssuerCommand,
   UserBackgroundSessionApplicationStatus,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListAccountAssignmentCreationStatus,
   paginateListAccountAssignmentDeletionStatus,
   paginateListAccountAssignments,
@@ -197,6 +208,7 @@ assert(typeof UpdateInstanceAccessControlAttributeConfigurationCommand === "func
 assert(typeof UpdatePermissionSetCommand === "function");
 assert(typeof UpdateTrustedTokenIssuerCommand === "function");
 // enums
+assert(typeof AccessDeniedExceptionReason === "object");
 assert(typeof ApplicationStatus === "object");
 assert(typeof ApplicationVisibility === "object");
 assert(typeof AuthenticationMethodType === "object");
@@ -210,12 +222,22 @@ assert(typeof KmsKeyType === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof ProvisioningStatus === "object");
 assert(typeof ProvisionTargetType === "object");
+assert(typeof ResourceNotFoundExceptionReason === "object");
 assert(typeof SignInOrigin === "object");
 assert(typeof StatusValues === "object");
 assert(typeof TargetType === "object");
+assert(typeof ThrottlingExceptionReason === "object");
 assert(typeof TrustedTokenIssuerType === "object");
 assert(typeof UserBackgroundSessionApplicationStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SSOAdminServiceException);
+assert(ConflictException.prototype instanceof SSOAdminServiceException);
+assert(InternalServerException.prototype instanceof SSOAdminServiceException);
+assert(ResourceNotFoundException.prototype instanceof SSOAdminServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SSOAdminServiceException);
+assert(ThrottlingException.prototype instanceof SSOAdminServiceException);
+assert(ValidationException.prototype instanceof SSOAdminServiceException);
 assert(SSOAdminServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccountAssignmentCreationStatus === "function");

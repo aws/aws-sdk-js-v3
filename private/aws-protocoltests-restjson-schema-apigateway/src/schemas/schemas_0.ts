@@ -91,7 +91,6 @@ export var TooManyRequestsException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
 export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var __Unit = "unit" as const;
 export var APIGatewayServiceException: StaticErrorSchema = [-3, _s, "APIGatewayServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(APIGatewayServiceException, __APIGatewayServiceException);
 export var ListOfEndpointType = 64 | 0;

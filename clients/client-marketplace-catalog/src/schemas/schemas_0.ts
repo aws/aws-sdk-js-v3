@@ -819,7 +819,6 @@ export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, 
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 422 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var MarketplaceCatalogServiceException: StaticErrorSchema = [
   -3,
   _sm,

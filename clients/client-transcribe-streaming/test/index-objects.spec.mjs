@@ -24,6 +24,7 @@ import {
   PartialResultsStability,
   ParticipantRole,
   Pronouns,
+  ResourceNotFoundException,
   Sentiment,
   ServiceUnavailableException,
   Specialty,
@@ -77,6 +78,7 @@ assert(BadRequestException.prototype instanceof TranscribeStreamingServiceExcept
 assert(ConflictException.prototype instanceof TranscribeStreamingServiceException);
 assert(InternalFailureException.prototype instanceof TranscribeStreamingServiceException);
 assert(LimitExceededException.prototype instanceof TranscribeStreamingServiceException);
+assert(ResourceNotFoundException.prototype instanceof TranscribeStreamingServiceException);
 assert(ServiceUnavailableException.prototype instanceof TranscribeStreamingServiceException);
 assert(TranscribeStreamingServiceException.prototype instanceof Error);
 console.log(`TranscribeStreaming index test passed.`);

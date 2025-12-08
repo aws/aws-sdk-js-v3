@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AssociationType,
   Braket,
   BraketClient,
@@ -7,10 +8,13 @@ import {
   CancelQuantumTaskCommand,
   CancellationStatus,
   CompressionType,
+  ConflictException,
   CreateJobCommand,
   CreateQuantumTaskCommand,
   CreateSpendingLimitCommand,
   DeleteSpendingLimitCommand,
+  DeviceOfflineException,
+  DeviceRetiredException,
   DeviceStatus,
   DeviceType,
   ExperimentalCapabilitiesEnablementType,
@@ -18,6 +22,7 @@ import {
   GetJobCommand,
   GetQuantumTaskCommand,
   HybridJobAdditionalAttributeName,
+  InternalServiceException,
   JobEventType,
   JobPrimaryStatus,
   ListTagsForResourceCommand,
@@ -25,6 +30,7 @@ import {
   QuantumTaskStatus,
   QueueName,
   QueuePriority,
+  ResourceNotFoundException,
   SearchDevicesCommand,
   SearchJobsCommand,
   SearchJobsFilterOperator,
@@ -32,9 +38,13 @@ import {
   SearchQuantumTasksFilterOperator,
   SearchSpendingLimitsCommand,
   SearchSpendingLimitsFilterOperator,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateSpendingLimitCommand,
+  ValidationException,
+  ValidationExceptionReason,
   _InstanceType,
   paginateSearchDevices,
   paginateSearchJobs,
@@ -81,7 +91,17 @@ assert(typeof QueuePriority === "object");
 assert(typeof SearchJobsFilterOperator === "object");
 assert(typeof SearchQuantumTasksFilterOperator === "object");
 assert(typeof SearchSpendingLimitsFilterOperator === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BraketServiceException);
+assert(ConflictException.prototype instanceof BraketServiceException);
+assert(DeviceOfflineException.prototype instanceof BraketServiceException);
+assert(DeviceRetiredException.prototype instanceof BraketServiceException);
+assert(InternalServiceException.prototype instanceof BraketServiceException);
+assert(ResourceNotFoundException.prototype instanceof BraketServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BraketServiceException);
+assert(ThrottlingException.prototype instanceof BraketServiceException);
+assert(ValidationException.prototype instanceof BraketServiceException);
 assert(BraketServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateSearchDevices === "function");

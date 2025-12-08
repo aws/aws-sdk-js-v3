@@ -164,7 +164,6 @@ export var UsageRecord: StaticStructureSchema = [
   [4, 0, 0, 1, () => UsageAllocations, 0],
 ];
 export var UsageRecordResult: StaticStructureSchema = [3, n0, _URR, 0, [_URs, _MRI, _St], [() => UsageRecord, 0, 0]];
-export var __Unit = "unit" as const;
 export var MarketplaceMeteringServiceException: StaticErrorSchema = [
   -3,
   _sm,

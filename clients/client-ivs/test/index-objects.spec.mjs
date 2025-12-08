@@ -1,9 +1,12 @@
 import {
+  AccessDeniedException,
   BatchGetChannelCommand,
   BatchGetStreamKeyCommand,
   BatchStartViewerSessionRevocationCommand,
   ChannelLatencyMode,
+  ChannelNotBroadcasting,
   ChannelType,
+  ConflictException,
   ContainerFormat,
   CreateChannelCommand,
   CreatePlaybackRestrictionPolicyCommand,
@@ -22,6 +25,7 @@ import {
   GetStreamKeyCommand,
   GetStreamSessionCommand,
   ImportPlaybackKeyPairCommand,
+  InternalServerException,
   Ivs,
   IvsClient,
   IvsServiceException,
@@ -35,22 +39,28 @@ import {
   ListTagsForResourceCommand,
   MultitrackMaximumResolution,
   MultitrackPolicy,
+  PendingVerification,
   PutMetadataCommand,
   RecordingConfigurationState,
   RecordingMode,
   RenditionConfigurationRendition,
   RenditionConfigurationRenditionSelection,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   StartViewerSessionRevocationCommand,
   StopStreamCommand,
   StreamHealth,
   StreamState,
+  StreamUnavailable,
   TagResourceCommand,
+  ThrottlingException,
   ThumbnailConfigurationResolution,
   ThumbnailConfigurationStorage,
   TranscodePreset,
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdatePlaybackRestrictionPolicyCommand,
+  ValidationException,
   paginateListChannels,
   paginateListPlaybackKeyPairs,
   paginateListPlaybackRestrictionPolicies,
@@ -115,6 +125,16 @@ assert(typeof ThumbnailConfigurationResolution === "object");
 assert(typeof ThumbnailConfigurationStorage === "object");
 assert(typeof TranscodePreset === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IvsServiceException);
+assert(ChannelNotBroadcasting.prototype instanceof IvsServiceException);
+assert(ConflictException.prototype instanceof IvsServiceException);
+assert(InternalServerException.prototype instanceof IvsServiceException);
+assert(PendingVerification.prototype instanceof IvsServiceException);
+assert(ResourceNotFoundException.prototype instanceof IvsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof IvsServiceException);
+assert(StreamUnavailable.prototype instanceof IvsServiceException);
+assert(ThrottlingException.prototype instanceof IvsServiceException);
+assert(ValidationException.prototype instanceof IvsServiceException);
 assert(IvsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChannels === "function");

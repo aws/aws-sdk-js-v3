@@ -14,5 +14,6 @@ export type {
   GenerateDataSetResult,
   StartSupportDataExportRequest,
   StartSupportDataExportResult,
+  MarketplaceCommerceAnalyticsException,
   MarketplaceCommerceAnalyticsServiceException,
 } from "../dist-types/index.d";

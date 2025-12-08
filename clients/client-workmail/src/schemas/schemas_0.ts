@@ -1376,7 +1376,6 @@ export var User: StaticStructureSchema = [
   [_I, _Em, _N, _DNi, _S, _UR, _ED, _DDi, _IPUI, _IPISI],
   [0, 0, 0, 0, 0, 0, 4, 4, 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var WorkMailServiceException: StaticErrorSchema = [-3, _s, "WorkMailServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(WorkMailServiceException, __WorkMailServiceException);
 export var AccessControlRuleNameList = 64 | 0;

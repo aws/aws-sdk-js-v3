@@ -625,7 +625,6 @@ export var UpdateStreamStorageConfigurationOutput: StaticStructureSchema = [3, n
 export var UploaderConfig: StaticStructureSchema = [3, n0, _UC, 0, [_SC], [() => ScheduleConfig]];
 export var VersionMismatchException: StaticErrorSchema = [-3, n0, _VME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(VersionMismatchException, __VersionMismatchException);
-export var __Unit = "unit" as const;
 export var KinesisVideoServiceException: StaticErrorSchema = [-3, _s, "KinesisVideoServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(KinesisVideoServiceException, __KinesisVideoServiceException);
 export var ChannelInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ChannelInfo];

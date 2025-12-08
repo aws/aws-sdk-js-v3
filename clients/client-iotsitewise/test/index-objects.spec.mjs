@@ -135,6 +135,7 @@ import {
   Permission,
   PortalState,
   PortalType,
+  PreconditionFailedException,
   PropertyDataType,
   PropertyNotificationState,
   PutAssetModelInterfaceRelationshipCommand,
@@ -142,18 +143,23 @@ import {
   PutLoggingOptionsCommand,
   PutStorageConfigurationCommand,
   Quality,
+  QueryTimeoutException,
   RawValueType,
   ResolveToResourceType,
+  ResourceAlreadyExistsException,
   ResourceNotFoundException,
   ResourceType,
   ScalarType,
+  ServiceUnavailableException,
   StorageType,
   TagResourceCommand,
   TargetResourceType,
   ThrottlingException,
   TimeOrdering,
+  TooManyTagsException,
   TraversalDirection,
   TraversalType,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAccessPolicyCommand,
   UpdateAssetCommand,
@@ -167,6 +173,7 @@ import {
   UpdateGatewayCommand,
   UpdatePortalCommand,
   UpdateProjectCommand,
+  ValidationException,
   WarmTierState,
   paginateBatchGetAssetPropertyAggregates,
   paginateBatchGetAssetPropertyValue,
@@ -381,8 +388,15 @@ assert(ConflictingOperationException.prototype instanceof IoTSiteWiseServiceExce
 assert(InternalFailureException.prototype instanceof IoTSiteWiseServiceException);
 assert(InvalidRequestException.prototype instanceof IoTSiteWiseServiceException);
 assert(LimitExceededException.prototype instanceof IoTSiteWiseServiceException);
+assert(PreconditionFailedException.prototype instanceof IoTSiteWiseServiceException);
+assert(QueryTimeoutException.prototype instanceof IoTSiteWiseServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof IoTSiteWiseServiceException);
 assert(ResourceNotFoundException.prototype instanceof IoTSiteWiseServiceException);
+assert(ServiceUnavailableException.prototype instanceof IoTSiteWiseServiceException);
 assert(ThrottlingException.prototype instanceof IoTSiteWiseServiceException);
+assert(TooManyTagsException.prototype instanceof IoTSiteWiseServiceException);
+assert(UnauthorizedException.prototype instanceof IoTSiteWiseServiceException);
+assert(ValidationException.prototype instanceof IoTSiteWiseServiceException);
 assert(IoTSiteWiseServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAssetActive === "function");

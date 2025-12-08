@@ -1,6 +1,9 @@
 import {
+  ContainerInUseException,
   ContainerLevelMetrics,
+  ContainerNotFoundException,
   ContainerStatus,
+  CorsPolicyNotFoundException,
   CreateContainerCommand,
   DeleteContainerCommand,
   DeleteContainerPolicyCommand,
@@ -12,12 +15,15 @@ import {
   GetCorsPolicyCommand,
   GetLifecyclePolicyCommand,
   GetMetricPolicyCommand,
+  InternalServerError,
+  LimitExceededException,
   ListContainersCommand,
   ListTagsForResourceCommand,
   MediaStore,
   MediaStoreClient,
   MediaStoreServiceException,
   MethodName,
+  PolicyNotFoundException,
   PutContainerPolicyCommand,
   PutCorsPolicyCommand,
   PutLifecyclePolicyCommand,
@@ -59,6 +65,12 @@ assert(typeof ContainerLevelMetrics === "object");
 assert(typeof ContainerStatus === "object");
 assert(typeof MethodName === "object");
 // errors
+assert(ContainerInUseException.prototype instanceof MediaStoreServiceException);
+assert(ContainerNotFoundException.prototype instanceof MediaStoreServiceException);
+assert(CorsPolicyNotFoundException.prototype instanceof MediaStoreServiceException);
+assert(InternalServerError.prototype instanceof MediaStoreServiceException);
+assert(LimitExceededException.prototype instanceof MediaStoreServiceException);
+assert(PolicyNotFoundException.prototype instanceof MediaStoreServiceException);
 assert(MediaStoreServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListContainers === "function");

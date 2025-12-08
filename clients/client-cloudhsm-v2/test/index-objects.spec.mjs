@@ -5,6 +5,13 @@ import {
   CloudHSMV2,
   CloudHSMV2Client,
   CloudHSMV2ServiceException,
+  CloudHsmAccessDeniedException,
+  CloudHsmInternalFailureException,
+  CloudHsmInvalidRequestException,
+  CloudHsmResourceLimitExceededException,
+  CloudHsmResourceNotFoundException,
+  CloudHsmServiceException,
+  CloudHsmTagException,
   ClusterMode,
   ClusterState,
   CopyBackupToRegionCommand,
@@ -63,6 +70,13 @@ assert(typeof ClusterState === "object");
 assert(typeof HsmState === "object");
 assert(typeof NetworkType === "object");
 // errors
+assert(CloudHsmAccessDeniedException.prototype instanceof CloudHSMV2ServiceException);
+assert(CloudHsmInternalFailureException.prototype instanceof CloudHSMV2ServiceException);
+assert(CloudHsmInvalidRequestException.prototype instanceof CloudHSMV2ServiceException);
+assert(CloudHsmResourceLimitExceededException.prototype instanceof CloudHSMV2ServiceException);
+assert(CloudHsmResourceNotFoundException.prototype instanceof CloudHSMV2ServiceException);
+assert(CloudHsmServiceException.prototype instanceof CloudHSMV2ServiceException);
+assert(CloudHsmTagException.prototype instanceof CloudHSMV2ServiceException);
 assert(CloudHSMV2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeBackups === "function");

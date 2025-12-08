@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   BatchGetInvoiceProfileCommand,
   BuyerDomain,
+  ConflictException,
   ConnectionTestingMethod,
   CreateInvoiceUnitCommand,
   CreateProcurementPortalPreferenceCommand,
@@ -11,6 +13,7 @@ import {
   GetInvoicePDFCommand,
   GetInvoiceUnitCommand,
   GetProcurementPortalPreferenceCommand,
+  InternalServerException,
   InvoiceType,
   Invoicing,
   InvoicingClient,
@@ -25,11 +28,16 @@ import {
   Protocol,
   PurchaseOrderDataSourceType,
   PutProcurementPortalPreferenceCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SupplierDomain,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateInvoiceUnitCommand,
   UpdateProcurementPortalPreferenceStatusCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListInvoiceSummaries,
   paginateListInvoiceUnits,
   paginateListProcurementPortalPreferences,
@@ -68,7 +76,15 @@ assert(typeof ProcurementPortalPreferenceStatus === "object");
 assert(typeof Protocol === "object");
 assert(typeof PurchaseOrderDataSourceType === "object");
 assert(typeof SupplierDomain === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof InvoicingServiceException);
+assert(ConflictException.prototype instanceof InvoicingServiceException);
+assert(InternalServerException.prototype instanceof InvoicingServiceException);
+assert(ResourceNotFoundException.prototype instanceof InvoicingServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof InvoicingServiceException);
+assert(ThrottlingException.prototype instanceof InvoicingServiceException);
+assert(ValidationException.prototype instanceof InvoicingServiceException);
 assert(InvoicingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListInvoiceSummaries === "function");

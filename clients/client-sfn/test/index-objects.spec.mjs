@@ -1,4 +1,9 @@
 import {
+  ActivityAlreadyExists,
+  ActivityDoesNotExist,
+  ActivityLimitExceeded,
+  ActivityWorkerLimitExceeded,
+  ConflictException,
   CreateActivityCommand,
   CreateStateMachineAliasCommand,
   CreateStateMachineCommand,
@@ -13,6 +18,10 @@ import {
   DescribeStateMachineCommand,
   DescribeStateMachineForExecutionCommand,
   EncryptionType,
+  ExecutionAlreadyExists,
+  ExecutionDoesNotExist,
+  ExecutionLimitExceeded,
+  ExecutionNotRedrivable,
   ExecutionRedriveFilter,
   ExecutionRedriveStatus,
   ExecutionStatus,
@@ -21,6 +30,19 @@ import {
   HistoryEventType,
   IncludedData,
   InspectionLevel,
+  InvalidArn,
+  InvalidDefinition,
+  InvalidEncryptionConfiguration,
+  InvalidExecutionInput,
+  InvalidLoggingConfiguration,
+  InvalidName,
+  InvalidOutput,
+  InvalidToken,
+  InvalidTracingConfiguration,
+  KmsAccessDeniedException,
+  KmsInvalidStateException,
+  KmsKeyState,
+  KmsThrottlingException,
   ListActivitiesCommand,
   ListExecutionsCommand,
   ListMapRunsCommand,
@@ -30,24 +52,35 @@ import {
   ListTagsForResourceCommand,
   LogLevel,
   MapRunStatus,
+  MissingRequiredParameter,
   MockResponseValidationMode,
   PublishStateMachineVersionCommand,
   RedriveExecutionCommand,
+  ResourceNotFound,
   SFN,
   SFNClient,
   SFNServiceException,
   SendTaskFailureCommand,
   SendTaskHeartbeatCommand,
   SendTaskSuccessCommand,
+  ServiceQuotaExceededException,
   StartExecutionCommand,
   StartSyncExecutionCommand,
+  StateMachineAlreadyExists,
+  StateMachineDeleting,
+  StateMachineDoesNotExist,
+  StateMachineLimitExceeded,
   StateMachineStatus,
   StateMachineType,
+  StateMachineTypeNotSupported,
   StopExecutionCommand,
   SyncExecutionStatus,
   TagResourceCommand,
+  TaskDoesNotExist,
+  TaskTimedOut,
   TestExecutionStatus,
   TestStateCommand,
+  TooManyTags,
   UntagResourceCommand,
   UpdateMapRunCommand,
   UpdateStateMachineAliasCommand,
@@ -55,6 +88,8 @@ import {
   ValidateStateMachineDefinitionCommand,
   ValidateStateMachineDefinitionResultCode,
   ValidateStateMachineDefinitionSeverity,
+  ValidationException,
+  ValidationExceptionReason,
   paginateGetExecutionHistory,
   paginateListActivities,
   paginateListExecutions,
@@ -111,6 +146,7 @@ assert(typeof ExecutionStatus === "object");
 assert(typeof HistoryEventType === "object");
 assert(typeof IncludedData === "object");
 assert(typeof InspectionLevel === "object");
+assert(typeof KmsKeyState === "object");
 assert(typeof LogLevel === "object");
 assert(typeof MapRunStatus === "object");
 assert(typeof MockResponseValidationMode === "object");
@@ -120,7 +156,41 @@ assert(typeof SyncExecutionStatus === "object");
 assert(typeof TestExecutionStatus === "object");
 assert(typeof ValidateStateMachineDefinitionResultCode === "object");
 assert(typeof ValidateStateMachineDefinitionSeverity === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(ActivityAlreadyExists.prototype instanceof SFNServiceException);
+assert(ActivityDoesNotExist.prototype instanceof SFNServiceException);
+assert(ActivityLimitExceeded.prototype instanceof SFNServiceException);
+assert(ActivityWorkerLimitExceeded.prototype instanceof SFNServiceException);
+assert(ConflictException.prototype instanceof SFNServiceException);
+assert(ExecutionAlreadyExists.prototype instanceof SFNServiceException);
+assert(ExecutionDoesNotExist.prototype instanceof SFNServiceException);
+assert(ExecutionLimitExceeded.prototype instanceof SFNServiceException);
+assert(ExecutionNotRedrivable.prototype instanceof SFNServiceException);
+assert(InvalidArn.prototype instanceof SFNServiceException);
+assert(InvalidDefinition.prototype instanceof SFNServiceException);
+assert(InvalidEncryptionConfiguration.prototype instanceof SFNServiceException);
+assert(InvalidExecutionInput.prototype instanceof SFNServiceException);
+assert(InvalidLoggingConfiguration.prototype instanceof SFNServiceException);
+assert(InvalidName.prototype instanceof SFNServiceException);
+assert(InvalidOutput.prototype instanceof SFNServiceException);
+assert(InvalidToken.prototype instanceof SFNServiceException);
+assert(InvalidTracingConfiguration.prototype instanceof SFNServiceException);
+assert(KmsAccessDeniedException.prototype instanceof SFNServiceException);
+assert(KmsInvalidStateException.prototype instanceof SFNServiceException);
+assert(KmsThrottlingException.prototype instanceof SFNServiceException);
+assert(MissingRequiredParameter.prototype instanceof SFNServiceException);
+assert(ResourceNotFound.prototype instanceof SFNServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SFNServiceException);
+assert(StateMachineAlreadyExists.prototype instanceof SFNServiceException);
+assert(StateMachineDeleting.prototype instanceof SFNServiceException);
+assert(StateMachineDoesNotExist.prototype instanceof SFNServiceException);
+assert(StateMachineLimitExceeded.prototype instanceof SFNServiceException);
+assert(StateMachineTypeNotSupported.prototype instanceof SFNServiceException);
+assert(TaskDoesNotExist.prototype instanceof SFNServiceException);
+assert(TaskTimedOut.prototype instanceof SFNServiceException);
+assert(TooManyTags.prototype instanceof SFNServiceException);
+assert(ValidationException.prototype instanceof SFNServiceException);
 assert(SFNServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetExecutionHistory === "function");

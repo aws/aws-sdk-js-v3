@@ -1656,7 +1656,6 @@ export var UpdateResiliencyPolicyResponse: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_er]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var ResiliencehubServiceException: StaticErrorSchema = [-3, _sm, "ResiliencehubServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ResiliencehubServiceException, __ResiliencehubServiceException);
 export var AcceptGroupingRecommendationEntries: StaticListSchema = [

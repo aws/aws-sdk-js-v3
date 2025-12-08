@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  AccessDeniedExceptionReason,
   AccountAttributeName,
   AccountLimitName,
   AssociateOriginationIdentityCommand,
@@ -7,6 +9,8 @@ import {
   AttachmentUploadErrorReason,
   CarrierLookupCommand,
   ConfigurationSetFilterName,
+  ConflictException,
+  ConflictExceptionReason,
   CreateConfigurationSetCommand,
   CreateEventDestinationCommand,
   CreateOptOutListCommand,
@@ -64,6 +68,7 @@ import {
   FieldType,
   GetProtectConfigurationCountryRuleSetCommand,
   GetResourcePolicyCommand,
+  InternalServerException,
   KeywordAction,
   KeywordFilterName,
   LanguageCode,
@@ -110,11 +115,15 @@ import {
   RequestPhoneNumberCommand,
   RequestSenderIdCommand,
   RequestableNumberType,
+  ResourceNotFoundException,
+  ResourceType,
   SendDestinationNumberVerificationCodeCommand,
   SendMediaMessageCommand,
   SendTextMessageCommand,
   SendVoiceMessageCommand,
   SenderIdFilterName,
+  ServiceQuotaExceededException,
+  ServiceQuotaExceededExceptionReason,
   SetAccountDefaultProtectConfigurationCommand,
   SetDefaultMessageFeedbackEnabledCommand,
   SetDefaultMessageTypeCommand,
@@ -125,6 +134,7 @@ import {
   SpendLimitName,
   SubmitRegistrationVersionCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateEventDestinationCommand,
   UpdatePhoneNumberCommand,
@@ -132,6 +142,8 @@ import {
   UpdateProtectConfigurationCommand,
   UpdateProtectConfigurationCountryRuleSetCommand,
   UpdateSenderIdCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VerificationChannel,
   VerificationStatus,
   VerifiedDestinationNumberFilterName,
@@ -258,11 +270,13 @@ assert(typeof UpdateProtectConfigurationCountryRuleSetCommand === "function");
 assert(typeof UpdateSenderIdCommand === "function");
 assert(typeof VerifyDestinationNumberCommand === "function");
 // enums
+assert(typeof AccessDeniedExceptionReason === "object");
 assert(typeof AccountAttributeName === "object");
 assert(typeof AccountLimitName === "object");
 assert(typeof AttachmentStatus === "object");
 assert(typeof AttachmentUploadErrorReason === "object");
 assert(typeof ConfigurationSetFilterName === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof DestinationCountryParameterKey === "object");
 assert(typeof EventType === "object");
 assert(typeof FieldRequirement === "object");
@@ -296,14 +310,24 @@ assert(typeof RegistrationTypeFilterName === "object");
 assert(typeof RegistrationVersionFilterName === "object");
 assert(typeof RegistrationVersionStatus === "object");
 assert(typeof RequestableNumberType === "object");
+assert(typeof ResourceType === "object");
 assert(typeof SenderIdFilterName === "object");
+assert(typeof ServiceQuotaExceededExceptionReason === "object");
 assert(typeof SpendLimitName === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VerificationChannel === "object");
 assert(typeof VerificationStatus === "object");
 assert(typeof VerifiedDestinationNumberFilterName === "object");
 assert(typeof VoiceId === "object");
 assert(typeof VoiceMessageBodyTextType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PinpointSMSVoiceV2ServiceException);
+assert(ConflictException.prototype instanceof PinpointSMSVoiceV2ServiceException);
+assert(InternalServerException.prototype instanceof PinpointSMSVoiceV2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof PinpointSMSVoiceV2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PinpointSMSVoiceV2ServiceException);
+assert(ThrottlingException.prototype instanceof PinpointSMSVoiceV2ServiceException);
+assert(ValidationException.prototype instanceof PinpointSMSVoiceV2ServiceException);
 assert(PinpointSMSVoiceV2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeAccountAttributes === "function");

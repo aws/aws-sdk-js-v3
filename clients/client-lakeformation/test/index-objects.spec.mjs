@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   AddLFTagsToResourceCommand,
+  AlreadyExistsException,
   ApplicationStatus,
   AssumeDecoratedRoleWithSAMLCommand,
   BatchGrantPermissionsCommand,
@@ -7,6 +9,7 @@ import {
   CancelTransactionCommand,
   CommitTransactionCommand,
   ComparisonOperator,
+  ConcurrentModificationException,
   CreateDataCellsFilterCommand,
   CreateLFTagCommand,
   CreateLFTagExpressionCommand,
@@ -24,6 +27,8 @@ import {
   DescribeResourceCommand,
   DescribeTransactionCommand,
   EnableStatus,
+  EntityNotFoundException,
+  ExpiredException,
   ExtendTransactionCommand,
   FieldNameString,
   GetDataCellsFilterCommand,
@@ -40,7 +45,10 @@ import {
   GetTemporaryGlueTableCredentialsCommand,
   GetWorkUnitResultsCommand,
   GetWorkUnitsCommand,
+  GlueEncryptionException,
   GrantPermissionsCommand,
+  InternalServiceException,
+  InvalidInputException,
   LakeFormation,
   LakeFormationClient,
   LakeFormationServiceException,
@@ -52,13 +60,17 @@ import {
   ListResourcesCommand,
   ListTableStorageOptimizersCommand,
   ListTransactionsCommand,
+  OperationTimeoutException,
   OptimizerType,
   Permission,
   PermissionType,
+  PermissionTypeMismatchException,
   PutDataLakeSettingsCommand,
   QueryStateString,
   RegisterResourceCommand,
   RemoveLFTagsFromResourceCommand,
+  ResourceNotReadyException,
+  ResourceNumberLimitExceededException,
   ResourceShareType,
   ResourceType,
   RevokePermissionsCommand,
@@ -67,6 +79,11 @@ import {
   ServiceAuthorization,
   StartQueryPlanningCommand,
   StartTransactionCommand,
+  StatisticsNotReadyYetException,
+  ThrottledException,
+  TransactionCanceledException,
+  TransactionCommitInProgressException,
+  TransactionCommittedException,
   TransactionStatus,
   TransactionStatusFilter,
   TransactionType,
@@ -77,6 +94,7 @@ import {
   UpdateResourceCommand,
   UpdateTableObjectsCommand,
   UpdateTableStorageOptimizerCommand,
+  WorkUnitsNotReadyYetException,
   paginateGetEffectivePermissionsForPath,
   paginateGetTableObjects,
   paginateGetWorkUnits,
@@ -173,6 +191,24 @@ assert(typeof TransactionStatus === "object");
 assert(typeof TransactionStatusFilter === "object");
 assert(typeof TransactionType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof LakeFormationServiceException);
+assert(AlreadyExistsException.prototype instanceof LakeFormationServiceException);
+assert(ConcurrentModificationException.prototype instanceof LakeFormationServiceException);
+assert(EntityNotFoundException.prototype instanceof LakeFormationServiceException);
+assert(ExpiredException.prototype instanceof LakeFormationServiceException);
+assert(GlueEncryptionException.prototype instanceof LakeFormationServiceException);
+assert(InternalServiceException.prototype instanceof LakeFormationServiceException);
+assert(InvalidInputException.prototype instanceof LakeFormationServiceException);
+assert(OperationTimeoutException.prototype instanceof LakeFormationServiceException);
+assert(PermissionTypeMismatchException.prototype instanceof LakeFormationServiceException);
+assert(ResourceNotReadyException.prototype instanceof LakeFormationServiceException);
+assert(ResourceNumberLimitExceededException.prototype instanceof LakeFormationServiceException);
+assert(StatisticsNotReadyYetException.prototype instanceof LakeFormationServiceException);
+assert(ThrottledException.prototype instanceof LakeFormationServiceException);
+assert(TransactionCanceledException.prototype instanceof LakeFormationServiceException);
+assert(TransactionCommitInProgressException.prototype instanceof LakeFormationServiceException);
+assert(TransactionCommittedException.prototype instanceof LakeFormationServiceException);
+assert(WorkUnitsNotReadyYetException.prototype instanceof LakeFormationServiceException);
 assert(LakeFormationServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetEffectivePermissionsForPath === "function");

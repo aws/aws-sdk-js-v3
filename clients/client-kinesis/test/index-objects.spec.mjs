@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AddTagsToStreamCommand,
   ConsumerStatus,
   CreateStreamCommand,
@@ -14,11 +15,14 @@ import {
   DisableEnhancedMonitoringCommand,
   EnableEnhancedMonitoringCommand,
   EncryptionType,
+  ExpiredIteratorException,
+  ExpiredNextTokenException,
   GetRecordsCommand,
   GetResourcePolicyCommand,
   GetShardIteratorCommand,
   IncreaseStreamRetentionPeriodCommand,
   InternalFailureException,
+  InvalidArgumentException,
   KMSAccessDeniedException,
   KMSDisabledException,
   KMSInvalidStateException,
@@ -28,6 +32,7 @@ import {
   Kinesis,
   KinesisClient,
   KinesisServiceException,
+  LimitExceededException,
   ListShardsCommand,
   ListStreamConsumersCommand,
   ListStreamsCommand,
@@ -37,6 +42,7 @@ import {
   MetricsName,
   MinimumThroughputBillingCommitmentInputStatus,
   MinimumThroughputBillingCommitmentOutputStatus,
+  ProvisionedThroughputExceededException,
   PutRecordCommand,
   PutRecordsCommand,
   PutResourcePolicyCommand,
@@ -60,6 +66,7 @@ import {
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
   UpdateStreamWarmThroughputCommand,
+  ValidationException,
   paginateListStreamConsumers,
   paginateListStreams,
   waitForStreamExists,
@@ -123,15 +130,22 @@ assert(typeof ShardIteratorType === "object");
 assert(typeof StreamMode === "object");
 assert(typeof StreamStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof KinesisServiceException);
+assert(ExpiredIteratorException.prototype instanceof KinesisServiceException);
+assert(ExpiredNextTokenException.prototype instanceof KinesisServiceException);
 assert(InternalFailureException.prototype instanceof KinesisServiceException);
+assert(InvalidArgumentException.prototype instanceof KinesisServiceException);
 assert(KMSAccessDeniedException.prototype instanceof KinesisServiceException);
 assert(KMSDisabledException.prototype instanceof KinesisServiceException);
 assert(KMSInvalidStateException.prototype instanceof KinesisServiceException);
 assert(KMSNotFoundException.prototype instanceof KinesisServiceException);
 assert(KMSOptInRequired.prototype instanceof KinesisServiceException);
 assert(KMSThrottlingException.prototype instanceof KinesisServiceException);
+assert(LimitExceededException.prototype instanceof KinesisServiceException);
+assert(ProvisionedThroughputExceededException.prototype instanceof KinesisServiceException);
 assert(ResourceInUseException.prototype instanceof KinesisServiceException);
 assert(ResourceNotFoundException.prototype instanceof KinesisServiceException);
+assert(ValidationException.prototype instanceof KinesisServiceException);
 assert(KinesisServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForStreamExists === "function");

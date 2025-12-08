@@ -4,7 +4,9 @@ import {
   CloudHSM,
   CloudHSMClient,
   CloudHSMServiceException,
+  CloudHsmInternalException,
   CloudHsmObjectState,
+  CloudHsmServiceException,
   CreateHapgCommand,
   CreateHsmCommand,
   CreateLunaClientCommand,
@@ -16,6 +18,7 @@ import {
   DescribeLunaClientCommand,
   GetConfigCommand,
   HsmStatus,
+  InvalidRequestException,
   ListAvailableZonesCommand,
   ListHapgsCommand,
   ListHsmsCommand,
@@ -58,5 +61,8 @@ assert(typeof CloudHsmObjectState === "object");
 assert(typeof HsmStatus === "object");
 assert(typeof SubscriptionType === "object");
 // errors
+assert(CloudHsmInternalException.prototype instanceof CloudHSMServiceException);
+assert(CloudHsmServiceException.prototype instanceof CloudHSMServiceException);
+assert(InvalidRequestException.prototype instanceof CloudHSMServiceException);
 assert(CloudHSMServiceException.prototype instanceof Error);
 console.log(`CloudHSM index test passed.`);

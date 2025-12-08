@@ -1,6 +1,9 @@
 import {
   AssociateAccessGrantsIdentityCenterCommand,
   AsyncOperationName,
+  BadRequestException,
+  BucketAlreadyExists,
+  BucketAlreadyOwnedByYou,
   BucketCannedACL,
   BucketLocationConstraint,
   BucketVersioningStatus,
@@ -73,11 +76,16 @@ import {
   GetStorageLensConfigurationTaggingCommand,
   GetStorageLensGroupCommand,
   GranteeType,
+  IdempotencyException,
+  InternalServiceException,
+  InvalidNextTokenException,
+  InvalidRequestException,
   JobManifestFieldName,
   JobManifestFormat,
   JobReportFormat,
   JobReportScope,
   JobStatus,
+  JobStatusException,
   ListAccessGrantsCommand,
   ListAccessGrantsInstancesCommand,
   ListAccessGrantsLocationsCommand,
@@ -96,6 +104,8 @@ import {
   MetricsStatus,
   MultiRegionAccessPointStatus,
   NetworkOrigin,
+  NoSuchPublicAccessBlockConfiguration,
+  NotFoundException,
   ObjectLambdaAccessPointAliasStatus,
   ObjectLambdaAllowedFeature,
   ObjectLambdaTransformationConfigurationAction,
@@ -144,6 +154,8 @@ import {
   SseKmsEncryptedObjectsStatus,
   SubmitMultiRegionAccessPointRoutesCommand,
   TagResourceCommand,
+  TooManyRequestsException,
+  TooManyTagsException,
   TransitionStorageClass,
   UntagResourceCommand,
   UpdateAccessGrantsLocationCommand,
@@ -318,6 +330,18 @@ assert(typeof ScopePermission === "object");
 assert(typeof SseKmsEncryptedObjectsStatus === "object");
 assert(typeof TransitionStorageClass === "object");
 // errors
+assert(BadRequestException.prototype instanceof S3ControlServiceException);
+assert(BucketAlreadyExists.prototype instanceof S3ControlServiceException);
+assert(BucketAlreadyOwnedByYou.prototype instanceof S3ControlServiceException);
+assert(IdempotencyException.prototype instanceof S3ControlServiceException);
+assert(InternalServiceException.prototype instanceof S3ControlServiceException);
+assert(InvalidNextTokenException.prototype instanceof S3ControlServiceException);
+assert(InvalidRequestException.prototype instanceof S3ControlServiceException);
+assert(JobStatusException.prototype instanceof S3ControlServiceException);
+assert(NoSuchPublicAccessBlockConfiguration.prototype instanceof S3ControlServiceException);
+assert(NotFoundException.prototype instanceof S3ControlServiceException);
+assert(TooManyRequestsException.prototype instanceof S3ControlServiceException);
+assert(TooManyTagsException.prototype instanceof S3ControlServiceException);
 assert(S3ControlServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessGrants === "function");

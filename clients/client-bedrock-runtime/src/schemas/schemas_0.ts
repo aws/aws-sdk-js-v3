@@ -1185,7 +1185,6 @@ export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var VideoBlock: StaticStructureSchema = [3, n0, _VB, 0, [_f, _s], [0, () => VideoSource]];
 export var WebLocation: StaticStructureSchema = [3, n0, _WL, 0, [_url, _do], [0, 0]];
-export var __Unit = "unit" as const;
 export var BedrockRuntimeServiceException: StaticErrorSchema = [-3, _sm, "BedrockRuntimeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockRuntimeServiceException, __BedrockRuntimeServiceException);
 export var AdditionalModelResponseFieldPaths = 64 | 0;

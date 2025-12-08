@@ -1,16 +1,34 @@
 import {
+  AccessDeniedException,
+  AccountHasOngoingImportException,
+  AccountNotFoundException,
+  AccountNotRegisteredException,
+  AccountRegisteredException,
   AddTagsCommand,
   BillingMode,
   CancelQueryCommand,
+  CannotDelegateManagementAccountException,
+  ChannelARNInvalidException,
+  ChannelAlreadyExistsException,
+  ChannelExistsForEDSException,
+  ChannelMaxLimitExceededException,
+  ChannelNotFoundException,
   CloudTrail,
+  CloudTrailARNInvalidException,
+  CloudTrailAccessNotEnabledException,
   CloudTrailClient,
+  CloudTrailInvalidClientTokenIdException,
   CloudTrailServiceException,
+  CloudWatchLogsDeliveryUnavailableException,
+  ConcurrentModificationException,
+  ConflictException,
   CreateChannelCommand,
   CreateDashboardCommand,
   CreateEventDataStoreCommand,
   CreateTrailCommand,
   DashboardStatus,
   DashboardType,
+  DelegatedAdminAccountLimitExceededException,
   DeleteChannelCommand,
   DeleteDashboardCommand,
   DeleteEventDataStoreCommand,
@@ -25,9 +43,17 @@ import {
   EnableFederationCommand,
   EventCategory,
   EventCategoryAggregation,
+  EventDataStoreARNInvalidException,
+  EventDataStoreAlreadyExistsException,
+  EventDataStoreFederationEnabledException,
+  EventDataStoreHasOngoingImportException,
+  EventDataStoreMaxLimitExceededException,
+  EventDataStoreNotFoundException,
   EventDataStoreStatus,
+  EventDataStoreTerminationProtectedException,
   FederationStatus,
   GenerateQueryCommand,
+  GenerateResponseException,
   GetChannelCommand,
   GetDashboardCommand,
   GetEventConfigurationCommand,
@@ -40,9 +66,47 @@ import {
   GetTrailCommand,
   GetTrailStatusCommand,
   ImportFailureStatus,
+  ImportNotFoundException,
   ImportStatus,
+  InactiveEventDataStoreException,
+  InactiveQueryException,
+  InsightNotEnabledException,
   InsightType,
   InsightsMetricDataType,
+  InsufficientDependencyServiceAccessPermissionException,
+  InsufficientEncryptionPolicyException,
+  InsufficientIAMAccessPermissionException,
+  InsufficientS3BucketPolicyException,
+  InsufficientSnsTopicPolicyException,
+  InvalidCloudWatchLogsLogGroupArnException,
+  InvalidCloudWatchLogsRoleArnException,
+  InvalidDateRangeException,
+  InvalidEventCategoryException,
+  InvalidEventDataStoreCategoryException,
+  InvalidEventDataStoreStatusException,
+  InvalidEventSelectorsException,
+  InvalidHomeRegionException,
+  InvalidImportSourceException,
+  InvalidInsightSelectorsException,
+  InvalidKmsKeyIdException,
+  InvalidLookupAttributesException,
+  InvalidMaxResultsException,
+  InvalidNextTokenException,
+  InvalidParameterCombinationException,
+  InvalidParameterException,
+  InvalidQueryStatementException,
+  InvalidQueryStatusException,
+  InvalidS3BucketNameException,
+  InvalidS3PrefixException,
+  InvalidSnsTopicNameException,
+  InvalidSourceException,
+  InvalidTagParameterException,
+  InvalidTimeRangeException,
+  InvalidTokenException,
+  InvalidTrailNameException,
+  KmsException,
+  KmsKeyDisabledException,
+  KmsKeyNotFoundException,
   ListChannelsCommand,
   ListDashboardsCommand,
   ListEventDataStoresCommand,
@@ -58,19 +122,35 @@ import {
   ListTrailsCommand,
   LookupAttributeKey,
   LookupEventsCommand,
+  MaxConcurrentQueriesException,
   MaxEventSize,
+  MaximumNumberOfTrailsExceededException,
+  NoManagementAccountSLRExistsException,
+  NotOrganizationManagementAccountException,
+  NotOrganizationMasterAccountException,
+  OperationNotPermittedException,
+  OrganizationNotInAllFeaturesModeException,
+  OrganizationsNotInUseException,
   PutEventConfigurationCommand,
   PutEventSelectorsCommand,
   PutInsightSelectorsCommand,
   PutResourcePolicyCommand,
+  QueryIdNotFoundException,
   QueryStatus,
   ReadWriteType,
   RefreshScheduleFrequencyUnit,
   RefreshScheduleStatus,
   RegisterOrganizationDelegatedAdminCommand,
   RemoveTagsCommand,
+  ResourceARNNotValidException,
+  ResourceNotFoundException,
+  ResourcePolicyNotFoundException,
+  ResourcePolicyNotValidException,
+  ResourceTypeNotSupportedException,
   RestoreEventDataStoreCommand,
+  S3BucketDoesNotExistException,
   SearchSampleQueriesCommand,
+  ServiceQuotaExceededException,
   SourceEventCategory,
   StartDashboardRefreshCommand,
   StartEventDataStoreIngestionCommand,
@@ -80,8 +160,14 @@ import {
   StopEventDataStoreIngestionCommand,
   StopImportCommand,
   StopLoggingCommand,
+  TagsLimitExceededException,
   Template,
+  ThrottlingException,
+  TrailAlreadyExistsException,
+  TrailNotFoundException,
+  TrailNotProvidedException,
   Type,
+  UnsupportedOperationException,
   UpdateChannelCommand,
   UpdateDashboardCommand,
   UpdateEventDataStoreCommand,
@@ -190,6 +276,92 @@ assert(typeof SourceEventCategory === "object");
 assert(typeof Template === "object");
 assert(typeof Type === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CloudTrailServiceException);
+assert(AccountHasOngoingImportException.prototype instanceof CloudTrailServiceException);
+assert(AccountNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(AccountNotRegisteredException.prototype instanceof CloudTrailServiceException);
+assert(AccountRegisteredException.prototype instanceof CloudTrailServiceException);
+assert(CannotDelegateManagementAccountException.prototype instanceof CloudTrailServiceException);
+assert(ChannelAlreadyExistsException.prototype instanceof CloudTrailServiceException);
+assert(ChannelARNInvalidException.prototype instanceof CloudTrailServiceException);
+assert(ChannelExistsForEDSException.prototype instanceof CloudTrailServiceException);
+assert(ChannelMaxLimitExceededException.prototype instanceof CloudTrailServiceException);
+assert(ChannelNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(CloudTrailAccessNotEnabledException.prototype instanceof CloudTrailServiceException);
+assert(CloudTrailARNInvalidException.prototype instanceof CloudTrailServiceException);
+assert(CloudTrailInvalidClientTokenIdException.prototype instanceof CloudTrailServiceException);
+assert(CloudWatchLogsDeliveryUnavailableException.prototype instanceof CloudTrailServiceException);
+assert(ConcurrentModificationException.prototype instanceof CloudTrailServiceException);
+assert(ConflictException.prototype instanceof CloudTrailServiceException);
+assert(DelegatedAdminAccountLimitExceededException.prototype instanceof CloudTrailServiceException);
+assert(EventDataStoreAlreadyExistsException.prototype instanceof CloudTrailServiceException);
+assert(EventDataStoreARNInvalidException.prototype instanceof CloudTrailServiceException);
+assert(EventDataStoreFederationEnabledException.prototype instanceof CloudTrailServiceException);
+assert(EventDataStoreHasOngoingImportException.prototype instanceof CloudTrailServiceException);
+assert(EventDataStoreMaxLimitExceededException.prototype instanceof CloudTrailServiceException);
+assert(EventDataStoreNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(EventDataStoreTerminationProtectedException.prototype instanceof CloudTrailServiceException);
+assert(GenerateResponseException.prototype instanceof CloudTrailServiceException);
+assert(ImportNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(InactiveEventDataStoreException.prototype instanceof CloudTrailServiceException);
+assert(InactiveQueryException.prototype instanceof CloudTrailServiceException);
+assert(InsightNotEnabledException.prototype instanceof CloudTrailServiceException);
+assert(InsufficientDependencyServiceAccessPermissionException.prototype instanceof CloudTrailServiceException);
+assert(InsufficientEncryptionPolicyException.prototype instanceof CloudTrailServiceException);
+assert(InsufficientIAMAccessPermissionException.prototype instanceof CloudTrailServiceException);
+assert(InsufficientS3BucketPolicyException.prototype instanceof CloudTrailServiceException);
+assert(InsufficientSnsTopicPolicyException.prototype instanceof CloudTrailServiceException);
+assert(InvalidCloudWatchLogsLogGroupArnException.prototype instanceof CloudTrailServiceException);
+assert(InvalidCloudWatchLogsRoleArnException.prototype instanceof CloudTrailServiceException);
+assert(InvalidDateRangeException.prototype instanceof CloudTrailServiceException);
+assert(InvalidEventCategoryException.prototype instanceof CloudTrailServiceException);
+assert(InvalidEventDataStoreCategoryException.prototype instanceof CloudTrailServiceException);
+assert(InvalidEventDataStoreStatusException.prototype instanceof CloudTrailServiceException);
+assert(InvalidEventSelectorsException.prototype instanceof CloudTrailServiceException);
+assert(InvalidHomeRegionException.prototype instanceof CloudTrailServiceException);
+assert(InvalidImportSourceException.prototype instanceof CloudTrailServiceException);
+assert(InvalidInsightSelectorsException.prototype instanceof CloudTrailServiceException);
+assert(InvalidKmsKeyIdException.prototype instanceof CloudTrailServiceException);
+assert(InvalidLookupAttributesException.prototype instanceof CloudTrailServiceException);
+assert(InvalidMaxResultsException.prototype instanceof CloudTrailServiceException);
+assert(InvalidNextTokenException.prototype instanceof CloudTrailServiceException);
+assert(InvalidParameterCombinationException.prototype instanceof CloudTrailServiceException);
+assert(InvalidParameterException.prototype instanceof CloudTrailServiceException);
+assert(InvalidQueryStatementException.prototype instanceof CloudTrailServiceException);
+assert(InvalidQueryStatusException.prototype instanceof CloudTrailServiceException);
+assert(InvalidS3BucketNameException.prototype instanceof CloudTrailServiceException);
+assert(InvalidS3PrefixException.prototype instanceof CloudTrailServiceException);
+assert(InvalidSnsTopicNameException.prototype instanceof CloudTrailServiceException);
+assert(InvalidSourceException.prototype instanceof CloudTrailServiceException);
+assert(InvalidTagParameterException.prototype instanceof CloudTrailServiceException);
+assert(InvalidTimeRangeException.prototype instanceof CloudTrailServiceException);
+assert(InvalidTokenException.prototype instanceof CloudTrailServiceException);
+assert(InvalidTrailNameException.prototype instanceof CloudTrailServiceException);
+assert(KmsException.prototype instanceof CloudTrailServiceException);
+assert(KmsKeyDisabledException.prototype instanceof CloudTrailServiceException);
+assert(KmsKeyNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(MaxConcurrentQueriesException.prototype instanceof CloudTrailServiceException);
+assert(MaximumNumberOfTrailsExceededException.prototype instanceof CloudTrailServiceException);
+assert(NoManagementAccountSLRExistsException.prototype instanceof CloudTrailServiceException);
+assert(NotOrganizationManagementAccountException.prototype instanceof CloudTrailServiceException);
+assert(NotOrganizationMasterAccountException.prototype instanceof CloudTrailServiceException);
+assert(OperationNotPermittedException.prototype instanceof CloudTrailServiceException);
+assert(OrganizationNotInAllFeaturesModeException.prototype instanceof CloudTrailServiceException);
+assert(OrganizationsNotInUseException.prototype instanceof CloudTrailServiceException);
+assert(QueryIdNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(ResourceARNNotValidException.prototype instanceof CloudTrailServiceException);
+assert(ResourceNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(ResourcePolicyNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(ResourcePolicyNotValidException.prototype instanceof CloudTrailServiceException);
+assert(ResourceTypeNotSupportedException.prototype instanceof CloudTrailServiceException);
+assert(S3BucketDoesNotExistException.prototype instanceof CloudTrailServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CloudTrailServiceException);
+assert(TagsLimitExceededException.prototype instanceof CloudTrailServiceException);
+assert(ThrottlingException.prototype instanceof CloudTrailServiceException);
+assert(TrailAlreadyExistsException.prototype instanceof CloudTrailServiceException);
+assert(TrailNotFoundException.prototype instanceof CloudTrailServiceException);
+assert(TrailNotProvidedException.prototype instanceof CloudTrailServiceException);
+assert(UnsupportedOperationException.prototype instanceof CloudTrailServiceException);
 assert(CloudTrailServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetQueryResults === "function");

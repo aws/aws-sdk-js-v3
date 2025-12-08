@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   CompositionState,
+  ConflictException,
   CreateEncoderConfigurationCommand,
   CreateIngestConfigurationCommand,
   CreateParticipantTokenCommand,
@@ -28,6 +30,7 @@ import {
   ImportPublicKeyCommand,
   IngestConfigurationState,
   IngestProtocol,
+  InternalServerException,
   ListCompositionsCommand,
   ListEncoderConfigurationsCommand,
   ListIngestConfigurationsCommand,
@@ -45,11 +48,14 @@ import {
   ParticipantRecordingState,
   ParticipantState,
   ParticipantTokenCapability,
+  PendingVerification,
   PipBehavior,
   PipPosition,
   RecordingConfigurationFormat,
   ReplicationState,
   ReplicationType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   StartCompositionCommand,
   StartParticipantReplicationCommand,
   StopCompositionCommand,
@@ -60,6 +66,7 @@ import {
   UntagResourceCommand,
   UpdateIngestConfigurationCommand,
   UpdateStageCommand,
+  ValidationException,
   VideoAspectRatio,
   VideoFillMode,
   paginateListCompositions,
@@ -140,6 +147,13 @@ assert(typeof ThumbnailStorageType === "object");
 assert(typeof VideoAspectRatio === "object");
 assert(typeof VideoFillMode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IVSRealTimeServiceException);
+assert(ConflictException.prototype instanceof IVSRealTimeServiceException);
+assert(InternalServerException.prototype instanceof IVSRealTimeServiceException);
+assert(PendingVerification.prototype instanceof IVSRealTimeServiceException);
+assert(ResourceNotFoundException.prototype instanceof IVSRealTimeServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof IVSRealTimeServiceException);
+assert(ValidationException.prototype instanceof IVSRealTimeServiceException);
 assert(IVSRealTimeServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCompositions === "function");

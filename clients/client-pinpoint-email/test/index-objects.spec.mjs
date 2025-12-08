@@ -1,5 +1,9 @@
 import {
+  AccountSuspendedException,
+  AlreadyExistsException,
+  BadRequestException,
   BehaviorOnMxFailure,
+  ConcurrentModificationException,
   CreateConfigurationSetCommand,
   CreateConfigurationSetEventDestinationCommand,
   CreateDedicatedIpPoolCommand,
@@ -26,13 +30,17 @@ import {
   GetDomainStatisticsReportCommand,
   GetEmailIdentityCommand,
   IdentityType,
+  LimitExceededException,
   ListConfigurationSetsCommand,
   ListDedicatedIpPoolsCommand,
   ListDeliverabilityTestReportsCommand,
   ListDomainDeliverabilityCampaignsCommand,
   ListEmailIdentitiesCommand,
   ListTagsForResourceCommand,
+  MailFromDomainNotVerifiedException,
   MailFromDomainStatus,
+  MessageRejected,
+  NotFoundException,
   PinpointEmail,
   PinpointEmailClient,
   PinpointEmailServiceException,
@@ -49,8 +57,10 @@ import {
   PutEmailIdentityFeedbackAttributesCommand,
   PutEmailIdentityMailFromAttributesCommand,
   SendEmailCommand,
+  SendingPausedException,
   TagResourceCommand,
   TlsPolicy,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateConfigurationSetEventDestinationCommand,
   WarmupStatus,
@@ -120,6 +130,16 @@ assert(typeof MailFromDomainStatus === "object");
 assert(typeof TlsPolicy === "object");
 assert(typeof WarmupStatus === "object");
 // errors
+assert(AccountSuspendedException.prototype instanceof PinpointEmailServiceException);
+assert(AlreadyExistsException.prototype instanceof PinpointEmailServiceException);
+assert(BadRequestException.prototype instanceof PinpointEmailServiceException);
+assert(ConcurrentModificationException.prototype instanceof PinpointEmailServiceException);
+assert(LimitExceededException.prototype instanceof PinpointEmailServiceException);
+assert(MailFromDomainNotVerifiedException.prototype instanceof PinpointEmailServiceException);
+assert(MessageRejected.prototype instanceof PinpointEmailServiceException);
+assert(NotFoundException.prototype instanceof PinpointEmailServiceException);
+assert(SendingPausedException.prototype instanceof PinpointEmailServiceException);
+assert(TooManyRequestsException.prototype instanceof PinpointEmailServiceException);
 assert(PinpointEmailServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetDedicatedIps === "function");

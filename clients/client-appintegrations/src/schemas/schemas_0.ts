@@ -579,7 +579,6 @@ export var UpdateDataIntegrationRequest: StaticStructureSchema = [3, n0, _UDIR, 
 export var UpdateDataIntegrationResponse: StaticStructureSchema = [3, n0, _UDIRp, 0, [], []];
 export var UpdateEventIntegrationRequest: StaticStructureSchema = [3, n0, _UEIR, 0, [_N, _D], [[0, 1], 0]];
 export var UpdateEventIntegrationResponse: StaticStructureSchema = [3, n0, _UEIRp, 0, [], []];
-export var __Unit = "unit" as const;
 export var AppIntegrationsServiceException: StaticErrorSchema = [-3, _sm, "AppIntegrationsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppIntegrationsServiceException, __AppIntegrationsServiceException);
 export var ApplicationApprovedOrigins = 64 | 0;

@@ -30,6 +30,9 @@ import {
   EgressType,
   HealthCheckProtocol,
   ImageRepositoryType,
+  InternalServiceErrorException,
+  InvalidRequestException,
+  InvalidStateException,
   IpAddressType,
   ListAutoScalingConfigurationsCommand,
   ListConnectionsCommand,
@@ -45,8 +48,10 @@ import {
   OperationType,
   PauseServiceCommand,
   ProviderType,
+  ResourceNotFoundException,
   ResumeServiceCommand,
   Runtime,
+  ServiceQuotaExceededException,
   ServiceStatus,
   SourceCodeVersionType,
   StartDeploymentCommand,
@@ -131,6 +136,11 @@ assert(typeof TracingVendor === "object");
 assert(typeof VpcConnectorStatus === "object");
 assert(typeof VpcIngressConnectionStatus === "object");
 // errors
+assert(InternalServiceErrorException.prototype instanceof AppRunnerServiceException);
+assert(InvalidRequestException.prototype instanceof AppRunnerServiceException);
+assert(InvalidStateException.prototype instanceof AppRunnerServiceException);
+assert(ResourceNotFoundException.prototype instanceof AppRunnerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AppRunnerServiceException);
 assert(AppRunnerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeCustomDomains === "function");

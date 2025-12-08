@@ -1213,7 +1213,6 @@ export var WriteOperation: StaticStructureSchema = [
   [_AO, _DO],
   [() => AddObjectInput, () => DeleteObjectInput],
 ];
-export var __Unit = "unit" as const;
 export var LakeFormationServiceException: StaticErrorSchema = [-3, _sm, "LakeFormationServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LakeFormationServiceException, __LakeFormationServiceException);
 export var AuthorizedSessionTagValueList = 64 | 0;

@@ -282,7 +282,6 @@ export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RI, _T
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RI, _TKL], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var __Unit = "unit" as const;
 export var CloudHSMV2ServiceException: StaticErrorSchema = [-3, _sm, "CloudHSMV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudHSMV2ServiceException, __CloudHSMV2ServiceException);
 export var Backups: StaticListSchema = [1, n0, _Ba, 0, () => Backup];

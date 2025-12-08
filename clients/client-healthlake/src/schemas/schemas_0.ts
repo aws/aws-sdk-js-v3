@@ -325,7 +325,6 @@ export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var HealthLakeServiceException: StaticErrorSchema = [-3, _sm, "HealthLakeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(HealthLakeServiceException, __HealthLakeServiceException);
 export var DatastorePropertiesList: StaticListSchema = [1, n0, _DPL, 0, () => DatastoreProperties];

@@ -1964,7 +1964,6 @@ export var UpdateTrailResponse: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 2],
 ];
 export var Widget: StaticStructureSchema = [3, n0, _Wi, 0, [_QA, _QSuer, _QP, _VP], [0, 0, 64 | 0, 128 | 0]];
-export var __Unit = "unit" as const;
 export var CloudTrailServiceException: StaticErrorSchema = [-3, _s, "CloudTrailServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(CloudTrailServiceException, __CloudTrailServiceException);
 export var AdvancedEventSelectors: StaticListSchema = [1, n0, _AESd, 0, () => AdvancedEventSelector];

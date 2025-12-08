@@ -1,8 +1,12 @@
 import {
   APIName,
+  AccessDeniedException,
+  AccountChannelLimitExceededException,
+  AccountStreamLimitExceededException,
   ChannelProtocol,
   ChannelRole,
   ChannelType,
+  ClientLimitExceededException,
   ComparisonOperator,
   ConfigurationStatus,
   CreateSignalingChannelCommand,
@@ -19,11 +23,15 @@ import {
   DescribeSignalingChannelCommand,
   DescribeStreamCommand,
   DescribeStreamStorageConfigurationCommand,
+  DeviceStreamLimitExceededException,
   Format,
   FormatConfigKey,
   GetDataEndpointCommand,
   GetSignalingChannelEndpointCommand,
   ImageSelectorType,
+  InvalidArgumentException,
+  InvalidDeviceException,
+  InvalidResourceFormatException,
   KinesisVideo,
   KinesisVideoClient,
   KinesisVideoServiceException,
@@ -34,13 +42,19 @@ import {
   ListTagsForStreamCommand,
   MediaStorageConfigurationStatus,
   MediaUriType,
+  NoDataRetentionException,
+  NotAuthorizedException,
   RecorderStatus,
+  ResourceInUseException,
+  ResourceNotFoundException,
   StartEdgeConfigurationUpdateCommand,
   Status,
   StrategyOnFullSize,
+  StreamEdgeConfigurationNotFoundException,
   SyncStatus,
   TagResourceCommand,
   TagStreamCommand,
+  TagsPerResourceExceededLimitException,
   UntagResourceCommand,
   UntagStreamCommand,
   UpdateDataRetentionCommand,
@@ -52,6 +66,7 @@ import {
   UpdateStreamCommand,
   UpdateStreamStorageConfigurationCommand,
   UploaderStatus,
+  VersionMismatchException,
   paginateDescribeMappedResourceConfiguration,
   paginateListEdgeAgentConfigurations,
   paginateListSignalingChannels,
@@ -114,6 +129,21 @@ assert(typeof SyncStatus === "object");
 assert(typeof UpdateDataRetentionOperation === "object");
 assert(typeof UploaderStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof KinesisVideoServiceException);
+assert(AccountChannelLimitExceededException.prototype instanceof KinesisVideoServiceException);
+assert(AccountStreamLimitExceededException.prototype instanceof KinesisVideoServiceException);
+assert(ClientLimitExceededException.prototype instanceof KinesisVideoServiceException);
+assert(DeviceStreamLimitExceededException.prototype instanceof KinesisVideoServiceException);
+assert(InvalidArgumentException.prototype instanceof KinesisVideoServiceException);
+assert(InvalidDeviceException.prototype instanceof KinesisVideoServiceException);
+assert(InvalidResourceFormatException.prototype instanceof KinesisVideoServiceException);
+assert(NoDataRetentionException.prototype instanceof KinesisVideoServiceException);
+assert(NotAuthorizedException.prototype instanceof KinesisVideoServiceException);
+assert(ResourceInUseException.prototype instanceof KinesisVideoServiceException);
+assert(ResourceNotFoundException.prototype instanceof KinesisVideoServiceException);
+assert(StreamEdgeConfigurationNotFoundException.prototype instanceof KinesisVideoServiceException);
+assert(TagsPerResourceExceededLimitException.prototype instanceof KinesisVideoServiceException);
+assert(VersionMismatchException.prototype instanceof KinesisVideoServiceException);
 assert(KinesisVideoServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeMappedResourceConfiguration === "function");

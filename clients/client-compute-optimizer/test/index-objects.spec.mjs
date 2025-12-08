@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AllocationStrategy,
   AsgType,
   AutoScalingConfiguration,
@@ -76,6 +77,8 @@ import {
   InstanceRecommendationFindingReasonCode,
   InstanceSavingsEstimationModeSource,
   InstanceState,
+  InternalServerException,
+  InvalidParameterValueException,
   JobFilterName,
   JobStatus,
   LambdaFunctionMemoryMetricName,
@@ -92,11 +95,14 @@ import {
   LicenseModel,
   LicenseName,
   LicenseRecommendationFilterName,
+  LimitExceededException,
   LookBackPeriodPreference,
   MetricName,
   MetricSourceProvider,
   MetricStatistic,
   MigrationEffort,
+  MissingAuthenticationToken,
+  OptInRequiredException,
   Order,
   PlatformDifference,
   PreferredResourceName,
@@ -113,10 +119,13 @@ import {
   RDSStorageFindingReasonCode,
   RecommendationPreferenceName,
   RecommendationSourceType,
+  ResourceNotFoundException,
   ResourceType,
   SavingsEstimationMode,
   ScopeName,
+  ServiceUnavailableException,
   Status,
+  ThrottlingException,
   UpdateEnrollmentStatusCommand,
   paginateDescribeRecommendationExportJobs,
   paginateGetEnrollmentStatusesForOrganization,
@@ -247,6 +256,15 @@ assert(typeof SavingsEstimationMode === "object");
 assert(typeof ScopeName === "object");
 assert(typeof Status === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ComputeOptimizerServiceException);
+assert(InternalServerException.prototype instanceof ComputeOptimizerServiceException);
+assert(InvalidParameterValueException.prototype instanceof ComputeOptimizerServiceException);
+assert(LimitExceededException.prototype instanceof ComputeOptimizerServiceException);
+assert(MissingAuthenticationToken.prototype instanceof ComputeOptimizerServiceException);
+assert(OptInRequiredException.prototype instanceof ComputeOptimizerServiceException);
+assert(ResourceNotFoundException.prototype instanceof ComputeOptimizerServiceException);
+assert(ServiceUnavailableException.prototype instanceof ComputeOptimizerServiceException);
+assert(ThrottlingException.prototype instanceof ComputeOptimizerServiceException);
 assert(ComputeOptimizerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeRecommendationExportJobs === "function");

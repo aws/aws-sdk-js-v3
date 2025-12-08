@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   ApplicationSignals,
   ApplicationSignalsClient,
   ApplicationSignalsServiceException,
   BatchGetServiceLevelObjectiveBudgetReportCommand,
   BatchUpdateExclusionWindowsCommand,
   ChangeEventType,
+  ConflictException,
   ConnectionType,
   CreateServiceLevelObjectiveCommand,
   DeleteGroupingConfigurationCommand,
@@ -27,15 +29,19 @@ import {
   ListTagsForResourceCommand,
   MetricSourceType,
   PutGroupingConfigurationCommand,
+  ResourceNotFoundException,
   ServiceLevelIndicatorComparisonOperator,
   ServiceLevelIndicatorMetricType,
   ServiceLevelObjectiveBudgetStatus,
+  ServiceQuotaExceededException,
   Severity,
   StandardUnit,
   StartDiscoveryCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateServiceLevelObjectiveCommand,
+  ValidationException,
   paginateListEntityEvents,
   paginateListServiceDependencies,
   paginateListServiceDependents,
@@ -86,6 +92,12 @@ assert(typeof ServiceLevelObjectiveBudgetStatus === "object");
 assert(typeof Severity === "object");
 assert(typeof StandardUnit === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ApplicationSignalsServiceException);
+assert(ConflictException.prototype instanceof ApplicationSignalsServiceException);
+assert(ResourceNotFoundException.prototype instanceof ApplicationSignalsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ApplicationSignalsServiceException);
+assert(ThrottlingException.prototype instanceof ApplicationSignalsServiceException);
+assert(ValidationException.prototype instanceof ApplicationSignalsServiceException);
 assert(ApplicationSignalsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEntityEvents === "function");

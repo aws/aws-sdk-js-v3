@@ -279,7 +279,6 @@ export var WidgetConfig: StaticStructureSchema = [
   [_qP, _dC],
   [() => QueryParameters, () => DisplayConfig],
 ];
-export var __Unit = "unit" as const;
 export var BCMDashboardsServiceException: StaticErrorSchema = [-3, _sm, "BCMDashboardsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BCMDashboardsServiceException, __BCMDashboardsServiceException);
 export var DashboardReferenceList: StaticListSchema = [1, n0, _DRL, 0, () => DashboardReference];

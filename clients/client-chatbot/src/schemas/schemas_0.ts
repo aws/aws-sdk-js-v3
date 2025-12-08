@@ -850,7 +850,6 @@ export var UpdateTeamsChannelConfigurationResult: StaticStructureSchema = [
   [_CCh],
   [[() => TeamsChannelConfiguration, 0]],
 ];
-export var __Unit = "unit" as const;
 export var ChatbotServiceException: StaticErrorSchema = [-3, _sm, "ChatbotServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ChatbotServiceException, __ChatbotServiceException);
 export var AssociationList: StaticListSchema = [1, n0, _ALs, 0, () => AssociationListing];

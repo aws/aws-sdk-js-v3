@@ -82,6 +82,12 @@ export type {
   UpdateEnvironmentOutput,
   UpdateError,
   UpdateNetworkConfigurationInput,
+  AccessDeniedException,
+  InternalServerException,
+  ResourceNotFoundException,
+  RestApiClientException,
+  RestApiServerException,
+  ValidationException,
   MWAAServiceException,
   paginateListEnvironments,
 } from "../dist-types/index.d";

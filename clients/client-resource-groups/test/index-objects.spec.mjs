@@ -1,7 +1,9 @@
 import {
+  BadRequestException,
   CancelTagSyncTaskCommand,
   CreateGroupCommand,
   DeleteGroupCommand,
+  ForbiddenException,
   GetAccountSettingsCommand,
   GetGroupCommand,
   GetGroupConfigurationCommand,
@@ -15,11 +17,14 @@ import {
   GroupResourcesCommand,
   GroupingStatus,
   GroupingType,
+  InternalServerErrorException,
   ListGroupResourcesCommand,
   ListGroupingStatusesCommand,
   ListGroupingStatusesFilterName,
   ListGroupsCommand,
   ListTagSyncTasksCommand,
+  MethodNotAllowedException,
+  NotFoundException,
   PutGroupConfigurationCommand,
   QueryErrorCode,
   QueryType,
@@ -32,6 +37,8 @@ import {
   StartTagSyncTaskCommand,
   TagCommand,
   TagSyncTaskStatus,
+  TooManyRequestsException,
+  UnauthorizedException,
   UngroupResourcesCommand,
   UntagCommand,
   UpdateAccountSettingsCommand,
@@ -85,6 +92,13 @@ assert(typeof ResourceFilterName === "object");
 assert(typeof ResourceStatusValue === "object");
 assert(typeof TagSyncTaskStatus === "object");
 // errors
+assert(BadRequestException.prototype instanceof ResourceGroupsServiceException);
+assert(ForbiddenException.prototype instanceof ResourceGroupsServiceException);
+assert(InternalServerErrorException.prototype instanceof ResourceGroupsServiceException);
+assert(MethodNotAllowedException.prototype instanceof ResourceGroupsServiceException);
+assert(NotFoundException.prototype instanceof ResourceGroupsServiceException);
+assert(TooManyRequestsException.prototype instanceof ResourceGroupsServiceException);
+assert(UnauthorizedException.prototype instanceof ResourceGroupsServiceException);
 assert(ResourceGroupsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListGroupResources === "function");

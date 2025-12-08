@@ -71,7 +71,6 @@ export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]:
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
 export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var __Unit = "unit" as const;
 export var MarketplaceEntitlementServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,

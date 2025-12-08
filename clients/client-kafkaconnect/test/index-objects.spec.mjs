@@ -1,4 +1,6 @@
 import {
+  BadRequestException,
+  ConflictException,
   ConnectorOperationState,
   ConnectorOperationStepState,
   ConnectorOperationStepType,
@@ -16,6 +18,8 @@ import {
   DescribeConnectorOperationCommand,
   DescribeCustomPluginCommand,
   DescribeWorkerConfigurationCommand,
+  ForbiddenException,
+  InternalServerErrorException,
   KafkaClusterClientAuthenticationType,
   KafkaClusterEncryptionInTransitType,
   KafkaConnect,
@@ -26,7 +30,11 @@ import {
   ListCustomPluginsCommand,
   ListTagsForResourceCommand,
   ListWorkerConfigurationsCommand,
+  NotFoundException,
+  ServiceUnavailableException,
   TagResourceCommand,
+  TooManyRequestsException,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateConnectorCommand,
   WorkerConfigurationState,
@@ -70,6 +78,14 @@ assert(typeof KafkaClusterClientAuthenticationType === "object");
 assert(typeof KafkaClusterEncryptionInTransitType === "object");
 assert(typeof WorkerConfigurationState === "object");
 // errors
+assert(BadRequestException.prototype instanceof KafkaConnectServiceException);
+assert(ConflictException.prototype instanceof KafkaConnectServiceException);
+assert(ForbiddenException.prototype instanceof KafkaConnectServiceException);
+assert(InternalServerErrorException.prototype instanceof KafkaConnectServiceException);
+assert(NotFoundException.prototype instanceof KafkaConnectServiceException);
+assert(ServiceUnavailableException.prototype instanceof KafkaConnectServiceException);
+assert(TooManyRequestsException.prototype instanceof KafkaConnectServiceException);
+assert(UnauthorizedException.prototype instanceof KafkaConnectServiceException);
 assert(KafkaConnectServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListConnectorOperations === "function");

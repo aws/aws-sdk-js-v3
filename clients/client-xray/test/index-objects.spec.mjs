@@ -27,18 +27,28 @@ import {
   GetTraceSummariesCommand,
   InsightCategory,
   InsightState,
+  InvalidPolicyRevisionIdException,
+  InvalidRequestException,
   ListResourcePoliciesCommand,
   ListRetrievedTracesCommand,
   ListTagsForResourceCommand,
+  LockoutPreventionException,
+  MalformedPolicyDocumentException,
+  PolicyCountLimitExceededException,
+  PolicySizeLimitExceededException,
   PutEncryptionConfigCommand,
   PutResourcePolicyCommand,
   PutTelemetryRecordsCommand,
   PutTraceSegmentsCommand,
+  ResourceNotFoundException,
   RetrievalStatus,
+  RuleLimitExceededException,
   SamplingStrategyName,
   StartTraceRetrievalCommand,
   TagResourceCommand,
+  ThrottledException,
   TimeRangeType,
+  TooManyTagsException,
   TraceFormatType,
   TraceSegmentDestination,
   TraceSegmentDestinationStatus,
@@ -118,6 +128,16 @@ assert(typeof TraceFormatType === "object");
 assert(typeof TraceSegmentDestination === "object");
 assert(typeof TraceSegmentDestinationStatus === "object");
 // errors
+assert(InvalidPolicyRevisionIdException.prototype instanceof XRayServiceException);
+assert(InvalidRequestException.prototype instanceof XRayServiceException);
+assert(LockoutPreventionException.prototype instanceof XRayServiceException);
+assert(MalformedPolicyDocumentException.prototype instanceof XRayServiceException);
+assert(PolicyCountLimitExceededException.prototype instanceof XRayServiceException);
+assert(PolicySizeLimitExceededException.prototype instanceof XRayServiceException);
+assert(ResourceNotFoundException.prototype instanceof XRayServiceException);
+assert(RuleLimitExceededException.prototype instanceof XRayServiceException);
+assert(ThrottledException.prototype instanceof XRayServiceException);
+assert(TooManyTagsException.prototype instanceof XRayServiceException);
 assert(XRayServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateBatchGetTraces === "function");

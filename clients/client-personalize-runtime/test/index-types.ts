@@ -20,5 +20,7 @@ export type {
   PredictedAction,
   PredictedItem,
   Promotion,
+  InvalidInputException,
+  ResourceNotFoundException,
   PersonalizeRuntimeServiceException,
 } from "../dist-types/index.d";

@@ -1,14 +1,17 @@
 import {
   AcceptInboundCrossClusterSearchConnectionCommand,
+  AccessDeniedException,
   AddTagsCommand,
   AssociatePackageCommand,
   AuthorizeVpcEndpointAccessCommand,
   AutoTuneDesiredState,
   AutoTuneState,
   AutoTuneType,
+  BaseException,
   CancelDomainConfigChangeCommand,
   CancelElasticsearchServiceSoftwareUpdateCommand,
   ConfigChangeStatus,
+  ConflictException,
   CreateElasticsearchDomainCommand,
   CreateOutboundCrossClusterSearchConnectionCommand,
   CreatePackageCommand,
@@ -33,6 +36,7 @@ import {
   DescribeReservedElasticsearchInstanceOfferingsCommand,
   DescribeReservedElasticsearchInstancesCommand,
   DescribeVpcEndpointsCommand,
+  DisabledOperationException,
   DissociatePackageCommand,
   DomainPackageStatus,
   DomainProcessingStatusType,
@@ -48,6 +52,10 @@ import {
   GetUpgradeStatusCommand,
   InboundCrossClusterSearchConnectionStatusCode,
   InitiatedBy,
+  InternalException,
+  InvalidPaginationTokenException,
+  InvalidTypeException,
+  LimitExceededException,
   ListDomainNamesCommand,
   ListDomainsForPackageCommand,
   ListElasticsearchInstanceTypesCommand,
@@ -69,6 +77,8 @@ import {
   RejectInboundCrossClusterSearchConnectionCommand,
   RemoveTagsCommand,
   ReservedElasticsearchInstancePaymentOption,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RevokeVpcEndpointAccessCommand,
   RollbackOnDisable,
   ScheduledAutoTuneActionType,
@@ -82,6 +92,7 @@ import {
   UpgradeElasticsearchDomainCommand,
   UpgradeStatus,
   UpgradeStep,
+  ValidationException,
   VolumeType,
   VpcEndpointErrorCode,
   VpcEndpointStatus,
@@ -188,6 +199,17 @@ assert(typeof VolumeType === "object");
 assert(typeof VpcEndpointErrorCode === "object");
 assert(typeof VpcEndpointStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ElasticsearchServiceServiceException);
+assert(BaseException.prototype instanceof ElasticsearchServiceServiceException);
+assert(ConflictException.prototype instanceof ElasticsearchServiceServiceException);
+assert(DisabledOperationException.prototype instanceof ElasticsearchServiceServiceException);
+assert(InternalException.prototype instanceof ElasticsearchServiceServiceException);
+assert(InvalidPaginationTokenException.prototype instanceof ElasticsearchServiceServiceException);
+assert(InvalidTypeException.prototype instanceof ElasticsearchServiceServiceException);
+assert(LimitExceededException.prototype instanceof ElasticsearchServiceServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof ElasticsearchServiceServiceException);
+assert(ResourceNotFoundException.prototype instanceof ElasticsearchServiceServiceException);
+assert(ValidationException.prototype instanceof ElasticsearchServiceServiceException);
 assert(ElasticsearchServiceServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeDomainAutoTunes === "function");

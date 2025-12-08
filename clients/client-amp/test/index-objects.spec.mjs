@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   AlertManagerDefinitionStatusCode,
   Amp,
   AmpClient,
   AmpServiceException,
   AnomalyDetectorStatusCode,
+  ConflictException,
   CreateAlertManagerDefinitionCommand,
   CreateAnomalyDetectorCommand,
   CreateLoggingConfigurationCommand,
@@ -31,6 +33,7 @@ import {
   DescribeWorkspaceCommand,
   DescribeWorkspaceConfigurationCommand,
   GetDefaultScraperConfigurationCommand,
+  InternalServerException,
   ListAnomalyDetectorsCommand,
   ListRuleGroupsNamespacesCommand,
   ListScrapersCommand,
@@ -42,11 +45,14 @@ import {
   PutResourcePolicyCommand,
   PutRuleGroupsNamespaceCommand,
   QueryLoggingConfigurationStatusCode,
+  ResourceNotFoundException,
   RuleGroupsNamespaceStatusCode,
   ScraperComponentType,
   ScraperLoggingConfigurationStatusCode,
   ScraperStatusCode,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateLoggingConfigurationCommand,
   UpdateQueryLoggingConfigurationCommand,
@@ -54,6 +60,8 @@ import {
   UpdateScraperLoggingConfigurationCommand,
   UpdateWorkspaceAliasCommand,
   UpdateWorkspaceConfigurationCommand,
+  ValidationException,
+  ValidationExceptionReason,
   WorkspaceConfigurationStatusCode,
   WorkspacePolicyStatusCode,
   WorkspaceStatusCode,
@@ -132,10 +140,18 @@ assert(typeof RuleGroupsNamespaceStatusCode === "object");
 assert(typeof ScraperComponentType === "object");
 assert(typeof ScraperLoggingConfigurationStatusCode === "object");
 assert(typeof ScraperStatusCode === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WorkspaceConfigurationStatusCode === "object");
 assert(typeof WorkspacePolicyStatusCode === "object");
 assert(typeof WorkspaceStatusCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AmpServiceException);
+assert(ConflictException.prototype instanceof AmpServiceException);
+assert(InternalServerException.prototype instanceof AmpServiceException);
+assert(ResourceNotFoundException.prototype instanceof AmpServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AmpServiceException);
+assert(ThrottlingException.prototype instanceof AmpServiceException);
+assert(ValidationException.prototype instanceof AmpServiceException);
 assert(AmpServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAnomalyDetectorActive === "function");

@@ -1,6 +1,7 @@
 import {
   AlgorithmicStemming,
   AnalysisSchemeLanguage,
+  BaseException,
   BuildSuggestersCommand,
   CloudSearch,
   CloudSearchClient,
@@ -24,17 +25,24 @@ import {
   DescribeScalingParametersCommand,
   DescribeServiceAccessPoliciesCommand,
   DescribeSuggestersCommand,
+  DisabledOperationException,
   IndexDocumentsCommand,
   IndexFieldType,
+  InternalException,
+  InvalidTypeException,
+  LimitExceededException,
   ListDomainNamesCommand,
   OptionState,
   PartitionInstanceType,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   SuggesterFuzzyMatching,
   TLSSecurityPolicy,
   UpdateAvailabilityOptionsCommand,
   UpdateDomainEndpointOptionsCommand,
   UpdateScalingParametersCommand,
   UpdateServiceAccessPoliciesCommand,
+  ValidationException,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -76,5 +84,13 @@ assert(typeof PartitionInstanceType === "object");
 assert(typeof SuggesterFuzzyMatching === "object");
 assert(typeof TLSSecurityPolicy === "object");
 // errors
+assert(BaseException.prototype instanceof CloudSearchServiceException);
+assert(DisabledOperationException.prototype instanceof CloudSearchServiceException);
+assert(InternalException.prototype instanceof CloudSearchServiceException);
+assert(InvalidTypeException.prototype instanceof CloudSearchServiceException);
+assert(LimitExceededException.prototype instanceof CloudSearchServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof CloudSearchServiceException);
+assert(ResourceNotFoundException.prototype instanceof CloudSearchServiceException);
+assert(ValidationException.prototype instanceof CloudSearchServiceException);
 assert(CloudSearchServiceException.prototype instanceof Error);
 console.log(`CloudSearch index test passed.`);

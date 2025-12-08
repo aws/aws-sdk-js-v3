@@ -10,5 +10,9 @@ export type {
   JoinStorageSessionAsViewerCommandOutput,
   JoinStorageSessionAsViewerInput,
   JoinStorageSessionInput,
+  AccessDeniedException,
+  ClientLimitExceededException,
+  InvalidArgumentException,
+  ResourceNotFoundException,
   KinesisVideoWebRTCStorageServiceException,
 } from "../dist-types/index.d";

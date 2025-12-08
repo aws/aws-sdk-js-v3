@@ -1,13 +1,17 @@
 import {
+  ContainerNotFoundException,
   DeleteObjectCommand,
   DescribeObjectCommand,
   GetObjectCommand,
+  InternalServerError,
   ItemType,
   ListItemsCommand,
   MediaStoreData,
   MediaStoreDataClient,
   MediaStoreDataServiceException,
+  ObjectNotFoundException,
   PutObjectCommand,
+  RequestedRangeNotSatisfiableException,
   StorageClass,
   UploadAvailability,
   paginateListItems,
@@ -27,6 +31,10 @@ assert(typeof ItemType === "object");
 assert(typeof StorageClass === "object");
 assert(typeof UploadAvailability === "object");
 // errors
+assert(ContainerNotFoundException.prototype instanceof MediaStoreDataServiceException);
+assert(InternalServerError.prototype instanceof MediaStoreDataServiceException);
+assert(ObjectNotFoundException.prototype instanceof MediaStoreDataServiceException);
+assert(RequestedRangeNotSatisfiableException.prototype instanceof MediaStoreDataServiceException);
 assert(MediaStoreDataServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListItems === "function");

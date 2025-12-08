@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   AmendBenefitApplicationCommand,
   AssociateBenefitApplicationResourceCommand,
   BenefitAllocationStatus,
   BenefitApplicationStatus,
   BenefitStatus,
   CancelBenefitApplicationCommand,
+  ConflictException,
   CreateBenefitApplicationCommand,
   CurrencyCode,
   DisassociateBenefitApplicationResourceCommand,
@@ -13,6 +15,7 @@ import {
   GetBenefitAllocationCommand,
   GetBenefitApplicationCommand,
   GetBenefitCommand,
+  InternalServerException,
   ListBenefitAllocationsCommand,
   ListBenefitApplicationsCommand,
   ListBenefitsCommand,
@@ -21,11 +24,17 @@ import {
   PartnerCentralBenefitsClient,
   PartnerCentralBenefitsServiceException,
   RecallBenefitApplicationCommand,
+  ResourceNotFoundException,
   ResourceType,
+  ServiceQuotaExceededException,
   SubmitBenefitApplicationCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateBenefitApplicationCommand,
+  ValidationException,
+  ValidationExceptionErrorCode,
+  ValidationExceptionReason,
   paginateListBenefitAllocations,
   paginateListBenefitApplications,
   paginateListBenefits,
@@ -60,7 +69,16 @@ assert(typeof CurrencyCode === "object");
 assert(typeof FileType === "object");
 assert(typeof FulfillmentType === "object");
 assert(typeof ResourceType === "object");
+assert(typeof ValidationExceptionErrorCode === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PartnerCentralBenefitsServiceException);
+assert(ConflictException.prototype instanceof PartnerCentralBenefitsServiceException);
+assert(InternalServerException.prototype instanceof PartnerCentralBenefitsServiceException);
+assert(ResourceNotFoundException.prototype instanceof PartnerCentralBenefitsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PartnerCentralBenefitsServiceException);
+assert(ThrottlingException.prototype instanceof PartnerCentralBenefitsServiceException);
+assert(ValidationException.prototype instanceof PartnerCentralBenefitsServiceException);
 assert(PartnerCentralBenefitsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBenefitAllocations === "function");

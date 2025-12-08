@@ -1,21 +1,30 @@
 import {
+  ActiveSessionsExceededException,
+  ActiveStatementsExceededException,
   BatchExecuteStatementCommand,
+  BatchExecuteStatementException,
   CancelStatementCommand,
+  DatabaseConnectionException,
   DescribeStatementCommand,
   DescribeTableCommand,
   ExecuteStatementCommand,
+  ExecuteStatementException,
   GetStatementResultCommand,
   GetStatementResultV2Command,
+  InternalServerException,
   ListDatabasesCommand,
   ListSchemasCommand,
   ListStatementsCommand,
   ListTablesCommand,
+  QueryTimeoutException,
   RedshiftData,
   RedshiftDataClient,
   RedshiftDataServiceException,
+  ResourceNotFoundException,
   ResultFormatString,
   StatementStatusString,
   StatusString,
+  ValidationException,
   paginateDescribeTable,
   paginateGetStatementResult,
   paginateGetStatementResultV2,
@@ -45,6 +54,15 @@ assert(typeof ResultFormatString === "object");
 assert(typeof StatementStatusString === "object");
 assert(typeof StatusString === "object");
 // errors
+assert(ActiveSessionsExceededException.prototype instanceof RedshiftDataServiceException);
+assert(ActiveStatementsExceededException.prototype instanceof RedshiftDataServiceException);
+assert(BatchExecuteStatementException.prototype instanceof RedshiftDataServiceException);
+assert(DatabaseConnectionException.prototype instanceof RedshiftDataServiceException);
+assert(ExecuteStatementException.prototype instanceof RedshiftDataServiceException);
+assert(InternalServerException.prototype instanceof RedshiftDataServiceException);
+assert(QueryTimeoutException.prototype instanceof RedshiftDataServiceException);
+assert(ResourceNotFoundException.prototype instanceof RedshiftDataServiceException);
+assert(ValidationException.prototype instanceof RedshiftDataServiceException);
 assert(RedshiftDataServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeTable === "function");

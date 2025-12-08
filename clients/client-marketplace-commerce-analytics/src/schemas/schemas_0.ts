@@ -48,7 +48,6 @@ export var StartSupportDataExportRequest: StaticStructureSchema = [
   [0, 4, 0, 0, 0, 0, 128 | 0],
 ];
 export var StartSupportDataExportResult: StaticStructureSchema = [3, n0, _SSDERt, 0, [_dSRI], [0]];
-export var __Unit = "unit" as const;
 export var MarketplaceCommerceAnalyticsServiceException: StaticErrorSchema = [
   -3,
   _sm,

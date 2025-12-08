@@ -18,9 +18,12 @@ import {
   EvaluationMethod,
   GetDetectorModelAnalysisResultsCommand,
   InputStatus,
+  InternalFailureException,
+  InvalidRequestException,
   IoTEvents,
   IoTEventsClient,
   IoTEventsServiceException,
+  LimitExceededException,
   ListAlarmModelVersionsCommand,
   ListAlarmModelsCommand,
   ListDetectorModelVersionsCommand,
@@ -31,8 +34,14 @@ import {
   LoggingLevel,
   PayloadType,
   PutLoggingOptionsCommand,
+  ResourceAlreadyExistsException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
   StartDetectorModelAnalysisCommand,
   TagResourceCommand,
+  ThrottlingException,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateAlarmModelCommand,
   UpdateDetectorModelCommand,
@@ -80,5 +89,14 @@ assert(typeof InputStatus === "object");
 assert(typeof LoggingLevel === "object");
 assert(typeof PayloadType === "object");
 // errors
+assert(InternalFailureException.prototype instanceof IoTEventsServiceException);
+assert(InvalidRequestException.prototype instanceof IoTEventsServiceException);
+assert(LimitExceededException.prototype instanceof IoTEventsServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof IoTEventsServiceException);
+assert(ResourceInUseException.prototype instanceof IoTEventsServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTEventsServiceException);
+assert(ServiceUnavailableException.prototype instanceof IoTEventsServiceException);
+assert(ThrottlingException.prototype instanceof IoTEventsServiceException);
+assert(UnsupportedOperationException.prototype instanceof IoTEventsServiceException);
 assert(IoTEventsServiceException.prototype instanceof Error);
 console.log(`IoTEvents index test passed.`);

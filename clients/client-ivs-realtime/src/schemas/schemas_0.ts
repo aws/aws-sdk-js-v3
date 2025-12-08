@@ -998,7 +998,6 @@ export var ValidationException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var Video: StaticStructureSchema = [3, n0, _V, 0, [_wi, _h, _fr, _b], [1, 1, 1, 1]];
-export var __Unit = "unit" as const;
 export var IVSRealTimeServiceException: StaticErrorSchema = [-3, _sm, "IVSRealTimeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IVSRealTimeServiceException, __IVSRealTimeServiceException);
 export var CompositionSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CompositionSummary];

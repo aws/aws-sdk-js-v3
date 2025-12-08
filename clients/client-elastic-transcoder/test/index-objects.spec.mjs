@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   CancelJobCommand,
   CreateJobCommand,
   CreatePipelineCommand,
@@ -8,6 +9,9 @@ import {
   ElasticTranscoder,
   ElasticTranscoderClient,
   ElasticTranscoderServiceException,
+  IncompatibleVersionException,
+  InternalServiceException,
+  LimitExceededException,
   ListJobsByPipelineCommand,
   ListJobsByStatusCommand,
   ListPipelinesCommand,
@@ -15,10 +19,13 @@ import {
   ReadJobCommand,
   ReadPipelineCommand,
   ReadPresetCommand,
+  ResourceInUseException,
+  ResourceNotFoundException,
   TestRoleCommand,
   UpdatePipelineCommand,
   UpdatePipelineNotificationsCommand,
   UpdatePipelineStatusCommand,
+  ValidationException,
   paginateListJobsByPipeline,
   paginateListJobsByStatus,
   paginateListPipelines,
@@ -49,6 +56,13 @@ assert(typeof UpdatePipelineCommand === "function");
 assert(typeof UpdatePipelineNotificationsCommand === "function");
 assert(typeof UpdatePipelineStatusCommand === "function");
 // errors
+assert(AccessDeniedException.prototype instanceof ElasticTranscoderServiceException);
+assert(IncompatibleVersionException.prototype instanceof ElasticTranscoderServiceException);
+assert(InternalServiceException.prototype instanceof ElasticTranscoderServiceException);
+assert(LimitExceededException.prototype instanceof ElasticTranscoderServiceException);
+assert(ResourceInUseException.prototype instanceof ElasticTranscoderServiceException);
+assert(ResourceNotFoundException.prototype instanceof ElasticTranscoderServiceException);
+assert(ValidationException.prototype instanceof ElasticTranscoderServiceException);
 assert(ElasticTranscoderServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForJobComplete === "function");

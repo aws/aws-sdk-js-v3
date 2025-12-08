@@ -548,7 +548,6 @@ export var UpdatePlanRequest: StaticStructureSchema = [
 ];
 export var UpdatePlanResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_p], [() => Plan]];
 export var Workflow: StaticStructureSchema = [3, n0, _W, 0, [_st, _wTA, _wTR, _wD], [() => Steps, 0, 0, 0]];
-export var __Unit = "unit" as const;
 export var ARCRegionSwitchServiceException: StaticErrorSchema = [-3, _sm, "ARCRegionSwitchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ARCRegionSwitchServiceException, __ARCRegionSwitchServiceException);
 export var AbbreviatedExecutionsList: StaticListSchema = [1, n0, _AEL, 0, () => AbbreviatedExecution];

@@ -51,6 +51,8 @@ import {
   GetTableMetadataCommand,
   GetWorkGroupCommand,
   ImportNotebookCommand,
+  InternalServerException,
+  InvalidRequestException,
   ListApplicationDPUSizesCommand,
   ListCalculationExecutionsCommand,
   ListCapacityReservationsCommand,
@@ -67,11 +69,14 @@ import {
   ListTableMetadataCommand,
   ListTagsForResourceCommand,
   ListWorkGroupsCommand,
+  MetadataException,
   NotebookType,
   PutCapacityAssignmentConfigurationCommand,
   QueryExecutionState,
   QueryResultType,
+  ResourceNotFoundException,
   S3AclOption,
+  SessionAlreadyExistsException,
   SessionState,
   StartCalculationExecutionCommand,
   StartQueryExecutionCommand,
@@ -81,6 +86,8 @@ import {
   StopQueryExecutionCommand,
   TagResourceCommand,
   TerminateSessionCommand,
+  ThrottleReason,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateCapacityReservationCommand,
   UpdateDataCatalogCommand,
@@ -199,8 +206,15 @@ assert(typeof QueryResultType === "object");
 assert(typeof S3AclOption === "object");
 assert(typeof SessionState === "object");
 assert(typeof StatementType === "object");
+assert(typeof ThrottleReason === "object");
 assert(typeof WorkGroupState === "object");
 // errors
+assert(InternalServerException.prototype instanceof AthenaServiceException);
+assert(InvalidRequestException.prototype instanceof AthenaServiceException);
+assert(MetadataException.prototype instanceof AthenaServiceException);
+assert(ResourceNotFoundException.prototype instanceof AthenaServiceException);
+assert(SessionAlreadyExistsException.prototype instanceof AthenaServiceException);
+assert(TooManyRequestsException.prototype instanceof AthenaServiceException);
 assert(AthenaServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetQueryResults === "function");

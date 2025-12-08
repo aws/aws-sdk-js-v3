@@ -1,9 +1,12 @@
 import {
+  AccessDeniedException,
   ApiGatewayV2,
   ApiGatewayV2Client,
   ApiGatewayV2ServiceException,
   AuthorizationType,
   AuthorizerType,
+  BadRequestException,
+  ConflictException,
   ConnectionType,
   ContentHandlingStrategy,
   CreateApiCommand,
@@ -91,6 +94,7 @@ import {
   ListProductRestEndpointPagesCommand,
   ListRoutingRulesCommand,
   LoggingLevel,
+  NotFoundException,
   PassthroughBehavior,
   PreviewPortalCommand,
   PreviewStatus,
@@ -105,6 +109,7 @@ import {
   SecurityPolicy,
   Status,
   TagResourceCommand,
+  TooManyRequestsException,
   TryItState,
   UntagResourceCommand,
   UpdateApiCommand,
@@ -257,6 +262,11 @@ assert(typeof TryItState === "object");
 assert(typeof VpcLinkStatus === "object");
 assert(typeof VpcLinkVersion === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ApiGatewayV2ServiceException);
+assert(BadRequestException.prototype instanceof ApiGatewayV2ServiceException);
+assert(ConflictException.prototype instanceof ApiGatewayV2ServiceException);
+assert(NotFoundException.prototype instanceof ApiGatewayV2ServiceException);
+assert(TooManyRequestsException.prototype instanceof ApiGatewayV2ServiceException);
 assert(ApiGatewayV2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListRoutingRules === "function");

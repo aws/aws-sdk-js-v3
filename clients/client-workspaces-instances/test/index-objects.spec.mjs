@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   AmdSevSnpEnum,
   AssociateVolumeCommand,
   AutoRecoveryEnum,
   BandwidthWeightingEnum,
   CapacityReservationPreferenceEnum,
+  ConflictException,
   CpuCreditsEnum,
   CreateVolumeCommand,
   CreateWorkspaceInstanceCommand,
@@ -19,17 +21,23 @@ import {
   InstanceInterruptionBehaviorEnum,
   InstanceMetadataTagsEnum,
   InterfaceTypeEnum,
+  InternalServerException,
   ListInstanceTypesCommand,
   ListRegionsCommand,
   ListTagsForResourceCommand,
   ListWorkspaceInstancesCommand,
   MarketTypeEnum,
   ProvisionStateEnum,
+  ResourceNotFoundException,
   ResourceTypeEnum,
+  ServiceQuotaExceededException,
   SpotInstanceTypeEnum,
   TagResourceCommand,
   TenancyEnum,
+  ThrottlingException,
   UntagResourceCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VolumeTypeEnum,
   WorkspacesInstances,
   WorkspacesInstancesClient,
@@ -75,8 +83,16 @@ assert(typeof ProvisionStateEnum === "object");
 assert(typeof ResourceTypeEnum === "object");
 assert(typeof SpotInstanceTypeEnum === "object");
 assert(typeof TenancyEnum === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VolumeTypeEnum === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof WorkspacesInstancesServiceException);
+assert(ConflictException.prototype instanceof WorkspacesInstancesServiceException);
+assert(InternalServerException.prototype instanceof WorkspacesInstancesServiceException);
+assert(ResourceNotFoundException.prototype instanceof WorkspacesInstancesServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof WorkspacesInstancesServiceException);
+assert(ThrottlingException.prototype instanceof WorkspacesInstancesServiceException);
+assert(ValidationException.prototype instanceof WorkspacesInstancesServiceException);
 assert(WorkspacesInstancesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListInstanceTypes === "function");

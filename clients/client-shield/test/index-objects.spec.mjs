@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  AccessDeniedForDependencyException,
   ApplicationLayerAutomaticResponseStatus,
   AssociateDRTLogBucketCommand,
   AssociateDRTRoleCommand,
@@ -28,15 +30,26 @@ import {
   EnableApplicationLayerAutomaticResponseCommand,
   EnableProactiveEngagementCommand,
   GetSubscriptionStateCommand,
+  InternalErrorException,
+  InvalidOperationException,
+  InvalidPaginationTokenException,
+  InvalidParameterException,
+  InvalidResourceException,
+  LimitsExceededException,
   ListAttacksCommand,
   ListProtectionGroupsCommand,
   ListProtectionsCommand,
   ListResourcesInProtectionGroupCommand,
   ListTagsForResourceCommand,
+  LockedSubscriptionException,
+  NoAssociatedRoleException,
+  OptimisticLockException,
   ProactiveEngagementStatus,
   ProtectedResourceType,
   ProtectionGroupAggregation,
   ProtectionGroupPattern,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   Shield,
   ShieldClient,
   ShieldServiceException,
@@ -49,6 +62,7 @@ import {
   UpdateEmergencyContactSettingsCommand,
   UpdateProtectionGroupCommand,
   UpdateSubscriptionCommand,
+  ValidationExceptionReason,
   paginateListAttacks,
   paginateListProtectionGroups,
   paginateListProtections,
@@ -107,7 +121,21 @@ assert(typeof ProtectionGroupPattern === "object");
 assert(typeof SubResourceType === "object");
 assert(typeof SubscriptionState === "object");
 assert(typeof Unit === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ShieldServiceException);
+assert(AccessDeniedForDependencyException.prototype instanceof ShieldServiceException);
+assert(InternalErrorException.prototype instanceof ShieldServiceException);
+assert(InvalidOperationException.prototype instanceof ShieldServiceException);
+assert(InvalidPaginationTokenException.prototype instanceof ShieldServiceException);
+assert(InvalidParameterException.prototype instanceof ShieldServiceException);
+assert(InvalidResourceException.prototype instanceof ShieldServiceException);
+assert(LimitsExceededException.prototype instanceof ShieldServiceException);
+assert(LockedSubscriptionException.prototype instanceof ShieldServiceException);
+assert(NoAssociatedRoleException.prototype instanceof ShieldServiceException);
+assert(OptimisticLockException.prototype instanceof ShieldServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof ShieldServiceException);
+assert(ResourceNotFoundException.prototype instanceof ShieldServiceException);
 assert(ShieldServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAttacks === "function");

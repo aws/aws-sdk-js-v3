@@ -328,7 +328,6 @@ export var Voice: StaticStructureSchema = [
   [_G, _I, _LCa, _LNa, _N, _ALC, _SE],
   [0, 0, 0, 0, 0, 64 | 0, 64 | 0],
 ];
-export var __Unit = "unit" as const;
 export var PollyServiceException: StaticErrorSchema = [-3, _sm, "PollyServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PollyServiceException, __PollyServiceException);
 export var EngineList = 64 | 0;

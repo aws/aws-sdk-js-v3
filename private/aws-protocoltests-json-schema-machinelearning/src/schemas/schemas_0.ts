@@ -50,7 +50,6 @@ TypeRegistry.for(n0).registerError(PredictorNotMountedException, __PredictorNotM
 export var PredictOutput: StaticStructureSchema = [3, n0, _PO, 0, [_P], [() => Prediction]];
 export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_m, _c], [0, 1]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var __Unit = "unit" as const;
 export var MachineLearningServiceException: StaticErrorSchema = [-3, _sm, "MachineLearningServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MachineLearningServiceException, __MachineLearningServiceException);
 export var DetailsMap = 128 | 0;

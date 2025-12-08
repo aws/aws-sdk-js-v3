@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AnalyticsMode,
   BatchDeleteRecipeVersionCommand,
   CompressionFormat,
+  ConflictException,
   CreateDatasetCommand,
   CreateProfileJobCommand,
   CreateProjectCommand,
@@ -28,6 +30,7 @@ import {
   DescribeScheduleCommand,
   EncryptionMode,
   InputFormat,
+  InternalServerException,
   JobRunState,
   JobType,
   ListDatasetsCommand,
@@ -45,9 +48,11 @@ import {
   OutputFormat,
   ParameterType,
   PublishRecipeCommand,
+  ResourceNotFoundException,
   SampleMode,
   SampleType,
   SendProjectSessionActionCommand,
+  ServiceQuotaExceededException,
   SessionStatus,
   Source,
   StartJobRunCommand,
@@ -64,6 +69,7 @@ import {
   UpdateRecipeJobCommand,
   UpdateRulesetCommand,
   UpdateScheduleCommand,
+  ValidationException,
   ValidationMode,
   paginateListDatasets,
   paginateListJobRuns,
@@ -144,6 +150,12 @@ assert(typeof ThresholdType === "object");
 assert(typeof ThresholdUnit === "object");
 assert(typeof ValidationMode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DataBrewServiceException);
+assert(ConflictException.prototype instanceof DataBrewServiceException);
+assert(InternalServerException.prototype instanceof DataBrewServiceException);
+assert(ResourceNotFoundException.prototype instanceof DataBrewServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DataBrewServiceException);
+assert(ValidationException.prototype instanceof DataBrewServiceException);
 assert(DataBrewServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDatasets === "function");

@@ -10,6 +10,8 @@ import {
   ApplicationStatus,
   ArtifactType,
   CodeContentType,
+  CodeValidationException,
+  ConcurrentModificationException,
   ConfigurationType,
   CreateApplicationCommand,
   CreateApplicationPresignedUrlCommand,
@@ -27,10 +29,14 @@ import {
   DescribeApplicationVersionCommand,
   DiscoverInputSchemaCommand,
   InputStartingPosition,
+  InvalidApplicationConfigurationException,
+  InvalidArgumentException,
+  InvalidRequestException,
   KeyType,
   KinesisAnalyticsV2,
   KinesisAnalyticsV2Client,
   KinesisAnalyticsV2ServiceException,
+  LimitExceededException,
   ListApplicationOperationsCommand,
   ListApplicationSnapshotsCommand,
   ListApplicationVersionsCommand,
@@ -40,12 +46,19 @@ import {
   MetricsLevel,
   OperationStatus,
   RecordFormatType,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceProvisionedThroughputExceededException,
   RollbackApplicationCommand,
   RuntimeEnvironment,
+  ServiceUnavailableException,
   SnapshotStatus,
   StartApplicationCommand,
   StopApplicationCommand,
   TagResourceCommand,
+  TooManyTagsException,
+  UnableToDetectSchemaException,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateApplicationMaintenanceConfigurationCommand,
@@ -110,6 +123,19 @@ assert(typeof RuntimeEnvironment === "object");
 assert(typeof SnapshotStatus === "object");
 assert(typeof UrlType === "object");
 // errors
+assert(CodeValidationException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(ConcurrentModificationException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(InvalidApplicationConfigurationException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(InvalidArgumentException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(InvalidRequestException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(LimitExceededException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(ResourceInUseException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(ResourceProvisionedThroughputExceededException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(ServiceUnavailableException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(TooManyTagsException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(UnableToDetectSchemaException.prototype instanceof KinesisAnalyticsV2ServiceException);
+assert(UnsupportedOperationException.prototype instanceof KinesisAnalyticsV2ServiceException);
 assert(KinesisAnalyticsV2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplicationOperations === "function");

@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CopyImageSetCommand,
   CreateDatastoreCommand,
   DatastoreStatus,
@@ -11,6 +13,7 @@ import {
   GetImageSetMetadataCommand,
   ImageSetState,
   ImageSetWorkflowStatus,
+  InternalServerException,
   JobStatus,
   ListDICOMImportJobsCommand,
   ListDatastoresCommand,
@@ -21,14 +24,18 @@ import {
   MedicalImagingClient,
   MedicalImagingServiceException,
   Operator,
+  ResourceNotFoundException,
   SearchImageSetsCommand,
+  ServiceQuotaExceededException,
   SortField,
   SortOrder,
   StartDICOMImportJobCommand,
   StorageTier,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateImageSetMetadataCommand,
+  ValidationException,
   paginateListDICOMImportJobs,
   paginateListDatastores,
   paginateListImageSetVersions,
@@ -68,6 +75,13 @@ assert(typeof SortField === "object");
 assert(typeof SortOrder === "object");
 assert(typeof StorageTier === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MedicalImagingServiceException);
+assert(ConflictException.prototype instanceof MedicalImagingServiceException);
+assert(InternalServerException.prototype instanceof MedicalImagingServiceException);
+assert(ResourceNotFoundException.prototype instanceof MedicalImagingServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MedicalImagingServiceException);
+assert(ThrottlingException.prototype instanceof MedicalImagingServiceException);
+assert(ValidationException.prototype instanceof MedicalImagingServiceException);
 assert(MedicalImagingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDICOMImportJobs === "function");

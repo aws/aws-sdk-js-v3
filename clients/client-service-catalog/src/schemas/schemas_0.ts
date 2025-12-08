@@ -1753,7 +1753,6 @@ export var UpdateServiceActionOutput: StaticStructureSchema = [3, n0, _USAO, 0, 
 export var UpdateTagOptionInput: StaticStructureSchema = [3, n0, _UTOI, 0, [_Id, _V, _A], [0, 0, 2]];
 export var UpdateTagOptionOutput: StaticStructureSchema = [3, n0, _UTOO, 0, [_TOD], [() => TagOptionDetail]];
 export var UsageInstruction: StaticStructureSchema = [3, n0, _UIs, 0, [_T, _V], [0, 0]];
-export var __Unit = "unit" as const;
 export var ServiceCatalogServiceException: StaticErrorSchema = [-3, _s, "ServiceCatalogServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(ServiceCatalogServiceException, __ServiceCatalogServiceException);
 export var AccountIds = 64 | 0;

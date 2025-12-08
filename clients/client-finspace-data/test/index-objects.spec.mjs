@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   ApiAccess,
   ApplicationPermission,
   AssociateUserToPermissionGroupCommand,
   ChangeType,
   ColumnDataType,
+  ConflictException,
   CreateChangesetCommand,
   CreateDataViewCommand,
   CreateDatasetCommand,
@@ -31,6 +33,8 @@ import {
   GetUserCommand,
   GetWorkingLocationCommand,
   IngestionStatus,
+  InternalServerException,
+  LimitExceededException,
   ListChangesetsCommand,
   ListDataViewsCommand,
   ListDatasetsCommand,
@@ -41,12 +45,15 @@ import {
   LocationType,
   PermissionGroupMembershipStatus,
   ResetUserPasswordCommand,
+  ResourceNotFoundException,
+  ThrottlingException,
   UpdateChangesetCommand,
   UpdateDatasetCommand,
   UpdatePermissionGroupCommand,
   UpdateUserCommand,
   UserStatus,
   UserType,
+  ValidationException,
   paginateListChangesets,
   paginateListDataViews,
   paginateListDatasets,
@@ -105,6 +112,13 @@ assert(typeof PermissionGroupMembershipStatus === "object");
 assert(typeof UserStatus === "object");
 assert(typeof UserType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof FinspaceDataServiceException);
+assert(ConflictException.prototype instanceof FinspaceDataServiceException);
+assert(InternalServerException.prototype instanceof FinspaceDataServiceException);
+assert(LimitExceededException.prototype instanceof FinspaceDataServiceException);
+assert(ResourceNotFoundException.prototype instanceof FinspaceDataServiceException);
+assert(ThrottlingException.prototype instanceof FinspaceDataServiceException);
+assert(ValidationException.prototype instanceof FinspaceDataServiceException);
 assert(FinspaceDataServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChangesets === "function");

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedFault,
   AddTagsToResourceCommand,
   ApplyPendingMaintenanceActionCommand,
   AssessmentReportType,
@@ -10,6 +11,7 @@ import {
   CancelReplicationTaskAssessmentRunCommand,
   CannedAclForObjectsValue,
   CharLengthSemantics,
+  CollectorNotFoundFault,
   CollectorStatus,
   CompressionTypeValue,
   CreateDataMigrationCommand,
@@ -97,8 +99,21 @@ import {
   EncryptionModeValue,
   EndpointSettingTypeValue,
   ExportMetadataModelAssessmentCommand,
+  FailedDependencyFault,
   GetTargetSelectionRulesCommand,
   ImportCertificateCommand,
+  InsufficientResourceCapacityFault,
+  InvalidCertificateFault,
+  InvalidOperationFault,
+  InvalidResourceStateFault,
+  InvalidSubnet,
+  KMSAccessDeniedFault,
+  KMSDisabledFault,
+  KMSFault,
+  KMSInvalidStateFault,
+  KMSKeyNotAccessibleFault,
+  KMSNotFoundFault,
+  KMSThrottlingFault,
   KafkaSaslMechanism,
   KafkaSecurityProtocol,
   KafkaSslEndpointIdentificationAlgorithm,
@@ -135,7 +150,15 @@ import {
   ReloadTablesCommand,
   RemoveTagsFromResourceCommand,
   ReplicationEndpointTypeValue,
+  ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+  ResourceAlreadyExistsFault,
+  ResourceNotFoundFault,
+  ResourceQuotaExceededFault,
   RunFleetAdvisorLsaAnalysisCommand,
+  S3AccessDeniedFault,
+  S3ResourceNotFoundFault,
+  SNSInvalidTopicFault,
+  SNSNoAuthorizationFault,
   SafeguardPolicy,
   SourceType,
   SqlServerAuthenticationMethod,
@@ -158,11 +181,14 @@ import {
   StopDataMigrationCommand,
   StopReplicationCommand,
   StopReplicationTaskCommand,
+  StorageQuotaExceededFault,
+  SubnetAlreadyInUse,
   TablePreparationMode,
   TargetDbType,
   TestConnectionCommand,
   TlogAccessMode,
   UpdateSubscriptionsToEventBridgeCommand,
+  UpgradeDependencyFailureFault,
   VersionStatus,
   paginateDescribeApplicableIndividualAssessments,
   paginateDescribeCertificates,
@@ -392,6 +418,32 @@ assert(typeof TargetDbType === "object");
 assert(typeof TlogAccessMode === "object");
 assert(typeof VersionStatus === "object");
 // errors
+assert(AccessDeniedFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(CollectorNotFoundFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(FailedDependencyFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(InsufficientResourceCapacityFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(InvalidCertificateFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(InvalidOperationFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(InvalidResourceStateFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(InvalidSubnet.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(KMSAccessDeniedFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(KMSDisabledFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(KMSFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(KMSInvalidStateFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(KMSKeyNotAccessibleFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(KMSNotFoundFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(KMSThrottlingFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(ReplicationSubnetGroupDoesNotCoverEnoughAZs.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(ResourceAlreadyExistsFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(ResourceNotFoundFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(ResourceQuotaExceededFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(S3AccessDeniedFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(S3ResourceNotFoundFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(SNSInvalidTopicFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(SNSNoAuthorizationFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(StorageQuotaExceededFault.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(SubnetAlreadyInUse.prototype instanceof DatabaseMigrationServiceServiceException);
+assert(UpgradeDependencyFailureFault.prototype instanceof DatabaseMigrationServiceServiceException);
 assert(DatabaseMigrationServiceServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForEndpointDeleted === "function");

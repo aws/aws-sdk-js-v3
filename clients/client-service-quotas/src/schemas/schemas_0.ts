@@ -510,7 +510,6 @@ export var UpdateAutoManagementRequest: StaticStructureSchema = [
   [0, 0, [2, n0, _EL, 0, 0, 64 | 0]],
 ];
 export var UpdateAutoManagementResponse: StaticStructureSchema = [3, n0, _UAMRp, 0, [], []];
-export var __Unit = "unit" as const;
 export var ServiceQuotasServiceException: StaticErrorSchema = [-3, _sm, "ServiceQuotasServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ServiceQuotasServiceException, __ServiceQuotasServiceException);
 export var ExcludedQuotaList = 64 | 0;

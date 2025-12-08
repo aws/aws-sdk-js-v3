@@ -1,7 +1,9 @@
 import {
   AcceptInvitationCommand,
+  AccessDeniedException,
   BatchGetGraphMemberDatasourcesCommand,
   BatchGetMembershipDatasourcesCommand,
+  ConflictException,
   CreateGraphCommand,
   CreateMembersCommand,
   DatasourcePackage,
@@ -16,10 +18,12 @@ import {
   DisassociateMembershipCommand,
   EnableOrganizationAdminAccountCommand,
   EntityType,
+  ErrorCode,
   Field,
   GetInvestigationCommand,
   GetMembersCommand,
   IndicatorType,
+  InternalServerException,
   InvitationType,
   ListDatasourcePackagesCommand,
   ListGraphsCommand,
@@ -33,6 +37,8 @@ import {
   MemberStatus,
   Reason,
   RejectInvitationCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   Severity,
   SortOrder,
   StartInvestigationCommand,
@@ -40,10 +46,12 @@ import {
   State,
   Status,
   TagResourceCommand,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateDatasourcePackagesCommand,
   UpdateInvestigationStateCommand,
   UpdateOrganizationConfigurationCommand,
+  ValidationException,
   paginateListDatasourcePackages,
   paginateListGraphs,
   paginateListInvitations,
@@ -88,6 +96,7 @@ assert(typeof UpdateOrganizationConfigurationCommand === "function");
 assert(typeof DatasourcePackage === "object");
 assert(typeof DatasourcePackageIngestState === "object");
 assert(typeof EntityType === "object");
+assert(typeof ErrorCode === "object");
 assert(typeof Field === "object");
 assert(typeof IndicatorType === "object");
 assert(typeof InvitationType === "object");
@@ -99,6 +108,13 @@ assert(typeof SortOrder === "object");
 assert(typeof State === "object");
 assert(typeof Status === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DetectiveServiceException);
+assert(ConflictException.prototype instanceof DetectiveServiceException);
+assert(InternalServerException.prototype instanceof DetectiveServiceException);
+assert(ResourceNotFoundException.prototype instanceof DetectiveServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DetectiveServiceException);
+assert(TooManyRequestsException.prototype instanceof DetectiveServiceException);
+assert(ValidationException.prototype instanceof DetectiveServiceException);
 assert(DetectiveServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDatasourcePackages === "function");

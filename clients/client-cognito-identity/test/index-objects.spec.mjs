@@ -3,28 +3,39 @@ import {
   CognitoIdentity,
   CognitoIdentityClient,
   CognitoIdentityServiceException,
+  ConcurrentModificationException,
   CreateIdentityPoolCommand,
   DeleteIdentitiesCommand,
   DeleteIdentityPoolCommand,
   DescribeIdentityCommand,
   DescribeIdentityPoolCommand,
+  DeveloperUserAlreadyRegisteredException,
   ErrorCode,
+  ExternalServiceException,
   GetCredentialsForIdentityCommand,
   GetIdCommand,
   GetIdentityPoolRolesCommand,
   GetOpenIdTokenCommand,
   GetOpenIdTokenForDeveloperIdentityCommand,
   GetPrincipalTagAttributeMapCommand,
+  InternalErrorException,
+  InvalidIdentityPoolConfigurationException,
+  InvalidParameterException,
+  LimitExceededException,
   ListIdentitiesCommand,
   ListIdentityPoolsCommand,
   ListTagsForResourceCommand,
   LookupDeveloperIdentityCommand,
   MappingRuleMatchType,
   MergeDeveloperIdentitiesCommand,
+  NotAuthorizedException,
+  ResourceConflictException,
+  ResourceNotFoundException,
   RoleMappingType,
   SetIdentityPoolRolesCommand,
   SetPrincipalTagAttributeMapCommand,
   TagResourceCommand,
+  TooManyRequestsException,
   UnlinkDeveloperIdentityCommand,
   UnlinkIdentityCommand,
   UntagResourceCommand,
@@ -65,6 +76,17 @@ assert(typeof ErrorCode === "object");
 assert(typeof MappingRuleMatchType === "object");
 assert(typeof RoleMappingType === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof CognitoIdentityServiceException);
+assert(DeveloperUserAlreadyRegisteredException.prototype instanceof CognitoIdentityServiceException);
+assert(ExternalServiceException.prototype instanceof CognitoIdentityServiceException);
+assert(InternalErrorException.prototype instanceof CognitoIdentityServiceException);
+assert(InvalidIdentityPoolConfigurationException.prototype instanceof CognitoIdentityServiceException);
+assert(InvalidParameterException.prototype instanceof CognitoIdentityServiceException);
+assert(LimitExceededException.prototype instanceof CognitoIdentityServiceException);
+assert(NotAuthorizedException.prototype instanceof CognitoIdentityServiceException);
+assert(ResourceConflictException.prototype instanceof CognitoIdentityServiceException);
+assert(ResourceNotFoundException.prototype instanceof CognitoIdentityServiceException);
+assert(TooManyRequestsException.prototype instanceof CognitoIdentityServiceException);
 assert(CognitoIdentityServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListIdentityPools === "function");

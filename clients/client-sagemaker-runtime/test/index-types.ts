@@ -19,7 +19,13 @@ export type {
   InvokeEndpointWithResponseStreamOutput,
   PayloadPart,
   ResponseStream,
+  InternalDependencyException,
+  InternalFailure,
   InternalStreamFailure,
+  ModelError,
+  ModelNotReadyException,
   ModelStreamError,
+  ServiceUnavailable,
+  ValidationError,
   SageMakerRuntimeServiceException,
 } from "../dist-types/index.d";

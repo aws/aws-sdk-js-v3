@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AgreementStatus,
   ApplicationType,
   AttributeType,
@@ -20,6 +21,7 @@ import {
   CancelAutomatedReasoningPolicyBuildWorkflowCommand,
   CommitmentDuration,
   ConfigurationOwner,
+  ConflictException,
   CreateAutomatedReasoningPolicyCommand,
   CreateAutomatedReasoningPolicyTestCaseCommand,
   CreateAutomatedReasoningPolicyVersionCommand,
@@ -106,6 +108,7 @@ import {
   InferenceProfileType,
   InferenceType,
   InputTags,
+  InternalServerException,
   JobStatusDetails,
   ListAutomatedReasoningPoliciesCommand,
   ListAutomatedReasoningPolicyBuildWorkflowsCommand,
@@ -148,9 +151,13 @@ import {
   RegionAvailability,
   RegisterMarketplaceModelEndpointCommand,
   RerankingMetadataSelectionMode,
+  ResourceInUseException,
+  ResourceNotFoundException,
   RetrieveAndGenerateType,
   S3InputFormat,
   SearchType,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   SortByProvisionedModels,
   SortJobsBy,
   SortModelsBy,
@@ -162,6 +169,8 @@ import {
   StopModelCustomizationJobCommand,
   StopModelInvocationJobCommand,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateAutomatedReasoningPolicyAnnotationsCommand,
   UpdateAutomatedReasoningPolicyCommand,
@@ -170,6 +179,7 @@ import {
   UpdateGuardrailCommand,
   UpdateMarketplaceModelEndpointCommand,
   UpdateProvisionedModelThroughputCommand,
+  ValidationException,
   VectorSearchRerankingConfigurationType,
   paginateListAutomatedReasoningPolicies,
   paginateListAutomatedReasoningPolicyBuildWorkflows,
@@ -366,6 +376,16 @@ assert(typeof SortOrder === "object");
 assert(typeof Status === "object");
 assert(typeof VectorSearchRerankingConfigurationType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BedrockServiceException);
+assert(ConflictException.prototype instanceof BedrockServiceException);
+assert(InternalServerException.prototype instanceof BedrockServiceException);
+assert(ResourceInUseException.prototype instanceof BedrockServiceException);
+assert(ResourceNotFoundException.prototype instanceof BedrockServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BedrockServiceException);
+assert(ServiceUnavailableException.prototype instanceof BedrockServiceException);
+assert(ThrottlingException.prototype instanceof BedrockServiceException);
+assert(TooManyTagsException.prototype instanceof BedrockServiceException);
+assert(ValidationException.prototype instanceof BedrockServiceException);
 assert(BedrockServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAutomatedReasoningPolicies === "function");

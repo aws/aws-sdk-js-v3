@@ -1,10 +1,13 @@
 import {
+  AccessDeniedException,
   ActiveDirectoryType,
   AssociateUserCommand,
+  ConflictException,
   CreateLicenseServerEndpointCommand,
   DeleteLicenseServerEndpointCommand,
   DeregisterIdentityProviderCommand,
   DisassociateUserCommand,
+  InternalServerException,
   LicenseManagerUserSubscriptions,
   LicenseManagerUserSubscriptionsClient,
   LicenseManagerUserSubscriptionsServiceException,
@@ -17,12 +20,16 @@ import {
   ListTagsForResourceCommand,
   ListUserAssociationsCommand,
   RegisterIdentityProviderCommand,
+  ResourceNotFoundException,
   ServerType,
+  ServiceQuotaExceededException,
   StartProductSubscriptionCommand,
   StopProductSubscriptionCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateIdentityProviderSettingsCommand,
+  ValidationException,
   paginateListIdentityProviders,
   paginateListInstances,
   paginateListLicenseServerEndpoints,
@@ -57,6 +64,13 @@ assert(typeof LicenseServerEndpointProvisioningStatus === "object");
 assert(typeof LicenseServerHealthStatus === "object");
 assert(typeof ServerType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof LicenseManagerUserSubscriptionsServiceException);
+assert(ConflictException.prototype instanceof LicenseManagerUserSubscriptionsServiceException);
+assert(InternalServerException.prototype instanceof LicenseManagerUserSubscriptionsServiceException);
+assert(ResourceNotFoundException.prototype instanceof LicenseManagerUserSubscriptionsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof LicenseManagerUserSubscriptionsServiceException);
+assert(ThrottlingException.prototype instanceof LicenseManagerUserSubscriptionsServiceException);
+assert(ValidationException.prototype instanceof LicenseManagerUserSubscriptionsServiceException);
 assert(LicenseManagerUserSubscriptionsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListIdentityProviders === "function");

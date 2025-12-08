@@ -1,5 +1,7 @@
 import {
   AccessBudgetType,
+  AccessDeniedException,
+  AccessDeniedExceptionReason,
   AdditionalAnalyses,
   AggregateFunctionName,
   AggregationType,
@@ -26,6 +28,8 @@ import {
   CommercialRegion,
   ConfiguredTableAnalysisRuleType,
   ConfiguredTableAssociationAnalysisRuleType,
+  ConflictException,
+  ConflictExceptionReason,
   CreateAnalysisTemplateCommand,
   CreateCollaborationChangeRequestCommand,
   CreateCollaborationCommand,
@@ -75,6 +79,7 @@ import {
   GetSchemaAnalysisRuleCommand,
   GetSchemaCommand,
   IdNamespaceType,
+  InternalServerException,
   JobType,
   JoinOperator,
   JoinRequiredOption,
@@ -115,6 +120,8 @@ import {
   ProtectedJobWorkerComputeType,
   ProtectedQueryStatus,
   ProtectedQueryType,
+  ResourceNotFoundException,
+  ResourceType,
   ResultFormat,
   ScalarFunctions,
   SchemaConfiguration,
@@ -122,6 +129,7 @@ import {
   SchemaStatusReasonCode,
   SchemaType,
   SelectedAnalysisMethod,
+  ServiceQuotaExceededException,
   StartProtectedJobCommand,
   StartProtectedQueryCommand,
   SupportedS3Region,
@@ -129,6 +137,7 @@ import {
   TagResourceCommand,
   TargetProtectedJobStatus,
   TargetProtectedQueryStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAnalysisTemplateCommand,
   UpdateCollaborationCommand,
@@ -143,6 +152,8 @@ import {
   UpdatePrivacyBudgetTemplateCommand,
   UpdateProtectedJobCommand,
   UpdateProtectedQueryCommand,
+  ValidationException,
+  ValidationExceptionReason,
   WorkerComputeType,
   paginateListAnalysisTemplates,
   paginateListCollaborationAnalysisTemplates,
@@ -259,6 +270,7 @@ assert(typeof UpdateProtectedJobCommand === "function");
 assert(typeof UpdateProtectedQueryCommand === "function");
 // enums
 assert(typeof AccessBudgetType === "object");
+assert(typeof AccessDeniedExceptionReason === "object");
 assert(typeof AdditionalAnalyses === "object");
 assert(typeof AggregateFunctionName === "object");
 assert(typeof AggregationType === "object");
@@ -279,6 +291,7 @@ assert(typeof CollaborationQueryLogStatus === "object");
 assert(typeof CommercialRegion === "object");
 assert(typeof ConfiguredTableAnalysisRuleType === "object");
 assert(typeof ConfiguredTableAssociationAnalysisRuleType === "object");
+assert(typeof ConflictExceptionReason === "object");
 assert(typeof CustomMLMemberAbility === "object");
 assert(typeof DifferentialPrivacyAggregationType === "object");
 assert(typeof ErrorMessageType === "object");
@@ -301,6 +314,7 @@ assert(typeof ProtectedJobType === "object");
 assert(typeof ProtectedJobWorkerComputeType === "object");
 assert(typeof ProtectedQueryStatus === "object");
 assert(typeof ProtectedQueryType === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ResultFormat === "object");
 assert(typeof ScalarFunctions === "object");
 assert(typeof SchemaConfiguration === "object");
@@ -312,8 +326,16 @@ assert(typeof SupportedS3Region === "object");
 assert(typeof SyntheticDataColumnType === "object");
 assert(typeof TargetProtectedJobStatus === "object");
 assert(typeof TargetProtectedQueryStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WorkerComputeType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CleanRoomsServiceException);
+assert(ConflictException.prototype instanceof CleanRoomsServiceException);
+assert(InternalServerException.prototype instanceof CleanRoomsServiceException);
+assert(ResourceNotFoundException.prototype instanceof CleanRoomsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CleanRoomsServiceException);
+assert(ThrottlingException.prototype instanceof CleanRoomsServiceException);
+assert(ValidationException.prototype instanceof CleanRoomsServiceException);
 assert(CleanRoomsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAnalysisTemplates === "function");

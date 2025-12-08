@@ -12,6 +12,8 @@ import {
   DescribeHarvestJobCommand,
   DescribeOriginEndpointCommand,
   EncryptionMethod,
+  ForbiddenException,
+  InternalServerErrorException,
   ListChannelsCommand,
   ListHarvestJobsCommand,
   ListOriginEndpointsCommand,
@@ -20,6 +22,7 @@ import {
   MediaPackage,
   MediaPackageClient,
   MediaPackageServiceException,
+  NotFoundException,
   Origination,
   PlaylistType,
   PresetSpeke20Audio,
@@ -28,9 +31,12 @@ import {
   RotateChannelCredentialsCommand,
   RotateIngestEndpointCredentialsCommand,
   SegmentTemplateFormat,
+  ServiceUnavailableException,
   Status,
   StreamOrder,
   TagResourceCommand,
+  TooManyRequestsException,
+  UnprocessableEntityException,
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdateOriginEndpointCommand,
@@ -83,6 +89,12 @@ assert(typeof Status === "object");
 assert(typeof StreamOrder === "object");
 assert(typeof UtcTiming === "object");
 // errors
+assert(ForbiddenException.prototype instanceof MediaPackageServiceException);
+assert(InternalServerErrorException.prototype instanceof MediaPackageServiceException);
+assert(NotFoundException.prototype instanceof MediaPackageServiceException);
+assert(ServiceUnavailableException.prototype instanceof MediaPackageServiceException);
+assert(TooManyRequestsException.prototype instanceof MediaPackageServiceException);
+assert(UnprocessableEntityException.prototype instanceof MediaPackageServiceException);
 assert(MediaPackageServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChannels === "function");

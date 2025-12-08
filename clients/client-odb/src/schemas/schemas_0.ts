@@ -1930,7 +1930,6 @@ export var ValidationException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var ZeroEtlAccess: StaticStructureSchema = [3, n0, _ZEA, 0, [_s, _ci], [0, 0]];
-export var __Unit = "unit" as const;
 export var OdbServiceException: StaticErrorSchema = [-3, _sm, "OdbServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OdbServiceException, __OdbServiceException);
 export var AutonomousVirtualMachineList: StaticListSchema = [1, n0, _AVML, 0, () => AutonomousVirtualMachineSummary];

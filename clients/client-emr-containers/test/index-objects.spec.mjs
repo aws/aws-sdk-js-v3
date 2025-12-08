@@ -15,12 +15,14 @@ import {
   DescribeManagedEndpointCommand,
   DescribeSecurityConfigurationCommand,
   DescribeVirtualClusterCommand,
+  EKSRequestThrottledException,
   EMRContainers,
   EMRContainersClient,
   EMRContainersServiceException,
   EndpointState,
   FailureReason,
   GetManagedEndpointSessionCredentialsCommand,
+  InternalServerException,
   JobRunState,
   ListJobRunsCommand,
   ListJobTemplatesCommand,
@@ -29,10 +31,13 @@ import {
   ListTagsForResourceCommand,
   ListVirtualClustersCommand,
   PersistentAppUI,
+  RequestThrottledException,
+  ResourceNotFoundException,
   StartJobRunCommand,
   TagResourceCommand,
   TemplateParameterDataType,
   UntagResourceCommand,
+  ValidationException,
   VirtualClusterState,
   paginateListJobRuns,
   paginateListJobTemplates,
@@ -79,6 +84,11 @@ assert(typeof PersistentAppUI === "object");
 assert(typeof TemplateParameterDataType === "object");
 assert(typeof VirtualClusterState === "object");
 // errors
+assert(EKSRequestThrottledException.prototype instanceof EMRContainersServiceException);
+assert(InternalServerException.prototype instanceof EMRContainersServiceException);
+assert(RequestThrottledException.prototype instanceof EMRContainersServiceException);
+assert(ResourceNotFoundException.prototype instanceof EMRContainersServiceException);
+assert(ValidationException.prototype instanceof EMRContainersServiceException);
 assert(EMRContainersServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListJobRuns === "function");

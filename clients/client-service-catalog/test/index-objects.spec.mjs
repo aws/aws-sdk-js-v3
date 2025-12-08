@@ -52,6 +52,7 @@ import {
   DisassociateProductFromPortfolioCommand,
   DisassociateServiceActionFromProvisioningArtifactCommand,
   DisassociateTagOptionFromResourceCommand,
+  DuplicateResourceException,
   EnableAWSOrganizationsAccessCommand,
   EngineWorkflowStatus,
   EvaluationType,
@@ -60,7 +61,10 @@ import {
   GetAWSOrganizationsAccessStatusCommand,
   GetProvisionedProductOutputsCommand,
   ImportAsProvisionedProductCommand,
+  InvalidParametersException,
+  InvalidStateException,
   LastSyncStatus,
+  LimitExceededException,
   ListAcceptedPortfolioSharesCommand,
   ListBudgetsForResourceCommand,
   ListConstraintsForPortfolioCommand,
@@ -82,6 +86,7 @@ import {
   NotifyProvisionProductEngineWorkflowResultCommand,
   NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
   NotifyUpdateProvisionedProductEngineWorkflowResultCommand,
+  OperationNotSupportedException,
   OrganizationNodeType,
   PortfolioShareType,
   PrincipalType,
@@ -103,6 +108,8 @@ import {
   Replacement,
   RequiresRecreation,
   ResourceAttribute,
+  ResourceInUseException,
+  ResourceNotFoundException,
   ScanProvisionedProductsCommand,
   SearchProductsAsAdminCommand,
   SearchProductsCommand,
@@ -119,6 +126,7 @@ import {
   StackInstanceStatus,
   StackSetOperationType,
   Status,
+  TagOptionNotMigratedException,
   TerminateProvisionedProductCommand,
   UpdateConstraintCommand,
   UpdatePortfolioCommand,
@@ -283,6 +291,14 @@ assert(typeof StackInstanceStatus === "object");
 assert(typeof StackSetOperationType === "object");
 assert(typeof Status === "object");
 // errors
+assert(DuplicateResourceException.prototype instanceof ServiceCatalogServiceException);
+assert(InvalidParametersException.prototype instanceof ServiceCatalogServiceException);
+assert(InvalidStateException.prototype instanceof ServiceCatalogServiceException);
+assert(LimitExceededException.prototype instanceof ServiceCatalogServiceException);
+assert(OperationNotSupportedException.prototype instanceof ServiceCatalogServiceException);
+assert(ResourceInUseException.prototype instanceof ServiceCatalogServiceException);
+assert(ResourceNotFoundException.prototype instanceof ServiceCatalogServiceException);
+assert(TagOptionNotMigratedException.prototype instanceof ServiceCatalogServiceException);
 assert(ServiceCatalogServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribePortfolioShares === "function");

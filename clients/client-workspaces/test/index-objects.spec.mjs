@@ -4,11 +4,13 @@ import {
   AGAPreferredProtocolForDirectory,
   AGAPreferredProtocolForWorkSpace,
   AcceptAccountLinkInvitationCommand,
+  AccessDeniedException,
   AccessEndpointType,
   AccessPropertyValue,
   AccountLinkStatusEnum,
   Application,
   ApplicationAssociatedResourceType,
+  ApplicationNotSupportedException,
   ApplicationSettingsStatusEnum,
   AssociateConnectionAliasCommand,
   AssociateIpGroupsCommand,
@@ -23,6 +25,8 @@ import {
   CertificateBasedAuthStatusEnum,
   ClientDeviceType,
   Compute,
+  ComputeNotCompatibleException,
+  ConflictException,
   ConnectionAliasState,
   ConnectionState,
   CopyWorkspaceImageCommand,
@@ -94,7 +98,12 @@ import {
   ImportClientBrandingCommand,
   ImportCustomWorkspaceImageCommand,
   ImportWorkspaceImageCommand,
+  IncompatibleApplicationsException,
+  InternalServerException,
   InternetFallbackProtocol,
+  InvalidParameterCombinationException,
+  InvalidParameterValuesException,
+  InvalidResourceStateException,
   ListAccountLinksCommand,
   ListAvailableManagementCidrRangesCommand,
   LogUploadEnum,
@@ -114,7 +123,10 @@ import {
   ModifyWorkspaceStateCommand,
   OSVersion,
   OperatingSystemName,
+  OperatingSystemNotCompatibleException,
   OperatingSystemType,
+  OperationInProgressException,
+  OperationNotSupportedException,
   Platform,
   PoolsRunningMode,
   Protocol,
@@ -123,6 +135,13 @@ import {
   ReconnectEnum,
   RegisterWorkspaceDirectoryCommand,
   RejectAccountLinkInvitationCommand,
+  ResourceAlreadyExistsException,
+  ResourceAssociatedException,
+  ResourceCreationFailedException,
+  ResourceInUseException,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
+  ResourceUnavailableException,
   RestoreWorkspaceCommand,
   RevokeIpRulesCommand,
   RunningMode,
@@ -141,6 +160,8 @@ import {
   TerminateWorkspacesCommand,
   TerminateWorkspacesPoolCommand,
   TerminateWorkspacesPoolSessionCommand,
+  UnsupportedNetworkConfigurationException,
+  UnsupportedWorkspaceConfigurationException,
   UpdateConnectClientAddInCommand,
   UpdateConnectionAliasPermissionCommand,
   UpdateRulesOfIpGroupCommand,
@@ -150,6 +171,7 @@ import {
   UserIdentityType,
   UserSettingActionEnum,
   UserSettingPermissionEnum,
+  ValidationException,
   WorkSpaceApplicationLicenseType,
   WorkSpaceApplicationState,
   WorkSpaceAssociatedResourceType,
@@ -165,6 +187,7 @@ import {
   WorkspaceImageState,
   WorkspaceState,
   WorkspaceType,
+  WorkspacesDefaultRoleNotFoundException,
   WorkspacesPoolErrorCode,
   WorkspacesPoolState,
   paginateDescribeApplicationAssociations,
@@ -346,6 +369,29 @@ assert(typeof WorkspacesPoolState === "object");
 assert(typeof WorkspaceState === "object");
 assert(typeof WorkspaceType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof WorkSpacesServiceException);
+assert(ApplicationNotSupportedException.prototype instanceof WorkSpacesServiceException);
+assert(ComputeNotCompatibleException.prototype instanceof WorkSpacesServiceException);
+assert(ConflictException.prototype instanceof WorkSpacesServiceException);
+assert(IncompatibleApplicationsException.prototype instanceof WorkSpacesServiceException);
+assert(InternalServerException.prototype instanceof WorkSpacesServiceException);
+assert(InvalidParameterCombinationException.prototype instanceof WorkSpacesServiceException);
+assert(InvalidParameterValuesException.prototype instanceof WorkSpacesServiceException);
+assert(InvalidResourceStateException.prototype instanceof WorkSpacesServiceException);
+assert(OperatingSystemNotCompatibleException.prototype instanceof WorkSpacesServiceException);
+assert(OperationInProgressException.prototype instanceof WorkSpacesServiceException);
+assert(OperationNotSupportedException.prototype instanceof WorkSpacesServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof WorkSpacesServiceException);
+assert(ResourceAssociatedException.prototype instanceof WorkSpacesServiceException);
+assert(ResourceCreationFailedException.prototype instanceof WorkSpacesServiceException);
+assert(ResourceInUseException.prototype instanceof WorkSpacesServiceException);
+assert(ResourceLimitExceededException.prototype instanceof WorkSpacesServiceException);
+assert(ResourceNotFoundException.prototype instanceof WorkSpacesServiceException);
+assert(ResourceUnavailableException.prototype instanceof WorkSpacesServiceException);
+assert(UnsupportedNetworkConfigurationException.prototype instanceof WorkSpacesServiceException);
+assert(UnsupportedWorkspaceConfigurationException.prototype instanceof WorkSpacesServiceException);
+assert(ValidationException.prototype instanceof WorkSpacesServiceException);
+assert(WorkspacesDefaultRoleNotFoundException.prototype instanceof WorkSpacesServiceException);
 assert(WorkSpacesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeApplicationAssociations === "function");

@@ -103,5 +103,10 @@ export type {
   UpdateDetectorRequest,
   Variable,
   VariableDefinition,
+  InternalFailureException,
+  InvalidRequestException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
+  ThrottlingException,
   IoTEventsDataServiceException,
 } from "../dist-types/index.d";

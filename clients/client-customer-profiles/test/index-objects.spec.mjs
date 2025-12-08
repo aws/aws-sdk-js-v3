@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   ActionType,
   AddProfileKeyCommand,
   AttributeDimensionType,
   AttributeMatchingModel,
+  BadRequestException,
   BatchGetCalculatedAttributeForProfileCommand,
   BatchGetProfileCommand,
   ComparisonOperator,
@@ -79,6 +81,7 @@ import {
   IdentityResolutionJobStatus,
   Include,
   IncludeOptions,
+  InternalServerException,
   JobScheduleDayOfTheWeek,
   LayoutType,
   ListAccountIntegrationsCommand,
@@ -124,6 +127,7 @@ import {
   ReadinessStatus,
   RecommenderRecipeName,
   RecommenderStatus,
+  ResourceNotFoundException,
   RuleBasedMatchingStatus,
   S3ConnectorOperator,
   SalesforceConnectorOperator,
@@ -144,6 +148,7 @@ import {
   StringDimensionType,
   TagResourceCommand,
   TaskType,
+  ThrottlingException,
   TrainingMetricName,
   TriggerType,
   Type,
@@ -333,6 +338,11 @@ assert(typeof UploadJobStatus === "object");
 assert(typeof WorkflowType === "object");
 assert(typeof ZendeskConnectorOperator === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CustomerProfilesServiceException);
+assert(BadRequestException.prototype instanceof CustomerProfilesServiceException);
+assert(InternalServerException.prototype instanceof CustomerProfilesServiceException);
+assert(ResourceNotFoundException.prototype instanceof CustomerProfilesServiceException);
+assert(ThrottlingException.prototype instanceof CustomerProfilesServiceException);
 assert(CustomerProfilesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetSimilarProfiles === "function");

@@ -1610,7 +1610,6 @@ export var XssMatchStatement: StaticStructureSchema = [
   [_FTM, _TT],
   [() => FieldToMatch, () => TextTransformations],
 ];
-export var __Unit = "unit" as const;
 export var WAFV2ServiceException: StaticErrorSchema = [-3, _sm, "WAFV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WAFV2ServiceException, __WAFV2ServiceException);
 export var AddressFields: StaticListSchema = [1, n0, _AFd, 0, () => AddressField];

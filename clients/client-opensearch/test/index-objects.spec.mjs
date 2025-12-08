@@ -1,6 +1,7 @@
 import {
   AWSServicePrincipal,
   AcceptInboundConnectionCommand,
+  AccessDeniedException,
   ActionSeverity,
   ActionStatus,
   ActionType,
@@ -15,9 +16,11 @@ import {
   AutoTuneDesiredState,
   AutoTuneState,
   AutoTuneType,
+  BaseException,
   CancelDomainConfigChangeCommand,
   CancelServiceSoftwareUpdateCommand,
   ConfigChangeStatus,
+  ConflictException,
   ConnectionMode,
   CreateApplicationCommand,
   CreateDomainCommand,
@@ -35,6 +38,7 @@ import {
   DeleteOutboundConnectionCommand,
   DeletePackageCommand,
   DeleteVpcEndpointCommand,
+  DependencyFailureException,
   DeploymentStatus,
   DescribeDomainAutoTunesCommand,
   DescribeDomainChangeProgressCommand,
@@ -52,6 +56,7 @@ import {
   DescribeReservedInstanceOfferingsCommand,
   DescribeReservedInstancesCommand,
   DescribeVpcEndpointsCommand,
+  DisabledOperationException,
   DissociatePackageCommand,
   DissociatePackagesCommand,
   DomainHealth,
@@ -74,6 +79,10 @@ import {
   InboundConnectionStatusCode,
   IndexStatus,
   InitiatedBy,
+  InternalException,
+  InvalidPaginationTokenException,
+  InvalidTypeException,
+  LimitExceededException,
   ListApplicationsCommand,
   ListDataSourcesCommand,
   ListDirectQueryDataSourcesCommand,
@@ -116,6 +125,8 @@ import {
   RemoveTagsCommand,
   RequirementLevel,
   ReservedInstancePaymentOption,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RevokeVpcEndpointAccessCommand,
   RolesKeyIdCOption,
   RollbackOnDisable,
@@ -124,10 +135,12 @@ import {
   ScheduledAutoTuneSeverityType,
   ScheduledBy,
   SkipUnavailableStatus,
+  SlotNotAvailableException,
   StartDomainMaintenanceCommand,
   StartServiceSoftwareUpdateCommand,
   SubjectKeyIdCOption,
   TLSSecurityPolicy,
+  ThrottlingException,
   TimeUnit,
   UpdateApplicationCommand,
   UpdateDataSourceCommand,
@@ -141,6 +154,7 @@ import {
   UpgradeDomainCommand,
   UpgradeStatus,
   UpgradeStep,
+  ValidationException,
   VolumeType,
   VpcEndpointErrorCode,
   VpcEndpointStatus,
@@ -311,6 +325,20 @@ assert(typeof VpcEndpointErrorCode === "object");
 assert(typeof VpcEndpointStatus === "object");
 assert(typeof ZoneStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof OpenSearchServiceException);
+assert(BaseException.prototype instanceof OpenSearchServiceException);
+assert(ConflictException.prototype instanceof OpenSearchServiceException);
+assert(DependencyFailureException.prototype instanceof OpenSearchServiceException);
+assert(DisabledOperationException.prototype instanceof OpenSearchServiceException);
+assert(InternalException.prototype instanceof OpenSearchServiceException);
+assert(InvalidPaginationTokenException.prototype instanceof OpenSearchServiceException);
+assert(InvalidTypeException.prototype instanceof OpenSearchServiceException);
+assert(LimitExceededException.prototype instanceof OpenSearchServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof OpenSearchServiceException);
+assert(ResourceNotFoundException.prototype instanceof OpenSearchServiceException);
+assert(SlotNotAvailableException.prototype instanceof OpenSearchServiceException);
+assert(ThrottlingException.prototype instanceof OpenSearchServiceException);
+assert(ValidationException.prototype instanceof OpenSearchServiceException);
 assert(OpenSearchServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeDomainAutoTunes === "function");

@@ -1,18 +1,27 @@
 import {
+  ALPNPolicyNotSupportedException,
   ActionTypeEnum,
   AddListenerCertificatesCommand,
   AddTagsCommand,
   AddTrustStoreRevocationsCommand,
   AdvertiseTrustStoreCaNamesEnum,
+  AllocationIdNotFoundException,
   AnomalyResultEnum,
   AuthenticateCognitoActionConditionalBehaviorEnum,
   AuthenticateOidcActionConditionalBehaviorEnum,
+  AvailabilityZoneNotSupportedException,
+  CaCertificatesBundleNotFoundException,
+  CapacityDecreaseRequestsLimitExceededException,
+  CapacityReservationPendingException,
   CapacityReservationStateEnum,
+  CapacityUnitsLimitExceededException,
+  CertificateNotFoundException,
   CreateListenerCommand,
   CreateLoadBalancerCommand,
   CreateRuleCommand,
   CreateTargetGroupCommand,
   CreateTrustStoreCommand,
+  DeleteAssociationSameAccountException,
   DeleteListenerCommand,
   DeleteLoadBalancerCommand,
   DeleteRuleCommand,
@@ -37,6 +46,11 @@ import {
   DescribeTrustStoreAssociationsCommand,
   DescribeTrustStoreRevocationsCommand,
   DescribeTrustStoresCommand,
+  DuplicateListenerException,
+  DuplicateLoadBalancerNameException,
+  DuplicateTagKeysException,
+  DuplicateTargetGroupNameException,
+  DuplicateTrustStoreNameException,
   ElasticLoadBalancingV2,
   ElasticLoadBalancingV2Client,
   ElasticLoadBalancingV2ServiceException,
@@ -45,8 +59,21 @@ import {
   GetResourcePolicyCommand,
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreRevocationContentCommand,
+  HealthUnavailableException,
+  IncompatibleProtocolsException,
+  InsufficientCapacityException,
+  InvalidCaCertificatesBundleException,
+  InvalidConfigurationRequestException,
+  InvalidLoadBalancerActionException,
+  InvalidRevocationContentException,
+  InvalidSchemeException,
+  InvalidSecurityGroupException,
+  InvalidSubnetException,
+  InvalidTargetException,
   IpAddressType,
   JwtValidationActionAdditionalClaimFormatEnum,
+  ListenerNotFoundException,
+  LoadBalancerNotFoundException,
   LoadBalancerSchemeEnum,
   LoadBalancerStateEnum,
   LoadBalancerTypeEnum,
@@ -60,6 +87,9 @@ import {
   ModifyTargetGroupAttributesCommand,
   ModifyTargetGroupCommand,
   ModifyTrustStoreCommand,
+  OperationNotPermittedException,
+  PriorRequestNotCompleteException,
+  PriorityInUseException,
   ProtocolEnum,
   RedirectActionStatusCodeEnum,
   RegisterTargetsCommand,
@@ -67,20 +97,46 @@ import {
   RemoveListenerCertificatesCommand,
   RemoveTagsCommand,
   RemoveTrustStoreRevocationsCommand,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  RevocationContentNotFoundException,
+  RevocationIdNotFoundException,
   RevocationType,
+  RuleNotFoundException,
+  SSLPolicyNotFoundException,
   SetIpAddressTypeCommand,
   SetRulePrioritiesCommand,
   SetSecurityGroupsCommand,
   SetSubnetsCommand,
+  SubnetNotFoundException,
   TargetAdministrativeOverrideReasonEnum,
   TargetAdministrativeOverrideStateEnum,
+  TargetGroupAssociationLimitException,
   TargetGroupIpAddressTypeEnum,
+  TargetGroupNotFoundException,
   TargetHealthReasonEnum,
   TargetHealthStateEnum,
   TargetTypeEnum,
+  TooManyActionsException,
+  TooManyCertificatesException,
+  TooManyListenersException,
+  TooManyLoadBalancersException,
+  TooManyRegistrationsForTargetIdException,
+  TooManyRulesException,
+  TooManyTagsException,
+  TooManyTargetGroupsException,
+  TooManyTargetsException,
+  TooManyTrustStoreRevocationEntriesException,
+  TooManyTrustStoresException,
+  TooManyUniqueTargetGroupsPerLoadBalancerException,
   TransformTypeEnum,
+  TrustStoreAssociationNotFoundException,
   TrustStoreAssociationStatusEnum,
+  TrustStoreInUseException,
+  TrustStoreNotFoundException,
+  TrustStoreNotReadyException,
   TrustStoreStatus,
+  UnsupportedProtocolException,
   paginateDescribeAccountLimits,
   paginateDescribeListenerCertificates,
   paginateDescribeListeners,
@@ -187,6 +243,62 @@ assert(typeof TransformTypeEnum === "object");
 assert(typeof TrustStoreAssociationStatusEnum === "object");
 assert(typeof TrustStoreStatus === "object");
 // errors
+assert(AllocationIdNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(ALPNPolicyNotSupportedException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(AvailabilityZoneNotSupportedException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(CaCertificatesBundleNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(CapacityDecreaseRequestsLimitExceededException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(CapacityReservationPendingException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(CapacityUnitsLimitExceededException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(CertificateNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(DeleteAssociationSameAccountException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(DuplicateListenerException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(DuplicateLoadBalancerNameException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(DuplicateTagKeysException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(DuplicateTargetGroupNameException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(DuplicateTrustStoreNameException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(HealthUnavailableException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(IncompatibleProtocolsException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InsufficientCapacityException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidCaCertificatesBundleException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidConfigurationRequestException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidLoadBalancerActionException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidRevocationContentException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidSchemeException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidSecurityGroupException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidSubnetException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(InvalidTargetException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(ListenerNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(LoadBalancerNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(OperationNotPermittedException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(PriorityInUseException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(PriorRequestNotCompleteException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(ResourceInUseException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(RevocationContentNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(RevocationIdNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(RuleNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(SSLPolicyNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(SubnetNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TargetGroupAssociationLimitException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TargetGroupNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyActionsException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyCertificatesException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyListenersException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyLoadBalancersException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyRegistrationsForTargetIdException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyRulesException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyTagsException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyTargetGroupsException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyTargetsException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyTrustStoreRevocationEntriesException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyTrustStoresException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TooManyUniqueTargetGroupsPerLoadBalancerException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TrustStoreAssociationNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TrustStoreInUseException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TrustStoreNotFoundException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(TrustStoreNotReadyException.prototype instanceof ElasticLoadBalancingV2ServiceException);
+assert(UnsupportedProtocolException.prototype instanceof ElasticLoadBalancingV2ServiceException);
 assert(ElasticLoadBalancingV2ServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForLoadBalancerAvailable === "function");

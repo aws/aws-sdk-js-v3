@@ -18,6 +18,11 @@ export type {
   PostContactSummary,
   RealtimeContactAnalysisSegment,
   Transcript,
+  AccessDeniedException,
+  InternalServiceException,
+  InvalidRequestException,
+  ResourceNotFoundException,
+  ThrottlingException,
   ConnectContactLensServiceException,
   paginateListRealtimeContactAnalysisSegments,
 } from "../dist-types/index.d";

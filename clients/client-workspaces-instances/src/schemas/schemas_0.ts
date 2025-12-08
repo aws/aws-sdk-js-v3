@@ -623,7 +623,6 @@ export var WorkspaceInstance: StaticStructureSchema = [
   [0, 0, () => EC2ManagedInstance],
 ];
 export var WorkspaceInstanceError: StaticStructureSchema = [3, n0, _WIEo, 0, [_EC, _EM], [0, 0]];
-export var __Unit = "unit" as const;
 export var WorkspacesInstancesServiceException: StaticErrorSchema = [
   -3,
   _sm,

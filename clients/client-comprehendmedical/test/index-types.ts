@@ -174,5 +174,13 @@ export type {
   StopSNOMEDCTInferenceJobResponse,
   Trait,
   UnmappedAttribute,
+  InternalServerException,
+  InvalidEncodingException,
+  InvalidRequestException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
+  TextSizeLimitExceededException,
+  TooManyRequestsException,
+  ValidationException,
   ComprehendMedicalServiceException,
 } from "../dist-types/index.d";

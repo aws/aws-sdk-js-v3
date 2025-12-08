@@ -1,16 +1,32 @@
 import {
+  AWSOrganizationsNotInUseException,
   AcceptHandshakeCommand,
+  AccessDeniedException,
+  AccessDeniedForDependencyException,
+  AccessDeniedForDependencyExceptionReason,
+  AccountAlreadyClosedException,
+  AccountAlreadyRegisteredException,
   AccountJoinedMethod,
+  AccountNotFoundException,
+  AccountNotRegisteredException,
+  AccountOwnerNotVerifiedException,
   AccountState,
   AccountStatus,
   ActionType,
+  AlreadyInOrganizationException,
   AttachPolicyCommand,
   CancelHandshakeCommand,
+  ChildNotFoundException,
   ChildType,
   CloseAccountCommand,
+  ConcurrentModificationException,
+  ConflictException,
+  ConstraintViolationException,
+  ConstraintViolationExceptionReason,
   CreateAccountCommand,
   CreateAccountFailureReason,
   CreateAccountState,
+  CreateAccountStatusNotFoundException,
   CreateGovCloudAccountCommand,
   CreateOrganizationCommand,
   CreateOrganizationalUnitCommand,
@@ -30,17 +46,33 @@ import {
   DescribePolicyCommand,
   DescribeResourcePolicyCommand,
   DescribeResponsibilityTransferCommand,
+  DestinationParentNotFoundException,
   DetachPolicyCommand,
   DisableAWSServiceAccessCommand,
   DisablePolicyTypeCommand,
+  DuplicateAccountException,
+  DuplicateHandshakeException,
+  DuplicateOrganizationalUnitException,
+  DuplicatePolicyAttachmentException,
+  DuplicatePolicyException,
+  EffectivePolicyNotFoundException,
   EffectivePolicyType,
   EnableAWSServiceAccessCommand,
   EnableAllFeaturesCommand,
   EnablePolicyTypeCommand,
+  FinalizingOrganizationException,
+  HandshakeAlreadyInStateException,
+  HandshakeConstraintViolationException,
+  HandshakeConstraintViolationExceptionReason,
+  HandshakeNotFoundException,
   HandshakePartyType,
   HandshakeResourceType,
   HandshakeState,
   IAMUserAccessToBilling,
+  InvalidHandshakeTransitionException,
+  InvalidInputException,
+  InvalidInputExceptionReason,
+  InvalidResponsibilityTransferTransitionException,
   InviteAccountToOrganizationCommand,
   InviteOrganizationToTransferResponsibilityCommand,
   LeaveOrganizationCommand,
@@ -64,22 +96,44 @@ import {
   ListRootsCommand,
   ListTagsForResourceCommand,
   ListTargetsForPolicyCommand,
+  MalformedPolicyDocumentException,
+  MasterCannotLeaveOrganizationException,
   MoveAccountCommand,
   OrganizationFeatureSet,
+  OrganizationNotEmptyException,
+  OrganizationalUnitNotEmptyException,
+  OrganizationalUnitNotFoundException,
   Organizations,
   OrganizationsClient,
   OrganizationsServiceException,
+  ParentNotFoundException,
   ParentType,
+  PolicyChangesInProgressException,
+  PolicyInUseException,
+  PolicyNotAttachedException,
+  PolicyNotFoundException,
   PolicyType,
+  PolicyTypeAlreadyEnabledException,
+  PolicyTypeNotAvailableForOrganizationException,
+  PolicyTypeNotEnabledException,
   PolicyTypeStatus,
   PutResourcePolicyCommand,
   RegisterDelegatedAdministratorCommand,
   RemoveAccountFromOrganizationCommand,
+  ResourcePolicyNotFoundException,
+  ResponsibilityTransferAlreadyInStatusException,
+  ResponsibilityTransferNotFoundException,
   ResponsibilityTransferStatus,
   ResponsibilityTransferType,
+  RootNotFoundException,
+  ServiceException,
+  SourceParentNotFoundException,
   TagResourceCommand,
+  TargetNotFoundException,
   TargetType,
   TerminateResponsibilityTransferCommand,
+  TooManyRequestsException,
+  UnsupportedAPIEndpointException,
   UntagResourceCommand,
   UpdateOrganizationalUnitCommand,
   UpdatePolicyCommand,
@@ -172,18 +226,22 @@ assert(typeof UpdateOrganizationalUnitCommand === "function");
 assert(typeof UpdatePolicyCommand === "function");
 assert(typeof UpdateResponsibilityTransferCommand === "function");
 // enums
+assert(typeof AccessDeniedForDependencyExceptionReason === "object");
 assert(typeof AccountJoinedMethod === "object");
 assert(typeof AccountState === "object");
 assert(typeof AccountStatus === "object");
 assert(typeof ActionType === "object");
 assert(typeof ChildType === "object");
+assert(typeof ConstraintViolationExceptionReason === "object");
 assert(typeof CreateAccountFailureReason === "object");
 assert(typeof CreateAccountState === "object");
 assert(typeof EffectivePolicyType === "object");
+assert(typeof HandshakeConstraintViolationExceptionReason === "object");
 assert(typeof HandshakePartyType === "object");
 assert(typeof HandshakeResourceType === "object");
 assert(typeof HandshakeState === "object");
 assert(typeof IAMUserAccessToBilling === "object");
+assert(typeof InvalidInputExceptionReason === "object");
 assert(typeof OrganizationFeatureSet === "object");
 assert(typeof ParentType === "object");
 assert(typeof PolicyType === "object");
@@ -192,6 +250,56 @@ assert(typeof ResponsibilityTransferStatus === "object");
 assert(typeof ResponsibilityTransferType === "object");
 assert(typeof TargetType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof OrganizationsServiceException);
+assert(AccessDeniedForDependencyException.prototype instanceof OrganizationsServiceException);
+assert(AccountAlreadyClosedException.prototype instanceof OrganizationsServiceException);
+assert(AccountAlreadyRegisteredException.prototype instanceof OrganizationsServiceException);
+assert(AccountNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(AccountNotRegisteredException.prototype instanceof OrganizationsServiceException);
+assert(AccountOwnerNotVerifiedException.prototype instanceof OrganizationsServiceException);
+assert(AlreadyInOrganizationException.prototype instanceof OrganizationsServiceException);
+assert(AWSOrganizationsNotInUseException.prototype instanceof OrganizationsServiceException);
+assert(ChildNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(ConcurrentModificationException.prototype instanceof OrganizationsServiceException);
+assert(ConflictException.prototype instanceof OrganizationsServiceException);
+assert(ConstraintViolationException.prototype instanceof OrganizationsServiceException);
+assert(CreateAccountStatusNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(DestinationParentNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(DuplicateAccountException.prototype instanceof OrganizationsServiceException);
+assert(DuplicateHandshakeException.prototype instanceof OrganizationsServiceException);
+assert(DuplicateOrganizationalUnitException.prototype instanceof OrganizationsServiceException);
+assert(DuplicatePolicyAttachmentException.prototype instanceof OrganizationsServiceException);
+assert(DuplicatePolicyException.prototype instanceof OrganizationsServiceException);
+assert(EffectivePolicyNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(FinalizingOrganizationException.prototype instanceof OrganizationsServiceException);
+assert(HandshakeAlreadyInStateException.prototype instanceof OrganizationsServiceException);
+assert(HandshakeConstraintViolationException.prototype instanceof OrganizationsServiceException);
+assert(HandshakeNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(InvalidHandshakeTransitionException.prototype instanceof OrganizationsServiceException);
+assert(InvalidInputException.prototype instanceof OrganizationsServiceException);
+assert(InvalidResponsibilityTransferTransitionException.prototype instanceof OrganizationsServiceException);
+assert(MalformedPolicyDocumentException.prototype instanceof OrganizationsServiceException);
+assert(MasterCannotLeaveOrganizationException.prototype instanceof OrganizationsServiceException);
+assert(OrganizationalUnitNotEmptyException.prototype instanceof OrganizationsServiceException);
+assert(OrganizationalUnitNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(OrganizationNotEmptyException.prototype instanceof OrganizationsServiceException);
+assert(ParentNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(PolicyChangesInProgressException.prototype instanceof OrganizationsServiceException);
+assert(PolicyInUseException.prototype instanceof OrganizationsServiceException);
+assert(PolicyNotAttachedException.prototype instanceof OrganizationsServiceException);
+assert(PolicyNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(PolicyTypeAlreadyEnabledException.prototype instanceof OrganizationsServiceException);
+assert(PolicyTypeNotAvailableForOrganizationException.prototype instanceof OrganizationsServiceException);
+assert(PolicyTypeNotEnabledException.prototype instanceof OrganizationsServiceException);
+assert(ResourcePolicyNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(ResponsibilityTransferAlreadyInStatusException.prototype instanceof OrganizationsServiceException);
+assert(ResponsibilityTransferNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(RootNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(ServiceException.prototype instanceof OrganizationsServiceException);
+assert(SourceParentNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(TargetNotFoundException.prototype instanceof OrganizationsServiceException);
+assert(TooManyRequestsException.prototype instanceof OrganizationsServiceException);
+assert(UnsupportedAPIEndpointException.prototype instanceof OrganizationsServiceException);
 assert(OrganizationsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAWSServiceAccessForOrganization === "function");

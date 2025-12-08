@@ -5,6 +5,8 @@ import {
   AddApplicationOutputCommand,
   AddApplicationReferenceDataSourceCommand,
   ApplicationStatus,
+  CodeValidationException,
+  ConcurrentModificationException,
   CreateApplicationCommand,
   DeleteApplicationCloudWatchLoggingOptionCommand,
   DeleteApplicationCommand,
@@ -14,15 +16,25 @@ import {
   DescribeApplicationCommand,
   DiscoverInputSchemaCommand,
   InputStartingPosition,
+  InvalidApplicationConfigurationException,
+  InvalidArgumentException,
   KinesisAnalytics,
   KinesisAnalyticsClient,
   KinesisAnalyticsServiceException,
+  LimitExceededException,
   ListApplicationsCommand,
   ListTagsForResourceCommand,
   RecordFormatType,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceProvisionedThroughputExceededException,
+  ServiceUnavailableException,
   StartApplicationCommand,
   StopApplicationCommand,
   TagResourceCommand,
+  TooManyTagsException,
+  UnableToDetectSchemaException,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateApplicationCommand,
 } from "../dist-cjs/index.js";
@@ -56,5 +68,17 @@ assert(typeof ApplicationStatus === "object");
 assert(typeof InputStartingPosition === "object");
 assert(typeof RecordFormatType === "object");
 // errors
+assert(CodeValidationException.prototype instanceof KinesisAnalyticsServiceException);
+assert(ConcurrentModificationException.prototype instanceof KinesisAnalyticsServiceException);
+assert(InvalidApplicationConfigurationException.prototype instanceof KinesisAnalyticsServiceException);
+assert(InvalidArgumentException.prototype instanceof KinesisAnalyticsServiceException);
+assert(LimitExceededException.prototype instanceof KinesisAnalyticsServiceException);
+assert(ResourceInUseException.prototype instanceof KinesisAnalyticsServiceException);
+assert(ResourceNotFoundException.prototype instanceof KinesisAnalyticsServiceException);
+assert(ResourceProvisionedThroughputExceededException.prototype instanceof KinesisAnalyticsServiceException);
+assert(ServiceUnavailableException.prototype instanceof KinesisAnalyticsServiceException);
+assert(TooManyTagsException.prototype instanceof KinesisAnalyticsServiceException);
+assert(UnableToDetectSchemaException.prototype instanceof KinesisAnalyticsServiceException);
+assert(UnsupportedOperationException.prototype instanceof KinesisAnalyticsServiceException);
 assert(KinesisAnalyticsServiceException.prototype instanceof Error);
 console.log(`KinesisAnalytics index test passed.`);

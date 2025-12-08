@@ -21,6 +21,7 @@ import {
   BatchAssociateUserStackCommand,
   BatchDisassociateUserStackCommand,
   CertificateBasedAuthStatus,
+  ConcurrentModificationException,
   CopyImageCommand,
   CreateAppBlockBuilderCommand,
   CreateAppBlockBuilderStreamingURLCommand,
@@ -77,8 +78,11 @@ import {
   DisassociateApplicationFromEntitlementCommand,
   DisassociateFleetCommand,
   DisassociateSoftwareFromImageBuilderCommand,
+  DryRunOperationException,
   DynamicAppProvidersEnabled,
   EnableUserCommand,
+  EntitlementAlreadyExistsException,
+  EntitlementNotFoundException,
   ExpireSessionCommand,
   ExportImageTaskState,
   FleetAttribute,
@@ -92,17 +96,28 @@ import {
   ImageState,
   ImageStateChangeReasonCode,
   ImageType,
+  IncompatibleImageException,
+  InvalidAccountStatusException,
+  InvalidParameterCombinationException,
+  InvalidRoleException,
   LatestAppstreamAgentVersion,
+  LimitExceededException,
   ListAssociatedFleetsCommand,
   ListAssociatedStacksCommand,
   ListEntitledApplicationsCommand,
   ListExportImageTasksCommand,
   ListTagsForResourceCommand,
   MessageAction,
+  OperationNotPermittedException,
   PackagingType,
   Permission,
   PlatformType,
   PreferredProtocol,
+  RequestLimitExceededException,
+  ResourceAlreadyExistsException,
+  ResourceInUseException,
+  ResourceNotAvailableException,
+  ResourceNotFoundException,
   SessionConnectionState,
   SessionState,
   SoftwareDeploymentStatus,
@@ -282,6 +297,21 @@ assert(typeof UsageReportSchedule === "object");
 assert(typeof UserStackAssociationErrorCode === "object");
 assert(typeof VisibilityType === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof AppStreamServiceException);
+assert(DryRunOperationException.prototype instanceof AppStreamServiceException);
+assert(EntitlementAlreadyExistsException.prototype instanceof AppStreamServiceException);
+assert(EntitlementNotFoundException.prototype instanceof AppStreamServiceException);
+assert(IncompatibleImageException.prototype instanceof AppStreamServiceException);
+assert(InvalidAccountStatusException.prototype instanceof AppStreamServiceException);
+assert(InvalidParameterCombinationException.prototype instanceof AppStreamServiceException);
+assert(InvalidRoleException.prototype instanceof AppStreamServiceException);
+assert(LimitExceededException.prototype instanceof AppStreamServiceException);
+assert(OperationNotPermittedException.prototype instanceof AppStreamServiceException);
+assert(RequestLimitExceededException.prototype instanceof AppStreamServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof AppStreamServiceException);
+assert(ResourceInUseException.prototype instanceof AppStreamServiceException);
+assert(ResourceNotAvailableException.prototype instanceof AppStreamServiceException);
+assert(ResourceNotFoundException.prototype instanceof AppStreamServiceException);
 assert(AppStreamServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForFleetStarted === "function");

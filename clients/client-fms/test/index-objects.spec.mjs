@@ -33,6 +33,11 @@ import {
   GetResourceSetCommand,
   GetThirdPartyFirewallAssociationStatusCommand,
   GetViolationDetailsCommand,
+  InternalErrorException,
+  InvalidInputException,
+  InvalidOperationException,
+  InvalidTypeException,
+  LimitExceededException,
   ListAdminAccountsForOrganizationCommand,
   ListAdminsManagingAccountCommand,
   ListAppsListsCommand,
@@ -57,6 +62,7 @@ import {
   PutProtocolsListCommand,
   PutResourceSetCommand,
   RemediationActionType,
+  ResourceNotFoundException,
   ResourceSetStatus,
   ResourceTagLogicalOperator,
   RuleOrder,
@@ -150,6 +156,12 @@ assert(typeof ThirdPartyFirewall === "object");
 assert(typeof ThirdPartyFirewallAssociationStatus === "object");
 assert(typeof ViolationReason === "object");
 // errors
+assert(InternalErrorException.prototype instanceof FMSServiceException);
+assert(InvalidInputException.prototype instanceof FMSServiceException);
+assert(InvalidOperationException.prototype instanceof FMSServiceException);
+assert(InvalidTypeException.prototype instanceof FMSServiceException);
+assert(LimitExceededException.prototype instanceof FMSServiceException);
+assert(ResourceNotFoundException.prototype instanceof FMSServiceException);
 assert(FMSServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAdminAccountsForOrganization === "function");

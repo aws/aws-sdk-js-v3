@@ -211,7 +211,6 @@ TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var VideoEvent: StaticStructureSchema = [3, n0, _VEi, 0, [_VC, _TM], [21, 1]];
-export var __Unit = "unit" as const;
 export var RekognitionStreamingServiceException: StaticErrorSchema = [
   -3,
   _sm,

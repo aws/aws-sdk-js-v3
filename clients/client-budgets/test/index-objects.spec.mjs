@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   ActionStatus,
   ActionSubType,
   ActionType,
   ApprovalModel,
   AutoAdjustType,
+  BillingViewHealthStatusException,
   BudgetType,
   Budgets,
   BudgetsClient,
@@ -13,6 +15,7 @@ import {
   CreateBudgetCommand,
   CreateNotificationCommand,
   CreateSubscriberCommand,
+  CreationLimitExceededException,
   DeleteBudgetActionCommand,
   DeleteBudgetCommand,
   DeleteNotificationCommand,
@@ -28,19 +31,28 @@ import {
   DescribeNotificationsForBudgetCommand,
   DescribeSubscribersForNotificationCommand,
   Dimension,
+  DuplicateRecordException,
   EventType,
   ExecuteBudgetActionCommand,
   ExecutionType,
+  ExpiredNextTokenException,
   HealthStatusReason,
   HealthStatusValue,
+  InternalErrorException,
+  InvalidNextTokenException,
+  InvalidParameterException,
   ListTagsForResourceCommand,
   MatchOption,
   Metric,
+  NotFoundException,
   NotificationState,
   NotificationType,
+  ResourceLockedException,
+  ServiceQuotaExceededException,
   SubscriptionType,
   TagResourceCommand,
   ThresholdType,
+  ThrottlingException,
   TimeUnit,
   UntagResourceCommand,
   UpdateBudgetActionCommand,
@@ -108,6 +120,18 @@ assert(typeof SubscriptionType === "object");
 assert(typeof ThresholdType === "object");
 assert(typeof TimeUnit === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BudgetsServiceException);
+assert(BillingViewHealthStatusException.prototype instanceof BudgetsServiceException);
+assert(CreationLimitExceededException.prototype instanceof BudgetsServiceException);
+assert(DuplicateRecordException.prototype instanceof BudgetsServiceException);
+assert(ExpiredNextTokenException.prototype instanceof BudgetsServiceException);
+assert(InternalErrorException.prototype instanceof BudgetsServiceException);
+assert(InvalidNextTokenException.prototype instanceof BudgetsServiceException);
+assert(InvalidParameterException.prototype instanceof BudgetsServiceException);
+assert(NotFoundException.prototype instanceof BudgetsServiceException);
+assert(ResourceLockedException.prototype instanceof BudgetsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BudgetsServiceException);
+assert(ThrottlingException.prototype instanceof BudgetsServiceException);
 assert(BudgetsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeBudgetActionHistories === "function");

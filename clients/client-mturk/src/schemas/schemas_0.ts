@@ -700,7 +700,6 @@ export var UpdateQualificationTypeResponse: StaticStructureSchema = [
   [() => QualificationType],
 ];
 export var WorkerBlock: StaticStructureSchema = [3, n0, _WBo, 0, [_WI, _R], [0, 0]];
-export var __Unit = "unit" as const;
 export var MTurkServiceException: StaticErrorSchema = [-3, _sm, "MTurkServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MTurkServiceException, __MTurkServiceException);
 export var AssignmentList: StaticListSchema = [1, n0, _AL, 0, () => Assignment];

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AccessorNetworkType,
   AccessorStatus,
   AccessorType,
@@ -17,6 +18,9 @@ import {
   GetNetworkCommand,
   GetNodeCommand,
   GetProposalCommand,
+  IllegalActionException,
+  InternalServiceErrorException,
+  InvalidRequestException,
   InvitationStatus,
   ListAccessorsCommand,
   ListInvitationsCommand,
@@ -34,9 +38,15 @@ import {
   NodeStatus,
   ProposalStatus,
   RejectInvitationCommand,
+  ResourceAlreadyExistsException,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
+  ResourceNotReadyException,
   StateDBType,
   TagResourceCommand,
   ThresholdComparator,
+  ThrottlingException,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateMemberCommand,
   UpdateNodeCommand,
@@ -97,6 +107,16 @@ assert(typeof StateDBType === "object");
 assert(typeof ThresholdComparator === "object");
 assert(typeof VoteValue === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ManagedBlockchainServiceException);
+assert(IllegalActionException.prototype instanceof ManagedBlockchainServiceException);
+assert(InternalServiceErrorException.prototype instanceof ManagedBlockchainServiceException);
+assert(InvalidRequestException.prototype instanceof ManagedBlockchainServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof ManagedBlockchainServiceException);
+assert(ResourceLimitExceededException.prototype instanceof ManagedBlockchainServiceException);
+assert(ResourceNotFoundException.prototype instanceof ManagedBlockchainServiceException);
+assert(ResourceNotReadyException.prototype instanceof ManagedBlockchainServiceException);
+assert(ThrottlingException.prototype instanceof ManagedBlockchainServiceException);
+assert(TooManyTagsException.prototype instanceof ManagedBlockchainServiceException);
 assert(ManagedBlockchainServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessors === "function");

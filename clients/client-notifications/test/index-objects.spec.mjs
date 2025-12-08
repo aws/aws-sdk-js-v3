@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AccessStatus,
   AccountContactType,
   AggregationDuration,
@@ -9,6 +10,7 @@ import {
   AssociateOrganizationalUnitCommand,
   ChannelAssociationOverrideOption,
   ChannelType,
+  ConflictException,
   CreateEventRuleCommand,
   CreateNotificationConfigurationCommand,
   DeleteEventRuleCommand,
@@ -29,6 +31,7 @@ import {
   GetNotificationConfigurationCommand,
   GetNotificationEventCommand,
   GetNotificationsAccessForOrganizationCommand,
+  InternalServerException,
   ListChannelsCommand,
   ListEventRulesCommand,
   ListManagedNotificationChannelAssociationsCommand,
@@ -52,12 +55,17 @@ import {
   NotificationsClient,
   NotificationsServiceException,
   RegisterNotificationHubCommand,
+  ResourceNotFoundException,
   SchemaVersion,
+  ServiceQuotaExceededException,
   TagResourceCommand,
   TextPartType,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateEventRuleCommand,
   UpdateNotificationConfigurationCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListChannels,
   paginateListEventRules,
   paginateListManagedNotificationChannelAssociations,
@@ -132,7 +140,15 @@ assert(typeof NotificationHubStatus === "object");
 assert(typeof NotificationType === "object");
 assert(typeof SchemaVersion === "object");
 assert(typeof TextPartType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof NotificationsServiceException);
+assert(ConflictException.prototype instanceof NotificationsServiceException);
+assert(InternalServerException.prototype instanceof NotificationsServiceException);
+assert(ResourceNotFoundException.prototype instanceof NotificationsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof NotificationsServiceException);
+assert(ThrottlingException.prototype instanceof NotificationsServiceException);
+assert(ValidationException.prototype instanceof NotificationsServiceException);
 assert(NotificationsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChannels === "function");

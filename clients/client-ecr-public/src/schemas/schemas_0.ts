@@ -519,7 +519,6 @@ export var UploadLayerPartRequest: StaticStructureSchema = [
 export var UploadLayerPartResponse: StaticStructureSchema = [3, n0, _ULPRp, 0, [_rI, _rN, _uI, _lBR], [0, 0, 0, 1]];
 export var UploadNotFoundException: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UploadNotFoundException, __UploadNotFoundException);
-export var __Unit = "unit" as const;
 export var ECRPUBLICServiceException: StaticErrorSchema = [-3, _sm, "ECRPUBLICServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECRPUBLICServiceException, __ECRPUBLICServiceException);
 export var ArchitectureList = 64 | 0;

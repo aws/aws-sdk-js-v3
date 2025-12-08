@@ -1454,7 +1454,6 @@ export var ZeppelinApplicationConfigurationUpdate: StaticStructureSchema = [
 export var ZeppelinMonitoringConfiguration: StaticStructureSchema = [3, n0, _ZMC, 0, [_LL], [0]];
 export var ZeppelinMonitoringConfigurationDescription: StaticStructureSchema = [3, n0, _ZMCD, 0, [_LL], [0]];
 export var ZeppelinMonitoringConfigurationUpdate: StaticStructureSchema = [3, n0, _ZMCU, 0, [_LLU], [0]];
-export var __Unit = "unit" as const;
 export var KinesisAnalyticsV2ServiceException: StaticErrorSchema = [
   -3,
   _sm,

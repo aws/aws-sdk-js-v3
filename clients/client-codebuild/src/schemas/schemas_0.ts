@@ -1774,7 +1774,6 @@ export var Webhook: StaticStructureSchema = [
   [0, 0, 0, 0, () => FilterGroups, 0, 2, 4, () => ScopeConfiguration, 0, 0, () => PullRequestBuildPolicy],
 ];
 export var WebhookFilter: StaticStructureSchema = [3, n0, _WF, 0, [_t, _pat, _eMP], [0, 0, 2]];
-export var __Unit = "unit" as const;
 export var CodeBuildServiceException: StaticErrorSchema = [-3, _sm, "CodeBuildServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeBuildServiceException, __CodeBuildServiceException);
 export var BuildArtifactsList: StaticListSchema = [1, n0, _BAL, 0, () => BuildArtifacts];

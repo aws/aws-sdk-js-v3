@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   AddWorkloadCommand,
   ApplicationInsights,
   ApplicationInsightsClient,
   ApplicationInsightsServiceException,
+  BadRequestException,
   CloudWatchEventSource,
   ConfigurationEventResourceType,
   ConfigurationEventStatus,
@@ -25,6 +27,7 @@ import {
   FeedbackKey,
   FeedbackValue,
   GroupingType,
+  InternalServerException,
   ListApplicationsCommand,
   ListComponentsCommand,
   ListConfigurationHistoryCommand,
@@ -38,10 +41,14 @@ import {
   RecommendationType,
   RemoveWorkloadCommand,
   ResolutionMethod,
+  ResourceInUseException,
+  ResourceNotFoundException,
   SeverityLevel,
   Status,
   TagResourceCommand,
+  TagsAlreadyExistException,
   Tier,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateComponentCommand,
@@ -50,6 +57,7 @@ import {
   UpdateProblemCommand,
   UpdateStatus,
   UpdateWorkloadCommand,
+  ValidationException,
   Visibility,
   paginateListApplications,
   paginateListComponents,
@@ -115,6 +123,14 @@ assert(typeof Tier === "object");
 assert(typeof UpdateStatus === "object");
 assert(typeof Visibility === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ApplicationInsightsServiceException);
+assert(BadRequestException.prototype instanceof ApplicationInsightsServiceException);
+assert(InternalServerException.prototype instanceof ApplicationInsightsServiceException);
+assert(ResourceInUseException.prototype instanceof ApplicationInsightsServiceException);
+assert(ResourceNotFoundException.prototype instanceof ApplicationInsightsServiceException);
+assert(TagsAlreadyExistException.prototype instanceof ApplicationInsightsServiceException);
+assert(TooManyTagsException.prototype instanceof ApplicationInsightsServiceException);
+assert(ValidationException.prototype instanceof ApplicationInsightsServiceException);
 assert(ApplicationInsightsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplications === "function");

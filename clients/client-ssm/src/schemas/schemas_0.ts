@@ -5969,7 +5969,6 @@ export var ValidationException: StaticErrorSchema = [
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var SSMServiceException: StaticErrorSchema = [-3, _sm, "SSMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSMServiceException, __SSMServiceException);
 export var AccountIdList: StaticListSchema = [1, n0, _AIL, 0, [0, { [_xN]: _AI }]];

@@ -118,7 +118,6 @@ export var TooManyRequestsError: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c,
 TypeRegistry.for(n0).registerError(TooManyRequestsError, __TooManyRequestsError);
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_e, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var SigninServiceException: StaticErrorSchema = [-3, _sm, "SigninServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SigninServiceException, __SigninServiceException);
 export var CreateOAuth2Token: StaticOperationSchema = [

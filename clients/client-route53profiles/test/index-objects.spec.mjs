@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   AssociateProfileCommand,
   AssociateResourceToProfileCommand,
+  ConflictException,
   CreateProfileCommand,
   DeleteProfileCommand,
   DisassociateProfileCommand,
@@ -8,18 +10,26 @@ import {
   GetProfileAssociationCommand,
   GetProfileCommand,
   GetProfileResourceAssociationCommand,
+  InternalServiceErrorException,
+  InvalidNextTokenException,
+  InvalidParameterException,
+  LimitExceededException,
   ListProfileAssociationsCommand,
   ListProfileResourceAssociationsCommand,
   ListProfilesCommand,
   ListTagsForResourceCommand,
   ProfileStatus,
+  ResourceExistsException,
+  ResourceNotFoundException,
   Route53Profiles,
   Route53ProfilesClient,
   Route53ProfilesServiceException,
   ShareStatus,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateProfileResourceAssociationCommand,
+  ValidationException,
   paginateListProfileAssociations,
   paginateListProfileResourceAssociations,
   paginateListProfiles,
@@ -49,6 +59,16 @@ assert(typeof UpdateProfileResourceAssociationCommand === "function");
 assert(typeof ProfileStatus === "object");
 assert(typeof ShareStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof Route53ProfilesServiceException);
+assert(ConflictException.prototype instanceof Route53ProfilesServiceException);
+assert(InternalServiceErrorException.prototype instanceof Route53ProfilesServiceException);
+assert(InvalidNextTokenException.prototype instanceof Route53ProfilesServiceException);
+assert(InvalidParameterException.prototype instanceof Route53ProfilesServiceException);
+assert(LimitExceededException.prototype instanceof Route53ProfilesServiceException);
+assert(ResourceExistsException.prototype instanceof Route53ProfilesServiceException);
+assert(ResourceNotFoundException.prototype instanceof Route53ProfilesServiceException);
+assert(ThrottlingException.prototype instanceof Route53ProfilesServiceException);
+assert(ValidationException.prototype instanceof Route53ProfilesServiceException);
 assert(Route53ProfilesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListProfileAssociations === "function");

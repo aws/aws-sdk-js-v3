@@ -233,7 +233,6 @@ export var ModifyLunaClientResponse: StaticStructureSchema = [3, n0, _MLCRo, 0, 
 export var RemoveTagsFromResourceRequest: StaticStructureSchema = [3, n0, _RTFRR, 0, [_RA, _TKL], [0, 64 | 0]];
 export var RemoveTagsFromResourceResponse: StaticStructureSchema = [3, n0, _RTFRRe, 0, [_S], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_K, _V], [0, 0]];
-export var __Unit = "unit" as const;
 export var CloudHSMServiceException: StaticErrorSchema = [-3, _sm, "CloudHSMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudHSMServiceException, __CloudHSMServiceException);
 export var AZList = 64 | 0;

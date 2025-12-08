@@ -1,4 +1,7 @@
 import {
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
   CreateNamespaceCommand,
   CreateTableBucketCommand,
   CreateTableCommand,
@@ -11,6 +14,7 @@ import {
   DeleteTableCommand,
   DeleteTablePolicyCommand,
   DeleteTableReplicationCommand,
+  ForbiddenException,
   GetNamespaceCommand,
   GetTableBucketCommand,
   GetTableBucketEncryptionCommand,
@@ -31,12 +35,15 @@ import {
   GetTableReplicationStatusCommand,
   GetTableStorageClassCommand,
   IcebergCompactionStrategy,
+  InternalServerErrorException,
   JobStatus,
   ListNamespacesCommand,
   ListTableBucketsCommand,
   ListTablesCommand,
   ListTagsForResourceCommand,
   MaintenanceStatus,
+  MethodNotAllowedException,
+  NotFoundException,
   OpenTableFormat,
   PutTableBucketEncryptionCommand,
   PutTableBucketMaintenanceConfigurationCommand,
@@ -63,6 +70,7 @@ import {
   TableRecordExpirationStatus,
   TableType,
   TagResourceCommand,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateTableMetadataLocationCommand,
   paginateListNamespaces,
@@ -139,6 +147,14 @@ assert(typeof TableRecordExpirationJobStatus === "object");
 assert(typeof TableRecordExpirationStatus === "object");
 assert(typeof TableType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof S3TablesServiceException);
+assert(BadRequestException.prototype instanceof S3TablesServiceException);
+assert(ConflictException.prototype instanceof S3TablesServiceException);
+assert(ForbiddenException.prototype instanceof S3TablesServiceException);
+assert(InternalServerErrorException.prototype instanceof S3TablesServiceException);
+assert(MethodNotAllowedException.prototype instanceof S3TablesServiceException);
+assert(NotFoundException.prototype instanceof S3TablesServiceException);
+assert(TooManyRequestsException.prototype instanceof S3TablesServiceException);
 assert(S3TablesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListNamespaces === "function");

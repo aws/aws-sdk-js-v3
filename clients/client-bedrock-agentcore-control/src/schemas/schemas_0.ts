@@ -2855,7 +2855,6 @@ export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_sG, _su], [64 | 0, 64 | 0]];
 export var WorkloadIdentityDetails: StaticStructureSchema = [3, n0, _WID, 0, [_wIA], [0]];
 export var WorkloadIdentityType: StaticStructureSchema = [3, n0, _WIT, 0, [_n, _wIA], [0, 0]];
-export var __Unit = "unit" as const;
 export var BedrockAgentCoreControlServiceException: StaticErrorSchema = [
   -3,
   _sm,

@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   CodeCatalyst,
   CodeCatalystClient,
   CodeCatalystServiceException,
   ComparisonOperator,
+  ConflictException,
   CreateAccessTokenCommand,
   CreateDevEnvironmentCommand,
   CreateProjectCommand,
@@ -36,15 +38,19 @@ import {
   ListWorkflowRunsCommand,
   ListWorkflowsCommand,
   OperationType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   StartDevEnvironmentCommand,
   StartDevEnvironmentSessionCommand,
   StartWorkflowRunCommand,
   StopDevEnvironmentCommand,
   StopDevEnvironmentSessionCommand,
+  ThrottlingException,
   UpdateDevEnvironmentCommand,
   UpdateProjectCommand,
   UpdateSpaceCommand,
   UserType,
+  ValidationException,
   VerifySessionCommand,
   WorkflowRunMode,
   WorkflowRunStatus,
@@ -116,6 +122,12 @@ assert(typeof WorkflowRunMode === "object");
 assert(typeof WorkflowRunStatus === "object");
 assert(typeof WorkflowStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CodeCatalystServiceException);
+assert(ConflictException.prototype instanceof CodeCatalystServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodeCatalystServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CodeCatalystServiceException);
+assert(ThrottlingException.prototype instanceof CodeCatalystServiceException);
+assert(ValidationException.prototype instanceof CodeCatalystServiceException);
 assert(CodeCatalystServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessTokens === "function");

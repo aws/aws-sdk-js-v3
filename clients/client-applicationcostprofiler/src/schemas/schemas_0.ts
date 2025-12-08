@@ -136,7 +136,6 @@ export var UpdateReportDefinitionRequest: StaticStructureSchema = [
 export var UpdateReportDefinitionResult: StaticStructureSchema = [3, n0, _URDRp, 0, [_rI], [0]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var ApplicationCostProfilerServiceException: StaticErrorSchema = [
   -3,
   _sm,

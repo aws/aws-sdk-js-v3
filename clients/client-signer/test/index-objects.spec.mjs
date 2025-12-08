@@ -1,7 +1,10 @@
 import {
+  AccessDeniedException,
   AddProfilePermissionCommand,
+  BadRequestException,
   CancelSigningProfileCommand,
   Category,
+  ConflictException,
   DescribeSigningJobCommand,
   EncryptionAlgorithm,
   GetRevocationStatusCommand,
@@ -9,15 +12,19 @@ import {
   GetSigningProfileCommand,
   HashAlgorithm,
   ImageFormat,
+  InternalServiceErrorException,
   ListProfilePermissionsCommand,
   ListSigningJobsCommand,
   ListSigningPlatformsCommand,
   ListSigningProfilesCommand,
   ListTagsForResourceCommand,
+  NotFoundException,
   PutSigningProfileCommand,
   RemoveProfilePermissionCommand,
+  ResourceNotFoundException,
   RevokeSignatureCommand,
   RevokeSigningProfileCommand,
+  ServiceLimitExceededException,
   SignPayloadCommand,
   Signer,
   SignerClient,
@@ -26,7 +33,10 @@ import {
   SigningStatus,
   StartSigningJobCommand,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyRequestsException,
   UntagResourceCommand,
+  ValidationException,
   ValidityType,
   paginateListSigningJobs,
   paginateListSigningPlatforms,
@@ -67,6 +77,16 @@ assert(typeof SigningProfileStatus === "object");
 assert(typeof SigningStatus === "object");
 assert(typeof ValidityType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SignerServiceException);
+assert(BadRequestException.prototype instanceof SignerServiceException);
+assert(ConflictException.prototype instanceof SignerServiceException);
+assert(InternalServiceErrorException.prototype instanceof SignerServiceException);
+assert(NotFoundException.prototype instanceof SignerServiceException);
+assert(ResourceNotFoundException.prototype instanceof SignerServiceException);
+assert(ServiceLimitExceededException.prototype instanceof SignerServiceException);
+assert(ThrottlingException.prototype instanceof SignerServiceException);
+assert(TooManyRequestsException.prototype instanceof SignerServiceException);
+assert(ValidationException.prototype instanceof SignerServiceException);
 assert(SignerServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForSuccessfulSigningJob === "function");

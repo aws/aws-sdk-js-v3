@@ -628,7 +628,6 @@ export var User: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _RI, _R], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var IdentitystoreServiceException: StaticErrorSchema = [-3, _sm, "IdentitystoreServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IdentitystoreServiceException, __IdentitystoreServiceException);
 export var Addresses: StaticListSchema = [1, n0, _Ad, 0, [() => Address, 0]];

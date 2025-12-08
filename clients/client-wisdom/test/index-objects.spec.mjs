@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AssistantStatus,
   AssistantType,
   AssociationType,
+  ConflictException,
   ContentStatus,
   CreateAssistantAssociationCommand,
   CreateAssistantCommand,
@@ -40,6 +42,7 @@ import {
   ListTagsForResourceCommand,
   NotifyRecommendationsReceivedCommand,
   Order,
+  PreconditionFailedException,
   Priority,
   QueryAssistantCommand,
   QuickResponseFilterOperator,
@@ -50,16 +53,21 @@ import {
   RecommendationType,
   RelevanceLevel,
   RemoveKnowledgeBaseTemplateUriCommand,
+  RequestTimeoutException,
+  ResourceNotFoundException,
   SearchContentCommand,
   SearchQuickResponsesCommand,
   SearchSessionsCommand,
+  ServiceQuotaExceededException,
   StartContentUploadCommand,
   StartImportJobCommand,
   TagResourceCommand,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateContentCommand,
   UpdateKnowledgeBaseTemplateUriCommand,
   UpdateQuickResponseCommand,
+  ValidationException,
   Wisdom,
   WisdomClient,
   WisdomServiceException,
@@ -142,6 +150,14 @@ assert(typeof RecommendationTriggerType === "object");
 assert(typeof RecommendationType === "object");
 assert(typeof RelevanceLevel === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof WisdomServiceException);
+assert(ConflictException.prototype instanceof WisdomServiceException);
+assert(PreconditionFailedException.prototype instanceof WisdomServiceException);
+assert(RequestTimeoutException.prototype instanceof WisdomServiceException);
+assert(ResourceNotFoundException.prototype instanceof WisdomServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof WisdomServiceException);
+assert(TooManyTagsException.prototype instanceof WisdomServiceException);
+assert(ValidationException.prototype instanceof WisdomServiceException);
 assert(WisdomServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAssistantAssociations === "function");

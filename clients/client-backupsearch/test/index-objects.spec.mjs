@@ -1,25 +1,32 @@
 import {
+  AccessDeniedException,
   BackupSearch,
   BackupSearchClient,
   BackupSearchServiceException,
+  ConflictException,
   ExportJobStatus,
   GetSearchJobCommand,
   GetSearchResultExportJobCommand,
+  InternalServerException,
   ListSearchJobBackupsCommand,
   ListSearchJobResultsCommand,
   ListSearchJobsCommand,
   ListSearchResultExportJobsCommand,
   ListTagsForResourceCommand,
   LongConditionOperator,
+  ResourceNotFoundException,
   ResourceType,
   SearchJobState,
+  ServiceQuotaExceededException,
   StartSearchJobCommand,
   StartSearchResultExportJobCommand,
   StopSearchJobCommand,
   StringConditionOperator,
   TagResourceCommand,
+  ThrottlingException,
   TimeConditionOperator,
   UntagResourceCommand,
+  ValidationException,
   paginateListSearchJobBackups,
   paginateListSearchJobResults,
   paginateListSearchJobs,
@@ -50,6 +57,13 @@ assert(typeof SearchJobState === "object");
 assert(typeof StringConditionOperator === "object");
 assert(typeof TimeConditionOperator === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BackupSearchServiceException);
+assert(ConflictException.prototype instanceof BackupSearchServiceException);
+assert(InternalServerException.prototype instanceof BackupSearchServiceException);
+assert(ResourceNotFoundException.prototype instanceof BackupSearchServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BackupSearchServiceException);
+assert(ThrottlingException.prototype instanceof BackupSearchServiceException);
+assert(ValidationException.prototype instanceof BackupSearchServiceException);
 assert(BackupSearchServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListSearchJobBackups === "function");

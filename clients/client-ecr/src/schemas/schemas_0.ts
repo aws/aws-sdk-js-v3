@@ -1520,7 +1520,6 @@ export var VulnerablePackage: StaticStructureSchema = [
   [_ar, _ep, _fP, _n, _pM, _rel, _sLH, _ve, _fIV],
   [0, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var ECRServiceException: StaticErrorSchema = [-3, _sm, "ECRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECRServiceException, __ECRServiceException);
 export var ArtifactTypeList = 64 | 0;

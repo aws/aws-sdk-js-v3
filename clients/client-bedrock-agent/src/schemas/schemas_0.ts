@@ -3212,7 +3212,6 @@ export var WebDataSourceConfiguration: StaticStructureSchema = [
   [() => WebSourceConfiguration, [() => WebCrawlerConfiguration, 0]],
 ];
 export var WebSourceConfiguration: StaticStructureSchema = [3, n0, _WSC, 0, [_uC], [() => UrlConfiguration]];
-export var __Unit = "unit" as const;
 export var BedrockAgentServiceException: StaticErrorSchema = [-3, _sm, "BedrockAgentServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockAgentServiceException, __BedrockAgentServiceException);
 export var ActionGroupSummaries: StaticListSchema = [1, n0, _AGSc, 0, () => ActionGroupSummary];

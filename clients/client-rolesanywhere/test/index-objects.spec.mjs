@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   CertificateField,
   CreateProfileCommand,
   CreateTrustAnchorCommand,
@@ -27,15 +28,18 @@ import {
   PutAttributeMappingCommand,
   PutNotificationSettingsCommand,
   ResetNotificationSettingsCommand,
+  ResourceNotFoundException,
   RolesAnywhere,
   RolesAnywhereClient,
   RolesAnywhereServiceException,
   TagResourceCommand,
+  TooManyTagsException,
   TrustAnchorType,
   UntagResourceCommand,
   UpdateCrlCommand,
   UpdateProfileCommand,
   UpdateTrustAnchorCommand,
+  ValidationException,
   paginateListCrls,
   paginateListProfiles,
   paginateListSubjects,
@@ -82,6 +86,10 @@ assert(typeof NotificationChannel === "object");
 assert(typeof NotificationEvent === "object");
 assert(typeof TrustAnchorType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof RolesAnywhereServiceException);
+assert(ResourceNotFoundException.prototype instanceof RolesAnywhereServiceException);
+assert(TooManyTagsException.prototype instanceof RolesAnywhereServiceException);
+assert(ValidationException.prototype instanceof RolesAnywhereServiceException);
 assert(RolesAnywhereServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCrls === "function");

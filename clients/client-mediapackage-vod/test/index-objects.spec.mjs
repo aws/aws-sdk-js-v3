@@ -11,6 +11,8 @@ import {
   DescribePackagingConfigurationCommand,
   DescribePackagingGroupCommand,
   EncryptionMethod,
+  ForbiddenException,
+  InternalServerErrorException,
   ListAssetsCommand,
   ListPackagingConfigurationsCommand,
   ListPackagingGroupsCommand,
@@ -19,13 +21,17 @@ import {
   MediaPackageVod,
   MediaPackageVodClient,
   MediaPackageVodServiceException,
+  NotFoundException,
   PresetSpeke20Audio,
   PresetSpeke20Video,
   Profile,
   ScteMarkersSource,
   SegmentTemplateFormat,
+  ServiceUnavailableException,
   StreamOrder,
   TagResourceCommand,
+  TooManyRequestsException,
+  UnprocessableEntityException,
   UntagResourceCommand,
   UpdatePackagingGroupCommand,
   __PeriodTriggersElement,
@@ -67,6 +73,12 @@ assert(typeof ScteMarkersSource === "object");
 assert(typeof SegmentTemplateFormat === "object");
 assert(typeof StreamOrder === "object");
 // errors
+assert(ForbiddenException.prototype instanceof MediaPackageVodServiceException);
+assert(InternalServerErrorException.prototype instanceof MediaPackageVodServiceException);
+assert(NotFoundException.prototype instanceof MediaPackageVodServiceException);
+assert(ServiceUnavailableException.prototype instanceof MediaPackageVodServiceException);
+assert(TooManyRequestsException.prototype instanceof MediaPackageVodServiceException);
+assert(UnprocessableEntityException.prototype instanceof MediaPackageVodServiceException);
 assert(MediaPackageVodServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAssets === "function");

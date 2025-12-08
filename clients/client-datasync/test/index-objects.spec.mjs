@@ -45,6 +45,8 @@ import {
   HdfsAuthenticationType,
   HdfsDataTransferProtection,
   HdfsRpcProtection,
+  InternalException,
+  InvalidRequestException,
   ListAgentsCommand,
   ListLocationsCommand,
   ListTagsForResourceCommand,
@@ -207,6 +209,8 @@ assert(typeof TransferMode === "object");
 assert(typeof Uid === "object");
 assert(typeof VerifyMode === "object");
 // errors
+assert(InternalException.prototype instanceof DataSyncServiceException);
+assert(InvalidRequestException.prototype instanceof DataSyncServiceException);
 assert(DataSyncServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAgents === "function");

@@ -1770,7 +1770,6 @@ export var UserStackAssociationError: StaticStructureSchema = [
 ];
 export var VolumeConfig: StaticStructureSchema = [3, n0, _VCo, 0, [_VSIG], [1]];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SIu, _SGI], [64 | 0, 64 | 0]];
-export var __Unit = "unit" as const;
 export var AppStreamServiceException: StaticErrorSchema = [-3, _s, "AppStreamServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(AppStreamServiceException, __AppStreamServiceException);
 export var AccessEndpointList: StaticListSchema = [1, n0, _AEL, 0, () => AccessEndpoint];

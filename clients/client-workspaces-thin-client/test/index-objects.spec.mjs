@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   ApplyTimeOf,
+  ConflictException,
   CreateEnvironmentCommand,
   DayOfWeek,
   DeleteDeviceCommand,
@@ -12,21 +14,27 @@ import {
   GetDeviceCommand,
   GetEnvironmentCommand,
   GetSoftwareSetCommand,
+  InternalServerException,
   ListDevicesCommand,
   ListEnvironmentsCommand,
   ListSoftwareSetsCommand,
   ListTagsForResourceCommand,
   MaintenanceWindowType,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SoftwareSetUpdateMode,
   SoftwareSetUpdateSchedule,
   SoftwareSetUpdateStatus,
   SoftwareSetValidationStatus,
   TagResourceCommand,
   TargetDeviceStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateDeviceCommand,
   UpdateEnvironmentCommand,
   UpdateSoftwareSetCommand,
+  ValidationException,
+  ValidationExceptionReason,
   WorkSpacesThinClient,
   WorkSpacesThinClientClient,
   WorkSpacesThinClientServiceException,
@@ -68,7 +76,15 @@ assert(typeof SoftwareSetUpdateSchedule === "object");
 assert(typeof SoftwareSetUpdateStatus === "object");
 assert(typeof SoftwareSetValidationStatus === "object");
 assert(typeof TargetDeviceStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof WorkSpacesThinClientServiceException);
+assert(ConflictException.prototype instanceof WorkSpacesThinClientServiceException);
+assert(InternalServerException.prototype instanceof WorkSpacesThinClientServiceException);
+assert(ResourceNotFoundException.prototype instanceof WorkSpacesThinClientServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof WorkSpacesThinClientServiceException);
+assert(ThrottlingException.prototype instanceof WorkSpacesThinClientServiceException);
+assert(ValidationException.prototype instanceof WorkSpacesThinClientServiceException);
 assert(WorkSpacesThinClientServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDevices === "function");

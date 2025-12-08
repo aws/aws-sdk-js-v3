@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   AccessRight,
   ApplicationPolicyType,
   ClientCompatibilityV2,
   ClientCompatibilityV3,
   ClientCompatibilityV4,
+  ConflictException,
   ConnectorStatus,
   ConnectorStatusReason,
   CreateConnectorCommand,
@@ -24,6 +26,7 @@ import {
   GetTemplateCommand,
   GetTemplateGroupAccessControlEntryCommand,
   HashAlgorithm,
+  InternalServerException,
   IpAddressType,
   KeySpec,
   KeyUsagePropertyType,
@@ -37,13 +40,18 @@ import {
   PcaConnectorAdClient,
   PcaConnectorAdServiceException,
   PrivateKeyAlgorithm,
+  ResourceNotFoundException,
   ServicePrincipalNameStatus,
   ServicePrincipalNameStatusReason,
+  ServiceQuotaExceededException,
   TagResourceCommand,
   TemplateStatus,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateTemplateCommand,
   UpdateTemplateGroupAccessControlEntryCommand,
+  ValidationException,
+  ValidationExceptionReason,
   ValidityPeriodType,
   paginateListConnectors,
   paginateListDirectoryRegistrations,
@@ -99,8 +107,16 @@ assert(typeof PrivateKeyAlgorithm === "object");
 assert(typeof ServicePrincipalNameStatus === "object");
 assert(typeof ServicePrincipalNameStatusReason === "object");
 assert(typeof TemplateStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof ValidityPeriodType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PcaConnectorAdServiceException);
+assert(ConflictException.prototype instanceof PcaConnectorAdServiceException);
+assert(InternalServerException.prototype instanceof PcaConnectorAdServiceException);
+assert(ResourceNotFoundException.prototype instanceof PcaConnectorAdServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PcaConnectorAdServiceException);
+assert(ThrottlingException.prototype instanceof PcaConnectorAdServiceException);
+assert(ValidationException.prototype instanceof PcaConnectorAdServiceException);
 assert(PcaConnectorAdServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListConnectors === "function");

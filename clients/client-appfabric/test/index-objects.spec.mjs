@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   AppAuthorizationStatus,
   AppFabric,
   AppFabricClient,
   AppFabricServiceException,
   AuthType,
   BatchGetUserAccessTasksCommand,
+  ConflictException,
   ConnectAppAuthorizationCommand,
   CreateAppAuthorizationCommand,
   CreateAppBundleCommand,
@@ -22,21 +24,27 @@ import {
   IngestionDestinationStatus,
   IngestionState,
   IngestionType,
+  InternalServerException,
   ListAppAuthorizationsCommand,
   ListAppBundlesCommand,
   ListIngestionDestinationsCommand,
   ListIngestionsCommand,
   ListTagsForResourceCommand,
   Persona,
+  ResourceNotFoundException,
   ResultStatus,
   Schema,
+  ServiceQuotaExceededException,
   StartIngestionCommand,
   StartUserAccessTasksCommand,
   StopIngestionCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAppAuthorizationCommand,
   UpdateIngestionDestinationCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListAppAuthorizations,
   paginateListAppBundles,
   paginateListIngestionDestinations,
@@ -83,7 +91,15 @@ assert(typeof IngestionType === "object");
 assert(typeof Persona === "object");
 assert(typeof ResultStatus === "object");
 assert(typeof Schema === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof AppFabricServiceException);
+assert(ConflictException.prototype instanceof AppFabricServiceException);
+assert(InternalServerException.prototype instanceof AppFabricServiceException);
+assert(ResourceNotFoundException.prototype instanceof AppFabricServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AppFabricServiceException);
+assert(ThrottlingException.prototype instanceof AppFabricServiceException);
+assert(ValidationException.prototype instanceof AppFabricServiceException);
 assert(AppFabricServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAppAuthorizations === "function");

@@ -1383,7 +1383,6 @@ export var UserDoesNotExistException: StaticErrorSchema = [-3, n0, _UDNEE, { [_e
 TypeRegistry.for(n0).registerError(UserDoesNotExistException, __UserDoesNotExistException);
 export var VerifyTrustRequest: StaticStructureSchema = [3, n0, _VTR, 0, [_TI], [0]];
 export var VerifyTrustResult: StaticStructureSchema = [3, n0, _VTRe, 0, [_TI], [0]];
-export var __Unit = "unit" as const;
 export var DirectoryServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,

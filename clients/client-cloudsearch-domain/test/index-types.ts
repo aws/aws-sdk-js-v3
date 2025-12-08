@@ -29,5 +29,7 @@ export type {
   SuggestStatus,
   UploadDocumentsRequest,
   UploadDocumentsResponse,
+  DocumentServiceException,
+  SearchException,
   CloudSearchDomainServiceException,
 } from "../dist-types/index.d";

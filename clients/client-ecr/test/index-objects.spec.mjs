@@ -5,6 +5,7 @@ import {
   BatchDeleteImageCommand,
   BatchGetImageCommand,
   BatchGetRepositoryScanningConfigurationCommand,
+  BlockedByOrganizationPolicyException,
   CompleteLayerUploadCommand,
   CreatePullThroughCacheRuleCommand,
   CreateRepositoryCommand,
@@ -28,7 +29,10 @@ import {
   ECR,
   ECRClient,
   ECRServiceException,
+  EmptyUploadException,
   EncryptionType,
+  ExclusionAlreadyExistsException,
+  ExclusionNotFoundException,
   FindingSeverity,
   GetAccountSettingCommand,
   GetAuthorizationTokenCommand,
@@ -40,21 +44,42 @@ import {
   GetRepositoryPolicyCommand,
   GetSigningConfigurationCommand,
   ImageActionType,
+  ImageAlreadyExistsException,
+  ImageArchivedException,
+  ImageDigestDoesNotMatchException,
   ImageFailureCode,
+  ImageNotFoundException,
   ImageStatus,
   ImageStatusFilter,
+  ImageStorageClassUpdateNotSupportedException,
+  ImageTagAlreadyExistsException,
   ImageTagMutability,
   ImageTagMutabilityExclusionFilterType,
   InitiateLayerUploadCommand,
+  InvalidLayerException,
+  InvalidLayerPartException,
+  InvalidParameterException,
+  InvalidTagParameterException,
+  KmsException,
+  LayerAlreadyExistsException,
   LayerAvailability,
   LayerFailureCode,
+  LayerInaccessibleException,
+  LayerPartTooSmallException,
+  LayersNotFoundException,
+  LifecyclePolicyNotFoundException,
+  LifecyclePolicyPreviewInProgressException,
+  LifecyclePolicyPreviewNotFoundException,
   LifecyclePolicyPreviewStatus,
   LifecyclePolicyStorageClass,
   LifecyclePolicyTargetStorageClass,
+  LimitExceededException,
   ListImageReferrersCommand,
   ListImagesCommand,
   ListPullTimeUpdateExclusionsCommand,
   ListTagsForResourceCommand,
+  PullThroughCacheRuleAlreadyExistsException,
+  PullThroughCacheRuleNotFoundException,
   PutAccountSettingCommand,
   PutImageCommand,
   PutImageScanningConfigurationCommand,
@@ -65,15 +90,25 @@ import {
   PutReplicationConfigurationCommand,
   PutSigningConfigurationCommand,
   RCTAppliedFor,
+  ReferencedImagesNotFoundException,
   RegisterPullTimeUpdateExclusionCommand,
+  RegistryPolicyNotFoundException,
   ReplicationStatus,
+  RepositoryAlreadyExistsException,
   RepositoryFilterType,
+  RepositoryNotEmptyException,
+  RepositoryNotFoundException,
+  RepositoryPolicyNotFoundException,
   ScanFrequency,
+  ScanNotFoundException,
   ScanStatus,
   ScanType,
   ScanningConfigurationFailureCode,
   ScanningRepositoryFilterType,
+  SecretNotFoundException,
+  ServerException,
   SetRepositoryPolicyCommand,
+  SigningConfigurationNotFoundException,
   SigningRepositoryFilterType,
   SigningStatus,
   StartImageScanCommand,
@@ -81,13 +116,24 @@ import {
   TagResourceCommand,
   TagStatus,
   TargetStorageClass,
+  TemplateAlreadyExistsException,
+  TemplateNotFoundException,
+  TooManyTagsException,
+  UnableToAccessSecretException,
+  UnableToDecryptSecretValueException,
+  UnableToGetUpstreamImageException,
+  UnableToGetUpstreamLayerException,
+  UnsupportedImageTypeException,
+  UnsupportedUpstreamRegistryException,
   UntagResourceCommand,
   UpdateImageStorageClassCommand,
   UpdatePullThroughCacheRuleCommand,
   UpdateRepositoryCreationTemplateCommand,
   UploadLayerPartCommand,
+  UploadNotFoundException,
   UpstreamRegistry,
   ValidatePullThroughCacheRuleCommand,
+  ValidationException,
   paginateDescribeImageScanFindings,
   paginateDescribeImages,
   paginateDescribePullThroughCacheRules,
@@ -193,6 +239,52 @@ assert(typeof TagStatus === "object");
 assert(typeof TargetStorageClass === "object");
 assert(typeof UpstreamRegistry === "object");
 // errors
+assert(BlockedByOrganizationPolicyException.prototype instanceof ECRServiceException);
+assert(EmptyUploadException.prototype instanceof ECRServiceException);
+assert(ExclusionAlreadyExistsException.prototype instanceof ECRServiceException);
+assert(ExclusionNotFoundException.prototype instanceof ECRServiceException);
+assert(ImageAlreadyExistsException.prototype instanceof ECRServiceException);
+assert(ImageArchivedException.prototype instanceof ECRServiceException);
+assert(ImageDigestDoesNotMatchException.prototype instanceof ECRServiceException);
+assert(ImageNotFoundException.prototype instanceof ECRServiceException);
+assert(ImageStorageClassUpdateNotSupportedException.prototype instanceof ECRServiceException);
+assert(ImageTagAlreadyExistsException.prototype instanceof ECRServiceException);
+assert(InvalidLayerException.prototype instanceof ECRServiceException);
+assert(InvalidLayerPartException.prototype instanceof ECRServiceException);
+assert(InvalidParameterException.prototype instanceof ECRServiceException);
+assert(InvalidTagParameterException.prototype instanceof ECRServiceException);
+assert(KmsException.prototype instanceof ECRServiceException);
+assert(LayerAlreadyExistsException.prototype instanceof ECRServiceException);
+assert(LayerInaccessibleException.prototype instanceof ECRServiceException);
+assert(LayerPartTooSmallException.prototype instanceof ECRServiceException);
+assert(LayersNotFoundException.prototype instanceof ECRServiceException);
+assert(LifecyclePolicyNotFoundException.prototype instanceof ECRServiceException);
+assert(LifecyclePolicyPreviewInProgressException.prototype instanceof ECRServiceException);
+assert(LifecyclePolicyPreviewNotFoundException.prototype instanceof ECRServiceException);
+assert(LimitExceededException.prototype instanceof ECRServiceException);
+assert(PullThroughCacheRuleAlreadyExistsException.prototype instanceof ECRServiceException);
+assert(PullThroughCacheRuleNotFoundException.prototype instanceof ECRServiceException);
+assert(ReferencedImagesNotFoundException.prototype instanceof ECRServiceException);
+assert(RegistryPolicyNotFoundException.prototype instanceof ECRServiceException);
+assert(RepositoryAlreadyExistsException.prototype instanceof ECRServiceException);
+assert(RepositoryNotEmptyException.prototype instanceof ECRServiceException);
+assert(RepositoryNotFoundException.prototype instanceof ECRServiceException);
+assert(RepositoryPolicyNotFoundException.prototype instanceof ECRServiceException);
+assert(ScanNotFoundException.prototype instanceof ECRServiceException);
+assert(SecretNotFoundException.prototype instanceof ECRServiceException);
+assert(ServerException.prototype instanceof ECRServiceException);
+assert(SigningConfigurationNotFoundException.prototype instanceof ECRServiceException);
+assert(TemplateAlreadyExistsException.prototype instanceof ECRServiceException);
+assert(TemplateNotFoundException.prototype instanceof ECRServiceException);
+assert(TooManyTagsException.prototype instanceof ECRServiceException);
+assert(UnableToAccessSecretException.prototype instanceof ECRServiceException);
+assert(UnableToDecryptSecretValueException.prototype instanceof ECRServiceException);
+assert(UnableToGetUpstreamImageException.prototype instanceof ECRServiceException);
+assert(UnableToGetUpstreamLayerException.prototype instanceof ECRServiceException);
+assert(UnsupportedImageTypeException.prototype instanceof ECRServiceException);
+assert(UnsupportedUpstreamRegistryException.prototype instanceof ECRServiceException);
+assert(UploadNotFoundException.prototype instanceof ECRServiceException);
+assert(ValidationException.prototype instanceof ECRServiceException);
 assert(ECRServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForImageScanComplete === "function");

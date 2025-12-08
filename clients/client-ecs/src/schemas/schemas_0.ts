@@ -3004,7 +3004,6 @@ export var Volume: StaticStructureSchema = [
 ];
 export var VolumeFrom: StaticStructureSchema = [3, n0, _VF, 0, [_sCo, _rO], [0, 2]];
 export var VpcLatticeConfiguration: StaticStructureSchema = [3, n0, _VLC, 0, [_rA, _tGA, _pN], [0, 0, 0]];
-export var __Unit = "unit" as const;
 export var ECSServiceException: StaticErrorSchema = [-3, _sm, "ECSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECSServiceException, __ECSServiceException);
 export var AcceleratorManufacturerSet: StaticListSchema = [1, n0, _AMS, 0, [0, { [_xN]: _it }]];

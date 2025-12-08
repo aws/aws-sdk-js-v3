@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   ApiGatewayEndpointType,
   ApplicationState,
+  ConflictException,
   CreateApplicationCommand,
   CreateEnvironmentCommand,
   CreateRouteCommand,
@@ -19,6 +21,8 @@ import {
   GetRouteCommand,
   GetServiceCommand,
   HttpMethod,
+  InternalServerException,
+  InvalidResourcePolicyException,
   ListApplicationsCommand,
   ListEnvironmentVpcsCommand,
   ListEnvironmentsCommand,
@@ -31,14 +35,18 @@ import {
   NetworkFabricType,
   ProxyType,
   PutResourcePolicyCommand,
+  ResourceNotFoundException,
   RouteActivationState,
   RouteState,
   RouteType,
   ServiceEndpointType,
+  ServiceQuotaExceededException,
   ServiceState,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateRouteCommand,
+  ValidationException,
   paginateListApplications,
   paginateListEnvironmentVpcs,
   paginateListEnvironments,
@@ -89,6 +97,14 @@ assert(typeof RouteType === "object");
 assert(typeof ServiceEndpointType === "object");
 assert(typeof ServiceState === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MigrationHubRefactorSpacesServiceException);
+assert(ConflictException.prototype instanceof MigrationHubRefactorSpacesServiceException);
+assert(InternalServerException.prototype instanceof MigrationHubRefactorSpacesServiceException);
+assert(InvalidResourcePolicyException.prototype instanceof MigrationHubRefactorSpacesServiceException);
+assert(ResourceNotFoundException.prototype instanceof MigrationHubRefactorSpacesServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MigrationHubRefactorSpacesServiceException);
+assert(ThrottlingException.prototype instanceof MigrationHubRefactorSpacesServiceException);
+assert(ValidationException.prototype instanceof MigrationHubRefactorSpacesServiceException);
 assert(MigrationHubRefactorSpacesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplications === "function");

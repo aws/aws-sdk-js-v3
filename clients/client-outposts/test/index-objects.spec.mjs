@@ -1,5 +1,6 @@
 import {
   AWSServiceName,
+  AccessDeniedException,
   AddressType,
   AssetState,
   AssetType,
@@ -11,6 +12,7 @@ import {
   CatalogItemClass,
   CatalogItemStatus,
   ComputeAssetState,
+  ConflictException,
   CreateOrderCommand,
   CreateOutpostCommand,
   CreateSiteCommand,
@@ -28,6 +30,7 @@ import {
   GetOutpostSupportedInstanceTypesCommand,
   GetSiteAddressCommand,
   GetSiteCommand,
+  InternalServerException,
   LineItemStatus,
   ListAssetInstancesCommand,
   ListAssetsCommand,
@@ -39,6 +42,7 @@ import {
   ListSitesCommand,
   ListTagsForResourceCommand,
   MaximumSupportedWeightLbs,
+  NotFoundException,
   OpticalStandard,
   OrderStatus,
   OrderType,
@@ -51,6 +55,8 @@ import {
   PowerDrawKva,
   PowerFeedDrop,
   PowerPhase,
+  ResourceType,
+  ServiceQuotaExceededException,
   ShipmentCarrier,
   StartCapacityTaskCommand,
   StartConnectionCommand,
@@ -68,6 +74,7 @@ import {
   UpdateSiteRackPhysicalPropertiesCommand,
   UplinkCount,
   UplinkGbps,
+  ValidationException,
   paginateGetOutpostBillingInformation,
   paginateGetOutpostInstanceTypes,
   paginateGetOutpostSupportedInstanceTypes,
@@ -144,6 +151,7 @@ assert(typeof PowerConnector === "object");
 assert(typeof PowerDrawKva === "object");
 assert(typeof PowerFeedDrop === "object");
 assert(typeof PowerPhase === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ShipmentCarrier === "object");
 assert(typeof SubscriptionStatus === "object");
 assert(typeof SubscriptionType === "object");
@@ -153,6 +161,12 @@ assert(typeof TaskActionOnBlockingInstances === "object");
 assert(typeof UplinkCount === "object");
 assert(typeof UplinkGbps === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof OutpostsServiceException);
+assert(ConflictException.prototype instanceof OutpostsServiceException);
+assert(InternalServerException.prototype instanceof OutpostsServiceException);
+assert(NotFoundException.prototype instanceof OutpostsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof OutpostsServiceException);
+assert(ValidationException.prototype instanceof OutpostsServiceException);
 assert(OutpostsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetOutpostBillingInformation === "function");

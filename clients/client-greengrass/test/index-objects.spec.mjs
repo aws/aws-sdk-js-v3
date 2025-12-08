@@ -1,6 +1,7 @@
 import {
   AssociateRoleToGroupCommand,
   AssociateServiceRoleToAccountCommand,
+  BadRequestException,
   BulkDeploymentStatus,
   ConfigurationSyncStatus,
   CreateConnectorDefinitionCommand,
@@ -62,6 +63,7 @@ import {
   Greengrass,
   GreengrassClient,
   GreengrassServiceException,
+  InternalServerErrorException,
   ListBulkDeploymentDetailedReportsCommand,
   ListBulkDeploymentsCommand,
   ListConnectorDefinitionVersionsCommand,
@@ -222,5 +224,7 @@ assert(typeof UpdateAgentLogLevel === "object");
 assert(typeof UpdateTargetsArchitecture === "object");
 assert(typeof UpdateTargetsOperatingSystem === "object");
 // errors
+assert(BadRequestException.prototype instanceof GreengrassServiceException);
+assert(InternalServerErrorException.prototype instanceof GreengrassServiceException);
 assert(GreengrassServiceException.prototype instanceof Error);
 console.log(`Greengrass index test passed.`);

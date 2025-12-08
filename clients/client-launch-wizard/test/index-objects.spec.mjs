@@ -7,6 +7,7 @@ import {
   GetDeploymentCommand,
   GetWorkloadCommand,
   GetWorkloadDeploymentPatternCommand,
+  InternalServerException,
   LaunchWizard,
   LaunchWizardClient,
   LaunchWizardServiceException,
@@ -15,8 +16,11 @@ import {
   ListTagsForResourceCommand,
   ListWorkloadDeploymentPatternsCommand,
   ListWorkloadsCommand,
+  ResourceLimitException,
+  ResourceNotFoundException,
   TagResourceCommand,
   UntagResourceCommand,
+  ValidationException,
   WorkloadDeploymentPatternStatus,
   WorkloadStatus,
   paginateListDeploymentEvents,
@@ -48,6 +52,10 @@ assert(typeof EventStatus === "object");
 assert(typeof WorkloadDeploymentPatternStatus === "object");
 assert(typeof WorkloadStatus === "object");
 // errors
+assert(InternalServerException.prototype instanceof LaunchWizardServiceException);
+assert(ResourceLimitException.prototype instanceof LaunchWizardServiceException);
+assert(ResourceNotFoundException.prototype instanceof LaunchWizardServiceException);
+assert(ValidationException.prototype instanceof LaunchWizardServiceException);
 assert(LaunchWizardServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDeploymentEvents === "function");

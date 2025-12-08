@@ -64,6 +64,7 @@ import {
   LowReputationMode,
   MapMatchScope,
   OversizeHandling,
+  ParameterExceptionField,
   PayloadType,
   Platform,
   PositionalConstraint,
@@ -86,6 +87,26 @@ import {
   UpdateRuleGroupCommand,
   UpdateWebACLCommand,
   UsageOfAction,
+  WAFAssociatedItemException,
+  WAFConfigurationWarningException,
+  WAFDuplicateItemException,
+  WAFExpiredManagedRuleGroupVersionException,
+  WAFFeatureNotIncludedInPricingPlanException,
+  WAFInternalErrorException,
+  WAFInvalidOperationException,
+  WAFInvalidParameterException,
+  WAFInvalidPermissionPolicyException,
+  WAFInvalidResourceException,
+  WAFLimitsExceededException,
+  WAFLogDestinationPermissionIssueException,
+  WAFNonexistentItemException,
+  WAFOptimisticLockException,
+  WAFServiceLinkedRoleErrorException,
+  WAFSubscriptionNotFoundException,
+  WAFTagOperationException,
+  WAFTagOperationInternalErrorException,
+  WAFUnavailableEntityException,
+  WAFUnsupportedAggregateKeyTypeException,
   WAFV2,
   WAFV2Client,
   WAFV2ServiceException,
@@ -171,6 +192,7 @@ assert(typeof LogType === "object");
 assert(typeof LowReputationMode === "object");
 assert(typeof MapMatchScope === "object");
 assert(typeof OversizeHandling === "object");
+assert(typeof ParameterExceptionField === "object");
 assert(typeof PayloadType === "object");
 assert(typeof Platform === "object");
 assert(typeof PositionalConstraint === "object");
@@ -184,5 +206,25 @@ assert(typeof SizeInspectionLimit === "object");
 assert(typeof TextTransformationType === "object");
 assert(typeof UsageOfAction === "object");
 // errors
+assert(WAFAssociatedItemException.prototype instanceof WAFV2ServiceException);
+assert(WAFConfigurationWarningException.prototype instanceof WAFV2ServiceException);
+assert(WAFDuplicateItemException.prototype instanceof WAFV2ServiceException);
+assert(WAFExpiredManagedRuleGroupVersionException.prototype instanceof WAFV2ServiceException);
+assert(WAFFeatureNotIncludedInPricingPlanException.prototype instanceof WAFV2ServiceException);
+assert(WAFInternalErrorException.prototype instanceof WAFV2ServiceException);
+assert(WAFInvalidOperationException.prototype instanceof WAFV2ServiceException);
+assert(WAFInvalidParameterException.prototype instanceof WAFV2ServiceException);
+assert(WAFInvalidPermissionPolicyException.prototype instanceof WAFV2ServiceException);
+assert(WAFInvalidResourceException.prototype instanceof WAFV2ServiceException);
+assert(WAFLimitsExceededException.prototype instanceof WAFV2ServiceException);
+assert(WAFLogDestinationPermissionIssueException.prototype instanceof WAFV2ServiceException);
+assert(WAFNonexistentItemException.prototype instanceof WAFV2ServiceException);
+assert(WAFOptimisticLockException.prototype instanceof WAFV2ServiceException);
+assert(WAFServiceLinkedRoleErrorException.prototype instanceof WAFV2ServiceException);
+assert(WAFSubscriptionNotFoundException.prototype instanceof WAFV2ServiceException);
+assert(WAFTagOperationException.prototype instanceof WAFV2ServiceException);
+assert(WAFTagOperationInternalErrorException.prototype instanceof WAFV2ServiceException);
+assert(WAFUnavailableEntityException.prototype instanceof WAFV2ServiceException);
+assert(WAFUnsupportedAggregateKeyTypeException.prototype instanceof WAFV2ServiceException);
 assert(WAFV2ServiceException.prototype instanceof Error);
 console.log(`WAFV2 index test passed.`);

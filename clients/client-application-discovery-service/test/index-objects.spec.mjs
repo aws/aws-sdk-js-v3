@@ -4,11 +4,13 @@ import {
   ApplicationDiscoveryServiceClient,
   ApplicationDiscoveryServiceServiceException,
   AssociateConfigurationItemsToApplicationCommand,
+  AuthorizationErrorException,
   BatchDeleteAgentsCommand,
   BatchDeleteConfigurationTaskStatus,
   BatchDeleteImportDataCommand,
   BatchDeleteImportDataErrorCode,
   ConfigurationItemType,
+  ConflictErrorException,
   ContinuousExportStatus,
   CreateApplicationCommand,
   CreateTagsCommand,
@@ -31,13 +33,21 @@ import {
   ExportStatus,
   FileClassification,
   GetDiscoverySummaryCommand,
+  HomeRegionNotSetException,
   ImportStatus,
   ImportTaskFilterName,
+  InvalidParameterException,
+  InvalidParameterValueException,
+  LimitExceededException,
   ListConfigurationsCommand,
   ListServerNeighborsCommand,
   OfferingClass,
+  OperationNotPermittedException,
   OrderString,
   PurchasingOption,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ServerInternalErrorException,
   StartBatchDeleteConfigurationTaskCommand,
   StartContinuousExportCommand,
   StartDataCollectionByAgentIdsCommand,
@@ -109,6 +119,16 @@ assert(typeof PurchasingOption === "object");
 assert(typeof Tenancy === "object");
 assert(typeof TermLength === "object");
 // errors
+assert(AuthorizationErrorException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(ConflictErrorException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(HomeRegionNotSetException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(InvalidParameterException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(InvalidParameterValueException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(LimitExceededException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(OperationNotPermittedException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(ResourceInUseException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(ResourceNotFoundException.prototype instanceof ApplicationDiscoveryServiceServiceException);
+assert(ServerInternalErrorException.prototype instanceof ApplicationDiscoveryServiceServiceException);
 assert(ApplicationDiscoveryServiceServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeAgents === "function");

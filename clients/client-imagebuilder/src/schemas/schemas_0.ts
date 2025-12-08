@@ -2290,7 +2290,6 @@ export var WorkflowVersion: StaticStructureSchema = [
   [_a, _n, _v, _d, _t, _o, _dC],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var __Unit = "unit" as const;
 export var ImagebuilderServiceException: StaticErrorSchema = [-3, _sm, "ImagebuilderServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ImagebuilderServiceException, __ImagebuilderServiceException);
 export var AccountList = 64 | 0;

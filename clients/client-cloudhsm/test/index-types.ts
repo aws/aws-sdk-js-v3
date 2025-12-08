@@ -107,5 +107,8 @@ export type {
   RemoveTagsFromResourceRequest,
   RemoveTagsFromResourceResponse,
   Tag,
+  CloudHsmInternalException,
+  CloudHsmServiceException,
+  InvalidRequestException,
   CloudHSMServiceException,
 } from "../dist-types/index.d";

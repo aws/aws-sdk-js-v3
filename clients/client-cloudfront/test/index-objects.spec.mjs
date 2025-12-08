@@ -1,17 +1,29 @@
 import {
+  AccessDenied,
   AssociateAliasCommand,
   AssociateDistributionTenantWebACLCommand,
   AssociateDistributionWebACLCommand,
+  BatchTooLarge,
+  CNAMEAlreadyExists,
+  CachePolicyAlreadyExists,
   CachePolicyCookieBehavior,
   CachePolicyHeaderBehavior,
+  CachePolicyInUse,
   CachePolicyQueryStringBehavior,
   CachePolicyType,
+  CannotChangeImmutablePublicKeyFields,
+  CannotDeleteEntityWhileInUse,
+  CannotUpdateEntityWhileInUse,
   CertificateSource,
   CertificateTransparencyLoggingPreference,
   CloudFront,
   CloudFrontClient,
+  CloudFrontOriginAccessIdentityAlreadyExists,
+  CloudFrontOriginAccessIdentityInUse,
   CloudFrontServiceException,
   ConnectionMode,
+  ContinuousDeploymentPolicyAlreadyExists,
+  ContinuousDeploymentPolicyInUse,
   ContinuousDeploymentPolicyType,
   CopyDistributionCommand,
   CreateAnycastIpListCommand,
@@ -69,13 +81,27 @@ import {
   DescribeKeyValueStoreCommand,
   DisassociateDistributionTenantWebACLCommand,
   DisassociateDistributionWebACLCommand,
+  DistributionAlreadyExists,
+  DistributionNotDisabled,
   DistributionResourceType,
   DnsConfigurationStatus,
   DomainStatus,
+  EntityAlreadyExists,
+  EntityLimitExceeded,
+  EntityNotFound,
+  EntitySizeLimitExceeded,
   EventType,
+  FieldLevelEncryptionConfigAlreadyExists,
+  FieldLevelEncryptionConfigInUse,
+  FieldLevelEncryptionProfileAlreadyExists,
+  FieldLevelEncryptionProfileInUse,
+  FieldLevelEncryptionProfileSizeExceeded,
   Format,
   FrameOptionsList,
+  FunctionAlreadyExists,
+  FunctionInUse,
   FunctionRuntime,
+  FunctionSizeLimitExceeded,
   FunctionStage,
   GeoRestrictionType,
   GetAnycastIpListCommand,
@@ -119,10 +145,43 @@ import {
   GetVpcOriginCommand,
   HttpVersion,
   ICPRecordalStatus,
+  IllegalDelete,
+  IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
+  IllegalOriginAccessConfiguration,
+  IllegalUpdate,
   ImportSourceType,
+  InconsistentQuantities,
+  InvalidArgument,
+  InvalidAssociation,
+  InvalidDefaultRootObject,
+  InvalidDomainNameForOriginAccessControl,
+  InvalidErrorCode,
+  InvalidForwardCookies,
+  InvalidFunctionAssociation,
+  InvalidGeoRestrictionParameter,
+  InvalidHeadersForS3Origin,
+  InvalidIfMatchVersion,
+  InvalidLambdaFunctionAssociation,
+  InvalidLocationCode,
+  InvalidMinimumProtocolVersion,
+  InvalidOrigin,
+  InvalidOriginAccessControl,
+  InvalidOriginAccessIdentity,
+  InvalidOriginKeepaliveTimeout,
+  InvalidOriginReadTimeout,
+  InvalidProtocolSettings,
+  InvalidQueryStringParameters,
+  InvalidRelativePath,
+  InvalidRequiredProtocol,
+  InvalidResponseCode,
+  InvalidTTLOrder,
+  InvalidTagging,
+  InvalidViewerCertificate,
+  InvalidWebACLId,
   IpAddressType,
   IpamCidrStatus,
   ItemSelection,
+  KeyGroupAlreadyExists,
   ListAnycastIpListsCommand,
   ListCachePoliciesCommand,
   ListCloudFrontOriginAccessIdentitiesCommand,
@@ -165,29 +224,122 @@ import {
   ManagedCertificateStatus,
   Method,
   MinimumProtocolVersion,
+  MissingBody,
+  MonitoringSubscriptionAlreadyExists,
+  NoSuchCachePolicy,
+  NoSuchCloudFrontOriginAccessIdentity,
+  NoSuchContinuousDeploymentPolicy,
+  NoSuchDistribution,
+  NoSuchFieldLevelEncryptionConfig,
+  NoSuchFieldLevelEncryptionProfile,
+  NoSuchFunctionExists,
+  NoSuchInvalidation,
+  NoSuchMonitoringSubscription,
+  NoSuchOrigin,
+  NoSuchOriginAccessControl,
+  NoSuchOriginRequestPolicy,
+  NoSuchPublicKey,
+  NoSuchRealtimeLogConfig,
+  NoSuchResource,
+  NoSuchResponseHeadersPolicy,
+  NoSuchStreamingDistribution,
+  OriginAccessControlAlreadyExists,
+  OriginAccessControlInUse,
   OriginAccessControlOriginTypes,
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
   OriginGroupSelectionCriteria,
   OriginProtocolPolicy,
+  OriginRequestPolicyAlreadyExists,
   OriginRequestPolicyCookieBehavior,
   OriginRequestPolicyHeaderBehavior,
+  OriginRequestPolicyInUse,
   OriginRequestPolicyQueryStringBehavior,
   OriginRequestPolicyType,
+  PreconditionFailed,
   PriceClass,
+  PublicKeyAlreadyExists,
+  PublicKeyInUse,
   PublishConnectionFunctionCommand,
   PublishFunctionCommand,
   PutResourcePolicyCommand,
+  QueryArgProfileEmpty,
+  RealtimeLogConfigAlreadyExists,
+  RealtimeLogConfigInUse,
+  RealtimeLogConfigOwnerMismatch,
   RealtimeMetricsSubscriptionStatus,
   ReferrerPolicyList,
+  ResourceInUse,
+  ResourceNotDisabled,
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
+  ResponseHeadersPolicyAlreadyExists,
+  ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyType,
   SSLSupportMethod,
   SslProtocol,
+  StagingDistributionInUse,
+  StreamingDistributionAlreadyExists,
+  StreamingDistributionNotDisabled,
   TagResourceCommand,
   TestConnectionFunctionCommand,
   TestFunctionCommand,
+  TestFunctionFailed,
+  TooLongCSPInResponseHeadersPolicy,
+  TooManyCacheBehaviors,
+  TooManyCachePolicies,
+  TooManyCertificates,
+  TooManyCloudFrontOriginAccessIdentities,
+  TooManyContinuousDeploymentPolicies,
+  TooManyCookieNamesInWhiteList,
+  TooManyCookiesInCachePolicy,
+  TooManyCookiesInOriginRequestPolicy,
+  TooManyCustomHeadersInResponseHeadersPolicy,
+  TooManyDistributionCNAMEs,
+  TooManyDistributions,
+  TooManyDistributionsAssociatedToCachePolicy,
+  TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+  TooManyDistributionsAssociatedToKeyGroup,
+  TooManyDistributionsAssociatedToOriginAccessControl,
+  TooManyDistributionsAssociatedToOriginRequestPolicy,
+  TooManyDistributionsAssociatedToResponseHeadersPolicy,
+  TooManyDistributionsWithFunctionAssociations,
+  TooManyDistributionsWithLambdaAssociations,
+  TooManyDistributionsWithSingleFunctionARN,
+  TooManyFieldLevelEncryptionConfigs,
+  TooManyFieldLevelEncryptionContentTypeProfiles,
+  TooManyFieldLevelEncryptionEncryptionEntities,
+  TooManyFieldLevelEncryptionFieldPatterns,
+  TooManyFieldLevelEncryptionProfiles,
+  TooManyFieldLevelEncryptionQueryArgProfiles,
+  TooManyFunctionAssociations,
+  TooManyFunctions,
+  TooManyHeadersInCachePolicy,
+  TooManyHeadersInForwardedValues,
+  TooManyHeadersInOriginRequestPolicy,
+  TooManyInvalidationsInProgress,
+  TooManyKeyGroups,
+  TooManyKeyGroupsAssociatedToDistribution,
+  TooManyLambdaFunctionAssociations,
+  TooManyOriginAccessControls,
+  TooManyOriginCustomHeaders,
+  TooManyOriginGroupsPerDistribution,
+  TooManyOriginRequestPolicies,
+  TooManyOrigins,
+  TooManyPublicKeys,
+  TooManyPublicKeysInKeyGroup,
+  TooManyQueryStringParameters,
+  TooManyQueryStringsInCachePolicy,
+  TooManyQueryStringsInOriginRequestPolicy,
+  TooManyRealtimeLogConfigs,
+  TooManyRemoveHeadersInResponseHeadersPolicy,
+  TooManyResponseHeadersPolicies,
+  TooManyStreamingDistributionCNAMEs,
+  TooManyStreamingDistributions,
+  TooManyTrustedSigners,
   TrustStoreStatus,
+  TrustedKeyGroupDoesNotExist,
+  TrustedSignerDoesNotExist,
+  UnsupportedOperation,
   UntagResourceCommand,
   UpdateAnycastIpListCommand,
   UpdateCachePolicyCommand,
@@ -463,6 +615,158 @@ assert(typeof ValidationTokenHost === "object");
 assert(typeof ViewerMtlsMode === "object");
 assert(typeof ViewerProtocolPolicy === "object");
 // errors
+assert(AccessDenied.prototype instanceof CloudFrontServiceException);
+assert(BatchTooLarge.prototype instanceof CloudFrontServiceException);
+assert(CachePolicyAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(CachePolicyInUse.prototype instanceof CloudFrontServiceException);
+assert(CannotChangeImmutablePublicKeyFields.prototype instanceof CloudFrontServiceException);
+assert(CannotDeleteEntityWhileInUse.prototype instanceof CloudFrontServiceException);
+assert(CannotUpdateEntityWhileInUse.prototype instanceof CloudFrontServiceException);
+assert(CloudFrontOriginAccessIdentityAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(CloudFrontOriginAccessIdentityInUse.prototype instanceof CloudFrontServiceException);
+assert(CNAMEAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(ContinuousDeploymentPolicyAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(ContinuousDeploymentPolicyInUse.prototype instanceof CloudFrontServiceException);
+assert(DistributionAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(DistributionNotDisabled.prototype instanceof CloudFrontServiceException);
+assert(EntityAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(EntityLimitExceeded.prototype instanceof CloudFrontServiceException);
+assert(EntityNotFound.prototype instanceof CloudFrontServiceException);
+assert(EntitySizeLimitExceeded.prototype instanceof CloudFrontServiceException);
+assert(FieldLevelEncryptionConfigAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(FieldLevelEncryptionConfigInUse.prototype instanceof CloudFrontServiceException);
+assert(FieldLevelEncryptionProfileAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(FieldLevelEncryptionProfileInUse.prototype instanceof CloudFrontServiceException);
+assert(FieldLevelEncryptionProfileSizeExceeded.prototype instanceof CloudFrontServiceException);
+assert(FunctionAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(FunctionInUse.prototype instanceof CloudFrontServiceException);
+assert(FunctionSizeLimitExceeded.prototype instanceof CloudFrontServiceException);
+assert(IllegalDelete.prototype instanceof CloudFrontServiceException);
+assert(IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior.prototype instanceof CloudFrontServiceException);
+assert(IllegalOriginAccessConfiguration.prototype instanceof CloudFrontServiceException);
+assert(IllegalUpdate.prototype instanceof CloudFrontServiceException);
+assert(InconsistentQuantities.prototype instanceof CloudFrontServiceException);
+assert(InvalidArgument.prototype instanceof CloudFrontServiceException);
+assert(InvalidAssociation.prototype instanceof CloudFrontServiceException);
+assert(InvalidDefaultRootObject.prototype instanceof CloudFrontServiceException);
+assert(InvalidDomainNameForOriginAccessControl.prototype instanceof CloudFrontServiceException);
+assert(InvalidErrorCode.prototype instanceof CloudFrontServiceException);
+assert(InvalidForwardCookies.prototype instanceof CloudFrontServiceException);
+assert(InvalidFunctionAssociation.prototype instanceof CloudFrontServiceException);
+assert(InvalidGeoRestrictionParameter.prototype instanceof CloudFrontServiceException);
+assert(InvalidHeadersForS3Origin.prototype instanceof CloudFrontServiceException);
+assert(InvalidIfMatchVersion.prototype instanceof CloudFrontServiceException);
+assert(InvalidLambdaFunctionAssociation.prototype instanceof CloudFrontServiceException);
+assert(InvalidLocationCode.prototype instanceof CloudFrontServiceException);
+assert(InvalidMinimumProtocolVersion.prototype instanceof CloudFrontServiceException);
+assert(InvalidOrigin.prototype instanceof CloudFrontServiceException);
+assert(InvalidOriginAccessControl.prototype instanceof CloudFrontServiceException);
+assert(InvalidOriginAccessIdentity.prototype instanceof CloudFrontServiceException);
+assert(InvalidOriginKeepaliveTimeout.prototype instanceof CloudFrontServiceException);
+assert(InvalidOriginReadTimeout.prototype instanceof CloudFrontServiceException);
+assert(InvalidProtocolSettings.prototype instanceof CloudFrontServiceException);
+assert(InvalidQueryStringParameters.prototype instanceof CloudFrontServiceException);
+assert(InvalidRelativePath.prototype instanceof CloudFrontServiceException);
+assert(InvalidRequiredProtocol.prototype instanceof CloudFrontServiceException);
+assert(InvalidResponseCode.prototype instanceof CloudFrontServiceException);
+assert(InvalidTagging.prototype instanceof CloudFrontServiceException);
+assert(InvalidTTLOrder.prototype instanceof CloudFrontServiceException);
+assert(InvalidViewerCertificate.prototype instanceof CloudFrontServiceException);
+assert(InvalidWebACLId.prototype instanceof CloudFrontServiceException);
+assert(KeyGroupAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(MissingBody.prototype instanceof CloudFrontServiceException);
+assert(MonitoringSubscriptionAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(NoSuchCachePolicy.prototype instanceof CloudFrontServiceException);
+assert(NoSuchCloudFrontOriginAccessIdentity.prototype instanceof CloudFrontServiceException);
+assert(NoSuchContinuousDeploymentPolicy.prototype instanceof CloudFrontServiceException);
+assert(NoSuchDistribution.prototype instanceof CloudFrontServiceException);
+assert(NoSuchFieldLevelEncryptionConfig.prototype instanceof CloudFrontServiceException);
+assert(NoSuchFieldLevelEncryptionProfile.prototype instanceof CloudFrontServiceException);
+assert(NoSuchFunctionExists.prototype instanceof CloudFrontServiceException);
+assert(NoSuchInvalidation.prototype instanceof CloudFrontServiceException);
+assert(NoSuchMonitoringSubscription.prototype instanceof CloudFrontServiceException);
+assert(NoSuchOrigin.prototype instanceof CloudFrontServiceException);
+assert(NoSuchOriginAccessControl.prototype instanceof CloudFrontServiceException);
+assert(NoSuchOriginRequestPolicy.prototype instanceof CloudFrontServiceException);
+assert(NoSuchPublicKey.prototype instanceof CloudFrontServiceException);
+assert(NoSuchRealtimeLogConfig.prototype instanceof CloudFrontServiceException);
+assert(NoSuchResource.prototype instanceof CloudFrontServiceException);
+assert(NoSuchResponseHeadersPolicy.prototype instanceof CloudFrontServiceException);
+assert(NoSuchStreamingDistribution.prototype instanceof CloudFrontServiceException);
+assert(OriginAccessControlAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(OriginAccessControlInUse.prototype instanceof CloudFrontServiceException);
+assert(OriginRequestPolicyAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(OriginRequestPolicyInUse.prototype instanceof CloudFrontServiceException);
+assert(PreconditionFailed.prototype instanceof CloudFrontServiceException);
+assert(PublicKeyAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(PublicKeyInUse.prototype instanceof CloudFrontServiceException);
+assert(QueryArgProfileEmpty.prototype instanceof CloudFrontServiceException);
+assert(RealtimeLogConfigAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(RealtimeLogConfigInUse.prototype instanceof CloudFrontServiceException);
+assert(RealtimeLogConfigOwnerMismatch.prototype instanceof CloudFrontServiceException);
+assert(ResourceInUse.prototype instanceof CloudFrontServiceException);
+assert(ResourceNotDisabled.prototype instanceof CloudFrontServiceException);
+assert(ResponseHeadersPolicyAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(ResponseHeadersPolicyInUse.prototype instanceof CloudFrontServiceException);
+assert(StagingDistributionInUse.prototype instanceof CloudFrontServiceException);
+assert(StreamingDistributionAlreadyExists.prototype instanceof CloudFrontServiceException);
+assert(StreamingDistributionNotDisabled.prototype instanceof CloudFrontServiceException);
+assert(TestFunctionFailed.prototype instanceof CloudFrontServiceException);
+assert(TooLongCSPInResponseHeadersPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyCacheBehaviors.prototype instanceof CloudFrontServiceException);
+assert(TooManyCachePolicies.prototype instanceof CloudFrontServiceException);
+assert(TooManyCertificates.prototype instanceof CloudFrontServiceException);
+assert(TooManyCloudFrontOriginAccessIdentities.prototype instanceof CloudFrontServiceException);
+assert(TooManyContinuousDeploymentPolicies.prototype instanceof CloudFrontServiceException);
+assert(TooManyCookieNamesInWhiteList.prototype instanceof CloudFrontServiceException);
+assert(TooManyCookiesInCachePolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyCookiesInOriginRequestPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyCustomHeadersInResponseHeadersPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionCNAMEs.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributions.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsAssociatedToCachePolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsAssociatedToFieldLevelEncryptionConfig.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsAssociatedToKeyGroup.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsAssociatedToOriginAccessControl.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsAssociatedToOriginRequestPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsAssociatedToResponseHeadersPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsWithFunctionAssociations.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsWithLambdaAssociations.prototype instanceof CloudFrontServiceException);
+assert(TooManyDistributionsWithSingleFunctionARN.prototype instanceof CloudFrontServiceException);
+assert(TooManyFieldLevelEncryptionConfigs.prototype instanceof CloudFrontServiceException);
+assert(TooManyFieldLevelEncryptionContentTypeProfiles.prototype instanceof CloudFrontServiceException);
+assert(TooManyFieldLevelEncryptionEncryptionEntities.prototype instanceof CloudFrontServiceException);
+assert(TooManyFieldLevelEncryptionFieldPatterns.prototype instanceof CloudFrontServiceException);
+assert(TooManyFieldLevelEncryptionProfiles.prototype instanceof CloudFrontServiceException);
+assert(TooManyFieldLevelEncryptionQueryArgProfiles.prototype instanceof CloudFrontServiceException);
+assert(TooManyFunctionAssociations.prototype instanceof CloudFrontServiceException);
+assert(TooManyFunctions.prototype instanceof CloudFrontServiceException);
+assert(TooManyHeadersInCachePolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyHeadersInForwardedValues.prototype instanceof CloudFrontServiceException);
+assert(TooManyHeadersInOriginRequestPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyInvalidationsInProgress.prototype instanceof CloudFrontServiceException);
+assert(TooManyKeyGroups.prototype instanceof CloudFrontServiceException);
+assert(TooManyKeyGroupsAssociatedToDistribution.prototype instanceof CloudFrontServiceException);
+assert(TooManyLambdaFunctionAssociations.prototype instanceof CloudFrontServiceException);
+assert(TooManyOriginAccessControls.prototype instanceof CloudFrontServiceException);
+assert(TooManyOriginCustomHeaders.prototype instanceof CloudFrontServiceException);
+assert(TooManyOriginGroupsPerDistribution.prototype instanceof CloudFrontServiceException);
+assert(TooManyOriginRequestPolicies.prototype instanceof CloudFrontServiceException);
+assert(TooManyOrigins.prototype instanceof CloudFrontServiceException);
+assert(TooManyPublicKeys.prototype instanceof CloudFrontServiceException);
+assert(TooManyPublicKeysInKeyGroup.prototype instanceof CloudFrontServiceException);
+assert(TooManyQueryStringParameters.prototype instanceof CloudFrontServiceException);
+assert(TooManyQueryStringsInCachePolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyQueryStringsInOriginRequestPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyRealtimeLogConfigs.prototype instanceof CloudFrontServiceException);
+assert(TooManyRemoveHeadersInResponseHeadersPolicy.prototype instanceof CloudFrontServiceException);
+assert(TooManyResponseHeadersPolicies.prototype instanceof CloudFrontServiceException);
+assert(TooManyStreamingDistributionCNAMEs.prototype instanceof CloudFrontServiceException);
+assert(TooManyStreamingDistributions.prototype instanceof CloudFrontServiceException);
+assert(TooManyTrustedSigners.prototype instanceof CloudFrontServiceException);
+assert(TrustedKeyGroupDoesNotExist.prototype instanceof CloudFrontServiceException);
+assert(TrustedSignerDoesNotExist.prototype instanceof CloudFrontServiceException);
+assert(UnsupportedOperation.prototype instanceof CloudFrontServiceException);
 assert(CloudFrontServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForDistributionDeployed === "function");

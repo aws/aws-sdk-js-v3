@@ -640,7 +640,6 @@ export var UpdateEnrollmentConfigurationResponse: StaticStructureSchema = [
   [_s, _sR, _lUT],
   [0, 0, 4],
 ];
-export var __Unit = "unit" as const;
 export var ComputeOptimizerAutomationServiceException: StaticErrorSchema = [
   -3,
   _sm,

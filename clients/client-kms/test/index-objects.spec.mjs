@@ -1,6 +1,13 @@
 import {
   AlgorithmSpec,
+  AlreadyExistsException,
   CancelKeyDeletionCommand,
+  CloudHsmClusterInUseException,
+  CloudHsmClusterInvalidConfigurationException,
+  CloudHsmClusterNotActiveException,
+  CloudHsmClusterNotFoundException,
+  CloudHsmClusterNotRelatedException,
+  ConflictException,
   ConnectCustomKeyStoreCommand,
   ConnectionErrorCodeType,
   ConnectionStateType,
@@ -8,6 +15,10 @@ import {
   CreateCustomKeyStoreCommand,
   CreateGrantCommand,
   CreateKeyCommand,
+  CustomKeyStoreHasCMKsException,
+  CustomKeyStoreInvalidStateException,
+  CustomKeyStoreNameInUseException,
+  CustomKeyStoreNotFoundException,
   CustomKeyStoreType,
   CustomerMasterKeySpec,
   DataKeyPairSpec,
@@ -16,17 +27,21 @@ import {
   DeleteAliasCommand,
   DeleteCustomKeyStoreCommand,
   DeleteImportedKeyMaterialCommand,
+  DependencyTimeoutException,
   DeriveSharedSecretCommand,
   DescribeCustomKeyStoresCommand,
   DescribeKeyCommand,
   DisableKeyCommand,
   DisableKeyRotationCommand,
+  DisabledException,
   DisconnectCustomKeyStoreCommand,
+  DryRunOperationException,
   EnableKeyCommand,
   EnableKeyRotationCommand,
   EncryptCommand,
   EncryptionAlgorithmSpec,
   ExpirationModelType,
+  ExpiredImportTokenException,
   GenerateDataKeyCommand,
   GenerateDataKeyPairCommand,
   GenerateDataKeyPairWithoutPlaintextCommand,
@@ -42,8 +57,23 @@ import {
   ImportState,
   ImportType,
   IncludeKeyMaterial,
+  IncorrectKeyException,
+  IncorrectKeyMaterialException,
+  IncorrectTrustAnchorException,
+  InvalidAliasNameException,
+  InvalidArnException,
+  InvalidCiphertextException,
+  InvalidGrantIdException,
+  InvalidGrantTokenException,
+  InvalidImportTokenException,
+  InvalidKeyUsageException,
+  InvalidMarkerException,
   KMS,
   KMSClient,
+  KMSInternalException,
+  KMSInvalidMacException,
+  KMSInvalidSignatureException,
+  KMSInvalidStateException,
   KMSServiceException,
   KeyAgreementAlgorithmSpec,
   KeyEncryptionMechanism,
@@ -51,7 +81,9 @@ import {
   KeyMaterialState,
   KeySpec,
   KeyState,
+  KeyUnavailableException,
   KeyUsageType,
+  LimitExceededException,
   ListAliasesCommand,
   ListGrantsCommand,
   ListKeyPoliciesCommand,
@@ -60,8 +92,10 @@ import {
   ListResourceTagsCommand,
   ListRetirableGrantsCommand,
   MacAlgorithmSpec,
+  MalformedPolicyDocumentException,
   MessageType,
   MultiRegionKeyType,
+  NotFoundException,
   OriginType,
   PutKeyPolicyCommand,
   ReEncryptCommand,
@@ -73,7 +107,9 @@ import {
   ScheduleKeyDeletionCommand,
   SignCommand,
   SigningAlgorithmSpec,
+  TagException,
   TagResourceCommand,
+  UnsupportedOperationException,
   UntagResourceCommand,
   UpdateAliasCommand,
   UpdateCustomKeyStoreCommand,
@@ -82,7 +118,19 @@ import {
   VerifyCommand,
   VerifyMacCommand,
   WrappingKeySpec,
+  XksKeyAlreadyInUseException,
+  XksKeyInvalidConfigurationException,
+  XksKeyNotFoundException,
   XksProxyConnectivityType,
+  XksProxyIncorrectAuthenticationCredentialException,
+  XksProxyInvalidConfigurationException,
+  XksProxyInvalidResponseException,
+  XksProxyUriEndpointInUseException,
+  XksProxyUriInUseException,
+  XksProxyUriUnreachableException,
+  XksProxyVpcEndpointServiceInUseException,
+  XksProxyVpcEndpointServiceInvalidConfigurationException,
+  XksProxyVpcEndpointServiceNotFoundException,
   paginateDescribeCustomKeyStores,
   paginateListAliases,
   paginateListGrants,
@@ -180,6 +228,54 @@ assert(typeof SigningAlgorithmSpec === "object");
 assert(typeof WrappingKeySpec === "object");
 assert(typeof XksProxyConnectivityType === "object");
 // errors
+assert(AlreadyExistsException.prototype instanceof KMSServiceException);
+assert(CloudHsmClusterInUseException.prototype instanceof KMSServiceException);
+assert(CloudHsmClusterInvalidConfigurationException.prototype instanceof KMSServiceException);
+assert(CloudHsmClusterNotActiveException.prototype instanceof KMSServiceException);
+assert(CloudHsmClusterNotFoundException.prototype instanceof KMSServiceException);
+assert(CloudHsmClusterNotRelatedException.prototype instanceof KMSServiceException);
+assert(ConflictException.prototype instanceof KMSServiceException);
+assert(CustomKeyStoreHasCMKsException.prototype instanceof KMSServiceException);
+assert(CustomKeyStoreInvalidStateException.prototype instanceof KMSServiceException);
+assert(CustomKeyStoreNameInUseException.prototype instanceof KMSServiceException);
+assert(CustomKeyStoreNotFoundException.prototype instanceof KMSServiceException);
+assert(DependencyTimeoutException.prototype instanceof KMSServiceException);
+assert(DisabledException.prototype instanceof KMSServiceException);
+assert(DryRunOperationException.prototype instanceof KMSServiceException);
+assert(ExpiredImportTokenException.prototype instanceof KMSServiceException);
+assert(IncorrectKeyException.prototype instanceof KMSServiceException);
+assert(IncorrectKeyMaterialException.prototype instanceof KMSServiceException);
+assert(IncorrectTrustAnchorException.prototype instanceof KMSServiceException);
+assert(InvalidAliasNameException.prototype instanceof KMSServiceException);
+assert(InvalidArnException.prototype instanceof KMSServiceException);
+assert(InvalidCiphertextException.prototype instanceof KMSServiceException);
+assert(InvalidGrantIdException.prototype instanceof KMSServiceException);
+assert(InvalidGrantTokenException.prototype instanceof KMSServiceException);
+assert(InvalidImportTokenException.prototype instanceof KMSServiceException);
+assert(InvalidKeyUsageException.prototype instanceof KMSServiceException);
+assert(InvalidMarkerException.prototype instanceof KMSServiceException);
+assert(KeyUnavailableException.prototype instanceof KMSServiceException);
+assert(KMSInternalException.prototype instanceof KMSServiceException);
+assert(KMSInvalidMacException.prototype instanceof KMSServiceException);
+assert(KMSInvalidSignatureException.prototype instanceof KMSServiceException);
+assert(KMSInvalidStateException.prototype instanceof KMSServiceException);
+assert(LimitExceededException.prototype instanceof KMSServiceException);
+assert(MalformedPolicyDocumentException.prototype instanceof KMSServiceException);
+assert(NotFoundException.prototype instanceof KMSServiceException);
+assert(TagException.prototype instanceof KMSServiceException);
+assert(UnsupportedOperationException.prototype instanceof KMSServiceException);
+assert(XksKeyAlreadyInUseException.prototype instanceof KMSServiceException);
+assert(XksKeyInvalidConfigurationException.prototype instanceof KMSServiceException);
+assert(XksKeyNotFoundException.prototype instanceof KMSServiceException);
+assert(XksProxyIncorrectAuthenticationCredentialException.prototype instanceof KMSServiceException);
+assert(XksProxyInvalidConfigurationException.prototype instanceof KMSServiceException);
+assert(XksProxyInvalidResponseException.prototype instanceof KMSServiceException);
+assert(XksProxyUriEndpointInUseException.prototype instanceof KMSServiceException);
+assert(XksProxyUriInUseException.prototype instanceof KMSServiceException);
+assert(XksProxyUriUnreachableException.prototype instanceof KMSServiceException);
+assert(XksProxyVpcEndpointServiceInUseException.prototype instanceof KMSServiceException);
+assert(XksProxyVpcEndpointServiceInvalidConfigurationException.prototype instanceof KMSServiceException);
+assert(XksProxyVpcEndpointServiceNotFoundException.prototype instanceof KMSServiceException);
 assert(KMSServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeCustomKeyStores === "function");

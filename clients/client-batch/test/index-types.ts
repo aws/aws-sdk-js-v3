@@ -337,6 +337,8 @@ export type {
   UpdateServiceEnvironmentRequest,
   UpdateServiceEnvironmentResponse,
   Volume,
+  ClientException,
+  ServerException,
   BatchServiceException,
   paginateDescribeComputeEnvironments,
   paginateDescribeJobDefinitions,

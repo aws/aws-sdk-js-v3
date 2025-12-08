@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   BatchLoadDataFormat,
   BatchLoadStatus,
+  ConflictException,
   CreateBatchLoadTaskCommand,
   CreateDatabaseCommand,
   CreateTableCommand,
@@ -11,6 +13,8 @@ import {
   DescribeEndpointsCommand,
   DescribeTableCommand,
   DimensionValueType,
+  InternalServerException,
+  InvalidEndpointException,
   ListBatchLoadTasksCommand,
   ListDatabasesCommand,
   ListTablesCommand,
@@ -18,11 +22,15 @@ import {
   MeasureValueType,
   PartitionKeyEnforcementLevel,
   PartitionKeyType,
+  RejectedRecordsException,
+  ResourceNotFoundException,
   ResumeBatchLoadTaskCommand,
   S3EncryptionOption,
   ScalarMeasureValueType,
+  ServiceQuotaExceededException,
   TableStatus,
   TagResourceCommand,
+  ThrottlingException,
   TimeUnit,
   TimestreamWrite,
   TimestreamWriteClient,
@@ -30,6 +38,7 @@ import {
   UntagResourceCommand,
   UpdateDatabaseCommand,
   UpdateTableCommand,
+  ValidationException,
   WriteRecordsCommand,
   paginateListBatchLoadTasks,
   paginateListDatabases,
@@ -71,6 +80,15 @@ assert(typeof ScalarMeasureValueType === "object");
 assert(typeof TableStatus === "object");
 assert(typeof TimeUnit === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof TimestreamWriteServiceException);
+assert(ConflictException.prototype instanceof TimestreamWriteServiceException);
+assert(InternalServerException.prototype instanceof TimestreamWriteServiceException);
+assert(InvalidEndpointException.prototype instanceof TimestreamWriteServiceException);
+assert(RejectedRecordsException.prototype instanceof TimestreamWriteServiceException);
+assert(ResourceNotFoundException.prototype instanceof TimestreamWriteServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof TimestreamWriteServiceException);
+assert(ThrottlingException.prototype instanceof TimestreamWriteServiceException);
+assert(ValidationException.prototype instanceof TimestreamWriteServiceException);
 assert(TimestreamWriteServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListBatchLoadTasks === "function");

@@ -48,6 +48,7 @@ export type {
   SuggestIntendedUse,
   SuggestResultItemType,
   TypePlacement,
+  ValidationExceptionReason,
   ZipClassificationCode,
   AccessPoint,
   AccessRestriction,
@@ -120,5 +121,10 @@ export type {
   TimeZone,
   UspsZip,
   UspsZipPlus4,
+  ValidationExceptionField,
+  AccessDeniedException,
+  InternalServerException,
+  ThrottlingException,
+  ValidationException,
   GeoPlacesServiceException,
 } from "../dist-types/index.d";

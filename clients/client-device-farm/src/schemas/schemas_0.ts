@@ -1387,7 +1387,6 @@ export var Upload: StaticStructureSchema = [
 ];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_sGI, _sIu, _vI], [64 | 0, 64 | 0, 0]];
 export var VPCEConfiguration: StaticStructureSchema = [3, n0, _VPCEC, 0, [_a, _vCN, _vSN, _sDN, _vCD], [0, 0, 0, 0, 0]];
-export var __Unit = "unit" as const;
 export var DeviceFarmServiceException: StaticErrorSchema = [-3, _sm, "DeviceFarmServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DeviceFarmServiceException, __DeviceFarmServiceException);
 export var AmazonResourceNames = 64 | 0;

@@ -7,6 +7,7 @@ import {
   ApplyEnvironmentManagedActionCommand,
   AssociateEnvironmentOperationsRoleCommand,
   CheckDNSAvailabilityCommand,
+  CodeBuildNotInServiceRegionException,
   ComposeEnvironmentsCommand,
   ComputeType,
   ConfigurationDeploymentStatus,
@@ -39,6 +40,7 @@ import {
   ElasticBeanstalk,
   ElasticBeanstalkClient,
   ElasticBeanstalkServiceException,
+  ElasticBeanstalkSyntheticServiceException,
   EnvironmentHealth,
   EnvironmentHealthAttribute,
   EnvironmentHealthStatus,
@@ -47,19 +49,36 @@ import {
   EventSeverity,
   FailureType,
   InstancesHealthAttribute,
+  InsufficientPrivilegesException,
+  InvalidRequestException,
   ListAvailableSolutionStacksCommand,
   ListPlatformBranchesCommand,
   ListPlatformVersionsCommand,
   ListTagsForResourceCommand,
+  ManagedActionInvalidStateException,
+  OperationInProgressException,
   PlatformStatus,
+  PlatformVersionStillReferencedException,
   RebuildEnvironmentCommand,
   RequestEnvironmentInfoCommand,
+  ResourceNotFoundException,
+  ResourceTypeNotSupportedException,
   RestartAppServerCommand,
   RetrieveEnvironmentInfoCommand,
+  S3LocationNotInServiceRegionException,
+  S3SubscriptionRequiredException,
+  SourceBundleDeletionException,
   SourceRepository,
   SourceType,
   SwapEnvironmentCNAMEsCommand,
   TerminateEnvironmentCommand,
+  TooManyApplicationVersionsException,
+  TooManyApplicationsException,
+  TooManyBucketsException,
+  TooManyConfigurationTemplatesException,
+  TooManyEnvironmentsException,
+  TooManyPlatformsException,
+  TooManyTagsException,
   UpdateApplicationCommand,
   UpdateApplicationResourceLifecycleCommand,
   UpdateApplicationVersionCommand,
@@ -152,7 +171,26 @@ assert(typeof SourceRepository === "object");
 assert(typeof SourceType === "object");
 assert(typeof ValidationSeverity === "object");
 // errors
-assert(ElasticBeanstalkServiceException.prototype instanceof Error);
+assert(CodeBuildNotInServiceRegionException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ElasticBeanstalkServiceException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(InsufficientPrivilegesException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(InvalidRequestException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ManagedActionInvalidStateException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(OperationInProgressException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(PlatformVersionStillReferencedException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ResourceNotFoundException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ResourceTypeNotSupportedException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(S3LocationNotInServiceRegionException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(S3SubscriptionRequiredException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(SourceBundleDeletionException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyApplicationsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyApplicationVersionsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyBucketsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyConfigurationTemplatesException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyEnvironmentsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyPlatformsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyTagsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ElasticBeanstalkSyntheticServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForEnvironmentExists === "function");
 assert(typeof waitForEnvironmentTerminated === "function");

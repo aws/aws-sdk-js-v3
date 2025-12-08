@@ -59,7 +59,6 @@ export var MetricQuery: StaticStructureSchema = [
 ];
 export var MetricQueryResult: StaticStructureSchema = [3, n0, _MQRe, 0, [_St, _M, _XAV, _MV], [0, 0, 64 | 1, 64 | 1]];
 export var RawMetricData: StaticStructureSchema = [3, n0, _RMD, 0, [_MN, _T, _Ste, _V], [0, 4, 1, 1]];
-export var __Unit = "unit" as const;
 export var SageMakerMetricsServiceException: StaticErrorSchema = [
   -3,
   _s,

@@ -1733,7 +1733,6 @@ export var Volume: StaticStructureSchema = [
   [_h, _n, _eVC],
   [() => Host, 0, () => EFSVolumeConfiguration],
 ];
-export var __Unit = "unit" as const;
 export var BatchServiceException: StaticErrorSchema = [-3, _sm, "BatchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BatchServiceException, __BatchServiceException);
 export var AttemptDetails: StaticListSchema = [1, n0, _ADt, 0, () => AttemptDetail];

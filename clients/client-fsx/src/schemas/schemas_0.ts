@@ -2202,7 +2202,6 @@ export var WindowsFileSystemConfiguration: StaticStructureSchema = [
   ],
 ];
 export var WindowsFsrmConfiguration: StaticStructureSchema = [3, n0, _WFC, 0, [_FSEs, _ELD], [2, 0]];
-export var __Unit = "unit" as const;
 export var FSxServiceException: StaticErrorSchema = [-3, _sm, "FSxServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FSxServiceException, __FSxServiceException);
 export var AdministrativeActions: StaticListSchema = [1, n0, _AAd, 0, [() => AdministrativeAction, 0]];

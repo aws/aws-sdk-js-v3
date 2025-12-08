@@ -1,9 +1,11 @@
 import {
+  AccessDeniedException,
   AssociateVehicleFleetCommand,
   BatchCreateVehicleCommand,
   BatchUpdateVehicleCommand,
   CampaignStatus,
   Compression,
+  ConflictException,
   CreateCampaignCommand,
   CreateDecoderManifestCommand,
   CreateFleetCommand,
@@ -12,6 +14,7 @@ import {
   CreateStateTemplateCommand,
   CreateVehicleCommand,
   DataFormat,
+  DecoderManifestValidationException,
   DefaultForUnmappedSignalsType,
   DeleteCampaignCommand,
   DeleteDecoderManifestCommand,
@@ -37,9 +40,13 @@ import {
   GetVehicleStatusCommand,
   ImportDecoderManifestCommand,
   ImportSignalCatalogCommand,
+  InternalServerException,
+  InvalidNodeException,
+  InvalidSignalsException,
   IoTFleetWise,
   IoTFleetWiseClient,
   IoTFleetWiseServiceException,
+  LimitExceededException,
   ListCampaignsCommand,
   ListDecoderManifestNetworkInterfacesCommand,
   ListDecoderManifestSignalsCommand,
@@ -57,6 +64,7 @@ import {
   ListVehiclesInFleetCommand,
   LogType,
   ManifestStatus,
+  NetworkInterfaceFailureReason,
   NetworkInterfaceType,
   NodeDataEncoding,
   NodeDataType,
@@ -65,6 +73,8 @@ import {
   ROS2PrimitiveType,
   RegisterAccountCommand,
   RegistrationStatus,
+  ResourceNotFoundException,
+  SignalDecoderFailureReason,
   SignalDecoderType,
   SignalNodeType,
   SignalValueType,
@@ -74,6 +84,7 @@ import {
   StorageMinimumTimeToLiveUnit,
   StructuredMessageListType,
   TagResourceCommand,
+  ThrottlingException,
   TimeUnit,
   TriggerMode,
   UntagResourceCommand,
@@ -86,6 +97,8 @@ import {
   UpdateSignalCatalogCommand,
   UpdateStateTemplateCommand,
   UpdateVehicleCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VehicleAssociationBehavior,
   VehicleMiddlewareProtocol,
   VehicleState,
@@ -177,11 +190,13 @@ assert(typeof EncryptionType === "object");
 assert(typeof ListResponseScope === "object");
 assert(typeof LogType === "object");
 assert(typeof ManifestStatus === "object");
+assert(typeof NetworkInterfaceFailureReason === "object");
 assert(typeof NetworkInterfaceType === "object");
 assert(typeof NodeDataEncoding === "object");
 assert(typeof NodeDataType === "object");
 assert(typeof RegistrationStatus === "object");
 assert(typeof ROS2PrimitiveType === "object");
+assert(typeof SignalDecoderFailureReason === "object");
 assert(typeof SignalDecoderType === "object");
 assert(typeof SignalNodeType === "object");
 assert(typeof SignalValueType === "object");
@@ -194,10 +209,21 @@ assert(typeof TimeUnit === "object");
 assert(typeof TriggerMode === "object");
 assert(typeof UpdateCampaignAction === "object");
 assert(typeof UpdateMode === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VehicleAssociationBehavior === "object");
 assert(typeof VehicleMiddlewareProtocol === "object");
 assert(typeof VehicleState === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IoTFleetWiseServiceException);
+assert(ConflictException.prototype instanceof IoTFleetWiseServiceException);
+assert(DecoderManifestValidationException.prototype instanceof IoTFleetWiseServiceException);
+assert(InternalServerException.prototype instanceof IoTFleetWiseServiceException);
+assert(InvalidNodeException.prototype instanceof IoTFleetWiseServiceException);
+assert(InvalidSignalsException.prototype instanceof IoTFleetWiseServiceException);
+assert(LimitExceededException.prototype instanceof IoTFleetWiseServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTFleetWiseServiceException);
+assert(ThrottlingException.prototype instanceof IoTFleetWiseServiceException);
+assert(ValidationException.prototype instanceof IoTFleetWiseServiceException);
 assert(IoTFleetWiseServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetVehicleStatus === "function");

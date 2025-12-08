@@ -13,15 +13,21 @@ import {
   GetExecutionCommand,
   GetExportCommand,
   GetTableCommand,
+  InternalServerException,
   ListExecutionsCommand,
   ListExportsCommand,
   ListTablesCommand,
   ListTagsForResourceCommand,
   OverwriteOption,
+  ResourceNotFoundException,
   S3OutputType,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateExportCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListExecutions,
   paginateListExports,
   paginateListTables,
@@ -52,7 +58,13 @@ assert(typeof FormatOption === "object");
 assert(typeof FrequencyOption === "object");
 assert(typeof OverwriteOption === "object");
 assert(typeof S3OutputType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(InternalServerException.prototype instanceof BCMDataExportsServiceException);
+assert(ResourceNotFoundException.prototype instanceof BCMDataExportsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BCMDataExportsServiceException);
+assert(ThrottlingException.prototype instanceof BCMDataExportsServiceException);
+assert(ValidationException.prototype instanceof BCMDataExportsServiceException);
 assert(BCMDataExportsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListExecutions === "function");

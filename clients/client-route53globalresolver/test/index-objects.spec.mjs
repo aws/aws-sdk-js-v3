@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AssociateHostedZoneCommand,
   BatchCreateFirewallRuleCommand,
   BatchDeleteFirewallRuleCommand,
@@ -6,6 +7,7 @@ import {
   BlockOverrideDnsQueryType,
   CRResourceStatus,
   ConfidenceThreshold,
+  ConflictException,
   CreateAccessSourceCommand,
   CreateAccessTokenCommand,
   CreateDNSViewCommand,
@@ -38,6 +40,7 @@ import {
   GetManagedFirewallDomainListCommand,
   HostedZoneAssociationStatus,
   ImportFirewallDomainsCommand,
+  InternalServerException,
   IpAddressType,
   ListAccessSourcesCommand,
   ListAccessTokensCommand,
@@ -50,10 +53,13 @@ import {
   ListManagedFirewallDomainListsCommand,
   ListTagsForResourceCommand,
   ProfileResourceStatus,
+  ResourceNotFoundException,
   Route53GlobalResolver,
   Route53GlobalResolverClient,
   Route53GlobalResolverServiceException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   TokenStatus,
   UntagResourceCommand,
   UpdateAccessSourceCommand,
@@ -63,6 +69,8 @@ import {
   UpdateFirewallRuleCommand,
   UpdateGlobalResolverCommand,
   UpdateHostedZoneAssociationCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListAccessSources,
   paginateListAccessTokens,
   paginateListDNSViews,
@@ -140,7 +148,15 @@ assert(typeof HostedZoneAssociationStatus === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof ProfileResourceStatus === "object");
 assert(typeof TokenStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof Route53GlobalResolverServiceException);
+assert(ConflictException.prototype instanceof Route53GlobalResolverServiceException);
+assert(InternalServerException.prototype instanceof Route53GlobalResolverServiceException);
+assert(ResourceNotFoundException.prototype instanceof Route53GlobalResolverServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof Route53GlobalResolverServiceException);
+assert(ThrottlingException.prototype instanceof Route53GlobalResolverServiceException);
+assert(ValidationException.prototype instanceof Route53GlobalResolverServiceException);
 assert(Route53GlobalResolverServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessSources === "function");

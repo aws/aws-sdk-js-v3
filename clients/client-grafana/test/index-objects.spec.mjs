@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AccountAccessType,
   AssociateLicenseCommand,
   AuthenticationProviderTypes,
+  ConflictException,
   CreateWorkspaceApiKeyCommand,
   CreateWorkspaceCommand,
   CreateWorkspaceServiceAccountCommand,
@@ -18,6 +20,7 @@ import {
   Grafana,
   GrafanaClient,
   GrafanaServiceException,
+  InternalServerException,
   LicenseType,
   ListPermissionsCommand,
   ListTagsForResourceCommand,
@@ -27,9 +30,12 @@ import {
   ListWorkspacesCommand,
   NotificationDestinationType,
   PermissionType,
+  ResourceNotFoundException,
   Role,
   SamlConfigurationStatus,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateAction,
   UpdatePermissionsCommand,
@@ -37,6 +43,8 @@ import {
   UpdateWorkspaceCommand,
   UpdateWorkspaceConfigurationCommand,
   UserType,
+  ValidationException,
+  ValidationExceptionReason,
   WorkspaceStatus,
   paginateListPermissions,
   paginateListVersions,
@@ -85,8 +93,16 @@ assert(typeof Role === "object");
 assert(typeof SamlConfigurationStatus === "object");
 assert(typeof UpdateAction === "object");
 assert(typeof UserType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof WorkspaceStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GrafanaServiceException);
+assert(ConflictException.prototype instanceof GrafanaServiceException);
+assert(InternalServerException.prototype instanceof GrafanaServiceException);
+assert(ResourceNotFoundException.prototype instanceof GrafanaServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof GrafanaServiceException);
+assert(ThrottlingException.prototype instanceof GrafanaServiceException);
+assert(ValidationException.prototype instanceof GrafanaServiceException);
 assert(GrafanaServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListPermissions === "function");

@@ -1169,7 +1169,6 @@ export var ViewFrame: StaticStructureSchema = [
   [_SCI, _CR, _HC, _SRI, _RRo, _An],
   [1, 1, 64 | 0, 1, 1, 0],
 ];
-export var __Unit = "unit" as const;
 export var DataBrewServiceException: StaticErrorSchema = [-3, _sm, "DataBrewServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DataBrewServiceException, __DataBrewServiceException);
 export var AllowedStatisticList: StaticListSchema = [1, n0, _ASL, 0, () => AllowedStatistics];

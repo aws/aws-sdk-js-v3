@@ -715,7 +715,6 @@ export var UtteranceEvent: StaticStructureSchema = [
     () => CallAnalyticsLanguageIdentification,
   ],
 ];
-export var __Unit = "unit" as const;
 export var TranscribeStreamingServiceException: StaticErrorSchema = [
   -3,
   _sm,

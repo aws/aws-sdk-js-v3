@@ -1537,7 +1537,6 @@ export var UpdateBackendStorageResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var __Unit = "unit" as const;
 export var AmplifyBackendServiceException: StaticErrorSchema = [-3, _sm, "AmplifyBackendServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AmplifyBackendServiceException, __AmplifyBackendServiceException);
 export var ListOf__string = 64 | 0;

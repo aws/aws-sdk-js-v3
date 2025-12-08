@@ -1,6 +1,7 @@
 import {
   ActionAfterCompletion,
   AssignPublicIp,
+  ConflictException,
   CreateScheduleCommand,
   CreateScheduleGroupCommand,
   DeleteScheduleCommand,
@@ -8,6 +9,7 @@ import {
   FlexibleTimeWindowMode,
   GetScheduleCommand,
   GetScheduleGroupCommand,
+  InternalServerException,
   LaunchType,
   ListScheduleGroupsCommand,
   ListSchedulesCommand,
@@ -15,14 +17,18 @@ import {
   PlacementConstraintType,
   PlacementStrategyType,
   PropagateTags,
+  ResourceNotFoundException,
   ScheduleGroupState,
   ScheduleState,
   Scheduler,
   SchedulerClient,
   SchedulerServiceException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateScheduleCommand,
+  ValidationException,
   paginateListScheduleGroups,
   paginateListSchedules,
 } from "../dist-cjs/index.js";
@@ -54,6 +60,12 @@ assert(typeof PropagateTags === "object");
 assert(typeof ScheduleGroupState === "object");
 assert(typeof ScheduleState === "object");
 // errors
+assert(ConflictException.prototype instanceof SchedulerServiceException);
+assert(InternalServerException.prototype instanceof SchedulerServiceException);
+assert(ResourceNotFoundException.prototype instanceof SchedulerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SchedulerServiceException);
+assert(ThrottlingException.prototype instanceof SchedulerServiceException);
+assert(ValidationException.prototype instanceof SchedulerServiceException);
 assert(SchedulerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListScheduleGroups === "function");

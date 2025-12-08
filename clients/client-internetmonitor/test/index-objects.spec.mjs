@@ -1,4 +1,7 @@
 import {
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
   CreateMonitorCommand,
   DeleteMonitorCommand,
   GetHealthEventCommand,
@@ -8,11 +11,14 @@ import {
   GetQueryStatusCommand,
   HealthEventImpactType,
   HealthEventStatus,
+  InternalServerErrorException,
+  InternalServerException,
   InternetEventStatus,
   InternetEventType,
   InternetMonitor,
   InternetMonitorClient,
   InternetMonitorServiceException,
+  LimitExceededException,
   ListHealthEventsCommand,
   ListInternetEventsCommand,
   ListMonitorsCommand,
@@ -21,15 +27,20 @@ import {
   LogDeliveryStatus,
   MonitorConfigState,
   MonitorProcessingStatusCode,
+  NotFoundException,
   Operator,
   QueryStatus,
   QueryType,
+  ResourceNotFoundException,
   StartQueryCommand,
   StopQueryCommand,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyRequestsException,
   TriangulationEventType,
   UntagResourceCommand,
   UpdateMonitorCommand,
+  ValidationException,
   paginateGetQueryResults,
   paginateListHealthEvents,
   paginateListInternetEvents,
@@ -70,6 +81,17 @@ assert(typeof QueryStatus === "object");
 assert(typeof QueryType === "object");
 assert(typeof TriangulationEventType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof InternetMonitorServiceException);
+assert(BadRequestException.prototype instanceof InternetMonitorServiceException);
+assert(ConflictException.prototype instanceof InternetMonitorServiceException);
+assert(InternalServerErrorException.prototype instanceof InternetMonitorServiceException);
+assert(InternalServerException.prototype instanceof InternetMonitorServiceException);
+assert(LimitExceededException.prototype instanceof InternetMonitorServiceException);
+assert(NotFoundException.prototype instanceof InternetMonitorServiceException);
+assert(ResourceNotFoundException.prototype instanceof InternetMonitorServiceException);
+assert(ThrottlingException.prototype instanceof InternetMonitorServiceException);
+assert(TooManyRequestsException.prototype instanceof InternetMonitorServiceException);
+assert(ValidationException.prototype instanceof InternetMonitorServiceException);
 assert(InternetMonitorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetQueryResults === "function");

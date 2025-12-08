@@ -1,9 +1,11 @@
 import {
   AcceptDataGrantCommand,
   AcceptanceStateFilterValue,
+  AccessDeniedException,
   AssetType,
   CancelJobCommand,
   Code,
+  ConflictException,
   CreateDataGrantCommand,
   CreateDataSetCommand,
   CreateEventActionCommand,
@@ -19,6 +21,7 @@ import {
   DeleteDataSetCommand,
   DeleteEventActionCommand,
   DeleteRevisionCommand,
+  ExceptionCause,
   GetAssetCommand,
   GetDataGrantCommand,
   GetDataSetCommand,
@@ -27,11 +30,13 @@ import {
   GetReceivedDataGrantCommand,
   GetRevisionCommand,
   GrantDistributionScope,
+  InternalServerException,
   JobErrorLimitName,
   JobErrorResourceTypes,
   LFPermission,
   LFResourceType,
   LakeFormationDataPermissionType,
+  LimitName,
   ListDataGrantsCommand,
   ListDataSetRevisionsCommand,
   ListDataSetsCommand,
@@ -43,21 +48,26 @@ import {
   NotificationType,
   Origin,
   ProtocolType,
+  ResourceNotFoundException,
+  ResourceType,
   RevokeRevisionCommand,
   SchemaChangeType,
   SendApiAssetCommand,
   SendDataSetNotificationCommand,
   ServerSideEncryptionTypes,
+  ServiceLimitExceededException,
   StartJobCommand,
   State,
   TableTagPolicyLFPermission,
   TagResourceCommand,
+  ThrottlingException,
   Type,
   UntagResourceCommand,
   UpdateAssetCommand,
   UpdateDataSetCommand,
   UpdateEventActionCommand,
   UpdateRevisionCommand,
+  ValidationException,
   paginateListDataGrants,
   paginateListDataSetRevisions,
   paginateListDataSets,
@@ -114,21 +124,31 @@ assert(typeof AssetType === "object");
 assert(typeof Code === "object");
 assert(typeof DatabaseLFTagPolicyPermission === "object");
 assert(typeof DataGrantAcceptanceState === "object");
+assert(typeof ExceptionCause === "object");
 assert(typeof GrantDistributionScope === "object");
 assert(typeof JobErrorLimitName === "object");
 assert(typeof JobErrorResourceTypes === "object");
 assert(typeof LakeFormationDataPermissionType === "object");
 assert(typeof LFPermission === "object");
 assert(typeof LFResourceType === "object");
+assert(typeof LimitName === "object");
 assert(typeof NotificationType === "object");
 assert(typeof Origin === "object");
 assert(typeof ProtocolType === "object");
+assert(typeof ResourceType === "object");
 assert(typeof SchemaChangeType === "object");
 assert(typeof ServerSideEncryptionTypes === "object");
 assert(typeof State === "object");
 assert(typeof TableTagPolicyLFPermission === "object");
 assert(typeof Type === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DataExchangeServiceException);
+assert(ConflictException.prototype instanceof DataExchangeServiceException);
+assert(InternalServerException.prototype instanceof DataExchangeServiceException);
+assert(ResourceNotFoundException.prototype instanceof DataExchangeServiceException);
+assert(ServiceLimitExceededException.prototype instanceof DataExchangeServiceException);
+assert(ThrottlingException.prototype instanceof DataExchangeServiceException);
+assert(ValidationException.prototype instanceof DataExchangeServiceException);
 assert(DataExchangeServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDataGrants === "function");

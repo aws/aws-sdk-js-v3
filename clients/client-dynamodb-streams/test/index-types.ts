@@ -38,5 +38,10 @@ export type {
   _Stream,
   StreamDescription,
   StreamRecord,
+  ExpiredIteratorException,
+  InternalServerError,
+  LimitExceededException,
+  ResourceNotFoundException,
+  TrimmedDataAccessException,
   DynamoDBStreamsServiceException,
 } from "../dist-types/index.d";

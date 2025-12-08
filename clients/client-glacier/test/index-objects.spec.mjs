@@ -27,16 +27,24 @@ import {
   InitiateJobCommand,
   InitiateMultipartUploadCommand,
   InitiateVaultLockCommand,
+  InsufficientCapacityException,
+  InvalidParameterValueException,
+  LimitExceededException,
   ListJobsCommand,
   ListMultipartUploadsCommand,
   ListPartsCommand,
   ListProvisionedCapacityCommand,
   ListTagsForVaultCommand,
   ListVaultsCommand,
+  MissingParameterValueException,
   Permission,
+  PolicyEnforcedException,
   PurchaseProvisionedCapacityCommand,
   QuoteFields,
   RemoveTagsFromVaultCommand,
+  RequestTimeoutException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
   SetDataRetrievalPolicyCommand,
   SetVaultAccessPolicyCommand,
   SetVaultNotificationsCommand,
@@ -104,6 +112,14 @@ assert(typeof StatusCode === "object");
 assert(typeof StorageClass === "object");
 assert(typeof Type === "object");
 // errors
+assert(InsufficientCapacityException.prototype instanceof GlacierServiceException);
+assert(InvalidParameterValueException.prototype instanceof GlacierServiceException);
+assert(LimitExceededException.prototype instanceof GlacierServiceException);
+assert(MissingParameterValueException.prototype instanceof GlacierServiceException);
+assert(PolicyEnforcedException.prototype instanceof GlacierServiceException);
+assert(RequestTimeoutException.prototype instanceof GlacierServiceException);
+assert(ResourceNotFoundException.prototype instanceof GlacierServiceException);
+assert(ServiceUnavailableException.prototype instanceof GlacierServiceException);
 assert(GlacierServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForVaultExists === "function");

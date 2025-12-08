@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   ConfigurationJobStatus,
+  ConflictException,
   CreateBillOfMaterialsImportJobCommand,
   CreateDataIntegrationFlowCommand,
   CreateDataLakeDatasetCommand,
@@ -30,6 +32,7 @@ import {
   GetDataLakeNamespaceCommand,
   GetInstanceCommand,
   InstanceState,
+  InternalServerException,
   ListDataIntegrationEventsCommand,
   ListDataIntegrationFlowExecutionsCommand,
   ListDataIntegrationFlowsCommand,
@@ -37,16 +40,20 @@ import {
   ListDataLakeNamespacesCommand,
   ListInstancesCommand,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
   SendDataIntegrationEventCommand,
+  ServiceQuotaExceededException,
   SupplyChain,
   SupplyChainClient,
   SupplyChainServiceException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateDataIntegrationFlowCommand,
   UpdateDataLakeDatasetCommand,
   UpdateDataLakeNamespaceCommand,
   UpdateInstanceCommand,
+  ValidationException,
   paginateListDataIntegrationEvents,
   paginateListDataIntegrationFlowExecutions,
   paginateListDataIntegrationFlows,
@@ -106,6 +113,13 @@ assert(typeof DataLakeDatasetPartitionTransformType === "object");
 assert(typeof DataLakeDatasetSchemaFieldType === "object");
 assert(typeof InstanceState === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SupplyChainServiceException);
+assert(ConflictException.prototype instanceof SupplyChainServiceException);
+assert(InternalServerException.prototype instanceof SupplyChainServiceException);
+assert(ResourceNotFoundException.prototype instanceof SupplyChainServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SupplyChainServiceException);
+assert(ThrottlingException.prototype instanceof SupplyChainServiceException);
+assert(ValidationException.prototype instanceof SupplyChainServiceException);
 assert(SupplyChainServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListDataIntegrationEvents === "function");

@@ -377,7 +377,6 @@ export var UpdateLifecyclePolicyRequest: StaticStructureSchema = [
   [[0, 1], 0, 0, 0, () => PolicyDetails, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions],
 ];
 export var UpdateLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _ULPRp, 0, [], []];
-export var __Unit = "unit" as const;
 export var DLMServiceException: StaticErrorSchema = [-3, _sm, "DLMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DLMServiceException, __DLMServiceException);
 export var ActionList: StaticListSchema = [1, n0, _AL, 0, () => Action];

@@ -4137,7 +4137,6 @@ export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
   [0, [() => VectorSearchBedrockRerankingConfiguration, 0]],
 ];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_sI, _sGI], [64 | 0, 64 | 0]];
-export var __Unit = "unit" as const;
 export var BedrockServiceException: StaticErrorSchema = [-3, _sm, "BedrockServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockServiceException, __BedrockServiceException);
 export var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [

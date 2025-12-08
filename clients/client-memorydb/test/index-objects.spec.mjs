@@ -1,7 +1,14 @@
 import {
+  ACLAlreadyExistsFault,
+  ACLNotFoundFault,
+  ACLQuotaExceededFault,
+  APICallRateForCustomerExceededFault,
   AZStatus,
   AuthenticationType,
   BatchUpdateClusterCommand,
+  ClusterAlreadyExistsFault,
+  ClusterNotFoundFault,
+  ClusterQuotaForCustomerExceededFault,
   CopySnapshotCommand,
   CreateACLCommand,
   CreateClusterCommand,
@@ -11,6 +18,7 @@ import {
   CreateSubnetGroupCommand,
   CreateUserCommand,
   DataTieringStatus,
+  DefaultUserRequired,
   DeleteACLCommand,
   DeleteClusterCommand,
   DeleteMultiRegionClusterCommand,
@@ -33,8 +41,24 @@ import {
   DescribeSnapshotsCommand,
   DescribeSubnetGroupsCommand,
   DescribeUsersCommand,
+  DuplicateUserNameFault,
   FailoverShardCommand,
   InputAuthenticationType,
+  InsufficientClusterCapacityFault,
+  InvalidACLStateFault,
+  InvalidARNFault,
+  InvalidClusterStateFault,
+  InvalidCredentialsException,
+  InvalidKMSKeyFault,
+  InvalidMultiRegionClusterStateFault,
+  InvalidNodeStateFault,
+  InvalidParameterCombinationException,
+  InvalidParameterGroupStateFault,
+  InvalidParameterValueException,
+  InvalidSnapshotStateFault,
+  InvalidSubnet,
+  InvalidUserStateFault,
+  InvalidVPCNetworkStateFault,
   IpDiscovery,
   ListAllowedMultiRegionClusterUpdatesCommand,
   ListAllowedNodeTypeUpdatesCommand,
@@ -42,13 +66,43 @@ import {
   MemoryDB,
   MemoryDBClient,
   MemoryDBServiceException,
+  MultiRegionClusterAlreadyExistsFault,
+  MultiRegionClusterNotFoundFault,
+  MultiRegionParameterGroupNotFoundFault,
   NetworkType,
+  NoOperationFault,
+  NodeQuotaForClusterExceededFault,
+  NodeQuotaForCustomerExceededFault,
+  ParameterGroupAlreadyExistsFault,
+  ParameterGroupNotFoundFault,
+  ParameterGroupQuotaExceededFault,
   PurchaseReservedNodesOfferingCommand,
+  ReservedNodeAlreadyExistsFault,
+  ReservedNodeNotFoundFault,
+  ReservedNodeQuotaExceededFault,
+  ReservedNodesOfferingNotFoundFault,
   ResetParameterGroupCommand,
+  ServiceLinkedRoleNotFoundFault,
+  ServiceUpdateNotFoundFault,
   ServiceUpdateStatus,
   ServiceUpdateType,
+  ShardNotFoundFault,
+  ShardsPerClusterQuotaExceededFault,
+  SnapshotAlreadyExistsFault,
+  SnapshotNotFoundFault,
+  SnapshotQuotaExceededFault,
   SourceType,
+  SubnetGroupAlreadyExistsFault,
+  SubnetGroupInUseFault,
+  SubnetGroupNotFoundFault,
+  SubnetGroupQuotaExceededFault,
+  SubnetInUse,
+  SubnetNotAllowedFault,
+  SubnetQuotaExceededFault,
+  TagNotFoundFault,
+  TagQuotaPerResourceExceeded,
   TagResourceCommand,
+  TestFailoverNotAvailableFault,
   UntagResourceCommand,
   UpdateACLCommand,
   UpdateClusterCommand,
@@ -57,6 +111,9 @@ import {
   UpdateStrategy,
   UpdateSubnetGroupCommand,
   UpdateUserCommand,
+  UserAlreadyExistsFault,
+  UserNotFoundFault,
+  UserQuotaExceededFault,
   paginateDescribeACLs,
   paginateDescribeClusters,
   paginateDescribeEngineVersions,
@@ -133,6 +190,63 @@ assert(typeof ServiceUpdateType === "object");
 assert(typeof SourceType === "object");
 assert(typeof UpdateStrategy === "object");
 // errors
+assert(ACLAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(ACLNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ACLQuotaExceededFault.prototype instanceof MemoryDBServiceException);
+assert(APICallRateForCustomerExceededFault.prototype instanceof MemoryDBServiceException);
+assert(ClusterAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(ClusterNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ClusterQuotaForCustomerExceededFault.prototype instanceof MemoryDBServiceException);
+assert(DefaultUserRequired.prototype instanceof MemoryDBServiceException);
+assert(DuplicateUserNameFault.prototype instanceof MemoryDBServiceException);
+assert(InsufficientClusterCapacityFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidACLStateFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidARNFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidClusterStateFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidCredentialsException.prototype instanceof MemoryDBServiceException);
+assert(InvalidKMSKeyFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidMultiRegionClusterStateFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidNodeStateFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidParameterCombinationException.prototype instanceof MemoryDBServiceException);
+assert(InvalidParameterGroupStateFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidParameterValueException.prototype instanceof MemoryDBServiceException);
+assert(InvalidSnapshotStateFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidSubnet.prototype instanceof MemoryDBServiceException);
+assert(InvalidUserStateFault.prototype instanceof MemoryDBServiceException);
+assert(InvalidVPCNetworkStateFault.prototype instanceof MemoryDBServiceException);
+assert(MultiRegionClusterAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(MultiRegionClusterNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(MultiRegionParameterGroupNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(NodeQuotaForClusterExceededFault.prototype instanceof MemoryDBServiceException);
+assert(NodeQuotaForCustomerExceededFault.prototype instanceof MemoryDBServiceException);
+assert(NoOperationFault.prototype instanceof MemoryDBServiceException);
+assert(ParameterGroupAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(ParameterGroupNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ParameterGroupQuotaExceededFault.prototype instanceof MemoryDBServiceException);
+assert(ReservedNodeAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(ReservedNodeNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ReservedNodeQuotaExceededFault.prototype instanceof MemoryDBServiceException);
+assert(ReservedNodesOfferingNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ServiceLinkedRoleNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ServiceUpdateNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ShardNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(ShardsPerClusterQuotaExceededFault.prototype instanceof MemoryDBServiceException);
+assert(SnapshotAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(SnapshotNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(SnapshotQuotaExceededFault.prototype instanceof MemoryDBServiceException);
+assert(SubnetGroupAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(SubnetGroupInUseFault.prototype instanceof MemoryDBServiceException);
+assert(SubnetGroupNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(SubnetGroupQuotaExceededFault.prototype instanceof MemoryDBServiceException);
+assert(SubnetInUse.prototype instanceof MemoryDBServiceException);
+assert(SubnetNotAllowedFault.prototype instanceof MemoryDBServiceException);
+assert(SubnetQuotaExceededFault.prototype instanceof MemoryDBServiceException);
+assert(TagNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(TagQuotaPerResourceExceeded.prototype instanceof MemoryDBServiceException);
+assert(TestFailoverNotAvailableFault.prototype instanceof MemoryDBServiceException);
+assert(UserAlreadyExistsFault.prototype instanceof MemoryDBServiceException);
+assert(UserNotFoundFault.prototype instanceof MemoryDBServiceException);
+assert(UserQuotaExceededFault.prototype instanceof MemoryDBServiceException);
 assert(MemoryDBServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeACLs === "function");

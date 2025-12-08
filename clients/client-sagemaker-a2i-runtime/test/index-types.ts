@@ -34,6 +34,12 @@ export type {
   StartHumanLoopResponse,
   StopHumanLoopRequest,
   StopHumanLoopResponse,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
   SageMakerA2IRuntimeServiceException,
   paginateListHumanLoops,
 } from "../dist-types/index.d";

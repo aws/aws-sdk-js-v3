@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ActionStatus,
   AnomalyDetectorStatus,
   AssociateKmsKeyCommand,
@@ -7,12 +8,14 @@ import {
   CloudWatchLogs,
   CloudWatchLogsClient,
   CloudWatchLogsServiceException,
+  ConflictException,
   CreateDeliveryCommand,
   CreateExportTaskCommand,
   CreateLogAnomalyDetectorCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
   CreateScheduledQueryCommand,
+  DataAlreadyAcceptedException,
   DataProtectionStatus,
   DeleteAccountPolicyCommand,
   DeleteDataProtectionPolicyCommand,
@@ -81,7 +84,12 @@ import {
   InheritedProperty,
   IntegrationStatus,
   IntegrationType,
+  InternalServerException,
   InternalStreamingException,
+  InvalidOperationException,
+  InvalidParameterException,
+  InvalidSequenceTokenException,
+  LimitExceededException,
   ListAggregateLogGroupSummariesCommand,
   ListAggregateLogGroupSummariesGroupBy,
   ListAnomaliesCommand,
@@ -94,8 +102,10 @@ import {
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
   LogGroupClass,
+  MalformedQueryException,
   OCSFVersion,
   OpenSearchResourceStatusType,
+  OperationAbortedException,
   OrderBy,
   OutputFormat,
   PolicyScope,
@@ -119,10 +129,14 @@ import {
   PutTransformerCommand,
   QueryLanguage,
   QueryStatus,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   S3TableIntegrationSourceStatus,
   ScheduledQueryDestinationType,
   ScheduledQueryState,
   Scope,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   SessionStreamingException,
   SessionTimeoutException,
   StandardUnit,
@@ -137,13 +151,17 @@ import {
   TagResourceCommand,
   TestMetricFilterCommand,
   TestTransformerCommand,
+  ThrottlingException,
+  TooManyTagsException,
   Type,
+  UnrecognizedClientException,
   UntagLogGroupCommand,
   UntagResourceCommand,
   UpdateAnomalyCommand,
   UpdateDeliveryConfigurationCommand,
   UpdateLogAnomalyDetectorCommand,
   UpdateScheduledQueryCommand,
+  ValidationException,
   paginateDescribeConfigurationTemplates,
   paginateDescribeDeliveries,
   paginateDescribeDeliveryDestinations,
@@ -308,9 +326,27 @@ assert(typeof SuppressionType === "object");
 assert(typeof SuppressionUnit === "object");
 assert(typeof Type === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CloudWatchLogsServiceException);
+assert(ConflictException.prototype instanceof CloudWatchLogsServiceException);
+assert(DataAlreadyAcceptedException.prototype instanceof CloudWatchLogsServiceException);
+assert(InternalServerException.prototype instanceof CloudWatchLogsServiceException);
 assert(InternalStreamingException.prototype instanceof CloudWatchLogsServiceException);
+assert(InvalidOperationException.prototype instanceof CloudWatchLogsServiceException);
+assert(InvalidParameterException.prototype instanceof CloudWatchLogsServiceException);
+assert(InvalidSequenceTokenException.prototype instanceof CloudWatchLogsServiceException);
+assert(LimitExceededException.prototype instanceof CloudWatchLogsServiceException);
+assert(MalformedQueryException.prototype instanceof CloudWatchLogsServiceException);
+assert(OperationAbortedException.prototype instanceof CloudWatchLogsServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof CloudWatchLogsServiceException);
+assert(ResourceNotFoundException.prototype instanceof CloudWatchLogsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CloudWatchLogsServiceException);
+assert(ServiceUnavailableException.prototype instanceof CloudWatchLogsServiceException);
 assert(SessionStreamingException.prototype instanceof CloudWatchLogsServiceException);
 assert(SessionTimeoutException.prototype instanceof CloudWatchLogsServiceException);
+assert(ThrottlingException.prototype instanceof CloudWatchLogsServiceException);
+assert(TooManyTagsException.prototype instanceof CloudWatchLogsServiceException);
+assert(UnrecognizedClientException.prototype instanceof CloudWatchLogsServiceException);
+assert(ValidationException.prototype instanceof CloudWatchLogsServiceException);
 assert(CloudWatchLogsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeConfigurationTemplates === "function");

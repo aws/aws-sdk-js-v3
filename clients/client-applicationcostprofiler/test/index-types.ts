@@ -38,6 +38,11 @@ export type {
   SourceS3Location,
   UpdateReportDefinitionRequest,
   UpdateReportDefinitionResult,
+  AccessDeniedException,
+  InternalServerException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
   ApplicationCostProfilerServiceException,
   paginateListReportDefinitions,
 } from "../dist-types/index.d";

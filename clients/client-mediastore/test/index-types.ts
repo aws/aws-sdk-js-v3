@@ -115,6 +115,12 @@ export type {
   TagResourceOutput,
   UntagResourceInput,
   UntagResourceOutput,
+  ContainerInUseException,
+  ContainerNotFoundException,
+  CorsPolicyNotFoundException,
+  InternalServerError,
+  LimitExceededException,
+  PolicyNotFoundException,
   MediaStoreServiceException,
   paginateListContainers,
 } from "../dist-types/index.d";

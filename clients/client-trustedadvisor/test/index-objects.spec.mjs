@@ -1,8 +1,11 @@
 import {
+  AccessDeniedException,
   BatchUpdateRecommendationResourceExclusionCommand,
+  ConflictException,
   ExclusionStatus,
   GetOrganizationRecommendationCommand,
   GetRecommendationCommand,
+  InternalServerException,
   ListChecksCommand,
   ListOrganizationRecommendationAccountsCommand,
   ListOrganizationRecommendationResourcesCommand,
@@ -15,7 +18,9 @@ import {
   RecommendationSource,
   RecommendationStatus,
   RecommendationType,
+  ResourceNotFoundException,
   ResourceStatus,
+  ThrottlingException,
   TrustedAdvisor,
   TrustedAdvisorClient,
   TrustedAdvisorServiceException,
@@ -23,6 +28,7 @@ import {
   UpdateRecommendationLifecycleCommand,
   UpdateRecommendationLifecycleStage,
   UpdateRecommendationLifecycleStageReasonCode,
+  ValidationException,
   paginateListChecks,
   paginateListOrganizationRecommendationAccounts,
   paginateListOrganizationRecommendationResources,
@@ -58,6 +64,12 @@ assert(typeof ResourceStatus === "object");
 assert(typeof UpdateRecommendationLifecycleStage === "object");
 assert(typeof UpdateRecommendationLifecycleStageReasonCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof TrustedAdvisorServiceException);
+assert(ConflictException.prototype instanceof TrustedAdvisorServiceException);
+assert(InternalServerException.prototype instanceof TrustedAdvisorServiceException);
+assert(ResourceNotFoundException.prototype instanceof TrustedAdvisorServiceException);
+assert(ThrottlingException.prototype instanceof TrustedAdvisorServiceException);
+assert(ValidationException.prototype instanceof TrustedAdvisorServiceException);
 assert(TrustedAdvisorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChecks === "function");

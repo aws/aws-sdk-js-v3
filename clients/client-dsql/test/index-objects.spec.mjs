@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   ClusterStatus,
+  ConflictException,
   CreateClusterCommand,
   DSQL,
   DSQLClient,
@@ -11,12 +13,18 @@ import {
   GetClusterCommand,
   GetClusterPolicyCommand,
   GetVpcEndpointServiceNameCommand,
+  InternalServerException,
   ListClustersCommand,
   ListTagsForResourceCommand,
   PutClusterPolicyCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateClusterCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListClusters,
   waitForClusterActive,
   waitForClusterNotExists,
@@ -44,7 +52,15 @@ assert(typeof UpdateClusterCommand === "function");
 assert(typeof ClusterStatus === "object");
 assert(typeof EncryptionStatus === "object");
 assert(typeof EncryptionType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DSQLServiceException);
+assert(ConflictException.prototype instanceof DSQLServiceException);
+assert(InternalServerException.prototype instanceof DSQLServiceException);
+assert(ResourceNotFoundException.prototype instanceof DSQLServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof DSQLServiceException);
+assert(ThrottlingException.prototype instanceof DSQLServiceException);
+assert(ValidationException.prototype instanceof DSQLServiceException);
 assert(DSQLServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForClusterActive === "function");

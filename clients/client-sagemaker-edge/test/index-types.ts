@@ -28,5 +28,6 @@ export type {
   GetDeviceRegistrationResult,
   Model,
   SendHeartbeatRequest,
+  InternalServiceException,
   SagemakerEdgeServiceException,
 } from "../dist-types/index.d";

@@ -148,7 +148,6 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFound
 export var Service: StaticStructureSchema = [3, n0, _Se, 0, [_SC, _ANt], [0, 64 | 0]];
 export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var __Unit = "unit" as const;
 export var PricingServiceException: StaticErrorSchema = [-3, _sm, "PricingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PricingServiceException, __PricingServiceException);
 export var AttributeNameList = 64 | 0;

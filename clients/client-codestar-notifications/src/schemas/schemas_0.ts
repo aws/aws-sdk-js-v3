@@ -231,7 +231,6 @@ export var UpdateNotificationRuleRequest: StaticStructureSchema = [
 export var UpdateNotificationRuleResult: StaticStructureSchema = [3, n0, _UNRRp, 0, [], []];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var CodestarNotificationsServiceException: StaticErrorSchema = [
   -3,
   _s,

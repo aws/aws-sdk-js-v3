@@ -3,6 +3,7 @@ import {
   CreatePrivateDnsNamespaceCommand,
   CreatePublicDnsNamespaceCommand,
   CreateServiceCommand,
+  CustomHealthNotFound,
   CustomHealthStatus,
   DeleteNamespaceCommand,
   DeleteServiceAttributesCommand,
@@ -10,6 +11,7 @@ import {
   DeregisterInstanceCommand,
   DiscoverInstancesCommand,
   DiscoverInstancesRevisionCommand,
+  DuplicateRequest,
   FilterCondition,
   GetInstanceCommand,
   GetInstancesHealthStatusCommand,
@@ -20,27 +22,40 @@ import {
   HealthCheckType,
   HealthStatus,
   HealthStatusFilter,
+  InstanceNotFound,
+  InvalidInput,
   ListInstancesCommand,
   ListNamespacesCommand,
   ListOperationsCommand,
   ListServicesCommand,
   ListTagsForResourceCommand,
+  NamespaceAlreadyExists,
   NamespaceFilterName,
+  NamespaceNotFound,
   NamespaceType,
   OperationFilterName,
+  OperationNotFound,
   OperationStatus,
   OperationTargetType,
   OperationType,
   RecordType,
   RegisterInstanceCommand,
+  RequestLimitExceeded,
+  ResourceInUse,
+  ResourceLimitExceeded,
+  ResourceNotFoundException,
   RoutingPolicy,
+  ServiceAlreadyExists,
+  ServiceAttributesLimitExceededException,
   ServiceDiscovery,
   ServiceDiscoveryClient,
   ServiceDiscoveryServiceException,
   ServiceFilterName,
+  ServiceNotFound,
   ServiceType,
   ServiceTypeOption,
   TagResourceCommand,
+  TooManyTagsException,
   UntagResourceCommand,
   UpdateHttpNamespaceCommand,
   UpdateInstanceCustomHealthStatusCommand,
@@ -107,6 +122,21 @@ assert(typeof ServiceFilterName === "object");
 assert(typeof ServiceType === "object");
 assert(typeof ServiceTypeOption === "object");
 // errors
+assert(CustomHealthNotFound.prototype instanceof ServiceDiscoveryServiceException);
+assert(DuplicateRequest.prototype instanceof ServiceDiscoveryServiceException);
+assert(InstanceNotFound.prototype instanceof ServiceDiscoveryServiceException);
+assert(InvalidInput.prototype instanceof ServiceDiscoveryServiceException);
+assert(NamespaceAlreadyExists.prototype instanceof ServiceDiscoveryServiceException);
+assert(NamespaceNotFound.prototype instanceof ServiceDiscoveryServiceException);
+assert(OperationNotFound.prototype instanceof ServiceDiscoveryServiceException);
+assert(RequestLimitExceeded.prototype instanceof ServiceDiscoveryServiceException);
+assert(ResourceInUse.prototype instanceof ServiceDiscoveryServiceException);
+assert(ResourceLimitExceeded.prototype instanceof ServiceDiscoveryServiceException);
+assert(ResourceNotFoundException.prototype instanceof ServiceDiscoveryServiceException);
+assert(ServiceAlreadyExists.prototype instanceof ServiceDiscoveryServiceException);
+assert(ServiceAttributesLimitExceededException.prototype instanceof ServiceDiscoveryServiceException);
+assert(ServiceNotFound.prototype instanceof ServiceDiscoveryServiceException);
+assert(TooManyTagsException.prototype instanceof ServiceDiscoveryServiceException);
 assert(ServiceDiscoveryServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetInstancesHealthStatus === "function");

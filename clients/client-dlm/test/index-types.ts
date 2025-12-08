@@ -82,5 +82,9 @@ export type {
   UntagResourceResponse,
   UpdateLifecyclePolicyRequest,
   UpdateLifecyclePolicyResponse,
+  InternalServerException,
+  InvalidRequestException,
+  LimitExceededException,
+  ResourceNotFoundException,
   DLMServiceException,
 } from "../dist-types/index.d";

@@ -588,7 +588,6 @@ export var VideoStandardOutputConfiguration: StaticStructureSchema = [
   [_ex, _gF],
   [() => VideoStandardExtraction, () => VideoStandardGenerativeField],
 ];
-export var __Unit = "unit" as const;
 export var BedrockDataAutomationServiceException: StaticErrorSchema = [
   -3,
   _sm,

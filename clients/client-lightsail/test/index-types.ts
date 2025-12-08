@@ -1009,5 +1009,13 @@ export type {
   UpdateRelationalDatabaseParametersResult,
   UpdateRelationalDatabaseRequest,
   UpdateRelationalDatabaseResult,
+  AccessDeniedException,
+  AccountSetupInProgressException,
+  InvalidInputException,
+  NotFoundException,
+  OperationFailureException,
+  RegionSetupInProgressException,
+  ServiceException,
+  UnauthenticatedException,
   LightsailServiceException,
 } from "../dist-types/index.d";

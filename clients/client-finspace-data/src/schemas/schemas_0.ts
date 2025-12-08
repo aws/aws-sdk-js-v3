@@ -739,7 +739,6 @@ export var UserByPermissionGroup: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _r], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var FinspaceDataServiceException: StaticErrorSchema = [-3, _sm, "FinspaceDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FinspaceDataServiceException, __FinspaceDataServiceException);
 export var ApplicationPermissionList = 64 | 0;

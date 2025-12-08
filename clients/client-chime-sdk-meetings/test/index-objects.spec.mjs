@@ -1,25 +1,35 @@
 import {
+  BadRequestException,
   BatchCreateAttendeeCommand,
   BatchUpdateAttendeeCapabilitiesExceptCommand,
   ChimeSDKMeetings,
   ChimeSDKMeetingsClient,
   ChimeSDKMeetingsServiceException,
+  ConflictException,
   ContentResolution,
   CreateAttendeeCommand,
   CreateMeetingCommand,
   CreateMeetingWithAttendeesCommand,
   DeleteAttendeeCommand,
   DeleteMeetingCommand,
+  ForbiddenException,
   GetAttendeeCommand,
   GetMeetingCommand,
+  LimitExceededException,
   ListAttendeesCommand,
   ListTagsForResourceCommand,
   MediaCapabilities,
   MediaPlacementNetworkType,
   MeetingFeatureStatus,
+  NotFoundException,
+  ResourceNotFoundException,
+  ServiceFailureException,
+  ServiceUnavailableException,
   StartMeetingTranscriptionCommand,
   StopMeetingTranscriptionCommand,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   TranscribeContentIdentificationType,
   TranscribeContentRedactionType,
   TranscribeLanguageCode,
@@ -31,6 +41,8 @@ import {
   TranscribePartialResultsStability,
   TranscribeRegion,
   TranscribeVocabularyFilterMethod,
+  UnauthorizedException,
+  UnprocessableEntityException,
   UntagResourceCommand,
   UpdateAttendeeCapabilitiesCommand,
   VideoResolution,
@@ -75,6 +87,18 @@ assert(typeof TranscribeRegion === "object");
 assert(typeof TranscribeVocabularyFilterMethod === "object");
 assert(typeof VideoResolution === "object");
 // errors
+assert(BadRequestException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(ConflictException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(ForbiddenException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(LimitExceededException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(NotFoundException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(ResourceNotFoundException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(ServiceFailureException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(ServiceUnavailableException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(ThrottlingException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(TooManyTagsException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(UnauthorizedException.prototype instanceof ChimeSDKMeetingsServiceException);
+assert(UnprocessableEntityException.prototype instanceof ChimeSDKMeetingsServiceException);
 assert(ChimeSDKMeetingsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAttendees === "function");

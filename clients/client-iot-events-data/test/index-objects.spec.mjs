@@ -14,11 +14,16 @@ import {
   DescribeDetectorCommand,
   ErrorCode,
   EventType,
+  InternalFailureException,
+  InvalidRequestException,
   IoTEventsData,
   IoTEventsDataClient,
   IoTEventsDataServiceException,
   ListAlarmsCommand,
   ListDetectorsCommand,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
+  ThrottlingException,
   TriggerType,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -46,5 +51,10 @@ assert(typeof ErrorCode === "object");
 assert(typeof EventType === "object");
 assert(typeof TriggerType === "object");
 // errors
+assert(InternalFailureException.prototype instanceof IoTEventsDataServiceException);
+assert(InvalidRequestException.prototype instanceof IoTEventsDataServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTEventsDataServiceException);
+assert(ServiceUnavailableException.prototype instanceof IoTEventsDataServiceException);
+assert(ThrottlingException.prototype instanceof IoTEventsDataServiceException);
 assert(IoTEventsDataServiceException.prototype instanceof Error);
 console.log(`IoTEventsData index test passed.`);

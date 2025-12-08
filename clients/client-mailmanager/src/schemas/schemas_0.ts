@@ -1070,7 +1070,6 @@ export var UpdateTrafficPolicyRequest: StaticStructureSchema = [
 export var UpdateTrafficPolicyResponse: StaticStructureSchema = [3, n0, _UTPRp, 0, [], []];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var MailManagerServiceException: StaticErrorSchema = [-3, _s, "MailManagerServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(MailManagerServiceException, __MailManagerServiceException);
 export var AddonInstances: StaticListSchema = [1, n0, _AId, 0, () => AddonInstance];

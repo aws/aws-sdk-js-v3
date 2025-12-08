@@ -2746,7 +2746,6 @@ export var VulnerablePackage: StaticStructureSchema = [
   [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var WeeklySchedule: StaticStructureSchema = [3, n0, _WS, 0, [_sTt, _day], [() => Time, 64 | 0]];
-export var __Unit = "unit" as const;
 export var Inspector2ServiceException: StaticErrorSchema = [-3, _sm, "Inspector2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Inspector2ServiceException, __Inspector2ServiceException);
 export var AccountIdFilterList: StaticListSchema = [1, n0, _AIFL, 0, () => CisStringFilter];

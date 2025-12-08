@@ -1,14 +1,22 @@
 import {
+  ADAssessmentLimitExceededException,
   AcceptSharedDirectoryCommand,
+  AccessDeniedException,
   AddIpRoutesCommand,
   AddRegionCommand,
   AddTagsToResourceCommand,
+  AuthenticationFailedException,
   CaEnrollmentPolicyStatus,
   CancelSchemaExtensionCommand,
+  CertificateAlreadyExistsException,
+  CertificateDoesNotExistException,
+  CertificateInUseException,
+  CertificateLimitExceededException,
   CertificateState,
   CertificateType,
   ClientAuthenticationStatus,
   ClientAuthenticationType,
+  ClientException,
   ConnectDirectoryCommand,
   CreateAliasCommand,
   CreateComputerCommand,
@@ -45,30 +53,52 @@ import {
   DescribeSnapshotsCommand,
   DescribeTrustsCommand,
   DescribeUpdateDirectoryCommand,
+  DirectoryAlreadyInRegionException,
+  DirectoryAlreadySharedException,
   DirectoryConfigurationStatus,
+  DirectoryDoesNotExistException,
   DirectoryEdition,
+  DirectoryInDesiredStateException,
+  DirectoryLimitExceededException,
+  DirectoryNotSharedException,
   DirectoryService,
   DirectoryServiceClient,
   DirectoryServiceServiceException,
   DirectorySize,
   DirectoryStage,
   DirectoryType,
+  DirectoryUnavailableException,
+  DisableAlreadyInProgressException,
   DisableCAEnrollmentPolicyCommand,
   DisableClientAuthenticationCommand,
   DisableDirectoryDataAccessCommand,
   DisableLDAPSCommand,
   DisableRadiusCommand,
   DisableSsoCommand,
+  DomainControllerLimitExceededException,
   DomainControllerStatus,
+  EnableAlreadyInProgressException,
   EnableCAEnrollmentPolicyCommand,
   EnableClientAuthenticationCommand,
   EnableDirectoryDataAccessCommand,
   EnableLDAPSCommand,
   EnableRadiusCommand,
   EnableSsoCommand,
+  EntityAlreadyExistsException,
+  EntityDoesNotExistException,
   GetDirectoryLimitsCommand,
   GetSnapshotLimitsCommand,
   HybridUpdateType,
+  IncompatibleSettingsException,
+  InsufficientPermissionsException,
+  InvalidCertificateException,
+  InvalidClientAuthStatusException,
+  InvalidLDAPSStatusException,
+  InvalidNextTokenException,
+  InvalidParameterException,
+  InvalidPasswordException,
+  InvalidTargetException,
+  IpRouteLimitExceededException,
   IpRouteStatusMsg,
   LDAPSStatus,
   LDAPSType,
@@ -79,9 +109,12 @@ import {
   ListSchemaExtensionsCommand,
   ListTagsForResourceCommand,
   NetworkType,
+  NoAvailableCertificateException,
   OSVersion,
+  OrganizationsException,
   RadiusAuthenticationProtocol,
   RadiusStatus,
+  RegionLimitExceededException,
   RegionType,
   RegisterCertificateCommand,
   RegisterEventTopicCommand,
@@ -94,19 +127,25 @@ import {
   RestoreFromSnapshotCommand,
   SchemaExtensionStatus,
   SelectiveAuth,
+  ServiceException,
   ShareDirectoryCommand,
+  ShareLimitExceededException,
   ShareMethod,
   ShareStatus,
+  SnapshotLimitExceededException,
   SnapshotStatus,
   SnapshotType,
   StartADAssessmentCommand,
   StartSchemaExtensionCommand,
+  TagLimitExceededException,
   TargetType,
   TopicStatus,
   TrustDirection,
   TrustState,
   TrustType,
   UnshareDirectoryCommand,
+  UnsupportedOperationException,
+  UnsupportedSettingsException,
   UpdateConditionalForwarderCommand,
   UpdateDirectorySetupCommand,
   UpdateHybridADCommand,
@@ -116,6 +155,7 @@ import {
   UpdateStatus,
   UpdateTrustCommand,
   UpdateType,
+  UserDoesNotExistException,
   VerifyTrustCommand,
   paginateDescribeClientAuthenticationSettings,
   paginateDescribeDirectories,
@@ -257,6 +297,46 @@ assert(typeof TrustType === "object");
 assert(typeof UpdateStatus === "object");
 assert(typeof UpdateType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof DirectoryServiceServiceException);
+assert(ADAssessmentLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(AuthenticationFailedException.prototype instanceof DirectoryServiceServiceException);
+assert(CertificateAlreadyExistsException.prototype instanceof DirectoryServiceServiceException);
+assert(CertificateDoesNotExistException.prototype instanceof DirectoryServiceServiceException);
+assert(CertificateInUseException.prototype instanceof DirectoryServiceServiceException);
+assert(CertificateLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(ClientException.prototype instanceof DirectoryServiceServiceException);
+assert(DirectoryAlreadyInRegionException.prototype instanceof DirectoryServiceServiceException);
+assert(DirectoryAlreadySharedException.prototype instanceof DirectoryServiceServiceException);
+assert(DirectoryDoesNotExistException.prototype instanceof DirectoryServiceServiceException);
+assert(DirectoryInDesiredStateException.prototype instanceof DirectoryServiceServiceException);
+assert(DirectoryLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(DirectoryNotSharedException.prototype instanceof DirectoryServiceServiceException);
+assert(DirectoryUnavailableException.prototype instanceof DirectoryServiceServiceException);
+assert(DisableAlreadyInProgressException.prototype instanceof DirectoryServiceServiceException);
+assert(DomainControllerLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(EnableAlreadyInProgressException.prototype instanceof DirectoryServiceServiceException);
+assert(EntityAlreadyExistsException.prototype instanceof DirectoryServiceServiceException);
+assert(EntityDoesNotExistException.prototype instanceof DirectoryServiceServiceException);
+assert(IncompatibleSettingsException.prototype instanceof DirectoryServiceServiceException);
+assert(InsufficientPermissionsException.prototype instanceof DirectoryServiceServiceException);
+assert(InvalidCertificateException.prototype instanceof DirectoryServiceServiceException);
+assert(InvalidClientAuthStatusException.prototype instanceof DirectoryServiceServiceException);
+assert(InvalidLDAPSStatusException.prototype instanceof DirectoryServiceServiceException);
+assert(InvalidNextTokenException.prototype instanceof DirectoryServiceServiceException);
+assert(InvalidParameterException.prototype instanceof DirectoryServiceServiceException);
+assert(InvalidPasswordException.prototype instanceof DirectoryServiceServiceException);
+assert(InvalidTargetException.prototype instanceof DirectoryServiceServiceException);
+assert(IpRouteLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(NoAvailableCertificateException.prototype instanceof DirectoryServiceServiceException);
+assert(OrganizationsException.prototype instanceof DirectoryServiceServiceException);
+assert(RegionLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(ServiceException.prototype instanceof DirectoryServiceServiceException);
+assert(ShareLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(SnapshotLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(TagLimitExceededException.prototype instanceof DirectoryServiceServiceException);
+assert(UnsupportedOperationException.prototype instanceof DirectoryServiceServiceException);
+assert(UnsupportedSettingsException.prototype instanceof DirectoryServiceServiceException);
+assert(UserDoesNotExistException.prototype instanceof DirectoryServiceServiceException);
 assert(DirectoryServiceServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForHybridADUpdated === "function");

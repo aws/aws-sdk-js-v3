@@ -11,6 +11,7 @@ import {
   CRType,
   CRUpdateAllocationStrategy,
   CancelJobCommand,
+  ClientException,
   CreateComputeEnvironmentCommand,
   CreateConsumableResourceCommand,
   CreateJobQueueCommand,
@@ -54,6 +55,7 @@ import {
   RegisterJobDefinitionCommand,
   ResourceType,
   RetryAction,
+  ServerException,
   ServiceEnvironmentState,
   ServiceEnvironmentStatus,
   ServiceEnvironmentType,
@@ -161,6 +163,8 @@ assert(typeof ServiceJobType === "object");
 assert(typeof ServiceResourceIdName === "object");
 assert(typeof UserdataType === "object");
 // errors
+assert(ClientException.prototype instanceof BatchServiceException);
+assert(ServerException.prototype instanceof BatchServiceException);
 assert(BatchServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeComputeEnvironments === "function");

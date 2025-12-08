@@ -2045,7 +2045,6 @@ export var UpdateFlywheelRequest: StaticStructureSchema = [
 export var UpdateFlywheelResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [_FP], [() => FlywheelProperties]];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SGI, _Su], [64 | 0, 64 | 0]];
 export var WarningsListItem: StaticStructureSchema = [3, n0, _WLI, 0, [_P, _WC, _WM], [1, 0, 0]];
-export var __Unit = "unit" as const;
 export var ComprehendServiceException: StaticErrorSchema = [-3, _sm, "ComprehendServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ComprehendServiceException, __ComprehendServiceException);
 export var AttributeNamesList = 64 | 0;

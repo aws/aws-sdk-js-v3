@@ -9,5 +9,11 @@ export type {
   GetMediaInput,
   GetMediaOutput,
   StartSelector,
+  ClientLimitExceededException,
+  ConnectionLimitExceededException,
+  InvalidArgumentException,
+  InvalidEndpointException,
+  NotAuthorizedException,
+  ResourceNotFoundException,
   KinesisVideoMediaServiceException,
 } from "../dist-types/index.d";

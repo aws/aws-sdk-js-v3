@@ -814,7 +814,6 @@ export var VpcIngressConnection: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, () => IngressVpcConfiguration, 4, 4],
 ];
 export var VpcIngressConnectionSummary: StaticStructureSchema = [3, n0, _VICS, 0, [_VICA, _SA], [0, 0]];
-export var __Unit = "unit" as const;
 export var AppRunnerServiceException: StaticErrorSchema = [-3, _sm, "AppRunnerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppRunnerServiceException, __AppRunnerServiceException);
 export var AutoScalingConfigurationSummaryList: StaticListSchema = [

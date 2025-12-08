@@ -2,6 +2,8 @@ import {
   AcceleratorManufacturer,
   AcceleratorName,
   AcceleratorType,
+  ActiveInstanceRefreshNotFoundFault,
+  AlreadyExistsFault,
   AttachInstancesCommand,
   AttachLoadBalancerTargetGroupsCommand,
   AttachLoadBalancersCommand,
@@ -60,13 +62,18 @@ import {
   ExecutePolicyCommand,
   ExitStandbyCommand,
   GetPredictiveScalingForecastCommand,
+  IdempotentParameterMismatchError,
   ImpairedZoneHealthCheckBehavior,
   InstanceGeneration,
   InstanceMetadataEndpointState,
   InstanceMetadataHttpTokensState,
+  InstanceRefreshInProgressFault,
   InstanceRefreshStatus,
+  InvalidNextToken,
+  IrreversibleInstanceRefreshFault,
   LaunchInstancesCommand,
   LifecycleState,
+  LimitExceededFault,
   LocalStorage,
   LocalStorageType,
   MetricStatistic,
@@ -83,12 +90,16 @@ import {
   PutWarmPoolCommand,
   RecordLifecycleActionHeartbeatCommand,
   RefreshStrategy,
+  ResourceContentionFault,
+  ResourceInUseFault,
   ResumeProcessesCommand,
   RetentionAction,
   RetryStrategy,
   RollbackInstanceRefreshCommand,
   ScaleInProtectedInstances,
+  ScalingActivityInProgressFault,
   ScalingActivityStatusCode,
+  ServiceLinkedRoleFailure,
   SetDesiredCapacityCommand,
   SetInstanceHealthCommand,
   SetInstanceProtectionCommand,
@@ -223,6 +234,17 @@ assert(typeof StandbyInstances === "object");
 assert(typeof WarmPoolState === "object");
 assert(typeof WarmPoolStatus === "object");
 // errors
+assert(ActiveInstanceRefreshNotFoundFault.prototype instanceof AutoScalingServiceException);
+assert(AlreadyExistsFault.prototype instanceof AutoScalingServiceException);
+assert(IdempotentParameterMismatchError.prototype instanceof AutoScalingServiceException);
+assert(InstanceRefreshInProgressFault.prototype instanceof AutoScalingServiceException);
+assert(InvalidNextToken.prototype instanceof AutoScalingServiceException);
+assert(IrreversibleInstanceRefreshFault.prototype instanceof AutoScalingServiceException);
+assert(LimitExceededFault.prototype instanceof AutoScalingServiceException);
+assert(ResourceContentionFault.prototype instanceof AutoScalingServiceException);
+assert(ResourceInUseFault.prototype instanceof AutoScalingServiceException);
+assert(ScalingActivityInProgressFault.prototype instanceof AutoScalingServiceException);
+assert(ServiceLinkedRoleFailure.prototype instanceof AutoScalingServiceException);
 assert(AutoScalingServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForGroupExists === "function");

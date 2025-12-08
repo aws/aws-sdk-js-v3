@@ -7,8 +7,10 @@ import {
   ApiKeysFormat,
   ApiStatus,
   AuthorizerType,
+  BadRequestException,
   CacheClusterSize,
   CacheClusterStatus,
+  ConflictException,
   ConnectionType,
   ContentHandlingStrategy,
   CreateApiKeyCommand,
@@ -109,7 +111,9 @@ import {
   ImportRestApiCommand,
   IntegrationType,
   IpAddressType,
+  LimitExceededException,
   LocationStatusType,
+  NotFoundException,
   Op,
   PutGatewayResponseCommand,
   PutIntegrationCommand,
@@ -124,10 +128,13 @@ import {
   ResponseTransferMode,
   RoutingMode,
   SecurityPolicy,
+  ServiceUnavailableException,
   TagResourceCommand,
   TestInvokeAuthorizerCommand,
   TestInvokeMethodCommand,
+  TooManyRequestsException,
   UnauthorizedCacheControlHeaderStrategy,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAccountCommand,
   UpdateApiKeyCommand,
@@ -322,6 +329,13 @@ assert(typeof SecurityPolicy === "object");
 assert(typeof UnauthorizedCacheControlHeaderStrategy === "object");
 assert(typeof VpcLinkStatus === "object");
 // errors
+assert(BadRequestException.prototype instanceof APIGatewayServiceException);
+assert(ConflictException.prototype instanceof APIGatewayServiceException);
+assert(LimitExceededException.prototype instanceof APIGatewayServiceException);
+assert(NotFoundException.prototype instanceof APIGatewayServiceException);
+assert(ServiceUnavailableException.prototype instanceof APIGatewayServiceException);
+assert(TooManyRequestsException.prototype instanceof APIGatewayServiceException);
+assert(UnauthorizedException.prototype instanceof APIGatewayServiceException);
 assert(APIGatewayServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetApiKeys === "function");

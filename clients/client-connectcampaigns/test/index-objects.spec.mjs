@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   CampaignState,
+  ConflictException,
   ConnectCampaigns,
   ConnectCampaignsClient,
   ConnectCampaignsServiceException,
@@ -18,19 +20,26 @@ import {
   InstanceIdFilterOperator,
   InstanceOnboardingJobFailureCode,
   InstanceOnboardingJobStatusCode,
+  InternalServerException,
+  InvalidCampaignStateException,
+  InvalidStateException,
   ListCampaignsCommand,
   ListTagsForResourceCommand,
   PauseCampaignCommand,
   PutDialRequestBatchCommand,
+  ResourceNotFoundException,
   ResumeCampaignCommand,
+  ServiceQuotaExceededException,
   StartCampaignCommand,
   StartInstanceOnboardingJobCommand,
   StopCampaignCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateCampaignDialerConfigCommand,
   UpdateCampaignNameCommand,
   UpdateCampaignOutboundCallConfigCommand,
+  ValidationException,
   paginateListCampaigns,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -69,6 +78,15 @@ assert(typeof InstanceIdFilterOperator === "object");
 assert(typeof InstanceOnboardingJobFailureCode === "object");
 assert(typeof InstanceOnboardingJobStatusCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ConnectCampaignsServiceException);
+assert(ConflictException.prototype instanceof ConnectCampaignsServiceException);
+assert(InternalServerException.prototype instanceof ConnectCampaignsServiceException);
+assert(InvalidCampaignStateException.prototype instanceof ConnectCampaignsServiceException);
+assert(InvalidStateException.prototype instanceof ConnectCampaignsServiceException);
+assert(ResourceNotFoundException.prototype instanceof ConnectCampaignsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ConnectCampaignsServiceException);
+assert(ThrottlingException.prototype instanceof ConnectCampaignsServiceException);
+assert(ValidationException.prototype instanceof ConnectCampaignsServiceException);
 assert(ConnectCampaignsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCampaigns === "function");

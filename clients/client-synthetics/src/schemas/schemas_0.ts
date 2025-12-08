@@ -579,7 +579,6 @@ export var VisualReferenceOutput: StaticStructureSchema = [
 ];
 export var VpcConfigInput: StaticStructureSchema = [3, n0, _VCI, 0, [_SI, _SGI, _IAFDS], [64 | 0, 64 | 0, 2]];
 export var VpcConfigOutput: StaticStructureSchema = [3, n0, _VCO, 0, [_VI, _SI, _SGI, _IAFDS], [0, 64 | 0, 64 | 0, 2]];
-export var __Unit = "unit" as const;
 export var SyntheticsServiceException: StaticErrorSchema = [-3, _sm, "SyntheticsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SyntheticsServiceException, __SyntheticsServiceException);
 export var BaseScreenshotIgnoreCoordinates = 64 | 0;

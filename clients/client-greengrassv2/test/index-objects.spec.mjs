@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AssociateServiceRoleToAccountCommand,
   BatchAssociateClientDeviceWithCoreDeviceCommand,
   BatchDisassociateClientDeviceFromCoreDeviceCommand,
@@ -6,6 +7,7 @@ import {
   CloudComponentState,
   ComponentDependencyType,
   ComponentVisibilityScope,
+  ConflictException,
   CoreDeviceStatus,
   CreateComponentVersionCommand,
   CreateDeploymentCommand,
@@ -30,6 +32,7 @@ import {
   GreengrassV2ServiceException,
   InstalledComponentLifecycleState,
   InstalledComponentTopologyFilter,
+  InternalServerException,
   IoTJobAbortAction,
   IoTJobExecutionFailureType,
   IotEndpointType,
@@ -46,11 +49,17 @@ import {
   ListInstalledComponentsCommand,
   ListTagsForResourceCommand,
   RecipeOutputFormat,
+  RequestAlreadyInProgressException,
   ResolveComponentCandidatesCommand,
+  ResourceNotFoundException,
   S3EndpointType,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateConnectivityInfoCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VendorGuidance,
   paginateListClientDevicesAssociatedWithCoreDevice,
   paginateListComponentVersions,
@@ -115,8 +124,17 @@ assert(typeof LambdaInputPayloadEncodingType === "object");
 assert(typeof LambdaIsolationMode === "object");
 assert(typeof RecipeOutputFormat === "object");
 assert(typeof S3EndpointType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VendorGuidance === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GreengrassV2ServiceException);
+assert(ConflictException.prototype instanceof GreengrassV2ServiceException);
+assert(InternalServerException.prototype instanceof GreengrassV2ServiceException);
+assert(RequestAlreadyInProgressException.prototype instanceof GreengrassV2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof GreengrassV2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof GreengrassV2ServiceException);
+assert(ThrottlingException.prototype instanceof GreengrassV2ServiceException);
+assert(ValidationException.prototype instanceof GreengrassV2ServiceException);
 assert(GreengrassV2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListClientDevicesAssociatedWithCoreDevice === "function");

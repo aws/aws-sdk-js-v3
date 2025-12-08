@@ -31,6 +31,10 @@ export type {
   ListItemsResponse,
   PutObjectRequest,
   PutObjectResponse,
+  ContainerNotFoundException,
+  InternalServerError,
+  ObjectNotFoundException,
+  RequestedRangeNotSatisfiableException,
   MediaStoreDataServiceException,
   paginateListItems,
 } from "../dist-types/index.d";

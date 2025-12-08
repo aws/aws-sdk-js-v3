@@ -207,5 +207,9 @@ export type {
   UpdateBackendStorageRequest,
   UpdateBackendStorageResourceConfig,
   UpdateBackendStorageResponse,
+  BadRequestException,
+  GatewayTimeoutException,
+  NotFoundException,
+  TooManyRequestsException,
   AmplifyBackendServiceException,
 } from "../dist-types/index.d";

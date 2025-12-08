@@ -2,6 +2,7 @@ import {
   ARCRegionSwitch,
   ARCRegionSwitchClient,
   ARCRegionSwitchServiceException,
+  AccessDeniedException,
   AlarmCondition,
   AlarmType,
   Approval,
@@ -24,6 +25,9 @@ import {
   GetPlanInRegionCommand,
   GlobalAuroraDefaultBehavior,
   GlobalAuroraUngracefulBehavior,
+  IllegalArgumentException,
+  IllegalStateException,
+  InternalServerException,
   LambdaUngracefulBehavior,
   ListPlanExecutionEventsCommand,
   ListPlanExecutionsCommand,
@@ -33,6 +37,7 @@ import {
   ListTagsForResourceCommand,
   RecoveryApproach,
   RegionToRunIn,
+  ResourceNotFoundException,
   ResourceWarningStatus,
   RoutingControlStateChange,
   StartPlanExecutionCommand,
@@ -107,6 +112,11 @@ assert(typeof UpdatePlanExecutionAction === "object");
 assert(typeof UpdatePlanExecutionStepAction === "object");
 assert(typeof WorkflowTargetAction === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ARCRegionSwitchServiceException);
+assert(IllegalArgumentException.prototype instanceof ARCRegionSwitchServiceException);
+assert(IllegalStateException.prototype instanceof ARCRegionSwitchServiceException);
+assert(InternalServerException.prototype instanceof ARCRegionSwitchServiceException);
+assert(ResourceNotFoundException.prototype instanceof ARCRegionSwitchServiceException);
 assert(ARCRegionSwitchServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForPlanEvaluationStatusPassed === "function");

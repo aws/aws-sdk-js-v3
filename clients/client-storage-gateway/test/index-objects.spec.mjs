@@ -61,10 +61,13 @@ import {
   DisableGatewayCommand,
   DisassociateFileSystemCommand,
   EncryptionType,
+  ErrorCode,
   EvictFilesFailingUploadCommand,
   FileShareType,
   GatewayCapacity,
   HostEnvironment,
+  InternalServerError,
+  InvalidGatewayRequestException,
   JoinDomainCommand,
   ListAutomaticTapeCreationPoliciesCommand,
   ListCacheReportsCommand,
@@ -88,6 +91,7 @@ import {
   RetrieveTapeArchiveCommand,
   RetrieveTapeRecoveryPointCommand,
   SMBSecurityStrategy,
+  ServiceUnavailableError,
   SetLocalConsolePasswordCommand,
   SetSMBGuestPasswordCommand,
   ShutdownGatewayCommand,
@@ -235,6 +239,7 @@ assert(typeof CacheReportFilterName === "object");
 assert(typeof CacheReportStatus === "object");
 assert(typeof CaseSensitivity === "object");
 assert(typeof EncryptionType === "object");
+assert(typeof ErrorCode === "object");
 assert(typeof FileShareType === "object");
 assert(typeof GatewayCapacity === "object");
 assert(typeof HostEnvironment === "object");
@@ -244,6 +249,9 @@ assert(typeof RetentionLockType === "object");
 assert(typeof SMBSecurityStrategy === "object");
 assert(typeof TapeStorageClass === "object");
 // errors
+assert(InternalServerError.prototype instanceof StorageGatewayServiceException);
+assert(InvalidGatewayRequestException.prototype instanceof StorageGatewayServiceException);
+assert(ServiceUnavailableError.prototype instanceof StorageGatewayServiceException);
 assert(StorageGatewayServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeTapeArchives === "function");

@@ -1,5 +1,7 @@
 import {
+  AccessDeniedException,
   ChatTokenCapability,
+  ConflictException,
   CreateChatTokenCommand,
   CreateLoggingConfigurationCommand,
   CreateLoggingConfigurationState,
@@ -11,6 +13,7 @@ import {
   FallbackResult,
   GetLoggingConfigurationCommand,
   GetRoomCommand,
+  InternalServerException,
   Ivschat,
   IvschatClient,
   IvschatServiceException,
@@ -18,12 +21,19 @@ import {
   ListRoomsCommand,
   ListTagsForResourceCommand,
   LoggingConfigurationState,
+  PendingVerification,
+  ResourceNotFoundException,
+  ResourceType,
   SendEventCommand,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateLoggingConfigurationCommand,
   UpdateLoggingConfigurationState,
   UpdateRoomCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListLoggingConfigurations,
   paginateListRooms,
 } from "../dist-cjs/index.js";
@@ -54,8 +64,18 @@ assert(typeof ChatTokenCapability === "object");
 assert(typeof CreateLoggingConfigurationState === "object");
 assert(typeof FallbackResult === "object");
 assert(typeof LoggingConfigurationState === "object");
+assert(typeof ResourceType === "object");
 assert(typeof UpdateLoggingConfigurationState === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IvschatServiceException);
+assert(ConflictException.prototype instanceof IvschatServiceException);
+assert(InternalServerException.prototype instanceof IvschatServiceException);
+assert(PendingVerification.prototype instanceof IvschatServiceException);
+assert(ResourceNotFoundException.prototype instanceof IvschatServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof IvschatServiceException);
+assert(ThrottlingException.prototype instanceof IvschatServiceException);
+assert(ValidationException.prototype instanceof IvschatServiceException);
 assert(IvschatServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListLoggingConfigurations === "function");

@@ -1028,7 +1028,6 @@ export var Webhook: StaticStructureSchema = [
   [_wA, _wI, _wU, _aI, _bN, _d, _cT, _uT],
   [0, 0, 0, 0, 0, 0, 4, 4],
 ];
-export var __Unit = "unit" as const;
 export var AmplifyServiceException: StaticErrorSchema = [-3, _sm, "AmplifyServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AmplifyServiceException, __AmplifyServiceException);
 export var Apps: StaticListSchema = [1, n0, _Ap, 0, [() => App, 0]];

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AutocompleteAdditionalFeature,
   AutocompleteCommand,
   AutocompleteFilterPlaceType,
@@ -13,6 +14,7 @@ import {
   GetPlaceAdditionalFeature,
   GetPlaceCommand,
   GetPlaceIntendedUse,
+  InternalServerException,
   PlaceType,
   PostalAuthority,
   PostalCodeMode,
@@ -33,7 +35,10 @@ import {
   SuggestCommand,
   SuggestIntendedUse,
   SuggestResultItemType,
+  ThrottlingException,
   TypePlacement,
+  ValidationException,
+  ValidationExceptionReason,
   ZipClassificationCode,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -74,7 +79,12 @@ assert(typeof SuggestAdditionalFeature === "object");
 assert(typeof SuggestIntendedUse === "object");
 assert(typeof SuggestResultItemType === "object");
 assert(typeof TypePlacement === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof ZipClassificationCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GeoPlacesServiceException);
+assert(InternalServerException.prototype instanceof GeoPlacesServiceException);
+assert(ThrottlingException.prototype instanceof GeoPlacesServiceException);
+assert(ValidationException.prototype instanceof GeoPlacesServiceException);
 assert(GeoPlacesServiceException.prototype instanceof Error);
 console.log(`GeoPlaces index test passed.`);

@@ -1,10 +1,13 @@
 import {
   AcceptAdministratorInvitationCommand,
   AcceptInvitationCommand,
+  AccessDeniedException,
   AdminStatus,
   ArchiveFindingsCommand,
   AutoEnableMembers,
+  BadRequestException,
   ClusterStatus,
+  ConflictException,
   CoverageFilterCriterionKey,
   CoverageSortKey,
   CoverageStatisticsType,
@@ -82,6 +85,7 @@ import {
   GuardDutyClient,
   GuardDutyServiceException,
   IndicatorType,
+  InternalServerErrorException,
   InviteMembersCommand,
   IpSetFormat,
   IpSetStatus,
@@ -120,6 +124,7 @@ import {
   PublicAclIgnoreBehavior,
   PublicBucketRestrictBehavior,
   PublishingStatus,
+  ResourceNotFoundException,
   ResourceType,
   ScanCategory,
   ScanCriterionKey,
@@ -336,6 +341,11 @@ assert(typeof TrustedEntitySetStatus === "object");
 assert(typeof UsageFeature === "object");
 assert(typeof UsageStatisticType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GuardDutyServiceException);
+assert(BadRequestException.prototype instanceof GuardDutyServiceException);
+assert(ConflictException.prototype instanceof GuardDutyServiceException);
+assert(InternalServerErrorException.prototype instanceof GuardDutyServiceException);
+assert(ResourceNotFoundException.prototype instanceof GuardDutyServiceException);
 assert(GuardDutyServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeMalwareScans === "function");

@@ -8,6 +8,7 @@ import {
   CloudWatchEvents,
   CloudWatchEventsClient,
   CloudWatchEventsServiceException,
+  ConcurrentModificationException,
   ConnectionAuthorizationType,
   ConnectionOAuthHttpMethod,
   ConnectionState,
@@ -35,7 +36,12 @@ import {
   DisableRuleCommand,
   EnableRuleCommand,
   EventSourceState,
+  IllegalStatusException,
+  InternalException,
+  InvalidEventPatternException,
+  InvalidStateException,
   LaunchType,
+  LimitExceededException,
   ListApiDestinationsCommand,
   ListArchivesCommand,
   ListConnectionsCommand,
@@ -48,8 +54,11 @@ import {
   ListRulesCommand,
   ListTagsForResourceCommand,
   ListTargetsByRuleCommand,
+  ManagedRuleException,
+  OperationDisabledException,
   PlacementConstraintType,
   PlacementStrategyType,
+  PolicyLengthExceededException,
   PropagateTags,
   PutEventsCommand,
   PutPartnerEventsCommand,
@@ -59,6 +68,8 @@ import {
   RemovePermissionCommand,
   RemoveTargetsCommand,
   ReplayState,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
   RuleState,
   StartReplayCommand,
   TagResourceCommand,
@@ -140,5 +151,16 @@ assert(typeof PropagateTags === "object");
 assert(typeof ReplayState === "object");
 assert(typeof RuleState === "object");
 // errors
+assert(ConcurrentModificationException.prototype instanceof CloudWatchEventsServiceException);
+assert(IllegalStatusException.prototype instanceof CloudWatchEventsServiceException);
+assert(InternalException.prototype instanceof CloudWatchEventsServiceException);
+assert(InvalidEventPatternException.prototype instanceof CloudWatchEventsServiceException);
+assert(InvalidStateException.prototype instanceof CloudWatchEventsServiceException);
+assert(LimitExceededException.prototype instanceof CloudWatchEventsServiceException);
+assert(ManagedRuleException.prototype instanceof CloudWatchEventsServiceException);
+assert(OperationDisabledException.prototype instanceof CloudWatchEventsServiceException);
+assert(PolicyLengthExceededException.prototype instanceof CloudWatchEventsServiceException);
+assert(ResourceAlreadyExistsException.prototype instanceof CloudWatchEventsServiceException);
+assert(ResourceNotFoundException.prototype instanceof CloudWatchEventsServiceException);
 assert(CloudWatchEventsServiceException.prototype instanceof Error);
 console.log(`CloudWatchEvents index test passed.`);

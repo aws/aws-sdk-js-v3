@@ -1,6 +1,9 @@
 import {
+  AccessDeniedException,
+  BadRequestException,
   ChannelStatus,
   ChannelType,
+  ConflictException,
   ContentType,
   CreateBotVersionCommand,
   CreateIntentVersionCommand,
@@ -40,9 +43,11 @@ import {
   GetSlotTypesCommand,
   GetUtterancesViewCommand,
   ImportStatus,
+  InternalFailureException,
   LexModelBuildingService,
   LexModelBuildingServiceClient,
   LexModelBuildingServiceServiceException,
+  LimitExceededException,
   ListTagsForResourceCommand,
   Locale,
   LogType,
@@ -51,12 +56,16 @@ import {
   MigrationSortAttribute,
   MigrationStatus,
   MigrationStrategy,
+  NotFoundException,
   ObfuscationSetting,
+  PreconditionFailedException,
   ProcessBehavior,
   PutBotAliasCommand,
   PutBotCommand,
   PutIntentCommand,
   PutSlotTypeCommand,
+  ReferenceType,
+  ResourceInUseException,
   ResourceType,
   SlotConstraint,
   SlotValueSelectionStrategy,
@@ -144,6 +153,7 @@ assert(typeof MigrationStatus === "object");
 assert(typeof MigrationStrategy === "object");
 assert(typeof ObfuscationSetting === "object");
 assert(typeof ProcessBehavior === "object");
+assert(typeof ReferenceType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof SlotConstraint === "object");
 assert(typeof SlotValueSelectionStrategy === "object");
@@ -151,6 +161,14 @@ assert(typeof SortOrder === "object");
 assert(typeof Status === "object");
 assert(typeof StatusType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof LexModelBuildingServiceServiceException);
+assert(BadRequestException.prototype instanceof LexModelBuildingServiceServiceException);
+assert(ConflictException.prototype instanceof LexModelBuildingServiceServiceException);
+assert(InternalFailureException.prototype instanceof LexModelBuildingServiceServiceException);
+assert(LimitExceededException.prototype instanceof LexModelBuildingServiceServiceException);
+assert(NotFoundException.prototype instanceof LexModelBuildingServiceServiceException);
+assert(PreconditionFailedException.prototype instanceof LexModelBuildingServiceServiceException);
+assert(ResourceInUseException.prototype instanceof LexModelBuildingServiceServiceException);
 assert(LexModelBuildingServiceServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetBotAliases === "function");

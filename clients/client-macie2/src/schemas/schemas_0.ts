@@ -3791,7 +3791,6 @@ export var UserPausedDetails: StaticStructureSchema = [
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [[0, { [_jN]: _m }]]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var WeeklySchedule: StaticStructureSchema = [3, n0, _WS, 0, [_dOW], [[0, { [_jN]: _dOW }]]];
-export var __Unit = "unit" as const;
 export var Macie2ServiceException: StaticErrorSchema = [-3, _sm, "Macie2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Macie2ServiceException, __Macie2ServiceException);
 export var __listOf__string = 64 | 0;

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AgentAction,
   CampaignDeletionPolicy,
   CampaignState,
@@ -6,6 +7,7 @@ import {
   CommunicationLimitTimeUnit,
   CommunicationLimitsConfigType,
   CommunicationTimeConfigType,
+  ConflictException,
   ConnectCampaignsV2,
   ConnectCampaignsV2Client,
   ConnectCampaignsV2ServiceException,
@@ -33,6 +35,9 @@ import {
   InstanceLimitsHandling,
   InstanceOnboardingJobFailureCode,
   InstanceOnboardingJobStatusCode,
+  InternalServerException,
+  InvalidCampaignStateException,
+  InvalidStateException,
   ListCampaignsCommand,
   ListConnectInstanceIntegrationsCommand,
   ListTagsForResourceCommand,
@@ -43,11 +48,14 @@ import {
   PutInstanceCommunicationLimitsCommand,
   PutOutboundRequestBatchCommand,
   PutProfileOutboundRequestBatchCommand,
+  ResourceNotFoundException,
   ResumeCampaignCommand,
+  ServiceQuotaExceededException,
   StartCampaignCommand,
   StartInstanceOnboardingJobCommand,
   StopCampaignCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateCampaignChannelSubtypeConfigCommand,
   UpdateCampaignCommunicationLimitsCommand,
@@ -56,6 +64,7 @@ import {
   UpdateCampaignNameCommand,
   UpdateCampaignScheduleCommand,
   UpdateCampaignSourceCommand,
+  ValidationException,
   paginateListCampaigns,
   paginateListConnectInstanceIntegrations,
 } from "../dist-cjs/index.js";
@@ -120,6 +129,15 @@ assert(typeof InstanceOnboardingJobStatusCode === "object");
 assert(typeof LocalTimeZoneDetectionType === "object");
 assert(typeof ProfileOutboundRequestFailureCode === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(ConflictException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(InternalServerException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(InvalidCampaignStateException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(InvalidStateException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(ResourceNotFoundException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(ThrottlingException.prototype instanceof ConnectCampaignsV2ServiceException);
+assert(ValidationException.prototype instanceof ConnectCampaignsV2ServiceException);
 assert(ConnectCampaignsV2ServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCampaigns === "function");

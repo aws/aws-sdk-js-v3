@@ -2683,7 +2683,6 @@ export var WirelessMetadata: StaticStructureSchema = [
   [_LRWAN, _S],
   [() => LoRaWANSendDataToDevice, () => SidewalkSendDataToDevice],
 ];
-export var __Unit = "unit" as const;
 export var IoTWirelessServiceException: StaticErrorSchema = [-3, _sm, "IoTWirelessServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTWirelessServiceException, __IoTWirelessServiceException);
 export var Applications: StaticListSchema = [1, n0, _Ap, 0, () => ApplicationConfig];

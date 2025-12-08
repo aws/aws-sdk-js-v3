@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ControlBehavior,
   ControlCatalog,
   ControlCatalogClient,
@@ -7,12 +8,16 @@ import {
   ControlScope,
   ControlSeverity,
   GetControlCommand,
+  InternalServerException,
   ListCommonControlsCommand,
   ListControlMappingsCommand,
   ListControlsCommand,
   ListDomainsCommand,
   ListObjectivesCommand,
   MappingType,
+  ResourceNotFoundException,
+  ThrottlingException,
+  ValidationException,
   paginateListCommonControls,
   paginateListControlMappings,
   paginateListControls,
@@ -37,6 +42,11 @@ assert(typeof ControlScope === "object");
 assert(typeof ControlSeverity === "object");
 assert(typeof MappingType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ControlCatalogServiceException);
+assert(InternalServerException.prototype instanceof ControlCatalogServiceException);
+assert(ResourceNotFoundException.prototype instanceof ControlCatalogServiceException);
+assert(ThrottlingException.prototype instanceof ControlCatalogServiceException);
+assert(ValidationException.prototype instanceof ControlCatalogServiceException);
 assert(ControlCatalogServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCommonControls === "function");

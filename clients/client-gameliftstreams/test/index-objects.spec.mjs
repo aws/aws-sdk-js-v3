@@ -1,8 +1,10 @@
 import {
+  AccessDeniedException,
   AddStreamGroupLocationsCommand,
   ApplicationStatus,
   ApplicationStatusReason,
   AssociateApplicationsCommand,
+  ConflictException,
   CreateApplicationCommand,
   CreateStreamGroupCommand,
   CreateStreamSessionConnectionCommand,
@@ -17,6 +19,7 @@ import {
   GetApplicationCommand,
   GetStreamGroupCommand,
   GetStreamSessionCommand,
+  InternalServerException,
   ListApplicationsCommand,
   ListStreamGroupsCommand,
   ListStreamSessionsByAccountCommand,
@@ -25,7 +28,9 @@ import {
   Protocol,
   RemoveStreamGroupLocationsCommand,
   ReplicationStatusType,
+  ResourceNotFoundException,
   RuntimeEnvironmentType,
+  ServiceQuotaExceededException,
   StartStreamSessionCommand,
   StreamClass,
   StreamGroupLocationStatus,
@@ -35,9 +40,11 @@ import {
   StreamSessionStatusReason,
   TagResourceCommand,
   TerminateStreamSessionCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateStreamGroupCommand,
+  ValidationException,
   paginateListApplications,
   paginateListStreamGroups,
   paginateListStreamSessions,
@@ -96,6 +103,13 @@ assert(typeof StreamGroupStatusReason === "object");
 assert(typeof StreamSessionStatus === "object");
 assert(typeof StreamSessionStatusReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof GameLiftStreamsServiceException);
+assert(ConflictException.prototype instanceof GameLiftStreamsServiceException);
+assert(InternalServerException.prototype instanceof GameLiftStreamsServiceException);
+assert(ResourceNotFoundException.prototype instanceof GameLiftStreamsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof GameLiftStreamsServiceException);
+assert(ThrottlingException.prototype instanceof GameLiftStreamsServiceException);
+assert(ValidationException.prototype instanceof GameLiftStreamsServiceException);
 assert(GameLiftStreamsServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForApplicationDeleted === "function");

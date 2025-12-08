@@ -75,6 +75,12 @@ export type {
   UpdateDashboardResponse,
   Widget,
   WidgetConfig,
+  AccessDeniedException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
   BCMDashboardsServiceException,
   paginateListDashboards,
 } from "../dist-types/index.d";

@@ -1088,7 +1088,6 @@ export var UpdateResolverRuleRequest: StaticStructureSchema = [
 export var UpdateResolverRuleResponse: StaticStructureSchema = [3, n0, _URRRp, 0, [_RR], [() => ResolverRule]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var Route53ResolverServiceException: StaticErrorSchema = [-3, _s, "Route53ResolverServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(Route53ResolverServiceException, __Route53ResolverServiceException);
 export var Filters: StaticListSchema = [1, n0, _Fi, 0, () => Filter];

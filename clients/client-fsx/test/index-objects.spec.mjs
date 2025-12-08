@@ -1,11 +1,19 @@
 import {
+  AccessPointAlreadyOwnedByYou,
+  ActiveDirectoryError,
+  ActiveDirectoryErrorType,
   AdministrativeActionType,
   AliasLifecycle,
   AssociateFileSystemAliasesCommand,
   AutoImportPolicyType,
   AutocommitPeriodType,
+  BackupBeingCopied,
+  BackupInProgress,
   BackupLifecycle,
+  BackupNotFound,
+  BackupRestoring,
   BackupType,
+  BadRequest,
   CancelDataRepositoryTaskCommand,
   CopyBackupCommand,
   CopySnapshotAndUpdateVolumeCommand,
@@ -21,9 +29,13 @@ import {
   CreateVolumeCommand,
   CreateVolumeFromBackupCommand,
   DataCompressionType,
+  DataRepositoryAssociationNotFound,
   DataRepositoryLifecycle,
+  DataRepositoryTaskEnded,
+  DataRepositoryTaskExecuting,
   DataRepositoryTaskFilterName,
   DataRepositoryTaskLifecycle,
+  DataRepositoryTaskNotFound,
   DataRepositoryTaskType,
   DeleteBackupCommand,
   DeleteDataRepositoryAssociationCommand,
@@ -55,20 +67,39 @@ import {
   FSxServiceException,
   FileCacheLifecycle,
   FileCacheLustreDeploymentType,
+  FileCacheNotFound,
   FileCacheType,
   FileSystemLifecycle,
   FileSystemMaintenanceOperation,
+  FileSystemNotFound,
   FileSystemType,
   FilterName,
   FlexCacheEndpointType,
+  IncompatibleParameterError,
+  IncompatibleRegionForMultiAZ,
   InputOntapVolumeType,
+  InternalServerError,
+  InvalidAccessPoint,
+  InvalidDataRepositoryType,
+  InvalidDestinationKmsKey,
+  InvalidExportPath,
+  InvalidImportPath,
+  InvalidNetworkSettings,
+  InvalidPerUnitStorageThroughput,
+  InvalidRegion,
+  InvalidRequest,
+  InvalidSourceKmsKey,
   ListTagsForResourceCommand,
   LustreAccessAuditLogLevel,
   LustreDeploymentType,
   LustreReadCacheSizingMode,
   MetadataConfigurationMode,
+  MissingFileCacheConfiguration,
+  MissingFileSystemConfiguration,
+  MissingVolumeConfiguration,
   NetworkType,
   NfsVersion,
+  NotServiceResourceError,
   OntapDeploymentType,
   OntapFileSystemUserType,
   OntapVolumeType,
@@ -82,27 +113,37 @@ import {
   ReleaseFileSystemNfsV3LocksCommand,
   ReportFormat,
   ReportScope,
+  ResourceDoesNotSupportTagging,
+  ResourceNotFound,
   ResourceType,
   RestoreOpenZFSVolumeOption,
   RestoreVolumeFromSnapshotCommand,
   RetentionPeriodType,
   S3AccessPointAttachmentLifecycle,
+  S3AccessPointAttachmentNotFound,
   S3AccessPointAttachmentType,
   S3AccessPointAttachmentsFilterName,
   SecurityStyle,
+  ServiceLimit,
+  ServiceLimitExceeded,
   SnaplockType,
   SnapshotFilterName,
   SnapshotLifecycle,
+  SnapshotNotFound,
+  SourceBackupUnavailable,
   StartMisconfiguredStateRecoveryCommand,
   Status,
   StorageType,
   StorageVirtualMachineFilterName,
   StorageVirtualMachineLifecycle,
+  StorageVirtualMachineNotFound,
   StorageVirtualMachineRootVolumeSecurityStyle,
   StorageVirtualMachineSubtype,
   TagResourceCommand,
   TieringPolicyName,
+  TooManyAccessPoints,
   Unit,
+  UnsupportedOperation,
   UntagResourceCommand,
   UpdateDataRepositoryAssociationCommand,
   UpdateFileCacheCommand,
@@ -114,6 +155,7 @@ import {
   UpdateVolumeCommand,
   VolumeFilterName,
   VolumeLifecycle,
+  VolumeNotFound,
   VolumeStyle,
   VolumeType,
   WindowsAccessAuditLogLevel,
@@ -184,6 +226,7 @@ assert(typeof UpdateSnapshotCommand === "function");
 assert(typeof UpdateStorageVirtualMachineCommand === "function");
 assert(typeof UpdateVolumeCommand === "function");
 // enums
+assert(typeof ActiveDirectoryErrorType === "object");
 assert(typeof AdministrativeActionType === "object");
 assert(typeof AliasLifecycle === "object");
 assert(typeof AutocommitPeriodType === "object");
@@ -234,6 +277,7 @@ assert(typeof S3AccessPointAttachmentLifecycle === "object");
 assert(typeof S3AccessPointAttachmentsFilterName === "object");
 assert(typeof S3AccessPointAttachmentType === "object");
 assert(typeof SecurityStyle === "object");
+assert(typeof ServiceLimit === "object");
 assert(typeof SnaplockType === "object");
 assert(typeof SnapshotFilterName === "object");
 assert(typeof SnapshotLifecycle === "object");
@@ -253,6 +297,46 @@ assert(typeof VolumeType === "object");
 assert(typeof WindowsAccessAuditLogLevel === "object");
 assert(typeof WindowsDeploymentType === "object");
 // errors
+assert(AccessPointAlreadyOwnedByYou.prototype instanceof FSxServiceException);
+assert(ActiveDirectoryError.prototype instanceof FSxServiceException);
+assert(BackupBeingCopied.prototype instanceof FSxServiceException);
+assert(BackupInProgress.prototype instanceof FSxServiceException);
+assert(BackupNotFound.prototype instanceof FSxServiceException);
+assert(BackupRestoring.prototype instanceof FSxServiceException);
+assert(BadRequest.prototype instanceof FSxServiceException);
+assert(DataRepositoryAssociationNotFound.prototype instanceof FSxServiceException);
+assert(DataRepositoryTaskEnded.prototype instanceof FSxServiceException);
+assert(DataRepositoryTaskExecuting.prototype instanceof FSxServiceException);
+assert(DataRepositoryTaskNotFound.prototype instanceof FSxServiceException);
+assert(FileCacheNotFound.prototype instanceof FSxServiceException);
+assert(FileSystemNotFound.prototype instanceof FSxServiceException);
+assert(IncompatibleParameterError.prototype instanceof FSxServiceException);
+assert(IncompatibleRegionForMultiAZ.prototype instanceof FSxServiceException);
+assert(InternalServerError.prototype instanceof FSxServiceException);
+assert(InvalidAccessPoint.prototype instanceof FSxServiceException);
+assert(InvalidDataRepositoryType.prototype instanceof FSxServiceException);
+assert(InvalidDestinationKmsKey.prototype instanceof FSxServiceException);
+assert(InvalidExportPath.prototype instanceof FSxServiceException);
+assert(InvalidImportPath.prototype instanceof FSxServiceException);
+assert(InvalidNetworkSettings.prototype instanceof FSxServiceException);
+assert(InvalidPerUnitStorageThroughput.prototype instanceof FSxServiceException);
+assert(InvalidRegion.prototype instanceof FSxServiceException);
+assert(InvalidRequest.prototype instanceof FSxServiceException);
+assert(InvalidSourceKmsKey.prototype instanceof FSxServiceException);
+assert(MissingFileCacheConfiguration.prototype instanceof FSxServiceException);
+assert(MissingFileSystemConfiguration.prototype instanceof FSxServiceException);
+assert(MissingVolumeConfiguration.prototype instanceof FSxServiceException);
+assert(NotServiceResourceError.prototype instanceof FSxServiceException);
+assert(ResourceDoesNotSupportTagging.prototype instanceof FSxServiceException);
+assert(ResourceNotFound.prototype instanceof FSxServiceException);
+assert(S3AccessPointAttachmentNotFound.prototype instanceof FSxServiceException);
+assert(ServiceLimitExceeded.prototype instanceof FSxServiceException);
+assert(SnapshotNotFound.prototype instanceof FSxServiceException);
+assert(SourceBackupUnavailable.prototype instanceof FSxServiceException);
+assert(StorageVirtualMachineNotFound.prototype instanceof FSxServiceException);
+assert(TooManyAccessPoints.prototype instanceof FSxServiceException);
+assert(UnsupportedOperation.prototype instanceof FSxServiceException);
+assert(VolumeNotFound.prototype instanceof FSxServiceException);
 assert(FSxServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeBackups === "function");

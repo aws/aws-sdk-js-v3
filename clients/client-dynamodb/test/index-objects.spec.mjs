@@ -1,6 +1,8 @@
 import {
   ApproximateCreationDateTimePrecision,
   AttributeAction,
+  BackupInUseException,
+  BackupNotFoundException,
   BackupStatus,
   BackupType,
   BackupTypeFilter,
@@ -10,8 +12,10 @@ import {
   BatchWriteItemCommand,
   BillingMode,
   ComparisonOperator,
+  ConditionalCheckFailedException,
   ConditionalOperator,
   ContinuousBackupsStatus,
+  ContinuousBackupsUnavailableException,
   ContributorInsightsAction,
   ContributorInsightsMode,
   ContributorInsightsStatus,
@@ -37,26 +41,41 @@ import {
   DescribeTimeToLiveCommand,
   DestinationStatus,
   DisableKinesisStreamingDestinationCommand,
+  DuplicateItemException,
   DynamoDB,
   DynamoDBClient,
   DynamoDBServiceException,
   EnableKinesisStreamingDestinationCommand,
   ExecuteStatementCommand,
   ExecuteTransactionCommand,
+  ExportConflictException,
   ExportFormat,
+  ExportNotFoundException,
   ExportStatus,
   ExportTableToPointInTimeCommand,
   ExportType,
   ExportViewType,
   GetItemCommand,
   GetResourcePolicyCommand,
+  GlobalTableAlreadyExistsException,
+  GlobalTableNotFoundException,
   GlobalTableStatus,
+  IdempotentParameterMismatchException,
+  ImportConflictException,
+  ImportNotFoundException,
   ImportStatus,
   ImportTableCommand,
+  IndexNotFoundException,
   IndexStatus,
   InputCompressionType,
   InputFormat,
+  InternalServerError,
+  InvalidEndpointException,
+  InvalidExportTimeException,
+  InvalidRestoreTimeException,
+  ItemCollectionSizeLimitExceededException,
   KeyType,
+  LimitExceededException,
   ListBackupsCommand,
   ListContributorInsightsCommand,
   ListExportsCommand,
@@ -66,11 +85,20 @@ import {
   ListTagsOfResourceCommand,
   MultiRegionConsistency,
   PointInTimeRecoveryStatus,
+  PointInTimeRecoveryUnavailableException,
+  PolicyNotFoundException,
   ProjectionType,
+  ProvisionedThroughputExceededException,
   PutItemCommand,
   PutResourcePolicyCommand,
   QueryCommand,
+  ReplicaAlreadyExistsException,
+  ReplicaNotFoundException,
   ReplicaStatus,
+  ReplicatedWriteConflictException,
+  RequestLimitExceeded,
+  ResourceInUseException,
+  ResourceNotFoundException,
   RestoreTableFromBackupCommand,
   RestoreTableToPointInTimeCommand,
   ReturnConsumedCapacity,
@@ -84,12 +112,19 @@ import {
   ScanCommand,
   Select,
   StreamViewType,
+  TableAlreadyExistsException,
   TableClass,
+  TableInUseException,
+  TableNotFoundException,
   TableStatus,
   TagResourceCommand,
+  ThrottlingException,
   TimeToLiveStatus,
   TransactGetItemsCommand,
   TransactWriteItemsCommand,
+  TransactionCanceledException,
+  TransactionConflictException,
+  TransactionInProgressException,
   UntagResourceCommand,
   UpdateContinuousBackupsCommand,
   UpdateContributorInsightsCommand,
@@ -218,6 +253,41 @@ assert(typeof TableStatus === "object");
 assert(typeof TimeToLiveStatus === "object");
 assert(typeof WitnessStatus === "object");
 // errors
+assert(BackupInUseException.prototype instanceof DynamoDBServiceException);
+assert(BackupNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(ConditionalCheckFailedException.prototype instanceof DynamoDBServiceException);
+assert(ContinuousBackupsUnavailableException.prototype instanceof DynamoDBServiceException);
+assert(DuplicateItemException.prototype instanceof DynamoDBServiceException);
+assert(ExportConflictException.prototype instanceof DynamoDBServiceException);
+assert(ExportNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(GlobalTableAlreadyExistsException.prototype instanceof DynamoDBServiceException);
+assert(GlobalTableNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(IdempotentParameterMismatchException.prototype instanceof DynamoDBServiceException);
+assert(ImportConflictException.prototype instanceof DynamoDBServiceException);
+assert(ImportNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(IndexNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(InternalServerError.prototype instanceof DynamoDBServiceException);
+assert(InvalidEndpointException.prototype instanceof DynamoDBServiceException);
+assert(InvalidExportTimeException.prototype instanceof DynamoDBServiceException);
+assert(InvalidRestoreTimeException.prototype instanceof DynamoDBServiceException);
+assert(ItemCollectionSizeLimitExceededException.prototype instanceof DynamoDBServiceException);
+assert(LimitExceededException.prototype instanceof DynamoDBServiceException);
+assert(PointInTimeRecoveryUnavailableException.prototype instanceof DynamoDBServiceException);
+assert(PolicyNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(ProvisionedThroughputExceededException.prototype instanceof DynamoDBServiceException);
+assert(ReplicaAlreadyExistsException.prototype instanceof DynamoDBServiceException);
+assert(ReplicaNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(ReplicatedWriteConflictException.prototype instanceof DynamoDBServiceException);
+assert(RequestLimitExceeded.prototype instanceof DynamoDBServiceException);
+assert(ResourceInUseException.prototype instanceof DynamoDBServiceException);
+assert(ResourceNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(TableAlreadyExistsException.prototype instanceof DynamoDBServiceException);
+assert(TableInUseException.prototype instanceof DynamoDBServiceException);
+assert(TableNotFoundException.prototype instanceof DynamoDBServiceException);
+assert(ThrottlingException.prototype instanceof DynamoDBServiceException);
+assert(TransactionCanceledException.prototype instanceof DynamoDBServiceException);
+assert(TransactionConflictException.prototype instanceof DynamoDBServiceException);
+assert(TransactionInProgressException.prototype instanceof DynamoDBServiceException);
 assert(DynamoDBServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForTableExists === "function");

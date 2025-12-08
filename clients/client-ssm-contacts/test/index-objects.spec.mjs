@@ -2,14 +2,17 @@ import {
   AcceptCodeValidation,
   AcceptPageCommand,
   AcceptType,
+  AccessDeniedException,
   ActivateContactChannelCommand,
   ActivationStatus,
   ChannelType,
+  ConflictException,
   ContactType,
   CreateContactChannelCommand,
   CreateContactCommand,
   CreateRotationCommand,
   CreateRotationOverrideCommand,
+  DataEncryptionException,
   DayOfWeek,
   DeactivateContactChannelCommand,
   DeleteContactChannelCommand,
@@ -23,6 +26,7 @@ import {
   GetContactPolicyCommand,
   GetRotationCommand,
   GetRotationOverrideCommand,
+  InternalServerException,
   ListContactChannelsCommand,
   ListContactsCommand,
   ListEngagementsCommand,
@@ -37,18 +41,23 @@ import {
   ListTagsForResourceCommand,
   PutContactPolicyCommand,
   ReceiptType,
+  ResourceNotFoundException,
   SSMContacts,
   SSMContactsClient,
   SSMContactsServiceException,
   SendActivationCodeCommand,
+  ServiceQuotaExceededException,
   ShiftType,
   StartEngagementCommand,
   StopEngagementCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateContactChannelCommand,
   UpdateContactCommand,
   UpdateRotationCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListContactChannels,
   paginateListContacts,
   paginateListEngagements,
@@ -114,7 +123,16 @@ assert(typeof ContactType === "object");
 assert(typeof DayOfWeek === "object");
 assert(typeof ReceiptType === "object");
 assert(typeof ShiftType === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SSMContactsServiceException);
+assert(ConflictException.prototype instanceof SSMContactsServiceException);
+assert(DataEncryptionException.prototype instanceof SSMContactsServiceException);
+assert(InternalServerException.prototype instanceof SSMContactsServiceException);
+assert(ResourceNotFoundException.prototype instanceof SSMContactsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SSMContactsServiceException);
+assert(ThrottlingException.prototype instanceof SSMContactsServiceException);
+assert(ValidationException.prototype instanceof SSMContactsServiceException);
 assert(SSMContactsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListContactChannels === "function");

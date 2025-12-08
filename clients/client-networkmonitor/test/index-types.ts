@@ -70,6 +70,13 @@ export type {
   UpdateMonitorOutput,
   UpdateProbeInput,
   UpdateProbeOutput,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
   NetworkMonitorServiceException,
   paginateListMonitors,
 } from "../dist-types/index.d";

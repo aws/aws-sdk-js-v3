@@ -1,7 +1,9 @@
 import {
   AcceptChannelHandshakeCommand,
+  AccessDeniedException,
   AssociationType,
   CancelChannelHandshakeCommand,
+  ConflictException,
   Coverage,
   CreateChannelHandshakeCommand,
   CreateProgramManagementAccountCommand,
@@ -11,6 +13,7 @@ import {
   GetRelationshipCommand,
   HandshakeStatus,
   HandshakeType,
+  InternalServerException,
   ListChannelHandshakesCommand,
   ListProgramManagementAccountsCommand,
   ListProgramManagementAccountsSortName,
@@ -27,15 +30,20 @@ import {
   Provider,
   RejectChannelHandshakeCommand,
   ResaleAccountModel,
+  ResourceNotFoundException,
   RevokeServicePeriodTypeSortName,
   Sector,
   ServicePeriodType,
+  ServiceQuotaExceededException,
   SortOrder,
   StartServicePeriodTypeSortName,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateProgramManagementAccountCommand,
   UpdateRelationshipCommand,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListChannelHandshakes,
   paginateListProgramManagementAccounts,
   paginateListRelationships,
@@ -80,7 +88,15 @@ assert(typeof Sector === "object");
 assert(typeof ServicePeriodType === "object");
 assert(typeof SortOrder === "object");
 assert(typeof StartServicePeriodTypeSortName === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof PartnerCentralChannelServiceException);
+assert(ConflictException.prototype instanceof PartnerCentralChannelServiceException);
+assert(InternalServerException.prototype instanceof PartnerCentralChannelServiceException);
+assert(ResourceNotFoundException.prototype instanceof PartnerCentralChannelServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PartnerCentralChannelServiceException);
+assert(ThrottlingException.prototype instanceof PartnerCentralChannelServiceException);
+assert(ValidationException.prototype instanceof PartnerCentralChannelServiceException);
 assert(PartnerCentralChannelServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChannelHandshakes === "function");

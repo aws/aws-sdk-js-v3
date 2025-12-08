@@ -15,6 +15,7 @@ import {
   CreateEventCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
+  DuplicateIdException,
   EvaluateCommand,
   ExtractionJobStatus,
   GetAgentCardCommand,
@@ -28,6 +29,7 @@ import {
   GetWorkloadAccessTokenForJWTCommand,
   GetWorkloadAccessTokenForUserIdCommand,
   InternalServerException,
+  InvalidInputException,
   InvokeAgentRuntimeCommand,
   InvokeCodeInterpreterCommand,
   ListActorsCommand,
@@ -45,6 +47,8 @@ import {
   ResourceNotFoundException,
   RetrieveMemoryRecordsCommand,
   Role,
+  RuntimeClientError,
+  ServiceException,
   ServiceQuotaExceededException,
   SessionStatus,
   StartBrowserSessionCommand,
@@ -54,8 +58,10 @@ import {
   StopCodeInterpreterSessionCommand,
   StopRuntimeSessionCommand,
   TaskStatus,
+  ThrottledException,
   ThrottlingException,
   ToolName,
+  UnauthorizedException,
   UpdateBrowserStreamCommand,
   ValidationException,
   ValidationExceptionReason,
@@ -125,10 +131,16 @@ assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof BedrockAgentCoreServiceException);
 assert(ConflictException.prototype instanceof BedrockAgentCoreServiceException);
+assert(DuplicateIdException.prototype instanceof BedrockAgentCoreServiceException);
 assert(InternalServerException.prototype instanceof BedrockAgentCoreServiceException);
+assert(InvalidInputException.prototype instanceof BedrockAgentCoreServiceException);
 assert(ResourceNotFoundException.prototype instanceof BedrockAgentCoreServiceException);
+assert(RuntimeClientError.prototype instanceof BedrockAgentCoreServiceException);
+assert(ServiceException.prototype instanceof BedrockAgentCoreServiceException);
 assert(ServiceQuotaExceededException.prototype instanceof BedrockAgentCoreServiceException);
+assert(ThrottledException.prototype instanceof BedrockAgentCoreServiceException);
 assert(ThrottlingException.prototype instanceof BedrockAgentCoreServiceException);
+assert(UnauthorizedException.prototype instanceof BedrockAgentCoreServiceException);
 assert(ValidationException.prototype instanceof BedrockAgentCoreServiceException);
 assert(BedrockAgentCoreServiceException.prototype instanceof Error);
 // paginators

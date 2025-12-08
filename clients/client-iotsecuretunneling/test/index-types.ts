@@ -51,6 +51,8 @@ export type {
   TunnelSummary,
   UntagResourceRequest,
   UntagResourceResponse,
+  LimitExceededException,
+  ResourceNotFoundException,
   IoTSecureTunnelingServiceException,
   paginateListTunnels,
 } from "../dist-types/index.d";

@@ -17,8 +17,15 @@ import {
   ListEnvironmentVlansCommand,
   ListEnvironmentsCommand,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  TagPolicyException,
   TagResourceCommand,
+  ThrottlingException,
+  TooManyTagsException,
   UntagResourceCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VcfVersion,
   VlanState,
   _InstanceType,
@@ -50,9 +57,16 @@ assert(typeof CheckType === "object");
 assert(typeof EnvironmentState === "object");
 assert(typeof HostState === "object");
 assert(typeof _InstanceType === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VcfVersion === "object");
 assert(typeof VlanState === "object");
 // errors
+assert(ResourceNotFoundException.prototype instanceof EvsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof EvsServiceException);
+assert(TagPolicyException.prototype instanceof EvsServiceException);
+assert(ThrottlingException.prototype instanceof EvsServiceException);
+assert(TooManyTagsException.prototype instanceof EvsServiceException);
+assert(ValidationException.prototype instanceof EvsServiceException);
 assert(EvsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEnvironmentHosts === "function");

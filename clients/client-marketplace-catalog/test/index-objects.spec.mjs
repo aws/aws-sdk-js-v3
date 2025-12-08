@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   AmiProductSortBy,
   AmiProductVisibilityString,
   BatchDescribeEntitiesCommand,
@@ -14,6 +15,7 @@ import {
   FailureCode,
   GetResourcePolicyCommand,
   Intent,
+  InternalServiceException,
   ListChangeSetsCommand,
   ListEntitiesCommand,
   ListTagsForResourceCommand,
@@ -31,12 +33,18 @@ import {
   PutResourcePolicyCommand,
   ResaleAuthorizationSortBy,
   ResaleAuthorizationStatusString,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ResourceNotSupportedException,
   SaaSProductSortBy,
   SaaSProductVisibilityString,
+  ServiceQuotaExceededException,
   SortOrder,
   StartChangeSetCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
+  ValidationException,
   paginateListChangeSets,
   paginateListEntities,
 } from "../dist-cjs/index.js";
@@ -82,6 +90,14 @@ assert(typeof SaaSProductSortBy === "object");
 assert(typeof SaaSProductVisibilityString === "object");
 assert(typeof SortOrder === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MarketplaceCatalogServiceException);
+assert(InternalServiceException.prototype instanceof MarketplaceCatalogServiceException);
+assert(ResourceInUseException.prototype instanceof MarketplaceCatalogServiceException);
+assert(ResourceNotFoundException.prototype instanceof MarketplaceCatalogServiceException);
+assert(ResourceNotSupportedException.prototype instanceof MarketplaceCatalogServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MarketplaceCatalogServiceException);
+assert(ThrottlingException.prototype instanceof MarketplaceCatalogServiceException);
+assert(ValidationException.prototype instanceof MarketplaceCatalogServiceException);
 assert(MarketplaceCatalogServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListChangeSets === "function");

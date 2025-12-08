@@ -4,6 +4,7 @@ import {
   AdsInteractionExcludeEventType,
   AdsInteractionPublishOptInEventType,
   AlertCategory,
+  BadRequestException,
   ChannelState,
   ConfigureLogsForChannelCommand,
   ConfigureLogsForPlaybackConfigurationCommand,
@@ -154,6 +155,7 @@ assert(typeof Tier === "object");
 assert(typeof TrafficShapingType === "object");
 assert(typeof Type === "object");
 // errors
+assert(BadRequestException.prototype instanceof MediaTailorServiceException);
 assert(MediaTailorServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetChannelSchedule === "function");

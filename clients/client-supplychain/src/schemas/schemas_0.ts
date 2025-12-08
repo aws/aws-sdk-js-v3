@@ -883,7 +883,6 @@ export var UpdateInstanceRequest: StaticStructureSchema = [3, n0, _UIR, 0, [_iI,
 export var UpdateInstanceResponse: StaticStructureSchema = [3, n0, _UIRp, 0, [_i], [() => Instance]];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var SupplyChainServiceException: StaticErrorSchema = [-3, _sm, "SupplyChainServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SupplyChainServiceException, __SupplyChainServiceException);
 export var DataIntegrationEventList: StaticListSchema = [1, n0, _DIEL, 0, () => DataIntegrationEvent];

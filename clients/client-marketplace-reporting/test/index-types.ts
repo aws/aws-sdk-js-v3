@@ -7,5 +7,9 @@ export type {
   GetBuyerDashboardCommandOutput,
   GetBuyerDashboardInput,
   GetBuyerDashboardOutput,
+  AccessDeniedException,
+  BadRequestException,
+  InternalServerException,
+  UnauthorizedException,
   MarketplaceReportingServiceException,
 } from "../dist-types/index.d";

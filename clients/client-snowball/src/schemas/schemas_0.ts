@@ -668,7 +668,6 @@ export var UpdateJobShipmentStateResult: StaticStructureSchema = [3, n0, _UJSSRp
 export var UpdateLongTermPricingRequest: StaticStructureSchema = [3, n0, _ULTPR, 0, [_LTPIo, _RJ, _ILTPAR], [0, 0, 2]];
 export var UpdateLongTermPricingResult: StaticStructureSchema = [3, n0, _ULTPRp, 0, [], []];
 export var WirelessConnection: StaticStructureSchema = [3, n0, _WC, 0, [_IWE], [2]];
-export var __Unit = "unit" as const;
 export var SnowballServiceException: StaticErrorSchema = [-3, _s, "SnowballServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(SnowballServiceException, __SnowballServiceException);
 export var AddressList: StaticListSchema = [1, n0, _AL, 0, () => Address];

@@ -1,31 +1,38 @@
 import {
+  AccessDeniedException,
   AnalysisType,
   AssociateRepositoryCommand,
   CodeGuruReviewer,
   CodeGuruReviewerClient,
   CodeGuruReviewerServiceException,
   ConfigFileState,
+  ConflictException,
   CreateCodeReviewCommand,
   DescribeCodeReviewCommand,
   DescribeRecommendationFeedbackCommand,
   DescribeRepositoryAssociationCommand,
   DisassociateRepositoryCommand,
   EncryptionOption,
+  InternalServerException,
   JobState,
   ListCodeReviewsCommand,
   ListRecommendationFeedbackCommand,
   ListRecommendationsCommand,
   ListRepositoryAssociationsCommand,
   ListTagsForResourceCommand,
+  NotFoundException,
   ProviderType,
   PutRecommendationFeedbackCommand,
   Reaction,
   RecommendationCategory,
   RepositoryAssociationState,
+  ResourceNotFoundException,
   Severity,
   TagResourceCommand,
+  ThrottlingException,
   Type,
   UntagResourceCommand,
+  ValidationException,
   VendorName,
   paginateListCodeReviews,
   paginateListRecommendationFeedback,
@@ -68,6 +75,13 @@ assert(typeof Severity === "object");
 assert(typeof Type === "object");
 assert(typeof VendorName === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CodeGuruReviewerServiceException);
+assert(ConflictException.prototype instanceof CodeGuruReviewerServiceException);
+assert(InternalServerException.prototype instanceof CodeGuruReviewerServiceException);
+assert(NotFoundException.prototype instanceof CodeGuruReviewerServiceException);
+assert(ResourceNotFoundException.prototype instanceof CodeGuruReviewerServiceException);
+assert(ThrottlingException.prototype instanceof CodeGuruReviewerServiceException);
+assert(ValidationException.prototype instanceof CodeGuruReviewerServiceException);
 assert(CodeGuruReviewerServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForCodeReviewCompleted === "function");

@@ -452,7 +452,6 @@ export var Vlan: StaticStructureSchema = [
   [_vIl, _ci, _aZ, _fN, _sIu, _cA, _mA, _vSl, _sD, _eAi, _iP, _nAI],
   [1, 0, 0, 0, 0, 4, 4, 0, 0, () => EipAssociationList, 2, 0],
 ];
-export var __Unit = "unit" as const;
 export var EvsServiceException: StaticErrorSchema = [-3, _sm, "EvsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EvsServiceException, __EvsServiceException);
 export var ChecksList: StaticListSchema = [1, n0, _CL, 0, () => Check];

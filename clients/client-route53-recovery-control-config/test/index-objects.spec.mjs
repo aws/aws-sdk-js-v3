@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  ConflictException,
   CreateClusterCommand,
   CreateControlPanelCommand,
   CreateRoutingControlCommand,
@@ -12,6 +14,7 @@ import {
   DescribeRoutingControlCommand,
   DescribeSafetyRuleCommand,
   GetResourcePolicyCommand,
+  InternalServerException,
   ListAssociatedRoute53HealthChecksCommand,
   ListClustersCommand,
   ListControlPanelsCommand,
@@ -19,17 +22,21 @@ import {
   ListSafetyRulesCommand,
   ListTagsForResourceCommand,
   NetworkType,
+  ResourceNotFoundException,
   Route53RecoveryControlConfig,
   Route53RecoveryControlConfigClient,
   Route53RecoveryControlConfigServiceException,
   RuleType,
+  ServiceQuotaExceededException,
   Status,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateClusterCommand,
   UpdateControlPanelCommand,
   UpdateRoutingControlCommand,
   UpdateSafetyRuleCommand,
+  ValidationException,
   paginateListAssociatedRoute53HealthChecks,
   paginateListClusters,
   paginateListControlPanels,
@@ -83,6 +90,13 @@ assert(typeof NetworkType === "object");
 assert(typeof RuleType === "object");
 assert(typeof Status === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof Route53RecoveryControlConfigServiceException);
+assert(ConflictException.prototype instanceof Route53RecoveryControlConfigServiceException);
+assert(InternalServerException.prototype instanceof Route53RecoveryControlConfigServiceException);
+assert(ResourceNotFoundException.prototype instanceof Route53RecoveryControlConfigServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof Route53RecoveryControlConfigServiceException);
+assert(ThrottlingException.prototype instanceof Route53RecoveryControlConfigServiceException);
+assert(ValidationException.prototype instanceof Route53RecoveryControlConfigServiceException);
 assert(Route53RecoveryControlConfigServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForClusterCreated === "function");

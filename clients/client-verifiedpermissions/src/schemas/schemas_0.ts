@@ -1174,7 +1174,6 @@ export var ValidationException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_pat, _m], [0, 0]];
 export var ValidationSettings: StaticStructureSchema = [3, n0, _VS, 0, [_mo], [0]];
-export var __Unit = "unit" as const;
 export var VerifiedPermissionsServiceException: StaticErrorSchema = [
   -3,
   _sm,

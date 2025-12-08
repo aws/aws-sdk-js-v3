@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   CreateCliTokenCommand,
   CreateEnvironmentCommand,
   CreateWebLoginTokenCommand,
@@ -6,6 +7,7 @@ import {
   EndpointManagement,
   EnvironmentStatus,
   GetEnvironmentCommand,
+  InternalServerException,
   InvokeRestApiCommand,
   ListEnvironmentsCommand,
   ListTagsForResourceCommand,
@@ -14,12 +16,16 @@ import {
   MWAAClient,
   MWAAServiceException,
   PublishMetricsCommand,
+  ResourceNotFoundException,
+  RestApiClientException,
   RestApiMethod,
+  RestApiServerException,
   TagResourceCommand,
   Unit,
   UntagResourceCommand,
   UpdateEnvironmentCommand,
   UpdateStatus,
+  ValidationException,
   WebserverAccessMode,
   WorkerReplacementStrategy,
   paginateListEnvironments,
@@ -51,6 +57,12 @@ assert(typeof UpdateStatus === "object");
 assert(typeof WebserverAccessMode === "object");
 assert(typeof WorkerReplacementStrategy === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MWAAServiceException);
+assert(InternalServerException.prototype instanceof MWAAServiceException);
+assert(ResourceNotFoundException.prototype instanceof MWAAServiceException);
+assert(RestApiClientException.prototype instanceof MWAAServiceException);
+assert(RestApiServerException.prototype instanceof MWAAServiceException);
+assert(ValidationException.prototype instanceof MWAAServiceException);
 assert(MWAAServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListEnvironments === "function");

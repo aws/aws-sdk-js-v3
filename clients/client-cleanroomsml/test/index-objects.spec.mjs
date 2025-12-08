@@ -1,5 +1,6 @@
 import {
   AccessBudgetType,
+  AccessDeniedException,
   AudienceExportJobStatus,
   AudienceGenerationJobStatus,
   AudienceModelStatus,
@@ -12,6 +13,7 @@ import {
   CleanRoomsMLServiceException,
   ColumnType,
   ConfiguredAudienceModelStatus,
+  ConflictException,
   CreateAudienceModelCommand,
   CreateConfiguredAudienceModelCommand,
   CreateConfiguredModelAlgorithmAssociationCommand,
@@ -46,6 +48,7 @@ import {
   GetTrainedModelInferenceJobCommand,
   GetTrainingDatasetCommand,
   InferenceInstanceType,
+  InternalServiceException,
   ListAudienceExportJobsCommand,
   ListAudienceGenerationJobsCommand,
   ListAudienceModelsCommand,
@@ -72,8 +75,10 @@ import {
   PolicyExistenceCondition,
   PutConfiguredAudienceModelPolicyCommand,
   PutMLConfigurationCommand,
+  ResourceNotFoundException,
   ResultFormat,
   S3DataDistributionType,
+  ServiceQuotaExceededException,
   SharedAudienceMetrics,
   StartAudienceExportJobCommand,
   StartAudienceGenerationJobCommand,
@@ -82,6 +87,7 @@ import {
   SyntheticDataColumnType,
   TagOnCreatePolicy,
   TagResourceCommand,
+  ThrottlingException,
   TrainedModelArtifactMaxSizeUnitType,
   TrainedModelExportFileType,
   TrainedModelExportJobStatus,
@@ -93,6 +99,7 @@ import {
   TrainingInputMode,
   UntagResourceCommand,
   UpdateConfiguredAudienceModelCommand,
+  ValidationException,
   WorkerComputeType,
   _InstanceType,
   paginateListAudienceExportJobs,
@@ -212,6 +219,13 @@ assert(typeof TrainingDatasetStatus === "object");
 assert(typeof TrainingInputMode === "object");
 assert(typeof WorkerComputeType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CleanRoomsMLServiceException);
+assert(ConflictException.prototype instanceof CleanRoomsMLServiceException);
+assert(InternalServiceException.prototype instanceof CleanRoomsMLServiceException);
+assert(ResourceNotFoundException.prototype instanceof CleanRoomsMLServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof CleanRoomsMLServiceException);
+assert(ThrottlingException.prototype instanceof CleanRoomsMLServiceException);
+assert(ValidationException.prototype instanceof CleanRoomsMLServiceException);
 assert(CleanRoomsMLServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAudienceExportJobs === "function");

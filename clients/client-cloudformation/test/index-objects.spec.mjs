@@ -4,18 +4,21 @@ import {
   ActivateOrganizationsAccessCommand,
   ActivateTypeCommand,
   AfterValueFrom,
+  AlreadyExistsException,
   AnnotationSeverityLevel,
   AnnotationStatus,
   AttributeChangeType,
   BatchDescribeTypeConfigurationsCommand,
   BeaconStackOperationStatus,
   BeforeValueFrom,
+  CFNRegistryException,
   CallAs,
   CancelUpdateStackCommand,
   Capability,
   Category,
   ChangeAction,
   ChangeSetHooksStatus,
+  ChangeSetNotFoundException,
   ChangeSetStatus,
   ChangeSetType,
   ChangeSource,
@@ -24,6 +27,7 @@ import {
   CloudFormationClient,
   CloudFormationServiceException,
   ConcurrencyMode,
+  ConcurrentResourcesLimitExceededException,
   ContinueUpdateRollbackCommand,
   CreateChangeSetCommand,
   CreateGeneratedTemplateCommand,
@@ -31,6 +35,7 @@ import {
   CreateStackInstancesCommand,
   CreateStackRefactorCommand,
   CreateStackSetCommand,
+  CreatedButModifiedException,
   DeactivateOrganizationsAccessCommand,
   DeactivateTypeCommand,
   DeleteChangeSetCommand,
@@ -75,6 +80,7 @@ import {
   ExecuteStackRefactorCommand,
   ExecutionStatus,
   GeneratedTemplateDeletionPolicy,
+  GeneratedTemplateNotFoundException,
   GeneratedTemplateResourceStatus,
   GeneratedTemplateStatus,
   GeneratedTemplateUpdateReplacePolicy,
@@ -86,11 +92,17 @@ import {
   HandlerErrorCode,
   HookFailureMode,
   HookInvocationPoint,
+  HookResultNotFoundException,
   HookStatus,
   HookTargetAction,
   HookTargetType,
   IdentityProvider,
   ImportStacksToStackSetCommand,
+  InsufficientCapabilitiesException,
+  InvalidChangeSetStatusException,
+  InvalidOperationException,
+  InvalidStateTransitionException,
+  LimitExceededException,
   ListChangeSetsCommand,
   ListExportsCommand,
   ListGeneratedTemplatesCommand,
@@ -113,10 +125,15 @@ import {
   ListTypeRegistrationsCommand,
   ListTypeVersionsCommand,
   ListTypesCommand,
+  NameAlreadyExistsException,
   OnFailure,
   OnStackFailure,
+  OperationIdAlreadyExistsException,
+  OperationInProgressException,
+  OperationNotFoundException,
   OperationResultFilterName,
   OperationStatus,
+  OperationStatusCheckFailedException,
   OperationType,
   OrganizationStatus,
   PermissionModels,
@@ -133,6 +150,9 @@ import {
   Replacement,
   RequiresRecreation,
   ResourceAttribute,
+  ResourceScanInProgressException,
+  ResourceScanLimitExceededException,
+  ResourceScanNotFoundException,
   ResourceScanStatus,
   ResourceSignalStatus,
   ResourceStatus,
@@ -146,26 +166,35 @@ import {
   StackDriftStatus,
   StackInstanceDetailedStatus,
   StackInstanceFilterName,
+  StackInstanceNotFoundException,
   StackInstanceStatus,
+  StackNotFoundException,
   StackRefactorActionEntity,
   StackRefactorActionType,
   StackRefactorDetection,
   StackRefactorExecutionStatus,
+  StackRefactorNotFoundException,
   StackRefactorStatus,
   StackResourceDriftStatus,
   StackSetDriftDetectionStatus,
   StackSetDriftStatus,
+  StackSetNotEmptyException,
+  StackSetNotFoundException,
   StackSetOperationAction,
   StackSetOperationResultStatus,
   StackSetOperationStatus,
   StackSetStatus,
   StackStatus,
+  StaleRequestException,
   StartResourceScanCommand,
   StopStackSetOperationCommand,
   TemplateFormat,
   TemplateStage,
   TestTypeCommand,
   ThirdPartyType,
+  TokenAlreadyExistsException,
+  TypeConfigurationNotFoundException,
+  TypeNotFoundException,
   TypeTestsStatus,
   UpdateGeneratedTemplateCommand,
   UpdateStackCommand,
@@ -404,6 +433,35 @@ assert(typeof VersionBump === "object");
 assert(typeof Visibility === "object");
 assert(typeof WarningType === "object");
 // errors
+assert(AlreadyExistsException.prototype instanceof CloudFormationServiceException);
+assert(CFNRegistryException.prototype instanceof CloudFormationServiceException);
+assert(ChangeSetNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(ConcurrentResourcesLimitExceededException.prototype instanceof CloudFormationServiceException);
+assert(CreatedButModifiedException.prototype instanceof CloudFormationServiceException);
+assert(GeneratedTemplateNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(HookResultNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(InsufficientCapabilitiesException.prototype instanceof CloudFormationServiceException);
+assert(InvalidChangeSetStatusException.prototype instanceof CloudFormationServiceException);
+assert(InvalidOperationException.prototype instanceof CloudFormationServiceException);
+assert(InvalidStateTransitionException.prototype instanceof CloudFormationServiceException);
+assert(LimitExceededException.prototype instanceof CloudFormationServiceException);
+assert(NameAlreadyExistsException.prototype instanceof CloudFormationServiceException);
+assert(OperationIdAlreadyExistsException.prototype instanceof CloudFormationServiceException);
+assert(OperationInProgressException.prototype instanceof CloudFormationServiceException);
+assert(OperationNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(OperationStatusCheckFailedException.prototype instanceof CloudFormationServiceException);
+assert(ResourceScanInProgressException.prototype instanceof CloudFormationServiceException);
+assert(ResourceScanLimitExceededException.prototype instanceof CloudFormationServiceException);
+assert(ResourceScanNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(StackInstanceNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(StackNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(StackRefactorNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(StackSetNotEmptyException.prototype instanceof CloudFormationServiceException);
+assert(StackSetNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(StaleRequestException.prototype instanceof CloudFormationServiceException);
+assert(TokenAlreadyExistsException.prototype instanceof CloudFormationServiceException);
+assert(TypeConfigurationNotFoundException.prototype instanceof CloudFormationServiceException);
+assert(TypeNotFoundException.prototype instanceof CloudFormationServiceException);
 assert(CloudFormationServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForChangeSetCreateComplete === "function");

@@ -2,6 +2,7 @@ import {
   Amplify,
   AmplifyClient,
   AmplifyServiceException,
+  BadRequestException,
   BuildComputeType,
   CacheConfigType,
   CertificateType,
@@ -17,6 +18,7 @@ import {
   DeleteDomainAssociationCommand,
   DeleteJobCommand,
   DeleteWebhookCommand,
+  DependentServiceFailureException,
   DomainStatus,
   GenerateAccessLogsCommand,
   GetAppCommand,
@@ -26,8 +28,10 @@ import {
   GetDomainAssociationCommand,
   GetJobCommand,
   GetWebhookCommand,
+  InternalFailureException,
   JobStatus,
   JobType,
+  LimitExceededException,
   ListAppsCommand,
   ListArtifactsCommand,
   ListBackendEnvironmentsCommand,
@@ -36,14 +40,17 @@ import {
   ListJobsCommand,
   ListTagsForResourceCommand,
   ListWebhooksCommand,
+  NotFoundException,
   Platform,
   RepositoryCloneMethod,
+  ResourceNotFoundException,
   SourceUrlType,
   Stage,
   StartDeploymentCommand,
   StartJobCommand,
   StopJobCommand,
   TagResourceCommand,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAppCommand,
   UpdateBranchCommand,
@@ -112,6 +119,13 @@ assert(typeof Stage === "object");
 assert(typeof UpdateStatus === "object");
 assert(typeof WafStatus === "object");
 // errors
+assert(BadRequestException.prototype instanceof AmplifyServiceException);
+assert(DependentServiceFailureException.prototype instanceof AmplifyServiceException);
+assert(InternalFailureException.prototype instanceof AmplifyServiceException);
+assert(LimitExceededException.prototype instanceof AmplifyServiceException);
+assert(NotFoundException.prototype instanceof AmplifyServiceException);
+assert(ResourceNotFoundException.prototype instanceof AmplifyServiceException);
+assert(UnauthorizedException.prototype instanceof AmplifyServiceException);
 assert(AmplifyServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApps === "function");

@@ -664,7 +664,6 @@ export var ValidationException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 export var Workload: StaticStructureSchema = [3, n0, _W, 0, [_WI, _CN, _WN, _T, _WR, _MWC], [0, 0, 0, 0, 0, 2]];
 export var WorkloadConfiguration: StaticStructureSchema = [3, n0, _WC, 0, [_WN, _T, _C], [0, 0, 0]];
-export var __Unit = "unit" as const;
 export var ApplicationInsightsServiceException: StaticErrorSchema = [
   -3,
   _sm,

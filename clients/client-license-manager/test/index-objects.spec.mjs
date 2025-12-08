@@ -1,11 +1,14 @@
 import {
   AcceptGrantCommand,
+  AccessDeniedException,
   ActivationOverrideBehavior,
   AllowedOperation,
+  AuthorizationException,
   CheckInLicenseCommand,
   CheckoutBorrowLicenseCommand,
   CheckoutLicenseCommand,
   CheckoutType,
+  ConflictException,
   CreateGrantCommand,
   CreateGrantVersionCommand,
   CreateLicenseAssetGroupCommand,
@@ -25,8 +28,11 @@ import {
   DeleteTokenCommand,
   DigitalSignatureMethod,
   EntitlementDataUnit,
+  EntitlementNotAllowedException,
   EntitlementUnit,
   ExtendLicenseConsumptionCommand,
+  FailedDependencyException,
+  FilterLimitExceededException,
   GetAccessTokenCommand,
   GetGrantCommand,
   GetLicenseAssetGroupCommand,
@@ -38,6 +44,8 @@ import {
   GetLicenseUsageCommand,
   GetServiceSettingsCommand,
   GrantStatus,
+  InvalidParameterValueException,
+  InvalidResourceStateException,
   InventoryFilterCondition,
   LicenseAssetGroupStatus,
   LicenseConfigurationStatus,
@@ -48,6 +56,7 @@ import {
   LicenseManagerClient,
   LicenseManagerServiceException,
   LicenseStatus,
+  LicenseUsageException,
   ListAssetsForLicenseAssetGroupCommand,
   ListAssociationsForLicenseConfigurationCommand,
   ListDistributedGrantsCommand,
@@ -69,15 +78,22 @@ import {
   ListTagsForResourceCommand,
   ListTokensCommand,
   ListUsageForLicenseConfigurationCommand,
+  NoEntitlementsAllowedException,
   ProductCodeType,
+  RateLimitExceededException,
   ReceivedStatus,
+  RedirectException,
   RejectGrantCommand,
   RenewType,
   ReportFrequencyType,
   ReportType,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
   ResourceType,
+  ServerInternalException,
   TagResourceCommand,
   TokenType,
+  UnsupportedDigitalSignatureMethodException,
   UntagResourceCommand,
   UpdateLicenseAssetGroupCommand,
   UpdateLicenseAssetRulesetCommand,
@@ -85,6 +101,7 @@ import {
   UpdateLicenseManagerReportGeneratorCommand,
   UpdateLicenseSpecificationsForResourceCommand,
   UpdateServiceSettingsCommand,
+  ValidationException,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -176,5 +193,22 @@ assert(typeof ReportType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof TokenType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof LicenseManagerServiceException);
+assert(AuthorizationException.prototype instanceof LicenseManagerServiceException);
+assert(ConflictException.prototype instanceof LicenseManagerServiceException);
+assert(EntitlementNotAllowedException.prototype instanceof LicenseManagerServiceException);
+assert(FailedDependencyException.prototype instanceof LicenseManagerServiceException);
+assert(FilterLimitExceededException.prototype instanceof LicenseManagerServiceException);
+assert(InvalidParameterValueException.prototype instanceof LicenseManagerServiceException);
+assert(InvalidResourceStateException.prototype instanceof LicenseManagerServiceException);
+assert(LicenseUsageException.prototype instanceof LicenseManagerServiceException);
+assert(NoEntitlementsAllowedException.prototype instanceof LicenseManagerServiceException);
+assert(RateLimitExceededException.prototype instanceof LicenseManagerServiceException);
+assert(RedirectException.prototype instanceof LicenseManagerServiceException);
+assert(ResourceLimitExceededException.prototype instanceof LicenseManagerServiceException);
+assert(ResourceNotFoundException.prototype instanceof LicenseManagerServiceException);
+assert(ServerInternalException.prototype instanceof LicenseManagerServiceException);
+assert(UnsupportedDigitalSignatureMethodException.prototype instanceof LicenseManagerServiceException);
+assert(ValidationException.prototype instanceof LicenseManagerServiceException);
 assert(LicenseManagerServiceException.prototype instanceof Error);
 console.log(`LicenseManager index test passed.`);

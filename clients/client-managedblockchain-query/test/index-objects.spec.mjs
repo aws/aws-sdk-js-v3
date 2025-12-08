@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   BatchGetTokenBalanceCommand,
   ConfirmationStatus,
   ErrorType,
@@ -6,6 +7,7 @@ import {
   GetAssetContractCommand,
   GetTokenBalanceCommand,
   GetTransactionCommand,
+  InternalServerException,
   ListAssetContractsCommand,
   ListFilteredTransactionEventsCommand,
   ListFilteredTransactionEventsSortBy,
@@ -19,7 +21,13 @@ import {
   QueryNetwork,
   QueryTokenStandard,
   QueryTransactionEventType,
+  ResourceNotFoundException,
+  ResourceType,
+  ServiceQuotaExceededException,
   SortOrder,
+  ThrottlingException,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListAssetContracts,
   paginateListFilteredTransactionEvents,
   paginateListTokenBalances,
@@ -49,8 +57,16 @@ assert(typeof ListTransactionsSortBy === "object");
 assert(typeof QueryNetwork === "object");
 assert(typeof QueryTokenStandard === "object");
 assert(typeof QueryTransactionEventType === "object");
+assert(typeof ResourceType === "object");
 assert(typeof SortOrder === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ManagedBlockchainQueryServiceException);
+assert(InternalServerException.prototype instanceof ManagedBlockchainQueryServiceException);
+assert(ResourceNotFoundException.prototype instanceof ManagedBlockchainQueryServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ManagedBlockchainQueryServiceException);
+assert(ThrottlingException.prototype instanceof ManagedBlockchainQueryServiceException);
+assert(ValidationException.prototype instanceof ManagedBlockchainQueryServiceException);
 assert(ManagedBlockchainQueryServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAssetContracts === "function");

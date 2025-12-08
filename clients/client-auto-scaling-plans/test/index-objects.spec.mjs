@@ -2,14 +2,19 @@ import {
   AutoScalingPlans,
   AutoScalingPlansClient,
   AutoScalingPlansServiceException,
+  ConcurrentUpdateException,
   CreateScalingPlanCommand,
   DeleteScalingPlanCommand,
   DescribeScalingPlanResourcesCommand,
   DescribeScalingPlansCommand,
   ForecastDataType,
   GetScalingPlanResourceForecastDataCommand,
+  InternalServiceException,
+  InvalidNextTokenException,
+  LimitExceededException,
   LoadMetricType,
   MetricStatistic,
+  ObjectNotFoundException,
   PolicyType,
   PredictiveScalingMaxCapacityBehavior,
   PredictiveScalingMode,
@@ -20,6 +25,7 @@ import {
   ScalingStatusCode,
   ServiceNamespace,
   UpdateScalingPlanCommand,
+  ValidationException,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -46,5 +52,11 @@ assert(typeof ScalingPolicyUpdateBehavior === "object");
 assert(typeof ScalingStatusCode === "object");
 assert(typeof ServiceNamespace === "object");
 // errors
+assert(ConcurrentUpdateException.prototype instanceof AutoScalingPlansServiceException);
+assert(InternalServiceException.prototype instanceof AutoScalingPlansServiceException);
+assert(InvalidNextTokenException.prototype instanceof AutoScalingPlansServiceException);
+assert(LimitExceededException.prototype instanceof AutoScalingPlansServiceException);
+assert(ObjectNotFoundException.prototype instanceof AutoScalingPlansServiceException);
+assert(ValidationException.prototype instanceof AutoScalingPlansServiceException);
 assert(AutoScalingPlansServiceException.prototype instanceof Error);
 console.log(`AutoScalingPlans index test passed.`);

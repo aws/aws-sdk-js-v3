@@ -9,6 +9,7 @@ import {
   ComponentType,
   ConfigurationCheckOperationListingMode,
   ConfigurationCheckType,
+  ConflictException,
   ConnectedEntityType,
   CredentialType,
   DatabaseConnectionMethod,
@@ -24,6 +25,7 @@ import {
   GetOperationCommand,
   GetResourcePermissionCommand,
   HostRole,
+  InternalServerException,
   ListApplicationsCommand,
   ListComponentsCommand,
   ListConfigurationCheckDefinitionsCommand,
@@ -41,6 +43,7 @@ import {
   PutResourcePermissionCommand,
   RegisterApplicationCommand,
   ReplicationMode,
+  ResourceNotFoundException,
   RuleResultStatus,
   SsmSap,
   SsmSapClient,
@@ -50,8 +53,10 @@ import {
   StartConfigurationChecksCommand,
   StopApplicationCommand,
   TagResourceCommand,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateApplicationSettingsCommand,
+  ValidationException,
   paginateListApplications,
   paginateListComponents,
   paginateListConfigurationCheckDefinitions,
@@ -119,6 +124,11 @@ assert(typeof PermissionActionType === "object");
 assert(typeof ReplicationMode === "object");
 assert(typeof RuleResultStatus === "object");
 // errors
+assert(ConflictException.prototype instanceof SsmSapServiceException);
+assert(InternalServerException.prototype instanceof SsmSapServiceException);
+assert(ResourceNotFoundException.prototype instanceof SsmSapServiceException);
+assert(UnauthorizedException.prototype instanceof SsmSapServiceException);
+assert(ValidationException.prototype instanceof SsmSapServiceException);
 assert(SsmSapServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApplications === "function");

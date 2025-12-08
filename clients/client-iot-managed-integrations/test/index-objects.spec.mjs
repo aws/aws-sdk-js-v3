@@ -1,11 +1,13 @@
 import {
   AbortCriteriaAction,
   AbortCriteriaFailureType,
+  AccessDeniedException,
   AssociationState,
   AuthMaterialType,
   AuthType,
   CloudConnectorType,
   ConfigurationState,
+  ConflictException,
   ConnectorEventOperation,
   CreateAccountAssociationCommand,
   CreateCloudConnectorCommand,
@@ -62,9 +64,13 @@ import {
   GetRuntimeLogConfigurationCommand,
   GetSchemaVersionCommand,
   HubNetworkMode,
+  InternalFailureException,
+  InternalServerException,
+  InvalidRequestException,
   IoTManagedIntegrations,
   IoTManagedIntegrationsClient,
   IoTManagedIntegrationsServiceException,
+  LimitExceededException,
   ListAccountAssociationsCommand,
   ListCloudConnectorsCommand,
   ListConnectorDestinationsCommand,
@@ -97,6 +103,7 @@ import {
   RegisterAccountAssociationCommand,
   RegisterCustomEndpointCommand,
   ResetRuntimeLogConfigurationCommand,
+  ResourceNotFoundException,
   RetryCriteriaFailureType,
   Role,
   SchedulingConfigEndBehavior,
@@ -105,10 +112,14 @@ import {
   SchemaVersionVisibility,
   SendConnectorEventCommand,
   SendManagedThingCommandCommand,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
   StartAccountAssociationRefreshCommand,
   StartDeviceDiscoveryCommand,
   TagResourceCommand,
+  ThrottlingException,
   TokenEndpointAuthenticationScheme,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateAccountAssociationCommand,
   UpdateCloudConnectorCommand,
@@ -118,6 +129,7 @@ import {
   UpdateManagedThingCommand,
   UpdateNotificationConfigurationCommand,
   UpdateOtaTaskCommand,
+  ValidationException,
   paginateListAccountAssociations,
   paginateListCloudConnectors,
   paginateListConnectorDestinations,
@@ -259,6 +271,18 @@ assert(typeof SchemaVersionType === "object");
 assert(typeof SchemaVersionVisibility === "object");
 assert(typeof TokenEndpointAuthenticationScheme === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(ConflictException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(InternalFailureException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(InternalServerException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(InvalidRequestException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(LimitExceededException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(ResourceNotFoundException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(ServiceUnavailableException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(ThrottlingException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(UnauthorizedException.prototype instanceof IoTManagedIntegrationsServiceException);
+assert(ValidationException.prototype instanceof IoTManagedIntegrationsServiceException);
 assert(IoTManagedIntegrationsServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccountAssociations === "function");

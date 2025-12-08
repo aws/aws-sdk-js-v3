@@ -1,6 +1,7 @@
 import {
   AcceptDelegationRequestCommand,
   AccessAdvisorUsageGranularityType,
+  AccountNotManagementOrDelegatedAdministratorException,
   AddClientIDToOpenIDConnectProviderCommand,
   AddRoleToInstanceProfileCommand,
   AddUserToGroupCommand,
@@ -10,7 +11,9 @@ import {
   AttachGroupPolicyCommand,
   AttachRolePolicyCommand,
   AttachUserPolicyCommand,
+  CallerIsNotManagementAccountException,
   ChangePasswordCommand,
+  ConcurrentModificationException,
   ContextKeyTypeEnum,
   CreateAccessKeyCommand,
   CreateAccountAliasCommand,
@@ -27,10 +30,14 @@ import {
   CreateServiceSpecificCredentialCommand,
   CreateUserCommand,
   CreateVirtualMFADeviceCommand,
+  CredentialReportExpiredException,
+  CredentialReportNotPresentException,
+  CredentialReportNotReadyException,
   DeactivateMFADeviceCommand,
   DeleteAccessKeyCommand,
   DeleteAccountAliasCommand,
   DeleteAccountPasswordPolicyCommand,
+  DeleteConflictException,
   DeleteGroupCommand,
   DeleteGroupPolicyCommand,
   DeleteInstanceProfileCommand,
@@ -58,12 +65,18 @@ import {
   DisableOrganizationsRootCredentialsManagementCommand,
   DisableOrganizationsRootSessionsCommand,
   DisableOutboundWebIdentityFederationCommand,
+  DuplicateCertificateException,
+  DuplicateSSHPublicKeyException,
   EnableMFADeviceCommand,
   EnableOrganizationsRootCredentialsManagementCommand,
   EnableOrganizationsRootSessionsCommand,
   EnableOutboundWebIdentityFederationCommand,
   EncodingType,
+  EntityAlreadyExistsException,
+  EntityTemporarilyUnmodifiableException,
   EntityType,
+  FeatureDisabledException,
+  FeatureEnabledException,
   FeatureType,
   GenerateCredentialReportCommand,
   GenerateOrganizationsAccessReportCommand,
@@ -101,7 +114,14 @@ import {
   IAM,
   IAMClient,
   IAMServiceException,
+  InvalidAuthenticationCodeException,
+  InvalidCertificateException,
+  InvalidInputException,
+  InvalidPublicKeyException,
+  InvalidUserTypeException,
   JobStatusType,
+  KeyPairMismatchException,
+  LimitExceededException,
   ListAccessKeysCommand,
   ListAccountAliasesCommand,
   ListAttachedGroupPoliciesCommand,
@@ -138,10 +158,19 @@ import {
   ListUserTagsCommand,
   ListUsersCommand,
   ListVirtualMFADevicesCommand,
+  MalformedCertificateException,
+  MalformedPolicyDocumentException,
+  NoSuchEntityException,
+  OpenIdIdpCommunicationErrorException,
+  OrganizationNotFoundException,
+  OrganizationNotInAllFeaturesModeException,
+  PasswordPolicyViolationException,
   PermissionCheckResultType,
   PermissionCheckStatusType,
   PermissionsBoundaryAttachmentType,
   PolicyEvaluationDecisionType,
+  PolicyEvaluationException,
+  PolicyNotAttachableException,
   PolicyOwnerEntityType,
   PolicyParameterTypeEnum,
   PolicyScopeType,
@@ -158,10 +187,14 @@ import {
   RemoveRoleFromInstanceProfileCommand,
   RemoveUserFromGroupCommand,
   ReportFormatType,
+  ReportGenerationLimitExceededException,
   ReportStateType,
   ResetServiceSpecificCredentialCommand,
   ResyncMFADeviceCommand,
   SendDelegationTokenCommand,
+  ServiceAccessNotEnabledException,
+  ServiceFailureException,
+  ServiceNotSupportedException,
   SetDefaultPolicyVersionCommand,
   SetSecurityTokenServicePreferencesCommand,
   SimulateCustomPolicyCommand,
@@ -179,6 +212,8 @@ import {
   TagSAMLProviderCommand,
   TagServerCertificateCommand,
   TagUserCommand,
+  UnmodifiableEntityException,
+  UnrecognizedPublicKeyEncodingException,
   UntagInstanceProfileCommand,
   UntagMFADeviceCommand,
   UntagOpenIDConnectProviderCommand,
@@ -458,6 +493,41 @@ assert(typeof StatusType === "object");
 assert(typeof SummaryKeyType === "object");
 assert(typeof SummaryStateType === "object");
 // errors
+assert(AccountNotManagementOrDelegatedAdministratorException.prototype instanceof IAMServiceException);
+assert(CallerIsNotManagementAccountException.prototype instanceof IAMServiceException);
+assert(ConcurrentModificationException.prototype instanceof IAMServiceException);
+assert(CredentialReportExpiredException.prototype instanceof IAMServiceException);
+assert(CredentialReportNotPresentException.prototype instanceof IAMServiceException);
+assert(CredentialReportNotReadyException.prototype instanceof IAMServiceException);
+assert(DeleteConflictException.prototype instanceof IAMServiceException);
+assert(DuplicateCertificateException.prototype instanceof IAMServiceException);
+assert(DuplicateSSHPublicKeyException.prototype instanceof IAMServiceException);
+assert(EntityAlreadyExistsException.prototype instanceof IAMServiceException);
+assert(EntityTemporarilyUnmodifiableException.prototype instanceof IAMServiceException);
+assert(FeatureDisabledException.prototype instanceof IAMServiceException);
+assert(FeatureEnabledException.prototype instanceof IAMServiceException);
+assert(InvalidAuthenticationCodeException.prototype instanceof IAMServiceException);
+assert(InvalidCertificateException.prototype instanceof IAMServiceException);
+assert(InvalidInputException.prototype instanceof IAMServiceException);
+assert(InvalidPublicKeyException.prototype instanceof IAMServiceException);
+assert(InvalidUserTypeException.prototype instanceof IAMServiceException);
+assert(KeyPairMismatchException.prototype instanceof IAMServiceException);
+assert(LimitExceededException.prototype instanceof IAMServiceException);
+assert(MalformedCertificateException.prototype instanceof IAMServiceException);
+assert(MalformedPolicyDocumentException.prototype instanceof IAMServiceException);
+assert(NoSuchEntityException.prototype instanceof IAMServiceException);
+assert(OpenIdIdpCommunicationErrorException.prototype instanceof IAMServiceException);
+assert(OrganizationNotFoundException.prototype instanceof IAMServiceException);
+assert(OrganizationNotInAllFeaturesModeException.prototype instanceof IAMServiceException);
+assert(PasswordPolicyViolationException.prototype instanceof IAMServiceException);
+assert(PolicyEvaluationException.prototype instanceof IAMServiceException);
+assert(PolicyNotAttachableException.prototype instanceof IAMServiceException);
+assert(ReportGenerationLimitExceededException.prototype instanceof IAMServiceException);
+assert(ServiceAccessNotEnabledException.prototype instanceof IAMServiceException);
+assert(ServiceFailureException.prototype instanceof IAMServiceException);
+assert(ServiceNotSupportedException.prototype instanceof IAMServiceException);
+assert(UnmodifiableEntityException.prototype instanceof IAMServiceException);
+assert(UnrecognizedPublicKeyEncodingException.prototype instanceof IAMServiceException);
 assert(IAMServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForInstanceProfileExists === "function");

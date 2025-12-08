@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   CdcPropagateTags,
   CdcStatus,
   ClientSideTimestampsStatus,
+  ConflictException,
   CreateKeyspaceCommand,
   CreateTableCommand,
   CreateTypeCommand,
@@ -13,6 +15,7 @@ import {
   GetTableAutoScalingSettingsCommand,
   GetTableCommand,
   GetTypeCommand,
+  InternalServerException,
   KeyspaceStatus,
   Keyspaces,
   KeyspacesClient,
@@ -22,8 +25,10 @@ import {
   ListTagsForResourceCommand,
   ListTypesCommand,
   PointInTimeRecoveryStatus,
+  ResourceNotFoundException,
   RestoreTableCommand,
   Rs,
+  ServiceQuotaExceededException,
   SortOrder,
   TableStatus,
   TagResourceCommand,
@@ -33,6 +38,7 @@ import {
   UntagResourceCommand,
   UpdateKeyspaceCommand,
   UpdateTableCommand,
+  ValidationException,
   ViewType,
   paginateListKeyspaces,
   paginateListTables,
@@ -78,6 +84,12 @@ assert(typeof TimeToLiveStatus === "object");
 assert(typeof TypeStatus === "object");
 assert(typeof ViewType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof KeyspacesServiceException);
+assert(ConflictException.prototype instanceof KeyspacesServiceException);
+assert(InternalServerException.prototype instanceof KeyspacesServiceException);
+assert(ResourceNotFoundException.prototype instanceof KeyspacesServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof KeyspacesServiceException);
+assert(ValidationException.prototype instanceof KeyspacesServiceException);
 assert(KeyspacesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListKeyspaces === "function");

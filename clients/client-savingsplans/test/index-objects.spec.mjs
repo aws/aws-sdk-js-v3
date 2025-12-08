@@ -6,7 +6,9 @@ import {
   DescribeSavingsPlansCommand,
   DescribeSavingsPlansOfferingRatesCommand,
   DescribeSavingsPlansOfferingsCommand,
+  InternalServerException,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
   ReturnSavingsPlanCommand,
   SavingsPlanOfferingFilterAttribute,
   SavingsPlanOfferingPropertyKey,
@@ -23,8 +25,10 @@ import {
   Savingsplans,
   SavingsplansClient,
   SavingsplansServiceException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
   UntagResourceCommand,
+  ValidationException,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -56,5 +60,9 @@ assert(typeof SavingsPlansFilterName === "object");
 assert(typeof SavingsPlanState === "object");
 assert(typeof SavingsPlanType === "object");
 // errors
+assert(InternalServerException.prototype instanceof SavingsplansServiceException);
+assert(ResourceNotFoundException.prototype instanceof SavingsplansServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SavingsplansServiceException);
+assert(ValidationException.prototype instanceof SavingsplansServiceException);
 assert(SavingsplansServiceException.prototype instanceof Error);
 console.log(`Savingsplans index test passed.`);

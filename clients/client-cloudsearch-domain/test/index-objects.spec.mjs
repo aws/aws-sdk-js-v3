@@ -3,8 +3,10 @@ import {
   CloudSearchDomainClient,
   CloudSearchDomainServiceException,
   ContentType,
+  DocumentServiceException,
   QueryParser,
   SearchCommand,
+  SearchException,
   SuggestCommand,
   UploadDocumentsCommand,
 } from "../dist-cjs/index.js";
@@ -20,5 +22,7 @@ assert(typeof UploadDocumentsCommand === "function");
 assert(typeof ContentType === "object");
 assert(typeof QueryParser === "object");
 // errors
+assert(DocumentServiceException.prototype instanceof CloudSearchDomainServiceException);
+assert(SearchException.prototype instanceof CloudSearchDomainServiceException);
 assert(CloudSearchDomainServiceException.prototype instanceof Error);
 console.log(`CloudSearchDomain index test passed.`);

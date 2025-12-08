@@ -334,7 +334,6 @@ export var UpdateProfileResourceAssociationResponse: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var Route53ProfilesServiceException: StaticErrorSchema = [-3, _s, "Route53ProfilesServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(Route53ProfilesServiceException, __Route53ProfilesServiceException);
 export var ProfileAssociations: StaticListSchema = [1, n0, _PAr, 0, () => ProfileAssociation];

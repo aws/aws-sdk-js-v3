@@ -2,20 +2,26 @@ import {
   AddBridgeOutputsCommand,
   AddBridgeSourcesCommand,
   AddFlowMediaStreamsCommand,
+  AddFlowOutputs420Exception,
   AddFlowOutputsCommand,
   AddFlowSourcesCommand,
   AddFlowVpcInterfacesCommand,
   Algorithm,
+  BadRequestException,
   BatchGetRouterInputCommand,
   BatchGetRouterNetworkInterfaceCommand,
   BatchGetRouterOutputCommand,
   BridgePlacement,
   BridgeState,
   Colorimetry,
+  ConflictException,
   ConnectionStatus,
   ContentQualityAnalysisState,
+  CreateBridge420Exception,
   CreateBridgeCommand,
+  CreateFlow420Exception,
   CreateFlowCommand,
+  CreateGateway420Exception,
   CreateGatewayCommand,
   CreateRouterInputCommand,
   CreateRouterNetworkInterfaceCommand,
@@ -45,6 +51,7 @@ import {
   FailoverMode,
   FlowSize,
   FlowTransitEncryptionKeyType,
+  ForbiddenException,
   ForwardErrorCorrectionState,
   GatewayState,
   GetRouterInputCommand,
@@ -52,8 +59,10 @@ import {
   GetRouterInputThumbnailCommand,
   GetRouterNetworkInterfaceCommand,
   GetRouterOutputCommand,
+  GrantFlowEntitlements420Exception,
   GrantFlowEntitlementsCommand,
   InstanceState,
+  InternalServerErrorException,
   KeyType,
   ListBridgesCommand,
   ListEntitlementsCommand,
@@ -78,6 +87,7 @@ import {
   MediaStreamType,
   NdiState,
   NetworkInterfaceType,
+  NotFoundException,
   OutputStatus,
   PriceUnits,
   Protocol,
@@ -95,19 +105,23 @@ import {
   RestartRouterOutputCommand,
   RevokeFlowEntitlementCommand,
   RouterInputProtocol,
+  RouterInputServiceQuotaExceededException,
   RouterInputState,
   RouterInputTier,
   RouterInputTransitEncryptionKeyType,
   RouterInputType,
+  RouterNetworkInterfaceServiceQuotaExceededException,
   RouterNetworkInterfaceState,
   RouterNetworkInterfaceType,
   RouterOutputProtocol,
   RouterOutputRoutedState,
+  RouterOutputServiceQuotaExceededException,
   RouterOutputState,
   RouterOutputTier,
   RouterOutputType,
   RoutingScope,
   ScanMode,
+  ServiceUnavailableException,
   SourceType,
   StartFlowCommand,
   StartRouterInputCommand,
@@ -122,6 +136,7 @@ import {
   TakeRouterInputCommand,
   Tcs,
   ThumbnailState,
+  TooManyRequestsException,
   UntagGlobalResourceCommand,
   UntagResourceCommand,
   UpdateBridgeCommand,
@@ -310,6 +325,21 @@ assert(typeof Status === "object");
 assert(typeof Tcs === "object");
 assert(typeof ThumbnailState === "object");
 // errors
+assert(AddFlowOutputs420Exception.prototype instanceof MediaConnectServiceException);
+assert(BadRequestException.prototype instanceof MediaConnectServiceException);
+assert(ConflictException.prototype instanceof MediaConnectServiceException);
+assert(CreateBridge420Exception.prototype instanceof MediaConnectServiceException);
+assert(CreateFlow420Exception.prototype instanceof MediaConnectServiceException);
+assert(CreateGateway420Exception.prototype instanceof MediaConnectServiceException);
+assert(ForbiddenException.prototype instanceof MediaConnectServiceException);
+assert(GrantFlowEntitlements420Exception.prototype instanceof MediaConnectServiceException);
+assert(InternalServerErrorException.prototype instanceof MediaConnectServiceException);
+assert(NotFoundException.prototype instanceof MediaConnectServiceException);
+assert(RouterInputServiceQuotaExceededException.prototype instanceof MediaConnectServiceException);
+assert(RouterNetworkInterfaceServiceQuotaExceededException.prototype instanceof MediaConnectServiceException);
+assert(RouterOutputServiceQuotaExceededException.prototype instanceof MediaConnectServiceException);
+assert(ServiceUnavailableException.prototype instanceof MediaConnectServiceException);
+assert(TooManyRequestsException.prototype instanceof MediaConnectServiceException);
 assert(MediaConnectServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForFlowActive === "function");

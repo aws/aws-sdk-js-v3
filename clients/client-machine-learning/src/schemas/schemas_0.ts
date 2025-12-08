@@ -513,7 +513,6 @@ export var UpdateEvaluationInput: StaticStructureSchema = [3, n0, _UEI, 0, [_EI,
 export var UpdateEvaluationOutput: StaticStructureSchema = [3, n0, _UEO, 0, [_EI], [0]];
 export var UpdateMLModelInput: StaticStructureSchema = [3, n0, _UMLMI, 0, [_MLMI, _MLMN, _ST], [0, 0, 1]];
 export var UpdateMLModelOutput: StaticStructureSchema = [3, n0, _UMLMO, 0, [_MLMI], [0]];
-export var __Unit = "unit" as const;
 export var MachineLearningServiceException: StaticErrorSchema = [-3, _sm, "MachineLearningServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MachineLearningServiceException, __MachineLearningServiceException);
 export var BatchPredictions: StaticListSchema = [1, n0, _BPa, 0, () => BatchPrediction];

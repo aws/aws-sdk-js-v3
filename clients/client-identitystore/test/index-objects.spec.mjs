@@ -1,4 +1,8 @@
 import {
+  AccessDeniedException,
+  AccessDeniedExceptionReason,
+  ConflictException,
+  ConflictExceptionReason,
   CreateGroupCommand,
   CreateGroupMembershipCommand,
   CreateUserCommand,
@@ -14,14 +18,23 @@ import {
   Identitystore,
   IdentitystoreClient,
   IdentitystoreServiceException,
+  InternalServerException,
   IsMemberInGroupsCommand,
   ListGroupMembershipsCommand,
   ListGroupMembershipsForMemberCommand,
   ListGroupsCommand,
   ListUsersCommand,
+  ResourceNotFoundException,
+  ResourceNotFoundExceptionReason,
+  ResourceType,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ThrottlingExceptionReason,
   UpdateGroupCommand,
   UpdateUserCommand,
   UserStatus,
+  ValidationException,
+  ValidationExceptionReason,
   paginateListGroupMemberships,
   paginateListGroupMembershipsForMember,
   paginateListGroups,
@@ -52,8 +65,21 @@ assert(typeof ListUsersCommand === "function");
 assert(typeof UpdateGroupCommand === "function");
 assert(typeof UpdateUserCommand === "function");
 // enums
+assert(typeof AccessDeniedExceptionReason === "object");
+assert(typeof ConflictExceptionReason === "object");
+assert(typeof ResourceNotFoundExceptionReason === "object");
+assert(typeof ResourceType === "object");
+assert(typeof ThrottlingExceptionReason === "object");
 assert(typeof UserStatus === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof IdentitystoreServiceException);
+assert(ConflictException.prototype instanceof IdentitystoreServiceException);
+assert(InternalServerException.prototype instanceof IdentitystoreServiceException);
+assert(ResourceNotFoundException.prototype instanceof IdentitystoreServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof IdentitystoreServiceException);
+assert(ThrottlingException.prototype instanceof IdentitystoreServiceException);
+assert(ValidationException.prototype instanceof IdentitystoreServiceException);
 assert(IdentitystoreServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListGroupMemberships === "function");

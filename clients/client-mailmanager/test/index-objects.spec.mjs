@@ -1,11 +1,13 @@
 import {
   AcceptAction,
+  AccessDeniedException,
   ActionFailurePolicy,
   ArchiveBooleanEmailAttribute,
   ArchiveBooleanOperator,
   ArchiveState,
   ArchiveStringEmailAttribute,
   ArchiveStringOperator,
+  ConflictException,
   CreateAddonInstanceCommand,
   CreateAddonSubscriptionCommand,
   CreateAddressListCommand,
@@ -74,6 +76,7 @@ import {
   MailManagerClient,
   MailManagerServiceException,
   RegisterMemberToAddressListCommand,
+  ResourceNotFoundException,
   RetentionPeriod,
   RuleAddressListEmailAttribute,
   RuleBooleanEmailAttribute,
@@ -90,6 +93,7 @@ import {
   RuleVerdictAttribute,
   RuleVerdictOperator,
   SearchState,
+  ServiceQuotaExceededException,
   SnsNotificationEncoding,
   SnsNotificationPayloadType,
   StartAddressListImportJobCommand,
@@ -99,12 +103,14 @@ import {
   StopArchiveExportCommand,
   StopArchiveSearchCommand,
   TagResourceCommand,
+  ThrottlingException,
   UntagResourceCommand,
   UpdateArchiveCommand,
   UpdateIngressPointCommand,
   UpdateRelayCommand,
   UpdateRuleSetCommand,
   UpdateTrafficPolicyCommand,
+  ValidationException,
   paginateListAddonInstances,
   paginateListAddonSubscriptions,
   paginateListAddressListImportJobs,
@@ -228,6 +234,12 @@ assert(typeof SearchState === "object");
 assert(typeof SnsNotificationEncoding === "object");
 assert(typeof SnsNotificationPayloadType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof MailManagerServiceException);
+assert(ConflictException.prototype instanceof MailManagerServiceException);
+assert(ResourceNotFoundException.prototype instanceof MailManagerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof MailManagerServiceException);
+assert(ThrottlingException.prototype instanceof MailManagerServiceException);
+assert(ValidationException.prototype instanceof MailManagerServiceException);
 assert(MailManagerServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAddonInstances === "function");

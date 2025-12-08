@@ -1,6 +1,8 @@
 import {
+  AccessDeniedException,
   Action,
   CentralizationFailureReason,
+  ConflictException,
   CreateCentralizationRuleForOrganizationCommand,
   CreateS3TableIntegrationCommand,
   CreateTelemetryPipelineCommand,
@@ -26,6 +28,8 @@ import {
   GetTelemetryRuleCommand,
   GetTelemetryRuleForOrganizationCommand,
   IntegrationStatus,
+  InternalServerException,
+  InvalidStateException,
   ListCentralizationRulesForOrganizationCommand,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganizationCommand,
@@ -40,9 +44,11 @@ import {
   ObservabilityAdminServiceException,
   OutputFormat,
   RecordFormat,
+  ResourceNotFoundException,
   ResourceType,
   RuleHealth,
   SSEAlgorithm,
+  ServiceQuotaExceededException,
   StartTelemetryEnrichmentCommand,
   StartTelemetryEvaluationCommand,
   StartTelemetryEvaluationForOrganizationCommand,
@@ -57,12 +63,14 @@ import {
   TelemetryState,
   TelemetryType,
   TestTelemetryPipelineCommand,
+  TooManyRequestsException,
   UntagResourceCommand,
   UpdateCentralizationRuleForOrganizationCommand,
   UpdateTelemetryPipelineCommand,
   UpdateTelemetryRuleCommand,
   UpdateTelemetryRuleForOrganizationCommand,
   ValidateTelemetryPipelineConfigurationCommand,
+  ValidationException,
   WAFLogType,
   paginateListCentralizationRulesForOrganization,
   paginateListResourceTelemetry,
@@ -141,6 +149,14 @@ assert(typeof TelemetryState === "object");
 assert(typeof TelemetryType === "object");
 assert(typeof WAFLogType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ObservabilityAdminServiceException);
+assert(ConflictException.prototype instanceof ObservabilityAdminServiceException);
+assert(InternalServerException.prototype instanceof ObservabilityAdminServiceException);
+assert(InvalidStateException.prototype instanceof ObservabilityAdminServiceException);
+assert(ResourceNotFoundException.prototype instanceof ObservabilityAdminServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof ObservabilityAdminServiceException);
+assert(TooManyRequestsException.prototype instanceof ObservabilityAdminServiceException);
+assert(ValidationException.prototype instanceof ObservabilityAdminServiceException);
 assert(ObservabilityAdminServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCentralizationRulesForOrganization === "function");

@@ -25,6 +25,8 @@ import {
   GetFormCommand,
   GetMetadataCommand,
   GetThemeCommand,
+  InternalServerException,
+  InvalidParameterException,
   JSModule,
   JSScript,
   JSTarget,
@@ -36,11 +38,16 @@ import {
   ListThemesCommand,
   PutMetadataFlagCommand,
   RefreshTokenCommand,
+  ResourceConflictException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SortDirection,
   StartCodegenJobCommand,
   StorageAccessLevel,
   TagResourceCommand,
+  ThrottlingException,
   TokenProviders,
+  UnauthorizedException,
   UntagResourceCommand,
   UpdateComponentCommand,
   UpdateFormCommand,
@@ -103,6 +110,13 @@ assert(typeof SortDirection === "object");
 assert(typeof StorageAccessLevel === "object");
 assert(typeof TokenProviders === "object");
 // errors
+assert(InternalServerException.prototype instanceof AmplifyUIBuilderServiceException);
+assert(InvalidParameterException.prototype instanceof AmplifyUIBuilderServiceException);
+assert(ResourceConflictException.prototype instanceof AmplifyUIBuilderServiceException);
+assert(ResourceNotFoundException.prototype instanceof AmplifyUIBuilderServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof AmplifyUIBuilderServiceException);
+assert(ThrottlingException.prototype instanceof AmplifyUIBuilderServiceException);
+assert(UnauthorizedException.prototype instanceof AmplifyUIBuilderServiceException);
 assert(AmplifyUIBuilderServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateExportComponents === "function");

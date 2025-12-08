@@ -5708,7 +5708,6 @@ export var XavcSettings: StaticStructureSchema = [
     [() => XavcHdProfileSettings, { [_jN]: _xHPS }],
   ],
 ];
-export var __Unit = "unit" as const;
 export var MediaConvertServiceException: StaticErrorSchema = [-3, _sm, "MediaConvertServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MediaConvertServiceException, __MediaConvertServiceException);
 export var __listOf__doubleMinNegative60Max6 = 64 | 1;

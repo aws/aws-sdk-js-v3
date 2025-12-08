@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   BatchAddChannelRoleToAccessorsCommand,
   BatchAddRoleCommand,
   BatchRemoveChannelRoleFromAccessorsCommand,
@@ -6,6 +7,7 @@ import {
   ChannelRole,
   ChannelStatus,
   ConfigurationStatus,
+  ConflictException,
   CreateChannelCommand,
   CreateSpaceCommand,
   DeleteSpaceCommand,
@@ -14,6 +16,7 @@ import {
   FeatureEnableStatus,
   GetChannelCommand,
   GetSpaceCommand,
+  InternalServerException,
   ListChannelsCommand,
   ListSpacesCommand,
   ListTagsForResourceCommand,
@@ -21,13 +24,18 @@ import {
   Repostspace,
   RepostspaceClient,
   RepostspaceServiceException,
+  ResourceNotFoundException,
   Role,
   SendInvitesCommand,
+  ServiceQuotaExceededException,
   TagResourceCommand,
+  ThrottlingException,
   TierLevel,
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdateSpaceCommand,
+  ValidationException,
+  ValidationExceptionReason,
   VanityDomainStatus,
   paginateListChannels,
   paginateListSpaces,
@@ -72,8 +80,16 @@ assert(typeof FeatureEnableParameter === "object");
 assert(typeof FeatureEnableStatus === "object");
 assert(typeof Role === "object");
 assert(typeof TierLevel === "object");
+assert(typeof ValidationExceptionReason === "object");
 assert(typeof VanityDomainStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof RepostspaceServiceException);
+assert(ConflictException.prototype instanceof RepostspaceServiceException);
+assert(InternalServerException.prototype instanceof RepostspaceServiceException);
+assert(ResourceNotFoundException.prototype instanceof RepostspaceServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof RepostspaceServiceException);
+assert(ThrottlingException.prototype instanceof RepostspaceServiceException);
+assert(ValidationException.prototype instanceof RepostspaceServiceException);
 assert(RepostspaceServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForChannelCreated === "function");

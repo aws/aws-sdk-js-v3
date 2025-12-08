@@ -1,7 +1,9 @@
 import {
+  AccessDeniedException,
   AlexaSkillStatus,
   AssociatePhoneNumbersWithVoiceConnectorCommand,
   AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
+  BadRequestException,
   BatchDeletePhoneNumberCommand,
   BatchUpdatePhoneNumberCommand,
   CallLegType,
@@ -10,6 +12,7 @@ import {
   ChimeSDKVoice,
   ChimeSDKVoiceClient,
   ChimeSDKVoiceServiceException,
+  ConflictException,
   ContactCenterSystemType,
   CreatePhoneNumberOrderCommand,
   CreateProxySessionCommand,
@@ -38,6 +41,7 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorCommand,
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
   ErrorCode,
+  ForbiddenException,
   GeoMatchLevel,
   GetGlobalSettingsCommand,
   GetPhoneNumberCommand,
@@ -62,6 +66,7 @@ import {
   GetVoiceProfileCommand,
   GetVoiceProfileDomainCommand,
   GetVoiceToneAnalysisTaskCommand,
+  GoneException,
   LanguageCode,
   ListAvailableVoiceConnectorRegionsCommand,
   ListPhoneNumberOrdersCommand,
@@ -77,6 +82,7 @@ import {
   ListVoiceProfileDomainsCommand,
   ListVoiceProfilesCommand,
   NetworkType,
+  NotFoundException,
   NotificationTarget,
   NumberSelectionBehavior,
   OrderedPhoneNumberStatus,
@@ -98,8 +104,11 @@ import {
   PutVoiceConnectorStreamingConfigurationCommand,
   PutVoiceConnectorTerminationCommand,
   PutVoiceConnectorTerminationCredentialsCommand,
+  ResourceLimitExceededException,
   RestorePhoneNumberCommand,
   SearchAvailablePhoneNumbersCommand,
+  ServiceFailureException,
+  ServiceUnavailableException,
   SessionBorderControllerType,
   SipRuleTriggerType,
   StartSpeakerSearchTaskCommand,
@@ -107,6 +116,9 @@ import {
   StopSpeakerSearchTaskCommand,
   StopVoiceToneAnalysisTaskCommand,
   TagResourceCommand,
+  ThrottledClientException,
+  UnauthorizedClientException,
+  UnprocessableEntityException,
   UntagResourceCommand,
   UpdateGlobalSettingsCommand,
   UpdatePhoneNumberCommand,
@@ -260,6 +272,18 @@ assert(typeof SipRuleTriggerType === "object");
 assert(typeof VoiceConnectorAwsRegion === "object");
 assert(typeof VoiceConnectorIntegrationType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(BadRequestException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(ConflictException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(ForbiddenException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(GoneException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(NotFoundException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(ResourceLimitExceededException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(ServiceFailureException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(ServiceUnavailableException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(ThrottledClientException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(UnauthorizedClientException.prototype instanceof ChimeSDKVoiceServiceException);
+assert(UnprocessableEntityException.prototype instanceof ChimeSDKVoiceServiceException);
 assert(ChimeSDKVoiceServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListPhoneNumberOrders === "function");

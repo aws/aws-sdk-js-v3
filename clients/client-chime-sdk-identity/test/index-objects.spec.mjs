@@ -1,9 +1,11 @@
 import {
   AllowMessages,
   AppInstanceUserEndpointType,
+  BadRequestException,
   ChimeSDKIdentity,
   ChimeSDKIdentityClient,
   ChimeSDKIdentityServiceException,
+  ConflictException,
   CreateAppInstanceAdminCommand,
   CreateAppInstanceBotCommand,
   CreateAppInstanceCommand,
@@ -20,7 +22,9 @@ import {
   DescribeAppInstanceUserEndpointCommand,
   EndpointStatus,
   EndpointStatusReason,
+  ErrorCode,
   ExpirationCriterion,
+  ForbiddenException,
   GetAppInstanceRetentionSettingsCommand,
   ListAppInstanceAdminsCommand,
   ListAppInstanceBotsCommand,
@@ -28,13 +32,19 @@ import {
   ListAppInstanceUsersCommand,
   ListAppInstancesCommand,
   ListTagsForResourceCommand,
+  NotFoundException,
   PutAppInstanceRetentionSettingsCommand,
   PutAppInstanceUserExpirationSettingsCommand,
   RegisterAppInstanceUserEndpointCommand,
+  ResourceLimitExceededException,
   RespondsTo,
+  ServiceFailureException,
+  ServiceUnavailableException,
   StandardMessages,
   TagResourceCommand,
   TargetedMessages,
+  ThrottledClientException,
+  UnauthorizedClientException,
   UntagResourceCommand,
   UpdateAppInstanceBotCommand,
   UpdateAppInstanceCommand,
@@ -86,11 +96,21 @@ assert(typeof AllowMessages === "object");
 assert(typeof AppInstanceUserEndpointType === "object");
 assert(typeof EndpointStatus === "object");
 assert(typeof EndpointStatusReason === "object");
+assert(typeof ErrorCode === "object");
 assert(typeof ExpirationCriterion === "object");
 assert(typeof RespondsTo === "object");
 assert(typeof StandardMessages === "object");
 assert(typeof TargetedMessages === "object");
 // errors
+assert(BadRequestException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(ConflictException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(ForbiddenException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(NotFoundException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(ResourceLimitExceededException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(ServiceFailureException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(ServiceUnavailableException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(ThrottledClientException.prototype instanceof ChimeSDKIdentityServiceException);
+assert(UnauthorizedClientException.prototype instanceof ChimeSDKIdentityServiceException);
 assert(ChimeSDKIdentityServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAppInstanceAdmins === "function");

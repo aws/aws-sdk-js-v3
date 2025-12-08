@@ -443,7 +443,6 @@ export var UntagResourceRequest: StaticStructureSchema = [
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var BackupSearchServiceException: StaticErrorSchema = [-3, _sm, "BackupSearchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BackupSearchServiceException, __BackupSearchServiceException);
 export var EBSItemFilters: StaticListSchema = [1, n0, _EBSIFt, 0, () => EBSItemFilter];

@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   ActionGroupSignature,
   ActionGroupState,
   AgentAliasStatus,
@@ -13,6 +14,7 @@ import {
   CachePointType,
   ChunkingStrategy,
   ConcurrencyType,
+  ConflictException,
   ConfluenceAuthType,
   ConfluenceHostType,
   ContentDataSourceType,
@@ -80,6 +82,7 @@ import {
   IngestionJobSortByAttribute,
   IngestionJobStatus,
   InlineContentType,
+  InternalServerException,
   KnowledgeBaseState,
   KnowledgeBaseStatus,
   KnowledgeBaseStorageType,
@@ -119,7 +122,9 @@ import {
   RelayConversationHistory,
   RequireConfirmation,
   RerankingMetadataSelectionMode,
+  ResourceNotFoundException,
   SalesforceAuthType,
+  ServiceQuotaExceededException,
   SharePointAuthType,
   SharePointHostType,
   SortOrder,
@@ -129,6 +134,7 @@ import {
   SupplementalDataStorageLocationType,
   SupportedLanguages,
   TagResourceCommand,
+  ThrottlingException,
   Type,
   UntagResourceCommand,
   UpdateAgentActionGroupCommand,
@@ -142,6 +148,7 @@ import {
   UpdateKnowledgeBaseCommand,
   UpdatePromptCommand,
   ValidateFlowDefinitionCommand,
+  ValidationException,
   VectorSearchRerankingConfigurationType,
   WebScopeType,
   paginateListAgentActionGroups,
@@ -308,6 +315,13 @@ assert(typeof Type === "object");
 assert(typeof VectorSearchRerankingConfigurationType === "object");
 assert(typeof WebScopeType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BedrockAgentServiceException);
+assert(ConflictException.prototype instanceof BedrockAgentServiceException);
+assert(InternalServerException.prototype instanceof BedrockAgentServiceException);
+assert(ResourceNotFoundException.prototype instanceof BedrockAgentServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof BedrockAgentServiceException);
+assert(ThrottlingException.prototype instanceof BedrockAgentServiceException);
+assert(ValidationException.prototype instanceof BedrockAgentServiceException);
 assert(BedrockAgentServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAgentActionGroups === "function");

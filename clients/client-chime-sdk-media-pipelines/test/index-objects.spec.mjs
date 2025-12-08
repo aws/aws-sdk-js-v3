@@ -5,6 +5,7 @@ import {
   AudioArtifactsConcatenationState,
   AudioChannelsOption,
   AudioMuxType,
+  BadRequestException,
   BorderColor,
   CallAnalyticsLanguageCode,
   CanvasOrientation,
@@ -13,6 +14,7 @@ import {
   ChimeSDKMediaPipelinesServiceException,
   ConcatenationSinkType,
   ConcatenationSourceType,
+  ConflictException,
   ContentMuxType,
   ContentRedactionOutput,
   ContentShareLayoutOption,
@@ -28,6 +30,8 @@ import {
   DeleteMediaInsightsPipelineConfigurationCommand,
   DeleteMediaPipelineCommand,
   DeleteMediaPipelineKinesisVideoStreamPoolCommand,
+  ErrorCode,
+  ForbiddenException,
   FragmentSelectorType,
   GetMediaCapturePipelineCommand,
   GetMediaInsightsPipelineConfigurationCommand,
@@ -57,19 +61,25 @@ import {
   MediaPipelineTaskStatus,
   MediaStreamPipelineSinkType,
   MediaStreamType,
+  NotFoundException,
   PartialResultsStability,
   ParticipantRole,
   PresenterPosition,
   RealTimeAlertRuleType,
   RecordingFileFormat,
   ResolutionOption,
+  ResourceLimitExceededException,
   SentimentType,
+  ServiceFailureException,
+  ServiceUnavailableException,
   StartSpeakerSearchTaskCommand,
   StartVoiceToneAnalysisTaskCommand,
   StopSpeakerSearchTaskCommand,
   StopVoiceToneAnalysisTaskCommand,
   TagResourceCommand,
+  ThrottledClientException,
   TileOrder,
+  UnauthorizedClientException,
   UntagResourceCommand,
   UpdateMediaInsightsPipelineConfigurationCommand,
   UpdateMediaInsightsPipelineStatusCommand,
@@ -136,6 +146,7 @@ assert(typeof ContentMuxType === "object");
 assert(typeof ContentRedactionOutput === "object");
 assert(typeof ContentShareLayoutOption === "object");
 assert(typeof ContentType === "object");
+assert(typeof ErrorCode === "object");
 assert(typeof FragmentSelectorType === "object");
 assert(typeof HighlightColor === "object");
 assert(typeof HorizontalTilePosition === "object");
@@ -168,6 +179,15 @@ assert(typeof VocabularyFilterMethod === "object");
 assert(typeof VoiceAnalyticsConfigurationStatus === "object");
 assert(typeof VoiceAnalyticsLanguageCode === "object");
 // errors
+assert(BadRequestException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(ConflictException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(ForbiddenException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(NotFoundException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(ResourceLimitExceededException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(ServiceFailureException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(ServiceUnavailableException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(ThrottledClientException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
+assert(UnauthorizedClientException.prototype instanceof ChimeSDKMediaPipelinesServiceException);
 assert(ChimeSDKMediaPipelinesServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListMediaCapturePipelines === "function");

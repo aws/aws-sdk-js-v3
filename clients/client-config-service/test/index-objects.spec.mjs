@@ -15,8 +15,10 @@ import {
   ConfigServiceServiceException,
   ConfigurationItemStatus,
   ConfigurationRecorderFilterName,
+  ConflictException,
   ConformancePackComplianceType,
   ConformancePackState,
+  ConformancePackTemplateValidationException,
   DeleteAggregationAuthorizationCommand,
   DeleteConfigRuleCommand,
   DeleteConfigurationAggregatorCommand,
@@ -82,6 +84,24 @@ import {
   GetResourceConfigHistoryCommand,
   GetResourceEvaluationSummaryCommand,
   GetStoredQueryCommand,
+  IdempotentParameterMismatch,
+  InsufficientDeliveryPolicyException,
+  InsufficientPermissionsException,
+  InvalidConfigurationRecorderNameException,
+  InvalidDeliveryChannelNameException,
+  InvalidExpressionException,
+  InvalidLimitException,
+  InvalidNextTokenException,
+  InvalidParameterValueException,
+  InvalidRecordingGroupException,
+  InvalidResultTokenException,
+  InvalidRoleException,
+  InvalidS3KeyPrefixException,
+  InvalidS3KmsKeyArnException,
+  InvalidSNSTopicARNException,
+  InvalidTimeRangeException,
+  LastDeliveryChannelDeleteFailedException,
+  LimitExceededException,
   ListAggregateDiscoveredResourcesCommand,
   ListConfigurationRecordersCommand,
   ListConformancePackComplianceScoresCommand,
@@ -89,14 +109,42 @@ import {
   ListResourceEvaluationsCommand,
   ListStoredQueriesCommand,
   ListTagsForResourceCommand,
+  MaxActiveResourcesExceededException,
+  MaxNumberOfConfigRulesExceededException,
+  MaxNumberOfConfigurationRecordersExceededException,
+  MaxNumberOfConformancePacksExceededException,
+  MaxNumberOfDeliveryChannelsExceededException,
+  MaxNumberOfOrganizationConfigRulesExceededException,
+  MaxNumberOfOrganizationConformancePacksExceededException,
+  MaxNumberOfRetentionConfigurationsExceededException,
   MaximumExecutionFrequency,
   MemberAccountRuleStatus,
   MessageType,
+  NoAvailableConfigurationRecorderException,
+  NoAvailableDeliveryChannelException,
+  NoAvailableOrganizationException,
+  NoRunningConfigurationRecorderException,
+  NoSuchBucketException,
+  NoSuchConfigRuleException,
+  NoSuchConfigRuleInConformancePackException,
+  NoSuchConfigurationAggregatorException,
+  NoSuchConfigurationRecorderException,
+  NoSuchConformancePackException,
+  NoSuchDeliveryChannelException,
+  NoSuchOrganizationConfigRuleException,
+  NoSuchOrganizationConformancePackException,
+  NoSuchRemediationConfigurationException,
+  NoSuchRemediationExceptionException,
+  NoSuchRetentionConfigurationException,
+  OrganizationAccessDeniedException,
+  OrganizationAllFeaturesNotEnabledException,
   OrganizationConfigRuleTriggerType,
   OrganizationConfigRuleTriggerTypeNoSN,
+  OrganizationConformancePackTemplateValidationException,
   OrganizationResourceDetailedStatus,
   OrganizationResourceStatus,
   OrganizationRuleStatus,
+  OversizedConfigurationItemException,
   Owner,
   PutAggregationAuthorizationCommand,
   PutConfigRuleCommand,
@@ -120,10 +168,15 @@ import {
   RecordingStrategyType,
   RemediationExecutionState,
   RemediationExecutionStepState,
+  RemediationInProgressException,
   RemediationTargetType,
+  ResourceConcurrentModificationException,
   ResourceConfigurationSchemaType,
   ResourceCountGroupKey,
   ResourceEvaluationStatus,
+  ResourceInUseException,
+  ResourceNotDiscoveredException,
+  ResourceNotFoundException,
   ResourceType,
   ResourceValueType,
   SelectAggregateResourceConfigCommand,
@@ -136,7 +189,10 @@ import {
   StartResourceEvaluationCommand,
   StopConfigurationRecorderCommand,
   TagResourceCommand,
+  TooManyTagsException,
+  UnmodifiableEntityException,
   UntagResourceCommand,
+  ValidationException,
   paginateDescribeAggregateComplianceByConfigRules,
   paginateDescribeAggregateComplianceByConformancePacks,
   paginateDescribeAggregationAuthorizations,
@@ -321,6 +377,62 @@ assert(typeof ResourceValueType === "object");
 assert(typeof SortBy === "object");
 assert(typeof SortOrder === "object");
 // errors
+assert(ConflictException.prototype instanceof ConfigServiceServiceException);
+assert(ConformancePackTemplateValidationException.prototype instanceof ConfigServiceServiceException);
+assert(IdempotentParameterMismatch.prototype instanceof ConfigServiceServiceException);
+assert(InsufficientDeliveryPolicyException.prototype instanceof ConfigServiceServiceException);
+assert(InsufficientPermissionsException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidConfigurationRecorderNameException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidDeliveryChannelNameException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidExpressionException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidLimitException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidNextTokenException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidParameterValueException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidRecordingGroupException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidResultTokenException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidRoleException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidS3KeyPrefixException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidS3KmsKeyArnException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidSNSTopicARNException.prototype instanceof ConfigServiceServiceException);
+assert(InvalidTimeRangeException.prototype instanceof ConfigServiceServiceException);
+assert(LastDeliveryChannelDeleteFailedException.prototype instanceof ConfigServiceServiceException);
+assert(LimitExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxActiveResourcesExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxNumberOfConfigRulesExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxNumberOfConfigurationRecordersExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxNumberOfConformancePacksExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxNumberOfDeliveryChannelsExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxNumberOfOrganizationConfigRulesExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxNumberOfOrganizationConformancePacksExceededException.prototype instanceof ConfigServiceServiceException);
+assert(MaxNumberOfRetentionConfigurationsExceededException.prototype instanceof ConfigServiceServiceException);
+assert(NoAvailableConfigurationRecorderException.prototype instanceof ConfigServiceServiceException);
+assert(NoAvailableDeliveryChannelException.prototype instanceof ConfigServiceServiceException);
+assert(NoAvailableOrganizationException.prototype instanceof ConfigServiceServiceException);
+assert(NoRunningConfigurationRecorderException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchBucketException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchConfigRuleException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchConfigRuleInConformancePackException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchConfigurationAggregatorException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchConfigurationRecorderException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchConformancePackException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchDeliveryChannelException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchOrganizationConfigRuleException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchOrganizationConformancePackException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchRemediationConfigurationException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchRemediationExceptionException.prototype instanceof ConfigServiceServiceException);
+assert(NoSuchRetentionConfigurationException.prototype instanceof ConfigServiceServiceException);
+assert(OrganizationAccessDeniedException.prototype instanceof ConfigServiceServiceException);
+assert(OrganizationAllFeaturesNotEnabledException.prototype instanceof ConfigServiceServiceException);
+assert(OrganizationConformancePackTemplateValidationException.prototype instanceof ConfigServiceServiceException);
+assert(OversizedConfigurationItemException.prototype instanceof ConfigServiceServiceException);
+assert(RemediationInProgressException.prototype instanceof ConfigServiceServiceException);
+assert(ResourceConcurrentModificationException.prototype instanceof ConfigServiceServiceException);
+assert(ResourceInUseException.prototype instanceof ConfigServiceServiceException);
+assert(ResourceNotDiscoveredException.prototype instanceof ConfigServiceServiceException);
+assert(ResourceNotFoundException.prototype instanceof ConfigServiceServiceException);
+assert(TooManyTagsException.prototype instanceof ConfigServiceServiceException);
+assert(UnmodifiableEntityException.prototype instanceof ConfigServiceServiceException);
+assert(ValidationException.prototype instanceof ConfigServiceServiceException);
 assert(ConfigServiceServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeAggregateComplianceByConfigRules === "function");

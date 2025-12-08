@@ -14,5 +14,10 @@ export type {
   QueryForecastResponse,
   QueryWhatIfForecastRequest,
   QueryWhatIfForecastResponse,
+  InvalidInputException,
+  InvalidNextTokenException,
+  LimitExceededException,
+  ResourceInUseException,
+  ResourceNotFoundException,
   ForecastqueryServiceException,
 } from "../dist-types/index.d";

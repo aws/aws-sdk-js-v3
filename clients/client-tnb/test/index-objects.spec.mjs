@@ -1,4 +1,5 @@
 import {
+  AccessDeniedException,
   CancelSolNetworkOperationCommand,
   CreateSolFunctionPackageCommand,
   CreateSolNetworkInstanceCommand,
@@ -17,6 +18,7 @@ import {
   GetSolNetworkPackageContentCommand,
   GetSolNetworkPackageDescriptorCommand,
   InstantiateSolNetworkInstanceCommand,
+  InternalServerException,
   LcmOperationType,
   ListSolFunctionInstancesCommand,
   ListSolFunctionPackagesCommand,
@@ -34,9 +36,12 @@ import {
   PackageContentType,
   PutSolFunctionPackageContentCommand,
   PutSolNetworkPackageContentCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   TagResourceCommand,
   TaskStatus,
   TerminateSolNetworkInstanceCommand,
+  ThrottlingException,
   Tnb,
   TnbClient,
   TnbServiceException,
@@ -48,6 +53,7 @@ import {
   UsageState,
   ValidateSolFunctionPackageContentCommand,
   ValidateSolNetworkPackageContentCommand,
+  ValidationException,
   VnfInstantiationState,
   VnfOperationalState,
   paginateListSolFunctionInstances,
@@ -111,6 +117,12 @@ assert(typeof UsageState === "object");
 assert(typeof VnfInstantiationState === "object");
 assert(typeof VnfOperationalState === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof TnbServiceException);
+assert(InternalServerException.prototype instanceof TnbServiceException);
+assert(ResourceNotFoundException.prototype instanceof TnbServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof TnbServiceException);
+assert(ThrottlingException.prototype instanceof TnbServiceException);
+assert(ValidationException.prototype instanceof TnbServiceException);
 assert(TnbServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListSolFunctionInstances === "function");

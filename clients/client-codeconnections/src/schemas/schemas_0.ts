@@ -462,7 +462,6 @@ export var UpdateSyncConfigurationInput: StaticStructureSchema = [
 ];
 export var UpdateSyncConfigurationOutput: StaticStructureSchema = [3, n0, _USCO, 0, [_SC], [() => SyncConfiguration]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_VI, _SI, _SGI, _TC], [0, 64 | 0, 64 | 0, 0]];
-export var __Unit = "unit" as const;
 export var CodeConnectionsServiceException: StaticErrorSchema = [-3, _sm, "CodeConnectionsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeConnectionsServiceException, __CodeConnectionsServiceException);
 export var ConnectionList: StaticListSchema = [1, n0, _CL, 0, () => Connection];

@@ -1,4 +1,10 @@
 import {
+  AccessPointAlreadyExists,
+  AccessPointLimitExceeded,
+  AccessPointNotFound,
+  AvailabilityZonesMismatch,
+  BadRequest,
+  ConflictException,
   CreateAccessPointCommand,
   CreateFileSystemCommand,
   CreateMountTargetCommand,
@@ -11,6 +17,7 @@ import {
   DeleteReplicationConfigurationCommand,
   DeleteTagsCommand,
   DeletionMode,
+  DependencyTimeout,
   DescribeAccessPointsCommand,
   DescribeAccountPreferencesCommand,
   DescribeBackupPolicyCommand,
@@ -24,28 +31,53 @@ import {
   EFS,
   EFSClient,
   EFSServiceException,
+  FileSystemAlreadyExists,
+  FileSystemInUse,
+  FileSystemLimitExceeded,
+  FileSystemNotFound,
+  IncorrectFileSystemLifeCycleState,
+  IncorrectMountTargetState,
+  InsufficientThroughputCapacity,
+  InternalServerError,
+  InvalidPolicyException,
+  IpAddressInUse,
   IpAddressType,
   LifeCycleState,
   ListTagsForResourceCommand,
   ModifyMountTargetSecurityGroupsCommand,
+  MountTargetConflict,
+  MountTargetNotFound,
+  NetworkInterfaceLimitExceeded,
+  NoFreeAddressesInSubnet,
   PerformanceMode,
+  PolicyNotFound,
   PutAccountPreferencesCommand,
   PutBackupPolicyCommand,
   PutFileSystemPolicyCommand,
   PutLifecycleConfigurationCommand,
+  ReplicationAlreadyExists,
+  ReplicationNotFound,
   ReplicationOverwriteProtection,
   ReplicationStatus,
   Resource,
   ResourceIdType,
+  SecurityGroupLimitExceeded,
+  SecurityGroupNotFound,
   Status,
+  SubnetNotFound,
   TagResourceCommand,
+  ThrottlingException,
+  ThroughputLimitExceeded,
   ThroughputMode,
+  TooManyRequests,
   TransitionToArchiveRules,
   TransitionToIARules,
   TransitionToPrimaryStorageClassRules,
+  UnsupportedAvailabilityZone,
   UntagResourceCommand,
   UpdateFileSystemCommand,
   UpdateFileSystemProtectionCommand,
+  ValidationException,
   paginateDescribeAccessPoints,
   paginateDescribeFileSystems,
   paginateDescribeMountTargets,
@@ -104,6 +136,38 @@ assert(typeof TransitionToArchiveRules === "object");
 assert(typeof TransitionToIARules === "object");
 assert(typeof TransitionToPrimaryStorageClassRules === "object");
 // errors
+assert(AccessPointAlreadyExists.prototype instanceof EFSServiceException);
+assert(AccessPointLimitExceeded.prototype instanceof EFSServiceException);
+assert(AccessPointNotFound.prototype instanceof EFSServiceException);
+assert(AvailabilityZonesMismatch.prototype instanceof EFSServiceException);
+assert(BadRequest.prototype instanceof EFSServiceException);
+assert(ConflictException.prototype instanceof EFSServiceException);
+assert(DependencyTimeout.prototype instanceof EFSServiceException);
+assert(FileSystemAlreadyExists.prototype instanceof EFSServiceException);
+assert(FileSystemInUse.prototype instanceof EFSServiceException);
+assert(FileSystemLimitExceeded.prototype instanceof EFSServiceException);
+assert(FileSystemNotFound.prototype instanceof EFSServiceException);
+assert(IncorrectFileSystemLifeCycleState.prototype instanceof EFSServiceException);
+assert(IncorrectMountTargetState.prototype instanceof EFSServiceException);
+assert(InsufficientThroughputCapacity.prototype instanceof EFSServiceException);
+assert(InternalServerError.prototype instanceof EFSServiceException);
+assert(InvalidPolicyException.prototype instanceof EFSServiceException);
+assert(IpAddressInUse.prototype instanceof EFSServiceException);
+assert(MountTargetConflict.prototype instanceof EFSServiceException);
+assert(MountTargetNotFound.prototype instanceof EFSServiceException);
+assert(NetworkInterfaceLimitExceeded.prototype instanceof EFSServiceException);
+assert(NoFreeAddressesInSubnet.prototype instanceof EFSServiceException);
+assert(PolicyNotFound.prototype instanceof EFSServiceException);
+assert(ReplicationAlreadyExists.prototype instanceof EFSServiceException);
+assert(ReplicationNotFound.prototype instanceof EFSServiceException);
+assert(SecurityGroupLimitExceeded.prototype instanceof EFSServiceException);
+assert(SecurityGroupNotFound.prototype instanceof EFSServiceException);
+assert(SubnetNotFound.prototype instanceof EFSServiceException);
+assert(ThrottlingException.prototype instanceof EFSServiceException);
+assert(ThroughputLimitExceeded.prototype instanceof EFSServiceException);
+assert(TooManyRequests.prototype instanceof EFSServiceException);
+assert(UnsupportedAvailabilityZone.prototype instanceof EFSServiceException);
+assert(ValidationException.prototype instanceof EFSServiceException);
 assert(EFSServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeAccessPoints === "function");

@@ -1,15 +1,20 @@
 import {
+  AccessDeniedException,
   ClockStatus,
   ClockTargetStatus,
+  ConflictException,
   CreateSnapshotCommand,
   DeleteAppCommand,
   DeleteSimulationCommand,
   DescribeAppCommand,
   DescribeSimulationCommand,
+  InternalServerException,
   LifecycleManagementStrategy,
   ListAppsCommand,
   ListSimulationsCommand,
   ListTagsForResourceCommand,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SimSpaceWeaver,
   SimSpaceWeaverClient,
   SimSpaceWeaverServiceException,
@@ -24,7 +29,9 @@ import {
   StopClockCommand,
   StopSimulationCommand,
   TagResourceCommand,
+  TooManyTagsException,
   UntagResourceCommand,
+  ValidationException,
   paginateListApps,
   paginateListSimulations,
 } from "../dist-cjs/index.js";
@@ -58,6 +65,13 @@ assert(typeof SimulationAppTargetStatus === "object");
 assert(typeof SimulationStatus === "object");
 assert(typeof SimulationTargetStatus === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof SimSpaceWeaverServiceException);
+assert(ConflictException.prototype instanceof SimSpaceWeaverServiceException);
+assert(InternalServerException.prototype instanceof SimSpaceWeaverServiceException);
+assert(ResourceNotFoundException.prototype instanceof SimSpaceWeaverServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SimSpaceWeaverServiceException);
+assert(TooManyTagsException.prototype instanceof SimSpaceWeaverServiceException);
+assert(ValidationException.prototype instanceof SimSpaceWeaverServiceException);
 assert(SimSpaceWeaverServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListApps === "function");

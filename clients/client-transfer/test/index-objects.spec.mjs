@@ -1,10 +1,12 @@
 import {
+  AccessDeniedException,
   AgreementStatusType,
   As2Transport,
   CertificateStatusType,
   CertificateType,
   CertificateUsageType,
   CompressionEnum,
+  ConflictException,
   ConnectorEgressType,
   ConnectorStatus,
   CreateAccessCommand,
@@ -54,6 +56,9 @@ import {
   ImportCertificateCommand,
   ImportHostKeyCommand,
   ImportSshPublicKeyCommand,
+  InternalServiceError,
+  InvalidNextTokenException,
+  InvalidRequestException,
   IpAddressType,
   ListAccessesCommand,
   ListAgreementsCommand,
@@ -77,9 +82,12 @@ import {
   PreserveFilenameType,
   ProfileType,
   Protocol,
+  ResourceExistsException,
+  ResourceNotFoundException,
   SecurityPolicyProtocol,
   SecurityPolicyResourceType,
   SendWorkflowStepStateCommand,
+  ServiceUnavailableException,
   SetStatOption,
   SftpAuthenticationMethods,
   SigningAlg,
@@ -93,6 +101,7 @@ import {
   TagResourceCommand,
   TestConnectionCommand,
   TestIdentityProviderCommand,
+  ThrottlingException,
   TlsSessionResumptionMode,
   Transfer,
   TransferClient,
@@ -247,6 +256,15 @@ assert(typeof WebAppEndpointPolicy === "object");
 assert(typeof WebAppEndpointType === "object");
 assert(typeof WorkflowStepType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof TransferServiceException);
+assert(ConflictException.prototype instanceof TransferServiceException);
+assert(InternalServiceError.prototype instanceof TransferServiceException);
+assert(InvalidNextTokenException.prototype instanceof TransferServiceException);
+assert(InvalidRequestException.prototype instanceof TransferServiceException);
+assert(ResourceExistsException.prototype instanceof TransferServiceException);
+assert(ResourceNotFoundException.prototype instanceof TransferServiceException);
+assert(ServiceUnavailableException.prototype instanceof TransferServiceException);
+assert(ThrottlingException.prototype instanceof TransferServiceException);
 assert(TransferServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForServerOffline === "function");

@@ -112,7 +112,6 @@ export var Transcript: StaticStructureSchema = [
   [_I, _PI, _PR, _Co, _BOM, _EOM, _Se, _IDs],
   [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected],
 ];
-export var __Unit = "unit" as const;
 export var ConnectContactLensServiceException: StaticErrorSchema = [
   -3,
   _sm,

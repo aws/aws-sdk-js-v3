@@ -11,8 +11,12 @@ import {
   DescribePipelinesCommand,
   EvaluateExpressionCommand,
   GetPipelineDefinitionCommand,
+  InternalServiceError,
+  InvalidRequestException,
   ListPipelinesCommand,
   OperatorType,
+  PipelineDeletedException,
+  PipelineNotFoundException,
   PollForTaskCommand,
   PutPipelineDefinitionCommand,
   QueryObjectsCommand,
@@ -21,6 +25,7 @@ import {
   ReportTaskRunnerHeartbeatCommand,
   SetStatusCommand,
   SetTaskStatusCommand,
+  TaskNotFoundException,
   TaskStatus,
   ValidatePipelineDefinitionCommand,
   paginateDescribeObjects,
@@ -55,6 +60,11 @@ assert(typeof ValidatePipelineDefinitionCommand === "function");
 assert(typeof OperatorType === "object");
 assert(typeof TaskStatus === "object");
 // errors
+assert(InternalServiceError.prototype instanceof DataPipelineServiceException);
+assert(InvalidRequestException.prototype instanceof DataPipelineServiceException);
+assert(PipelineDeletedException.prototype instanceof DataPipelineServiceException);
+assert(PipelineNotFoundException.prototype instanceof DataPipelineServiceException);
+assert(TaskNotFoundException.prototype instanceof DataPipelineServiceException);
 assert(DataPipelineServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeObjects === "function");

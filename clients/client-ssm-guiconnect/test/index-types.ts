@@ -19,5 +19,12 @@ export type {
   S3Bucket,
   UpdateConnectionRecordingPreferencesRequest,
   UpdateConnectionRecordingPreferencesResponse,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
   SSMGuiConnectServiceException,
 } from "../dist-types/index.d";

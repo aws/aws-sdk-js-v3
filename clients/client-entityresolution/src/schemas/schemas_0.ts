@@ -1090,7 +1090,6 @@ export var UpdateSchemaMappingOutput: StaticStructureSchema = [
 ];
 export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
 export var EntityResolutionServiceException: StaticErrorSchema = [
   -3,
   _sm,

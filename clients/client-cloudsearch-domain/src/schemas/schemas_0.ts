@@ -204,7 +204,6 @@ export var UploadDocumentsResponse: StaticStructureSchema = [
   [_st, _a, _de, _w],
   [0, 1, 1, () => DocumentServiceWarnings],
 ];
-export var __Unit = "unit" as const;
 export var CloudSearchDomainServiceException: StaticErrorSchema = [
   -3,
   _sm,

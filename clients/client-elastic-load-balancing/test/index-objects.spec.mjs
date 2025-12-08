@@ -1,7 +1,9 @@
 import {
+  AccessPointNotFoundException,
   AddTagsCommand,
   ApplySecurityGroupsToLoadBalancerCommand,
   AttachLoadBalancerToSubnetsCommand,
+  CertificateNotFoundException,
   ConfigureHealthCheckCommand,
   CreateAppCookieStickinessPolicyCommand,
   CreateLBCookieStickinessPolicyCommand,
@@ -11,6 +13,7 @@ import {
   DeleteLoadBalancerCommand,
   DeleteLoadBalancerListenersCommand,
   DeleteLoadBalancerPolicyCommand,
+  DependencyThrottleException,
   DeregisterInstancesFromLoadBalancerCommand,
   DescribeAccountLimitsCommand,
   DescribeInstanceHealthCommand,
@@ -21,16 +24,35 @@ import {
   DescribeTagsCommand,
   DetachLoadBalancerFromSubnetsCommand,
   DisableAvailabilityZonesForLoadBalancerCommand,
+  DuplicateAccessPointNameException,
+  DuplicateListenerException,
+  DuplicatePolicyNameException,
+  DuplicateTagKeysException,
   ElasticLoadBalancing,
   ElasticLoadBalancingClient,
   ElasticLoadBalancingServiceException,
   EnableAvailabilityZonesForLoadBalancerCommand,
+  InvalidConfigurationRequestException,
+  InvalidEndPointException,
+  InvalidSchemeException,
+  InvalidSecurityGroupException,
+  InvalidSubnetException,
+  ListenerNotFoundException,
+  LoadBalancerAttributeNotFoundException,
   ModifyLoadBalancerAttributesCommand,
+  OperationNotPermittedException,
+  PolicyNotFoundException,
+  PolicyTypeNotFoundException,
   RegisterInstancesWithLoadBalancerCommand,
   RemoveTagsCommand,
   SetLoadBalancerListenerSSLCertificateCommand,
   SetLoadBalancerPoliciesForBackendServerCommand,
   SetLoadBalancerPoliciesOfListenerCommand,
+  SubnetNotFoundException,
+  TooManyAccessPointsException,
+  TooManyPoliciesException,
+  TooManyTagsException,
+  UnsupportedProtocolException,
   paginateDescribeLoadBalancers,
   waitForAnyInstanceInService,
   waitForInstanceDeregistered,
@@ -74,6 +96,28 @@ assert(typeof SetLoadBalancerListenerSSLCertificateCommand === "function");
 assert(typeof SetLoadBalancerPoliciesForBackendServerCommand === "function");
 assert(typeof SetLoadBalancerPoliciesOfListenerCommand === "function");
 // errors
+assert(AccessPointNotFoundException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(CertificateNotFoundException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(DependencyThrottleException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(DuplicateAccessPointNameException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(DuplicateListenerException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(DuplicatePolicyNameException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(DuplicateTagKeysException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(InvalidConfigurationRequestException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(InvalidEndPointException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(InvalidSchemeException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(InvalidSecurityGroupException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(InvalidSubnetException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(ListenerNotFoundException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(LoadBalancerAttributeNotFoundException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(OperationNotPermittedException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(PolicyNotFoundException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(PolicyTypeNotFoundException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(SubnetNotFoundException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(TooManyAccessPointsException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(TooManyPoliciesException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(TooManyTagsException.prototype instanceof ElasticLoadBalancingServiceException);
+assert(UnsupportedProtocolException.prototype instanceof ElasticLoadBalancingServiceException);
 assert(ElasticLoadBalancingServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAnyInstanceInService === "function");
