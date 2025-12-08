@@ -27,11 +27,7 @@ export interface GetTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
 export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a trust anchor.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:GetTrustAnchor</code>.
- *          </p>
+ * <p>Gets a trust anchor.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:GetTrustAnchor</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

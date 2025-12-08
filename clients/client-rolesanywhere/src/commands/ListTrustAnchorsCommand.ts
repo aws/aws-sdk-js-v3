@@ -27,11 +27,7 @@ export interface ListTrustAnchorsCommandInput extends ListRequest {}
 export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the trust anchors in the authenticated account and Amazon Web Services Region.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ListTrustAnchors</code>.
- *          </p>
+ * <p>Lists the trust anchors in the authenticated account and Amazon Web Services Region.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListTrustAnchors</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,11 +27,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags attached to the resource.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ListTagsForResource</code>.
- *          </p>
+ * <p>Lists the tags attached to the resource.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListTagsForResource</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

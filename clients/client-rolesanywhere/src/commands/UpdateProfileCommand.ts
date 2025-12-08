@@ -27,13 +27,7 @@ export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
 export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a <i>profile</i>, a list of the roles that IAM
- *          Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with
- *             IAM managed policies.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:UpdateProfile</code>.
- *          </p>
+ * <p>Updates a <i>profile</i>, a list of the roles that IAM Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateProfile</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

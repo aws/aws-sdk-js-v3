@@ -27,11 +27,7 @@ export interface DisableCrlCommandInput extends ScalarCrlRequest {}
 export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Disables a certificate revocation list (CRL).</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DisableCrl</code>.
- *          </p>
+ * <p>Disables a certificate revocation list (CRL).</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DisableCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

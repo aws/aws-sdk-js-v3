@@ -27,11 +27,7 @@ export interface DeleteCrlCommandInput extends ScalarCrlRequest {}
 export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a certificate revocation list (CRL).</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DeleteCrl</code>.
- *          </p>
+ * <p>Deletes a certificate revocation list (CRL).</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DeleteCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

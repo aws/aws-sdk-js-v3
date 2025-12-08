@@ -27,11 +27,7 @@ export interface EnableProfileCommandInput extends ScalarProfileRequest {}
 export interface EnableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Enables temporary credential requests for a profile. </p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:EnableProfile</code>.
- *          </p>
+ * <p>Enables temporary credential requests for a profile. </p> <p> <b>Required permissions: </b> <code>rolesanywhere:EnableProfile</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

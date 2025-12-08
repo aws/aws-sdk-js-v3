@@ -27,11 +27,7 @@ export interface DisableProfileCommandInput extends ScalarProfileRequest {}
 export interface DisableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Disables a profile. When disabled, temporary credential requests with this profile fail.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DisableProfile</code>.
- *          </p>
+ * <p>Disables a profile. When disabled, temporary credential requests with this profile fail.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DisableProfile</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

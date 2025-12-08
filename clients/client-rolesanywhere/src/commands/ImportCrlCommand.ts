@@ -27,14 +27,7 @@ export interface ImportCrlCommandInput extends ImportCrlRequest {}
 export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Imports the certificate revocation list (CRL). A CRL is a list of certificates that have
- *          been revoked by the issuing certificate Authority (CA).In order to be properly imported, a CRL must be in PEM
- *          format. IAM Roles Anywhere
- *          validates against the CRL before issuing credentials. </p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ImportCrl</code>.
- *          </p>
+ * <p>Imports the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate Authority (CA).In order to be properly imported, a CRL must be in PEM format. IAM Roles Anywhere validates against the CRL before issuing credentials. </p> <p> <b>Required permissions: </b> <code>rolesanywhere:ImportCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

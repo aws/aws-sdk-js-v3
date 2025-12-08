@@ -27,11 +27,7 @@ export interface GetProfileCommandInput extends ScalarProfileRequest {}
 export interface GetProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a profile.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:GetProfile</code>.
- *          </p>
+ * <p>Gets a profile.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:GetProfile</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

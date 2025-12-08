@@ -27,11 +27,7 @@ export interface DeleteTrustAnchorCommandInput extends ScalarTrustAnchorRequest 
 export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a trust anchor.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DeleteTrustAnchor</code>.
- *          </p>
+ * <p>Deletes a trust anchor.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DeleteTrustAnchor</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

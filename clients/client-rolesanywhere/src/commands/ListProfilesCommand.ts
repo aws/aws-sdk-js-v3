@@ -27,11 +27,7 @@ export interface ListProfilesCommandInput extends ListRequest {}
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all profiles in the authenticated account and Amazon Web Services Region.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ListProfiles</code>.
- *          </p>
+ * <p>Lists all profiles in the authenticated account and Amazon Web Services Region.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListProfiles</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

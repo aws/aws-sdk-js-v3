@@ -27,11 +27,7 @@ export interface DeleteProfileCommandInput extends ScalarProfileRequest {}
 export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a profile.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DeleteProfile</code>.
- *          </p>
+ * <p>Deletes a profile.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DeleteProfile</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

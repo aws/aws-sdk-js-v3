@@ -27,13 +27,7 @@ export interface PutNotificationSettingsCommandInput extends PutNotificationSett
 export interface PutNotificationSettingsCommandOutput extends PutNotificationSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches a list of <i>notification settings</i> to a trust anchor.</p>
- *          <p>A notification setting includes information such as event name, threshold, status of
- *          the notification setting, and the channel to notify.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:PutNotificationSettings</code>.
- *          </p>
+ * <p>Attaches a list of <i>notification settings</i> to a trust anchor.</p> <p>A notification setting includes information such as event name, threshold, status of the notification setting, and the channel to notify.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:PutNotificationSettings</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

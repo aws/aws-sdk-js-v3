@@ -27,11 +27,7 @@ export interface EnableCrlCommandInput extends ScalarCrlRequest {}
 export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Enables a certificate revocation list (CRL). When enabled, certificates stored in the CRL are unauthorized to receive session credentials.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:EnableCrl</code>.
- *          </p>
+ * <p>Enables a certificate revocation list (CRL). When enabled, certificates stored in the CRL are unauthorized to receive session credentials.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:EnableCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,11 +27,7 @@ export interface EnableTrustAnchorCommandInput extends ScalarTrustAnchorRequest 
 export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Enables a trust anchor. When enabled, certificates in the trust anchor chain are authorized for trust validation. </p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:EnableTrustAnchor</code>.
- *          </p>
+ * <p>Enables a trust anchor. When enabled, certificates in the trust anchor chain are authorized for trust validation. </p> <p> <b>Required permissions: </b> <code>rolesanywhere:EnableTrustAnchor</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,11 +27,7 @@ export interface ListSubjectsCommandInput extends ListRequest {}
 export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the subjects in the authenticated account and Amazon Web Services Region.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ListSubjects</code>.
- *          </p>
+ * <p>Lists the subjects in the authenticated account and Amazon Web Services Region.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListSubjects</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

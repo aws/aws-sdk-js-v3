@@ -27,13 +27,7 @@ export interface UpdateCrlCommandInput extends UpdateCrlRequest {}
 export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the certificate revocation list (CRL). A CRL is a list of certificates that have
- *          been revoked by the issuing certificate authority (CA). IAM Roles Anywhere
- *          validates against the CRL before issuing credentials.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:UpdateCrl</code>.
- *          </p>
+ * <p>Updates the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate authority (CA). IAM Roles Anywhere validates against the CRL before issuing credentials.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
