@@ -393,6 +393,138 @@ export interface AwsOpportunityCustomer {
 }
 
 /**
+ * Details for a specific optimization recommendation
+ * @public
+ */
+export interface AwsProductOptimization {
+  /**
+   * Human-readable explanation of the optimization strategy
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * Quantified cost savings achievable by implementing this optimization
+   * @public
+   */
+  SavingsAmount: string | undefined;
+}
+
+/**
+ * AWS services with program eligibility indicators (MAP, modernization pathways), cost estimates, and optimization recommendations.
+ * @public
+ */
+export interface AwsProductDetails {
+  /**
+   * AWS Partner Central product identifier used for opportunity association
+   * @public
+   */
+  ProductCode: string | undefined;
+
+  /**
+   * Pricing Calculator service code (links to original calculator URL)
+   * @public
+   */
+  ServiceCode?: string | undefined;
+
+  /**
+   * List of program and pathway categories this product is eligible for
+   * @public
+   */
+  Categories: string[] | undefined;
+
+  /**
+   * Baseline service cost before optimizations (may be null for AWS-sourced predictions)
+   * @public
+   */
+  Amount?: string | undefined;
+
+  /**
+   * Service cost after applying optimizations (may be null for AWS-sourced predictions)
+   * @public
+   */
+  OptimizedAmount?: string | undefined;
+
+  /**
+   * Service-specific cost reduction through optimizations (may be null for AWS-sourced predictions)
+   * @public
+   */
+  PotentialSavingsAmount?: string | undefined;
+
+  /**
+   * List of specific optimization recommendations for this product
+   * @public
+   */
+  Optimizations: AwsProductOptimization[] | undefined;
+}
+
+/**
+ * Comprehensive spend analysis for a single source (AWS or Partner) including total amounts, optimization savings, program category breakdowns, and detailed product-level insights.
+ * @public
+ */
+export interface AwsProductInsights {
+  /**
+   * ISO 4217 currency code (e.g., "USD") ensuring consistent representation across calculations
+   * @public
+   */
+  CurrencyCode: CurrencyCode | undefined;
+
+  /**
+   * Time period for spend amounts: "Monthly" or "Annually"
+   * @public
+   */
+  Frequency: PaymentFrequency | undefined;
+
+  /**
+   * Total estimated spend for this source before optimizations
+   * @public
+   */
+  TotalAmount?: string | undefined;
+
+  /**
+   * Total estimated spend after applying recommended optimizations
+   * @public
+   */
+  TotalOptimizedAmount?: string | undefined;
+
+  /**
+   * Quantified savings achievable through implementing optimizations
+   * @public
+   */
+  TotalPotentialSavingsAmount?: string | undefined;
+
+  /**
+   * Spend amounts mapped to AWS programs and modernization pathways
+   * @public
+   */
+  TotalAmountByCategory: Record<string, string> | undefined;
+
+  /**
+   * Product-level details including costs and optimization recommendations
+   * @public
+   */
+  AwsProducts: AwsProductDetails[] | undefined;
+}
+
+/**
+ * Source-separated spend insights that provide independent analysis for AWS predictions and partner estimates
+ * @public
+ */
+export interface AwsProductsSpendInsightsBySource {
+  /**
+   * Partner-sourced insights derived from Pricing Calculator URLs including detailed service costs and optimizations
+   * @public
+   */
+  Partner?: AwsProductInsights | undefined;
+
+  /**
+   * AI-generated insights including recommended products from AWS
+   * @public
+   */
+  AWS?: AwsProductInsights | undefined;
+}
+
+/**
  * <p>Contains insights provided by AWS for the opportunity, offering recommendations and analysis that can help the partner optimize their engagement and strategy.</p>
  * @public
  */
@@ -408,6 +540,12 @@ export interface AwsOpportunityInsights {
    * @public
    */
   EngagementScore?: EngagementScore | undefined;
+
+  /**
+   * Source-separated spend insights that provide independent analysis for AWS predictions and partner estimates
+   * @public
+   */
+  AwsProductsSpendInsightsBySource?: AwsProductsSpendInsightsBySource | undefined;
 }
 
 /**
@@ -473,7 +611,7 @@ export interface ExpectedCustomerSpend {
    * <p>Represents the estimated monthly revenue that the partner expects to earn from the opportunity. This helps in forecasting financial returns.</p>
    * @public
    */
-  Amount: string | undefined;
+  Amount?: string | undefined;
 
   /**
    * <p>Indicates the currency in which the revenue estimate is provided. This helps in understanding the financial impact across different markets.</p>

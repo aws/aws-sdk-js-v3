@@ -14,6 +14,7 @@ const _ALMD = "AfterLastModifiedDate";
 const _AM = "AwsMaturity";
 const _AMO = "AwsMarketplaceOffers";
 const _AMOS = "AwsMarketplaceOfferSets";
+const _AMm = "AmountMap";
 const _AO = "AssignOpportunity";
 const _AOC = "AwsOpportunityCustomer";
 const _AOI = "AwsOpportunityInsights";
@@ -25,6 +26,12 @@ const _AORs = "AssociateOpportunityRequest";
 const _AOTML = "AwsOpportunityTeamMembersList";
 const _AOs = "AssociateOpportunity";
 const _AP = "AddressPart";
+const _APD = "AwsProductDetails";
+const _API = "AwsProductInsights";
+const _APL = "AwsProductsList";
+const _APO = "AwsProductOptimization";
+const _APOL = "AwsProductOptimizationsList";
+const _APSIBS = "AwsProductsSpendInsightsBySource";
 const _APp = "ApnPrograms";
 const _APw = "AwsProducts";
 const _AR = "AccountReceiver";
@@ -32,6 +39,7 @@ const _AS = "AccountSummary";
 const _ASd = "AddressSummary";
 const _ASw = "AwsSubmission";
 const _ATM = "AwsTeamMember";
+const _AWS = "AWS";
 const _Ac = "Account";
 const _Ad = "Address";
 const _Am = "Amount";
@@ -83,7 +91,8 @@ const _CT = "ClientToken";
 const _CTo = "ContextTypes";
 const _CUC = "CustomerUseCase";
 const _CWU = "CompanyWebsiteUrl";
-const _Ca = "Category";
+const _Ca = "Categories";
+const _Cat = "Category";
 const _Ch = "Channels";
 const _Ci = "City";
 const _Co = "Contacts";
@@ -241,7 +250,8 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _LTSB = "ListTasksSortBase";
 const _Le = "Lead";
 const _M = "Message";
-const _MA = "ModifiedAt";
+const _MA = "MonetaryAmount";
+const _MAo = "ModifiedAt";
 const _MB = "ModifiedBy";
 const _MC = "MemberCount";
 const _MCN = "MemberCompanyName";
@@ -256,7 +266,8 @@ const _NSH = "NextStepsHistory";
 const _NSHe = "NextStepsHistories";
 const _NSa = "NationalSecurity";
 const _NT = "NextToken";
-const _O = "Origin";
+const _O = "Optimizations";
+const _OA = "OptimizedAmount";
 const _OCN = "OtherCompetitorNames";
 const _OEIS = "OpportunityEngagementInvitationSort";
 const _OI = "OtherIndustry";
@@ -271,8 +282,10 @@ const _OSp = "OpportunitySort";
 const _OSpp = "OpportunitySummary";
 const _OT = "OpportunityType";
 const _OTp = "OpportunityTeam";
+const _Or = "Origin";
 const _P = "Phone";
 const _PC = "PostalCode";
+const _PCr = "ProductCode";
 const _PD = "ProjectDetails";
 const _PN = "PhoneNumber";
 const _PNFA = "PrimaryNeedsFromAws";
@@ -281,6 +294,7 @@ const _PNSHr = "ProfileNextStepsHistories";
 const _POI = "PartnerOpportunityIdentifier";
 const _POTML = "PartnerOpportunityTeamMembersList";
 const _PS = "PiiString";
+const _PSA = "PotentialSavingsAmount";
 const _PSSS = "PutSellingSystemSettings";
 const _PSSSR = "PutSellingSystemSettingsRequest";
 const _PSSSRu = "PutSellingSystemSettingsResponse";
@@ -288,7 +302,8 @@ const _PSr = "ProjectSummary";
 const _PT = "PayloadType";
 const _PTa = "ParticipantType";
 const _PV = "ProjectView";
-const _Pa = "Payload";
+const _Pa = "Partner";
+const _Pay = "Payload";
 const _Pr = "Project";
 const _QS = "QualificationStatus";
 const _R = "Reason";
@@ -329,14 +344,16 @@ const _Rec = "Receiver";
 const _S = "Stage";
 const _SA = "StreetAddress";
 const _SAAI = "SenderAwsAccountId";
-const _SAa = "SalesActivities";
+const _SAa = "SavingsAmount";
+const _SAal = "SalesActivities";
 const _SB = "SortBy";
 const _SBo = "SolutionBase";
-const _SC = "SenderContacts";
+const _SC = "ServiceCode";
 const _SCE = "SenderContactEmail";
 const _SCL = "SenderContactList";
 const _SCN = "SenderCompanyName";
-const _SCe = "SenderContact";
+const _SCe = "SenderContacts";
+const _SCen = "SenderContact";
 const _SEBAIT = "StartEngagementByAcceptingInvitationTask";
 const _SEBAITR = "StartEngagementByAcceptingInvitationTaskRequest";
 const _SEBAITRt = "StartEngagementByAcceptingInvitationTaskResponse";
@@ -369,7 +386,9 @@ const _Sor = "Sort";
 const _Sou = "Source";
 const _St = "Status";
 const _T = "Type";
-const _TA = "TaskArn";
+const _TA = "TotalAmount";
+const _TABC = "TotalAmountByCategory";
+const _TAa = "TaskArn";
 const _TC = "TargetCompany";
 const _TCD = "TargetCloseDate";
 const _TCDa = "TargetCompletionDate";
@@ -378,6 +397,8 @@ const _TI = "TaskIdentifier";
 const _TIa = "TaskId";
 const _TK = "TagKeys";
 const _TL = "TagList";
+const _TOA = "TotalOptimizedAmount";
+const _TPSA = "TotalPotentialSavingsAmount";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
@@ -419,6 +440,7 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -450,6 +472,7 @@ export var EngagementCustomerBusinessProblem: StaticSimpleSchema = [0, n0, _ECBP
 export var InvitationMessage: StaticSimpleSchema = [0, n0, _IM, 8, 0];
 export var JobTitle: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 export var MemberCompanyName: StaticSimpleSchema = [0, n0, _MCN, 8, 0];
+export var MonetaryAmount: StaticSimpleSchema = [0, n0, _MA, 8, 0];
 export var Name: StaticSimpleSchema = [0, n0, _N, 8, 0];
 export var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 export var PiiString: StaticSimpleSchema = [0, n0, _PS, 8, 0];
@@ -536,7 +559,14 @@ export var AssignOpportunityRequest: StaticStructureSchema = [
 ];
 export var AssociateOpportunityRequest: StaticStructureSchema = [3, n0, _AORs, 0, [_C, _OIp, _RET, _REI], [0, 0, 0, 0]];
 export var AwsOpportunityCustomer: StaticStructureSchema = [3, n0, _AOC, 0, [_Co], [[() => CustomerContactsList, 0]]];
-export var AwsOpportunityInsights: StaticStructureSchema = [3, n0, _AOI, 0, [_NBA, _ES], [0, 0]];
+export var AwsOpportunityInsights: StaticStructureSchema = [
+  3,
+  n0,
+  _AOI,
+  0,
+  [_NBA, _ES, _APSIBS],
+  [0, 0, [() => AwsProductsSpendInsightsBySource, 0]],
+];
 export var AwsOpportunityLifeCycle: StaticStructureSchema = [
   3,
   n0,
@@ -554,6 +584,57 @@ export var AwsOpportunityProject: StaticStructureSchema = [
   [[() => ExpectedCustomerSpendList, 0]],
 ];
 export var AwsOpportunityRelatedEntities: StaticStructureSchema = [3, n0, _AORE, 0, [_APw, _So], [64 | 0, 64 | 0]];
+export var AwsProductDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _APD,
+  0,
+  [_PCr, _SC, _Ca, _Am, _OA, _PSA, _O],
+  [
+    0,
+    0,
+    64 | 0,
+    [() => MonetaryAmount, 0],
+    [() => MonetaryAmount, 0],
+    [() => MonetaryAmount, 0],
+    [() => AwsProductOptimizationsList, 0],
+  ],
+];
+export var AwsProductInsights: StaticStructureSchema = [
+  3,
+  n0,
+  _API,
+  0,
+  [_CCu, _F, _TA, _TOA, _TPSA, _TABC, _APw],
+  [
+    [() => CurrencyCode, 0],
+    0,
+    [() => MonetaryAmount, 0],
+    [() => MonetaryAmount, 0],
+    [() => MonetaryAmount, 0],
+    [() => AmountMap, 0],
+    [() => AwsProductsList, 0],
+  ],
+];
+export var AwsProductOptimization: StaticStructureSchema = [
+  3,
+  n0,
+  _APO,
+  0,
+  [_De, _SAa],
+  [0, [() => MonetaryAmount, 0]],
+];
+export var AwsProductsSpendInsightsBySource: StaticStructureSchema = [
+  3,
+  n0,
+  _APSIBS,
+  0,
+  [_Pa, _AWS],
+  [
+    [() => AwsProductInsights, 0],
+    [() => AwsProductInsights, 0],
+  ],
+];
 export var AwsSubmission: StaticStructureSchema = [3, n0, _ASw, 0, [_IT, _V], [0, 0]];
 export var AwsTeamMember: StaticStructureSchema = [
   3,
@@ -584,7 +665,7 @@ export var CreateEngagementContextRequest: StaticStructureSchema = [
   n0,
   _CECR,
   0,
-  [_C, _EI, _CT, _T, _Pa],
+  [_C, _EI, _CT, _T, _Pay],
   [0, 0, [0, 4], 0, [() => EngagementContextPayload, 0]],
 ];
 export var CreateEngagementContextResponse: StaticStructureSchema = [
@@ -612,13 +693,13 @@ export var CreateEngagementRequest: StaticStructureSchema = [
   [_C, _CT, _Ti, _De, _Cont],
   [0, [0, 4], 0, 0, [() => EngagementContexts, 0]],
 ];
-export var CreateEngagementResponse: StaticStructureSchema = [3, n0, _CERr, 0, [_Id, _Ar, _MA], [0, 0, 5]];
+export var CreateEngagementResponse: StaticStructureSchema = [3, n0, _CERr, 0, [_Id, _Ar, _MAo], [0, 0, 5]];
 export var CreateOpportunityRequest: StaticStructureSchema = [
   3,
   n0,
   _COR,
   0,
-  [_C, _PNFA, _NSa, _POI, _Cu, _Pr, _OT, _Ma, _SR, _CT, _LC, _O, _OTp, _Ta],
+  [_C, _PNFA, _NSa, _POI, _Cu, _Pr, _OT, _Ma, _SR, _CT, _LC, _Or, _OTp, _Ta],
   [
     0,
     64 | 0,
@@ -692,7 +773,7 @@ export var EngagementContextDetails: StaticStructureSchema = [
   n0,
   _ECD,
   0,
-  [_Id, _T, _Pa],
+  [_Id, _T, _Pay],
   [0, 0, [() => EngagementContextPayload, 0]],
 ];
 export var EngagementCustomer: StaticStructureSchema = [
@@ -749,7 +830,7 @@ export var EngagementSummary: StaticStructureSchema = [
   n0,
   _ESng,
   0,
-  [_Ar, _Id, _Ti, _CA, _CB, _MC, _MA, _MB, _CTo],
+  [_Ar, _Id, _Ti, _CA, _CB, _MC, _MAo, _MB, _CTo],
   [0, 0, 0, 5, [() => AwsAccount, 0], 1, 5, [() => AwsAccount, 0], 64 | 0],
 ];
 export var ExpectedCustomerSpend: StaticStructureSchema = [
@@ -758,7 +839,7 @@ export var ExpectedCustomerSpend: StaticStructureSchema = [
   _ECS,
   0,
   [_Am, _CCu, _F, _TC, _EU],
-  [[() => Amount, 0], [() => CurrencyCode, 0], 0, 0, [() => WebsiteUrl, 0]],
+  [[() => Amount, 0], [() => CurrencyCode, 0], 0, 0, 0],
 ];
 export var GetAwsOpportunitySummaryRequest: StaticStructureSchema = [3, n0, _GAOSR, 0, [_C, _ROI], [0, 0]];
 export var GetAwsOpportunitySummaryResponse: StaticStructureSchema = [
@@ -766,7 +847,7 @@ export var GetAwsOpportunitySummaryResponse: StaticStructureSchema = [
   n0,
   _GAOSRe,
   0,
-  [_ROIe, _O, _IT, _V, _LC, _OTp, _Ins, _ITCR, _REIe, _Cu, _Pr, _C],
+  [_ROIe, _Or, _IT, _V, _LC, _OTp, _Ins, _ITCR, _REIe, _Cu, _Pr, _C],
   [
     0,
     0,
@@ -774,7 +855,7 @@ export var GetAwsOpportunitySummaryResponse: StaticStructureSchema = [
     0,
     [() => AwsOpportunityLifeCycle, 0],
     [() => AwsOpportunityTeamMembersList, 0],
-    () => AwsOpportunityInsights,
+    [() => AwsOpportunityInsights, 0],
     0,
     () => AwsOpportunityRelatedEntities,
     [() => AwsOpportunityCustomer, 0],
@@ -788,7 +869,7 @@ export var GetEngagementInvitationResponse: StaticStructureSchema = [
   n0,
   _GEIRe,
   0,
-  [_Ar, _PT, _Id, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _C, _RR, _Pa, _IM, _EDn, _EMx],
+  [_Ar, _PT, _Id, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _C, _RR, _Pay, _IM, _EDn, _EMx],
   [
     0,
     0,
@@ -815,7 +896,7 @@ export var GetEngagementResponse: StaticStructureSchema = [
   n0,
   _GERe,
   0,
-  [_Id, _Ar, _Ti, _De, _CA, _CB, _MC, _MA, _MB, _Cont],
+  [_Id, _Ar, _Ti, _De, _CA, _CB, _MC, _MAo, _MB, _Cont],
   [0, 0, 0, 0, 5, [() => AwsAccount, 0], 1, 5, [() => AwsAccount, 0], [() => EngagementContexts, 0]],
 ];
 export var GetOpportunityRequest: StaticStructureSchema = [3, n0, _GOR, 0, [_C, _I], [0, 0]];
@@ -866,7 +947,7 @@ export var GetResourceSnapshotResponse: StaticStructureSchema = [
   n0,
   _GRSRe,
   0,
-  [_C, _Ar, _CB, _CA, _EIn, _RT, _RIe, _RSTN, _Re, _Pa],
+  [_C, _Ar, _CB, _CA, _EIn, _RT, _RIe, _RSTN, _Re, _Pay],
   [0, 0, [() => AwsAccount, 0], 5, 0, 0, 0, 0, 1, [() => ResourceSnapshotPayload, 0]],
 ];
 export var GetSellingSystemSettingsRequest: StaticStructureSchema = [3, n0, _GSSSR, 0, [_C], [0]];
@@ -878,7 +959,7 @@ export var Invitation: StaticStructureSchema = [
   n0,
   _Inv,
   0,
-  [_M, _Rec, _Pa],
+  [_M, _Rec, _Pay],
   [
     [() => InvitationMessage, 0],
     [() => Receiver, 0],
@@ -996,7 +1077,7 @@ export var ListEngagementByAcceptingInvitationTaskSummary: StaticStructureSchema
   n0,
   _LEBAITS,
   0,
-  [_TIa, _TA, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIIn],
+  [_TIa, _TAa, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIIn],
   [0, 0, 5, 0, 0, 0, 0, 0, 0],
 ];
 export var ListEngagementFromOpportunityTasksRequest: StaticStructureSchema = [
@@ -1020,7 +1101,7 @@ export var ListEngagementFromOpportunityTaskSummary: StaticStructureSchema = [
   n0,
   _LEFOTS,
   0,
-  [_TIa, _TA, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _EIIn],
+  [_TIa, _TAa, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _EIIn],
   [0, 0, 5, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var ListEngagementInvitationsRequest: StaticStructureSchema = [
@@ -1117,7 +1198,7 @@ export var ListOpportunityFromEngagementTaskSummary: StaticStructureSchema = [
   n0,
   _LOFETS,
   0,
-  [_TIa, _TA, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _CI],
+  [_TIa, _TAa, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _CI],
   [0, 0, 5, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var ListResourceSnapshotJobsRequest: StaticStructureSchema = [
@@ -1157,7 +1238,7 @@ export var ListSolutionsRequest: StaticStructureSchema = [
   n0,
   _LSR,
   0,
-  [_C, _MR, _NT, _Sor, _St, _I, _Ca],
+  [_C, _MR, _NT, _Sor, _St, _I, _Cat],
   [0, 1, 0, () => SolutionSort, 64 | 0, 64 | 0, 64 | 0],
 ];
 export var ListSolutionsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_SS, _NT], [() => SolutionList, 0]];
@@ -1173,7 +1254,7 @@ export var OpportunityInvitationPayload: StaticStructureSchema = [
   n0,
   _OIP,
   0,
-  [_SC, _RRe, _Cu, _Pr],
+  [_SCe, _RRe, _Cu, _Pr],
   [[() => SenderContactList, 0], 64 | 0, [() => EngagementCustomer, 0], [() => ProjectDetails, 0]],
 ];
 export var OpportunitySort: StaticStructureSchema = [3, n0, _OSp, 0, [_SO, _SB], [0, 0]];
@@ -1207,7 +1288,7 @@ export var Project: StaticStructureSchema = [
   n0,
   _Pr,
   0,
-  [_DM, _ECS, _Ti, _APp, _CBP, _CUC, _ROI, _SAa, _CNo, _OCN, _OSD, _ACd],
+  [_DM, _ECS, _Ti, _APp, _CBP, _CUC, _ROI, _SAal, _CNo, _OCN, _OSD, _ACd],
   [
     64 | 0,
     [() => ExpectedCustomerSpendList, 0],
@@ -1244,7 +1325,7 @@ export var ProjectView: StaticStructureSchema = [
   n0,
   _PV,
   0,
-  [_DM, _ECS, _CUC, _SAa, _OSD],
+  [_DM, _ECS, _CUC, _SAal, _OSD],
   [64 | 0, [() => ExpectedCustomerSpendList, 0], 0, 64 | 0, [() => PiiString, 0]],
 ];
 export var PutSellingSystemSettingsRequest: StaticStructureSchema = [3, n0, _PSSSR, 0, [_C, _RSJRI], [0, 0]];
@@ -1272,7 +1353,7 @@ export var ResourceSnapshotSummary: StaticStructureSchema = [
 export var SenderContact: StaticStructureSchema = [
   3,
   n0,
-  _SCe,
+  _SCen,
   0,
   [_E, _FN, _LN, _BT, _P],
   [
@@ -1298,7 +1379,7 @@ export var SolutionBase: StaticStructureSchema = [
   n0,
   _SBo,
   0,
-  [_C, _Id, _Ar, _N, _St, _Ca, _CD],
+  [_C, _Id, _Ar, _N, _St, _Cat, _CD],
   [0, 0, 0, 0, 0, 0, 5],
 ];
 export var SolutionSort: StaticStructureSchema = [3, n0, _SSo, 0, [_SO, _SB], [0, 0]];
@@ -1316,7 +1397,7 @@ export var StartEngagementByAcceptingInvitationTaskResponse: StaticStructureSche
   n0,
   _SEBAITRt,
   0,
-  [_TIa, _TA, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIIn],
+  [_TIa, _TAa, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIIn],
   [0, 0, 5, 0, 0, 0, 0, 0, 0],
 ];
 export var StartEngagementFromOpportunityTaskRequest: StaticStructureSchema = [
@@ -1332,7 +1413,7 @@ export var StartEngagementFromOpportunityTaskResponse: StaticStructureSchema = [
   n0,
   _SEFOTRt,
   0,
-  [_TIa, _TA, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _EIIn],
+  [_TIa, _TAa, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _EIIn],
   [0, 0, 5, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var StartOpportunityFromEngagementTaskRequest: StaticStructureSchema = [
@@ -1348,7 +1429,7 @@ export var StartOpportunityFromEngagementTaskResponse: StaticStructureSchema = [
   n0,
   _SOFETRt,
   0,
-  [_TIa, _TA, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _CI],
+  [_TIa, _TAa, _STt, _TS, _M, _RCe, _OIpp, _RSJIe, _EIn, _CI],
   [0, 0, 5, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var StartResourceSnapshotJobRequest: StaticStructureSchema = [3, n0, _SRSJR, 0, [_C, _RSJI], [0, 0]];
@@ -1366,7 +1447,7 @@ export var UpdateEngagementContextRequest: StaticStructureSchema = [
   n0,
   _UECR,
   0,
-  [_C, _EI, _CIo, _ELMA, _T, _Pa],
+  [_C, _EI, _CIo, _ELMA, _T, _Pay],
   [0, 0, 0, 5, 0, [() => UpdateEngagementContextPayload, 0]],
 ];
 export var UpdateEngagementContextResponse: StaticStructureSchema = [
@@ -1434,6 +1515,8 @@ export var AwsMarketplaceOfferIdentifiers = 64 | 0;
 export var AwsMarketplaceOfferSetIdentifiers = 64 | 0;
 export var AwsOpportunityTeamMembersList: StaticListSchema = [1, n0, _AOTML, 0, [() => AwsTeamMember, 0]];
 export var AwsProductIdentifiers = 64 | 0;
+export var AwsProductOptimizationsList: StaticListSchema = [1, n0, _APOL, 0, [() => AwsProductOptimization, 0]];
+export var AwsProductsList: StaticListSchema = [1, n0, _APL, 0, [() => AwsProductDetails, 0]];
 export var Channels = 64 | 0;
 export var ContextIdentifiers = 64 | 0;
 export var CustomerContactsList: StaticListSchema = [1, n0, _CCL, 0, [() => Contact, 0]];
@@ -1502,6 +1585,7 @@ export var TaskIdentifiers = 64 | 0;
 export var TaskStatuses = 64 | 0;
 export var UseCases = 64 | 0;
 export var ValidationExceptionErrorList: StaticListSchema = [1, n0, _VEEL, 0, () => ValidationExceptionError];
+export var AmountMap: StaticMapSchema = [2, n0, _AMm, 0, [0, 0], [() => MonetaryAmount, 0]];
 export var EngagementContextPayload: StaticStructureSchema = [
   3,
   n0,
@@ -1516,7 +1600,7 @@ export var EngagementContextPayload: StaticStructureSchema = [
 export var Payload: StaticStructureSchema = [
   3,
   n0,
-  _Pa,
+  _Pay,
   0,
   [_OIppo, _LIe],
   [

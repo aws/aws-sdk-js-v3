@@ -454,55 +454,6 @@ export type AwsMemberBusinessTitle = (typeof AwsMemberBusinessTitle)[keyof typeo
  * @public
  * @enum
  */
-export const EngagementScore = {
-  HIGH: "High",
-  LOW: "Low",
-  MEDIUM: "Medium",
-} as const;
-/**
- * @public
- */
-export type EngagementScore = (typeof EngagementScore)[keyof typeof EngagementScore];
-
-/**
- * @public
- * @enum
- */
-export const AwsOpportunityStage = {
-  BUILDING_INTEGRATION: "Building Integration",
-  BUSINESS_VALIDATION: "Business Validation",
-  CLOSED_INCOMPLETE: "Closed Incomplete",
-  CLOSED_LOST: "Closed Lost",
-  COMMITTED: "Committed",
-  COMPLETED: "Completed",
-  CONTRACT_NEGOTIATION: "Contract Negotiation",
-  DEFERRED_TO_PARTNER: "Deferred to Partner",
-  ENGAGED: "Engaged",
-  EVALUATING: "Evaluating",
-  IDENTIFIED: "Identified",
-  IN_PROGRESS: "In Progress",
-  LAUNCHED: "Launched",
-  NOT_STARTED: "Not Started",
-  ONBOARDING: "Onboarding",
-  ON_HOLD: "On-hold",
-  PROSPECT: "Prospect",
-  QUALIFIED: "Qualified",
-  QUALIFY: "Qualify",
-  RESEARCH: "Research",
-  SELLER_ENGAGED: "Seller Engaged",
-  SELLER_REGISTERED: "Seller Registered",
-  TECHNICAL_VALIDATION: "Technical Validation",
-  TERM_SHEET_NEGOTIATION: "Term Sheet Negotiation",
-} as const;
-/**
- * @public
- */
-export type AwsOpportunityStage = (typeof AwsOpportunityStage)[keyof typeof AwsOpportunityStage];
-
-/**
- * @public
- * @enum
- */
 export const CurrencyCode = {
   AED: "AED",
   AFN: "AFN",
@@ -689,6 +640,55 @@ export const PaymentFrequency = {
  * @public
  */
 export type PaymentFrequency = (typeof PaymentFrequency)[keyof typeof PaymentFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const EngagementScore = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+} as const;
+/**
+ * @public
+ */
+export type EngagementScore = (typeof EngagementScore)[keyof typeof EngagementScore];
+
+/**
+ * @public
+ * @enum
+ */
+export const AwsOpportunityStage = {
+  BUILDING_INTEGRATION: "Building Integration",
+  BUSINESS_VALIDATION: "Business Validation",
+  CLOSED_INCOMPLETE: "Closed Incomplete",
+  CLOSED_LOST: "Closed Lost",
+  COMMITTED: "Committed",
+  COMPLETED: "Completed",
+  CONTRACT_NEGOTIATION: "Contract Negotiation",
+  DEFERRED_TO_PARTNER: "Deferred to Partner",
+  ENGAGED: "Engaged",
+  EVALUATING: "Evaluating",
+  IDENTIFIED: "Identified",
+  IN_PROGRESS: "In Progress",
+  LAUNCHED: "Launched",
+  NOT_STARTED: "Not Started",
+  ONBOARDING: "Onboarding",
+  ON_HOLD: "On-hold",
+  PROSPECT: "Prospect",
+  QUALIFIED: "Qualified",
+  QUALIFY: "Qualify",
+  RESEARCH: "Research",
+  SELLER_ENGAGED: "Seller Engaged",
+  SELLER_REGISTERED: "Seller Registered",
+  TECHNICAL_VALIDATION: "Technical Validation",
+  TERM_SHEET_NEGOTIATION: "Term Sheet Negotiation",
+} as const;
+/**
+ * @public
+ */
+export type AwsOpportunityStage = (typeof AwsOpportunityStage)[keyof typeof AwsOpportunityStage];
 
 /**
  * @public
