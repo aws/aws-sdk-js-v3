@@ -307,7 +307,7 @@ export type {
   TooManyEnvironmentsException,
   TooManyPlatformsException,
   TooManyTagsException,
-  ElasticBeanstalkServiceException,
+  ElasticBeanstalkSyntheticServiceException,
   waitForEnvironmentExists,
   waitForEnvironmentTerminated,
   waitForEnvironmentUpdated,

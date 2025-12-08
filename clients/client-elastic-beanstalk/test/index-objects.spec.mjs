@@ -40,6 +40,7 @@ import {
   ElasticBeanstalk,
   ElasticBeanstalkClient,
   ElasticBeanstalkServiceException,
+  ElasticBeanstalkSyntheticServiceException,
   EnvironmentHealth,
   EnvironmentHealthAttribute,
   EnvironmentHealthStatus,
@@ -170,26 +171,26 @@ assert(typeof SourceRepository === "object");
 assert(typeof SourceType === "object");
 assert(typeof ValidationSeverity === "object");
 // errors
-assert(CodeBuildNotInServiceRegionException.prototype instanceof ElasticBeanstalkServiceException);
-assert(ElasticBeanstalkServiceException.prototype instanceof ElasticBeanstalkServiceException);
-assert(InsufficientPrivilegesException.prototype instanceof ElasticBeanstalkServiceException);
-assert(InvalidRequestException.prototype instanceof ElasticBeanstalkServiceException);
-assert(ManagedActionInvalidStateException.prototype instanceof ElasticBeanstalkServiceException);
-assert(OperationInProgressException.prototype instanceof ElasticBeanstalkServiceException);
-assert(PlatformVersionStillReferencedException.prototype instanceof ElasticBeanstalkServiceException);
-assert(ResourceNotFoundException.prototype instanceof ElasticBeanstalkServiceException);
-assert(ResourceTypeNotSupportedException.prototype instanceof ElasticBeanstalkServiceException);
-assert(S3LocationNotInServiceRegionException.prototype instanceof ElasticBeanstalkServiceException);
-assert(S3SubscriptionRequiredException.prototype instanceof ElasticBeanstalkServiceException);
-assert(SourceBundleDeletionException.prototype instanceof ElasticBeanstalkServiceException);
-assert(TooManyApplicationsException.prototype instanceof ElasticBeanstalkServiceException);
-assert(TooManyApplicationVersionsException.prototype instanceof ElasticBeanstalkServiceException);
-assert(TooManyBucketsException.prototype instanceof ElasticBeanstalkServiceException);
-assert(TooManyConfigurationTemplatesException.prototype instanceof ElasticBeanstalkServiceException);
-assert(TooManyEnvironmentsException.prototype instanceof ElasticBeanstalkServiceException);
-assert(TooManyPlatformsException.prototype instanceof ElasticBeanstalkServiceException);
-assert(TooManyTagsException.prototype instanceof ElasticBeanstalkServiceException);
-assert(ElasticBeanstalkServiceException.prototype instanceof Error);
+assert(CodeBuildNotInServiceRegionException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ElasticBeanstalkServiceException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(InsufficientPrivilegesException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(InvalidRequestException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ManagedActionInvalidStateException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(OperationInProgressException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(PlatformVersionStillReferencedException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ResourceNotFoundException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ResourceTypeNotSupportedException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(S3LocationNotInServiceRegionException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(S3SubscriptionRequiredException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(SourceBundleDeletionException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyApplicationsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyApplicationVersionsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyBucketsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyConfigurationTemplatesException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyEnvironmentsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyPlatformsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(TooManyTagsException.prototype instanceof ElasticBeanstalkSyntheticServiceException);
+assert(ElasticBeanstalkSyntheticServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForEnvironmentExists === "function");
 assert(typeof waitForEnvironmentTerminated === "function");
