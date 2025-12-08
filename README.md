@@ -48,7 +48,7 @@ Please refer to [Performance](https://github.com/aws/aws-sdk-js-v3/tree/main/sup
 1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [Release Cadence](#release-cadence)
-1. [Node.js versions](#nodejs-versions)
+1. [Support Policy](#support-policy)
 1. [Stability of Modular Packages](#stability-of-modular-packages)
 1. [Known Issues](#known-issues)
    1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
@@ -598,17 +598,27 @@ For a full middleware stack deep dive, please check out our [blog post](https://
 Our releases usually happen once per weekday. Each release increments the
 minor version, e.g. 3.200.0 -> 3.201.0.
 
-## <a id="nodejs-versions"></a> Node.js versions
+## Support Policy
 
-v3.723.0 and higher requires Node.js >= 18.
+In 2025, we [announced](https://a.co/c895JFp) that JS SDK v3 will start following the Node.js release schedule for
+ending support for Node.js and ECMAScript versions. The Node.js LTS versions reach end-of-life (EOL) in April. We will
+drop support for the EOL Node.js LTS versions after 8 months of it going EOL, i.e. in the January the following year.
 
-v3.567.0 and higher requires Node.js >= 16.
+### Node.js versions
 
-v3.201.0 and higher requires Node.js >= 14.
+- Version released in second week of January 2026 and higher will require Node.js >= 20.
+- v3.723.0 and higher requires Node.js >= 18.
+- v3.567.0 and higher requires Node.js >= 16.
+- v3.201.0 and higher requires Node.js >= 14.
+- v3.46.0 to v3.200.0 requires Node.js >= 12.
+- Earlier versions require Node.js >= 10.
 
-v3.46.0 to v3.200.0 requires Node.js >= 12.
+### ECMAScript versions
 
-Earlier versions require Node.js >= 10.
+The browser artifacts will follow the ECMAScript versions required by supported Node.js versions. This doesn’t impact
+most applications because new versions of browsers are released at a much faster pace (usually every 4–6 weeks), and
+they are automatically updated. Also, most browser applications use bundlers, where the ECMAScript version is specified
+in the application bundler configuration and the bundler will transpile all dependencies to that target.
 
 ## Stability of Modular Packages
 
