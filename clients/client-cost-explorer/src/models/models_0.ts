@@ -623,13 +623,13 @@ export interface AnomalyDateInterval {
  */
 export interface CostCategoryValues {
   /**
-   * <p>The unique name of the Cost Category.</p>
+   * <p>The unique name of the cost category.</p>
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The specific value of the Cost Category.</p>
+   * <p>The specific value of the cost category.</p>
    * @public
    */
   Values?: string[] | undefined;
@@ -675,7 +675,7 @@ export interface DimensionValues {
   /**
    * <p>The match options that you can use to filter your results.</p>
    *          <p>
-   *             <code>MatchOptions</code> is only applicable for actions related to Cost Category and
+   *             <code>MatchOptions</code> is only applicable for actions related to cost category and
    *             Anomaly Subscriptions. Refer to the documentation for each specific API to see what is
    *             supported.</p>
    *          <p>The default values for <code>MatchOptions</code> are <code>EQUALS</code> and
@@ -711,7 +711,7 @@ export interface TagValues {
 
   /**
    * <p>The match options that you can use to filter your results. <code>MatchOptions</code>
-   *             is only applicable for actions related to Cost Category. The default values for
+   *             is only applicable for actions related to cost category. The default values for
    *                 <code>MatchOptions</code> are <code>EQUALS</code> and
    *             <code>CASE_SENSITIVE</code>.</p>
    * @public
@@ -841,13 +841,13 @@ export interface CostCategorySplitChargeRuleParameter {
 }
 
 /**
- * <p>Use the split charge rule to split the cost of one Cost Category value across several
+ * <p>Use the split charge rule to split the cost of one cost category value across several
  *             other target values. </p>
  * @public
  */
 export interface CostCategorySplitChargeRule {
   /**
-   * <p>The Cost Category value that you want to split. That value can't be used as a source
+   * <p>The cost category value that you want to split. That value can't be used as a source
    *             or a target in other split charge rules. To indicate uncategorized costs, you can use an
    *             empty string as the source.</p>
    * @public
@@ -855,7 +855,7 @@ export interface CostCategorySplitChargeRule {
   Source: string | undefined;
 
   /**
-   * <p>The Cost Category values that you want to split costs across. These values can't be
+   * <p>The cost category values that you want to split costs across. These values can't be
    *             used as a source in other split charge rules. </p>
    * @public
    */
@@ -887,13 +887,13 @@ export interface CostCategorySplitChargeRule {
  */
 export interface CreateCostCategoryDefinitionResponse {
   /**
-   * <p>The unique identifier for your newly created Cost Category. </p>
+   * <p>The unique identifier for your newly created cost category. </p>
    * @public
    */
   CostCategoryArn?: string | undefined;
 
   /**
-   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month).</p>
+   * <p>The cost category's effective start date. It can only be a billing start date (first day of the month).</p>
    * @public
    */
   EffectiveStart?: string | undefined;
@@ -936,7 +936,7 @@ export interface DeleteAnomalySubscriptionResponse {}
  */
 export interface DeleteCostCategoryDefinitionRequest {
   /**
-   * <p>The unique identifier for your Cost Category. </p>
+   * <p>The unique identifier for your cost category. </p>
    * @public
    */
   CostCategoryArn: string | undefined;
@@ -947,14 +947,14 @@ export interface DeleteCostCategoryDefinitionRequest {
  */
 export interface DeleteCostCategoryDefinitionResponse {
   /**
-   * <p>The unique identifier for your Cost Category. </p>
+   * <p>The unique identifier for your cost category. </p>
    * @public
    */
   CostCategoryArn?: string | undefined;
 
   /**
-   * <p>The effective end date of the Cost Category as a result of deleting it. No costs after
-   *       this date is categorized by the deleted Cost Category. </p>
+   * <p>The effective end date of the cost category as a result of deleting it. No costs after
+   *       this date is categorized by the deleted cost category. </p>
    * @public
    */
   EffectiveEnd?: string | undefined;
@@ -965,13 +965,13 @@ export interface DeleteCostCategoryDefinitionResponse {
  */
 export interface DescribeCostCategoryDefinitionRequest {
   /**
-   * <p>The unique identifier for your Cost Category. </p>
+   * <p>The unique identifier for your cost category. </p>
    * @public
    */
   CostCategoryArn: string | undefined;
 
   /**
-   * <p>The date when the Cost Category was effective. </p>
+   * <p>The date when the cost category was effective. </p>
    * @public
    */
   EffectiveOn?: string | undefined;
@@ -1482,13 +1482,13 @@ export interface GetCostCategoriesResponse {
   NextPageToken?: string | undefined;
 
   /**
-   * <p>The names of the Cost Categories.</p>
+   * <p>The names of the cost categories.</p>
    * @public
    */
   CostCategoryNames?: string[] | undefined;
 
   /**
-   * <p>The Cost Category values.</p>
+   * <p>The cost category values.</p>
    *          <p>If the <code>CostCategoryName</code> key isn't specified in the request, the
    *         <code>CostCategoryValues</code> fields aren't returned. </p>
    * @public
@@ -4525,7 +4525,7 @@ export interface ListCostAllocationTagsResponse {
  */
 export interface ListCostCategoryDefinitionsRequest {
   /**
-   * <p>The date when the Cost Category was effective. </p>
+   * <p>The date when the cost category was effective. </p>
    * @public
    */
   EffectiveOn?: string | undefined;
@@ -4542,42 +4542,50 @@ export interface ListCostCategoryDefinitionsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   *       Filter cost category definitions that are supported by given resource types based on the latest version. If the filter is present, the result only includes Cost Categories that supports input resource type. If the filter isn't provided, no filtering is applied. The valid values are <code>billing:rispgroupsharing</code>.
+   *     </p>
+   * @public
+   */
+  SupportedResourceTypes?: string[] | undefined;
 }
 
 /**
- * <p>A reference to a Cost Category containing only enough information to identify the Cost
+ * <p>A reference to a cost category containing only enough information to identify the Cost
  *             Category.</p>
- *          <p>You can use this information to retrieve the full Cost Category information using
+ *          <p>You can use this information to retrieve the full cost category information using
  *                 <code>DescribeCostCategory</code>.</p>
  * @public
  */
 export interface CostCategoryReference {
   /**
-   * <p>The unique identifier for your Cost Category. </p>
+   * <p>The unique identifier for your cost category. </p>
    * @public
    */
   CostCategoryArn?: string | undefined;
 
   /**
-   * <p>The unique name of the Cost Category.</p>
+   * <p>The unique name of the cost category.</p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Cost Category's effective start date.</p>
+   * <p>The cost category's effective start date.</p>
    * @public
    */
   EffectiveStart?: string | undefined;
 
   /**
-   * <p>The Cost Category's effective end date.</p>
+   * <p>The cost category's effective end date.</p>
    * @public
    */
   EffectiveEnd?: string | undefined;
 
   /**
-   * <p>The number of rules that are associated with a specific Cost Category. </p>
+   * <p>The number of rules that are associated with a specific cost category. </p>
    * @public
    */
   NumberOfRules?: number | undefined;
@@ -4601,6 +4609,14 @@ export interface CostCategoryReference {
    * @public
    */
   DefaultValue?: string | undefined;
+
+  /**
+   * <p>
+   *             The resource types supported by a specific cost category.
+   *         </p>
+   * @public
+   */
+  SupportedResourceTypes?: string[] | undefined;
 }
 
 /**
@@ -4608,7 +4624,7 @@ export interface CostCategoryReference {
  */
 export interface ListCostCategoryDefinitionsResponse {
   /**
-   * <p>A reference to a Cost Category that contains enough information to identify the Cost
+   * <p>A reference to a cost category that contains enough information to identify the Cost
    *       Category. </p>
    * @public
    */
@@ -4617,6 +4633,82 @@ export interface ListCostCategoryDefinitionsResponse {
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
    *       the response from a previous call has more results than the maximum page size. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCostCategoryResourceAssociationsRequest {
+  /**
+   * <p>The unique identifier for your cost category.</p>
+   * @public
+   */
+  CostCategoryArn?: string | undefined;
+
+  /**
+   * <p>
+   *       The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+   *     </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *       The number of entries a paginated response contains.
+   *     </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A reference to a cost category association that contains information on an associated resource.
+ *         </p>
+ * @public
+ */
+export interface CostCategoryResourceAssociation {
+  /**
+   * <p>
+   *             The unique identifier for an associated resource.
+   *         </p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The unique name of the cost category.</p>
+   * @public
+   */
+  CostCategoryName?: string | undefined;
+
+  /**
+   * <p>The unique identifier for your cost category.
+   *         </p>
+   * @public
+   */
+  CostCategoryArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCostCategoryResourceAssociationsResponse {
+  /**
+   * <p>
+   *       A reference to a cost category association that contains information on an associated resource.
+   *     </p>
+   * @public
+   */
+  CostCategoryResourceAssociations?: CostCategoryResourceAssociation[] | undefined;
+
+  /**
+   * <p>
+   *       The token to retrieve the next set of results.  Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+   *     </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5038,13 +5130,13 @@ export interface UpdateCostAllocationTagsStatusResponse {
  */
 export interface UpdateCostCategoryDefinitionResponse {
   /**
-   * <p>The unique identifier for your Cost Category. </p>
+   * <p>The unique identifier for your cost category. </p>
    * @public
    */
   CostCategoryArn?: string | undefined;
 
   /**
-   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month).</p>
+   * <p>The cost category's effective start date. It can only be a billing start date (first day of the month).</p>
    * @public
    */
   EffectiveStart?: string | undefined;
@@ -5593,7 +5685,7 @@ export interface CostAndUsageComparison {
 
 /**
  * <p>Rules are processed in order. If there are multiple rules that match the line item,
- *             then the first rule to match is used to determine that Cost Category value.</p>
+ *             then the first rule to match is used to determine that cost category value.</p>
  * @public
  */
 export interface CostCategoryRule {
@@ -5612,7 +5704,7 @@ export interface CostCategoryRule {
    *             <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, <code>LINKED_ACCOUNT_NAME</code>, <code>REGION</code>, and <code>USAGE_TYPE</code>.</p>
    *          <p>
    *             <code>RECORD_TYPE</code> is a dimension used for Cost Explorer APIs, and is also
-   *             supported for Cost Category expressions. This dimension uses different terms, depending
+   *             supported for cost category expressions. This dimension uses different terms, depending
    *             on whether you're using the console or API/JSON editor. For a detailed comparison, see
    *                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms">Term Comparisons</a> in the <i>Billing and Cost Management User
    *                 Guide</i>.</p>
@@ -6097,6 +6189,9 @@ export interface GetCostAndUsageWithResourcesRequest {
    *         <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
    *       with that account's usage of that service. You can nest <code>Expression</code> objects to
    *       define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
+   *          <p>The <code>GetCostAndUsageWithResources</code> operation requires that you either group
+   *       by or filter by a <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+   *             <code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</p>
    *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are
    *         <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and
@@ -6162,8 +6257,8 @@ export interface GetCostCategoriesRequest {
   /**
    * <p>The value that you want to search the filter values for.</p>
    *          <p>If you don't specify a <code>CostCategoryName</code>, <code>SearchString</code> is used to
-   *       filter Cost Category names that match the <code>SearchString</code> pattern. If you specify a
-   *         <code>CostCategoryName</code>, <code>SearchString</code> is used to filter Cost Category
+   *       filter cost category names that match the <code>SearchString</code> pattern. If you specify a
+   *         <code>CostCategoryName</code>, <code>SearchString</code> is used to filter cost category
    *       values that match the <code>SearchString</code> pattern.</p>
    * @public
    */
@@ -6176,7 +6271,7 @@ export interface GetCostCategoriesRequest {
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>The unique name of the Cost Category.</p>
+   * <p>The unique name of the cost category.</p>
    * @public
    */
   CostCategoryName?: string | undefined;
@@ -8952,46 +9047,45 @@ export interface CreateAnomalySubscriptionRequest {
  */
 export interface CostCategory {
   /**
-   * <p>The unique identifier for your Cost Category. </p>
+   * <p>The unique identifier for your cost category. </p>
    * @public
    */
   CostCategoryArn: string | undefined;
 
   /**
-   * <p>The effective start date of your Cost Category.</p>
+   * <p>The effective start date of your cost category.</p>
    * @public
    */
   EffectiveStart: string | undefined;
 
   /**
-   * <p>The effective end date of your Cost Category.</p>
+   * <p>The effective end date of your cost category.</p>
    * @public
    */
   EffectiveEnd?: string | undefined;
 
   /**
-   * <p>The unique name of the Cost Category.</p>
+   * <p>The unique name of the cost category.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The rule schema version in this particular Cost Category.</p>
+   * <p>The rule schema version in this particular cost category.</p>
    * @public
    */
   RuleVersion: CostCategoryRuleVersion | undefined;
 
   /**
    * <p>The rules are processed in order. If there are multiple rules that match the line
-   *             item, then the first rule to match is used to determine that Cost Category value.
+   *             item, then the first rule to match is used to determine that cost category value.
    *         </p>
    * @public
    */
   Rules: CostCategoryRule[] | undefined;
 
   /**
-   * <p> The split charge rules that are used to allocate your charges between your Cost
-   *             Category values. </p>
+   * <p> The split charge rules that are used to allocate your charges between your cost category values. </p>
    * @public
    */
   SplitChargeRules?: CostCategorySplitChargeRule[] | undefined;
@@ -9016,25 +9110,25 @@ export interface CostCategory {
  */
 export interface CreateCostCategoryDefinitionRequest {
   /**
-   * <p>The unique name of the Cost Category.</p>
+   * <p>The unique name of the cost category.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
+   * <p>The cost category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
    * @public
    */
   EffectiveStart?: string | undefined;
 
   /**
-   * <p>The rule schema version in this particular Cost Category.</p>
+   * <p>The rule schema version in this particular cost category.</p>
    * @public
    */
   RuleVersion: CostCategoryRuleVersion | undefined;
 
   /**
-   * <p>The Cost Category rules used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</p>
+   * <p>The cost category rules used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</p>
    * @public
    */
   Rules: CostCategoryRule[] | undefined;
@@ -9047,7 +9141,7 @@ export interface CreateCostCategoryDefinitionRequest {
   DefaultValue?: string | undefined;
 
   /**
-   * <p> The split charge rules used to allocate your charges between your Cost Category values.
+   * <p> The split charge rules used to allocate your charges between your cost category values.
    *     </p>
    * @public
    */
@@ -9180,19 +9274,19 @@ export interface GetCostComparisonDriversResponse {
  */
 export interface UpdateCostCategoryDefinitionRequest {
   /**
-   * <p>The unique identifier for your Cost Category.</p>
+   * <p>The unique identifier for your cost category.</p>
    * @public
    */
   CostCategoryArn: string | undefined;
 
   /**
-   * <p>The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
+   * <p>The cost category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
    * @public
    */
   EffectiveStart?: string | undefined;
 
   /**
-   * <p>The rule schema version in this particular Cost Category.</p>
+   * <p>The rule schema version in this particular cost category.</p>
    * @public
    */
   RuleVersion: CostCategoryRuleVersion | undefined;
@@ -9213,7 +9307,7 @@ export interface UpdateCostCategoryDefinitionRequest {
   DefaultValue?: string | undefined;
 
   /**
-   * <p> The split charge rules used to allocate your charges between your Cost Category values.
+   * <p> The split charge rules used to allocate your charges between your cost category values.
    *     </p>
    * @public
    */

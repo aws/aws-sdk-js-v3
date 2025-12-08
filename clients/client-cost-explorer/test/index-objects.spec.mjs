@@ -67,6 +67,7 @@ import {
   ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagsCommand,
   ListCostCategoryDefinitionsCommand,
+  ListCostCategoryResourceAssociationsCommand,
   ListSavingsPlansPurchaseRecommendationGenerationCommand,
   ListTagsForResourceCommand,
   LookbackPeriodInDays,
@@ -113,6 +114,7 @@ import {
   paginateListCostAllocationTagBackfillHistory,
   paginateListCostAllocationTags,
   paginateListCostCategoryDefinitions,
+  paginateListCostCategoryResourceAssociations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -153,6 +155,7 @@ assert(typeof ListCommitmentPurchaseAnalysesCommand === "function");
 assert(typeof ListCostAllocationTagBackfillHistoryCommand === "function");
 assert(typeof ListCostAllocationTagsCommand === "function");
 assert(typeof ListCostCategoryDefinitionsCommand === "function");
+assert(typeof ListCostCategoryResourceAssociationsCommand === "function");
 assert(typeof ListSavingsPlansPurchaseRecommendationGenerationCommand === "function");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ProvideAnomalyFeedbackCommand === "function");
@@ -234,4 +237,5 @@ assert(typeof paginateGetSavingsPlansUtilizationDetails === "function");
 assert(typeof paginateListCostAllocationTagBackfillHistory === "function");
 assert(typeof paginateListCostAllocationTags === "function");
 assert(typeof paginateListCostCategoryDefinitions === "function");
+assert(typeof paginateListCostCategoryResourceAssociations === "function");
 console.log(`CostExplorer index test passed.`);

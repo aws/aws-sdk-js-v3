@@ -30,10 +30,10 @@ export interface DescribeCostCategoryDefinitionCommandOutput
 
 /**
  * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
- *       Cost Category that's defined in the account.</p>
- *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
+ *       cost category that's defined in the account.</p>
+ *          <p>You have the option to use <code>EffectiveOn</code> to return a cost category that's
  *       active on a specific date. If there's no <code>EffectiveOn</code> specified, you see a Cost
- *       Category that's effective on the current date. If Cost Category is still effective,
+ *       Category that's effective on the current date. If cost category is still effective,
  *         <code>EffectiveEnd</code> is omitted in the response. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

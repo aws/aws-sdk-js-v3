@@ -169,6 +169,11 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
 import {
+  ListCostCategoryResourceAssociationsCommand,
+  ListCostCategoryResourceAssociationsCommandInput,
+  ListCostCategoryResourceAssociationsCommandOutput,
+} from "./commands/ListCostCategoryResourceAssociationsCommand";
+import {
   ListSavingsPlansPurchaseRecommendationGenerationCommand,
   ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
   ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
@@ -261,6 +266,7 @@ const commands = {
   ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagsCommand,
   ListCostCategoryDefinitionsCommand,
+  ListCostCategoryResourceAssociationsCommand,
   ListSavingsPlansPurchaseRecommendationGenerationCommand,
   ListTagsForResourceCommand,
   ProvideAnomalyFeedbackCommand,
@@ -840,6 +846,24 @@ export interface CostExplorer {
     args: ListCostCategoryDefinitionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCostCategoryResourceAssociationsCommand}
+   */
+  listCostCategoryResourceAssociations(): Promise<ListCostCategoryResourceAssociationsCommandOutput>;
+  listCostCategoryResourceAssociations(
+    args: ListCostCategoryResourceAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCostCategoryResourceAssociationsCommandOutput>;
+  listCostCategoryResourceAssociations(
+    args: ListCostCategoryResourceAssociationsCommandInput,
+    cb: (err: any, data?: ListCostCategoryResourceAssociationsCommandOutput) => void
+  ): void;
+  listCostCategoryResourceAssociations(
+    args: ListCostCategoryResourceAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCostCategoryResourceAssociationsCommandOutput) => void
   ): void;
 
   /**

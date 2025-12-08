@@ -492,6 +492,14 @@ ListCostCategoryDefinitions
 </details>
 <details>
 <summary>
+ListCostCategoryResourceAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCostCategoryResourceAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostCategoryResourceAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostCategoryResourceAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListSavingsPlansPurchaseRecommendationGeneration
 </summary>
 

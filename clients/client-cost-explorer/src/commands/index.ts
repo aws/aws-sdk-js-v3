@@ -33,6 +33,7 @@ export * from "./ListCommitmentPurchaseAnalysesCommand";
 export * from "./ListCostAllocationTagBackfillHistoryCommand";
 export * from "./ListCostAllocationTagsCommand";
 export * from "./ListCostCategoryDefinitionsCommand";
+export * from "./ListCostCategoryResourceAssociationsCommand";
 export * from "./ListSavingsPlansPurchaseRecommendationGenerationCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ProvideAnomalyFeedbackCommand";

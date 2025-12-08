@@ -179,6 +179,10 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
 import {
+  ListCostCategoryResourceAssociationsCommandInput,
+  ListCostCategoryResourceAssociationsCommandOutput,
+} from "./commands/ListCostCategoryResourceAssociationsCommand";
+import {
   ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
   ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
 } from "./commands/ListSavingsPlansPurchaseRecommendationGenerationCommand";
@@ -269,6 +273,7 @@ export type ServiceInputTypes =
   | ListCostAllocationTagBackfillHistoryCommandInput
   | ListCostAllocationTagsCommandInput
   | ListCostCategoryDefinitionsCommandInput
+  | ListCostCategoryResourceAssociationsCommandInput
   | ListSavingsPlansPurchaseRecommendationGenerationCommandInput
   | ListTagsForResourceCommandInput
   | ProvideAnomalyFeedbackCommandInput
@@ -320,6 +325,7 @@ export type ServiceOutputTypes =
   | ListCostAllocationTagBackfillHistoryCommandOutput
   | ListCostAllocationTagsCommandOutput
   | ListCostCategoryDefinitionsCommandOutput
+  | ListCostCategoryResourceAssociationsCommandOutput
   | ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
   | ListTagsForResourceCommandOutput
   | ProvideAnomalyFeedbackCommandOutput

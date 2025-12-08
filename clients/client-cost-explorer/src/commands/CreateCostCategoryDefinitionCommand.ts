@@ -29,7 +29,7 @@ export interface CreateCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new Cost Category with the requested name and rules.</p>
+ * <p>Creates a new cost category with the requested name and rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

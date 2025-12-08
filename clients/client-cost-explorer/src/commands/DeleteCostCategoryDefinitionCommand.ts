@@ -29,8 +29,8 @@ export interface DeleteCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
- *       categorized with this Cost Category.</p>
+ * <p>Deletes a cost category. Expenses from this month going forward will no longer be
+ *       categorized with this cost category.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

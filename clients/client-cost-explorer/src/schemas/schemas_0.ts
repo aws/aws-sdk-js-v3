@@ -84,6 +84,8 @@ const _CCNo = "CostCategoryNames";
 const _CCPS = "CostCategoryProcessingStatus";
 const _CCPSL = "CostCategoryProcessingStatusList";
 const _CCR = "CostCategoryReference";
+const _CCRA = "CostCategoryResourceAssociation";
+const _CCRAo = "CostCategoryResourceAssociations";
 const _CCRL = "CostCategoryReferencesList";
 const _CCRLo = "CostCategoryRulesList";
 const _CCRo = "CostCategoryRule";
@@ -320,6 +322,9 @@ const _LCATRi = "ListCostAllocationTagsResponse";
 const _LCCD = "ListCostCategoryDefinitions";
 const _LCCDR = "ListCostCategoryDefinitionsRequest";
 const _LCCDRi = "ListCostCategoryDefinitionsResponse";
+const _LCCRA = "ListCostCategoryResourceAssociations";
+const _LCCRAR = "ListCostCategoryResourceAssociationsRequest";
+const _LCCRARi = "ListCostCategoryResourceAssociationsResponse";
 const _LCPA = "ListCommitmentPurchaseAnalyses";
 const _LCPAR = "ListCommitmentPurchaseAnalysesRequest";
 const _LCPARi = "ListCommitmentPurchaseAnalysesResponse";
@@ -519,6 +524,7 @@ const _SPUD = "SavingsPlansUtilizationDetails";
 const _SPUDa = "SavingsPlansUtilizationDetail";
 const _SPa = "SavingsPlans";
 const _SQEE = "ServiceQuotaExceededException";
+const _SRT = "SupportedResourceTypes";
 const _SS = "SearchString";
 const _SSPPRG = "StartSavingsPlansPurchaseRecommendationGeneration";
 const _SSPPRGR = "StartSavingsPlansPurchaseRecommendationGenerationRequest";
@@ -752,9 +758,10 @@ export var CostCategoryReference: StaticStructureSchema = [
   n0,
   _CCR,
   0,
-  [_CCA, _N, _ES, _EE, _NOR, _PS, _V, _DVe],
-  [0, 0, 0, 0, 1, () => CostCategoryProcessingStatusList, 64 | 0, 0],
+  [_CCA, _N, _ES, _EE, _NOR, _PS, _V, _DVe, _SRT],
+  [0, 0, 0, 0, 1, () => CostCategoryProcessingStatusList, 64 | 0, 0, 64 | 0],
 ];
+export var CostCategoryResourceAssociation: StaticStructureSchema = [3, n0, _CCRA, 0, [_RAe, _CCN, _CCA], [0, 0, 0]];
 export var CostCategoryRule: StaticStructureSchema = [
   3,
   n0,
@@ -1349,7 +1356,14 @@ export var ListCostAllocationTagsResponse: StaticStructureSchema = [
   [_CATo, _NTe],
   [() => CostAllocationTagList, 0],
 ];
-export var ListCostCategoryDefinitionsRequest: StaticStructureSchema = [3, n0, _LCCDR, 0, [_EO, _NTe, _MR], [0, 0, 1]];
+export var ListCostCategoryDefinitionsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCCDR,
+  0,
+  [_EO, _NTe, _MR, _SRT],
+  [0, 0, 1, 64 | 0],
+];
 export var ListCostCategoryDefinitionsResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1357,6 +1371,22 @@ export var ListCostCategoryDefinitionsResponse: StaticStructureSchema = [
   0,
   [_CCRos, _NTe],
   [() => CostCategoryReferencesList, 0],
+];
+export var ListCostCategoryResourceAssociationsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCCRAR,
+  0,
+  [_CCA, _NTe, _MR],
+  [0, 0, 1],
+];
+export var ListCostCategoryResourceAssociationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCCRARi,
+  0,
+  [_CCRAo, _NTe],
+  [() => CostCategoryResourceAssociations, 0],
 ];
 export var ListSavingsPlansPurchaseRecommendationGenerationRequest: StaticStructureSchema = [
   3,
@@ -1884,6 +1914,13 @@ export var CostAndUsageComparisons: StaticListSchema = [1, n0, _CAUCo, 0, () => 
 export var CostCategoryNamesList = 64 | 0;
 export var CostCategoryProcessingStatusList: StaticListSchema = [1, n0, _CCPSL, 0, () => CostCategoryProcessingStatus];
 export var CostCategoryReferencesList: StaticListSchema = [1, n0, _CCRL, 0, () => CostCategoryReference];
+export var CostCategoryResourceAssociations: StaticListSchema = [
+  1,
+  n0,
+  _CCRAo,
+  0,
+  () => CostCategoryResourceAssociation,
+];
 export var CostCategoryRulesList: StaticListSchema = [1, n0, _CCRLo, 0, () => CostCategoryRule];
 export var CostCategorySplitChargeRuleParametersList: StaticListSchema = [
   1,
@@ -1937,6 +1974,8 @@ export var ReservationPurchaseRecommendations: StaticListSchema = [
 export var ReservationUtilizationGroups: StaticListSchema = [1, n0, _RUGe, 0, () => ReservationUtilizationGroup];
 export var ResourceTagKeyList = 64 | 0;
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
+export var ResourceTypes = 64 | 0;
+export var ResourceTypesFilterInput = 64 | 0;
 export var ResultsByTime: StaticListSchema = [1, n0, _RBT, 0, () => ResultByTime];
 export var RightsizingRecommendationList: StaticListSchema = [1, n0, _RRL, 0, () => RightsizingRecommendation];
 export var RootCauses: StaticListSchema = [1, n0, _RC, 0, () => RootCause];
@@ -2229,6 +2268,14 @@ export var ListCostCategoryDefinitions: StaticOperationSchema = [
   0,
   () => ListCostCategoryDefinitionsRequest,
   () => ListCostCategoryDefinitionsResponse,
+];
+export var ListCostCategoryResourceAssociations: StaticOperationSchema = [
+  9,
+  n0,
+  _LCCRA,
+  0,
+  () => ListCostCategoryResourceAssociationsRequest,
+  () => ListCostCategoryResourceAssociationsResponse,
 ];
 export var ListSavingsPlansPurchaseRecommendationGeneration: StaticOperationSchema = [
   9,

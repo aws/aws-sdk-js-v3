@@ -27,9 +27,9 @@ export interface GetCostCategoriesCommandInput extends GetCostCategoriesRequest 
 export interface GetCostCategoriesCommandOutput extends GetCostCategoriesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
+ * <p>Retrieves an array of cost category names and values incurred cost.</p>
  *          <note>
- *             <p>If some Cost Category names and values are not associated with any cost, they will not
+ *             <p>If some cost category names and values are not associated with any cost, they will not
  *         be returned by this API.</p>
  *          </note>
  * @example

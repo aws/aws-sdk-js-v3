@@ -16,3 +16,4 @@ export * from "./Interfaces";
 export * from "./ListCostAllocationTagBackfillHistoryPaginator";
 export * from "./ListCostAllocationTagsPaginator";
 export * from "./ListCostCategoryDefinitionsPaginator";
+export * from "./ListCostCategoryResourceAssociationsPaginator";
