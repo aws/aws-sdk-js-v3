@@ -226,6 +226,7 @@ export type {
   ImportErrorType,
   ImportStatus,
   InitiatedBy,
+  InternetProtocol,
   JobLogEvent,
   JobStatus,
   JobType,

@@ -27,7 +27,7 @@ export interface StartReplicationCommandInput extends StartReplicationRequest {}
 export interface StartReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * <p>Starts replication for SNAPSHOT_SHIPPING agents.</p>
+ * <p>Start replication for source server irrespective of its replication type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +82,7 @@ export interface StartReplicationCommandOutput extends SourceServer, __MetadataB
  * //       rawError: "STRING_VALUE",
  * //     },
  * //     lastSnapshotDateTime: "STRING_VALUE",
+ * //     replicatorId: "STRING_VALUE",
  * //   },
  * //   lifeCycle: { // LifeCycle
  * //     addedToServiceDateTime: "STRING_VALUE",

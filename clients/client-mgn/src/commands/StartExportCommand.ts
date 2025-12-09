@@ -40,12 +40,16 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  *   s3Bucket: "STRING_VALUE", // required
  *   s3Key: "STRING_VALUE", // required
  *   s3BucketOwner: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartExportCommand(input);
  * const response = await client.send(command);
  * // { // StartExportResponse
  * //   exportTask: { // ExportTask
  * //     exportID: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     s3Bucket: "STRING_VALUE",
  * //     s3Key: "STRING_VALUE",
  * //     s3BucketOwner: "STRING_VALUE",
@@ -57,6 +61,9 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * //       serversCount: Number("long"),
  * //       applicationsCount: Number("long"),
  * //       wavesCount: Number("long"),
+ * //     },
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -87,6 +87,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  *     iops: Number("long"),
  *     throughput: Number("long"),
  *   },
+ *   enableParametersEncryption: true || false,
+ *   parametersEncryptionKey: "STRING_VALUE",
  * };
  * const command = new UpdateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -146,6 +148,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * //     iops: Number("long"),
  * //     throughput: Number("long"),
  * //   },
+ * //   enableParametersEncryption: true || false,
+ * //   parametersEncryptionKey: "STRING_VALUE",
  * // };
  *
  * ```

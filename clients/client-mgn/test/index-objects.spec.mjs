@@ -47,6 +47,7 @@ import {
   InitializeServiceCommand,
   InitiatedBy,
   InternalServerException,
+  InternetProtocol,
   JobLogEvent,
   JobStatus,
   JobType,
@@ -221,6 +222,7 @@ assert(typeof FirstBoot === "object");
 assert(typeof ImportErrorType === "object");
 assert(typeof ImportStatus === "object");
 assert(typeof InitiatedBy === "object");
+assert(typeof InternetProtocol === "object");
 assert(typeof JobLogEvent === "object");
 assert(typeof JobStatus === "object");
 assert(typeof JobType === "object");

@@ -51,6 +51,7 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * //   items: [ // ImportList
  * //     { // ImportTask
  * //       importID: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
  * //       s3BucketSource: { // S3BucketSource
  * //         s3Bucket: "STRING_VALUE", // required
  * //         s3Key: "STRING_VALUE", // required
@@ -73,6 +74,9 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * //           createdCount: Number("long"),
  * //           modifiedCount: Number("long"),
  * //         },
+ * //       },
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

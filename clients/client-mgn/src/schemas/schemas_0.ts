@@ -292,6 +292,7 @@ const _a = "arn";
 const _aAS = "applicationAggregatedStatus";
 const _aC = "applicationsCount";
 const _aCDT = "apiCallDateTime";
+const _aCt = "attemptCount";
 const _aDSG = "associateDefaultSecurityGroup";
 const _aI = "accountId";
 const _aID = "applicationID";
@@ -357,6 +358,7 @@ const _eIID = "ec2InstanceID";
 const _eLTID = "ec2LaunchTemplateID";
 const _eMAT = "enableMapAutoTagging";
 const _eP = "externalParameters";
+const _ePE = "enableParametersEncryption";
 const _eRD = "elapsedReplicationDuration";
 const _eS = "executionStatus";
 const _eT = "errorType";
@@ -386,7 +388,8 @@ const _iBD = "isBootDisk";
 const _iH = "identificationHints";
 const _iID = "importID";
 const _iIDm = "importIDs";
-const _iP = "isPrimary";
+const _iP = "internetProtocol";
+const _iPs = "isPrimary";
 const _iT = "importTask";
 const _in = "initiated";
 const _io = "iops";
@@ -416,6 +419,7 @@ const _lUDTa = "lastUpdatedDateTime";
 const _lVC = "largeVolumeConf";
 const _m = "message";
 const _mA = "macAddress";
+const _mAC = "maxAttemptsCount";
 const _mATMID = "mapAutoTaggingMpeID";
 const _mC = "modifiedCount";
 const _mN = "modelName";
@@ -431,6 +435,7 @@ const _oS = "operatingSystem";
 const _oSBN = "outputS3BucketName";
 const _os = "os";
 const _p = "parameters";
+const _pEK = "parametersEncryptionKey";
 const _pLA = "postLaunchActions";
 const _pLALSL = "postLaunchActionsLaunchStatusList";
 const _pLAS = "postLaunchActionsStatus";
@@ -451,6 +456,7 @@ const _rD = "replicatedDisks";
 const _rE = "rawError";
 const _rI = "resourceId";
 const _rIT = "recommendedInstanceType";
+const _rIe = "replicatorId";
 const _rN = "rowNumber";
 const _rSB = "replicatedStorageBytes";
 const _rSBe = "rescannedStorageBytes";
@@ -630,7 +636,7 @@ export var CreateLaunchConfigurationTemplateRequest: StaticStructureSchema = [
   n0,
   _CLCTR,
   0,
-  [_pLA, _eMAT, _mATMID, _t, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC],
+  [_pLA, _eMAT, _mATMID, _t, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC, _ePE, _pEK],
   [
     () => PostLaunchActions,
     2,
@@ -646,6 +652,8 @@ export var CreateLaunchConfigurationTemplateRequest: StaticStructureSchema = [
     1,
     () => LaunchTemplateDiskConf,
     () => LaunchTemplateDiskConf,
+    2,
+    0,
   ],
 ];
 export var CreateReplicationConfigurationTemplateRequest: StaticStructureSchema = [
@@ -653,8 +661,8 @@ export var CreateReplicationConfigurationTemplateRequest: StaticStructureSchema 
   n0,
   _CRCTR,
   0,
-  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t],
-  [0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0]],
+  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP],
+  [0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0],
 ];
 export var CreateWaveRequest: StaticStructureSchema = [
   3,
@@ -670,8 +678,17 @@ export var DataReplicationInfo: StaticStructureSchema = [
   n0,
   _DRI,
   0,
-  [_lDa, _eDT, _rD, _dRS, _dRI, _dRE, _lSDT],
-  [0, 0, () => DataReplicationInfoReplicatedDisks, 0, () => DataReplicationInitiation, () => DataReplicationError, 0],
+  [_lDa, _eDT, _rD, _dRS, _dRI, _dRE, _lSDT, _rIe],
+  [
+    0,
+    0,
+    () => DataReplicationInfoReplicatedDisks,
+    0,
+    () => DataReplicationInitiation,
+    () => DataReplicationError,
+    0,
+    0,
+  ],
 ];
 export var DataReplicationInfoReplicatedDisk: StaticStructureSchema = [
   3,
@@ -825,8 +842,8 @@ export var ExportTask: StaticStructureSchema = [
   n0,
   _ET,
   0,
-  [_eID, _sB, _sK, _sBO, _cDT, _eDTn, _sta, _pP, _su],
-  [0, 0, 0, 0, 0, 0, 0, 1, () => ExportTaskSummary],
+  [_eID, _a, _sB, _sK, _sBO, _cDT, _eDTn, _sta, _pP, _su, _t],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, () => ExportTaskSummary, [() => TagsMap, 0]],
 ];
 export var ExportTaskError: StaticStructureSchema = [3, n0, _ETE, 0, [_eDTr, _eD], [0, () => ExportErrorData]];
 export var ExportTaskSummary: StaticStructureSchema = [3, n0, _ETS, 0, [_sC, _aC, _wC], [1, 1, 1]];
@@ -847,8 +864,8 @@ export var ImportTask: StaticStructureSchema = [
   n0,
   _IT,
   0,
-  [_iID, _sBS, _cDT, _eDTn, _sta, _pP, _su],
-  [0, () => S3BucketSource, 0, 0, 0, 1, () => ImportTaskSummary],
+  [_iID, _a, _sBS, _cDT, _eDTn, _sta, _pP, _su, _t],
+  [0, 0, () => S3BucketSource, 0, 0, 0, 1, () => ImportTaskSummary, [() => TagsMap, 0]],
 ];
 export var ImportTaskError: StaticStructureSchema = [3, n0, _ITE, 0, [_eDTr, _eT, _eD], [0, 0, () => ImportErrorData]];
 export var ImportTaskSummary: StaticStructureSchema = [
@@ -882,7 +899,14 @@ export var Job: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, () => ParticipatingServers, [() => TagsMap, 0]],
 ];
 export var JobLog: StaticStructureSchema = [3, n0, _JL, 0, [_lDT, _ev, _eDv], [0, 0, () => JobLogEventData]];
-export var JobLogEventData: StaticStructureSchema = [3, n0, _JLED, 0, [_sSIDo, _cSID, _tIID, _rE], [0, 0, 0, 0]];
+export var JobLogEventData: StaticStructureSchema = [
+  3,
+  n0,
+  _JLED,
+  0,
+  [_sSIDo, _cSID, _tIID, _rE, _aCt, _mAC],
+  [0, 0, 0, 0, 1, 1],
+];
 export var JobPostLaunchActionsLaunchStatus: StaticStructureSchema = [
   3,
   n0,
@@ -904,7 +928,27 @@ export var LaunchConfigurationTemplate: StaticStructureSchema = [
   n0,
   _LCT,
   0,
-  [_lCTID, _a, _pLA, _eMAT, _mATMID, _t, _eLTID, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC],
+  [
+    _lCTID,
+    _a,
+    _pLA,
+    _eMAT,
+    _mATMID,
+    _t,
+    _eLTID,
+    _lD,
+    _tITRSM,
+    _cPI,
+    _aPIA,
+    _cT,
+    _l,
+    _bM,
+    _sVMS,
+    _sVC,
+    _lVC,
+    _ePE,
+    _pEK,
+  ],
   [
     0,
     0,
@@ -923,6 +967,8 @@ export var LaunchConfigurationTemplate: StaticStructureSchema = [
     1,
     () => LaunchTemplateDiskConf,
     () => LaunchTemplateDiskConf,
+    2,
+    0,
   ],
 ];
 export var LaunchedInstance: StaticStructureSchema = [3, n0, _LI, 0, [_eIID, _jID, _fB], [0, 0, 0]];
@@ -1003,7 +1049,7 @@ export var ListExportsRequest: StaticStructureSchema = [
   [() => ListExportsRequestFilters, 1, 0],
 ];
 export var ListExportsRequestFilters: StaticStructureSchema = [3, n0, _LERF, 0, [_eIDxp], [64 | 0]];
-export var ListExportsResponse: StaticStructureSchema = [3, n0, _LERi, 0, [_i, _nT], [() => ExportsList, 0]];
+export var ListExportsResponse: StaticStructureSchema = [3, n0, _LERi, 0, [_i, _nT], [[() => ExportsList, 0], 0]];
 export var ListImportErrorsRequest: StaticStructureSchema = [3, n0, _LIER, 0, [_iID, _mR, _nT], [0, 1, 0]];
 export var ListImportErrorsResponse: StaticStructureSchema = [3, n0, _LIERi, 0, [_i, _nT], [() => ImportErrors, 0]];
 export var ListImportsRequest: StaticStructureSchema = [
@@ -1015,7 +1061,7 @@ export var ListImportsRequest: StaticStructureSchema = [
   [() => ListImportsRequestFilters, 1, 0],
 ];
 export var ListImportsRequestFilters: StaticStructureSchema = [3, n0, _LIRF, 0, [_iIDm], [64 | 0]];
-export var ListImportsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_i, _nT], [() => ImportList, 0]];
+export var ListImportsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_i, _nT], [[() => ImportList, 0], 0]];
 export var ListManagedAccountsRequest: StaticStructureSchema = [3, n0, _LMAR, 0, [_mR, _nT], [1, 0]];
 export var ListManagedAccountsResponse: StaticStructureSchema = [
   3,
@@ -1071,7 +1117,7 @@ export var ListWavesRequestFilters: StaticStructureSchema = [3, n0, _LWRF, 0, [_
 export var ListWavesResponse: StaticStructureSchema = [3, n0, _LWRi, 0, [_i, _nT], [[() => WavesList, 0], 0]];
 export var ManagedAccount: StaticStructureSchema = [3, n0, _MA, 0, [_aI], [0]];
 export var MarkAsArchivedRequest: StaticStructureSchema = [3, n0, _MAAR, 0, [_sSIDo, _aIDc], [0, 0]];
-export var NetworkInterface: StaticStructureSchema = [3, n0, _NI, 0, [_mA, _ip, _iP], [0, 64 | 0, 2]];
+export var NetworkInterface: StaticStructureSchema = [3, n0, _NI, 0, [_mA, _ip, _iPs], [0, 64 | 0, 2]];
 export var OS: StaticStructureSchema = [3, n0, _OS, 0, [_fS], [0]];
 export var ParticipatingServer: StaticStructureSchema = [
   3,
@@ -1130,8 +1176,8 @@ export var ReplicationConfiguration: StaticStructureSchema = [
   n0,
   _RC,
   0,
-  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2],
+  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0],
 ];
 export var ReplicationConfigurationReplicatedDisk: StaticStructureSchema = [
   3,
@@ -1146,8 +1192,8 @@ export var ReplicationConfigurationTemplate: StaticStructureSchema = [
   n0,
   _RCT,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0]],
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0],
 ];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
@@ -1229,10 +1275,24 @@ export var StartCutoverRequest: StaticStructureSchema = [
   [64 | 0, [() => TagsMap, 0], 0],
 ];
 export var StartCutoverResponse: StaticStructureSchema = [3, n0, _SCRt, 0, [_j], [[() => Job, 0]]];
-export var StartExportRequest: StaticStructureSchema = [3, n0, _SER, 0, [_sB, _sK, _sBO], [0, 0, 0]];
-export var StartExportResponse: StaticStructureSchema = [3, n0, _SERt, 0, [_eTx], [() => ExportTask]];
-export var StartImportRequest: StaticStructureSchema = [3, n0, _SIR, 0, [_cTl, _sBS], [[0, 4], () => S3BucketSource]];
-export var StartImportResponse: StaticStructureSchema = [3, n0, _SIRt, 0, [_iT], [() => ImportTask]];
+export var StartExportRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SER,
+  0,
+  [_sB, _sK, _sBO, _t],
+  [0, 0, 0, [() => TagsMap, 0]],
+];
+export var StartExportResponse: StaticStructureSchema = [3, n0, _SERt, 0, [_eTx], [[() => ExportTask, 0]]];
+export var StartImportRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SIR,
+  0,
+  [_cTl, _sBS, _t],
+  [[0, 4], () => S3BucketSource, [() => TagsMap, 0]],
+];
+export var StartImportResponse: StaticStructureSchema = [3, n0, _SIRt, 0, [_iT], [[() => ImportTask, 0]]];
 export var StartReplicationRequest: StaticStructureSchema = [3, n0, _SRR, 0, [_sSIDo, _aIDc], [0, 0]];
 export var StartTestRequest: StaticStructureSchema = [
   3,
@@ -1326,7 +1386,7 @@ export var UpdateLaunchConfigurationTemplateRequest: StaticStructureSchema = [
   n0,
   _ULCTR,
   0,
-  [_lCTID, _pLA, _eMAT, _mATMID, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC],
+  [_lCTID, _pLA, _eMAT, _mATMID, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC, _ePE, _pEK],
   [
     0,
     () => PostLaunchActions,
@@ -1342,6 +1402,8 @@ export var UpdateLaunchConfigurationTemplateRequest: StaticStructureSchema = [
     1,
     () => LaunchTemplateDiskConf,
     () => LaunchTemplateDiskConf,
+    2,
+    0,
   ],
 ];
 export var UpdateReplicationConfigurationRequest: StaticStructureSchema = [
@@ -1349,16 +1411,35 @@ export var UpdateReplicationConfigurationRequest: StaticStructureSchema = [
   n0,
   _URCR,
   0,
-  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0],
+  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc, _iP],
+  [
+    0,
+    0,
+    0,
+    2,
+    64 | 0,
+    0,
+    2,
+    0,
+    () => ReplicationConfigurationReplicatedDisks,
+    0,
+    0,
+    1,
+    0,
+    2,
+    [() => TagsMap, 0],
+    2,
+    0,
+    0,
+  ],
 ];
 export var UpdateReplicationConfigurationTemplateRequest: StaticStructureSchema = [
   3,
   n0,
   _URCTR,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2],
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0],
 ];
 export var UpdateSourceServerReplicationTypeRequest: StaticStructureSchema = [
   3,
@@ -1437,10 +1518,10 @@ export var DescribeSourceServersRequestFiltersIDs = 64 | 0;
 export var DisassociateSourceServersRequestSourceServerIDs = 64 | 0;
 export var Disks: StaticListSchema = [1, n0, _Di, 0, () => Disk];
 export var ExportErrors: StaticListSchema = [1, n0, _EE, 0, () => ExportTaskError];
-export var ExportsList: StaticListSchema = [1, n0, _EL, 0, () => ExportTask];
+export var ExportsList: StaticListSchema = [1, n0, _EL, 0, [() => ExportTask, 0]];
 export var ImportErrors: StaticListSchema = [1, n0, _IE, 0, () => ImportTaskError];
 export var ImportIDsFilter = 64 | 0;
-export var ImportList: StaticListSchema = [1, n0, _IL, 0, () => ImportTask];
+export var ImportList: StaticListSchema = [1, n0, _IL, 0, [() => ImportTask, 0]];
 export var IPsList = 64 | 0;
 export var JobLogs: StaticListSchema = [1, n0, _JLo, 0, () => JobLog];
 export var JobsList: StaticListSchema = [1, n0, _JLob, 0, [() => Job, 0]];

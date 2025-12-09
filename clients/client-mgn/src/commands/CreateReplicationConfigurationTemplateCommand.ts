@@ -63,6 +63,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   internetProtocol: "STRING_VALUE",
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -89,6 +90,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * //   tags: {
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

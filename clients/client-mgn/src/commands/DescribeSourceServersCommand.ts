@@ -100,6 +100,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * //           rawError: "STRING_VALUE",
  * //         },
  * //         lastSnapshotDateTime: "STRING_VALUE",
+ * //         replicatorId: "STRING_VALUE",
  * //       },
  * //       lifeCycle: { // LifeCycle
  * //         addedToServiceDateTime: "STRING_VALUE",

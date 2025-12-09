@@ -76,6 +76,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * //       tags: {
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       internetProtocol: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

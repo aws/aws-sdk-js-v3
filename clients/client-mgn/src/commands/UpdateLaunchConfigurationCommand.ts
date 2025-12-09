@@ -27,11 +27,7 @@ export interface UpdateLaunchConfigurationCommandInput extends UpdateLaunchConfi
 export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
- * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>
- *         <note>
- *             <p>bootMode valid values are <code>LEGACY_BIOS | UEFI</code>
- *             </p>
- *          </note>
+ * <p>Updates multiple LaunchConfigurations by Source Server ID.</p> <note> <p>bootMode valid values are <code>LEGACY_BIOS | UEFI</code> </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -108,6 +108,8 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * //         iops: Number("long"),
  * //         throughput: Number("long"),
  * //       },
+ * //       enableParametersEncryption: true || false,
+ * //       parametersEncryptionKey: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

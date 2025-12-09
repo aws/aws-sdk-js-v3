@@ -62,6 +62,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  *     "<keys>": "STRING_VALUE",
  *   },
  *   useFipsEndpoint: true || false,
+ *   internetProtocol: "STRING_VALUE",
  * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -88,6 +89,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * //   tags: {
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

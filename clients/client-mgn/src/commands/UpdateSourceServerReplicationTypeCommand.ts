@@ -27,7 +27,7 @@ export interface UpdateSourceServerReplicationTypeCommandInput extends UpdateSou
 export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>
+ * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type. </p> <p>SNAPSHOT_SHIPPING should be used for agentless replication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +83,7 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * //       rawError: "STRING_VALUE",
  * //     },
  * //     lastSnapshotDateTime: "STRING_VALUE",
+ * //     replicatorId: "STRING_VALUE",
  * //   },
  * //   lifeCycle: { // LifeCycle
  * //     addedToServiceDateTime: "STRING_VALUE",

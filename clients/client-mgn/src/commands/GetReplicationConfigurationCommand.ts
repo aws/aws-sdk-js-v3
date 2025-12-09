@@ -71,6 +71,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   useFipsEndpoint: true || false,
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

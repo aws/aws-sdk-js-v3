@@ -54,6 +54,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * //         conversionServerID: "STRING_VALUE",
  * //         targetInstanceID: "STRING_VALUE",
  * //         rawError: "STRING_VALUE",
+ * //         attemptCount: Number("int"),
+ * //         maxAttemptsCount: Number("int"),
  * //       },
  * //     },
  * //   ],
