@@ -261,6 +261,14 @@ GetContactInformation
 </details>
 <details>
 <summary>
+GetGovCloudAccountInformation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/GetGovCloudAccountInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetGovCloudAccountInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetGovCloudAccountInformationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetPrimaryEmail
 </summary>
 

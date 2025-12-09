@@ -177,3 +177,30 @@ export class ValidationException extends __BaseException {
     this.fieldList = opts.fieldList;
   }
 }
+
+/**
+ * <p>The operation failed because it specified a resource that is not currently available.</p>
+ * @public
+ */
+export class ResourceUnavailableException extends __BaseException {
+  readonly name = "ResourceUnavailableException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>
+   * @public
+   */
+  errorType?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
+    super({
+      name: "ResourceUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
+    this.errorType = opts.errorType;
+  }
+}

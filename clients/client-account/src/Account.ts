@@ -39,6 +39,11 @@ import {
   GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
 import {
+  GetGovCloudAccountInformationCommand,
+  GetGovCloudAccountInformationCommandInput,
+  GetGovCloudAccountInformationCommandOutput,
+} from "./commands/GetGovCloudAccountInformationCommand";
+import {
   GetPrimaryEmailCommand,
   GetPrimaryEmailCommandInput,
   GetPrimaryEmailCommandOutput,
@@ -78,6 +83,7 @@ const commands = {
   GetAccountInformationCommand,
   GetAlternateContactCommand,
   GetContactInformationCommand,
+  GetGovCloudAccountInformationCommand,
   GetPrimaryEmailCommand,
   GetRegionOptStatusCommand,
   ListRegionsCommand,
@@ -195,6 +201,24 @@ export interface Account {
     args: GetContactInformationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetContactInformationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGovCloudAccountInformationCommand}
+   */
+  getGovCloudAccountInformation(): Promise<GetGovCloudAccountInformationCommandOutput>;
+  getGovCloudAccountInformation(
+    args: GetGovCloudAccountInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGovCloudAccountInformationCommandOutput>;
+  getGovCloudAccountInformation(
+    args: GetGovCloudAccountInformationCommandInput,
+    cb: (err: any, data?: GetGovCloudAccountInformationCommandOutput) => void
+  ): void;
+  getGovCloudAccountInformation(
+    args: GetGovCloudAccountInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGovCloudAccountInformationCommandOutput) => void
   ): void;
 
   /**

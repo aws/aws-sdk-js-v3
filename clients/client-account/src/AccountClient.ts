@@ -88,6 +88,10 @@ import {
   GetContactInformationCommandInput,
   GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
+import {
+  GetGovCloudAccountInformationCommandInput,
+  GetGovCloudAccountInformationCommandOutput,
+} from "./commands/GetGovCloudAccountInformationCommand";
 import { GetPrimaryEmailCommandInput, GetPrimaryEmailCommandOutput } from "./commands/GetPrimaryEmailCommand";
 import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "./commands/GetRegionOptStatusCommand";
 import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
@@ -126,6 +130,7 @@ export type ServiceInputTypes =
   | GetAccountInformationCommandInput
   | GetAlternateContactCommandInput
   | GetContactInformationCommandInput
+  | GetGovCloudAccountInformationCommandInput
   | GetPrimaryEmailCommandInput
   | GetRegionOptStatusCommandInput
   | ListRegionsCommandInput
@@ -145,6 +150,7 @@ export type ServiceOutputTypes =
   | GetAccountInformationCommandOutput
   | GetAlternateContactCommandOutput
   | GetContactInformationCommandOutput
+  | GetGovCloudAccountInformationCommandOutput
   | GetPrimaryEmailCommandOutput
   | GetRegionOptStatusCommandOutput
   | ListRegionsCommandOutput

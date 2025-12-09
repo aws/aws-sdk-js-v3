@@ -11,6 +11,7 @@ const _AN = "AccountName";
 const _APEU = "AcceptPrimaryEmailUpdate";
 const _APEUR = "AcceptPrimaryEmailUpdateRequest";
 const _APEURc = "AcceptPrimaryEmailUpdateResponse";
+const _AS = "AccountState";
 const _C = "City";
 const _CC = "CountryCode";
 const _CE = "ConflictException";
@@ -32,9 +33,13 @@ const _GACRe = "GetAlternateContactResponse";
 const _GAI = "GetAccountInformation";
 const _GAIR = "GetAccountInformationRequest";
 const _GAIRe = "GetAccountInformationResponse";
+const _GCAI = "GovCloudAccountId";
 const _GCI = "GetContactInformation";
 const _GCIR = "GetContactInformationRequest";
 const _GCIRe = "GetContactInformationResponse";
+const _GGCAI = "GetGovCloudAccountInformation";
+const _GGCAIR = "GetGovCloudAccountInformationRequest";
+const _GGCAIRe = "GetGovCloudAccountInformationResponse";
 const _GPE = "GetPrimaryEmail";
 const _GPER = "GetPrimaryEmailRequest";
 const _GPERe = "GetPrimaryEmailResponse";
@@ -65,8 +70,10 @@ const _RNFE = "ResourceNotFoundException";
 const _ROL = "RegionOptList";
 const _ROS = "RegionOptStatus";
 const _ROSC = "RegionOptStatusContains";
+const _RUE = "ResourceUnavailableException";
 const _Re = "Region";
 const _S = "Status";
+const _SAI = "StandardAccountId";
 const _SOR = "StateOrRegion";
 const _SPEU = "StartPrimaryEmailUpdate";
 const _SPEUR = "StartPrimaryEmailUpdateRequest";
@@ -109,6 +116,7 @@ import {
   ConflictException as __ConflictException,
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
+  ResourceUnavailableException as __ResourceUnavailableException,
   TooManyRequestsException as __TooManyRequestsException,
   ValidationException as __ValidationException,
 } from "../models/errors";
@@ -218,6 +226,8 @@ export var GetContactInformationResponse: StaticStructureSchema = [
   [_CI],
   [[() => ContactInformation, 0]],
 ];
+export var GetGovCloudAccountInformationRequest: StaticStructureSchema = [3, n0, _GGCAIR, 0, [_SAI], [0]];
+export var GetGovCloudAccountInformationResponse: StaticStructureSchema = [3, n0, _GGCAIRe, 0, [_GCAI, _AS], [0, 0]];
 export var GetPrimaryEmailRequest: StaticStructureSchema = [3, n0, _GPER, 0, [_AI], [0]];
 export var GetPrimaryEmailResponse: StaticStructureSchema = [3, n0, _GPERe, 0, [_PE], [[() => PrimaryEmailAddress, 0]]];
 export var GetRegionOptStatusRequest: StaticStructureSchema = [3, n0, _GROSR, 0, [_AI, _RN], [0, 0]];
@@ -260,6 +270,15 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [0, [0, { [_hH]: _xaE }]],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
+export var ResourceUnavailableException: StaticErrorSchema = [
+  -3,
+  n0,
+  _RUE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m, _eT],
+  [0, [0, { [_hH]: _xaE }]],
+];
+TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
 export var StartPrimaryEmailUpdateRequest: StaticStructureSchema = [
   3,
   n0,
@@ -356,6 +375,14 @@ export var GetContactInformation: StaticOperationSchema = [
   { [_h]: ["POST", "/getContactInformation", 200] },
   () => GetContactInformationRequest,
   () => GetContactInformationResponse,
+];
+export var GetGovCloudAccountInformation: StaticOperationSchema = [
+  9,
+  n0,
+  _GGCAI,
+  { [_h]: ["POST", "/getGovCloudAccountInformation", 200] },
+  () => GetGovCloudAccountInformationRequest,
+  () => GetGovCloudAccountInformationResponse,
 ];
 export var GetPrimaryEmail: StaticOperationSchema = [
   9,
