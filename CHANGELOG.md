@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+
+### Features
+
+* **client-account:** This release adds a new API (GetGovCloudAccountInformation) used to retrieve information about a linked GovCloud account from the standard AWS partition. ([ae9e6fc](https://github.com/aws/aws-sdk-js-v3/commit/ae9e6fce6d0ed46120fdf006d707377c6af0ec18))
+* **client-appsync:** Update Event API to require EventConfig parameter in creation and update requests. ([6298ec4](https://github.com/aws/aws-sdk-js-v3/commit/6298ec44423432fbba20587b1d359facef3894fe))
+* **client-guardduty:** Adding support for Ec2LaunchTemplate Version field ([4903763](https://github.com/aws/aws-sdk-js-v3/commit/4903763dc0edf967b4f9975b091fe2804f260376))
+* **client-ivs-realtime:** Token Exchange introduces seamless token exchange capabilities for IVS RTX, enabling customers to upgrade or downgrade token capabilities and update token attributes within the IVS client SDK without forcing clients to disconnect and reconnect. ([db22591](https://github.com/aws/aws-sdk-js-v3/commit/db225910345a19549d78ab08a6b8ed8f66cd79ac))
+* **client-mgn:** Added parameters encryption, IPv4/IPv6 protocol configuration, and enhanced tagging support for replication operations. ([a0a347c](https://github.com/aws/aws-sdk-js-v3/commit/a0a347c6bafea04e434854b0dad649bb51eea160))
+* **client-route-53:** Amazon Route 53 now supports the EU (Germany) Region (eusc-de-east-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region ([c21e90b](https://github.com/aws/aws-sdk-js-v3/commit/c21e90bcef70ee477f9fad5792d504400034cc60))
+* **clients:** update client endpoints as of 2025-12-09 ([012e1f9](https://github.com/aws/aws-sdk-js-v3/commit/012e1f9ada35a7fb597bbd7df72e765bc75ffeec))
+
+
+
+
+
 # [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
 
 

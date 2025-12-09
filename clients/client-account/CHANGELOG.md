@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+
+### Features
+
+* **client-account:** This release adds a new API (GetGovCloudAccountInformation) used to retrieve information about a linked GovCloud account from the standard AWS partition. ([ae9e6fc](https://github.com/aws/aws-sdk-js-v3/commit/ae9e6fce6d0ed46120fdf006d707377c6af0ec18))
+
+
+
+
+
 # [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
 
 **Note:** Version bump only for package @aws-sdk/client-account

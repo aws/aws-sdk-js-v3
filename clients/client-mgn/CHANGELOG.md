@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+
+### Features
+
+* **client-mgn:** Added parameters encryption, IPv4/IPv6 protocol configuration, and enhanced tagging support for replication operations. ([a0a347c](https://github.com/aws/aws-sdk-js-v3/commit/a0a347c6bafea04e434854b0dad649bb51eea160))
+
+
+
+
+
 # [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
 
 **Note:** Version bump only for package @aws-sdk/client-mgn
