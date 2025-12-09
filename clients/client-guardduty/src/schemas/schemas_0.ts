@@ -2857,7 +2857,17 @@ export var Ec2Instance: StaticStructureSchema = [
     [64 | 0, { [_jN]: _eNIU }],
   ],
 ];
-export var Ec2LaunchTemplate: StaticStructureSchema = [3, n0, _ELT, 0, [_EIU, _V], [[64 | 0, { [_jN]: _eIU }], 0]];
+export var Ec2LaunchTemplate: StaticStructureSchema = [
+  3,
+  n0,
+  _ELT,
+  0,
+  [_EIU, _V],
+  [
+    [64 | 0, { [_jN]: _eIU }],
+    [0, { [_jN]: _v }],
+  ],
+];
 export var Ec2NetworkInterface: StaticStructureSchema = [
   3,
   n0,
