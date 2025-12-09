@@ -76,10 +76,16 @@ export class MetadataService {
         // handle response.body as stream
         return sdkStreamMixin(response.body).transformToString();
       } else {
-        throw new Error(`Request failed with status code ${response.statusCode}`);
+        throw Object.assign(new Error(`Request failed with status code ${response.statusCode}`), {
+          statusCode: response.statusCode,
+        });
       }
     } catch (error) {
-      throw new Error(`Error making request to the metadata service: ${error}`);
+      const wrappedError = new Error(`Error making request to the metadata service: ${error}`);
+      if ((error as any).statusCode !== undefined) {
+        (wrappedError as any).statusCode = (error as any).statusCode;
+      }
+      throw wrappedError;
     }
   }
 
