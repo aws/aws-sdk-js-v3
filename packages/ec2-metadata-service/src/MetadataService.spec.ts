@@ -253,3 +253,76 @@ describe("MetadataService Socket Leak Checks", () => {
     });
   });
 });
+
+describe("MetadataService Custom Ports", () => {
+  let metadataService: MetadataService;
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  const createMockResponse = (statusCode: number, body: string) => {
+    const stream = Readable.from([body]);
+    return {
+      response: {
+        statusCode,
+        body: stream,
+        headers: {},
+      },
+    };
+  };
+
+  it("should use custom port from endpoint URL in request()", async () => {
+    metadataService = new MetadataService({
+      endpoint: "http://localhost:1338",
+      httpOptions: { timeout: 1000 },
+    });
+
+    const mockResponse = createMockResponse(200, "i-1234567890abcdef0");
+    const mockHandle = vi.fn().mockResolvedValue(mockResponse);
+
+    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+
+    await metadataService.request("/latest/meta-data/instance-id", {});
+
+    const requestArg = mockHandle.mock.calls[0][0];
+    expect(requestArg.port).toBe(1338);
+    expect(requestArg.hostname).toBe("localhost");
+  });
+
+  it("should use custom port from endpoint URL in fetchMetadataToken()", async () => {
+    metadataService = new MetadataService({
+      endpoint: "http://localhost:1338",
+      httpOptions: { timeout: 1000 },
+    });
+
+    const mockResponse = createMockResponse(200, "test-token-123");
+    const mockHandle = vi.fn().mockResolvedValue(mockResponse);
+
+    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+
+    await metadataService.fetchMetadataToken();
+
+    const requestArg = mockHandle.mock.calls[0][0];
+    expect(requestArg.port).toBe(1338);
+    expect(requestArg.hostname).toBe("localhost");
+  });
+
+  it("should use undefined port for standard HTTP endpoint", async () => {
+    metadataService = new MetadataService({
+      endpoint: "http://169.254.169.254",
+      httpOptions: { timeout: 1000 },
+    });
+
+    const mockResponse = createMockResponse(200, "test-token-123");
+    const mockHandle = vi.fn().mockResolvedValue(mockResponse);
+
+    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+
+    await metadataService.fetchMetadataToken();
+
+    const requestArg = mockHandle.mock.calls[0][0];
+    expect(requestArg.port).toBeUndefined();
+    expect(requestArg.hostname).toBe("169.254.169.254");
+  });
+});
