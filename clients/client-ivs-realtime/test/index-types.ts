@@ -175,6 +175,7 @@ export type {
   EncoderConfiguration,
   EncoderConfigurationSummary,
   Event,
+  ExchangedParticipantToken,
   GetCompositionRequest,
   GetCompositionResponse,
   GetEncoderConfigurationRequest,

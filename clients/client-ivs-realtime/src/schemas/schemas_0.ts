@@ -57,6 +57,7 @@ const _EC = "EncoderConfiguration";
 const _ECS = "EncoderConfigurationSummary";
 const _ECSL = "EncoderConfigurationSummaryList";
 const _EL = "EventList";
+const _EPT = "ExchangedParticipantToken";
 const _GC = "GridConfiguration";
 const _GCR = "GetCompositionRequest";
 const _GCRe = "GetCompositionResponse";
@@ -253,7 +254,8 @@ const _l = "layout";
 const _mR = "maxResults";
 const _mT = "mediaTypes";
 const _n = "name";
-const _nT = "nextToken";
+const _nT = "newToken";
+const _nTe = "nextToken";
 const _oN = "osName";
 const _oSV = "omitStoppedVideo";
 const _oV = "osVersion";
@@ -271,6 +273,7 @@ const _pPA = "pipParticipantAttribute";
 const _pT = "participantToken";
 const _pTC = "participantTokenConfigurations";
 const _pTa = "participantTokens";
+const _pTr = "previousToken";
 const _pW = "pipWidth";
 const _pa = "participants";
 const _pi = "pip";
@@ -547,8 +550,16 @@ export var Event: StaticStructureSchema = [
   n0,
   _E,
   0,
-  [_n, _pI, _eTv, _rPI, _eCr, _dSA, _dSI, _re],
-  [0, 0, 5, 0, 0, 0, 0, 2],
+  [_n, _pI, _eTv, _rPI, _eCr, _dSA, _dSI, _re, _pTr, _nT],
+  [0, 0, 5, 0, 0, 0, 0, 2, () => ExchangedParticipantToken, () => ExchangedParticipantToken],
+];
+export var ExchangedParticipantToken: StaticStructureSchema = [
+  3,
+  n0,
+  _EPT,
+  0,
+  [_ca, _at, _uI, _eTx],
+  [64 | 0, 128 | 0, 0, 5],
 ];
 export var GetCompositionRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_a], [0]];
 export var GetCompositionResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_com], [() => Composition]];
@@ -640,22 +651,22 @@ export var LayoutConfiguration: StaticStructureSchema = [
   [_g, _pi],
   [() => GridConfiguration, () => PipConfiguration],
 ];
-export var ListCompositionsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_fBSA, _fBECA, _nT, _mR], [0, 0, 0, 1]];
+export var ListCompositionsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_fBSA, _fBECA, _nTe, _mR], [0, 0, 0, 1]];
 export var ListCompositionsResponse: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
   0,
-  [_comp, _nT],
+  [_comp, _nTe],
   [() => CompositionSummaryList, 0],
 ];
-export var ListEncoderConfigurationsRequest: StaticStructureSchema = [3, n0, _LECR, 0, [_nT, _mR], [0, 1]];
+export var ListEncoderConfigurationsRequest: StaticStructureSchema = [3, n0, _LECR, 0, [_nTe, _mR], [0, 1]];
 export var ListEncoderConfigurationsResponse: StaticStructureSchema = [
   3,
   n0,
   _LECRi,
   0,
-  [_eCn, _nT],
+  [_eCn, _nTe],
   [() => EncoderConfigurationSummaryList, 0],
 ];
 export var ListIngestConfigurationsRequest: StaticStructureSchema = [
@@ -663,7 +674,7 @@ export var ListIngestConfigurationsRequest: StaticStructureSchema = [
   n0,
   _LICR,
   0,
-  [_fBSA, _fBS, _nT, _mR],
+  [_fBSA, _fBS, _nTe, _mR],
   [0, 0, 0, 1],
 ];
 export var ListIngestConfigurationsResponse: StaticStructureSchema = [
@@ -671,7 +682,7 @@ export var ListIngestConfigurationsResponse: StaticStructureSchema = [
   n0,
   _LICRi,
   0,
-  [_iCn, _nT],
+  [_iCn, _nTe],
   [() => IngestConfigurationList, 0],
 ];
 export var ListParticipantEventsRequest: StaticStructureSchema = [
@@ -679,16 +690,16 @@ export var ListParticipantEventsRequest: StaticStructureSchema = [
   n0,
   _LPER,
   0,
-  [_sA, _sI, _pI, _nT, _mR],
+  [_sA, _sI, _pI, _nTe, _mR],
   [0, 0, 0, 0, 1],
 ];
-export var ListParticipantEventsResponse: StaticStructureSchema = [3, n0, _LPERi, 0, [_ev, _nT], [() => EventList, 0]];
+export var ListParticipantEventsResponse: StaticStructureSchema = [3, n0, _LPERi, 0, [_ev, _nTe], [() => EventList, 0]];
 export var ListParticipantReplicasRequest: StaticStructureSchema = [
   3,
   n0,
   _LPRR,
   0,
-  [_sSA, _pI, _nT, _mR],
+  [_sSA, _pI, _nTe, _mR],
   [0, 0, 0, 1],
 ];
 export var ListParticipantReplicasResponse: StaticStructureSchema = [
@@ -696,7 +707,7 @@ export var ListParticipantReplicasResponse: StaticStructureSchema = [
   n0,
   _LPRRi,
   0,
-  [_rep, _nT],
+  [_rep, _nTe],
   [() => ParticipantReplicaList, 0],
 ];
 export var ListParticipantsRequest: StaticStructureSchema = [
@@ -704,30 +715,30 @@ export var ListParticipantsRequest: StaticStructureSchema = [
   n0,
   _LPR,
   0,
-  [_sA, _sI, _fBUI, _fBP, _fBS, _nT, _mR, _fBRS],
+  [_sA, _sI, _fBUI, _fBP, _fBS, _nTe, _mR, _fBRS],
   [0, 0, 0, 2, 0, 0, 1, 0],
 ];
-export var ListParticipantsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nT], [() => ParticipantList, 0]];
-export var ListPublicKeysRequest: StaticStructureSchema = [3, n0, _LPKR, 0, [_nT, _mR], [0, 1]];
-export var ListPublicKeysResponse: StaticStructureSchema = [3, n0, _LPKRi, 0, [_pKu, _nT], [() => PublicKeyList, 0]];
-export var ListStageSessionsRequest: StaticStructureSchema = [3, n0, _LSSR, 0, [_sA, _nT, _mR], [0, 0, 1]];
+export var ListParticipantsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nTe], [() => ParticipantList, 0]];
+export var ListPublicKeysRequest: StaticStructureSchema = [3, n0, _LPKR, 0, [_nTe, _mR], [0, 1]];
+export var ListPublicKeysResponse: StaticStructureSchema = [3, n0, _LPKRi, 0, [_pKu, _nTe], [() => PublicKeyList, 0]];
+export var ListStageSessionsRequest: StaticStructureSchema = [3, n0, _LSSR, 0, [_sA, _nTe, _mR], [0, 0, 1]];
 export var ListStageSessionsResponse: StaticStructureSchema = [
   3,
   n0,
   _LSSRi,
   0,
-  [_sSt, _nT],
+  [_sSt, _nTe],
   [() => StageSessionList, 0],
 ];
-export var ListStagesRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_nT, _mR], [0, 1]];
-export var ListStagesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_stag, _nT], [() => StageSummaryList, 0]];
-export var ListStorageConfigurationsRequest: StaticStructureSchema = [3, n0, _LSCR, 0, [_nT, _mR], [0, 1]];
+export var ListStagesRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_nTe, _mR], [0, 1]];
+export var ListStagesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_stag, _nTe], [() => StageSummaryList, 0]];
+export var ListStorageConfigurationsRequest: StaticStructureSchema = [3, n0, _LSCR, 0, [_nTe, _mR], [0, 1]];
 export var ListStorageConfigurationsResponse: StaticStructureSchema = [
   3,
   n0,
   _LSCRi,
   0,
-  [_sCt, _nT],
+  [_sCt, _nTe],
   [() => StorageConfigurationSummaryList, 0],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];

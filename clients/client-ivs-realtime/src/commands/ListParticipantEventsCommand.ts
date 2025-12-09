@@ -57,6 +57,26 @@ export interface ListParticipantEventsCommandOutput extends ListParticipantEvent
  * //       destinationStageArn: "STRING_VALUE",
  * //       destinationSessionId: "STRING_VALUE",
  * //       replica: true || false,
+ * //       previousToken: { // ExchangedParticipantToken
+ * //         capabilities: [ // ParticipantTokenCapabilities
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         attributes: { // ParticipantTokenAttributes
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         userId: "STRING_VALUE",
+ * //         expirationTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       newToken: {
+ * //         capabilities: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         attributes: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         userId: "STRING_VALUE",
+ * //         expirationTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
