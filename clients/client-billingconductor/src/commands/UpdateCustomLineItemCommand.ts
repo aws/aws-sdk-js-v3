@@ -53,10 +53,13 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  *     },
  *     LineItemFilters: [ // LineItemFiltersList
  *       { // LineItemFilter
- *         Attribute: "LINE_ITEM_TYPE", // required
- *         MatchOption: "NOT_EQUAL", // required
- *         Values: [ // LineItemFilterValuesList // required
+ *         Attribute: "LINE_ITEM_TYPE" || "SERVICE", // required
+ *         MatchOption: "NOT_EQUAL" || "EQUAL", // required
+ *         Values: [ // LineItemFilterValuesList
  *           "SAVINGS_PLAN_NEGATION",
+ *         ],
+ *         AttributeValues: [ // AttributeValueList
+ *           "STRING_VALUE",
  *         ],
  *       },
  *     ],
@@ -83,10 +86,13 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * //     Type: "CREDIT" || "FEE", // required
  * //     LineItemFilters: [ // LineItemFiltersList
  * //       { // LineItemFilter
- * //         Attribute: "LINE_ITEM_TYPE", // required
- * //         MatchOption: "NOT_EQUAL", // required
- * //         Values: [ // LineItemFilterValuesList // required
+ * //         Attribute: "LINE_ITEM_TYPE" || "SERVICE", // required
+ * //         MatchOption: "NOT_EQUAL" || "EQUAL", // required
+ * //         Values: [ // LineItemFilterValuesList
  * //           "SAVINGS_PLAN_NEGATION",
+ * //         ],
+ * //         AttributeValues: [ // AttributeValueList
+ * //           "STRING_VALUE",
  * //         ],
  * //       },
  * //     ],

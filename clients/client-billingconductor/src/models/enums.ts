@@ -32,6 +32,7 @@ export const ValidationExceptionReason = {
   ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
   ILLEGAL_ACCOUNT_ID: "ILLEGAL_ACCOUNT_ID",
   ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
+  ILLEGAL_BILLING_GROUP_PRICING_PLAN: "ILLEGAL_BILLING_GROUP_PRICING_PLAN",
   ILLEGAL_BILLING_GROUP_TYPE: "ILLEGAL_BILLING_GROUP_TYPE",
   ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
   ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
@@ -153,6 +154,7 @@ export type BillingGroupStatus = (typeof BillingGroupStatus)[keyof typeof Billin
  */
 export const LineItemFilterAttributeName = {
   LINE_ITEM_TYPE: "LINE_ITEM_TYPE",
+  SERVICE: "SERVICE",
 } as const;
 /**
  * @public
@@ -165,6 +167,7 @@ export type LineItemFilterAttributeName =
  * @enum
  */
 export const MatchOption = {
+  EQUAL: "EQUAL",
   NOT_EQUAL: "NOT_EQUAL",
 } as const;
 /**
@@ -203,6 +206,7 @@ export type CustomLineItemType = (typeof CustomLineItemType)[keyof typeof Custom
  */
 export const ComputationRuleEnum = {
   CONSOLIDATED: "CONSOLIDATED",
+  ITEMIZED: "ITEMIZED",
 } as const;
 /**
  * @public

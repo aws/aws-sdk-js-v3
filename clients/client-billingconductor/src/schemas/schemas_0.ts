@@ -22,6 +22,7 @@ const _ARRE = "AssociateResourceResponseElement";
 const _ARRL = "AssociateResourcesResponseList";
 const _AS = "AssociationSize";
 const _AV = "AssociatedValues";
+const _AVt = "AttributeValues";
 const _AWSC = "AWSCost";
 const _Ac = "Activated";
 const _Ar = "Arns";
@@ -609,7 +610,7 @@ export var InternalServerException: StaticErrorSchema = [
   [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var LineItemFilter: StaticStructureSchema = [3, n0, _LIFi, 0, [_At, _MO, _Va], [0, 0, 64 | 0]];
+export var LineItemFilter: StaticStructureSchema = [3, n0, _LIFi, 0, [_At, _MO, _Va, _AVt], [0, 0, 64 | 0, 64 | 0]];
 export var ListAccountAssociationsFilter: StaticStructureSchema = [3, n0, _LAAF, 0, [_As, _AI, _AIc], [0, 0, 64 | 0]];
 export var ListAccountAssociationsInput: StaticStructureSchema = [
   3,
@@ -1044,6 +1045,7 @@ export var AccountIdFilterList = 64 | 0;
 export var AccountIdList = 64 | 0;
 export var AssociateResourcesResponseList: StaticListSchema = [1, n0, _ARRL, 0, () => AssociateResourceResponseElement];
 export var AttributesList: StaticListSchema = [1, n0, _AL, 0, () => Attribute];
+export var AttributeValueList = 64 | 0;
 export var BillingGroupArnList = 64 | 0;
 export var BillingGroupCostReportList: StaticListSchema = [1, n0, _BGCRL, 0, () => BillingGroupCostReportElement];
 export var BillingGroupCostReportResultsList: StaticListSchema = [

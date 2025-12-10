@@ -67,10 +67,13 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * //         Type: "CREDIT" || "FEE", // required
  * //         LineItemFilters: [ // LineItemFiltersList
  * //           { // LineItemFilter
- * //             Attribute: "LINE_ITEM_TYPE", // required
- * //             MatchOption: "NOT_EQUAL", // required
- * //             Values: [ // LineItemFilterValuesList // required
+ * //             Attribute: "LINE_ITEM_TYPE" || "SERVICE", // required
+ * //             MatchOption: "NOT_EQUAL" || "EQUAL", // required
+ * //             Values: [ // LineItemFilterValuesList
  * //               "SAVINGS_PLAN_NEGATION",
+ * //             ],
+ * //             AttributeValues: [ // AttributeValueList
+ * //               "STRING_VALUE",
  * //             ],
  * //           },
  * //         ],
@@ -87,7 +90,7 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * //       Arn: "STRING_VALUE",
  * //       StartTime: Number("long"),
  * //       AccountId: "STRING_VALUE",
- * //       ComputationRule: "CONSOLIDATED",
+ * //       ComputationRule: "ITEMIZED" || "CONSOLIDATED",
  * //       PresentationDetails: { // PresentationObject
  * //         Service: "STRING_VALUE", // required
  * //       },
