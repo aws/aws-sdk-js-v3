@@ -53,6 +53,7 @@ export interface ListCloudVmClustersCommandOutput extends ListCloudVmClustersOut
  * //       statusReason: "STRING_VALUE",
  * //       cloudVmClusterArn: "STRING_VALUE",
  * //       cloudExadataInfrastructureId: "STRING_VALUE",
+ * //       cloudExadataInfrastructureArn: "STRING_VALUE",
  * //       clusterName: "STRING_VALUE",
  * //       cpuCoreCount: Number("int"),
  * //       dataCollectionOptions: { // DataCollectionOptions
@@ -108,6 +109,7 @@ export interface ListCloudVmClustersCommandOutput extends ListCloudVmClustersOut
  * //         "STRING_VALUE",
  * //       ],
  * //       odbNetworkId: "STRING_VALUE",
+ * //       odbNetworkArn: "STRING_VALUE",
  * //       percentProgress: Number("float"),
  * //       computeModel: "ECPU" || "OCPU",
  * //       iamRoles: [ // IamRoleList
