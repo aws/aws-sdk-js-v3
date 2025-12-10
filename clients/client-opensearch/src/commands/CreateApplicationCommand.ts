@@ -62,6 +62,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   kmsKeyArn: "STRING_VALUE",
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
@@ -94,6 +95,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     },
  * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

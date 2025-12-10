@@ -67,6 +67,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

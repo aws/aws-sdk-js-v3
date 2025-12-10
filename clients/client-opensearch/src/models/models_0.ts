@@ -1667,6 +1667,14 @@ export interface CreateApplicationRequest {
    * @public
    */
   tagList?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data at rest.
+   *               If provided, the application uses your customer-managed key for encryption. If omitted, the application
+   *               uses an AWS-managed key. The KMS key must be in the same region as the application.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1758,6 +1766,12 @@ export interface CreateApplicationResponse {
    * @public
    */
   createdAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data at rest.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -5961,6 +5975,12 @@ export interface GetApplicationResponse {
    * @public
    */
   lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data at rest.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**

@@ -755,6 +755,7 @@ const _iICO = "iamIdentityCenterOptions";
 const _iRFICAA = "iamRoleForIdentityCenterApplicationArn";
 const _iT = "instanceType";
 const _k = "key";
+const _kKA = "kmsKeyArn";
 const _lDRC = "loadDryRunConfig";
 const _lUA = "lastUpdatedAt";
 const _m = "message";
@@ -1067,16 +1068,16 @@ export var CreateApplicationRequest: StaticStructureSchema = [
   n0,
   _CAR,
   0,
-  [_cT, _n, _dS, _iICO, _aC, _tL],
-  [[0, 4], 0, () => DataSources, () => IamIdentityCenterOptionsInput, () => AppConfigs, () => TagList],
+  [_cT, _n, _dS, _iICO, _aC, _tL, _kKA],
+  [[0, 4], 0, () => DataSources, () => IamIdentityCenterOptionsInput, () => AppConfigs, () => TagList, 0],
 ];
 export var CreateApplicationResponse: StaticStructureSchema = [
   3,
   n0,
   _CARr,
   0,
-  [_i, _n, _a, _dS, _iICO, _aC, _tL, _cA],
-  [0, 0, 0, () => DataSources, () => IamIdentityCenterOptions, () => AppConfigs, () => TagList, 4],
+  [_i, _n, _a, _dS, _iICO, _aC, _tL, _cA, _kKA],
+  [0, 0, 0, () => DataSources, () => IamIdentityCenterOptions, () => AppConfigs, () => TagList, 4, 0],
 ];
 export var CreateDomainRequest: StaticStructureSchema = [
   3,
@@ -1670,8 +1671,8 @@ export var GetApplicationResponse: StaticStructureSchema = [
   n0,
   _GARe,
   0,
-  [_i, _a, _n, _en, _s, _iICO, _dS, _aC, _cA, _lUA],
-  [0, 0, 0, 0, 0, () => IamIdentityCenterOptions, () => DataSources, () => AppConfigs, 4, 4],
+  [_i, _a, _n, _en, _s, _iICO, _dS, _aC, _cA, _lUA, _kKA],
+  [0, 0, 0, 0, 0, () => IamIdentityCenterOptions, () => DataSources, () => AppConfigs, 4, 4, 0],
 ];
 export var GetCompatibleVersionsRequest: StaticStructureSchema = [3, n0, _GCVR, 0, [_DN], [[0, { [_hQ]: _dN }]]];
 export var GetCompatibleVersionsResponse: StaticStructureSchema = [
