@@ -133,6 +133,7 @@ export type {
   AwsFundingUsed,
   AwsMemberBusinessTitle,
   AwsOpportunityStage,
+  AwsPartition,
   Channel,
   ClosedLostReason,
   CompetitorName,

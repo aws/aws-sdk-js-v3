@@ -8,6 +8,7 @@ import {
   AwsFundingUsed,
   AwsMemberBusinessTitle,
   AwsOpportunityStage,
+  AwsPartition,
   Channel,
   ClosedLostReason,
   CompetitorName,
@@ -163,6 +164,7 @@ assert(typeof AwsClosedLostReason === "object");
 assert(typeof AwsFundingUsed === "object");
 assert(typeof AwsMemberBusinessTitle === "object");
 assert(typeof AwsOpportunityStage === "object");
+assert(typeof AwsPartition === "object");
 assert(typeof Channel === "object");
 assert(typeof ClosedLostReason === "object");
 assert(typeof CompetitorName === "object");

@@ -4,6 +4,7 @@ import {
   AwsFundingUsed,
   AwsMemberBusinessTitle,
   AwsOpportunityStage,
+  AwsPartition,
   Channel,
   ClosedLostReason,
   CompetitorName,
@@ -648,6 +649,12 @@ export interface AwsOpportunityProject {
    * @public
    */
   ExpectedCustomerSpend?: ExpectedCustomerSpend[] | undefined;
+
+  /**
+   * AWS partition where the opportunity will be deployed. Possible values: 'aws-eusc' for AWS European Sovereign Cloud, `null` for all other partitions
+   * @public
+   */
+  AwsPartition?: AwsPartition | undefined;
 }
 
 /**
@@ -2883,6 +2890,12 @@ export interface Project {
    * @public
    */
   AdditionalComments?: string | undefined;
+
+  /**
+   * AWS partition where the opportunity will be deployed. Possible values: 'aws-eusc' for AWS European Sovereign Cloud, `null` for all other partitions
+   * @public
+   */
+  AwsPartition?: AwsPartition | undefined;
 }
 
 /**

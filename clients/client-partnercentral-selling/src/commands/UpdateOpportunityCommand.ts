@@ -100,6 +100,7 @@ export interface UpdateOpportunityCommandOutput extends UpdateOpportunityRespons
  *     OtherCompetitorNames: "STRING_VALUE",
  *     OtherSolutionDescription: "STRING_VALUE",
  *     AdditionalComments: "STRING_VALUE",
+ *     AwsPartition: "aws-eusc",
  *   },
  *   OpportunityType: "Net New Business" || "Flat Renewal" || "Expansion",
  *   Marketing: { // Marketing

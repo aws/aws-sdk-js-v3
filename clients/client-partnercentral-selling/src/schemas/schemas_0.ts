@@ -33,7 +33,8 @@ const _APO = "AwsProductOptimization";
 const _APOL = "AwsProductOptimizationsList";
 const _APSIBS = "AwsProductsSpendInsightsBySource";
 const _APp = "ApnPrograms";
-const _APw = "AwsProducts";
+const _APw = "AwsPartition";
+const _APws = "AwsProducts";
 const _AR = "AccountReceiver";
 const _AS = "AccountSummary";
 const _ASd = "AddressSummary";
@@ -580,10 +581,10 @@ export var AwsOpportunityProject: StaticStructureSchema = [
   n0,
   _AOP,
   0,
-  [_ECS],
-  [[() => ExpectedCustomerSpendList, 0]],
+  [_ECS, _APw],
+  [[() => ExpectedCustomerSpendList, 0], 0],
 ];
-export var AwsOpportunityRelatedEntities: StaticStructureSchema = [3, n0, _AORE, 0, [_APw, _So], [64 | 0, 64 | 0]];
+export var AwsOpportunityRelatedEntities: StaticStructureSchema = [3, n0, _AORE, 0, [_APws, _So], [64 | 0, 64 | 0]];
 export var AwsProductDetails: StaticStructureSchema = [
   3,
   n0,
@@ -605,7 +606,7 @@ export var AwsProductInsights: StaticStructureSchema = [
   n0,
   _API,
   0,
-  [_CCu, _F, _TA, _TOA, _TPSA, _TABC, _APw],
+  [_CCu, _F, _TA, _TOA, _TPSA, _TABC, _APws],
   [
     [() => CurrencyCode, 0],
     0,
@@ -1288,7 +1289,7 @@ export var Project: StaticStructureSchema = [
   n0,
   _Pr,
   0,
-  [_DM, _ECS, _Ti, _APp, _CBP, _CUC, _ROI, _SAal, _CNo, _OCN, _OSD, _ACd],
+  [_DM, _ECS, _Ti, _APp, _CBP, _CUC, _ROI, _SAal, _CNo, _OCN, _OSD, _ACd, _APw],
   [
     64 | 0,
     [() => ExpectedCustomerSpendList, 0],
@@ -1301,6 +1302,7 @@ export var Project: StaticStructureSchema = [
     0,
     0,
     [() => PiiString, 0],
+    0,
     0,
   ],
 ];
@@ -1336,7 +1338,7 @@ export var RelatedEntityIdentifiers: StaticStructureSchema = [
   n0,
   _REIel,
   0,
-  [_AMO, _AMOS, _So, _APw],
+  [_AMO, _AMOS, _So, _APws],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
 export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];

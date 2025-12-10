@@ -106,6 +106,7 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * //     OtherCompetitorNames: "STRING_VALUE",
  * //     OtherSolutionDescription: "STRING_VALUE",
  * //     AdditionalComments: "STRING_VALUE",
+ * //     AwsPartition: "aws-eusc",
  * //   },
  * //   OpportunityType: "Net New Business" || "Flat Renewal" || "Expansion",
  * //   Marketing: { // Marketing

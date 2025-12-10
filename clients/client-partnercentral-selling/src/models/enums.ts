@@ -694,6 +694,18 @@ export type AwsOpportunityStage = (typeof AwsOpportunityStage)[keyof typeof AwsO
  * @public
  * @enum
  */
+export const AwsPartition = {
+  AWS_EUSC: "aws-eusc",
+} as const;
+/**
+ * @public
+ */
+export type AwsPartition = (typeof AwsPartition)[keyof typeof AwsPartition];
+
+/**
+ * @public
+ * @enum
+ */
 export const MarketSegment = {
   ENTERPRISE: "Enterprise",
   LARGE: "Large",

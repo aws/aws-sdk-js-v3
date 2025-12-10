@@ -163,6 +163,7 @@ export interface GetAwsOpportunitySummaryCommandOutput extends GetAwsOpportunity
  * //         EstimationUrl: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     AwsPartition: "aws-eusc",
  * //   },
  * //   Catalog: "STRING_VALUE", // required
  * // };
