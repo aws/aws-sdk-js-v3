@@ -26,9 +26,9 @@ export interface AddProfilePermissionRequest {
   profileVersion?: string | undefined;
 
   /**
-   * <p>For cross-account signing. Grant a designated account permission to perform one or more of the following actions. Each action is associated with a specific API's operations. For more information about cross-account signing, see <a href="https://docs.aws.amazon.com/signer/latest/developerguide/signing-profile-cross-account.html">Using cross-account signing with signing profiles</a> in the <i>AWS Signer Developer Guide</i>.</p>
-   * 		       <p>You can designate the following actions to an account.</p>
-   * 		       <ul>
+   * <p>For cross-account signing. Grant a designated account permission to perform one or more of the following actions. Each action is associated with a specific API's operations. For more information about cross-account signing, see <a href="http://docs.aws.amazon.com/signer/latest/developerguide/signing-profile-cross-account.html">Using cross-account signing with signing profiles</a> in the <i>AWS Signer Developer Guide</i>.</p>
+   *          <p>You can designate the following actions to an account.</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>signer:StartSigningJob</code>. This action isn't supported for container image workflows. For details, see <a>StartSigningJob</a>.</p>
@@ -456,27 +456,26 @@ export interface GetRevocationStatusRequest {
 
   /**
    * <p>A list of composite signed hashes that identify certificates.</p>
-   * 		       <p>A certificate identifier consists of a subject certificate TBS hash (signed by the
+   *          <p>A certificate identifier consists of a subject certificate TBS hash (signed by the
    * 			parent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root
    * 			certificates are defined as their own CA.</p>
-   * 		       <p>The following example shows how to calculate a hash for this parameter using OpenSSL
+   *          <p>The following example shows how to calculate a hash for this parameter using OpenSSL
    * 			commands: </p>
-   *
-   * 			      <p>
+   *          <p>
    *             <code>openssl asn1parse -in childCert.pem -strparse 4 -out childCert.tbs</code>
    *          </p>
-   * 			      <p>
+   *          <p>
    *             <code>openssl sha384 < childCert.tbs -binary > childCertTbsHash</code>
    *          </p>
-   * 			      <p>
+   *          <p>
    *             <code>openssl asn1parse -in parentCert.pem -strparse 4 -out parentCert.tbs</code>
    *          </p>
-   * 			      <p>
+   *          <p>
    *             <code>openssl sha384 < parentCert.tbs -binary > parentCertTbsHash xxd -p
    * 				childCertTbsHash > certificateHash.hex xxd -p parentCertTbsHash >>
    * 				certificateHash.hex</code>
    *          </p>
-   * 			      <p>
+   *          <p>
    *             <code>cat certificateHash.hex | tr -d '\n'</code>
    *          </p>
    * @public

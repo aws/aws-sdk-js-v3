@@ -29,8 +29,7 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
 /**
  * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
  * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
- * 			operation, but it cannot perform new signing jobs, and is deleted two years after
- * 			cancelation.</p>
+ * 				operation, but it cannot perform new signing jobs. See <a href="https://docs.aws.amazon.com/signer/latest/developerguide/retention.html">Data Retention</a> for more information on scheduled deletion of a canceled signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,7 +64,7 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>

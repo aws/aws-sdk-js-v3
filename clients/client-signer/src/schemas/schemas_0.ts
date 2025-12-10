@@ -575,7 +575,7 @@ export var GetRevocationStatus: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  { [_h]: ["GET", "/revocations", 200], [_en]: ["verification."] },
+  { [_h]: ["GET", "/revocations", 200], [_en]: ["data-"] },
   () => GetRevocationStatusRequest,
   () => GetRevocationStatusResponse,
 ];

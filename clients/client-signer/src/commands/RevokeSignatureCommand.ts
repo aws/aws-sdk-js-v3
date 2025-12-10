@@ -27,7 +27,7 @@ export interface RevokeSignatureCommandInput extends RevokeSignatureRequest {}
 export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no
+ * <p>Changes the state of a signing job to <code>REVOKED</code>. This indicates that the signature is no
  * 			longer valid.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,7 +65,7 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>

@@ -69,7 +69,7 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
