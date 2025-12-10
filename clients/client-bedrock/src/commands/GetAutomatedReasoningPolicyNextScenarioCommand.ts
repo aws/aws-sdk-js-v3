@@ -53,10 +53,10 @@ export interface GetAutomatedReasoningPolicyNextScenarioCommandOutput
  * //   scenario: { // AutomatedReasoningPolicyScenario
  * //     expression: "STRING_VALUE", // required
  * //     alternateExpression: "STRING_VALUE", // required
+ * //     expectedResult: "VALID" || "INVALID" || "SATISFIABLE" || "IMPOSSIBLE" || "TRANSLATION_AMBIGUOUS" || "TOO_COMPLEX" || "NO_TRANSLATION", // required
  * //     ruleIds: [ // AutomatedReasoningPolicyDefinitionRuleIdList // required
  * //       "STRING_VALUE",
  * //     ],
- * //     expectedResult: "VALID" || "INVALID" || "SATISFIABLE" || "IMPOSSIBLE" || "TRANSLATION_AMBIGUOUS" || "TOO_COMPLEX" || "NO_TRANSLATION", // required
  * //   },
  * // };
  *

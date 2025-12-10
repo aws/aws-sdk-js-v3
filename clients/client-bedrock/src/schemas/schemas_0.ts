@@ -104,8 +104,10 @@ const _ARPP = "AutomatedReasoningPolicyPlanning";
 const _ARPS = "AutomatedReasoningPolicyScenario";
 const _ARPSAE = "AutomatedReasoningPolicyScenarioAlternateExpression";
 const _ARPSE = "AutomatedReasoningPolicyScenarioExpression";
-const _ARPSu = "AutomatedReasoningPolicySummary";
-const _ARPSut = "AutomatedReasoningPolicySummaries";
+const _ARPSL = "AutomatedReasoningPolicyScenarioList";
+const _ARPSu = "AutomatedReasoningPolicyScenarios";
+const _ARPSut = "AutomatedReasoningPolicySummary";
+const _ARPSuto = "AutomatedReasoningPolicySummaries";
 const _ARPTC = "AutomatedReasoningPolicyTestCase";
 const _ARPTCL = "AutomatedReasoningPolicyTestCaseList";
 const _ARPTGC = "AutomatedReasoningPolicyTestGuardContent";
@@ -1031,6 +1033,7 @@ const _pRN = "promptRouterName";
 const _pRS = "promptRouterSummaries";
 const _pRSC = "precomputedRagSourceConfig";
 const _pRSI = "precomputedRagSourceIdentifiers";
+const _pS = "policyScenarios";
 const _pT = "promptTemplate";
 const _pVA = "policyVersionArn";
 const _pa = "pattern";
@@ -1744,18 +1747,26 @@ export var AutomatedReasoningPolicyScenario: StaticStructureSchema = [
   n0,
   _ARPS,
   0,
-  [_ex, _aE, _rIu, _eR],
+  [_ex, _aE, _eR, _rIu],
   [
     [() => AutomatedReasoningPolicyScenarioExpression, 0],
     [() => AutomatedReasoningPolicyScenarioAlternateExpression, 0],
-    64 | 0,
     0,
+    64 | 0,
   ],
+];
+export var AutomatedReasoningPolicyScenarios: StaticStructureSchema = [
+  3,
+  n0,
+  _ARPSu,
+  0,
+  [_pS],
+  [[() => AutomatedReasoningPolicyScenarioList, 0]],
 ];
 export var AutomatedReasoningPolicySummary: StaticStructureSchema = [
   3,
   n0,
-  _ARPSu,
+  _ARPSut,
   0,
   [_pA, _n, _d, _ve, _pI, _cA, _uA],
   [0, [() => AutomatedReasoningPolicyName, 0], [() => AutomatedReasoningPolicyDescription, 0], 0, 0, 5, 5],
@@ -4305,10 +4316,17 @@ export var AutomatedReasoningPolicyGeneratedTestCaseList: StaticListSchema = [
   0,
   [() => AutomatedReasoningPolicyGeneratedTestCase, 0],
 ];
+export var AutomatedReasoningPolicyScenarioList: StaticListSchema = [
+  1,
+  n0,
+  _ARPSL,
+  0,
+  [() => AutomatedReasoningPolicyScenario, 0],
+];
 export var AutomatedReasoningPolicySummaries: StaticListSchema = [
   1,
   n0,
-  _ARPSut,
+  _ARPSuto,
   0,
   [() => AutomatedReasoningPolicySummary, 0],
 ];
@@ -4517,12 +4535,13 @@ export var AutomatedReasoningPolicyBuildResultAssets: StaticStructureSchema = [
   n0,
   _ARPBRA,
   0,
-  [_pD, _qR, _bL, _gTC],
+  [_pD, _qR, _bL, _gTC, _pS],
   [
     [() => AutomatedReasoningPolicyDefinition, 0],
     [() => AutomatedReasoningPolicyDefinitionQualityReport, 0],
     [() => AutomatedReasoningPolicyBuildLog, 0],
     [() => AutomatedReasoningPolicyGeneratedTestCases, 0],
+    [() => AutomatedReasoningPolicyScenarios, 0],
   ],
 ];
 export var AutomatedReasoningPolicyBuildStepContext: StaticStructureSchema = [

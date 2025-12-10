@@ -59,6 +59,17 @@ import {
 /**
  * @public
  */
+export interface DeleteInferenceProfileRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID of the application inference profile to delete.</p>
+   * @public
+   */
+  inferenceProfileIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteInferenceProfileResponse {}
 
 /**

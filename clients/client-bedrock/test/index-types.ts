@@ -429,6 +429,7 @@ export type {
   AutomatedReasoningPolicyMutation,
   AutomatedReasoningPolicyPlanning,
   AutomatedReasoningPolicyScenario,
+  AutomatedReasoningPolicyScenarios,
   AutomatedReasoningPolicySummary,
   AutomatedReasoningPolicyTestCase,
   AutomatedReasoningPolicyTestResult,
