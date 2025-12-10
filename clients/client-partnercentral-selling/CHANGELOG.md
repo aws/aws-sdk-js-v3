@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.949.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.948.0...v3.949.0) (2025-12-10)
+
+
+### Features
+
+* **client-partnercentral-selling:** Adds support for the new Project.AwsPartition field on Opportunity and AWS Opportunity Summary. Use this field to specify the AWS partition where the opportunity will be deployed. ([885fb63](https://github.com/aws/aws-sdk-js-v3/commit/885fb630307ebeca6060fe9593b385b429605aa4))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

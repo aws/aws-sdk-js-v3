@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.949.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.948.0...v3.949.0) (2025-12-10)
+
+
+### Features
+
+* **client-signer:** Adds support for Signer GetRevocationStatus with updated endpoints ([12376a1](https://github.com/aws/aws-sdk-js-v3/commit/12376a156fa9c01bf0164a1c3d82fac544ddd05f))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-signer

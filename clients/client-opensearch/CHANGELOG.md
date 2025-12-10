@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.949.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.948.0...v3.949.0) (2025-12-10)
+
+
+### Features
+
+* **client-opensearch:** The CreateApplication API now supports an optional kms key arn parameter to allow customers to specify a CMK for application encryption. ([2bd525c](https://github.com/aws/aws-sdk-js-v3/commit/2bd525c2d6e3d4d9772d57394fa8d7795cd0c0c3))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch
