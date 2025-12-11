@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.950.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.949.0...v3.950.0) (2025-12-11)
+
+
+### Features
+
+* **client-quicksight:** This release adds new GetIdentityContext API, Dashboard customization options for tables and pivot tables, Visual styling options- borders and decals, map GeocodingPreferences, KeyPairCredentials for DataSourceCredentials. Snapshot APIs now support registered users. Parameters limit increased to 400 ([e8bba45](https://github.com/aws/aws-sdk-js-v3/commit/e8bba45c2dfd79849a1f8c622812b56f0d6ecd7b))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.950.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.949.0...v3.950.0) (2025-12-11)
+
+
+### Features
+
+* **client-lambda:** Add Dotnet 10 (dotnet10) support to AWS Lambda. ([e154bc7](https://github.com/aws/aws-sdk-js-v3/commit/e154bc7240c2d11e7221656e1fc03bcbec57230b))
+
+
+
+
+
 # [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
