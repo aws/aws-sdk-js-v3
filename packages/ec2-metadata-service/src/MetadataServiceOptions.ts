@@ -27,4 +27,12 @@ export interface MetadataServiceOptions {
    * when true, metadata service will not fetch token, which indicates usage of IMDSv1
    */
   disableFetchToken?: boolean;
+  /**
+   * the number of retry attempts for any failed request, defaulting to 3.
+   */
+  retries?: number;
+  /**
+   * the number of seconds to sleep in-between retries and/or a customer provided backoff function to call.
+   */
+  backoff?: number | ((numFailures: number) => void);
 }
